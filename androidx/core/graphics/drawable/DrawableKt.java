@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.Px;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +23,7 @@ public final class DrawableKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Bitmap toBitmap(Drawable drawable, int i, int i2, Bitmap.Config config) {
+    public static final Bitmap toBitmap(Drawable drawable, @Px int i, @Px int i2, Bitmap.Config config) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{drawable, Integer.valueOf(i), Integer.valueOf(i2), config})) == null) {
@@ -72,7 +73,7 @@ public final class DrawableKt {
         return toBitmap(drawable, i, i2, config);
     }
 
-    public static final void updateBounds(Drawable drawable, int i, int i2, int i3, int i4) {
+    public static final void updateBounds(Drawable drawable, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{drawable, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             drawable.setBounds(i, i2, i3, i4);

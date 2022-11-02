@@ -4,28 +4,29 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static a XE;
-    public WeakReference currentActivity;
+    public WeakReference<Activity> currentActivity;
     public Application mApplication;
     public boolean mIsInBackground = true;
-    public final List mListeners = new CopyOnWriteArrayList();
-    public final List XF = new ArrayList();
+    public final List<c> mListeners = new CopyOnWriteArrayList();
+    public final List<WeakReference<Activity>> XF = new ArrayList();
     public boolean mEnable = false;
 
     private void e(Activity activity) {
-        for (WeakReference weakReference : this.XF) {
+        for (WeakReference<Activity> weakReference : this.XF) {
             if (weakReference.get() == activity) {
                 return;
             }
         }
-        this.XF.add(new WeakReference(activity));
+        this.XF.add(new WeakReference<>(activity));
     }
 
     private void f(Activity activity) {
@@ -33,10 +34,10 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (activity == null) {
             return;
         }
-        Iterator it = this.XF.iterator();
+        Iterator<WeakReference<Activity>> it = this.XF.iterator();
         while (it.hasNext()) {
-            WeakReference weakReference = (WeakReference) it.next();
-            if (weakReference != null && ((activity2 = (Activity) weakReference.get()) == activity || activity2 == null)) {
+            WeakReference<Activity> next = it.next();
+            if (next != null && ((activity2 = next.get()) == activity || activity2 == null)) {
                 it.remove();
             }
         }
@@ -62,14 +63,14 @@ public class a implements Application.ActivityLifecycleCallbacks {
     }
 
     public final Activity getCurrentActivity() {
-        WeakReference weakReference = this.currentActivity;
+        WeakReference<Activity> weakReference = this.currentActivity;
         if (weakReference == null) {
             return null;
         }
-        return (Activity) weakReference.get();
+        return weakReference.get();
     }
 
-    public final void init(Context context) {
+    public final void init(@NonNull Context context) {
         try {
             Application application = (Application) context;
             this.mApplication = application;
@@ -136,7 +137,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
             return;
         }
         try {
-            this.currentActivity = new WeakReference(activity);
+            this.currentActivity = new WeakReference<>(activity);
             for (c cVar : this.mListeners) {
                 cVar.onActivityResumed(activity);
             }

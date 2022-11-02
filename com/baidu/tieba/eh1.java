@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
-public interface eh1 {
-    void a();
 
-    void b(fh1 fh1Var);
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public interface eh1 {
+    @Nullable
+    ue1 a();
+
+    JSONObject b();
 }

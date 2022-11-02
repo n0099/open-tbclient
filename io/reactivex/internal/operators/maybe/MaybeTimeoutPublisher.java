@@ -18,20 +18,20 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
+public final class MaybeTimeoutPublisher<T, U> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource fallback;
-    public final Publisher other;
+    public final MaybeSource<? extends T> fallback;
+    public final Publisher<U> other;
 
     /* loaded from: classes8.dex */
-    public final class TimeoutFallbackMaybeObserver extends AtomicReference implements MaybeObserver {
+    public static final class TimeoutFallbackMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8663801314800248617L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
 
-        public TimeoutFallbackMaybeObserver(MaybeObserver maybeObserver) {
+        public TimeoutFallbackMaybeObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,10 +66,10 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
 
@@ -83,17 +83,17 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class TimeoutMainMaybeObserver extends AtomicReference implements MaybeObserver, Disposable {
+    public static final class TimeoutMainMaybeObserver<T, U> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5955289211445418871L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
-        public final MaybeSource fallback;
-        public final TimeoutOtherMaybeObserver other;
-        public final TimeoutFallbackMaybeObserver otherObserver;
+        public final MaybeObserver<? super T> actual;
+        public final MaybeSource<? extends T> fallback;
+        public final TimeoutOtherMaybeObserver<T, U> other;
+        public final TimeoutFallbackMaybeObserver<T> otherObserver;
 
-        public TimeoutMainMaybeObserver(MaybeObserver maybeObserver, MaybeSource maybeSource) {
-            TimeoutFallbackMaybeObserver timeoutFallbackMaybeObserver;
+        public TimeoutMainMaybeObserver(MaybeObserver<? super T> maybeObserver, MaybeSource<? extends T> maybeSource) {
+            TimeoutFallbackMaybeObserver<T> timeoutFallbackMaybeObserver;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,10 +109,10 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
                 }
             }
             this.actual = maybeObserver;
-            this.other = new TimeoutOtherMaybeObserver(this);
+            this.other = new TimeoutOtherMaybeObserver<>(this);
             this.fallback = maybeSource;
             if (maybeSource != null) {
-                timeoutFallbackMaybeObserver = new TimeoutFallbackMaybeObserver(maybeObserver);
+                timeoutFallbackMaybeObserver = new TimeoutFallbackMaybeObserver<>(maybeObserver);
             } else {
                 timeoutFallbackMaybeObserver = null;
             }
@@ -125,7 +125,7 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 DisposableHelper.dispose(this);
                 SubscriptionHelper.cancel(this.other);
-                TimeoutFallbackMaybeObserver timeoutFallbackMaybeObserver = this.otherObserver;
+                TimeoutFallbackMaybeObserver<T> timeoutFallbackMaybeObserver = this.otherObserver;
                 if (timeoutFallbackMaybeObserver != null) {
                     DisposableHelper.dispose(timeoutFallbackMaybeObserver);
                 }
@@ -137,7 +137,7 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -156,7 +156,7 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
         public void otherComplete() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && DisposableHelper.dispose(this)) {
-                MaybeSource maybeSource = this.fallback;
+                MaybeSource<? extends T> maybeSource = this.fallback;
                 if (maybeSource == null) {
                     this.actual.onError(new TimeoutException());
                 } else {
@@ -187,12 +187,12 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 SubscriptionHelper.cancel(this.other);
                 if (getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
-                    this.actual.onSuccess(obj);
+                    this.actual.onSuccess(t);
                 }
             }
         }
@@ -210,13 +210,13 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class TimeoutOtherMaybeObserver extends AtomicReference implements FlowableSubscriber {
+    public static final class TimeoutOtherMaybeObserver<T, U> extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8663801314800248617L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final TimeoutMainMaybeObserver parent;
+        public final TimeoutMainMaybeObserver<T, U> parent;
 
-        public TimeoutOtherMaybeObserver(TimeoutMainMaybeObserver timeoutMainMaybeObserver) {
+        public TimeoutOtherMaybeObserver(TimeoutMainMaybeObserver<T, U> timeoutMainMaybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -246,7 +246,7 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                ((Subscription) get()).cancel();
+                get().cancel();
                 this.parent.otherComplete();
             }
         }
@@ -269,7 +269,7 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeTimeoutPublisher(MaybeSource maybeSource, Publisher publisher, MaybeSource maybeSource2) {
+    public MaybeTimeoutPublisher(MaybeSource<T> maybeSource, Publisher<U> publisher, MaybeSource<? extends T> maybeSource2) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -291,7 +291,7 @@ public final class MaybeTimeoutPublisher extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             TimeoutMainMaybeObserver timeoutMainMaybeObserver = new TimeoutMainMaybeObserver(maybeObserver, this.fallback);

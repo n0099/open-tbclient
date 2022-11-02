@@ -1,202 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class ku3 {
+public class ku3 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static long b;
-    public static Handler c;
-    public static long d;
-    public static final Handler.Callback e;
-    public static final ku3 f;
+    public static volatile ju3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public final class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-649319997, "Lcom/baidu/tieba/ku3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-649319997, "Lcom/baidu/tieba/ku3$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.Handler.Callback
-        public final boolean handleMessage(Message msg) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
-                Intrinsics.checkNotNullParameter(msg, "msg");
-                if (msg.what == 0 && ku3.f.g()) {
-                    ku3 ku3Var = ku3.f;
-                    if (ku3.b < SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-                        long elapsedRealtime = SystemClock.elapsedRealtime();
-                        ku3 ku3Var2 = ku3.f;
-                        ku3 ku3Var3 = ku3.f;
-                        ku3.b = (ku3.b + elapsedRealtime) - ku3.d;
-                        ku3 ku3Var4 = ku3.f;
-                        ku3.d = elapsedRealtime;
-                        ku3 ku3Var5 = ku3.f;
-                        Handler handler = ku3.c;
-                        if (handler != null) {
-                            handler.sendEmptyMessageDelayed(0, 1000L);
-                        }
-                        ku3 ku3Var6 = ku3.f;
-                        if ((ku3.b / 1000) % 15 == 0) {
-                            lt3 lt3Var = lt3.o;
-                            ku3 ku3Var7 = ku3.f;
-                            lt3Var.U(ku3.b);
-                            return true;
-                        }
-                        return true;
-                    }
-                }
-                ku3 ku3Var8 = ku3.f;
-                ku3.d = 0L;
-                ku3.f.i(false);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925536, "Lcom/baidu/tieba/ku3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947925536, "Lcom/baidu/tieba/ku3;");
-                return;
-            }
-        }
-        f = new ku3();
-        e = a.a;
-    }
-
-    public ku3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final long f() {
+    public static synchronized ju3 a() {
         InterceptResult invokeV;
+        ju3 ju3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long j = b;
-            if (j < 30000) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ku3.class) {
+                if (a == null) {
+                    a = new ju3();
+                }
+                ju3Var = a;
             }
-            b = j % 30000;
-            lt3.o.M();
+            return ju3Var;
         }
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            a = z;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (c == null) {
-                c = new Handler(e);
-            }
-            b = lt3.o.A();
-            a = true;
-            d = SystemClock.elapsedRealtime();
-            Handler handler = c;
-            if (handler != null) {
-                handler.sendEmptyMessageDelayed(0, 1000L);
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            a = false;
-            Handler handler = c;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-            }
-            if (d > 0) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                b = (b + elapsedRealtime) - d;
-                d = elapsedRealtime;
-            }
-            lt3.o.U(b);
-        }
+        return (ju3) invokeV.objValue;
     }
 }

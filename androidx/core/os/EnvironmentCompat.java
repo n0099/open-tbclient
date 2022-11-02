@@ -3,6 +3,7 @@ package androidx.core.os;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +32,8 @@ public final class EnvironmentCompat {
         }
     }
 
-    public static String getStorageState(File file) {
+    @NonNull
+    public static String getStorageState(@NonNull File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {

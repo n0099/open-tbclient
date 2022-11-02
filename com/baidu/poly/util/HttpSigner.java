@@ -1,8 +1,8 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import com.baidu.tieba.sb1;
-import com.baidu.tieba.ua1;
+import com.baidu.tieba.kc1;
+import com.baidu.tieba.mb1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,19 +56,19 @@ public class HttpSigner {
         }
     }
 
-    public static String a(ua1 ua1Var, String str, int i) {
+    public static String a(mb1 mb1Var, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, ua1Var, str, i)) == null) {
-            if (ua1Var == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, mb1Var, str, i)) == null) {
+            if (mb1Var == null) {
                 return "";
             }
-            Map b = ua1Var.b();
+            Map<String, String> b = mb1Var.b();
             ArrayList<String> arrayList = new ArrayList(b.keySet());
             Collections.sort(arrayList);
             StringBuilder sb = new StringBuilder();
             for (String str2 : arrayList) {
-                String str3 = (String) b.get(str2);
+                String str3 = b.get(str2);
                 if (!TextUtils.isEmpty(str3)) {
                     sb.append(str2);
                     sb.append("=");
@@ -79,17 +79,17 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i));
-            return sb1.c(sb.toString());
+            return kc1.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
 
-    public static void b(ua1 ua1Var) {
+    public static void b(mb1 mb1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, ua1Var) != null) || ua1Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, mb1Var) != null) || mb1Var == null) {
             return;
         }
-        Map b = ua1Var.b();
+        Map<String, String> b = mb1Var.b();
         if (b.containsKey("timestamp")) {
             b.remove("timestamp");
         }
@@ -100,7 +100,7 @@ public class HttpSigner {
         Collections.sort(arrayList);
         StringBuilder sb = new StringBuilder();
         for (String str : arrayList) {
-            String str2 = (String) b.get(str);
+            String str2 = b.get(str);
             if (!TextUtils.isEmpty(str2)) {
                 sb.append(str);
                 sb.append("=");
@@ -108,10 +108,10 @@ public class HttpSigner {
                 sb.append("&");
             }
         }
-        ua1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        mb1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         sb.append(nativeGetCommissionSk());
         sb.append("&");
-        sb.append((String) ua1Var.a("timestamp"));
-        ua1Var.d("sign", sb1.c(sb.toString()));
+        sb.append(mb1Var.a("timestamp"));
+        mb1Var.d("sign", kc1.c(sb.toString()));
     }
 }

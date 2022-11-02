@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class bh {
-    public static void a(final WebView webView, final String str, ValueCallback valueCallback) {
+    public static void a(final WebView webView, final String str, ValueCallback<String> valueCallback) {
         if (Build.VERSION.SDK_INT >= 19) {
             runOnUiThread(new Runnable() { // from class: com.kwad.sdk.utils.bh.1
                 @Override // java.lang.Runnable
@@ -23,7 +23,7 @@ public final class bh {
     }
 
     public static void a(WebView webView, String str, String str2) {
-        a(webView, "javascript:" + str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, (ValueCallback) null);
+        a(webView, "javascript:" + str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, (ValueCallback<String>) null);
     }
 
     public static void runOnUiThread(Runnable runnable) {

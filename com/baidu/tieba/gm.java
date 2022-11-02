@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.TargetApi;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
+import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gm {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "11446";
-    public static String b = "type";
-    public static String c = "value";
-    public static String d = "ext";
-    public static String e = "suc";
-    public static String f = "fail";
+    public static /* synthetic */ Interceptable $ic;
+    public static File a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,70 +36,155 @@ public class gm {
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "-";
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                hm.a(hm.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
             }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void b(String str, List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(b, f);
-                jSONObject.put(c, str);
-                JSONObject jSONObject2 = new JSONObject();
-                if (list != null && !list.isEmpty()) {
-                    for (int i = 0; i < list.size(); i++) {
-                        Map.Entry entry = (Map.Entry) list.get(i);
-                        if (entry != null && !TextUtils.isEmpty((CharSequence) entry.getKey())) {
-                            jSONObject2.put((String) entry.getKey(), a((String) entry.getValue()));
-                        }
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                Object obj = hm.b(classLoader, "pathList").get(classLoader);
+                List list = (List) hm.b(obj, "nativeLibraryDirectories").get(obj);
+                if (list == null) {
+                    list = new ArrayList(2);
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    if (file.equals((File) it.next()) || file.equals(gm.a)) {
+                        it.remove();
+                        break;
+                    }
+                    while (it.hasNext()) {
                     }
                 }
-                jSONObject.put(d, jSONObject2);
-                d(a, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                list.add(0, file);
+                Collection collection = (List) hm.b(obj, "systemNativeLibraryDirectories").get(obj);
+                if (collection == null) {
+                    collection = new ArrayList(2);
+                }
+                Method c = hm.c(obj, "makePathElements", List.class, File.class, List.class);
+                ArrayList arrayList = new ArrayList();
+                list.addAll(collection);
+                Object[] objArr = {list, null, arrayList};
+                Field b = hm.b(obj, "nativeLibraryPathElements");
+                b.setAccessible(true);
+                b.set(obj, (Object[]) c.invoke(obj, objArr));
             }
         }
     }
 
-    public static void c(String str, List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(b, e);
-                jSONObject.put(c, str);
-                JSONObject jSONObject2 = new JSONObject();
-                if (list != null && !list.isEmpty()) {
-                    for (int i = 0; i < list.size(); i++) {
-                        Map.Entry entry = (Map.Entry) list.get(i);
-                        if (entry != null && !TextUtils.isEmpty((CharSequence) entry.getKey())) {
-                            jSONObject2.put((String) entry.getKey(), a((String) entry.getValue()));
-                        }
+    /* loaded from: classes4.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                Object obj = hm.b(classLoader, "pathList").get(classLoader);
+                List list = (List) hm.b(obj, "nativeLibraryDirectories").get(obj);
+                if (list == null) {
+                    list = new ArrayList(2);
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    if (file.equals((File) it.next()) || file.equals(gm.a)) {
+                        it.remove();
+                        break;
+                    }
+                    while (it.hasNext()) {
                     }
                 }
-                jSONObject.put(d, jSONObject2);
-                d(a, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                list.add(0, file);
+                Collection collection = (List) hm.b(obj, "systemNativeLibraryDirectories").get(obj);
+                if (collection == null) {
+                    collection = new ArrayList(2);
+                }
+                Method c = hm.c(obj, "makePathElements", List.class);
+                list.addAll(collection);
+                Object[] objArr = {list};
+                Field b = hm.b(obj, "nativeLibraryPathElements");
+                b.setAccessible(true);
+                b.set(obj, (Object[]) c.invoke(obj, objArr));
             }
         }
     }
 
-    public static void d(String str, JSONObject jSONObject) {
+    @TargetApi(23)
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return Build.VERSION.PREVIEW_SDK_INT;
+            } catch (Throwable unused) {
+                return 1;
+            }
         }
+        return invokeV.intValue;
+    }
+
+    public static synchronized boolean c(ClassLoader classLoader, File file) throws Throwable {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, classLoader, file)) == null) {
+            synchronized (gm.class) {
+                boolean z = false;
+                if (classLoader != null && file != null) {
+                    if (file.exists()) {
+                        int i = Build.VERSION.SDK_INT;
+                        if ((i == 25 && b() != 0) || i > 25) {
+                            z = true;
+                        }
+                        if (z) {
+                            c.b(classLoader, file);
+                        } else if (i >= 23) {
+                            b.b(classLoader, file);
+                        } else if (i >= 14) {
+                            a.b(classLoader, file);
+                        }
+                        a = file;
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static synchronized boolean d(ClassLoader classLoader, String str) throws Throwable {
+        InterceptResult invokeLL;
+        boolean c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
+            synchronized (gm.class) {
+                c2 = c(classLoader, new File(str));
+            }
+            return c2;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -87,7 +87,7 @@ public class SwipeDismissView extends RelativeLayout {
     public void a(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, view2) == null) {
-            setOnTouchListener(new SwipeDismissTouchListener(view2, new Object(), new s(this)));
+            setOnTouchListener(new SwipeDismissTouchListener(view2, new Object(), new z(this)));
         }
     }
 

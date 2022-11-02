@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    public ArrayList a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance) {
+    public ArrayList<ImageInfo> a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance) {
         InterceptResult invokeLL;
         boolean z;
         String str;
@@ -46,7 +46,7 @@ public class a {
             if (faceExtInfo == null) {
                 str = "faceInfo == null";
             } else if (bDFaceImageInstance != null) {
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ImageInfo> arrayList = new ArrayList<>();
                 ImageInfo imageInfo = new ImageInfo();
                 int i = 0;
                 int i2 = 300;
@@ -107,7 +107,7 @@ public class a {
         return (FaceExtInfo[]) invokeL.objValue;
     }
 
-    public ArrayList b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance) {
+    public ArrayList<ImageInfo> b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance) {
         InterceptResult invokeLL;
         boolean z;
         String str;
@@ -116,7 +116,7 @@ public class a {
             if (faceExtInfo == null) {
                 str = "faceInfo == null";
             } else if (bDFaceImageInstance != null) {
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ImageInfo> arrayList = new ArrayList<>();
                 ImageInfo imageInfo = new ImageInfo();
                 int i = 0;
                 int i2 = 300;

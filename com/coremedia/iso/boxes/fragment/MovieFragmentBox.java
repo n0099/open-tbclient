@@ -53,7 +53,7 @@ public class MovieFragmentBox extends AbstractContainerBox {
         return invokeV.intValue;
     }
 
-    public List getTrackFragmentHeaderBoxes() {
+    public List<TrackFragmentHeaderBox> getTrackFragmentHeaderBoxes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -62,7 +62,7 @@ public class MovieFragmentBox extends AbstractContainerBox {
         return (List) invokeV.objValue;
     }
 
-    public List getTrackRunBoxes() {
+    public List<TrackRunBox> getTrackRunBoxes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -71,7 +71,7 @@ public class MovieFragmentBox extends AbstractContainerBox {
         return (List) invokeV.objValue;
     }
 
-    public List getSyncSamples(SampleDependencyTypeBox sampleDependencyTypeBox) {
+    public List<Long> getSyncSamples(SampleDependencyTypeBox sampleDependencyTypeBox) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sampleDependencyTypeBox)) == null) {

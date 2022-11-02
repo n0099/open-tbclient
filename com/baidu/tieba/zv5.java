@@ -1,73 +1,90 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zv5 extends BaseCardInfo {
+public class zv5 extends jn<dw5, LiveTabConcernRecommendLineHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public TbPageContext a;
+    public nw5 b;
+    public ow5 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948373424, "Lcom/baidu/tieba/zv5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948373424, "Lcom/baidu/tieba/zv5;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public zv5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zv5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), dw5.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: s */
+    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            nw5 nw5Var = new nw5(this.a, viewGroup);
+            this.b = nw5Var;
+            ow5 ow5Var = this.c;
+            if (ow5Var != null) {
+                nw5Var.s(ow5Var);
+            }
+            return new LiveTabConcernRecommendLineHolder(this.b);
+        }
+        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
+    }
+
+    public void u(ow5 ow5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ow5Var) == null) {
+            this.c = ow5Var;
+            nw5 nw5Var = this.b;
+            if (nw5Var != null) {
+                nw5Var.s(ow5Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dw5 dw5Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
+        InterceptResult invokeCommon;
+        nw5 nw5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dw5Var, liveTabConcernRecommendLineHolder})) == null) {
+            if (liveTabConcernRecommendLineHolder != null && (nw5Var = liveTabConcernRecommendLineHolder.a) != null) {
+                nw5Var.l(dw5Var);
+                return liveTabConcernRecommendLineHolder.getView();
+            }
+            return null;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optString("url");
-        this.a = jSONObject.optString("pic");
-        jSONObject.optLong("start_time", 0L);
-        jSONObject.optLong("end_time", 0L);
-        jSONObject.optString("name");
-        jSONObject.optInt("id");
+        return (View) invokeCommon.objValue;
     }
 }

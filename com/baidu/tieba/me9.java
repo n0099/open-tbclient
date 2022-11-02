@@ -1,42 +1,69 @@
 package com.baidu.tieba;
 
-import android.media.AudioTrack;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class me9 extends AudioTrack implements le9 {
+public final class me9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public me9(int i, int i2, int i3, int i4, int i5, int i6) throws IllegalArgumentException {
-        super(i, i2, i3, i4, i5, i6);
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            d().edit().putBoolean(str, true).apply();
         }
     }
 
-    @Override // com.baidu.tieba.le9
-    public void close() {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getState() == 1) {
-            flush();
-            release();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return d().getBoolean(str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static long c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return d().getLong(str, 0L);
+        }
+        return invokeL.longValue;
+    }
+
+    public static SharedPreferences d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return id9.h().getContext().getSharedPreferences("baidu_ab_general_config", 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return d().getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            d().edit().putString(str, str2).apply();
+        }
+    }
+
+    public static void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
+            d().edit().putLong(str, j).apply();
         }
     }
 }

@@ -7,22 +7,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.w37;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.g57;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.sx;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class HomeLocalCompleteInfoLayout extends LinearLayout implements yx {
+public class HomeLocalCompleteInfoLayout extends LinearLayout implements sx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -59,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements yx {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.getContext() == null) {
                 return;
             }
-            w37.h();
+            g57.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -88,7 +89,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements yx {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HomeLocalCompleteInfoLayout(Context context, AttributeSet attributeSet) {
+    public HomeLocalCompleteInfoLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -109,7 +110,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements yx {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HomeLocalCompleteInfoLayout(Context context, AttributeSet attributeSet, int i) {
+    public HomeLocalCompleteInfoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         this(context, attributeSet, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -155,27 +156,27 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements yx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.setMargins(0, fj.f(getContext(), R.dimen.M_H_X003), 0, 0);
+            marginLayoutParams.setMargins(0, xi.g(getContext(), R.dimen.M_H_X003), 0, 0);
             setLayoutParams(marginLayoutParams);
             setOrientation(0);
             setGravity(16);
-            int f = fj.f(getContext(), R.dimen.M_W_X005);
-            setPadding(f, 0, f, 0);
+            int g = xi.g(getContext(), R.dimen.M_W_X005);
+            setPadding(g, 0, g, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f087a));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0884));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f087b));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, fj.f(getContext(), R.dimen.tbds75));
-            int f2 = fj.f(getContext(), R.dimen.M_W_X004);
-            layoutParams2.setMargins(f2, fj.f(getContext(), R.dimen.M_H_X005), f2, fj.f(getContext(), R.dimen.tbds38));
-            int f3 = fj.f(getContext(), R.dimen.M_W_X007);
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0885));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, xi.g(getContext(), R.dimen.tbds75));
+            int g2 = xi.g(getContext(), R.dimen.M_W_X004);
+            layoutParams2.setMargins(g2, xi.g(getContext(), R.dimen.M_H_X005), g2, xi.g(getContext(), R.dimen.tbds38));
+            int g3 = xi.g(getContext(), R.dimen.M_W_X007);
             this.b.setGravity(16);
-            this.b.setPadding(f3, 0, f3, 0);
+            this.b.setPadding(g3, 0, g3, 0);
             addView(this.b, layoutParams2);
             this.b.setOnClickListener(new a(this));
             this.c = new ImageView(getContext());
@@ -184,20 +185,20 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements yx {
         }
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                nv4 d = nv4.d(textView);
+                kw4 d = kw4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
                 d.A(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                nv4 d2 = nv4.d(eMTextView);
+                kw4 d2 = kw4.d(eMTextView);
                 d2.v(R.color.CAM_X0302);
                 d2.z(R.dimen.T_X08);
                 d2.A(R.string.F_X01);
@@ -209,7 +210,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements yx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            nv4 d3 = nv4.d(this);
+            kw4 d3 = kw4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

@@ -17,11 +17,11 @@ public class MediaResource {
     public String createTime;
     public String mediaId;
     public MediaMeta meta;
-    public List playableUrlList;
+    public List<PlayableUrl> playableUrlList;
     public String publishTime;
     public String source;
     public String status;
-    public List thumbnailList;
+    public List<String> thumbnailList;
     public String transcodingPresetGroupName;
 
     public MediaResource() {
@@ -77,7 +77,7 @@ public class MediaResource {
         return (MediaMeta) invokeV.objValue;
     }
 
-    public List getPlayableUrlList() {
+    public List<PlayableUrl> getPlayableUrlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -113,7 +113,7 @@ public class MediaResource {
         return (String) invokeV.objValue;
     }
 
-    public List getThumbnailList() {
+    public List<String> getThumbnailList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -159,7 +159,7 @@ public class MediaResource {
         }
     }
 
-    public void setPlayableUrlList(List list) {
+    public void setPlayableUrlList(List<PlayableUrl> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.playableUrlList = list;
@@ -187,7 +187,7 @@ public class MediaResource {
         }
     }
 
-    public void setThumbnailList(List list) {
+    public void setThumbnailList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             this.thumbnailList = list;

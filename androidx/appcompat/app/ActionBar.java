@@ -9,6 +9,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SpinnerAdapter;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StringRes;
 import androidx.appcompat.R;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.view.InputDeviceCompat;
@@ -37,11 +42,13 @@ public abstract class ActionBar {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface DisplayOptions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface NavigationMode {
     }
@@ -81,6 +88,7 @@ public abstract class ActionBar {
     @Deprecated
     public abstract void addTab(Tab tab, boolean z);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean closeOptionsMenu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,6 +98,7 @@ public abstract class ActionBar {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean collapseActionView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,6 +108,7 @@ public abstract class ActionBar {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void dispatchMenuVisibilityChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
@@ -138,9 +148,11 @@ public abstract class ActionBar {
     @Deprecated
     public abstract int getSelectedNavigationIndex();
 
+    @Nullable
     @Deprecated
     public abstract Tab getSelectedTab();
 
+    @Nullable
     public abstract CharSequence getSubtitle();
 
     @Deprecated
@@ -158,10 +170,12 @@ public abstract class ActionBar {
         return (Context) invokeV.objValue;
     }
 
+    @Nullable
     public abstract CharSequence getTitle();
 
     public abstract void hide();
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean invalidateOptionsMenu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,6 +196,7 @@ public abstract class ActionBar {
 
     public abstract boolean isShowing();
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isTitleTruncated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,6 +209,7 @@ public abstract class ActionBar {
     @Deprecated
     public abstract Tab newTab();
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, configuration) == null) {
@@ -206,6 +222,7 @@ public abstract class ActionBar {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -215,6 +232,7 @@ public abstract class ActionBar {
         return invokeIL.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean onMenuKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -224,6 +242,7 @@ public abstract class ActionBar {
         return invokeL.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean openOptionsMenu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -244,6 +263,7 @@ public abstract class ActionBar {
     @Deprecated
     public abstract void removeTabAt(int i);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean requestFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -256,7 +276,7 @@ public abstract class ActionBar {
     @Deprecated
     public abstract void selectTab(Tab tab);
 
-    public abstract void setBackgroundDrawable(Drawable drawable);
+    public abstract void setBackgroundDrawable(@Nullable Drawable drawable);
 
     public abstract void setCustomView(int i);
 
@@ -264,6 +284,7 @@ public abstract class ActionBar {
 
     public abstract void setCustomView(View view2, LayoutParams layoutParams);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setDefaultDisplayHomeAsUpEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
@@ -284,25 +305,25 @@ public abstract class ActionBar {
 
     public abstract void setDisplayUseLogoEnabled(boolean z);
 
-    public void setHomeActionContentDescription(int i) {
+    public void setHomeActionContentDescription(@StringRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
         }
     }
 
-    public void setHomeActionContentDescription(CharSequence charSequence) {
+    public void setHomeActionContentDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048631, this, charSequence) == null) {
         }
     }
 
-    public void setHomeAsUpIndicator(int i) {
+    public void setHomeAsUpIndicator(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
         }
     }
 
-    public void setHomeAsUpIndicator(Drawable drawable) {
+    public void setHomeAsUpIndicator(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, drawable) == null) {
         }
@@ -314,14 +335,14 @@ public abstract class ActionBar {
         }
     }
 
-    public abstract void setIcon(int i);
+    public abstract void setIcon(@DrawableRes int i);
 
     public abstract void setIcon(Drawable drawable);
 
     @Deprecated
     public abstract void setListNavigationCallbacks(SpinnerAdapter spinnerAdapter, OnNavigationListener onNavigationListener);
 
-    public abstract void setLogo(int i);
+    public abstract void setLogo(@DrawableRes int i);
 
     public abstract void setLogo(Drawable drawable);
 
@@ -331,6 +352,7 @@ public abstract class ActionBar {
     @Deprecated
     public abstract void setSelectedNavigationItem(int i);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setShowHideAnimationEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
@@ -353,10 +375,11 @@ public abstract class ActionBar {
 
     public abstract void setSubtitle(CharSequence charSequence);
 
-    public abstract void setTitle(int i);
+    public abstract void setTitle(@StringRes int i);
 
     public abstract void setTitle(CharSequence charSequence);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setWindowTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048649, this, charSequence) == null) {
@@ -365,6 +388,7 @@ public abstract class ActionBar {
 
     public abstract void show();
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ActionMode startActionMode(ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -448,7 +472,7 @@ public abstract class ActionBar {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(Context context, AttributeSet attributeSet) {
+        public LayoutParams(@NonNull Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -537,7 +561,7 @@ public abstract class ActionBar {
 
         public abstract void select();
 
-        public abstract Tab setContentDescription(int i);
+        public abstract Tab setContentDescription(@StringRes int i);
 
         public abstract Tab setContentDescription(CharSequence charSequence);
 
@@ -545,7 +569,7 @@ public abstract class ActionBar {
 
         public abstract Tab setCustomView(View view2);
 
-        public abstract Tab setIcon(int i);
+        public abstract Tab setIcon(@DrawableRes int i);
 
         public abstract Tab setIcon(Drawable drawable);
 

@@ -3,6 +3,7 @@ package com.baidu.storage.swankv;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import java.io.IOException;
 /* loaded from: classes2.dex */
 public class AshmemFileDescriptor implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<AshmemFileDescriptor> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int mAshmemFD;
     public final String mName;
@@ -32,7 +33,7 @@ public class AshmemFileDescriptor implements Parcelable {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator {
+    public class a implements Parcelable.Creator<AshmemFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,7 +140,7 @@ public class AshmemFileDescriptor implements Parcelable {
         this.mSize = parcel.readInt();
     }
 
-    public AshmemFileDescriptor(String str, int i, int i2) {
+    public AshmemFileDescriptor(@NonNull String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

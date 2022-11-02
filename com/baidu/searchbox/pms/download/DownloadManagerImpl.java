@@ -2,9 +2,13 @@ package com.baidu.searchbox.pms.download;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.NetWorkUtils;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
@@ -32,16 +36,18 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes2.dex */
 public class DownloadManagerImpl implements IDownloadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadTaskProgressListener mDownloadListener;
-    public Map mTasks;
+    public Map<String, DownloadTaskExt> mTasks;
 
     /* renamed from: com.baidu.searchbox.pms.download.DownloadManagerImpl$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass3 {
+    public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,12 +94,15 @@ public class DownloadManagerImpl implements IDownloadManager {
     public class DownloadTaskExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public PackageInfo info;
+        @NonNull
         public final MergeCallback mergeCallback;
+        @NonNull
         public DownloadTask task;
         public final /* synthetic */ DownloadManagerImpl this$0;
 
-        public DownloadTaskExt(DownloadManagerImpl downloadManagerImpl, DownloadTask downloadTask, PackageInfo packageInfo, InnerCallback innerCallback) {
+        public DownloadTaskExt(@NonNull DownloadManagerImpl downloadManagerImpl, @NonNull DownloadTask downloadTask, @NonNull PackageInfo packageInfo, InnerCallback innerCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +163,7 @@ public class DownloadManagerImpl implements IDownloadManager {
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void connected(DownloadTask downloadTask, int i3, long j, long j2) {
+            public void connected(@NonNull DownloadTask downloadTask, int i3, long j, long j2) {
                 DownloadTaskExt downloadTaskExt;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) != null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
@@ -166,7 +175,7 @@ public class DownloadManagerImpl implements IDownloadManager {
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void progress(DownloadTask downloadTask, long j, long j2) {
+            public void progress(@NonNull DownloadTask downloadTask, long j, long j2) {
                 DownloadTaskExt downloadTaskExt;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j), Long.valueOf(j2)}) != null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
@@ -176,7 +185,7 @@ public class DownloadManagerImpl implements IDownloadManager {
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void retry(DownloadTask downloadTask, ResumeFailedCause resumeFailedCause) {
+            public void retry(@NonNull DownloadTask downloadTask, @NonNull ResumeFailedCause resumeFailedCause) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, resumeFailedCause) == null) {
                     DebugUtils.log(downloadTask);
@@ -189,7 +198,7 @@ public class DownloadManagerImpl implements IDownloadManager {
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc, TaskProgressListenerAssist.Listener1Model listener1Model) {
+            public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull TaskProgressListenerAssist.Listener1Model listener1Model) {
                 DownloadTaskExt downloadTaskExt;
                 int i3;
                 Interceptable interceptable2 = $ic;
@@ -236,7 +245,7 @@ public class DownloadManagerImpl implements IDownloadManager {
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void taskStart(DownloadTask downloadTask, TaskProgressListenerAssist.Listener1Model listener1Model) {
+            public void taskStart(@NonNull DownloadTask downloadTask, @NonNull TaskProgressListenerAssist.Listener1Model listener1Model) {
                 DownloadTaskExt downloadTaskExt;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeLL(1048580, this, downloadTask, listener1Model) != null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
@@ -277,7 +286,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     public void cancel(PackageInfo packageInfo) {
         DownloadTaskExt downloadTaskExt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) && (downloadTaskExt = (DownloadTaskExt) this.mTasks.get(packageInfo.getKey())) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) && (downloadTaskExt = this.mTasks.get(packageInfo.getKey())) != null) {
             downloadTaskExt.info.type = 5;
             downloadTaskExt.task.cancel();
         }
@@ -288,7 +297,7 @@ public class DownloadManagerImpl implements IDownloadManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo)) == null) {
-            DownloadTaskExt downloadTaskExt = (DownloadTaskExt) this.mTasks.get(packageInfo.getKey());
+            DownloadTaskExt downloadTaskExt = this.mTasks.get(packageInfo.getKey());
             if (downloadTaskExt != null) {
                 return downloadTaskExt.info.type;
             }
@@ -301,7 +310,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     public void pause(PackageInfo packageInfo) {
         DownloadTaskExt downloadTaskExt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, packageInfo) == null) && (downloadTaskExt = (DownloadTaskExt) this.mTasks.get(packageInfo.getKey())) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, packageInfo) == null) && (downloadTaskExt = this.mTasks.get(packageInfo.getKey())) != null) {
             downloadTaskExt.info.type = 3;
             downloadTaskExt.task.cancel();
         }
@@ -311,13 +320,14 @@ public class DownloadManagerImpl implements IDownloadManager {
     public void resume(PackageInfo packageInfo) {
         DownloadTaskExt downloadTaskExt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, packageInfo) == null) && (downloadTaskExt = (DownloadTaskExt) this.mTasks.get(packageInfo.getKey())) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, packageInfo) == null) && (downloadTaskExt = this.mTasks.get(packageInfo.getKey())) != null) {
             downloadTaskExt.info.type = 4;
             downloadTaskExt.task.enqueue(this.mDownloadListener);
         }
     }
 
-    private DownloadTask createTask(PackageInfo packageInfo, DownloadOptions downloadOptions) {
+    @NonNull
+    private DownloadTask createTask(@NonNull PackageInfo packageInfo, DownloadOptions downloadOptions) {
         InterceptResult invokeLL;
         PriorityStrategy.Priority priority;
         Interceptable interceptable = $ic;
@@ -343,13 +353,13 @@ public class DownloadManagerImpl implements IDownloadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void innerStart(List list, DownloadOptions downloadOptions, InnerCallback innerCallback) {
+    public synchronized void innerStart(@NonNull List<PackageInfo> list, @Nullable DownloadOptions downloadOptions, @NonNull InnerCallback innerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, this, list, downloadOptions, innerCallback) == null) {
             synchronized (this) {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (int i = 0; i < list.size(); i++) {
-                    PackageInfo packageInfo = (PackageInfo) list.get(i);
+                    PackageInfo packageInfo = list.get(i);
                     if (packageInfo != null && prepareDownload(packageInfo, downloadOptions, innerCallback)) {
                         DownloadTask createTask = createTask(packageInfo, downloadOptions);
                         DownloadTaskExt downloadTaskExt = new DownloadTaskExt(this, createTask, packageInfo, innerCallback);
@@ -407,7 +417,7 @@ public class DownloadManagerImpl implements IDownloadManager {
                     innerCallback.onSuccess(packageInfo);
                     return false;
                 }
-                DownloadTaskExt downloadTaskExt = (DownloadTaskExt) this.mTasks.get(packageInfo.getKey());
+                DownloadTaskExt downloadTaskExt = this.mTasks.get(packageInfo.getKey());
                 if (downloadTaskExt != null) {
                     if (downloadTaskExt.info.type == 2) {
                         innerCallback.onStart(packageInfo);
@@ -426,7 +436,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     }
 
     @Override // com.baidu.searchbox.pms.download.IDownloadManager
-    public void start(List list, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
+    public void start(@NonNull List<PackageInfo> list, @Nullable DownloadOptions downloadOptions, @NonNull DownloadCallback downloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, list, downloadOptions, downloadCallback) == null) {
             if (AppConfig.isDebug() && list == null) {

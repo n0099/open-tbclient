@@ -189,7 +189,7 @@ public class PreferenceUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static Set getStringSet(String str, Set set) {
+    public static Set<String> getStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, set)) == null) {
@@ -258,7 +258,7 @@ public class PreferenceUtils {
         }
     }
 
-    public static void putStringSet(String str, Set set) {
+    public static void putStringSet(String str, Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, str, set) == null) {
             try {

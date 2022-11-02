@@ -3,13 +3,15 @@ package com.fun.module.csj;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sm9;
+import com.baidu.tieba.bo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +53,7 @@ public class g0 extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g0(Context context, AttributeSet attributeSet) {
+    public g0(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,7 +74,7 @@ public class g0 extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g0(Context context, AttributeSet attributeSet, int i) {
+    public g0(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -108,24 +110,24 @@ public class g0 extends LinearLayout {
             if (interactionType == 2 || interactionType == 3) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0796;
+                i = R.string.obfuscated_res_0x7f0f0799;
             } else if (interactionType == 4) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0798;
+                i = R.string.obfuscated_res_0x7f0f079b;
             } else if (interactionType != 5) {
                 this.e.setVisibility(8);
                 return;
             } else {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0797;
+                i = R.string.obfuscated_res_0x7f0f079a;
             }
             button.setText(i);
         }
     }
 
-    public List getClickViews() {
+    public List<View> getClickViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -136,7 +138,7 @@ public class g0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public List getCreativeViews() {
+    public List<View> getCreativeViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -147,10 +149,10 @@ public class g0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public sm9 getDownloadListener() {
+    public bo9 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new sm9(this.e) : (sm9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new bo9(this.e) : (bo9) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -159,7 +161,7 @@ public class g0 extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900dd);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
             this.c = (TextView) findViewById(R.id.ad_source);
             this.e = (Button) findViewById(R.id.obfuscated_res_0x7f09009d);

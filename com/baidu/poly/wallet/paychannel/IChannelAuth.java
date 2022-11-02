@@ -1,9 +1,10 @@
 package com.baidu.poly.wallet.paychannel;
 
 import android.app.Activity;
-import com.baidu.tieba.ta1;
+import com.baidu.tieba.lb1;
 import java.io.Serializable;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public interface IChannelAuth extends Serializable {
-    void aLiAuth(Activity activity, String str, ta1 ta1Var);
+    void aLiAuth(Activity activity, String str, lb1<JSONObject> lb1Var);
 }

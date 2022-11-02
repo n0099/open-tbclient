@@ -2,6 +2,7 @@ package com.kwad.components.ad.reward;
 
 import android.app.Activity;
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,12 +24,13 @@ public final class g implements com.kwad.components.core.internal.api.a, KsRewar
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.components.ad.reward.c.c kJ;
     public final AdInfo mAdInfo;
+    @NonNull
     public final AdTemplate mAdTemplate;
     public KsRewardVideoAd.RewardAdInteractionListener ma;
     public KsRewardVideoAd.RewardAdInteractionListener mb;
     public int rewardType;
 
-    public g(AdTemplate adTemplate) {
+    public g(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

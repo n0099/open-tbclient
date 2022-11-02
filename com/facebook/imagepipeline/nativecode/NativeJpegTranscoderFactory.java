@@ -5,11 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imageformat.DefaultImageFormats;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.transcoder.ImageTranscoder;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import javax.annotation.Nullable;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -18,6 +20,7 @@ public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     public final int mMaxBitmapSize;
     public final boolean mUseDownSamplingRatio;
 
+    @DoNotStrip
     public NativeJpegTranscoderFactory(int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,6 +42,7 @@ public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoderFactory
+    @DoNotStrip
     @Nullable
     public ImageTranscoder createImageTranscoder(ImageFormat imageFormat, boolean z) {
         InterceptResult invokeLZ;

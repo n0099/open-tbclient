@@ -13,10 +13,11 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.iw5;
-import com.baidu.tieba.jw5;
+import com.baidu.tieba.cv5;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.tt5;
+import com.baidu.tieba.sx5;
+import com.baidu.tieba.tx5;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +35,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public static final int FIRST_PN = 0;
     public static final int LIVE_FEED_LOAD_MORE = 1;
     public static final int LIVE_FEED_REFRESH_NEW = 0;
-    public static HashMap u;
+    public static HashMap<Integer, Integer> u;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
@@ -47,9 +48,9 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public boolean i;
     public boolean j;
     public int k;
-    public List l;
-    public List m;
-    public List n;
+    public List<String> l;
+    public List<ThreadData> m;
+    public List<wn> n;
     public boolean o;
     public b p;
     public BdUniqueId q;
@@ -130,7 +131,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                 }
                 return;
             }
-            List liveList = alaNewSquareSubListResponseMessage.getLiveList();
+            List<ThreadData> liveList = alaNewSquareSubListResponseMessage.getLiveList();
             this.a.j = alaNewSquareSubListResponseMessage.hasMore();
             this.a.a = alaNewSquareSubListRequestMessage.getPn();
             if (this.a.a != 0 && ListUtils.getCount(this.a.m) != 0) {
@@ -167,10 +168,10 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                 return;
             }
         }
-        u = new HashMap();
+        u = new HashMap<>();
     }
 
-    public List N() {
+    public List<wn> N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -188,7 +189,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return invokeV.intValue;
     }
 
-    public List P() {
+    public List<ThreadData> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -197,7 +198,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return (List) invokeV.objValue;
     }
 
-    public List R() {
+    public List<String> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -332,28 +333,28 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
             if (u.containsKey(Integer.valueOf(i))) {
-                u.put(Integer.valueOf(i), Integer.valueOf(((Integer) u.get(Integer.valueOf(i))).intValue() + 1));
+                u.put(Integer.valueOf(i), Integer.valueOf(u.get(Integer.valueOf(i)).intValue() + 1));
             } else {
                 u.put(Integer.valueOf(i), 2);
             }
         }
     }
 
-    public final void T(List list) {
+    public final void T(List<ThreadData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                ThreadData threadData = (ThreadData) it.next();
+            for (ThreadData threadData : list) {
                 String tid = threadData.getTid();
                 if (!TextUtils.isEmpty(tid)) {
                     boolean z = false;
-                    Iterator it2 = this.m.iterator();
+                    Iterator<ThreadData> it = this.m.iterator();
                     while (true) {
-                        if (!it2.hasNext()) {
-                            break;
-                        } else if (tid.equals(((ThreadData) it2.next()).getTid())) {
-                            z = true;
+                        if (it.hasNext()) {
+                            if (tid.equals(it.next().getTid())) {
+                                z = true;
+                                break;
+                            }
+                        } else {
                             break;
                         }
                     }
@@ -370,7 +371,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
             if (u.containsKey(Integer.valueOf(i))) {
-                return ((Integer) u.get(Integer.valueOf(i))).intValue();
+                return u.get(Integer.valueOf(i)).intValue();
             }
             u.put(Integer.valueOf(i), 1);
             return 1;
@@ -378,48 +379,48 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return invokeI.intValue;
     }
 
-    public void M(List list, boolean z) {
+    public void M(List<ThreadData> list, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) && !ListUtils.isEmpty(list)) {
             this.n = new ArrayList();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (this.o) {
-                    iw5 iw5Var = new iw5();
-                    tt5 tt5Var = new tt5();
-                    tt5Var.e = this.i;
-                    tt5Var.b = this.e;
-                    tt5Var.c = this.d;
-                    tt5Var.d = (ThreadData) list.get(i);
-                    iw5Var.a = tt5Var;
+                    sx5 sx5Var = new sx5();
+                    cv5 cv5Var = new cv5();
+                    cv5Var.e = this.i;
+                    cv5Var.b = this.e;
+                    cv5Var.c = this.d;
+                    cv5Var.d = list.get(i);
+                    sx5Var.a = cv5Var;
                     int i2 = i + 1;
                     if (i2 < size) {
-                        tt5 tt5Var2 = new tt5();
-                        tt5Var2.e = this.i;
-                        tt5Var2.b = this.e;
-                        tt5Var2.c = this.d;
-                        tt5Var2.d = (ThreadData) list.get(i2);
-                        iw5Var.b = tt5Var2;
+                        cv5 cv5Var2 = new cv5();
+                        cv5Var2.e = this.i;
+                        cv5Var2.b = this.e;
+                        cv5Var2.c = this.d;
+                        cv5Var2.d = list.get(i2);
+                        sx5Var.b = cv5Var2;
                     }
-                    this.n.add(iw5Var);
+                    this.n.add(sx5Var);
                 } else {
-                    jw5 jw5Var = new jw5();
-                    tt5 tt5Var3 = new tt5();
-                    tt5Var3.e = this.i;
-                    tt5Var3.b = this.e;
-                    tt5Var3.c = this.d;
-                    tt5Var3.d = (ThreadData) list.get(i);
-                    jw5Var.a = tt5Var3;
+                    tx5 tx5Var = new tx5();
+                    cv5 cv5Var3 = new cv5();
+                    cv5Var3.e = this.i;
+                    cv5Var3.b = this.e;
+                    cv5Var3.c = this.d;
+                    cv5Var3.d = list.get(i);
+                    tx5Var.a = cv5Var3;
                     int i3 = i + 1;
                     if (i3 < size) {
-                        tt5 tt5Var4 = new tt5();
-                        tt5Var4.e = this.i;
-                        tt5Var4.b = this.e;
-                        tt5Var4.c = this.d;
-                        tt5Var4.d = (ThreadData) list.get(i3);
-                        jw5Var.b = tt5Var4;
+                        cv5 cv5Var4 = new cv5();
+                        cv5Var4.e = this.i;
+                        cv5Var4.b = this.e;
+                        cv5Var4.c = this.d;
+                        cv5Var4.d = list.get(i3);
+                        tx5Var.b = cv5Var4;
                     }
-                    this.n.add(jw5Var);
+                    this.n.add(tx5Var);
                 }
             }
         }

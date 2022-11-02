@@ -2,16 +2,19 @@ package com.google.android.gms.common.internal;
 
 import android.app.PendingIntent;
 import android.os.Bundle;
+import androidx.annotation.BinderThread;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.ConnectionResult;
 /* loaded from: classes7.dex */
-public abstract class zza extends zzc {
+public abstract class zza extends zzc<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int zza;
+    @Nullable
     public final Bundle zzb;
     public final /* synthetic */ BaseGmsClient zzc;
 
@@ -27,7 +30,8 @@ public abstract class zza extends zzc {
     public abstract boolean zzd();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zza(BaseGmsClient baseGmsClient, int i, Bundle bundle) {
+    @BinderThread
+    public zza(BaseGmsClient baseGmsClient, @Nullable int i, Bundle bundle) {
         super(baseGmsClient, Boolean.TRUE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,8 +54,9 @@ public abstract class zza extends zzc {
         this.zzb = bundle;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.google.android.gms.common.internal.zzc
-    public final /* bridge */ /* synthetic */ void zza(Object obj) {
+    public final /* bridge */ /* synthetic */ void zza(Boolean bool) {
         PendingIntent pendingIntent = null;
         if (this.zza == 0) {
             if (!zzd()) {

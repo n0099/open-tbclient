@@ -1,31 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q33;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.gslbsdk.db.DelayTB;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class x53 extends w53 {
+public class x53 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public a(x53 x53Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x53Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("bundle_key_preload_preload_scene", "5");
+                c13.k(this.a, bundle);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x53(p33 p33Var) {
-        super(p33Var);
+    public x53(b53 b53Var) {
+        super(b53Var, "/swanAPI/preloadSwanCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p33Var};
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((p33) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,52 +76,35 @@ public class x53 extends w53 {
         }
     }
 
-    @Override // com.baidu.tieba.w53
-    public void I(String str) {
-        String str2;
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
+        int optInt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && M() && (str2 = this.d) != null && str2.equals(str)) {
-            l33 K = l33.K();
-            if (!K.E()) {
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (b63.b) {
+                Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (K.q().n0()) {
-                K.n("flag_finish_activity", "flag_remove_task");
-                return;
+            if (!ProcessUtils.isMainProcess()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
+                return false;
             }
-            ff3 ff3Var = new ff3();
-            ff3Var.k(10L);
-            ff3Var.i(2107L);
-            ff3Var.d("app forbidden");
-            s33.y0(jb4.i().u(str), tm2.c(), K.q().W(), false, null, ff3Var);
+            JSONObject a2 = b63.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                optInt = 0;
+            } else {
+                optInt = a2.optInt(DelayTB.DELAY, 0);
+            }
+            if (optInt < 0) {
+                optInt = 0;
+            }
+            if (b63.b) {
+                Log.d("PreloadSwanCoreAction", "delay: " + optInt);
+            }
+            yh3.b0(new a(this, context), optInt);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
-    }
-
-    public boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m33.b0() != null && this.b != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fi3
-    /* renamed from: N */
-    public void a(q33.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (yz2.J(aVar.D(), "swan_forbidden_kill_on_client")) {
-                this.b = aVar.j("ipc_forbidden_flag", 1);
-                this.d = aVar.o("mAppId", l33.K().getAppId());
-            }
-            if (yz2.J(aVar.D(), "swan_kill_to_client")) {
-                l33.K().n("flag_finish_activity", "flag_remove_task");
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

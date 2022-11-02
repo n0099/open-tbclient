@@ -19,7 +19,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ApisInteractWithMario";
-    public static final ArrayList mPenddingOps;
+    public static final ArrayList<Runnable> mPenddingOps;
     public static ApisInteractWithMario sInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,7 +36,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                 return;
             }
         }
-        mPenddingOps = new ArrayList();
+        mPenddingOps = new ArrayList<>();
     }
 
     public ApisInteractWithMario() {
@@ -53,7 +53,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         }
     }
 
-    public static void addOnCronetThreadInitializedListener(ValueCallback valueCallback) {
+    public static void addOnCronetThreadInitializedListener(ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, valueCallback) == null) {
             if (!WebViewFactory.hasProvider()) {
@@ -169,9 +169,9 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (mPenddingOps) {
-                Iterator it = mPenddingOps.iterator();
+                Iterator<Runnable> it = mPenddingOps.iterator();
                 while (it.hasNext()) {
-                    ((Runnable) it.next()).run();
+                    it.next().run();
                 }
                 mPenddingOps.clear();
             }
@@ -276,7 +276,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         }
     }
 
-    public abstract void addOnCronetThreadInitializedListenerImpl(ValueCallback valueCallback);
+    public abstract void addOnCronetThreadInitializedListenerImpl(ValueCallback<Long> valueCallback);
 
     public abstract void clearCrashKeyImpl(String str);
 

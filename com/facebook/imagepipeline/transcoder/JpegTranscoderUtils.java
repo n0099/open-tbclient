@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableList;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
@@ -17,9 +18,10 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class JpegTranscoderUtils {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final int DEFAULT_JPEG_QUALITY = 85;
     public static final int FULL_ROUND = 360;
-    public static final ImmutableList INVERTED_EXIF_ORIENTATIONS;
+    public static final ImmutableList<Integer> INVERTED_EXIF_ORIENTATIONS;
     public static final int MAX_QUALITY = 100;
     public static final int MAX_SCALE_NUMERATOR = 16;
     public static final int MIN_QUALITY = 0;
@@ -48,6 +50,7 @@ public class JpegTranscoderUtils {
         return invokeI.booleanValue;
     }
 
+    @VisibleForTesting
     public static int roundNumerator(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -84,6 +87,7 @@ public class JpegTranscoderUtils {
         }
     }
 
+    @VisibleForTesting
     public static int calculateDownsampleNumerator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -118,6 +122,7 @@ public class JpegTranscoderUtils {
         return invokeI.booleanValue;
     }
 
+    @VisibleForTesting
     public static float determineResizeRatio(ResizeOptions resizeOptions, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -151,8 +156,8 @@ public class JpegTranscoderUtils {
                 if (!rotationOptions.useImageMetadata()) {
                     i = rotationOptions.getForcedAngle();
                 }
-                ImmutableList immutableList = INVERTED_EXIF_ORIENTATIONS;
-                return ((Integer) immutableList.get((indexOf + (i / 90)) % immutableList.size())).intValue();
+                ImmutableList<Integer> immutableList = INVERTED_EXIF_ORIENTATIONS;
+                return immutableList.get((indexOf + (i / 90)) % immutableList.size()).intValue();
             }
             throw new IllegalArgumentException("Only accepts inverted exif orientations");
         }

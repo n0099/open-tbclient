@@ -156,16 +156,16 @@ public class b {
                 JSONArray jSONArray = null;
                 if (a.a.size() > 0) {
                     jSONArray = new JSONArray();
-                    Iterator it = a.a.iterator();
+                    Iterator<Throwable> it = a.a.iterator();
                     while (it.hasNext()) {
-                        Throwable th = (Throwable) it.next();
+                        Throwable next = it.next();
                         StringBuffer stringBuffer = new StringBuffer();
                         JSONObject jSONObject = new JSONObject();
-                        for (StackTraceElement stackTraceElement : th.getStackTrace()) {
+                        for (StackTraceElement stackTraceElement : next.getStackTrace()) {
                             stringBuffer.append("\n");
                             stringBuffer.append(stackTraceElement.toString());
                         }
-                        jSONObject.put("message", th.toString());
+                        jSONObject.put("message", next.toString());
                         jSONObject.put("stack", stringBuffer.toString());
                         jSONArray.put(jSONObject);
                     }

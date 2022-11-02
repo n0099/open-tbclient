@@ -18,7 +18,7 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class hn implements iu, Serializable, Cloneable {
+public class hn implements iu<hn, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -46,7 +46,7 @@ public class hn implements iu, Serializable, Cloneable {
     public BitSet f479a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f480a;
+    public Map<String, String> f480a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f481a;
@@ -245,7 +245,7 @@ public class hn implements iu, Serializable, Cloneable {
         return (hn) invokeL.objValue;
     }
 
-    public hn a(Map map) {
+    public hn a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
@@ -274,7 +274,7 @@ public class hn implements iu, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map m400a() {
+    public Map<String, String> m400a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f480a : (Map) invokeV.objValue;
@@ -568,9 +568,9 @@ public class hn implements iu, Serializable, Cloneable {
             if (this.f480a != null && j()) {
                 jfVar.a(j);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f480a.size()));
-                for (Map.Entry entry : this.f480a.entrySet()) {
-                    jfVar.a((String) entry.getKey());
-                    jfVar.a((String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.f480a.entrySet()) {
+                    jfVar.a(entry.getKey());
+                    jfVar.a(entry.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -865,7 +865,7 @@ public class hn implements iu, Serializable, Cloneable {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
                 sb.append("extra:");
-                Map map = this.f480a;
+                Map<String, String> map = this.f480a;
                 if (map == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

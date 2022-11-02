@@ -1,13 +1,24 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface hj9 {
-    void a(String str, JSONObject jSONObject);
+public class hj9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, JSONObject jSONObject);
-
-    void c(String str, int i, String str2, JSONObject jSONObject);
-
-    void d(String str, String str2, JSONObject jSONObject);
+    public static Object a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return Class.forName(str).newInstance();
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+                return null;
+            }
+        }
+        return invokeL.objValue;
+    }
 }

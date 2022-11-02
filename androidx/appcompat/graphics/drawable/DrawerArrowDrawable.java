@@ -8,6 +8,9 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -44,6 +47,7 @@ public class DrawerArrowDrawable extends Drawable {
     public boolean mVerticalMirror;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ArrowDirection {
     }
@@ -116,6 +120,7 @@ public class DrawerArrowDrawable extends Drawable {
         return invokeV.floatValue;
     }
 
+    @ColorInt
     public int getColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -172,6 +177,7 @@ public class DrawerArrowDrawable extends Drawable {
         return (Paint) invokeV.objValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -331,7 +337,7 @@ public class DrawerArrowDrawable extends Drawable {
         }
     }
 
-    public void setColor(int i) {
+    public void setColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && i != this.mPaint.getColor()) {
             this.mPaint.setColor(i);
@@ -364,7 +370,7 @@ public class DrawerArrowDrawable extends Drawable {
         }
     }
 
-    public void setProgress(float f) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeF(1048599, this, f) == null) && this.mProgress != f) {
             this.mProgress = f;

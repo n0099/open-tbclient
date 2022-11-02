@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,7 @@ public class RevenueConfig {
     public int usedChannel;
 
     /* loaded from: classes8.dex */
-    public final class RevenueConfigBuilder {
+    public static final class RevenueConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int appId;
@@ -120,7 +121,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setAuthType(int i) {
+        public RevenueConfigBuilder setAuthType(@NonNull int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -130,7 +131,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeI.objValue;
         }
 
-        public RevenueConfigBuilder setClientVersion(String str) {
+        public RevenueConfigBuilder setClientVersion(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -140,7 +141,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setContext(Context context) {
+        public RevenueConfigBuilder setContext(@NonNull Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
@@ -160,7 +161,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeI.objValue;
         }
 
-        public RevenueConfigBuilder setDataSender(IRevenueDataSender iRevenueDataSender) {
+        public RevenueConfigBuilder setDataSender(@NonNull IRevenueDataSender iRevenueDataSender) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iRevenueDataSender)) == null) {
@@ -180,7 +181,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setPakageName(String str) {
+        public RevenueConfigBuilder setPakageName(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -190,7 +191,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setProtoType(ProtocolType protocolType) {
+        public RevenueConfigBuilder setProtoType(@NonNull ProtocolType protocolType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, protocolType)) == null) {

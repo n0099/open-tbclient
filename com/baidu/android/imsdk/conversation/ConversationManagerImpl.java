@@ -39,10 +39,10 @@ public class ConversationManagerImpl {
     public static Object syncObject;
     public transient /* synthetic */ FieldHolder $fh;
     public IChatSessionChangeListener listener;
-    public ArrayList mAllConversationChangeListener;
-    public ArrayList mAllConversations;
-    public HashMap mConversationsListMaps;
-    public HashMap mConversationsMaps;
+    public ArrayList<IConversationChangeListener> mAllConversationChangeListener;
+    public ArrayList<BIMConversation> mAllConversations;
+    public HashMap<BIMManager.CATEGORY, ArrayList<BIMConversation>> mConversationsListMaps;
+    public HashMap<String, BIMConversation> mConversationsMaps;
     public String mUid;
 
     static {
@@ -64,9 +64,9 @@ public class ConversationManagerImpl {
     public void notifyConversationChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Iterator it = this.mAllConversationChangeListener.iterator();
+            Iterator<IConversationChangeListener> it = this.mAllConversationChangeListener.iterator();
             while (it.hasNext()) {
-                ((IConversationChangeListener) it.next()).onConversationChange();
+                it.next().onConversationChange();
             }
         }
     }
@@ -88,8 +88,8 @@ public class ConversationManagerImpl {
         }
         this.mUid = null;
         this.mAllConversationChangeListener = null;
-        this.mConversationsListMaps = new HashMap();
-        this.mConversationsMaps = new HashMap();
+        this.mConversationsListMaps = new HashMap<>();
+        this.mConversationsMaps = new HashMap<>();
         this.listener = new IChatSessionChangeListener(this) { // from class: com.baidu.android.imsdk.conversation.ConversationManagerImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -144,13 +144,13 @@ public class ConversationManagerImpl {
             }
         };
         mContext = context.getApplicationContext();
-        this.mAllConversationChangeListener = new ArrayList();
-        ArrayList arrayList = new ArrayList();
+        this.mAllConversationChangeListener = new ArrayList<>();
+        ArrayList<BIMConversation> arrayList = new ArrayList<>();
         this.mAllConversations = arrayList;
         this.mConversationsListMaps.put(BIMManager.CATEGORY.ALL, arrayList);
     }
 
-    public ArrayList getAllConversation(BIMManager.CATEGORY category) {
+    public ArrayList<BIMConversation> getAllConversation(BIMManager.CATEGORY category) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, category)) == null) {
@@ -158,7 +158,7 @@ public class ConversationManagerImpl {
                 if (BIMManager.CATEGORY.ALL == category) {
                     return this.mAllConversations;
                 }
-                return (ArrayList) this.mConversationsListMaps.get(category);
+                return this.mConversationsListMaps.get(category);
             }
         }
         return (ArrayList) invokeL.objValue;
@@ -205,11 +205,11 @@ public class ConversationManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             String str = i + "_" + j;
-            BIMConversation bIMConversation = (BIMConversation) this.mConversationsMaps.get(str);
+            BIMConversation bIMConversation = this.mConversationsMaps.get(str);
             if (bIMConversation != null) {
                 this.mConversationsMaps.remove(str);
                 this.mAllConversations.remove(bIMConversation);
-                ((ArrayList) this.mConversationsListMaps.get(bIMConversation.getCategory())).remove(bIMConversation);
+                this.mConversationsListMaps.get(bIMConversation.getCategory()).remove(bIMConversation);
             }
         }
     }
@@ -234,13 +234,13 @@ public class ConversationManagerImpl {
         return (ConversationManagerImpl) invokeL.objValue;
     }
 
-    private void initConversation(ArrayList arrayList) {
+    private void initConversation(ArrayList<ChatSession> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, this, arrayList) == null) && arrayList != null) {
-            Iterator it = arrayList.iterator();
+            Iterator<ChatSession> it = arrayList.iterator();
             while (it.hasNext()) {
-                ChatSession chatSession = (ChatSession) it.next();
-                putConversationInternal(new BIMConversationMsg(mContext, getCategoryByProtocolCategory(chatSession.getCategory(), chatSession.getChatType()), String.valueOf(chatSession.getContacterId()), chatSession));
+                ChatSession next = it.next();
+                putConversationInternal(new BIMConversationMsg(mContext, getCategoryByProtocolCategory(next.getCategory(), next.getChatType()), String.valueOf(next.getContacterId()), next));
             }
         }
     }
@@ -265,24 +265,24 @@ public class ConversationManagerImpl {
             String str = bIMConversation.getCategory().getValue() + "_" + bIMConversation.getId();
             try {
                 if (this.mConversationsMaps.containsKey(str)) {
-                    BIMConversation bIMConversation2 = (BIMConversation) this.mConversationsMaps.get(str);
+                    BIMConversation bIMConversation2 = this.mConversationsMaps.get(str);
                     if (bIMConversation != bIMConversation2) {
                         this.mConversationsMaps.remove(str);
                         this.mConversationsMaps.put(str, bIMConversation);
                         this.mAllConversations.remove(bIMConversation2);
                         this.mAllConversations.add(bIMConversation);
-                        ((ArrayList) this.mConversationsListMaps.get(bIMConversation.getCategory())).remove(bIMConversation2);
-                        ((ArrayList) this.mConversationsListMaps.get(bIMConversation.getCategory())).add(bIMConversation);
+                        this.mConversationsListMaps.get(bIMConversation.getCategory()).remove(bIMConversation2);
+                        this.mConversationsListMaps.get(bIMConversation.getCategory()).add(bIMConversation);
                         return;
                     }
                     return;
                 }
                 this.mConversationsMaps.put(str, bIMConversation);
                 if (!this.mConversationsListMaps.containsKey(bIMConversation.getCategory())) {
-                    this.mConversationsListMaps.put(bIMConversation.getCategory(), new ArrayList());
+                    this.mConversationsListMaps.put(bIMConversation.getCategory(), new ArrayList<>());
                 }
                 this.mAllConversations.add(bIMConversation);
-                ((ArrayList) this.mConversationsListMaps.get(bIMConversation.getCategory())).add(bIMConversation);
+                this.mConversationsListMaps.get(bIMConversation.getCategory()).add(bIMConversation);
             } catch (Exception e) {
                 LogUtils.e(TAG, "putConversationInternal exception :", e);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
@@ -298,7 +298,7 @@ public class ConversationManagerImpl {
                 this.mAllConversations.clear();
                 this.mConversationsMaps.clear();
                 for (BIMManager.CATEGORY category : this.mConversationsListMaps.keySet()) {
-                    ((ArrayList) this.mConversationsListMaps.get(category)).clear();
+                    this.mConversationsListMaps.get(category).clear();
                 }
             }
         }
@@ -310,7 +310,7 @@ public class ConversationManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
             synchronized (syncObject) {
-                deleteConversation = deleteConversation((BIMConversation) this.mConversationsMaps.get(i + "_" + str));
+                deleteConversation = deleteConversation(this.mConversationsMaps.get(i + "_" + str));
             }
             return deleteConversation;
         }
@@ -328,7 +328,7 @@ public class ConversationManagerImpl {
             synchronized (syncObject) {
                 String str2 = category.getValue() + "_" + str;
                 if (this.mConversationsMaps.containsKey(str2)) {
-                    return (BIMConversation) this.mConversationsMaps.get(str2);
+                    return this.mConversationsMaps.get(str2);
                 }
                 try {
                     long longValue = Long.valueOf(str).longValue();
@@ -395,8 +395,8 @@ public class ConversationManagerImpl {
                             if (value == 1) {
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(String.valueOf(longValue));
-                                ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
-                                if (groupInfo != null && groupInfo.size() > 0 && ((GroupInfo) groupInfo.get(0)).getType() == 2) {
+                                ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
+                                if (groupInfo != null && groupInfo.size() > 0 && groupInfo.get(0).getType() == 2) {
                                     chatRecord2.setChatType(4);
                                 }
                             }
@@ -438,7 +438,7 @@ public class ConversationManagerImpl {
             if (str2 != null && str2.equals(str)) {
                 return;
             }
-            ArrayList chatRecords = ChatSessionManagerImpl.getInstance(mContext).getChatRecords(0L, 0L);
+            ArrayList<ChatSession> chatRecords = ChatSessionManagerImpl.getInstance(mContext).getChatRecords(0L, 0L);
             ChatSessionManagerImpl.getInstance(mContext).registerRecordChangeListener(mContext, this.listener);
             clear();
             synchronized (syncObject) {
@@ -462,7 +462,7 @@ public class ConversationManagerImpl {
         ChatSession chatSession;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, str, i, str2) == null) {
-            BIMConversation bIMConversation = (BIMConversation) this.mConversationsMaps.get(i + "_" + str2);
+            BIMConversation bIMConversation = this.mConversationsMaps.get(i + "_" + str2);
             if (bIMConversation != null && (chatSession = bIMConversation.getChatSession()) != null) {
                 chatSession.setName(str);
                 ChatMsgManagerImpl.getInstance(mContext).updateChatSeesionName(bIMConversation.getChatSession());

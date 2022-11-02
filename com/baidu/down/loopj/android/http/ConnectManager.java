@@ -43,7 +43,7 @@ public class ConnectManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class NetWorkType {
+    public static final class NetWorkType {
         public static final /* synthetic */ NetWorkType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetWorkType TYPE_2G;

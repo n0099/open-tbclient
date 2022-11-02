@@ -2,6 +2,9 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import com.kwad.sdk.service.ServiceProvider;
 /* loaded from: classes8.dex */
 public final class w {
@@ -25,14 +28,14 @@ public final class w {
         return context == null ? "" : d(context, "ksadsdk_download_package_md5", str, "");
     }
 
-    public static void D(Context context, String str) {
+    public static void D(@NonNull Context context, String str) {
         if (context == null) {
             return;
         }
         c(context, "ksadsdk_egid", "KEY_SDK_EGID", str);
     }
 
-    public static void E(Context context, String str) {
+    public static void E(@NonNull Context context, String str) {
         if (context == null) {
             return;
         }
@@ -61,7 +64,7 @@ public final class w {
         c(context, "ksadsdk_reward_full_ad_jump_direct", "KEY_REWARD_FULL_AD_JUMP_DIRECT", str);
     }
 
-    public static void I(Context context, String str) {
+    public static void I(@NonNull Context context, String str) {
         if (context == null) {
             return;
         }
@@ -77,7 +80,7 @@ public final class w {
         av.Av();
     }
 
-    public static void K(Context context, String str) {
+    public static void K(@NonNull Context context, String str) {
         if (context == null) {
             return;
         }
@@ -98,6 +101,7 @@ public final class w {
         a("ksadsdk_pref", "webview_ua", str, true);
     }
 
+    @WorkerThread
     public static void N(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return;
@@ -148,7 +152,7 @@ public final class w {
         }
     }
 
-    public static void a(Context context, String str, String str2, String str3, boolean z) {
+    public static void a(Context context, @NonNull String str, @NonNull String str2, String str3, boolean z) {
         if (context == null) {
             return;
         }
@@ -196,7 +200,7 @@ public final class w {
         h("ksadsdk_solder", "solder_is_success_loaded_" + str + str2, z);
     }
 
-    public static void c(Context context, String str, String str2, String str3) {
+    public static void c(Context context, @NonNull String str, @NonNull String str2, String str3) {
         if (context == null) {
             return;
         }
@@ -226,25 +230,25 @@ public final class w {
         }
     }
 
-    public static String cl(Context context) {
+    public static String cl(@NonNull Context context) {
         return context == null ? "" : d(context, "ksadsdk_egid", "KEY_SDK_EGID", "");
     }
 
-    public static long cm(Context context) {
+    public static long cm(@NonNull Context context) {
         if (context == null) {
             return 0L;
         }
         return b(context, "ksadsdk_gidExpireTimeMs", "KEY_SDK_EGID", 0L);
     }
 
-    public static int cn(Context context) {
+    public static int cn(@NonNull Context context) {
         if (context == null) {
             return 0;
         }
         return b(context, "ksadsdk_config_request", "KEY_CONFIG_REQUEST_FAIL", 0);
     }
 
-    public static String co(Context context) {
+    public static String co(@NonNull Context context) {
         if (context == null) {
             return "";
         }
@@ -253,7 +257,7 @@ public final class w {
         return d;
     }
 
-    public static String cp(Context context) {
+    public static String cp(@NonNull Context context) {
         return context == null ? "" : d(context, "ksadsdk_device_sig", "KEY_SDK_DEVICE_SIG", "");
     }
 
@@ -266,6 +270,7 @@ public final class w {
         return f;
     }
 
+    @WorkerThread
     public static String cr(Context context) {
         if (context == null) {
             return "";
@@ -362,14 +367,14 @@ public final class w {
         return context == null ? str3 : d(context, str, str2, str3);
     }
 
-    public static void f(Context context, int i) {
+    public static void f(@NonNull Context context, int i) {
         if (context == null) {
             return;
         }
         a(context, "ksadsdk_config_request", "KEY_CONFIG_REQUEST_FAIL", i);
     }
 
-    public static void f(Context context, long j) {
+    public static void f(@NonNull Context context, long j) {
         if (context == null) {
             return;
         }
@@ -396,6 +401,7 @@ public final class w {
         return i("ksadsdk_solder", "solder_is_success_loaded_" + str + str2, false);
     }
 
+    @Nullable
     public static Context getContext() {
         try {
             com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);

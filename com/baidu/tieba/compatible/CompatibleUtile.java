@@ -66,7 +66,7 @@ public class CompatibleUtile {
     }
 
     /* loaded from: classes3.dex */
-    public class FullscreenableChromeClient extends WebChromeClient {
+    public static class FullscreenableChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FrameLayout.LayoutParams COVER_SCREEN_PARAMS;

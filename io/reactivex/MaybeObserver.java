@@ -1,13 +1,14 @@
 package io.reactivex;
 
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 /* loaded from: classes8.dex */
-public interface MaybeObserver {
+public interface MaybeObserver<T> {
     void onComplete();
 
-    void onError(Throwable th);
+    void onError(@NonNull Throwable th);
 
-    void onSubscribe(Disposable disposable);
+    void onSubscribe(@NonNull Disposable disposable);
 
-    void onSuccess(Object obj);
+    void onSuccess(@NonNull T t);
 }

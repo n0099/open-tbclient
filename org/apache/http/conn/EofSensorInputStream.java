@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EofSensorInputStream extends InputStream implements ConnectionReleaseTrigger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

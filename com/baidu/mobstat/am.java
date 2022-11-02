@@ -17,6 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.mobstat.bs;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -62,7 +63,7 @@ public class am {
     }
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap a;
@@ -108,11 +109,11 @@ public class am {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements Callable {
+    public static class b implements Callable<List<c>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Activity a;
-        public final List b;
+        public final List<c> b;
         public final DisplayMetrics c;
         public final a d;
         public final int e;
@@ -275,7 +276,7 @@ public class am {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
-        public List call() throws Exception {
+        public List<c> call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -291,7 +292,7 @@ public class am {
                 int size = this.b.size();
                 for (int i = 0; i < size; i++) {
                     b();
-                    a((c) this.b.get(i));
+                    a(this.b.get(i));
                     c();
                 }
                 return this.b;
@@ -308,7 +309,7 @@ public class am {
     }
 
     /* loaded from: classes2.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -415,7 +416,7 @@ public class am {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("x", ag.a(activity, e.left));
                 jSONObject3.put("y", ag.a(activity, e.top));
-                jSONObject3.put("w", ag.a(activity, e.width()));
+                jSONObject3.put(Config.DEVICE_WIDTH, ag.a(activity, e.width()));
                 jSONObject3.put("h", ag.a(activity, e.height()));
                 jSONObject.put("frame", jSONObject3);
                 jSONObject.put(Key.ALPHA, bi.i(view2));
@@ -435,7 +436,7 @@ public class am {
                     if (obj == null) {
                         obj = new JSONArray();
                     }
-                    jSONObject.put("child", obj);
+                    jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CHILD, obj);
                     if (TextUtils.isEmpty(str2)) {
                         jSONObject.put("url", "/");
                     } else {
@@ -450,13 +451,13 @@ public class am {
                 if (view2 instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view2;
                     JSONArray jSONArray3 = new JSONArray();
-                    jSONObject.put("child", jSONArray3);
+                    jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CHILD, jSONArray3);
                     for (int i = 0; i < viewGroup.getChildCount(); i++) {
                         a(activity, viewGroup.getChildAt(i), jSONArray3, b2, view3);
                     }
                     return;
                 }
-                jSONObject.put("child", new JSONArray());
+                jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CHILD, new JSONArray());
                 return;
             }
         }
@@ -508,7 +509,7 @@ public class am {
                     jSONObject2.put(StatisticConstants.SCREENSHOT, bi.a(b2));
                     jSONObject2.put(SapiOptions.KEY_CACHE_MODULE_HASH, bi.b(b2));
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("w", b2.getWidth());
+                    jSONObject3.put(Config.DEVICE_WIDTH, b2.getWidth());
                     jSONObject3.put("h", b2.getHeight());
                     jSONObject2.put("screen", jSONObject3);
                     jSONObject2.put("page", activity.getClass().getName());

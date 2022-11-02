@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -50,7 +52,7 @@ public class PlayDrawable extends Drawable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class IconState {
+    public static final class IconState {
         public static final /* synthetic */ IconState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final IconState PAUSE_STATE;
@@ -267,7 +269,7 @@ public class PlayDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             d(canvas, this.c, this.e, this.b, this.g, this.i);
@@ -351,7 +353,7 @@ public class PlayDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
+    public void setColorFilter(@Nullable ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, colorFilter) == null) {
             this.i.setColorFilter(colorFilter);
@@ -405,7 +407,7 @@ public class PlayDrawable extends Drawable {
         }
     }
 
-    public final void g(Path path, float[] fArr) {
+    public final void g(@NonNull Path path, @NonNull float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, path, fArr) == null) {
             if (!path.isEmpty()) {

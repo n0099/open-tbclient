@@ -6,6 +6,10 @@ import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.TintAwareDrawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,6 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +30,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
 
     /* renamed from: com.google.android.material.ripple.RippleDrawableCompat$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -41,9 +46,10 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     /* loaded from: classes7.dex */
-    public final class RippleDrawableCompatState extends Drawable.ConstantState {
+    public static final class RippleDrawableCompatState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public MaterialShapeDrawable delegate;
         public boolean shouldDrawDelegate;
 
@@ -57,7 +63,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
             return invokeV.intValue;
         }
 
-        public RippleDrawableCompatState(RippleDrawableCompatState rippleDrawableCompatState) {
+        public RippleDrawableCompatState(@NonNull RippleDrawableCompatState rippleDrawableCompatState) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,6 +103,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public RippleDrawableCompat newDrawable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -137,7 +144,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
+    public void onBoundsChange(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, rect) == null) {
             super.onBoundsChange(rect);
@@ -146,7 +153,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onStateChange(int[] iArr) {
+    public boolean onStateChange(@NonNull int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
@@ -174,7 +181,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
+    public void setColorFilter(@Nullable ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, colorFilter) == null) {
             this.drawableState.delegate.setColorFilter(colorFilter);
@@ -182,7 +189,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // com.google.android.material.shape.Shapeable
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, shapeAppearanceModel) == null) {
             this.drawableState.delegate.setShapeAppearanceModel(shapeAppearanceModel);
@@ -190,7 +197,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(int i) {
+    public void setTint(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.drawableState.delegate.setTint(i);
@@ -198,7 +205,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTintList(ColorStateList colorStateList) {
+    public void setTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, colorStateList) == null) {
             this.drawableState.delegate.setTintList(colorStateList);
@@ -206,7 +213,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTintMode(PorterDuff.Mode mode) {
+    public void setTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, mode) == null) {
             this.drawableState.delegate.setTintMode(mode);
@@ -238,6 +245,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable
+    @Nullable
     public Drawable.ConstantState getConstantState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -258,6 +266,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // com.google.android.material.shape.Shapeable
+    @NonNull
     public ShapeAppearanceModel getShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -269,6 +278,7 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.graphics.drawable.Drawable
+    @NonNull
     public RippleDrawableCompat mutate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -3,6 +3,7 @@ package com.ss.android.downloadlib;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.k;
@@ -17,7 +18,7 @@ public class c implements h {
     public static String a = "c";
     public Handler b = new Handler(Looper.getMainLooper());
 
-    private void a(DownloadInfo downloadInfo) {
+    private void a(@NonNull DownloadInfo downloadInfo) {
         if (!com.ss.android.downloadlib.g.e.f(downloadInfo.getId())) {
             return;
         }
@@ -35,12 +36,12 @@ public class c implements h {
                 com.ss.android.downloadlib.addownload.d.a(downloadInfo.getId());
             }
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0666a() { // from class: com.ss.android.downloadlib.c.3
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0677a() { // from class: com.ss.android.downloadlib.c.3
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
             public void b() {
                 if (!l.b(bVar)) {
                     long j = a2;

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,131 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.CookieJar;
-import okhttp3.FormBody;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class x2a {
+public class x2a<E> extends z2a<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient b;
-    public static volatile x2a c;
-    public static String d;
+    public static final int g;
+    public static final long h;
+    public static final long i;
+    public static final long j;
+    public static final int k;
+    public static final Object l;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap a;
-
-    /* loaded from: classes6.dex */
-    public class a implements CookieJar {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x2a a;
-
-        public a(x2a x2aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x2aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x2aVar;
-        }
-
-        @Override // okhttp3.CookieJar
-        public List loadForRequest(HttpUrl httpUrl) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
-                List list = (List) this.a.a.get(httpUrl.host());
-                if (list == null) {
-                    return new ArrayList();
-                }
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        @Override // okhttp3.CookieJar
-        public void saveFromResponse(HttpUrl httpUrl, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
-                this.a.a.put(httpUrl.host(), list);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y2a a;
-        public final /* synthetic */ Request b;
-
-        public b(x2a x2aVar, y2a y2aVar, Request request) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x2aVar, y2aVar, request};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y2aVar;
-            this.b = request;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                boolean isCanceled = call.isCanceled();
-                RLog.error("HttpCore", "onFailure isCanceled:" + isCanceled, new Object[0]);
-                this.a.a(this.b, isCanceled, iOException);
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) != null) {
-                return;
-            }
-            String unused = x2a.d = response.body().string();
-            try {
-                this.a.b(x2a.d);
-                RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + x2a.d);
-            } catch (Exception e) {
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e.getMessage(), new Object[0]);
-                e.printStackTrace();
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -147,152 +34,301 @@ public class x2a {
                 return;
             }
         }
-        MediaType.parse("application/json;charset=utf-8");
-        MediaType.parse("application/octet-stream");
-        MediaType.parse("text/x-markdown;charset=utf-8");
-    }
-
-    public static x2a f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                synchronized (x2a.class) {
-                    if (c == null) {
-                        c = new x2a();
-                    }
-                }
-            }
-            return c;
+        g = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+        l = new Object();
+        int b = d3a.a.b(Object[].class);
+        if (4 == b) {
+            k = 2;
+        } else if (8 == b) {
+            k = 3;
+        } else {
+            throw new IllegalStateException("Unknown pointer size");
         }
-        return (x2a) invokeV.objValue;
+        j = d3a.a.a(Object[].class);
+        try {
+            h = d3a.a.g(c3a.class.getDeclaredField("producerIndex"));
+            try {
+                i = d3a.a.g(z2a.class.getDeclaredField("consumerIndex"));
+            } catch (NoSuchFieldException e) {
+                InternalError internalError = new InternalError();
+                internalError.initCause(e);
+                throw internalError;
+            }
+        } catch (NoSuchFieldException e2) {
+            InternalError internalError2 = new InternalError();
+            internalError2.initCause(e2);
+            throw internalError2;
+        }
     }
 
-    public x2a() {
+    public x2a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new a3a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new a(this));
-        cookieJar.dns(z2a.c());
-        b = cookieJar.build();
-        RLog.info("HttpCore", "HttpCore -- init");
+        int b = g2a.b(i2);
+        long j2 = b - 1;
+        E[] eArr = (E[]) new Object[b + 1];
+        this.d = eArr;
+        this.c = j2;
+        a(b);
+        this.f = eArr;
+        this.e = j2;
+        this.b = j2 - 1;
+        n(0L);
     }
 
-    public static String i(String str, Map map) {
-        InterceptResult invokeLL;
+    public static long b(long j2) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (map == null) {
-                new HashMap();
-            } else {
-                boolean z = true;
-                for (Map.Entry entry : map.entrySet()) {
-                    if (z && !str.contains("?")) {
-                        z = false;
-                        sb.append("?");
-                    } else {
-                        sb.append("&");
-                    }
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    if (entry.getValue() == null) {
-                        sb.append(" ");
-                    } else {
-                        sb.append((String) entry.getValue());
-                    }
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+            return j + (j2 << k);
         }
-        return (String) invokeLL.objValue;
+        return invokeJ.longValue;
     }
 
-    public void d(int i, int i2) {
+    public final void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "cancelAllRequest appId:" + i + " useChannel:" + i2 + " requestTag：" + g);
-            OkHttpClient okHttpClient = b;
-            if (okHttpClient != null && okHttpClient.dispatcher() != null) {
-                for (Call call : b.dispatcher().queuedCalls()) {
-                    if (g.equals(call.request().tag())) {
-                        RLog.info("HttpCore", "cancel queued call:" + call);
-                        call.cancel();
-                    }
-                }
-                for (Call call2 : b.dispatcher().runningCalls()) {
-                    if (g.equals(call2.request().tag())) {
-                        RLog.info("HttpCore", "cancel running call:" + call2);
-                        call2.cancel();
-                    }
-                }
-                return;
-            }
-            RLog.error("HttpCore", "cancelAllRequest error okHttpClient null", new Object[0]);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.a = Math.min(i2 / 4, g);
         }
     }
 
-    public String e(String str, Map map, int i, int i2, String str2, String str3, String str4, String str5, int i3, y2a y2aVar) {
+    public final E[] f(E[] eArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eArr)) == null) {
+            return (E[]) ((Object[]) e(eArr, b(eArr.length - 1)));
+        }
+        return (E[]) ((Object[]) invokeL.objValue);
+    }
+
+    public final void k(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            d3a.a.i(this, i, j2);
+        }
+    }
+
+    public final void n(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            d3a.a.i(this, h, j2);
+        }
+    }
+
+    public static long c(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, map, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, Integer.valueOf(i3), y2aVar})) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "enqueuePost requestTag=" + g);
-            if (map == null) {
-                map = new HashMap();
-            }
-            FormBody.Builder builder = new FormBody.Builder();
-            h(map, builder);
-            FormBody build = builder.build();
-            String i4 = i(str, null);
-            RLog.debug("HttpCore", "HttpCore -- enqueuePost--url:" + i4);
-            Request.Builder url = new Request.Builder().url(i4);
-            Request build2 = url.addHeader("X-AppId", i + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).tag(g).post(build).build();
-            try {
-                b.newCall(build2).enqueue(new b(this, y2aVar, build2));
-            } catch (Exception e) {
-                e.printStackTrace();
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e.getMessage(), new Object[0]);
-            }
-            return d;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            return b(j2 & j3);
         }
-        return (String) invokeCommon.objValue;
+        return invokeCommon.longValue;
     }
 
-    public String g(int i, int i2) {
-        InterceptResult invokeII;
+    public static <E> Object e(E[] eArr, long j2) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            return "payhttp:appId=" + i + "&userchanel=" + i2;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr, j2)) == null) {
+            return d3a.a.f(eArr, j2);
         }
-        return (String) invokeII.objValue;
+        return invokeLJ.objValue;
     }
 
-    public final void h(Map map, FormBody.Builder builder) {
-        String str;
+    public final void m(E[] eArr, E[] eArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, map, builder) == null) {
-            for (Map.Entry entry : map.entrySet()) {
-                String str2 = (String) entry.getKey();
-                if (entry.getValue() == null) {
-                    str = "";
-                } else {
-                    str = (String) entry.getValue();
+        if (interceptable == null || interceptable.invokeLL(1048585, this, eArr, eArr2) == null) {
+            l(eArr, b(eArr.length - 1), eArr2);
+        }
+    }
+
+    public static void l(Object[] objArr, long j2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{objArr, Long.valueOf(j2), obj}) == null) {
+            d3a.a.j(objArr, j2, obj);
+        }
+    }
+
+    public final long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d3a.a.d(this, i);
+        }
+        return invokeV.longValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return d3a.a.d(this, h);
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public final Iterator<E> iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public final E peek() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            E[] eArr = this.f;
+            long j2 = this.consumerIndex;
+            long j3 = this.e;
+            E e = (E) e(eArr, c(j2, j3));
+            if (e == l) {
+                return h(f(eArr), j2, j3);
+            }
+            return e;
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            long d = d();
+            while (true) {
+                long g2 = g();
+                long d2 = d();
+                if (d == d2) {
+                    return (int) (g2 - d2);
                 }
-                builder.add(str2, str);
+                d = d2;
+            }
+        } else {
+            return invokeV.intValue;
+        }
+    }
+
+    public final E h(E[] eArr, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            this.f = eArr;
+            return (E) e(eArr, c(j2, j3));
+        }
+        return (E) invokeCommon.objValue;
+    }
+
+    public final E i(E[] eArr, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            this.f = eArr;
+            long c = c(j2, j3);
+            E e = (E) e(eArr, c);
+            if (e == null) {
+                return null;
+            }
+            l(eArr, c, null);
+            k(j2 + 1);
+            return e;
+        }
+        return (E) invokeCommon.objValue;
+    }
+
+    public final void j(E[] eArr, long j2, long j3, E e, long j4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3), e, Long.valueOf(j4)}) == null) {
+            E[] eArr2 = (E[]) new Object[eArr.length];
+            this.d = eArr2;
+            this.b = (j4 + j2) - 1;
+            l(eArr2, j3, e);
+            m(eArr, eArr2);
+            l(eArr, j3, l);
+            n(j2 + 1);
+        }
+    }
+
+    public final boolean o(E[] eArr, E e, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{eArr, e, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            l(eArr, j3, e);
+            n(j2 + 1);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public final boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, e)) == null) {
+            if (e != null) {
+                E[] eArr = this.d;
+                long j2 = this.producerIndex;
+                long j3 = this.c;
+                long c = c(j2, j3);
+                if (j2 < this.b) {
+                    return o(eArr, e, j2, c);
+                }
+                long j4 = this.a + j2;
+                if (e(eArr, c(j4, j3)) == null) {
+                    this.b = j4 - 1;
+                    return o(eArr, e, j2, c);
+                } else if (e(eArr, c(1 + j2, j3)) != null) {
+                    return o(eArr, e, j2, c);
+                } else {
+                    j(eArr, j2, c, e, j3);
+                    return true;
+                }
+            }
+            throw new NullPointerException("Null is not a valid element");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public final E poll() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            E[] eArr = this.f;
+            long j2 = this.consumerIndex;
+            long j3 = this.e;
+            long c = c(j2, j3);
+            E e = (E) e(eArr, c);
+            if (e == l) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (e != null && !z) {
+                l(eArr, c, null);
+                k(j2 + 1);
+                return e;
+            } else if (!z) {
+                return null;
+            } else {
+                return i(f(eArr), j2, j3);
             }
         }
+        return (E) invokeV.objValue;
     }
 }

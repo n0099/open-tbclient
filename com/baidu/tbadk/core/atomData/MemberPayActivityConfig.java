@@ -19,6 +19,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final String AUTOPAY_FROM_LOW_INCOME_FRS = "autopay_from_low_income_frs";
     public static final String AUTOPAY_FROM_LOW_INCOME_HOME = "autopay_from_low_income_home";
     public static final String AUTOPAY_FROM_LOW_INCOME_PB = "autopay_from_low_income_pb";
+    public static final String DEFAULT_GOODS = "default_goods";
     public static final String FID = "fid";
     public static final String FROM = "from";
     public static final int FROM_AVATAR_PENDANT_LIST = 22;
@@ -204,13 +205,13 @@ public class MemberPayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, int i, boolean z, int i2, int i3) {
+    public MemberPayActivityConfig(Context context, int i, boolean z, int i2, int i3, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), str};
             interceptable.invokeUnInit(65542, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -225,6 +226,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("close", z);
         getIntent().putExtra("from", i2);
         getIntent().putExtra(FROM_SCENE, i3);
+        getIntent().putExtra(DEFAULT_GOODS, str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -30,6 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpCookie;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,7 +73,7 @@ public class HttpClientWrap {
         this.b = context;
     }
 
-    private PassHttpParamDTO a(String str, HttpHashMap httpHashMap, List list, int i) {
+    private PassHttpParamDTO a(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, this, str, httpHashMap, list, i)) == null) {
@@ -88,7 +89,7 @@ public class HttpClientWrap {
         return (PassHttpParamDTO) invokeLLLI.objValue;
     }
 
-    public void get(String str, HttpHashMap httpHashMap, List list, HttpHandlerWrap httpHandlerWrap) {
+    public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, httpHashMap, list, httpHandlerWrap) == null) {
             get(str, ReqPriority.NORMAL, httpHashMap, list, 0, httpHandlerWrap);
@@ -102,7 +103,7 @@ public class HttpClientWrap {
         }
     }
 
-    private PassHttpParamDTO a(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List list, int i) {
+    private PassHttpParamDTO a(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, reqPriority, httpHashMap, list, Integer.valueOf(i)})) == null) {
@@ -134,7 +135,7 @@ public class HttpClientWrap {
         return (String) invokeLL.objValue;
     }
 
-    public static Map appendCertification(Context context) {
+    public static Map<String, String> appendCertification(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -156,26 +157,26 @@ public class HttpClientWrap {
         return (Map) invokeL.objValue;
     }
 
-    public static String calculateSig(Map map, String str) {
+    public static String calculateSig(Map<String, String> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, str)) == null) {
             map.remove(FunAdSdk.PLATFORM_SIG);
             ArrayList arrayList = new ArrayList();
-            for (Object obj : map.keySet()) {
-                arrayList.add(obj);
+            for (String str2 : map.keySet()) {
+                arrayList.add(str2);
             }
             Collections.sort(arrayList);
             StringBuilder sb = new StringBuilder();
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                String str2 = (String) it.next();
+                String str3 = (String) it.next();
                 try {
-                    String str3 = (String) map.get(str2);
-                    if (!TextUtils.isEmpty(str3)) {
-                        sb.append(str2);
+                    String str4 = map.get(str3);
+                    if (!TextUtils.isEmpty(str4)) {
+                        sb.append(str3);
                         sb.append("=");
-                        sb.append(URLEncoder.encode(str3, "UTF-8"));
+                        sb.append(URLEncoder.encode(str4, "UTF-8"));
                         sb.append("&");
                     }
                 } catch (UnsupportedEncodingException e2) {
@@ -189,7 +190,7 @@ public class HttpClientWrap {
         return (String) invokeLL.objValue;
     }
 
-    public static String getNonce(Context context, String str, Map map) {
+    public static String getNonce(Context context, String str, Map<String, String> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, map)) == null) {
@@ -197,8 +198,8 @@ public class HttpClientWrap {
             map.put(g, PassBioDataEncryptor.encryptParams(str));
             map.put(h, a(context, context.getPackageName()));
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : map.entrySet()) {
-                arrayList.add(new RestNameValuePair((String) entry.getKey(), (String) entry.getValue()));
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
             }
             return PassBioDataEncryptor.encryptParams(HttpUtils.getNonce(context, arrayList));
         }
@@ -212,7 +213,7 @@ public class HttpClientWrap {
         }
     }
 
-    public void get(String str, HttpHashMap httpHashMap, List list, int i, BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
+    public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, httpHashMap, list, Integer.valueOf(i), binaryHttpHandlerWrap}) == null) {
             this.a.get(this.b, a(str, httpHashMap, list, i), new BinaryHttpResponseHandler(this, Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread(), binaryHttpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
@@ -279,7 +280,7 @@ public class HttpClientWrap {
         }
     }
 
-    public void get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List list, int i, HttpHandlerWrap httpHandlerWrap) {
+    public void get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, reqPriority, httpHashMap, list, Integer.valueOf(i), httpHandlerWrap}) == null) {
             this.a.get(this.b, a(str, reqPriority, httpHashMap, list, i), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
@@ -346,7 +347,7 @@ public class HttpClientWrap {
         }
     }
 
-    public void post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List list, int i, HttpHandlerWrap httpHandlerWrap) {
+    public void post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, reqPriority, httpHashMap, list, Integer.valueOf(i), httpHandlerWrap}) == null) {
             this.a.post(this.b, a(str, reqPriority, httpHashMap, list, i), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
@@ -413,7 +414,7 @@ public class HttpClientWrap {
         }
     }
 
-    public void post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List list, HttpHandlerWrap httpHandlerWrap) {
+    public void post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, str, reqPriority, httpHashMap, list, httpHandlerWrap) == null) {
             post(str, reqPriority, httpHashMap, list, 0, httpHandlerWrap);

@@ -17,7 +17,7 @@ public class g implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadFactory a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BlockingQueue b;
+    public final BlockingQueue<Runnable> b;
     public final ThreadPoolExecutor c;
 
     static {

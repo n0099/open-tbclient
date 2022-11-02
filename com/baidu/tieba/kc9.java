@@ -1,19 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.android.util.sp.SharedPrefsWrapper;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public final class kc9 {
+public class kc9 extends SharedPrefsWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jc9 a;
 
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final kc9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-665764629, "Lcom/baidu/tieba/kc9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-665764629, "Lcom/baidu/tieba/kc9$a;");
+                    return;
+                }
+            }
+            a = new kc9();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kc9() {
+        super(KVStorageFactory.getSharedPreferences(UBCCloudControlProcessor.SP_UBC_FILE_NAME));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,57 +49,20 @@ public final class kc9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((SharedPreferences) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new jc9();
     }
 
-    public final List d() {
+    public static kc9 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.a(str);
-        }
-    }
-
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.a.b(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a.a(str);
-        }
-    }
-
-    public final void e(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            this.a.e(nVar);
-        }
-    }
-
-    public final void f(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nVar) == null) {
-            this.a.d(nVar);
-        }
+        return (kc9) invokeV.objValue;
     }
 }

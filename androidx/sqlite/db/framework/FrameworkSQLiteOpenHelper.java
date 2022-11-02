@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
@@ -249,6 +250,7 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteOpenHelper
+    @RequiresApi(api = 16)
     public void setWriteAheadLoggingEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {

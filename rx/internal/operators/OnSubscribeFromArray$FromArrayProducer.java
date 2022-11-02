@@ -1,29 +1,29 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.sy9;
-import com.baidu.tieba.zx9;
+import com.baidu.tieba.b0a;
+import com.baidu.tieba.iz9;
+import com.baidu.tieba.mz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OnSubscribeFromArray$FromArrayProducer extends AtomicLong implements zx9 {
+public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements iz9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3534218984725836979L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object[] array;
-    public final dy9 child;
+    public final T[] array;
+    public final mz9<? super T> child;
     public int index;
 
-    public OnSubscribeFromArray$FromArrayProducer(dy9 dy9Var, Object[] objArr) {
+    public OnSubscribeFromArray$FromArrayProducer(mz9<? super T> mz9Var, T[] tArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr2 = {dy9Var, objArr};
+            Object[] objArr = {mz9Var, tArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,41 +33,41 @@ public final class OnSubscribeFromArray$FromArrayProducer extends AtomicLong imp
                 return;
             }
         }
-        this.child = dy9Var;
-        this.array = objArr;
+        this.child = mz9Var;
+        this.array = tArr;
     }
 
     public void fastPath() {
-        Object[] objArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dy9 dy9Var = this.child;
-            for (Object obj : this.array) {
-                if (dy9Var.isUnsubscribed()) {
+            mz9<? super T> mz9Var = this.child;
+            for (T t : this.array) {
+                Object obj = (Object) t;
+                if (mz9Var.isUnsubscribed()) {
                     return;
                 }
-                dy9Var.onNext(obj);
+                mz9Var.onNext(obj);
             }
-            if (dy9Var.isUnsubscribed()) {
+            if (mz9Var.isUnsubscribed()) {
                 return;
             }
-            dy9Var.onCompleted();
+            mz9Var.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.zx9
+    @Override // com.baidu.tieba.iz9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (j == Long.MAX_VALUE) {
-                    if (sy9.b(this, j) == 0) {
+                    if (b0a.b(this, j) == 0) {
                         fastPath();
                         return;
                     }
                     return;
-                } else if (i != 0 && sy9.b(this, j) == 0) {
+                } else if (i != 0 && b0a.b(this, j) == 0) {
                     slowPath(j);
                     return;
                 } else {
@@ -81,22 +81,22 @@ public final class OnSubscribeFromArray$FromArrayProducer extends AtomicLong imp
     public void slowPath(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            dy9 dy9Var = this.child;
-            Object[] objArr = this.array;
-            int length = objArr.length;
+            mz9<? super T> mz9Var = this.child;
+            T[] tArr = this.array;
+            int length = tArr.length;
             int i = this.index;
             do {
                 long j2 = 0;
                 while (true) {
                     if (j != 0 && i != length) {
-                        if (dy9Var.isUnsubscribed()) {
+                        if (mz9Var.isUnsubscribed()) {
                             return;
                         }
-                        dy9Var.onNext(objArr[i]);
+                        mz9Var.onNext((Object) tArr[i]);
                         i++;
                         if (i == length) {
-                            if (!dy9Var.isUnsubscribed()) {
-                                dy9Var.onCompleted();
+                            if (!mz9Var.isUnsubscribed()) {
+                                mz9Var.onCompleted();
                                 return;
                             }
                             return;

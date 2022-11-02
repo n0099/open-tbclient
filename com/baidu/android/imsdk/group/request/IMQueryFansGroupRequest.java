@@ -36,7 +36,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mGroupIds;
+    public ArrayList<String> mGroupIds;
     public String mKey;
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -186,7 +186,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMQueryFansGroupRequest(Context context, String str, ArrayList arrayList) {
+    public IMQueryFansGroupRequest(Context context, String str, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,7 +210,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
@@ -256,12 +256,12 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("method=get_group_info");
-            ArrayList arrayList = this.mGroupIds;
+            ArrayList<String> arrayList = this.mGroupIds;
             if (arrayList != null && arrayList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = this.mGroupIds.iterator();
+                Iterator<String> it = this.mGroupIds.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put((String) it.next());
+                    jSONArray.put(it.next());
                 }
                 sb.append("&group_ids=");
                 sb.append(jSONArray.toString());

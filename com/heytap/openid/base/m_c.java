@@ -13,6 +13,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
@@ -24,24 +25,36 @@ import com.heytap.openid.sdk.m_h;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+@Keep
 /* loaded from: classes7.dex */
 public class m_c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public volatile IInterface m_a;
+    @Keep
     public String m_b;
+    @Keep
     public String m_c;
+    @Keep
     public final Object m_d;
+    @Keep
     public ServiceConnection m_e;
+    @Keep
     public Handler m_f;
+    @Keep
     public HandlerThread m_g;
+    @Keep
     public Context m_h;
+    @Keep
     public IBinder.DeathRecipient m_i;
 
+    @Keep
     /* loaded from: classes7.dex */
     public class m_a implements IBinder.DeathRecipient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Keep
         public final /* synthetic */ m_c m_a;
 
         public m_a(m_c m_cVar) {
@@ -63,13 +76,16 @@ public class m_c {
         }
 
         @Override // android.os.IBinder.DeathRecipient
+        @Keep
         public native void binderDied();
     }
 
+    @Keep
     /* loaded from: classes7.dex */
     public class m_b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Keep
         public final /* synthetic */ m_c m_a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,6 +110,7 @@ public class m_c {
         }
 
         @Override // android.os.Handler
+        @Keep
         public native void handleMessage(Message message);
     }
 
@@ -119,18 +136,18 @@ public class m_c {
         m_b();
     }
 
+    @Keep
     public native Intent m_a();
 
+    @Keep
     public native void m_a(Context context, String str, String str2);
 
-    public synchronized void m_a(Context context, List list, boolean z) {
+    public synchronized void m_a(Context context, List<String> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, list, z) == null) {
             synchronized (this) {
                 ArrayList arrayList = new ArrayList();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    String str = (String) it.next();
+                for (String str : list) {
                     if (!(z ? m_b(str) : m_a(str))) {
                         arrayList.add(str);
                     }
@@ -176,9 +193,9 @@ public class m_c {
                     this.m_c = com.heytap.openid.sdk.m_a.m_a(context, this.m_b, "SHA1");
                 }
                 this.m_f.removeMessages(2);
-                Iterator it2 = arrayList.iterator();
-                while (it2.hasNext()) {
-                    String str2 = (String) it2.next();
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    String str2 = (String) it.next();
                     synchronized (this.m_d) {
                         m_h.m_a(str2 + " 2023");
                         Message obtainMessage = this.m_f.obtainMessage();
@@ -211,11 +228,15 @@ public class m_c {
         }
     }
 
+    @Keep
     public native boolean m_a(String str);
 
+    @Keep
     public final native void m_b();
 
+    @Keep
     public native boolean m_b(String str);
 
+    @Keep
     public native String m_c(String str);
 }

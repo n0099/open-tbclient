@@ -18,6 +18,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -70,11 +75,11 @@ public class SlidingPaneLayout extends ViewGroup {
 
     /* loaded from: classes.dex */
     public interface PanelSlideListener {
-        void onPanelClosed(View view2);
+        void onPanelClosed(@NonNull View view2);
 
-        void onPanelOpened(View view2);
+        void onPanelOpened(@NonNull View view2);
 
-        void onPanelSlide(View view2, float f);
+        void onPanelSlide(@NonNull View view2, float f);
     }
 
     /* loaded from: classes.dex */
@@ -433,7 +438,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(Context context, AttributeSet attributeSet) {
+        public LayoutParams(@NonNull Context context, @Nullable AttributeSet attributeSet) {
             super(context, attributeSet);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -458,7 +463,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
+        public LayoutParams(@NonNull ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -479,7 +484,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.MarginLayoutParams marginLayoutParams) {
+        public LayoutParams(@NonNull ViewGroup.MarginLayoutParams marginLayoutParams) {
             super(marginLayoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -500,7 +505,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(LayoutParams layoutParams) {
+        public LayoutParams(@NonNull LayoutParams layoutParams) {
             super((ViewGroup.MarginLayoutParams) layoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -696,7 +701,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SlidingPaneLayout(Context context) {
+    public SlidingPaneLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -733,7 +738,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SlidingPaneLayout(Context context, AttributeSet attributeSet) {
+    public SlidingPaneLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -754,7 +759,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SlidingPaneLayout(Context context, AttributeSet attributeSet, int i) {
+    public SlidingPaneLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1116,6 +1121,7 @@ public class SlidingPaneLayout extends ViewGroup {
         return (ViewGroup.LayoutParams) invokeV.objValue;
     }
 
+    @ColorInt
     public int getCoveredFadeColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1125,6 +1131,7 @@ public class SlidingPaneLayout extends ViewGroup {
         return invokeV.intValue;
     }
 
+    @Px
     public int getParallaxDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1134,6 +1141,7 @@ public class SlidingPaneLayout extends ViewGroup {
         return invokeV.intValue;
     }
 
+    @ColorInt
     public int getSliderFadeColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1343,21 +1351,21 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    public void setCoveredFadeColor(int i) {
+    public void setCoveredFadeColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
             this.mCoveredFadeColor = i;
         }
     }
 
-    public void setPanelSlideListener(PanelSlideListener panelSlideListener) {
+    public void setPanelSlideListener(@Nullable PanelSlideListener panelSlideListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, panelSlideListener) == null) {
             this.mPanelSlideListener = panelSlideListener;
         }
     }
 
-    public void setParallaxDistance(int i) {
+    public void setParallaxDistance(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
             this.mParallaxBy = i;
@@ -1373,14 +1381,14 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    public void setShadowDrawableLeft(Drawable drawable) {
+    public void setShadowDrawableLeft(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, drawable) == null) {
             this.mShadowDrawableLeft = drawable;
         }
     }
 
-    public void setShadowDrawableRight(Drawable drawable) {
+    public void setShadowDrawableRight(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, drawable) == null) {
             this.mShadowDrawableRight = drawable;
@@ -1388,7 +1396,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     @Deprecated
-    public void setShadowResource(int i) {
+    public void setShadowResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
             setShadowDrawable(getResources().getDrawable(i));
@@ -1409,7 +1417,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    public void setSliderFadeColor(int i) {
+    public void setSliderFadeColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
             this.mSliderFadeColor = i;

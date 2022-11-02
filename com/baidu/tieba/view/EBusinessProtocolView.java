@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,8 +21,8 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.uy4;
+import com.baidu.tieba.kz4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +58,7 @@ public class EBusinessProtocolView extends Dialog {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class WindowType {
+    public static final class WindowType {
         public static final /* synthetic */ WindowType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final WindowType PROTOCOL;
@@ -267,7 +268,7 @@ public class EBusinessProtocolView extends Dialog {
     }
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class e {
+    public static /* synthetic */ class e {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -299,7 +300,7 @@ public class EBusinessProtocolView extends Dialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EBusinessProtocolView(Context context, WindowType windowType) {
+    public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
         super(context, R.style.obfuscated_res_0x7f1003b3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -326,7 +327,7 @@ public class EBusinessProtocolView extends Dialog {
         attributes.width = -1;
         attributes.height = -2;
         getWindow().setAttributes(attributes);
-        this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d023e, (ViewGroup) null);
+        this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0240, (ViewGroup) null);
     }
 
     public void i(String str) {
@@ -374,12 +375,12 @@ public class EBusinessProtocolView extends Dialog {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad6);
-            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad1);
-            this.f = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09015f);
-            this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f0904a8);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921e5);
-            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0921f5);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b1a);
+            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f091b15);
+            this.f = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090167);
+            this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f0904b5);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092238);
+            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092248);
             h();
             f();
         }
@@ -397,17 +398,17 @@ public class EBusinessProtocolView extends Dialog {
                     this.f.setVisibility(0);
                     this.e.setVisibility(0);
                     this.d.loadUrl(this.l);
-                    uy4 uy4Var = new uy4();
-                    uy4Var.p(R.color.CAM_X0107);
-                    this.e.setConfig(uy4Var);
+                    kz4 kz4Var = new kz4();
+                    kz4Var.p(R.color.CAM_X0107);
+                    this.e.setConfig(kz4Var);
                     this.e.setTextSize(R.dimen.tbds42);
-                    this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f61));
+                    this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f79));
                     this.f.setTextSize(R.dimen.tbds42);
-                    uy4 uy4Var2 = new uy4();
-                    uy4Var2.p(R.color.CAM_X0302);
-                    this.f.setConfig(uy4Var2);
+                    kz4 kz4Var2 = new kz4();
+                    kz4Var2.p(R.color.CAM_X0302);
+                    this.f.setConfig(kz4Var2);
                     this.f.setTextSize(R.dimen.tbds42);
-                    this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f60));
+                    this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f78));
                     return;
                 }
                 return;
@@ -416,11 +417,11 @@ public class EBusinessProtocolView extends Dialog {
             this.h.setVisibility(0);
             setCanceledOnTouchOutside(true);
             this.g.setText(this.k);
-            this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1446));
-            uy4 uy4Var3 = new uy4();
-            uy4Var3.p(R.color.CAM_X0302);
+            this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1464));
+            kz4 kz4Var3 = new kz4();
+            kz4Var3.p(R.color.CAM_X0302);
             this.h.setTextSize(R.dimen.T_X08);
-            this.h.setConfig(uy4Var3);
+            this.h.setConfig(kz4Var3);
         }
     }
 
@@ -454,8 +455,8 @@ public class EBusinessProtocolView extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - fj.f(this.a, R.dimen.tbds90);
-            layoutParams.height = fj.f(this.a, R.dimen.tbds879);
+            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - xi.g(this.a, R.dimen.tbds90);
+            layoutParams.height = xi.g(this.a, R.dimen.tbds879);
             setContentView(this.b, layoutParams);
             setCanceledOnTouchOutside(true);
             g();

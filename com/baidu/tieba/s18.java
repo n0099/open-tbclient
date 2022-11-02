@@ -1,178 +1,270 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class s18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final o48 a;
+    public final HttpMessageListener b;
+    public final HttpMessageListener c;
 
     /* loaded from: classes5.dex */
-    public final class a implements qk5 {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ yz7 b;
+        public final /* synthetic */ s18 a;
 
-        public a(PbModel pbModel, yz7 yz7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(s18 s18Var, int i, boolean z) {
+            super(i, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, yz7Var};
+                Object[] objArr = {s18Var, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = yz7Var;
+            this.a = s18Var;
         }
 
-        @Override // com.baidu.tieba.qk5
-        public void a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.q4(false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.e(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             }
         }
+    }
 
-        @Override // com.baidu.tieba.qk5
-        public void b(List list) {
+    /* loaded from: classes5.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s18 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(s18 s18Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.S1() == null) {
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s18Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s18Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.e(httpResponsedMessage, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+            }
+        }
+    }
+
+    public s18(o48 o48Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {o48Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList G = this.a.S1().G();
-            if (!ListUtils.isEmpty(G) && !ListUtils.isEmpty(list)) {
-                Iterator it = G.iterator();
-                while (it.hasNext()) {
-                    PostData postData = (PostData) it.next();
-                    int i = 0;
-                    while (true) {
-                        if (i >= list.size()) {
-                            break;
-                        } else if (TextUtils.equals((CharSequence) list.get(i), postData.M())) {
-                            it.remove();
-                            if (this.a.S1().P() != null) {
-                                this.a.S1().P().setReply_num(this.a.S1().P().getReply_num() - 1);
-                            }
-                        } else {
-                            i++;
-                        }
-                    }
+        }
+        this.b = new a(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
+        this.c = new b(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+        if (o48Var != null) {
+            this.a = o48Var;
+            f();
+            return;
+        }
+        throw new NullPointerException("PbActivity is NullPointerException");
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0071  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0095  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00b1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(AgreeData agreeData) {
+        pd5 currentVisiblePageExtra;
+        BaijiahaoData baijiahaoData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, agreeData) != null) || agreeData == null) {
+            return;
+        }
+        int i = 1;
+        if (agreeData.hasAgree) {
+            if (agreeData.agreeType == 2) {
+                agreeData.agreeType = 2;
+                agreeData.hasAgree = false;
+                agreeData.agreeNum--;
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+                httpMessage.addParam("thread_id", agreeData.threadId);
+                httpMessage.addParam("op_type", i);
+                if (agreeData.objType == 0) {
+                    agreeData.objType = 3;
                 }
-                this.b.G1(this.a.S1());
+                httpMessage.addParam("obj_type", agreeData.objType);
+                httpMessage.addParam("agree_type", agreeData.agreeType);
+                httpMessage.addParam("forum_id", agreeData.forumId);
+                currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.P());
+                if (currentVisiblePageExtra != null) {
+                    httpMessage.addParam("obj_source", currentVisiblePageExtra.a());
+                }
+                if (!TextUtils.isEmpty(agreeData.postId)) {
+                    httpMessage.addParam("post_id", agreeData.postId);
+                }
+                baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                    httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                    httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                    httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+                }
+                httpMessage.setTag(c());
+                httpMessage.setExtra(Integer.valueOf(i));
+                httpMessage.addHeader("needSig", "1");
+                MessageManager.getInstance().sendMessage(httpMessage);
             }
+            agreeData.agreeType = 2;
+            agreeData.hasAgree = true;
+            agreeData.agreeNum++;
+            ye8.g().l(this.a.getPageContext());
+        } else {
+            agreeData.agreeType = 2;
+            agreeData.hasAgree = true;
+            agreeData.agreeNum++;
+            ye8.g().l(this.a.getPageContext());
         }
+        i = 0;
+        HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+        httpMessage2.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+        httpMessage2.addParam("thread_id", agreeData.threadId);
+        httpMessage2.addParam("op_type", i);
+        if (agreeData.objType == 0) {
+        }
+        httpMessage2.addParam("obj_type", agreeData.objType);
+        httpMessage2.addParam("agree_type", agreeData.agreeType);
+        httpMessage2.addParam("forum_id", agreeData.forumId);
+        currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.P());
+        if (currentVisiblePageExtra != null) {
+        }
+        if (!TextUtils.isEmpty(agreeData.postId)) {
+        }
+        baijiahaoData = agreeData.baijiahaoData;
+        if (baijiahaoData != null) {
+        }
+        httpMessage2.setTag(c());
+        httpMessage2.setExtra(Integer.valueOf(i));
+        httpMessage2.addHeader("needSig", "1");
+        MessageManager.getInstance().sendMessage(httpMessage2);
     }
 
-    public static void a() {
+    public BdUniqueId c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            pk5.b().a();
-        }
-    }
-
-    public static sk5 b(PbModel pbModel, yz7 yz7Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, yz7Var)) == null) {
-            if (pbModel != null && yz7Var != null) {
-                sk5 sk5Var = new sk5();
-                if (pbModel.S1() != null && pbModel.S1().l() != null) {
-                    if (pbModel.S1().l().getDeletedReasonInfo() != null) {
-                        sk5Var.p(pbModel.S1().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                        sk5Var.o(pbModel.S1().l().getDeletedReasonInfo().is_boomgrow.intValue());
-                    }
-                    sk5Var.l(pbModel.S1().l().getId());
-                    sk5Var.m(pbModel.S1().l().getName());
-                    sk5Var.k(pbModel.S1().l().getImage_url());
-                    sk5Var.t(pbModel.S1().l().getUser_level());
-                }
-                if (pbModel.S1() != null && pbModel.S1().o() != null) {
-                    sk5Var.n(pbModel.S1().o().has_forum_rule.intValue());
-                }
-                if (pbModel.S1() != null && pbModel.S1().W() != null) {
-                    sk5Var.s(pbModel.S1().W());
-                }
-                sk5Var.q(new a(pbModel, yz7Var));
-                if (pbModel.S1() != null) {
-                    AntiData d = pbModel.S1().d();
-                    SparseArray sparseArray = new SparseArray();
-                    if (d != null && d.getDelThreadInfoList() != null) {
-                        List<DeleteThreadInfo> delThreadInfoList = d.getDelThreadInfoList();
-                        for (int i = 0; i < delThreadInfoList.size(); i++) {
-                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                            }
-                        }
-                    }
-                    sk5Var.r(sparseArray);
-                }
-                return sk5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbPageContext pageContext = this.a.getPageContext();
+            if (pageContext != null) {
+                return pageContext.getUniqueId();
             }
             return null;
         }
-        return (sk5) invokeLL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static boolean c(uv7 uv7Var, PostData postData) {
-        InterceptResult invokeLL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, uv7Var, postData)) == null) {
-            if (uv7Var != null && postData != null) {
-                uk5 uk5Var = new uk5();
-                uk5Var.d(postData.I() + "");
-                if (uv7Var.P() != null) {
-                    uk5Var.f(uv7Var.P().getId());
-                }
-                uk5Var.e(postData.M());
-                return pk5.b().c(uk5Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g();
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            o48 o48Var = this.a;
+            if (o48Var != null) {
+                o48Var.registerListener(this.b);
+                this.a.registerListener(this.c);
+                return true;
             }
-            return false;
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d(TbPageContext tbPageContext, PbModel pbModel, yz7 yz7Var) {
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, pbModel, yz7Var) == null) && tbPageContext != null && pbModel != null && yz7Var != null) {
-            pk5.b().e(tbPageContext, (ViewGroup) yz7Var.n1(), b(pbModel, yz7Var));
-            pk5.b().d(1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterListener(this.c);
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public static boolean e(PostData postData) {
-        InterceptResult invokeL;
+    public final void e(HttpResponsedMessage httpResponsedMessage, int i) {
+        PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, postData)) == null) {
-            if (postData == null) {
-                return false;
-            }
-            return pk5.b().f(postData.M());
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, httpResponsedMessage, i) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.a != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
+            CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
+            activityDialogData.type = 0;
+            iy7.a(this.a.getPageContext(), activityDialogData).show();
         }
-        return invokeL.booleanValue;
     }
 }

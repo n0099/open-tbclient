@@ -1,12 +1,21 @@
 package com.baidu.mapsdkplatform.comapi.util;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.content.pm.SigningInfo;
 import android.os.Build;
-import android.os.Environment;
-import android.os.storage.StorageManager;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.IStringUtil;
+import com.baidu.lbsapi.auth.LBSAuthManager;
+import com.baidu.mapapi.VersionInfo;
+import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.platform.comapi.util.JsonBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,37 +23,70 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.io.File;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import com.fun.ad.sdk.FunAdSdk;
+import com.kuaishou.weapon.p0.u;
+import com.tencent.open.SocialOperation;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes2.dex */
-public final class h {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile h a;
+public class h {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Map<String, String> A = null;
+    public static String B = null;
+    public static Context a = null;
+    public static float b = 0.0f;
+    public static String c = null;
+    public static final String d = "h";
+    public static com.baidu.mapsdkplatform.comjni.util.a e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
+    public static int k;
+    public static int l;
+    public static int m;
+    public static int n;
+    public static int o;
+    public static int p;
+    public static String q;
+    public static String r;
+    public static String s;
+    public static String t;
+    public static String u;
+    public static String v;
+    public static String w;
+    public static String x;
+    public static String y;
+    public static String z;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public boolean c;
-    public final List d;
-    public g e;
-    public String f;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(42760346, "Lcom/baidu/mapsdkplatform/comapi/util/h;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(42760346, "Lcom/baidu/mapsdkplatform/comapi/util/h;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(42760346, "Lcom/baidu/mapsdkplatform/comapi/util/h;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(42760346, "Lcom/baidu/mapsdkplatform/comapi/util/h;");
-        }
+        e = new com.baidu.mapsdkplatform.comjni.util.a();
+        f = "02";
+        r = "baidu";
+        s = "";
+        t = "";
+        u = "";
+        x = "-1";
+        y = "-1";
+        b = 1.0f;
+        z = "";
+        A = new HashMap();
+        B = "";
     }
 
     public h() {
@@ -52,330 +94,387 @@ public final class h {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = false;
-        this.c = true;
-        this.d = new ArrayList();
-        this.e = null;
     }
 
-    public static h a() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            c = null;
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            f();
+        }
+    }
+
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (h.class) {
-                    if (a == null) {
-                        a = new h();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return B;
         }
-        return (h) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    private boolean a(String str) {
+    public static void f() {
+        com.baidu.mapsdkplatform.comjni.util.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && (aVar = e) != null) {
+            aVar.b();
+        }
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return q;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return l;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            return j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            return m;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            return i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            return p;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            return r;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            return g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            return v;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String r() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
+            try {
+                str = LBSAuthManager.getInstance(a).getCUID();
+            } catch (Exception unused) {
+                str = "";
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
+            q = "0";
+        }
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            q = str;
+            h();
+        }
+    }
+
+    public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+            a = context;
+        }
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            x = str2;
+            y = str;
+            h();
+        }
+    }
+
+    public static byte[] a(Context context) {
         InterceptResult invokeL;
+        Signature[] signatureArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            boolean z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
-                File file = new File(str + "/test.0");
-                if (file.exists()) {
-                    file.delete();
-                }
-                z = file.createNewFile();
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    private void c(Context context) {
-        boolean z;
-        Object[] objArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            try {
-                StorageManager storageManager = (StorageManager) context.getSystemService("storage");
-                Method method = storageManager.getClass().getMethod("getVolumeList", new Class[0]);
-                int i = 1;
-                Method method2 = storageManager.getClass().getMethod("getVolumeState", String.class);
-                Class<?> cls = Class.forName("android.os.storage.StorageVolume");
-                Method method3 = cls.getMethod("isRemovable", new Class[0]);
-                Method method4 = cls.getMethod("getPath", new Class[0]);
-                Object[] objArr2 = (Object[]) method.invoke(storageManager, new Object[0]);
-                if (objArr2 != null) {
-                    int length = objArr2.length;
-                    int i2 = 0;
-                    while (true) {
-                        if (i2 >= length) {
-                            break;
-                        }
-                        Object obj = objArr2[i2];
-                        String str = (String) method4.invoke(obj, new Object[0]);
-                        if (str == null || str.length() <= 0) {
-                            objArr = objArr2;
-                        } else {
-                            objArr = objArr2;
-                            Object[] objArr3 = new Object[i];
-                            objArr3[0] = str;
-                            if ("mounted".equals(method2.invoke(storageManager, objArr3))) {
-                                boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
-                                if (Build.VERSION.SDK_INT <= 19 && a(str)) {
-                                    this.d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
-                                } else if (Build.VERSION.SDK_INT >= 19) {
-                                    if (new File(str + File.separator + "BaiduMapSDKNew").exists() && str.equals(context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", ""))) {
-                                        this.f = str + File.separator + "BaiduMapSDKNew";
-                                    }
-                                }
-                            }
-                        }
-                        i2++;
-                        objArr2 = objArr;
-                        i = 1;
+                if (Build.VERSION.SDK_INT >= 28) {
+                    SigningInfo signingInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 134217728).signingInfo;
+                    if (signingInfo == null) {
+                        return null;
                     }
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        File[] externalFilesDirs = context.getExternalFilesDirs(null);
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.addAll(this.d);
-                        for (int i3 = 0; i3 < externalFilesDirs.length && externalFilesDirs[i3] != null; i3++) {
-                            String absolutePath = externalFilesDirs[i3].getAbsolutePath();
-                            Iterator it = this.d.iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    if (absolutePath.startsWith(((g) it.next()).a())) {
-                                        z = true;
-                                        break;
-                                    }
-                                } else {
-                                    z = false;
-                                    break;
-                                }
-                            }
-                            String str2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
-                            if (str2 != null && !z && absolutePath.indexOf(str2) != -1) {
-                                arrayList.add(new g(absolutePath, true, "外置存储卡", context));
-                            }
-                        }
-                        this.d.clear();
-                        this.d.addAll(arrayList);
+                    if (signingInfo.hasMultipleSigners()) {
+                        signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 134217728).signingInfo.getApkContentsSigners();
+                    } else {
+                        signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 134217728).signingInfo.getSigningCertificateHistory();
                     }
+                } else {
+                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void d(Context context) {
-        Scanner scanner;
-        String[] split;
-        String[] split2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65541, this, context) != null) {
-            return;
-        }
-        ArrayList<String> arrayList = new ArrayList();
-        ArrayList arrayList2 = new ArrayList();
-        Scanner scanner2 = null;
-        try {
-            try {
-                File file = new File("/proc/mounts");
-                if (file.exists()) {
-                    scanner = new Scanner(file);
-                    while (scanner.hasNext()) {
-                        try {
-                            String nextLine = scanner.nextLine();
-                            if (nextLine.startsWith("/dev/block/vold/") && (split2 = nextLine.replace('\t', WebvttCueParser.CHAR_SPACE).split(" ")) != null && split2.length > 0) {
-                                arrayList.add(split2[1]);
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            scanner2 = scanner;
-                            e.printStackTrace();
-                            if (scanner2 != null) {
-                                scanner2.close();
-                                return;
-                            }
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            scanner2 = scanner;
-                            if (scanner2 != null) {
-                                scanner2.close();
-                            }
-                            throw th;
-                        }
-                    }
-                    scanner.close();
-                }
-                File file2 = new File("/system/etc/vold.fstab");
-                if (file2.exists()) {
-                    scanner = new Scanner(file2);
-                    while (scanner.hasNext()) {
-                        String nextLine2 = scanner.nextLine();
-                        if (nextLine2.startsWith("dev_mount") && (split = nextLine2.replace('\t', WebvttCueParser.CHAR_SPACE).split(" ")) != null && split.length > 0) {
-                            String str = split[2];
-                            if (str.contains(":")) {
-                                str = str.substring(0, str.indexOf(":"));
-                            }
-                            arrayList2.add(str);
-                        }
-                    }
-                    scanner.close();
-                }
-                String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                this.d.add(new g(absolutePath, false, "Auto", context));
-                for (String str2 : arrayList) {
-                    if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
-                        File file3 = new File(str2);
-                        if (file3.exists() && file3.isDirectory() && file3.canWrite()) {
-                            this.d.add(new g(str2, false, "Auto", context));
-                        }
-                    }
+                if (signatureArr != null && signatureArr.length > 0) {
+                    return signatureArr[0].toByteArray();
                 }
             } catch (Exception e2) {
-                e = e2;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0086 A[Catch: Exception -> 0x0091, TRY_LEAVE, TryCatch #2 {Exception -> 0x0091, blocks: (B:16:0x001f, B:18:0x0027, B:19:0x002f, B:21:0x0035, B:23:0x004a, B:25:0x0050, B:27:0x0058, B:28:0x005e, B:30:0x0064, B:32:0x0070, B:38:0x0082, B:40:0x0086, B:34:0x0075, B:37:0x007c), top: B:69:0x001f }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.b) {
-            return;
-        }
-        this.b = true;
-        try {
-            if (Build.VERSION.SDK_INT >= 14) {
-                c(context);
-            } else {
-                d(context);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        if (this.d.size() > 0) {
-            r2 = null;
-            int i = 0;
-            for (g gVar : this.d) {
-                if (new File(gVar.b()).exists()) {
-                    i++;
-                    r2 = gVar;
-                }
-            }
-            if (i == 0) {
-                g b = b(context);
-                this.e = b;
-                if (b == null) {
-                    for (g gVar2 : this.d) {
-                        if (a(context, gVar2)) {
-                            this.e = gVar2;
-                            break;
-                        }
-                    }
-                }
-                if (this.e == null) {
-                    this.e = (g) this.d.get(0);
-                }
-            } else {
-                if (i != 1) {
-                    this.e = b(context);
-                } else if (a(context, gVar2)) {
-                    this.e = gVar2;
-                    break;
-                }
-                if (this.e == null) {
-                }
-            }
-            e2.printStackTrace();
-        }
-        try {
-            if (this.e == null || !a(this.e.a())) {
-                this.c = false;
-                this.e = new g(context);
-                this.d.clear();
-                this.d.add(this.e);
-                return;
-            }
-            File file = new File(this.e.b());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(this.e.c());
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-            File file3 = new File(file2, ".nomedia");
-            if (file3.exists()) {
-                return;
-            }
-            file3.createNewFile();
-        } catch (Exception e3) {
-            e3.printStackTrace();
-        }
-    }
-
-    public boolean a(Context context, g gVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, gVar)) == null) {
-            String a2 = gVar.a();
-            if (a(a2)) {
-                SharedPreferences.Editor edit = context.getSharedPreferences("map_pref", 0).edit();
-                edit.putString("PREFFERED_SD_CARD", a2);
-                return edit.commit();
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public g b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (g) invokeV.objValue;
-    }
-
-    public g b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            String string = context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", "");
-            if (string == null || string.length() <= 0) {
-                return null;
-            }
-            for (g gVar : this.d) {
-                if (gVar.a().equals(string)) {
-                    return gVar;
-                }
+                e2.printStackTrace();
             }
             return null;
         }
-        return (g) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            JsonBuilder jsonBuilder = new JsonBuilder();
+            jsonBuilder.object();
+            jsonBuilder.putStringValue("cpu", s);
+            jsonBuilder.putStringValue("resid", f);
+            jsonBuilder.putStringValue("channel", r);
+            jsonBuilder.putStringValue("glr", t);
+            jsonBuilder.putStringValue("glv", u);
+            jsonBuilder.putStringValue(FunAdSdk.PLATFORM_MB, i());
+            jsonBuilder.putStringValue("sv", k());
+            jsonBuilder.putStringValue("os", m());
+            jsonBuilder.key("dpi_x").value(n());
+            jsonBuilder.key("dpi_y").value(n());
+            jsonBuilder.putStringValue("net", q);
+            jsonBuilder.putStringValue("cuid", z);
+            jsonBuilder.key(SocialOperation.GAME_SIGNATURE).arrayValue();
+            byte[] a2 = a(a);
+            if (a2 != null) {
+                for (byte b2 : a2) {
+                    jsonBuilder.value((int) b2);
+                }
+            }
+            jsonBuilder.endArrayValue();
+            jsonBuilder.putStringValue(u.w, a.getPackageName());
+            jsonBuilder.key("screen_x").value(j());
+            jsonBuilder.key("screen_y").value(l());
+            jsonBuilder.endObject();
+            String json = jsonBuilder.getJson();
+            B = json;
+            return json;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            A.put("net", AppMD5.encodeUrlParamsValue(g()));
+            A.put("appid", AppMD5.encodeUrlParamsValue(x));
+            A.put("bduid", "");
+            JsonBuilder jsonBuilder = new JsonBuilder();
+            jsonBuilder.object();
+            jsonBuilder.putStringValue("cpu", s);
+            jsonBuilder.putStringValue("resid", f);
+            jsonBuilder.putStringValue("channel", r);
+            jsonBuilder.putStringValue("glr", t);
+            jsonBuilder.putStringValue("glv", u);
+            jsonBuilder.putStringValue(FunAdSdk.PLATFORM_MB, i());
+            jsonBuilder.putStringValue("sv", k());
+            jsonBuilder.putStringValue("os", m());
+            jsonBuilder.key("dpi_x").value(n());
+            jsonBuilder.key("dpi_y").value(n());
+            jsonBuilder.putStringValue("net", q);
+            jsonBuilder.putStringValue("cuid", z);
+            jsonBuilder.putStringValue(u.w, a.getPackageName());
+            jsonBuilder.key("screen_x").value(j());
+            jsonBuilder.key("screen_y").value(l());
+            jsonBuilder.putStringValue("appid", x);
+            jsonBuilder.putStringValue("duid", y);
+            if (!TextUtils.isEmpty(c)) {
+                jsonBuilder.putStringValue("token", c);
+            }
+            jsonBuilder.endObject();
+            SysUpdateObservable.getInstance().updatePhoneInfo(jsonBuilder.getJson());
+        }
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            a = context;
+            if (context.getFilesDir() != null) {
+                v = context.getFilesDir().getAbsolutePath();
+            }
+            if (context.getCacheDir() != null) {
+                w = context.getCacheDir().getAbsolutePath();
+            }
+            if (com.baidu.mapsdkplatform.comapi.c.b()) {
+                i = "Android" + Build.VERSION.SDK;
+                h = Build.MODEL;
+            } else {
+                i = "Android";
+                h = "";
+            }
+            g = context.getPackageName();
+            d(context);
+            e(context);
+            s();
+            z = r();
+            A.put("resid", AppMD5.encodeUrlParamsValue(f));
+            A.put("channel", AppMD5.encodeUrlParamsValue(o()));
+            A.put(FunAdSdk.PLATFORM_MB, AppMD5.encodeUrlParamsValue(i()));
+            A.put("sv", AppMD5.encodeUrlParamsValue(k()));
+            A.put("os", AppMD5.encodeUrlParamsValue(m()));
+            A.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(n()), Integer.valueOf(n()))));
+            A.put("cuid", AppMD5.encodeUrlParamsValue(z));
+            A.put(u.w, AppMD5.encodeUrlParamsValue(a.getPackageName()));
+            A.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(j()), Integer.valueOf(l()))));
+            com.baidu.mapsdkplatform.comjni.util.a aVar = e;
+            if (aVar != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    public static void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                String apiVersion = VersionInfo.getApiVersion();
+                j = apiVersion;
+                if (apiVersion != null && !apiVersion.equals("")) {
+                    j = j.replace('_', IStringUtil.EXTENSION_SEPARATOR);
+                }
+                k = packageInfo.versionCode;
+            } catch (PackageManager.NameNotFoundException unused) {
+                j = "1.0.0";
+                k = 1;
+            }
+        }
+    }
+
+    public static void e(Context context) {
+        Display display;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
+            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (windowManager != null) {
+                display = windowManager.getDefaultDisplay();
+            } else {
+                display = null;
+            }
+            if (display != null) {
+                l = display.getWidth();
+                m = display.getHeight();
+                display.getMetrics(displayMetrics);
+            }
+            b = displayMetrics.density;
+            n = (int) displayMetrics.xdpi;
+            o = (int) displayMetrics.ydpi;
+            int i2 = displayMetrics.densityDpi;
+            p = i2;
+            if (i2 == 0) {
+                p = 160;
+            }
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (A == null) {
+                return null;
+            }
+            Date date = new Date();
+            long time = date.getTime() + (date.getSeconds() * 1000);
+            A.put("ctm", AppMD5.encodeUrlParamsValue(String.format("%f", Double.valueOf((time / 1000) + ((time % 1000) / 1000.0d)))));
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, String> entry : A.entrySet()) {
+                sb.append("&");
+                sb.append(entry.getKey());
+                sb.append("=");
+                sb.append(entry.getValue());
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.logging.FLog;
+import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
@@ -20,13 +21,13 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class Fresco {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public static DraweeControllerBuilderSupplierFactory mFactory;
     public static volatile boolean sIsInitialized;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class DraweeControllerBuilderSupplierFactory implements Supplier {
+    public static class DraweeControllerBuilderSupplierFactory implements Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
@@ -54,8 +55,10 @@ public class Fresco {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Return type fixed from 'com.facebook.common.internal.Supplier<com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder>' to match base method */
         @Override // com.facebook.common.internal.Supplier
-        public Supplier get() {
+        /* renamed from: get */
+        public Supplier<? extends AbstractDraweeControllerBuilder> get2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -106,7 +109,7 @@ public class Fresco {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (PipelineDraweeControllerBuilderSupplier) mFactory.get();
+            return (PipelineDraweeControllerBuilderSupplier) mFactory.get2();
         }
         return (PipelineDraweeControllerBuilderSupplier) invokeV.objValue;
     }
@@ -142,7 +145,7 @@ public class Fresco {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return (PipelineDraweeControllerBuilder) mFactory.get().get();
+            return (PipelineDraweeControllerBuilder) mFactory.get2().get();
         }
         return (PipelineDraweeControllerBuilder) invokeV.objValue;
     }

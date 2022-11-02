@@ -56,7 +56,7 @@ public final class Http1Codec implements HttpCodec {
 
     /* renamed from: okhttp3.internal.http1.Http1Codec$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }

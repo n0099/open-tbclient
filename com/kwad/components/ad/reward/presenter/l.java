@@ -1,5 +1,6 @@
 package com.kwad.components.ad.reward.presenter;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +57,7 @@ public final class l extends a {
             }
 
             @Override // com.kwad.components.ad.reward.d.g, com.kwad.components.ad.reward.d.f
-            public final void a(PlayableSource playableSource, com.kwad.components.ad.reward.d.j jVar) {
+            public final void a(PlayableSource playableSource, @Nullable com.kwad.components.ad.reward.d.j jVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, playableSource, jVar) == null) {
                     this.qg.qe = playableSource;
@@ -201,7 +202,7 @@ public final class l extends a {
         }
     }
 
-    public final void e(PlayableSource playableSource) {
+    public final void e(@Nullable PlayableSource playableSource) {
         com.kwad.components.core.playable.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playableSource) == null) || (aVar = this.mk) == null) {
@@ -228,7 +229,7 @@ public final class l extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09112b)).setVisibility(4);
+            ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091165)).setVisibility(4);
         }
     }
 

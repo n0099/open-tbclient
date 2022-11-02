@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class RedPackMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<RedPackMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String mBusiLogo;
     public String mBusiName;
@@ -53,7 +53,7 @@ public class RedPackMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.RedPackMsg.1
+        CREATOR = new Parcelable.Creator<RedPackMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.RedPackMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,6 +72,7 @@ public class RedPackMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RedPackMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -83,6 +84,7 @@ public class RedPackMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RedPackMsg[] newArray(int i) {
                 InterceptResult invokeI;

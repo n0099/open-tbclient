@@ -31,7 +31,7 @@ public class Anchor {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class CloudAnchorState {
+    public static final class CloudAnchorState {
         public static final /* synthetic */ CloudAnchorState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CloudAnchorState ERROR_CLOUD_ID_NOT_FOUND;

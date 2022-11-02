@@ -1,6 +1,7 @@
 package androidx.recyclerview.widget;
 
 import android.animation.LayoutTransition;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -33,6 +34,12 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.OverScroller;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.os.TraceCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.AccessibilityDelegateCompat;
@@ -126,8 +133,10 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     public boolean mDispatchItemsChangedEvent;
     public int mDispatchScrollCounter;
     public int mEatenAccessibilityChangeFlags;
+    @NonNull
     public EdgeEffectFactory mEdgeEffectFactory;
     public boolean mEnableFastScroller;
+    @VisibleForTesting
     public boolean mFirstLayoutComplete;
     public GapWorker mGapWorker;
     public boolean mHasFixedSize;
@@ -145,6 +154,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     public boolean mItemsChanged;
     public int mLastTouchX;
     public int mLastTouchY;
+    @VisibleForTesting
     public LayoutManager mLayout;
     public int mLayoutOrScrollCounter;
     public boolean mLayoutSuppressed;
@@ -158,6 +168,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     public List<OnChildAttachStateChangeListener> mOnChildAttachStateListeners;
     public OnFlingListener mOnFlingListener;
     public final ArrayList<OnItemTouchListener> mOnItemTouchListeners;
+    @VisibleForTesting
     public final List<ViewHolder> mPendingAccessibilityImportanceChange;
     public SavedState mPendingSavedState;
     public boolean mPostedAnimatorRunner;
@@ -194,28 +205,29 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
     /* loaded from: classes.dex */
     public interface OnChildAttachStateChangeListener {
-        void onChildViewAttachedToWindow(View view2);
+        void onChildViewAttachedToWindow(@NonNull View view2);
 
-        void onChildViewDetachedFromWindow(View view2);
+        void onChildViewDetachedFromWindow(@NonNull View view2);
     }
 
     /* loaded from: classes.dex */
     public interface OnItemTouchListener {
-        boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent);
+        boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent);
 
         void onRequestDisallowInterceptTouchEvent(boolean z);
 
-        void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent);
+        void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent);
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Orientation {
     }
 
     /* loaded from: classes.dex */
     public interface RecyclerListener {
-        void onViewRecycled(ViewHolder viewHolder);
+        void onViewRecycled(@NonNull ViewHolder viewHolder);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -225,13 +237,13 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? "androidx.recyclerview.widget.RecyclerView" : (CharSequence) invokeV.objValue;
     }
 
-    public void onChildAttachedToWindow(View view2) {
+    public void onChildAttachedToWindow(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048689, this, view2) == null) {
         }
     }
 
-    public void onChildDetachedFromWindow(View view2) {
+    public void onChildDetachedFromWindow(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048690, this, view2) == null) {
         }
@@ -243,7 +255,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void onScrolled(int i, int i2) {
+    public void onScrolled(@Px int i, @Px int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048704, this, i, i2) == null) {
         }
@@ -277,18 +289,18 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
         /* loaded from: classes.dex */
         public interface ItemAnimatorListener {
-            void onAnimationFinished(ViewHolder viewHolder);
+            void onAnimationFinished(@NonNull ViewHolder viewHolder);
         }
 
-        public abstract boolean animateAppearance(ViewHolder viewHolder, ItemHolderInfo itemHolderInfo, ItemHolderInfo itemHolderInfo2);
+        public abstract boolean animateAppearance(@NonNull ViewHolder viewHolder, @Nullable ItemHolderInfo itemHolderInfo, @NonNull ItemHolderInfo itemHolderInfo2);
 
-        public abstract boolean animateChange(ViewHolder viewHolder, ViewHolder viewHolder2, ItemHolderInfo itemHolderInfo, ItemHolderInfo itemHolderInfo2);
+        public abstract boolean animateChange(@NonNull ViewHolder viewHolder, @NonNull ViewHolder viewHolder2, @NonNull ItemHolderInfo itemHolderInfo, @NonNull ItemHolderInfo itemHolderInfo2);
 
-        public abstract boolean animateDisappearance(ViewHolder viewHolder, ItemHolderInfo itemHolderInfo, ItemHolderInfo itemHolderInfo2);
+        public abstract boolean animateDisappearance(@NonNull ViewHolder viewHolder, @NonNull ItemHolderInfo itemHolderInfo, @Nullable ItemHolderInfo itemHolderInfo2);
 
-        public abstract boolean animatePersistence(ViewHolder viewHolder, ItemHolderInfo itemHolderInfo, ItemHolderInfo itemHolderInfo2);
+        public abstract boolean animatePersistence(@NonNull ViewHolder viewHolder, @NonNull ItemHolderInfo itemHolderInfo, @NonNull ItemHolderInfo itemHolderInfo2);
 
-        public boolean canReuseUpdatedViewHolder(ViewHolder viewHolder) {
+        public boolean canReuseUpdatedViewHolder(@NonNull ViewHolder viewHolder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewHolder)) == null) {
@@ -297,19 +309,19 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.booleanValue;
         }
 
-        public abstract void endAnimation(ViewHolder viewHolder);
+        public abstract void endAnimation(@NonNull ViewHolder viewHolder);
 
         public abstract void endAnimations();
 
         public abstract boolean isRunning();
 
-        public void onAnimationFinished(ViewHolder viewHolder) {
+        public void onAnimationFinished(@NonNull ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, viewHolder) == null) {
             }
         }
 
-        public void onAnimationStarted(ViewHolder viewHolder) {
+        public void onAnimationStarted(@NonNull ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, viewHolder) == null) {
             }
@@ -341,7 +353,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 }
             }
 
-            public ItemHolderInfo setFrom(ViewHolder viewHolder) {
+            @NonNull
+            public ItemHolderInfo setFrom(@NonNull ViewHolder viewHolder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewHolder)) == null) {
@@ -350,7 +363,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 return (ItemHolderInfo) invokeL.objValue;
             }
 
-            public ItemHolderInfo setFrom(ViewHolder viewHolder, int i) {
+            @NonNull
+            public ItemHolderInfo setFrom(@NonNull ViewHolder viewHolder, int i) {
                 InterceptResult invokeLI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder, i)) == null) {
@@ -407,7 +421,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public boolean canReuseUpdatedViewHolder(ViewHolder viewHolder, List<Object> list) {
+        public boolean canReuseUpdatedViewHolder(@NonNull ViewHolder viewHolder, @NonNull List<Object> list) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, viewHolder, list)) == null) {
@@ -416,7 +430,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLL.booleanValue;
         }
 
-        public ItemHolderInfo recordPostLayoutInformation(State state, ViewHolder viewHolder) {
+        @NonNull
+        public ItemHolderInfo recordPostLayoutInformation(@NonNull State state, @NonNull ViewHolder viewHolder) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, state, viewHolder)) == null) {
@@ -425,7 +440,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (ItemHolderInfo) invokeLL.objValue;
         }
 
-        public final void dispatchAnimationFinished(ViewHolder viewHolder) {
+        public final void dispatchAnimationFinished(@NonNull ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, viewHolder) == null) {
                 onAnimationFinished(viewHolder);
@@ -436,14 +451,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public final void dispatchAnimationStarted(ViewHolder viewHolder) {
+        public final void dispatchAnimationStarted(@NonNull ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, viewHolder) == null) {
                 onAnimationStarted(viewHolder);
             }
         }
 
-        public final boolean isRunning(ItemAnimatorFinishedListener itemAnimatorFinishedListener) {
+        public final boolean isRunning(@Nullable ItemAnimatorFinishedListener itemAnimatorFinishedListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, itemAnimatorFinishedListener)) == null) {
@@ -542,6 +557,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.longValue;
         }
 
+        @NonNull
         public ItemHolderInfo obtainHolderInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -551,7 +567,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (ItemHolderInfo) invokeV.objValue;
         }
 
-        public ItemHolderInfo recordPreLayoutInformation(State state, ViewHolder viewHolder, int i, List<Object> list) {
+        @NonNull
+        public ItemHolderInfo recordPreLayoutInformation(@NonNull State state, @NonNull ViewHolder viewHolder, int i, @NonNull List<Object> list) {
             InterceptResult invokeLLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048597, this, state, viewHolder, i, list)) == null) {
@@ -578,6 +595,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         public boolean mPrefetchMaxObservedInInitialPrefetch;
         public RecyclerView mRecyclerView;
         public boolean mRequestedSimpleAnimations;
+        @Nullable
         public SmoothScroller mSmoothScroller;
         public ViewBoundsCheck mVerticalBoundCheck;
         public final ViewBoundsCheck.Callback mVerticalBoundCheckCallback;
@@ -625,7 +643,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public int computeHorizontalScrollExtent(State state) {
+        public int computeHorizontalScrollExtent(@NonNull State state) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, state)) == null) {
@@ -634,7 +652,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int computeHorizontalScrollOffset(State state) {
+        public int computeHorizontalScrollOffset(@NonNull State state) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, state)) == null) {
@@ -643,7 +661,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int computeHorizontalScrollRange(State state) {
+        public int computeHorizontalScrollRange(@NonNull State state) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, state)) == null) {
@@ -652,7 +670,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int computeVerticalScrollExtent(State state) {
+        public int computeVerticalScrollExtent(@NonNull State state) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, state)) == null) {
@@ -661,7 +679,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int computeVerticalScrollOffset(State state) {
+        public int computeVerticalScrollOffset(@NonNull State state) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, state)) == null) {
@@ -670,7 +688,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int computeVerticalScrollRange(State state) {
+        public int computeVerticalScrollRange(@NonNull State state) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, state)) == null) {
@@ -690,7 +708,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
-        public int getSelectionModeForAccessibility(Recycler recycler, State state) {
+        public int getSelectionModeForAccessibility(@NonNull Recycler recycler, @NonNull State state) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048641, this, recycler, state)) == null) {
@@ -699,7 +717,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLL.intValue;
         }
 
-        public boolean isLayoutHierarchical(Recycler recycler, State state) {
+        public boolean isLayoutHierarchical(@NonNull Recycler recycler, @NonNull State state) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048653, this, recycler, state)) == null) {
@@ -708,13 +726,13 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLL.booleanValue;
         }
 
-        public void onAdapterChanged(Adapter adapter, Adapter adapter2) {
+        public void onAdapterChanged(@Nullable Adapter adapter, @Nullable Adapter adapter2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048664, this, adapter, adapter2) == null) {
             }
         }
 
-        public boolean onAddFocusables(RecyclerView recyclerView, ArrayList<View> arrayList, int i, int i2) {
+        public boolean onAddFocusables(@NonNull RecyclerView recyclerView, @NonNull ArrayList<View> arrayList, int i, int i2) {
             InterceptResult invokeLLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048665, this, recyclerView, arrayList, i, i2)) == null) {
@@ -723,6 +741,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLLII.booleanValue;
         }
 
+        @CallSuper
         public void onAttachedToWindow(RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048666, this, recyclerView) == null) {
@@ -736,7 +755,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public View onFocusSearchFailed(View view2, int i, Recycler recycler, State state) {
+        @Nullable
+        public View onFocusSearchFailed(@NonNull View view2, int i, @NonNull Recycler recycler, @NonNull State state) {
             InterceptResult invokeLILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048669, this, view2, i, recycler, state)) == null) {
@@ -745,7 +765,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (View) invokeLILL.objValue;
         }
 
-        public View onInterceptFocusSearch(View view2, int i) {
+        @Nullable
+        public View onInterceptFocusSearch(@NonNull View view2, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048676, this, view2, i)) == null) {
@@ -754,31 +775,31 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (View) invokeLI.objValue;
         }
 
-        public void onItemsAdded(RecyclerView recyclerView, int i, int i2) {
+        public void onItemsAdded(@NonNull RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048677, this, recyclerView, i, i2) == null) {
             }
         }
 
-        public void onItemsChanged(RecyclerView recyclerView) {
+        public void onItemsChanged(@NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048678, this, recyclerView) == null) {
             }
         }
 
-        public void onItemsMoved(RecyclerView recyclerView, int i, int i2, int i3) {
+        public void onItemsMoved(@NonNull RecyclerView recyclerView, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(1048679, this, recyclerView, i, i2, i3) == null) {
             }
         }
 
-        public void onItemsRemoved(RecyclerView recyclerView, int i, int i2) {
+        public void onItemsRemoved(@NonNull RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048680, this, recyclerView, i, i2) == null) {
             }
         }
 
-        public void onItemsUpdated(RecyclerView recyclerView, int i, int i2) {
+        public void onItemsUpdated(@NonNull RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048681, this, recyclerView, i, i2) == null) {
             }
@@ -796,6 +817,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
+        @Nullable
         public Parcelable onSaveInstanceState() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -811,7 +833,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public boolean performAccessibilityActionForItem(Recycler recycler, State state, View view2, int i, Bundle bundle) {
+        public boolean performAccessibilityActionForItem(@NonNull Recycler recycler, @NonNull State state, @NonNull View view2, int i, @Nullable Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048695, this, new Object[]{recycler, state, view2, Integer.valueOf(i), bundle})) == null) {
@@ -1117,7 +1139,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeIII.intValue;
         }
 
-        public void attachView(View view2, int i, LayoutParams layoutParams) {
+        public void attachView(@NonNull View view2, int i, LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i, layoutParams) == null) {
                 ViewHolder childViewHolderInt = RecyclerView.getChildViewHolderInt(view2);
@@ -1131,7 +1153,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
 
         @Deprecated
-        public boolean onRequestChildFocus(RecyclerView recyclerView, View view2, View view3) {
+        public boolean onRequestChildFocus(@NonNull RecyclerView recyclerView, @NonNull View view2, @Nullable View view3) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048686, this, recyclerView, view2, view3)) == null) {
@@ -1143,7 +1165,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLLL.booleanValue;
         }
 
-        public boolean performAccessibilityActionForItem(View view2, int i, Bundle bundle) {
+        public boolean performAccessibilityActionForItem(@NonNull View view2, int i, @Nullable Bundle bundle) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048694, this, view2, i, bundle)) == null) {
@@ -1160,7 +1182,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        private void detachViewInternal(int i, View view2) {
+        private void detachViewInternal(int i, @NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(65539, this, i, view2) == null) {
                 this.mChildHelper.detachViewFromParent(i);
@@ -1181,14 +1203,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void attachView(View view2, int i) {
+        public void attachView(@NonNull View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
                 attachView(view2, i, (LayoutParams) view2.getLayoutParams());
             }
         }
 
-        public void calculateItemDecorationsForChild(View view2, Rect rect) {
+        public void calculateItemDecorationsForChild(@NonNull View view2, @NonNull Rect rect) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048585, this, view2, rect) == null) {
                 RecyclerView recyclerView = this.mRecyclerView;
@@ -1200,14 +1222,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void detachAndScrapView(View view2, Recycler recycler) {
+        public void detachAndScrapView(@NonNull View view2, @NonNull Recycler recycler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048598, this, view2, recycler) == null) {
                 scrapOrRecycleView(recycler, this.mChildHelper.indexOfChild(view2), view2);
             }
         }
 
-        public void detachAndScrapViewAt(int i, Recycler recycler) {
+        public void detachAndScrapViewAt(int i, @NonNull Recycler recycler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048599, this, i, recycler) == null) {
                 scrapOrRecycleView(recycler, i, getChildAt(i));
@@ -1231,7 +1253,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (LayoutParams) invokeLL.objValue;
         }
 
-        public int getColumnCountForAccessibility(Recycler recycler, State state) {
+        public int getColumnCountForAccessibility(@NonNull Recycler recycler, @NonNull State state) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, recycler, state)) == null) {
@@ -1244,14 +1266,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLL.intValue;
         }
 
-        public void getDecoratedBoundsWithMargins(View view2, Rect rect) {
+        public void getDecoratedBoundsWithMargins(@NonNull View view2, @NonNull Rect rect) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048617, this, view2, rect) == null) {
                 RecyclerView.getDecoratedBoundsWithMarginsInt(view2, rect);
             }
         }
 
-        public int getRowCountForAccessibility(Recycler recycler, State state) {
+        public int getRowCountForAccessibility(@NonNull Recycler recycler, @NonNull State state) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048640, this, recycler, state)) == null) {
@@ -1264,6 +1286,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLL.intValue;
         }
 
+        @CallSuper
         public void onDetachedFromWindow(RecyclerView recyclerView, Recycler recycler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048668, this, recyclerView, recycler) == null) {
@@ -1287,7 +1310,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public boolean performAccessibilityAction(int i, Bundle bundle) {
+        public boolean performAccessibilityAction(int i, @Nullable Bundle bundle) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048692, this, i, bundle)) == null) {
@@ -1297,7 +1320,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeIL.booleanValue;
         }
 
-        public void removeAndRecycleView(View view2, Recycler recycler) {
+        public void removeAndRecycleView(@NonNull View view2, @NonNull Recycler recycler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048700, this, view2, recycler) == null) {
                 removeView(view2);
@@ -1305,7 +1328,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void removeAndRecycleViewAt(int i, Recycler recycler) {
+        public void removeAndRecycleViewAt(int i, @NonNull Recycler recycler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048701, this, i, recycler) == null) {
                 View childAt = getChildAt(i);
@@ -1463,7 +1486,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (int[]) invokeLL.objValue;
         }
 
-        public static Properties getProperties(Context context, AttributeSet attributeSet, int i, int i2) {
+        public static Properties getProperties(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
             InterceptResult invokeLLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, context, attributeSet, i, i2)) == null) {
@@ -1479,7 +1502,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (Properties) invokeLLII.objValue;
         }
 
-        public void onInitializeAccessibilityNodeInfoForItem(Recycler recycler, State state, View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onInitializeAccessibilityNodeInfoForItem(@NonNull Recycler recycler, @NonNull State state, @NonNull View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             int i;
             int i2;
             Interceptable interceptable = $ic;
@@ -1498,7 +1521,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public boolean requestChildRectangleOnScreen(RecyclerView recyclerView, View view2, Rect rect, boolean z) {
+        public boolean requestChildRectangleOnScreen(@NonNull RecyclerView recyclerView, @NonNull View view2, @NonNull Rect rect, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048706, this, new Object[]{recyclerView, view2, rect, Boolean.valueOf(z)})) == null) {
@@ -1529,7 +1552,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLII.booleanValue;
         }
 
-        public void onInitializeAccessibilityEvent(Recycler recycler, State state, AccessibilityEvent accessibilityEvent) {
+        public void onInitializeAccessibilityEvent(@NonNull Recycler recycler, @NonNull State state, @NonNull AccessibilityEvent accessibilityEvent) {
             RecyclerView recyclerView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(1048671, this, recycler, state, accessibilityEvent) == null) && (recyclerView = this.mRecyclerView) != null && accessibilityEvent != null) {
@@ -1545,7 +1568,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void onInitializeAccessibilityNodeInfo(Recycler recycler, State state, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onInitializeAccessibilityNodeInfo(@NonNull Recycler recycler, @NonNull State state, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048673, this, recycler, state, accessibilityNodeInfoCompat) == null) {
                 if (this.mRecyclerView.canScrollVertically(-1) || this.mRecyclerView.canScrollHorizontally(-1)) {
@@ -1604,7 +1627,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public boolean isViewPartiallyVisible(View view2, boolean z, boolean z2) {
+        public boolean isViewPartiallyVisible(@NonNull View view2, boolean z, boolean z2) {
             InterceptResult invokeCommon;
             boolean z3;
             Interceptable interceptable = $ic;
@@ -1659,14 +1682,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void attachView(View view2) {
+        public void attachView(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
                 attachView(view2, -1);
             }
         }
 
-        public void detachAndScrapAttachedViews(Recycler recycler) {
+        public void detachAndScrapAttachedViews(@NonNull Recycler recycler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048597, this, recycler) == null) {
                 for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
@@ -1675,7 +1698,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void detachView(View view2) {
+        public void detachView(@NonNull View view2) {
             int indexOfChild;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048600, this, view2) == null) && (indexOfChild = this.mChildHelper.indexOfChild(view2)) >= 0) {
@@ -1706,7 +1729,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public View findContainingItemView(View view2) {
+        @Nullable
+        public View findContainingItemView(@NonNull View view2) {
             InterceptResult invokeL;
             View findContainingItemView;
             Interceptable interceptable = $ic;
@@ -1735,7 +1759,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (LayoutParams) invokeL.objValue;
         }
 
-        public int getBottomDecorationHeight(View view2) {
+        public int getBottomDecorationHeight(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, view2)) == null) {
@@ -1744,6 +1768,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
+        @Nullable
         public View getChildAt(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -1757,7 +1782,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (View) invokeI.objValue;
         }
 
-        public int getDecoratedBottom(View view2) {
+        public int getDecoratedBottom(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, view2)) == null) {
@@ -1766,7 +1791,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getDecoratedLeft(View view2) {
+        public int getDecoratedLeft(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, view2)) == null) {
@@ -1775,7 +1800,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getDecoratedMeasuredHeight(View view2) {
+        public int getDecoratedMeasuredHeight(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, view2)) == null) {
@@ -1785,7 +1810,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getDecoratedMeasuredWidth(View view2) {
+        public int getDecoratedMeasuredWidth(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, view2)) == null) {
@@ -1795,7 +1820,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getDecoratedRight(View view2) {
+        public int getDecoratedRight(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, view2)) == null) {
@@ -1804,7 +1829,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getDecoratedTop(View view2) {
+        public int getDecoratedTop(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, view2)) == null) {
@@ -1813,7 +1838,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getItemViewType(View view2) {
+        public int getItemViewType(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, view2)) == null) {
@@ -1822,7 +1847,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getLeftDecorationWidth(View view2) {
+        public int getLeftDecorationWidth(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, view2)) == null) {
@@ -1831,7 +1856,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getPosition(View view2) {
+        public int getPosition(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, view2)) == null) {
@@ -1840,7 +1865,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getRightDecorationWidth(View view2) {
+        public int getRightDecorationWidth(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, view2)) == null) {
@@ -1849,7 +1874,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public int getTopDecorationHeight(View view2) {
+        public int getTopDecorationHeight(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, view2)) == null) {
@@ -1858,7 +1883,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.intValue;
         }
 
-        public void offsetChildrenHorizontal(int i) {
+        public void offsetChildrenHorizontal(@Px int i) {
             RecyclerView recyclerView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048662, this, i) == null) && (recyclerView = this.mRecyclerView) != null) {
@@ -1866,7 +1891,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void offsetChildrenVertical(int i) {
+        public void offsetChildrenVertical(@Px int i) {
             RecyclerView recyclerView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048663, this, i) == null) && (recyclerView = this.mRecyclerView) != null) {
@@ -1874,7 +1899,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        public void onInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048670, this, accessibilityEvent) == null) {
                 RecyclerView recyclerView = this.mRecyclerView;
@@ -1905,7 +1930,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void removeAndRecycleAllViews(Recycler recycler) {
+        public void removeAndRecycleAllViews(@NonNull Recycler recycler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048698, this, recycler) == null) {
                 for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
@@ -1929,7 +1954,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.booleanValue;
         }
 
-        public void removeDetachedView(View view2) {
+        public void removeDetachedView(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048703, this, view2) == null) {
                 this.mRecyclerView.removeDetachedView(view2, false);
@@ -1996,7 +2021,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void stopIgnoringView(View view2) {
+        public void stopIgnoringView(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048727, this, view2) == null) {
                 ViewHolder childViewHolderInt = RecyclerView.getChildViewHolderInt(view2);
@@ -2006,6 +2031,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
+        @Nullable
         public View findViewByPosition(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -2023,7 +2049,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (View) invokeI.objValue;
         }
 
-        public void ignoreView(View view2) {
+        public void ignoreView(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048648, this, view2) == null) {
                 ViewParent parent = view2.getParent();
@@ -2091,6 +2117,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.booleanValue;
         }
 
+        @Nullable
         public View getFocusedChild() {
             InterceptResult invokeV;
             View focusedChild;
@@ -2105,6 +2132,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (View) invokeV.objValue;
         }
 
+        @Px
         public int getHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2151,6 +2179,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getMinimumHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2160,6 +2189,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getMinimumWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2169,6 +2199,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getPaddingBottom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2182,6 +2213,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getPaddingEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2195,6 +2227,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getPaddingLeft() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2208,6 +2241,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getPaddingRight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2221,6 +2255,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getPaddingStart() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2234,6 +2269,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getPaddingTop() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2247,6 +2283,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Px
         public int getWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2388,7 +2425,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void getTransformedBoundingBox(View view2, boolean z, Rect rect) {
+        public void getTransformedBoundingBox(@NonNull View view2, boolean z, @NonNull Rect rect) {
             Matrix matrix;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{view2, Boolean.valueOf(z), rect}) == null) {
@@ -2408,7 +2445,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void layoutDecorated(View view2, int i, int i2, int i3, int i4) {
+        public void layoutDecorated(@NonNull View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048657, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
                 Rect rect = ((LayoutParams) view2.getLayoutParams()).mDecorInsets;
@@ -2416,7 +2453,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void layoutDecoratedWithMargins(View view2, int i, int i2, int i3, int i4) {
+        public void layoutDecoratedWithMargins(@NonNull View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048658, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
                 LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
@@ -2425,7 +2462,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public boolean requestChildRectangleOnScreen(RecyclerView recyclerView, View view2, Rect rect, boolean z, boolean z2) {
+        public boolean requestChildRectangleOnScreen(@NonNull RecyclerView recyclerView, @NonNull View view2, @NonNull Rect rect, boolean z, boolean z2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048707, this, new Object[]{recyclerView, view2, rect, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -2445,7 +2482,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeCommon.booleanValue;
         }
 
-        public void measureChild(View view2, int i, int i2) {
+        public void measureChild(@NonNull View view2, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048659, this, view2, i, i2) == null) {
                 LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
@@ -2460,7 +2497,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void measureChildWithMargins(View view2, int i, int i2) {
+        public void measureChildWithMargins(@NonNull View view2, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048660, this, view2, i, i2) == null) {
                 LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
@@ -2506,21 +2543,21 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void onItemsUpdated(RecyclerView recyclerView, int i, int i2, Object obj) {
+        public void onItemsUpdated(@NonNull RecyclerView recyclerView, int i, int i2, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048682, this, new Object[]{recyclerView, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) {
                 onItemsUpdated(recyclerView, i, i2);
             }
         }
 
-        public void onMeasure(Recycler recycler, State state, int i, int i2) {
+        public void onMeasure(@NonNull Recycler recycler, @NonNull State state, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLII(1048685, this, recycler, state, i, i2) == null) {
                 this.mRecyclerView.defaultOnMeasure(i, i2);
             }
         }
 
-        public boolean onRequestChildFocus(RecyclerView recyclerView, State state, View view2, View view3) {
+        public boolean onRequestChildFocus(@NonNull RecyclerView recyclerView, @NonNull State state, @NonNull View view2, @Nullable View view3) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048687, this, recyclerView, state, view2, view3)) == null) {
@@ -2529,7 +2566,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeLLLL.booleanValue;
         }
 
-        public boolean performAccessibilityAction(Recycler recycler, State state, int i, Bundle bundle) {
+        public boolean performAccessibilityAction(@NonNull Recycler recycler, @NonNull State state, int i, @Nullable Bundle bundle) {
             InterceptResult invokeLLIL;
             int i2;
             int width;
@@ -2798,6 +2835,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
+        @Nullable
         public ViewHolder getRecycledView(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -2886,16 +2924,17 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
         /* loaded from: classes.dex */
         public interface ScrollVectorProvider {
+            @Nullable
             PointF computeScrollVectorForPosition(int i);
         }
 
-        public abstract void onSeekTargetStep(int i, int i2, State state, Action action);
+        public abstract void onSeekTargetStep(@Px int i, @Px int i2, @NonNull State state, @NonNull Action action);
 
         public abstract void onStart();
 
         public abstract void onStop();
 
-        public abstract void onTargetFound(View view2, State state, Action action);
+        public abstract void onTargetFound(@NonNull View view2, @NonNull State state, @NonNull Action action);
 
         /* loaded from: classes.dex */
         public static class Action {
@@ -2911,7 +2950,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             public int mJumpToPosition;
 
             /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-            public Action(int i, int i2) {
+            public Action(@Px int i, @Px int i2) {
                 this(i, i2, Integer.MIN_VALUE, null);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -2932,7 +2971,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
 
             /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-            public Action(int i, int i2, int i3) {
+            public Action(@Px int i, @Px int i2, int i3) {
                 this(i, i2, i3, null);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -2952,7 +2991,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 }
             }
 
-            public Action(int i, int i2, int i3, Interpolator interpolator) {
+            public Action(@Px int i, @Px int i2, int i3, @Nullable Interpolator interpolator) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2998,6 +3037,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 return invokeV.intValue;
             }
 
+            @Px
             public int getDx() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -3007,6 +3047,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 return invokeV.intValue;
             }
 
+            @Px
             public int getDy() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -3016,6 +3057,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 return invokeV.intValue;
             }
 
+            @Nullable
             public Interpolator getInterpolator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -3052,7 +3094,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 }
             }
 
-            public void setDx(int i) {
+            public void setDx(@Px int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
                     this.mChanged = true;
@@ -3060,7 +3102,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 }
             }
 
-            public void setDy(int i) {
+            public void setDy(@Px int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
                     this.mChanged = true;
@@ -3068,7 +3110,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 }
             }
 
-            public void setInterpolator(Interpolator interpolator) {
+            public void setInterpolator(@Nullable Interpolator interpolator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048586, this, interpolator) == null) {
                     this.mChanged = true;
@@ -3099,7 +3141,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 }
             }
 
-            public void update(int i, int i2, int i3, Interpolator interpolator) {
+            public void update(@Px int i, @Px int i2, int i3, @Nullable Interpolator interpolator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), interpolator}) == null) {
                     this.mDx = i;
@@ -3137,6 +3179,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @Nullable
         public LayoutManager getLayoutManager() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -3189,6 +3232,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             this.mRecyclerView = null;
         }
 
+        @Nullable
         public PointF computeScrollVectorForPosition(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -3229,7 +3273,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void normalize(PointF pointF) {
+        public void normalize(@NonNull PointF pointF) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, pointF) == null) {
                 float f = pointF.x;
@@ -3341,23 +3385,24 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeI.intValue;
         }
 
-        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, recyclerView) == null) {
             }
         }
 
-        public abstract void onBindViewHolder(VH vh, int i);
+        public abstract void onBindViewHolder(@NonNull VH vh, int i);
 
-        public abstract VH onCreateViewHolder(ViewGroup viewGroup, int i);
+        @NonNull
+        public abstract VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i);
 
-        public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+        public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048597, this, recyclerView) == null) {
             }
         }
 
-        public boolean onFailedToRecycleView(VH vh) {
+        public boolean onFailedToRecycleView(@NonNull VH vh) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, vh)) == null) {
@@ -3366,19 +3411,19 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeL.booleanValue;
         }
 
-        public void onViewAttachedToWindow(VH vh) {
+        public void onViewAttachedToWindow(@NonNull VH vh) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048599, this, vh) == null) {
             }
         }
 
-        public void onViewDetachedFromWindow(VH vh) {
+        public void onViewDetachedFromWindow(@NonNull VH vh) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048600, this, vh) == null) {
             }
         }
 
-        public void onViewRecycled(VH vh) {
+        public void onViewRecycled(@NonNull VH vh) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048601, this, vh) == null) {
             }
@@ -3426,7 +3471,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public final void bindViewHolder(VH vh, int i) {
+        public final void bindViewHolder(@NonNull VH vh, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, vh, i) == null) {
                 vh.mPosition = i;
@@ -3445,7 +3490,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public final VH createViewHolder(ViewGroup viewGroup, int i) {
+        @NonNull
+        public final VH createViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
@@ -3485,7 +3531,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void registerAdapterDataObserver(AdapterDataObserver adapterDataObserver) {
+        public void registerAdapterDataObserver(@NonNull AdapterDataObserver adapterDataObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048602, this, adapterDataObserver) == null) {
                 this.mObservable.registerObserver(adapterDataObserver);
@@ -3503,14 +3549,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void unregisterAdapterDataObserver(AdapterDataObserver adapterDataObserver) {
+        public void unregisterAdapterDataObserver(@NonNull AdapterDataObserver adapterDataObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048604, this, adapterDataObserver) == null) {
                 this.mObservable.unregisterObserver(adapterDataObserver);
             }
         }
 
-        public final void notifyItemChanged(int i, Object obj) {
+        public final void notifyItemChanged(int i, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048585, this, i, obj) == null) {
                 this.mObservable.notifyItemRangeChanged(i, 1, obj);
@@ -3545,14 +3591,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public final void notifyItemRangeChanged(int i, int i2, Object obj) {
+        public final void notifyItemRangeChanged(int i, int i2, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, obj) == null) {
                 this.mObservable.notifyItemRangeChanged(i, i2, obj);
             }
         }
 
-        public void onBindViewHolder(VH vh, int i, List<Object> list) {
+        public void onBindViewHolder(@NonNull VH vh, int i, @NonNull List<Object> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048595, this, vh, i, list) == null) {
                 onBindViewHolder(vh, i);
@@ -3631,7 +3677,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void notifyItemRangeChanged(int i, int i2, Object obj) {
+        public void notifyItemRangeChanged(int i, int i2, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, obj) == null) {
                 for (int size = ((Observable) this).mObservers.size() - 1; size >= 0; size--) {
@@ -3690,7 +3736,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void onItemRangeChanged(int i, int i2, Object obj) {
+        public void onItemRangeChanged(int i, int i2, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj) == null) {
                 onItemRangeChanged(i, i2);
@@ -3726,7 +3772,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public EdgeEffect createEdgeEffect(RecyclerView recyclerView, int i) {
+        @NonNull
+        public EdgeEffect createEdgeEffect(@NonNull RecyclerView recyclerView, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, recyclerView, i)) == null) {
@@ -3782,14 +3829,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         public transient /* synthetic */ FieldHolder $fh;
 
         @Deprecated
-        public void onDraw(Canvas canvas, RecyclerView recyclerView) {
+        public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, canvas, recyclerView) == null) {
             }
         }
 
         @Deprecated
-        public void onDrawOver(Canvas canvas, RecyclerView recyclerView) {
+        public void onDrawOver(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, canvas, recyclerView) == null) {
             }
@@ -3810,28 +3857,28 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
 
         @Deprecated
-        public void getItemOffsets(Rect rect, int i, RecyclerView recyclerView) {
+        public void getItemOffsets(@NonNull Rect rect, int i, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
                 rect.set(0, 0, 0, 0);
             }
         }
 
-        public void onDraw(Canvas canvas, RecyclerView recyclerView, State state) {
+        public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView, @NonNull State state) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, canvas, recyclerView, state) == null) {
                 onDraw(canvas, recyclerView);
             }
         }
 
-        public void onDrawOver(Canvas canvas, RecyclerView recyclerView, State state) {
+        public void onDrawOver(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView, @NonNull State state) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048581, this, canvas, recyclerView, state) == null) {
                 onDrawOver(canvas, recyclerView);
             }
         }
 
-        public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, State state) {
+        public void getItemOffsets(@NonNull Rect rect, @NonNull View view2, @NonNull RecyclerView recyclerView, @NonNull State state) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect, view2, recyclerView, state) == null) {
                 getItemOffsets(rect, ((LayoutParams) view2.getLayoutParams()).getViewLayoutPosition(), recyclerView);
@@ -4057,13 +4104,13 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
             }
         }
 
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
             }
@@ -4138,7 +4185,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeI.intValue;
         }
 
-        public void recycleView(View view2) {
+        public void recycleView(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
                 ViewHolder childViewHolderInt = RecyclerView.getChildViewHolderInt(view2);
@@ -4199,7 +4246,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void addViewHolderToRecycledViewPool(ViewHolder viewHolder, boolean z) {
+        public void addViewHolderToRecycledViewPool(@NonNull ViewHolder viewHolder, boolean z) {
             AccessibilityDelegateCompat accessibilityDelegateCompat;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, viewHolder, z) == null) {
@@ -4287,7 +4334,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        public void dispatchViewRecycled(ViewHolder viewHolder) {
+        public void dispatchViewRecycled(@NonNull ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, viewHolder) == null) {
                 RecyclerListener recyclerListener = this.this$0.mRecyclerListener;
@@ -4314,6 +4361,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return (View) invokeI.objValue;
         }
 
+        @NonNull
         public View getViewForPosition(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -4385,7 +4433,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
         }
 
-        private boolean tryBindViewHolderByDeadline(ViewHolder viewHolder, int i, int i2, long j) {
+        private boolean tryBindViewHolderByDeadline(@NonNull ViewHolder viewHolder, int i, int i2, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{viewHolder, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
@@ -4407,7 +4455,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeCommon.booleanValue;
         }
 
-        public void bindViewToPosition(View view2, int i) {
+        public void bindViewToPosition(@NonNull View view2, int i) {
             LayoutParams layoutParams;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
@@ -4521,6 +4569,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.intValue;
         }
 
+        @NonNull
         public List<ViewHolder> getScrapList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -4853,6 +4902,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         /* JADX WARN: Removed duplicated region for block: B:84:0x01a6  */
         /* JADX WARN: Removed duplicated region for block: B:87:0x01c9  */
         /* JADX WARN: Removed duplicated region for block: B:92:0x01d8  */
+        @Nullable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -5121,6 +5171,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
@@ -5260,7 +5311,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+        public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, motionEvent)) == null) {
@@ -5277,7 +5328,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+        public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, motionEvent) == null) {
             }
@@ -5511,7 +5562,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract View getViewForPositionAndType(Recycler recycler, int i, int i2);
+        @Nullable
+        public abstract View getViewForPositionAndType(@NonNull Recycler recycler, int i, int i2);
 
         public ViewCacheExtension() {
             Interceptable interceptable = $ic;
@@ -5601,7 +5653,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeIIII.intValue;
         }
 
-        public void smoothScrollBy(int i, int i2, int i3, Interpolator interpolator) {
+        public void smoothScrollBy(int i, int i2, int i3, @Nullable Interpolator interpolator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), interpolator}) == null) {
                 if (i3 == Integer.MIN_VALUE) {
@@ -5847,6 +5899,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         public static final List<Object> FULLUPDATE_PAYLOADS;
         public static final int PENDING_ACCESSIBILITY_STATE_NOT_SET = -1;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final View itemView;
         public int mFlags;
         public boolean mInChangeScrap;
@@ -5857,6 +5910,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         public int mOldPosition;
         public RecyclerView mOwnerRecyclerView;
         public List<Object> mPayloads;
+        @VisibleForTesting
         public int mPendingAccessibilityState;
         public int mPosition;
         public int mPreLayoutPosition;
@@ -6214,7 +6268,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             return invokeV.booleanValue;
         }
 
-        public ViewHolder(View view2) {
+        public ViewHolder(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -6688,7 +6742,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RecyclerView(Context context) {
+    public RecyclerView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -6729,7 +6783,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public static void clearNestedRecyclerViewIfNotNested(ViewHolder viewHolder) {
+    public static void clearNestedRecyclerViewIfNotNested(@NonNull ViewHolder viewHolder) {
         WeakReference<RecyclerView> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, null, viewHolder) == null) && (weakReference = viewHolder.mNestedRecyclerView) != null) {
@@ -6788,7 +6842,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeL.booleanValue;
     }
 
-    public static RecyclerView findNestedRecyclerView(View view2) {
+    @Nullable
+    public static RecyclerView findNestedRecyclerView(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, view2)) == null) {
@@ -6934,7 +6989,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    public ViewHolder getChildViewHolder(View view2) {
+    public ViewHolder getChildViewHolder(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, view2)) == null) {
@@ -6947,6 +7002,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (ViewHolder) invokeL.objValue;
     }
 
+    @NonNull
     public ItemDecoration getItemDecorationAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -6960,7 +7016,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (ItemDecoration) invokeI.objValue;
     }
 
-    public void removeItemDecoration(ItemDecoration itemDecoration) {
+    public void removeItemDecoration(@NonNull ItemDecoration itemDecoration) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048713, this, itemDecoration) == null) {
@@ -7032,7 +7088,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RecyclerView(Context context, AttributeSet attributeSet) {
+    public RecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ab);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -7122,6 +7178,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0038  */
     /* JADX WARN: Removed duplicated region for block: B:28:0x003a A[SYNTHETIC] */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -7209,7 +7266,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecyclerView(Context context, AttributeSet attributeSet, int i) {
+    public RecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         GapWorker.LayoutPrefetchRegistryImpl layoutPrefetchRegistryImpl;
         boolean z;
@@ -7384,7 +7441,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
 
             @Override // androidx.recyclerview.widget.ViewInfoStore.ProcessCallback
-            public void processDisappeared(ViewHolder viewHolder, ItemAnimator.ItemHolderInfo itemHolderInfo, ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+            public void processDisappeared(ViewHolder viewHolder, @NonNull ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable ItemAnimator.ItemHolderInfo itemHolderInfo2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder, itemHolderInfo, itemHolderInfo2) == null) {
                     this.this$0.mRecycler.unscrapView(viewHolder);
@@ -7393,7 +7450,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
             }
 
             @Override // androidx.recyclerview.widget.ViewInfoStore.ProcessCallback
-            public void processPersistent(ViewHolder viewHolder, ItemAnimator.ItemHolderInfo itemHolderInfo, ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+            public void processPersistent(ViewHolder viewHolder, @NonNull ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull ItemAnimator.ItemHolderInfo itemHolderInfo2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewHolder, itemHolderInfo, itemHolderInfo2) == null) {
                     viewHolder.setIsRecyclable(false);
@@ -7507,7 +7564,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeII.intValue;
     }
 
-    public void getDecoratedBoundsWithMargins(View view2, Rect rect) {
+    public void getDecoratedBoundsWithMargins(@NonNull View view2, @NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048651, this, view2, rect) == null) {
             getDecoratedBoundsWithMarginsInt(view2, rect);
@@ -7546,6 +7603,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
+    @VisibleForTesting
     public boolean setChildImportantForAccessibilityInternal(ViewHolder viewHolder, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -7561,7 +7619,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeLI.booleanValue;
     }
 
-    public void smoothScrollBy(int i, int i2) {
+    public void smoothScrollBy(@Px int i, @Px int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048752, this, i, i2) == null) {
             smoothScrollBy(i, i2, null);
@@ -7578,7 +7636,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeII.booleanValue;
     }
 
-    public void swapAdapter(Adapter adapter, boolean z) {
+    public void swapAdapter(@Nullable Adapter adapter, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048765, this, adapter, z) == null) {
             setLayoutFrozen(false);
@@ -7600,14 +7658,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (ViewHolder) invokeL.objValue;
     }
 
-    public void addItemDecoration(ItemDecoration itemDecoration) {
+    public void addItemDecoration(@NonNull ItemDecoration itemDecoration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemDecoration) == null) {
             addItemDecoration(itemDecoration, -1);
         }
     }
 
-    public void addOnChildAttachStateChangeListener(OnChildAttachStateChangeListener onChildAttachStateChangeListener) {
+    public void addOnChildAttachStateChangeListener(@NonNull OnChildAttachStateChangeListener onChildAttachStateChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onChildAttachStateChangeListener) == null) {
             if (this.mOnChildAttachStateListeners == null) {
@@ -7617,14 +7675,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void addOnItemTouchListener(OnItemTouchListener onItemTouchListener) {
+    public void addOnItemTouchListener(@NonNull OnItemTouchListener onItemTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onItemTouchListener) == null) {
             this.mOnItemTouchListeners.add(onItemTouchListener);
         }
     }
 
-    public void addOnScrollListener(OnScrollListener onScrollListener) {
+    public void addOnScrollListener(@NonNull OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onScrollListener) == null) {
             if (this.mScrollListeners == null) {
@@ -7690,10 +7748,11 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     /* JADX WARN: Code restructure failed: missing block: B:21:?, code lost:
         return r5;
      */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public View findContainingItemView(View view2) {
+    public View findContainingItemView(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, view2)) == null) {
@@ -7707,7 +7766,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (View) invokeL.objValue;
     }
 
-    public ViewHolder findContainingViewHolder(View view2) {
+    @Nullable
+    public ViewHolder findContainingViewHolder(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, view2)) == null) {
@@ -7720,6 +7780,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (ViewHolder) invokeL.objValue;
     }
 
+    @Nullable
     public ViewHolder findViewHolderForLayoutPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -7729,6 +7790,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (ViewHolder) invokeI.objValue;
     }
 
+    @Nullable
     @Deprecated
     public ViewHolder findViewHolderForPosition(int i) {
         InterceptResult invokeI;
@@ -7763,7 +7825,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeL.longValue;
     }
 
-    public int getChildAdapterPosition(View view2) {
+    public int getChildAdapterPosition(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, view2)) == null) {
@@ -7776,7 +7838,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeL.intValue;
     }
 
-    public long getChildItemId(View view2) {
+    public long getChildItemId(@NonNull View view2) {
         InterceptResult invokeL;
         ViewHolder childViewHolderInt;
         Interceptable interceptable = $ic;
@@ -7790,7 +7852,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeL.longValue;
     }
 
-    public int getChildLayoutPosition(View view2) {
+    public int getChildLayoutPosition(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, view2)) == null) {
@@ -7804,7 +7866,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     }
 
     @Deprecated
-    public int getChildPosition(View view2) {
+    public int getChildPosition(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, view2)) == null) {
@@ -7833,7 +7895,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         awakenScrollBars();
     }
 
-    public void offsetChildrenHorizontal(int i) {
+    public void offsetChildrenHorizontal(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048683, this, i) == null) {
             int childCount = this.mChildHelper.getChildCount();
@@ -7843,7 +7905,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void offsetChildrenVertical(int i) {
+    public void offsetChildrenVertical(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048684, this, i) == null) {
             int childCount = this.mChildHelper.getChildCount();
@@ -7925,7 +7987,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeL.booleanValue;
     }
 
-    public void removeOnChildAttachStateChangeListener(OnChildAttachStateChangeListener onChildAttachStateChangeListener) {
+    public void removeOnChildAttachStateChangeListener(@NonNull OnChildAttachStateChangeListener onChildAttachStateChangeListener) {
         List<OnChildAttachStateChangeListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048715, this, onChildAttachStateChangeListener) != null) || (list = this.mOnChildAttachStateListeners) == null) {
@@ -7934,7 +7996,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         list.remove(onChildAttachStateChangeListener);
     }
 
-    public void removeOnItemTouchListener(OnItemTouchListener onItemTouchListener) {
+    public void removeOnItemTouchListener(@NonNull OnItemTouchListener onItemTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048716, this, onItemTouchListener) == null) {
             this.mOnItemTouchListeners.remove(onItemTouchListener);
@@ -7944,7 +8006,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void removeOnScrollListener(OnScrollListener onScrollListener) {
+    public void removeOnScrollListener(@NonNull OnScrollListener onScrollListener) {
         List<OnScrollListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048717, this, onScrollListener) == null) && (list = this.mScrollListeners) != null) {
@@ -7988,7 +8050,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         super.sendAccessibilityEventUnchecked(accessibilityEvent);
     }
 
-    public void setAccessibilityDelegateCompat(RecyclerViewAccessibilityDelegate recyclerViewAccessibilityDelegate) {
+    public void setAccessibilityDelegateCompat(@Nullable RecyclerViewAccessibilityDelegate recyclerViewAccessibilityDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048730, this, recyclerViewAccessibilityDelegate) == null) {
             this.mAccessibilityDelegate = recyclerViewAccessibilityDelegate;
@@ -7996,7 +8058,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void setAdapter(Adapter adapter) {
+    public void setAdapter(@Nullable Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048731, this, adapter) == null) {
             setLayoutFrozen(false);
@@ -8006,7 +8068,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void setChildDrawingOrderCallback(ChildDrawingOrderCallback childDrawingOrderCallback) {
+    public void setChildDrawingOrderCallback(@Nullable ChildDrawingOrderCallback childDrawingOrderCallback) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048732, this, childDrawingOrderCallback) != null) || childDrawingOrderCallback == this.mChildDrawingOrderCallback) {
@@ -8036,7 +8098,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void setEdgeEffectFactory(EdgeEffectFactory edgeEffectFactory) {
+    public void setEdgeEffectFactory(@NonNull EdgeEffectFactory edgeEffectFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048735, this, edgeEffectFactory) == null) {
             Preconditions.checkNotNull(edgeEffectFactory);
@@ -8052,7 +8114,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void setItemAnimator(ItemAnimator itemAnimator) {
+    public void setItemAnimator(@Nullable ItemAnimator itemAnimator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048737, this, itemAnimator) == null) {
             ItemAnimator itemAnimator2 = this.mItemAnimator;
@@ -8090,7 +8152,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void setOnFlingListener(OnFlingListener onFlingListener) {
+    public void setOnFlingListener(@Nullable OnFlingListener onFlingListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048743, this, onFlingListener) == null) {
             this.mOnFlingListener = onFlingListener;
@@ -8098,7 +8160,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     }
 
     @Deprecated
-    public void setOnScrollListener(OnScrollListener onScrollListener) {
+    public void setOnScrollListener(@Nullable OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048744, this, onScrollListener) == null) {
             this.mScrollListener = onScrollListener;
@@ -8112,14 +8174,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void setRecycledViewPool(RecycledViewPool recycledViewPool) {
+    public void setRecycledViewPool(@Nullable RecycledViewPool recycledViewPool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048746, this, recycledViewPool) == null) {
             this.mRecycler.setRecycledViewPool(recycledViewPool);
         }
     }
 
-    public void setRecyclerListener(RecyclerListener recyclerListener) {
+    public void setRecyclerListener(@Nullable RecyclerListener recyclerListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048747, this, recyclerListener) == null) {
             this.mRecyclerListener = recyclerListener;
@@ -8138,7 +8200,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         dispatchOnScrollStateChanged(i);
     }
 
-    public void setViewCacheExtension(ViewCacheExtension viewCacheExtension) {
+    public void setViewCacheExtension(@Nullable ViewCacheExtension viewCacheExtension) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048750, this, viewCacheExtension) == null) {
             this.mRecycler.setViewCacheExtension(viewCacheExtension);
@@ -8210,7 +8272,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void animateAppearance(ViewHolder viewHolder, ItemAnimator.ItemHolderInfo itemHolderInfo, ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+    public void animateAppearance(@NonNull ViewHolder viewHolder, @Nullable ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, viewHolder, itemHolderInfo, itemHolderInfo2) == null) {
             viewHolder.setIsRecyclable(false);
@@ -8220,7 +8282,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void animateDisappearance(ViewHolder viewHolder, ItemAnimator.ItemHolderInfo itemHolderInfo, ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+    public void animateDisappearance(@NonNull ViewHolder viewHolder, @NonNull ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewHolder, itemHolderInfo, itemHolderInfo2) == null) {
             addAnimatingView(viewHolder);
@@ -8251,14 +8313,14 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeLLZ.booleanValue;
     }
 
-    public void smoothScrollBy(int i, int i2, Interpolator interpolator) {
+    public void smoothScrollBy(@Px int i, @Px int i2, @Nullable Interpolator interpolator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048753, this, i, i2, interpolator) == null) {
             smoothScrollBy(i, i2, interpolator, Integer.MIN_VALUE);
         }
     }
 
-    private void animateChange(ViewHolder viewHolder, ViewHolder viewHolder2, ItemAnimator.ItemHolderInfo itemHolderInfo, ItemAnimator.ItemHolderInfo itemHolderInfo2, boolean z, boolean z2) {
+    private void animateChange(@NonNull ViewHolder viewHolder, @NonNull ViewHolder viewHolder2, @NonNull ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull ItemAnimator.ItemHolderInfo itemHolderInfo2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{viewHolder, viewHolder2, itemHolderInfo, itemHolderInfo2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             viewHolder.setIsRecyclable(false);
@@ -8325,6 +8387,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (NestedScrollingChildHelper) invokeV.objValue;
     }
 
+    @SuppressLint({"InlinedApi"})
     private void initAutofill() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65566, this) == null) && ViewCompat.getImportantForAutofill(this) == 0) {
@@ -8631,6 +8694,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeV.intValue;
     }
 
+    @Nullable
     public Adapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -8664,6 +8728,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeV.booleanValue;
     }
 
+    @Nullable
     public RecyclerViewAccessibilityDelegate getCompatAccessibilityDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -8673,6 +8738,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (RecyclerViewAccessibilityDelegate) invokeV.objValue;
     }
 
+    @NonNull
     public EdgeEffectFactory getEdgeEffectFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -8682,6 +8748,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return (EdgeEffectFactory) invokeV.objValue;
     }
 
+    @Nullable
     public ItemAnimator getItemAnimator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -8700,6 +8767,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeV.intValue;
     }
 
+    @Nullable
     public LayoutManager getLayoutManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -8739,6 +8807,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeV.longValue;
     }
 
+    @Nullable
     public OnFlingListener getOnFlingListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -8757,6 +8826,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeV.booleanValue;
     }
 
+    @NonNull
     public RecycledViewPool getRecycledViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -9278,6 +9348,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
+    @Nullable
     private View findNextViewToFocus() {
         InterceptResult invokeV;
         ViewHolder findViewHolderForAdapterPosition;
@@ -9548,6 +9619,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
+    @Nullable
     public ViewHolder findViewHolderForAdapterPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -9648,7 +9720,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void addItemDecoration(ItemDecoration itemDecoration, int i) {
+    public void addItemDecoration(@NonNull ItemDecoration itemDecoration, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, itemDecoration, i) == null) {
             LayoutManager layoutManager = this.mLayout;
@@ -10107,7 +10179,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    private void requestChildOnScreen(View view2, View view3) {
+    private void requestChildOnScreen(@NonNull View view2, @Nullable View view3) {
         View view4;
         boolean z;
         Interceptable interceptable = $ic;
@@ -10178,6 +10250,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
+    @Nullable
     public View findChildViewUnder(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -10249,7 +10322,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeII.booleanValue;
     }
 
-    private void setAdapterInternal(Adapter adapter, boolean z, boolean z2) {
+    private void setAdapterInternal(@Nullable Adapter adapter, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65579, this, new Object[]{adapter, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             Adapter adapter2 = this.mAdapter;
@@ -10319,7 +10392,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeCommon.booleanValue;
     }
 
-    public void smoothScrollBy(int i, int i2, Interpolator interpolator, int i3) {
+    public void smoothScrollBy(@Px int i, @Px int i2, @Nullable Interpolator interpolator, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048754, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), interpolator, Integer.valueOf(i3)}) == null) {
             smoothScrollBy(i, i2, interpolator, i3, false);
@@ -10337,7 +10410,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
     }
 
     @Override // androidx.core.view.NestedScrollingChild3
-    public final void dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5, int[] iArr2) {
+    public final void dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5, @NonNull int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), iArr2}) == null) {
             getScrollingChildHelper().dispatchNestedScroll(i, i2, i3, i4, iArr, i5, iArr2);
@@ -10847,7 +10920,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeL.booleanValue;
     }
 
-    public void setLayoutManager(LayoutManager layoutManager) {
+    public void setLayoutManager(@Nullable LayoutManager layoutManager) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048740, this, layoutManager) != null) || layoutManager == this.mLayout) {
             return;
@@ -10885,6 +10958,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         requestLayout();
     }
 
+    @VisibleForTesting
     public void initFastScroller(StateListDrawable stateListDrawable, Drawable drawable, StateListDrawable stateListDrawable2, Drawable drawable2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048670, this, stateListDrawable, drawable, stateListDrawable2, drawable2) == null) {
@@ -11097,7 +11171,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         return invokeL.booleanValue;
     }
 
-    public void scrollStep(int i, int i2, int[] iArr) {
+    public void scrollStep(int i, int i2, @Nullable int[] iArr) {
         int i3;
         int i4;
         Interceptable interceptable = $ic;
@@ -11146,7 +11220,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         }
     }
 
-    public void smoothScrollBy(int i, int i2, Interpolator interpolator, int i3, boolean z) {
+    public void smoothScrollBy(@Px int i, @Px int i2, @Nullable Interpolator interpolator, int i3, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048755, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), interpolator, Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {

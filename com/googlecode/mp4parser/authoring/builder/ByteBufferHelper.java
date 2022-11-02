@@ -44,21 +44,21 @@ public class ByteBufferHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List mergeAdjacentBuffers(List list) {
+    public static List<ByteBuffer> mergeAdjacentBuffers(List<ByteBuffer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
             ArrayList arrayList = new ArrayList(list.size());
-            Iterator it = list.iterator();
+            Iterator<ByteBuffer> it = list.iterator();
             while (it.hasNext()) {
-                ByteBuffer byteBuffer = (ByteBuffer) it.next();
+                ByteBuffer next = it.next();
                 int size = arrayList.size() - 1;
-                if (size >= 0 && byteBuffer.hasArray() && ((ByteBuffer) arrayList.get(size)).hasArray() && byteBuffer.array() == ((ByteBuffer) arrayList.get(size)).array() && ((ByteBuffer) arrayList.get(size)).arrayOffset() + ((ByteBuffer) arrayList.get(size)).limit() == byteBuffer.arrayOffset()) {
-                    ByteBuffer byteBuffer2 = (ByteBuffer) arrayList.remove(size);
-                    arrayList.add(ByteBuffer.wrap(byteBuffer.array(), byteBuffer2.arrayOffset(), byteBuffer2.limit() + byteBuffer.limit()).slice());
+                if (size >= 0 && next.hasArray() && ((ByteBuffer) arrayList.get(size)).hasArray() && next.array() == ((ByteBuffer) arrayList.get(size)).array() && ((ByteBuffer) arrayList.get(size)).arrayOffset() + ((ByteBuffer) arrayList.get(size)).limit() == next.arrayOffset()) {
+                    ByteBuffer byteBuffer = (ByteBuffer) arrayList.remove(size);
+                    arrayList.add(ByteBuffer.wrap(next.array(), byteBuffer.arrayOffset(), byteBuffer.limit() + next.limit()).slice());
                 } else {
-                    byteBuffer.reset();
-                    arrayList.add(byteBuffer);
+                    next.reset();
+                    arrayList.add(next);
                 }
             }
             return arrayList;

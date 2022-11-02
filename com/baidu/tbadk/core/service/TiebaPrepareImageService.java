@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj5;
+import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,7 +107,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask {
+    public class b extends BdAsyncTask<Object, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -153,7 +153,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                 TiebaPrepareImageService.IS_DECODING = true;
                 boolean z2 = false;
                 try {
-                    c = aj5.c(this.a, this.e, this.b, this.c, this.e.mMaxSize);
+                    c = zj5.c(this.a, this.e, this.b, this.c, this.e.mMaxSize);
                 } catch (Exception unused) {
                     TiebaPrepareImageService.IS_DECODING = false;
                 } catch (Throwable th) {
@@ -168,17 +168,17 @@ public class TiebaPrepareImageService extends BdBaseService {
                         }
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c, i);
                         if (resizeBitmap == null || FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                            this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05c3);
+                            this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05c6);
                         } else {
                             TiebaPrepareImageService.IS_DECODING = false;
                             z2 = z;
                             return Boolean.valueOf(z2);
                         }
                     } else {
-                        this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05c3);
+                        this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05c6);
                     }
                 } else {
-                    this.d = this.e.getString(R.string.obfuscated_res_0x7f0f0eab);
+                    this.d = this.e.getString(R.string.obfuscated_res_0x7f0f0ec3);
                 }
                 z = false;
                 TiebaPrepareImageService.IS_DECODING = false;

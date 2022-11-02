@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.model.stream;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,14 +15,14 @@ import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
 import java.net.URL;
 /* loaded from: classes7.dex */
-public class UrlLoader implements ModelLoader {
+public class UrlLoader implements ModelLoader<URL, InputStream> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModelLoader glideUrlLoader;
+    public final ModelLoader<GlideUrl, InputStream> glideUrlLoader;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(URL url) {
+    public boolean handles(@NonNull URL url) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, url)) == null) {
@@ -31,7 +32,7 @@ public class UrlLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class StreamFactory implements ModelLoaderFactory {
+    public static class StreamFactory implements ModelLoaderFactory<URL, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +58,8 @@ public class UrlLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<URL, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -67,7 +69,7 @@ public class UrlLoader implements ModelLoader {
         }
     }
 
-    public UrlLoader(ModelLoader modelLoader) {
+    public UrlLoader(ModelLoader<GlideUrl, InputStream> modelLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +89,7 @@ public class UrlLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(URL url, int i, int i2, Options options) {
+    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull URL url, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{url, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {

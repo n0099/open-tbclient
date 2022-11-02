@@ -18,14 +18,14 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class Flow implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<Flow> CREATOR;
     public static final int INVALID_HANDLE = -1;
     public transient /* synthetic */ FieldHolder $fh;
     public int mHandle;
     public boolean mHasEnd;
     public String mId;
     public int mOption;
-    public HashMap mSlotMaps;
+    public HashMap<String, Slot> mSlotMaps;
     public long mStartTime;
     public boolean mValid;
 
@@ -40,7 +40,7 @@ public class Flow implements Parcelable {
     }
 
     /* loaded from: classes6.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<Flow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -144,7 +144,7 @@ public class Flow implements Parcelable {
         return invokeV.intValue;
     }
 
-    public HashMap getSlotMaps() {
+    public HashMap<String, Slot> getSlotMaps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -206,7 +206,7 @@ public class Flow implements Parcelable {
         this.mHandle = -1;
         this.mOption = 0;
         this.mStartTime = System.currentTimeMillis();
-        this.mSlotMaps = new HashMap();
+        this.mSlotMaps = new HashMap<>();
     }
 
     public Flow(Parcel parcel) {
@@ -255,7 +255,7 @@ public class Flow implements Parcelable {
         this.mHandle = i;
         this.mOption = i2;
         this.mStartTime = System.currentTimeMillis();
-        this.mSlotMaps = new HashMap();
+        this.mSlotMaps = new HashMap<>();
     }
 
     @Deprecated
@@ -341,7 +341,7 @@ public class Flow implements Parcelable {
     }
 
     @Deprecated
-    public void setValue(Map map) {
+    public void setValue(Map<String, String> map) {
         UBCManager uBCManager;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, map) == null) && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {

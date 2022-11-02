@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.h82;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public interface s72 {
-    boolean a(h82.a aVar);
+public interface s72 extends nd4 {
+    public static final long l0 = TimeUnit.SECONDS.toMillis(15);
 }

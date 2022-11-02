@@ -52,7 +52,7 @@ public class RtcParameterSettings {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RtcAudioBitrateMode {
+    public static final class RtcAudioBitrateMode {
         public static final /* synthetic */ RtcAudioBitrateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcAudioBitrateMode RTC_AUDIO_BITRATE_CBR;
@@ -118,7 +118,7 @@ public class RtcParameterSettings {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RtcAudioChannel {
+    public static final class RtcAudioChannel {
         public static final /* synthetic */ RtcAudioChannel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcAudioChannel RTC_AUDIO_MONNO;
@@ -184,7 +184,7 @@ public class RtcParameterSettings {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RtcParamSettingType {
+    public static final class RtcParamSettingType {
         public static final /* synthetic */ RtcParamSettingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcParamSettingType RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP;
@@ -278,7 +278,7 @@ public class RtcParameterSettings {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RtcVideoBitrateMode {
+    public static final class RtcVideoBitrateMode {
         public static final /* synthetic */ RtcVideoBitrateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcVideoBitrateMode RTC_VIDEO_CONTROLRATECONSTANT;
@@ -346,7 +346,7 @@ public class RtcParameterSettings {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RtcVideoRenderMode {
+    public static final class RtcVideoRenderMode {
         public static final /* synthetic */ RtcVideoRenderMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcVideoRenderMode RTC_VIDEO_RENDER_MODE_EXTERNAL;

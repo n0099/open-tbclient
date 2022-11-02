@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import android.opengl.EGLContext;
-/* loaded from: classes3.dex */
+import java.io.IOException;
+/* loaded from: classes4.dex */
 public interface eh9 {
-    void a(EGLContext eGLContext);
+    void a() throws IOException;
 
-    void b(int i, int i2, int i3);
+    void b(String str) throws IOException;
 
-    void release();
+    int c(byte[] bArr, int i, int i2) throws IOException;
+
+    void d(mh9 mh9Var);
 }

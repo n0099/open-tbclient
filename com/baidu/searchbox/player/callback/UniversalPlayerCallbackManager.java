@@ -3,6 +3,7 @@ package com.baidu.searchbox.player.callback;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,6 +38,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         return (IUniversalPlayerCallback) invokeV.objValue;
     }
 
+    @PublicMethod
     public void onBeforeSwitchToFull() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -45,6 +47,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public void onBeforeSwitchToHalf() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -53,6 +56,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public void onGestureActionEnd() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -61,6 +65,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public void onGestureActionStart() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -69,6 +74,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public void onPauseBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -77,6 +83,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public void onReplayBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -85,6 +92,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public void onStartBtnClick() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -93,6 +101,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public void onVideoSwitchToFull() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -101,6 +110,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public void onVideoSwitchToHalf() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
@@ -110,6 +120,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     }
 
     @Override // com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager
+    @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -118,6 +129,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         }
     }
 
+    @PublicMethod
     public boolean onGestureDoubleClick(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -131,6 +143,7 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         return invokeL.booleanValue;
     }
 
+    @PublicMethod
     public void onPanelVisibilityChanged(boolean z) {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;

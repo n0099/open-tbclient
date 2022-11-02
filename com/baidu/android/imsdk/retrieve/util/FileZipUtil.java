@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.retrieve.util;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +11,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -20,14 +20,16 @@ public class FileZipUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public final class ZipSrc {
+    public static final class ZipSrc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mDelete;
+        @NonNull
         public File mFile;
+        @NonNull
         public String mOutName;
 
-        public ZipSrc(File file) {
+        public ZipSrc(@NonNull File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +48,7 @@ public class FileZipUtil {
             this.mOutName = file.getName();
         }
 
-        public ZipSrc(File file, String str) {
+        public ZipSrc(@NonNull File file, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,7 +71,7 @@ public class FileZipUtil {
             }
         }
 
-        public ZipSrc(File file, String str, boolean z) {
+        public ZipSrc(@NonNull File file, @NonNull String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +120,7 @@ public class FileZipUtil {
     /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
     /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:56:0x009e -> B:83:0x00a1). Please submit an issue!!! */
-    public static void zip(File file, List list) throws IOException {
+    public static void zip(File file, List<ZipSrc> list) throws IOException {
         ?? r2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,9 +138,7 @@ public class FileZipUtil {
                         r2 = new ZipOutputStream(new FileOutputStream(file));
                         try {
                             r2.setComment(file.getName());
-                            Iterator it = list.iterator();
-                            while (it.hasNext()) {
-                                ZipSrc zipSrc = (ZipSrc) it.next();
+                            for (ZipSrc zipSrc : list) {
                                 File file2 = zipSrc.mFile;
                                 if (file2.canRead() && file2.isFile()) {
                                     FileInputStream fileInputStream2 = new FileInputStream(file2);

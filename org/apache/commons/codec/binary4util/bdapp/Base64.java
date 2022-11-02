@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util.bdapp;
 
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary4util.BaseNCodec;
+@SuppressLint({"BDThrowableCheck"})
 @Deprecated
 /* loaded from: classes8.dex */
 public class Base64 {
@@ -41,7 +43,7 @@ public class Base64 {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class Coder {
+    public static abstract class Coder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int op;
@@ -67,7 +69,7 @@ public class Base64 {
     }
 
     /* loaded from: classes8.dex */
-    public class Decoder extends Coder {
+    public static class Decoder extends Coder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] DECODE;
         public static final int[] DECODE_WEBSAFE;
@@ -271,7 +273,7 @@ public class Base64 {
     }
 
     /* loaded from: classes8.dex */
-    public class Encoder extends Coder {
+    public static class Encoder extends Coder {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
         public static final byte[] ENCODE;
@@ -376,6 +378,7 @@ public class Base64 {
          */
         /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:34:0x00e1 -> B:24:0x008e). Please submit an issue!!! */
         @Override // org.apache.commons.codec.binary4util.bdapp.Base64.Coder
+        @SuppressLint({"Assert"})
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -629,6 +632,7 @@ public class Base64 {
         return (byte[]) invokeLIII.objValue;
     }
 
+    @SuppressLint({"Assert"})
     public static byte[] encode(byte[] bArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;

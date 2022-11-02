@@ -18,7 +18,7 @@ public interface IDevicePortraitManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ThresholdType {
+    public static final class ThresholdType {
         public static final /* synthetic */ ThresholdType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ThresholdType LOW_MID;

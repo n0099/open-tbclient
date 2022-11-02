@@ -14,7 +14,7 @@ public class DefaultDownloadCallback implements DownloadCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onBulkDownloaded(List list, List list2, List list3) {
+    public void onBulkDownloaded(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, list3) == null) {
         }

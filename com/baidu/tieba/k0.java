@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class k0 {
+public class k0<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j0 a;
+    public final j0<TResult> a;
 
     public k0() {
         Interceptable interceptable = $ic;
@@ -25,10 +25,10 @@ public class k0 {
                 return;
             }
         }
-        this.a = new j0();
+        this.a = new j0<>();
     }
 
-    public j0 a() {
+    public j0<TResult> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -71,18 +71,18 @@ public class k0 {
         return invokeL.booleanValue;
     }
 
-    public boolean f(Object obj) {
+    public boolean f(TResult tresult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            return this.a.t(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tresult)) == null) {
+            return this.a.t(tresult);
         }
         return invokeL.booleanValue;
     }
 
-    public void setResult(Object obj) {
+    public void setResult(TResult tresult) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, obj) != null) || f(obj)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, tresult) != null) || f(tresult)) {
             return;
         }
         throw new IllegalStateException("Cannot set the result of a completed task.");

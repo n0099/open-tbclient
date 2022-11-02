@@ -12,6 +12,7 @@ import com.baidu.searchbox.devicescore.IDeviceScoreConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
+import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,6 +24,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
+@UpdateAction(action = "device_score", module = "performance")
 /* loaded from: classes2.dex */
 public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -87,7 +89,6 @@ public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -97,7 +98,7 @@ public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
                 Log.d(TAG, "executeCommand: " + str + " content " + actionData);
             }
             if (actionData != null && actionData.data != null && !TextUtils.isEmpty(actionData.version)) {
-                JSONObject optJSONObject = ((JSONObject) actionData.data).optJSONObject("score_threshold");
+                JSONObject optJSONObject = actionData.data.optJSONObject("score_threshold");
                 if (optJSONObject != null) {
                     QuickPersistConfig.getInstance().putString(KEY_UPDATE_VERSION, actionData.version);
                     DeviceScoreConfig deviceScoreConfig = new DeviceScoreConfig();
@@ -106,7 +107,7 @@ public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
                     ((IDeviceScoreConfig) ServiceManager.getService(IDeviceScoreConfig.SERVICE_REFERENCE)).updateConfig(deviceScoreConfig);
                 }
                 if (DEBUG) {
-                    Log.d(TAG, "version " + actionData.version + " content " + ((JSONObject) actionData.data).toString());
+                    Log.d(TAG, "version " + actionData.version + " content " + actionData.data.toString());
                     return true;
                 }
                 return true;

@@ -1,122 +1,172 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class dr2 {
+public final class dr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList a;
+    public static ArrayList<cr2> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (arrayList = a) != null) {
-            arrayList.clear();
-            a = null;
-        }
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList arrayList = a;
-            if (arrayList == null) {
-                return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947714085, "Lcom/baidu/tieba/dr2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return arrayList.size();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947714085, "Lcom/baidu/tieba/dr2;");
+                return;
+            }
         }
-        return invokeV.intValue;
+        a = new ArrayList<>();
     }
 
-    public static ArrayList e() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ArrayList arrayList = a;
-            if (arrayList != null && arrayList.size() != 0 && a.get(0) != null) {
-                return ((MediaModel) a.get(0)).getType();
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                cr2 cr2Var = a.get(size);
+                if (cr2Var != null) {
+                    cr2Var.onDestroy();
+                }
+            }
+        }
+    }
+
+    public static void a(cr2 cr2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, cr2Var) == null) && cr2Var != null && !a.contains(cr2Var)) {
+            a.add(cr2Var);
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                cr2 cr2Var = a.get(size);
+                if (cr2Var != null) {
+                    cr2Var.j(z);
+                }
+            }
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                cr2 cr2Var = a.get(size);
+                if (cr2Var != null) {
+                    cr2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(cr2 cr2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, cr2Var) != null) || cr2Var == null) {
+            return;
+        }
+        a.remove(cr2Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            cr2 cr2Var = a.get(size);
+            if (cr2Var != null && TextUtils.equals(str, cr2Var.b())) {
+                cr2Var.onDestroy();
+            }
+        }
+    }
+
+    public static cr2 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                cr2 cr2Var = a.get(size);
+                if (cr2Var != null && TextUtils.equals(str, cr2Var.c())) {
+                    return cr2Var;
+                }
             }
             return null;
         }
-        return (String) invokeV.objValue;
+        return (cr2) invokeL.objValue;
     }
 
-    public static int c(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
-            if (mediaModel == null || (arrayList = a) == null) {
-                return -1;
-            }
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                if (mediaModel.equals(a.get(i))) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean f(MediaModel mediaModel) {
+    public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
-            ArrayList arrayList = a;
-            if (arrayList == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return arrayList.contains(mediaModel);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
-            ArrayList arrayList = a;
-            if (arrayList != null && arrayList.size() != 0) {
-                return a.contains(mediaModel);
+            for (int size = a.size() - 1; size >= 0; size--) {
+                cr2 cr2Var = a.get(size);
+                if (cr2Var != null && TextUtils.equals(str, cr2Var.b()) && cr2Var.onBackPressed()) {
+                    return true;
+                }
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static void h(MediaModel mediaModel) {
-        ArrayList arrayList;
+    public static cr2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) && (arrayList = a) != null) {
-            arrayList.remove(mediaModel);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                cr2 cr2Var = a.get(size);
+                if (cr2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, cr2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, cr2Var.f())) || TextUtils.equals(str3, cr2Var.c())))) {
+                    return cr2Var;
+                }
+            }
+            return null;
         }
+        return (cr2) invokeLLL.objValue;
     }
 
-    public static void i(MediaModel mediaModel) {
+    public static void i(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, mediaModel) != null) || mediaModel == null) {
+        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (a == null) {
-            a = new ArrayList();
+        for (int size = a.size() - 1; size >= 0; size--) {
+            cr2 cr2Var = a.get(size);
+            if (cr2Var != null && TextUtils.equals(str, cr2Var.b())) {
+                cr2Var.k(z);
+            }
         }
-        a.add(mediaModel);
     }
 }

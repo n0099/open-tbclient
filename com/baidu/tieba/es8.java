@@ -1,52 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class es8 extends CustomMessageListener {
+/* loaded from: classes4.dex */
+public class es8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pq8 a;
+    public final MainTabActivity a;
+    public final or8 b;
+    public final Runnable c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public es8(MainTabActivity mainTabActivity) {
-        super(2921725);
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es8 a;
+
+        public a(es8 es8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {es8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = es8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
+                if (this.a.b != null && this.a.b.B() != null && this.a.b.B().getCurrentTabType() == 22) {
+                    videoRedIconRequest.setCallFrom("video_tab");
+                }
+                this.a.a.sendMessage(videoRedIconRequest);
+                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
+                if (videoRedIconInterval > 5) {
+                    zg.a().postDelayed(this.a.c, videoRedIconInterval * 1000);
+                }
+            }
+        }
+    }
+
+    public es8(MainTabActivity mainTabActivity, or8 or8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, or8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity.e;
+        this.c = new a(this);
+        this.a = mainTabActivity;
+        this.b = or8Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage customResponsedMessage) {
-        pq8 pq8Var;
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (pq8Var = this.a) != null && pq8Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                Runnable runnable = this.a.f().c;
-                hh.a().removeCallbacks(runnable);
-                hh.a().post(runnable);
-                return;
-            }
-            hh.a().removeCallbacks(this.a.f().c);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zg.a().removeCallbacks(this.c);
         }
     }
 }

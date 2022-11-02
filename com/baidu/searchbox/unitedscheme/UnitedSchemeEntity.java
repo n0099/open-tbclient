@@ -23,7 +23,7 @@ public class UnitedSchemeEntity implements Cloneable {
     public boolean callbackInvoked;
     public boolean mOnlyVerify;
     public String mPageUrl;
-    public HashMap mParams;
+    public HashMap<String, String> mParams;
     public int mPathLevel;
     public String[] mPaths;
     public String mReferUrl;
@@ -96,7 +96,7 @@ public class UnitedSchemeEntity implements Cloneable {
         }
     }
 
-    public UnitedSchemeEntity(Uri uri, String str, String[] strArr, HashMap hashMap) {
+    public UnitedSchemeEntity(Uri uri, String str, String[] strArr, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,7 +161,7 @@ public class UnitedSchemeEntity implements Cloneable {
         return (String) invokeV.objValue;
     }
 
-    public HashMap getParams() {
+    public HashMap<String, String> getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -256,11 +256,11 @@ public class UnitedSchemeEntity implements Cloneable {
 
     public String getParam(String str) {
         InterceptResult invokeL;
-        HashMap hashMap;
+        HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (str != null && (hashMap = this.mParams) != null) {
-                return (String) hashMap.get(str);
+                return hashMap.get(str);
             }
             return null;
         }
@@ -292,11 +292,11 @@ public class UnitedSchemeEntity implements Cloneable {
 
     public String removeParam(String str) {
         InterceptResult invokeL;
-        HashMap hashMap;
+        HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             if (str != null && (hashMap = this.mParams) != null) {
-                return (String) hashMap.remove(str);
+                return hashMap.remove(str);
             }
             return null;
         }
@@ -336,7 +336,7 @@ public class UnitedSchemeEntity implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
             if (this.mParams == null) {
-                this.mParams = new HashMap();
+                this.mParams = new HashMap<>();
             }
             this.mParams.put(str, str2);
         }

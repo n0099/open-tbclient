@@ -98,14 +98,14 @@ public class BitmapType {
                 }
             }
 
-            private void recalculateDivs(float f, ArrayList arrayList) {
+            private void recalculateDivs(float f, ArrayList<Div> arrayList) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(65537, this, new Object[]{Float.valueOf(f), arrayList}) == null) {
-                    Iterator it = arrayList.iterator();
+                    Iterator<Div> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        Div div = (Div) it.next();
-                        div.start = Math.round(div.start * f);
-                        div.stop = Math.round(div.stop * f);
+                        Div next = it.next();
+                        next.start = Math.round(next.start * f);
+                        next.stop = Math.round(next.stop * f);
                     }
                 }
             }

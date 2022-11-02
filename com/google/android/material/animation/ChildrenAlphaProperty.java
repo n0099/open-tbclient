@@ -2,6 +2,7 @@ package com.google.android.material.animation;
 
 import android.util.Property;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ChildrenAlphaProperty extends Property {
+public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Property CHILDREN_ALPHA;
+    public static final Property<ViewGroup, Float> CHILDREN_ALPHA;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,11 +57,12 @@ public class ChildrenAlphaProperty extends Property {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
-    public Float get(ViewGroup viewGroup) {
+    @NonNull
+    public Float get(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            Float f = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f09158a);
+            Float f = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f0915c9);
             if (f != null) {
                 return f;
             }
@@ -71,11 +73,11 @@ public class ChildrenAlphaProperty extends Property {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
-    public void set(ViewGroup viewGroup, Float f) {
+    public void set(@NonNull ViewGroup viewGroup, @NonNull Float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, f) == null) {
             float floatValue = f.floatValue();
-            viewGroup.setTag(R.id.obfuscated_res_0x7f09158a, Float.valueOf(floatValue));
+            viewGroup.setTag(R.id.obfuscated_res_0x7f0915c9, Float.valueOf(floatValue));
             int childCount = viewGroup.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 viewGroup.getChildAt(i).setAlpha(floatValue);

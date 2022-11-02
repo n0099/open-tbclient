@@ -1,493 +1,289 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class zp4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Map<String, yp4> b;
-    public Resources c;
-    public Resources d;
-    public boolean e;
+    public LinearLayout A;
+    public ImageView B;
+    public TextView C;
+    public LinearLayout D;
+    public ImageView E;
+    public TextView F;
+    public View G;
+    public View H;
+    public View I;
+    public final View a;
+    public final ThreadAchievementShareInfo.ParamBean b;
+    public final Context c;
+    public List<ThreadAchievementShareInfo.ThreadListBean> d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public View o;
+    public View p;
+    public TextView q;
+    public TbImageView r;
+    public TbImageView s;
+    public TbImageView t;
+    public View u;
+    public View v;
+    public View w;
+    public LinearLayout x;
+    public ImageView y;
+    public TextView z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948367627, "Lcom/baidu/tieba/zp4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948367627, "Lcom/baidu/tieba/zp4;");
-        }
-    }
-
-    public zp4() {
+    public zp4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadAchievementShareInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = new HashMap();
-        this.e = false;
-    }
-
-    public void c() {
-        Map<String, yp4> map;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (map = this.b) != null) {
-            map.clear();
-            this.b = null;
+        this.c = context;
+        this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a7, (ViewGroup) null);
+        ThreadAchievementShareInfo.ParamBean params = threadAchievementShareInfo.getParams();
+        this.b = params;
+        if (params != null) {
+            this.d = params.getThread_list();
         }
+        c();
+        b();
     }
 
-    public static int h(Resources resources, Resources resources2, int i) {
-        InterceptResult invokeLLI;
-        int i2;
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, resources, resources2, i)) == null) {
-            String resourceName = resources.getResourceName(i);
-            if (!TextUtils.isEmpty(resourceName)) {
-                String packageName = SkinManager.getPackageName();
-                f = packageName;
-                if (StringUtils.isNull(packageName)) {
-                    f = BdBaseApplication.getInst().getPackageName();
-                }
-                resourceName = f + resourceName.substring(resourceName.indexOf(":"));
-                i2 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void b() {
+        List<ThreadAchievementShareInfo.ThreadListBean> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != null && (list = this.d) != null && list.size() >= 2) {
+            int rank = this.b.getRank();
+            if (rank == 0) {
+                ThreadAchievementShareInfo.ThreadListBean threadListBean = this.d.get(rank);
+                threadListBean.setDuration(500);
+                int i = rank + 1;
+                e(i, threadListBean);
+                f(rank + 2, this.d.get(i));
+                this.u.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
+                layoutParams.topMargin = 0;
+                layoutParams.bottomMargin = xi.g(this.c, R.dimen.tbds8);
+            } else if (rank == 1) {
+                d(rank, this.d.get(rank - 1));
+                f(rank + 1, this.d.get(rank));
+                this.v.setVisibility(4);
+                ((RelativeLayout.LayoutParams) this.u.getLayoutParams()).topMargin = xi.g(this.c, R.dimen.tbds5);
+                SkinManager.setBackgroundColor(this.k, R.color.CAM_X0310);
+                SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0310);
+                SkinManager.setBackgroundColor(this.p, R.color.cp_other_b_alpha20);
             } else {
-                i2 = i;
-            }
-            if (i2 == 0) {
-                BdLog.e(resourceName + " 缺少夜间资源,使用了日间资源");
-                return i;
-            }
-            return i2;
-        }
-        return invokeLLI.intValue;
-    }
-
-    public final int d(boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 2 && (this.e || skinType != 4)) {
-                if (!z) {
-                    return this.c.getColor(i);
-                }
-                if (i == i2) {
-                    Resources resources = this.c;
-                    this.d = resources;
-                    i2 = h(resources, resources, i);
-                }
-                Resources resources2 = this.d;
-                if (resources2 == null) {
-                    return this.c.getColor(i);
-                }
-                try {
-                    return resources2.getColor(i2);
-                } catch (Resources.NotFoundException unused) {
-                    return this.c.getColor(i);
-                }
-            }
-            return SkinManager.getColor(i);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final ColorStateList e(boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 2 && (this.e || skinType != 4)) {
-                if (!z) {
-                    return this.c.getColorStateList(i);
-                }
-                if (i == i2) {
-                    Resources resources = this.c;
-                    this.d = resources;
-                    i2 = h(resources, resources, i);
-                }
-                Resources resources2 = this.d;
-                if (resources2 == null) {
-                    return this.c.getColorStateList(i);
-                }
-                try {
-                    return resources2.getColorStateList(i2);
-                } catch (Resources.NotFoundException unused) {
-                    return this.c.getColorStateList(i);
-                }
-            }
-            return SkinManager.getColorList(i);
-        }
-        return (ColorStateList) invokeCommon.objValue;
-    }
-
-    public final Drawable g(boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 2 && (this.e || skinType != 4)) {
-                if (!z) {
-                    try {
-                        return this.c.getDrawable(i);
-                    } catch (Throwable unused) {
-                        return null;
-                    }
-                }
-                if (i == i2) {
-                    Resources resources = this.c;
-                    this.d = resources;
-                    i2 = h(resources, resources, i);
-                }
-                Resources resources2 = this.d;
-                if (resources2 == null) {
-                    try {
-                        return this.c.getDrawable(i);
-                    } catch (Throwable unused2) {
-                        return null;
-                    }
-                }
-                try {
-                    try {
-                        return resources2.getDrawable(i2);
-                    } catch (Throwable unused3) {
-                        return null;
-                    }
-                } catch (Resources.NotFoundException unused4) {
-                    return this.c.getDrawable(i);
-                } catch (ArrayIndexOutOfBoundsException unused5) {
-                    return null;
-                }
-            }
-            return SkinManager.getDrawable(i);
-        }
-        return (Drawable) invokeCommon.objValue;
-    }
-
-    public final void a(View view2) {
-        Drawable g;
-        Drawable g2;
-        Drawable g3;
-        int q;
-        ColorStateList f2;
-        ColorStateList f3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            String str = "@" + view2.getId();
-            Map<String, yp4> map = this.b;
-            if (map != null && map.containsKey(str)) {
-                yp4 yp4Var = this.b.get(str);
-                if (view2 instanceof TextView) {
-                    if (yp4Var.v() != 0 && (f3 = f(this.a, yp4Var.u(), yp4Var.v())) != null) {
-                        ((TextView) view2).setTextColor(f3);
-                    }
-                    if (yp4Var.t() != 0 && (f2 = f(this.a, yp4Var.s(), yp4Var.t())) != null) {
-                        ((TextView) view2).setHintTextColor(f2);
-                    }
-                    if (yp4Var.r() != 0) {
-                        TextView textView = (TextView) view2;
-                        Context context = view2.getContext();
-                        if (this.a) {
-                            q = yp4Var.r();
-                        } else {
-                            q = yp4Var.q();
-                        }
-                        textView.setTextAppearance(context, q);
-                    }
-                    if (yp4Var.k() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, g(this.a, yp4Var.j(), yp4Var.k()), (Drawable) null, (Drawable) null);
-                    }
-                    if (yp4Var.g() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds(g(this.a, yp4Var.f(), yp4Var.g()), (Drawable) null, (Drawable) null, (Drawable) null);
-                    }
-                    if (yp4Var.i() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, g(this.a, yp4Var.h(), yp4Var.i()), (Drawable) null);
-                    }
-                } else if (view2 instanceof ImageButton) {
-                    if (yp4Var.n() != 0 && (g3 = g(this.a, yp4Var.m(), yp4Var.n())) != null) {
-                        ((ImageView) view2).setImageDrawable(g3);
-                    }
-                } else if (view2 instanceof ImageView) {
-                    if (yp4Var.n() != 0 && (g2 = g(this.a, yp4Var.m(), yp4Var.n())) != null) {
-                        ((ImageView) view2).setImageDrawable(g2);
-                    }
-                } else if ((view2 instanceof ProgressBar) && yp4Var.p() != 0 && (g = g(this.a, yp4Var.o(), yp4Var.p())) != null) {
-                    ((ProgressBar) view2).setProgressDrawable(g);
-                }
-                if (yp4Var.c() != 0) {
-                    int paddingLeft = view2.getPaddingLeft();
-                    int paddingTop = view2.getPaddingTop();
-                    int paddingRight = view2.getPaddingRight();
-                    int paddingBottom = view2.getPaddingBottom();
-                    String resourceTypeName = this.c.getResourceTypeName(yp4Var.b());
-                    if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                        view2.setBackgroundColor(d(this.a, yp4Var.b(), yp4Var.c()));
-                    } else {
-                        view2.setBackgroundDrawable(g(this.a, yp4Var.b(), yp4Var.c()));
-                    }
-                    view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-                }
+                int i2 = rank - 1;
+                e(i2, this.d.get(rank - 2));
+                d(rank, this.d.get(i2));
+                ((RelativeLayout.LayoutParams) this.u.getLayoutParams()).topMargin = xi.g(this.c, R.dimen.tbds230);
+                this.w.setVisibility(4);
             }
         }
     }
 
-    public final void b(ViewGroup viewGroup) {
+    @SuppressLint({"CutPasteId"})
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-            String str = "@" + viewGroup.getId();
-            Map<String, yp4> map = this.b;
-            if (map != null && map.containsKey(str)) {
-                yp4 yp4Var = this.b.get(str);
-                if (viewGroup instanceof AdapterView) {
-                    if ((viewGroup instanceof ListView) && yp4Var.e() != 0) {
-                        ListView listView = (ListView) viewGroup;
-                        int dividerHeight = listView.getDividerHeight();
-                        listView.setDivider(g(this.a, yp4Var.d(), yp4Var.e()));
-                        listView.setDividerHeight(dividerHeight);
-                    }
-                    Adapter adapter = ((AdapterView) viewGroup).getAdapter();
-                    if (adapter != null && (adapter instanceof BaseAdapter)) {
-                        ((BaseAdapter) adapter).notifyDataSetChanged();
-                    }
-                }
-                if (yp4Var.c() != 0) {
-                    int paddingLeft = viewGroup.getPaddingLeft();
-                    int paddingTop = viewGroup.getPaddingTop();
-                    int paddingRight = viewGroup.getPaddingRight();
-                    int paddingBottom = viewGroup.getPaddingBottom();
-                    String resourceTypeName = this.c.getResourceTypeName(yp4Var.b());
-                    if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                        viewGroup.setBackgroundColor(d(this.a, yp4Var.b(), yp4Var.c()));
-                    } else {
-                        viewGroup.setBackgroundDrawable(g(this.a, yp4Var.b(), yp4Var.c()));
-                    }
-                    viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.q = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092256);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909e8);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909ea);
+            this.r = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909eb);
+            this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909e0);
+            this.n = this.a.findViewById(R.id.obfuscated_res_0x7f0909e1);
+            this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e71);
+            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e73);
+            this.s = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091e74);
+            this.j = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e67);
+            this.o = this.a.findViewById(R.id.obfuscated_res_0x7f091e68);
+            this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09075d);
+            this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09075f);
+            this.t = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090760);
+            this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090759);
+            this.p = this.a.findViewById(R.id.obfuscated_res_0x7f09075a);
+            this.v = this.a.findViewById(R.id.obfuscated_res_0x7f0909e3);
+            this.w = this.a.findViewById(R.id.obfuscated_res_0x7f091e6b);
+            this.u = this.a.findViewById(R.id.obfuscated_res_0x7f09075b);
+            this.I = this.a.findViewById(R.id.obfuscated_res_0x7f0909ec);
+            this.H = this.a.findViewById(R.id.obfuscated_res_0x7f091e75);
+            this.G = this.a.findViewById(R.id.obfuscated_res_0x7f090761);
+            this.x = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909ed);
+            this.y = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909ef);
+            this.z = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909ee);
+            this.A = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e76);
+            this.B = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091e78);
+            this.C = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e77);
+            this.D = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090762);
+            this.E = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090764);
+            this.F = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090763);
+            this.r.setRadius(xi.g(this.c, R.dimen.tbds10));
+            this.r.setConrers(15);
+            this.r.setPlaceHolder(2);
+            this.s.setRadius(xi.g(this.c, R.dimen.tbds10));
+            this.s.setConrers(15);
+            this.s.setPlaceHolder(2);
+            this.t.setRadius(xi.g(this.c, R.dimen.tbds10));
+            this.t.setConrers(15);
+            this.t.setPlaceHolder(2);
+            this.f.setLineSpacing(xi.g(this.c, R.dimen.tbds13), 1.0f);
+            this.i.setLineSpacing(xi.g(this.c, R.dimen.tbds13), 1.0f);
+            this.l.setLineSpacing(xi.g(this.c, R.dimen.tbds13), 1.0f);
+            SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.e, R.drawable.cp_other_d_round_bg);
+            SkinManager.setBackgroundResource(this.n, R.drawable.obfuscated_res_0x7f080479);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0310);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.h, R.drawable.cp_link_tip_d_round_bg);
+            SkinManager.setBackgroundResource(this.o, R.drawable.obfuscated_res_0x7f080476);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0305);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.k, R.drawable.cp_link_tip_d_round_bg);
+            SkinManager.setBackgroundResource(this.p, R.drawable.obfuscated_res_0x7f080476);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0305);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(0).setBgColor(SkinManager.getResourceId(R.color.CAM_X0201)).setShadowColor(SkinManager.getResourceId(R.color.CAM_X0806)).setShadowSide(4112).setShadowRadius(xi.g(this.c, R.dimen.tbds16)).setOffsetX(0).setOffsetY(xi.g(this.c, R.dimen.tbds5)).into(this.u);
+            this.y.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            this.B.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            this.E.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            SkinManager.setViewTextColor(this.z, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.C, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.F, (int) R.color.CAM_X0101);
+        }
+    }
+
+    public final void d(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, threadListBean) == null) {
+            this.u.setVisibility(0);
+            this.k.setText(String.valueOf(i));
+            this.l.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.p.setVisibility(0);
+                TextView textView = this.m;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
             }
-        }
-    }
-
-    public final ColorStateList f(boolean z, int i, int i2) {
-        String str;
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            try {
-                return e(z, i, i2);
-            } catch (Exception e) {
-                try {
-                    str = this.c.getResourceName(i);
-                } catch (Exception unused) {
-                    str = "";
-                }
-                TiebaStatic.log(new StatisticItem("getColorListCrash").param("obj_source", e.toString()).param("obj_param1", i).param(TiebaStatic.Params.OBJ_PARAM2, str));
-                return null;
+            if (threadListBean.getDuration() > 0) {
+                this.D.setVisibility(0);
+                this.G.setVisibility(0);
+                this.F.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
             }
-        }
-        return (ColorStateList) invokeCommon.objValue;
-    }
-
-    public final int[] i(String str) {
-        InterceptResult invokeL;
-        int parseInt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (!TextUtils.isDigitsOnly(str.substring(1)) || (parseInt = Integer.parseInt(str.substring(1))) == 0) {
-                return null;
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.t.setVisibility(0);
+                this.t.K(threadListBean.getImg(), 10, false);
+                return;
             }
-            return new int[]{parseInt, h(this.c, this.d, parseInt)};
+            this.t.setVisibility(8);
+            this.D.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.l.getLayoutParams()).rightMargin = xi.g(this.c, R.dimen.tbds44);
         }
-        return (int[]) invokeL.objValue;
     }
 
-    public void j(String str, Context context, AttributeSet attributeSet) {
-        int[] i;
-        int e;
+    public final void e(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, context, attributeSet) == null) {
-            try {
-                Resources resources = context.getResources();
-                this.c = resources;
-                this.d = resources;
-                int attributeCount = attributeSet.getAttributeCount();
-                yp4 yp4Var = new yp4();
-                yp4Var.R(str);
-                boolean z = false;
-                for (int i2 = 0; i2 < attributeCount; i2++) {
-                    String attributeName = attributeSet.getAttributeName(i2);
-                    String attributeValue = attributeSet.getAttributeValue(i2);
-                    if (attributeName.equals("id")) {
-                        yp4Var.G(attributeValue);
-                    } else if (attributeName.equals("tb_background")) {
-                        int[] i3 = i(attributeValue);
-                        if (i3 != null) {
-                            yp4Var.w(i3[0]);
-                            yp4Var.x(i3[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_src")) {
-                        int[] i4 = i(attributeValue);
-                        if (i4 != null) {
-                            yp4Var.H(i4[0]);
-                            yp4Var.I(i4[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_textColor")) {
-                        int[] i5 = i(attributeValue);
-                        if (i5 != null) {
-                            yp4Var.P(i5[0]);
-                            yp4Var.Q(i5[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_style")) {
-                        int[] i6 = i(attributeValue);
-                        if (i6 != null) {
-                            yp4Var.L(i6[0]);
-                            yp4Var.M(i6[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_divider")) {
-                        int[] i7 = i(attributeValue);
-                        if (i7 != null) {
-                            yp4Var.y(i7[0]);
-                            yp4Var.z(i7[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableTop")) {
-                        int[] i8 = i(attributeValue);
-                        if (i8 != null) {
-                            yp4Var.E(i8[0]);
-                            yp4Var.F(i8[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableLeft")) {
-                        int[] i9 = i(attributeValue);
-                        if (i9 != null) {
-                            yp4Var.A(i9[0]);
-                            yp4Var.B(i9[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableRight")) {
-                        int[] i10 = i(attributeValue);
-                        if (i10 != null) {
-                            yp4Var.C(i10[0]);
-                            yp4Var.D(i10[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_progressDrawable")) {
-                        int[] i11 = i(attributeValue);
-                        if (i11 != null) {
-                            yp4Var.J(i11[0]);
-                            yp4Var.K(i11[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_textColorHint") && (i = i(attributeValue)) != null) {
-                        yp4Var.N(i[0]);
-                        yp4Var.O(i[1]);
-                        z = true;
-                    }
-                    if (z && TbConfig.getDebugSwitch() && (e = eh.e(attributeValue.substring(1), 0)) != 0) {
-                        String resourceName = this.c.getResourceName(e);
-                        yp4Var.a(attributeName + "=" + resourceName);
-                    }
-                }
-                if (z && !TextUtils.isEmpty(yp4Var.l()) && this.b != null && !this.b.containsKey(yp4Var.l())) {
-                    this.b.put(yp4Var.l(), yp4Var);
-                }
-            } catch (Resources.NotFoundException unused) {
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, threadListBean) == null) {
+            this.v.setVisibility(0);
+            this.e.setText(String.valueOf(i));
+            this.f.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.n.setVisibility(0);
+                TextView textView = this.g;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
             }
-        }
-    }
-
-    public void k(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, view2) != null) || view2 == null) {
-            return;
-        }
-        Stack stack = new Stack();
-        stack.push(view2);
-        while (!stack.isEmpty()) {
-            View view3 = (View) stack.pop();
-            if (view3 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view3;
-                b(viewGroup);
-                if (!(view3 instanceof AdapterView)) {
-                    int childCount = viewGroup.getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        stack.push(viewGroup.getChildAt(i));
-                    }
-                }
-            } else {
-                a(view3);
+            if (threadListBean.getDuration() > 0) {
+                this.x.setVisibility(0);
+                this.I.setVisibility(0);
+                this.z.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
             }
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.r.setVisibility(0);
+                this.r.K(threadListBean.getImg(), 10, false);
+                return;
+            }
+            this.r.setVisibility(8);
+            this.x.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.f.getLayoutParams()).rightMargin = xi.g(this.c, R.dimen.tbds44);
         }
     }
 
-    public void l(boolean z) {
+    public final void f(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void m(Resources resources) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, resources) == null) {
-            this.d = resources;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, threadListBean) == null) {
+            this.w.setVisibility(0);
+            this.h.setText(String.valueOf(i));
+            this.i.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.o.setVisibility(0);
+                TextView textView = this.j;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            }
+            if (threadListBean.getDuration() > 0) {
+                this.A.setVisibility(0);
+                this.H.setVisibility(0);
+                this.C.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            }
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.s.setVisibility(0);
+                this.s.K(threadListBean.getImg(), 10, false);
+                return;
+            }
+            this.s.setVisibility(8);
+            this.A.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).rightMargin = xi.g(this.c, R.dimen.tbds44);
         }
     }
 }

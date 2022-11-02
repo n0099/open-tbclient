@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function2;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0004\n\u0002\b\u0005\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u00012\u0006\u0010\u0002\u001a\u0002H\u0001H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", ExifInterface.LONGITUDE_EAST, AdvanceSetting.NETWORK_TYPE, "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$distinct$1", f = "Channels.common.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes8.dex */
-public final class ChannelsKt__Channels_commonKt$distinct$1 extends SuspendLambda implements Function2 {
+public final class ChannelsKt__Channels_commonKt$distinct$1 extends SuspendLambda implements Function2<E, Continuation<? super E>, Object> {
     public int label;
     public Object p$0;
 
@@ -22,7 +22,7 @@ public final class ChannelsKt__Channels_commonKt$distinct$1 extends SuspendLambd
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         ChannelsKt__Channels_commonKt$distinct$1 channelsKt__Channels_commonKt$distinct$1 = new ChannelsKt__Channels_commonKt$distinct$1(continuation);
         channelsKt__Channels_commonKt$distinct$1.p$0 = obj;
         return channelsKt__Channels_commonKt$distinct$1;

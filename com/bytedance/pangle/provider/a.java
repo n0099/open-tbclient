@@ -8,12 +8,12 @@ import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.log.ZeusLogger;
-import com.bytedance.pangle.provider.ContentProviderManager;
 import java.io.File;
 /* loaded from: classes7.dex */
 public final class a {
@@ -130,6 +130,7 @@ public final class a {
         return invokeLLLLL.intValue;
     }
 
+    @RequiresApi(api = 26)
     public static Cursor a(ContentResolver contentResolver, Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -160,6 +161,7 @@ public final class a {
         return (Cursor) invokeCommon.objValue;
     }
 
+    @RequiresApi(api = 16)
     public static Cursor a(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -300,7 +302,7 @@ public final class a {
             } else {
                 encodeToString = Base64.encodeToString(a.getBytes(), 10);
             }
-            String str3 = ((ContentProviderManager.c) ContentProviderManager.getInstance().getSystemProviderInfoMap().get(pluginProcessNameByAuthority)).b;
+            String str3 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(pluginProcessNameByAuthority).b;
             Uri parse = Uri.parse("content://" + str3 + File.separator + "proxy?provider_params=" + encodeToString);
             ZeusLogger.d(ZeusLogger.TAG_PROVIDER, "进程[processName=" + pluginProcessNameByAuthority + "] build provider 【 uri:" + parse + " 】");
             return parse;
@@ -350,7 +352,7 @@ public final class a {
             if (contentResolver == null) {
                 return null;
             }
-            String str5 = ((ContentProviderManager.c) ContentProviderManager.getInstance().getSystemProviderInfoMap().get(ContentProviderManager.getInstance().getPluginProcessNameByAuthority(str))).b;
+            String str5 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(ContentProviderManager.getInstance().getPluginProcessNameByAuthority(str)).b;
             if (bundle == null) {
                 bundle = new Bundle();
             }

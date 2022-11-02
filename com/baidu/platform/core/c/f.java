@@ -1,28 +1,29 @@
 package com.baidu.platform.core.c;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
-import com.baidu.mapapi.search.poi.PoiBoundSearchOption;
-import com.baidu.mapapi.search.poi.PoiCitySearchOption;
-import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
-import com.baidu.mapapi.search.poi.PoiIndoorOption;
-import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
-import com.baidu.platform.base.SearchType;
+import android.text.TextUtils;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.base.LanguageType;
+import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
+import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class f extends com.baidu.platform.base.a implements a {
+public class f extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public OnGetPoiSearchResultListener b;
 
-    public f() {
+    public f(ReverseGeoCodeOption reverseGeoCodeOption) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {reverseGeoCodeOption};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,89 +33,52 @@ public class f extends com.baidu.platform.base.a implements a {
                 return;
             }
         }
-        this.b = null;
+        a(reverseGeoCodeOption);
     }
 
-    @Override // com.baidu.platform.core.c.a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.lock();
-            this.b = null;
-            this.a.unlock();
-        }
-    }
-
-    @Override // com.baidu.platform.core.c.a
-    public void a(OnGetPoiSearchResultListener onGetPoiSearchResultListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetPoiSearchResultListener) == null) {
-            this.a.lock();
-            this.b = onGetPoiSearchResultListener;
-            this.a.unlock();
-        }
-    }
-
-    @Override // com.baidu.platform.core.c.a
-    public boolean a(PoiBoundSearchOption poiBoundSearchOption) {
+    @Override // com.baidu.platform.base.e
+    public String a(com.baidu.platform.domain.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, poiBoundSearchOption)) == null) {
-            g gVar = new g(poiBoundSearchOption.mPageNum, poiBoundSearchOption.mPageCapacity);
-            gVar.a(SearchType.c);
-            return a(new i(poiBoundSearchOption), this.b, gVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            return cVar.e();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.platform.core.c.a
-    public boolean a(PoiCitySearchOption poiCitySearchOption) {
-        InterceptResult invokeL;
+    private void a(ReverseGeoCodeOption reverseGeoCodeOption) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, poiCitySearchOption)) == null) {
-            g gVar = new g(poiCitySearchOption.mPageNum, poiCitySearchOption.mPageCapacity);
-            gVar.a(SearchType.b);
-            return a(new i(poiCitySearchOption), this.b, gVar);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.platform.core.c.a
-    public boolean a(PoiDetailSearchOption poiDetailSearchOption) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, poiDetailSearchOption)) == null) {
-            d dVar = new d();
-            if (poiDetailSearchOption != null) {
-                dVar.a(poiDetailSearchOption.isSearchByUids());
+        if (interceptable == null || interceptable.invokeL(65537, this, reverseGeoCodeOption) == null) {
+            if (reverseGeoCodeOption.getLocation() != null) {
+                LatLng latLng = new LatLng(reverseGeoCodeOption.getLocation().latitude, reverseGeoCodeOption.getLocation().longitude);
+                if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                    latLng = CoordTrans.gcjToBaidu(latLng);
+                }
+                com.baidu.platform.util.a aVar = this.a;
+                aVar.a("location", latLng.latitude + "," + latLng.longitude);
             }
-            dVar.a(SearchType.d);
-            return a(new e(poiDetailSearchOption), this.b, dVar);
+            if (reverseGeoCodeOption.getLanguage() == LanguageType.LanguageTypeEnglish) {
+                this.a.a("language", "en");
+            }
+            this.a.a("coordtype", "bd09ll");
+            this.a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
+            this.a.a(SuggestAddrField.KEY_PAGE_SIZE, String.valueOf(reverseGeoCodeOption.getPageSize()));
+            this.a.a("pois", "1");
+            this.a.a("extensions_poi", "1");
+            this.a.a("extensions_town", "true");
+            if (reverseGeoCodeOption.getExtensionsRoad()) {
+                this.a.a("extensions_road", "true");
+            } else {
+                this.a.a("extensions_road", "false");
+            }
+            String poiType = reverseGeoCodeOption.getPoiType();
+            if (!TextUtils.isEmpty(poiType)) {
+                this.a.a("poi_types", poiType);
+            }
+            this.a.a("output", "jsonaes");
+            this.a.a("from", "android_map_sdk");
+            this.a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
+            this.a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.platform.core.c.a
-    public boolean a(PoiIndoorOption poiIndoorOption) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, poiIndoorOption)) == null) {
-            b bVar = new b();
-            bVar.a(SearchType.e);
-            return a(new c(poiIndoorOption), this.b, bVar);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.platform.core.c.a
-    public boolean a(PoiNearbySearchOption poiNearbySearchOption) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, poiNearbySearchOption)) == null) {
-            g gVar = new g(poiNearbySearchOption.mPageNum, poiNearbySearchOption.mPageCapacity);
-            gVar.a(SearchType.a);
-            return a(new i(poiNearbySearchOption), this.b, gVar);
-        }
-        return invokeL.booleanValue;
     }
 }

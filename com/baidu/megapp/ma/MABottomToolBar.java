@@ -44,7 +44,7 @@ public class MABottomToolBar {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
     /* loaded from: classes2.dex */
-    public final class CommonMenuType {
+    public static final class CommonMenuType {
         public static final /* synthetic */ CommonMenuType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CommonMenuType MENU_STYLE_AD_IMMERSIVE_LANDING_PAGE;
@@ -114,7 +114,7 @@ public class MABottomToolBar {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class CommonToolBarType {
+    public static final class CommonToolBarType {
         public static final /* synthetic */ CommonToolBarType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CommonToolBarType TOOL_BAR_STYLE_AD_IMMERSIVE_LANDING_PAGE;

@@ -9,9 +9,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.cf;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,13 +27,13 @@ public class ForumRankModel extends BdBaseModel {
     public String c;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask {
+    public class b extends BdAsyncTask<Void, ForumRankData, ForumRankData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankModel a;
@@ -96,10 +96,10 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                ou4.f();
-                kf g = ou4.g("tb.forum_rank");
+                hv4.f();
+                cf<String> g = hv4.g("tb.forum_rank");
                 if (g != null) {
-                    str = (String) g.get("forum_rank_cache_key_" + this.a.a);
+                    str = g.get("forum_rank_cache_key_" + this.a.a);
                 } else {
                     str = null;
                 }

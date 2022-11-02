@@ -26,9 +26,9 @@ public class SyncGroupMessageService {
     public static Object synobject;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mComplete;
-    public ConcurrentLinkedQueue mDialogRecords;
-    public Map mGroupSyncMap;
-    public ConcurrentLinkedQueue mNewRecords;
+    public ConcurrentLinkedQueue<DialogRecord> mDialogRecords;
+    public Map<ChatObject, SyncGroupMessage> mGroupSyncMap;
+    public ConcurrentLinkedQueue<DialogRecord> mNewRecords;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public class SyncGroupMessageService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            return (DialogRecord) this.mDialogRecords.peek();
+            return this.mDialogRecords.peek();
         }
         return (DialogRecord) invokeV.objValue;
     }
@@ -74,7 +74,7 @@ public class SyncGroupMessageService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             LogUtils.d(TAG, "get new dialogRecord ");
-            return (DialogRecord) this.mNewRecords.peek();
+            return this.mNewRecords.peek();
         }
         return (DialogRecord) invokeV.objValue;
     }
@@ -84,7 +84,7 @@ public class SyncGroupMessageService {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogUtils.d(TAG, "BB clear");
             this.mDialogRecords.clear();
-            Map map = this.mGroupSyncMap;
+            Map<ChatObject, SyncGroupMessage> map = this.mGroupSyncMap;
             if (map != null) {
                 map.clear();
             }
@@ -115,8 +115,8 @@ public class SyncGroupMessageService {
         }
         this.mComplete = true;
         this.mGroupSyncMap = new ConcurrentHashMap();
-        this.mDialogRecords = new ConcurrentLinkedQueue();
-        this.mNewRecords = new ConcurrentLinkedQueue();
+        this.mDialogRecords = new ConcurrentLinkedQueue<>();
+        this.mNewRecords = new ConcurrentLinkedQueue<>();
     }
 
     public int getState(Context context) {
@@ -154,13 +154,13 @@ public class SyncGroupMessageService {
         String str = TAG;
         LogUtils.d(str, "put dialogRecord " + dialogRecord.getContacter());
         boolean z = false;
-        Iterator it = this.mDialogRecords.iterator();
+        Iterator<DialogRecord> it = this.mDialogRecords.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            DialogRecord dialogRecord2 = (DialogRecord) it.next();
-            if (dialogRecord2.getCategory() == dialogRecord.getCategory() && dialogRecord2.getContacter() == dialogRecord.getContacter()) {
+            DialogRecord next = it.next();
+            if (next.getCategory() == dialogRecord.getCategory() && next.getContacter() == dialogRecord.getContacter()) {
                 z = true;
                 break;
             }
@@ -178,13 +178,13 @@ public class SyncGroupMessageService {
         String str = TAG;
         LogUtils.d(str, "put new dialogRecord " + dialogRecord.getContacter());
         boolean z = false;
-        Iterator it = this.mNewRecords.iterator();
+        Iterator<DialogRecord> it = this.mNewRecords.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            DialogRecord dialogRecord2 = (DialogRecord) it.next();
-            if (dialogRecord2.getCategory() == dialogRecord.getCategory() && dialogRecord2.getContacter() == dialogRecord.getContacter()) {
+            DialogRecord next = it.next();
+            if (next.getCategory() == dialogRecord.getCategory() && next.getContacter() == dialogRecord.getContacter()) {
                 z = true;
                 break;
             }

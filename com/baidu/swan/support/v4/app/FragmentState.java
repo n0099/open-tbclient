@@ -6,8 +6,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hh4;
-import com.baidu.tieba.jh4;
+import com.baidu.tieba.bi4;
+import com.baidu.tieba.zh4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<FragmentState> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final Bundle mArguments;
     public final String mClassName;
@@ -43,7 +43,7 @@ public final class FragmentState implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<FragmentState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -167,15 +167,15 @@ public final class FragmentState implements Parcelable {
         this.mArguments = fragment.h;
     }
 
-    public Fragment instantiate(hh4 hh4Var, Fragment fragment) {
+    public Fragment instantiate(zh4 zh4Var, Fragment fragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hh4Var, fragment)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zh4Var, fragment)) == null) {
             Fragment fragment2 = this.mInstance;
             if (fragment2 != null) {
                 return fragment2;
             }
-            Context context = hh4Var.getContext();
+            Context context = zh4Var.getContext();
             Bundle bundle = this.mArguments;
             if (bundle != null) {
                 bundle.setClassLoader(context.getClassLoader());
@@ -195,8 +195,8 @@ public final class FragmentState implements Parcelable {
             fragment3.y = this.mTag;
             fragment3.B = this.mRetainInstance;
             fragment3.A = this.mDetached;
-            fragment3.s = hh4Var.e;
-            if (jh4.x) {
+            fragment3.s = zh4Var.e;
+            if (bi4.x) {
                 Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
             }
             return this.mInstance;

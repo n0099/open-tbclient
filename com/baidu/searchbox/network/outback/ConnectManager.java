@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -7,6 +8,7 @@ import android.net.Proxy;
 import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
@@ -46,7 +48,7 @@ public class ConnectManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class NetworkStateEnum {
+    public static final class NetworkStateEnum {
         public static final /* synthetic */ NetworkStateEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetworkStateEnum NO;
@@ -249,6 +251,7 @@ public class ConnectManager {
         return invokeL.booleanValue;
     }
 
+    @RequiresApi(api = 21)
     public static boolean checkVPN(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -262,6 +265,7 @@ public class ConnectManager {
         return invokeL.booleanValue;
     }
 
+    @SuppressLint({"MissingPermission"})
     public static NetworkInfo getInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

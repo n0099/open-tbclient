@@ -1,5 +1,7 @@
 package com.baidu.webkit.sdk.system;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.webkit.WebMessage;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
@@ -18,15 +20,15 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Glue {
     public static /* synthetic */ Interceptable $ic;
     public static Field ImmutableField;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$ZoomDensity;
@@ -159,8 +161,8 @@ public final class Glue {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class ResultReceiverWrapper implements JsResult.ResultReceiver {
+    /* loaded from: classes7.dex */
+    public static class ResultReceiverWrapper implements JsResult.ResultReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public android.webkit.JsResult mJsResult;
@@ -250,6 +252,7 @@ public final class Glue {
         }
     }
 
+    @TargetApi(23)
     public static WebMessage cast(com.baidu.webkit.sdk.WebMessage webMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -262,6 +265,7 @@ public final class Glue {
         return (WebMessage) invokeL.objValue;
     }
 
+    @TargetApi(21)
     public static WebResourceResponse cast(com.baidu.webkit.sdk.WebResourceResponse webResourceResponse) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -278,6 +282,7 @@ public final class Glue {
         return (WebResourceResponse) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static WebSettings.LayoutAlgorithm cast(WebSettings.LayoutAlgorithm layoutAlgorithm) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -375,6 +380,7 @@ public final class Glue {
         return (JsResult) invokeL.objValue;
     }
 
+    @TargetApi(23)
     public static com.baidu.webkit.sdk.WebMessage cast(WebMessage webMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -387,6 +393,7 @@ public final class Glue {
         return (com.baidu.webkit.sdk.WebMessage) invokeL.objValue;
     }
 
+    @TargetApi(21)
     public static com.baidu.webkit.sdk.WebResourceResponse cast(WebResourceResponse webResourceResponse) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -403,6 +410,7 @@ public final class Glue {
         return (com.baidu.webkit.sdk.WebResourceResponse) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static WebSettings.LayoutAlgorithm cast(WebSettings.LayoutAlgorithm layoutAlgorithm) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

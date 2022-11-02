@@ -2,6 +2,7 @@ package com.ss.android.socialbase.appdownloader;
 
 import android.app.Activity;
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.constants.EnqueueType;
 import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
 import com.ss.android.socialbase.downloader.depend.IDownloadListener;
@@ -43,11 +44,11 @@ public class f {
     public int[] af;
     public Context b;
     public String c;
-    public List d;
+    public List<String> d;
     public String e;
     public String f;
     public String g;
-    public List h;
+    public List<com.ss.android.socialbase.downloader.model.c> h;
     public IDownloadListener m;
     public IDownloadListener n;
     public String o;
@@ -71,11 +72,11 @@ public class f {
     public EnqueueType J = EnqueueType.ENQUEUE_NONE;
     public int K = 150;
     public boolean M = true;
-    public List X = new ArrayList();
+    public List<m> X = new ArrayList();
     public boolean ac = true;
     public boolean ad = true;
 
-    public f(Context context, String str) {
+    public f(@NonNull Context context, @NonNull String str) {
         this.b = context.getApplicationContext();
         this.c = str;
     }
@@ -148,7 +149,7 @@ public class f {
         return this.T;
     }
 
-    public List R() {
+    public List<m> R() {
         return this.X;
     }
 
@@ -226,7 +227,7 @@ public class f {
         return this;
     }
 
-    public f a(List list) {
+    public f a(List<com.ss.android.socialbase.downloader.model.c> list) {
         this.h = list;
         return this;
     }
@@ -253,7 +254,7 @@ public class f {
         return this.W;
     }
 
-    public List ab() {
+    public List<String> ab() {
         return this.d;
     }
 
@@ -275,7 +276,7 @@ public class f {
         return this;
     }
 
-    public f b(List list) {
+    public f b(List<String> list) {
         this.d = list;
         return this;
     }
@@ -294,7 +295,7 @@ public class f {
         return this;
     }
 
-    public f c(String str) {
+    public f c(@NonNull String str) {
         this.g = str;
         return this;
     }
@@ -323,7 +324,7 @@ public class f {
         return this;
     }
 
-    public List d() {
+    public List<com.ss.android.socialbase.downloader.model.c> d() {
         return this.h;
     }
 

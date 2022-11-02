@@ -1,15 +1,93 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.YYPayUIKit;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes4.dex */
-public interface h6a extends f6a {
+public class h6a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a();
+    public static void a(String str, int i, int i2, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            boolean z = false;
+            if (uIKit == null) {
+                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+                return;
+            }
+            l5a viewLifecycle = uIKit.getViewLifecycle();
+            if (viewLifecycle != null) {
+                z = true;
+            }
+            RLog.info("ViewLifecycleHandler", "notifyPayActivityDestory  payFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                viewLifecycle.c(str, payFlowType);
+            }
+        }
     }
 
-    void setCallback(a aVar);
+    public static void b(String str, int i, int i2, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            boolean z = false;
+            if (uIKit == null) {
+                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+                return;
+            }
+            l5a viewLifecycle = uIKit.getViewLifecycle();
+            if (viewLifecycle != null) {
+                z = true;
+            }
+            RLog.info("ViewLifecycleHandler", "notifyPayActivityVisit  payFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                viewLifecycle.a(str, payFlowType);
+            }
+        }
+    }
 
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+    public static void c(int i, int i2, PayFlowType payFlowType, PayDialogType payDialogType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, payDialogType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            boolean z = false;
+            if (uIKit == null) {
+                RLog.error("ViewLifecycleHandler", "notifyPayDialogTypeChange error payUIKit null", new Object[0]);
+                return;
+            }
+            l5a viewLifecycle = uIKit.getViewLifecycle();
+            if (viewLifecycle != null) {
+                z = true;
+            }
+            RLog.info("ViewLifecycleHandler", "notifyPayDialogTypeChange mPayFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                viewLifecycle.d(payFlowType, payDialogType);
+            }
+        }
+    }
+
+    public static void d(int i, int i2, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65539, null, i, i2, payFlowType) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            boolean z = false;
+            if (uIKit == null) {
+                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+                return;
+            }
+            l5a viewLifecycle = uIKit.getViewLifecycle();
+            if (viewLifecycle != null) {
+                z = true;
+            }
+            RLog.info("ViewLifecycleHandler", "notifyPayFlowWork mPayFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                viewLifecycle.b(payFlowType);
+            }
+        }
+    }
 }

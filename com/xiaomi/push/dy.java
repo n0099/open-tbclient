@@ -32,7 +32,7 @@ public class dy {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bp.m205a(str), 2) : (String) invokeL.objValue;
     }
 
-    public static String a(HashMap hashMap) {
+    public static String a(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
@@ -58,15 +58,15 @@ public class dy {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? bp.b(Base64.decode(str, 2)) : (String) invokeL.objValue;
     }
 
-    public static String b(HashMap hashMap) {
+    public static String b(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hashMap)) == null) {
             HashMap hashMap2 = new HashMap();
             if (hashMap != null) {
-                hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, ((String) hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY)) + "");
-                hashMap2.put("description", ((String) hashMap.get("description")) + "");
-                String str = (String) hashMap.get("awake_info");
+                hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY) + "");
+                hashMap2.put("description", hashMap.get("description") + "");
+                String str = hashMap.get("awake_info");
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);

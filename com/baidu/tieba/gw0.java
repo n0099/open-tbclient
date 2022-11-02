@@ -1,45 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gw0 extends zv0 {
+public class gw0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fw0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public gw0() {
+    public static synchronized fw0 a() {
+        InterceptResult invokeV;
+        fw0 fw0Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (gw0.class) {
+                if (a == null) {
+                    a = new fw0();
+                }
+                fw0Var = a;
             }
+            return fw0Var;
         }
-    }
-
-    @Override // com.baidu.tieba.zv0, com.baidu.tieba.cw0
-    public vv0 create(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str.hashCode() == -1843224545 && str.equals("InlineVideoKernel")) {
-                c = 0;
-            } else {
-                c = 65535;
-            }
-            if (c != 0) {
-                return super.create(str);
-            }
-            return new ew0();
-        }
-        return (vv0) invokeL.objValue;
+        return (fw0) invokeV.objValue;
     }
 }

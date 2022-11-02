@@ -1,88 +1,195 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class az7 extends ly7 {
+public class az7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId g;
-    public View.OnClickListener h;
-    public int i;
+    public FoldCommentActivity a;
+    public BdTypeListView b;
+    public l28 c;
+    public n28 d;
+    public View.OnClickListener e;
+    public View.OnClickListener f;
+    public TbRichTextView.y g;
+    public fy7 h;
+    public View.OnLongClickListener i;
+    public SubPbReplyAdapter j;
+    public bz7 k;
+    public List<jn> l;
+    public dx7 m;
+    public ArrayList<wn> n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az7(e38 e38Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(e38Var, bdUniqueId);
+    public az7(FoldCommentActivity foldCommentActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e38Var, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {foldCommentActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((e38) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = bdUniqueId2;
-        this.i = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        this.l = new ArrayList();
+        this.n = new ArrayList<>();
+        this.a = foldCommentActivity;
+        this.b = bdTypeListView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: u */
-    public PbLoadMoreItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0646, viewGroup, false), this.g);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, v38.b);
+            this.j = subPbReplyAdapter;
+            subPbReplyAdapter.u(false);
+            this.l.add(this.j);
+            FoldCommentActivity foldCommentActivity = this.a;
+            bz7 bz7Var = new bz7(foldCommentActivity, PostData.M0, foldCommentActivity.getPageContext());
+            this.k = bz7Var;
+            bz7Var.d0(this.c);
+            this.k.e0(this.d);
+            this.k.g0(this.a);
+            this.k.k(this.e);
+            this.k.e(this.f);
+            this.k.n(this.g);
+            this.k.f0(this.h);
+            this.k.d(this.i);
+            this.l.add(this.k);
+            this.b.a(this.l);
         }
-        return (PbLoadMoreItemViewHolder) invokeL.objValue;
     }
 
-    public void w(View.OnClickListener onClickListener) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b.getAdapter2() != null) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    public void d(boolean z) {
+        bz7 bz7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (bz7Var = this.k) != null) {
+            bz7Var.setFromCDN(z);
+        }
+    }
+
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.h = onClickListener;
+            this.e = onClickListener;
         }
     }
 
-    @Override // com.baidu.tieba.ly7, com.baidu.tieba.rn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (aw7) obj, (PbLoadMoreItemViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, aw7 aw7Var, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
-        InterceptResult invokeCommon;
+    public void f(boolean z) {
+        bz7 bz7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, aw7Var, pbLoadMoreItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, aw7Var, pbLoadMoreItemViewHolder);
-            if (aw7Var.b) {
-                pbLoadMoreItemViewHolder.e(aw7Var.a);
-            } else {
-                pbLoadMoreItemViewHolder.d(aw7Var.a, this.i);
-            }
-            pbLoadMoreItemViewHolder.c(this.h);
-            pbLoadMoreItemViewHolder.b();
-            return view2;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (bz7Var = this.k) != null) {
+            bz7Var.c0(z);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void g(TbRichTextView.y yVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, yVar) == null) {
+            this.g = yVar;
+        }
+    }
+
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.i = onLongClickListener;
+        }
+    }
+
+    public void j(l28 l28Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, l28Var) == null) {
+            this.c = l28Var;
+        }
+    }
+
+    public void k(n28 n28Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, n28Var) == null) {
+            this.d = n28Var;
+        }
+    }
+
+    public void l(fy7 fy7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fy7Var) == null) {
+            this.h = fy7Var;
+        }
+    }
+
+    public void i(dx7 dx7Var) {
+        bz7 bz7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dx7Var) == null) {
+            this.m = dx7Var;
+            bz7 bz7Var2 = this.k;
+            if (bz7Var2 != null) {
+                bz7Var2.r(dx7Var);
+            }
+            this.n.clear();
+            dx7 dx7Var2 = this.m;
+            if (dx7Var2 != null && dx7Var2.H() != null && this.m.H().size() > 0) {
+                v38 v38Var = new v38();
+                v38Var.b(dx7Var.H().size());
+                this.n.add(v38Var);
+                Iterator<PostData> it = this.m.H().iterator();
+                while (it.hasNext()) {
+                    PostData next = it.next();
+                    if (next.getType() != PostData.L0) {
+                        this.n.add(next);
+                    }
+                }
+            }
+            if (dx7Var.Q() != null && dx7Var.Q().getAuthor() != null && (bz7Var = this.k) != null) {
+                bz7Var.o(dx7Var.Q().getAuthor().getUserId());
+            }
+            if (this.m != null) {
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_HAS_FOLD_ICON_SHOW);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem.param("fid", this.m.m());
+                statisticItem.param("fname", this.m.n());
+                statisticItem.param("tid", this.m.S());
+                TiebaStatic.log(statisticItem);
+            }
+            this.b.setData(this.n);
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
     }
 }

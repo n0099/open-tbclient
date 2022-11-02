@@ -14,7 +14,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double xi;

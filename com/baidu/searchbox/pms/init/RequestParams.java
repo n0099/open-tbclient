@@ -3,6 +3,7 @@ package com.baidu.searchbox.pms.init;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.bean.PackageParams;
 import com.baidu.searchbox.pms.callback.IDataInterceptor;
 import com.baidu.searchbox.pms.callback.PackageCallback;
 import com.baidu.searchbox.pms.constants.PmsConstant;
@@ -20,13 +21,13 @@ import org.json.JSONObject;
 public class RequestParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List channelList;
+    public List<Channel> channelList;
     public JSONObject filter;
     public String runNode;
     public String runType;
 
     /* loaded from: classes2.dex */
-    public class Channel {
+    public static class Channel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PackageCallback callback;
@@ -34,8 +35,8 @@ public class RequestParams {
         public IDataInterceptor dataInterceptor;
         public boolean isFetchAllPackages;
         public boolean isUsePmsVersionData;
-        public List packageNames;
-        public List packageParamsList;
+        public List<String> packageNames;
+        public List<PackageParams> packageParamsList;
 
         public Channel() {
             Interceptable interceptable = $ic;
@@ -80,7 +81,7 @@ public class RequestParams {
             return (IDataInterceptor) invokeV.objValue;
         }
 
-        public List getPackageNames() {
+        public List<String> getPackageNames() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -89,7 +90,7 @@ public class RequestParams {
             return (List) invokeV.objValue;
         }
 
-        public List getPackageParamsList() {
+        public List<PackageParams> getPackageParamsList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -146,7 +147,7 @@ public class RequestParams {
             }
         }
 
-        public Channel(String str, List list, PackageCallback packageCallback) {
+        public Channel(String str, List<String> list, PackageCallback packageCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -229,7 +230,7 @@ public class RequestParams {
             return (Channel) invokeZ.objValue;
         }
 
-        public Channel setPackageNames(List list) {
+        public Channel setPackageNames(List<String> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, list)) == null) {
@@ -241,7 +242,7 @@ public class RequestParams {
             return (Channel) invokeL.objValue;
         }
 
-        public Channel setPackageParamsList(List list) {
+        public Channel setPackageParamsList(List<PackageParams> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, list)) == null) {
@@ -267,7 +268,7 @@ public class RequestParams {
         }
     }
 
-    public List getChannelList() {
+    public List<Channel> getChannelList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -322,7 +323,7 @@ public class RequestParams {
                     this.channelList = new ArrayList();
                 }
                 for (int i = 0; i < this.channelList.size(); i++) {
-                    Channel channel2 = (Channel) this.channelList.get(i);
+                    Channel channel2 = this.channelList.get(i);
                     if (TextUtils.equals(channel2.channelId, channel.channelId)) {
                         if (!PmsConstant.DEBUG) {
                             this.channelList.set(i, channel2);

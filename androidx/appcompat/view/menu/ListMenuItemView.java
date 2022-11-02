@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.InputDeviceCompat;
@@ -26,6 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ListMenuItemView extends LinearLayout implements MenuView.ItemView, AbsListView.SelectionBoundsAdjuster {
     public static /* synthetic */ Interceptable $ic = null;
@@ -318,20 +320,20 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
             ViewCompat.setBackground(this, this.mBackground);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092256);
             this.mTitleView = textView;
             int i = this.mTextAppearance;
             if (i != -1) {
                 textView.setTextAppearance(this.mTextAppearanceContext, i);
             }
-            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ebe);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fa5);
+            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f09);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ff1);
             this.mSubMenuArrowView = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(this.mSubMenuArrow);
             }
-            this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d07);
-            this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906ec);
+            this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d26);
+            this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906fa);
         }
     }
 

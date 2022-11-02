@@ -6,140 +6,132 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.ResponseBody;
-import okio.Buffer;
-import okio.BufferedSource;
-import okio.ForwardingSource;
-import okio.Okio;
-import okio.Source;
 /* loaded from: classes6.dex */
-public class vu2 extends ResponseBody {
+public class vu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponseBody a;
-    public final su2 b;
-    public BufferedSource c;
+    public int a;
+    public String b;
+    public long c;
+    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public class a extends ForwardingSource {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public final /* synthetic */ vu2 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vu2 vu2Var, Source source) {
-            super(source);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vu2Var, source};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Source) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vu2Var;
-            this.a = 0L;
-        }
-
-        @Override // okio.ForwardingSource, okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
-            InterceptResult invokeLJ;
-            long j2;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, buffer, j)) == null) {
-                long read = super.read(buffer, j);
-                long j3 = this.a;
-                int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
-                if (i != 0) {
-                    j2 = read;
-                } else {
-                    j2 = 0;
-                }
-                this.a = j3 + j2;
-                su2 su2Var = this.b.b;
-                long j4 = this.a;
-                long contentLength = this.b.a.contentLength();
-                if (i == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                su2Var.a(j4, contentLength, z);
-                return read;
-            }
-            return invokeLJ.longValue;
-        }
-    }
-
-    public vu2(ResponseBody responseBody, su2 su2Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public vu2(int i) {
+        this(i, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody, su2Var};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = responseBody;
-        this.b = su2Var;
     }
 
-    public final Source c(Source source) {
-        InterceptResult invokeL;
+    public vu2(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, source)) == null) {
-            return new a(this, source);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (Source) invokeL.objValue;
+        this.d = false;
+        this.a = i;
+        this.b = str;
     }
 
-    @Override // okhttp3.ResponseBody
-    public long contentLength() {
+    public vu2(int i, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.a = i;
+        this.b = str;
+        this.c = j;
+    }
+
+    public vu2(int i, String str, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.a = i;
+        this.b = str;
+        this.c = j;
+        this.d = z;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.contentLength();
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
         return invokeV.longValue;
     }
 
-    @Override // okhttp3.ResponseBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.contentType();
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.ResponseBody
-    public BufferedSource source() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c == null) {
-                this.c = Okio.buffer(c(this.a.source()));
-            }
-            return this.c;
+            return this.b;
         }
-        return (BufferedSource) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

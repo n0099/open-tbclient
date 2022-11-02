@@ -16,6 +16,9 @@ import io.reactivex.Observer;
 import io.reactivex.Scheduler;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
+import io.reactivex.annotations.Beta;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
@@ -39,32 +42,56 @@ import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
 public final class RxJavaPlugins {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Consumer errorHandler;
+    @Nullable
+    public static volatile Consumer<? super Throwable> errorHandler;
     public static volatile boolean failNonBlockingScheduler;
     public static volatile boolean lockdown;
+    @Nullable
     public static volatile BooleanSupplier onBeforeBlocking;
-    public static volatile Function onCompletableAssembly;
-    public static volatile BiFunction onCompletableSubscribe;
-    public static volatile Function onComputationHandler;
-    public static volatile Function onConnectableFlowableAssembly;
-    public static volatile Function onConnectableObservableAssembly;
-    public static volatile Function onFlowableAssembly;
-    public static volatile BiFunction onFlowableSubscribe;
-    public static volatile Function onInitComputationHandler;
-    public static volatile Function onInitIoHandler;
-    public static volatile Function onInitNewThreadHandler;
-    public static volatile Function onInitSingleHandler;
-    public static volatile Function onIoHandler;
-    public static volatile Function onMaybeAssembly;
-    public static volatile BiFunction onMaybeSubscribe;
-    public static volatile Function onNewThreadHandler;
-    public static volatile Function onObservableAssembly;
-    public static volatile BiFunction onObservableSubscribe;
-    public static volatile Function onParallelAssembly;
-    public static volatile Function onScheduleHandler;
-    public static volatile Function onSingleAssembly;
-    public static volatile Function onSingleHandler;
-    public static volatile BiFunction onSingleSubscribe;
+    @Nullable
+    public static volatile Function<? super Completable, ? extends Completable> onCompletableAssembly;
+    @Nullable
+    public static volatile BiFunction<? super Completable, ? super CompletableObserver, ? extends CompletableObserver> onCompletableSubscribe;
+    @Nullable
+    public static volatile Function<? super Scheduler, ? extends Scheduler> onComputationHandler;
+    @Nullable
+    public static volatile Function<? super ConnectableFlowable, ? extends ConnectableFlowable> onConnectableFlowableAssembly;
+    @Nullable
+    public static volatile Function<? super ConnectableObservable, ? extends ConnectableObservable> onConnectableObservableAssembly;
+    @Nullable
+    public static volatile Function<? super Flowable, ? extends Flowable> onFlowableAssembly;
+    @Nullable
+    public static volatile BiFunction<? super Flowable, ? super Subscriber, ? extends Subscriber> onFlowableSubscribe;
+    @Nullable
+    public static volatile Function<? super Callable<Scheduler>, ? extends Scheduler> onInitComputationHandler;
+    @Nullable
+    public static volatile Function<? super Callable<Scheduler>, ? extends Scheduler> onInitIoHandler;
+    @Nullable
+    public static volatile Function<? super Callable<Scheduler>, ? extends Scheduler> onInitNewThreadHandler;
+    @Nullable
+    public static volatile Function<? super Callable<Scheduler>, ? extends Scheduler> onInitSingleHandler;
+    @Nullable
+    public static volatile Function<? super Scheduler, ? extends Scheduler> onIoHandler;
+    @Nullable
+    public static volatile Function<? super Maybe, ? extends Maybe> onMaybeAssembly;
+    @Nullable
+    public static volatile BiFunction<? super Maybe, ? super MaybeObserver, ? extends MaybeObserver> onMaybeSubscribe;
+    @Nullable
+    public static volatile Function<? super Scheduler, ? extends Scheduler> onNewThreadHandler;
+    @Nullable
+    public static volatile Function<? super Observable, ? extends Observable> onObservableAssembly;
+    @Nullable
+    public static volatile BiFunction<? super Observable, ? super Observer, ? extends Observer> onObservableSubscribe;
+    @Nullable
+    public static volatile Function<? super ParallelFlowable, ? extends ParallelFlowable> onParallelAssembly;
+    @Nullable
+    public static volatile Function<? super Runnable, ? extends Runnable> onScheduleHandler;
+    @Nullable
+    public static volatile Function<? super Single, ? extends Single> onSingleAssembly;
+    @Nullable
+    public static volatile Function<? super Scheduler, ? extends Scheduler> onSingleHandler;
+    @Nullable
+    public static volatile BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> onSingleSubscribe;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RxJavaPlugins() {
@@ -83,7 +110,8 @@ public final class RxJavaPlugins {
         throw new IllegalStateException("No instances!");
     }
 
-    public static Function getComputationSchedulerHandler() {
+    @Nullable
+    public static Function<? super Scheduler, ? extends Scheduler> getComputationSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
@@ -92,7 +120,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Consumer getErrorHandler() {
+    @Nullable
+    public static Consumer<? super Throwable> getErrorHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
@@ -101,7 +130,8 @@ public final class RxJavaPlugins {
         return (Consumer) invokeV.objValue;
     }
 
-    public static Function getInitComputationSchedulerHandler() {
+    @Nullable
+    public static Function<? super Callable<Scheduler>, ? extends Scheduler> getInitComputationSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
@@ -110,7 +140,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getInitIoSchedulerHandler() {
+    @Nullable
+    public static Function<? super Callable<Scheduler>, ? extends Scheduler> getInitIoSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
@@ -119,7 +150,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getInitNewThreadSchedulerHandler() {
+    @Nullable
+    public static Function<? super Callable<Scheduler>, ? extends Scheduler> getInitNewThreadSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
@@ -128,7 +160,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getInitSingleSchedulerHandler() {
+    @Nullable
+    public static Function<? super Callable<Scheduler>, ? extends Scheduler> getInitSingleSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
@@ -137,7 +170,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getIoSchedulerHandler() {
+    @Nullable
+    public static Function<? super Scheduler, ? extends Scheduler> getIoSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
@@ -146,7 +180,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getNewThreadSchedulerHandler() {
+    @Nullable
+    public static Function<? super Scheduler, ? extends Scheduler> getNewThreadSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
@@ -155,6 +190,7 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
+    @Nullable
     public static BooleanSupplier getOnBeforeBlocking() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -164,7 +200,8 @@ public final class RxJavaPlugins {
         return (BooleanSupplier) invokeV.objValue;
     }
 
-    public static Function getOnCompletableAssembly() {
+    @Nullable
+    public static Function<? super Completable, ? extends Completable> getOnCompletableAssembly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
@@ -173,7 +210,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static BiFunction getOnCompletableSubscribe() {
+    @Nullable
+    public static BiFunction<? super Completable, ? super CompletableObserver, ? extends CompletableObserver> getOnCompletableSubscribe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
@@ -182,7 +220,8 @@ public final class RxJavaPlugins {
         return (BiFunction) invokeV.objValue;
     }
 
-    public static Function getOnConnectableFlowableAssembly() {
+    @Nullable
+    public static Function<? super ConnectableFlowable, ? extends ConnectableFlowable> getOnConnectableFlowableAssembly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
@@ -191,7 +230,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getOnConnectableObservableAssembly() {
+    @Nullable
+    public static Function<? super ConnectableObservable, ? extends ConnectableObservable> getOnConnectableObservableAssembly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
@@ -200,7 +240,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getOnFlowableAssembly() {
+    @Nullable
+    public static Function<? super Flowable, ? extends Flowable> getOnFlowableAssembly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
@@ -209,7 +250,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static BiFunction getOnFlowableSubscribe() {
+    @Nullable
+    public static BiFunction<? super Flowable, ? super Subscriber, ? extends Subscriber> getOnFlowableSubscribe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
@@ -218,7 +260,8 @@ public final class RxJavaPlugins {
         return (BiFunction) invokeV.objValue;
     }
 
-    public static Function getOnMaybeAssembly() {
+    @Nullable
+    public static Function<? super Maybe, ? extends Maybe> getOnMaybeAssembly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
@@ -227,7 +270,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static BiFunction getOnMaybeSubscribe() {
+    @Nullable
+    public static BiFunction<? super Maybe, ? super MaybeObserver, ? extends MaybeObserver> getOnMaybeSubscribe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
@@ -236,7 +280,8 @@ public final class RxJavaPlugins {
         return (BiFunction) invokeV.objValue;
     }
 
-    public static Function getOnObservableAssembly() {
+    @Nullable
+    public static Function<? super Observable, ? extends Observable> getOnObservableAssembly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
@@ -245,7 +290,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static BiFunction getOnObservableSubscribe() {
+    @Nullable
+    public static BiFunction<? super Observable, ? super Observer, ? extends Observer> getOnObservableSubscribe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
@@ -254,7 +300,9 @@ public final class RxJavaPlugins {
         return (BiFunction) invokeV.objValue;
     }
 
-    public static Function getOnParallelAssembly() {
+    @Beta
+    @Nullable
+    public static Function<? super ParallelFlowable, ? extends ParallelFlowable> getOnParallelAssembly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
@@ -263,7 +311,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getOnSingleAssembly() {
+    @Nullable
+    public static Function<? super Single, ? extends Single> getOnSingleAssembly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
@@ -272,7 +321,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static BiFunction getOnSingleSubscribe() {
+    @Nullable
+    public static BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> getOnSingleSubscribe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
@@ -281,7 +331,8 @@ public final class RxJavaPlugins {
         return (BiFunction) invokeV.objValue;
     }
 
-    public static Function getScheduleHandler() {
+    @Nullable
+    public static Function<? super Runnable, ? extends Runnable> getScheduleHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
@@ -290,7 +341,8 @@ public final class RxJavaPlugins {
         return (Function) invokeV.objValue;
     }
 
-    public static Function getSingleSchedulerHandler() {
+    @Nullable
+    public static Function<? super Scheduler, ? extends Scheduler> getSingleSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
@@ -348,33 +400,36 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static Object apply(BiFunction biFunction, Object obj, Object obj2) {
+    @NonNull
+    public static <T, U, R> R apply(@NonNull BiFunction<T, U, R> biFunction, @NonNull T t, @NonNull U u) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, biFunction, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, biFunction, t, u)) == null) {
             try {
-                return biFunction.apply(obj, obj2);
+                return biFunction.apply(t, u);
             } catch (Throwable th) {
                 throw ExceptionHelper.wrapOrThrow(th);
             }
         }
-        return invokeLLL.objValue;
+        return (R) invokeLLL.objValue;
     }
 
-    public static Object apply(Function function, Object obj) {
+    @NonNull
+    public static <T, R> R apply(@NonNull Function<T, R> function, @NonNull T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, function, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, function, t)) == null) {
             try {
-                return function.apply(obj);
+                return function.apply(t);
             } catch (Throwable th) {
                 throw ExceptionHelper.wrapOrThrow(th);
             }
         }
-        return invokeLL.objValue;
+        return (R) invokeLL.objValue;
     }
 
-    public static Scheduler applyRequireNonNull(Function function, Callable callable) {
+    @NonNull
+    public static Scheduler applyRequireNonNull(@NonNull Function<? super Callable<Scheduler>, ? extends Scheduler> function, Callable<Scheduler> callable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, function, callable)) == null) {
@@ -383,11 +438,12 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeLL.objValue;
     }
 
-    public static CompletableObserver onSubscribe(Completable completable, CompletableObserver completableObserver) {
+    @NonNull
+    public static CompletableObserver onSubscribe(@NonNull Completable completable, @NonNull CompletableObserver completableObserver) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65592, null, completable, completableObserver)) == null) {
-            BiFunction biFunction = onCompletableSubscribe;
+            BiFunction<? super Completable, ? super CompletableObserver, ? extends CompletableObserver> biFunction = onCompletableSubscribe;
             if (biFunction != null) {
                 return (CompletableObserver) apply(biFunction, completable, completableObserver);
             }
@@ -396,7 +452,8 @@ public final class RxJavaPlugins {
         return (CompletableObserver) invokeLL.objValue;
     }
 
-    public static Scheduler callRequireNonNull(Callable callable) {
+    @NonNull
+    public static Scheduler callRequireNonNull(@NonNull Callable<Scheduler> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, callable)) == null) {
@@ -409,7 +466,8 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler createComputationScheduler(ThreadFactory threadFactory) {
+    @NonNull
+    public static Scheduler createComputationScheduler(@NonNull ThreadFactory threadFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
@@ -418,7 +476,8 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler createIoScheduler(ThreadFactory threadFactory) {
+    @NonNull
+    public static Scheduler createIoScheduler(@NonNull ThreadFactory threadFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, threadFactory)) == null) {
@@ -427,7 +486,8 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler createNewThreadScheduler(ThreadFactory threadFactory) {
+    @NonNull
+    public static Scheduler createNewThreadScheduler(@NonNull ThreadFactory threadFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
@@ -436,7 +496,8 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler createSingleScheduler(ThreadFactory threadFactory) {
+    @NonNull
+    public static Scheduler createSingleScheduler(@NonNull ThreadFactory threadFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, threadFactory)) == null) {
@@ -445,12 +506,13 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler initComputationScheduler(Callable callable) {
+    @NonNull
+    public static Scheduler initComputationScheduler(@NonNull Callable<Scheduler> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, callable)) == null) {
             ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
-            Function function = onInitComputationHandler;
+            Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitComputationHandler;
             if (function == null) {
                 return callRequireNonNull(callable);
             }
@@ -459,12 +521,13 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler initIoScheduler(Callable callable) {
+    @NonNull
+    public static Scheduler initIoScheduler(@NonNull Callable<Scheduler> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, callable)) == null) {
             ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
-            Function function = onInitIoHandler;
+            Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitIoHandler;
             if (function == null) {
                 return callRequireNonNull(callable);
             }
@@ -473,12 +536,13 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler initNewThreadScheduler(Callable callable) {
+    @NonNull
+    public static Scheduler initNewThreadScheduler(@NonNull Callable<Scheduler> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, callable)) == null) {
             ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
-            Function function = onInitNewThreadHandler;
+            Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitNewThreadHandler;
             if (function == null) {
                 return callRequireNonNull(callable);
             }
@@ -487,12 +551,13 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler initSingleScheduler(Callable callable) {
+    @NonNull
+    public static Scheduler initSingleScheduler(@NonNull Callable<Scheduler> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, callable)) == null) {
             ObjectHelper.requireNonNull(callable, "Scheduler Callable can't be null");
-            Function function = onInitSingleHandler;
+            Function<? super Callable<Scheduler>, ? extends Scheduler> function = onInitSingleHandler;
             if (function == null) {
                 return callRequireNonNull(callable);
             }
@@ -501,11 +566,12 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Completable onAssembly(Completable completable) {
+    @NonNull
+    public static Completable onAssembly(@NonNull Completable completable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, completable)) == null) {
-            Function function = onCompletableAssembly;
+            Function<? super Completable, ? extends Completable> function = onCompletableAssembly;
             if (function != null) {
                 return (Completable) apply(function, completable);
             }
@@ -514,11 +580,12 @@ public final class RxJavaPlugins {
         return (Completable) invokeL.objValue;
     }
 
-    public static Scheduler onComputationScheduler(Scheduler scheduler) {
+    @NonNull
+    public static Scheduler onComputationScheduler(@NonNull Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, scheduler)) == null) {
-            Function function = onComputationHandler;
+            Function<? super Scheduler, ? extends Scheduler> function = onComputationHandler;
             if (function == null) {
                 return scheduler;
             }
@@ -527,11 +594,12 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler onIoScheduler(Scheduler scheduler) {
+    @NonNull
+    public static Scheduler onIoScheduler(@NonNull Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, scheduler)) == null) {
-            Function function = onIoHandler;
+            Function<? super Scheduler, ? extends Scheduler> function = onIoHandler;
             if (function == null) {
                 return scheduler;
             }
@@ -540,11 +608,12 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Scheduler onNewThreadScheduler(Scheduler scheduler) {
+    @NonNull
+    public static Scheduler onNewThreadScheduler(@NonNull Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, scheduler)) == null) {
-            Function function = onNewThreadHandler;
+            Function<? super Scheduler, ? extends Scheduler> function = onNewThreadHandler;
             if (function == null) {
                 return scheduler;
             }
@@ -553,12 +622,13 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Runnable onSchedule(Runnable runnable) {
+    @NonNull
+    public static Runnable onSchedule(@NonNull Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, runnable)) == null) {
             ObjectHelper.requireNonNull(runnable, "run is null");
-            Function function = onScheduleHandler;
+            Function<? super Runnable, ? extends Runnable> function = onScheduleHandler;
             if (function == null) {
                 return runnable;
             }
@@ -567,11 +637,12 @@ public final class RxJavaPlugins {
         return (Runnable) invokeL.objValue;
     }
 
-    public static Scheduler onSingleScheduler(Scheduler scheduler) {
+    @NonNull
+    public static Scheduler onSingleScheduler(@NonNull Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, scheduler)) == null) {
-            Function function = onSingleHandler;
+            Function<? super Scheduler, ? extends Scheduler> function = onSingleHandler;
             if (function == null) {
                 return scheduler;
             }
@@ -580,7 +651,7 @@ public final class RxJavaPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static void setComputationSchedulerHandler(Function function) {
+    public static void setComputationSchedulerHandler(@Nullable Function<? super Scheduler, ? extends Scheduler> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65598, null, function) == null) {
             if (!lockdown) {
@@ -591,7 +662,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setErrorHandler(Consumer consumer) {
+    public static void setErrorHandler(@Nullable Consumer<? super Throwable> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65599, null, consumer) == null) {
             if (!lockdown) {
@@ -613,7 +684,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setInitComputationSchedulerHandler(Function function) {
+    public static void setInitComputationSchedulerHandler(@Nullable Function<? super Callable<Scheduler>, ? extends Scheduler> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65601, null, function) == null) {
             if (!lockdown) {
@@ -624,7 +695,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setInitIoSchedulerHandler(Function function) {
+    public static void setInitIoSchedulerHandler(@Nullable Function<? super Callable<Scheduler>, ? extends Scheduler> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65602, null, function) == null) {
             if (!lockdown) {
@@ -635,7 +706,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setInitNewThreadSchedulerHandler(Function function) {
+    public static void setInitNewThreadSchedulerHandler(@Nullable Function<? super Callable<Scheduler>, ? extends Scheduler> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65603, null, function) == null) {
             if (!lockdown) {
@@ -646,7 +717,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setInitSingleSchedulerHandler(Function function) {
+    public static void setInitSingleSchedulerHandler(@Nullable Function<? super Callable<Scheduler>, ? extends Scheduler> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65604, null, function) == null) {
             if (!lockdown) {
@@ -657,7 +728,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setIoSchedulerHandler(Function function) {
+    public static void setIoSchedulerHandler(@Nullable Function<? super Scheduler, ? extends Scheduler> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65605, null, function) == null) {
             if (!lockdown) {
@@ -668,7 +739,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setNewThreadSchedulerHandler(Function function) {
+    public static void setNewThreadSchedulerHandler(@Nullable Function<? super Scheduler, ? extends Scheduler> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65606, null, function) == null) {
             if (!lockdown) {
@@ -679,7 +750,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnBeforeBlocking(BooleanSupplier booleanSupplier) {
+    public static void setOnBeforeBlocking(@Nullable BooleanSupplier booleanSupplier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65607, null, booleanSupplier) == null) {
             if (!lockdown) {
@@ -690,7 +761,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnCompletableAssembly(Function function) {
+    public static void setOnCompletableAssembly(@Nullable Function<? super Completable, ? extends Completable> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65608, null, function) == null) {
             if (!lockdown) {
@@ -701,7 +772,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnCompletableSubscribe(BiFunction biFunction) {
+    public static void setOnCompletableSubscribe(@Nullable BiFunction<? super Completable, ? super CompletableObserver, ? extends CompletableObserver> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65609, null, biFunction) == null) {
             if (!lockdown) {
@@ -712,7 +783,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnConnectableFlowableAssembly(Function function) {
+    public static void setOnConnectableFlowableAssembly(@Nullable Function<? super ConnectableFlowable, ? extends ConnectableFlowable> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65610, null, function) == null) {
             if (!lockdown) {
@@ -723,7 +794,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnConnectableObservableAssembly(Function function) {
+    public static void setOnConnectableObservableAssembly(@Nullable Function<? super ConnectableObservable, ? extends ConnectableObservable> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65611, null, function) == null) {
             if (!lockdown) {
@@ -734,7 +805,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnFlowableAssembly(Function function) {
+    public static void setOnFlowableAssembly(@Nullable Function<? super Flowable, ? extends Flowable> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65612, null, function) == null) {
             if (!lockdown) {
@@ -745,7 +816,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnFlowableSubscribe(BiFunction biFunction) {
+    public static void setOnFlowableSubscribe(@Nullable BiFunction<? super Flowable, ? super Subscriber, ? extends Subscriber> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65613, null, biFunction) == null) {
             if (!lockdown) {
@@ -756,7 +827,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnMaybeAssembly(Function function) {
+    public static void setOnMaybeAssembly(@Nullable Function<? super Maybe, ? extends Maybe> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65614, null, function) == null) {
             if (!lockdown) {
@@ -767,7 +838,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnMaybeSubscribe(BiFunction biFunction) {
+    public static void setOnMaybeSubscribe(@Nullable BiFunction<? super Maybe, MaybeObserver, ? extends MaybeObserver> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65615, null, biFunction) == null) {
             if (!lockdown) {
@@ -778,7 +849,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnObservableAssembly(Function function) {
+    public static void setOnObservableAssembly(@Nullable Function<? super Observable, ? extends Observable> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65616, null, function) == null) {
             if (!lockdown) {
@@ -789,7 +860,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnObservableSubscribe(BiFunction biFunction) {
+    public static void setOnObservableSubscribe(@Nullable BiFunction<? super Observable, ? super Observer, ? extends Observer> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65617, null, biFunction) == null) {
             if (!lockdown) {
@@ -800,7 +871,8 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnParallelAssembly(Function function) {
+    @Beta
+    public static void setOnParallelAssembly(@Nullable Function<? super ParallelFlowable, ? extends ParallelFlowable> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65618, null, function) == null) {
             if (!lockdown) {
@@ -811,7 +883,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnSingleAssembly(Function function) {
+    public static void setOnSingleAssembly(@Nullable Function<? super Single, ? extends Single> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65619, null, function) == null) {
             if (!lockdown) {
@@ -822,7 +894,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setOnSingleSubscribe(BiFunction biFunction) {
+    public static void setOnSingleSubscribe(@Nullable BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65620, null, biFunction) == null) {
             if (!lockdown) {
@@ -833,7 +905,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setScheduleHandler(Function function) {
+    public static void setScheduleHandler(@Nullable Function<? super Runnable, ? extends Runnable> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65621, null, function) == null) {
             if (!lockdown) {
@@ -844,7 +916,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void setSingleSchedulerHandler(Function function) {
+    public static void setSingleSchedulerHandler(@Nullable Function<? super Scheduler, ? extends Scheduler> function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65622, null, function) == null) {
             if (!lockdown) {
@@ -855,7 +927,7 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static void uncaught(Throwable th) {
+    public static void uncaught(@NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65623, null, th) == null) {
             Thread currentThread = Thread.currentThread();
@@ -875,10 +947,10 @@ public final class RxJavaPlugins {
         return invokeL.booleanValue;
     }
 
-    public static void onError(Throwable th) {
+    public static void onError(@NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65587, null, th) == null) {
-            Consumer consumer = errorHandler;
+            Consumer<? super Throwable> consumer = errorHandler;
             if (th == null) {
                 th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
             } else if (!isBug(th)) {
@@ -898,11 +970,12 @@ public final class RxJavaPlugins {
         }
     }
 
-    public static Flowable onAssembly(Flowable flowable) {
+    @NonNull
+    public static <T> Flowable<T> onAssembly(@NonNull Flowable<T> flowable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, flowable)) == null) {
-            Function function = onFlowableAssembly;
+            Function<? super Flowable, ? extends Flowable> function = onFlowableAssembly;
             if (function != null) {
                 return (Flowable) apply(function, flowable);
             }
@@ -911,11 +984,12 @@ public final class RxJavaPlugins {
         return (Flowable) invokeL.objValue;
     }
 
-    public static Maybe onAssembly(Maybe maybe) {
+    @NonNull
+    public static <T> Maybe<T> onAssembly(@NonNull Maybe<T> maybe) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, maybe)) == null) {
-            Function function = onMaybeAssembly;
+            Function<? super Maybe, ? extends Maybe> function = onMaybeAssembly;
             if (function != null) {
                 return (Maybe) apply(function, maybe);
             }
@@ -924,11 +998,12 @@ public final class RxJavaPlugins {
         return (Maybe) invokeL.objValue;
     }
 
-    public static Observable onAssembly(Observable observable) {
+    @NonNull
+    public static <T> Observable<T> onAssembly(@NonNull Observable<T> observable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, observable)) == null) {
-            Function function = onObservableAssembly;
+            Function<? super Observable, ? extends Observable> function = onObservableAssembly;
             if (function != null) {
                 return (Observable) apply(function, observable);
             }
@@ -937,11 +1012,12 @@ public final class RxJavaPlugins {
         return (Observable) invokeL.objValue;
     }
 
-    public static Single onAssembly(Single single) {
+    @NonNull
+    public static <T> Single<T> onAssembly(@NonNull Single<T> single) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, single)) == null) {
-            Function function = onSingleAssembly;
+            Function<? super Single, ? extends Single> function = onSingleAssembly;
             if (function != null) {
                 return (Single) apply(function, single);
             }
@@ -950,11 +1026,12 @@ public final class RxJavaPlugins {
         return (Single) invokeL.objValue;
     }
 
-    public static ConnectableFlowable onAssembly(ConnectableFlowable connectableFlowable) {
+    @NonNull
+    public static <T> ConnectableFlowable<T> onAssembly(@NonNull ConnectableFlowable<T> connectableFlowable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, connectableFlowable)) == null) {
-            Function function = onConnectableFlowableAssembly;
+            Function<? super ConnectableFlowable, ? extends ConnectableFlowable> function = onConnectableFlowableAssembly;
             if (function != null) {
                 return (ConnectableFlowable) apply(function, connectableFlowable);
             }
@@ -963,11 +1040,12 @@ public final class RxJavaPlugins {
         return (ConnectableFlowable) invokeL.objValue;
     }
 
-    public static ConnectableObservable onAssembly(ConnectableObservable connectableObservable) {
+    @NonNull
+    public static <T> ConnectableObservable<T> onAssembly(@NonNull ConnectableObservable<T> connectableObservable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, connectableObservable)) == null) {
-            Function function = onConnectableObservableAssembly;
+            Function<? super ConnectableObservable, ? extends ConnectableObservable> function = onConnectableObservableAssembly;
             if (function != null) {
                 return (ConnectableObservable) apply(function, connectableObservable);
             }
@@ -976,11 +1054,13 @@ public final class RxJavaPlugins {
         return (ConnectableObservable) invokeL.objValue;
     }
 
-    public static ParallelFlowable onAssembly(ParallelFlowable parallelFlowable) {
+    @Beta
+    @NonNull
+    public static <T> ParallelFlowable<T> onAssembly(@NonNull ParallelFlowable<T> parallelFlowable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, parallelFlowable)) == null) {
-            Function function = onParallelAssembly;
+            Function<? super ParallelFlowable, ? extends ParallelFlowable> function = onParallelAssembly;
             if (function != null) {
                 return (ParallelFlowable) apply(function, parallelFlowable);
             }
@@ -989,11 +1069,12 @@ public final class RxJavaPlugins {
         return (ParallelFlowable) invokeL.objValue;
     }
 
-    public static MaybeObserver onSubscribe(Maybe maybe, MaybeObserver maybeObserver) {
+    @NonNull
+    public static <T> MaybeObserver<? super T> onSubscribe(@NonNull Maybe<T> maybe, @NonNull MaybeObserver<? super T> maybeObserver) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65593, null, maybe, maybeObserver)) == null) {
-            BiFunction biFunction = onMaybeSubscribe;
+            BiFunction<? super Maybe, ? super MaybeObserver, ? extends MaybeObserver> biFunction = onMaybeSubscribe;
             if (biFunction != null) {
                 return (MaybeObserver) apply(biFunction, maybe, maybeObserver);
             }
@@ -1002,11 +1083,12 @@ public final class RxJavaPlugins {
         return (MaybeObserver) invokeLL.objValue;
     }
 
-    public static Observer onSubscribe(Observable observable, Observer observer) {
+    @NonNull
+    public static <T> Observer<? super T> onSubscribe(@NonNull Observable<T> observable, @NonNull Observer<? super T> observer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65594, null, observable, observer)) == null) {
-            BiFunction biFunction = onObservableSubscribe;
+            BiFunction<? super Observable, ? super Observer, ? extends Observer> biFunction = onObservableSubscribe;
             if (biFunction != null) {
                 return (Observer) apply(biFunction, observable, observer);
             }
@@ -1015,11 +1097,12 @@ public final class RxJavaPlugins {
         return (Observer) invokeLL.objValue;
     }
 
-    public static SingleObserver onSubscribe(Single single, SingleObserver singleObserver) {
+    @NonNull
+    public static <T> SingleObserver<? super T> onSubscribe(@NonNull Single<T> single, @NonNull SingleObserver<? super T> singleObserver) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65595, null, single, singleObserver)) == null) {
-            BiFunction biFunction = onSingleSubscribe;
+            BiFunction<? super Single, ? super SingleObserver, ? extends SingleObserver> biFunction = onSingleSubscribe;
             if (biFunction != null) {
                 return (SingleObserver) apply(biFunction, single, singleObserver);
             }
@@ -1028,11 +1111,12 @@ public final class RxJavaPlugins {
         return (SingleObserver) invokeLL.objValue;
     }
 
-    public static Subscriber onSubscribe(Flowable flowable, Subscriber subscriber) {
+    @NonNull
+    public static <T> Subscriber<? super T> onSubscribe(@NonNull Flowable<T> flowable, @NonNull Subscriber<? super T> subscriber) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65596, null, flowable, subscriber)) == null) {
-            BiFunction biFunction = onFlowableSubscribe;
+            BiFunction<? super Flowable, ? super Subscriber, ? extends Subscriber> biFunction = onFlowableSubscribe;
             if (biFunction != null) {
                 return (Subscriber) apply(biFunction, flowable, subscriber);
             }

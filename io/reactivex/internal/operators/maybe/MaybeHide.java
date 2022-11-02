@@ -11,18 +11,18 @@ import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class MaybeHide extends AbstractMaybeWithUpstream {
+public final class MaybeHide<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class HideMaybeObserver implements MaybeObserver, Disposable {
+    public static final class HideMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public Disposable d;
 
-        public HideMaybeObserver(MaybeObserver maybeObserver) {
+        public HideMaybeObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,10 +58,10 @@ public final class MaybeHide extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
 
@@ -94,7 +94,7 @@ public final class MaybeHide extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeHide(MaybeSource maybeSource) {
+    public MaybeHide(MaybeSource<T> maybeSource) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,7 +114,7 @@ public final class MaybeHide extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new HideMaybeObserver(maybeObserver));

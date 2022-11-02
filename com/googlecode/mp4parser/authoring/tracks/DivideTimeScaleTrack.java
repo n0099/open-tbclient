@@ -9,8 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
+import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
@@ -42,7 +44,7 @@ public class DivideTimeScaleTrack implements Track {
         this.timeScaleDivisor = i;
     }
 
-    public List adjustCtts() {
+    public List<CompositionTimeToSample.Entry> adjustCtts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -60,7 +62,7 @@ public class DivideTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -104,7 +106,7 @@ public class DivideTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -124,7 +126,7 @@ public class DivideTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

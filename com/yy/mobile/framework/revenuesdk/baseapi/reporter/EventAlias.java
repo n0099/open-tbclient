@@ -10,7 +10,7 @@ public class EventAlias {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class PayEventAlias {
+    public static final class PayEventAlias {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ENTRANCE_PAGE = "支付入口页面";
         public static final String ORDER_FAIL = "支付下单失败";

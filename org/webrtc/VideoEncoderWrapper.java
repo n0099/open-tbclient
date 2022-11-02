@@ -32,11 +32,12 @@ public class VideoEncoderWrapper {
         }
     }
 
+    @CalledByNative
     public static VideoEncoder.Callback createEncoderCallback(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new VideoEncoder.Callback() { // from class: com.baidu.tieba.gx9
+            return new VideoEncoder.Callback() { // from class: com.baidu.tieba.py9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,6 +54,7 @@ public class VideoEncoderWrapper {
     }
 
     @Nullable
+    @CalledByNative
     public static Integer getScalingSettingsHigh(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -63,6 +65,7 @@ public class VideoEncoderWrapper {
     }
 
     @Nullable
+    @CalledByNative
     public static Integer getScalingSettingsLow(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -72,6 +75,7 @@ public class VideoEncoderWrapper {
         return (Integer) invokeL.objValue;
     }
 
+    @CalledByNative
     public static boolean getScalingSettingsOn(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

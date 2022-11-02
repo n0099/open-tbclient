@@ -15,8 +15,8 @@ public class e5 implements p7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public k5 a;
-    public b7 b;
-    public n5 c;
+    public b7<l5> b;
+    public n5<?, ?> c;
     public float d;
 
     public e5() {
@@ -34,7 +34,7 @@ public class e5 implements p7.c {
         }
         new Matrix4();
         new Vector3(1.0f, 1.0f, 1.0f);
-        this.b = new b7(true, 3, l5.class);
+        this.b = new b7<>(true, 3, l5.class);
         d(0.016666668f);
     }
 
@@ -53,9 +53,9 @@ public class e5 implements p7.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.dispose();
-            b7.b it = this.b.iterator();
+            b7.b<l5> it = this.b.iterator();
             while (it.hasNext()) {
-                ((l5) it.next()).dispose();
+                it.next().dispose();
             }
         }
     }
@@ -71,9 +71,9 @@ public class e5 implements p7.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, n1Var, i5Var) == null) {
             this.a.f(n1Var, i5Var);
-            b7.b it = this.b.iterator();
+            b7.b<l5> it = this.b.iterator();
             while (it.hasNext()) {
-                ((l5) it.next()).f(n1Var, i5Var);
+                it.next().f(n1Var, i5Var);
             }
             this.c.f(n1Var, i5Var);
         }
@@ -91,9 +91,9 @@ public class e5 implements p7.c {
         if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
             d(f);
             this.a.update();
-            b7.b it = this.b.iterator();
+            b7.b<l5> it = this.b.iterator();
             while (it.hasNext()) {
-                ((l5) it.next()).update();
+                it.next().update();
             }
         }
     }

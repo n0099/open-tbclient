@@ -7,6 +7,7 @@ import kotlin.Metadata;
 import kotlin.collections.ArraysKt___ArraysJvmKt;
 import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.FallbackThreadLocalRandom;
 import kotlin.random.Random;
@@ -19,7 +20,9 @@ public class PlatformImplementations {
     /* loaded from: classes8.dex */
     public static final class ReflectThrowable {
         public static final ReflectThrowable INSTANCE = new ReflectThrowable();
+        @JvmField
         public static final Method addSuppressed;
+        @JvmField
         public static final Method getSuppressed;
 
         /* JADX WARN: Removed duplicated region for block: B:13:0x0046 A[LOOP:0: B:3:0x0015->B:13:0x0046, LOOP_END] */

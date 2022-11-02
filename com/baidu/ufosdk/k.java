@@ -15,7 +15,7 @@ import java.util.List;
 public class k implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<a> a;
     public View b;
     public boolean c;
 

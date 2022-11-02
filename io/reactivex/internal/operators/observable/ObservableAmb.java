@@ -17,21 +17,21 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableAmb extends Observable {
+public final class ObservableAmb<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource[] sources;
-    public final Iterable sourcesIterable;
+    public final ObservableSource<? extends T>[] sources;
+    public final Iterable<? extends ObservableSource<? extends T>> sourcesIterable;
 
     /* loaded from: classes8.dex */
-    public final class AmbCoordinator implements Disposable {
+    public static final class AmbCoordinator<T> implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final AmbInnerObserver[] observers;
+        public final Observer<? super T> actual;
+        public final AmbInnerObserver<T>[] observers;
         public final AtomicInteger winner;
 
-        public AmbCoordinator(Observer observer, int i) {
+        public AmbCoordinator(Observer<? super T> observer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public final class ObservableAmb extends Observable {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.winner.get() != -1) {
                 this.winner.lazySet(-1);
-                for (AmbInnerObserver ambInnerObserver : this.observers) {
+                for (AmbInnerObserver<T> ambInnerObserver : this.observers) {
                     ambInnerObserver.dispose();
                 }
             }
@@ -75,15 +75,15 @@ public final class ObservableAmb extends Observable {
             return invokeV.booleanValue;
         }
 
-        public void subscribe(ObservableSource[] observableSourceArr) {
+        public void subscribe(ObservableSource<? extends T>[] observableSourceArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observableSourceArr) == null) {
-                AmbInnerObserver[] ambInnerObserverArr = this.observers;
+                AmbInnerObserver<T>[] ambInnerObserverArr = this.observers;
                 int length = ambInnerObserverArr.length;
                 int i = 0;
                 while (i < length) {
                     int i2 = i + 1;
-                    ambInnerObserverArr[i] = new AmbInnerObserver(this, i2, this.actual);
+                    ambInnerObserverArr[i] = new AmbInnerObserver<>(this, i2, this.actual);
                     i = i2;
                 }
                 this.winner.lazySet(0);
@@ -104,7 +104,7 @@ public final class ObservableAmb extends Observable {
                     if (!this.winner.compareAndSet(0, i)) {
                         return false;
                     }
-                    AmbInnerObserver[] ambInnerObserverArr = this.observers;
+                    AmbInnerObserver<T>[] ambInnerObserverArr = this.observers;
                     int length = ambInnerObserverArr.length;
                     while (i3 < length) {
                         int i4 = i3 + 1;
@@ -125,16 +125,16 @@ public final class ObservableAmb extends Observable {
     }
 
     /* loaded from: classes8.dex */
-    public final class AmbInnerObserver extends AtomicReference implements Observer {
+    public static final class AmbInnerObserver<T> extends AtomicReference<Disposable> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1185974347409665484L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public final int index;
-        public final AmbCoordinator parent;
+        public final AmbCoordinator<T> parent;
         public boolean won;
 
-        public AmbInnerObserver(AmbCoordinator ambCoordinator, int i, Observer observer) {
+        public AmbInnerObserver(AmbCoordinator<T> ambCoordinator, int i, Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,22 +198,22 @@ public final class ObservableAmb extends Observable {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 if (this.won) {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                 } else if (this.parent.win(this.index)) {
                     this.won = true;
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                 } else {
-                    ((Disposable) get()).dispose();
+                    get().dispose();
                 }
             }
         }
     }
 
-    public ObservableAmb(ObservableSource[] observableSourceArr, Iterable iterable) {
+    public ObservableAmb(ObservableSource<? extends T>[] observableSourceArr, Iterable<? extends ObservableSource<? extends T>> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -233,22 +233,22 @@ public final class ObservableAmb extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            ObservableSource[] observableSourceArr = this.sources;
+            ObservableSource<? extends T>[] observableSourceArr = this.sources;
             if (observableSourceArr == null) {
                 observableSourceArr = new Observable[8];
                 try {
                     length = 0;
-                    for (ObservableSource observableSource : this.sourcesIterable) {
+                    for (ObservableSource<? extends T> observableSource : this.sourcesIterable) {
                         if (observableSource == null) {
                             EmptyDisposable.error(new NullPointerException("One of the sources is null"), observer);
                             return;
                         }
                         if (length == observableSourceArr.length) {
-                            ObservableSource[] observableSourceArr2 = new ObservableSource[(length >> 2) + length];
+                            ObservableSource<? extends T>[] observableSourceArr2 = new ObservableSource[(length >> 2) + length];
                             System.arraycopy(observableSourceArr, 0, observableSourceArr2, 0, length);
                             observableSourceArr = observableSourceArr2;
                         }

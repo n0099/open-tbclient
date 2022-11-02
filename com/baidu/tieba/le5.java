@@ -1,56 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class le5 extends ib {
+public class le5 extends qe5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ke5 b;
+    public boolean c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public le5(int i) {
-        super(i);
+    public le5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kb
-    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, httpMessage, httpMessageTask)) == null) {
-            if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
-                TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-                if (httpMessage.removeParam("reloin_key") == null && ReloginManager.g().h() && tbHttpMessageTask.isNeedLogin()) {
-                    httpMessage.addParam("reloin_key", "reloin_value");
-                    ReloginManager.g().l(httpMessage);
-                    return null;
-                }
-                return httpMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ke5 ke5Var = this.b;
+            if (ke5Var != null) {
+                return ke5Var.b();
             }
-            return httpMessage;
+            return -1;
         }
-        return (HttpMessage) invokeLL.objValue;
+        return invokeV.intValue;
+    }
+
+    public void c() {
+        ke5 ke5Var;
+        ve5 ve5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (ke5Var = this.b) != null && ke5Var.b() >= 0 && (ve5Var = (ve5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            ve5Var.e(this);
+            this.d = true;
+        }
+    }
+
+    public void e() {
+        ke5 ke5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (ke5Var = this.b) != null) {
+            ke5Var.d();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            this.c = true;
+            if (Build.VERSION.SDK_INT >= 16) {
+                if (this.b == null) {
+                    this.b = new ke5();
+                }
+                this.b.c();
+            }
+        }
     }
 }

@@ -16,15 +16,15 @@ import org.apache.http.conn.ConnectionPoolTimeoutException;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ConnPoolByRoute extends AbstractConnPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue freeConnections;
+    public Queue<BasicPoolEntry> freeConnections;
     public final int maxTotalConnections;
     public final ClientConnectionOperator operator;
-    public final Map routeToPool;
-    public Queue waitingThreads;
+    public final Map<HttpRoute, RouteSpecificPool> routeToPool;
+    public Queue<WaitingThread> waitingThreads;
 
     public ConnPoolByRoute(ClientConnectionOperator clientConnectionOperator, HttpParams httpParams) {
         Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class ConnPoolByRoute extends AbstractConnPool {
         return (PoolEntryRequest) invokeLL.objValue;
     }
 
-    public Queue createFreeConnQueue() {
+    public Queue<BasicPoolEntry> createFreeConnQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -99,7 +99,7 @@ public class ConnPoolByRoute extends AbstractConnPool {
         return (Queue) invokeV.objValue;
     }
 
-    public Map createRouteToPoolMap() {
+    public Map<HttpRoute, RouteSpecificPool> createRouteToPoolMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -108,7 +108,7 @@ public class ConnPoolByRoute extends AbstractConnPool {
         return (Map) invokeV.objValue;
     }
 
-    public Queue createWaitingThreadQueue() {
+    public Queue<WaitingThread> createWaitingThreadQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

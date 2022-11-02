@@ -7,6 +7,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import androidx.annotation.AttrRes;
+import androidx.annotation.MenuRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.view.SupportMenuInflater;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPopupHelper;
@@ -42,7 +48,7 @@ public class PopupMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PopupMenu(Context context, View view2) {
+    public PopupMenu(@NonNull Context context, @NonNull View view2) {
         this(context, view2, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,7 +69,7 @@ public class PopupMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PopupMenu(Context context, View view2, int i) {
+    public PopupMenu(@NonNull Context context, @NonNull View view2, int i) {
         this(context, view2, i, R.attr.obfuscated_res_0x7f040560, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -83,7 +89,7 @@ public class PopupMenu {
         }
     }
 
-    public PopupMenu(Context context, View view2, int i, int i2, int i3) {
+    public PopupMenu(@NonNull Context context, @NonNull View view2, int i, @AttrRes int i2, @StyleRes int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +114,7 @@ public class PopupMenu {
             public final /* synthetic */ PopupMenu this$0;
 
             @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-            public void onMenuModeChange(MenuBuilder menuBuilder2) {
+            public void onMenuModeChange(@NonNull MenuBuilder menuBuilder2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder2) == null) {
                 }
@@ -133,7 +139,7 @@ public class PopupMenu {
             }
 
             @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-            public boolean onMenuItemSelected(MenuBuilder menuBuilder2, MenuItem menuItem) {
+            public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder2, @NonNull MenuItem menuItem) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, menuBuilder2, menuItem)) == null) {
@@ -191,6 +197,7 @@ public class PopupMenu {
         }
     }
 
+    @NonNull
     public View.OnTouchListener getDragToOpenListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -269,6 +276,7 @@ public class PopupMenu {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Menu getMenu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -278,6 +286,7 @@ public class PopupMenu {
         return (Menu) invokeV.objValue;
     }
 
+    @NonNull
     public MenuInflater getMenuInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -287,6 +296,7 @@ public class PopupMenu {
         return (MenuInflater) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ListView getMenuListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,7 +316,7 @@ public class PopupMenu {
         }
     }
 
-    public void inflate(int i) {
+    public void inflate(@MenuRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             getMenuInflater().inflate(i, this.mMenu);
@@ -320,14 +330,14 @@ public class PopupMenu {
         }
     }
 
-    public void setOnDismissListener(OnDismissListener onDismissListener) {
+    public void setOnDismissListener(@Nullable OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onDismissListener) == null) {
             this.mOnDismissListener = onDismissListener;
         }
     }
 
-    public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
+    public void setOnMenuItemClickListener(@Nullable OnMenuItemClickListener onMenuItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onMenuItemClickListener) == null) {
             this.mMenuItemClickListener = onMenuItemClickListener;

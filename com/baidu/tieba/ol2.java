@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,15 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ol2 extends gh2 {
+public class ol2 extends yh2<pm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gh2
+    @Override // com.baidu.tieba.yh2
+    @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "start" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoHeight" : (String) invokeV.objValue;
     }
 
     public ol2() {
@@ -34,13 +36,14 @@ public class ol2 extends gh2 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gh2
+    @Override // com.baidu.tieba.yh2
     /* renamed from: e */
-    public void a(ZeusPlugin.Command command, xl2 xl2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull pm2 pm2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xl2Var) == null) {
-            xl2Var.start();
-            d(xl2Var, command.what, null, false);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pm2Var) == null) {
+            command.ret = pm2Var.getVideoHeight();
+            String str = command.what;
+            d(pm2Var, str, "Height: " + command.ret, false);
         }
     }
 }

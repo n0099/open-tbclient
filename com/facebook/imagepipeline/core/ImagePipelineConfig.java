@@ -13,12 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.cache.common.CacheKey;
 import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.callercontext.CallerContextVerifier;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.memory.NoOpMemoryTrimmableRegistry;
+import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.webp.BitmapCreator;
 import com.facebook.common.webp.WebpBitmapFactory;
 import com.facebook.common.webp.WebpSupportStatus;
@@ -33,6 +36,7 @@ import com.facebook.imagepipeline.cache.DefaultCacheKeyFactory;
 import com.facebook.imagepipeline.cache.DefaultEncodedMemoryCacheParamsSupplier;
 import com.facebook.imagepipeline.cache.ImageCacheStatsTracker;
 import com.facebook.imagepipeline.cache.MemoryCache;
+import com.facebook.imagepipeline.cache.MemoryCacheParams;
 import com.facebook.imagepipeline.cache.NoOpImageCacheStatsTracker;
 import com.facebook.imagepipeline.core.ImagePipelineExperiments;
 import com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker;
@@ -41,6 +45,9 @@ import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.decoder.ImageDecoderConfig;
 import com.facebook.imagepipeline.decoder.ProgressiveJpegConfig;
 import com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.listener.RequestListener2;
 import com.facebook.imagepipeline.memory.PoolConfig;
 import com.facebook.imagepipeline.memory.PoolFactory;
 import com.facebook.imagepipeline.producers.HttpUrlConnectionNetworkFetcher;
@@ -57,10 +64,10 @@ public class ImagePipelineConfig {
     public static DefaultImageRequestConfig sDefaultImageRequestConfig;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public final MemoryCache mBitmapCache;
+    public final MemoryCache<CacheKey, CloseableImage> mBitmapCache;
     public final Bitmap.Config mBitmapConfig;
-    public final CountingMemoryCache.EntryStateObserver mBitmapMemoryCacheEntryStateObserver;
-    public final Supplier mBitmapMemoryCacheParamsSupplier;
+    public final CountingMemoryCache.EntryStateObserver<CacheKey> mBitmapMemoryCacheEntryStateObserver;
+    public final Supplier<MemoryCacheParams> mBitmapMemoryCacheParamsSupplier;
     public final MemoryCache.CacheTrimStrategy mBitmapMemoryCacheTrimStrategy;
     public final CacheKeyFactory mCacheKeyFactory;
     @Nullable
@@ -70,8 +77,8 @@ public class ImagePipelineConfig {
     public final boolean mDiskCacheEnabled;
     public final boolean mDownsampleEnabled;
     @Nullable
-    public final MemoryCache mEncodedMemoryCache;
-    public final Supplier mEncodedMemoryCacheParamsSupplier;
+    public final MemoryCache<CacheKey, PooledByteBuffer> mEncodedMemoryCache;
+    public final Supplier<MemoryCacheParams> mEncodedMemoryCacheParamsSupplier;
     public final ExecutorSupplier mExecutorSupplier;
     public final FileCacheFactory mFileCacheFactory;
     public final int mHttpNetworkTimeout;
@@ -85,7 +92,7 @@ public class ImagePipelineConfig {
     public final ImageTranscoderFactory mImageTranscoderFactory;
     @Nullable
     public final Integer mImageTranscoderType;
-    public final Supplier mIsPrefetchEnabledSupplier;
+    public final Supplier<Boolean> mIsPrefetchEnabledSupplier;
     public final DiskCacheConfig mMainDiskCacheConfig;
     public final int mMemoryChunkType;
     public final MemoryTrimmableRegistry mMemoryTrimmableRegistry;
@@ -94,20 +101,20 @@ public class ImagePipelineConfig {
     public final PlatformBitmapFactory mPlatformBitmapFactory;
     public final PoolFactory mPoolFactory;
     public final ProgressiveJpegConfig mProgressiveJpegConfig;
-    public final Set mRequestListener2s;
-    public final Set mRequestListeners;
+    public final Set<RequestListener2> mRequestListener2s;
+    public final Set<RequestListener> mRequestListeners;
     public final boolean mResizeAndRotateEnabledForNetwork;
     public final DiskCacheConfig mSmallImageDiskCacheConfig;
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap.Config mBitmapConfig;
         @Nullable
-        public MemoryCache mBitmapMemoryCache;
-        public CountingMemoryCache.EntryStateObserver mBitmapMemoryCacheEntryStateObserver;
-        public Supplier mBitmapMemoryCacheParamsSupplier;
+        public MemoryCache<CacheKey, CloseableImage> mBitmapMemoryCache;
+        public CountingMemoryCache.EntryStateObserver<CacheKey> mBitmapMemoryCacheEntryStateObserver;
+        public Supplier<MemoryCacheParams> mBitmapMemoryCacheParamsSupplier;
         public MemoryCache.CacheTrimStrategy mBitmapMemoryCacheTrimStrategy;
         public CacheKeyFactory mCacheKeyFactory;
         public CallerContextVerifier mCallerContextVerifier;
@@ -116,8 +123,8 @@ public class ImagePipelineConfig {
         public boolean mDiskCacheEnabled;
         public boolean mDownsampleEnabled;
         @Nullable
-        public MemoryCache mEncodedMemoryCache;
-        public Supplier mEncodedMemoryCacheParamsSupplier;
+        public MemoryCache<CacheKey, PooledByteBuffer> mEncodedMemoryCache;
+        public Supplier<MemoryCacheParams> mEncodedMemoryCacheParamsSupplier;
         public ExecutorSupplier mExecutorSupplier;
         public final ImagePipelineExperiments.Builder mExperimentsBuilder;
         public FileCacheFactory mFileCacheFactory;
@@ -128,7 +135,7 @@ public class ImagePipelineConfig {
         public ImageTranscoderFactory mImageTranscoderFactory;
         @Nullable
         public Integer mImageTranscoderType;
-        public Supplier mIsPrefetchEnabledSupplier;
+        public Supplier<Boolean> mIsPrefetchEnabledSupplier;
         public DiskCacheConfig mMainDiskCacheConfig;
         @Nullable
         public Integer mMemoryChunkType;
@@ -137,8 +144,8 @@ public class ImagePipelineConfig {
         public PlatformBitmapFactory mPlatformBitmapFactory;
         public PoolFactory mPoolFactory;
         public ProgressiveJpegConfig mProgressiveJpegConfig;
-        public Set mRequestListener2s;
-        public Set mRequestListeners;
+        public Set<RequestListener2> mRequestListener2s;
+        public Set<RequestListener> mRequestListeners;
         public boolean mResizeAndRotateEnabledForNetwork;
         public DiskCacheConfig mSmallImageDiskCacheConfig;
 
@@ -168,7 +175,7 @@ public class ImagePipelineConfig {
             this.mContext = (Context) Preconditions.checkNotNull(context);
         }
 
-        public Builder setBitmapMemoryCache(@Nullable MemoryCache memoryCache) {
+        public Builder setBitmapMemoryCache(@Nullable MemoryCache<CacheKey, CloseableImage> memoryCache) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, memoryCache)) == null) {
@@ -178,7 +185,7 @@ public class ImagePipelineConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setBitmapMemoryCacheEntryStateObserver(CountingMemoryCache.EntryStateObserver entryStateObserver) {
+        public Builder setBitmapMemoryCacheEntryStateObserver(CountingMemoryCache.EntryStateObserver<CacheKey> entryStateObserver) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, entryStateObserver)) == null) {
@@ -188,7 +195,7 @@ public class ImagePipelineConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setBitmapMemoryCacheParamsSupplier(Supplier supplier) {
+        public Builder setBitmapMemoryCacheParamsSupplier(Supplier<MemoryCacheParams> supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, supplier)) == null) {
@@ -268,7 +275,7 @@ public class ImagePipelineConfig {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setEncodedMemoryCache(@Nullable MemoryCache memoryCache) {
+        public Builder setEncodedMemoryCache(@Nullable MemoryCache<CacheKey, PooledByteBuffer> memoryCache) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, memoryCache)) == null) {
@@ -278,7 +285,7 @@ public class ImagePipelineConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setEncodedMemoryCacheParamsSupplier(Supplier supplier) {
+        public Builder setEncodedMemoryCacheParamsSupplier(Supplier<MemoryCacheParams> supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, supplier)) == null) {
@@ -368,7 +375,7 @@ public class ImagePipelineConfig {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setIsPrefetchEnabledSupplier(Supplier supplier) {
+        public Builder setIsPrefetchEnabledSupplier(Supplier<Boolean> supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, supplier)) == null) {
@@ -448,7 +455,7 @@ public class ImagePipelineConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setRequestListener2s(Set set) {
+        public Builder setRequestListener2s(Set<RequestListener2> set) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, set)) == null) {
@@ -458,7 +465,7 @@ public class ImagePipelineConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setRequestListeners(Set set) {
+        public Builder setRequestListeners(Set<RequestListener> set) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, set)) == null) {
@@ -546,7 +553,7 @@ public class ImagePipelineConfig {
     }
 
     /* loaded from: classes7.dex */
-    public class DefaultImageRequestConfig {
+    public static class DefaultImageRequestConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mProgressiveRenderingEnabled;
@@ -609,6 +616,7 @@ public class ImagePipelineConfig {
         return (DefaultImageRequestConfig) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public static void resetDefaultRequestConfig() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
@@ -617,7 +625,7 @@ public class ImagePipelineConfig {
     }
 
     @Nullable
-    public MemoryCache getBitmapCacheOverride() {
+    public MemoryCache<CacheKey, CloseableImage> getBitmapCacheOverride() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -635,7 +643,7 @@ public class ImagePipelineConfig {
         return (Bitmap.Config) invokeV.objValue;
     }
 
-    public CountingMemoryCache.EntryStateObserver getBitmapMemoryCacheEntryStateObserver() {
+    public CountingMemoryCache.EntryStateObserver<CacheKey> getBitmapMemoryCacheEntryStateObserver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -644,7 +652,7 @@ public class ImagePipelineConfig {
         return (CountingMemoryCache.EntryStateObserver) invokeV.objValue;
     }
 
-    public Supplier getBitmapMemoryCacheParamsSupplier() {
+    public Supplier<MemoryCacheParams> getBitmapMemoryCacheParamsSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -700,7 +708,7 @@ public class ImagePipelineConfig {
     }
 
     @Nullable
-    public MemoryCache getEncodedMemoryCacheOverride() {
+    public MemoryCache<CacheKey, PooledByteBuffer> getEncodedMemoryCacheOverride() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -709,7 +717,7 @@ public class ImagePipelineConfig {
         return (MemoryCache) invokeV.objValue;
     }
 
-    public Supplier getEncodedMemoryCacheParamsSupplier() {
+    public Supplier<MemoryCacheParams> getEncodedMemoryCacheParamsSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -794,7 +802,7 @@ public class ImagePipelineConfig {
         return (Integer) invokeV.objValue;
     }
 
-    public Supplier getIsPrefetchEnabledSupplier() {
+    public Supplier<Boolean> getIsPrefetchEnabledSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
@@ -867,7 +875,7 @@ public class ImagePipelineConfig {
         return (ProgressiveJpegConfig) invokeV.objValue;
     }
 
-    public Set getRequestListener2s() {
+    public Set<RequestListener2> getRequestListener2s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
@@ -876,7 +884,7 @@ public class ImagePipelineConfig {
         return (Set) invokeV.objValue;
     }
 
-    public Set getRequestListeners() {
+    public Set<RequestListener> getRequestListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
@@ -922,21 +930,21 @@ public class ImagePipelineConfig {
     }
 
     public ImagePipelineConfig(Builder builder) {
-        Supplier supplier;
+        Supplier<MemoryCacheParams> supplier;
         MemoryCache.CacheTrimStrategy cacheTrimStrategy;
         Bitmap.Config config;
         CacheKeyFactory cacheKeyFactory;
         FileCacheFactory fileCacheFactory;
-        Supplier supplier2;
+        Supplier<MemoryCacheParams> supplier2;
         ImageCacheStatsTracker imageCacheStatsTracker;
-        Supplier supplier3;
+        Supplier<Boolean> supplier3;
         DiskCacheConfig diskCacheConfig;
         MemoryTrimmableRegistry memoryTrimmableRegistry;
         int i;
         PoolFactory poolFactory;
         ProgressiveJpegConfig progressiveJpegConfig;
-        Set set;
-        Set set2;
+        Set<RequestListener> set;
+        Set<RequestListener2> set2;
         DiskCacheConfig diskCacheConfig2;
         ExecutorSupplier executorSupplier;
         WebpBitmapFactory loadWebpBitmapFactoryIfExists;
@@ -1008,7 +1016,7 @@ public class ImagePipelineConfig {
         this.mImageTranscoderFactory = getImageTranscoderFactory(builder);
         this.mImageTranscoderType = builder.mImageTranscoderType;
         if (builder.mIsPrefetchEnabledSupplier == null) {
-            supplier3 = new Supplier(this) { // from class: com.facebook.imagepipeline.core.ImagePipelineConfig.1
+            supplier3 = new Supplier<Boolean>(this) { // from class: com.facebook.imagepipeline.core.ImagePipelineConfig.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipelineConfig this$0;
@@ -1032,6 +1040,7 @@ public class ImagePipelineConfig {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.facebook.common.internal.Supplier
                 public Boolean get() {
                     InterceptResult invokeV;
@@ -1095,13 +1104,13 @@ public class ImagePipelineConfig {
         }
         this.mProgressiveJpegConfig = progressiveJpegConfig;
         if (builder.mRequestListeners == null) {
-            set = new HashSet();
+            set = new HashSet<>();
         } else {
             set = builder.mRequestListeners;
         }
         this.mRequestListeners = set;
         if (builder.mRequestListener2s == null) {
-            set2 = new HashSet();
+            set2 = new HashSet<>();
         } else {
             set2 = builder.mRequestListener2s;
         }

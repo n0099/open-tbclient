@@ -13,9 +13,9 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.i01;
-import com.baidu.tieba.lk0;
+import com.baidu.tieba.kk0;
+import com.baidu.tieba.z01;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,21 +40,18 @@ public abstract class NadDialogActivity extends BaseActivity {
         }
     }
 
-    public abstract int B1();
-
-    public void D1() {
+    public void B1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public boolean E1() {
-        InterceptResult invokeV;
+    public abstract int C1();
+
+    public void E1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
-        return invokeV.booleanValue;
     }
 
     public boolean F1() {
@@ -66,13 +63,13 @@ public abstract class NadDialogActivity extends BaseActivity {
         return invokeV.booleanValue;
     }
 
-    public String G1() {
+    public boolean G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public String H1() {
@@ -84,10 +81,13 @@ public abstract class NadDialogActivity extends BaseActivity {
         return (String) invokeV.objValue;
     }
 
-    public void z1() {
+    public String I1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
     /* loaded from: classes2.dex */
@@ -118,9 +118,9 @@ public abstract class NadDialogActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.A1();
+                this.a.B1();
                 NadDialogActivity nadDialogActivity = this.a;
-                nadDialogActivity.I1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_POSITIVE.type, this.a.z);
+                nadDialogActivity.J1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_POSITIVE.type, this.a.z);
             }
         }
     }
@@ -153,9 +153,9 @@ public abstract class NadDialogActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.z1();
+                this.a.A1();
                 NadDialogActivity nadDialogActivity = this.a;
-                nadDialogActivity.I1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_NAGITIVE.type, this.a.z);
+                nadDialogActivity.J1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_NAGITIVE.type, this.a.z);
             }
         }
     }
@@ -174,26 +174,26 @@ public abstract class NadDialogActivity extends BaseActivity {
         }
     }
 
-    public final void C1() {
+    public final void D1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b9);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d8);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09240e);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09242d);
             this.w = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900a2);
-            this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913e7);
-            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913e6);
-            LayoutInflater.from(this).inflate(B1(), (ViewGroup) this.x, true);
-            this.w.setBackground(aj0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dcf));
-            this.w.setDividerDrawable(aj0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd1));
-            this.y.setDividerDrawable(aj0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd2));
-            if (F1()) {
-                this.u.setText(H1());
+            this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091425);
+            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091424);
+            LayoutInflater.from(this).inflate(C1(), (ViewGroup) this.x, true);
+            this.w.setBackground(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de9));
+            this.w.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080deb));
+            this.y.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dec));
+            if (G1()) {
+                this.u.setText(I1());
                 this.u.setOnClickListener(new a(this));
             } else {
                 this.u.setVisibility(8);
             }
-            if (E1()) {
-                this.v.setText(G1());
+            if (F1()) {
+                this.v.setText(H1());
                 this.v.setOnClickListener(new b(this));
                 return;
             }
@@ -201,29 +201,29 @@ public abstract class NadDialogActivity extends BaseActivity {
         }
     }
 
-    public final void I1(String str, String str2, String str3, String str4) {
+    public final void J1(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, str4) != null) || !NetWorkUtils.b(aj0.b())) {
+        if ((interceptable != null && interceptable.invokeLLLL(1048585, this, str, str2, str3, str4) != null) || !NetWorkUtils.b(zi0.b())) {
             return;
         }
-        i01.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
+        z01.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void Y0(Bundle bundle) {
+    public void Z0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            super.Y0(bundle);
-            setContentView(lk0.a().a());
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            super.Z0(bundle);
+            setContentView(kk0.a().a());
             Intent intent = getIntent();
             this.B = intent;
             if (intent != null) {
                 this.z = intent.getStringExtra("ext");
                 this.A = this.B.getStringExtra("alsPage");
             }
-            C1();
             D1();
-            I1(this.A, ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_DIALOG_SHOW.type, this.z);
+            E1();
+            J1(this.A, ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_DIALOG_SHOW.type, this.z);
         }
     }
 }

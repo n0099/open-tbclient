@@ -82,7 +82,7 @@ public class UpdateServerProtocolMgr {
         return (String[]) invokeLZ.objValue;
     }
 
-    public static int responseProtocol(String str, LinkedHashMap linkedHashMap) {
+    public static int responseProtocol(String str, LinkedHashMap<Integer, UpdateServerInfo> linkedHashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, linkedHashMap)) == null) {
@@ -101,7 +101,7 @@ public class UpdateServerProtocolMgr {
                             updateServerInfo.setIsp(i3);
                             linkedHashMap.put(Integer.valueOf(i3), updateServerInfo);
                         }
-                        ((UpdateServerInfo) linkedHashMap.get(Integer.valueOf(i3))).getIps().add(jSONObject2.getString("ip"));
+                        linkedHashMap.get(Integer.valueOf(i3)).getIps().add(jSONObject2.getString("ip"));
                     }
                     return translateErrCode;
                 } catch (Exception e) {
@@ -114,7 +114,7 @@ public class UpdateServerProtocolMgr {
         return invokeLL.intValue;
     }
 
-    public static int responseProtocolV6(String str, LinkedHashMap linkedHashMap) {
+    public static int responseProtocolV6(String str, LinkedHashMap<Integer, UpdateServerInfo> linkedHashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, linkedHashMap)) == null) {
@@ -133,7 +133,7 @@ public class UpdateServerProtocolMgr {
                             updateServerInfo.setIsp(i3);
                             linkedHashMap.put(Integer.valueOf(i3), updateServerInfo);
                         }
-                        ((UpdateServerInfo) linkedHashMap.get(Integer.valueOf(i3))).getIps().add(jSONObject2.getString("ip"));
+                        linkedHashMap.get(Integer.valueOf(i3)).getIps().add(jSONObject2.getString("ip"));
                     }
                     return translateErrCode;
                 } catch (Exception e) {

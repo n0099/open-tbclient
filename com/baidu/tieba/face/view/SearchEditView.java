@@ -271,11 +271,11 @@ public class SearchEditView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0261, (ViewGroup) this, true);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09088a);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101e);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff3);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ff4);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0263, (ViewGroup) this, true);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09089a);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091058);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102d);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09102e);
             SkinManager.setImageResource(this.b, R.drawable.icon_emotion_search);
             SkinManager.setImageResource(this.c, R.drawable.del_search_btn);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);

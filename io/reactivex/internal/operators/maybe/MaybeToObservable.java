@@ -10,25 +10,26 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
 /* loaded from: classes8.dex */
-public final class MaybeToObservable extends Observable implements HasUpstreamMaybeSource {
+public final class MaybeToObservable<T> extends Observable<T> implements HasUpstreamMaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource source;
+    public final MaybeSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class MaybeToObservableObserver extends DeferredScalarDisposable implements MaybeObserver {
+    public static final class MaybeToObservableObserver<T> extends DeferredScalarDisposable<T> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7603343402964826922L;
         public transient /* synthetic */ FieldHolder $fh;
         public Disposable d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MaybeToObservableObserver(Observer observer) {
+        public MaybeToObservableObserver(Observer<? super T> observer) {
             super(observer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -82,15 +83,15 @@ public final class MaybeToObservable extends Observable implements HasUpstreamMa
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                complete(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                complete(t);
             }
         }
     }
 
-    public MaybeToObservable(MaybeSource maybeSource) {
+    public MaybeToObservable(MaybeSource<T> maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +109,8 @@ public final class MaybeToObservable extends Observable implements HasUpstreamMa
         this.source = maybeSource;
     }
 
-    public static MaybeObserver create(Observer observer) {
+    @Experimental
+    public static <T> MaybeObserver<T> create(Observer<? super T> observer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, observer)) == null) {
@@ -118,7 +120,7 @@ public final class MaybeToObservable extends Observable implements HasUpstreamMa
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer) == null) {
             this.source.subscribe(create(observer));
@@ -126,7 +128,7 @@ public final class MaybeToObservable extends Observable implements HasUpstreamMa
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource source() {
+    public MaybeSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

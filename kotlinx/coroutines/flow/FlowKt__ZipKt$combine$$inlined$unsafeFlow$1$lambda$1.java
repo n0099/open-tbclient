@@ -10,7 +10,7 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.functions.Function4;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u00052\u0006\u0010\u0006\u001a\u0002H\u00022\u0006\u0010\u0007\u001a\u0002H\u0003H\u008a@¢\u0006\u0004\b\b\u0010\t¨\u0006\n"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "Lkotlinx/coroutines/flow/FlowCollector;", "a", "b", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$1$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1 extends SuspendLambda implements Function4 {
+public final class FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1 extends SuspendLambda implements Function4<FlowCollector<? super R>, T1, T2, Continuation<? super Unit>, Object> {
     public Object L$0;
     public Object L$1;
     public Object L$2;
@@ -27,17 +27,18 @@ public final class FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1 extends 
         this.this$0 = flowKt__ZipKt$combine$$inlined$unsafeFlow$1;
     }
 
-    public final Continuation create(FlowCollector flowCollector, Object obj, Object obj2, Continuation continuation) {
+    public final Continuation<Unit> create(FlowCollector<? super R> flowCollector, T1 t1, T2 t2, Continuation<? super Unit> continuation) {
         FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1 flowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1 = new FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1(continuation, this.this$0);
         flowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1.p$ = flowCollector;
-        flowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1.p$0 = obj;
-        flowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1.p$1 = obj2;
+        flowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1.p$0 = t1;
+        flowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1.p$1 = t2;
         return flowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function4
-    public final Object invoke(Object obj, Object obj2, Object obj3, Object obj4) {
-        return ((FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1) create((FlowCollector) obj, obj2, obj3, (Continuation) obj4)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2, Object obj3, Continuation<? super Unit> continuation) {
+        return ((FlowKt__ZipKt$combine$$inlined$unsafeFlow$1$lambda$1) create((FlowCollector) obj, obj2, obj3, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

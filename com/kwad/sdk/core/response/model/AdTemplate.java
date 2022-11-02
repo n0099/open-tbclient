@@ -1,6 +1,8 @@
 package com.kwad.sdk.core.response.model;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.r;
 import com.kwad.sdk.utils.s;
@@ -12,7 +14,8 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -5413539480595883024L;
     public long adLoadTotalTime;
@@ -26,6 +29,7 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
     public boolean inPlayAgain;
     public long llsid;
     public long loadDataTime;
+    @Nullable
     public SceneImpl mAdScene;
     public int mBidEcpm;
     public transient boolean mDownloadFinishReported;
@@ -45,7 +49,7 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
     public int realShowType;
     public long showStartTime;
     public int type;
-    public List adInfoList = new ArrayList();
+    public List<AdInfo> adInfoList = new ArrayList();
     public PhotoInfo photoInfo = createPhotoInfo();
     public int positionShow = -1;
     public transient int adxResult = -1;
@@ -73,10 +77,10 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
     public boolean watched = false;
     public boolean converted = false;
     public boolean fromCache = false;
-    public transient Map mLocalParams = new HashMap();
+    public transient Map<String, Object> mLocalParams = new HashMap();
 
     @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(JSONObject jSONObject) {
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject != null) {
             if (TextUtils.isEmpty(this.mOriginJString)) {
@@ -115,19 +119,20 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
         return new PhotoInfo();
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         return obj instanceof AdTemplate ? this.mUniqueId.equals(((AdTemplate) obj).mUniqueId) : super.equals(obj);
     }
 
-    public Object getLocalParams(String str) {
-        Object obj;
-        if (TextUtils.isEmpty(str) || (obj = this.mLocalParams.get(str)) == null) {
+    @Nullable
+    public <T> T getLocalParams(String str) {
+        T t;
+        if (TextUtils.isEmpty(str) || (t = (T) this.mLocalParams.get(str)) == null) {
             return null;
         }
-        return obj;
+        return t;
     }
 
-    public Map getLocalParams() {
+    public Map<String, Object> getLocalParams() {
         return this.mLocalParams;
     }
 
@@ -157,6 +162,7 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
         return str != null ? str.hashCode() : super.hashCode();
     }
 
+    @Nullable
     public Object putLocalParams(String str, Object obj) {
         if (TextUtils.isEmpty(str)) {
             return null;

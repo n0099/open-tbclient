@@ -60,7 +60,7 @@ public class ShareLoginModel {
     public static final String TAG = "sapi_ShareLoginModel";
     public static ShareLoginModel instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList invalidBdussList;
+    public LinkedList<String> invalidBdussList;
 
     static {
         InterceptResult invokeClinit;
@@ -107,7 +107,7 @@ public class ShareLoginModel {
         return (ShareLoginModel) invokeV.objValue;
     }
 
-    public LinkedList getInvalidBdussList() {
+    public LinkedList<String> getInvalidBdussList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -119,11 +119,11 @@ public class ShareLoginModel {
         return (LinkedList) invokeV.objValue;
     }
 
-    private LinkedList initInvalidStringList() {
+    private LinkedList<String> initInvalidStringList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            LinkedList linkedList = new LinkedList();
+            LinkedList<String> linkedList = new LinkedList<>();
             String string = SapiContext.getInstance().getString(INVALID_BDUSS_LIST);
             if (!TextUtils.isEmpty(string)) {
                 try {
@@ -143,7 +143,7 @@ public class ShareLoginModel {
         return (LinkedList) invokeV.objValue;
     }
 
-    public void checkAuthAccountValid(HashMap hashMap, BdussStatusCallback bdussStatusCallback) {
+    public void checkAuthAccountValid(HashMap<String, String> hashMap, BdussStatusCallback bdussStatusCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hashMap, bdussStatusCallback) == null) {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
@@ -271,7 +271,7 @@ public class ShareLoginModel {
         }
     }
 
-    public List getV2ShareModelList(String str) {
+    public List<ShareStorage.StorageModel> getV2ShareModelList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -412,7 +412,7 @@ public class ShareLoginModel {
         while (true) {
             if (i >= size) {
                 break;
-            } else if (TextUtils.equals((String) this.invalidBdussList.get(i), str)) {
+            } else if (TextUtils.equals(this.invalidBdussList.get(i), str)) {
                 z = true;
                 break;
             } else {

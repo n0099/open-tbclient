@@ -1,100 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.java_websocket.WebSocket;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.WireField;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public abstract class cv9 extends dv9 {
+public final class cv9<M extends Message<M, B>, B extends Message.a<M, B>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int connectionLostTimeout;
-    public Timer connectionLostTimer;
-    public TimerTask connectionLostTimerTask;
-    public boolean reuseAddr;
-    public boolean tcpNoDelay;
-    public boolean websocketRunning;
+    public final WireField.Label a;
+    public final String b;
+    public final int c;
+    public final String d;
+    public final String e;
+    public final boolean f;
+    public final Field g;
+    public final Field h;
+    public final Method i;
+    public ProtoAdapter<?> j;
+    public ProtoAdapter<?> k;
+    public ProtoAdapter<Object> l;
 
-    public abstract Collection getConnections();
-
-    /* loaded from: classes3.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList a;
-        public final /* synthetic */ cv9 b;
-
-        public a(cv9 cv9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cv9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cv9Var;
-            this.a = new ArrayList();
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.clear();
-                try {
-                    this.a.addAll(this.b.getConnections());
-                    long currentTimeMillis = System.currentTimeMillis() - (this.b.connectionLostTimeout * 1500);
-                    Iterator it = this.a.iterator();
-                    while (it.hasNext()) {
-                        WebSocket webSocket = (WebSocket) it.next();
-                        if (webSocket instanceof ev9) {
-                            ev9 ev9Var = (ev9) webSocket;
-                            if (ev9Var.r() < currentTimeMillis) {
-                                if (ev9.u) {
-                                    PrintStream printStream = System.out;
-                                    printStream.println("Closing connection due to no pong received: " + webSocket.toString());
-                                }
-                                ev9Var.f(1006, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
-                            } else if (ev9Var.B()) {
-                                ev9Var.J();
-                            } else if (ev9.u) {
-                                PrintStream printStream2 = System.out;
-                                printStream2.println("Trying to ping a non open connection: " + webSocket.toString());
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    if (ev9.u) {
-                        PrintStream printStream3 = System.out;
-                        printStream3.println("Exception during connection lost ping: " + e.getMessage());
-                    }
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public cv9() {
+    public cv9(WireField wireField, Field field, Class<B> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wireField, field, cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -104,139 +48,152 @@ public abstract class cv9 extends dv9 {
                 return;
             }
         }
-        this.connectionLostTimeout = 60;
-        this.websocketRunning = false;
+        this.a = wireField.label();
+        this.b = field.getName();
+        this.c = wireField.tag();
+        this.d = wireField.keyAdapter();
+        this.e = wireField.adapter();
+        this.f = wireField.redacted();
+        this.g = field;
+        this.h = c(cls, this.b);
+        this.i = d(cls, this.b, field.getType());
     }
 
-    private void cancelConnectionLostTimer() {
+    public static Field c(Class<?> cls, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            Timer timer = this.connectionLostTimer;
-            if (timer != null) {
-                timer.cancel();
-                this.connectionLostTimer = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
+            try {
+                return cls.getField(str);
+            } catch (NoSuchFieldException unused) {
+                throw new AssertionError("No builder field " + cls.getName() + "." + str);
             }
-            TimerTask timerTask = this.connectionLostTimerTask;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.connectionLostTimerTask = null;
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public void j(B b, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, b, obj) == null) {
+            if (this.a.isRepeated()) {
+                ((List) e(b)).add(obj);
+            } else if (!this.d.isEmpty()) {
+                ((Map) e(b)).putAll((Map) obj);
+            } else {
+                h(b, obj);
             }
         }
     }
 
-    private void restartConnectionLostTimer() {
+    public static Method d(Class<?> cls, String str, Class<?> cls2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            cancelConnectionLostTimer();
-            this.connectionLostTimer = new Timer("WebSocketTimer");
-            a aVar = new a(this);
-            this.connectionLostTimerTask = aVar;
-            Timer timer = this.connectionLostTimer;
-            int i = this.connectionLostTimeout;
-            timer.scheduleAtFixedRate(aVar, i * 1000, i * 1000);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, cls2)) == null) {
+            try {
+                return cls.getMethod(str, cls2);
+            } catch (NoSuchMethodException unused) {
+                throw new AssertionError("No builder method " + cls.getName() + "." + str + "(" + cls2.getName() + SmallTailInfo.EMOTION_SUFFIX);
+            }
         }
+        return (Method) invokeLLL.objValue;
     }
 
-    public int getConnectionLostTimeout() {
+    public ProtoAdapter<Object> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.connectionLostTimeout;
+            ProtoAdapter<Object> protoAdapter = this.l;
+            if (protoAdapter != null) {
+                return protoAdapter;
+            }
+            if (f()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(g(), i());
+                this.l = newMapAdapter;
+                return newMapAdapter;
+            }
+            ProtoAdapter<?> withLabel = i().withLabel(this.a);
+            this.l = withLabel;
+            return withLabel;
         }
-        return invokeV.intValue;
+        return (ProtoAdapter) invokeV.objValue;
     }
 
-    public boolean isReuseAddr() {
-        InterceptResult invokeV;
+    public Object b(M m) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.reuseAddr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
+            try {
+                return this.g.get(m);
+            } catch (IllegalAccessException e) {
+                throw new AssertionError(e);
+            }
         }
-        return invokeV.booleanValue;
+        return invokeL.objValue;
     }
 
-    public boolean isTcpNoDelay() {
+    public Object e(B b) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
+            try {
+                return this.h.get(b);
+            } catch (IllegalAccessException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.tcpNoDelay;
+            return !this.d.isEmpty();
         }
         return invokeV.booleanValue;
     }
 
-    public void startConnectionLostTimer() {
+    public ProtoAdapter<?> g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.connectionLostTimeout <= 0) {
-                if (ev9.u) {
-                    System.out.println("Connection lost timer deactivated");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ProtoAdapter<?> protoAdapter = this.k;
+            if (protoAdapter != null) {
+                return protoAdapter;
             }
-            if (ev9.u) {
-                System.out.println("Connection lost timer started");
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.d);
+            this.k = protoAdapter2;
+            return protoAdapter2;
+        }
+        return (ProtoAdapter) invokeV.objValue;
+    }
+
+    public ProtoAdapter<?> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ProtoAdapter<?> protoAdapter = this.j;
+            if (protoAdapter != null) {
+                return protoAdapter;
             }
-            this.websocketRunning = true;
-            restartConnectionLostTimer();
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.e);
+            this.j = protoAdapter2;
+            return protoAdapter2;
         }
+        return (ProtoAdapter) invokeV.objValue;
     }
 
-    public void stopConnectionLostTimer() {
+    public void h(B b, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.connectionLostTimer != null || this.connectionLostTimerTask != null) {
-                this.websocketRunning = false;
-                if (ev9.u) {
-                    System.out.println("Connection lost timer stopped");
+        if (interceptable == null || interceptable.invokeLL(1048581, this, b, obj) == null) {
+            try {
+                if (this.a.isOneOf()) {
+                    this.i.invoke(b, obj);
+                } else {
+                    this.h.set(b, obj);
                 }
-                cancelConnectionLostTimer();
-            }
-        }
-    }
-
-    public void setReuseAddr(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.reuseAddr = z;
-        }
-    }
-
-    public void setTcpNoDelay(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.tcpNoDelay = z;
-        }
-    }
-
-    public void setConnectionLostTimeout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.connectionLostTimeout = i;
-            if (i <= 0) {
-                if (ev9.u) {
-                    System.out.println("Connection lost timer stopped");
-                }
-                cancelConnectionLostTimer();
-            } else if (this.websocketRunning) {
-                if (ev9.u) {
-                    System.out.println("Connection lost timer restarted");
-                }
-                try {
-                    Iterator it = new ArrayList(getConnections()).iterator();
-                    while (it.hasNext()) {
-                        WebSocket webSocket = (WebSocket) it.next();
-                        if (webSocket instanceof ev9) {
-                            ((ev9) webSocket).N();
-                        }
-                    }
-                } catch (Exception e) {
-                    if (ev9.u) {
-                        PrintStream printStream = System.out;
-                        printStream.println("Exception during connection lost restart: " + e.getMessage());
-                    }
-                }
-                restartConnectionLostTimer();
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new AssertionError(e);
             }
         }
     }

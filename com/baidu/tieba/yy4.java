@@ -1,35 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class yy4 {
+public class yy4 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public WeakReference<Drawable> b;
 
-    public static void a(int i, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yy4(Drawable drawable) {
+        super(drawable);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65536, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14987");
-            statisticItem.param("obj_source", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str);
-            statisticItem.param("obj_id", str2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Drawable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(int i, String str) {
+    public final Drawable a() {
+        InterceptResult invokeV;
+        Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, str) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14986");
-            statisticItem.param("obj_source", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.b;
+            if (weakReference != null) {
+                drawable = weakReference.get();
+            } else {
+                drawable = null;
+            }
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.b = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            canvas.translate(f, (((i4 + paint.getFontMetricsInt().descent) - a.getBounds().height()) / 2) + this.a);
+            a.draw(canvas);
+            canvas.restore();
         }
     }
 }

@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes4.dex */
 public class kf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lf2 a;
-    public String b;
-    public Map c;
+    public String a;
+    public long b;
+    public String c;
+    @Nullable
+    public String d;
 
     public kf2() {
         Interceptable interceptable = $ic;

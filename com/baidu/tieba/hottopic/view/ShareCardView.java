@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +98,7 @@ public class ShareCardView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return ej.charSequence2String(editText.getText(), null);
+            return wi.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
@@ -106,13 +106,13 @@ public class ShareCardView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088b, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089f, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e7d);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb1);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090612);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09060b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09060a);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ec8);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091efc);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f09061f);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090618);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090617);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);

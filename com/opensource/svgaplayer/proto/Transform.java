@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.au9;
-import com.baidu.tieba.vt9;
-import com.baidu.tieba.wt9;
+import com.baidu.tieba.ev9;
+import com.baidu.tieba.fv9;
+import com.baidu.tieba.jv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +18,9 @@ import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
 /* loaded from: classes8.dex */
-public final class Transform extends Message {
+public final class Transform extends Message<Transform, Builder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ProtoAdapter ADAPTER;
+    public static final ProtoAdapter<Transform> ADAPTER;
     public static final Float DEFAULT_A;
     public static final Float DEFAULT_B;
     public static final Float DEFAULT_C;
@@ -43,7 +43,7 @@ public final class Transform extends Message {
     public final Float ty;
 
     /* loaded from: classes8.dex */
-    public final class Builder extends Message.a {
+    public static final class Builder extends Message.a<Transform, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Float a;
@@ -68,6 +68,7 @@ public final class Transform extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.Message.a
         public Transform build() {
             InterceptResult invokeV;
@@ -140,7 +141,7 @@ public final class Transform extends Message {
     }
 
     /* loaded from: classes8.dex */
-    public final class ProtoAdapter_Transform extends ProtoAdapter {
+    public static final class ProtoAdapter_Transform extends ProtoAdapter<Transform> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -164,42 +165,43 @@ public final class Transform extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Transform decode(vt9 vt9Var) throws IOException {
+        public Transform decode(ev9 ev9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vt9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ev9Var)) == null) {
                 Builder builder = new Builder();
-                long c = vt9Var.c();
+                long c = ev9Var.c();
                 while (true) {
-                    int f = vt9Var.f();
+                    int f = ev9Var.f();
                     if (f != -1) {
                         switch (f) {
                             case 1:
-                                builder.a((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                builder.a(ProtoAdapter.FLOAT.decode(ev9Var));
                                 break;
                             case 2:
-                                builder.b((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                builder.b(ProtoAdapter.FLOAT.decode(ev9Var));
                                 break;
                             case 3:
-                                builder.c((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                builder.c(ProtoAdapter.FLOAT.decode(ev9Var));
                                 break;
                             case 4:
-                                builder.d((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                builder.d(ProtoAdapter.FLOAT.decode(ev9Var));
                                 break;
                             case 5:
-                                builder.tx((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                builder.tx(ProtoAdapter.FLOAT.decode(ev9Var));
                                 break;
                             case 6:
-                                builder.ty((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                builder.ty(ProtoAdapter.FLOAT.decode(ev9Var));
                                 break;
                             default:
-                                FieldEncoding g = vt9Var.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(vt9Var));
+                                FieldEncoding g = ev9Var.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(ev9Var));
                                 break;
                         }
                     } else {
-                        vt9Var.d(c);
+                        ev9Var.d(c);
                         return builder.build();
                     }
                 }
@@ -269,43 +271,43 @@ public final class Transform extends Message {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, transform)) == null) {
-                Builder newBuilder = transform.newBuilder();
-                newBuilder.clearUnknownFields();
-                return newBuilder.build();
+                Message.a<Transform, Builder> newBuilder2 = transform.newBuilder2();
+                newBuilder2.clearUnknownFields();
+                return newBuilder2.build();
             }
             return (Transform) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(wt9 wt9Var, Transform transform) throws IOException {
+        public void encode(fv9 fv9Var, Transform transform) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wt9Var, transform) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fv9Var, transform) == null) {
                 Float f = transform.a;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 1, f);
                 }
                 Float f2 = transform.b;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 2, f2);
                 }
                 Float f3 = transform.c;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 3, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 3, f3);
                 }
                 Float f4 = transform.d;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 4, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 4, f4);
                 }
                 Float f5 = transform.tx;
                 if (f5 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 5, f5);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 5, f5);
                 }
                 Float f6 = transform.ty;
                 if (f6 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 6, f6);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 6, f6);
                 }
-                wt9Var.k(transform.unknownFields());
+                fv9Var.k(transform.unknownFields());
             }
         }
     }
@@ -334,8 +336,10 @@ public final class Transform extends Message {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.opensource.svgaplayer.proto.Transform$Builder' to match base method */
     @Override // com.squareup.wire2.Message
-    public Builder newBuilder() {
+    /* renamed from: newBuilder */
+    public Message.a<Transform, Builder> newBuilder2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -411,7 +415,7 @@ public final class Transform extends Message {
                 return false;
             }
             Transform transform = (Transform) obj;
-            if (unknownFields().equals(transform.unknownFields()) && au9.f(this.a, transform.a) && au9.f(this.b, transform.b) && au9.f(this.c, transform.c) && au9.f(this.d, transform.d) && au9.f(this.tx, transform.tx) && au9.f(this.ty, transform.ty)) {
+            if (unknownFields().equals(transform.unknownFields()) && jv9.f(this.a, transform.a) && jv9.f(this.b, transform.b) && jv9.f(this.c, transform.c) && jv9.f(this.d, transform.d) && jv9.f(this.tx, transform.tx) && jv9.f(this.ty, transform.ty)) {
                 return true;
             }
             return false;

@@ -5,6 +5,12 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.Surface;
+import androidx.annotation.CallSuper;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.concurrent.futures.ResolvableFuture;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
@@ -50,189 +56,218 @@ public abstract class SessionPlayer implements Closeable {
     public static final String TAG = "SessionPlayer";
     public static final long UNKNOWN_TIME = Long.MIN_VALUE;
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("mLock")
     public final List<Pair<PlayerCallback, Executor>> mCallbacks;
     public final Object mLock;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public @interface BuffState {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public @interface PlayerState {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public @interface RepeatMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public @interface ShuffleMode {
     }
 
-    public abstract ListenableFuture<PlayerResult> addPlaylistItem(int i, MediaItem mediaItem);
+    @NonNull
+    public abstract ListenableFuture<PlayerResult> addPlaylistItem(int i, @NonNull MediaItem mediaItem);
 
+    @Nullable
     public abstract AudioAttributesCompat getAudioAttributes();
 
     public abstract long getBufferedPosition();
 
     public abstract int getBufferingState();
 
+    @Nullable
     public abstract MediaItem getCurrentMediaItem();
 
+    @IntRange(from = -1)
     public abstract int getCurrentMediaItemIndex();
 
     public abstract long getCurrentPosition();
 
     public abstract long getDuration();
 
+    @IntRange(from = -1)
     public abstract int getNextMediaItemIndex();
 
     public abstract float getPlaybackSpeed();
 
     public abstract int getPlayerState();
 
+    @Nullable
     public abstract List<MediaItem> getPlaylist();
 
+    @Nullable
     public abstract MediaMetadata getPlaylistMetadata();
 
+    @IntRange(from = -1)
     public abstract int getPreviousMediaItemIndex();
 
     public abstract int getRepeatMode();
 
     public abstract int getShuffleMode();
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> pause();
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> play();
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> prepare();
 
-    public abstract ListenableFuture<PlayerResult> removePlaylistItem(int i);
+    @NonNull
+    public abstract ListenableFuture<PlayerResult> removePlaylistItem(@IntRange(from = 0) int i);
 
-    public abstract ListenableFuture<PlayerResult> replacePlaylistItem(int i, MediaItem mediaItem);
+    @NonNull
+    public abstract ListenableFuture<PlayerResult> replacePlaylistItem(int i, @NonNull MediaItem mediaItem);
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> seekTo(long j);
 
-    public abstract ListenableFuture<PlayerResult> setAudioAttributes(AudioAttributesCompat audioAttributesCompat);
+    @NonNull
+    public abstract ListenableFuture<PlayerResult> setAudioAttributes(@NonNull AudioAttributesCompat audioAttributesCompat);
 
-    public abstract ListenableFuture<PlayerResult> setMediaItem(MediaItem mediaItem);
+    @NonNull
+    public abstract ListenableFuture<PlayerResult> setMediaItem(@NonNull MediaItem mediaItem);
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> setPlaybackSpeed(float f);
 
-    public abstract ListenableFuture<PlayerResult> setPlaylist(List<MediaItem> list, MediaMetadata mediaMetadata);
+    @NonNull
+    public abstract ListenableFuture<PlayerResult> setPlaylist(@NonNull List<MediaItem> list, @Nullable MediaMetadata mediaMetadata);
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> setRepeatMode(int i);
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> setShuffleMode(int i);
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> skipToNextPlaylistItem();
 
-    public abstract ListenableFuture<PlayerResult> skipToPlaylistItem(int i);
+    @NonNull
+    public abstract ListenableFuture<PlayerResult> skipToPlaylistItem(@IntRange(from = 0) int i);
 
+    @NonNull
     public abstract ListenableFuture<PlayerResult> skipToPreviousPlaylistItem();
 
-    public abstract ListenableFuture<PlayerResult> updatePlaylistMetadata(MediaMetadata mediaMetadata);
+    @NonNull
+    public abstract ListenableFuture<PlayerResult> updatePlaylistMetadata(@Nullable MediaMetadata mediaMetadata);
 
     /* loaded from: classes.dex */
     public static abstract class PlayerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onAudioAttributesChanged(SessionPlayer sessionPlayer, AudioAttributesCompat audioAttributesCompat) {
+        public void onAudioAttributesChanged(@NonNull SessionPlayer sessionPlayer, @Nullable AudioAttributesCompat audioAttributesCompat) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, sessionPlayer, audioAttributesCompat) == null) {
             }
         }
 
-        public void onBufferingStateChanged(SessionPlayer sessionPlayer, MediaItem mediaItem, int i) {
+        public void onBufferingStateChanged(@NonNull SessionPlayer sessionPlayer, @Nullable MediaItem mediaItem, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionPlayer, mediaItem, i) == null) {
             }
         }
 
-        public void onCurrentMediaItemChanged(SessionPlayer sessionPlayer, MediaItem mediaItem) {
+        public void onCurrentMediaItemChanged(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sessionPlayer, mediaItem) == null) {
             }
         }
 
-        public void onPlaybackCompleted(SessionPlayer sessionPlayer) {
+        public void onPlaybackCompleted(@NonNull SessionPlayer sessionPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, sessionPlayer) == null) {
             }
         }
 
-        public void onPlaybackSpeedChanged(SessionPlayer sessionPlayer, float f) {
+        public void onPlaybackSpeedChanged(@NonNull SessionPlayer sessionPlayer, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLF(1048580, this, sessionPlayer, f) == null) {
             }
         }
 
-        public void onPlayerStateChanged(SessionPlayer sessionPlayer, int i) {
+        public void onPlayerStateChanged(@NonNull SessionPlayer sessionPlayer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, sessionPlayer, i) == null) {
             }
         }
 
-        public void onPlaylistChanged(SessionPlayer sessionPlayer, List<MediaItem> list, MediaMetadata mediaMetadata) {
+        public void onPlaylistChanged(@NonNull SessionPlayer sessionPlayer, @Nullable List<MediaItem> list, @Nullable MediaMetadata mediaMetadata) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048582, this, sessionPlayer, list, mediaMetadata) == null) {
             }
         }
 
-        public void onPlaylistMetadataChanged(SessionPlayer sessionPlayer, MediaMetadata mediaMetadata) {
+        public void onPlaylistMetadataChanged(@NonNull SessionPlayer sessionPlayer, @Nullable MediaMetadata mediaMetadata) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, sessionPlayer, mediaMetadata) == null) {
             }
         }
 
-        public void onRepeatModeChanged(SessionPlayer sessionPlayer, int i) {
+        public void onRepeatModeChanged(@NonNull SessionPlayer sessionPlayer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, sessionPlayer, i) == null) {
             }
         }
 
-        public void onSeekCompleted(SessionPlayer sessionPlayer, long j) {
+        public void onSeekCompleted(@NonNull SessionPlayer sessionPlayer, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048585, this, sessionPlayer, j) == null) {
             }
         }
 
-        public void onShuffleModeChanged(SessionPlayer sessionPlayer, int i) {
+        public void onShuffleModeChanged(@NonNull SessionPlayer sessionPlayer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048586, this, sessionPlayer, i) == null) {
             }
         }
 
-        public void onSubtitleData(SessionPlayer sessionPlayer, MediaItem mediaItem, TrackInfo trackInfo, SubtitleData subtitleData) {
+        public void onSubtitleData(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem, @NonNull TrackInfo trackInfo, @NonNull SubtitleData subtitleData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048587, this, sessionPlayer, mediaItem, trackInfo, subtitleData) == null) {
             }
         }
 
-        public void onTrackDeselected(SessionPlayer sessionPlayer, TrackInfo trackInfo) {
+        public void onTrackDeselected(@NonNull SessionPlayer sessionPlayer, @NonNull TrackInfo trackInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048588, this, sessionPlayer, trackInfo) == null) {
             }
         }
 
-        public void onTrackSelected(SessionPlayer sessionPlayer, TrackInfo trackInfo) {
+        public void onTrackSelected(@NonNull SessionPlayer sessionPlayer, @NonNull TrackInfo trackInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048589, this, sessionPlayer, trackInfo) == null) {
             }
         }
 
-        public void onTracksChanged(SessionPlayer sessionPlayer, List<TrackInfo> list) {
+        public void onTracksChanged(@NonNull SessionPlayer sessionPlayer, @NonNull List<TrackInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048590, this, sessionPlayer, list) == null) {
             }
         }
 
-        public void onVideoSizeChanged(SessionPlayer sessionPlayer, VideoSize videoSize) {
+        public void onVideoSizeChanged(@NonNull SessionPlayer sessionPlayer, @NonNull VideoSize videoSize) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048591, this, sessionPlayer, videoSize) == null) {
             }
@@ -262,12 +297,13 @@ public abstract class SessionPlayer implements Closeable {
         public final int mResultCode;
 
         @Retention(RetentionPolicy.SOURCE)
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         /* loaded from: classes.dex */
         public @interface ResultCode {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public PlayerResult(int i, MediaItem mediaItem) {
+        public PlayerResult(int i, @Nullable MediaItem mediaItem) {
             this(i, mediaItem, SystemClock.elapsedRealtime());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -287,7 +323,7 @@ public abstract class SessionPlayer implements Closeable {
             }
         }
 
-        public PlayerResult(int i, MediaItem mediaItem, long j) {
+        public PlayerResult(int i, @Nullable MediaItem mediaItem, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -307,6 +343,8 @@ public abstract class SessionPlayer implements Closeable {
             this.mCompletionTime = j;
         }
 
+        @NonNull
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public static ListenableFuture<PlayerResult> createFuture(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -329,6 +367,7 @@ public abstract class SessionPlayer implements Closeable {
         }
 
         @Override // androidx.media2.common.BaseResult
+        @Nullable
         public MediaItem getMediaItem() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -359,6 +398,7 @@ public abstract class SessionPlayer implements Closeable {
         public static final int MEDIA_TRACK_TYPE_UNKNOWN = 0;
         public static final int MEDIA_TRACK_TYPE_VIDEO = 1;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public MediaFormat mFormat;
         public int mId;
         public boolean mIsSelectable;
@@ -369,6 +409,7 @@ public abstract class SessionPlayer implements Closeable {
         public MediaItem mUpCastMediaItem;
 
         @Retention(RetentionPolicy.SOURCE)
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         /* loaded from: classes.dex */
         public @interface MediaTrackType {
         }
@@ -389,6 +430,7 @@ public abstract class SessionPlayer implements Closeable {
             this.mLock = new Object();
         }
 
+        @Nullable
         public MediaFormat getFormat() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -407,6 +449,7 @@ public abstract class SessionPlayer implements Closeable {
             return invokeV.intValue;
         }
 
+        @NonNull
         public Locale getLanguage() {
             InterceptResult invokeV;
             String str;
@@ -454,7 +497,7 @@ public abstract class SessionPlayer implements Closeable {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public TrackInfo(int i, int i2, MediaFormat mediaFormat) {
+        public TrackInfo(int i, int i2, @Nullable MediaFormat mediaFormat) {
             this(i, i2, mediaFormat, false);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -474,7 +517,7 @@ public abstract class SessionPlayer implements Closeable {
             }
         }
 
-        public TrackInfo(int i, int i2, MediaFormat mediaFormat, boolean z) {
+        public TrackInfo(int i, int i2, @Nullable MediaFormat mediaFormat, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -524,7 +567,7 @@ public abstract class SessionPlayer implements Closeable {
             }
         }
 
-        public boolean equals(Object obj) {
+        public boolean equals(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -540,6 +583,7 @@ public abstract class SessionPlayer implements Closeable {
         }
 
         @Override // androidx.versionedparcelable.CustomVersionedParcelable
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public void onPostParceling() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.mParcelableExtras != null) {
@@ -563,6 +607,7 @@ public abstract class SessionPlayer implements Closeable {
         }
 
         @Override // androidx.versionedparcelable.CustomVersionedParcelable
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public void onPreParceling(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -581,6 +626,7 @@ public abstract class SessionPlayer implements Closeable {
             }
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -635,6 +681,7 @@ public abstract class SessionPlayer implements Closeable {
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
+    @CallSuper
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -644,6 +691,7 @@ public abstract class SessionPlayer implements Closeable {
         }
     }
 
+    @NonNull
     public final List<Pair<PlayerCallback, Executor>> getCallbacks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -657,6 +705,7 @@ public abstract class SessionPlayer implements Closeable {
         return (List) invokeV.objValue;
     }
 
+    @NonNull
     public List<TrackInfo> getTracks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -666,6 +715,7 @@ public abstract class SessionPlayer implements Closeable {
         return (List) invokeV.objValue;
     }
 
+    @NonNull
     public VideoSize getVideoSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -675,7 +725,8 @@ public abstract class SessionPlayer implements Closeable {
         return (VideoSize) invokeV.objValue;
     }
 
-    public ListenableFuture<PlayerResult> deselectTrack(TrackInfo trackInfo) {
+    @NonNull
+    public ListenableFuture<PlayerResult> deselectTrack(@NonNull TrackInfo trackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, trackInfo)) == null) {
@@ -684,6 +735,7 @@ public abstract class SessionPlayer implements Closeable {
         return (ListenableFuture) invokeL.objValue;
     }
 
+    @Nullable
     public TrackInfo getSelectedTrack(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -693,7 +745,8 @@ public abstract class SessionPlayer implements Closeable {
         return (TrackInfo) invokeI.objValue;
     }
 
-    public ListenableFuture<PlayerResult> selectTrack(TrackInfo trackInfo) {
+    @NonNull
+    public ListenableFuture<PlayerResult> selectTrack(@NonNull TrackInfo trackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, trackInfo)) == null) {
@@ -702,7 +755,8 @@ public abstract class SessionPlayer implements Closeable {
         return (ListenableFuture) invokeL.objValue;
     }
 
-    public ListenableFuture<PlayerResult> setSurface(Surface surface) {
+    @NonNull
+    public ListenableFuture<PlayerResult> setSurface(@Nullable Surface surface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, surface)) == null) {
@@ -711,7 +765,8 @@ public abstract class SessionPlayer implements Closeable {
         return (ListenableFuture) invokeL.objValue;
     }
 
-    public ListenableFuture<PlayerResult> movePlaylistItem(int i, int i2) {
+    @NonNull
+    public ListenableFuture<PlayerResult> movePlaylistItem(@IntRange(from = 0) int i, @IntRange(from = 0) int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) {
@@ -720,7 +775,7 @@ public abstract class SessionPlayer implements Closeable {
         return (ListenableFuture) invokeII.objValue;
     }
 
-    public final void registerPlayerCallback(Executor executor, PlayerCallback playerCallback) {
+    public final void registerPlayerCallback(@NonNull Executor executor, @NonNull PlayerCallback playerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, executor, playerCallback) == null) {
             if (executor != null) {
@@ -742,7 +797,7 @@ public abstract class SessionPlayer implements Closeable {
         }
     }
 
-    public final void unregisterPlayerCallback(PlayerCallback playerCallback) {
+    public final void unregisterPlayerCallback(@NonNull PlayerCallback playerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, playerCallback) == null) {
             if (playerCallback != null) {

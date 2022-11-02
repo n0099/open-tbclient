@@ -4,6 +4,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.MainThreadUtil;
@@ -18,6 +20,7 @@ public class HandlerMessenger extends AbsMessenger {
     public static final int KEY_MESSAGE_EVENT = 153;
     public static final String TAG = "HandlerMessenger";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public PrivateHandler mHandler;
     public final HandlerThread mHandlerThread;
 
@@ -56,7 +59,7 @@ public class HandlerMessenger extends AbsMessenger {
         }
 
         @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        public void handleMessage(@NonNull Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
@@ -121,7 +124,7 @@ public class HandlerMessenger extends AbsMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.AbsMessenger
-    public void publishEventToQueue(VideoEvent videoEvent) {
+    public void publishEventToQueue(@NonNull VideoEvent videoEvent) {
         PrivateHandler privateHandler;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoEvent) == null) && (privateHandler = this.mHandler) != null) {

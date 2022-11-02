@@ -50,7 +50,7 @@ public class fx implements Cloneable {
         c = null;
     }
 
-    public fx(Map map, int i, String str, ga gaVar) {
+    public fx(Map<String, Integer> map, int i, String str, ga gaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class fx implements Cloneable {
         }
     }
 
-    private void a(Map map, int i, String str, ga gaVar) {
+    private void a(Map<String, Integer> map, int i, String str, ga gaVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, i, str, gaVar) == null) {
             this.f419a = i;

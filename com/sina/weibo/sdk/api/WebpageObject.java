@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class WebpageObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<WebpageObject> CREATOR;
     public static final String EXTRA_KEY_DEFAULTTEXT = "extra_key_defaulttext";
     public transient /* synthetic */ FieldHolder $fh;
     public String defaultText;
@@ -44,7 +44,7 @@ public class WebpageObject extends BaseMediaObject {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.api.WebpageObject.1
+        CREATOR = new Parcelable.Creator<WebpageObject>() { // from class: com.sina.weibo.sdk.api.WebpageObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,6 +63,7 @@ public class WebpageObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public WebpageObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -74,6 +75,7 @@ public class WebpageObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public WebpageObject[] newArray(int i) {
                 InterceptResult invokeI;

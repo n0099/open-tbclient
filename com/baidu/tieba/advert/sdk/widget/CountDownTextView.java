@@ -24,7 +24,7 @@ public class CountDownTextView extends TextView {
     public boolean g;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -40,10 +40,10 @@ public class CountDownTextView extends TextView {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements Runnable {
+    public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference a;
+        public final WeakReference<CountDownTextView> a;
 
         public c(CountDownTextView countDownTextView) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class CountDownTextView extends TextView {
                     return;
                 }
             }
-            this.a = new WeakReference(countDownTextView);
+            this.a = new WeakReference<>(countDownTextView);
         }
 
         public /* synthetic */ c(CountDownTextView countDownTextView, a aVar) {
@@ -71,7 +71,7 @@ public class CountDownTextView extends TextView {
         public void run() {
             CountDownTextView countDownTextView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTextView = (CountDownTextView) this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTextView = this.a.get()) != null) {
                 countDownTextView.b(1);
             }
         }

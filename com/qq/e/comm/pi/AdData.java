@@ -23,9 +23,9 @@ public interface AdData {
 
     String getECPMLevel();
 
-    Map getExtraInfo();
+    Map<String, Object> getExtraInfo();
 
-    Object getProperty(Class cls);
+    <T> T getProperty(Class<T> cls);
 
     String getProperty(String str);
 

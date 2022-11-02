@@ -17,11 +17,11 @@ public class b {
     public static final /* synthetic */ boolean d;
     public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap b;
+    public HashMap<String, a> b;
     public final String c;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IUiListener a;
@@ -73,7 +73,7 @@ public class b {
                 return;
             }
         }
-        this.b = new HashMap();
+        this.b = new HashMap<>();
         this.c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }
 
@@ -106,7 +106,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             int b = b();
             try {
-                HashMap hashMap = this.b;
+                HashMap<String, a> hashMap = this.b;
                 hashMap.put("" + b, aVar);
             } catch (Throwable th) {
                 th.printStackTrace();

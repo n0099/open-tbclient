@@ -58,10 +58,10 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
                 }
                 return;
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(String.valueOf(j));
             LogUtils.d("GetGroupfoForRecordHandler", "STAR Recordhandler get groupinfo " + j);
-            GroupManagerImpl.getInstance(this.mContext).getGroupsInfo(1, arrayList, new BIMValueCallBack(this, callBack, j) { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1
+            GroupManagerImpl.getInstance(this.mContext).getGroupsInfo(1, arrayList, new BIMValueCallBack<ArrayList<GroupInfo>>(this, callBack, j) { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GetGroupfoForRecordHandler this$0;
@@ -90,7 +90,7 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i, String str, ArrayList arrayList2) {
+                public void onResult(int i, String str, ArrayList<GroupInfo> arrayList2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, arrayList2) != null) || i != 0) {
                         return;

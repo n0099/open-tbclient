@@ -1,6 +1,8 @@
 package com.baidu.searchbox.logsystem.basic.javacrash;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.LogSystemServiceUtil;
@@ -8,9 +10,11 @@ import com.baidu.searchbox.logsystem.basic.eventhandler.DefaultProcessEventScene
 import com.baidu.searchbox.logsystem.basic.eventhandler.OOMEventSceneSceneHandler;
 import com.baidu.searchbox.logsystem.basic.eventhandler.RssOOMEventSceneSceneHandler;
 import com.baidu.searchbox.logsystem.basic.eventhandler.VssOOMEventSceneSceneHandler;
+import com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
 import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,10 +26,10 @@ import java.util.List;
 public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Supplier mSupplier;
+    public final Supplier<List<ProcessEventSceneHandler>> mSupplier;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseUncaughtExceptionHandler(Context context) {
+    public BaseUncaughtExceptionHandler(@Nullable Context context) {
         this(context, null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,7 +50,7 @@ public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseUncaughtExceptionHandler(Context context, Supplier supplier) {
+    public BaseUncaughtExceptionHandler(@NonNull Context context, @Nullable Supplier<List<ProcessEventSceneHandler>> supplier) {
         this(context, null, supplier);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,7 +71,7 @@ public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseUncaughtExceptionHandler(Context context, List list, Supplier supplier) {
+    public BaseUncaughtExceptionHandler(@NonNull Context context, @Nullable List<ProcessExceptionListener> list, @Nullable Supplier<List<ProcessEventSceneHandler>> supplier) {
         super(context, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,9 +102,9 @@ public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
             forwardingProcessEventSceneHandler.addEventHandleCallback(new VssOOMEventSceneSceneHandler());
             forwardingProcessEventSceneHandler.addEventHandleCallback(new OOMEventSceneSceneHandler());
             forwardingProcessEventSceneHandler.addEventHandleCallback(new RssOOMEventSceneSceneHandler());
-            Supplier supplier = this.mSupplier;
+            Supplier<List<ProcessEventSceneHandler>> supplier = this.mSupplier;
             if (supplier != null) {
-                forwardingProcessEventSceneHandler.addEventHandleCallback((List) supplier.get());
+                forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
             }
             return forwardingProcessEventSceneHandler;
         }
@@ -108,7 +112,7 @@ public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
     }
 
     @Override // com.baidu.searchbox.logsystem.basic.javacrash.BUncaughtExceptionHandler
-    public void onReport(Context context, String str, File file, LogExtra logExtra) {
+    public void onReport(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, file, logExtra) == null) {
             LogSystemServiceUtil.startLogHandlerService(context, LogType.JAVA_CRASH, str, file, logExtra);

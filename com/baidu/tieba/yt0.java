@@ -1,88 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class yt0 implements cu0 {
+public class yt0 extends mu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public int b;
 
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yt0 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yt0 yt0Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yt0Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yt0Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                this.a.doTask();
-                sendMessageDelayed(obtainMessage(1), this.a.b);
-            }
-        }
-    }
-
-    public yt0() {
+    public static mu0 w(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return mu0.m(str, 2);
         }
-        this.a = new a(this, Looper.getMainLooper());
-        this.b = 500;
-    }
-
-    @Override // com.baidu.tieba.cu0
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.removeMessages(1);
-        }
-    }
-
-    @Override // com.baidu.tieba.cu0
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cancel();
-            this.a.obtainMessage(1).sendToTarget();
-        }
+        return (mu0) invokeL.objValue;
     }
 }

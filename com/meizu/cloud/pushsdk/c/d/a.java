@@ -40,7 +40,7 @@ public class a implements d {
         return processName + "_PushEvents.db";
     }
 
-    public static Map a(byte[] bArr) {
+    public static Map<String, String> a(byte[] bArr) {
         try {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
@@ -54,7 +54,7 @@ public class a implements d {
         }
     }
 
-    public static byte[] a(Map map) {
+    public static byte[] a(Map<String, String> map) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -68,11 +68,11 @@ public class a implements d {
         }
     }
 
-    public List a(int i) {
+    public List<Map<String, Object>> a(int i) {
         return a(null, "id ASC LIMIT " + i);
     }
 
-    public List a(String str, String str2) {
+    public List<Map<String, Object>> a(String str, String str2) {
         ArrayList arrayList = new ArrayList();
         if (e()) {
             Cursor query = this.b.query("events", this.d, str, null, null, null, str2);
@@ -152,7 +152,7 @@ public class a implements d {
     public com.meizu.cloud.pushsdk.c.b.b d() {
         LinkedList linkedList = new LinkedList();
         ArrayList arrayList = new ArrayList();
-        for (Map map : a(this.f)) {
+        for (Map<String, Object> map : a(this.f)) {
             com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
             cVar.a((Map) map.get("eventData"));
             linkedList.add((Long) map.get("id"));

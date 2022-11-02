@@ -18,7 +18,7 @@ import java.util.List;
 public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<EmotionPackageData> a;
     public TbPageContext b;
 
     @Override // android.widget.Adapter
@@ -29,7 +29,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
     }
 
     /* loaded from: classes5.dex */
-    public class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
+    public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SingleThreadEmotionHorizontalView a;
@@ -64,7 +64,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
         }
     }
 
-    public SingleThreadEmotionHorizontalAdater(List list, TbPageContext tbPageContext) {
+    public SingleThreadEmotionHorizontalAdater(List<EmotionPackageData> list, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
             if (emotionGridViewHolder == null) {
                 emotionGridViewHolder = (EmotionGridViewHolder) view2.getTag();
             }
-            emotionGridViewHolder.a((EmotionPackageData) this.a.get(i));
+            emotionGridViewHolder.a(this.a.get(i));
             return view2;
         }
         return (View) invokeILL.objValue;

@@ -44,7 +44,7 @@ public final class g extends TimerTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Pair a = e.a(this.a);
+                Pair<Integer, String> a = e.a(this.a);
                 if (a != null && ((Integer) a.first).intValue() == 1) {
                     e.a(((Integer) a.first).intValue(), e.a(this.a, this.b, this.c, this.d), "");
                     String str = e.a;

@@ -1,71 +1,121 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class lw3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class lw3 implements zp1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, kw3> a;
 
-    public static boolean a(View view2, st2 st2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, st2Var)) == null) {
-            dl1 W = zo2.U().W();
-            if (W != null && W.c(view2, st2Var)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957249, "Lcom/baidu/tieba/lw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947957249, "Lcom/baidu/tieba/lw3;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        b = ok1.a;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public lw3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            dl1 W = zo2.U().W();
-            if (W == null || !W.b() || W.h()) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return true;
         }
-        return invokeV.booleanValue;
+        this.a = new HashMap<>();
+        c();
     }
 
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zp1
+    public ew1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            dl1 W = zo2.U().W();
-            if (W != null && W.d(view2)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, ih2Var)) == null) {
+            return b(str, jSONObject, ih2Var);
         }
-        return invokeL.booleanValue;
+        return (ew1) invokeLLL.objValue;
     }
 
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
+    public final ew1 b(String str, JSONObject jSONObject, ih2 ih2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            dl1 W = zo2.U().W();
-            if (W == null) {
-                return false;
-            }
-            if (W.h()) {
-                SwanAppActivity activity = zo2.U().getActivity();
-                if (activity != null) {
-                    activity.setRequestedOrientation(0);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, ih2Var)) == null) {
+            kw3 kw3Var = this.a.get(str);
+            if (kw3Var != null) {
+                if (b) {
+                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
                 }
-                W.g(false);
+                return kw3Var.a(jSONObject, ih2Var);
             }
-            return W.removeView(view2);
+            if (b) {
+                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
+            }
+            return new ew1(10002, "no such api.");
         }
-        return invokeL.booleanValue;
+        return (ew1) invokeLLL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(new iw3());
+            d(new jw3());
+            d(new gv3());
+            d(new kv3());
+            d(new hv3());
+            d(new zw3());
+            d(new iv3());
+            d(new pw3());
+            d(new ww3());
+            d(new fv3());
+            d(new mv3());
+            d(new jv3());
+            d(new lv3());
+            d(new sw3());
+            d(new yw3());
+            d(new tw3());
+            d(new vw3());
+            d(new uw3());
+        }
+    }
+
+    public void d(kw3 kw3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, kw3Var) == null) {
+            if (b && TextUtils.isEmpty(kw3Var.a)) {
+                throw new IllegalArgumentException("action name is null");
+            }
+            if (b && this.a.containsKey(kw3Var.a)) {
+                throw new IllegalArgumentException("duplicate action: " + kw3Var);
+            }
+            this.a.put(kw3Var.a, kw3Var);
+        }
     }
 }

@@ -1,197 +1,233 @@
 package com.baidu.tieba;
 
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.tencent.open.SocialConstants;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
-public class sl9 extends br9 {
+public class sl9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set a;
 
-    /* loaded from: classes5.dex */
-    public class a extends br9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final Map b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948155401, "Lcom/baidu/tieba/sl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = objectInput.readUTF();
-            HashMap hashMap = new HashMap();
-            int readInt = objectInput.readInt();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                String readUTF = objectInput.readUTF();
-                int readInt2 = objectInput.readInt();
-                HashSet hashSet = new HashSet();
-                for (int i5 = 0; i5 < readInt2; i5++) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948155401, "Lcom/baidu/tieba/sl9;");
+                return;
+            }
+        }
+        a = AppConfig.isDebug();
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0049 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b4 */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x008a, code lost:
+        if (com.baidu.tieba.sl9.a == false) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x008c, code lost:
+        r5.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b0, code lost:
+        if (com.baidu.tieba.sl9.a == false) goto L49;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x00bf A[Catch: IOException -> 0x00bb, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x00c4 A[Catch: IOException -> 0x00bb, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r2v10 */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r3v0 */
+    /* JADX WARN: Type inference failed for: r3v12 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r3v9 */
+    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, java.io.File] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    /* JADX WARN: Type inference failed for: r5v15 */
+    /* JADX WARN: Type inference failed for: r5v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v2 */
+    /* JADX WARN: Type inference failed for: r5v3 */
+    /* JADX WARN: Type inference failed for: r5v5 */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Type inference failed for: r5v8, types: [java.io.BufferedInputStream] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(File file) {
+        ?? r2;
+        ?? r3;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r2 = interceptable;
+            r3 = 65537;
+            InterceptResult invokeL = r2.invokeL(65537, null, file);
+            if (invokeL != null) {
+                return (String) invokeL.objValue;
+            }
+        }
+        if (file == 0 || !file.exists()) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            try {
+                r2 = new FileInputStream((File) file);
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (FileNotFoundException e) {
+            e = e;
+            file = 0;
+            r2 = 0;
+            bufferedReader = null;
+        } catch (IOException e2) {
+            e = e2;
+            file = 0;
+            r2 = 0;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            r2 = 0;
+            r3 = 0;
+        }
+        try {
+            file = new BufferedInputStream(r2);
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(file));
+                while (true) {
                     try {
-                        hashSet.add(objectInput.readObject());
-                    } catch (ClassNotFoundException e) {
-                        LogPrinter.e(e);
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb.append(readLine);
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e4) {
+                                e = e4;
+                            }
+                        }
+                        if (file != 0) {
+                            file.close();
+                        }
+                        if (r2 != 0) {
+                            r2.close();
+                        }
+                        return null;
+                    } catch (IOException e5) {
+                        e = e5;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e6) {
+                                e = e6;
+                            }
+                        }
+                        if (file != 0) {
+                            file.close();
+                        }
+                        if (r2 != 0) {
+                            r2.close();
+                        }
+                        return null;
                     }
                 }
-                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
-            }
-            this.b = Collections.unmodifiableMap(hashMap);
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject) {
-            super(1);
-            Map unmodifiableMap;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONObject.getString("key");
-            JSONArray optJSONArray = jSONObject.optJSONArray("content");
-            if (optJSONArray == null) {
-                unmodifiableMap = Collections.emptyMap();
-            } else {
-                HashMap hashMap = new HashMap();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
-                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
-                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
-                    HashSet hashSet = new HashSet();
-                    for (int i4 = 0; i4 < length; i4++) {
-                        hashSet.add(optJSONArray2.get(i4));
-                    }
-                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
-                }
-                unmodifiableMap = Collections.unmodifiableMap(hashMap);
-            }
-            this.b = unmodifiableMap;
-        }
-
-        @Override // com.baidu.tieba.br9
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-                objectOutput.writeUTF(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (Map.Entry entry : this.b.entrySet()) {
-                    Set<Object> set = (Set) entry.getValue();
-                    objectOutput.writeUTF((String) entry.getKey());
-                    objectOutput.writeInt(set.size());
-                    for (Object obj : set) {
-                        objectOutput.writeObject(obj);
+                String sb2 = sb.toString();
+                try {
+                    bufferedReader.close();
+                    file.close();
+                    r2.close();
+                } catch (IOException e7) {
+                    if (a) {
+                        e7.printStackTrace();
                     }
                 }
+                return sb2;
+            } catch (FileNotFoundException e8) {
+                e = e8;
+                bufferedReader = null;
+            } catch (IOException e9) {
+                e = e9;
+                bufferedReader = null;
+            } catch (Throwable th3) {
+                r3 = 0;
+                th = th3;
+                if (r3 != 0) {
+                    try {
+                        r3.close();
+                    } catch (IOException e10) {
+                        if (a) {
+                            e10.printStackTrace();
+                        }
+                        throw th;
+                    }
+                }
+                if (file != 0) {
+                    file.close();
+                }
+                if (r2 != 0) {
+                    r2.close();
+                }
+                throw th;
             }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sl9(int i, ObjectInput objectInput) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        } catch (FileNotFoundException e11) {
+            e = e11;
+            file = 0;
+            bufferedReader = null;
+        } catch (IOException e12) {
+            e = e12;
+            file = 0;
+            bufferedReader = null;
+        } catch (Throwable th4) {
+            th = th4;
+            r3 = 0;
+            r2 = r2;
+            th = th;
+            file = r3;
+            if (r3 != 0) {
             }
-        }
-        int readInt = objectInput.readInt();
-        HashSet hashSet = new HashSet();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            hashSet.add(new a(objectInput.readInt(), objectInput));
-        }
-        this.a = Collections.unmodifiableSet(hashSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sl9(JSONObject jSONObject) {
-        super(1);
-        Set unmodifiableSet;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (file != 0) {
             }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
-        if (optJSONArray == null) {
-            unmodifiableSet = Collections.emptySet();
-        } else {
-            HashSet hashSet = new HashSet();
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
+            if (r2 != 0) {
             }
-            unmodifiableSet = Collections.unmodifiableSet(hashSet);
-        }
-        this.a = unmodifiableSet;
-    }
-
-    @Override // com.baidu.tieba.br9
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (a aVar : this.a) {
-                aVar.srzable(objectOutput);
-            }
+            throw th;
         }
     }
 }

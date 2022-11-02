@@ -7,6 +7,7 @@ import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +36,7 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
     public VelocityTracker mVelocityTracker;
 
     /* loaded from: classes2.dex */
-    public class CaptureEvent {
+    public static class CaptureEvent {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTION_INTERCEPT = 1;
         public static final int ACTION_MOVE = 2;
@@ -65,7 +66,7 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HorizonMotionEventCaptureView(Context context) {
+    public HorizonMotionEventCaptureView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -88,7 +89,7 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HorizonMotionEventCaptureView(Context context, AttributeSet attributeSet) {
+    public HorizonMotionEventCaptureView(@NonNull Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

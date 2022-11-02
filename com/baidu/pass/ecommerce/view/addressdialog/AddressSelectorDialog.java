@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.adapter.AddrListPagerAdapter;
 import com.baidu.pass.ecommerce.view.SlidingTabLayout;
@@ -38,7 +39,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     public AddrListPagerAdapter mPagerAdapter;
     public int mRealPagerNumber;
     public SlidingTabLayout mTabLayout;
-    public List mViewList;
+    public List<ListPagerView> mViewList;
     public AddrViewPager mViewPager;
     public ResultHelpBean provinceBean;
     public ResultHelpBean townBean;
@@ -51,7 +52,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     }
 
     /* loaded from: classes2.dex */
-    public class ResultHelpBean {
+    public static class ResultHelpBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String id;
@@ -108,8 +109,8 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AddressSelectorDialog(Context context) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003df);
+    public AddressSelectorDialog(@NonNull Context context) {
+        this(context, (int) R.style.obfuscated_res_0x7f1003e0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,7 +146,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddressSelectorDialog(Context context, int i) {
+    public AddressSelectorDialog(@NonNull Context context, int i) {
         super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -202,8 +203,8 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AddressSelectorDialog(Context context, AddressSelectedBean addressSelectedBean) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003df);
+    public AddressSelectorDialog(@NonNull Context context, AddressSelectedBean addressSelectedBean) {
+        this(context, (int) R.style.obfuscated_res_0x7f1003e0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -224,8 +225,8 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AddressSelectorDialog(Context context, AddressSelectedBean addressSelectedBean, boolean z) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003df);
+    public AddressSelectorDialog(@NonNull Context context, AddressSelectedBean addressSelectedBean, boolean z) {
+        this(context, (int) R.style.obfuscated_res_0x7f1003e0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,7 +250,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     private void addTab2Layout(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            List titles = this.mTabLayout.getTitles();
+            List<String> titles = this.mTabLayout.getTitles();
             titles.set(i, str);
             if (!z) {
                 i++;
@@ -350,7 +351,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), addressBean, str, str2, str3}) == null) {
             int i2 = i + 1;
-            ListPagerView listPagerView = (ListPagerView) this.mViewList.get(i2);
+            ListPagerView listPagerView = this.mViewList.get(i2);
             if (!listPagerView.getPagerAddressId().equals(str)) {
                 makeEntity2Result(addressBean);
                 addTab2Layout(i, str3, false);
@@ -371,8 +372,8 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             return;
         }
         if (!TextUtils.isEmpty(addressSelectedBean.provinceId)) {
-            ((ListPagerView) this.mViewList.get(0)).setSelectedAddressId(this.mAddressSelectedBean.provinceId);
-            ((ListPagerView) this.mViewList.get(1)).loadData(this.mAddressSelectedBean.provinceId);
+            this.mViewList.get(0).setSelectedAddressId(this.mAddressSelectedBean.provinceId);
+            this.mViewList.get(1).loadData(this.mAddressSelectedBean.provinceId);
             ResultHelpBean resultHelpBean = this.provinceBean;
             AddressSelectedBean addressSelectedBean2 = this.mAddressSelectedBean;
             resultHelpBean.refershBean(addressSelectedBean2.provinceId, addressSelectedBean2.provinceName);
@@ -381,23 +382,23 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             i = 1;
         }
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.cityId)) {
-            ((ListPagerView) this.mViewList.get(i - 1)).setSelectedAddressId(this.mAddressSelectedBean.cityId);
-            ((ListPagerView) this.mViewList.get(i)).loadData(this.mAddressSelectedBean.cityId);
+            this.mViewList.get(i - 1).setSelectedAddressId(this.mAddressSelectedBean.cityId);
+            this.mViewList.get(i).loadData(this.mAddressSelectedBean.cityId);
             ResultHelpBean resultHelpBean2 = this.cityBean;
             AddressSelectedBean addressSelectedBean3 = this.mAddressSelectedBean;
             resultHelpBean2.refershBean(addressSelectedBean3.cityId, addressSelectedBean3.cityName);
             i++;
         }
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.districtId)) {
-            ((ListPagerView) this.mViewList.get(i - 1)).setSelectedAddressId(this.mAddressSelectedBean.districtId);
-            ((ListPagerView) this.mViewList.get(i)).loadData(this.mAddressSelectedBean.districtId);
+            this.mViewList.get(i - 1).setSelectedAddressId(this.mAddressSelectedBean.districtId);
+            this.mViewList.get(i).loadData(this.mAddressSelectedBean.districtId);
             ResultHelpBean resultHelpBean3 = this.districtBean;
             AddressSelectedBean addressSelectedBean4 = this.mAddressSelectedBean;
             resultHelpBean3.refershBean(addressSelectedBean4.districtId, addressSelectedBean4.districtName);
             i++;
         }
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.townId)) {
-            ((ListPagerView) this.mViewList.get(i - 1)).setSelectedAddressId(this.mAddressSelectedBean.townId);
+            this.mViewList.get(i - 1).setSelectedAddressId(this.mAddressSelectedBean.townId);
             ResultHelpBean resultHelpBean4 = this.townBean;
             AddressSelectedBean addressSelectedBean5 = this.mAddressSelectedBean;
             resultHelpBean4.refershBean(addressSelectedBean5.townId, addressSelectedBean5.townName);
@@ -415,7 +416,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
         if ((interceptable != null && interceptable.invokeV(65545, this) != null) || this.mAddressSelectedBean == null) {
             return;
         }
-        List titles = this.mTabLayout.getTitles();
+        List<String> titles = this.mTabLayout.getTitles();
         boolean z = false;
         if (!TextUtils.isEmpty(this.mAddressSelectedBean.provinceId)) {
             titles.set(0, this.mAddressSelectedBean.provinceName);
@@ -491,7 +492,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.width = -1;
                 window.setAttributes(attributes);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003e1);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003e2);
             }
             SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sapi_sdk_addr_select_tab_layout);
             this.mTabLayout = slidingTabLayout;
@@ -626,7 +627,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             setUpView();
             setUpPageData();
             setUpResultModel();
-            ((ListPagerView) this.mViewList.get(0)).loadData();
+            this.mViewList.get(0).loadData();
         }
     }
 }

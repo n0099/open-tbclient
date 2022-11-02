@@ -1,13 +1,22 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import java.io.File;
-import org.json.JSONArray;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public interface so1 {
-    void a(JSONArray jSONArray);
 
-    p72 b(Context context, File file, long j);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onResult(String str);
+    }
 
-    void c(JSONArray jSONArray);
+    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+
+    void b(Context context, String str, String str2, String str3);
+
+    void c(HashMap<String, String> hashMap, File file, a aVar);
+
+    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
 }

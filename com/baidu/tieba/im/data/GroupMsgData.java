@@ -2,6 +2,7 @@ package com.baidu.tieba.im.data;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class GroupMsgData extends CustomResponsedMessage {
+public class GroupMsgData extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GroupIdTypeData groupInfo;
     public boolean hasMore;
-    public LinkedList listMessage;
+    public LinkedList<ChatMessage> listMessage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GroupMsgData(int i) {
@@ -35,7 +36,7 @@ public class GroupMsgData extends CustomResponsedMessage {
             }
         }
         this.groupInfo = new GroupIdTypeData();
-        this.listMessage = new LinkedList();
+        this.listMessage = new LinkedList<>();
     }
 
     public GroupIdTypeData getGroupInfo() {
@@ -47,7 +48,7 @@ public class GroupMsgData extends CustomResponsedMessage {
         return (GroupIdTypeData) invokeV.objValue;
     }
 
-    public LinkedList getListMessage() {
+    public LinkedList<ChatMessage> getListMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -79,7 +80,7 @@ public class GroupMsgData extends CustomResponsedMessage {
         }
     }
 
-    public void setListMessageData(LinkedList linkedList) {
+    public void setListMessageData(LinkedList<ChatMessage> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
             this.listMessage = linkedList;

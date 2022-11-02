@@ -11,12 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 /* loaded from: classes7.dex */
 public class OrientedDrawable extends ForwardingDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mExifOrientation;
     public int mRotationAngle;
+    @VisibleForTesting
     public final Matrix mRotationMatrix;
     public final Matrix mTempMatrix;
     public final RectF mTempRectF;

@@ -3,6 +3,9 @@ package androidx.core.app;
 import android.app.PendingIntent;
 import android.app.RemoteAction;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -17,13 +20,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class RemoteActionCompat implements VersionedParcelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public PendingIntent mActionIntent;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public CharSequence mContentDescription;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean mEnabled;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public IconCompat mIcon;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean mShouldShowIcon;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public CharSequence mTitle;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public RemoteActionCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,6 +48,7 @@ public final class RemoteActionCompat implements VersionedParcelable {
         }
     }
 
+    @NonNull
     public PendingIntent getActionIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,6 +58,7 @@ public final class RemoteActionCompat implements VersionedParcelable {
         return (PendingIntent) invokeV.objValue;
     }
 
+    @NonNull
     public CharSequence getContentDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,6 +68,7 @@ public final class RemoteActionCompat implements VersionedParcelable {
         return (CharSequence) invokeV.objValue;
     }
 
+    @NonNull
     public IconCompat getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,6 +78,7 @@ public final class RemoteActionCompat implements VersionedParcelable {
         return (IconCompat) invokeV.objValue;
     }
 
+    @NonNull
     public CharSequence getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,7 +106,7 @@ public final class RemoteActionCompat implements VersionedParcelable {
         return invokeV.booleanValue;
     }
 
-    public RemoteActionCompat(RemoteActionCompat remoteActionCompat) {
+    public RemoteActionCompat(@NonNull RemoteActionCompat remoteActionCompat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +130,7 @@ public final class RemoteActionCompat implements VersionedParcelable {
         this.mShouldShowIcon = remoteActionCompat.mShouldShowIcon;
     }
 
-    public RemoteActionCompat(IconCompat iconCompat, CharSequence charSequence, CharSequence charSequence2, PendingIntent pendingIntent) {
+    public RemoteActionCompat(@NonNull IconCompat iconCompat, @NonNull CharSequence charSequence, @NonNull CharSequence charSequence2, @NonNull PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,7 +153,9 @@ public final class RemoteActionCompat implements VersionedParcelable {
         this.mShouldShowIcon = true;
     }
 
-    public static RemoteActionCompat createFromRemoteAction(RemoteAction remoteAction) {
+    @NonNull
+    @RequiresApi(26)
+    public static RemoteActionCompat createFromRemoteAction(@NonNull RemoteAction remoteAction) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, remoteAction)) == null) {
@@ -168,6 +184,8 @@ public final class RemoteActionCompat implements VersionedParcelable {
         }
     }
 
+    @NonNull
+    @RequiresApi(26)
     public RemoteAction toRemoteAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

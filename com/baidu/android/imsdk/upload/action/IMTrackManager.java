@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.upload.action;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -103,7 +104,7 @@ public class IMTrackManager {
         }
     }
 
-    public static void uploadIMRealAction(Context context, IMPushPb.Action action) {
+    public static void uploadIMRealAction(Context context, @NonNull IMPushPb.Action action) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65548, null, context, action) == null) && context != null && RequsetNetworkUtils.isConnected(context)) {
             TaskManager.getInstance(context).submitForNetWork(new Runnable(context, action) { // from class: com.baidu.android.imsdk.upload.action.IMTrackManager.3
@@ -143,7 +144,7 @@ public class IMTrackManager {
         }
     }
 
-    public static void requestIMRealUpload(Context context, IMPushPb.Action action) {
+    public static void requestIMRealUpload(Context context, @NonNull IMPushPb.Action action) {
         byte[] generateIMRealClient;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, null, context, action) == null) && (generateIMRealClient = new IMPbGenerator().generateIMRealClient(context, action)) != null && generateIMRealClient.length < 307200) {

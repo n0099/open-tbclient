@@ -1,6 +1,6 @@
 package com.fun;
 
-import com.baidu.tieba.vq9;
+import com.baidu.tieba.es9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ public class h0 {
     public final Reporter c;
 
     /* loaded from: classes7.dex */
-    public class a extends HashMap {
+    public class a extends HashMap<String, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Object[] a;
@@ -79,7 +79,7 @@ public class h0 {
                 return;
             }
         }
-        this.c = vq9.a();
+        this.c = es9.a();
         this.a = sidSessionMeta;
         this.b = str;
     }

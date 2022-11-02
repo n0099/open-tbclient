@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class BaseTarget implements Target {
+public abstract class BaseTarget<E> implements Target<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,9 +25,9 @@ public abstract class BaseTarget implements Target {
     }
 
     @Override // com.sina.weibo.sdk.network.target.Target
-    public void onRequestSuccessBg(Object obj) {
+    public void onRequestSuccessBg(E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e) == null) {
         }
     }
 

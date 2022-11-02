@@ -2,6 +2,7 @@ package com.baidu.pass.biometrics.face.liveness.view.face;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -168,6 +169,7 @@ public class CircleProgressView extends View {
         a(context, attributeSet);
     }
 
+    @SuppressLint({"CustomViewStyleable"})
     private void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, attributeSet) == null) {
@@ -554,6 +556,7 @@ public class CircleProgressView extends View {
     }
 
     @Override // android.view.View
+    @SuppressLint({"DrawAllocation"})
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {

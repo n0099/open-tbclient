@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.utils.q;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageViewAware extends ViewAware {
     public ImageViewAware(ImageView imageView) {
         super(imageView);

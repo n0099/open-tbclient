@@ -1,5 +1,7 @@
 package com.bumptech.glide.load.resource.drawable;
 
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +13,7 @@ import com.bumptech.glide.TransitionOptions;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.bumptech.glide.request.transition.TransitionFactory;
 /* loaded from: classes7.dex */
-public final class DrawableTransitionOptions extends TransitionOptions {
+public final class DrawableTransitionOptions extends TransitionOptions<DrawableTransitionOptions, Drawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,6 +31,7 @@ public final class DrawableTransitionOptions extends TransitionOptions {
         }
     }
 
+    @NonNull
     public static DrawableTransitionOptions withCrossFade() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,6 +41,7 @@ public final class DrawableTransitionOptions extends TransitionOptions {
         return (DrawableTransitionOptions) invokeV.objValue;
     }
 
+    @NonNull
     public DrawableTransitionOptions crossFade() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,15 +51,17 @@ public final class DrawableTransitionOptions extends TransitionOptions {
         return (DrawableTransitionOptions) invokeV.objValue;
     }
 
-    public static DrawableTransitionOptions with(TransitionFactory transitionFactory) {
+    @NonNull
+    public static DrawableTransitionOptions with(@NonNull TransitionFactory<Drawable> transitionFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, transitionFactory)) == null) {
-            return (DrawableTransitionOptions) new DrawableTransitionOptions().transition(transitionFactory);
+            return new DrawableTransitionOptions().transition(transitionFactory);
         }
         return (DrawableTransitionOptions) invokeL.objValue;
     }
 
+    @NonNull
     public static DrawableTransitionOptions withCrossFade(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -65,6 +71,7 @@ public final class DrawableTransitionOptions extends TransitionOptions {
         return (DrawableTransitionOptions) invokeI.objValue;
     }
 
+    @NonNull
     public DrawableTransitionOptions crossFade(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -74,7 +81,8 @@ public final class DrawableTransitionOptions extends TransitionOptions {
         return (DrawableTransitionOptions) invokeI.objValue;
     }
 
-    public static DrawableTransitionOptions withCrossFade(DrawableCrossFadeFactory.Builder builder) {
+    @NonNull
+    public static DrawableTransitionOptions withCrossFade(@NonNull DrawableCrossFadeFactory.Builder builder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, builder)) == null) {
@@ -83,7 +91,8 @@ public final class DrawableTransitionOptions extends TransitionOptions {
         return (DrawableTransitionOptions) invokeL.objValue;
     }
 
-    public DrawableTransitionOptions crossFade(DrawableCrossFadeFactory.Builder builder) {
+    @NonNull
+    public DrawableTransitionOptions crossFade(@NonNull DrawableCrossFadeFactory.Builder builder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, builder)) == null) {
@@ -92,7 +101,8 @@ public final class DrawableTransitionOptions extends TransitionOptions {
         return (DrawableTransitionOptions) invokeL.objValue;
     }
 
-    public static DrawableTransitionOptions withCrossFade(DrawableCrossFadeFactory drawableCrossFadeFactory) {
+    @NonNull
+    public static DrawableTransitionOptions withCrossFade(@NonNull DrawableCrossFadeFactory drawableCrossFadeFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawableCrossFadeFactory)) == null) {
@@ -101,11 +111,12 @@ public final class DrawableTransitionOptions extends TransitionOptions {
         return (DrawableTransitionOptions) invokeL.objValue;
     }
 
-    public DrawableTransitionOptions crossFade(DrawableCrossFadeFactory drawableCrossFadeFactory) {
+    @NonNull
+    public DrawableTransitionOptions crossFade(@NonNull DrawableCrossFadeFactory drawableCrossFadeFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, drawableCrossFadeFactory)) == null) {
-            return (DrawableTransitionOptions) transition(drawableCrossFadeFactory);
+            return transition(drawableCrossFadeFactory);
         }
         return (DrawableTransitionOptions) invokeL.objValue;
     }

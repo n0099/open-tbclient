@@ -16,7 +16,7 @@ import org.webrtc.NativeLibrary;
 import org.webrtc.PeerConnection;
 import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.LegacyAudioDeviceModule;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PeerConnectionFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PeerConnectionFactory";
@@ -35,8 +35,8 @@ public class PeerConnectionFactory {
     public long nativeFactory;
 
     /* renamed from: org.webrtc.PeerConnectionFactory$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -83,8 +83,8 @@ public class PeerConnectionFactory {
 
     public static native void nativeStopInternalTracingCapture();
 
-    /* loaded from: classes8.dex */
-    public class InitializationOptions {
+    /* loaded from: classes9.dex */
+    public static class InitializationOptions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context applicationContext;
@@ -97,8 +97,8 @@ public class PeerConnectionFactory {
         public final NativeLibraryLoader nativeLibraryLoader;
         public final String nativeLibraryName;
 
-        /* loaded from: classes8.dex */
-        public class Builder {
+        /* loaded from: classes9.dex */
+        public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final Context applicationContext;
@@ -231,8 +231,8 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class Builder {
+    /* loaded from: classes9.dex */
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AudioDecoderFactoryFactory audioDecoderFactoryFactory;
@@ -383,8 +383,8 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class Options {
+    /* loaded from: classes9.dex */
+    public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADAPTER_TYPE_ANY = 32;
         public static final int ADAPTER_TYPE_CELLULAR = 4;
@@ -412,6 +412,7 @@ public class PeerConnectionFactory {
             }
         }
 
+        @CalledByNative("Options")
         public boolean getDisableEncryption() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -421,6 +422,7 @@ public class PeerConnectionFactory {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("Options")
         public boolean getDisableNetworkMonitor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -430,6 +432,7 @@ public class PeerConnectionFactory {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("Options")
         public int getNetworkIgnoreMask() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -440,6 +443,7 @@ public class PeerConnectionFactory {
         }
     }
 
+    @CalledByNative
     public PeerConnectionFactory(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -553,6 +557,7 @@ public class PeerConnectionFactory {
         }
     }
 
+    @CalledByNative
     public static void onNetworkThreadReady() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65567, null) == null) {
@@ -561,6 +566,7 @@ public class PeerConnectionFactory {
         }
     }
 
+    @CalledByNative
     public static void onSignalingThreadReady() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65568, null) == null) {
@@ -569,6 +575,7 @@ public class PeerConnectionFactory {
         }
     }
 
+    @CalledByNative
     public static void onWorkerThreadReady() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65569, null) == null) {
@@ -765,7 +772,7 @@ public class PeerConnectionFactory {
     }
 
     @Nullable
-    public PeerConnection createPeerConnection(List list, PeerConnection.Observer observer) {
+    public PeerConnection createPeerConnection(List<PeerConnection.IceServer> list, PeerConnection.Observer observer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, list, observer)) == null) {
@@ -796,7 +803,7 @@ public class PeerConnectionFactory {
 
     @Nullable
     @Deprecated
-    public PeerConnection createPeerConnection(List list, MediaConstraints mediaConstraints, PeerConnection.Observer observer) {
+    public PeerConnection createPeerConnection(List<PeerConnection.IceServer> list, MediaConstraints mediaConstraints, PeerConnection.Observer observer) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, list, mediaConstraints, observer)) == null) {

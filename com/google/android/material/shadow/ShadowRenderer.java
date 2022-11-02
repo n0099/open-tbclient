@@ -9,6 +9,9 @@ import android.graphics.RadialGradient;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.graphics.Shader;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.ColorUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ShadowRenderer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,11 +33,14 @@ public class ShadowRenderer {
     public static final int[] edgeColors;
     public static final float[] edgePositions;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final Paint cornerShadowPaint;
+    @NonNull
     public final Paint edgeShadowPaint;
     public final Path scratch;
     public int shadowEndColor;
     public int shadowMiddleColor;
+    @NonNull
     public final Paint shadowPaint;
     public int shadowStartColor;
     public Paint transparentPaint;
@@ -75,6 +82,7 @@ public class ShadowRenderer {
         }
     }
 
+    @NonNull
     public Paint getShadowPaint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,7 +118,7 @@ public class ShadowRenderer {
         this.edgeShadowPaint = new Paint(this.cornerShadowPaint);
     }
 
-    public void drawCornerShadow(Canvas canvas, Matrix matrix, RectF rectF, int i, float f, float f2) {
+    public void drawCornerShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i, float f, float f2) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, matrix, rectF, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
@@ -159,7 +167,7 @@ public class ShadowRenderer {
         }
     }
 
-    public void drawEdgeShadow(Canvas canvas, Matrix matrix, RectF rectF, int i) {
+    public void drawEdgeShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, matrix, rectF, i) == null) {
             rectF.bottom += i;

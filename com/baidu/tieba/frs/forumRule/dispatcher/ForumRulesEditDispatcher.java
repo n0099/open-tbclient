@@ -1,16 +1,18 @@
 package com.baidu.tieba.frs.forumRule.dispatcher;
 
 import android.content.Context;
-import android.content.Intent;
-import com.baidu.tieba.frs.forumRule.ForumRulesEditActivity;
-import com.baidu.tieba.jg8;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
+import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
+import com.baidu.tieba.th8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ForumRulesEditDispatcher implements jg8 {
+public class ForumRulesEditDispatcher implements th8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,17 +30,11 @@ public class ForumRulesEditDispatcher implements jg8 {
         }
     }
 
-    @Override // com.baidu.tieba.jg8
+    @Override // com.baidu.tieba.th8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
-            Intent intent = new Intent();
-            String optString = jSONObject.optString("forum_id");
-            String optString2 = jSONObject.optString("forum_name");
-            intent.putExtra("forum_id", optString);
-            intent.putExtra("forum_name", optString2);
-            intent.setClass(context, ForumRulesEditActivity.class);
-            context.startActivity(intent);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(context, jSONObject.optString(TbTitleActivityConfig.FORUM_ID), jSONObject.optString("forumName"), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS, "", 0, 25052)));
         }
     }
 }

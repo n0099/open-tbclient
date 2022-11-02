@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+@NotProguard
 /* loaded from: classes2.dex */
 public class JsObject extends JsReleaser {
     public static final /* synthetic */ boolean $assertionsDisabled = false;

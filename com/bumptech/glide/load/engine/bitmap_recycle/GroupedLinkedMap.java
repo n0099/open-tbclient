@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,25 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.bitmap_recycle.Poolable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class GroupedLinkedMap {
+public class GroupedLinkedMap<K extends Poolable, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedEntry head;
-    public final Map keyToEntry;
+    public final LinkedEntry<K, V> head;
+    public final Map<K, LinkedEntry<K, V>> keyToEntry;
 
     /* loaded from: classes7.dex */
-    public class LinkedEntry {
+    public static class LinkedEntry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Object key;
-        public LinkedEntry next;
-        public LinkedEntry prev;
-        public List values;
+        public final K key;
+        public LinkedEntry<K, V> next;
+        public LinkedEntry<K, V> prev;
+        public List<V> values;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public LinkedEntry() {
@@ -45,7 +47,8 @@ public class GroupedLinkedMap {
             }
         }
 
-        public Object removeLast() {
+        @Nullable
+        public V removeLast() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -55,14 +58,14 @@ public class GroupedLinkedMap {
                 }
                 return null;
             }
-            return invokeV.objValue;
+            return (V) invokeV.objValue;
         }
 
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                List list = this.values;
+                List<V> list = this.values;
                 if (list != null) {
                     return list.size();
                 }
@@ -71,12 +74,12 @@ public class GroupedLinkedMap {
             return invokeV.intValue;
         }
 
-        public LinkedEntry(Object obj) {
+        public LinkedEntry(K k) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
+                Object[] objArr = {k};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -88,16 +91,16 @@ public class GroupedLinkedMap {
             }
             this.prev = this;
             this.next = this;
-            this.key = obj;
+            this.key = k;
         }
 
-        public void add(Object obj) {
+        public void add(V v) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
                 if (this.values == null) {
                     this.values = new ArrayList();
                 }
-                this.values.add(obj);
+                this.values.add(v);
             }
         }
     }
@@ -115,42 +118,42 @@ public class GroupedLinkedMap {
                 return;
             }
         }
-        this.head = new LinkedEntry();
+        this.head = new LinkedEntry<>();
         this.keyToEntry = new HashMap();
     }
 
-    private void makeHead(LinkedEntry linkedEntry) {
+    private void makeHead(LinkedEntry<K, V> linkedEntry) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, linkedEntry) == null) {
             removeEntry(linkedEntry);
-            LinkedEntry linkedEntry2 = this.head;
+            LinkedEntry<K, V> linkedEntry2 = this.head;
             linkedEntry.prev = linkedEntry2;
             linkedEntry.next = linkedEntry2.next;
             updateEntry(linkedEntry);
         }
     }
 
-    private void makeTail(LinkedEntry linkedEntry) {
+    private void makeTail(LinkedEntry<K, V> linkedEntry) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, linkedEntry) == null) {
             removeEntry(linkedEntry);
-            LinkedEntry linkedEntry2 = this.head;
+            LinkedEntry<K, V> linkedEntry2 = this.head;
             linkedEntry.prev = linkedEntry2.prev;
             linkedEntry.next = linkedEntry2;
             updateEntry(linkedEntry);
         }
     }
 
-    public static void removeEntry(LinkedEntry linkedEntry) {
+    public static <K, V> void removeEntry(LinkedEntry<K, V> linkedEntry) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, linkedEntry) == null) {
-            LinkedEntry linkedEntry2 = linkedEntry.prev;
+            LinkedEntry<K, V> linkedEntry2 = linkedEntry.prev;
             linkedEntry2.next = linkedEntry.next;
             linkedEntry.next.prev = linkedEntry2;
         }
     }
 
-    public static void updateEntry(LinkedEntry linkedEntry) {
+    public static <K, V> void updateEntry(LinkedEntry<K, V> linkedEntry) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedEntry) == null) {
             linkedEntry.next.prev = linkedEntry;
@@ -158,46 +161,48 @@ public class GroupedLinkedMap {
         }
     }
 
-    public Object get(Poolable poolable) {
+    @Nullable
+    public V get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, poolable)) == null) {
-            LinkedEntry linkedEntry = (LinkedEntry) this.keyToEntry.get(poolable);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
             if (linkedEntry == null) {
-                linkedEntry = new LinkedEntry(poolable);
-                this.keyToEntry.put(poolable, linkedEntry);
+                linkedEntry = new LinkedEntry<>(k);
+                this.keyToEntry.put(k, linkedEntry);
             } else {
-                poolable.offer();
+                k.offer();
             }
             makeHead(linkedEntry);
             return linkedEntry.removeLast();
         }
-        return invokeL.objValue;
+        return (V) invokeL.objValue;
     }
 
-    public void put(Poolable poolable, Object obj) {
+    public void put(K k, V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, poolable, obj) == null) {
-            LinkedEntry linkedEntry = (LinkedEntry) this.keyToEntry.get(poolable);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, v) == null) {
+            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
             if (linkedEntry == null) {
-                linkedEntry = new LinkedEntry(poolable);
+                linkedEntry = new LinkedEntry<>(k);
                 makeTail(linkedEntry);
-                this.keyToEntry.put(poolable, linkedEntry);
+                this.keyToEntry.put(k, linkedEntry);
             } else {
-                poolable.offer();
+                k.offer();
             }
-            linkedEntry.add(obj);
+            linkedEntry.add(v);
         }
     }
 
-    public Object removeLast() {
+    @Nullable
+    public V removeLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             for (LinkedEntry linkedEntry = this.head.prev; !linkedEntry.equals(this.head); linkedEntry = linkedEntry.prev) {
-                Object removeLast = linkedEntry.removeLast();
-                if (removeLast != null) {
-                    return removeLast;
+                V v = (V) linkedEntry.removeLast();
+                if (v != null) {
+                    return v;
                 }
                 removeEntry(linkedEntry);
                 this.keyToEntry.remove(linkedEntry.key);
@@ -205,7 +210,7 @@ public class GroupedLinkedMap {
             }
             return null;
         }
-        return invokeV.objValue;
+        return (V) invokeV.objValue;
     }
 
     public String toString() {

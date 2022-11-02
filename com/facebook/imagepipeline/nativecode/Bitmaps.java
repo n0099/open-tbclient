@@ -8,12 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class Bitmaps {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @DoNotStrip
     public static native void nativeCopyBitmap(Bitmap bitmap, int i, Bitmap bitmap2, int i2, int i3);
 
     static {
@@ -46,6 +49,7 @@ public class Bitmaps {
         }
     }
 
+    @DoNotStrip
     public static void copyBitmap(Bitmap bitmap, Bitmap bitmap2) {
         boolean z;
         boolean z2;

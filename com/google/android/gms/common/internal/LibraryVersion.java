@@ -1,5 +1,6 @@
 package com.google.android.gms.common.internal;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,19 +9,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.util.IOUtils;
+import com.google.android.gms.common.util.VisibleForTesting;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class LibraryVersion {
     public static /* synthetic */ Interceptable $ic;
     public static final GmsLogger zza;
     public static LibraryVersion zzb;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap zzc;
+    public ConcurrentHashMap<String, String> zzc;
 
+    @NonNull
+    @KeepForSdk
     public static LibraryVersion getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -44,6 +50,7 @@ public class LibraryVersion {
         zzb = new LibraryVersion();
     }
 
+    @VisibleForTesting
     public LibraryVersion() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,14 +64,16 @@ public class LibraryVersion {
                 return;
             }
         }
-        this.zzc = new ConcurrentHashMap();
+        this.zzc = new ConcurrentHashMap<>();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00bc  */
+    @NonNull
+    @KeepForSdk
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String getVersion(String str) {
+    public String getVersion(@NonNull String str) {
         InterceptResult invokeL;
         String str2;
         String str3;
@@ -74,7 +83,7 @@ public class LibraryVersion {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             Preconditions.checkNotEmpty(str, "Please provide a valid libraryName");
             if (this.zzc.containsKey(str)) {
-                return (String) this.zzc.get(str);
+                return this.zzc.get(str);
             }
             Properties properties = new Properties();
             InputStream inputStream = null;

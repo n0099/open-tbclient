@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ng0;
+import com.baidu.tieba.mg0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<MediaAEffect> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,7 +200,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
             try {
                 MediaAEffect mediaAEffect = (MediaAEffect) super.clone();
                 if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = ng0.b;
+                    mediaAEffect.shaderConfigKey = mg0.b;
                 }
                 if (mediaAEffect.mediaOneAEffects != null) {
                     ArrayList arrayList = new ArrayList();

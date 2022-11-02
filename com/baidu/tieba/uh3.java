@@ -1,46 +1,65 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class uh3 {
+public class uh3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948210953, "Lcom/baidu/tieba/uh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948210953, "Lcom/baidu/tieba/uh3;");
-                return;
+    public uh3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = a("b3Bwbw==");
-        b = a("T1BQTw==");
-        a("T3Bwbw==");
-        c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
-        d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new String(Base64.decode(str, 0));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 2) {
+                    View view3 = this.a;
+                    if (view3 == null) {
+                        view2.setAlpha(1.0f);
+                        return false;
+                    }
+                    view3.setAlpha(1.0f);
+                    return false;
+                }
+                return false;
+            }
+            View view4 = this.a;
+            float f = 0.5f;
+            if (view4 == null) {
+                if (!ln2.M().a()) {
+                    f = 0.2f;
+                }
+                view2.setAlpha(f);
+                return false;
+            }
+            if (!ln2.M().a()) {
+                f = 0.2f;
+            }
+            view4.setAlpha(f);
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

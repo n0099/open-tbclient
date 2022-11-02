@@ -1,63 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class hz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lu0 a;
 
-    public static AudioManager a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                return (AudioManager) context.getSystemService("audio");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (AudioManager) invokeL.objValue;
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamMaxVolume(3);
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final hz0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-730679187, "Lcom/baidu/tieba/hz0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-730679187, "Lcom/baidu/tieba/hz0$b;");
+                    return;
+                }
             }
-            return -1;
+            a = new hz0(null);
         }
-        return invokeL.intValue;
     }
 
-    public static int c(Context context) {
-        InterceptResult invokeL;
+    public hz0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamVolume(3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return -1;
         }
-        return invokeL.intValue;
     }
 
-    public static void d(Context context, int i) {
-        AudioManager a;
+    public static hz0 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) && (a = a(context)) != null) {
-            a.setStreamVolume(3, i, 8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (hz0) invokeV.objValue;
+    }
+
+    public gz0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new gz0();
+        }
+        return (gz0) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            lu0 lu0Var = new lu0();
+            this.a = lu0Var;
+            lu0Var.registerReceiver();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a == null) {
+            e();
+        }
+    }
+
+    public /* synthetic */ hz0(a aVar) {
+        this();
+    }
+
+    public void a(@NonNull sr0 sr0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sr0Var) == null) {
+            f();
+            vz0.a("session manager bind player =>" + sr0Var);
+            this.a.b(sr0Var.x());
+        }
+    }
+
+    public void d(@NonNull mu0 mu0Var) {
+        lu0 lu0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mu0Var) == null) && (lu0Var = this.a) != null) {
+            lu0Var.c(mu0Var);
+        }
+    }
+
+    public void g(@NonNull sr0 sr0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sr0Var) == null) {
+            vz0.a("session manager unbind player =>" + sr0Var);
+            lu0 lu0Var = this.a;
+            if (lu0Var != null) {
+                lu0Var.d(sr0Var.x());
+            }
         }
     }
 }

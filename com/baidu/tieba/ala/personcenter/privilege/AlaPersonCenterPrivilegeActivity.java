@@ -24,7 +24,7 @@ import java.util.LinkedList;
 public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList a;
+    public LinkedList<AbsFragment> a;
     public AlaPrivilegeFragmentAdapter b;
 
     /* loaded from: classes3.dex */
@@ -73,7 +73,7 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
                 return;
             }
         }
-        this.a = new LinkedList();
+        this.a = new LinkedList<>();
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
@@ -92,11 +92,11 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (!ListUtils.isEmpty(this.a)) {
-                Iterator it = this.a.iterator();
+                Iterator<AbsFragment> it = this.a.iterator();
                 while (it.hasNext()) {
-                    AbsFragment absFragment = (AbsFragment) it.next();
-                    if (absFragment != null) {
-                        absFragment.onActivityResult(i, i2, intent);
+                    AbsFragment next = it.next();
+                    if (next != null) {
+                        next.onActivityResult(i, i2, intent);
                     }
                 }
             }
@@ -115,7 +115,7 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     public void setNavigationBar(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, navigationBar) == null) {
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0242));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0243));
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         }
     }

@@ -1,12 +1,14 @@
 package com.kwad.components.ad.reward.b;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.json.annotation.KsJson;
 /* loaded from: classes7.dex */
 public final class e implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
@@ -14,8 +16,9 @@ public final class e implements com.kwad.sdk.core.webview.kwai.a {
     public String TAG;
     public com.kwad.sdk.core.webview.kwai.c kr;
 
+    @KsJson
     /* loaded from: classes7.dex */
-    public class a extends com.kwad.sdk.core.response.kwai.a {
+    public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String oN;
@@ -64,7 +67,7 @@ public final class e implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             String str2 = this.TAG;
@@ -74,6 +77,7 @@ public final class e implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

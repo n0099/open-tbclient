@@ -68,15 +68,15 @@ public final class SClient {
     public static String address;
     public static AndroidOperationInterface ai;
     public static ByteBuffer bodyBuffer;
-    public static Deferred handleLoop;
+    public static Deferred<Unit> handleLoop;
     public static ByteBuffer headerBuffer;
     public static boolean inited;
     public static Gson json;
     public static boolean looping;
-    public static Function1 onHandShakeSuccess;
+    public static Function1<? super Boolean, Unit> onHandShakeSuccess;
     public static OutputStream output;
     public static boolean prepared;
-    public static Deferred probeLoop;
+    public static Deferred<Unit> probeLoop;
     public static Socket socket;
     public static DatagramSocket udpSocket;
     public static ReentrantLock writeLock;
@@ -84,7 +84,7 @@ public final class SClient {
 
     @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001B'\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\t\u0010\u0013\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\u0014\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\t\u0010\u0015\u001a\u00020\u0007HÆ\u0003J\t\u0010\u0016\u001a\u00020\tHÆ\u0003J3\u0010\u0017\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\tHÆ\u0001J\u0013\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u001b\u001a\u00020\u0007HÖ\u0001J\t\u0010\u001c\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0013\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012¨\u0006\u001d"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "", "address", "", "socket", "Ljava/net/Socket;", "status", "", "connectTime", "", "(Ljava/lang/String;Ljava/net/Socket;IJ)V", "getAddress", "()Ljava/lang/String;", "getConnectTime", "()J", "getSocket", "()Ljava/net/Socket;", "getStatus", "()I", "component1", "component2", "component3", "component4", "copy", "equals", "", ImageViewerConfig.FROM_OTHER, TTDownloadField.TT_HASHCODE, "toString", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes6.dex */
-    public final class ConnectResult {
+    public static final class ConnectResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String address;
@@ -287,11 +287,11 @@ public final class SClient {
         }
     }
 
-    public final Deferred getHandleLoop() {
+    public final Deferred<Unit> getHandleLoop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Deferred deferred = handleLoop;
+            Deferred<Unit> deferred = handleLoop;
             if (deferred != null) {
                 return deferred;
             }
@@ -301,11 +301,11 @@ public final class SClient {
         return (Deferred) invokeV.objValue;
     }
 
-    public final Deferred getProbeLoop() {
+    public final Deferred<Unit> getProbeLoop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Deferred deferred = probeLoop;
+            Deferred<Unit> deferred = probeLoop;
             if (deferred != null) {
                 return deferred;
             }
@@ -323,7 +323,7 @@ public final class SClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final Object loop(Continuation continuation) {
+    public final Object loop(Continuation<? super Unit> continuation) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, this, continuation)) == null) {
@@ -337,7 +337,7 @@ public final class SClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final Object loopProbe(Continuation continuation) {
+    public final Object loopProbe(Continuation<? super Unit> continuation) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, continuation)) == null) {
@@ -355,7 +355,7 @@ public final class SClient {
         }
     }
 
-    public final void setHandleLoop(Deferred deferred) {
+    public final void setHandleLoop(Deferred<Unit> deferred) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, deferred) == null) {
             Intrinsics.checkNotNullParameter(deferred, "<set-?>");
@@ -363,7 +363,7 @@ public final class SClient {
         }
     }
 
-    public final void setProbeLoop(Deferred deferred) {
+    public final void setProbeLoop(Deferred<Unit> deferred) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, deferred) == null) {
             Intrinsics.checkNotNullParameter(deferred, "<set-?>");
@@ -377,7 +377,7 @@ public final class SClient {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Object connectSClient(String str, long j, Continuation continuation) {
+    public final Object connectSClient(String str, long j, Continuation<? super ConnectResult> continuation) {
         InterceptResult invokeCommon;
         SClient$connectSClient$1 sClient$connectSClient$1;
         int i;
@@ -466,7 +466,7 @@ public final class SClient {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Object getConnectSClientTime(String str, long j, Continuation continuation) {
+    public final Object getConnectSClientTime(String str, long j, Continuation<? super ConnectResult> continuation) {
         InterceptResult invokeCommon;
         SClient$getConnectSClientTime$1 sClient$getConnectSClientTime$1;
         int i;
@@ -615,7 +615,7 @@ public final class SClient {
             HandShakePacketResponse handShakePacketResponse = (HandShakePacketResponse) fromJson2;
             if (handShakePacketResponse.getError_code() == 0) {
                 TornadoLiteRuntime.INSTANCE.onEvent$tun2tornadolite_release(51L);
-                Function1 function1 = onHandShakeSuccess;
+                Function1<? super Boolean, Unit> function1 = onHandShakeSuccess;
                 if (function1 != null) {
                     function1.invoke(Boolean.TRUE);
                     return;
@@ -624,7 +624,7 @@ public final class SClient {
             }
             TornadoLiteRuntime.INSTANCE.onEvent$tun2tornadolite_release(52L, handShakePacketResponse.getError_msg());
             looping = false;
-            Function1 function12 = onHandShakeSuccess;
+            Function1<? super Boolean, Unit> function12 = onHandShakeSuccess;
             if (function12 != null) {
                 function12.invoke(Boolean.FALSE);
             }
@@ -632,7 +632,7 @@ public final class SClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final Object selectSClient(SClientConfig sClientConfig, long j, Continuation continuation) {
+    public final Object selectSClient(SClientConfig sClientConfig, long j, Continuation<? super ConnectResult> continuation) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, this, new Object[]{sClientConfig, Long.valueOf(j), continuation})) == null) {
@@ -641,7 +641,7 @@ public final class SClient {
         return invokeCommon.objValue;
     }
 
-    private final Object suspendCoroutineWithTimeout(long j, Function1 function1, Continuation continuation) {
+    private final <T> Object suspendCoroutineWithTimeout(long j, Function1<? super Continuation<? super T>, Unit> function1, Continuation<? super T> continuation) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65567, this, new Object[]{Long.valueOf(j), function1, continuation})) == null) {
@@ -662,7 +662,7 @@ public final class SClient {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Object sendHandShake(Continuation continuation) {
+    public final Object sendHandShake(Continuation<? super Boolean> continuation) {
         InterceptResult invokeL;
         SClient$sendHandShake$1 sClient$sendHandShake$1;
         Object obj;
@@ -769,7 +769,7 @@ public final class SClient {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Object prepare(SClientConfig sClientConfig, Continuation continuation) {
+    public final Object prepare(SClientConfig sClientConfig, Continuation<? super Boolean> continuation) {
         InterceptResult invokeLL;
         SClient$prepare$1 sClient$prepare$1;
         int i;
@@ -829,15 +829,15 @@ public final class SClient {
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x002b  */
     /* JADX WARN: Removed duplicated region for block: B:19:0x003c  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0082 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ad, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0098 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ad, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00a0 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ad, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00ab  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0082 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ae, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0098 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ae, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00a0 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ae, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00ad  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Object start(Continuation continuation) {
+    public final Object start(Continuation<? super Boolean> continuation) {
         InterceptResult invokeL;
         SClient$start$1 sClient$start$1;
         int i;

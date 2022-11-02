@@ -1,8 +1,11 @@
 package androidx.fragment.app;
 
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.os.CancellationSignal;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.OneShotPreDrawListener;
@@ -16,6 +19,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+@SuppressLint({"UnknownNullness"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class FragmentTransitionImpl {
     public static /* synthetic */ Interceptable $ic;
@@ -231,7 +236,7 @@ public abstract class FragmentTransitionImpl {
         }
     }
 
-    public void findNamedViews(Map<String, View> map, View view2) {
+    public void findNamedViews(Map<String, View> map, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, map, view2) == null) && view2.getVisibility() == 0) {
             String transitionName = ViewCompat.getTransitionName(view2);
@@ -285,7 +290,7 @@ public abstract class FragmentTransitionImpl {
         return (ArrayList) invokeL.objValue;
     }
 
-    public void setListenerForTransitionEnd(Fragment fragment, Object obj, CancellationSignal cancellationSignal, Runnable runnable) {
+    public void setListenerForTransitionEnd(@NonNull Fragment fragment, @NonNull Object obj, @NonNull CancellationSignal cancellationSignal, @NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048594, this, fragment, obj, cancellationSignal, runnable) == null) {
             runnable.run();

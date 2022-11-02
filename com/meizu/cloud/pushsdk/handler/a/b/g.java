@@ -11,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class g implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.meizu.cloud.pushsdk.handler.a.b.g.1
+    public static final Parcelable.Creator<g> CREATOR = new Parcelable.Creator<g>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
@@ -28,7 +28,7 @@ public class g implements Parcelable {
     };
     public int a;
     public boolean b;
-    public List c;
+    public List<String> c;
     public b d;
     public String e;
 
@@ -71,7 +71,7 @@ public class g implements Parcelable {
         return this.b;
     }
 
-    public List c() {
+    public List<String> c() {
         return this.c;
     }
 

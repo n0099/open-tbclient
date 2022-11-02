@@ -31,7 +31,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
     public int currencyType;
     public String expand;
     public boolean finish;
-    public List giftbags;
+    public List<GiftBagsInfo> giftbags;
     public int hasGotSalePromotion;
     public String message;
     public int result;
@@ -69,7 +69,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
         return (GetChargeOrderStatusResult) invokeV.objValue;
     }
 
-    public List optGiftBagItemInfoList(JSONArray jSONArray) {
+    public List<GiftBagItemInfo> optGiftBagItemInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
@@ -97,7 +97,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List optGiftBagsInfoList(JSONArray jSONArray) {
+    public List<GiftBagsInfo> optGiftBagsInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {

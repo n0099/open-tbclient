@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ks4;
+import com.baidu.tieba.bt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int categoryId;
-    public ArrayList giftList;
+    public ArrayList<bt4> giftList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CategoryGiftListHttpResponseMessage(int i) {
@@ -58,28 +58,28 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
         }
         DataRes dataRes = getGiftListByCategoryIdResIdl.data;
         if (dataRes != null && (list = dataRes.gift_list) != null && list.size() > 0) {
-            this.giftList = new ArrayList();
+            this.giftList = new ArrayList<>();
             for (PresentGiftListByCategoryId1 presentGiftListByCategoryId1 : getGiftListByCategoryIdResIdl.data.gift_list) {
                 if (presentGiftListByCategoryId1 != null) {
-                    ks4 ks4Var = new ks4();
-                    ks4Var.a = presentGiftListByCategoryId1.gift_id.intValue();
-                    ks4Var.b = presentGiftListByCategoryId1.gift_name;
-                    ks4Var.c = presentGiftListByCategoryId1.price.intValue();
-                    ks4Var.d = presentGiftListByCategoryId1.thumbnail_url;
+                    bt4 bt4Var = new bt4();
+                    bt4Var.a = presentGiftListByCategoryId1.gift_id.intValue();
+                    bt4Var.b = presentGiftListByCategoryId1.gift_name;
+                    bt4Var.c = presentGiftListByCategoryId1.price.intValue();
+                    bt4Var.d = presentGiftListByCategoryId1.thumbnail_url;
                     presentGiftListByCategoryId1.ios_price.intValue();
-                    ks4Var.e = presentGiftListByCategoryId1.gift_desc;
-                    ks4Var.f = presentGiftListByCategoryId1.activity_type.intValue();
-                    ks4Var.g = presentGiftListByCategoryId1.mark_url;
-                    ks4Var.h = presentGiftListByCategoryId1.begin_time.intValue();
-                    ks4Var.i = presentGiftListByCategoryId1.end_time.intValue();
-                    ks4Var.j = presentGiftListByCategoryId1.discount.intValue();
+                    bt4Var.e = presentGiftListByCategoryId1.gift_desc;
+                    bt4Var.f = presentGiftListByCategoryId1.activity_type.intValue();
+                    bt4Var.g = presentGiftListByCategoryId1.mark_url;
+                    bt4Var.h = presentGiftListByCategoryId1.begin_time.intValue();
+                    bt4Var.i = presentGiftListByCategoryId1.end_time.intValue();
+                    bt4Var.j = presentGiftListByCategoryId1.discount.intValue();
                     presentGiftListByCategoryId1.ios_discount.intValue();
                     presentGiftListByCategoryId1.proportion.intValue();
                     presentGiftListByCategoryId1.pitch_on.intValue();
-                    ks4Var.k = presentGiftListByCategoryId1.gift_count.intValue();
-                    ks4Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
-                    ks4Var.s = presentGiftListByCategoryId1.currency.intValue();
-                    this.giftList.add(ks4Var);
+                    bt4Var.k = presentGiftListByCategoryId1.gift_count.intValue();
+                    bt4Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
+                    bt4Var.s = presentGiftListByCategoryId1.currency.intValue();
+                    this.giftList.add(bt4Var);
                 }
             }
         }
@@ -97,7 +97,7 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
         return invokeV.intValue;
     }
 
-    public ArrayList getGiftList() {
+    public ArrayList<bt4> getGiftList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

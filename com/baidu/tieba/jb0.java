@@ -1,27 +1,76 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class jb0 {
+public class jb0 implements IVideoPlayerCallback, LivePlayer.OnInfoListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public HashMap c;
-    public HashMap d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void goBackOrForeground(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onBufferEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onBufferStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onNetworkSpeedUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onSeekEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onUpdateProgress(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
+        }
+    }
+
     public jb0() {
-        this(null, 0, null, null, 15, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,85 +78,19 @@ public final class jb0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], ((Integer) objArr[1]).intValue(), (HashMap) objArr[2], (HashMap) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer.OnInfoListener
+    public Object onInfo(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof jb0) {
-                    jb0 jb0Var = (jb0) obj;
-                    return Intrinsics.areEqual(this.a, jb0Var.a) && this.b == jb0Var.b && Intrinsics.areEqual(this.c, jb0Var.c) && Intrinsics.areEqual(this.d, jb0Var.d);
-                }
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, obj)) == null) {
+            return Boolean.FALSE;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
-            HashMap hashMap = this.c;
-            int hashCode2 = (hashCode + (hashMap != null ? hashMap.hashCode() : 0)) * 31;
-            HashMap hashMap2 = this.d;
-            return hashCode2 + (hashMap2 != null ? hashMap2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "MediaSource(roomId=" + this.a + ", mediaSourceType=" + this.b + ", videoInfo=" + this.c + ", launchInfo=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public jb0(String str, int i, HashMap hashMap, HashMap hashMap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), hashMap, hashMap2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = i;
-        this.c = hashMap;
-        this.d = hashMap2;
-    }
-
-    public /* synthetic */ jb0(String str, int i, HashMap hashMap, HashMap hashMap2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? null : str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? null : hashMap, (i2 & 8) != 0 ? null : hashMap2);
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return invokeIIL.objValue;
     }
 }

@@ -9,6 +9,7 @@ import android.content.pm.ServiceInfo;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -72,7 +73,7 @@ public final class c {
         }
     }
 
-    public static void a(String str, int i, String str2, int i2, long j, String str3) {
+    public static void a(String str, int i, @NonNull String str2, int i2, long j, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Long.valueOf(j), str3}) == null) {
             JSONObject jSONObject = new JSONObject();

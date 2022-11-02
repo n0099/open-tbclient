@@ -6,12 +6,16 @@ import android.transition.TransitionValues;
 import android.transition.Visibility;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
 public final class Hold extends Visibility {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +36,8 @@ public final class Hold extends Visibility {
     }
 
     @Override // android.transition.Visibility
-    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    @NonNull
+    public Animator onAppear(@NonNull ViewGroup viewGroup, @NonNull View view2, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
@@ -42,7 +47,8 @@ public final class Hold extends Visibility {
     }
 
     @Override // android.transition.Visibility
-    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    @NonNull
+    public Animator onDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {

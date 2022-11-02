@@ -1,5 +1,7 @@
 package com.baidu.android.imsdk.internal;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.SSLCertificateSocketFactory;
 import android.net.SSLSessionCache;
@@ -153,6 +155,7 @@ public class MessageHandler extends IMessageHandler {
     /* JADX WARN: Code restructure failed: missing block: B:16:0x002e, code lost:
         r8 = r5.getHostAddress();
      */
+    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -229,6 +232,7 @@ public class MessageHandler extends IMessageHandler {
         return (Socket) invokeLI.objValue;
     }
 
+    @TargetApi(17)
     public void enableSessionTicket(SSLCertificateSocketFactory sSLCertificateSocketFactory, Socket socket) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, sSLCertificateSocketFactory, socket) == null) && Build.VERSION.SDK_INT > 17) {

@@ -36,7 +36,7 @@ public interface IAudioService extends IInterface {
     void unregisterListener(IAudioListener iAudioListener) throws RemoteException;
 
     /* loaded from: classes2.dex */
-    public abstract class Stub extends Binder implements IAudioService {
+    public static abstract class Stub extends Binder implements IAudioService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioService";
         public static final int TRANSACTION_getDuration = 2;
@@ -59,7 +59,7 @@ public interface IAudioService extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        public class Proxy implements IAudioService {
+        public static class Proxy implements IAudioService {
             public static /* synthetic */ Interceptable $ic;
             public static IAudioService sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -449,7 +449,7 @@ public interface IAudioService extends IInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class Default implements IAudioService {
+    public static class Default implements IAudioService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -44,7 +44,7 @@ public final class AsynTaskMgr {
     public AtomicBoolean mMonitorStarted;
 
     /* loaded from: classes8.dex */
-    public class AsynTaskHandler extends Handler {
+    public static class AsynTaskHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,7 +230,7 @@ public final class AsynTaskMgr {
         }
     }
 
-    public void updateHost(ArrayList arrayList, boolean z) {
+    public void updateHost(ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048585, this, arrayList, z) == null) {
             Message obtain = Message.obtain();
@@ -305,7 +305,7 @@ public final class AsynTaskMgr {
                 Iterator<String> it = stringArrayList.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    List hostByHost = dBAccessMgr.getHostByHost(next);
+                    List<HostTB> hostByHost = dBAccessMgr.getHostByHost(next);
                     if (hostByHost.isEmpty()) {
                         HostTB hostTB = new HostTB();
                         hostTB.setHost(next);
@@ -313,7 +313,7 @@ public final class AsynTaskMgr {
                         hostTB.setIsPre(z ? 1 : 0);
                         dBAccessMgr.addHost(hostTB);
                     } else {
-                        HostTB hostTB2 = (HostTB) hostByHost.get(0);
+                        HostTB hostTB2 = hostByHost.get(0);
                         hostTB2.setInsertTime(currentTimeMillis);
                         if (hostTB2.getIsPre() == 0) {
                             hostTB2.setIsPre(z ? 1 : 0);
@@ -321,13 +321,13 @@ public final class AsynTaskMgr {
                         dBAccessMgr.updateHost(hostTB2);
                     }
                 }
-                List allHost = dBAccessMgr.getAllHost();
+                List<HostTB> allHost = dBAccessMgr.getAllHost();
                 int size = allHost.size();
                 if (size > GlobalTools.KEEP_HOST_NUM) {
                     for (int i = size - 1; i > 0; i--) {
-                        if (((HostTB) allHost.get(i)).getIsPre() != 1) {
-                            LogTools.printDebug(TAG, "remove host " + ((HostTB) allHost.get(i)).getHost());
-                            dBAccessMgr.delHost((HostTB) allHost.get(i));
+                        if (allHost.get(i).getIsPre() != 1) {
+                            LogTools.printDebug(TAG, "remove host " + allHost.get(i).getHost());
+                            dBAccessMgr.delHost(allHost.get(i));
                             size += -1;
                             if (size <= GlobalTools.KEEP_HOST_NUM) {
                                 break;

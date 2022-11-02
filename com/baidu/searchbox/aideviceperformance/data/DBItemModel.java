@@ -14,16 +14,16 @@ public class DBItemModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class UserStickinessItemModel {
+    public static class UserStickinessItemModel {
         public static /* synthetic */ Interceptable $ic;
         public static final int DEFAULT_COUNT = 0;
         public static final long DEFAULT_FIRST_TIME = 0;
         public transient /* synthetic */ FieldHolder $fh;
-        public HashMap mIdToItemDetailMap;
+        public HashMap<String, ItemDetailModel> mIdToItemDetailMap;
         public long timeStamp;
 
         /* loaded from: classes2.dex */
-        public class ItemDetailModel {
+        public static class ItemDetailModel {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int count;
@@ -73,7 +73,7 @@ public class DBItemModel {
                     return;
                 }
             }
-            this.mIdToItemDetailMap = new HashMap();
+            this.mIdToItemDetailMap = new HashMap<>();
             this.timeStamp = j;
         }
 
@@ -92,13 +92,13 @@ public class DBItemModel {
                     return;
                 }
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, ItemDetailModel> hashMap = new HashMap<>();
             this.mIdToItemDetailMap = hashMap;
             this.timeStamp = j2;
             hashMap.put(str, new ItemDetailModel(i, j));
         }
 
-        public HashMap getIdToItemDetailMap() {
+        public HashMap<String, ItemDetailModel> getIdToItemDetailMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -119,9 +119,9 @@ public class DBItemModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 String str = "timeStamp: " + this.timeStamp;
-                for (Map.Entry entry : this.mIdToItemDetailMap.entrySet()) {
-                    ItemDetailModel itemDetailModel = (ItemDetailModel) entry.getValue();
-                    str = str + " id: " + ((String) entry.getKey()) + " count: " + itemDetailModel.count + " firstTime: " + itemDetailModel.firstTime;
+                for (Map.Entry<String, ItemDetailModel> entry : this.mIdToItemDetailMap.entrySet()) {
+                    ItemDetailModel value = entry.getValue();
+                    str = str + " id: " + entry.getKey() + " count: " + value.count + " firstTime: " + value.firstTime;
                 }
                 return str;
             }
@@ -130,7 +130,7 @@ public class DBItemModel {
     }
 
     /* loaded from: classes2.dex */
-    public class LaunchTimeItemModel {
+    public static class LaunchTimeItemModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long launchTime;

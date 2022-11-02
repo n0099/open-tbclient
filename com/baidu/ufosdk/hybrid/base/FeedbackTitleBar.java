@@ -1,5 +1,6 @@
 package com.baidu.ufosdk.hybrid.base;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -53,6 +54,7 @@ public class FeedbackTitleBar extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"CustomViewStyleable"})
     public FeedbackTitleBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;

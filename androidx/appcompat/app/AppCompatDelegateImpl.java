@@ -1,5 +1,6 @@
 package androidx.appcompat.app;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.UiModeManager;
@@ -46,6 +47,14 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ActionMode;
@@ -98,6 +107,7 @@ import com.sina.weibo.sdk.utils.ResourceManager;
 import java.lang.Thread;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuilder.Callback, LayoutInflater.Factory2 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -198,6 +208,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public int x;
         public int y;
 
+        @SuppressLint({"BanParcelableUsage"})
         /* loaded from: classes.dex */
         public static class SavedState implements Parcelable {
             public static /* synthetic */ Interceptable $ic;
@@ -583,7 +594,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
@@ -598,7 +609,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
                 this.this$0.checkCloseActionMenu(menuBuilder);
@@ -858,6 +869,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        @RequiresApi(23)
         public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
@@ -897,6 +909,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        @RequiresApi(24)
         public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
             MenuBuilder menuBuilder;
             Interceptable interceptable = $ic;
@@ -919,7 +932,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public final /* synthetic */ AppCompatDelegateImpl this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AutoBatteryNightModeManager(AppCompatDelegateImpl appCompatDelegateImpl, Context context) {
+        public AutoBatteryNightModeManager(@NonNull AppCompatDelegateImpl appCompatDelegateImpl, Context context) {
             super(appCompatDelegateImpl);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -977,6 +990,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    @VisibleForTesting
     /* loaded from: classes.dex */
     public abstract class AutoNightModeManager {
         public static /* synthetic */ Interceptable $ic;
@@ -984,6 +999,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public BroadcastReceiver mReceiver;
         public final /* synthetic */ AppCompatDelegateImpl this$0;
 
+        @Nullable
         public abstract IntentFilter createIntentFilterForBroadcastReceiver();
 
         public abstract int getApplyableNightMode();
@@ -1085,7 +1101,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public final /* synthetic */ AppCompatDelegateImpl this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AutoTimeNightModeManager(AppCompatDelegateImpl appCompatDelegateImpl, TwilightManager twilightManager) {
+        public AutoTimeNightModeManager(@NonNull AppCompatDelegateImpl appCompatDelegateImpl, TwilightManager twilightManager) {
             super(appCompatDelegateImpl);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1142,6 +1158,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
+    @RequiresApi(17)
     /* loaded from: classes.dex */
     public static class ConfigurationImplApi17 {
         public static /* synthetic */ Interceptable $ic;
@@ -1161,7 +1178,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
 
-        public static void generateConfigDelta_densityDpi(Configuration configuration, Configuration configuration2, Configuration configuration3) {
+        public static void generateConfigDelta_densityDpi(@NonNull Configuration configuration, @NonNull Configuration configuration2, @NonNull Configuration configuration3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, configuration, configuration2, configuration3) == null) {
                 int i = configuration.densityDpi;
@@ -1173,6 +1190,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
+    @RequiresApi(24)
     /* loaded from: classes.dex */
     public static class ConfigurationImplApi24 {
         public static /* synthetic */ Interceptable $ic;
@@ -1192,7 +1210,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
 
-        public static void generateConfigDelta_locale(Configuration configuration, Configuration configuration2, Configuration configuration3) {
+        public static void generateConfigDelta_locale(@NonNull Configuration configuration, @NonNull Configuration configuration2, @NonNull Configuration configuration3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, configuration, configuration2, configuration3) == null) {
                 LocaleList locales = configuration.getLocales();
@@ -1205,6 +1223,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
+    @RequiresApi(26)
     /* loaded from: classes.dex */
     public static class ConfigurationImplApi26 {
         public static /* synthetic */ Interceptable $ic;
@@ -1224,7 +1243,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
 
-        public static void generateConfigDelta_colorMode(Configuration configuration, Configuration configuration2, Configuration configuration3) {
+        public static void generateConfigDelta_colorMode(@NonNull Configuration configuration, @NonNull Configuration configuration2, @NonNull Configuration configuration3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, configuration, configuration2, configuration3) == null) {
                 int i = configuration.colorMode & 3;
@@ -1241,6 +1260,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
+    @RequiresApi(17)
     /* loaded from: classes.dex */
     public static class ContextThemeWrapperCompatApi17Impl {
         public static /* synthetic */ Interceptable $ic;
@@ -1368,7 +1388,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
             InterceptResult invokeL;
             Window.Callback windowCallback;
             Interceptable interceptable = $ic;
@@ -1387,7 +1407,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
@@ -1483,7 +1503,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 }
 
                 @Override // java.lang.Thread.UncaughtExceptionHandler
-                public void uncaughtException(Thread thread, Throwable th) {
+                public void uncaughtException(@NonNull Thread thread, @NonNull Throwable th) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
                         if (shouldWrapException(th)) {
@@ -1672,7 +1692,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (PanelFeatureState) invokeCommon.objValue;
     }
 
-    public int mapNightMode(Context context, int i) {
+    public int mapNightMode(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, context, i)) == null) {
@@ -1869,7 +1889,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public View createView(View view2, String str, Context context, AttributeSet attributeSet) {
+    public View createView(View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -1935,7 +1955,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeZ.booleanValue;
     }
 
-    private void attachToWindow(Window window) {
+    private void attachToWindow(@NonNull Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, window) == null) {
             if (this.mWindow == null) {
@@ -2074,7 +2094,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public androidx.appcompat.view.ActionMode startSupportActionMode(ActionMode.Callback callback) {
+    public androidx.appcompat.view.ActionMode startSupportActionMode(@NonNull ActionMode.Callback callback) {
         InterceptResult invokeL;
         AppCompatCallback appCompatCallback;
         Interceptable interceptable = $ic;
@@ -2154,6 +2174,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         throw new AndroidRuntimeException("Window feature must be requested before adding content");
     }
 
+    @Nullable
     private AppCompatActivity tryUnwrapContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2208,6 +2229,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (Context) invokeV.objValue;
     }
 
+    @NonNull
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    @VisibleForTesting
     public final AutoNightModeManager getAutoTimeNightModeManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2405,7 +2429,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeV.booleanValue;
     }
 
-    private Configuration createOverrideConfigurationForDayNight(Context context, int i, Configuration configuration) {
+    @NonNull
+    private Configuration createOverrideConfigurationForDayNight(@NonNull Context context, int i, @Nullable Configuration configuration) {
         InterceptResult invokeLIL;
         int i2;
         Interceptable interceptable = $ic;
@@ -2488,7 +2513,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                             context = this.mContext;
                         }
                         viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                        DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090783);
+                        DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090791);
                         this.mDecorContentParent = decorContentParent;
                         decorContentParent.setWindowCallback(getWindowCallback());
                         if (this.mOverlayActionBar) {
@@ -2580,7 +2605,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         });
                     }
                     if (this.mDecorContentParent == null) {
-                        this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092203);
+                        this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092256);
                     }
                     ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                     ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09005c);
@@ -2721,7 +2746,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    public static Configuration generateConfigDelta(Configuration configuration, Configuration configuration2) {
+    @NonNull
+    public static Configuration generateConfigDelta(@NonNull Configuration configuration, @Nullable Configuration configuration2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, configuration, configuration2)) == null) {
@@ -2998,7 +3024,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeLL.booleanValue;
     }
 
-    private AutoNightModeManager getAutoBatteryNightModeManager(Context context) {
+    private AutoNightModeManager getAutoBatteryNightModeManager(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, context)) == null) {
@@ -3010,7 +3036,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (AutoNightModeManager) invokeL.objValue;
     }
 
-    private AutoNightModeManager getAutoTimeNightModeManager(Context context) {
+    private AutoNightModeManager getAutoTimeNightModeManager(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, context)) == null) {
@@ -3062,7 +3088,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeI.intValue;
     }
 
-    public void checkCloseActionMenu(MenuBuilder menuBuilder) {
+    public void checkCloseActionMenu(@NonNull MenuBuilder menuBuilder) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, menuBuilder) != null) || this.mClosingActionMenu) {
             return;
@@ -3106,7 +3132,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public <T extends View> T findViewById(int i) {
+    @Nullable
+    public <T extends View> T findViewById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
@@ -3130,7 +3157,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-    public void onMenuModeChange(MenuBuilder menuBuilder) {
+    public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, menuBuilder) == null) {
             reopenMenu(true);
@@ -3191,6 +3218,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
+    @RequiresApi(17)
     public void setLocalNightMode(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048630, this, i) == null) && this.mLocalNightMode != i) {
@@ -3202,7 +3230,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setTheme(int i) {
+    public void setTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
             this.mThemeResId = i;
@@ -3283,9 +3311,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 z = false;
             }
             if (z) {
-                color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f060369);
+                color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f06036a);
             } else {
-                color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f060368);
+                color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f060369);
             }
             view2.setBackgroundColor(color);
         }
@@ -3466,7 +3494,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-    public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+    public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
         InterceptResult invokeLL;
         PanelFeatureState findMenuPanel;
         Interceptable interceptable = $ic;
@@ -3601,7 +3629,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public Context attachBaseContext2(Context context) {
+    @NonNull
+    @CallSuper
+    public Context attachBaseContext2(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
@@ -3698,7 +3728,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeCommon.booleanValue;
     }
 
-    private void updateResourcesConfigurationForNightMode(int i, boolean z, Configuration configuration) {
+    private void updateResourcesConfigurationForNightMode(int i, boolean z, @Nullable Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), configuration}) == null) {
             Resources resources = this.mContext.getResources();
@@ -3786,7 +3816,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public androidx.appcompat.view.ActionMode startSupportActionModeFromWindow(ActionMode.Callback callback) {
+    public androidx.appcompat.view.ActionMode startSupportActionModeFromWindow(@NonNull ActionMode.Callback callback) {
         InterceptResult invokeL;
         androidx.appcompat.view.ActionMode actionMode;
         Context context;
@@ -4021,7 +4051,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (androidx.appcompat.view.ActionMode) invokeL.objValue;
     }
 
-    public final int updateStatusGuard(WindowInsetsCompat windowInsetsCompat, Rect rect) {
+    public final int updateStatusGuard(@Nullable WindowInsetsCompat windowInsetsCompat, @Nullable Rect rect) {
         InterceptResult invokeLL;
         int i;
         boolean z;

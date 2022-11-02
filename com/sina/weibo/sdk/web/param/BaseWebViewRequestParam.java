@@ -56,7 +56,7 @@ public abstract class BaseWebViewRequestParam {
 
     /* renamed from: com.sina.weibo.sdk.web.param.BaseWebViewRequestParam$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$sina$weibo$sdk$web$WebRequestType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

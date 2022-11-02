@@ -1,4 +1,8 @@
 package androidx.media2.common;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public interface BaseResult {
     public static final int RESULT_ERROR_BAD_VALUE = -3;
@@ -12,6 +16,7 @@ public interface BaseResult {
 
     long getCompletionTime();
 
+    @Nullable
     MediaItem getMediaItem();
 
     int getResultCode();

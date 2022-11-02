@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes3.dex */
-public class di2 {
+public class di2 implements ZeusPluginFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile di2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map a;
+    public String a;
 
-    public di2() {
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_input" : (String) invokeV.objValue;
+    }
+
+    public di2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,62 +38,20 @@ public class di2 {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = str;
     }
 
-    public static di2 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (di2.class) {
-                    if (b == null) {
-                        b = new di2();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
+            ei2 ei2Var = new ei2(invoker, this.a);
+            if (ok1.a) {
+                Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + ei2Var.hashCode() + "」");
             }
-            return b;
+            return new ci2(ei2Var);
         }
-        return (di2) invokeV.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (b != null) {
-                b.b();
-            }
-            b = null;
-        }
-    }
-
-    public final synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                m02.i("RtcRoomWidgetManager", "release");
-                Iterator it = new ArrayList(this.a.values()).iterator();
-                while (it.hasNext()) {
-                    ((xj2) it.next()).onRelease();
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public synchronized void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this) {
-                m02.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-                Iterator it = new ArrayList(this.a.values()).iterator();
-                while (it.hasNext()) {
-                    xj2 xj2Var = (xj2) it.next();
-                    if (TextUtils.equals(xj2Var.b(), str)) {
-                        xj2Var.onRelease();
-                    }
-                }
-            }
-        }
+        return (ZeusPlugin) invokeL.objValue;
     }
 }

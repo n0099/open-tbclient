@@ -41,7 +41,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     }
 
     /* loaded from: classes7.dex */
-    public final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
+    public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final StringBuilder mStringBuilder;

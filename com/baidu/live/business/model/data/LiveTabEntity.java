@@ -17,13 +17,13 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveTabEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LiveTabEntity> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String channelId;
     public int id;
     public String name;
     public boolean selected;
-    public List subTabList;
+    public List<TabLabelInfo> subTabList;
     public String type;
 
     @Override // android.os.Parcelable
@@ -37,9 +37,9 @@ public class LiveTabEntity implements Parcelable {
     }
 
     /* loaded from: classes2.dex */
-    public class TabLabelInfo implements Parcelable {
+    public static class TabLabelInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<TabLabelInfo> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int id;
         public String name;
@@ -69,7 +69,7 @@ public class LiveTabEntity implements Parcelable {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveTabEntity.TabLabelInfo.1
+            CREATOR = new Parcelable.Creator<TabLabelInfo>() { // from class: com.baidu.live.business.model.data.LiveTabEntity.TabLabelInfo.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,6 +88,7 @@ public class LiveTabEntity implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public TabLabelInfo createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -99,6 +100,7 @@ public class LiveTabEntity implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public TabLabelInfo[] newArray(int i) {
                     InterceptResult invokeI;
@@ -188,7 +190,7 @@ public class LiveTabEntity implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveTabEntity.1
+        CREATOR = new Parcelable.Creator<LiveTabEntity>() { // from class: com.baidu.live.business.model.data.LiveTabEntity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -207,6 +209,7 @@ public class LiveTabEntity implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveTabEntity createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -218,6 +221,7 @@ public class LiveTabEntity implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveTabEntity[] newArray(int i) {
                 InterceptResult invokeI;

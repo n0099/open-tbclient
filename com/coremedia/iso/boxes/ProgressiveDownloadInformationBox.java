@@ -26,10 +26,10 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List entries;
+    public List<Entry> entries;
 
     /* loaded from: classes7.dex */
-    public class Entry {
+    public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long initialDelay;
@@ -152,7 +152,7 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public List getEntries() {
+    public List<Entry> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -222,7 +222,7 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
         }
     }
 
-    public void setEntries(List list) {
+    public void setEntries(List<Entry> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));

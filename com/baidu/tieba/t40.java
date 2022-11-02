@@ -6,16 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class t40 {
+import java.math.BigInteger;
+/* loaded from: classes6.dex */
+public class t40 implements q40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b50 a;
+    public BigInteger a;
+    public BigInteger b;
 
-    public t40() {
+    public t40(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, bArr2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,24 +29,27 @@ public class t40 {
                 return;
             }
         }
-        this.a = new b50(32);
+        this.a = new BigInteger(bArr);
+        this.b = new BigInteger(bArr2);
     }
 
-    public byte[] a(byte[] bArr) throws Exception {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.q40
+    public BigInteger a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            return this.a.d(bArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (byte[]) invokeL.objValue;
+        return (BigInteger) invokeV.objValue;
     }
 
-    public byte[] b(byte[] bArr) throws Exception {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.q40
+    public BigInteger b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            return this.a.f(bArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (byte[]) invokeL.objValue;
+        return (BigInteger) invokeV.objValue;
     }
 }

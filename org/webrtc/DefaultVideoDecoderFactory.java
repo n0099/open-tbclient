@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sx9;
+import com.baidu.tieba.bz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     @Nullable
     @Deprecated
     public /* synthetic */ VideoDecoder createDecoder(String str) {
-        return sx9.$default$createDecoder(this, str);
+        return bz9.$default$createDecoder(this, str);
     }
 
     public DefaultVideoDecoderFactory(@Nullable EglBase.Context context) {

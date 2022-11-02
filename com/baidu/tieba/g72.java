@@ -1,125 +1,153 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.os.Bundle;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g72 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(Bitmap bitmap);
-    }
-
-    /* loaded from: classes4.dex */
-    public final class a extends BaseBitmapDataSubscriber {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ int b;
-
-        public a(b bVar, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746759, "Lcom/baidu/tieba/g72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = bVar;
-            this.b = i;
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                super.onCancellation(dataSource);
-                g72.b(this.b, this.a, "download icon fail: onCancellation");
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                g72.b(this.b, this.a, "download icon fail: onFailureImpl");
-            }
-        }
-
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(Bitmap bitmap) {
-            Bitmap copy;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                if (bitmap == null || bitmap.isRecycled()) {
-                    g72.b(this.b, this.a, "download icon fail: bitmap is null or is recycled");
-                    return;
-                }
-                try {
-                    if (bitmap.getConfig() == null) {
-                        copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                    } else {
-                        copy = bitmap.copy(bitmap.getConfig(), true);
-                    }
-                    if (this.a != null) {
-                        this.a.a(copy);
-                    }
-                } catch (Exception e) {
-                    int i = this.b;
-                    b bVar = this.a;
-                    g72.b(i, bVar, "download icon fail: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    public static void b(int i, b bVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, bVar, str) == null) {
-            ff3 ff3Var = new ff3();
-            ff3Var.k(4L);
-            ff3Var.i(10L);
-            ff3Var.f(str);
-            jf3.a().f(ff3Var);
-            na3 na3Var = new na3();
-            na3Var.p(ff3Var);
-            na3Var.q(fa3.n(i));
-            fa3.R(na3Var);
-            if (bVar != null) {
-                bVar.a(null);
-            }
-        }
-    }
-
-    public static void c(String str, int i, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, str, i, bVar) == null) {
-            Uri C = gh3.C(str);
-            if (C == null) {
-                b(i, bVar, "download icon fail: icon url is null");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947746759, "Lcom/baidu/tieba/g72;");
                 return;
             }
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, i), UiThreadImmediateExecutorService.getInstance());
+        }
+        a = ok1.a;
+    }
+
+    public static void a(Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, message) == null) && message != null) {
+            Object obj = message.obj;
+            if (obj instanceof Bundle) {
+                Bundle bundle = (Bundle) obj;
+                String string = bundle.getString("eventType");
+                HashMap hashMap = new HashMap();
+                hashMap.put("eventType", string);
+                JSONObject jSONObject = new JSONObject();
+                if (TextUtils.equals(string, "checkForUpdate")) {
+                    try {
+                        jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                hashMap.put("data", jSONObject.toString());
+                fe2 fe2Var = new fe2("updateStatusChange", hashMap);
+                SwanAppActivity activity = rp2.U().getActivity();
+                if (activity != null && activity.R() == 1) {
+                    mn2.i().v(string, bundle.getBoolean("hasUpdate"));
+                } else {
+                    rp2.U().u(fe2Var);
+                }
+            }
+        }
+    }
+
+    public static void b(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
+            e12.k("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("hasUpdate", z);
+            d("checkForUpdate", str, bundle);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            e12.k("SwanAppPkgUpdateManager", "send update failed msg");
+            d("updateFailed", str, null);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            if (a) {
+                Log.d("SwanAppPkgUpdateManager", "send update ready msg");
+            }
+            d("updateReady", str, null);
+        }
+    }
+
+    public static void d(String str, String str2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bundle) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                if (bundle == null) {
+                    bundle = new Bundle();
+                }
+                bundle.putString("eventType", str);
+                u03 e = u03.e();
+                w03 w03Var = new w03(107, bundle);
+                w03Var.c(str2);
+                e.h(w03Var);
+                return;
+            }
+            e12.k("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
+        }
+    }
+
+    public static void f(String str, String str2, boolean z) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1330233754) {
+                if (hashCode != -1317168438) {
+                    if (hashCode == -585906598 && str.equals("updateReady")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("checkForUpdate")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("updateFailed")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        b(str2, z);
+                        return;
+                    }
+                    return;
+                }
+                c(str2);
+                return;
+            }
+            e(str2);
         }
     }
 }

@@ -1,80 +1,160 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.apps.commonsync.CommonSyncServerData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class hz1 extends az1 {
+public class hz1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
-    public boolean u;
-    public boolean v;
-    public String w;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hz1() {
-        super("animateview", "sanId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a extends ResponseCallback<CommonSyncServerData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jz1 a;
+
+        public a(jz1 jz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jz1Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            jz1 jz1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && (jz1Var = this.a) != null) {
+                jz1Var.onFail();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(CommonSyncServerData commonSyncServerData, int i) {
+            jz1 jz1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i) == null) && (jz1Var = this.a) != null) {
+                jz1Var.a(commonSyncServerData);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public CommonSyncServerData parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    String string = response.body().string();
+                    if (TextUtils.isEmpty(string)) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject(string);
+                    int optInt = jSONObject.optInt("errno");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == hz1.b && optJSONObject != null) {
+                        return CommonSyncServerData.parseFromJson(optJSONObject);
+                    }
+                }
+                return null;
+            }
+            return (CommonSyncServerData) invokeLI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947840906, "Lcom/baidu/tieba/hz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947840906, "Lcom/baidu/tieba/hz1;");
                 return;
             }
         }
-        this.u = false;
-        this.v = true;
-        this.w = null;
+        a = ok1.a;
+        b = 0;
     }
 
-    @Override // com.baidu.tieba.az1, com.baidu.tieba.cz1, com.baidu.tieba.lt2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static void b(jz1 jz1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("path");
-        this.u = jSONObject.optBoolean("loop");
-        this.v = jSONObject.optBoolean("autoPlay");
-        this.w = jSONObject.optString("action");
-    }
-
-    @Override // com.baidu.tieba.cz1, com.baidu.tieba.lt2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b)) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(65538, null, jz1Var) == null) {
+            if (SwanAppNetworkUtils.h()) {
+                ib4.g().getRequest().cookieManager(ln2.q().a()).url(ln2.m().processUrl(iz1.a())).build().executeAsync(new a(jz1Var));
+            } else if (jz1Var != null) {
+                jz1Var.onFail();
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
+    public static RequestBody c(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (isValid() && !TextUtils.isEmpty(this.t)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (map != null && map.size() > 0) {
+                for (String str : map.keySet()) {
+                    try {
+                        jSONObject.put(str, map.get(str));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
             }
-            return false;
+            return RequestBody.create(lv2.a, jSONObject.toString());
         }
-        return invokeV.booleanValue;
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ib4.g().postRequest().cookieManager(ln2.q().a())).url(ln2.m().processUrl(iz1.b()))).requestBody(c(map)).build().executeAsync(null);
+        }
+    }
+
+    public static void e(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ib4.g().postRequest().cookieManager(ln2.q().a())).url(ln2.m().processUrl(iz1.c()))).requestBody(c(map)).build().executeAsync(null);
+        }
     }
 }

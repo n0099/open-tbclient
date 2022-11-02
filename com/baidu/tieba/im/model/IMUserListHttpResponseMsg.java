@@ -5,10 +5,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.da7;
+import com.baidu.tieba.ec7;
+import com.baidu.tieba.gt4;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.ps4;
-import com.baidu.tieba.ua7;
+import com.baidu.tieba.nb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,8 +23,8 @@ import org.json.JSONObject;
 public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap changedList;
-    public List userDataResultList;
+    public HashMap<String, ImMessageCenterPojo> changedList;
+    public List<UserData> userDataResultList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IMUserListHttpResponseMsg() {
@@ -45,7 +44,7 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getUserDataResultList() {
+    public List<UserData> getUserDataResultList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -54,15 +53,13 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    private void saveToMemoryAndDb(List list) {
+    private void saveToMemoryAndDb(List<UserData> list) {
         ImMessageCenterPojo g;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, list) == null) {
-            this.changedList = new HashMap();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                UserData userData = (UserData) it.next();
-                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = da7.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
+            this.changedList = new HashMap<>();
+            for (UserData userData : list) {
+                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = nb7.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
                     boolean z = false;
                     boolean z2 = true;
                     if (!TextUtils.isEmpty(userData.getName_show()) && !userData.getName_show().equals(g.getNameShow())) {
@@ -77,23 +74,23 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
                         g.setIsFriend(userData.getRelation());
                         z = true;
                     }
-                    ps4 ps4Var = new ps4();
-                    ps4Var.b(userData);
+                    gt4 gt4Var = new gt4();
+                    gt4Var.b(userData);
                     if (g.getImUserExtraData() == null) {
-                        g.setImUserExtraData(ps4Var);
+                        g.setImUserExtraData(gt4Var);
                     } else {
-                        String c = ps4Var.c();
+                        String c = gt4Var.c();
                         String c2 = g.getImUserExtraData().c();
                         if (c != null && !c.equals(c2)) {
-                            g.setImUserExtraData(ps4Var);
+                            g.setImUserExtraData(gt4Var);
                         } else {
                             z2 = z;
                         }
                     }
                     if (z2) {
                         this.changedList.put(userData.getUserId(), g);
-                        da7.f().k(g);
-                        ImMessageCenterPojo i = ua7.o().i(g.getGid(), 2);
+                        nb7.f().k(g);
+                        ImMessageCenterPojo i = ec7.o().i(g.getGid(), 2);
                         if (i != null) {
                             i.setNameShow(g.getNameShow());
                             i.setGroup_head(g.getGroup_head());

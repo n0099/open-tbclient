@@ -1,91 +1,115 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class a92 implements x82 {
+public class a92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947569935, "Lcom/baidu/tieba/a92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ PrefetchEvent b;
+
+        public a(String str, PrefetchEvent prefetchEvent) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, prefetchEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947569935, "Lcom/baidu/tieba/a92;");
-                return;
-            }
+            this.a = str;
+            this.b = prefetchEvent;
         }
-        b = wj1.a;
-    }
 
-    public a92(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                a92.d(this.a);
+                a92.d(a92.e(this.a, this.b.pageUrl));
             }
-        }
-        i = i <= 0 ? 10 : i;
-        this.a = new LruCache(i);
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
         }
     }
 
-    @Override // com.baidu.tieba.x82
-    public y82 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void c(@NonNull PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (b) {
-                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
-            }
-            Long l = (Long) this.a.get(str2);
-            if (l == null) {
-                return null;
-            }
-            y82 y82Var = new y82();
-            y82Var.a = ProcessUtils.getCurProcessName();
-            y82Var.b = l.longValue();
-            return y82Var;
-        }
-        return (y82) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x82
-    public void b(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, prefetchEvent) != null) || !fy2.a()) {
             return;
         }
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
+        String str = prefetchEvent.appPath;
+        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
+            return;
         }
-        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
+        yg3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(str);
+        if (!file.exists()) {
+            return;
+        }
+        if (file.isDirectory()) {
+            String[] list = file.list();
+            if (list != null && list.length != 0) {
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String str3 = str + File.separator + str2;
+                        File file2 = new File(str3);
+                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
+                            BdSailorWebView.addToWebCache("file://" + str3, true);
+                        }
+                    }
+                }
+            }
+        } else if (file.isFile()) {
+            String absolutePath = file.getAbsolutePath();
+            if (TextUtils.isEmpty(absolutePath)) {
+                return;
+            }
+            if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
+                BdSailorWebView.addToWebCache("file://" + absolutePath, true);
+            }
+        }
+    }
+
+    public static String e(@NonNull String str, String str2) {
+        InterceptResult invokeLL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = wh3.f(str2);
+            if (TextUtils.isEmpty(f) || (lastIndexOf = f.lastIndexOf(File.separator)) <= 0) {
+                return null;
+            }
+            String substring = f.substring(0, lastIndexOf);
+            return str + File.separator + substring;
+        }
+        return (String) invokeLL.objValue;
     }
 }

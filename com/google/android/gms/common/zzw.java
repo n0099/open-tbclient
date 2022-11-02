@@ -1,6 +1,7 @@
 package com.google.android.gms.common;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -64,13 +65,13 @@ public class zzw {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? zzd : (zzw) invokeV.objValue;
     }
 
-    public static zzw zzc(String str) {
+    public static zzw zzc(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new zzw(false, str, null) : (zzw) invokeL.objValue;
     }
 
-    public static zzw zzd(String str, Throwable th) {
+    public static zzw zzd(@NonNull String str, @NonNull Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, th)) == null) ? new zzw(false, str, th) : (zzw) invokeLL.objValue;

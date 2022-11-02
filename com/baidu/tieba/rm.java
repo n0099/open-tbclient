@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class rm {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,6 +25,6 @@ public class rm {
                 return;
             }
         }
-        a = String.format("aps_%s", "137");
+        a = AppConfig.isDebug();
     }
 }

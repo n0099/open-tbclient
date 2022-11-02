@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.floating.IFloating;
 import com.baidu.searchbox.floating.animator.FloatViewAnimator;
 import com.baidu.searchbox.floating.config.Config;
@@ -36,7 +37,7 @@ import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000B\u0017\u0012\u0006\u0010\"\u001a\u00020!\u0012\u0006\u0010\u001b\u001a\u00020\u001a¢\u0006\u0004\b7\u00108J\u000f\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0002\u0010\u0003J\r\u0010\u0004\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0003J\r\u0010\u0005\u001a\u00020\u0001¢\u0006\u0004\b\u0005\u0010\u0003J\u000f\u0010\u0006\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0006\u0010\u0003J\r\u0010\u0007\u001a\u00020\u0001¢\u0006\u0004\b\u0007\u0010\u0003J\u000f\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\t\u0010\nJ\u001b\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\f0\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u001b\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\f0\u000bH\u0002¢\u0006\u0004\b\u0012\u0010\u000eJ\u000f\u0010\u0013\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0013\u0010\u0003J\r\u0010\u0014\u001a\u00020\u0001¢\u0006\u0004\b\u0014\u0010\u0003J\u000f\u0010\u0015\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0015\u0010\u0003J\u0015\u0010\u0017\u001a\u00020\u00012\u0006\u0010\u0016\u001a\u00020\f¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0019\u001a\u00020\u0001¢\u0006\u0004\b\u0019\u0010\u0003R\"\u0010\u001b\u001a\u00020\u001a8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u0010\u001c\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\u0019\u0010\"\u001a\u00020!8\u0006@\u0006¢\u0006\f\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%R\u001d\u0010+\u001a\u00020&8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*R\u0016\u0010-\u001a\u00020,8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b-\u0010.R\u001d\u00103\u001a\u00020/8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b0\u0010(\u001a\u0004\b1\u00102R\u0016\u00105\u001a\u0002048\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b5\u00106¨\u00069"}, d2 = {"Lcom/baidu/searchbox/floating/widget/ViewManager;", "", "bindContentView", "()V", "createView", "destroy", "enterAnim", "exitAnim", "Landroid/view/View;", "getContentView", "()Landroid/view/View;", "Lkotlin/Pair;", "", "getLocation", "()Lkotlin/Pair;", "Landroid/graphics/Point;", "getPosition", "()Landroid/graphics/Point;", "getSize", "init", "release", "restoreScaleMode", "visible", "setVisible", "(I)V", "updateLayoutParams", "Lcom/baidu/searchbox/floating/config/Config;", "config", "Lcom/baidu/searchbox/floating/config/Config;", "getConfig", "()Lcom/baidu/searchbox/floating/config/Config;", "setConfig", "(Lcom/baidu/searchbox/floating/config/Config;)V", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "Lcom/baidu/searchbox/floating/widget/FloatContainer;", "mContainer$delegate", "Lkotlin/Lazy;", "getMContainer", "()Lcom/baidu/searchbox/floating/widget/FloatContainer;", "mContainer", "Landroid/view/WindowManager$LayoutParams;", "mParam", "Landroid/view/WindowManager$LayoutParams;", "Lcom/baidu/searchbox/floating/utils/TouchHelper;", "mTouchHelper$delegate", "getMTouchHelper", "()Lcom/baidu/searchbox/floating/utils/TouchHelper;", "mTouchHelper", "Landroid/view/WindowManager;", "mWindowManager", "Landroid/view/WindowManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/searchbox/floating/config/Config;)V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000B\u0017\u0012\u0006\u0010\"\u001a\u00020!\u0012\u0006\u0010\u001b\u001a\u00020\u001a¢\u0006\u0004\b7\u00108J\u000f\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0002\u0010\u0003J\r\u0010\u0004\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0003J\r\u0010\u0005\u001a\u00020\u0001¢\u0006\u0004\b\u0005\u0010\u0003J\u000f\u0010\u0006\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0006\u0010\u0003J\r\u0010\u0007\u001a\u00020\u0001¢\u0006\u0004\b\u0007\u0010\u0003J\u000f\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\t\u0010\nJ\u001b\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\f0\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u001b\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\f0\u000bH\u0002¢\u0006\u0004\b\u0012\u0010\u000eJ\u000f\u0010\u0013\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0013\u0010\u0003J\r\u0010\u0014\u001a\u00020\u0001¢\u0006\u0004\b\u0014\u0010\u0003J\u000f\u0010\u0015\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0015\u0010\u0003J\u0015\u0010\u0017\u001a\u00020\u00012\u0006\u0010\u0016\u001a\u00020\f¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0019\u001a\u00020\u0001¢\u0006\u0004\b\u0019\u0010\u0003R\"\u0010\u001b\u001a\u00020\u001a8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u0010\u001c\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\u0019\u0010\"\u001a\u00020!8\u0006@\u0006¢\u0006\f\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%R\u001d\u0010+\u001a\u00020&8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*R\u0016\u0010-\u001a\u00020,8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b-\u0010.R\u001d\u00103\u001a\u00020/8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b0\u0010(\u001a\u0004\b1\u00102R\u0016\u00105\u001a\u0002048\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b5\u00106¨\u00069"}, d2 = {"Lcom/baidu/searchbox/floating/widget/ViewManager;", "", "bindContentView", "()V", "createView", "destroy", "enterAnim", "exitAnim", "Landroid/view/View;", "getContentView", "()Landroid/view/View;", "Lkotlin/Pair;", "", "getLocation", "()Lkotlin/Pair;", "Landroid/graphics/Point;", "getPosition", "()Landroid/graphics/Point;", "getSize", "init", "release", "restoreScaleMode", MapBundleKey.MapObjKey.OBJ_SL_VISI, "setVisible", "(I)V", "updateLayoutParams", "Lcom/baidu/searchbox/floating/config/Config;", "config", "Lcom/baidu/searchbox/floating/config/Config;", "getConfig", "()Lcom/baidu/searchbox/floating/config/Config;", "setConfig", "(Lcom/baidu/searchbox/floating/config/Config;)V", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "Lcom/baidu/searchbox/floating/widget/FloatContainer;", "mContainer$delegate", "Lkotlin/Lazy;", "getMContainer", "()Lcom/baidu/searchbox/floating/widget/FloatContainer;", "mContainer", "Landroid/view/WindowManager$LayoutParams;", "mParam", "Landroid/view/WindowManager$LayoutParams;", "Lcom/baidu/searchbox/floating/utils/TouchHelper;", "mTouchHelper$delegate", "getMTouchHelper", "()Lcom/baidu/searchbox/floating/utils/TouchHelper;", "mTouchHelper", "Landroid/view/WindowManager;", "mWindowManager", "Landroid/view/WindowManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/searchbox/floating/config/Config;)V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class ViewManager {
     public static /* synthetic */ Interceptable $ic;
@@ -125,6 +126,7 @@ public final class ViewManager {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ViewManager this$0;
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -161,6 +163,7 @@ public final class ViewManager {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ViewManager this$0;
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -199,9 +202,9 @@ public final class ViewManager {
             windowManager.addView(mContainer2, layoutParams);
             Point position = getPosition();
             for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
-                floatViewListener.onViewCreate(true, this.config.getFloatingView(), (ScaleMode) this.config.getScaleMode().getSecond(), position);
+                floatViewListener.onViewCreate(true, this.config.getFloatingView(), this.config.getScaleMode().getSecond(), position);
             }
-            final View findViewById = getMContainer().findViewById(R.id.obfuscated_res_0x7f090a0d);
+            final View findViewById = getMContainer().findViewById(R.id.obfuscated_res_0x7f090a20);
             if (findViewById != null) {
                 findViewById.setOnClickListener(new View.OnClickListener(findViewById, 800L, this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$$inlined$click$1
                     public static /* synthetic */ Interceptable $ic;
@@ -241,7 +244,7 @@ public final class ViewManager {
                                 View view3 = this.$this_click;
                                 position2 = this.this$0.getPosition();
                                 for (FloatViewListener floatViewListener2 : this.this$0.getConfig().getFloatViewListeners()) {
-                                    floatViewListener2.onClick(view3, (ScaleMode) this.this$0.getConfig().getScaleMode().getSecond(), position2);
+                                    floatViewListener2.onClick(view3, this.this$0.getConfig().getScaleMode().getSecond(), position2);
                                 }
                             }
                         }
@@ -268,27 +271,27 @@ public final class ViewManager {
             layoutParams.flags = 40;
             layoutParams.width = -2;
             layoutParams.height = -2;
-            Pair size = getSize();
+            Pair<Integer, Integer> size = getSize();
             if (this.config.getReverse()) {
-                layoutParams.width = ((Number) size.getSecond()).intValue();
-                layoutParams.height = ((Number) size.getFirst()).intValue();
+                layoutParams.width = size.getSecond().intValue();
+                layoutParams.height = size.getFirst().intValue();
             } else {
-                layoutParams.width = ((Number) size.getFirst()).intValue();
-                layoutParams.height = ((Number) size.getSecond()).intValue();
+                layoutParams.width = size.getFirst().intValue();
+                layoutParams.height = size.getSecond().intValue();
             }
             Unit unit = Unit.INSTANCE;
             this.mParam = layoutParams;
-            Pair location = getLocation();
+            Pair<Integer, Integer> location = getLocation();
             WindowManager.LayoutParams layoutParams2 = this.mParam;
             if (layoutParams2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            layoutParams2.x = ((Number) location.getFirst()).intValue();
+            layoutParams2.x = location.getFirst().intValue();
             WindowManager.LayoutParams layoutParams3 = this.mParam;
             if (layoutParams3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            layoutParams3.y = ((Number) location.getSecond()).intValue();
+            layoutParams3.y = location.getSecond().intValue();
         }
     }
 
@@ -301,7 +304,7 @@ public final class ViewManager {
         this.config.setAnimating(false);
         if (this.config.getFloatingView() != null) {
             for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
-                floatViewListener.onViewDismiss(getContentView(), (ScaleMode) this.config.getScaleMode().getSecond(), position);
+                floatViewListener.onViewDismiss(getContentView(), this.config.getScaleMode().getSecond(), position);
             }
             this.config.getFloatViewListeners().clear();
         }
@@ -319,7 +322,7 @@ public final class ViewManager {
         if (layoutParams2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mParam");
         }
-        companion.setLocation(new Pair(valueOf, Integer.valueOf(layoutParams2.y)));
+        companion.setLocation(new Pair<>(valueOf, Integer.valueOf(layoutParams2.y)));
         FloatPrefs.Companion.setScaleMode(this.config.getScaleMode());
         getMContainer().removeAllViews();
         WindowManager windowManager = this.mWindowManager;
@@ -334,7 +337,7 @@ public final class ViewManager {
         FloatViewAnimator animator;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65546, this) == null) && !this.config.isAnimating() && (animator = this.config.getAnimator()) != null) {
-            WeakReference weakReference = new WeakReference(getMContainer());
+            WeakReference<View> weakReference = new WeakReference<>(getMContainer());
             WindowManager.LayoutParams layoutParams = this.mParam;
             if (layoutParams == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
@@ -411,7 +414,7 @@ public final class ViewManager {
         if (this.config.getAnimator() != null) {
             FloatViewAnimator animator = this.config.getAnimator();
             if (animator != null) {
-                WeakReference weakReference = new WeakReference(getMContainer());
+                WeakReference<View> weakReference = new WeakReference<>(getMContainer());
                 WindowManager.LayoutParams layoutParams = this.mParam;
                 if (layoutParams == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mParam");
@@ -516,7 +519,7 @@ public final class ViewManager {
 
     private final void restoreScaleMode() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && ((ScaleMode) FloatPrefs.Companion.getScaleMode().getSecond()) != ScaleMode.S) {
+        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && FloatPrefs.Companion.getScaleMode().getSecond() != ScaleMode.S) {
             this.config.setScaleMode(FloatPrefs.Companion.getScaleMode());
         }
     }
@@ -556,26 +559,26 @@ public final class ViewManager {
         return (Context) invokeV.objValue;
     }
 
-    private final Pair getLocation() {
+    private final Pair<Integer, Integer> getLocation() {
         InterceptResult invokeV;
         int dpToPxByScale;
         int i;
         int dpToPxByScale2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            Pair location = FloatPrefs.Companion.getLocation();
-            if (((Number) location.getFirst()).intValue() > 0 && ((Number) location.getSecond()).intValue() > 0) {
+            Pair<Integer, Integer> location = FloatPrefs.Companion.getLocation();
+            if (location.getFirst().intValue() > 0 && location.getSecond().intValue() > 0) {
                 return location;
             }
-            if (((Number) this.config.getLocation().getFirst()).intValue() != -1 && ((Number) this.config.getLocation().getSecond()).intValue() != -1) {
-                dpToPxByScale = UtilsKt.dpToPxByScale(this.context, ((Number) this.config.getLocation().getFirst()).intValue());
+            if (this.config.getLocation().getFirst().intValue() != -1 && this.config.getLocation().getSecond().intValue() != -1) {
+                dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getFirst().intValue());
                 int screenHeight = UtilsKt.getScreenHeight(this.context) - UtilsKt.getStatusBarHeight(this.context);
                 WindowManager.LayoutParams layoutParams = this.mParam;
                 if (layoutParams == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mParam");
                 }
                 i = screenHeight - layoutParams.height;
-                dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, ((Number) this.config.getLocation().getSecond()).intValue());
+                dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getSecond().intValue());
             } else {
                 dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().left);
                 int screenHeight2 = UtilsKt.getScreenHeight(this.context);
@@ -586,7 +589,7 @@ public final class ViewManager {
                 i = screenHeight2 - layoutParams2.height;
                 dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().bottom);
             }
-            return new Pair(Integer.valueOf(dpToPxByScale), Integer.valueOf(i - dpToPxByScale2));
+            return new Pair<>(Integer.valueOf(dpToPxByScale), Integer.valueOf(i - dpToPxByScale2));
         }
         return (Pair) invokeV.objValue;
     }
@@ -594,7 +597,7 @@ public final class ViewManager {
     public final void updateLayoutParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Pair size = getSize();
+            Pair<Integer, Integer> size = getSize();
             WindowManager.LayoutParams layoutParams = this.mParam;
             if (layoutParams == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
@@ -605,11 +608,11 @@ public final class ViewManager {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
             if (this.config.getReverse()) {
-                layoutParams2.width = ((Number) size.getSecond()).intValue();
-                layoutParams2.height = ((Number) size.getFirst()).intValue();
+                layoutParams2.width = size.getSecond().intValue();
+                layoutParams2.height = size.getFirst().intValue();
             } else {
-                layoutParams2.width = ((Number) size.getFirst()).intValue();
-                layoutParams2.height = ((Number) size.getSecond()).intValue();
+                layoutParams2.width = size.getFirst().intValue();
+                layoutParams2.height = size.getSecond().intValue();
             }
             if (getMContainer().getParent() != null) {
                 WindowManager windowManager = this.mWindowManager;
@@ -631,23 +634,23 @@ public final class ViewManager {
             Point position = getPosition();
             if (i < i2) {
                 for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
-                    floatViewListener.onScale(true, (ScaleMode) this.config.getScaleMode().getSecond(), position);
+                    floatViewListener.onScale(true, this.config.getScaleMode().getSecond(), position);
                 }
             } else if (i > i2) {
                 for (FloatViewListener floatViewListener2 : this.config.getFloatViewListeners()) {
-                    floatViewListener2.onScale(false, (ScaleMode) this.config.getScaleMode().getSecond(), position);
+                    floatViewListener2.onScale(false, this.config.getScaleMode().getSecond(), position);
                 }
             }
         }
     }
 
-    private final Pair getSize() {
+    private final Pair<Integer, Integer> getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
-            Pair scale = ((ScaleMode) this.config.getScaleMode().getSecond()).scale(UtilsKt.dpToPxByScale(this.context, ((Number) this.config.getSize().getFirst()).intValue()), UtilsKt.dpToPxByScale(this.context, ((Number) this.config.getSize().getSecond()).intValue()));
+            Pair<Integer, Integer> scale = this.config.getScaleMode().getSecond().scale(UtilsKt.dpToPxByScale(this.context, this.config.getSize().getFirst().intValue()), UtilsKt.dpToPxByScale(this.context, this.config.getSize().getSecond().intValue()));
             int dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getShadow()) * 2;
-            return new Pair(Integer.valueOf(((Number) scale.getFirst()).intValue() + dpToPxByScale), Integer.valueOf(((Number) scale.getSecond()).intValue() + dpToPxByScale));
+            return new Pair<>(Integer.valueOf(scale.getFirst().intValue() + dpToPxByScale), Integer.valueOf(scale.getSecond().intValue() + dpToPxByScale));
         }
         return (Pair) invokeV.objValue;
     }
@@ -659,12 +662,12 @@ public final class ViewManager {
             Point position = getPosition();
             if (i == 0) {
                 for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
-                    floatViewListener.onViewShow(getContentView(), (ScaleMode) this.config.getScaleMode().getSecond(), position);
+                    floatViewListener.onViewShow(getContentView(), this.config.getScaleMode().getSecond(), position);
                 }
                 return;
             }
             for (FloatViewListener floatViewListener2 : this.config.getFloatViewListeners()) {
-                floatViewListener2.onViewHide(getContentView(), (ScaleMode) this.config.getScaleMode().getSecond(), position);
+                floatViewListener2.onViewHide(getContentView(), this.config.getScaleMode().getSecond(), position);
             }
         }
     }

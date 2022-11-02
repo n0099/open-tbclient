@@ -1,5 +1,6 @@
 package androidx.webkit;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -10,6 +11,10 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.internal.WebMessagePortImpl;
 import androidx.webkit.internal.WebViewFeatureInternal;
@@ -38,6 +43,7 @@ public class WebViewCompat {
 
     /* loaded from: classes.dex */
     public interface VisualStateCallback {
+        @UiThread
         void onComplete(long j);
     }
 
@@ -81,6 +87,7 @@ public class WebViewCompat {
         return (WebViewProviderFactory) invokeV.objValue;
     }
 
+    @SuppressLint({"PrivateApi"})
     public static PackageInfo getLoadedWebViewPackageInfo() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,6 +97,7 @@ public class WebViewCompat {
         return (PackageInfo) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static boolean isMultiProcessEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +151,9 @@ public class WebViewCompat {
         return (WebViewProviderAdapter) invokeL.objValue;
     }
 
-    public static WebViewRenderProcess getWebViewRenderProcess(WebView webView) {
+    @Nullable
+    @SuppressLint({"NewApi"})
+    public static WebViewRenderProcess getWebViewRenderProcess(@NonNull WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, webView)) == null) {
@@ -155,7 +165,8 @@ public class WebViewCompat {
         return (WebViewRenderProcess) invokeL.objValue;
     }
 
-    public static WebViewRenderProcessClient getWebViewRenderProcessClient(WebView webView) {
+    @Nullable
+    public static WebViewRenderProcessClient getWebViewRenderProcessClient(@NonNull WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, webView)) == null) {
@@ -167,7 +178,9 @@ public class WebViewCompat {
         return (WebViewRenderProcessClient) invokeL.objValue;
     }
 
-    public static WebMessagePortCompat[] createWebMessageChannel(WebView webView) {
+    @NonNull
+    @SuppressLint({"NewApi"})
+    public static WebMessagePortCompat[] createWebMessageChannel(@NonNull WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webView)) == null) {
@@ -183,7 +196,8 @@ public class WebViewCompat {
         return (WebMessagePortCompat[]) invokeL.objValue;
     }
 
-    public static PackageInfo getCurrentWebViewPackage(Context context) {
+    @Nullable
+    public static PackageInfo getCurrentWebViewPackage(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -207,7 +221,9 @@ public class WebViewCompat {
         return (PackageInfo) invokeL.objValue;
     }
 
-    public static WebChromeClient getWebChromeClient(WebView webView) {
+    @Nullable
+    @SuppressLint({"NewApi"})
+    public static WebChromeClient getWebChromeClient(@NonNull WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, webView)) == null) {
@@ -223,7 +239,9 @@ public class WebViewCompat {
         return (WebChromeClient) invokeL.objValue;
     }
 
-    public static WebViewClient getWebViewClient(WebView webView) {
+    @NonNull
+    @SuppressLint({"NewApi"})
+    public static WebViewClient getWebViewClient(@NonNull WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, webView)) == null) {
@@ -239,6 +257,7 @@ public class WebViewCompat {
         return (WebViewClient) invokeL.objValue;
     }
 
+    @SuppressLint({"PrivateApi"})
     public static PackageInfo getNotYetLoadedWebViewPackageInfo(Context context) {
         InterceptResult invokeL;
         String str;
@@ -261,6 +280,8 @@ public class WebViewCompat {
         return (PackageInfo) invokeL.objValue;
     }
 
+    @NonNull
+    @SuppressLint({"NewApi"})
     public static Uri getSafeBrowsingPrivacyPolicyUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -277,7 +298,7 @@ public class WebViewCompat {
         return (Uri) invokeV.objValue;
     }
 
-    public static void postVisualStateCallback(WebView webView, long j, VisualStateCallback visualStateCallback) {
+    public static void postVisualStateCallback(@NonNull WebView webView, long j, @NonNull VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{webView, Long.valueOf(j), visualStateCallback}) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("VISUAL_STATE_CALLBACK");
@@ -322,7 +343,8 @@ public class WebViewCompat {
         }
     }
 
-    public static void postWebMessage(WebView webView, WebMessageCompat webMessageCompat, Uri uri) {
+    @SuppressLint({"NewApi"})
+    public static void postWebMessage(@NonNull WebView webView, @NonNull WebMessageCompat webMessageCompat, @NonNull Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65553, null, webView, webMessageCompat, uri) == null) {
             if (WILDCARD_URI.equals(uri)) {
@@ -339,7 +361,8 @@ public class WebViewCompat {
         }
     }
 
-    public static void setSafeBrowsingWhitelist(List<String> list, ValueCallback<Boolean> valueCallback) {
+    @SuppressLint({"NewApi"})
+    public static void setSafeBrowsingWhitelist(@NonNull List<String> list, @Nullable ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65554, null, list, valueCallback) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_WHITELIST");
@@ -353,7 +376,8 @@ public class WebViewCompat {
         }
     }
 
-    public static void startSafeBrowsing(Context context, ValueCallback<Boolean> valueCallback) {
+    @SuppressLint({"NewApi"})
+    public static void startSafeBrowsing(@NonNull Context context, @Nullable ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, context, valueCallback) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("START_SAFE_BROWSING");
@@ -367,7 +391,7 @@ public class WebViewCompat {
         }
     }
 
-    public static void setWebViewRenderProcessClient(WebView webView, WebViewRenderProcessClient webViewRenderProcessClient) {
+    public static void setWebViewRenderProcessClient(@NonNull WebView webView, @Nullable WebViewRenderProcessClient webViewRenderProcessClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, null, webView, webViewRenderProcessClient) == null) {
             if (WebViewFeatureInternal.getFeature("WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE").isSupportedByWebView()) {
@@ -378,7 +402,7 @@ public class WebViewCompat {
         }
     }
 
-    public static void setWebViewRenderProcessClient(WebView webView, Executor executor, WebViewRenderProcessClient webViewRenderProcessClient) {
+    public static void setWebViewRenderProcessClient(@NonNull WebView webView, @NonNull Executor executor, @NonNull WebViewRenderProcessClient webViewRenderProcessClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, webView, executor, webViewRenderProcessClient) == null) {
             if (WebViewFeatureInternal.getFeature("WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE").isSupportedByWebView()) {

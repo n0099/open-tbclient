@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class l0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j0 a;
+    public j0<?> a;
 
-    public l0(j0 j0Var) {
+    public l0(j0<?> j0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public class l0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                j0 j0Var = this.a;
+                j0<?> j0Var = this.a;
                 if (j0Var != null && (m = j0.m()) != null) {
                     m.a(j0Var, new UnobservedTaskException(j0Var.k()));
                 }

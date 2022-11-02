@@ -1,5 +1,7 @@
 package androidx.recyclerview.widget;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,6 +90,7 @@ public class SortedList<T> {
         }
 
         @Override // androidx.recyclerview.widget.SortedList.Callback
+        @Nullable
         public Object getChangePayload(T2 t2, T2 t22) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -157,6 +160,7 @@ public class SortedList<T> {
         @Override // java.util.Comparator
         public abstract int compare(T2 t2, T2 t22);
 
+        @Nullable
         public Object getChangePayload(T2 t2, T2 t22) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -191,7 +195,7 @@ public class SortedList<T> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SortedList(Class<T> cls, Callback<T> callback) {
+    public SortedList(@NonNull Class<T> cls, @NonNull Callback<T> callback) {
         this(cls, callback, 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -272,7 +276,7 @@ public class SortedList<T> {
         }
     }
 
-    public SortedList(Class<T> cls, Callback<T> callback, int i) {
+    public SortedList(@NonNull Class<T> cls, @NonNull Callback<T> callback, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -344,7 +348,7 @@ public class SortedList<T> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: androidx.recyclerview.widget.SortedList<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public void addAll(Collection<T> collection) {
+    public void addAll(@NonNull Collection<T> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) {
             addAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.mTClass, collection.size())), true);
@@ -388,7 +392,7 @@ public class SortedList<T> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: androidx.recyclerview.widget.SortedList<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public void replaceAll(Collection<T> collection) {
+    public void replaceAll(@NonNull Collection<T> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, collection) == null) {
             replaceAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.mTClass, collection.size())), true);
@@ -583,7 +587,7 @@ public class SortedList<T> {
         return invokeLZ.booleanValue;
     }
 
-    public void addAll(T[] tArr, boolean z) {
+    public void addAll(@NonNull T[] tArr, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, tArr, z) == null) {
             throwIfInMutationOperation();
@@ -598,7 +602,7 @@ public class SortedList<T> {
         }
     }
 
-    public void replaceAll(T[] tArr, boolean z) {
+    public void replaceAll(@NonNull T[] tArr, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048590, this, tArr, z) == null) {
             throwIfInMutationOperation();
@@ -624,7 +628,7 @@ public class SortedList<T> {
         }
     }
 
-    private void replaceAllInternal(T[] tArr) {
+    private void replaceAllInternal(@NonNull T[] tArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, tArr) == null) {
             boolean z = !(this.mCallback instanceof BatchedCallback);
@@ -759,7 +763,7 @@ public class SortedList<T> {
         return invokeV.intValue;
     }
 
-    private int sortAndDedup(T[] tArr) {
+    private int sortAndDedup(@NonNull T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, tArr)) == null) {
@@ -831,14 +835,14 @@ public class SortedList<T> {
         return invokeL.intValue;
     }
 
-    public void addAll(T... tArr) {
+    public void addAll(@NonNull T... tArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tArr) == null) {
             addAll(tArr, false);
         }
     }
 
-    public void replaceAll(T... tArr) {
+    public void replaceAll(@NonNull T... tArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, tArr) == null) {
             replaceAll(tArr, false);

@@ -17,9 +17,14 @@ import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.location.b.c;
-import com.baidu.location.b.k;
+import com.baidu.lbsapi.auth.LBSAuthManager;
+import com.baidu.location.LocationClientOption;
+import com.baidu.location.b.e;
+import com.baidu.location.b.o;
+import com.baidu.location.e.k;
 import com.baidu.sapi2.utils.enums.ShareDirectionType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,11 +35,12 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
-public final class LocationClient implements c.a {
+public final class LocationClient implements e.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
     public static final int CONNECT_HOT_SPOT_TRUE = 1;
     public static final int CONNECT_HOT_SPOT_UNKNOWN = -1;
+    public static boolean H = false;
     public static final int LOC_DIAGNOSTIC_TYPE_BETTER_OPEN_GPS = 1;
     public static final int LOC_DIAGNOSTIC_TYPE_BETTER_OPEN_WIFI = 2;
     public static final int LOC_DIAGNOSTIC_TYPE_FAIL_UNKNOWN = 9;
@@ -44,14 +50,16 @@ public final class LocationClient implements c.a {
     public static final int LOC_DIAGNOSTIC_TYPE_NEED_INSERT_SIMCARD_OR_OPEN_WIFI = 6;
     public static final int LOC_DIAGNOSTIC_TYPE_NEED_OPEN_PHONE_LOC_SWITCH = 5;
     public static final int LOC_DIAGNOSTIC_TYPE_SERVER_FAIL = 8;
+    public static String w;
     public transient /* synthetic */ FieldHolder $fh;
     public Boolean A;
-    public boolean B;
-    public com.baidu.location.b.c C;
-    public boolean D;
+    public Boolean B;
+    public boolean C;
+    public com.baidu.location.b.e D;
     public boolean E;
     public boolean F;
-    public ServiceConnection G;
+    public boolean G;
+    public ServiceConnection I;
     public long a;
     public String b;
     public LocationClientOption c;
@@ -61,8 +69,8 @@ public final class LocationClient implements c.a {
     public Messenger g;
     public a h;
     public final Messenger i;
-    public ArrayList j;
-    public ArrayList k;
+    public ArrayList<BDLocationListener> j;
+    public ArrayList<BDAbstractLocationListener> k;
     public BDLocation l;
     public boolean m;
     public boolean n;
@@ -74,16 +82,15 @@ public final class LocationClient implements c.a {
     public long t;
     public String u;
     public String v;
-    public boolean w;
     public boolean x;
-    public Boolean y;
+    public boolean y;
     public Boolean z;
 
     /* loaded from: classes2.dex */
-    public class a extends Handler {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference a;
+        public final WeakReference<LocationClient> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Looper looper, LocationClient locationClient) {
@@ -103,14 +110,14 @@ public final class LocationClient implements c.a {
                     return;
                 }
             }
-            this.a = new WeakReference(locationClient);
+            this.a = new WeakReference<>(locationClient);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             LocationClient locationClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (locationClient = (LocationClient) this.a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (locationClient = this.a.get()) == null) {
                 return;
             }
             int i = message.what;
@@ -119,15 +126,15 @@ public final class LocationClient implements c.a {
                 Bundle data = message.getData();
                 data.setClassLoader(BDLocation.class.getClassLoader());
                 BDLocation bDLocation = (BDLocation) data.getParcelable("locStr");
-                if (!locationClient.E && locationClient.D && bDLocation.getLocType() == 66) {
+                if (!locationClient.F && locationClient.E && bDLocation.getLocType() == 66) {
                     return;
                 }
-                if (!locationClient.E && locationClient.D) {
-                    locationClient.E = true;
+                if (!locationClient.F && locationClient.E) {
+                    locationClient.F = true;
                     return;
                 }
-                if (!locationClient.E) {
-                    locationClient.E = true;
+                if (!locationClient.F) {
+                    locationClient.F = true;
                 }
                 locationClient.a(message, 21);
                 return;
@@ -157,7 +164,7 @@ public final class LocationClient implements c.a {
                         }
                     }
                 } else if (i == 701) {
-                    locationClient.a((BDLocation) message.obj);
+                    locationClient.b((BDLocation) message.obj);
                 } else if (i == 1300) {
                     locationClient.c(message);
                 } else if (i == 1400) {
@@ -189,7 +196,7 @@ public final class LocationClient implements c.a {
                                         locationClient.a(message);
                                         return;
                                     case 4:
-                                        locationClient.d();
+                                        locationClient.e();
                                         return;
                                     case 5:
                                         locationClient.b(message);
@@ -266,64 +273,77 @@ public final class LocationClient implements c.a {
         }
     }
 
-    public LocationClient(Context context) {
+    /* loaded from: classes2.dex */
+    public class c extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LocationClient a;
+
+        public c(LocationClient locationClient) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {locationClient};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = locationClient;
+        }
+
+        public /* synthetic */ c(LocationClient locationClient, com.baidu.location.b bVar) {
+            this(locationClient);
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.B.booleanValue()) {
+                        if (this.a.D == null) {
+                            this.a.D = new com.baidu.location.b.e(this.a.f, this.a.d, this.a, null);
+                        }
+                        if (this.a.d.firstLocType == LocationClientOption.FirstLocType.ACCURACY_IN_FIRST_LOC) {
+                            this.a.D.d();
+                            this.a.D.e();
+                        }
+                    }
+                    this.a.h.obtainMessage(1).sendToTarget();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1787192593, "Lcom/baidu/location/LocationClient;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1787192593, "Lcom/baidu/location/LocationClient;");
+        }
+    }
+
+    public LocationClient(Context context) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        this.b = null;
-        this.c = new LocationClientOption();
-        this.d = new LocationClientOption();
-        this.e = false;
-        this.f = null;
-        this.g = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = null;
-        this.q = false;
-        this.r = new Object();
-        this.s = 0L;
-        this.t = 0L;
-        this.u = null;
-        this.w = false;
-        this.x = true;
-        Boolean bool = Boolean.FALSE;
-        this.y = bool;
-        this.z = bool;
-        this.A = Boolean.TRUE;
-        this.C = null;
-        this.D = false;
-        this.E = false;
-        this.F = false;
-        this.G = new com.baidu.location.b(this);
-        this.f = context;
-        this.c = new LocationClientOption();
-        this.d = new LocationClientOption();
-        this.h = new a(Looper.getMainLooper(), this);
-        this.i = new Messenger(this.h);
-    }
-
-    public LocationClient(Context context, LocationClientOption locationClientOption) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, locationClientOption};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -352,17 +372,71 @@ public final class LocationClient implements c.a {
         this.s = 0L;
         this.t = 0L;
         this.u = null;
-        this.w = false;
-        this.x = true;
+        this.x = false;
+        this.y = true;
         Boolean bool = Boolean.FALSE;
-        this.y = bool;
         this.z = bool;
-        this.A = Boolean.TRUE;
-        this.C = null;
-        this.D = false;
+        this.A = bool;
+        this.B = Boolean.TRUE;
+        this.D = null;
         this.E = false;
         this.F = false;
-        this.G = new com.baidu.location.b(this);
+        this.G = false;
+        this.I = new com.baidu.location.b(this);
+        c();
+        this.f = context;
+        this.c = new LocationClientOption();
+        this.d = new LocationClientOption();
+        this.h = new a(Looper.getMainLooper(), this);
+        this.i = new Messenger(this.h);
+    }
+
+    public LocationClient(Context context, LocationClientOption locationClientOption) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, locationClientOption};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+        this.b = null;
+        this.c = new LocationClientOption();
+        this.d = new LocationClientOption();
+        this.e = false;
+        this.f = null;
+        this.g = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = false;
+        this.n = false;
+        this.o = false;
+        this.p = null;
+        this.q = false;
+        this.r = new Object();
+        this.s = 0L;
+        this.t = 0L;
+        this.u = null;
+        this.x = false;
+        this.y = true;
+        Boolean bool = Boolean.FALSE;
+        this.z = bool;
+        this.A = bool;
+        this.B = Boolean.TRUE;
+        this.D = null;
+        this.E = false;
+        this.F = false;
+        this.G = false;
+        this.I = new com.baidu.location.b(this);
+        c();
         this.f = context;
         this.c = locationClientOption;
         this.d = new LocationClientOption(locationClientOption);
@@ -373,21 +447,30 @@ public final class LocationClient implements c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.e) {
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.e) {
             return;
         }
-        if (this.A.booleanValue()) {
-            try {
-                new c(this).start();
-            } catch (Throwable unused) {
+        if (this.B.booleanValue()) {
+            boolean c2 = k.c(this.f);
+            if (this.d.isOnceLocation()) {
+                c2 = true;
             }
-            this.A = Boolean.FALSE;
+            if (c2) {
+                try {
+                    new com.baidu.location.c(this).start();
+                } catch (Throwable unused) {
+                }
+            }
         }
+        if (this.d.isOnceLocation()) {
+            return;
+        }
+        this.B = Boolean.FALSE;
         this.b = this.f.getPackageName();
         this.u = this.b + "_bdls_v2.9";
         Intent intent = new Intent(this.f, f.class);
         try {
-            intent.putExtra("debug_dev", this.B);
+            intent.putExtra("debug_dev", this.C);
         } catch (Exception unused2) {
         }
         if (this.c == null) {
@@ -395,8 +478,9 @@ public final class LocationClient implements c.a {
         }
         intent.putExtra("cache_exception", this.c.isIgnoreCacheException);
         intent.putExtra("kill_process", this.c.isIgnoreKillProcess);
+        intent.putExtra("auth_key", w);
         try {
-            this.f.bindService(intent, this.G, 1);
+            this.f.bindService(intent, this.I, 1);
         } catch (Exception e) {
             e.printStackTrace();
             this.e = false;
@@ -405,23 +489,23 @@ public final class LocationClient implements c.a {
 
     private void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
             if (this.l.getCoorType() == null) {
                 this.l.setCoorType(this.c.coorType);
             }
-            if (this.m || ((this.c.location_change_notify && this.l.getLocType() == 61) || this.l.getLocType() == 66 || this.l.getLocType() == 67 || this.w || this.l.getLocType() == 161)) {
-                ArrayList arrayList = this.j;
+            if (this.m || ((this.c.location_change_notify && this.l.getLocType() == 61) || this.l.getLocType() == 66 || this.l.getLocType() == 67 || this.x || this.l.getLocType() == 161)) {
+                ArrayList<BDLocationListener> arrayList = this.j;
                 if (arrayList != null) {
-                    Iterator it = arrayList.iterator();
+                    Iterator<BDLocationListener> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        ((BDLocationListener) it.next()).onReceiveLocation(this.l);
+                        it.next().onReceiveLocation(this.l);
                     }
                 }
-                ArrayList arrayList2 = this.k;
+                ArrayList<BDAbstractLocationListener> arrayList2 = this.k;
                 if (arrayList2 != null) {
-                    Iterator it2 = arrayList2.iterator();
+                    Iterator<BDAbstractLocationListener> it2 = arrayList2.iterator();
                     while (it2.hasNext()) {
-                        ((BDAbstractLocationListener) it2.next()).onReceiveLocation(this.l);
+                        it2.next().onReceiveLocation(this.l);
                     }
                 }
                 if (this.l.getLocType() == 66 || this.l.getLocType() == 67) {
@@ -436,7 +520,7 @@ public final class LocationClient implements c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, Notification notification) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65544, this, i, notification) == null) {
+        if (interceptable == null || interceptable.invokeIL(65545, this, i, notification) == null) {
             try {
                 Intent intent = new Intent(this.f, f.class);
                 intent.putExtra(ActionJsonData.TAG_NOTIFICATION, notification);
@@ -447,7 +531,7 @@ public final class LocationClient implements c.a {
                 } else {
                     this.f.startService(intent);
                 }
-                this.F = true;
+                this.G = true;
             } catch (Exception unused) {
             }
         }
@@ -457,7 +541,7 @@ public final class LocationClient implements c.a {
     public void a(Message message) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, this, message) == null) {
             this.n = false;
             if (message == null || (obj = message.obj) == null) {
                 return;
@@ -485,16 +569,15 @@ public final class LocationClient implements c.a {
                 }
             }
             this.c = new LocationClientOption(locationClientOption);
-            if (this.g == null) {
-                return;
-            }
-            try {
-                Message obtain = Message.obtain((Handler) null, 15);
-                obtain.replyTo = this.i;
-                obtain.setData(c());
-                this.g.send(obtain);
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (this.g != null && k.f(this.f) >= 1) {
+                try {
+                    Message obtain = Message.obtain((Handler) null, 15);
+                    obtain.replyTo = this.i;
+                    obtain.setData(d());
+                    this.g.send(obtain);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -502,7 +585,7 @@ public final class LocationClient implements c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65546, this, message, i) == null) && this.e) {
+        if ((interceptable == null || interceptable.invokeLI(65547, this, message, i) == null) && this.e) {
             try {
                 Bundle data = message.getData();
                 data.setClassLoader(BDLocation.class.getClassLoader());
@@ -511,34 +594,31 @@ public final class LocationClient implements c.a {
                 if (bDLocation.getLocType() == 61) {
                     this.s = System.currentTimeMillis();
                 }
+                if (this.l.getLocType() == 61 || this.l.getLocType() == 161) {
+                    com.baidu.location.b.a.a().a(this.l.getLatitude(), this.l.getLongitude(), this.l.getCoorType());
+                }
                 a(i);
             } catch (Exception unused) {
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(BDLocation bDLocation) {
+    private void a(BDLocation bDLocation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, this, bDLocation) == null) || this.x) {
-            return;
-        }
-        this.l = bDLocation;
-        if (!this.E && bDLocation.getLocType() == 161) {
-            this.D = true;
-        }
-        ArrayList arrayList = this.j;
-        if (arrayList != null) {
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                ((BDLocationListener) it.next()).onReceiveLocation(bDLocation);
+        if (interceptable == null || interceptable.invokeL(65548, this, bDLocation) == null) {
+            ArrayList<BDLocationListener> arrayList = this.j;
+            if (arrayList != null) {
+                Iterator<BDLocationListener> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    it.next().onReceiveLocation(bDLocation);
+                }
             }
-        }
-        ArrayList arrayList2 = this.k;
-        if (arrayList2 != null) {
-            Iterator it2 = arrayList2.iterator();
-            while (it2.hasNext()) {
-                ((BDAbstractLocationListener) it2.next()).onReceiveLocation(bDLocation);
+            ArrayList<BDAbstractLocationListener> arrayList2 = this.k;
+            if (arrayList2 != null) {
+                Iterator<BDAbstractLocationListener> it2 = arrayList2.iterator();
+                while (it2.hasNext()) {
+                    it2.next().onReceiveLocation(bDLocation);
+                }
             }
         }
     }
@@ -546,13 +626,13 @@ public final class LocationClient implements c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65552, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65553, this, z) == null) {
             try {
                 Intent intent = new Intent(this.f, f.class);
                 intent.putExtra("removenotify", z);
                 intent.putExtra("command", 2);
                 this.f.startService(intent);
-                this.F = true;
+                this.G = true;
             } catch (Exception unused) {
             }
         }
@@ -561,7 +641,7 @@ public final class LocationClient implements c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && this.e && this.g != null) {
+        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && this.e && this.g != null) {
             Message obtain = Message.obtain((Handler) null, 12);
             obtain.replyTo = this.i;
             try {
@@ -570,13 +650,13 @@ public final class LocationClient implements c.a {
                 e.printStackTrace();
             }
             try {
-                this.f.unbindService(this.G);
-                if (this.F) {
+                this.f.unbindService(this.I);
+                if (this.G) {
                     try {
                         this.f.stopService(new Intent(this.f, f.class));
                     } catch (Exception unused) {
                     }
-                    this.F = false;
+                    this.G = false;
                 }
             } catch (Exception unused2) {
             }
@@ -591,10 +671,10 @@ public final class LocationClient implements c.a {
             }
             this.g = null;
             this.n = false;
-            this.w = false;
+            this.x = false;
             this.e = false;
-            this.D = false;
             this.E = false;
+            this.F = false;
         }
     }
 
@@ -602,12 +682,12 @@ public final class LocationClient implements c.a {
     public void b(Message message) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65555, this, message) == null) || message == null || (obj = message.obj) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65556, this, message) == null) || message == null || (obj = message.obj) == null) {
             return;
         }
         BDLocationListener bDLocationListener = (BDLocationListener) obj;
         if (this.j == null) {
-            this.j = new ArrayList();
+            this.j = new ArrayList<>();
         }
         if (this.j.contains(bDLocationListener)) {
             return;
@@ -616,10 +696,63 @@ public final class LocationClient implements c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bundle c() {
+    public void b(BDLocation bDLocation) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65557, this, bDLocation) == null) || this.y) {
+            return;
+        }
+        this.l = bDLocation;
+        if (!this.F && bDLocation.getLocType() == 161) {
+            this.E = true;
+            com.baidu.location.b.a.a().a(bDLocation.getLatitude(), bDLocation.getLongitude(), bDLocation.getCoorType());
+        }
+        ArrayList<BDLocationListener> arrayList = this.j;
+        if (arrayList != null) {
+            Iterator<BDLocationListener> it = arrayList.iterator();
+            while (it.hasNext()) {
+                it.next().onReceiveLocation(bDLocation);
+            }
+        }
+        ArrayList<BDAbstractLocationListener> arrayList2 = this.k;
+        if (arrayList2 != null) {
+            Iterator<BDAbstractLocationListener> it2 = arrayList2.iterator();
+            while (it2.hasNext()) {
+                it2.next().onReceiveLocation(bDLocation);
+            }
+        }
+    }
+
+    private void c() throws Exception {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || H) {
+            return;
+        }
+        Log.e("baidu_location_Client", "The location function has been stopped because you do not agree with the privacy compliance policy. Please recheck the setAgreePrivacy interface");
+        throw new Exception("The location function has been stopped because you do not agree with the privacy compliance policy. Please recheck the setAgreePrivacy interface");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(Message message) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65563, this, message) == null) || message == null || (obj = message.obj) == null) {
+            return;
+        }
+        BDAbstractLocationListener bDAbstractLocationListener = (BDAbstractLocationListener) obj;
+        if (this.k == null) {
+            this.k = new ArrayList<>();
+        }
+        if (this.k.contains(bDAbstractLocationListener)) {
+            return;
+        }
+        this.k.add(bDAbstractLocationListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Bundle d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
             if (this.c == null) {
                 return null;
             }
@@ -634,8 +767,8 @@ public final class LocationClient implements c.a {
             bundle.putBoolean("enableSimulateGps", this.c.enableSimulateGps);
             bundle.putInt("timeOut", this.c.timeOut);
             bundle.putInt("priority", this.c.priority);
-            bundle.putBoolean("map", this.y.booleanValue());
-            bundle.putBoolean(ShareDirectionType.IMPORT, this.z.booleanValue());
+            bundle.putBoolean("map", this.z.booleanValue());
+            bundle.putBoolean(ShareDirectionType.IMPORT, this.A.booleanValue());
             bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);
             bundle.putBoolean("isneedaptag", this.c.isNeedAptag);
             bundle.putBoolean("isneedpoiregion", this.c.isNeedPoiRegion);
@@ -648,50 +781,75 @@ public final class LocationClient implements c.a {
             bundle.putInt("autoNotifyMinDistance", this.c.getAutoNotifyMinDistance());
             bundle.putFloat("autoNotifyLocSensitivity", this.c.b());
             bundle.putInt("wifitimeout", this.c.wifiCacheTimeOut);
+            bundle.putInt("wfnum", com.baidu.location.b.a.a().b);
+            bundle.putBoolean("ischeckper", com.baidu.location.b.a.a().a);
+            bundle.putFloat("wfsm", (float) com.baidu.location.b.a.a().c);
+            bundle.putDouble("gnmcrm", com.baidu.location.b.a.a().f);
+            bundle.putInt("gnmcon", com.baidu.location.b.a.a().g);
+            bundle.putInt("iupl", com.baidu.location.b.a.a().h);
+            bundle.putInt("lpcs", com.baidu.location.b.a.a().e);
+            bundle.putInt("hpdts", com.baidu.location.b.a.a().o);
+            bundle.putInt("oldts", com.baidu.location.b.a.a().p);
             return bundle;
         }
         return (Bundle) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(Message message) {
+    public void d(Message message) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65561, this, message) == null) || message == null || (obj = message.obj) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65568, this, message) == null) || message == null || (obj = message.obj) == null) {
             return;
         }
         BDAbstractLocationListener bDAbstractLocationListener = (BDAbstractLocationListener) obj;
-        if (this.k == null) {
-            this.k = new ArrayList();
-        }
-        if (this.k.contains(bDAbstractLocationListener)) {
+        ArrayList<BDAbstractLocationListener> arrayList = this.k;
+        if (arrayList == null || !arrayList.contains(bDAbstractLocationListener)) {
             return;
         }
-        this.k.add(bDAbstractLocationListener);
+        this.k.remove(bDAbstractLocationListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void e() {
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.g == null) {
+        if (!(interceptable == null || interceptable.invokeV(65572, this) == null) || this.g == null) {
             return;
         }
-        if ((System.currentTimeMillis() - this.s > 3000 || !this.c.location_change_notify || this.n) && (!this.w || System.currentTimeMillis() - this.t > 20000 || this.n)) {
-            Message obtain = Message.obtain((Handler) null, 22);
-            if (this.n) {
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("isWaitingLocTag", this.n);
-                this.n = false;
-                obtain.setData(bundle);
+        int f = k.f(this.f);
+        if ((System.currentTimeMillis() - this.s > 3000 || !this.c.location_change_notify || this.n) && f == 1) {
+            if (!this.x || System.currentTimeMillis() - this.t > 20000 || this.n) {
+                Message obtain = Message.obtain((Handler) null, 22);
+                if (this.n) {
+                    Bundle bundle = new Bundle();
+                    bundle.putBoolean("isWaitingLocTag", this.n);
+                    this.n = false;
+                    obtain.setData(bundle);
+                }
+                try {
+                    obtain.replyTo = this.i;
+                    this.g.send(obtain);
+                    this.a = System.currentTimeMillis();
+                    this.m = true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            try {
-                obtain.replyTo = this.i;
-                this.g.send(obtain);
-                this.a = System.currentTimeMillis();
-                this.m = true;
-            } catch (Exception e) {
-                e.printStackTrace();
+        } else if (f < 1) {
+            BDLocation bDLocation = new BDLocation();
+            if (f == -1) {
+                i = 69;
+            } else if (f == -2) {
+                i = 70;
+            } else {
+                if (f == 0) {
+                    i = 71;
+                }
+                a(bDLocation);
             }
+            bDLocation.setLocType(i);
+            a(bDLocation);
         }
         synchronized (this.r) {
             if (this.c != null && this.c.scanSpan >= 1000 && !this.o) {
@@ -705,29 +863,14 @@ public final class LocationClient implements c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(Message message) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65566, this, message) == null) || message == null || (obj = message.obj) == null) {
-            return;
-        }
-        BDAbstractLocationListener bDAbstractLocationListener = (BDAbstractLocationListener) obj;
-        ArrayList arrayList = this.k;
-        if (arrayList == null || !arrayList.contains(bDAbstractLocationListener)) {
-            return;
-        }
-        this.k.remove(bDAbstractLocationListener);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void e(Message message) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65570, this, message) == null) || message == null || (obj = message.obj) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65573, this, message) == null) || message == null || (obj = message.obj) == null) {
             return;
         }
         BDLocationListener bDLocationListener = (BDLocationListener) obj;
-        ArrayList arrayList = this.j;
+        ArrayList<BDLocationListener> arrayList = this.j;
         if (arrayList == null || !arrayList.contains(bDLocationListener)) {
             return;
         }
@@ -737,7 +880,7 @@ public final class LocationClient implements c.a {
     public static BDLocation getBDLocationInCoorType(BDLocation bDLocation, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65575, null, bDLocation, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65578, null, bDLocation, str)) == null) {
             BDLocation bDLocation2 = new BDLocation(bDLocation);
             double[] coorEncrypt = Jni.coorEncrypt(bDLocation.getLongitude(), bDLocation.getLatitude(), str);
             bDLocation2.setLatitude(coorEncrypt[1]);
@@ -747,10 +890,24 @@ public final class LocationClient implements c.a {
         return (BDLocation) invokeLL.objValue;
     }
 
+    public static void setAgreePrivacy(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65591, null, z) == null) {
+            H = z;
+        }
+    }
+
+    public static void setKey(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65592, null, str) == null) {
+            w = str;
+        }
+    }
+
     public void disableAssistantLocation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k.a().b();
+            o.a().b();
         }
     }
 
@@ -768,7 +925,7 @@ public final class LocationClient implements c.a {
     public void enableAssistantLocation(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView) == null) {
-            k.a().a(this.f, webView, this);
+            o.a().a(this.f, webView, this);
         }
     }
 
@@ -821,7 +978,7 @@ public final class LocationClient implements c.a {
     public String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "7.9.3" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "9.3.6.3" : (String) invokeV.objValue;
     }
 
     public boolean isStarted() {
@@ -836,11 +993,11 @@ public final class LocationClient implements c.a {
         }
     }
 
-    @Override // com.baidu.location.b.c.a
+    @Override // com.baidu.location.b.e.b
     public void onReceiveLocation(BDLocation bDLocation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bDLocation) == null) {
-            if ((!this.E || this.D) && bDLocation != null) {
+            if ((!this.F || this.E) && bDLocation != null) {
                 Message obtainMessage = this.h.obtainMessage(701);
                 obtainMessage.obj = bDLocation;
                 obtainMessage.sendToTarget();
@@ -890,13 +1047,13 @@ public final class LocationClient implements c.a {
 
     public int requestLocation() {
         InterceptResult invokeV;
-        ArrayList arrayList;
+        ArrayList<BDAbstractLocationListener> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (this.g == null || this.i == null) {
                 return 1;
             }
-            ArrayList arrayList2 = this.j;
+            ArrayList<BDLocationListener> arrayList2 = this.j;
             if ((arrayList2 == null || arrayList2.size() < 1) && ((arrayList = this.k) == null || arrayList.size() < 1)) {
                 return 2;
             }
@@ -916,7 +1073,7 @@ public final class LocationClient implements c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             stop();
-            this.x = false;
+            this.y = false;
             this.h.sendEmptyMessageDelayed(1, 1000L);
         }
     }
@@ -941,17 +1098,19 @@ public final class LocationClient implements c.a {
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.x = false;
-            this.h.obtainMessage(1).sendToTarget();
+            this.y = false;
+            LBSAuthManager.getInstance(this.f.getApplicationContext()).setPrivacyMode(H);
+            com.baidu.location.b.a.a().a(this.f, this.d, (String) null);
+            new c(this, null).start();
         }
     }
 
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.x = true;
+            this.y = true;
             this.h.obtainMessage(2).sendToTarget();
-            this.C = null;
+            this.D = null;
         }
     }
 

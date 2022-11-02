@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class d implements Parcelable.Creator {
+public final class d implements Parcelable.Creator<DrivingRouteLine> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,10 @@ public final class d implements Parcelable.Creator {
     public DrivingRouteLine createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new DrivingRouteLine(parcel) : (DrivingRouteLine) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+            return new DrivingRouteLine(parcel);
+        }
+        return (DrivingRouteLine) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,6 +45,9 @@ public final class d implements Parcelable.Creator {
     public DrivingRouteLine[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new DrivingRouteLine[i] : (DrivingRouteLine[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new DrivingRouteLine[i];
+        }
+        return (DrivingRouteLine[]) invokeI.objValue;
     }
 }

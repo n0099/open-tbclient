@@ -9,12 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.SimplePlainQueue;
 import io.reactivex.internal.util.Pow2;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes8.dex */
-public final class SpscArrayQueue extends AtomicReferenceArray implements SimplePlainQueue {
+public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements SimplePlainQueue<E> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Integer MAX_LOOK_AHEAD_STEP;
     public static final long serialVersionUID = -1296597691183856449L;
@@ -74,13 +75,14 @@ public final class SpscArrayQueue extends AtomicReferenceArray implements Simple
     }
 
     @Override // io.reactivex.internal.fuseable.SimplePlainQueue, io.reactivex.internal.fuseable.SimpleQueue
-    public Object poll() {
+    @Nullable
+    public E poll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             long j = this.consumerIndex.get();
             int calcElementOffset = calcElementOffset(j);
-            Object lvElement = lvElement(calcElementOffset);
+            E lvElement = lvElement(calcElementOffset);
             if (lvElement == null) {
                 return null;
             }
@@ -88,7 +90,7 @@ public final class SpscArrayQueue extends AtomicReferenceArray implements Simple
             soElement(calcElementOffset, null);
             return lvElement;
         }
-        return invokeV.objValue;
+        return (E) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -124,13 +126,13 @@ public final class SpscArrayQueue extends AtomicReferenceArray implements Simple
         return invokeJ.intValue;
     }
 
-    public Object lvElement(int i) {
+    public E lvElement(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             return get(i);
         }
-        return invokeI.objValue;
+        return (E) invokeI.objValue;
     }
 
     public void soConsumerIndex(long j) {
@@ -148,11 +150,11 @@ public final class SpscArrayQueue extends AtomicReferenceArray implements Simple
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(Object obj) {
+    public boolean offer(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
+            if (e != null) {
                 int i = this.mask;
                 long j = this.producerIndex.get();
                 int calcElementOffset = calcElementOffset(j, i);
@@ -164,7 +166,7 @@ public final class SpscArrayQueue extends AtomicReferenceArray implements Simple
                         return false;
                     }
                 }
-                soElement(calcElementOffset, obj);
+                soElement(calcElementOffset, e);
                 soProducerIndex(j + 1);
                 return true;
             }
@@ -174,11 +176,11 @@ public final class SpscArrayQueue extends AtomicReferenceArray implements Simple
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(Object obj, Object obj2) {
+    public boolean offer(E e, E e2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, obj, obj2)) == null) {
-            if (offer(obj) && offer(obj2)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, e, e2)) == null) {
+            if (offer(e) && offer(e2)) {
                 return true;
             }
             return false;
@@ -186,10 +188,10 @@ public final class SpscArrayQueue extends AtomicReferenceArray implements Simple
         return invokeLL.booleanValue;
     }
 
-    public void soElement(int i, Object obj) {
+    public void soElement(int i, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, obj) == null) {
-            lazySet(i, obj);
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, e) == null) {
+            lazySet(i, e);
         }
     }
 }

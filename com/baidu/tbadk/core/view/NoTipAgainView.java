@@ -7,11 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pu4;
+import com.baidu.tieba.iv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +24,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public TextView a;
     public ImageView b;
     public boolean c;
-    public pu4.f d;
+    public iv4.f d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context) {
@@ -47,7 +48,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NoTipAgainView(Context context, AttributeSet attributeSet) {
+    public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +69,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoTipAgainView(Context context, AttributeSet attributeSet, int i) {
+    public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,9 +94,9 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08ef, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d8);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09061a);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0903, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091718);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090627);
             b();
             this.b.setOnClickListener(this);
         }
@@ -109,9 +110,9 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
             return;
         }
         if (this.c) {
-            maskDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805f9, R.color.CAM_X0304, null);
+            maskDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805fe, R.color.CAM_X0304, null);
         } else {
-            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f8, null);
+            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805fd, null);
         }
         imageView.setImageDrawable(maskDrawable);
     }
@@ -130,14 +131,14 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.b) {
             this.c = !this.c;
             c();
-            pu4.f fVar = this.d;
+            iv4.f fVar = this.d;
             if (fVar != null) {
                 fVar.a();
             }
         }
     }
 
-    public void setOnNoTipAgainCheckListener(pu4.f fVar) {
+    public void setOnNoTipAgainCheckListener(iv4.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             this.d = fVar;

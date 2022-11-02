@@ -10,6 +10,7 @@ import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.searchbox.http.statistics.NetworkStat;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.searchbox.http.util.HttpUtils;
@@ -28,7 +29,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public abstract class HttpRequest {
+public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXT_HEADER_TRACE_ID = "X-Bd-Traceid";
     public static final int REQUESTFROM_FEED = 1;
@@ -53,7 +54,7 @@ public abstract class HttpRequest {
     public boolean isWifiOnly;
     public LogInterceptor.Level logLevel;
     public String logTag;
-    public NetworkStat networkStat;
+    public NetworkStat<Request> networkStat;
     public Request okRequest;
     public Request.Builder okRequestBuilder;
     public Object originTag;
@@ -71,18 +72,18 @@ public abstract class HttpRequest {
 
     public abstract RequestBody buildOkRequestBody();
 
-    public abstract void initExtraHttpRequest(HttpRequestBuilder httpRequestBuilder);
+    public abstract void initExtraHttpRequest(T t);
 
-    public abstract HttpRequestBuilder newBuilder();
+    public abstract T newBuilder();
 
-    public abstract HttpRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager);
+    public abstract T newBuilder(AbstractHttpManager abstractHttpManager);
 
-    public HttpRequest(HttpRequestBuilder httpRequestBuilder) {
+    public HttpRequest(T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {httpRequestBuilder};
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -100,53 +101,53 @@ public abstract class HttpRequest {
         this.requestNetStat = null;
         this.requestFrom = 0;
         this.requestSubFrom = 0;
-        AbstractHttpManager abstractHttpManager = httpRequestBuilder.httpManager;
+        AbstractHttpManager abstractHttpManager = t.httpManager;
         this.httpManager = abstractHttpManager;
         this.client = abstractHttpManager.getOkHttpClient();
         this.requestHandler = this.httpManager.getRequestHandler();
         this.networkStat = this.httpManager.getNetworkStat();
         this.deliver = this.httpManager.getDeliver();
-        HttpUrl httpUrl = httpRequestBuilder.httpUrl;
+        HttpUrl httpUrl = t.httpUrl;
         this.httpUrl = httpUrl;
-        this.tag = httpRequestBuilder.tag;
-        this.connectionTimeout = httpRequestBuilder.connectionTimeout;
-        this.readTimeout = httpRequestBuilder.readTimeout;
-        this.writeTimeout = httpRequestBuilder.writeTimeout;
-        this.enableRetry = httpRequestBuilder.enableRetry;
-        this.logTag = httpRequestBuilder.logTag;
-        this.logLevel = httpRequestBuilder.logLevel;
-        this.isWifiOnly = httpRequestBuilder.isWifiOnly;
-        this.cookieManager = httpRequestBuilder.cookieManager;
-        this.paramsHandler = httpRequestBuilder.paramsHandler;
-        this.isReqNetStatEnable = httpRequestBuilder.isReqNetStatEnable;
-        this.requestFrom = httpRequestBuilder.requestFrom;
-        this.requestSubFrom = httpRequestBuilder.requestSubFrom;
-        this.extraUserLog = httpRequestBuilder.extraUserLog;
-        this.proxy = httpRequestBuilder.proxy;
-        this.followRedirects = httpRequestBuilder.followRedirects;
-        this.followSslRedirects = httpRequestBuilder.followSslRedirects;
+        this.tag = t.tag;
+        this.connectionTimeout = t.connectionTimeout;
+        this.readTimeout = t.readTimeout;
+        this.writeTimeout = t.writeTimeout;
+        this.enableRetry = t.enableRetry;
+        this.logTag = t.logTag;
+        this.logLevel = t.logLevel;
+        this.isWifiOnly = t.isWifiOnly;
+        this.cookieManager = t.cookieManager;
+        this.paramsHandler = t.paramsHandler;
+        this.isReqNetStatEnable = t.isReqNetStatEnable;
+        this.requestFrom = t.requestFrom;
+        this.requestSubFrom = t.requestSubFrom;
+        this.extraUserLog = t.extraUserLog;
+        this.proxy = t.proxy;
+        this.followRedirects = t.followRedirects;
+        this.followSslRedirects = t.followSslRedirects;
         if (httpUrl != null) {
             String generateBdTraceId = HttpUtils.generateBdTraceId();
             this.bdTraceId = generateBdTraceId;
-            httpRequestBuilder.headersBuilder.add(EXT_HEADER_TRACE_ID, generateBdTraceId);
-            this.headers = httpRequestBuilder.headersBuilder.build();
+            t.headersBuilder.add(EXT_HEADER_TRACE_ID, generateBdTraceId);
+            this.headers = t.headersBuilder.build();
             if (this.isReqNetStatEnable) {
                 NetworkStatRecord networkStatRecord = new NetworkStatRecord();
                 this.requestNetStat = networkStatRecord;
                 networkStatRecord.url = this.httpUrl.toString();
                 NetworkStatRecord networkStatRecord2 = this.requestNetStat;
-                networkStatRecord2.from = httpRequestBuilder.requestFrom;
-                networkStatRecord2.subFrom = httpRequestBuilder.requestSubFrom;
+                networkStatRecord2.from = t.requestFrom;
+                networkStatRecord2.subFrom = t.requestSubFrom;
             }
-            initOkRequest(httpRequestBuilder);
+            initOkRequest(t);
             return;
         }
         throw new IllegalArgumentException(" url not set, please check");
     }
 
-    private void initOkRequest(HttpRequestBuilder httpRequestBuilder) {
+    private void initOkRequest(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, httpRequestBuilder) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, this, t) == null) {
             Request.Builder builder = new Request.Builder();
             this.okRequestBuilder = builder;
             builder.url(this.httpUrl);
@@ -162,12 +163,12 @@ public abstract class HttpRequest {
             if (headers != null && headers.size() > 0) {
                 this.okRequestBuilder.headers(this.headers);
             }
-            initExtraHttpRequest(httpRequestBuilder);
+            initExtraHttpRequest(t);
             this.okRequest = buildOkRequest(buildOkRequestBody());
         }
     }
 
-    public Cancelable executeAsync(ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) {
@@ -176,7 +177,7 @@ public abstract class HttpRequest {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeAsyncOnUIBack(ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsyncOnUIBack(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responseCallback)) == null) {
@@ -185,7 +186,7 @@ public abstract class HttpRequest {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeStat(StatResponseCallback statResponseCallback) {
+    public <T> Cancelable executeStat(StatResponseCallback<T> statResponseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, statResponseCallback)) == null) {
@@ -194,7 +195,7 @@ public abstract class HttpRequest {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeStatUIBack(StatResponseCallback statResponseCallback) {
+    public <T> Cancelable executeStatUIBack(StatResponseCallback<T> statResponseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, statResponseCallback)) == null) {
@@ -203,7 +204,7 @@ public abstract class HttpRequest {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, handler, responseCallback)) == null) {
@@ -212,7 +213,7 @@ public abstract class HttpRequest {
         return (Cancelable) invokeLL.objValue;
     }
 
-    public Cancelable executeStatWithHandler(Handler handler, StatResponseCallback statResponseCallback) {
+    public <T> Cancelable executeStatWithHandler(Handler handler, StatResponseCallback<T> statResponseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, handler, statResponseCallback)) == null) {
@@ -270,7 +271,7 @@ public abstract class HttpRequest {
         return (JSONObject) invokeV.objValue;
     }
 
-    public NetworkStat getNetworkStat() {
+    public NetworkStat<Request> getNetworkStat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {

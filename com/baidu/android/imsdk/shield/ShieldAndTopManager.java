@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.shield;
 import android.content.ContentValues;
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
@@ -121,7 +122,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    private List getShieldListFromDB(int i) {
+    private List<ChatSession> getShieldListFromDB(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
@@ -149,12 +150,12 @@ public class ShieldAndTopManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onCallBack(int i, String str, List list, String str2) {
+    public void onCallBack(int i, String str, @NonNull List<ChatSession> list, String str2) {
         IGetUserShieldListener iGetUserShieldListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), str, list, str2}) == null) && !TextUtils.isEmpty(str2) && (iGetUserShieldListener = (IGetUserShieldListener) ListenerManager.getInstance().removeListener(str2)) != null) {
             LogUtils.d(TAG, "onMsgShieldListResult size :" + list.size() + ", errCode :" + i + ", errMsg :" + str);
-            Collections.sort(list, new Comparator(this) { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.6
+            Collections.sort(list, new Comparator<ChatSession>(this) { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ShieldAndTopManager this$0;
@@ -206,7 +207,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void getServiceNotifyMenuStatus(long j, List list, List list2, String str, int i, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+    public void getServiceNotifyMenuStatus(long j, List<Long> list, List<String> list2, String str, int i, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), list, list2, str, Integer.valueOf(i), iGetServiceNotifyMenuListener}) == null) {
             IMServiceNotifyMenuMergeListener iMServiceNotifyMenuMergeListener = new IMServiceNotifyMenuMergeListener(i, iGetServiceNotifyMenuListener);
@@ -237,7 +238,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void getSubscription(long j, List list, List list2, String str, IGetSubscriptionListener iGetSubscriptionListener) {
+    public void getSubscription(long j, List<Long> list, List<String> list2, String str, IGetSubscriptionListener iGetSubscriptionListener) {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), list, list2, str, iGetSubscriptionListener}) == null) {
@@ -258,7 +259,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onMsgMarkTopListResult(int i, String str, List list, List list2, List list3) {
+    public void onMsgMarkTopListResult(int i, String str, List<ChatSession> list, List<ChatSession> list2, List<ChatSession> list3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), str, list, list2, list3}) == null) && list != null) {
             if ((list.size() != 0 || ((list2 != null && list2.size() != 0) || (list3 != null && list3.size() != 0))) && i == 0) {
@@ -297,7 +298,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onGroupMarkTopResult(int i, String str, ChatSession chatSession, String str2) {
+    public void onGroupMarkTopResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
             if (i == 0) {
@@ -310,7 +311,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onNotifyShieldListResult(int i, String str, List list, String str2) {
+    public void onNotifyShieldListResult(int i, String str, List<ChatSession> list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), str, list, str2}) == null) {
             if (i != 0) {
@@ -348,7 +349,7 @@ public class ShieldAndTopManager {
                         }
 
                         @Override // com.baidu.android.imsdk.shield.IGetUserShieldListener
-                        public void onResult(int i2, String str3, List list2) {
+                        public void onResult(int i2, String str3, List<ChatSession> list2) {
                             Interceptable interceptable2 = $ic;
                             if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str3, list2) == null) && i2 == 0) {
                                 if (list2 != null) {
@@ -366,7 +367,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onPaMarkTopResult(int i, String str, ChatSession chatSession, String str2) {
+    public void onPaMarkTopResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
             IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
@@ -411,7 +412,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onPaShieldResult(int i, String str, ChatSession chatSession, String str2) {
+    public void onPaShieldResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
             if (i == 0) {
@@ -456,7 +457,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onUserMarkTopResult(int i, String str, ChatSession chatSession, String str2) {
+    public void onUserMarkTopResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
             IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
@@ -501,7 +502,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onUserShieldResult(int i, String str, ChatSession chatSession, String str2) {
+    public void onUserShieldResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, chatSession, str2}) == null) {
             if (i == 0) {
@@ -577,7 +578,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onMsgShieldListResult(int i, String str, List list, List list2, String str2) {
+    public void onMsgShieldListResult(int i, String str, @NonNull List<ChatSession> list, @NonNull List<ChatSession> list2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), str, list, list2, str2}) == null) {
             ArrayList arrayList = new ArrayList();
@@ -625,7 +626,7 @@ public class ShieldAndTopManager {
                         }
 
                         @Override // com.baidu.android.imsdk.shield.IGetUserShieldListener
-                        public void onResult(int i2, String str3, List list3) {
+                        public void onResult(int i2, String str3, List<ChatSession> list3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str3, list3) == null) {
                                 ShieldAndTopManager.access$208();
@@ -674,7 +675,7 @@ public class ShieldAndTopManager {
                         }
 
                         @Override // com.baidu.android.imsdk.shield.IGetUserShieldListener
-                        public void onResult(int i2, String str3, List list3) {
+                        public void onResult(int i2, String str3, List<ChatSession> list3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str3, list3) == null) {
                                 ShieldAndTopManager.access$208();
@@ -733,7 +734,7 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void setSubscription(long j, List list, List list2, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
+    public void setSubscription(long j, List<Long> list, List<String> list2, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), list, list2, Integer.valueOf(i), str, iSetSubscriptionListener}) == null) {

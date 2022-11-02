@@ -1,91 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public final class zr {
+public class zr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ks b;
 
-    public boolean equals(Object obj) {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ur a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof zr) {
-                    zr zrVar = (zr) obj;
-                    return Intrinsics.areEqual(this.a, zrVar.a) && Intrinsics.areEqual(this.b, zrVar.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            ur urVar = null;
+            if (bArr == null) {
+                return null;
+            }
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                urVar = new ur();
+                wrap.get();
+                wrap.get();
+                urVar.a(wrap.get());
+                urVar.f(wrap.get());
+                int i = wrap.getShort();
+                urVar.c(i);
+                int i2 = wrap.getInt();
+                urVar.b(i2);
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                urVar.j(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    urVar.l(bArr3);
                 }
-                return false;
             }
-            return true;
+            return urVar;
         }
-        return invokeL.booleanValue;
+        return (ur) invokeL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static byte[] b(ur urVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            ks ksVar = this.b;
-            return hashCode + (ksVar != null ? ksVar.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public zr(String str, ks ksVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, ksVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, urVar)) == null) {
+            if (urVar == null) {
+                return null;
             }
+            ByteBuffer allocate = ByteBuffer.allocate(urVar.m() + 12 + urVar.n());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (urVar.e() != null && urVar.e().length == 2) {
+                allocate.put(urVar.e()[0]);
+                allocate.put(urVar.e()[1]);
+                allocate.put(urVar.i());
+                allocate.put(urVar.k());
+                if (urVar.o() != null && urVar.o().length != 0) {
+                    int length = urVar.o().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (urVar.p() != null && urVar.p().length != 0) {
+                        allocate.putInt(urVar.p().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    if (urVar.o() != null) {
+                        allocate.put(urVar.o());
+                    }
+                    if (urVar.p() != null) {
+                        allocate.put(urVar.p());
+                    }
+                    return allocate.array();
+                }
+            }
+            return null;
         }
-        this.a = str;
-        this.b = ksVar;
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final ks b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ks) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

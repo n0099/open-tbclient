@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.MediaController;
 import androidx.media2.session.MediaLibraryService;
@@ -27,24 +30,24 @@ public class MediaBrowser extends MediaController {
 
     /* loaded from: classes.dex */
     public interface BrowserCallbackRunnable {
-        void run(BrowserCallback browserCallback);
+        void run(@NonNull BrowserCallback browserCallback);
     }
 
     /* loaded from: classes.dex */
     public interface MediaBrowserImpl extends MediaController.MediaControllerImpl {
-        ListenableFuture getChildren(String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams);
+        ListenableFuture<LibraryResult> getChildren(@NonNull String str, int i, int i2, @Nullable MediaLibraryService.LibraryParams libraryParams);
 
-        ListenableFuture getItem(String str);
+        ListenableFuture<LibraryResult> getItem(@NonNull String str);
 
-        ListenableFuture getLibraryRoot(MediaLibraryService.LibraryParams libraryParams);
+        ListenableFuture<LibraryResult> getLibraryRoot(@Nullable MediaLibraryService.LibraryParams libraryParams);
 
-        ListenableFuture getSearchResult(String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams);
+        ListenableFuture<LibraryResult> getSearchResult(@NonNull String str, int i, int i2, @Nullable MediaLibraryService.LibraryParams libraryParams);
 
-        ListenableFuture search(String str, MediaLibraryService.LibraryParams libraryParams);
+        ListenableFuture<LibraryResult> search(@NonNull String str, @Nullable MediaLibraryService.LibraryParams libraryParams);
 
-        ListenableFuture subscribe(String str, MediaLibraryService.LibraryParams libraryParams);
+        ListenableFuture<LibraryResult> subscribe(@NonNull String str, @Nullable MediaLibraryService.LibraryParams libraryParams);
 
-        ListenableFuture unsubscribe(String str);
+        ListenableFuture<LibraryResult> unsubscribe(@NonNull String str);
     }
 
     /* loaded from: classes.dex */
@@ -52,13 +55,13 @@ public class MediaBrowser extends MediaController {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onChildrenChanged(MediaBrowser mediaBrowser, String str, int i, MediaLibraryService.LibraryParams libraryParams) {
+        public void onChildrenChanged(@NonNull MediaBrowser mediaBrowser, @NonNull String str, @IntRange(from = 0) int i, @Nullable MediaLibraryService.LibraryParams libraryParams) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, mediaBrowser, str, i, libraryParams) == null) {
             }
         }
 
-        public void onSearchResultChanged(MediaBrowser mediaBrowser, String str, int i, MediaLibraryService.LibraryParams libraryParams) {
+        public void onSearchResultChanged(@NonNull MediaBrowser mediaBrowser, @NonNull String str, @IntRange(from = 0) int i, @Nullable MediaLibraryService.LibraryParams libraryParams) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaBrowser, str, i, libraryParams) == null) {
             }
@@ -85,7 +88,7 @@ public class MediaBrowser extends MediaController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Builder(Context context) {
+        public Builder(@NonNull Context context) {
             super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -107,6 +110,7 @@ public class MediaBrowser extends MediaController {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaController.BuilderBase
+        @NonNull
         public MediaBrowser build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -125,7 +129,8 @@ public class MediaBrowser extends MediaController {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaController.BuilderBase
-        public Builder setConnectionHints(Bundle bundle) {
+        @NonNull
+        public Builder setConnectionHints(@NonNull Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
@@ -137,7 +142,8 @@ public class MediaBrowser extends MediaController {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaController.BuilderBase
-        public Builder setSessionCompatToken(MediaSessionCompat.Token token) {
+        @NonNull
+        public Builder setSessionCompatToken(@NonNull MediaSessionCompat.Token token) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, token)) == null) {
@@ -149,7 +155,8 @@ public class MediaBrowser extends MediaController {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaController.BuilderBase
-        public Builder setSessionToken(SessionToken sessionToken) {
+        @NonNull
+        public Builder setSessionToken(@NonNull SessionToken sessionToken) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sessionToken)) == null) {
@@ -160,7 +167,8 @@ public class MediaBrowser extends MediaController {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.session.MediaController.BuilderBase
-        public Builder setControllerCallback(Executor executor, BrowserCallback browserCallback) {
+        @NonNull
+        public Builder setControllerCallback(@NonNull Executor executor, @NonNull BrowserCallback browserCallback) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, executor, browserCallback)) == null) {
@@ -207,7 +215,7 @@ public class MediaBrowser extends MediaController {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaBrowser(Context context, MediaSessionCompat.Token token, Bundle bundle, Executor executor, BrowserCallback browserCallback) {
+    public MediaBrowser(@NonNull Context context, @NonNull MediaSessionCompat.Token token, @Nullable Bundle bundle, @Nullable Executor executor, @Nullable BrowserCallback browserCallback) {
         super(context, token, bundle, executor, browserCallback);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -228,7 +236,7 @@ public class MediaBrowser extends MediaController {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaBrowser(Context context, SessionToken sessionToken, Bundle bundle, Executor executor, BrowserCallback browserCallback) {
+    public MediaBrowser(@NonNull Context context, @NonNull SessionToken sessionToken, @Nullable Bundle bundle, @Nullable Executor executor, @Nullable BrowserCallback browserCallback) {
         super(context, sessionToken, bundle, executor, browserCallback);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -250,7 +258,7 @@ public class MediaBrowser extends MediaController {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.media2.session.MediaController
-    public MediaBrowserImpl createImpl(Context context, SessionToken sessionToken, Bundle bundle) {
+    public MediaBrowserImpl createImpl(@NonNull Context context, @NonNull SessionToken sessionToken, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, sessionToken, bundle)) == null) {
@@ -262,7 +270,8 @@ public class MediaBrowser extends MediaController {
         return (MediaBrowserImpl) invokeLLL.objValue;
     }
 
-    public ListenableFuture<LibraryResult> getChildren(String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
+    @NonNull
+    public ListenableFuture<LibraryResult> getChildren(@NonNull String str, @IntRange(from = 0) int i, @IntRange(from = 1) int i2, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
@@ -283,7 +292,8 @@ public class MediaBrowser extends MediaController {
         return (ListenableFuture) invokeCommon.objValue;
     }
 
-    public ListenableFuture<LibraryResult> getSearchResult(String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
+    @NonNull
+    public ListenableFuture<LibraryResult> getSearchResult(@NonNull String str, @IntRange(from = 0) int i, @IntRange(from = 1) int i2, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
@@ -304,7 +314,8 @@ public class MediaBrowser extends MediaController {
         return (ListenableFuture) invokeCommon.objValue;
     }
 
-    public ListenableFuture<LibraryResult> getItem(String str) {
+    @NonNull
+    public ListenableFuture<LibraryResult> getItem(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -319,7 +330,8 @@ public class MediaBrowser extends MediaController {
         return (ListenableFuture) invokeL.objValue;
     }
 
-    public ListenableFuture<LibraryResult> unsubscribe(String str) {
+    @NonNull
+    public ListenableFuture<LibraryResult> unsubscribe(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
@@ -334,7 +346,8 @@ public class MediaBrowser extends MediaController {
         return (ListenableFuture) invokeL.objValue;
     }
 
-    public ListenableFuture<LibraryResult> getLibraryRoot(MediaLibraryService.LibraryParams libraryParams) {
+    @NonNull
+    public ListenableFuture<LibraryResult> getLibraryRoot(@Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, libraryParams)) == null) {
@@ -386,7 +399,8 @@ public class MediaBrowser extends MediaController {
         }
     }
 
-    public ListenableFuture<LibraryResult> search(String str, MediaLibraryService.LibraryParams libraryParams) {
+    @NonNull
+    public ListenableFuture<LibraryResult> search(@NonNull String str, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, libraryParams)) == null) {
@@ -401,7 +415,8 @@ public class MediaBrowser extends MediaController {
         return (ListenableFuture) invokeLL.objValue;
     }
 
-    public ListenableFuture<LibraryResult> subscribe(String str, MediaLibraryService.LibraryParams libraryParams) {
+    @NonNull
+    public ListenableFuture<LibraryResult> subscribe(@NonNull String str, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, libraryParams)) == null) {

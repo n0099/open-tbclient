@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import view.CriusTextView;
 /* loaded from: classes2.dex */
-public class CriusUITextView extends CriusUI {
+public class CriusUITextView extends CriusUI<CriusTextView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CriusUITextView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class CriusUITextView extends CriusUI {
                 paint.measureText(this.renderObject.text);
                 Paint.FontMetrics fontMetrics = paint.getFontMetrics();
                 float f2 = fontMetrics.ascent;
-                f += ((CriusTextView) getView()).getBaseline() + f2 + (((fontMetrics.descent - f2) - i2) / 2.0f);
+                f += getView().getBaseline() + f2 + (((fontMetrics.descent - f2) - i2) / 2.0f);
             }
             return (int) f;
         }

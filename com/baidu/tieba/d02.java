@@ -1,156 +1,75 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d02 {
+public final class d02 extends tz1<CameraPreview, yw1> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947650659, "Lcom/baidu/tieba/d02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947650659, "Lcom/baidu/tieba/d02;");
-                return;
-            }
-        }
-        b = wj1.a;
-        c = 5;
-    }
-
-    public d02(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d02(@NonNull Context context, @NonNull yw1 yw1Var) {
+        super(context, yw1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context, yw1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (uz1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c(i, false);
+        g(2);
     }
 
-    public d02(int i, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tz1
+    /* renamed from: G */
+    public void C(@NonNull CameraPreview cameraPreview, @NonNull yw1 yw1Var, @NonNull w02 w02Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cameraPreview, yw1Var, w02Var) == null) {
+            super.C(cameraPreview, yw1Var, w02Var);
+            if (t()) {
+                cameraPreview.x(yw1Var);
             }
-        }
-        c(i, z);
-    }
-
-    public final int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return i >> c;
-        }
-        return invokeI.intValue;
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                m02.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                m02.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException(str);
-            } else if (((1 << i) & iArr[a(i)]) == 0) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i < 0) {
-                m02.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                m02.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException(str);
-            }
-            int a = a(i);
-            iArr[a] = (1 << i) | iArr[a];
         }
     }
 
-    public final void c(int i, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tz1
+    @NonNull
+    /* renamed from: F */
+    public CameraPreview v(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i <= 0) {
-                String str = "number <= 0: " + i;
-                m02.c("Component-DiffBitMap", str);
-                if (!b) {
-                    i = 500;
-                } else {
-                    throw new NegativeArraySizeException(str);
-                }
-            }
-            int[] iArr = new int[a(i - 1) + 1];
-            this.a = iArr;
-            int length = iArr.length;
-            if (z) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.a[i2] = -1;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new CameraPreview(context, n());
+        }
+        return (CameraPreview) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.tz1
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.z();
+            CameraPreview q = q();
+            if (q != null) {
+                q.p();
             }
         }
     }

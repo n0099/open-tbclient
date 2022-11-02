@@ -1,64 +1,83 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class dv2 implements Interceptor {
+public final class dv2 extends cv2<String, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap a;
 
-    public dv2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947717929, "Lcom/baidu/tieba/dv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947717929, "Lcom/baidu/tieba/dv2;");
                 return;
             }
         }
-        this.a = new HashMap();
+        b = e43.v;
     }
 
-    public void a(HashMap hashMap) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dv2() {
+        super("swanCookie");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap != null && hashMap.size() >= 1) {
-                this.a = hashMap;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ad3.l().o();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ev2
+    /* renamed from: c */
+    public boolean a(@NonNull String str) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            HashMap hashMap = this.a;
-            if (hashMap != null && hashMap.size() >= 1) {
-                Request.Builder newBuilder = chain.request().newBuilder();
-                for (Map.Entry entry : this.a.entrySet()) {
-                    newBuilder.addHeader((String) entry.getKey(), (String) entry.getValue());
-                }
-                return chain.proceed(newBuilder.build());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.equals(str, (CharSequence) this.a) && !b()) {
+                z = true;
+            } else {
+                z = false;
             }
-            return chain.proceed(chain.request());
+            if (b) {
+                e12.b("SwanCookieInterceptor", ">>> NAUseMap apiName=", str, " , should intercept ", Boolean.valueOf(z));
+            }
+            return z;
         }
-        return (Response) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tbadk.mutiprocess.live;
 
 import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +20,7 @@ public class YyLiveRoomConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YyLiveRoomConfig(Context context, String str, String str2, String str3, String str4, String str5, String str6) {
+    public YyLiveRoomConfig(@NonNull Context context, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5, @NonNull String str6) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -123,7 +123,7 @@ public class HttpUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String getCanonicalQueryString(Map map, boolean z) {
+    public static String getCanonicalQueryString(Map<String, String> map, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, map, z)) == null) {
@@ -131,19 +131,19 @@ public class HttpUtils {
                 return "";
             }
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : map.entrySet()) {
-                if (!z || !"Authorization".equalsIgnoreCase((String) entry.getKey())) {
-                    String str = (String) entry.getKey();
-                    CheckUtils.isNotNull(str, "parameter key should not be null");
-                    String str2 = (String) entry.getValue();
-                    if (str2 == null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                if (!z || !"Authorization".equalsIgnoreCase(entry.getKey())) {
+                    String key = entry.getKey();
+                    CheckUtils.isNotNull(key, "parameter key should not be null");
+                    String value = entry.getValue();
+                    if (value == null) {
                         if (z) {
-                            arrayList.add(normalize(str) + '=');
+                            arrayList.add(normalize(key) + '=');
                         } else {
-                            arrayList.add(normalize(str));
+                            arrayList.add(normalize(key));
                         }
                     } else {
-                        arrayList.add(normalize(str) + '=' + normalize(str2));
+                        arrayList.add(normalize(key) + '=' + normalize(value));
                     }
                 }
             }

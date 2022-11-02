@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kc2 {
+public class kc2 implements ub2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile kc2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public kc2() {
@@ -26,38 +26,23 @@ public class kc2 {
         }
     }
 
-    public static kc2 a() {
+    @Override // com.baidu.tieba.ub2
+    public String getUserAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (kc2.class) {
-                    if (a == null) {
-                        a = new kc2();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return dg3.a();
         }
-        return (kc2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.ub2
+    public mb2 a(String str, jc2 jc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m02.k("SwanRecoveryManager", "RecoverPlatform");
-            sc2 sc2Var = new sc2();
-            sc2Var.a = 1;
-            ic2.c(sc2Var);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jc2Var, v8ThreadDelegatePolicy)) == null) {
+            return new qb2(str, jc2Var, v8ThreadDelegatePolicy);
         }
-    }
-
-    public int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return qc2.c(i);
-        }
-        return invokeI.intValue;
+        return (mb2) invokeLLL.objValue;
     }
 }

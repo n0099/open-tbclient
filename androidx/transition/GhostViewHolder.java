@@ -1,11 +1,13 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,11 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class GhostViewHolder extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAttached;
+    @NonNull
     public ViewGroup mParent;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,16 +45,16 @@ public class GhostViewHolder extends FrameLayout {
         }
         setClipChildren(false);
         this.mParent = viewGroup;
-        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ca7, this);
+        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc6, this);
         ViewGroupUtils.getOverlay(this.mParent).add(this);
         this.mAttached = true;
     }
 
-    public static GhostViewHolder getHolder(ViewGroup viewGroup) {
+    public static GhostViewHolder getHolder(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) {
-            return (GhostViewHolder) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ca7);
+            return (GhostViewHolder) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc6);
         }
         return (GhostViewHolder) invokeL.objValue;
     }
@@ -109,7 +113,7 @@ public class GhostViewHolder extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onViewRemoved(view2);
             if ((getChildCount() == 1 && getChildAt(0) == view2) || getChildCount() == 0) {
-                this.mParent.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ca7, null);
+                this.mParent.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc6, null);
                 ViewGroupUtils.getOverlay(this.mParent).remove(this);
                 this.mAttached = false;
             }

@@ -11,17 +11,16 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabHttpResMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabRequestMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabSocketResMessage;
-import com.baidu.tieba.qb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import tbclient.User;
 /* loaded from: classes5.dex */
@@ -31,16 +30,16 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public long a;
     public boolean b;
     public b c;
-    public final List d;
+    public final List<ThreadData> d;
     public long e;
     public User f;
     public MetaData g;
     public BdUniqueId h;
-    public final qb i;
+    public final pb i;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(List list, boolean z, boolean z2);
+        void a(List<ThreadData> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -66,7 +65,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterDynamicTabModel a;
@@ -93,15 +92,15 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
             this.a = personCenterDynamicTabModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.a.h) {
                 return;
             }
-            List list = null;
+            List<ThreadData> list = null;
             boolean z2 = false;
             if (responsedMessage instanceof PersonCenterDynamicTabHttpResMessage) {
                 PersonCenterDynamicTabHttpResMessage personCenterDynamicTabHttpResMessage = (PersonCenterDynamicTabHttpResMessage) responsedMessage;
@@ -125,7 +124,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                 this.a.b = z;
                 if (this.a.c != null) {
                     b bVar = this.a.c;
-                    List list2 = this.a.d;
+                    List<ThreadData> list2 = this.a.d;
                     boolean z3 = this.a.b;
                     if (this.a.a == 0) {
                         z2 = true;
@@ -238,12 +237,10 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         }
     }
 
-    public final void K(List list) {
+    public final void K(List<ThreadData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && this.f != null && !ListUtils.isEmpty(list)) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                ThreadData threadData = (ThreadData) it.next();
+            for (ThreadData threadData : list) {
                 if (threadData.getAuthor() != null) {
                     threadData.getAuthor().getNewGodData().parserProtobuf(this.f.new_god_data);
                     threadData.getAuthor().getBazhuGradeData().parserProtobuf(this.f.bazhu_grade);

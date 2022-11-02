@@ -2,10 +2,12 @@ package com.baidu.platform.core.busline;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.busline.BusLineResult;
 import com.baidu.mapapi.search.busline.OnGetBusLineSearchResultListener;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.platform.base.d;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +57,13 @@ public class a extends d {
                             return busLineResult;
                         } else if (optJSONObject.has("httpStateError")) {
                             String optString = optJSONObject.optString("httpStateError");
-                            busLineResult.error = optString.equals("NETWORK_ERROR") ? SearchResult.ERRORNO.NETWORK_ERROR : optString.equals("REQUEST_ERROR") ? SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+                            if (optString.equals("NETWORK_ERROR")) {
+                                busLineResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
+                            } else if (optString.equals("REQUEST_ERROR")) {
+                                busLineResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
+                            } else {
+                                busLineResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+                            }
                             return busLineResult;
                         }
                     }
@@ -64,6 +72,8 @@ public class a extends d {
                     }
                     return busLineResult;
                 } catch (Exception unused) {
+                    busLineResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                    return busLineResult;
                 }
             }
             busLineResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -82,34 +92,41 @@ public class a extends d {
 
     public boolean a(String str, BusLineResult busLineResult) {
         InterceptResult invokeLL;
+        JSONArray optJSONArray;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, busLineResult)) == null) {
             if (str != null && !"".equals(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
-                    JSONArray optJSONArray = jSONObject.optJSONArray("content");
-                    if (optJSONObject == null || optJSONArray == null || optJSONArray.length() <= 0) {
+                    JSONObject optJSONObject2 = jSONObject.optJSONObject("bsl");
+                    if (optJSONObject == null || optJSONObject2 == null || (optJSONArray = optJSONObject2.optJSONArray("content")) == null || optJSONArray.length() <= 0) {
                         return false;
                     }
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(0);
+                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(0);
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
                     try {
-                        busLineResult.setStartTime(simpleDateFormat.parse(optJSONObject2.optString(FetchLog.START_TIME)));
-                        busLineResult.setEndTime(simpleDateFormat.parse(optJSONObject2.optString(FetchLog.END_TIME)));
+                        busLineResult.setStartTime(simpleDateFormat.parse(optJSONObject3.optString(FetchLog.START_TIME)));
+                        busLineResult.setEndTime(simpleDateFormat.parse(optJSONObject3.optString(FetchLog.END_TIME)));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    busLineResult.setBusLineName(optJSONObject2.optString("name"));
-                    busLineResult.setMonthTicket(optJSONObject2.optInt("isMonTicket") == 1);
-                    busLineResult.setUid(optJSONObject2.optString("uid"));
-                    busLineResult.setBasePrice(optJSONObject2.optInt("ticketPrice") / 100.0f);
-                    busLineResult.setLineDirection(optJSONObject2.optString("line_direction"));
-                    busLineResult.setMaxPrice(optJSONObject2.optInt("maxPrice") / 100.0f);
+                    busLineResult.setBusLineName(optJSONObject3.optString("name"));
+                    if (optJSONObject3.optInt("isMonTicket") == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    busLineResult.setMonthTicket(z);
+                    busLineResult.setUid(optJSONObject3.optString("uid"));
+                    busLineResult.setBasePrice(optJSONObject3.optInt("ticketPrice") / 100.0f);
+                    busLineResult.setLineDirection(optJSONObject3.optString("line_direction"));
+                    busLineResult.setMaxPrice(optJSONObject3.optInt("maxPrice") / 100.0f);
                     ArrayList arrayList = new ArrayList();
-                    List<List> decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString("geo"));
+                    List<List<LatLng>> decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject3.optString(MapBundleKey.MapObjKey.OBJ_GEO));
                     if (decodeLocationList2D != null) {
-                        for (List list : decodeLocationList2D) {
+                        for (List<LatLng> list : decodeLocationList2D) {
                             BusLineResult.BusStep busStep = new BusLineResult.BusStep();
                             busStep.setWayPoints(list);
                             arrayList.add(busStep);
@@ -118,16 +135,16 @@ public class a extends d {
                     if (arrayList.size() > 0) {
                         busLineResult.setSteps(arrayList);
                     }
-                    JSONArray optJSONArray2 = optJSONObject2.optJSONArray("stations");
+                    JSONArray optJSONArray2 = optJSONObject3.optJSONArray("stations");
                     if (optJSONArray2 != null) {
                         ArrayList arrayList2 = new ArrayList();
                         for (int i = 0; i < optJSONArray2.length(); i++) {
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i);
-                            if (optJSONObject3 != null) {
+                            JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i);
+                            if (optJSONObject4 != null) {
                                 BusLineResult.BusStation busStation = new BusLineResult.BusStation();
-                                busStation.setTitle(optJSONObject3.optString("name"));
-                                busStation.setLocation(CoordUtil.decodeLocation(optJSONObject3.optString("geo")));
-                                busStation.setUid(optJSONObject3.optString("uid"));
+                                busStation.setTitle(optJSONObject4.optString("name"));
+                                busStation.setLocation(CoordUtil.decodeLocation(optJSONObject4.optString(MapBundleKey.MapObjKey.OBJ_GEO)));
+                                busStation.setUid(optJSONObject4.optString("uid"));
                                 arrayList2.add(busStation);
                             }
                         }

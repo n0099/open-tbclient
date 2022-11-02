@@ -1,5 +1,6 @@
 package androidx.room;
 
+import androidx.annotation.RestrictTo;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public abstract class EntityDeletionOrUpdateAdapter<T> extends SharedSQLiteStatement {
     public static /* synthetic */ Interceptable $ic;

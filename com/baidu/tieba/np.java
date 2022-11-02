@@ -1,29 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.HttpDnsClient;
-import com.baidu.tieba.mp;
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class np implements HttpDnsClient.b {
+public abstract class np extends rs<TaskBuoyViewData, TaskBuoyViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mp a;
-    public final BDHttpDns b;
-    public final BDHttpDns.CachePolicy c;
-    public final HttpDnsClient d;
+    public TaskBuoyViewModel a;
+    public final us b;
 
-    public np(Context context) {
+    /* loaded from: classes5.dex */
+    public static final class a implements us {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ np a;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(np npVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {npVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = npVar;
+        }
+
+        @Override // com.baidu.tieba.us
+        public void a() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            zs<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                tp.a.b(k.getUiConfig().h(), c, k.getTaskStatus());
+            }
+        }
+
+        @Override // com.baidu.tieba.us
+        public void b() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            zs<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                tp.a.a(k.getUiConfig().h(), c, k.getTaskStatus());
+            }
+        }
+    }
+
+    public np() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,45 +82,23 @@ public class np implements HttpDnsClient.b {
                 return;
             }
         }
-        BDHttpDns h = BDHttpDns.h(context);
-        this.b = h;
-        this.a = h.e();
-        this.c = this.b.c();
-        this.d = this.b.f();
+        this.b = new a(this);
     }
 
-    @Override // com.baidu.bdhttpdns.HttpDnsClient.b
-    public void a(int i, HttpDnsClient.RequestParamType requestParamType, Map map, String str) {
+    public us c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), requestParamType, map, str}) == null) {
-            if (i != -1) {
-                if (i != 0) {
-                    op.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
-                } else {
-                    for (Map.Entry entry : map.entrySet()) {
-                        String str2 = (String) entry.getKey();
-                        HttpDnsClient.e eVar = (HttpDnsClient.e) entry.getValue();
-                        if (eVar != null) {
-                            mp.a aVar = new mp.a();
-                            aVar.i(eVar.c());
-                            aVar.h(System.currentTimeMillis() / 1000);
-                            aVar.f(eVar.a());
-                            aVar.g(eVar.b());
-                            this.a.e(str2, aVar);
-                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                            this.a.d(str2);
-                        }
-                    }
-                }
-            } else if (requestParamType.equals(HttpDnsClient.RequestParamType.DNLIST_HOSTS) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                for (String str3 : str.split(",")) {
-                    this.a.d(str3);
-                }
-            }
-            if (this.b.g() > 0 && !this.d.C()) {
-                this.d.M(true);
-                op.a("preResolve has finished", new Object[0]);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (us) invokeV.objValue;
+    }
+
+    @CallSuper
+    public void d(TaskBuoyViewModel taskBuoyViewModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskBuoyViewModel) == null) {
+            this.a = taskBuoyViewModel;
         }
     }
 }

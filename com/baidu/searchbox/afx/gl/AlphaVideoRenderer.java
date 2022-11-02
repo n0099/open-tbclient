@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.gl;
 
+import android.annotation.SuppressLint;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
@@ -100,6 +101,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void checkGlError(String str) {
         int glGetError;
         Interceptable interceptable = $ic;
@@ -274,6 +276,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     }
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
+    @SuppressLint({"BDThrowableCheck"})
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, gl10, eGLConfig) == null) {

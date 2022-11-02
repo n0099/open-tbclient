@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.util.DisplayMetrics;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +19,9 @@ public class PagerSnapHelper extends SnapHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SCROLL_ON_FLING_DURATION = 100;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public OrientationHelper mHorizontalHelper;
+    @Nullable
     public OrientationHelper mVerticalHelper;
 
     public PagerSnapHelper() {
@@ -34,7 +38,7 @@ public class PagerSnapHelper extends SnapHelper {
         }
     }
 
-    private int distanceToCenter(RecyclerView.LayoutManager layoutManager, View view2, OrientationHelper orientationHelper) {
+    private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, OrientationHelper orientationHelper) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, layoutManager, view2, orientationHelper)) == null) {
@@ -61,6 +65,7 @@ public class PagerSnapHelper extends SnapHelper {
         return invokeLII.booleanValue;
     }
 
+    @Nullable
     private View findCenterView(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -85,7 +90,8 @@ public class PagerSnapHelper extends SnapHelper {
         return (View) invokeLL.objValue;
     }
 
-    private OrientationHelper getHorizontalHelper(RecyclerView.LayoutManager layoutManager) {
+    @NonNull
+    private OrientationHelper getHorizontalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, layoutManager)) == null) {
@@ -98,6 +104,7 @@ public class PagerSnapHelper extends SnapHelper {
         return (OrientationHelper) invokeL.objValue;
     }
 
+    @Nullable
     private OrientationHelper getOrientationHelper(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -113,7 +120,8 @@ public class PagerSnapHelper extends SnapHelper {
         return (OrientationHelper) invokeL.objValue;
     }
 
-    private OrientationHelper getVerticalHelper(RecyclerView.LayoutManager layoutManager) {
+    @NonNull
+    private OrientationHelper getVerticalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, layoutManager)) == null) {
@@ -217,6 +225,7 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
+    @Nullable
     public View findSnapView(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -233,7 +242,8 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
-    public int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View view2) {
+    @Nullable
+    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutManager, view2)) == null) {

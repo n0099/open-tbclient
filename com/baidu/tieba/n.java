@@ -3,9 +3,9 @@ package com.baidu.tieba;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudbase.download.exception.DownloadException;
+import com.baidu.tieba.b10;
 import com.baidu.tieba.e;
 import com.baidu.tieba.f;
-import com.baidu.tieba.g10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,26 +17,26 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class n implements g10, e.a, f.a {
+public class n implements b10, e.a, f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c10 a;
+    public x00 a;
     public h b;
     public Executor c;
     public String d;
     public q e;
-    public g10.a f;
+    public b10.a f;
     public int g;
     public j h;
     public e i;
-    public List j;
+    public List<f> j;
 
-    public n(c10 c10Var, h hVar, Executor executor, String str, q qVar, g10.a aVar) {
+    public n(x00 x00Var, h hVar, Executor executor, String str, q qVar, b10.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c10Var, hVar, executor, str, qVar, aVar};
+            Object[] objArr = {x00Var, hVar, executor, str, qVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,13 +46,13 @@ public class n implements g10, e.a, f.a {
                 return;
             }
         }
-        this.a = c10Var;
+        this.a = x00Var;
         this.b = hVar;
         this.c = executor;
         this.d = str;
         this.e = qVar;
         this.f = aVar;
-        this.h = new j(c10Var.b().toString(), this.a.c(), this.a.a());
+        this.h = new j(x00Var.b().toString(), this.a.c(), this.a.a());
         this.j = new LinkedList();
     }
 
@@ -86,7 +86,7 @@ public class n implements g10, e.a, f.a {
         }
     }
 
-    @Override // com.baidu.tieba.g10
+    @Override // com.baidu.tieba.b10
     public boolean isRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class n implements g10, e.a, f.a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Iterator it = this.j.iterator();
+            Iterator<f> it = this.j.iterator();
             while (true) {
                 z = false;
                 boolean z2 = true;
@@ -174,7 +174,7 @@ public class n implements g10, e.a, f.a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, downloadException) == null) {
-            Iterator it = this.j.iterator();
+            Iterator<f> it = this.j.iterator();
             while (true) {
                 if (it.hasNext()) {
                     if (((p) it.next()).m()) {
@@ -197,7 +197,7 @@ public class n implements g10, e.a, f.a {
         }
     }
 
-    @Override // com.baidu.tieba.g10
+    @Override // com.baidu.tieba.b10
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -205,8 +205,9 @@ public class n implements g10, e.a, f.a {
             if (eVar != null) {
                 ((i) eVar).c = 107;
             }
-            for (p pVar : this.j) {
-                pVar.f = 107;
+            Iterator<f> it = this.j.iterator();
+            while (it.hasNext()) {
+                ((p) it.next()).f = 107;
             }
             if (this.g != 104) {
                 g();
@@ -218,7 +219,7 @@ public class n implements g10, e.a, f.a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Iterator it = this.j.iterator();
+            Iterator<f> it = this.j.iterator();
             while (true) {
                 if (it.hasNext()) {
                     if (((p) it.next()).m()) {
@@ -245,7 +246,7 @@ public class n implements g10, e.a, f.a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Iterator it = this.j.iterator();
+            Iterator<f> it = this.j.iterator();
             while (true) {
                 if (it.hasNext()) {
                     if (((p) it.next()).m()) {
@@ -267,7 +268,7 @@ public class n implements g10, e.a, f.a {
         }
     }
 
-    @Override // com.baidu.tieba.g10
+    @Override // com.baidu.tieba.b10
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -275,8 +276,9 @@ public class n implements g10, e.a, f.a {
             if (eVar != null) {
                 ((i) eVar).c = 106;
             }
-            for (p pVar : this.j) {
-                pVar.f = 106;
+            Iterator<f> it = this.j.iterator();
+            while (it.hasNext()) {
+                ((p) it.next()).f = 106;
             }
             if (this.g != 104) {
                 h();
@@ -284,7 +286,7 @@ public class n implements g10, e.a, f.a {
         }
     }
 
-    @Override // com.baidu.tieba.g10
+    @Override // com.baidu.tieba.b10
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

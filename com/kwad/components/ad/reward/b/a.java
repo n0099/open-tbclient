@@ -1,6 +1,8 @@
 package com.kwad.components.ad.reward.b;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,10 +22,11 @@ public class a {
     public static volatile a oE;
     public transient /* synthetic */ FieldHolder $fh;
     public k nM;
+    @Nullable
     public b oF;
     public volatile boolean oG;
     public volatile boolean oH;
-    public List oI;
+    public List<WeakReference<com.kwad.components.core.webview.jshandler.a>> oI;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -92,7 +95,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             com.kwad.sdk.core.e.b.d("CurrentExtraRewardHolder", "addGetNativeHandler: " + aVar);
             if (aVar != null) {
-                this.oI.add(new WeakReference(aVar));
+                this.oI.add(new WeakReference<>(aVar));
             }
         }
     }
@@ -111,13 +114,13 @@ public class a {
                     c.a(this.oF, KSRewardVideoActivityProxy.a.E(adTemplate.getUniqueId()));
                     com.kwad.sdk.core.report.a.aF(adTemplate);
                 }
-                for (WeakReference weakReference : this.oI) {
+                for (WeakReference<com.kwad.components.core.webview.jshandler.a> weakReference : this.oI) {
                     if (weakReference.get() == null) {
                         this.oI.remove(weakReference);
                     } else {
                         b gq = gq();
                         com.kwad.sdk.core.e.b.d("CurrentExtraRewardHolder", "GetNativeDataHandler callback: " + gq.toJson().toString());
-                        ((com.kwad.components.core.webview.jshandler.a) weakReference.get()).a(gq);
+                        weakReference.get().a(gq);
                     }
                 }
             }
@@ -140,6 +143,7 @@ public class a {
         }
     }
 
+    @NonNull
     public final synchronized b gq() {
         InterceptResult invokeV;
         b bVar;

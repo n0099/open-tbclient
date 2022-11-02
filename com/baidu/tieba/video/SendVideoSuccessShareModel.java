@@ -36,7 +36,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
+    public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public OriginalThreadInfo threadInfo;

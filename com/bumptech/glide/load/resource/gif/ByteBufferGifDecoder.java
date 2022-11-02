@@ -3,6 +3,9 @@ package com.bumptech.glide.load.resource.gif;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -33,7 +36,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
 /* loaded from: classes7.dex */
-public class ByteBufferGifDecoder implements ResourceDecoder {
+public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final GifDecoderFactory GIF_DECODER_FACTORY;
     public static final GifHeaderParserPool PARSER_POOL;
@@ -42,11 +45,12 @@ public class ByteBufferGifDecoder implements ResourceDecoder {
     public final Context context;
     public final GifDecoderFactory gifDecoderFactory;
     public final GifHeaderParserPool parserPool;
-    public final List parsers;
+    public final List<ImageHeaderParser> parsers;
     public final GifBitmapProvider provider;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class GifDecoderFactory {
+    public static class GifDecoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,11 +78,12 @@ public class ByteBufferGifDecoder implements ResourceDecoder {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class GifHeaderParserPool {
+    public static class GifHeaderParserPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue pool;
+        public final Queue<GifHeaderParser> pool;
 
         public GifHeaderParserPool() {
             Interceptable interceptable = $ic;
@@ -102,11 +107,11 @@ public class ByteBufferGifDecoder implements ResourceDecoder {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
                 synchronized (this) {
-                    GifHeaderParser gifHeaderParser = (GifHeaderParser) this.pool.poll();
-                    if (gifHeaderParser == null) {
-                        gifHeaderParser = new GifHeaderParser();
+                    GifHeaderParser poll = this.pool.poll();
+                    if (poll == null) {
+                        poll = new GifHeaderParser();
                     }
-                    data = gifHeaderParser.setData(byteBuffer);
+                    data = poll.setData(byteBuffer);
                 }
                 return data;
             }
@@ -163,7 +168,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ByteBufferGifDecoder(Context context, List list, BitmapPool bitmapPool, ArrayPool arrayPool) {
+    public ByteBufferGifDecoder(Context context, List<ImageHeaderParser> list, BitmapPool bitmapPool, ArrayPool arrayPool) {
         this(context, list, bitmapPool, arrayPool, PARSER_POOL, GIF_DECODER_FACTORY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -183,7 +188,8 @@ public class ByteBufferGifDecoder implements ResourceDecoder {
         }
     }
 
-    public ByteBufferGifDecoder(Context context, List list, BitmapPool bitmapPool, ArrayPool arrayPool, GifHeaderParserPool gifHeaderParserPool, GifDecoderFactory gifDecoderFactory) {
+    @VisibleForTesting
+    public ByteBufferGifDecoder(Context context, List<ImageHeaderParser> list, BitmapPool bitmapPool, ArrayPool arrayPool, GifHeaderParserPool gifHeaderParserPool, GifDecoderFactory gifDecoderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,6 +212,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
+    @Nullable
     private GifDrawableResource decode(ByteBuffer byteBuffer, int i, int i2, GifHeaderParser gifHeaderParser, Options options) {
         InterceptResult invokeCommon;
         Bitmap.Config config;
@@ -268,7 +275,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public GifDrawableResource decode(ByteBuffer byteBuffer, int i, int i2, Options options) {
+    public GifDrawableResource decode(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
@@ -284,7 +291,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(ByteBuffer byteBuffer, Options options) throws IOException {
+    public boolean handles(@NonNull ByteBuffer byteBuffer, @NonNull Options options) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, byteBuffer, options)) == null) {

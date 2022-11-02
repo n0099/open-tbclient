@@ -63,11 +63,11 @@ public interface IPlayer {
 
     void seekToForce(long j);
 
-    void setAudioDataSource(List list);
+    void setAudioDataSource(List<AudioPlayData> list);
 
     void setDataSource(String str) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
 
-    void setDataSource(List list);
+    void setDataSource(List<VideoPlayData> list);
 
     void setLooping(boolean z);
 

@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,13 +39,13 @@ import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tbadk.core.view.commonMountCard.TbMountCardLinkLayout;
 import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ep4;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.dx7;
+import com.baidu.tieba.h46;
+import com.baidu.tieba.mz4;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
-import com.baidu.tieba.uv7;
-import com.baidu.tieba.wy4;
-import com.baidu.tieba.x26;
+import com.baidu.tieba.vp4;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +69,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
     public int j;
     public int k;
     public int l;
-    public List m;
+    public List<h46> m;
     public int n;
     public int o;
     public boolean p;
@@ -113,13 +114,13 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     PbLinkGoodsRootView pbLinkGoodsRootView = this.b.a;
-                    pbLinkGoodsRootView.p((x26) pbLinkGoodsRootView.m.get(this.a));
+                    pbLinkGoodsRootView.p((h46) pbLinkGoodsRootView.m.get(this.a));
                 }
             }
         }
 
         /* loaded from: classes5.dex */
-        public class b implements wy4 {
+        public class b implements mz4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -144,7 +145,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 this.a = i;
             }
 
-            @Override // com.baidu.tieba.wy4
+            @Override // com.baidu.tieba.mz4
             public void a(String str) {
                 CardLinkInfoData cardLinkInfoData;
                 Interceptable interceptable = $ic;
@@ -192,12 +193,12 @@ public class PbLinkGoodsRootView extends RelativeLayout {
 
         /* renamed from: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView$d$d  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0368d implements View.OnClickListener {
+        public class View$OnClickListenerC0388d implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
 
-            public View$OnClickListenerC0368d(d dVar) {
+            public View$OnClickListenerC0388d(d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -248,11 +249,11 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                x26 x26Var = (x26) this.a.m.get(i);
-                if (x26Var instanceof CardLinkInfoData) {
+                h46 h46Var = (h46) this.a.m.get(i);
+                if (h46Var instanceof CardLinkInfoData) {
                     return 3;
                 }
-                if (x26Var instanceof PbGoodsData) {
+                if (h46Var instanceof PbGoodsData) {
                     return 2;
                 }
                 return 1;
@@ -265,12 +266,12 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             if ((interceptable != null && interceptable.invokeLI(1048576, this, view2, i) != null) || view2 == null) {
                 return;
             }
-            if (this.a.m != null && this.a.q != null && !this.a.q.E5() && i == 2 && this.a.m.size() > 3) {
+            if (this.a.m != null && this.a.q != null && !this.a.q.r5() && i == 2 && this.a.m.size() > 3) {
                 view2.setOnClickListener(new c(this));
                 view2.setVisibility(0);
                 TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(view2);
             } else if (this.a.r != null && this.a.m != null && !this.a.r.N3() && i == 2 && this.a.m.size() > 3) {
-                view2.setOnClickListener(new View$OnClickListenerC0368d(this));
+                view2.setOnClickListener(new View$OnClickListenerC0388d(this));
                 view2.setVisibility(0);
                 TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(view2);
             } else {
@@ -289,7 +290,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) {
                 View view2 = null;
@@ -297,7 +298,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                     b bVar = (b) viewHolder;
                     if (i < this.a.m.size() && this.a.m.get(i) != null) {
                         View view3 = bVar.b;
-                        bVar.a.a((x26) this.a.m.get(i));
+                        bVar.a.a((h46) this.a.m.get(i));
                         bVar.a.setOnClickListener(new a(this, i));
                         if ((this.a.m.get(i) instanceof PbLinkData) && this.a.m.get(i) != null) {
                             if (((PbLinkData) this.a.m.get(i)).urlType == 2) {
@@ -322,14 +323,15 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        @NonNull
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
                 if (i == 3) {
-                    return new c(this.a, LayoutInflater.from(this.a.f).inflate(R.layout.obfuscated_res_0x7f0d06d2, (ViewGroup) null));
+                    return new c(this.a, LayoutInflater.from(this.a.f).inflate(R.layout.obfuscated_res_0x7f0d06e7, (ViewGroup) null));
                 }
-                return new b(this.a, LayoutInflater.from(this.a.f).inflate(R.layout.obfuscated_res_0x7f0d06d0, (ViewGroup) null));
+                return new b(this.a, LayoutInflater.from(this.a.f).inflate(R.layout.obfuscated_res_0x7f0d06e5, (ViewGroup) null));
             }
             return (RecyclerView.ViewHolder) invokeLI.objValue;
         }
@@ -396,8 +398,8 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 }
             }
             this.c = pbLinkGoodsRootView;
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0914b9);
-            this.a = (SingleLinkCardView) view2.findViewById(R.id.obfuscated_res_0x7f091828);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0914f8);
+            this.a = (SingleLinkCardView) view2.findViewById(R.id.obfuscated_res_0x7f09186b);
         }
     }
 
@@ -428,8 +430,8 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 }
             }
             this.c = pbLinkGoodsRootView;
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0914b9);
-            this.a = (TbMountCardLinkLayout) view2.findViewById(R.id.obfuscated_res_0x7f091824);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0914f8);
+            this.a = (TbMountCardLinkLayout) view2.findViewById(R.id.obfuscated_res_0x7f091867);
         }
     }
 
@@ -498,19 +500,19 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         this.n = 3;
         this.p = false;
         this.f = context;
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d1, this);
-        BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09182e);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e6, this);
+        BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091871);
         this.g = bdRecyclerView;
         bdRecyclerView.setNestedScrollingEnabled(false);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091838);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d9);
-        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5b);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fea);
-        this.e = (ThreadForumEnterGoodsButton) findViewById(R.id.obfuscated_res_0x7f09187c);
-        this.i = fj.f(this.f, R.dimen.tbds14);
-        this.j = fj.f(this.f, R.dimen.tbds44);
-        this.k = fj.f(this.f, R.dimen.tbds36);
-        this.l = fj.f(this.f, R.dimen.tbds22);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09187b);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09242e);
+        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ca3);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091023);
+        this.e = (ThreadForumEnterGoodsButton) findViewById(R.id.obfuscated_res_0x7f0918bf);
+        this.i = xi.g(this.f, R.dimen.tbds14);
+        this.j = xi.g(this.f, R.dimen.tbds44);
+        this.k = xi.g(this.f, R.dimen.tbds36);
+        this.l = xi.g(this.f, R.dimen.tbds22);
         this.a = new d(this);
         this.g.setLayoutManager(new LinearLayoutManager(this.f));
         this.g.setAdapter(this.a);
@@ -528,23 +530,23 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void i(uv7 uv7Var, List list, String str, PbFragment pbFragment, boolean z) {
+    public void i(dx7 dx7Var, List<h46> list, String str, PbFragment pbFragment, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{uv7Var, list, str, pbFragment, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dx7Var, list, str, pbFragment, Boolean.valueOf(z)}) == null) {
             this.q = pbFragment;
-            k(uv7Var, list, str, z);
+            k(dx7Var, list, str, z);
             PbFragment pbFragment2 = this.q;
             if (pbFragment2 != null) {
-                l(pbFragment2.E5());
+                l(pbFragment2.r5());
             }
         }
     }
 
-    public void j(uv7 uv7Var, List list, String str, AbsVideoPbFragment absVideoPbFragment, boolean z) {
+    public void j(dx7 dx7Var, List<h46> list, String str, AbsVideoPbFragment absVideoPbFragment, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{uv7Var, list, str, absVideoPbFragment, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dx7Var, list, str, absVideoPbFragment, Boolean.valueOf(z)}) == null) {
             this.r = absVideoPbFragment;
-            k(uv7Var, list, str, z);
+            k(dx7Var, list, str, z);
             AbsVideoPbFragment absVideoPbFragment2 = this.r;
             if (absVideoPbFragment2 != null) {
                 l(absVideoPbFragment2.N3());
@@ -552,14 +554,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void k(uv7 uv7Var, List list, String str, boolean z) {
+    public void k(dx7 dx7Var, List<h46> list, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{uv7Var, list, str, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dx7Var, list, str, Boolean.valueOf(z)}) == null) {
             this.m = list;
-            ThreadData P = uv7Var.P();
-            this.s = P;
-            P.setForum_name(uv7Var.n());
-            this.s.setFid(Long.valueOf(uv7Var.m()).longValue());
+            ThreadData Q = dx7Var.Q();
+            this.s = Q;
+            Q.setForum_name(dx7Var.n());
+            this.s.setFid(Long.valueOf(dx7Var.m()).longValue());
             this.p = z;
             this.n = list.size();
             if (list.size() < 4) {
@@ -590,13 +592,13 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 TextView textView = this.b;
                 if (this.p) {
                     resources2 = getResources();
-                    i2 = R.string.obfuscated_res_0x7f0f0df6;
+                    i2 = R.string.obfuscated_res_0x7f0f0e0d;
                 } else {
                     resources2 = getResources();
-                    i2 = R.string.obfuscated_res_0x7f0f0df8;
+                    i2 = R.string.obfuscated_res_0x7f0f0e0f;
                 }
                 textView.setText(resources2.getString(i2));
-                this.o = R.drawable.obfuscated_res_0x7f080951;
+                this.o = R.drawable.obfuscated_res_0x7f080968;
             } else {
                 if (this.n > 3) {
                     this.n = 3;
@@ -604,10 +606,10 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 TextView textView2 = this.b;
                 if (this.p) {
                     resources = getResources();
-                    i = R.string.obfuscated_res_0x7f0f0df7;
+                    i = R.string.obfuscated_res_0x7f0f0e0e;
                 } else {
                     resources = getResources();
-                    i = R.string.obfuscated_res_0x7f0f0df9;
+                    i = R.string.obfuscated_res_0x7f0f0e10;
                 }
                 textView2.setText(resources.getString(i));
                 this.o = R.drawable.icon_pure_unfold12_svg;
@@ -624,12 +626,12 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             PbFragment pbFragment = this.q;
             if (pbFragment != null) {
-                if (pbFragment.E5()) {
-                    this.q.e7(false);
+                if (pbFragment.r5()) {
+                    this.q.G6(false);
                     l(false);
                     return;
                 }
-                this.q.e7(true);
+                this.q.G6(true);
                 l(true);
                 n();
                 return;
@@ -662,11 +664,11 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public final void p(x26 x26Var) {
+    public final void p(h46 h46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, x26Var) == null) {
-            if (x26Var instanceof PbLinkData) {
-                PbLinkData pbLinkData = (PbLinkData) x26Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, h46Var) == null) {
+            if (h46Var instanceof PbLinkData) {
+                PbLinkData pbLinkData = (PbLinkData) h46Var;
                 if (pbLinkData == null) {
                     return;
                 }
@@ -675,15 +677,15 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                     UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{pbLinkData.linkUrl});
                 } else {
                     UrlManager urlManager = UrlManager.getInstance();
-                    TbPageContext pageContext = tbPageContextSupport.getPageContext();
-                    urlManager.dealOneLink(pageContext, new String[]{ep4.a + ej.getUrlEncode(pbLinkData.linkUrl)});
+                    TbPageContext<?> pageContext = tbPageContextSupport.getPageContext();
+                    urlManager.dealOneLink(pageContext, new String[]{vp4.a + wi.getUrlEncode(pbLinkData.linkUrl)});
                 }
                 if (pbLinkData.urlType == 2) {
                     o("c13962", 1);
                 }
-            } else if (x26Var instanceof PbGoodsData) {
+            } else if (h46Var instanceof PbGoodsData) {
                 TbPageContextSupport tbPageContextSupport2 = (TbPageContextSupport) this.f;
-                PbGoodsData pbGoodsData = (PbGoodsData) x26Var;
+                PbGoodsData pbGoodsData = (PbGoodsData) h46Var;
                 if (pbGoodsData == null) {
                     return;
                 }
@@ -699,14 +701,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                             UrlManager.getInstance().dealOneLink(tbPageContextSupport2.getPageContext(), new String[]{UrlSchemaHelper.replaceSwanBaiduboxapp2Tiebaclient(pbGoodsData.linkUrl)});
                         } else if (!TextUtils.isEmpty(pbGoodsData.goodsUrlH5)) {
                             UrlManager urlManager2 = UrlManager.getInstance();
-                            TbPageContext pageContext2 = tbPageContextSupport2.getPageContext();
-                            urlManager2.dealOneLink(pageContext2, new String[]{ep4.a + ej.getUrlEncode(pbGoodsData.goodsUrlH5)});
+                            TbPageContext<?> pageContext2 = tbPageContextSupport2.getPageContext();
+                            urlManager2.dealOneLink(pageContext2, new String[]{vp4.a + wi.getUrlEncode(pbGoodsData.goodsUrlH5)});
                         }
                     }
                 } else {
                     UrlManager urlManager3 = UrlManager.getInstance();
-                    TbPageContext pageContext3 = tbPageContextSupport2.getPageContext();
-                    urlManager3.dealOneLink(pageContext3, new String[]{ep4.a + ej.getUrlEncode(pbGoodsData.goodsUrlH5)});
+                    TbPageContext<?> pageContext3 = tbPageContextSupport2.getPageContext();
+                    urlManager3.dealOneLink(pageContext3, new String[]{vp4.a + wi.getUrlEncode(pbGoodsData.goodsUrlH5)});
                 }
                 o("c13962", 2);
             }

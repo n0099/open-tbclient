@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import androidx.annotation.RestrictTo;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.internal.view.SupportSubMenu;
 import androidx.core.view.InputDeviceCompat;
@@ -14,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     public static /* synthetic */ Interceptable $ic;

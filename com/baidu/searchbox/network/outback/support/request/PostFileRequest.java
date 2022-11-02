@@ -1,6 +1,7 @@
 package com.baidu.searchbox.network.outback.support.request;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
@@ -20,13 +21,13 @@ public class PostFileRequest extends Request {
 
     /* renamed from: com.baidu.searchbox.network.outback.support.request.PostFileRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class PostFileRequestBuilder extends Request.Builder {
+    public static class PostFileRequestBuilder extends Request.Builder<PostFileRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public static final MediaType MEDIA_TYPE_STREAM;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +71,7 @@ public class PostFileRequest extends Request {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PostFileRequestBuilder(Map map) {
+        public PostFileRequestBuilder(Map<String, CallFactory> map) {
             super(map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -104,7 +105,7 @@ public class PostFileRequest extends Request {
                 } else {
                     create = RequestBody.create((MediaType) null, new byte[0]);
                 }
-                return new PostFileRequest((PostFileRequestBuilder) post(create), null);
+                return new PostFileRequest(post(create), null);
             }
             return (PostFileRequest) invokeV.objValue;
         }

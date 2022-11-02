@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class SelectedLocationInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS = "address";
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SelectedLocationInfo> CREATOR;
     public static final String LATITUDE = "latitude";
     public static final String LOCATION_KEY = "SelectedLocationInfo";
     public static final String LONGITUDE = "longitude";
@@ -40,7 +40,7 @@ public class SelectedLocationInfo implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<SelectedLocationInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

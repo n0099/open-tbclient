@@ -18,16 +18,16 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ForEachWhileSubscriber extends AtomicReference implements FlowableSubscriber, Disposable {
+public final class ForEachWhileSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4403180040475402120L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean done;
     public final Action onComplete;
-    public final Consumer onError;
-    public final Predicate onNext;
+    public final Consumer<? super Throwable> onError;
+    public final Predicate<? super T> onNext;
 
-    public ForEachWhileSubscriber(Predicate predicate, Consumer consumer, Action action) {
+    public ForEachWhileSubscriber(Predicate<? super T> predicate, Consumer<? super Throwable> consumer, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public final class ForEachWhileSubscriber extends AtomicReference implements Flo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return SubscriptionHelper.isCancelled((Subscription) get());
+            return SubscriptionHelper.isCancelled(get());
         }
         return invokeV.booleanValue;
     }
@@ -99,13 +99,13 @@ public final class ForEachWhileSubscriber extends AtomicReference implements Flo
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
             return;
         }
         try {
-            if (!this.onNext.test(obj)) {
+            if (!this.onNext.test(t)) {
                 dispose();
                 onComplete();
             }

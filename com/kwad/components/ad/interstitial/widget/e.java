@@ -5,6 +5,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -38,10 +40,11 @@ public final class e extends b {
     public ViewGroup iB;
     public com.kwad.components.ad.interstitial.b.b iz;
     public AdInfo mAdInfo;
+    @NonNull
     public AdTemplate mAdTemplate;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public e(Context context) {
+    public e(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,7 +65,7 @@ public final class e extends b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(Context context, AttributeSet attributeSet) {
+    public e(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -156,7 +159,7 @@ public final class e extends b {
             cVar.mApkDownloadHelper = new com.kwad.components.core.c.a.c(adTemplate);
             cVar.cN = this.cN;
             cVar.dp = new com.kwad.sdk.core.video.videoview.a(this.mContext);
-            KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f09107c);
+            KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f0910b6);
             cVar.gq = kSFrameLayout;
             com.kwad.components.ad.interstitial.c.b bVar = new com.kwad.components.ad.interstitial.c.b(kSFrameLayout, 100);
             cVar.gt = bVar;
@@ -172,7 +175,7 @@ public final class e extends b {
     }
 
     @Override // com.kwad.components.ad.interstitial.widget.b
-    public final void a(AdTemplate adTemplate, Dialog dialog, KsAdVideoPlayConfig ksAdVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
+    public final void a(@NonNull AdTemplate adTemplate, Dialog dialog, @NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, adTemplate, dialog, ksAdVideoPlayConfig, adInteractionListener) == null) {
             this.mAdTemplate = adTemplate;
@@ -207,6 +210,7 @@ public final class e extends b {
         }
     }
 
+    @NonNull
     public final com.kwad.components.ad.interstitial.b.b dV() {
         InterceptResult invokeV;
         Presenter gVar;
@@ -258,7 +262,7 @@ public final class e extends b {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d042f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d043a : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View

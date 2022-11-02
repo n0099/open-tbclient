@@ -4,6 +4,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@VisibleForTesting
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class NumberUtils {
     public static /* synthetic */ Interceptable $ic;

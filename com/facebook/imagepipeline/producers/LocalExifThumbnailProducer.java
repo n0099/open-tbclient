@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.memory.PooledByteBufferFactory;
@@ -26,6 +27,7 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imageutils.BitmapUtil;
 import com.facebook.imageutils.JfifUtil;
+import com.facebook.soloader.DoNotOptimize;
 import com.google.android.gms.common.internal.ImagesContract;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -34,9 +36,10 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class LocalExifThumbnailProducer implements ThumbnailProducer {
+public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMON_EXIF_THUMBNAIL_MAX_DIMENSION = 512;
+    @VisibleForTesting
     public static final String CREATED_THUMBNAIL = "createdThumbnail";
     public static final String PRODUCER_NAME = "LocalExifThumbnailProducer";
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,6 +47,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer {
     public final Executor mExecutor;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
+    @DoNotOptimize
     /* loaded from: classes7.dex */
     public class Api24Utils {
         public static /* synthetic */ Interceptable $ic;
@@ -120,6 +124,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer {
         return invokeL.booleanValue;
     }
 
+    @VisibleForTesting
     public boolean canReadAsFile(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -142,7 +147,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, pooledByteBuffer, exifInterface)) == null) {
-            Pair decodeDimensions = BitmapUtil.decodeDimensions(new PooledByteBufferInputStream(pooledByteBuffer));
+            Pair<Integer, Integer> decodeDimensions = BitmapUtil.decodeDimensions(new PooledByteBufferInputStream(pooledByteBuffer));
             int rotationAngle = getRotationAngle(exifInterface);
             int i2 = -1;
             if (decodeDimensions != null) {
@@ -170,6 +175,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer {
         return (EncodedImage) invokeLL.objValue;
     }
 
+    @VisibleForTesting
     @Nullable
     public ExifInterface getExifInterface(Uri uri) {
         InterceptResult invokeL;
@@ -196,13 +202,13 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
             producerContext.putOriginExtra(ImagesContract.LOCAL, "exif");
-            StatefulProducerRunnable statefulProducerRunnable = new StatefulProducerRunnable(this, consumer, producerListener, producerContext, PRODUCER_NAME, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalExifThumbnailProducer.1
+            StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerListener, producerContext, PRODUCER_NAME, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalExifThumbnailProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LocalExifThumbnailProducer this$0;
@@ -242,7 +248,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable
-                public Map getExtraMapOnSuccess(EncodedImage encodedImage) {
+                public Map<String, String> getExtraMapOnSuccess(EncodedImage encodedImage) {
                     InterceptResult invokeL;
                     boolean z;
                     Interceptable interceptable2 = $ic;

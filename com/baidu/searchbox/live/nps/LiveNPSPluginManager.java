@@ -7,6 +7,8 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.manager.NPSManager;
@@ -56,133 +58,133 @@ public class LiveNPSPluginManager {
     public LiveYalogService yalogService;
 
     @Deprecated
-    public void checkArSdkLoadStatus(Context context, LiveNpsArStatusCallback liveNpsArStatusCallback) {
+    public void checkArSdkLoadStatus(@NonNull Context context, @NonNull LiveNpsArStatusCallback liveNpsArStatusCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, liveNpsArStatusCallback) == null) {
         }
     }
 
     @Deprecated
-    public void clearResourceFile(Context context) {
+    public void clearResourceFile(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
         }
     }
 
     @Deprecated
-    public void startAdminListActivity(Context context) {
+    public void startAdminListActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, context) == null) {
         }
     }
 
     @Deprecated
-    public void startArSdkLoad(Context context, LiveNpsArLoadCallback liveNpsArLoadCallback) {
+    public void startArSdkLoad(@NonNull Context context, @NonNull LiveNpsArLoadCallback liveNpsArLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, context, liveNpsArLoadCallback) == null) {
         }
     }
 
     @Deprecated
-    public void startFansListActivity(Context context, String str, int i) {
+    public void startFansListActivity(@NonNull Context context, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048606, this, context, str, i) == null) {
         }
     }
 
     @Deprecated
-    public void startForbiddenListActivity(Context context) {
+    public void startForbiddenListActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, context) == null) {
         }
     }
 
     @Deprecated
-    public void startGuardianListActivity(Context context, String str, String str2) {
+    public void startGuardianListActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048608, this, context, str, str2) == null) {
         }
     }
 
     @Deprecated
-    public void startLiveExpActivity(Context context, long j, int i) {
+    public void startLiveExpActivity(@NonNull Context context, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
         }
     }
 
     @Deprecated
-    public void startLiveShowActivity(Context context, String str) {
+    public void startLiveShowActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048611, this, context, str) == null) {
         }
     }
 
     @Deprecated
-    public void startMasterActivity(Context context, String str, String str2) {
+    public void startMasterActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048612, this, context, str, str2) == null) {
         }
     }
 
     @Deprecated
-    public void startMasterActivityV2(Context context, String str, String str2) {
+    public void startMasterActivityV2(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048613, this, context, str, str2) == null) {
         }
     }
 
     @Deprecated
-    public void startPatronageActivity(Context context) {
+    public void startPatronageActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, context) == null) {
         }
     }
 
     @Deprecated
-    public void startPatronsActivity(Context context, String str) {
+    public void startPatronsActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048615, this, context, str) == null) {
         }
     }
 
     @Deprecated
-    public void startPayActivity(Context context, String str) {
+    public void startPayActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048616, this, context, str) == null) {
         }
     }
 
     @Deprecated
-    public void startRealAuthActivity(Context context, String str, String str2) {
+    public void startRealAuthActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048617, this, context, str, str2) == null) {
         }
     }
 
     @Deprecated
-    public void startShowMasterActivity(Context context, String str) {
+    public void startShowMasterActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048618, this, context, str) == null) {
         }
     }
 
     @Deprecated
-    public void startYuYinActivity(Context context, String str, String str2, Map map) {
+    public void startYuYinActivity(@NonNull Context context, @NonNull String str, @NonNull String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048623, this, context, str, str2, map) == null) {
         }
     }
 
     @Deprecated
-    public void startYuYinCreateLiveRoomActivity(Context context, String str) {
+    public void startYuYinCreateLiveRoomActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048624, this, context, str) == null) {
         }
     }
 
     /* loaded from: classes2.dex */
-    public class SingletonHolder {
+    public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static LiveNPSPluginManager instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -370,7 +372,7 @@ public class LiveNPSPluginManager {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            HashMap startNewFlow = FlowInfoHelper.startNewFlow(str, true);
+            HashMap<String, Object> startNewFlow = FlowInfoHelper.startNewFlow(str, true);
             FlowInfoHelper.startSigleLineSlot(startNewFlow, "uscheme_patc", false);
             FlowInfoHelper.put(startNewFlow, "contains_url", Integer.valueOf(!TextUtils.isEmpty(str4) ? 1 : 0));
             FlowInfoHelper.put(startNewFlow, "scheme_url", str4);
@@ -386,7 +388,7 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void dispatchHostEvent(Context context, String str, Map map) {
+    public void dispatchHostEvent(@NonNull Context context, @NonNull String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, context, str, map) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -398,7 +400,7 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void dispatchLiveMasterRouter(Application application, String str, Map map) {
+    public void dispatchLiveMasterRouter(@NonNull Application application, String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, application, str, map) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -409,7 +411,7 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void startBjhMasterActivity(Application application, String str, Uri uri) {
+    public void startBjhMasterActivity(@NonNull Application application, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048604, this, application, str, uri) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -420,7 +422,7 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void startBjhMasterActivityNew(Context context, String str, Uri uri) {
+    public void startBjhMasterActivityNew(@NonNull Context context, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048605, this, context, str, uri) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -431,7 +433,7 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void dispatchYYLiveRouter(Context context, String str) {
+    public void dispatchYYLiveRouter(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -443,14 +445,14 @@ public class LiveNPSPluginManager {
     }
 
     @Deprecated
-    public void getLiveResourceFileSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback) {
+    public void getLiveResourceFileSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, context, iLiveFileSizeCallback) == null) && iLiveFileSizeCallback != null) {
             iLiveFileSizeCallback.getFileSize(0L);
         }
     }
 
-    public void getLiveRoomStatus(String str, LiveStatusDataCallback liveStatusDataCallback) {
+    public void getLiveRoomStatus(@NonNull String str, @NonNull LiveStatusDataCallback<String> liveStatusDataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, liveStatusDataCallback) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -462,14 +464,15 @@ public class LiveNPSPluginManager {
     }
 
     @Deprecated
-    public void getLiveSdkFileSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback) {
+    public void getLiveSdkFileSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048585, this, context, iLiveFileSizeCallback) == null) && iLiveFileSizeCallback != null) {
             iLiveFileSizeCallback.getFileSize(0L);
         }
     }
 
-    public Map getMediaLivePlayConfig(String str, Map map) {
+    @Nullable
+    public Map<String, Object> getMediaLivePlayConfig(@Nullable String str, @Nullable Map<String, Object> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, map)) == null) {
@@ -478,7 +481,7 @@ public class LiveNPSPluginManager {
         return (Map) invokeLL.objValue;
     }
 
-    public void isInHistory(String str, LiveStatusDataCallback liveStatusDataCallback) {
+    public void isInHistory(@NonNull String str, @NonNull LiveStatusDataCallback<Boolean> liveStatusDataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, str, liveStatusDataCallback) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -497,7 +500,7 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void startAudioMasterActivity(Application application, String str) {
+    public void startAudioMasterActivity(@NonNull Application application, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, application, str) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -508,7 +511,7 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void startYYCustomerServiceActivity(Context context, String str) {
+    public void startYYCustomerServiceActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048620, this, context, str) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -519,7 +522,7 @@ public class LiveNPSPluginManager {
         }
     }
 
-    public void startYYFeedbackActivity(Context context, String str) {
+    public void startYYFeedbackActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048621, this, context, str) == null) {
             if (isSupportMixInHostPlugin()) {
@@ -572,6 +575,7 @@ public class LiveNPSPluginManager {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public ClassLoader getPluginClassLoader(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -600,6 +604,7 @@ public class LiveNPSPluginManager {
         return invokeL.intValue;
     }
 
+    @Nullable
     public Resources getPluginResource(String str) {
         InterceptResult invokeL;
         AppInfoService appInfoService;
@@ -647,7 +652,7 @@ public class LiveNPSPluginManager {
         return invokeZ.booleanValue;
     }
 
-    public void loadPlugin(Context context, String str, String str2, boolean z, Map map, PluginLoadCallback pluginLoadCallback) {
+    public void loadPlugin(Context context, String str, String str2, boolean z, Map<String, String> map, PluginLoadCallback pluginLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{context, str, str2, Boolean.valueOf(z), map, pluginLoadCallback}) == null) {
             log("LiveNPSPluginManager loadPlugin " + str + GlideException.IndentedAppendable.INDENT + str2);

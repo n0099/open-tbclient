@@ -53,7 +53,7 @@ public class u0 implements Runnable {
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < feedbackInputActivity.c.size() - 1; i++) {
-                jSONArray.put(Base64.encodeToString((byte[]) feedbackInputActivity.c.get(i), 0));
+                jSONArray.put(Base64.encodeToString(feedbackInputActivity.c.get(i), 0));
             }
             if (jSONArray.toString().length() < 2097152) {
                 if (feedbackInputActivity.a(feedbackInputActivity.getApplicationContext(), feedbackInputActivity.l0.a, feedbackInputActivity.l, feedbackInputActivity.n, feedbackInputActivity.Z.getText().toString(), feedbackInputActivity.f0, jSONArray.toString(), feedbackInputActivity.W, -999)) {

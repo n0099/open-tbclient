@@ -1,5 +1,6 @@
 package com.baidu.mapapi.map;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -9,9 +10,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.OpenLogUtil;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.map.MapBaseIndoorMapInfo;
@@ -19,13 +20,17 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.Overlay;
+import com.baidu.mapapi.map.track.TraceAnimationListener;
+import com.baidu.mapapi.map.track.TraceOptions;
+import com.baidu.mapapi.map.track.TraceOverlay;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.mapapi.model.ParcelItem;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import com.baidu.mapsdkplatform.comapi.map.ab;
-import com.baidu.mapsdkplatform.comapi.map.ac;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.platform.comapi.map.MapSurfaceView;
+import com.baidu.platform.comapi.map.MapTextureView;
+import com.baidu.platform.comapi.map.OverlayLocationData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,10 +38,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -54,54 +57,61 @@ public class BaiduMap {
     public static final int MAP_TYPE_NONE = 3;
     public static final int MAP_TYPE_NORMAL = 1;
     public static final int MAP_TYPE_SATELLITE = 2;
+    public static final float REAL_MAX_ZOOM_LEVEL = 21.0f;
+    public static final float REAL_MIN_ZOOM_LEVEL = 4.0f;
     public static final String e = "BaiduMap";
-    public static int mapStatusReason;
+    public static int mapStatusReason = 256;
     public transient /* synthetic */ FieldHolder $fh;
-    public OnMyLocationClickListener A;
-    public SnapshotReadyCallback B;
-    public OnMapDrawFrameCallback C;
-    public OnBaseIndoorMapListener D;
-    public OnMapRenderValidDataListener E;
-    public OnSynchronizationListener F;
-    public TileOverlay G;
-    public HeatMap H;
-    public Lock I;
-    public Lock J;
-    public Map K;
-    public Map L;
-    public Marker M;
-    public MyLocationData N;
-    public MyLocationConfiguration O;
-    public boolean P;
-    public boolean Q;
-    public boolean R;
+    public CopyOnWriteArrayList<OnMultiPointClickListener> A;
+    public OnMarkerDragListener B;
+    public OnMyLocationClickListener C;
+    public SnapshotReadyCallback D;
+    public OnMapDrawFrameCallback E;
+    public OnBaseIndoorMapListener F;
+    public OnMapRenderValidDataListener G;
+    public OnHeatMapDrawFrameCallBack H;
+    public OnSynchronizationListener I;
+    public TileOverlay J;
+    public HeatMap K;
+    public Lock L;
+    public Lock M;
+    public Map<String, InfoWindow> N;
+    public Map<InfoWindow, Marker> O;
+    public Marker P;
+    public MyLocationData Q;
+    public MyLocationConfiguration R;
     public boolean S;
-    public Point T;
+    public boolean T;
+    public boolean U;
+    public boolean V;
+    public Point W;
+    public volatile boolean X;
+    public com.baidu.mapsdkplatform.comapi.map.a.c Y;
     public MapView a;
     public TextureMapView b;
     public WearMapView c;
-    public com.baidu.mapsdkplatform.comapi.map.aa d;
+    public com.baidu.mapsdkplatform.comapi.map.w d;
     public Projection f;
     public UiSettings g;
-    public com.baidu.mapsdkplatform.comapi.map.j h;
-    public com.baidu.mapsdkplatform.comapi.map.e i;
-    public ac j;
-    public List k;
-    public List l;
-    public List m;
-    public List n;
+    public MapSurfaceView h;
+    public MapTextureView i;
+    public com.baidu.mapsdkplatform.comapi.map.d j;
+    public List<Overlay> k;
+    public List<Marker> l;
+    public List<Marker> m;
+    public List<InfoWindow> n;
     public Overlay.a o;
     public InfoWindow.a p;
     public OnMapStatusChangeListener q;
     public OnMapTouchListener r;
-    public OnMapClickListener s;
-    public OnMapLoadedCallback t;
-    public OnMapRenderCallback u;
-    public OnMapDoubleClickListener v;
-    public OnMapLongClickListener w;
-    public CopyOnWriteArrayList x;
-    public CopyOnWriteArrayList y;
-    public OnMarkerDragListener z;
+    public onMapGestureListener s;
+    public OnMapClickListener t;
+    public OnMapLoadedCallback u;
+    public OnMapRenderCallback v;
+    public OnMapDoubleClickListener w;
+    public OnMapLongClickListener x;
+    public CopyOnWriteArrayList<OnMarkerClickListener> y;
+    public CopyOnWriteArrayList<OnPolylineClickListener> z;
 
     /* loaded from: classes2.dex */
     public interface OnBaseIndoorMapListener {
@@ -109,10 +119,15 @@ public class BaiduMap {
     }
 
     /* loaded from: classes2.dex */
+    public interface OnHeatMapDrawFrameCallBack {
+        void frameIndex(int i);
+    }
+
+    /* loaded from: classes2.dex */
     public interface OnMapClickListener {
         void onMapClick(LatLng latLng);
 
-        boolean onMapPoiClick(MapPoi mapPoi);
+        void onMapPoiClick(MapPoi mapPoi);
     }
 
     /* loaded from: classes2.dex */
@@ -183,6 +198,11 @@ public class BaiduMap {
     }
 
     /* loaded from: classes2.dex */
+    public interface OnMultiPointClickListener {
+        boolean onMultiPointClick(MultiPoint multiPoint, MultiPointItem multiPointItem);
+    }
+
+    /* loaded from: classes2.dex */
     public interface OnMyLocationClickListener {
         boolean onMyLocationClick();
     }
@@ -202,6 +222,23 @@ public class BaiduMap {
         void onSnapshotReady(Bitmap bitmap);
     }
 
+    /* loaded from: classes2.dex */
+    public interface onMapGestureListener {
+        boolean onMapDoubleTouch(Point point, MapStatus mapStatus);
+
+        boolean onMapFling(MotionEvent motionEvent, float f, float f2, MapStatus mapStatus);
+
+        boolean onMapKneading(Point point, Point point2, MapStatus mapStatus);
+
+        boolean onMapOverLooking(Point point, Point point2, MapStatus mapStatus);
+
+        boolean onMapScroll(Point point, Point point2, MapStatus mapStatus);
+
+        void onMapStatusChangeFinish(MapStatus mapStatus);
+
+        boolean onMapTwoClick(Point point, Point point2, MapStatus mapStatus);
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -217,102 +254,11 @@ public class BaiduMap {
         }
     }
 
-    public BaiduMap(ac acVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {acVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.x = new CopyOnWriteArrayList();
-        this.y = new CopyOnWriteArrayList();
-        this.I = new ReentrantLock();
-        this.J = new ReentrantLock();
-        this.j = acVar;
-        this.i = acVar.b();
-        this.d = com.baidu.mapsdkplatform.comapi.map.aa.b;
-        c();
-    }
-
-    public BaiduMap(com.baidu.mapsdkplatform.comapi.map.j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jVar};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.x = new CopyOnWriteArrayList();
-        this.y = new CopyOnWriteArrayList();
-        this.I = new ReentrantLock();
-        this.J = new ReentrantLock();
-        this.h = jVar;
-        this.i = jVar.a();
-        this.d = com.baidu.mapsdkplatform.comapi.map.aa.a;
-        c();
-    }
-
-    private Point a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            int i = 0;
-            int i2 = 0;
-            for (String str2 : str.replaceAll("^\\{", "").replaceAll("\\}$", "").split(",")) {
-                String[] split = str2.replaceAll("\"", "").split(":");
-                if ("x".equals(split[0])) {
-                    i = Integer.valueOf(split[1]).intValue();
-                }
-                if ("y".equals(split[0])) {
-                    i2 = Integer.valueOf(split[1]).intValue();
-                }
-            }
-            return new Point(i, i2);
-        }
-        return (Point) invokeL.objValue;
-    }
-
-    private ab a(MapStatusUpdate mapStatusUpdate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, mapStatusUpdate)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return null;
-            }
-            ab E = eVar.E();
-            MapStatus a = mapStatusUpdate.a(this.i, getMapStatus());
-            if (a == null) {
-                return null;
-            }
-            return a.b(E);
-        }
-        return (ab) invokeL.objValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
             if (i != 0) {
                 switch (i) {
                     case 1004:
@@ -356,9 +302,685 @@ public class BaiduMap {
         return (String) invokeI.objValue;
     }
 
+    public final void setMapLanguage(MapLanguage mapLanguage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, mapLanguage) == null) {
+        }
+    }
+
+    public BaiduMap(Context context, MapSurfaceView mapSurfaceView, com.baidu.mapsdkplatform.comapi.map.v vVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, mapSurfaceView, vVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.y = new CopyOnWriteArrayList<>();
+        this.z = new CopyOnWriteArrayList<>();
+        this.A = new CopyOnWriteArrayList<>();
+        this.L = new ReentrantLock();
+        this.M = new ReentrantLock();
+        this.X = false;
+        this.h = mapSurfaceView;
+        com.baidu.mapsdkplatform.comapi.map.d dVar = new com.baidu.mapsdkplatform.comapi.map.d(context, mapSurfaceView, vVar, (String) null, 0);
+        this.j = dVar;
+        mapSurfaceView.setBaseMap(dVar);
+        this.d = com.baidu.mapsdkplatform.comapi.map.w.a;
+        d();
+    }
+
+    public BaiduMap(Context context, MapTextureView mapTextureView, com.baidu.mapsdkplatform.comapi.map.v vVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, mapTextureView, vVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.y = new CopyOnWriteArrayList<>();
+        this.z = new CopyOnWriteArrayList<>();
+        this.A = new CopyOnWriteArrayList<>();
+        this.L = new ReentrantLock();
+        this.M = new ReentrantLock();
+        this.X = false;
+        this.i = mapTextureView;
+        com.baidu.mapsdkplatform.comapi.map.d dVar = new com.baidu.mapsdkplatform.comapi.map.d(context, mapTextureView, vVar, (String) null, 0);
+        this.j = dVar;
+        mapTextureView.setBaseMap(dVar);
+        this.d = com.baidu.mapsdkplatform.comapi.map.w.b;
+        d();
+    }
+
+    public final void animateMapStatus(MapStatusUpdate mapStatusUpdate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mapStatusUpdate) == null) {
+            animateMapStatus(mapStatusUpdate, 300);
+        }
+    }
+
+    public void changeLocationLayerOrder(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048588, this, z) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.f(z);
+    }
+
+    public void cleanCache(int i) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.a(i);
+    }
+
+    public LatLngBounds getOverlayLatLngBounds(OverlayOptions overlayOptions) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, overlayOptions)) == null) {
+            if (overlayOptions != null && this.j != null) {
+                Overlay a = overlayOptions.a();
+                Bundle bundle = new Bundle();
+                a.a(bundle);
+                return this.j.b(bundle);
+            }
+            return null;
+        }
+        return (LatLngBounds) invokeL.objValue;
+    }
+
+    public final void removeMarkerClickListener(OnMarkerClickListener onMarkerClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048628, this, onMarkerClickListener) == null) && this.y.contains(onMarkerClickListener)) {
+            this.y.remove(onMarkerClickListener);
+        }
+    }
+
+    public final void setBaiduHeatMapEnabled(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048630, this, z) == null) && (dVar = this.j) != null) {
+            dVar.k(z);
+        }
+    }
+
+    public final void setBuildingsEnabled(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048631, this, z) == null) && (dVar = this.j) != null) {
+            dVar.m(z);
+        }
+    }
+
+    public void setCompassEnable(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048632, this, z) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.h(z);
+    }
+
+    public void setCompassIcon(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, bitmap) == null) {
+            if (bitmap != null) {
+                com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+                if (dVar == null) {
+                    return;
+                }
+                dVar.a(bitmap);
+                return;
+            }
+            throw new IllegalArgumentException("BDMapSDKException: compass's icon can not be null");
+        }
+    }
+
+    public void setCompassPosition(Point point) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048634, this, point) != null) || this.j == null) {
+            return;
+        }
+        if (this.j.a(new Point(point.x, point.y))) {
+            this.W = point;
+        }
+    }
+
+    public void setDEMEnable(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048636, this, z) == null) && (dVar = this.j) != null) {
+            dVar.b(z);
+        }
+    }
+
+    public final void setFontSizeLevel(int i) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048637, this, i) == null) && (dVar = this.j) != null) {
+            dVar.c(i);
+        }
+    }
+
+    public void setHeatMapFrameAnimationIndex(int i) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048638, this, i) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.b(i);
+    }
+
+    public final void setIndoorEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048639, this, z) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar != null) {
+                this.U = z;
+                dVar.o(z);
+            }
+            OnBaseIndoorMapListener onBaseIndoorMapListener = this.F;
+            if (onBaseIndoorMapListener != null && !z) {
+                onBaseIndoorMapListener.onBaseIndoorMapMode(false, null);
+            }
+        }
+    }
+
+    public final void setMapStatus(MapStatusUpdate mapStatusUpdate) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048642, this, mapStatusUpdate) != null) || mapStatusUpdate == null) {
+            return;
+        }
+        com.baidu.mapsdkplatform.comapi.map.x a = a(mapStatusUpdate);
+        com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+        if (dVar == null) {
+            return;
+        }
+        mapStatusReason |= 256;
+        dVar.B(true);
+        this.j.a(a);
+    }
+
+    public final void setMapStatusLimits(LatLngBounds latLngBounds) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048643, this, latLngBounds) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.a(latLngBounds);
+        setMapStatus(MapStatusUpdateFactory.newLatLngBounds(latLngBounds));
+    }
+
+    @Deprecated
+    public final void setMyLocationConfigeration(MyLocationConfiguration myLocationConfiguration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048646, this, myLocationConfiguration) == null) {
+            setMyLocationConfiguration(myLocationConfiguration);
+        }
+    }
+
+    public final void setMyLocationConfiguration(MyLocationConfiguration myLocationConfiguration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048647, this, myLocationConfiguration) == null) {
+            this.R = myLocationConfiguration;
+            a(this.Q, myLocationConfiguration);
+        }
+    }
+
+    public final void setMyLocationData(MyLocationData myLocationData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048648, this, myLocationData) == null) {
+            this.Q = myLocationData;
+            if (this.R == null) {
+                this.R = new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, false, null);
+            }
+            a(myLocationData, this.R);
+        }
+    }
+
+    public final void setMyLocationEnabled(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048649, this, z) == null) && (dVar = this.j) != null) {
+            dVar.q(z);
+        }
+    }
+
+    public final void setOnBaseIndoorMapListener(OnBaseIndoorMapListener onBaseIndoorMapListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048650, this, onBaseIndoorMapListener) == null) {
+            this.F = onBaseIndoorMapListener;
+        }
+    }
+
+    public void setOnHeatMapDrawFrameCallBack(OnHeatMapDrawFrameCallBack onHeatMapDrawFrameCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048651, this, onHeatMapDrawFrameCallBack) == null) {
+            this.H = onHeatMapDrawFrameCallBack;
+        }
+    }
+
+    public final void setOnMapClickListener(OnMapClickListener onMapClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048652, this, onMapClickListener) == null) {
+            this.t = onMapClickListener;
+        }
+    }
+
+    public final void setOnMapDoubleClickListener(OnMapDoubleClickListener onMapDoubleClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048653, this, onMapDoubleClickListener) == null) {
+            this.w = onMapDoubleClickListener;
+        }
+    }
+
+    public final void setOnMapDrawFrameCallback(OnMapDrawFrameCallback onMapDrawFrameCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048654, this, onMapDrawFrameCallback) == null) {
+            this.E = onMapDrawFrameCallback;
+        }
+    }
+
+    public final void setOnMapGestureListener(onMapGestureListener onmapgesturelistener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048655, this, onmapgesturelistener) == null) {
+            this.s = onmapgesturelistener;
+        }
+    }
+
+    public void setOnMapLoadedCallback(OnMapLoadedCallback onMapLoadedCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048656, this, onMapLoadedCallback) == null) {
+            this.u = onMapLoadedCallback;
+        }
+    }
+
+    public final void setOnMapLongClickListener(OnMapLongClickListener onMapLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048657, this, onMapLongClickListener) == null) {
+            this.x = onMapLongClickListener;
+        }
+    }
+
+    public void setOnMapRenderCallbadk(OnMapRenderCallback onMapRenderCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048658, this, onMapRenderCallback) == null) {
+            this.v = onMapRenderCallback;
+        }
+    }
+
+    public final void setOnMapRenderValidDataListener(OnMapRenderValidDataListener onMapRenderValidDataListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048659, this, onMapRenderValidDataListener) == null) {
+            this.G = onMapRenderValidDataListener;
+        }
+    }
+
+    public final void setOnMapStatusChangeListener(OnMapStatusChangeListener onMapStatusChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048660, this, onMapStatusChangeListener) == null) {
+            this.q = onMapStatusChangeListener;
+        }
+    }
+
+    public final void setOnMapTouchListener(OnMapTouchListener onMapTouchListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048661, this, onMapTouchListener) == null) {
+            this.r = onMapTouchListener;
+        }
+    }
+
+    public final void setOnMarkerClickListener(OnMarkerClickListener onMarkerClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048662, this, onMarkerClickListener) == null) && onMarkerClickListener != null && !this.y.contains(onMarkerClickListener)) {
+            this.y.add(onMarkerClickListener);
+        }
+    }
+
+    public final void setOnMarkerDragListener(OnMarkerDragListener onMarkerDragListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048663, this, onMarkerDragListener) == null) {
+            this.B = onMarkerDragListener;
+        }
+    }
+
+    public final void setOnMultiPointClickListener(OnMultiPointClickListener onMultiPointClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048664, this, onMultiPointClickListener) == null) && onMultiPointClickListener != null) {
+            this.A.add(onMultiPointClickListener);
+        }
+    }
+
+    public final void setOnMyLocationClickListener(OnMyLocationClickListener onMyLocationClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048665, this, onMyLocationClickListener) == null) {
+            this.C = onMyLocationClickListener;
+        }
+    }
+
+    public final void setOnPolylineClickListener(OnPolylineClickListener onPolylineClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048666, this, onPolylineClickListener) == null) && onPolylineClickListener != null) {
+            this.z.add(onPolylineClickListener);
+        }
+    }
+
+    public final void setOnSynchronizationListener(OnSynchronizationListener onSynchronizationListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048667, this, onSynchronizationListener) == null) {
+            this.I = onSynchronizationListener;
+        }
+    }
+
+    public void setOverlayUnderPoi(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048668, this, z) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.e(z);
+    }
+
+    public void setPixelFormatTransparent(boolean z) {
+        MapSurfaceView mapSurfaceView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048670, this, z) != null) || (mapSurfaceView = this.h) == null) {
+            return;
+        }
+        if (z) {
+            mapSurfaceView.setPixelFormatTransparent(true);
+        } else {
+            mapSurfaceView.setPixelFormatTransparent(false);
+        }
+    }
+
+    public final void setTrafficEnabled(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048671, this, z) == null) && (dVar = this.j) != null) {
+            dVar.l(z);
+        }
+    }
+
+    public void showInfoWindow(InfoWindow infoWindow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048673, this, infoWindow) == null) {
+            showInfoWindow(infoWindow, true);
+        }
+    }
+
+    public void showInfoWindows(List<InfoWindow> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048675, this, list) == null) && list != null && !list.isEmpty()) {
+            for (InfoWindow infoWindow : list) {
+                showInfoWindow(infoWindow, false);
+            }
+        }
+    }
+
+    public final void showMapIndoorPoi(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048676, this, z) == null) && (dVar = this.j) != null) {
+            dVar.D(z);
+            this.T = z;
+        }
+    }
+
+    public final void showMapPoi(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048677, this, z) == null) && (dVar = this.j) != null) {
+            dVar.C(z);
+            this.S = z;
+        }
+    }
+
+    public void showOperateLayer(boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048678, this, z) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.d(z);
+    }
+
+    public boolean switchOverlayLayerAndNavigationLayer(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048686, this, z)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return false;
+            }
+            return dVar.g(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    private Point a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            int i = 0;
+            int i2 = 0;
+            for (String str2 : str.replaceAll("^\\{", "").replaceAll("\\}$", "").split(",")) {
+                String[] split = str2.replaceAll("\"", "").split(":");
+                if ("x".equals(split[0])) {
+                    i = Integer.valueOf(split[1]).intValue();
+                }
+                if ("y".equals(split[0])) {
+                    i2 = Integer.valueOf(split[1]).intValue();
+                }
+            }
+            return new Point(i, i2);
+        }
+        return (Point) invokeL.objValue;
+    }
+
+    public final Overlay addOverlay(OverlayOptions overlayOptions) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, overlayOptions)) == null) {
+            if (overlayOptions != null && !this.X) {
+                Overlay a = overlayOptions.a();
+                a.listener = this.o;
+                if (a instanceof Marker) {
+                    Marker marker = (Marker) a;
+                    marker.A = this.p;
+                    ArrayList<BitmapDescriptor> arrayList = marker.s;
+                    if (arrayList != null && arrayList.size() != 0) {
+                        this.l.add(marker);
+                        com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+                        if (dVar != null) {
+                            dVar.c(true);
+                        }
+                    }
+                    this.m.add(marker);
+                    InfoWindow infoWindow = marker.z;
+                    if (infoWindow != null) {
+                        showInfoWindow(infoWindow, false);
+                    }
+                }
+                Bundle bundle = new Bundle();
+                a.a(bundle);
+                if (this.j != null && !this.X) {
+                    this.j.c(bundle);
+                }
+                this.k.add(a);
+                return a;
+            }
+            return null;
+        }
+        return (Overlay) invokeL.objValue;
+    }
+
+    public void hideInfoWindow(InfoWindow infoWindow) {
+        MapView mapView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, infoWindow) == null) {
+            Set<InfoWindow> keySet = this.O.keySet();
+            if (infoWindow != null && !keySet.isEmpty() && keySet.contains(infoWindow)) {
+                View view2 = infoWindow.c;
+                if (view2 != null) {
+                    int i = b.b[this.d.ordinal()];
+                    if (i != 1) {
+                        if (i == 2 && (mapView = this.a) != null) {
+                            mapView.removeView(view2);
+                        }
+                    } else {
+                        TextureMapView textureMapView = this.b;
+                        if (textureMapView != null) {
+                            textureMapView.removeView(view2);
+                        }
+                    }
+                }
+                Marker marker = this.O.get(infoWindow);
+                if (marker != null) {
+                    marker.remove();
+                    this.N.remove(marker.F);
+                }
+                this.O.remove(infoWindow);
+                this.n.remove(infoWindow);
+            }
+        }
+    }
+
+    public final void setMapType(int i) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048644, this, i) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3) {
+                    if (dVar.B()) {
+                        this.j.C(false);
+                    }
+                    if (this.j.C()) {
+                        this.j.D(false);
+                    }
+                    this.j.j(false);
+                    this.j.o(false);
+                }
+            } else {
+                dVar.a(true);
+                this.j.C(this.S);
+                this.j.D(this.T);
+                this.j.j(true);
+            }
+        } else {
+            dVar.a(false);
+            this.j.C(this.S);
+            this.j.D(this.T);
+            this.j.j(true);
+            this.j.o(this.U);
+        }
+        if (OpenLogUtil.isMapLogEnable()) {
+            com.baidu.mapsdkplatform.comapi.commonutils.b a = com.baidu.mapsdkplatform.comapi.commonutils.b.a();
+            a.a("BasicMap setMapType type = " + i);
+        }
+    }
+
+    public final void snapshot(SnapshotReadyCallback snapshotReadyCallback) {
+        MapSurfaceView mapSurfaceView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048680, this, snapshotReadyCallback) == null) {
+            this.D = snapshotReadyCallback;
+            int i = b.b[this.d.ordinal()];
+            if (i != 1) {
+                if (i == 2 && (mapSurfaceView = this.h) != null && mapSurfaceView.getController() != null) {
+                    this.h.doCaptureMapView(new i(this), this.h.getController().getScreenWidth(), this.h.getController().getScreenHeight(), Bitmap.Config.ARGB_8888);
+                    this.h.requestRender();
+                    return;
+                }
+                return;
+            }
+            MapTextureView mapTextureView = this.i;
+            if (mapTextureView != null && mapTextureView.getController() != null) {
+                this.i.doCaptureMapView(new h(this), this.i.getController().getScreenWidth(), this.i.getController().getScreenHeight(), Bitmap.Config.ARGB_8888);
+                this.i.requestRender();
+            }
+        }
+    }
+
+    public final void animateMapStatus(MapStatusUpdate mapStatusUpdate, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048585, this, mapStatusUpdate, i) == null) && mapStatusUpdate != null && i > 0) {
+            com.baidu.mapsdkplatform.comapi.map.x a = a(mapStatusUpdate);
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return;
+            }
+            mapStatusReason |= 256;
+            if (!this.V) {
+                dVar.a(a);
+            } else {
+                dVar.a(a, i);
+            }
+        }
+    }
+
+    public void setLayerClickable(MapLayer mapLayer, boolean z) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048640, this, mapLayer, z) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.a(mapLayer, z);
+    }
+
+    public void switchLayerOrder(MapLayer mapLayer, MapLayer mapLayer2) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048685, this, mapLayer, mapLayer2) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.a(mapLayer, mapLayer2);
+    }
+
+    private com.baidu.mapsdkplatform.comapi.map.x a(MapStatusUpdate mapStatusUpdate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, mapStatusUpdate)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return null;
+            }
+            com.baidu.mapsdkplatform.comapi.map.x D = dVar.D();
+            MapStatus a = mapStatusUpdate.a(this.j, getMapStatus());
+            if (a == null) {
+                return null;
+            }
+            return a.b(D);
+        }
+        return (com.baidu.mapsdkplatform.comapi.map.x) invokeL.objValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0081  */
-    /* JADX WARN: Removed duplicated region for block: B:48:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:52:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -367,397 +989,347 @@ public class BaiduMap {
         Marker marker;
         MapView mapView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, infoWindow) == null) || infoWindow == null) {
-            return;
-        }
-        Set keySet = this.L.keySet();
-        if (keySet.isEmpty() || !keySet.contains(infoWindow)) {
-            showInfoWindow(infoWindow, false);
-            return;
-        }
-        View view2 = infoWindow.b;
-        if (view2 != null && infoWindow.j) {
-            view2.destroyDrawingCache();
-            MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.c).yOffset(infoWindow.f).build();
-            int i = f.b[this.d.ordinal()];
-            if (i == 1) {
-                TextureMapView textureMapView = this.b;
-                if (textureMapView != null) {
-                    textureMapView.removeView(view2);
-                    this.b.addView(view2, build);
-                }
-            } else if (i == 2 && (mapView = this.a) != null) {
-                mapView.removeView(view2);
-                this.a.addView(view2, build);
-            }
-            if (infoWindow.i) {
-                z = false;
-                BitmapDescriptor b = b(infoWindow);
-                marker = (Marker) this.L.get(infoWindow);
-                if (marker == null) {
-                    Bundle bundle = new Bundle();
-                    if (infoWindow.a != null) {
-                        marker.type = com.baidu.mapsdkplatform.comapi.map.h.b;
-                        marker.b = b;
-                        if (infoWindow.b != null) {
-                            bundle.putInt("draw_with_view", 1);
-                        } else {
-                            bundle.putInt("draw_with_view", 0);
+        if ((interceptable == null || interceptable.invokeL(65552, this, infoWindow) == null) && infoWindow != null && !this.X) {
+            Set<InfoWindow> keySet = this.O.keySet();
+            if (!keySet.isEmpty() && keySet.contains(infoWindow)) {
+                View view2 = infoWindow.c;
+                if (view2 != null && infoWindow.k) {
+                    view2.destroyDrawingCache();
+                    MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.d).yOffset(infoWindow.g).build();
+                    int i = b.b[this.d.ordinal()];
+                    if (i != 1) {
+                        if (i == 2 && (mapView = this.a) != null) {
+                            mapView.addView(view2, build);
+                        }
+                    } else {
+                        TextureMapView textureMapView = this.b;
+                        if (textureMapView != null) {
+                            textureMapView.addView(view2, build);
+                            view2.setLayoutParams(build);
                         }
                     }
-                    marker.a = infoWindow.c;
-                    marker.a(bundle);
-                    com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-                    if (eVar == null || !z) {
+                    if (infoWindow.j) {
+                        z = false;
+                        BitmapDescriptor b = b(infoWindow);
+                        marker = this.O.get(infoWindow);
+                        if (marker == null) {
+                            Bundle bundle = new Bundle();
+                            if (infoWindow.b != null) {
+                                marker.type = com.baidu.mapsdkplatform.comapi.map.i.b;
+                                marker.b = b;
+                                if (infoWindow.c != null) {
+                                    bundle.putInt("draw_with_view", 1);
+                                } else {
+                                    bundle.putInt("draw_with_view", 0);
+                                }
+                            }
+                            marker.a = infoWindow.d;
+                            marker.i = infoWindow.g;
+                            marker.a(bundle);
+                            if (this.j != null && z && !this.X) {
+                                this.j.e(bundle);
+                                return;
+                            }
+                            return;
+                        }
                         return;
                     }
-                    eVar.c(bundle);
-                    return;
                 }
-                return;
-            }
-        }
-        z = true;
-        BitmapDescriptor b2 = b(infoWindow);
-        marker = (Marker) this.L.get(infoWindow);
-        if (marker == null) {
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0104  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0109  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x01a1  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x01b5  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x01f7  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private final void a(MyLocationData myLocationData, MyLocationConfiguration myLocationConfiguration) {
-        BaiduMap baiduMap;
-        Bundle bundle;
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        int i;
-        MapStatus.Builder zoom;
-        float f;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, this, myLocationData, myLocationConfiguration) == null) || myLocationData == null || myLocationConfiguration == null || !isMyLocationEnabled()) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        JSONArray jSONArray = new JSONArray();
-        JSONObject jSONObject2 = new JSONObject();
-        JSONObject jSONObject3 = new JSONObject();
-        LatLng latLng = new LatLng(myLocationData.latitude, myLocationData.longitude);
-        GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        try {
-            jSONObject.put("type", 0);
-            jSONObject2.put("ptx", ll2mc.getLongitudeE6());
-            jSONObject2.put("pty", ll2mc.getLatitudeE6());
-            jSONObject2.put("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(latLng, (int) myLocationData.accuracy));
-            float f2 = myLocationData.direction;
-            if (myLocationConfiguration.enableDirection) {
-                f = myLocationData.direction % 360.0f;
-                if (f > 180.0f) {
-                    f -= 360.0f;
-                } else if (f < -180.0f) {
-                    f += 360.0f;
+                z = true;
+                BitmapDescriptor b2 = b(infoWindow);
+                marker = this.O.get(infoWindow);
+                if (marker == null) {
                 }
             } else {
-                f = -1001.0f;
-            }
-            jSONObject2.put("direction", f);
-            jSONObject2.put("iconarrownor", "NormalLocArrow");
-            jSONObject2.put("iconarrownorid", 28);
-            jSONObject2.put("iconarrowfoc", "FocusLocArrow");
-            jSONObject2.put("iconarrowfocid", 29);
-            jSONObject2.put("lineid", myLocationConfiguration.accuracyCircleStrokeColor);
-            jSONObject2.put("areaid", myLocationConfiguration.accuracyCircleFillColor);
-            jSONArray.put(jSONObject2);
-            jSONObject.put("data", jSONArray);
-            if (myLocationConfiguration.locationMode == MyLocationConfiguration.LocationMode.COMPASS) {
-                jSONObject3.put("ptx", ll2mc.getLongitudeE6());
-                jSONObject3.put("pty", ll2mc.getLatitudeE6());
-                try {
-                    jSONObject3.put("radius", 0);
-                    jSONObject3.put("direction", 0);
-                    jSONObject3.put("iconarrownor", "direction_wheel");
-                    jSONObject3.put("iconarrownorid", 54);
-                    jSONObject3.put("iconarrowfoc", "direction_wheel");
-                    jSONObject3.put("iconarrowfocid", 54);
-                    jSONArray.put(jSONObject3);
-                } catch (JSONException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (myLocationConfiguration.customMarker != null) {
-                    }
-                    eVar = baiduMap.i;
-                    if (eVar != null) {
-                    }
-                    i = f.a[myLocationConfiguration.locationMode.ordinal()];
-                    if (i != 1) {
-                    }
-                    baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(zoom.build()));
-                }
-            }
-        } catch (JSONException e3) {
-            e = e3;
-        }
-        if (myLocationConfiguration.customMarker != null) {
-            bundle = null;
-            baiduMap = this;
-        } else {
-            ArrayList<BitmapDescriptor> arrayList = new ArrayList();
-            arrayList.add(myLocationConfiguration.customMarker);
-            Bundle bundle2 = new Bundle();
-            ArrayList arrayList2 = new ArrayList();
-            for (BitmapDescriptor bitmapDescriptor : arrayList) {
-                ParcelItem parcelItem = new ParcelItem();
-                Bundle bundle3 = new Bundle();
-                Bitmap bitmap = bitmapDescriptor.a;
-                ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
-                bitmap.copyPixelsToBuffer(allocate);
-                bundle3.putByteArray("imgdata", allocate.array());
-                bundle3.putInt("imgindex", bitmapDescriptor.hashCode());
-                bundle3.putInt("imgH", bitmap.getHeight());
-                bundle3.putInt("imgW", bitmap.getWidth());
-                parcelItem.setBundle(bundle3);
-                arrayList2.add(parcelItem);
-            }
-            if (arrayList2.size() > 0) {
-                ParcelItem[] parcelItemArr = new ParcelItem[arrayList2.size()];
-                for (int i2 = 0; i2 < arrayList2.size(); i2++) {
-                    parcelItemArr[i2] = (ParcelItem) arrayList2.get(i2);
-                }
-                bundle2.putParcelableArray("icondata", parcelItemArr);
-            }
-            baiduMap = this;
-            bundle = bundle2;
-        }
-        eVar = baiduMap.i;
-        if (eVar != null) {
-            eVar.a(jSONObject.toString(), bundle);
-        }
-        i = f.a[myLocationConfiguration.locationMode.ordinal()];
-        if (i != 1) {
-            zoom = new MapStatus.Builder().rotate(myLocationData.direction).overlook(-45.0f).target(new LatLng(myLocationData.latitude, myLocationData.longitude)).targetScreen(getMapStatus().targetScreen).zoom(getMapStatus().zoom);
-        } else if (i != 2) {
-            return;
-        } else {
-            zoom = new MapStatus.Builder().target(new LatLng(myLocationData.latitude, myLocationData.longitude)).zoom(getMapStatus().zoom).rotate(getMapStatus().rotate).overlook(getMapStatus().overlook).targetScreen(getMapStatus().targetScreen);
-        }
-        baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(zoom.build()));
-    }
-
-    private BitmapDescriptor b(InfoWindow infoWindow) {
-        InterceptResult invokeL;
-        BitmapDescriptor fromView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, infoWindow)) == null) {
-            View view2 = infoWindow.b;
-            if (view2 == null || !infoWindow.j) {
-                return infoWindow.a;
-            }
-            if (infoWindow.g) {
-                if (infoWindow.h <= 0) {
-                    infoWindow.h = SysOSUtil.getDensityDpi();
-                }
-                fromView = BitmapDescriptorFactory.fromViewWithDpi(infoWindow.b, infoWindow.h);
-            } else {
-                fromView = BitmapDescriptorFactory.fromView(view2);
-            }
-            infoWindow.a = fromView;
-            return fromView;
-        }
-        return (BitmapDescriptor) invokeL.objValue;
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            this.k = new CopyOnWriteArrayList();
-            this.l = new CopyOnWriteArrayList();
-            this.m = new CopyOnWriteArrayList();
-            this.K = new ConcurrentHashMap();
-            this.L = new ConcurrentHashMap();
-            this.n = new CopyOnWriteArrayList();
-            this.T = new Point((int) (SysOSUtil.getDensity() * 40.0f), (int) (SysOSUtil.getDensity() * 40.0f));
-            this.g = new UiSettings(this.i);
-            this.o = new a(this);
-            this.p = new b(this);
-            this.i.a(new c(this));
-            this.i.a(new d(this));
-            this.i.a(new e(this));
-            this.P = this.i.C();
-            this.Q = this.i.D();
-        }
-    }
-
-    public void a() {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.t();
-    }
-
-    public void a(HeatMap heatMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, heatMap) == null) {
-            this.I.lock();
-            try {
-                if (this.H != null && this.i != null && heatMap == this.H) {
-                    this.H.b();
-                    this.H.c();
-                    this.H.a = null;
-                    this.i.o();
-                    this.H = null;
-                    this.i.o(false);
-                }
-            } finally {
-                this.I.unlock();
+                showInfoWindow(infoWindow, false);
             }
         }
     }
 
-    public void a(TileOverlay tileOverlay) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tileOverlay) == null) {
-            this.J.lock();
-            if (tileOverlay != null) {
-                try {
-                    if (this.G == tileOverlay) {
-                        tileOverlay.b();
-                        tileOverlay.a = null;
-                        if (this.i != null) {
-                            this.i.f(false);
-                        }
-                    }
-                } finally {
-                    this.G = null;
-                    this.J.unlock();
-                }
-            }
-        }
-    }
-
-    public void addHeatMap(HeatMap heatMap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, heatMap) == null) || heatMap == null) {
-            return;
-        }
-        this.I.lock();
-        try {
-            if (heatMap == this.H) {
-                return;
-            }
-            if (this.H != null) {
-                this.H.b();
-                this.H.c();
-                this.H.a = null;
-                this.i.o();
-            }
-            this.H = heatMap;
-            heatMap.a = this;
-            this.i.o(true);
-        } finally {
-            this.I.unlock();
-        }
-    }
-
-    public final Overlay addOverlay(OverlayOptions overlayOptions) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, overlayOptions)) == null) {
-            if (overlayOptions == null) {
-                return null;
-            }
-            Overlay a = overlayOptions.a();
-            a.listener = this.o;
-            if (a instanceof Marker) {
-                Marker marker = (Marker) a;
-                marker.w = this.p;
-                ArrayList arrayList = marker.o;
-                if (arrayList != null && arrayList.size() != 0) {
-                    this.l.add(marker);
-                    com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-                    if (eVar != null) {
-                        eVar.b(true);
-                    }
-                }
-                this.m.add(marker);
-                InfoWindow infoWindow = marker.v;
-                if (infoWindow != null) {
-                    showInfoWindow(infoWindow, false);
-                }
-            }
-            Bundle bundle = new Bundle();
-            a.a(bundle);
-            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.i;
-            if (eVar2 != null) {
-                eVar2.b(bundle);
-            }
-            this.k.add(a);
-            return a;
-        }
-        return (Overlay) invokeL.objValue;
-    }
-
-    public final List addOverlays(List list) {
+    public final List<Overlay> addOverlays(List<OverlayOptions> list) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-            if (list == null) {
+            if (list == null || this.X) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int size = list.size();
-            Bundle[] bundleArr = new Bundle[size];
-            Iterator it = list.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                OverlayOptions overlayOptions = (OverlayOptions) it.next();
-                if (overlayOptions != null) {
-                    Bundle bundle = new Bundle();
-                    Overlay a = overlayOptions.a();
-                    a.listener = this.o;
-                    if (a instanceof Marker) {
-                        Marker marker = (Marker) a;
-                        marker.w = this.p;
-                        ArrayList arrayList2 = marker.o;
-                        if (arrayList2 != null && arrayList2.size() != 0) {
-                            this.l.add(marker);
-                            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-                            if (eVar != null) {
-                                eVar.b(true);
+            int i2 = size / 400;
+            for (int i3 = 0; i3 < i2 + 1; i3++) {
+                if (i2 == 0) {
+                    i = size;
+                } else if (i3 == i2) {
+                    i = size - (i2 * 400);
+                } else {
+                    i = 400;
+                }
+                Bundle[] bundleArr = new Bundle[i];
+                for (int i4 = 0; i4 < 400; i4++) {
+                    int i5 = (i3 * 400) + i4;
+                    if (i5 >= size) {
+                        break;
+                    } else if (this.X) {
+                        return null;
+                    } else {
+                        OverlayOptions overlayOptions = list.get(i5);
+                        if (overlayOptions != null) {
+                            Bundle bundle = new Bundle();
+                            Overlay a = overlayOptions.a();
+                            a.listener = this.o;
+                            if (a instanceof Marker) {
+                                Marker marker = (Marker) a;
+                                marker.A = this.p;
+                                ArrayList<BitmapDescriptor> arrayList2 = marker.s;
+                                if (arrayList2 != null && arrayList2.size() != 0) {
+                                    this.l.add(marker);
+                                    com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+                                    if (dVar != null) {
+                                        dVar.c(true);
+                                    }
+                                }
+                                this.m.add(marker);
                             }
+                            this.k.add(a);
+                            arrayList.add(a);
+                            a.a(bundle);
+                            com.baidu.mapsdkplatform.comapi.map.d dVar2 = this.j;
+                            if (dVar2 != null) {
+                                dVar2.g(bundle);
+                                this.j.d(bundle);
+                            }
+                            bundleArr[i4] = bundle;
                         }
-                        this.m.add(marker);
-                    }
-                    this.k.add(a);
-                    arrayList.add(a);
-                    a.a(bundle);
-                    bundleArr[i2] = bundle;
-                    i2++;
-                }
-            }
-            int i3 = size / 400;
-            for (int i4 = 0; i4 < i3 + 1; i4++) {
-                ArrayList arrayList3 = new ArrayList();
-                for (int i5 = 0; i5 < 400 && (i = (i4 * 400) + i5) < size; i5++) {
-                    if (bundleArr[i] != null) {
-                        arrayList3.add(bundleArr[i]);
                     }
                 }
-                com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.i;
-                if (eVar2 != null) {
-                    eVar2.a(arrayList3);
+                com.baidu.mapsdkplatform.comapi.map.d dVar3 = this.j;
+                if (dVar3 != null) {
+                    dVar3.a(bundleArr);
                 }
             }
             return arrayList;
         }
         return (List) invokeL.objValue;
+    }
+
+    public void removeOverLays(List<Overlay> list) {
+        int i;
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048629, this, list) == null) && list != null && !this.X) {
+            int size = list.size();
+            int i2 = size / 400;
+            for (int i3 = 0; i3 < i2 + 1; i3++) {
+                if (i2 == 0) {
+                    i = size;
+                } else if (i3 == i2) {
+                    i = size - (i2 * 400);
+                } else {
+                    i = 400;
+                }
+                Bundle[] bundleArr = new Bundle[i];
+                for (int i4 = 0; i4 < 400; i4++) {
+                    int i5 = (i3 * 400) + i4;
+                    if (i5 >= size) {
+                        break;
+                    } else if (this.X) {
+                        return;
+                    } else {
+                        Overlay overlay = list.get(i5);
+                        if (overlay != null) {
+                            Bundle a = overlay.a();
+                            com.baidu.mapsdkplatform.comapi.map.d dVar2 = this.j;
+                            if (dVar2 != null) {
+                                dVar2.g(a);
+                            }
+                            bundleArr[i4] = a;
+                            List<Marker> list2 = this.m;
+                            if (list2 != null && list2.contains(overlay)) {
+                                this.m.remove(overlay);
+                            }
+                            if (this.l.contains(overlay)) {
+                                Marker marker = (Marker) overlay;
+                                if (marker.s != null) {
+                                    this.l.remove(marker);
+                                    if (this.l.size() == 0 && (dVar = this.j) != null) {
+                                        dVar.c(false);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                com.baidu.mapsdkplatform.comapi.map.d dVar3 = this.j;
+                if (dVar3 != null) {
+                    dVar3.b(bundleArr);
+                }
+            }
+            this.k.removeAll(list);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:49:0x014d  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0162  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x01af  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private final void a(MyLocationData myLocationData, MyLocationConfiguration myLocationConfiguration) {
+        JSONObject jSONObject;
+        BitmapDescriptor bitmapDescriptor;
+        BaiduMap baiduMap;
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        int i;
+        Bitmap bitmap;
+        float f;
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, this, myLocationData, myLocationConfiguration) == null) {
+            if (myLocationData != null && myLocationConfiguration != null && isMyLocationEnabled()) {
+                JSONObject jSONObject2 = new JSONObject();
+                JSONArray jSONArray2 = new JSONArray();
+                JSONObject jSONObject3 = new JSONObject();
+                JSONObject jSONObject4 = new JSONObject();
+                LatLng latLng = new LatLng(myLocationData.latitude, myLocationData.longitude);
+                GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
+                try {
+                    jSONObject2.put("type", 0);
+                    jSONObject3.put(MapBundleKey.MapObjKey.OBJ_SL_PTX, ll2mc.getLongitudeE6());
+                    jSONObject3.put(MapBundleKey.MapObjKey.OBJ_SL_PTY, ll2mc.getLatitudeE6());
+                    jSONObject3.put("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(latLng, (int) myLocationData.accuracy));
+                    float f2 = myLocationData.direction;
+                    if (myLocationConfiguration.enableDirection) {
+                        f = myLocationData.direction % 360.0f;
+                        if (f > 180.0f) {
+                            f -= 360.0f;
+                        } else if (f < -180.0f) {
+                            f += 360.0f;
+                        }
+                    } else {
+                        f = -1001.0f;
+                    }
+                    jSONObject3.put("direction", f);
+                    jSONObject3.put("iconarrownor", "NormalLocArrow");
+                    jSONObject3.put("iconarrownorid", 28);
+                    jSONObject3.put("iconarrowfocid", 29);
+                    jSONObject3.put("iconarrowfoc", "FocusLocArrow");
+                    try {
+                        jSONObject3.put("lineid", myLocationConfiguration.accuracyCircleStrokeColor);
+                        jSONObject3.put("areaid", myLocationConfiguration.accuracyCircleFillColor);
+                        jSONArray2.put(jSONObject3);
+                        if (myLocationConfiguration.locationMode == MyLocationConfiguration.LocationMode.COMPASS) {
+                            jSONArray = jSONArray2;
+                            jSONObject4.put(MapBundleKey.MapObjKey.OBJ_SL_PTX, ll2mc.getLongitudeE6());
+                            jSONObject4.put(MapBundleKey.MapObjKey.OBJ_SL_PTY, ll2mc.getLatitudeE6());
+                            jSONObject4.put("radius", 0);
+                            jSONObject4.put("direction", 0);
+                            jSONObject4.put("iconarrownor", "direction_wheel");
+                            jSONObject4.put("iconarrowfoc", "direction_wheel");
+                            jSONObject4.put("iconarrownorid", 54);
+                            jSONObject4.put("iconarrowfocid", 54);
+                            jSONArray.put(jSONObject4);
+                        } else {
+                            jSONArray = jSONArray2;
+                        }
+                        jSONObject = jSONObject2;
+                        try {
+                            jSONObject.put("data", jSONArray);
+                        } catch (JSONException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            bitmapDescriptor = myLocationConfiguration.customMarker;
+                            if (bitmapDescriptor == null) {
+                            }
+                            baiduMap = this;
+                            dVar = baiduMap.j;
+                            if (dVar != null) {
+                            }
+                            i = b.a[myLocationConfiguration.locationMode.ordinal()];
+                            if (i == 1) {
+                            }
+                        }
+                    } catch (JSONException e3) {
+                        e = e3;
+                        jSONObject = jSONObject2;
+                    }
+                } catch (JSONException e4) {
+                    e = e4;
+                    jSONObject = jSONObject2;
+                }
+                bitmapDescriptor = myLocationConfiguration.customMarker;
+                if (bitmapDescriptor == null && (bitmap = bitmapDescriptor.getBitmap()) != null && !bitmap.isRecycled()) {
+                    ArrayList arrayList = new ArrayList();
+                    OverlayLocationData overlayLocationData = new OverlayLocationData();
+                    overlayLocationData.setImage(bitmap);
+                    overlayLocationData.setImgHeight(bitmap.getHeight());
+                    overlayLocationData.setImgWidth(bitmap.getWidth());
+                    overlayLocationData.setImgName("icon");
+                    overlayLocationData.setRotation(myLocationConfiguration.enableDirection ? 1 : 0);
+                    arrayList.add(overlayLocationData);
+                    baiduMap = this;
+                    com.baidu.mapsdkplatform.comapi.map.d dVar2 = baiduMap.j;
+                    if (dVar2 != null) {
+                        dVar2.a(arrayList);
+                    }
+                } else {
+                    baiduMap = this;
+                }
+                dVar = baiduMap.j;
+                if (dVar != null) {
+                    dVar.a(jSONObject.toString(), (Bundle) null);
+                }
+                i = b.a[myLocationConfiguration.locationMode.ordinal()];
+                if (i == 1) {
+                    if (i == 2) {
+                        baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().target(new LatLng(myLocationData.latitude, myLocationData.longitude)).zoom(getMapStatus().zoom).rotate(getMapStatus().rotate).overlook(getMapStatus().overlook).targetScreen(getMapStatus().targetScreen).build()));
+                        return;
+                    }
+                    return;
+                }
+                baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().rotate(myLocationData.direction).overlook(-45.0f).target(new LatLng(myLocationData.latitude, myLocationData.longitude)).targetScreen(getMapStatus().targetScreen).zoom(getMapStatus().zoom).build()));
+            }
+        }
+    }
+
+    private BitmapDescriptor b(InfoWindow infoWindow) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, infoWindow)) == null) {
+            View view2 = infoWindow.c;
+            if (view2 != null && infoWindow.k) {
+                if (infoWindow.h) {
+                    if (infoWindow.i <= 0) {
+                        infoWindow.i = SysOSUtil.getDensityDpi();
+                    }
+                    return BitmapDescriptorFactory.fromViewWithDpi(infoWindow.c, infoWindow.i);
+                }
+                return BitmapDescriptorFactory.fromView(view2);
+            }
+            return infoWindow.b;
+        }
+        return (BitmapDescriptor) invokeL.objValue;
+    }
+
+    public void a(TileOverlay tileOverlay) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tileOverlay) == null) {
+            this.M.lock();
+            if (tileOverlay != null) {
+                try {
+                    if (this.J == tileOverlay) {
+                        tileOverlay.b();
+                        tileOverlay.a = null;
+                        if (this.j != null) {
+                            this.j.e();
+                        }
+                    }
+                } finally {
+                    this.J = null;
+                    this.M.unlock();
+                }
+            }
+        }
     }
 
     public TileOverlay addTileLayer(TileOverlayOptions tileOverlayOptions) {
@@ -767,95 +1339,95 @@ public class BaiduMap {
             if (tileOverlayOptions == null) {
                 return null;
             }
-            TileOverlay tileOverlay = this.G;
+            TileOverlay tileOverlay = this.J;
             if (tileOverlay != null) {
                 tileOverlay.b();
-                this.G.a = null;
+                this.J.a = null;
             }
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null || !eVar.a(tileOverlayOptions.a())) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null || !dVar.a(tileOverlayOptions.a())) {
                 return null;
             }
             TileOverlay a = tileOverlayOptions.a(this);
-            this.G = a;
+            this.J = a;
             return a;
         }
         return (TileOverlay) invokeL.objValue;
     }
 
-    public final void animateMapStatus(MapStatusUpdate mapStatusUpdate) {
+    private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mapStatusUpdate) == null) {
-            animateMapStatus(mapStatusUpdate, 300);
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+            this.X = false;
+            this.k = new CopyOnWriteArrayList();
+            this.l = new CopyOnWriteArrayList();
+            this.m = new CopyOnWriteArrayList();
+            this.N = new ConcurrentHashMap();
+            this.O = new ConcurrentHashMap();
+            this.n = new CopyOnWriteArrayList();
+            this.W = new Point((int) (SysOSUtil.getDensity() * 40.0f), (int) (SysOSUtil.getDensity() * 40.0f));
+            this.g = new UiSettings(this.j);
+            this.o = new a(this);
+            this.p = new c(this);
+            this.j.a(new d(this));
+            this.j.a(new f(this));
+            this.j.a(new g(this));
+            this.S = this.j.B();
+            this.T = this.j.C();
         }
     }
 
-    public final void animateMapStatus(MapStatusUpdate mapStatusUpdate, int i) {
+    public void a() {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, mapStatusUpdate, i) == null) || mapStatusUpdate == null || i <= 0) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (dVar = this.j) == null) {
             return;
         }
-        ab a = a(mapStatusUpdate);
-        com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-        if (eVar == null) {
-            return;
-        }
-        mapStatusReason |= 256;
-        if (this.S) {
-            eVar.a(a, i);
-        } else {
-            eVar.a(a);
-        }
+        dVar.v();
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
                 return false;
             }
-            return eVar.e();
+            return dVar.f();
         }
         return invokeV.booleanValue;
     }
 
-    public void changeLocationLayerOrder(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.i.d(z);
-        }
-    }
-
-    public final void clear() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.k.clear();
-            this.l.clear();
-            this.m.clear();
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar != null) {
-                eVar.b(false);
-                this.i.n();
+            this.X = true;
+            com.baidu.mapsdkplatform.comapi.map.a.c cVar = this.Y;
+            if (cVar != null) {
+                cVar.c();
+                this.Y = null;
             }
             hideInfoWindow();
         }
     }
 
-    public List getAllInfoWindows() {
+    public List<InfoWindow> getAllInfoWindows() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.n : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.n;
+        }
+        return (List) invokeV.objValue;
     }
 
     public final Point getCompassPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar != null) {
-                return a(eVar.h());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar != null) {
+                return a(dVar.h());
             }
             return null;
         }
@@ -865,36 +1437,137 @@ public class BaiduMap {
     public MapBaseIndoorMapInfo getFocusedBaseIndoorMapInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.i.p() : (MapBaseIndoorMapInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return null;
+            }
+            return dVar.r();
+        }
+        return (MapBaseIndoorMapInfo) invokeV.objValue;
     }
 
+    public final int getFontSizeLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar != null) {
+                dVar.G();
+                return 1;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public MapSurfaceView getGLMapView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.h;
+        }
+        return (MapSurfaceView) invokeV.objValue;
+    }
+
+    public OnHeatMapDrawFrameCallBack getHeatMapDrawFrameCallBack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.H;
+        }
+        return (OnHeatMapDrawFrameCallBack) invokeV.objValue;
+    }
+
+    @Deprecated
     public final MyLocationConfiguration getLocationConfigeration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getLocationConfiguration() : (MyLocationConfiguration) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return getLocationConfiguration();
+        }
+        return (MyLocationConfiguration) invokeV.objValue;
     }
 
     public final MyLocationConfiguration getLocationConfiguration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.O : (MyLocationConfiguration) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.R;
+        }
+        return (MyLocationConfiguration) invokeV.objValue;
     }
 
     public final MyLocationData getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.N : (MyLocationData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.Q;
+        }
+        return (MyLocationData) invokeV.objValue;
+    }
+
+    public final String getMapApprovalNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return "";
+            }
+            return dVar.O();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getMapCopyrightInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return "";
+            }
+            return dVar.Q();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public MapLanguage getMapLanguage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar != null) {
+                return MapLanguage.values()[dVar.R()];
+            }
+            return MapLanguage.CHINESE;
+        }
+        return (MapLanguage) invokeV.objValue;
+    }
+
+    public final String getMapMappingQualificationInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return "";
+            }
+            return dVar.P();
+        }
+        return (String) invokeV.objValue;
     }
 
     public final MapStatus getMapStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
                 return null;
             }
-            return MapStatus.a(eVar.E());
+            return MapStatus.a(dVar.D());
         }
         return (MapStatus) invokeV.objValue;
     }
@@ -902,36 +1575,295 @@ public class BaiduMap {
     public final LatLngBounds getMapStatusLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
                 return null;
             }
-            return eVar.F();
+            return dVar.E();
         }
         return (LatLngBounds) invokeV.objValue;
+    }
+
+    public MapTextureView getMapTextureView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.i;
+        }
+        return (MapTextureView) invokeV.objValue;
     }
 
     public final int getMapType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
                 return 1;
             }
-            if (eVar.l()) {
-                return this.i.k() ? 2 : 1;
+            if (!dVar.l()) {
+                return 3;
             }
-            return 3;
+            if (!this.j.k()) {
+                return 1;
+            }
+            return 2;
         }
         return invokeV.intValue;
     }
 
-    public List getMarkersInBounds(LatLngBounds latLngBounds) {
+    public final float getMaxZoomLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return 0.0f;
+            }
+            return dVar.b();
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float getMinZoomLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return 0.0f;
+            }
+            return dVar.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final Projection getProjection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return this.f;
+        }
+        return (Projection) invokeV.objValue;
+    }
+
+    public float[] getProjectionMatrix() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return null;
+            }
+            return dVar.M();
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    public final UiSettings getUiSettings() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return this.g;
+        }
+        return (UiSettings) invokeV.objValue;
+    }
+
+    public float[] getViewMatrix() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return null;
+            }
+            return dVar.N();
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    @Deprecated
+    public MapSurfaceView getmGLMapView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return this.h;
+        }
+        return (MapSurfaceView) invokeV.objValue;
+    }
+
+    public void hideSDKLayer() {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048620, this) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.c();
+    }
+
+    public final boolean isBaiduHeatMapEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return false;
+            }
+            return dVar.i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isBaseIndoorMapMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return false;
+            }
+            return dVar.s();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isBuildingsEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return false;
+            }
+            return dVar.m();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isMyLocationEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return false;
+            }
+            return dVar.u();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isShowMapPoi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            return this.S;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isSupportBaiduHeatMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return false;
+            }
+            return dVar.j();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isTrafficEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return false;
+            }
+            return dVar.g();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void showSDKLayer() {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048679, this) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.d();
+    }
+
+    public void startHeatMapFrameAnimation() {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048682, this) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.o();
+    }
+
+    public void stopHeatMapFrameAnimation() {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048683, this) != null) || (dVar = this.j) == null) {
+            return;
+        }
+        dVar.p();
+    }
+
+    public void a(HeatMap heatMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, heatMap) == null) {
+            this.L.lock();
+            try {
+                if (this.K != null && this.j != null && heatMap == this.K) {
+                    this.K.b();
+                    this.K.c();
+                    this.K.a = null;
+                    this.j.q();
+                    this.K = null;
+                    this.j.r(false);
+                }
+            } finally {
+                this.L.unlock();
+            }
+        }
+    }
+
+    public void addHeatMap(HeatMap heatMap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, heatMap) == null) && heatMap != null && this.j != null) {
+            this.L.lock();
+            try {
+                if (heatMap == this.K) {
+                    return;
+                }
+                if (this.K != null) {
+                    this.K.b();
+                    this.K.c();
+                    this.K.a = null;
+                    this.j.q();
+                }
+                this.K = heatMap;
+                heatMap.a = this;
+                Bundle bundle = heatMap.toBundle();
+                this.j.r(true);
+                this.j.h(bundle);
+            } finally {
+                this.L.unlock();
+            }
+        }
+    }
+
+    public List<Marker> getMarkersInBounds(LatLngBounds latLngBounds) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, latLngBounds)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, latLngBounds)) == null) {
             if (getMapStatus() == null) {
                 return null;
             }
@@ -949,812 +1881,274 @@ public class BaiduMap {
         return (List) invokeL.objValue;
     }
 
-    public final float getMaxZoomLevel() {
-        InterceptResult invokeV;
+    public final TraceOverlay addTraceOverlay(TraceOptions traceOptions, TraceAnimationListener traceAnimationListener) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return 0.0f;
-            }
-            return eVar.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float getMinZoomLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return 0.0f;
-            }
-            return eVar.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final Projection getProjection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f : (Projection) invokeV.objValue;
-    }
-
-    public float[] getProjectionMatrix() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, traceOptions, traceAnimationListener)) == null) {
+            if (traceOptions == null) {
                 return null;
             }
-            return eVar.N();
-        }
-        return (float[]) invokeV.objValue;
-    }
-
-    public final UiSettings getUiSettings() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.g : (UiSettings) invokeV.objValue;
-    }
-
-    public float[] getViewMatrix() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return null;
-            }
-            return eVar.O();
-        }
-        return (float[]) invokeV.objValue;
-    }
-
-    public float getZoomToBound(int i, int i2, int i3, int i4, int i5, int i6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return 0.0f;
-            }
-            return eVar.a(i, i2, i3, i4, i5, i6);
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public com.baidu.mapsdkplatform.comapi.map.j getmGLMapView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.h : (com.baidu.mapsdkplatform.comapi.map.j) invokeV.objValue;
-    }
-
-    public void hideInfoWindow() {
-        View view2;
-        MapView mapView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            Collection<InfoWindow> values = this.K.values();
-            if (!values.isEmpty()) {
-                for (InfoWindow infoWindow : values) {
-                    if (infoWindow != null && (view2 = infoWindow.b) != null) {
-                        int i = f.b[this.d.ordinal()];
-                        if (i == 1) {
-                            TextureMapView textureMapView = this.b;
-                            if (textureMapView != null) {
-                                textureMapView.removeView(view2);
-                            }
-                        } else if (i == 2 && (mapView = this.a) != null) {
-                            mapView.removeView(view2);
-                        }
-                    }
+            com.baidu.mapsdkplatform.comapi.map.a.c cVar = this.Y;
+            if (cVar == null || cVar.d()) {
+                com.baidu.mapsdkplatform.comapi.map.w wVar = this.d;
+                if (wVar == com.baidu.mapsdkplatform.comapi.map.w.a) {
+                    this.Y = new com.baidu.mapsdkplatform.comapi.map.a.c(this.h);
+                } else if (wVar != com.baidu.mapsdkplatform.comapi.map.w.b) {
+                    return null;
+                } else {
+                    this.Y = new com.baidu.mapsdkplatform.comapi.map.a.c(this.i);
                 }
+                this.Y.a();
             }
-            for (Overlay overlay : this.k) {
-                Set keySet = this.K.keySet();
-                String str = overlay.y;
-                if ((overlay instanceof Marker) && !keySet.isEmpty() && keySet.contains(str)) {
-                    overlay.remove();
-                }
-            }
-            this.K.clear();
-            this.L.clear();
-            this.n.clear();
+            this.Y.a(traceAnimationListener);
+            return this.Y.a(traceOptions);
         }
-    }
-
-    public void hideInfoWindow(InfoWindow infoWindow) {
-        MapView mapView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, infoWindow) == null) {
-            Set keySet = this.L.keySet();
-            if (infoWindow == null || keySet.isEmpty() || !keySet.contains(infoWindow)) {
-                return;
-            }
-            View view2 = infoWindow.b;
-            if (view2 != null) {
-                int i = f.b[this.d.ordinal()];
-                if (i == 1) {
-                    TextureMapView textureMapView = this.b;
-                    if (textureMapView != null) {
-                        textureMapView.removeView(view2);
-                    }
-                } else if (i == 2 && (mapView = this.a) != null) {
-                    mapView.removeView(view2);
-                }
-            }
-            Marker marker = (Marker) this.L.get(infoWindow);
-            if (marker != null) {
-                marker.remove();
-                this.K.remove(marker.y);
-            }
-            this.L.remove(infoWindow);
-            this.n.remove(infoWindow);
-        }
-    }
-
-    public void hideSDKLayer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.i.c();
-        }
-    }
-
-    public final boolean isBaiduHeatMapEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return false;
-            }
-            return eVar.i();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isBaseIndoorMapMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.i.q() : invokeV.booleanValue;
-    }
-
-    public final boolean isBuildingsEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return false;
-            }
-            return eVar.m();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean isMyLocationEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return false;
-            }
-            return eVar.s();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean isSupportBaiduHeatMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return false;
-            }
-            return eVar.j();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean isTrafficEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar == null) {
-                return false;
-            }
-            return eVar.g();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void removeMarkerClickListener(OnMarkerClickListener onMarkerClickListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048615, this, onMarkerClickListener) == null) && this.x.contains(onMarkerClickListener)) {
-            this.x.remove(onMarkerClickListener);
-        }
-    }
-
-    public final void setBaiduHeatMapEnabled(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048616, this, z) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.h(z);
-    }
-
-    public final void setBuildingsEnabled(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048617, this, z) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.j(z);
-    }
-
-    public void setCompassEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
-            this.i.e(z);
-        }
-    }
-
-    public void setCompassIcon(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, bitmap) == null) {
-            if (bitmap == null) {
-                throw new IllegalArgumentException("BDMapSDKException: compass's icon can not be null");
-            }
-            this.i.a(bitmap);
-        }
-    }
-
-    public void setCompassPosition(Point point) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, point) == null) && this.i.a(point)) {
-            this.T = point;
-        }
-    }
-
-    public boolean setCustomTrafficColor(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048621, this, str, str2, str3, str4)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
-                if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3) && TextUtils.isEmpty(str4)) {
-                    this.i.a(Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), false);
-                    return true;
-                }
-                return true;
-            } else if (str.matches("^#[0-9a-fA-F]{8}$") && str2.matches("^#[0-9a-fA-F]{8}$") && str3.matches("^#[0-9a-fA-F]{8}$") && str4.matches("^#[0-9a-fA-F]{8}$")) {
-                this.i.a(Color.parseColor(str), Color.parseColor(str2), Color.parseColor(str3), Color.parseColor(str4), true);
-                return true;
-            } else {
-                Log.e(e, "the string of the input customTrafficColor is error");
-                return false;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void setIndoorEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            if (eVar != null) {
-                this.R = z;
-                eVar.l(z);
-            }
-            OnBaseIndoorMapListener onBaseIndoorMapListener = this.D;
-            if (onBaseIndoorMapListener == null || z) {
-                return;
-            }
-            onBaseIndoorMapListener.onBaseIndoorMapMode(false, null);
-        }
-    }
-
-    public final void setMapStatus(MapStatusUpdate mapStatusUpdate) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048623, this, mapStatusUpdate) == null) || mapStatusUpdate == null) {
-            return;
-        }
-        ab a = a(mapStatusUpdate);
-        com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-        if (eVar == null) {
-            return;
-        }
-        eVar.a(a);
-        OnMapStatusChangeListener onMapStatusChangeListener = this.q;
-        if (onMapStatusChangeListener != null) {
-            onMapStatusChangeListener.onMapStatusChange(getMapStatus());
-        }
-    }
-
-    public final void setMapStatusLimits(LatLngBounds latLngBounds) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048624, this, latLngBounds) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.a(latLngBounds);
-        setMapStatus(MapStatusUpdateFactory.newLatLngBounds(latLngBounds));
-    }
-
-    public final void setMapType(int i) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048625, this, i) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        if (i == 1) {
-            eVar.a(false);
-            this.i.u(this.P);
-            this.i.v(this.Q);
-            this.i.g(true);
-            this.i.l(this.R);
-        } else if (i == 2) {
-            eVar.a(true);
-            this.i.u(this.P);
-            this.i.v(this.Q);
-            this.i.g(true);
-        } else if (i == 3) {
-            if (eVar.C()) {
-                this.i.u(false);
-            }
-            if (this.i.D()) {
-                this.i.v(false);
-            }
-            this.i.g(false);
-            this.i.l(false);
-        }
-        com.baidu.mapsdkplatform.comapi.map.j jVar = this.h;
-        if (jVar != null) {
-            jVar.a(i);
-        }
-    }
-
-    public final void setMaxAndMinZoomLevel(float f, float f2) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || f > 21.0f || f2 < 4.0f || f < f2 || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.a(f, f2);
-    }
-
-    public final void setMyLocationConfigeration(MyLocationConfiguration myLocationConfiguration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, myLocationConfiguration) == null) {
-            setMyLocationConfiguration(myLocationConfiguration);
-        }
-    }
-
-    public final void setMyLocationConfiguration(MyLocationConfiguration myLocationConfiguration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, myLocationConfiguration) == null) {
-            this.O = myLocationConfiguration;
-            a(this.N, myLocationConfiguration);
-        }
-    }
-
-    public final void setMyLocationData(MyLocationData myLocationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, myLocationData) == null) {
-            this.N = myLocationData;
-            if (this.O == null) {
-                this.O = new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, false, null);
-            }
-            a(myLocationData, this.O);
-        }
-    }
-
-    public final void setMyLocationEnabled(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048630, this, z) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.n(z);
-    }
-
-    public final void setOnBaseIndoorMapListener(OnBaseIndoorMapListener onBaseIndoorMapListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, onBaseIndoorMapListener) == null) {
-            this.D = onBaseIndoorMapListener;
-        }
-    }
-
-    public final void setOnMapClickListener(OnMapClickListener onMapClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, onMapClickListener) == null) {
-            this.s = onMapClickListener;
-        }
-    }
-
-    public final void setOnMapDoubleClickListener(OnMapDoubleClickListener onMapDoubleClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, onMapDoubleClickListener) == null) {
-            this.v = onMapDoubleClickListener;
-        }
-    }
-
-    public final void setOnMapDrawFrameCallback(OnMapDrawFrameCallback onMapDrawFrameCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, onMapDrawFrameCallback) == null) {
-            this.C = onMapDrawFrameCallback;
-        }
-    }
-
-    public void setOnMapLoadedCallback(OnMapLoadedCallback onMapLoadedCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, onMapLoadedCallback) == null) {
-            this.t = onMapLoadedCallback;
-        }
-    }
-
-    public final void setOnMapLongClickListener(OnMapLongClickListener onMapLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, onMapLongClickListener) == null) {
-            this.w = onMapLongClickListener;
-        }
-    }
-
-    public void setOnMapRenderCallbadk(OnMapRenderCallback onMapRenderCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, onMapRenderCallback) == null) {
-            this.u = onMapRenderCallback;
-        }
-    }
-
-    public final void setOnMapRenderValidDataListener(OnMapRenderValidDataListener onMapRenderValidDataListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, onMapRenderValidDataListener) == null) {
-            this.E = onMapRenderValidDataListener;
-        }
-    }
-
-    public final void setOnMapStatusChangeListener(OnMapStatusChangeListener onMapStatusChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, onMapStatusChangeListener) == null) {
-            this.q = onMapStatusChangeListener;
-        }
-    }
-
-    public final void setOnMapTouchListener(OnMapTouchListener onMapTouchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, onMapTouchListener) == null) {
-            this.r = onMapTouchListener;
-        }
-    }
-
-    public final void setOnMarkerClickListener(OnMarkerClickListener onMarkerClickListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048641, this, onMarkerClickListener) == null) || onMarkerClickListener == null || this.x.contains(onMarkerClickListener)) {
-            return;
-        }
-        this.x.add(onMarkerClickListener);
-    }
-
-    public final void setOnMarkerDragListener(OnMarkerDragListener onMarkerDragListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, onMarkerDragListener) == null) {
-            this.z = onMarkerDragListener;
-        }
-    }
-
-    public final void setOnMyLocationClickListener(OnMyLocationClickListener onMyLocationClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, onMyLocationClickListener) == null) {
-            this.A = onMyLocationClickListener;
-        }
-    }
-
-    public final void setOnPolylineClickListener(OnPolylineClickListener onPolylineClickListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048644, this, onPolylineClickListener) == null) || onPolylineClickListener == null) {
-            return;
-        }
-        this.y.add(onPolylineClickListener);
-    }
-
-    public final void setOnSynchronizationListener(OnSynchronizationListener onSynchronizationListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, onSynchronizationListener) == null) {
-            this.F = onSynchronizationListener;
-        }
-    }
-
-    public void setOverlayUnderPoi(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
-            this.i.c(z);
-        }
-    }
-
-    @Deprecated
-    public final void setPadding(int i, int i2, int i3, int i4) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        ViewGroup viewGroup;
-        MapView mapView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048647, this, i, i2, i3, i4) == null) || i < 0 || i2 < 0 || i3 < 0 || i4 < 0 || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.E();
-        int i5 = f.b[this.d.ordinal()];
-        if (i5 == 1) {
-            TextureMapView textureMapView = this.b;
-            if (textureMapView == null) {
-                return;
-            }
-            float width = ((textureMapView.getWidth() - i) - i3) / this.b.getWidth();
-            float height = ((this.b.getHeight() - i2) - i4) / this.b.getHeight();
-            MapStatusUpdate newMapStatus = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.b.getWidth() + i) - i3) / 2, ((this.b.getHeight() + i2) - i4) / 2)).build());
-            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.i;
-            Point point = this.T;
-            eVar2.a(new Point((int) (i + (point.x * width)), (int) (i2 + (point.y * height))));
-            setMapStatus(newMapStatus);
-            this.b.setPadding(i, i2, i3, i4);
-            viewGroup = this.b;
-        } else if (i5 != 2 || (mapView = this.a) == null) {
-            return;
-        } else {
-            float width2 = ((mapView.getWidth() - i) - i3) / this.a.getWidth();
-            float height2 = ((this.a.getHeight() - i2) - i4) / this.a.getHeight();
-            MapStatusUpdate newMapStatus2 = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.a.getWidth() + i) - i3) / 2, ((this.a.getHeight() + i2) - i4) / 2)).build());
-            com.baidu.mapsdkplatform.comapi.map.e eVar3 = this.i;
-            Point point2 = this.T;
-            eVar3.a(new Point((int) (i + (point2.x * width2)), (int) (i2 + (point2.y * height2))));
-            setMapStatus(newMapStatus2);
-            this.a.setPadding(i, i2, i3, i4);
-            viewGroup = this.a;
-        }
-        viewGroup.invalidate();
-    }
-
-    public void setPixelFormatTransparent(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.j jVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048648, this, z) == null) || (jVar = this.h) == null) {
-            return;
-        }
-        if (z) {
-            jVar.d();
-        } else {
-            jVar.e();
-        }
-    }
-
-    public final void setTrafficEnabled(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048649, this, z) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.i(z);
-    }
-
-    public final void setViewPadding(int i, int i2, int i3, int i4) {
-        ViewGroup viewGroup;
-        MapView mapView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048650, this, i, i2, i3, i4) == null) || i < 0 || i2 < 0 || i3 < 0 || i4 < 0 || this.i == null) {
-            return;
-        }
-        int i5 = f.b[this.d.ordinal()];
-        if (i5 == 1) {
-            TextureMapView textureMapView = this.b;
-            if (textureMapView == null) {
-                return;
-            }
-            float width = ((textureMapView.getWidth() - i) - i3) / this.b.getWidth();
-            float height = ((this.b.getHeight() - i2) - i4) / this.b.getHeight();
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
-            Point point = this.T;
-            eVar.a(new Point((int) (i + (point.x * width)), (int) (i2 + (point.y * height))));
-            this.b.setPadding(i, i2, i3, i4);
-            viewGroup = this.b;
-        } else if (i5 != 2 || (mapView = this.a) == null) {
-            return;
-        } else {
-            float width2 = ((mapView.getWidth() - i) - i3) / this.a.getWidth();
-            float height2 = ((this.a.getHeight() - i2) - i4) / this.a.getHeight();
-            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.i;
-            Point point2 = this.T;
-            eVar2.a(new Point((int) (i + (point2.x * width2)), (int) (i2 + (point2.y * height2))));
-            this.a.setPadding(i, i2, i3, i4);
-            viewGroup = this.a;
-        }
-        viewGroup.invalidate();
-    }
-
-    public void showInfoWindow(InfoWindow infoWindow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, infoWindow) == null) {
-            showInfoWindow(infoWindow, true);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00af  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00b3  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void showInfoWindow(InfoWindow infoWindow, boolean z) {
-        boolean z2;
-        Overlay a;
-        Bundle bundle;
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048652, this, infoWindow, z) == null) {
-            Set keySet = this.L.keySet();
-            if (infoWindow == null || keySet.contains(infoWindow)) {
-                return;
-            }
-            if (z) {
-                hideInfoWindow();
-            }
-            infoWindow.e = this.p;
-            View view2 = infoWindow.b;
-            if (view2 != null && infoWindow.j) {
-                view2.destroyDrawingCache();
-                MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.c).yOffset(infoWindow.f).build();
-                int i = f.b[this.d.ordinal()];
-                if (i == 1) {
-                    TextureMapView textureMapView = this.b;
-                    if (textureMapView != null) {
-                        textureMapView.addView(view2, build);
-                    }
-                } else if (i == 2 && this.h != null) {
-                    this.a.addView(view2, build);
-                }
-                if (infoWindow.i) {
-                    z2 = false;
-                    a = new MarkerOptions().perspective(false).icon(b(infoWindow)).position(infoWindow.c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.f).infoWindow(infoWindow).a();
-                    a.listener = this.o;
-                    a.type = com.baidu.mapsdkplatform.comapi.map.h.b;
-                    bundle = new Bundle();
-                    a.a(bundle);
-                    if (infoWindow.b == null) {
-                        bundle.putInt("draw_with_view", 1);
-                    } else {
-                        bundle.putInt("draw_with_view", 0);
-                    }
-                    eVar = this.i;
-                    if (eVar != null && z2) {
-                        eVar.b(bundle);
-                        this.k.add(a);
-                    }
-                    Marker marker = (Marker) a;
-                    marker.w = this.p;
-                    this.K.put(marker.y, infoWindow);
-                    this.L.put(infoWindow, marker);
-                    this.n.add(infoWindow);
-                }
-            }
-            z2 = true;
-            a = new MarkerOptions().perspective(false).icon(b(infoWindow)).position(infoWindow.c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.f).infoWindow(infoWindow).a();
-            a.listener = this.o;
-            a.type = com.baidu.mapsdkplatform.comapi.map.h.b;
-            bundle = new Bundle();
-            a.a(bundle);
-            if (infoWindow.b == null) {
-            }
-            eVar = this.i;
-            if (eVar != null) {
-                eVar.b(bundle);
-                this.k.add(a);
-            }
-            Marker marker2 = (Marker) a;
-            marker2.w = this.p;
-            this.K.put(marker2.y, infoWindow);
-            this.L.put(infoWindow, marker2);
-            this.n.add(infoWindow);
-        }
-    }
-
-    public void showInfoWindows(List list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048653, this, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            showInfoWindow((InfoWindow) it.next(), false);
-        }
-    }
-
-    public final void showMapIndoorPoi(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048654, this, z) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.v(z);
-        this.Q = z;
-    }
-
-    public final void showMapPoi(boolean z) {
-        com.baidu.mapsdkplatform.comapi.map.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048655, this, z) == null) || (eVar = this.i) == null) {
-            return;
-        }
-        eVar.u(z);
-        this.P = z;
-    }
-
-    public void showSDKLayer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048656, this) == null) {
-            this.i.d();
-        }
-    }
-
-    public final void snapshot(SnapshotReadyCallback snapshotReadyCallback) {
-        com.baidu.mapsdkplatform.comapi.map.j jVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, snapshotReadyCallback) == null) {
-            this.B = snapshotReadyCallback;
-            int i = f.b[this.d.ordinal()];
-            if (i != 1) {
-                if (i == 2 && (jVar = this.h) != null) {
-                    jVar.a("anything", (Rect) null);
-                    return;
-                }
-                return;
-            }
-            ac acVar = this.j;
-            if (acVar != null) {
-                acVar.a("anything", null);
-            }
-        }
+        return (TraceOverlay) invokeLL.objValue;
     }
 
     public final void snapshotScope(Rect rect, SnapshotReadyCallback snapshotReadyCallback) {
-        com.baidu.mapsdkplatform.comapi.map.j jVar;
+        MapSurfaceView mapSurfaceView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048658, this, rect, snapshotReadyCallback) == null) {
-            this.B = snapshotReadyCallback;
-            int i = f.b[this.d.ordinal()];
-            if (i != 1) {
-                if (i == 2 && (jVar = this.h) != null) {
-                    jVar.a("anything", rect);
-                    return;
-                }
+        if ((interceptable != null && interceptable.invokeLL(1048681, this, rect, snapshotReadyCallback) != null) || this.j == null) {
+            return;
+        }
+        this.D = snapshotReadyCallback;
+        int i = b.b[this.d.ordinal()];
+        if (i != 1) {
+            if (i == 2 && (mapSurfaceView = this.h) != null) {
+                mapSurfaceView.doCaptureMapView(new k(this), rect, Bitmap.Config.ARGB_8888);
+                this.h.requestRender();
                 return;
             }
-            ac acVar = this.j;
-            if (acVar != null) {
-                acVar.a("anything", rect);
-            }
+            return;
+        }
+        MapTextureView mapTextureView = this.i;
+        if (mapTextureView != null) {
+            mapTextureView.doCaptureMapView(new j(this), rect, Bitmap.Config.ARGB_8888);
+            this.i.requestRender();
         }
     }
 
     public MapBaseIndoorMapInfo.SwitchFloorError switchBaseIndoorMapFloor(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048659, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return MapBaseIndoorMapInfo.SwitchFloorError.FLOOR_INFO_ERROR;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048684, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                MapBaseIndoorMapInfo focusedBaseIndoorMapInfo = getFocusedBaseIndoorMapInfo();
+                if (focusedBaseIndoorMapInfo == null) {
+                    return MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
+                }
+                if (!str2.equals(focusedBaseIndoorMapInfo.a)) {
+                    return MapBaseIndoorMapInfo.SwitchFloorError.FOCUSED_ID_ERROR;
+                }
+                ArrayList<String> floors = focusedBaseIndoorMapInfo.getFloors();
+                if (floors != null && floors.contains(str)) {
+                    com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+                    if (dVar != null && dVar.a(str, str2)) {
+                        return MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_OK;
+                    }
+                    return MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
+                }
+                return MapBaseIndoorMapInfo.SwitchFloorError.FLOOR_OVERLFLOW;
             }
-            MapBaseIndoorMapInfo focusedBaseIndoorMapInfo = getFocusedBaseIndoorMapInfo();
-            if (focusedBaseIndoorMapInfo == null) {
-                return MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
-            }
-            if (str2.equals(focusedBaseIndoorMapInfo.a)) {
-                ArrayList floors = focusedBaseIndoorMapInfo.getFloors();
-                return (floors == null || !floors.contains(str)) ? MapBaseIndoorMapInfo.SwitchFloorError.FLOOR_OVERLFLOW : this.i.a(str, str2) ? MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_OK : MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
-            }
-            return MapBaseIndoorMapInfo.SwitchFloorError.FOCUSED_ID_ERROR;
+            return MapBaseIndoorMapInfo.SwitchFloorError.FLOOR_INFO_ERROR;
         }
         return (MapBaseIndoorMapInfo.SwitchFloorError) invokeLL.objValue;
+    }
+
+    public final void clear() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.X) {
+            return;
+        }
+        this.k.clear();
+        this.l.clear();
+        this.m.clear();
+        com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+        if (dVar != null) {
+            dVar.c(false);
+            this.j.n();
+        }
+        hideInfoWindow();
+    }
+
+    public float getZoomToBound(int i, int i2, int i3, int i4, int i5, int i6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            if (dVar == null) {
+                return 0.0f;
+            }
+            return dVar.a(i, i2, i3, i4, i5, i6);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public void hideInfoWindow() {
+        View view2;
+        MapView mapView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+            Collection<InfoWindow> values = this.N.values();
+            if (!values.isEmpty()) {
+                for (InfoWindow infoWindow : values) {
+                    if (infoWindow != null && (view2 = infoWindow.c) != null) {
+                        int i = b.b[this.d.ordinal()];
+                        if (i != 1) {
+                            if (i == 2 && (mapView = this.a) != null) {
+                                mapView.removeView(view2);
+                            }
+                        } else {
+                            TextureMapView textureMapView = this.b;
+                            if (textureMapView != null) {
+                                textureMapView.removeView(view2);
+                            }
+                        }
+                    }
+                }
+            }
+            for (Overlay overlay : this.k) {
+                Set<String> keySet = this.N.keySet();
+                String str = overlay.F;
+                if ((overlay instanceof Marker) && !keySet.isEmpty() && keySet.contains(str)) {
+                    overlay.remove();
+                }
+            }
+            this.N.clear();
+            this.O.clear();
+            this.n.clear();
+        }
+    }
+
+    @Deprecated
+    public boolean setCustomTrafficColor(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048635, this, str, str2, str3, str4)) == null) {
+            if (this.j == null) {
+                return false;
+            }
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
+                if (str.matches("^#[0-9a-fA-F]{8}$") && str2.matches("^#[0-9a-fA-F]{8}$") && str3.matches("^#[0-9a-fA-F]{8}$") && str4.matches("^#[0-9a-fA-F]{8}$")) {
+                    this.j.a(Color.parseColor(str), Color.parseColor(str2), Color.parseColor(str3), Color.parseColor(str4), true);
+                    return true;
+                }
+                Log.e(e, "the string of the input customTrafficColor is error");
+                return false;
+            } else if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3) && TextUtils.isEmpty(str4)) {
+                this.j.a(Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), false);
+                return true;
+            } else {
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void setViewPadding(int i, int i2, int i3, int i4) {
+        MapView mapView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIII(1048672, this, i, i2, i3, i4) != null) || i < 0 || i2 < 0 || i3 < 0 || i4 < 0 || this.j == null) {
+            return;
+        }
+        int i5 = b.b[this.d.ordinal()];
+        if (i5 != 1) {
+            if (i5 != 2 || (mapView = this.a) == null) {
+                return;
+            }
+            float width = ((mapView.getWidth() - i) - i3) / this.a.getWidth();
+            float height = ((this.a.getHeight() - i2) - i4) / this.a.getHeight();
+            com.baidu.mapsdkplatform.comapi.map.d dVar = this.j;
+            Point point = this.W;
+            dVar.a(new Point((int) (i + (point.x * width)), (int) (i2 + (point.y * height))));
+            this.a.setPadding(i, i2, i3, i4);
+            this.a.invalidate();
+            return;
+        }
+        TextureMapView textureMapView = this.b;
+        if (textureMapView == null) {
+            return;
+        }
+        float width2 = ((textureMapView.getWidth() - i) - i3) / this.b.getWidth();
+        float height2 = ((this.b.getHeight() - i2) - i4) / this.b.getHeight();
+        com.baidu.mapsdkplatform.comapi.map.d dVar2 = this.j;
+        Point point2 = this.W;
+        dVar2.a(new Point((int) (i + (point2.x * width2)), (int) (i2 + (point2.y * height2))));
+        this.b.setPadding(i, i2, i3, i4);
+        this.b.invalidate();
+    }
+
+    public final void setMaxAndMinZoomLevel(float f, float f2) {
+        com.baidu.mapsdkplatform.comapi.map.d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && f <= 21.0f && f2 >= 4.0f && f >= f2 && (dVar = this.j) != null) {
+            dVar.a(f, f2);
+        }
+    }
+
+    @Deprecated
+    public final void setPadding(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048669, this, i, i2, i3, i4) == null) {
+            setViewPadding(i, i2, i3, i4);
+        }
+    }
+
+    public void showInfoWindow(InfoWindow infoWindow, boolean z) {
+        boolean z2;
+        MapView mapView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048674, this, infoWindow, z) == null) {
+            Set<InfoWindow> keySet = this.O.keySet();
+            if (infoWindow != null && !keySet.contains(infoWindow) && !this.X) {
+                if (z) {
+                    hideInfoWindow();
+                }
+                infoWindow.f = this.p;
+                View view2 = infoWindow.c;
+                if (view2 != null && infoWindow.k) {
+                    view2.destroyDrawingCache();
+                    MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.d).yOffset(infoWindow.g).build();
+                    int i = b.b[this.d.ordinal()];
+                    if (i != 1) {
+                        if (i == 2 && (mapView = this.a) != null) {
+                            mapView.addView(view2, build);
+                        }
+                    } else {
+                        TextureMapView textureMapView = this.b;
+                        if (textureMapView != null) {
+                            textureMapView.addView(view2, build);
+                        }
+                    }
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                BitmapDescriptor b = b(infoWindow);
+                if (b == null) {
+                    return;
+                }
+                Overlay a = new MarkerOptions().perspective(false).icon(b).position(infoWindow.d).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.g).infoWindow(infoWindow).a();
+                a.listener = this.o;
+                a.type = com.baidu.mapsdkplatform.comapi.map.i.b;
+                Bundle bundle = new Bundle();
+                a.a(bundle);
+                if (infoWindow.c != null) {
+                    bundle.putInt("draw_with_view", 1);
+                } else {
+                    bundle.putInt("draw_with_view", 0);
+                }
+                if (this.j != null && z2 && !this.X) {
+                    this.j.c(bundle);
+                    this.k.add(a);
+                }
+                Marker marker = (Marker) a;
+                marker.A = this.p;
+                this.N.put(marker.F, infoWindow);
+                this.O.put(infoWindow, marker);
+                this.n.add(infoWindow);
+            }
+        }
     }
 }

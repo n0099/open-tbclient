@@ -33,7 +33,7 @@ public class dh {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a extends FilterOutputStream {
+    public static class a extends FilterOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;

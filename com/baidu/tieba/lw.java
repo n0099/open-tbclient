@@ -1,122 +1,119 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.LongSparseArray;
+import android.content.SharedPreferences;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.BdCore;
+import com.baidu.browser.core.util.BdLog;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
-public final class lw {
-    public static /* synthetic */ Interceptable $ic;
-    public static lw b;
-    public static HashMap c;
+import com.baidu.webkit.sdk.PermissionRequest;
+/* loaded from: classes5.dex */
+public class lw {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "lw";
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448310658, "Lcom/baidu/tieba/lw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448310658, "Lcom/baidu/tieba/lw;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448310658, "Lcom/baidu/tieba/lw;")) == null) {
+            return;
         }
-        c = new HashMap();
-    }
-
-    public lw() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        new LongSparseArray();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448310658, "Lcom/baidu/tieba/lw;");
+        }
     }
 
-    public static synchronized lw b() {
-        InterceptResult invokeV;
-        lw lwVar;
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (lw.class) {
-                if (b == null) {
-                    b = new lw();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            } catch (Throwable th) {
+                BdLog.c(a, th);
+                if (ApiUtil.shouldCheckPermission()) {
+                    return false;
                 }
-                lwVar = b;
+                return true;
             }
-            return lwVar;
         }
-        return (lw) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    private Context getContext() {
-        InterceptResult invokeV;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
+        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.p0.h.i) != false) goto L17;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.a == null) {
-                this.a = BdCore.a().getContext();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            boolean z = false;
+            if (context == null) {
+                return false;
             }
-            Context context = this.a;
-            if (context != null) {
-                return context;
-            }
-            throw new RuntimeException("context is null!");
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Deprecated
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            a(str2, str);
-            yw ywVar = (yw) c.get(str);
-            if (ywVar == null) {
-                ywVar = new yw(100);
-                c.put(str, ywVar);
-            }
-            Integer num = (Integer) ywVar.c(str2);
-            if (num == null) {
-                try {
-                    int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
-                    ywVar.d(str2, Integer.valueOf(identifier));
-                    return identifier;
-                } catch (Error e) {
-                    e.printStackTrace();
-                    return 0;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return 0;
+            try {
+                boolean checkPermissionGranted = ContextCompat.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+                if (Build.VERSION.SDK_INT >= 16) {
+                    if (!checkPermissionGranted) {
+                    }
+                    z = true;
+                    return z;
                 }
+                return checkPermissionGranted;
+            } catch (Throwable th) {
+                BdLog.c(a, th);
+                if (ApiUtil.shouldCheckPermission()) {
+                    return false;
+                }
+                return true;
             }
-            return num.intValue();
         }
-        return invokeLL.intValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (context == null) {
+                return false;
+            }
+            SharedPreferences sharedPreferences = context.getSharedPreferences(a, 0);
+            if (sharedPreferences == null) {
+                return true;
+            }
+            String str = "permission_request_code=" + String.valueOf(i);
+            boolean z = sharedPreferences.getBoolean(str, true);
+            d(context, str);
+            return z;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void d(Context context, String str) {
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) && context != null && (sharedPreferences = context.getSharedPreferences(a, 0)) != null) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putBoolean(str, false);
+            edit.apply();
+        }
     }
 }

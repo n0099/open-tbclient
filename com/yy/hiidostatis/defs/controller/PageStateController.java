@@ -18,13 +18,13 @@ public class PageStateController {
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Context context;
     public volatile OnStatisListener listener;
-    public volatile ConcurrentLinkedQueue pages;
+    public volatile ConcurrentLinkedQueue<PageBean> pages;
     public volatile long periodTime;
     public volatile StringBuffer record;
     public volatile IStatisAPI statisAPI;
 
     /* loaded from: classes8.dex */
-    public class PageBean {
+    public static class PageBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String page;
@@ -97,7 +97,7 @@ public class PageStateController {
                 return;
             }
         }
-        this.pages = new ConcurrentLinkedQueue();
+        this.pages = new ConcurrentLinkedQueue<>();
         this.record = new StringBuffer(512);
         this.statisAPI = iStatisAPI;
         this.context = context;
@@ -145,15 +145,15 @@ public class PageStateController {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Iterator it = this.pages.iterator();
+            Iterator<PageBean> it = this.pages.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                PageBean pageBean = (PageBean) it.next();
-                if (pageBean.getPage().equals(str)) {
-                    this.pages.remove(pageBean);
-                    this.record.append(String.format("%s:%d:%d|", Util.replaceEncode(pageBean.getPage(), ":"), Long.valueOf(pageBean.getStime()), Long.valueOf(System.currentTimeMillis() - pageBean.getStime())));
+                PageBean next = it.next();
+                if (next.getPage().equals(str)) {
+                    this.pages.remove(next);
+                    this.record.append(String.format("%s:%d:%d|", Util.replaceEncode(next.getPage(), ":"), Long.valueOf(next.getStime()), Long.valueOf(System.currentTimeMillis() - next.getStime())));
                     break;
                 }
             }

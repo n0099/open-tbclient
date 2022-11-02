@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class MediaUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map ADDITIONAL_ALLOWED_MIME_TYPES;
+    public static final Map<String, String> ADDITIONAL_ALLOWED_MIME_TYPES;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -121,7 +121,7 @@ public class MediaUtils {
             String lowerCase = extractExtension.toLowerCase(Locale.US);
             String mimeTypeFromExtension = MimeTypeMapWrapper.getMimeTypeFromExtension(lowerCase);
             if (mimeTypeFromExtension == null) {
-                return (String) ADDITIONAL_ALLOWED_MIME_TYPES.get(lowerCase);
+                return ADDITIONAL_ALLOWED_MIME_TYPES.get(lowerCase);
             }
             return mimeTypeFromExtension;
         }

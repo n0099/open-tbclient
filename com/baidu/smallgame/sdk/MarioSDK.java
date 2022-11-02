@@ -5,12 +5,13 @@ import android.opengl.GLSurfaceView;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
-import com.baidu.tieba.bh1;
+import com.baidu.tieba.th1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,6 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@NotProguard
 /* loaded from: classes2.dex */
 public class MarioSDK {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,14 +35,14 @@ public class MarioSDK {
     }
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SurfaceHolder a;
         public GLSurfaceView.Renderer b;
         public ArBridge.FirstFrameListener c;
         public int d;
-        public List e;
+        public List<DebugConsole> e;
         public Context f;
 
         public a() {
@@ -59,7 +61,7 @@ public class MarioSDK {
             this.e = new ArrayList();
         }
 
-        public List g() {
+        public List<DebugConsole> g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -140,26 +142,26 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            bh1 bh1Var = new bh1();
+            th1 th1Var = new th1();
             if (aVar.a != null) {
-                bh1Var.p(aVar.a);
+                th1Var.p(aVar.a);
             }
             if (aVar.c != null) {
-                bh1Var.setFirstFrameListener(aVar.c);
+                th1Var.setFirstFrameListener(aVar.c);
             }
-            bh1Var.setRenderMode(aVar.d);
+            th1Var.setRenderMode(aVar.d);
             if (aVar.f != null) {
-                bh1Var.o(aVar.f);
+                th1Var.o(aVar.f);
             }
             if (aVar.b != null) {
-                bh1Var.setRenderer(aVar.b);
+                th1Var.setRenderer(aVar.b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {
-                    bh1Var.addDebugConsole(debugConsole);
+                    th1Var.addDebugConsole(debugConsole);
                 }
             }
-            return bh1Var;
+            return th1Var;
         }
         return (AREngineDelegate) invokeL.objValue;
     }

@@ -16,7 +16,7 @@ public class CencSampleAuxiliaryDataFormat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] iv;
-    public List pairs;
+    public List<Pair> pairs;
 
     /* loaded from: classes7.dex */
     public class Pair {
@@ -106,7 +106,7 @@ public class CencSampleAuxiliaryDataFormat {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int length = this.iv.length;
-            List list = this.pairs;
+            List<Pair> list = this.pairs;
             if (list != null && list.size() > 0) {
                 return length + 2 + (this.pairs.size() * 6);
             }
@@ -128,7 +128,7 @@ public class CencSampleAuxiliaryDataFormat {
                 i = 0;
             }
             int i3 = i * 31;
-            List list = this.pairs;
+            List<Pair> list = this.pairs;
             if (list != null) {
                 i2 = list.hashCode();
             }
@@ -160,8 +160,8 @@ public class CencSampleAuxiliaryDataFormat {
             if (!new BigInteger(this.iv).equals(new BigInteger(cencSampleAuxiliaryDataFormat.iv))) {
                 return false;
             }
-            List list = this.pairs;
-            List list2 = cencSampleAuxiliaryDataFormat.pairs;
+            List<Pair> list = this.pairs;
+            List<Pair> list2 = cencSampleAuxiliaryDataFormat.pairs;
             if (list == null ? list2 == null : list.equals(list2)) {
                 return true;
             }

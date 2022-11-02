@@ -14,7 +14,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
-import com.baidu.tieba.wu5;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.fw5;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,12 +30,12 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public wu5 d;
+    public fw5 d;
     public HttpMessageListener e;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(List list, boolean z, boolean z2);
+        void a(List<wn> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -110,16 +112,16 @@ public class MyConcernTabModel extends BdBaseModel {
                     bVar.b(z3);
                     return;
                 }
-                wu5 wu5Var = this.a.d;
+                fw5 fw5Var = this.a.d;
                 if (this.a.a == 1) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
-                wu5Var.e(alaLiveTabMyConcernResponse, z2);
+                fw5Var.e(alaLiveTabMyConcernResponse, z2);
                 if (this.a.c != null) {
                     b bVar2 = this.a.c;
-                    List h = this.a.d.h();
+                    List<wn> h = this.a.d.h();
                     boolean z4 = alaLiveTabMyConcernResponse.hasMore;
                     if (this.a.a == 1) {
                         z3 = true;
@@ -149,7 +151,7 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new wu5(this.b);
+        this.d = new fw5(this.b);
         G();
         MessageManager.getInstance().registerListener(this.e);
     }
@@ -163,7 +165,7 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public void H(Class cls) {
+    public void H(Class<? extends BaseCardInfo> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
             this.d.j(cls);

@@ -49,7 +49,7 @@ public class m implements Runnable {
     public volatile boolean x;
     public volatile boolean y;
     public volatile boolean z;
-    public final List q = new ArrayList();
+    public final List<i> q = new ArrayList();
     public volatile long u = -1;
 
     public m(DownloadInfo downloadInfo, k kVar, c cVar, q qVar, int i) {
@@ -193,7 +193,7 @@ public class m implements Runnable {
                     throw new j(6, "createConn, " + iVar);
                 }
                 this.L = new com.ss.android.socialbase.downloader.i.e();
-                List a2 = com.ss.android.socialbase.downloader.i.f.a(this.m.getExtraHeaders(), this.m.geteTag(), this.r, this.t);
+                List<com.ss.android.socialbase.downloader.model.c> a2 = com.ss.android.socialbase.downloader.i.f.a(this.m.getExtraHeaders(), this.m.geteTag(), this.r, this.t);
                 a2.add(new com.ss.android.socialbase.downloader.model.c("Segment-Index", String.valueOf(iVar.g())));
                 a2.add(new com.ss.android.socialbase.downloader.model.c("Thread-Index", String.valueOf(this.c)));
                 com.ss.android.socialbase.downloader.i.f.a(a2, this.m);

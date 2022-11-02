@@ -1,10 +1,12 @@
 package com.google.android.exoplayer2.audio;
 
+import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.os.Handler;
 import android.view.Surface;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,6 +22,7 @@ import com.google.android.exoplayer2.audio.AudioRendererEventListener;
 import com.google.android.exoplayer2.audio.AudioSink;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.drm.DrmSessionManager;
+import com.google.android.exoplayer2.drm.FrameworkMediaCrypto;
 import com.google.android.exoplayer2.mediacodec.MediaCodecInfo;
 import com.google.android.exoplayer2.mediacodec.MediaCodecRenderer;
 import com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
@@ -29,6 +32,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
 import java.nio.ByteBuffer;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public class MediaCodecAudioRenderer extends MediaCodecRenderer implements MediaClock {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +51,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
 
     /* renamed from: com.google.android.exoplayer2.audio.MediaCodecAudioRenderer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -135,7 +139,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector) {
-        this(mediaCodecSelector, (DrmSessionManager) null, true);
+        this(mediaCodecSelector, (DrmSessionManager<FrameworkMediaCrypto>) null, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,7 +171,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, Handler handler, AudioRendererEventListener audioRendererEventListener) {
+    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, @Nullable Handler handler, @Nullable AudioRendererEventListener audioRendererEventListener) {
         this(mediaCodecSelector, null, true, handler, audioRendererEventListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -188,7 +192,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, DrmSessionManager drmSessionManager, boolean z) {
+    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, boolean z) {
         this(mediaCodecSelector, drmSessionManager, z, null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -209,7 +213,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public int supportsFormat(MediaCodecSelector mediaCodecSelector, DrmSessionManager drmSessionManager, Format format) throws MediaCodecUtil.DecoderQueryException {
+    public int supportsFormat(MediaCodecSelector mediaCodecSelector, DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, Format format) throws MediaCodecUtil.DecoderQueryException {
         InterceptResult invokeLLL;
         int i;
         boolean z;
@@ -263,7 +267,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, DrmSessionManager drmSessionManager, boolean z, Handler handler, AudioRendererEventListener audioRendererEventListener) {
+    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, boolean z, @Nullable Handler handler, @Nullable AudioRendererEventListener audioRendererEventListener) {
         this(mediaCodecSelector, drmSessionManager, z, handler, audioRendererEventListener, null, new AudioProcessor[0]);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -284,7 +288,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, DrmSessionManager drmSessionManager, boolean z, Handler handler, AudioRendererEventListener audioRendererEventListener, AudioCapabilities audioCapabilities, AudioProcessor... audioProcessorArr) {
+    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, boolean z, @Nullable Handler handler, @Nullable AudioRendererEventListener audioRendererEventListener, @Nullable AudioCapabilities audioCapabilities, AudioProcessor... audioProcessorArr) {
         this(mediaCodecSelector, drmSessionManager, z, handler, audioRendererEventListener, new DefaultAudioSink(audioCapabilities, audioProcessorArr));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -305,7 +309,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, DrmSessionManager drmSessionManager, boolean z, Handler handler, AudioRendererEventListener audioRendererEventListener, AudioSink audioSink) {
+    public MediaCodecAudioRenderer(MediaCodecSelector mediaCodecSelector, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, boolean z, @Nullable Handler handler, @Nullable AudioRendererEventListener audioRendererEventListener, AudioSink audioSink) {
         super(1, mediaCodecSelector, drmSessionManager, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

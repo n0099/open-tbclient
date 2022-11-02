@@ -1,48 +1,217 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.PriorityQueue;
 /* loaded from: classes4.dex */
-public class kr8 extends CustomMessageListener {
+public class kr8 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static MainTabScheduleStrategy b;
+    public static boolean c;
+    public static final PriorityQueue<qr8> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final pq8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kr8(MainTabActivity mainTabActivity, eq8 eq8Var) {
-        super(2921543);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, eq8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                kr8.d();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                kr8.d();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qr8 a;
+
+        public c(qr8 qr8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qr8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qr8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947922808, "Lcom/baidu/tieba/kr8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947922808, "Lcom/baidu/tieba/kr8;");
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        b = MainTabScheduleStrategy.FLUSHING;
+        c = false;
+        d = new PriorityQueue<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage customResponsedMessage) {
-        pq8 pq8Var;
+    public static void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (pq8Var = this.b) != null && pq8Var.i() != null) {
-            this.b.i().a();
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            while (!d.isEmpty()) {
+                qr8 poll = d.poll();
+                if (poll != null) {
+                    poll.b();
+                    poll.c();
+                }
+            }
+        }
+    }
+
+    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
+            b = mainTabScheduleStrategy;
+            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+                g(true);
+            }
+        }
+    }
+
+    public static void c(qr8 qr8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, qr8Var) == null) {
+            System.nanoTime();
+            qr8Var.b();
+            zg.a().postAtFrontOfQueue(new c(qr8Var));
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c = false;
+            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
+                return;
+            }
+            if (b == MainTabScheduleStrategy.FLUSHING) {
+                e();
+                return;
+            }
+            if (d.peek() != null && a >= d.peek().a) {
+                qr8 poll = d.poll();
+                if (poll == null) {
+                    return;
+                }
+                c(poll);
+            }
+            if (b == MainTabScheduleStrategy.SCHEDULE) {
+                g(false);
+            }
+        }
+    }
+
+    public static void f(qr8 qr8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, qr8Var) != null) || qr8Var == null) {
+            return;
+        }
+        if (b == MainTabScheduleStrategy.FLUSHING) {
+            if (!(qr8Var instanceof rr8)) {
+                qr8Var.d();
+                qr8Var.b();
+            }
+            qr8Var.c();
+            return;
+        }
+        qr8Var.d();
+        d.add(qr8Var);
+        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+            g(false);
+        }
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
+            return;
+        }
+        c = true;
+        if (z) {
+            zg.a().postAtFrontOfQueue(new a());
+        } else {
+            zg.a().post(new b());
         }
     }
 }

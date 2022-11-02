@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.e99;
+import com.baidu.tieba.na9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,18 +34,18 @@ public abstract class TurbonetEngine {
     }
 
     /* loaded from: classes6.dex */
-    public final class UrlRequestInfo {
+    public static final class UrlRequestInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
-    public final class UrlRequestMetrics {
+    public static final class UrlRequestMetrics {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public abstract UrlRequest b(String str, UrlRequest.Callback callback, Executor executor, int i, Collection collection, boolean z, boolean z2, boolean z3);
+    public abstract UrlRequest b(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3);
 
     public long d() {
         InterceptResult invokeV;
@@ -63,7 +63,7 @@ public abstract class TurbonetEngine {
     public abstract void g(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
     /* loaded from: classes6.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
@@ -87,7 +87,7 @@ public abstract class TurbonetEngine {
         }
 
         /* loaded from: classes6.dex */
-        public abstract class LibraryLoader {
+        public static abstract class LibraryLoader {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -217,7 +217,7 @@ public abstract class TurbonetEngine {
                 }
                 r(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
                 if (i() == null) {
-                    u(e99.a(this.a));
+                    u(na9.a(this.a));
                 }
                 return TurbonetEngine.c(this);
             }
@@ -380,7 +380,7 @@ public abstract class TurbonetEngine {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class AppState {
+    public static final class AppState {
         public static final /* synthetic */ AppState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AppState APP_STATE_BACKGROUND;
@@ -446,7 +446,7 @@ public abstract class TurbonetEngine {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class QUICConnectStatus {
+    public static final class QUICConnectStatus {
         public static final /* synthetic */ QUICConnectStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final QUICConnectStatus REACHABLE;
@@ -514,7 +514,7 @@ public abstract class TurbonetEngine {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class TCPNetworkQualityStatus {
+    public static final class TCPNetworkQualityStatus {
         public static final /* synthetic */ TCPNetworkQualityStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TCPNetworkQualityStatus NORMAL;

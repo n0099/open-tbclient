@@ -1,5 +1,6 @@
 package com.baidu.cloudsdk.common.imgloader;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -141,6 +142,7 @@ public class ImageManager {
         }
     }
 
+    @TargetApi(3)
     public void loadImage(Context context, Uri uri, AsyncImageLoader.IAsyncImageLoaderListener iAsyncImageLoaderListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, uri, iAsyncImageLoaderListener) == null) {
@@ -152,7 +154,7 @@ public class ImageManager {
             if (bitmap != null) {
                 iAsyncImageLoaderListener.onComplete(bitmap);
             } else if (Utils.isUrl(uri)) {
-                new AsyncTask(this, md5, iAsyncImageLoaderListener, context, uri) { // from class: com.baidu.cloudsdk.common.imgloader.ImageManager.1
+                new AsyncTask<String, Integer, Bitmap>(this, md5, iAsyncImageLoaderListener, context, uri) { // from class: com.baidu.cloudsdk.common.imgloader.ImageManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ImageManager this$0;

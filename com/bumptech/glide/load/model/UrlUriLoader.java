@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.model;
 
 import android.net.Uri;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,14 +18,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes7.dex */
-public class UrlUriLoader implements ModelLoader {
+public class UrlUriLoader<Data> implements ModelLoader<Uri, Data> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set SCHEMES;
+    public static final Set<String> SCHEMES;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModelLoader urlLoader;
+    public final ModelLoader<GlideUrl, Data> urlLoader;
 
     /* loaded from: classes7.dex */
-    public class StreamFactory implements ModelLoaderFactory {
+    public static class StreamFactory implements ModelLoaderFactory<Uri, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +51,8 @@ public class UrlUriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<Uri, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -76,7 +78,7 @@ public class UrlUriLoader implements ModelLoader {
         SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList("http", "https")));
     }
 
-    public UrlUriLoader(ModelLoader modelLoader) {
+    public UrlUriLoader(ModelLoader<GlideUrl, Data> modelLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +98,7 @@ public class UrlUriLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(Uri uri) {
+    public boolean handles(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
@@ -107,7 +109,7 @@ public class UrlUriLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(Uri uri, int i, int i2, Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {

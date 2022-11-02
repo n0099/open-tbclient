@@ -35,7 +35,7 @@ public class a {
     public Context g;
     public int h;
     public String i;
-    public Map j;
+    public Map<String, SharedPreferences> j;
 
     public a(Context context) {
         SharedPreferences sharedPreferences;
@@ -165,7 +165,7 @@ public class a {
             }
             try {
                 synchronized (this.j) {
-                    sharedPreferences = (SharedPreferences) this.j.get(str);
+                    sharedPreferences = this.j.get(str);
                     if (sharedPreferences == null) {
                         if (this.h == 1) {
                             sharedPreferences2 = this.g.getSharedPreferences(str, 0);
@@ -632,7 +632,7 @@ public class a {
         }
     }
 
-    public void a(List list) {
+    public void a(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             if (list.size() == 0) {
@@ -682,7 +682,7 @@ public class a {
         }
     }
 
-    public List c() {
+    public List<com.baidu.sofire.e.a> c() {
         InterceptResult invokeV;
         String[] split;
         Interceptable interceptable = $ic;
@@ -716,7 +716,7 @@ public class a {
         return (List) invokeV.objValue;
     }
 
-    public List e() {
+    public List<Integer> e() {
         InterceptResult invokeV;
         String[] split;
         Interceptable interceptable = $ic;
@@ -738,7 +738,7 @@ public class a {
         return (List) invokeV.objValue;
     }
 
-    public List f() {
+    public List<Integer> f() {
         InterceptResult invokeV;
         String[] split;
         Interceptable interceptable = $ic;

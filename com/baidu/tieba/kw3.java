@@ -1,108 +1,54 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.jo2;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kw3 {
+public abstract class kw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public static void a(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            jw3 jw3Var = new jw3();
-            jw3Var.b = str;
-            jw3Var.e = str2;
-            if (m33.M() != null && m33.M().Y() != null) {
-                jo2.a Y = m33.M().Y();
-                jw3Var.a = fa3.n(Y.G());
-                jw3Var.f = Y.H();
-                jw3Var.c = Y.T();
-                jw3Var.a("play_time", Long.valueOf(j));
+    public abstract ew1 a(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927458, "Lcom/baidu/tieba/kw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            fa3.y("916", "68", jw3Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947927458, "Lcom/baidu/tieba/kw3;");
+                return;
+            }
         }
+        b = ok1.a;
     }
 
-    public static void b(String str, String str2) {
-        String str3;
-        jo2.a aVar;
+    public kw3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (m33.M() != null && m33.M().Y() != null) {
-                aVar = m33.M().Y();
-                str3 = fa3.n(aVar.G());
-            } else {
-                str3 = "";
-                aVar = null;
-            }
-            if (aVar != null && TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                jw3 jw3Var = new jw3();
-                jw3Var.b = str;
-                jw3Var.e = str2;
-                jw3Var.a = str3;
-                jw3Var.f = aVar.H();
-                jw3Var.c = aVar.T();
-                fa3.y("916", "68", jw3Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            jw3 jw3Var = new jw3();
-            jw3Var.b = str;
-            jw3Var.e = str2;
-            if (m33.M() != null && m33.M().Y() != null) {
-                jo2.a Y = m33.M().Y();
-                jw3Var.a = fa3.n(Y.G());
-                jw3Var.f = Y.H();
-                jw3Var.c = Y.T();
-            }
-            jw3Var.k = str3;
-            fa3.y("916", "68", jw3Var);
-        }
-    }
-
-    public static void d(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            jw3 jw3Var = new jw3();
-            jw3Var.b = str;
-            jw3Var.e = "show";
-            if (m33.M() != null && m33.M().Y() != null) {
-                jo2.a Y = m33.M().Y();
-                jw3Var.a = fa3.n(Y.G());
-                jw3Var.f = Y.H();
-                jw3Var.c = Y.T();
-            }
-            if (e()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            jw3Var.a("early", str2);
-            fa3.y("916", "68", jw3Var);
-        }
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (j44.c() > 0 && wz3.c() && System.currentTimeMillis() - j44.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        this.a = str;
     }
 }

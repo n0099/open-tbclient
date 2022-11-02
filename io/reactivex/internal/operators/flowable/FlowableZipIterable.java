@@ -17,23 +17,23 @@ import java.util.Iterator;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableZipIterable extends AbstractFlowableWithUpstream {
+public final class FlowableZipIterable<T, U, V> extends AbstractFlowableWithUpstream<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable other;
-    public final BiFunction zipper;
+    public final Iterable<U> other;
+    public final BiFunction<? super T, ? super U, ? extends V> zipper;
 
     /* loaded from: classes8.dex */
-    public final class ZipIterableSubscriber implements FlowableSubscriber, Subscription {
+    public static final class ZipIterableSubscriber<T, U, V> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super V> actual;
         public boolean done;
-        public final Iterator iterator;
+        public final Iterator<U> iterator;
         public Subscription s;
-        public final BiFunction zipper;
+        public final BiFunction<? super T, ? super U, ? extends V> zipper;
 
-        public ZipIterableSubscriber(Subscriber subscriber, Iterator it, BiFunction biFunction) {
+        public ZipIterableSubscriber(Subscriber<? super V> subscriber, Iterator<U> it, BiFunction<? super T, ? super U, ? extends V> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,14 +112,14 @@ public final class FlowableZipIterable extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             try {
                 try {
-                    this.actual.onNext(ObjectHelper.requireNonNull(this.zipper.apply(obj, ObjectHelper.requireNonNull(this.iterator.next(), "The iterator returned a null value")), "The zipper function returned a null value"));
+                    this.actual.onNext(ObjectHelper.requireNonNull(this.zipper.apply(t, ObjectHelper.requireNonNull(this.iterator.next(), "The iterator returned a null value")), "The zipper function returned a null value"));
                     try {
                         if (!this.iterator.hasNext()) {
                             this.done = true;
@@ -139,7 +139,7 @@ public final class FlowableZipIterable extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableZipIterable(Flowable flowable, Iterable iterable, BiFunction biFunction) {
+    public FlowableZipIterable(Flowable<T> flowable, Iterable<U> iterable, BiFunction<? super T, ? super U, ? extends V> biFunction) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -161,7 +161,7 @@ public final class FlowableZipIterable extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super V> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

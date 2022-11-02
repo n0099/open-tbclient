@@ -1,10 +1,10 @@
 package rx.internal.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e2a;
-import com.baidu.tieba.ey9;
-import com.baidu.tieba.jy9;
-import com.baidu.tieba.ny9;
+import com.baidu.tieba.n3a;
+import com.baidu.tieba.nz9;
+import com.baidu.tieba.sz9;
+import com.baidu.tieba.wz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class CancellableSubscription extends AtomicReference implements ey9 {
+public final class CancellableSubscription extends AtomicReference<wz9> implements nz9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5718521705281392066L;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CancellableSubscription(ny9 ny9Var) {
-        super(ny9Var);
+    public CancellableSubscription(wz9 wz9Var) {
+        super(wz9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ny9Var};
+            Object[] objArr = {wz9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,7 +37,7 @@ public final class CancellableSubscription extends AtomicReference implements ey
         }
     }
 
-    @Override // com.baidu.tieba.ey9
+    @Override // com.baidu.tieba.nz9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public final class CancellableSubscription extends AtomicReference implements ey
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ey9
+    @Override // com.baidu.tieba.nz9
     public void unsubscribe() {
-        ny9 ny9Var;
+        wz9 andSet;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && get() != null && (ny9Var = (ny9) getAndSet(null)) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && get() != null && (andSet = getAndSet(null)) != null) {
             try {
-                ny9Var.cancel();
+                andSet.cancel();
             } catch (Exception e) {
-                jy9.e(e);
-                e2a.j(e);
+                sz9.e(e);
+                n3a.j(e);
             }
         }
     }

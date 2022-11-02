@@ -1,5 +1,7 @@
 package androidx.core.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class Pair<F, S> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final F first;
+    @Nullable
     public final S second;
 
-    public Pair(F f, S s) {
+    public Pair(@Nullable F f, @Nullable S s) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,7 +36,8 @@ public class Pair<F, S> {
         this.second = s;
     }
 
-    public static <A, B> Pair<A, B> create(A a, B b) {
+    @NonNull
+    public static <A, B> Pair<A, B> create(@Nullable A a, @Nullable B b) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b)) == null) {
@@ -78,6 +83,7 @@ public class Pair<F, S> {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

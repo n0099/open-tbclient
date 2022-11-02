@@ -19,32 +19,32 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableGenerate extends Flowable {
+public final class FlowableGenerate<T, S> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer disposeState;
-    public final BiFunction generator;
-    public final Callable stateSupplier;
+    public final Consumer<? super S> disposeState;
+    public final BiFunction<S, Emitter<T>, S> generator;
+    public final Callable<S> stateSupplier;
 
     /* loaded from: classes8.dex */
-    public final class GeneratorSubscription extends AtomicLong implements Emitter, Subscription {
+    public static final class GeneratorSubscription<T, S> extends AtomicLong implements Emitter<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7565982551505011832L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
-        public final Consumer disposeState;
-        public final BiFunction generator;
+        public final Consumer<? super S> disposeState;
+        public final BiFunction<S, ? super Emitter<T>, S> generator;
         public boolean hasNext;
-        public Object state;
+        public S state;
         public boolean terminate;
 
-        public GeneratorSubscription(Subscriber subscriber, BiFunction biFunction, Consumer consumer, Object obj) {
+        public GeneratorSubscription(Subscriber<? super T> subscriber, BiFunction<S, ? super Emitter<T>, S> biFunction, Consumer<? super S> consumer, S s) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, biFunction, consumer, obj};
+                Object[] objArr = {subscriber, biFunction, consumer, s};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,14 +57,14 @@ public final class FlowableGenerate extends Flowable {
             this.actual = subscriber;
             this.generator = biFunction;
             this.disposeState = consumer;
-            this.state = obj;
+            this.state = s;
         }
 
-        private void dispose(Object obj) {
+        private void dispose(S s) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65537, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(65537, this, s) == null) {
                 try {
-                    this.disposeState.accept(obj);
+                    this.disposeState.accept(s);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -94,9 +94,9 @@ public final class FlowableGenerate extends Flowable {
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
                 this.cancelled = true;
                 if (BackpressureHelper.add(this, 1L) == 0) {
-                    Object obj = this.state;
+                    S s = this.state;
                     this.state = null;
-                    dispose(obj);
+                    dispose(s);
                 }
             }
         }
@@ -111,16 +111,16 @@ public final class FlowableGenerate extends Flowable {
         }
 
         @Override // io.reactivex.Emitter
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.terminate) {
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !this.terminate) {
                 if (this.hasNext) {
                     onError(new IllegalStateException("onNext already called in this generate turn"));
-                } else if (obj == null) {
+                } else if (t == null) {
                     onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
                 } else {
                     this.hasNext = true;
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                 }
             }
         }
@@ -131,24 +131,24 @@ public final class FlowableGenerate extends Flowable {
             if ((interceptable != null && interceptable.invokeJ(1048580, this, j) != null) || !SubscriptionHelper.validate(j) || BackpressureHelper.add(this, j) != 0) {
                 return;
             }
-            Object obj = this.state;
-            BiFunction biFunction = this.generator;
+            S s = this.state;
+            BiFunction<S, ? super Emitter<T>, S> biFunction = this.generator;
             do {
                 long j2 = 0;
                 while (true) {
                     if (j2 != j) {
                         if (this.cancelled) {
                             this.state = null;
-                            dispose(obj);
+                            dispose(s);
                             return;
                         }
                         this.hasNext = false;
                         try {
-                            obj = biFunction.apply(obj, this);
+                            s = biFunction.apply(s, this);
                             if (this.terminate) {
                                 this.cancelled = true;
                                 this.state = null;
-                                dispose(obj);
+                                dispose(s);
                                 return;
                             }
                             j2++;
@@ -157,13 +157,13 @@ public final class FlowableGenerate extends Flowable {
                             this.cancelled = true;
                             this.state = null;
                             onError(th);
-                            dispose(obj);
+                            dispose(s);
                             return;
                         }
                     } else {
                         j = get();
                         if (j2 == j) {
-                            this.state = obj;
+                            this.state = s;
                             j = addAndGet(-j2);
                         }
                     }
@@ -172,7 +172,7 @@ public final class FlowableGenerate extends Flowable {
         }
     }
 
-    public FlowableGenerate(Callable callable, BiFunction biFunction, Consumer consumer) {
+    public FlowableGenerate(Callable<S> callable, BiFunction<S, Emitter<T>, S> biFunction, Consumer<? super S> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -193,7 +193,7 @@ public final class FlowableGenerate extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

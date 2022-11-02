@@ -12,7 +12,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import android.view.TextureView;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
@@ -147,7 +146,7 @@ public class q implements TextureView.SurfaceTextureListener, Camera.PreviewCall
 
         @Override // java.lang.Runnable
         public void run() {
-            Pair pair;
+            Pair<Integer, Object> pair;
             Activity activity;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -280,7 +279,7 @@ public class q implements TextureView.SurfaceTextureListener, Camera.PreviewCall
                     q qVar3 = this.a;
                     int a = q.a(qVar3, qVar3.a);
                     this.a.x.setDisplayOrientation(a);
-                    this.a.y.set(Key.ROTATION, a);
+                    this.a.y.set("rotation", a);
                     q qVar4 = this.a;
                     Point a2 = com.baidu.sofire.face.c.a.a(qVar4.y, qVar4.C, qVar4.D);
                     q qVar5 = this.a;
@@ -337,7 +336,7 @@ public class q implements TextureView.SurfaceTextureListener, Camera.PreviewCall
                     }
                     qVar16.x.startPreview();
                     this.a.E = true;
-                    Pair callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.l);
+                    Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.l);
                     if (callSync != null && ((Integer) callSync.first).intValue() == 0) {
                         this.a.t = true;
                     }

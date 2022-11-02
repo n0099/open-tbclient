@@ -1,5 +1,6 @@
 package com.baidu.searchbox.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
@@ -66,7 +67,7 @@ public class UnifyTextView extends TextView {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\r\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B7\u0012\u0006\u0010\u0018\u001a\u00020\u0017\u0012\u0006\u0010\u0013\u001a\u00020\u0004\u0012\u0006\u0010\u000e\u001a\u00020\u0004\u0012\u0006\u0010\u0014\u001a\u00020\u0004\u0012\u0006\u0010\u0016\u001a\u00020\u0004\u0012\u0006\u0010\u0015\u001a\u00020\u0004¢\u0006\u0004\b\u001a\u0010\u001bJ?\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0006\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u00042\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u000e\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0011\u001a\u00020\u00108\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u0011\u0010\u0012R\u0016\u0010\u0013\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0013\u0010\u000fR\u0016\u0010\u0014\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0014\u0010\u000fR\u0016\u0010\u0015\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0015\u0010\u000fR\u0016\u0010\u0016\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0016\u0010\u000fR\u0016\u0010\u0018\u001a\u00020\u00178\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0018\u0010\u0019¨\u0006\u001c"}, d2 = {"Lcom/baidu/searchbox/ui/UnifyTextView$ExcludeInnerPaddingSpan;", "Landroid/text/style/LineHeightSpan;", "", "text", "", "start", "end", "spanstartv", "lineHeight", "Landroid/graphics/Paint$FontMetricsInt;", "fm", "", "chooseHeight", "(Ljava/lang/CharSequence;IIIILandroid/graphics/Paint$FontMetricsInt;)V", "BOTTOM_BUFFER", "I", "", "MEIZU_15", "Ljava/lang/String;", "TOP_BUFFER", "lineSpace", "mBottomPadding", "mTopPadding", "Landroid/widget/TextView;", "textView", "Landroid/widget/TextView;", "<init>", "(Landroid/widget/TextView;IIIII)V", "lib-spannable_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class ExcludeInnerPaddingSpan implements LineHeightSpan {
+    public static final class ExcludeInnerPaddingSpan implements LineHeightSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int BOTTOM_BUFFER;
@@ -200,6 +201,7 @@ public class UnifyTextView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"CustomViewStyleable"})
     public UnifyTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;

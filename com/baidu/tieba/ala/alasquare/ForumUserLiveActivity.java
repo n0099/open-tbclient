@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.rt5;
+import com.baidu.tieba.av5;
+import com.baidu.tieba.kw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements rt5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements av5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -27,7 +27,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements rt5 {
     public LiveTabYYSubFragment c;
     public String d;
 
-    @Override // com.baidu.tieba.rt5
+    @Override // com.baidu.tieba.av5
     public boolean w0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements rt5 {
         }
     }
 
-    @Override // com.baidu.tieba.rt5
+    @Override // com.baidu.tieba.av5
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements rt5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
-            nv4.d(this.b).f(R.color.CAM_X0202);
+            kw4.d(this.b).f(R.color.CAM_X0202);
             LiveTabYYSubFragment liveTabYYSubFragment = this.c;
             if (liveTabYYSubFragment != null) {
                 liveTabYYSubFragment.changeSkinType(i);
@@ -112,15 +112,15 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements rt5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02cf);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09161c);
+            setContentView(R.layout.obfuscated_res_0x7f0d02d1);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09165b);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06e8));
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06eb));
             int i = 2;
             this.c = LiveTabYYSubFragment.I1(false, 2, 4);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0906dc);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906dc, this.c).commitAllowingStateLoss();
+            this.b = findViewById(R.id.obfuscated_res_0x7f0906ea);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906ea, this.c).commitAllowingStateLoss();
             String stringExtra = getIntent().getStringExtra("KEY_FORUM_ID");
             String stringExtra2 = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
             this.d = getIntent().getStringExtra("from");

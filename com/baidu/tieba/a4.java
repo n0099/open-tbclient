@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
 /* loaded from: classes3.dex */
-public class a4 extends b2 {
+public class a4 extends b2<z3, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a b;
     public com.badlogic.gdx.math.a c;
 
     /* loaded from: classes3.dex */
-    public class a extends l1 {
+    public static class a extends l1<z3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String b;
@@ -73,7 +73,7 @@ public class a4 extends b2 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, n1Var, str, k3Var, aVar)) == null) {
-            return f(new d4((Texture) n1Var.i((String) n1Var.n(str).f())), k3Var);
+            return f(new d4((Texture) n1Var.i(n1Var.n(str).f())), k3Var);
         }
         return (z3) invokeLLLL.objValue;
     }
@@ -81,7 +81,7 @@ public class a4 extends b2 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.o1
     /* renamed from: d */
-    public b7 a(String str, k3 k3Var, a aVar) {
+    public b7<j1> a(String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLL;
         String str2;
         String[] strArr;
@@ -116,7 +116,7 @@ public class a4 extends b2 {
                 if (str2 == null) {
                     return null;
                 }
-                b7 b7Var = new b7(1);
+                b7<j1> b7Var = new b7<>(1);
                 b7Var.a(new j1(k3Var.s(str2), Texture.class));
                 return b7Var;
             } catch (IOException e) {

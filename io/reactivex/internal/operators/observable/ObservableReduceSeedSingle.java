@@ -17,28 +17,28 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableReduceSeedSingle extends Single {
+public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction reducer;
-    public final Object seed;
-    public final ObservableSource source;
+    public final BiFunction<R, ? super T, R> reducer;
+    public final R seed;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ReduceSeedObserver implements Observer, Disposable {
+    public static final class ReduceSeedObserver<T, R> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super R> actual;
         public Disposable d;
-        public final BiFunction reducer;
-        public Object value;
+        public final BiFunction<R, ? super T, R> reducer;
+        public R value;
 
-        public ReduceSeedObserver(SingleObserver singleObserver, BiFunction biFunction, Object obj) {
+        public ReduceSeedObserver(SingleObserver<? super R> singleObserver, BiFunction<R, ? super T, R> biFunction, R r) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, biFunction, obj};
+                Object[] objArr = {singleObserver, biFunction, r};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,7 +49,7 @@ public final class ObservableReduceSeedSingle extends Single {
                 }
             }
             this.actual = singleObserver;
-            this.value = obj;
+            this.value = r;
             this.reducer = biFunction;
         }
 
@@ -73,11 +73,11 @@ public final class ObservableReduceSeedSingle extends Single {
 
         @Override // io.reactivex.Observer
         public void onComplete() {
-            Object obj;
+            R r;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (obj = this.value) != null) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (r = this.value) != null) {
                 this.value = null;
-                this.actual.onSuccess(obj);
+                this.actual.onSuccess(r);
             }
         }
 
@@ -95,12 +95,12 @@ public final class ObservableReduceSeedSingle extends Single {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
-            Object obj2;
+        public void onNext(T t) {
+            R r;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (obj2 = this.value) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && (r = this.value) != null) {
                 try {
-                    this.value = ObjectHelper.requireNonNull(this.reducer.apply(obj2, obj), "The reducer returned a null value");
+                    this.value = (R) ObjectHelper.requireNonNull(this.reducer.apply(r, t), "The reducer returned a null value");
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.d.dispose();
@@ -119,12 +119,12 @@ public final class ObservableReduceSeedSingle extends Single {
         }
     }
 
-    public ObservableReduceSeedSingle(ObservableSource observableSource, Object obj, BiFunction biFunction) {
+    public ObservableReduceSeedSingle(ObservableSource<T> observableSource, R r, BiFunction<R, ? super T, R> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, obj, biFunction};
+            Object[] objArr = {observableSource, r, biFunction};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -135,12 +135,12 @@ public final class ObservableReduceSeedSingle extends Single {
             }
         }
         this.source = observableSource;
-        this.seed = obj;
+        this.seed = r;
         this.reducer = biFunction;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super R> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new ReduceSeedObserver(singleObserver, this.reducer, this.seed));

@@ -6,11 +6,11 @@ import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
 
-    /* loaded from: classes7.dex */
-    public abstract class a {
+    /* loaded from: classes8.dex */
+    public static abstract class a {
         public a() {
         }
 
@@ -23,8 +23,8 @@ public final class e {
         public abstract Object wY();
     }
 
-    /* loaded from: classes7.dex */
-    public final class b extends a {
+    /* loaded from: classes8.dex */
+    public static class b extends a {
         public final PrintWriter aij;
 
         public b(PrintWriter printWriter) {
@@ -64,7 +64,7 @@ public final class e {
         }
     }
 
-    public static void a(Throwable th, a aVar, String str, String str2, Set set) {
+    public static void a(Throwable th, a aVar, String str, String str2, Set<Throwable> set) {
         while (!set.contains(th)) {
             set.add(th);
             StackTraceElement[] stackTrace = th.getStackTrace();

@@ -2,6 +2,8 @@ package com.baidu.live.mix.creator;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.mix.interfaces.MixLiveInterface;
+import com.baidu.live.mix.interfaces.MixLiveSingletonManagerInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,18 +45,18 @@ public interface MixLiveCreatorInterface {
     public interface YYLiveCreator extends MixLiveCreatorInterface {
     }
 
-    Function0 createMixLiveImpl();
+    Function0<MixLiveInterface> createMixLiveImpl();
 
-    Function0 createMixLiveSingletonManagerImpl(Context context);
+    Function0<MixLiveSingletonManagerInterface> createMixLiveSingletonManagerImpl(Context context);
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\t\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u00022\u0006\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lcom/baidu/live/mix/creator/MixLiveCreatorInterface$AudioEmpty;", "com/baidu/live/mix/creator/MixLiveCreatorInterface$AudioLiveCreator", "Lkotlin/Function0;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "createMixLiveImpl", "()Lkotlin/Function0;", "Landroid/content/Context;", "context", "Lcom/baidu/live/mix/interfaces/MixLiveSingletonManagerInterface;", "createMixLiveSingletonManagerImpl", "(Landroid/content/Context;)Lkotlin/Function0;", "<init>", "()V", "lib-live-mix-creator_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class AudioEmpty implements AudioLiveCreator {
+    public static final class AudioEmpty implements AudioLiveCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveImpl() {
+        public Function0<MixLiveInterface> createMixLiveImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -64,7 +66,7 @@ public interface MixLiveCreatorInterface {
         }
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveSingletonManagerImpl(Context context) {
+        public Function0<MixLiveSingletonManagerInterface> createMixLiveSingletonManagerImpl(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -90,12 +92,12 @@ public interface MixLiveCreatorInterface {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\t\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u00022\u0006\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lcom/baidu/live/mix/creator/MixLiveCreatorInterface$ConsultEmpty;", "com/baidu/live/mix/creator/MixLiveCreatorInterface$ConsultLiveCreator", "Lkotlin/Function0;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "createMixLiveImpl", "()Lkotlin/Function0;", "Landroid/content/Context;", "context", "Lcom/baidu/live/mix/interfaces/MixLiveSingletonManagerInterface;", "createMixLiveSingletonManagerImpl", "(Landroid/content/Context;)Lkotlin/Function0;", "<init>", "()V", "lib-live-mix-creator_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class ConsultEmpty implements ConsultLiveCreator {
+    public static final class ConsultEmpty implements ConsultLiveCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveImpl() {
+        public Function0<MixLiveInterface> createMixLiveImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -105,7 +107,7 @@ public interface MixLiveCreatorInterface {
         }
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveSingletonManagerImpl(Context context) {
+        public Function0<MixLiveSingletonManagerInterface> createMixLiveSingletonManagerImpl(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -131,12 +133,12 @@ public interface MixLiveCreatorInterface {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\t\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u00022\u0006\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lcom/baidu/live/mix/creator/MixLiveCreatorInterface$MediaEmpty;", "com/baidu/live/mix/creator/MixLiveCreatorInterface$MediaLiveCreator", "Lkotlin/Function0;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "createMixLiveImpl", "()Lkotlin/Function0;", "Landroid/content/Context;", "context", "Lcom/baidu/live/mix/interfaces/MixLiveSingletonManagerInterface;", "createMixLiveSingletonManagerImpl", "(Landroid/content/Context;)Lkotlin/Function0;", "<init>", "()V", "lib-live-mix-creator_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class MediaEmpty implements MediaLiveCreator {
+    public static final class MediaEmpty implements MediaLiveCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveImpl() {
+        public Function0<MixLiveInterface> createMixLiveImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -146,7 +148,7 @@ public interface MixLiveCreatorInterface {
         }
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveSingletonManagerImpl(Context context) {
+        public Function0<MixLiveSingletonManagerInterface> createMixLiveSingletonManagerImpl(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -172,12 +174,12 @@ public interface MixLiveCreatorInterface {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\t\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u00022\u0006\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lcom/baidu/live/mix/creator/MixLiveCreatorInterface$NewMediaEmpty;", "com/baidu/live/mix/creator/MixLiveCreatorInterface$NewMediaLiveCreator", "Lkotlin/Function0;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "createMixLiveImpl", "()Lkotlin/Function0;", "Landroid/content/Context;", "context", "Lcom/baidu/live/mix/interfaces/MixLiveSingletonManagerInterface;", "createMixLiveSingletonManagerImpl", "(Landroid/content/Context;)Lkotlin/Function0;", "<init>", "()V", "lib-live-mix-creator_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class NewMediaEmpty implements NewMediaLiveCreator {
+    public static final class NewMediaEmpty implements NewMediaLiveCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveImpl() {
+        public Function0<MixLiveInterface> createMixLiveImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -187,7 +189,7 @@ public interface MixLiveCreatorInterface {
         }
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveSingletonManagerImpl(Context context) {
+        public Function0<MixLiveSingletonManagerInterface> createMixLiveSingletonManagerImpl(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -213,12 +215,12 @@ public interface MixLiveCreatorInterface {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\t\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u00022\u0006\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lcom/baidu/live/mix/creator/MixLiveCreatorInterface$ShoppingEmpty;", "com/baidu/live/mix/creator/MixLiveCreatorInterface$ShoppingLiveCreator", "Lkotlin/Function0;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "createMixLiveImpl", "()Lkotlin/Function0;", "Landroid/content/Context;", "context", "Lcom/baidu/live/mix/interfaces/MixLiveSingletonManagerInterface;", "createMixLiveSingletonManagerImpl", "(Landroid/content/Context;)Lkotlin/Function0;", "<init>", "()V", "lib-live-mix-creator_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class ShoppingEmpty implements ShoppingLiveCreator {
+    public static final class ShoppingEmpty implements ShoppingLiveCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveImpl() {
+        public Function0<MixLiveInterface> createMixLiveImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -228,7 +230,7 @@ public interface MixLiveCreatorInterface {
         }
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveSingletonManagerImpl(Context context) {
+        public Function0<MixLiveSingletonManagerInterface> createMixLiveSingletonManagerImpl(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -254,12 +256,12 @@ public interface MixLiveCreatorInterface {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\t\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u00022\u0006\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lcom/baidu/live/mix/creator/MixLiveCreatorInterface$YYEmpty;", "com/baidu/live/mix/creator/MixLiveCreatorInterface$YYLiveCreator", "Lkotlin/Function0;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "createMixLiveImpl", "()Lkotlin/Function0;", "Landroid/content/Context;", "context", "Lcom/baidu/live/mix/interfaces/MixLiveSingletonManagerInterface;", "createMixLiveSingletonManagerImpl", "(Landroid/content/Context;)Lkotlin/Function0;", "<init>", "()V", "lib-live-mix-creator_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class YYEmpty implements YYLiveCreator {
+    public static final class YYEmpty implements YYLiveCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveImpl() {
+        public Function0<MixLiveInterface> createMixLiveImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -269,7 +271,7 @@ public interface MixLiveCreatorInterface {
         }
 
         @Override // com.baidu.live.mix.creator.MixLiveCreatorInterface
-        public Function0 createMixLiveSingletonManagerImpl(Context context) {
+        public Function0<MixLiveSingletonManagerInterface> createMixLiveSingletonManagerImpl(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {

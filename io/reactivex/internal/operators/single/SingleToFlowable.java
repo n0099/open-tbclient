@@ -13,20 +13,20 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class SingleToFlowable extends Flowable {
+public final class SingleToFlowable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource source;
+    public final SingleSource<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class SingleToFlowableObserver extends DeferredScalarSubscription implements SingleObserver {
+    public static final class SingleToFlowableObserver<T> extends DeferredScalarSubscription<T> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 187782011903685568L;
         public transient /* synthetic */ FieldHolder $fh;
         public Disposable d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SingleToFlowableObserver(Subscriber subscriber) {
+        public SingleToFlowableObserver(Subscriber<? super T> subscriber) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -72,15 +72,15 @@ public final class SingleToFlowable extends Flowable {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                complete(obj);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                complete(t);
             }
         }
     }
 
-    public SingleToFlowable(SingleSource singleSource) {
+    public SingleToFlowable(SingleSource<? extends T> singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public final class SingleToFlowable extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe(new SingleToFlowableObserver(subscriber));

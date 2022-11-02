@@ -4,12 +4,16 @@ import android.database.AbstractWindowedCursor;
 import android.database.CrossProcessCursor;
 import android.database.Cursor;
 import android.database.CursorWindow;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class CursorWrapper extends android.database.CursorWrapper implements CrossProcessCursor {
     public static /* synthetic */ Interceptable $ic;
@@ -17,12 +21,14 @@ public class CursorWrapper extends android.database.CursorWrapper implements Cro
     public AbstractWindowedCursor zza;
 
     @Override // android.database.CursorWrapper
+    @NonNull
     public final /* synthetic */ Cursor getWrappedCursor() {
         return this.zza;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CursorWrapper(Cursor cursor) {
+    @KeepForSdk
+    public CursorWrapper(@NonNull Cursor cursor) {
         super(cursor);
         String str;
         Interceptable interceptable = $ic;
@@ -56,7 +62,8 @@ public class CursorWrapper extends android.database.CursorWrapper implements Cro
     }
 
     @Override // android.database.CrossProcessCursor
-    public void fillWindow(int i, CursorWindow cursorWindow) {
+    @KeepForSdk
+    public void fillWindow(int i, @NonNull CursorWindow cursorWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, cursorWindow) == null) {
             this.zza.fillWindow(i, cursorWindow);
@@ -74,6 +81,8 @@ public class CursorWrapper extends android.database.CursorWrapper implements Cro
     }
 
     @Override // android.database.CrossProcessCursor
+    @Nullable
+    @KeepForSdk
     public CursorWindow getWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +92,8 @@ public class CursorWrapper extends android.database.CursorWrapper implements Cro
         return (CursorWindow) invokeV.objValue;
     }
 
-    public void setWindow(CursorWindow cursorWindow) {
+    @KeepForSdk
+    public void setWindow(@Nullable CursorWindow cursorWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cursorWindow) == null) {
             this.zza.setWindow(cursorWindow);

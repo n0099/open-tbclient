@@ -45,7 +45,7 @@ public interface ExoPlayer extends Player {
     void sendMessages(ExoPlayerMessage... exoPlayerMessageArr);
 
     /* loaded from: classes7.dex */
-    public final class ExoPlayerMessage {
+    public static final class ExoPlayerMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object message;

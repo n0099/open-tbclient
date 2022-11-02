@@ -35,7 +35,7 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         Intrinsics.checkNotNullParameter(target, "target");
         Intrinsics.checkNotNullParameter(onError, "onError");
         if (!copyRecursively.exists()) {
-            if (((OnErrorAction) onError.invoke(copyRecursively, new NoSuchFileException(copyRecursively, null, "The source file doesn't exist.", 2, null))) != OnErrorAction.TERMINATE) {
+            if (onError.invoke(copyRecursively, new NoSuchFileException(copyRecursively, null, "The source file doesn't exist.", 2, null)) != OnErrorAction.TERMINATE) {
                 return true;
             }
             return false;
@@ -45,7 +45,7 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
             while (it.hasNext()) {
                 File next = it.next();
                 if (!next.exists()) {
-                    if (((OnErrorAction) onError.invoke(next, new NoSuchFileException(next, null, "The source file doesn't exist.", 2, null))) == OnErrorAction.TERMINATE) {
+                    if (onError.invoke(next, new NoSuchFileException(next, null, "The source file doesn't exist.", 2, null)) == OnErrorAction.TERMINATE) {
                         return false;
                     }
                 } else {
@@ -62,7 +62,7 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
                                 z2 = false;
                             }
                             if (!z2) {
-                                if (((OnErrorAction) onError.invoke(file, new FileAlreadyExistsException(next, file, "The destination file already exists."))) == OnErrorAction.TERMINATE) {
+                                if (onError.invoke(file, new FileAlreadyExistsException(next, file, "The destination file already exists.")) == OnErrorAction.TERMINATE) {
                                     return false;
                                 }
                             }
@@ -73,7 +73,7 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
                     }
                     if (next.isDirectory()) {
                         file.mkdirs();
-                    } else if (copyTo$default(next, file, z, 0, 4, null).length() != next.length() && ((OnErrorAction) onError.invoke(next, new IOException("Source file wasn't copied completely, length of destination file differs."))) == OnErrorAction.TERMINATE) {
+                    } else if (copyTo$default(next, file, z, 0, 4, null).length() != next.length() && onError.invoke(next, new IOException("Source file wasn't copied completely, length of destination file differs.")) == OnErrorAction.TERMINATE) {
                         return false;
                     }
                 }

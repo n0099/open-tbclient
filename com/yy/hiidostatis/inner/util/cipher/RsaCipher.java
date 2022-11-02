@@ -38,7 +38,7 @@ public class RsaCipher {
     public PublicKey publicKey;
     public int public_m_flen;
     public int public_m_tail;
-    public final ThreadLocal rsaCipher;
+    public final ThreadLocal<Cipher> rsaCipher;
 
     public RsaCipher() {
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class RsaCipher {
         this.private_m_tail = 5;
         this.public_m_flen = 16;
         this.public_m_tail = 5;
-        this.rsaCipher = new ThreadLocal(this) { // from class: com.yy.hiidostatis.inner.util.cipher.RsaCipher.1
+        this.rsaCipher = new ThreadLocal<Cipher>(this) { // from class: com.yy.hiidostatis.inner.util.cipher.RsaCipher.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RsaCipher this$0;
@@ -103,7 +103,7 @@ public class RsaCipher {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), key})) == null) {
-            Cipher cipher = (Cipher) this.rsaCipher.get();
+            Cipher cipher = this.rsaCipher.get();
             cipher.init(2, key);
             return cipher.doFinal(bArr, i, i2);
         }
@@ -114,7 +114,7 @@ public class RsaCipher {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), key})) == null) {
-            Cipher cipher = (Cipher) this.rsaCipher.get();
+            Cipher cipher = this.rsaCipher.get();
             cipher.init(1, key);
             return cipher.doFinal(bArr, i, i2);
         }

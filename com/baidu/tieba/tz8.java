@@ -1,65 +1,62 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VideoTemplateContent;
 /* loaded from: classes6.dex */
-public class tz8 {
+public class tz8 extends p65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public long e;
-    public long f;
-    public double g;
-    public double h;
-    public double i;
-    public double j;
-    public String k;
+    public EditText t;
 
-    public tz8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz8(Context context) {
+        super(context, (String) null, 28);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.o = false;
+        this.n = 3;
+        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
+        this.m = videoPlayInputContainer;
+        this.t = videoPlayInputContainer.getInputView();
+        this.p = new int[]{4, 24, 3, 9, 6};
     }
 
-    public void a(VideoTemplateContent videoTemplateContent) {
+    public EditText g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, videoTemplateContent) == null) {
-            this.a = videoTemplateContent.content;
-            this.b = videoTemplateContent.type.intValue();
-            this.c = videoTemplateContent.pic_width.intValue();
-            this.d = videoTemplateContent.pic_height.intValue();
-            this.e = videoTemplateContent.start_time.longValue();
-            this.f = videoTemplateContent.end_time.longValue();
-            this.g = videoTemplateContent.position_x.doubleValue();
-            this.h = videoTemplateContent.position_y.doubleValue();
-            this.i = videoTemplateContent.position_type.doubleValue();
-            this.j = videoTemplateContent.text_size.doubleValue();
-            this.k = videoTemplateContent.text_color;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.t;
         }
+        return (EditText) invokeV.objValue;
     }
 
-    public String toString() {
+    public VideoPlayInputContainer h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AnniversaryContentData{content='" + this.a + "', type=" + this.b + ", picWidth=" + this.c + ", picHeight=" + this.d + ", startTime=" + this.e + ", endTime=" + this.f + ", x=" + this.g + ", y=" + this.h + ", positionType=" + this.i + ", textSize=" + this.j + ", textColor='" + this.k + "'}";
+            return (VideoPlayInputContainer) this.m;
         }
-        return (String) invokeV.objValue;
+        return (VideoPlayInputContainer) invokeV.objValue;
     }
 }

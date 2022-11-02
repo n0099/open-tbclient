@@ -1,10 +1,14 @@
 package com.bytedance.pangle.plugin;
 
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.ProviderInfo;
+import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,6 +39,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Locale;
 import org.json.JSONObject;
+@Keep
 /* loaded from: classes7.dex */
 public class Plugin {
     public static /* synthetic */ Interceptable $ic = null;
@@ -64,10 +69,10 @@ public class Plugin {
     public Resources mResources;
     public String mSignature;
     public int mVersionCode;
-    public HashMap pluginActivities;
-    public HashMap pluginProvider;
-    public HashMap pluginReceiver;
-    public HashMap pluginServices;
+    public HashMap<String, ActivityInfo> pluginActivities;
+    public HashMap<String, ProviderInfo> pluginProvider;
+    public HashMap<String, ActivityInfo> pluginReceiver;
+    public HashMap<String, ServiceInfo> pluginServices;
 
     public Plugin(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -84,10 +89,10 @@ public class Plugin {
                 return;
             }
         }
-        this.pluginActivities = new HashMap();
-        this.pluginServices = new HashMap();
-        this.pluginReceiver = new HashMap();
-        this.pluginProvider = new HashMap();
+        this.pluginActivities = new HashMap<>();
+        this.pluginServices = new HashMap<>();
+        this.pluginReceiver = new HashMap<>();
+        this.pluginProvider = new HashMap<>();
         this.mInternalVersionCode = -1;
         this.mMaxVersionCode = Integer.MAX_VALUE;
         this.mLifeCycle = 1;

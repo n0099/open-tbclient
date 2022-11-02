@@ -13,12 +13,12 @@ import java.util.Map;
 public final class PreFillQueue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map bitmapsPerType;
+    public final Map<PreFillType, Integer> bitmapsPerType;
     public int bitmapsRemaining;
     public int keyIndex;
-    public final List keyList;
+    public final List<PreFillType> keyList;
 
-    public PreFillQueue(Map map) {
+    public PreFillQueue(Map<PreFillType, Integer> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,8 +66,8 @@ public final class PreFillQueue {
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            PreFillType preFillType = (PreFillType) this.keyList.get(this.keyIndex);
-            Integer num = (Integer) this.bitmapsPerType.get(preFillType);
+            PreFillType preFillType = this.keyList.get(this.keyIndex);
+            Integer num = this.bitmapsPerType.get(preFillType);
             if (num.intValue() == 1) {
                 this.bitmapsPerType.remove(preFillType);
                 this.keyList.remove(this.keyIndex);

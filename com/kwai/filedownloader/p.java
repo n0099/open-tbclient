@@ -1,8 +1,6 @@
 package com.kwai.filedownloader;
 
-import android.os.Binder;
 import android.os.IBinder;
-import android.os.IInterface;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +12,12 @@ import com.kwai.filedownloader.b.a;
 import com.kwai.filedownloader.b.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
 /* loaded from: classes8.dex */
-public final class p extends com.kwai.filedownloader.services.a {
+public final class p extends com.kwai.filedownloader.services.a<a, com.kwai.filedownloader.b.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class a extends a.AbstractBinderC0620a {
+    public static class a extends a.AbstractBinderC0631a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,7 +45,7 @@ public final class p extends com.kwai.filedownloader.services.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(Class cls) {
+    public p(Class<?> cls) {
         super(cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,21 +76,24 @@ public final class p extends com.kwai.filedownloader.services.a {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iBinder)) == null) ? b.a.a(iBinder) : (com.kwai.filedownloader.b.b) invokeL.objValue;
     }
 
-    public static void a(com.kwai.filedownloader.b.b bVar, a aVar) {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwai.filedownloader.b.b bVar, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, bVar, aVar) == null) {
             bVar.a(aVar);
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'android.os.Binder' to match base method */
     @Override // com.kwai.filedownloader.services.a
-    public final /* synthetic */ Binder CW() {
+    public final /* synthetic */ a CW() {
         return CV();
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.os.IInterface, android.os.Binder] */
     @Override // com.kwai.filedownloader.services.a
-    public final /* bridge */ /* synthetic */ void a(IInterface iInterface, Binder binder) {
-        a((com.kwai.filedownloader.b.b) iInterface, (a) binder);
+    public final /* bridge */ /* synthetic */ void a(com.kwai.filedownloader.b.b bVar, a aVar) {
+        a2(bVar, aVar);
     }
 
     @Override // com.kwai.filedownloader.u
@@ -102,7 +103,7 @@ public final class p extends com.kwai.filedownloader.services.a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)})) == null) {
             if (isConnected()) {
                 try {
-                    ((com.kwai.filedownloader.b.b) Eq()).b(str, str2, z, i, i2, i3, z2, bVar, z3);
+                    Eq().b(str, str2, z, i, i2, i3, z2, bVar, z3);
                     return true;
                 } catch (RemoteException e) {
                     e.printStackTrace();
@@ -114,8 +115,9 @@ public final class p extends com.kwai.filedownloader.services.a {
         return invokeCommon.booleanValue;
     }
 
+    /* JADX DEBUG: Return type fixed from 'android.os.IInterface' to match base method */
     @Override // com.kwai.filedownloader.services.a
-    public final /* synthetic */ IInterface b(IBinder iBinder) {
+    public final /* synthetic */ com.kwai.filedownloader.b.b b(IBinder iBinder) {
         return a(iBinder);
     }
 
@@ -126,7 +128,7 @@ public final class p extends com.kwai.filedownloader.services.a {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             if (isConnected()) {
                 try {
-                    return ((com.kwai.filedownloader.b.b) Eq()).bW(i);
+                    return Eq().bW(i);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                     return false;
@@ -144,7 +146,7 @@ public final class p extends com.kwai.filedownloader.services.a {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (isConnected()) {
                 try {
-                    return ((com.kwai.filedownloader.b.b) Eq()).bX(i);
+                    return Eq().bX(i);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                     return (byte) 0;
@@ -162,7 +164,7 @@ public final class p extends com.kwai.filedownloader.services.a {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             if (isConnected()) {
                 try {
-                    return ((com.kwai.filedownloader.b.b) Eq()).bY(i);
+                    return Eq().bY(i);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                     return false;

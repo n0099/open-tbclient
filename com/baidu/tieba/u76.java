@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.c86;
+import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class u76 {
+public final class u76 extends t76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static t76 a(BaseFragment baseFragment, int i) {
-        InterceptResult invokeLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u76() {
+        super(new BottomRetainer(0.5f), new a86());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragment, i)) == null) {
-            if (baseFragment == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((c86) objArr[0], (c86.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i == 1) {
-                return new y76(baseFragment, i);
-            }
-            if (i == 2) {
-                return new x76(baseFragment, i);
-            }
-            if (i != 3) {
-                return null;
-            }
-            return new v76(baseFragment, i);
         }
-        return (t76) invokeLI.objValue;
     }
 }

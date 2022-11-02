@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -61,7 +60,7 @@ public final class d {
     public String q;
     public int r;
     public Thread s;
-    public List t;
+    public List<String> t;
     public boolean u;
     public Socket w;
     public InputStream x;
@@ -167,7 +166,7 @@ public final class d {
                                 this.a.l.a().wait();
                             }
                             if (this.a.l.a().size() > 0) {
-                                eVar = (com.baidu.android.pushservice.message.e) this.a.l.a().removeFirst();
+                                eVar = this.a.l.a().removeFirst();
                             }
                         } catch (Exception e) {
                             new b.c(this.a.k).a(Log.getStackTraceString(e)).a();
@@ -309,7 +308,7 @@ public final class d {
             }
         };
         this.B = 0L;
-        this.C = new int[]{180, 300, 360, HttpStatus.SC_METHOD_FAILURE, RecordConstants.DEFAULT_PREVIEW_WIDTH, 720, 900};
+        this.C = new int[]{180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, 900};
         this.D = 0;
         this.E = 0;
         this.F = 0;
@@ -388,7 +387,7 @@ public final class d {
                         }
 
                         @Override // com.baidu.android.pushservice.c.a
-                        public void a(int i5, List list) {
+                        public void a(int i5, List<String> list) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i5, list) == null) {
                                 this.b.q = null;
@@ -433,7 +432,7 @@ public final class d {
                                 }
 
                                 @Override // com.baidu.android.pushservice.c.a
-                                public void a(int i5, List list) {
+                                public void a(int i5, List<String> list) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i5, list) == null) {
                                         this.b.q = null;
@@ -495,7 +494,7 @@ public final class d {
                                 }
 
                                 @Override // com.baidu.android.pushservice.c.a
-                                public void a(int i2, List list) {
+                                public void a(int i2, List<String> list) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
                                         this.b.c = false;
@@ -537,7 +536,7 @@ public final class d {
                                 }
 
                                 @Override // com.baidu.android.pushservice.c.a
-                                public void a(int i2, List list) {
+                                public void a(int i2, List<String> list) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
                                         this.b.c = false;
@@ -655,7 +654,7 @@ public final class d {
                         return;
                     }
                     if (this.t.size() > 0) {
-                        this.p = (String) this.t.remove(0);
+                        this.p = this.t.remove(0);
                     }
                     b = Boolean.TRUE;
                     Runnable runnable = new Runnable(this, i) { // from class: com.baidu.android.pushservice.d.3
@@ -776,14 +775,14 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65572, this, i) == null) {
             if (this.h == 0 && i != 0) {
-                new b.C0038b(this.k).a(System.currentTimeMillis()).a(i + "").b(this.p + "/" + this.q + ":" + this.r + ":" + v).d(401100L).a();
+                new b.C0039b(this.k).a(System.currentTimeMillis()).a(i + "").b(this.p + "/" + this.q + ":" + this.r + ":" + v).d(401100L).a();
             } else if (this.h != 0) {
                 if (this.o) {
-                    new b.C0038b(this.k).b(System.currentTimeMillis()).a(i + "").d(401102L).a();
+                    new b.C0039b(this.k).b(System.currentTimeMillis()).a(i + "").d(401102L).a();
                     this.o = false;
                     return;
                 }
-                new b.C0038b(this.k).a(true).a(this.h).b(System.currentTimeMillis()).a(i + "").c(this.i).d(401101L).a();
+                new b.C0039b(this.k).a(true).a(this.h).b(System.currentTimeMillis()).a(i + "").c(this.i).d(401101L).a();
                 this.h = 0L;
             }
         }

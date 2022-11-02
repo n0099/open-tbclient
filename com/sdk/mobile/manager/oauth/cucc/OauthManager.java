@@ -58,15 +58,15 @@ public class OauthManager extends SDKManager {
         return (OauthManager) invokeL.objValue;
     }
 
-    public void getAuthoriseCode(int i, CallBack callBack) {
+    public <T> void getAuthoriseCode(int i, CallBack<T> callBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, callBack) == null) {
             new d(this.mContext, i, callBack).a(1);
         }
     }
 
-    public void getMobileForCode(String str, int i, CallBack callBack) {
-        e a;
+    public <T> void getMobileForCode(String str, int i, CallBack<T> callBack) {
+        e<T> a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, callBack) == null) {
             if (a.a(str).booleanValue()) {
@@ -90,8 +90,8 @@ public class OauthManager extends SDKManager {
         }
     }
 
-    public void getMobileForCode(String str, String str2, int i, CallBack callBack) {
-        e a;
+    public <T> void getMobileForCode(String str, String str2, int i, CallBack<T> callBack) {
+        e<T> a;
         int i2;
         String str3;
         Interceptable interceptable = $ic;

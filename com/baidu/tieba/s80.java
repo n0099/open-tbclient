@@ -1,34 +1,43 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes5.dex */
-public class s80 {
+public abstract class s80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public int c;
-    public String d;
-    public boolean e;
-    public byte[] f;
-    public long g;
-    public long h;
-    public long i;
-    public int j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public long n;
-    public boolean o;
+    public Context a;
+    public t80 b;
 
-    public s80() {
+    public abstract InputStream b() throws Exception;
+
+    public abstract void c(t80 t80Var);
+
+    public abstract boolean d() throws IOException;
+
+    public abstract t80 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
+
+    public abstract void f(r80 r80Var) throws IOException;
+
+    public s80(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,32 +47,16 @@ public class s80 {
                 return;
             }
         }
-        this.a = new byte[0];
-        this.b = 15000L;
-        this.c = -1;
-        this.d = "";
-        this.e = false;
-        this.f = new byte[0];
-        this.g = 60000L;
-        this.h = -1L;
-        this.i = -1L;
-        this.j = -1;
-        this.k = false;
-        this.l = false;
-        this.m = false;
-        this.n = -1L;
-        this.o = false;
+        this.b = null;
+        this.a = context;
     }
 
-    public String toString() {
+    public t80 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.m) {
-                return "Request correlationId :" + this.n + ", serviceId :" + this.h + ", methodId :" + this.i + ", connectState :" + this.j + ", isNotify :" + this.e + ", bodySize :" + this.a.length;
-            }
-            return "Response correlationId " + this.n + ", serviceId :" + this.h + ", methodId :" + this.i + ", errorCode :" + this.c + ", errorMsg :" + this.d + ", intervalMs :" + this.g + ", isNotify :" + this.e + ", bodySize :" + this.f.length;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (t80) invokeV.objValue;
     }
 }

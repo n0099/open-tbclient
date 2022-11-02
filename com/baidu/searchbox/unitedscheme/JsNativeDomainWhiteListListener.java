@@ -9,6 +9,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
+import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,6 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@UpdateAction(action = JsNativeDomainWhiteListListener.JSNATIVE_DOMAIN_WLIST_ACTION, module = "scheme")
 /* loaded from: classes2.dex */
 public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,7 +35,7 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
     public static final String TAG;
     public static final String WHITELIST = "whiteList";
     public static final String WHITELIST_ENABLE = "whiteListEnable";
-    public static List domainWhiteList;
+    public static List<String> domainWhiteList;
     public static String[] localDomainList;
     public static boolean whiteListEnable;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +60,7 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
         whiteListEnable = PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getBoolean(KEY_JSNATIVE_DOMAIN_WHITE_ENABLE, true);
     }
 
-    public static List getDomainWhiteList() {
+    public static List<String> getDomainWhiteList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -114,7 +116,6 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -128,9 +129,9 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
                     String str3 = TAG;
                     Log.d(str3, "value.data " + actionData.data);
                 }
-                setDomainWhiteList(((JSONObject) actionData.data).optJSONArray(WHITELIST));
-                whiteListEnable = ((JSONObject) actionData.data).optBoolean(WHITELIST_ENABLE, true);
-                PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(JSNATIVE_DOMAIN_WLIST_VERSION, actionData.version).putBoolean(KEY_JSNATIVE_DOMAIN_WHITE_ENABLE, whiteListEnable).putString(KEY_JSNATIVE_DOMAIN_WHITE_LIST, ((JSONObject) actionData.data).toString()).apply();
+                setDomainWhiteList(actionData.data.optJSONArray(WHITELIST));
+                whiteListEnable = actionData.data.optBoolean(WHITELIST_ENABLE, true);
+                PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(JSNATIVE_DOMAIN_WLIST_VERSION, actionData.version).putBoolean(KEY_JSNATIVE_DOMAIN_WHITE_ENABLE, whiteListEnable).putString(KEY_JSNATIVE_DOMAIN_WHITE_LIST, actionData.data.toString()).apply();
                 return true;
             }
             return false;

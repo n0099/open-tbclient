@@ -1,8 +1,10 @@
 package com.baidu.searchbox.player.remote;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +27,7 @@ public class BDPlayerServiceProxyWrapper {
     }
 
     /* loaded from: classes2.dex */
-    public class Impl {
+    public static class Impl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,6 +119,7 @@ public class BDPlayerServiceProxyWrapper {
         }
     }
 
+    @PublicMethod
     public void removeHelper() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -124,7 +127,8 @@ public class BDPlayerServiceProxyWrapper {
         }
     }
 
-    public static void setHelper(IPlayerServiceProxy iPlayerServiceProxy) {
+    @PublicMethod
+    public static void setHelper(@NonNull IPlayerServiceProxy iPlayerServiceProxy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iPlayerServiceProxy) == null) {
             mHelper = iPlayerServiceProxy;

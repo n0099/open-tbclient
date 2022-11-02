@@ -1,85 +1,94 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.OpenLogUtil;
+import com.baidu.mapapi.http.HttpClient;
+import com.baidu.mapsdkplatform.comapi.commonutils.a.c;
+import com.baidu.mapsdkplatform.comapi.map.f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+import java.io.File;
 /* loaded from: classes2.dex */
-public final class h {
+public class h implements c.InterfaceC0111c {
     public static /* synthetic */ Interceptable $ic;
-    public static final h a;
-    public static final h b;
-    public static final h c;
-    public static final h d;
-    public static final h e;
-    public static final h f;
-    public static final h g;
-    public static final h h;
-    public static final h i;
-    public static final h j;
-    public static final /* synthetic */ h[] k;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ String b;
+    public final /* synthetic */ f.a c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ f f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(724782220, "Lcom/baidu/mapsdkplatform/comapi/map/h;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(724782220, "Lcom/baidu/mapsdkplatform/comapi/map/h;");
-                return;
-            }
-        }
-        a = new h("logo", 0);
-        b = new h("popup", 1);
-        c = new h("marker", 2);
-        d = new h("ground", 3);
-        e = new h("text", 4);
-        f = new h("arc", 5);
-        g = new h("dot", 6);
-        h = new h(Config.TRACE_CIRCLE, 7);
-        i = new h("polyline", 8);
-        h hVar = new h("polygon", 9);
-        j = hVar;
-        k = new h[]{a, b, c, d, e, f, g, h, i, hVar};
-    }
-
-    public h(String str, int i2) {
+    public h(f fVar, Context context, String str, f.a aVar, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
+            Object[] objArr = {fVar, context, str, aVar, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = fVar;
+        this.a = context;
+        this.b = str;
+        this.c = aVar;
+        this.d = str2;
+        this.e = str3;
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.commonutils.a.c.InterfaceC0111c
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            f.a aVar = this.c;
+            if (aVar != null) {
+                aVar.a(HttpClient.HttpStateError.INNER_ERROR.ordinal(), "loadStyleFile onFailed", null);
+            }
+            if (OpenLogUtil.isMapLogEnable()) {
+                com.baidu.mapsdkplatform.comapi.commonutils.b.a().a("CustomMap loadStyleFile failed");
             }
         }
     }
 
-    public static h valueOf(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.mapsdkplatform.comapi.commonutils.a.c.InterfaceC0111c
+    public void a(File file) {
+        boolean a;
+        boolean a2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (h) Enum.valueOf(h.class, str) : (h) invokeL.objValue;
-    }
-
-    public static h[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) k.clone() : (h[]) invokeV.objValue;
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) != null) {
+            return;
+        }
+        a = this.f.a(this.a, file, this.b);
+        if (OpenLogUtil.isMapLogEnable()) {
+            com.baidu.mapsdkplatform.comapi.commonutils.b a3 = com.baidu.mapsdkplatform.comapi.commonutils.b.a();
+            a3.a("CustomMap loadStyleFile success ret = " + a);
+        }
+        String str = null;
+        if (!a) {
+            f.a aVar = this.c;
+            if (aVar != null) {
+                aVar.a(HttpClient.HttpStateError.INNER_ERROR.ordinal(), "UnZipStyleFile onFailed", null);
+                return;
+            }
+            return;
+        }
+        this.f.a(this.a, this.b, this.d);
+        if (this.c == null) {
+            return;
+        }
+        a2 = this.f.a(this.e);
+        if (a2) {
+            str = this.e;
+        }
+        this.c.a(true, str);
     }
 }

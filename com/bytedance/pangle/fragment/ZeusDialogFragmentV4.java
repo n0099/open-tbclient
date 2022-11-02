@@ -4,6 +4,9 @@ import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +18,7 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.InvocationTargetException;
+@Keep
 /* loaded from: classes7.dex */
 public class ZeusDialogFragmentV4 extends DialogFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -48,6 +52,7 @@ public class ZeusDialogFragmentV4 extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.Fragment, com.baidu.tieba.h2
+    @Nullable
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +83,8 @@ public class ZeusDialogFragmentV4 extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.DialogFragment
-    public Dialog onCreateDialog(Bundle bundle) {
+    @NonNull
+    public Dialog onCreateDialog(@Nullable Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {

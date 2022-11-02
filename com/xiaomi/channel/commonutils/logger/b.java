@@ -34,21 +34,21 @@ public abstract class b {
     public static String f14a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final HashMap f15a;
+    public static final HashMap<Integer, Long> f15a;
 
     /* renamed from: a  reason: collision with other field name */
     public static AtomicInteger f16a;
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f17a;
-    public static final HashMap b;
+    public static final HashMap<Integer, String> b;
 
     /* renamed from: b  reason: collision with other field name */
     public static boolean f18b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements LoggerInterface {
+    public static class a implements LoggerInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -109,8 +109,8 @@ public abstract class b {
         }
         f14a = "XMPush-" + Process.myPid();
         f12a = new a();
-        f15a = new HashMap();
-        b = new HashMap();
+        f15a = new HashMap<>();
+        b = new HashMap<>();
         f13a = -1;
         f16a = new AtomicInteger(1);
     }
@@ -214,9 +214,9 @@ public abstract class b {
     public static void a(Integer num) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65548, null, num) == null) && a <= 1 && f15a.containsKey(num)) {
-            long currentTimeMillis = System.currentTimeMillis() - ((Long) f15a.remove(num)).longValue();
+            long currentTimeMillis = System.currentTimeMillis() - f15a.remove(num).longValue();
             LoggerInterface loggerInterface = f12a;
-            loggerInterface.log(((String) b.remove(num)) + " ends in " + currentTimeMillis + " ms");
+            loggerInterface.log(b.remove(num) + " ends in " + currentTimeMillis + " ms");
         }
     }
 

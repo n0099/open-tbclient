@@ -1,5 +1,6 @@
 package com.google.android.material.internal;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -7,6 +8,10 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -17,10 +22,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Drawable foreground;
     public boolean foregroundBoundsChanged;
     public int foregroundGravity;
@@ -29,7 +36,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     public final Rect selfBounds;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ForegroundLinearLayout(Context context) {
+    public ForegroundLinearLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +75,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ForegroundLinearLayout(Context context, AttributeSet attributeSet) {
+    public ForegroundLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -89,7 +96,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForegroundLinearLayout(Context context, AttributeSet attributeSet, int i) {
+    public ForegroundLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -123,7 +130,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.View
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.draw(canvas);
@@ -149,7 +156,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.View
-    public void setForeground(Drawable drawable) {
+    public void setForeground(@Nullable Drawable drawable) {
         Drawable drawable2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) && (drawable2 = this.foreground) != drawable) {
@@ -176,6 +183,8 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.View
+    @RequiresApi(21)
+    @TargetApi(21)
     public void drawableHotspotChanged(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
@@ -200,6 +209,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.View
+    @Nullable
     public Drawable getForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -220,6 +230,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.ViewGroup, android.view.View
+    @RequiresApi(11)
     public void jumpDrawablesToCurrentState() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

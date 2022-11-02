@@ -1,109 +1,195 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.Display;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class oh3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final oh3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-546809135, "Lcom/baidu/tieba/oh3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-546809135, "Lcom/baidu/tieba/oh3$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948032207, "Lcom/baidu/tieba/oh3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new oh3(null);
-        }
-    }
-
-    public oh3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948032207, "Lcom/baidu/tieba/oh3;");
                 return;
             }
         }
-        this.a = 0;
+        a = mi3.b;
     }
 
-    public static oh3 b() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (oh3) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c() ? 1 : 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a != 0) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (f(appContext)) {
+                return false;
             }
-            return false;
+            return a(appContext);
         }
         return invokeV.booleanValue;
     }
 
-    public void d() {
+    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Resources resources = context.getResources();
+            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
+            boolean z2 = false;
+            if (identifier > 0) {
+                z = resources.getBoolean(identifier);
+            } else {
+                z = false;
+            }
+            try {
+                if (Build.VERSION.SDK_INT < 21) {
+                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                } else {
+                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                }
+                if (i != 0) {
+                    return false;
+                }
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                String str = (String) cls.getMethod("get", String.class).invoke(cls, "qemu.hw.mainkeys");
+                if (!"1".equals(str)) {
+                    if ("0".equals(str)) {
+                        z2 = true;
+                    } else {
+                        z2 = z;
+                    }
+                }
+                return z2;
+            } catch (Exception unused) {
+                return z;
+            }
         }
+        return invokeL.booleanValue;
     }
 
-    public /* synthetic */ oh3(a aVar) {
-        this();
+    public static Pair<Integer, Integer> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Pair<Integer, Integer> d = d();
+            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
+        }
+        return (Pair) invokeV.objValue;
     }
 
-    public void e(int i) {
+    public static int c() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!e()) {
+                return 0;
+            }
+            Resources resources = AppRuntime.getAppContext().getResources();
+            if (vh3.L()) {
+                str = SapiSystemBarTintManager.SystemBarConfig.h;
+            } else {
+                str = SapiSystemBarTintManager.SystemBarConfig.i;
+            }
+            return vh3.r(resources, str);
         }
+        return invokeV.intValue;
+    }
+
+    public static Pair<Integer, Integer> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
+            if (windowManager == null) {
+                return new Pair<>(Integer.valueOf(vh3.o(appContext)), Integer.valueOf(vh3.n(appContext)));
+            }
+            Display defaultDisplay = windowManager.getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getRealMetrics(displayMetrics);
+            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            String str = Build.BRAND;
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
+                        return false;
+                    }
+                    return true;
+                }
+                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
+                    if (str.equalsIgnoreCase("XIAOMI")) {
+                        if (Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase("VIVO")) {
+                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase(a)) {
+                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase("SAMSUNG")) {
+                        if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+                if (Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                if (ok1.a) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

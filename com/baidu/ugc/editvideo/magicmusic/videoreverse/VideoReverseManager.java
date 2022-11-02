@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.magicmusic.videoreverse;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih9;
+import com.baidu.tieba.ri9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class VideoReverseManager {
     public static volatile VideoReverseManager mVideoReverseManager;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoReverseHelper mReverseHelper;
-    public Map mTaskMap;
+    public Map<String, ReverseTask> mTaskMap;
 
     /* loaded from: classes6.dex */
     public class ReverseTask {
@@ -82,7 +82,7 @@ public class VideoReverseManager {
         return (VideoReverseManager) invokeV.objValue;
     }
 
-    private void reverseVideo(ReverseTask reverseTask, WeakReference weakReference, boolean z) {
+    private void reverseVideo(ReverseTask reverseTask, WeakReference<OnTimeReverseListener> weakReference, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65538, this, reverseTask, weakReference, z) == null) {
             synchronized (reverseTask) {
@@ -119,11 +119,11 @@ public class VideoReverseManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, onTimeReverseListener, z)) == null) {
             synchronized (this) {
-                WeakReference weakReference = new WeakReference(onTimeReverseListener);
+                WeakReference<OnTimeReverseListener> weakReference = new WeakReference<>(onTimeReverseListener);
                 try {
                 } catch (Exception e) {
-                    ih9.g(e);
-                    OnTimeReverseListener onTimeReverseListener2 = (OnTimeReverseListener) weakReference.get();
+                    ri9.g(e);
+                    OnTimeReverseListener onTimeReverseListener2 = weakReference.get();
                     if (onTimeReverseListener2 != null) {
                         String str2 = z ? "MediaCodec点击倒放失败" : "MediaCodec预倒放失败";
                         onTimeReverseListener2.onTimeReverseError(new Exception(str2 + e.getMessage()));
@@ -134,7 +134,7 @@ public class VideoReverseManager {
                         return true;
                     }
                     if (this.mTaskMap.containsKey(str)) {
-                        reverseTask = (ReverseTask) this.mTaskMap.get(str);
+                        reverseTask = this.mTaskMap.get(str);
                         if (reverseTask.state == 1) {
                             synchronized (reverseTask) {
                                 if (reverseTask.state == 1) {

@@ -1,5 +1,6 @@
 package com.baidu.turbonet.net;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +27,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateExpiredException;
@@ -53,7 +55,7 @@ public class X509Util {
     public static KeyStore e;
     public static KeyStore f;
     public static File g;
-    public static Set h;
+    public static Set<Pair<X500Principal, PublicKey>> h;
     public static boolean i;
     public static final Object j;
     public static boolean k;
@@ -61,14 +63,14 @@ public class X509Util {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
     public interface d {
-        List a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException;
+        List<X509Certificate> a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException;
     }
 
     public static native void nativeNotifyKeyChainChanged();
@@ -76,7 +78,7 @@ public class X509Util {
     public static native void nativeRecordCertVerifyCapabilitiesHistogram(boolean z);
 
     /* loaded from: classes6.dex */
-    public final class b extends BroadcastReceiver {
+    public static final class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -116,7 +118,7 @@ public class X509Util {
     }
 
     /* loaded from: classes6.dex */
-    public final class c implements d {
+    public static final class c implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509TrustManager a;
@@ -140,7 +142,7 @@ public class X509Util {
         }
 
         @Override // com.baidu.turbonet.net.X509Util.d
-        public List a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
+        public List<X509Certificate> a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x509CertificateArr, str, str2)) == null) {
@@ -152,11 +154,12 @@ public class X509Util {
     }
 
     /* loaded from: classes6.dex */
-    public final class e implements d {
+    public static final class e implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509TrustManagerExtensions a;
 
+        @SuppressLint({"NewApi"})
         public e(X509TrustManager x509TrustManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -176,7 +179,7 @@ public class X509Util {
         }
 
         @Override // com.baidu.turbonet.net.X509Util.d
-        public List a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
+        public List<X509Certificate> a(X509Certificate[] x509CertificateArr, String str, String str2) throws CertificateException {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x509CertificateArr, str, str2)) == null) {
@@ -427,7 +430,7 @@ public class X509Util {
             if (f == null) {
                 return false;
             }
-            Pair pair = new Pair(x509Certificate.getSubjectX500Principal(), x509Certificate.getPublicKey());
+            Pair<X500Principal, PublicKey> pair = new Pair<>(x509Certificate.getSubjectX500Principal(), x509Certificate.getPublicKey());
             if (h.contains(pair)) {
                 return true;
             }
@@ -459,7 +462,7 @@ public class X509Util {
 
     public static AndroidCertVerifyResult n(byte[][] bArr, String str, String str2, int i2) throws KeyStoreException, NoSuchAlgorithmException {
         InterceptResult invokeLLLI;
-        List emptyList;
+        List<X509Certificate> emptyList;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -511,7 +514,7 @@ public class X509Util {
                                 }
                             }
                             if (emptyList.size() > 0) {
-                                z2 = i((X509Certificate) emptyList.get(emptyList.size() - 1));
+                                z2 = i(emptyList.get(emptyList.size() - 1));
                             } else {
                                 z2 = false;
                             }

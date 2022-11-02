@@ -1,5 +1,6 @@
 package com.baidu.android.imrtc.request;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcManager;
 import com.baidu.android.imrtc.utils.BIMRtcEvent;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -30,7 +31,7 @@ public class HttpExecutor {
 
     /* loaded from: classes.dex */
     public interface HttpRequest {
-        Map getHeaders();
+        Map<String, String> getHeaders();
 
         String getHost();
 
@@ -117,7 +118,7 @@ public class HttpExecutor {
         this.okHttpClient = new OkHttpClient.Builder().addInterceptor(new HttpExecutorLogger()).connectTimeout(5L, TimeUnit.SECONDS).readTimeout(5L, TimeUnit.SECONDS).writeTimeout(5L, TimeUnit.SECONDS).build();
     }
 
-    public static void failedResponse(ResponseHandler responseHandler, int i, String str) {
+    public static void failedResponse(@NonNull ResponseHandler responseHandler, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65537, null, responseHandler, i, str) == null) {
             responseHandler.onFailure(i, str);
@@ -143,7 +144,7 @@ public class HttpExecutor {
         return (HttpExecutor) invokeV.objValue;
     }
 
-    public void execute(HttpRequest httpRequest, ResponseHandler responseHandler) {
+    public void execute(@NonNull HttpRequest httpRequest, @NonNull ResponseHandler responseHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, httpRequest, responseHandler) == null) {
             TaskManager.getInstance().submitForNetWork(new Runnable(this, httpRequest, responseHandler) { // from class: com.baidu.android.imrtc.request.HttpExecutor.1
@@ -184,7 +185,7 @@ public class HttpExecutor {
         }
     }
 
-    public void requestExecute(HttpRequest httpRequest, ResponseHandler responseHandler) {
+    public void requestExecute(@NonNull HttpRequest httpRequest, @NonNull ResponseHandler responseHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpRequest, responseHandler) == null) {
             try {

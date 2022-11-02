@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.drm;
 
+import android.annotation.TargetApi;
 import android.media.DeniedByServerException;
 import android.media.MediaCrypto;
 import android.media.MediaCryptoException;
@@ -8,6 +9,8 @@ import android.media.MediaDrmException;
 import android.media.NotProvisionedException;
 import android.media.UnsupportedSchemeException;
 import android.os.Handler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,12 +24,12 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+@TargetApi(23)
 /* loaded from: classes7.dex */
-public final class FrameworkMediaDrm implements ExoMediaDrm {
+public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MediaDrm mediaDrm;
@@ -108,7 +111,7 @@ public final class FrameworkMediaDrm implements ExoMediaDrm {
     }
 
     @Override // com.google.android.exoplayer2.drm.ExoMediaDrm
-    public Map queryKeyStatus(byte[] bArr) {
+    public Map<String, String> queryKeyStatus(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bArr)) == null) {
@@ -118,7 +121,7 @@ public final class FrameworkMediaDrm implements ExoMediaDrm {
     }
 
     @Override // com.google.android.exoplayer2.drm.ExoMediaDrm
-    public void setOnEventListener(ExoMediaDrm.OnEventListener onEventListener) {
+    public void setOnEventListener(ExoMediaDrm.OnEventListener<? super FrameworkMediaCrypto> onEventListener) {
         MediaDrm.OnEventListener onEventListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onEventListener) == null) {
@@ -152,7 +155,7 @@ public final class FrameworkMediaDrm implements ExoMediaDrm {
                     }
 
                     @Override // android.media.MediaDrm.OnEventListener
-                    public void onEvent(MediaDrm mediaDrm2, byte[] bArr, int i, int i2, byte[] bArr2) {
+                    public void onEvent(@NonNull MediaDrm mediaDrm2, @Nullable byte[] bArr, int i, int i2, byte[] bArr2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{mediaDrm2, bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2}) == null) {
                             this.val$listener.onEvent(this.this$0, bArr, i, i2, bArr2);
@@ -165,7 +168,7 @@ public final class FrameworkMediaDrm implements ExoMediaDrm {
     }
 
     @Override // com.google.android.exoplayer2.drm.ExoMediaDrm
-    public void setOnKeyStatusChangeListener(ExoMediaDrm.OnKeyStatusChangeListener onKeyStatusChangeListener) {
+    public void setOnKeyStatusChangeListener(ExoMediaDrm.OnKeyStatusChangeListener<? super FrameworkMediaCrypto> onKeyStatusChangeListener) {
         MediaDrm.OnKeyStatusChangeListener onKeyStatusChangeListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, onKeyStatusChangeListener) == null) {
@@ -200,13 +203,11 @@ public final class FrameworkMediaDrm implements ExoMediaDrm {
                         }
 
                         @Override // android.media.MediaDrm.OnKeyStatusChangeListener
-                        public void onKeyStatusChange(MediaDrm mediaDrm2, byte[] bArr, List list, boolean z) {
+                        public void onKeyStatusChange(@NonNull MediaDrm mediaDrm2, @NonNull byte[] bArr, @NonNull List<MediaDrm.KeyStatus> list, boolean z) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{mediaDrm2, bArr, list, Boolean.valueOf(z)}) == null) {
                                 ArrayList arrayList = new ArrayList();
-                                Iterator it = list.iterator();
-                                while (it.hasNext()) {
-                                    MediaDrm.KeyStatus keyStatus = (MediaDrm.KeyStatus) it.next();
+                                for (MediaDrm.KeyStatus keyStatus : list) {
                                     arrayList.add(new ExoMediaDrm.DefaultKeyStatus(keyStatus.getStatusCode(), keyStatus.getKeyId()));
                                 }
                                 this.val$listener.onKeyStatusChange(this.this$0, bArr, arrayList, z);
@@ -239,7 +240,7 @@ public final class FrameworkMediaDrm implements ExoMediaDrm {
     }
 
     @Override // com.google.android.exoplayer2.drm.ExoMediaDrm
-    public ExoMediaDrm.KeyRequest getKeyRequest(byte[] bArr, byte[] bArr2, String str, int i, HashMap hashMap) throws NotProvisionedException {
+    public ExoMediaDrm.KeyRequest getKeyRequest(byte[] bArr, byte[] bArr2, String str, int i, HashMap<String, String> hashMap) throws NotProvisionedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bArr, bArr2, str, Integer.valueOf(i), hashMap})) == null) {

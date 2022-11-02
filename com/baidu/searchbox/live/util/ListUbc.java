@@ -1,6 +1,7 @@
 package com.baidu.searchbox.live.util;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +54,7 @@ public class ListUbc {
         return (ListUbc) invokeV.objValue;
     }
 
-    public void reportReachEvent(String str, String str2, String str3, String str4, String str5, JSONObject jSONObject) {
+    public void reportReachEvent(@NonNull String str, @NonNull String str2, String str3, String str4, String str5, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, str5, jSONObject}) == null) {
             JSONObject jSONObject2 = new JSONObject();

@@ -3,6 +3,9 @@ package com.kwad.sdk.core.network.idc;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import com.kwad.components.offline.api.core.api.INet;
 import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.g;
@@ -13,17 +16,17 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    public final Map Za;
+    public final Map<String, String> Za;
     public final com.kwad.sdk.core.network.idc.kwai.a Zb;
     public final Random Zc;
-    public final Map Zd;
+    public final Map<String, AtomicBoolean> Zd;
     public Context mContext;
 
     /* renamed from: com.kwad.sdk.core.network.idc.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public final class C0603a {
+    /* loaded from: classes8.dex */
+    public static final class C0614a {
         public static final a Zf = new a((byte) 0);
     }
 
@@ -43,15 +46,16 @@ public final class a {
         this();
     }
 
-    private void E(String str, String str2) {
+    @WorkerThread
+    private void E(@NonNull String str, String str2) {
         String host;
         StringBuilder sb;
-        List ca = this.Zb.ca(str2);
+        List<String> ca = this.Zb.ca(str2);
         if (ca.isEmpty() || (host = Uri.parse(str).getHost()) == null || host.isEmpty()) {
             return;
         }
         com.kwad.sdk.core.e.b.d("IdcManager", ">>> switchHost start, type = " + str2 + ", old host = " + host);
-        AtomicBoolean atomicBoolean = (AtomicBoolean) this.Zd.get(str2);
+        AtomicBoolean atomicBoolean = this.Zd.get(str2);
         if (atomicBoolean.compareAndSet(false, true)) {
             try {
                 String bY = bY(str2);
@@ -74,7 +78,7 @@ public final class a {
                             nextInt += indexOf;
                         }
                         int size2 = nextInt % ca.size();
-                        String str3 = (String) ca.get(size2);
+                        String str3 = ca.get(size2);
                         com.kwad.sdk.core.e.b.d("IdcManager", "switchHost success, type = " + str2 + ", old host = " + host + ",new host = " + str3 + ",hostList = " + ca + ", key = " + size2);
                         G(str2, str3);
                         atomicBoolean.set(false);
@@ -111,27 +115,29 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @WorkerThread
     public void bX(String str) {
         String bY = bY(str);
-        List ca = this.Zb.ca(str);
+        List<String> ca = this.Zb.ca(str);
         if (ca.isEmpty()) {
             return;
         }
-        String str2 = (String) ca.get(0);
+        String str2 = ca.get(0);
         if (!TextUtils.equals(str2, bY) && ae.dN(str2)) {
             G(str, str2);
         }
     }
 
     private String bY(String str) {
-        return (String) this.Za.get(str);
+        return this.Za.get(str);
     }
 
     public static a tH() {
-        return C0603a.Zf;
+        return C0614a.Zf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @WorkerThread
     public void tI() {
         com.kwad.sdk.core.network.idc.kwai.a bt = b.bt(this.mContext);
         if (bt.isEmpty()) {
@@ -140,8 +146,9 @@ public final class a {
         this.Zb.b(bt);
     }
 
+    @Nullable
     public final String F(String str, String str2) {
-        String str3 = (String) this.Za.get(str);
+        String str3 = this.Za.get(str);
         return TextUtils.isEmpty(str3) ? str2 : str3;
     }
 

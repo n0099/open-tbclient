@@ -23,7 +23,7 @@ public class NetProbeThreadPoolUtil implements INoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public final class a implements ThreadFactory {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

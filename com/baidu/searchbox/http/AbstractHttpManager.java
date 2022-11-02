@@ -37,20 +37,21 @@ import okhttp3.ConnectionPool;
 import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 /* loaded from: classes2.dex */
 public abstract class AbstractHttpManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpManager";
     public static String sClientIP;
-    public static List sExternalInterceptorClass;
-    public static List sExternalNetworkInterceptorClass;
+    public static List<Class<? extends Interceptor>> sExternalInterceptorClass;
+    public static List<Class<? extends Interceptor>> sExternalNetworkInterceptorClass;
     public static ProductUserAgentHandler sProductUserAgent;
     public static ProxySelector sProxySelector;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
     public Handler deliver;
     public ConnectionPool ipv4OnlyConnectionPool;
-    public NetworkStat networkStat;
+    public NetworkStat<Request> networkStat;
     public OkHttpClient okHttpClient;
     public RequestHandler requestHandler;
     public IHttpDns sHttpDns;
@@ -92,7 +93,7 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    public static void addExternalInterceptorClass(Class cls) {
+    public static void addExternalInterceptorClass(Class<? extends Interceptor> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, cls) == null) {
             if (sExternalInterceptorClass == null) {
@@ -108,7 +109,7 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    public static void addExternalNetworkInterceptorClass(Class cls) {
+    public static void addExternalNetworkInterceptorClass(Class<? extends Interceptor> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, cls) == null) {
             if (sExternalNetworkInterceptorClass == null) {
@@ -163,7 +164,7 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    public void setNetworkStat(NetworkStat networkStat) {
+    public void setNetworkStat(NetworkStat<Request> networkStat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, networkStat) == null) {
             this.networkStat = networkStat;
@@ -187,21 +188,21 @@ public abstract class AbstractHttpManager {
     private void addStaticInterceptor(OkHttpClient.Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, builder) == null) {
-            List<Class> list = sExternalNetworkInterceptorClass;
+            List<Class<? extends Interceptor>> list = sExternalNetworkInterceptorClass;
             if (list != null) {
                 try {
-                    for (Class cls : list) {
-                        builder.addNetworkInterceptor((Interceptor) cls.getConstructor(new Class[0]).newInstance(new Object[0]));
+                    for (Class<? extends Interceptor> cls : list) {
+                        builder.addNetworkInterceptor(cls.getConstructor(new Class[0]).newInstance(new Object[0]));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            List<Class> list2 = sExternalInterceptorClass;
+            List<Class<? extends Interceptor>> list2 = sExternalInterceptorClass;
             if (list2 != null) {
                 try {
-                    for (Class cls2 : list2) {
-                        builder.addInterceptor((Interceptor) cls2.getConstructor(new Class[0]).newInstance(new Object[0]));
+                    for (Class<? extends Interceptor> cls2 : list2) {
+                        builder.addInterceptor(cls2.getConstructor(new Class[0]).newInstance(new Object[0]));
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -295,7 +296,7 @@ public abstract class AbstractHttpManager {
         return (String) invokeV.objValue;
     }
 
-    public NetworkStat getNetworkStat() {
+    public NetworkStat<Request> getNetworkStat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {

@@ -6,6 +6,7 @@ import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.IConnectListener;
 import com.baidu.android.imsdk.account.ILoginListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.api.im.ConnectListener;
 import com.baidu.livesdk.api.im.FetchMsgByIdListener;
@@ -84,10 +85,10 @@ public class BDIMManager implements IMManager {
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-                public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j4, long j5, long j6, int i6, int i7, long j7, ArrayList arrayList) {
+                public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j4, long j5, long j6, int i6, int i7, long j7, ArrayList<ChatMsg> arrayList) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str, str2, Integer.valueOf(i5), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j7), arrayList}) == null) && this.val$listener != null) {
-                        ArrayList arrayList2 = new ArrayList();
+                        ArrayList<Object> arrayList2 = new ArrayList<>();
                         arrayList2.addAll(arrayList);
                         this.val$listener.onFetchMsgByIdResult(i4, str, str2, i5, j4, j5, j6, i6, i7, j7, arrayList2);
                     }
@@ -126,10 +127,10 @@ public class BDIMManager implements IMManager {
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-                public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j6, long j7, long j8, int i6, int i7, long j9, ArrayList arrayList) {
+                public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j6, long j7, long j8, int i6, int i7, long j9, ArrayList<ChatMsg> arrayList) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str, str2, Integer.valueOf(i5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j9), arrayList}) == null) && this.val$listener != null) {
-                        ArrayList arrayList2 = new ArrayList();
+                        ArrayList<Object> arrayList2 = new ArrayList<>();
                         arrayList2.addAll(arrayList);
                         this.val$listener.onFetchMsgByIdResult(i4, str, str2, i5, j6, j7, j8, i6, i7, j9, arrayList2);
                     }

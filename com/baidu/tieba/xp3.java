@@ -1,197 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class xp3 {
+public class xp3 implements co2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x004e */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.ByteArrayOutputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static byte[] a(byte[] bArr, Key key, int i) {
-        InterceptResult invokeLLI;
-        ByteArrayOutputStream byteArrayOutputStream;
-        byte[] doFinal;
+    @Override // com.baidu.tieba.co2
+    public Map<Class, Object> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, bArr, key, i)) == null) {
-            ?? r0 = 0;
-            if (bArr != null && bArr.length != 0 && key != null) {
-                try {
-                    if (i > 0) {
-                        try {
-                            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                            cipher.init(1, key);
-                            byteArrayOutputStream = new ByteArrayOutputStream();
-                            try {
-                                int length = bArr.length;
-                                int i2 = 0;
-                                while (true) {
-                                    int i3 = length - i2;
-                                    if (i3 <= 0) {
-                                        break;
-                                    }
-                                    if (i3 > i) {
-                                        doFinal = cipher.doFinal(bArr, i2, i);
-                                    } else {
-                                        doFinal = cipher.doFinal(bArr, i2, i3);
-                                    }
-                                    byteArrayOutputStream.write(doFinal, 0, doFinal.length);
-                                    i2 += i;
-                                }
-                                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                try {
-                                    byteArrayOutputStream.close();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                return byteArray;
-                            } catch (InvalidKeyException e2) {
-                                e = e2;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                    try {
-                                        byteArrayOutputStream.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                    }
-                                }
-                                return null;
-                            } catch (NoSuchAlgorithmException e4) {
-                                e = e4;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (BadPaddingException e5) {
-                                e = e5;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (IllegalBlockSizeException e6) {
-                                e = e6;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (NoSuchPaddingException e7) {
-                                e = e7;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            }
-                        } catch (InvalidKeyException e8) {
-                            e = e8;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (NoSuchAlgorithmException e9) {
-                            e = e9;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (BadPaddingException e10) {
-                            e = e10;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (IllegalBlockSizeException e11) {
-                            e = e11;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (NoSuchPaddingException e12) {
-                            e = e12;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (r0 != 0) {
-                                try {
-                                    r0.close();
-                                } catch (IOException e13) {
-                                    e13.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    r0 = key;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
-        return (byte[]) invokeLLI.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public static byte[] b(byte[] bArr, String str, int i) {
-        InterceptResult invokeLLI;
-        PublicKey c;
+    public xp3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bArr, str, i)) == null) {
-            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (c = c(str)) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return a(bArr, c, i);
         }
-        return (byte[]) invokeLLI.objValue;
     }
 
-    public static PublicKey c(String str) {
+    @Override // com.baidu.tieba.co2
+    public void a(b53 b53Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, b53Var) == null) {
+            tp3.b().a(b53Var);
+            tp3.a().a(b53Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.co2
+    public Map<String, Object> b(@NonNull fs1 fs1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fs1Var)) == null) {
+            Map<String, Object> b = tp3.b().b(fs1Var);
+            Map<String, Object> b2 = tp3.a().b(fs1Var);
+            HashMap hashMap = new HashMap();
+            if (b != null) {
+                hashMap.putAll(b);
             }
-            try {
-                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
-                e.printStackTrace();
-                return null;
+            if (b2 != null) {
+                hashMap.putAll(b2);
             }
+            return hashMap;
         }
-        return (PublicKey) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.co2
+    public Map<String, Object> c(@NonNull fs1 fs1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fs1Var)) == null) {
+            Map<String, Object> c = tp3.b().c(fs1Var);
+            Map<String, Object> c2 = tp3.a().c(fs1Var);
+            HashMap hashMap = new HashMap();
+            if (c != null) {
+                hashMap.putAll(c);
+            }
+            if (c2 != null) {
+                hashMap.putAll(c2);
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

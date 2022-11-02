@@ -15,22 +15,22 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleSubscribeOn extends Single {
+public final class SingleSubscribeOn<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
-    public final SingleSource source;
+    public final SingleSource<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class SubscribeOnObserver extends AtomicReference implements SingleObserver, Disposable, Runnable {
+    public static final class SubscribeOnObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7000911171163930287L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final SingleSource source;
+        public final SingleObserver<? super T> actual;
+        public final SingleSource<? extends T> source;
         public final SequentialDisposable task;
 
-        public SubscribeOnObserver(SingleObserver singleObserver, SingleSource singleSource) {
+        public SubscribeOnObserver(SingleObserver<? super T> singleObserver, SingleSource<? extends T> singleSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public final class SingleSubscribeOn extends Single {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -94,15 +94,15 @@ public final class SingleSubscribeOn extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
     }
 
-    public SingleSubscribeOn(SingleSource singleSource, Scheduler scheduler) {
+    public SingleSubscribeOn(SingleSource<? extends T> singleSource, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public final class SingleSubscribeOn extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             SubscribeOnObserver subscribeOnObserver = new SubscribeOnObserver(singleObserver, this.source);

@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -46,18 +47,20 @@ import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 import com.bytedance.pangle.wrapper.PluginFragmentActivityWrapper;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.xmlpull.v1.XmlPullParser;
+@Keep
 /* loaded from: classes7.dex */
 public class ZeusTransformUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginContextUtils";
-    public static HashMap contextCache;
+    public static HashMap<String, WeakReference<Context>> contextCache;
     public static Class fragmentClazz;
     public static boolean hasEnsure;
-    public static HashMap sConstructorMap;
+    public static HashMap<String, Constructor<View>> sConstructorMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,7 +76,7 @@ public class ZeusTransformUtils {
                 return;
             }
         }
-        contextCache = new HashMap();
+        contextCache = new HashMap<>();
         hasEnsure = false;
         sConstructorMap = null;
     }
@@ -487,10 +490,10 @@ public class ZeusTransformUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, obj, str)) == null) {
-            HashMap hashMap = contextCache;
-            WeakReference weakReference = (WeakReference) hashMap.get(str + System.identityHashCode(obj));
+            HashMap<String, WeakReference<Context>> hashMap = contextCache;
+            WeakReference<Context> weakReference = hashMap.get(str + System.identityHashCode(obj));
             if (weakReference != null) {
-                return (Context) weakReference.get();
+                return weakReference.get();
             }
             return null;
         }
@@ -957,8 +960,8 @@ public class ZeusTransformUtils {
                 pluginContext = new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false);
             }
             if (pluginContext != null) {
-                HashMap hashMap = contextCache;
-                hashMap.put(str + System.identityHashCode(contextIfNeedWrap), new WeakReference(pluginContext));
+                HashMap<String, WeakReference<Context>> hashMap = contextCache;
+                hashMap.put(str + System.identityHashCode(contextIfNeedWrap), new WeakReference<>(pluginContext));
             }
             return pluginContext;
         }

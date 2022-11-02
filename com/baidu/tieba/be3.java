@@ -1,222 +1,163 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import androidx.core.content.ContextCompat;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.qy2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class be3 {
+public class be3 extends b63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public c b;
-    public final qy2.a c;
 
-    /* loaded from: classes3.dex */
-    public class a implements qy2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ be3 a;
-
-        public a(be3 be3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {be3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = be3Var;
-        }
-
-        @Override // com.baidu.tieba.qy2.a
-        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 700 && iArr.length > 0 && iArr[0] == 0 && this.a.b != null) {
-                this.a.b.a(this.a.a);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final be3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-921758661, "Lcom/baidu/tieba/be3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-921758661, "Lcom/baidu/tieba/be3$b;");
-                    return;
-                }
-            }
-            a = new be3(null);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Vibrator a;
-
-        public c(Vibrator vibrator) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vibrator};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vibrator;
-        }
-
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                try {
-                    if (tf3.j()) {
-                        this.a.vibrate(VibrationEffect.createOneShot(j, -1));
-                        return;
-                    }
-                    this.a.vibrate(j);
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947642041, "Lcom/baidu/tieba/be3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947642041, "Lcom/baidu/tieba/be3;");
-                return;
-            }
-        }
-        d = wj1.a;
-    }
-
-    public static be3 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return b.a;
-        }
-        return (be3) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!tf3.h()) {
-                return true;
-            }
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext != null && ContextCompat.checkSelfPermission(appContext, "android.permission.VIBRATE") == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e(400L);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e(15L);
-        }
-    }
-
-    public be3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public be3(b53 b53Var) {
+        super(b53Var, "/swanAPI/brightness");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.c = new a(this);
-        Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
-        if (vibrator != null) {
-            this.b = new c(vibrator);
-        }
     }
 
-    public /* synthetic */ be3(a aVar) {
-        this();
-    }
-
-    public void e(long j) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.a = j;
-            if (this.b == null) {
-                if (!d) {
-                    return;
-                }
-                throw new RuntimeException("not support vibration");
-            } else if (c()) {
-                this.b.a(this.a);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (b63.b) {
+                Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
+                return false;
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:65:0x010c  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x011a  */
+    @Override // com.baidu.tieba.b63
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e43 e43Var) {
+        InterceptResult invokeLLLLL;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, e43Var)) == null) {
+            if (b63.b) {
+                Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (b63.b) {
+                Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
+            }
+            JSONObject jSONObject = null;
+            if (context instanceof Activity) {
+                activity = (Activity) context;
             } else {
-                String[] strArr = {"android.permission.VIBRATE"};
-                SwanAppActivity w = l33.K().w();
-                if (w != null) {
-                    w.y(700, strArr, this.c);
+                activity = null;
+            }
+            if (activity == null) {
+                e12.c("brightness", "activity is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            int i = 1001;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            boolean z = true;
+            if (hashCode != -1634890823) {
+                if (hashCode != 1913219981) {
+                    if (hashCode == 1913231513 && str.equals("/swanAPI/brightness/set")) {
+                        c = 0;
+                    }
+                } else if (str.equals("/swanAPI/brightness/get")) {
+                    c = 1;
                 }
+            } else if (str.equals("/swanAPI/brightness/keepScreenOn")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        if (optParamsAsJo == null) {
+                            e12.c("brightness", "paramsJson is null");
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                            return false;
+                        }
+                        try {
+                            ce3.c().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                        } catch (JSONException unused) {
+                        }
+                    }
+                    z = false;
+                } else {
+                    jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("value", ce3.c().a(activity));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (z) {
+                    if (jSONObject != null) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    } else {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    }
+                } else {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
+                }
+                return z;
+            } else if (optParamsAsJo == null) {
+                e12.c("brightness", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else {
+                String optString = optParamsAsJo.optString("value");
+                float f = -1.0f;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        f = Float.parseFloat(optString);
+                    } catch (Exception unused2) {
+                    }
+                }
+                if (f >= 0.0f && f <= 1.0f) {
+                    ce3.c().e(activity, f);
+                    if (z) {
+                    }
+                    return z;
+                }
+                i = 202;
+                z = false;
+                if (z) {
+                }
+                return z;
             }
         }
+        return invokeLLLLL.booleanValue;
     }
 }

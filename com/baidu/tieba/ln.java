@@ -1,137 +1,251 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
-public class ln extends ImageSpan {
+import java.security.InvalidParameterException;
+/* loaded from: classes5.dex */
+public abstract class ln implements BdSwipeRefreshLayout.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public WeakReference c;
+    public Context a;
+    public View b;
+    public boolean c;
     public int d;
+    public a e;
+    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ln(Context context, int i) {
-        super(context, i);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(ln lnVar, int i, int i2, int i3, int i4);
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void c(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public long getCompleteAnimTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public abstract View n();
+
+    public abstract void o(boolean z);
+
+    public abstract void t();
+
+    public abstract void u(boolean z);
+
+    public abstract void w(boolean z);
+
+    public abstract void x();
+
+    public abstract void y();
+
+    public ln(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ln(Context context, Bitmap bitmap, int i) {
-        super(context, bitmap, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bitmap, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Bitmap) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        this.a = null;
+        this.b = null;
+        this.c = true;
+        this.d = 0;
+        this.f = false;
+        if (context != null) {
+            this.a = context;
+            return;
         }
+        throw new InvalidParameterException("BdIListPullView context is null");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ln(Drawable drawable, int i) {
-        super(drawable, i);
+    public final void s(View view2) {
+        int makeMeasureSpec;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
             }
-        }
-    }
-
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference weakReference = this.c;
-            if (weakReference != null) {
-                drawable = (Drawable) weakReference.get();
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
+            int i = layoutParams.height;
+            if (i > 0) {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
             } else {
-                drawable = null;
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.c = new WeakReference(drawable2);
-                return drawable2;
+            view2.measure(childMeasureSpec, makeMeasureSpec);
+        }
+    }
+
+    public void A(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void B(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    public void C(int i, int i2, int i3, int i4) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) != null) || (view2 = this.b) == null || this.f) {
+            return;
+        }
+        view2.setPadding(i, i2, i3, i4);
+        a aVar = this.e;
+        if (aVar != null) {
+            aVar.a(this, i, i3, i2 + p(), i4);
+        }
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.f) {
+            return;
+        }
+        w(false);
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.f) {
+            return;
+        }
+        y();
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.f) {
+            return;
+        }
+        t();
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.f) {
+            return;
+        }
+        x();
+        u(true);
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void onFinish() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.f) {
+            return;
+        }
+        o(true);
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.f = true;
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            this.f = false;
+        }
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public final View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.b == null) {
+                View n = n();
+                this.b = n;
+                if (n != null) {
+                    s(n);
+                    this.d = this.b.getMeasuredHeight();
+                    this.b.getMeasuredWidth();
+                } else {
+                    throw new IllegalStateException("BdIListPullView getView is null");
+                }
             }
-            return drawable;
+            return this.b;
         }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f + this.b, ((i5 - a.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2) - ((a.getBounds().top + a.getBounds().bottom) / 2))) + this.d);
-            a.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.b + this.a;
-        }
-        return invokeCommon.intValue;
+        return (View) invokeV.objValue;
     }
 }

@@ -1,9 +1,12 @@
 package com.baidu.searchbox.player.utils;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.BDPlayerConfig;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.remote.BDRemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,6 +23,7 @@ public class DumediaUtils {
     public static final int DEFAULT_INSTALL_TYPE = 31;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @NonNull
     public static String getCyberSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -49,6 +53,7 @@ public class DumediaUtils {
         return invokeV.intValue;
     }
 
+    @PublicMethod
     public static void initCyber() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
@@ -80,7 +85,8 @@ public class DumediaUtils {
         return invokeII.intValue;
     }
 
-    public static void initCyber(String str, boolean z) {
+    @PublicMethod
+    public static void initCyber(@NonNull String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65542, null, str, z) == null) {
             HashMap hashMap = new HashMap();
@@ -93,21 +99,23 @@ public class DumediaUtils {
         }
     }
 
-    public static void initCyber(String str) {
+    @PublicMethod
+    public static void initCyber(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             initCyber(str, true);
         }
     }
 
-    public static void preResolveHosts(List list) {
+    public static void preResolveHosts(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, list) == null) {
             CyberPlayerManager.preResolveHosts(list);
         }
     }
 
-    public static void initCyber(String str, boolean z, int i, Map map, CyberPlayerManager.InstallListener installListener) {
+    @PublicMethod
+    public static void initCyber(@NonNull String str, boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener}) == null) {
             try {
@@ -118,7 +126,8 @@ public class DumediaUtils {
         }
     }
 
-    public static void initCyber(String str, boolean z, int i, Map map, CyberPlayerManager.InstallListener installListener, CyberPlayerManager.GetNetHandleListener getNetHandleListener) {
+    @PublicMethod(version = "12.8.0.0")
+    public static void initCyber(@NonNull String str, boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener, @Nullable CyberPlayerManager.GetNetHandleListener getNetHandleListener) {
         Class<BDRemotePlayerService> cls;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener, getNetHandleListener}) != null) || CyberPlayerManager.isCoreLoaded(i)) {

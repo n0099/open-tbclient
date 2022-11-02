@@ -3,6 +3,7 @@ package androidx.viewpager2.widget;
 import android.animation.LayoutTransition;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -68,7 +69,7 @@ public final class AnimateLayoutChangeDetector {
         return invokeV.booleanValue;
     }
 
-    public AnimateLayoutChangeDetector(LinearLayoutManager linearLayoutManager) {
+    public AnimateLayoutChangeDetector(@NonNull LinearLayoutManager linearLayoutManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

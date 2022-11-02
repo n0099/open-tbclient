@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class yx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 102400;
-        }
-        return invokeV.intValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public float d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
 
     static {
         InterceptResult invokeClinit;
@@ -36,45 +35,39 @@ public class yx3 {
                 return;
             }
         }
-        a = wj1.a;
-        b = -1;
+        boolean z = ok1.a;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public yx3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b < 0) {
-                tm2.g0().getSwitch("minigame_code_cache_max_count", 20);
-                b = 20;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return b;
         }
-        return invokeV.intValue;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0.0f;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
     }
 
-    public static long d() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b() * 6 * 1048576;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "url : " + this.c + "; AutoPlay : " + this.e + "; Volume :" + this.i + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
         }
-        return invokeV.longValue;
-    }
-
-    public static xx3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            xx3 xx3Var = new xx3();
-            xx3Var.a = b();
-            xx3Var.b = c();
-            xx3Var.c = d();
-            if (a) {
-                Log.d("GameCodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + xx3Var.a + " ,sizeLimit: " + xx3Var.b);
-            }
-            return xx3Var;
-        }
-        return (xx3) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

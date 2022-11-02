@@ -20,8 +20,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gj;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,10 +46,10 @@ public class BitmapHelper {
     public static final int ROTATE_RIGHT = 1;
     public static final int ROTATE_UP_DOWN = 3;
     public static final Object lockForSyncImageDecoder;
-    public static volatile SparseArray mBitmapDarkHash;
-    public static volatile SparseArray mBitmapHash;
-    public static volatile SparseArray mBitmapNightHash;
-    public static volatile SparseArray mBitmapThemeHash;
+    public static volatile SparseArray<SoftReference<Bitmap>> mBitmapDarkHash;
+    public static volatile SparseArray<SoftReference<Bitmap>> mBitmapHash;
+    public static volatile SparseArray<SoftReference<Bitmap>> mBitmapNightHash;
+    public static volatile SparseArray<SoftReference<Bitmap>> mBitmapThemeHash;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int calcNearestSize(int i) {
@@ -77,22 +77,22 @@ public class BitmapHelper {
         return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bitmap, i, i2)) == null) ? bitmap : (Bitmap) invokeLII.objValue;
     }
 
-    public static pn checkIsValidPhotoMemoryCache(String str, pn pnVar, int i, int i2) {
+    public static hn checkIsValidPhotoMemoryCache(String str, hn hnVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, str, pnVar, i, i2)) == null) ? pnVar : (pn) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, str, hnVar, i, i2)) == null) ? hnVar : (hn) invokeLLII.objValue;
     }
 
-    public static pn checkIsValidPicMemoryCache(String str, pn pnVar, int i, int i2) {
+    public static hn checkIsValidPicMemoryCache(String str, hn hnVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, str, pnVar, i, i2)) == null) ? pnVar : (pn) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, str, hnVar, i, i2)) == null) ? hnVar : (hn) invokeLLII.objValue;
     }
 
     public static int getGradeResourceIdInEnterForum(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) {
             switch (i) {
                 case 1:
                     return R.drawable.icon_level_01;
@@ -151,10 +151,10 @@ public class BitmapHelper {
             }
         }
         lockForSyncImageDecoder = new Object();
-        mBitmapHash = new SparseArray();
-        mBitmapNightHash = new SparseArray();
-        mBitmapDarkHash = new SparseArray();
-        mBitmapThemeHash = new SparseArray();
+        mBitmapHash = new SparseArray<>();
+        mBitmapNightHash = new SparseArray<>();
+        mBitmapDarkHash = new SparseArray<>();
+        mBitmapThemeHash = new SparseArray<>();
     }
 
     public BitmapHelper() {
@@ -205,7 +205,7 @@ public class BitmapHelper {
     public static Bitmap getLogoBitmap(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65555, null, context, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, context, i)) == null) {
             try {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inPreferredConfig = TbConfig.BitmapConfig;
@@ -221,7 +221,7 @@ public class BitmapHelper {
     public static Bitmap getResBitmap(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, context, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65559, null, context, i)) == null) {
             return getResBitmap(context, i, new BitmapFactory.Options());
         }
         return (Bitmap) invokeLI.objValue;
@@ -230,7 +230,7 @@ public class BitmapHelper {
     public static Bitmap getResizedBitmap(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, bitmap, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, bitmap, i)) == null) {
             return getResizedBitmap(bitmap, i, i);
         }
         return (Bitmap) invokeLI.objValue;
@@ -239,7 +239,7 @@ public class BitmapHelper {
     public static Bitmap resizeBitmap(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65576, null, bitmap, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65577, null, bitmap, i)) == null) {
             return resizeBitmap(bitmap, i, i, true);
         }
         return (Bitmap) invokeLI.objValue;
@@ -248,7 +248,7 @@ public class BitmapHelper {
     public static Bitmap resizeBitmapAbsolute(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65579, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65580, null, str, i)) == null) {
             return resizeBitmap(subSampleBitmapAbsolute(str, i), i);
         }
         return (Bitmap) invokeLI.objValue;
@@ -282,7 +282,7 @@ public class BitmapHelper {
     public static int readPictureDegree(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) {
             try {
                 int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
                 if (attributeInt != 3) {
@@ -354,7 +354,7 @@ public class BitmapHelper {
         InterceptResult invokeLL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, str, options)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, str, options)) == null) {
             try {
                 synchronized (lockForSyncImageDecoder) {
                     if (str != null) {
@@ -370,7 +370,7 @@ public class BitmapHelper {
                                     FileInputStream fileInputStream2 = new FileInputStream(file);
                                     try {
                                         Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream2, null, options);
-                                        gj.e(fileInputStream2);
+                                        yi.e(fileInputStream2);
                                         return decodeStream;
                                     } catch (Throwable th) {
                                         fileInputStream = fileInputStream2;
@@ -380,7 +380,7 @@ public class BitmapHelper {
                                                 try {
                                                     break;
                                                 } catch (Throwable unused) {
-                                                    gj.e(fileInputStream);
+                                                    yi.e(fileInputStream);
                                                     return null;
                                                 }
                                             } catch (Throwable th2) {
@@ -390,7 +390,7 @@ public class BitmapHelper {
                                         throw th;
                                     }
                                 }
-                                gj.e(null);
+                                yi.e(null);
                                 return null;
                             }
                         } catch (Throwable th3) {
@@ -398,7 +398,7 @@ public class BitmapHelper {
                             fileInputStream = null;
                         }
                     }
-                    gj.e(null);
+                    yi.e(null);
                     return null;
                 }
             } catch (Throwable unused2) {
@@ -413,7 +413,7 @@ public class BitmapHelper {
         InterceptResult invokeLI;
         Bitmap decodeStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65586, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65587, null, str, i)) == null) {
             if (str != null && str.length() > 0 && i > 0) {
                 try {
                     synchronized (lockForSyncImageDecoder) {
@@ -423,7 +423,7 @@ public class BitmapHelper {
                         InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(new File(str));
                         BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                         options.inPreferredConfig = TbConfig.BitmapConfig;
-                        gj.e(GetStreamFromFile);
+                        yi.e(GetStreamFromFile);
                         while (true) {
                             int i3 = i2 * 2;
                             if (options.outWidth / i3 <= i && options.outHeight / i3 <= i) {
@@ -431,7 +431,7 @@ public class BitmapHelper {
                                 options.inSampleSize = i2;
                                 InputStream GetStreamFromFile2 = FileHelper.GetStreamFromFile(new File(str));
                                 decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
-                                gj.e(GetStreamFromFile2);
+                                yi.e(GetStreamFromFile2);
                             }
                             i2 = i3;
                         }
@@ -477,7 +477,7 @@ public class BitmapHelper {
         InterceptResult invokeLII;
         Bitmap createBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65564, null, bitmap, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65565, null, bitmap, i, i2)) == null) {
             if (i > 0 && i2 >= 0 && bitmap != null && !bitmap.isRecycled()) {
                 if (bitmap.getWidth() <= i && bitmap.getHeight() <= i2) {
                     return bitmap;
@@ -506,7 +506,7 @@ public class BitmapHelper {
         ParcelFileDescriptor parcelFileDescriptor;
         Bitmap decodeFileDescriptor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65584, null, context, uri, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65585, null, context, uri, i)) == null) {
             try {
                 parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
             } catch (Throwable unused) {
@@ -800,7 +800,7 @@ public class BitmapHelper {
     public static int getGradeResourceIdNew(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) {
             return getGradeResourceIdInEnterForum(i);
         }
         return invokeI.intValue;
@@ -809,7 +809,7 @@ public class BitmapHelper {
     public static int getSmallGradeResourceIdNew(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65566, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65567, null, i)) == null) {
             return getGradeResourceIdInEnterForum(i);
         }
         return invokeI.intValue;
@@ -817,7 +817,7 @@ public class BitmapHelper {
 
     public static void removeCashBitmap(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65574, null, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65575, null, i) == null) {
             mBitmapHash.remove(i);
             mBitmapNightHash.remove(i);
             mBitmapThemeHash.remove(i);
@@ -829,9 +829,9 @@ public class BitmapHelper {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65551, null, i, options)) == null) {
-            SoftReference softReference = (SoftReference) mBitmapHash.get(i);
+            SoftReference<Bitmap> softReference = mBitmapHash.get(i);
             if (softReference != null) {
-                bitmap = (Bitmap) softReference.get();
+                bitmap = softReference.get();
             } else {
                 bitmap = null;
             }
@@ -840,18 +840,43 @@ public class BitmapHelper {
             }
             Bitmap resBitmap = getResBitmap(TbadkCoreApplication.getInst().getApp(), i, options);
             if (resBitmap != null) {
-                mBitmapHash.put(i, new SoftReference(resBitmap));
+                mBitmapHash.put(i, new SoftReference<>(resBitmap));
             }
             return resBitmap;
         }
         return (Bitmap) invokeIL.objValue;
     }
 
+    public static Bitmap getClipBitmap(Bitmap bitmap, float f) {
+        InterceptResult invokeLF;
+        Bitmap bitmap2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65552, null, bitmap, f)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            synchronized (lockForSyncImageDecoder) {
+                int width = bitmap.getWidth();
+                float f2 = width * f;
+                if (f2 < bitmap.getHeight()) {
+                    bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, (int) f2);
+                } else {
+                    bitmap2 = bitmap;
+                }
+                if (bitmap != bitmap2) {
+                    bitmap.recycle();
+                }
+            }
+            return bitmap2;
+        }
+        return (Bitmap) invokeLF.objValue;
+    }
+
     public static Bitmap getResBitmapPowerOf2Size(Context context, int i) {
         InterceptResult invokeLI;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65560, null, context, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, context, i)) == null) {
             Bitmap resBitmap = getResBitmap(context, i);
             int i3 = 0;
             if (resBitmap != null) {
@@ -869,7 +894,7 @@ public class BitmapHelper {
         InterceptResult invokeLI;
         Bitmap bitmap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65583, null, bitmap, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65584, null, bitmap, i)) == null) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             synchronized (lockForSyncImageDecoder) {
@@ -896,10 +921,10 @@ public class BitmapHelper {
         InterceptResult invokeCommon;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            SoftReference softReference = (SoftReference) mBitmapDarkHash.get(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            SoftReference<Bitmap> softReference = mBitmapDarkHash.get(i2);
             if (softReference != null) {
-                bitmap = (Bitmap) softReference.get();
+                bitmap = softReference.get();
             } else {
                 bitmap = null;
             }
@@ -912,7 +937,7 @@ public class BitmapHelper {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
             }
             if (bitmap != null) {
-                mBitmapDarkHash.put(i2, new SoftReference(bitmap));
+                mBitmapDarkHash.put(i2, new SoftReference<>(bitmap));
             }
             return bitmap;
         }
@@ -923,10 +948,10 @@ public class BitmapHelper {
         InterceptResult invokeCommon;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            SoftReference softReference = (SoftReference) mBitmapNightHash.get(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            SoftReference<Bitmap> softReference = mBitmapNightHash.get(i2);
             if (softReference != null) {
-                bitmap = (Bitmap) softReference.get();
+                bitmap = softReference.get();
             } else {
                 bitmap = null;
             }
@@ -939,7 +964,7 @@ public class BitmapHelper {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
             }
             if (bitmap != null) {
-                mBitmapNightHash.put(i2, new SoftReference(bitmap));
+                mBitmapNightHash.put(i2, new SoftReference<>(bitmap));
             }
             return bitmap;
         }
@@ -950,10 +975,10 @@ public class BitmapHelper {
         InterceptResult invokeCommon;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            SoftReference softReference = (SoftReference) mBitmapThemeHash.get(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            SoftReference<Bitmap> softReference = mBitmapThemeHash.get(i2);
             if (softReference != null) {
-                bitmap = (Bitmap) softReference.get();
+                bitmap = softReference.get();
             } else {
                 bitmap = null;
             }
@@ -966,7 +991,7 @@ public class BitmapHelper {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
             }
             if (bitmap != null) {
-                mBitmapThemeHash.put(i2, new SoftReference(bitmap));
+                mBitmapThemeHash.put(i2, new SoftReference<>(bitmap));
             }
             return bitmap;
         }
@@ -976,7 +1001,7 @@ public class BitmapHelper {
     public static Bitmap getNightCashBitmap(Resources resources, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65556, null, resources, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65557, null, resources, i, i2)) == null) {
             return getNightCashBitmap(resources, i, i2, new BitmapFactory.Options());
         }
         return (Bitmap) invokeLII.objValue;
@@ -985,7 +1010,7 @@ public class BitmapHelper {
     public static Bitmap getResBitmap(Context context, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65559, null, context, i, options)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65560, null, context, i, options)) == null) {
             try {
                 return BitmapFactory.decodeResource(context.getResources(), i, options);
             } catch (OutOfMemoryError unused) {
@@ -1002,7 +1027,7 @@ public class BitmapHelper {
     public static Bitmap getThemeCashBitmap(Resources resources, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65568, null, resources, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65569, null, resources, i, i2)) == null) {
             return getThemeCashBitmap(resources, i, i2, new BitmapFactory.Options());
         }
         return (Bitmap) invokeLII.objValue;
@@ -1011,7 +1036,7 @@ public class BitmapHelper {
     public static Bitmap resizeBitmap(Context context, Uri uri, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65575, null, context, uri, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65576, null, context, uri, i)) == null) {
             return resizeBitmap(subSampleBitmap(context, uri, i), i);
         }
         return (Bitmap) invokeLLI.objValue;
@@ -1021,7 +1046,7 @@ public class BitmapHelper {
         InterceptResult invokeLII;
         Bitmap bitmap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, bitmap, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65563, null, bitmap, i, i2)) == null) {
             Bitmap bitmap3 = null;
             if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
                 return null;
@@ -1069,7 +1094,7 @@ public class BitmapHelper {
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float f, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, null, new Object[]{bitmap, Float.valueOf(f), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65566, null, new Object[]{bitmap, Float.valueOf(f), Boolean.valueOf(z)})) == null) {
             Bitmap bitmap2 = null;
             try {
                 synchronized (lockForSyncImageDecoder) {
@@ -1107,7 +1132,7 @@ public class BitmapHelper {
         Interceptable interceptable;
         InterceptResult invokeLII;
         Interceptable interceptable2 = $ic;
-        if (interceptable2 == null || (invokeLII = (interceptable = interceptable2).invokeLII(65572, null, str, i, i2)) == null) {
+        if (interceptable2 == null || (invokeLII = (interceptable = interceptable2).invokeLII(65573, null, str, i, i2)) == null) {
             try {
                 synchronized (lockForSyncImageDecoder) {
                     try {
@@ -1116,7 +1141,7 @@ public class BitmapHelper {
                                 if (str.length() > 0 && i > 0 && i2 > 0) {
                                     File file = new File(str);
                                     if (!file.exists()) {
-                                        gj.e(null);
+                                        yi.e(null);
                                         return null;
                                     }
                                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -1125,7 +1150,7 @@ public class BitmapHelper {
                                     FileInputStream fileInputStream = new FileInputStream(file);
                                     BitmapFactory.decodeStream(fileInputStream, null, options);
                                     options.inPreferredConfig = TbConfig.BitmapConfig;
-                                    gj.e(fileInputStream);
+                                    yi.e(fileInputStream);
                                     while (true) {
                                         int i4 = i3 * 2;
                                         if (options.outWidth / i4 <= i && options.outHeight / i4 <= i2) {
@@ -1134,7 +1159,7 @@ public class BitmapHelper {
                                             FileInputStream fileInputStream2 = new FileInputStream(file);
                                             try {
                                                 Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream2, null, options);
-                                                gj.e(fileInputStream2);
+                                                yi.e(fileInputStream2);
                                                 return decodeStream;
                                             } catch (Throwable th) {
                                                 th = th;
@@ -1142,7 +1167,7 @@ public class BitmapHelper {
                                                 try {
                                                     throw th;
                                                 } catch (Throwable unused) {
-                                                    gj.e(interceptable);
+                                                    yi.e(interceptable);
                                                     return null;
                                                 }
                                             }
@@ -1155,7 +1180,7 @@ public class BitmapHelper {
                                 interceptable = 0;
                             }
                         }
-                        gj.e(null);
+                        yi.e(null);
                         return null;
                     } catch (Throwable th3) {
                         th = th3;
@@ -1173,7 +1198,7 @@ public class BitmapHelper {
         InterceptResult invokeLII;
         Bitmap createBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65580, null, bitmap, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65581, null, bitmap, i, i2)) == null) {
             if (i >= 0 && i2 >= 0 && bitmap != null && !bitmap.isRecycled()) {
                 if (i != 0 && i2 != 0 && ((i < bitmap.getWidth() || i2 < bitmap.getHeight()) && bitmap.getWidth() > 0 && bitmap.getHeight() > 0)) {
                     int width = bitmap.getWidth();
@@ -1207,7 +1232,7 @@ public class BitmapHelper {
         InterceptResult invokeCommon;
         Bitmap createBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65564, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
                 return null;
             }
@@ -1244,7 +1269,7 @@ public class BitmapHelper {
         InterceptResult invokeL;
         Bitmap bitmap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, bitmap)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -1270,7 +1295,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             inputStream = null;
-            InterceptResult invokeL = interceptable.invokeL(65570, null, str);
+            InterceptResult invokeL = interceptable.invokeL(65571, null, str);
             if (invokeL != null) {
                 return (Bitmap) invokeL.objValue;
             }
@@ -1289,7 +1314,7 @@ public class BitmapHelper {
                             options.inJustDecodeBounds = false;
                             FileInputStream fileInputStream = new FileInputStream(file);
                             Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream, null, options);
-                            gj.e(fileInputStream);
+                            yi.e(fileInputStream);
                             return decodeStream;
                         } catch (Throwable th) {
                             th = th;
@@ -1297,7 +1322,7 @@ public class BitmapHelper {
                             try {
                                 throw th;
                             } catch (Throwable unused) {
-                                gj.e(inputStream);
+                                yi.e(inputStream);
                                 return null;
                             }
                         }
@@ -1316,7 +1341,7 @@ public class BitmapHelper {
         InterceptResult invokeCommon;
         Bitmap createBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65577, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65578, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i > 0 && i2 >= 0 && bitmap != null && !bitmap.isRecycled()) {
                 if ((bitmap.getWidth() > i || bitmap.getHeight() > i2) && bitmap.getWidth() > 0 && bitmap.getHeight() > 0) {
                     int width = bitmap.getWidth();
@@ -1346,7 +1371,7 @@ public class BitmapHelper {
     public static Bitmap resizeBitmap(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65578, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65579, null, str, i)) == null) {
             return resizeBitmap(subSampleBitmap(str, i), i);
         }
         return (Bitmap) invokeLI.objValue;
@@ -1356,7 +1381,7 @@ public class BitmapHelper {
         InterceptResult invokeLI;
         Bitmap createBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65581, null, bitmap, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, bitmap, i)) == null) {
             Matrix matrix = new Matrix();
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
@@ -1385,7 +1410,7 @@ public class BitmapHelper {
         InterceptResult invokeLI;
         Bitmap bitmap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, bitmap, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65583, null, bitmap, i)) == null) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             synchronized (lockForSyncImageDecoder) {
@@ -1416,7 +1441,7 @@ public class BitmapHelper {
         InterceptResult invokeLI;
         Bitmap decodeStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65585, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65586, null, str, i)) == null) {
             if (str != null && str.length() > 0 && i > 0) {
                 try {
                     synchronized (lockForSyncImageDecoder) {
@@ -1426,7 +1451,7 @@ public class BitmapHelper {
                         InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(str);
                         BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                         options.inPreferredConfig = TbConfig.BitmapConfig;
-                        gj.e(GetStreamFromFile);
+                        yi.e(GetStreamFromFile);
                         while (true) {
                             int i3 = i2 * 2;
                             if (options.outWidth / i3 <= i && options.outHeight / i3 <= i) {
@@ -1434,7 +1459,7 @@ public class BitmapHelper {
                                 options.inSampleSize = i2;
                                 InputStream GetStreamFromFile2 = FileHelper.GetStreamFromFile(str);
                                 decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
-                                gj.e(GetStreamFromFile2);
+                                yi.e(GetStreamFromFile2);
                             }
                             i2 = i3;
                         }

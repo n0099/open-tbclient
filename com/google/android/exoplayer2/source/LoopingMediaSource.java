@@ -23,7 +23,7 @@ public final class LoopingMediaSource implements MediaSource {
     public final int loopCount;
 
     /* loaded from: classes7.dex */
-    public final class InfinitelyLoopingTimeline extends ForwardingTimeline {
+    public static final class InfinitelyLoopingTimeline extends ForwardingTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,7 +77,7 @@ public final class LoopingMediaSource implements MediaSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class LoopingTimeline extends AbstractConcatenatedTimeline {
+    public static final class LoopingTimeline extends AbstractConcatenatedTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int childPeriodCount;

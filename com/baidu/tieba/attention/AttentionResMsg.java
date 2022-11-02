@@ -26,7 +26,7 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHasMore;
-    public List mSelectForumDataList;
+    public List<SelectForumData> mSelectForumDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AttentionResMsg(int i) {
@@ -149,7 +149,7 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public List getSelectForumDataList() {
+    public List<SelectForumData> getSelectForumDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

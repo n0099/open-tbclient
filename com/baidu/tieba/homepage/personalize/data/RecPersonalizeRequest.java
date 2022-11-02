@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.ch5;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.gt4;
-import com.baidu.tieba.uf8;
-import com.baidu.tieba.xf8;
+import com.baidu.tieba.eh8;
+import com.baidu.tieba.hh8;
+import com.baidu.tieba.vi5;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.xt4;
 import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -70,7 +70,7 @@ public class RecPersonalizeRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             int i = 1;
-            yh5.c(builder, true, false, true);
+            vi5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -78,9 +78,9 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(fj.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(xi.l(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(xi.j(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(xi.i(TbadkCoreApplication.getInst()));
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             }
@@ -90,11 +90,11 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = xf8.f().d("HOME");
-            builder.app_pos = uf8.e().c();
+            builder.ad_context_list = hh8.f().d("HOME");
+            builder.app_pos = eh8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                gt4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(eh.g(pbToHomeUpdateData.a, 0L));
+                xt4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                builder.from_tid = Long.valueOf(wg.g(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;
                 builder.second_dir = pbToHomeUpdateData.d;
@@ -103,7 +103,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = ch5.b();
+            builder.app_transmit_data = yh5.b();
             long j = this.pushTid;
             if (j != -1) {
                 builder.push_tid = Long.valueOf(j);

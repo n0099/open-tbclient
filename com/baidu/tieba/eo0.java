@@ -1,61 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nadcore.lp.reward.NadRewardVideoActivity;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public interface eo0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "maxUI");
-    public static final eo0 b = new a();
+import java.util.HashMap;
+import java.util.Map;
+@Service
+/* loaded from: classes4.dex */
+public class eo0 extends ji0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int a();
+    @Override // com.baidu.tieba.ji0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rewardImpl" : (String) invokeV.objValue;
+    }
 
-    int b();
-
-    int c();
-
-    /* loaded from: classes3.dex */
-    public final class a implements eo0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.eo0
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05fc : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.eo0
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0600 : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.eo0
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d05fe : invokeV.intValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public eo0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ji0
+    public boolean b(@NonNull Context context, @NonNull ni0 ni0Var, @Nullable Map<String, Object> map, @Nullable ri0 ri0Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ni0Var, map, ri0Var)) == null) {
+            super.b(context, ni0Var, map, ri0Var);
+            HashMap<String, String> d = ni0Var.d();
+            int i = 0;
+            if (d.isEmpty()) {
+                c(ri0Var, ni0Var, 202, false);
+                return true;
+            }
+            Intent intent = new Intent(context, NadRewardVideoActivity.class);
+            intent.putExtra("params", d);
+            boolean d2 = g31.d(context, intent);
+            if (!d2) {
+                i = 1001;
+            }
+            c(ri0Var, ni0Var, i, d2);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

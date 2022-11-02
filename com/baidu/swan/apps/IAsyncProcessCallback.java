@@ -17,7 +17,7 @@ public interface IAsyncProcessCallback extends IInterface {
     void onResult(Bundle bundle, int i) throws RemoteException;
 
     /* loaded from: classes2.dex */
-    public abstract class Stub extends Binder implements IAsyncProcessCallback {
+    public static abstract class Stub extends Binder implements IAsyncProcessCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAsyncProcessCallback";
         public static final int TRANSACTION_onResult = 1;
@@ -31,7 +31,7 @@ public interface IAsyncProcessCallback extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        public class Proxy implements IAsyncProcessCallback {
+        public static class Proxy implements IAsyncProcessCallback {
             public static /* synthetic */ Interceptable $ic;
             public static IAsyncProcessCallback sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public interface IAsyncProcessCallback extends IInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class Default implements IAsyncProcessCallback {
+    public static class Default implements IAsyncProcessCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

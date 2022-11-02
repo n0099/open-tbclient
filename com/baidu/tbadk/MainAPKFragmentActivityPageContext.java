@@ -13,15 +13,15 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.qq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class MainAPKFragmentActivityPageContext implements TbPageContext {
+public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity activity;
@@ -55,7 +55,7 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext {
     }
 
     @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.r9
-    public void registerListener(MessageListener messageListener) {
+    public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, messageListener) == null) {
             this.activity.registerListener(messageListener);
@@ -63,7 +63,7 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext {
     }
 
     @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.r9
-    public void sendMessage(Message message) {
+    public void sendMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, message) == null) {
             this.activity.sendMessage(message);
@@ -97,13 +97,13 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public zp4 getLayoutMode() {
+    public qq4 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.activity.getLayoutMode();
         }
-        return (zp4) invokeV.objValue;
+        return (qq4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -148,7 +148,7 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(int i, MessageListener messageListener) {
+    public void registerListener(int i, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, messageListener) == null) {
             this.activity.registerListener(i, messageListener);
@@ -164,10 +164,10 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(int i, qb qbVar) {
+    public void registerListener(int i, pb pbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, qbVar) == null) {
-            this.activity.registerListener(i, qbVar);
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, pbVar) == null) {
+            this.activity.registerListener(i, pbVar);
         }
     }
 
@@ -180,10 +180,10 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(qb qbVar) {
+    public void registerListener(pb pbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, qbVar) == null) {
-            this.activity.registerListener(qbVar);
+        if (interceptable == null || interceptable.invokeL(1048587, this, pbVar) == null) {
+            this.activity.registerListener(pbVar);
         }
     }
 

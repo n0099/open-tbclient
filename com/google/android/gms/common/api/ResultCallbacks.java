@@ -1,13 +1,16 @@
 package com.google.android.gms.common.api;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.api.Result;
 /* loaded from: classes7.dex */
-public abstract class ResultCallbacks implements ResultCallback {
+public abstract class ResultCallbacks<R extends Result> implements ResultCallback<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,25 +28,26 @@ public abstract class ResultCallbacks implements ResultCallback {
         }
     }
 
-    public abstract void onFailure(Status status);
+    public abstract void onFailure(@NonNull Status status);
 
-    public abstract void onSuccess(Result result);
+    public abstract void onSuccess(@NonNull R r);
 
     @Override // com.google.android.gms.common.api.ResultCallback
-    public final void onResult(Result result) {
+    @KeepForSdk
+    public final void onResult(@NonNull R r) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result) == null) {
-            Status status = result.getStatus();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r) == null) {
+            Status status = r.getStatus();
             if (status.isSuccess()) {
-                onSuccess(result);
+                onSuccess(r);
                 return;
             }
             onFailure(status);
-            if (result instanceof Releasable) {
+            if (r instanceof Releasable) {
                 try {
-                    ((Releasable) result).release();
+                    ((Releasable) r).release();
                 } catch (RuntimeException e) {
-                    String valueOf = String.valueOf(result);
+                    String valueOf = String.valueOf(r);
                     String.valueOf(valueOf).length();
                     Log.w("ResultCallbacks", "Unable to release ".concat(String.valueOf(valueOf)), e);
                 }

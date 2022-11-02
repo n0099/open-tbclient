@@ -182,7 +182,7 @@ public abstract class SDKManager {
         }
     }
 
-    public static void toFailed(CallBack callBack, int i, String str) {
+    public static <T> void toFailed(CallBack<T> callBack, int i, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLIL(65558, null, callBack, i, str) == null) || callBack == null) {
             return;

@@ -1,6 +1,9 @@
 package androidx.savedstate;
 
 import android.os.Bundle;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +37,8 @@ public final class SavedStateRegistryController {
         this.mRegistry = new SavedStateRegistry();
     }
 
-    public void performRestore(Bundle bundle) {
+    @MainThread
+    public void performRestore(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             Lifecycle lifecycle = this.mOwner.getLifecycle();
@@ -47,7 +51,8 @@ public final class SavedStateRegistryController {
         }
     }
 
-    public static SavedStateRegistryController create(SavedStateRegistryOwner savedStateRegistryOwner) {
+    @NonNull
+    public static SavedStateRegistryController create(@NonNull SavedStateRegistryOwner savedStateRegistryOwner) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, savedStateRegistryOwner)) == null) {
@@ -56,13 +61,15 @@ public final class SavedStateRegistryController {
         return (SavedStateRegistryController) invokeL.objValue;
     }
 
-    public void performSave(Bundle bundle) {
+    @MainThread
+    public void performSave(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             this.mRegistry.performSave(bundle);
         }
     }
 
+    @NonNull
     public SavedStateRegistry getSavedStateRegistry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

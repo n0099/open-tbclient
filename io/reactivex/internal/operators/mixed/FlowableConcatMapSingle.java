@@ -10,6 +10,7 @@ import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.exceptions.MissingBackpressureException;
@@ -28,17 +29,18 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+@Experimental
 /* loaded from: classes8.dex */
-public final class FlowableConcatMapSingle extends Flowable {
+public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ErrorMode errorMode;
-    public final Function mapper;
+    public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
     public final int prefetch;
-    public final Flowable source;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ConcatMapSingleSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class ConcatMapSingleSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATE_ACTIVE = 1;
         public static final int STATE_INACTIVE = 0;
@@ -48,27 +50,27 @@ public final class FlowableConcatMapSingle extends Flowable {
         public volatile boolean cancelled;
         public int consumed;
         public volatile boolean done;
-        public final Subscriber downstream;
+        public final Subscriber<? super R> downstream;
         public long emitted;
         public final ErrorMode errorMode;
         public final AtomicThrowable errors;
-        public final ConcatMapSingleObserver inner;
-        public Object item;
-        public final Function mapper;
+        public final ConcatMapSingleObserver<R> inner;
+        public R item;
+        public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
         public final int prefetch;
-        public final SimplePlainQueue queue;
+        public final SimplePlainQueue<T> queue;
         public final AtomicLong requested;
         public volatile int state;
         public Subscription upstream;
 
         /* loaded from: classes8.dex */
-        public final class ConcatMapSingleObserver extends AtomicReference implements SingleObserver {
+        public static final class ConcatMapSingleObserver<R> extends AtomicReference<Disposable> implements SingleObserver<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3051469169682093892L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final ConcatMapSingleSubscriber parent;
+            public final ConcatMapSingleSubscriber<?, R> parent;
 
-            public ConcatMapSingleObserver(ConcatMapSingleSubscriber concatMapSingleSubscriber) {
+            public ConcatMapSingleObserver(ConcatMapSingleSubscriber<?, R> concatMapSingleSubscriber) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,10 +105,10 @@ public final class FlowableConcatMapSingle extends Flowable {
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(R r) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                    this.parent.innerSuccess(obj);
+                if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
+                    this.parent.innerSuccess(r);
                 }
             }
 
@@ -118,7 +120,7 @@ public final class FlowableConcatMapSingle extends Flowable {
             }
         }
 
-        public ConcatMapSingleSubscriber(Subscriber subscriber, Function function, int i, ErrorMode errorMode) {
+        public ConcatMapSingleSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends SingleSource<? extends R>> function, int i, ErrorMode errorMode) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,7 +141,7 @@ public final class FlowableConcatMapSingle extends Flowable {
             this.errorMode = errorMode;
             this.requested = new AtomicLong();
             this.errors = new AtomicThrowable();
-            this.inner = new ConcatMapSingleObserver(this);
+            this.inner = new ConcatMapSingleObserver<>(this);
             this.queue = new SpscArrayQueue(i);
         }
 
@@ -166,15 +168,16 @@ public final class FlowableConcatMapSingle extends Flowable {
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r8v11. Raw type applied. Possible types: R, ? super R */
         public void drain() {
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Subscriber subscriber = this.downstream;
+            Subscriber<? super R> subscriber = this.downstream;
             ErrorMode errorMode = this.errorMode;
-            SimplePlainQueue simplePlainQueue = this.queue;
+            SimplePlainQueue<T> simplePlainQueue = this.queue;
             AtomicThrowable atomicThrowable = this.errors;
             AtomicLong atomicLong = this.requested;
             int i = this.prefetch;
@@ -189,7 +192,7 @@ public final class FlowableConcatMapSingle extends Flowable {
                 if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i4 != 0))) {
                     if (i4 == 0) {
                         boolean z2 = this.done;
-                        Object poll = simplePlainQueue.poll();
+                        T poll = simplePlainQueue.poll();
                         if (poll == null) {
                             z = true;
                         } else {
@@ -228,9 +231,8 @@ public final class FlowableConcatMapSingle extends Flowable {
                     } else if (i4 == 2) {
                         long j = this.emitted;
                         if (j != atomicLong.get()) {
-                            Object obj = this.item;
                             this.item = null;
-                            subscriber.onNext(obj);
+                            subscriber.onNext((R) this.item);
                             this.emitted = j + 1;
                             this.state = 0;
                         }
@@ -261,10 +263,10 @@ public final class FlowableConcatMapSingle extends Flowable {
             }
         }
 
-        public void innerSuccess(Object obj) {
+        public void innerSuccess(R r) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.item = obj;
+            if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
+                this.item = r;
                 this.state = 2;
                 drain();
             }
@@ -287,10 +289,10 @@ public final class FlowableConcatMapSingle extends Flowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-                if (!this.queue.offer(obj)) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                if (!this.queue.offer(t)) {
                     this.upstream.cancel();
                     onError(new MissingBackpressureException("queue full?!"));
                     return;
@@ -319,7 +321,7 @@ public final class FlowableConcatMapSingle extends Flowable {
         }
     }
 
-    public FlowableConcatMapSingle(Flowable flowable, Function function, ErrorMode errorMode, int i) {
+    public FlowableConcatMapSingle(Flowable<T> flowable, Function<? super T, ? extends SingleSource<? extends R>> function, ErrorMode errorMode, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -341,7 +343,7 @@ public final class FlowableConcatMapSingle extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new ConcatMapSingleSubscriber(subscriber, this.mapper, this.prefetch, this.errorMode));

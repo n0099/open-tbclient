@@ -28,7 +28,7 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     public int mContactorType;
     public String mListenerKey;
     public long mMaxId;
-    public List mMsgIds;
+    public List<Long> mMsgIds;
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
@@ -37,7 +37,7 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
     }
 
-    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, List list, String str2) {
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, List<Long> list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorThirdid = str;
     }
 
-    public IMMediaDeleteMsgHttpRequest(Context context, long j, long j2, List list, String str) {
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, long j2, List<Long> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,7 +162,7 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
         }
     }

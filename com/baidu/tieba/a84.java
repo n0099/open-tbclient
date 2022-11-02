@@ -1,78 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.z74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a84 extends y74 {
+public class a84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947569036, "Lcom/baidu/tieba/a84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static class a implements z74.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947569036, "Lcom/baidu/tieba/a84;");
+        }
+
+        @Override // com.baidu.tieba.z74.a
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
+            view2.setAlpha(1.0f);
         }
-        boolean z = wj1.a;
-    }
 
-    public a84() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        @Override // com.baidu.tieba.z74.a
+        public void b(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null) {
+                return;
             }
+            view2.setAlpha(0.2f);
         }
     }
 
-    public static a84 d() {
-        InterceptResult invokeV;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new a84();
+        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
+            b(view2, null);
         }
-        return (a84) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y74
-    public boolean b(Context context, yp2 yp2Var, vp2 vp2Var, m33 m33Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public static void b(View view2, Drawable drawable) {
+        z74 z74Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, yp2Var, vp2Var, m33Var, jSONObject)) == null) {
-            return e(context, yp2Var, vp2Var, m33Var);
+        if ((interceptable != null && interceptable.invokeLL(65537, null, view2, drawable) != null) || view2 == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, yp2 yp2Var, vp2 vp2Var, m33 m33Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yp2Var, vp2Var, m33Var)) == null) {
-            m02.i("map", "MapRemoveAction start");
-            boolean g = v74.b().g(yp2Var);
-            m02.i("map", "MapRemoveAction end");
-            return g;
+        if (drawable == null) {
+            z74Var = new z74();
+        } else {
+            z74Var = new z74(drawable);
         }
-        return invokeLLLL.booleanValue;
+        z74Var.b(view2);
+        z74Var.a(new a());
+        view2.setBackground(z74Var);
     }
 }

@@ -16,12 +16,12 @@ public final class PayResultInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long amount;
-    public Map appClientExpand;
+    public Map<String, String> appClientExpand;
     public int appid;
     public long currencyAmount;
     public int currencyType;
     public String expand;
-    public Map extraParams;
+    public Map<String, ? extends Object> extraParams;
     public String orderId;
     public boolean pollingTimeout;
     public int status;
@@ -51,7 +51,7 @@ public final class PayResultInfo {
         return invokeV.longValue;
     }
 
-    public final Map getAppClientExpand() {
+    public final Map<String, String> getAppClientExpand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -96,7 +96,7 @@ public final class PayResultInfo {
         return (String) invokeV.objValue;
     }
 
-    public final Map getExtraParams() {
+    public final Map<String, Object> getExtraParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -157,7 +157,7 @@ public final class PayResultInfo {
         }
     }
 
-    public final void setAppClientExpand(Map map) {
+    public final void setAppClientExpand(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, map) == null) {
             this.appClientExpand = map;
@@ -192,7 +192,7 @@ public final class PayResultInfo {
         }
     }
 
-    public final void setExtraParams(Map map) {
+    public final void setExtraParams(Map<String, ? extends Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, map) == null) {
             this.extraParams = map;

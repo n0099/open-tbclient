@@ -1,72 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.adapter.stats.StatsType;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nf5 {
+public class nf5 extends CustomMessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public StatsType a;
-    public View b;
-    public BdUniqueId c;
 
-    public nf5(StatsType statsType, ar4 ar4Var, View view2, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nf5(int i, CustomMessageTask.CustomRunnable<?> customRunnable) {
+        super(i, customRunnable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {statsType, ar4Var, view2, bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), customRunnable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (CustomMessageTask.CustomRunnable) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = statsType;
-        this.b = view2;
-        this.c = bdUniqueId;
-    }
-
-    public BdUniqueId a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == StatsType.CLICK) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == StatsType.SHOW) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

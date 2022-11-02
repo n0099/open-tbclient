@@ -30,12 +30,12 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
     public ThreadPoolExecutor b;
-    public BlockingQueue c;
-    public BlockingQueue d;
+    public BlockingQueue<Runnable> c;
+    public BlockingQueue<Runnable> d;
     public Context e;
 
     /* loaded from: classes2.dex */
-    public class a implements ThreadFactory {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger a;
@@ -166,7 +166,7 @@ public class p {
                         hashMap.put("1", Integer.valueOf(this.a.getCorePoolSize()));
                         hashMap.put("2", Integer.valueOf(this.a.getMaximumPoolSize()));
                         hashMap.put("3", Base64.encodeToString(com.baidu.sofire.a.b.a(e).getBytes(), 0).replace("\n", "").replace("\t", "").replace("\r", ""));
-                        com.baidu.sofire.k.a.a(this.e.getApplicationContext(), "1003147", (Map) hashMap, true);
+                        com.baidu.sofire.k.a.a(this.e.getApplicationContext(), "1003147", (Map<String, Object>) hashMap, true);
                         i = System.currentTimeMillis();
                     }
                 } catch (Throwable unused) {

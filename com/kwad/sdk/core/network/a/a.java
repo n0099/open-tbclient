@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.network.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements b {
     @Override // com.kwad.sdk.core.network.a.b
     public final b aB(int i) {

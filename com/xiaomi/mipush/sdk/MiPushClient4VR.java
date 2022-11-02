@@ -38,7 +38,7 @@ public class MiPushClient4VR {
             iiVar.d(context.getPackageName());
             iiVar.a("data", str);
             iiVar.a(bd.a());
-            ao.a(context).a(iiVar, hj.i, (hw) null);
+            ao.a(context).a((ao) iiVar, hj.i, (hw) null);
         }
     }
 }

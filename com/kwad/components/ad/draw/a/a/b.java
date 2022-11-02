@@ -22,7 +22,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     public DrawCardApp bC;
     public DrawCardH5 bD;
     public ViewGroup bh;
-    public a.InterfaceC0517a bz;
+    public a.InterfaceC0528a bz;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
 
@@ -39,7 +39,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                 return;
             }
         }
-        this.bz = new a.InterfaceC0517a(this) { // from class: com.kwad.components.ad.draw.a.a.b.1
+        this.bz = new a.InterfaceC0528a(this) { // from class: com.kwad.components.ad.draw.a.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b bE;
@@ -62,7 +62,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                 this.bE = this;
             }
 
-            @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0517a
+            @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0528a
             public final void ax() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -211,9 +211,9 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09104a);
-            this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f091069);
-            this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f091072);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091084);
+            this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f0910a3);
+            this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f0910ac);
         }
     }
 
@@ -224,7 +224,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
             super.onUnbind();
             this.bC.release();
             this.bD.release();
-            this.aK.ba.a((a.InterfaceC0517a) null);
+            this.aK.ba.a((a.InterfaceC0528a) null);
         }
     }
 }

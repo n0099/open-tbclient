@@ -1,8 +1,12 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -23,7 +27,7 @@ public class LruBitmapPool implements BitmapPool {
     public static final Bitmap.Config DEFAULT_CONFIG;
     public static final String TAG = "LruBitmapPool";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set allowedConfigs;
+    public final Set<Bitmap.Config> allowedConfigs;
     public long currentSize;
     public int evictions;
     public int hits;
@@ -42,7 +46,7 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     /* loaded from: classes7.dex */
-    public final class NullBitmapTracker implements BitmapTracker {
+    public static final class NullBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,10 +80,10 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     /* loaded from: classes7.dex */
-    public class ThrowingBitmapTracker implements BitmapTracker {
+    public static class ThrowingBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Set bitmaps;
+        public final Set<Bitmap> bitmaps;
 
         public ThrowingBitmapTracker() {
             Interceptable interceptable = $ic;
@@ -243,6 +247,7 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+    @SuppressLint({"InlinedApi"})
     public void trimMemory(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -260,7 +265,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    public LruBitmapPool(long j, LruPoolStrategy lruPoolStrategy, Set set) {
+    public LruBitmapPool(long j, LruPoolStrategy lruPoolStrategy, Set<Bitmap.Config> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -283,7 +288,7 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LruBitmapPool(long j, Set set) {
+    public LruBitmapPool(long j, Set<Bitmap.Config> set) {
         this(j, getDefaultStrategy(), set);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -303,6 +308,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
+    @TargetApi(26)
     public static void assertNotHardwareConfig(Bitmap.Config config) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, config) != null) || Build.VERSION.SDK_INT < 26 || config != Bitmap.Config.HARDWARE) {
@@ -311,7 +317,8 @@ public class LruBitmapPool implements BitmapPool {
         throw new IllegalArgumentException("Cannot create a mutable Bitmap with config: " + config + ". Consider setting Downsampler#ALLOW_HARDWARE_CONFIG to false in your RequestOptions and/or in GlideBuilder.setDefaultRequestOptions");
     }
 
-    public static Bitmap createBitmap(int i, int i2, Bitmap.Config config) {
+    @NonNull
+    public static Bitmap createBitmap(int i, int i2, @Nullable Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i, i2, config)) == null) {
@@ -324,6 +331,7 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+    @NonNull
     public Bitmap get(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
@@ -339,6 +347,7 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+    @NonNull
     public Bitmap getDirty(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
@@ -359,7 +368,8 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    public static Set getDefaultAllowedConfigs() {
+    @TargetApi(26)
+    public static Set<Bitmap.Config> getDefaultAllowedConfigs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
@@ -375,7 +385,8 @@ public class LruBitmapPool implements BitmapPool {
         return (Set) invokeV.objValue;
     }
 
-    private synchronized Bitmap getDirtyOrNull(int i, int i2, Bitmap.Config config) {
+    @Nullable
+    private synchronized Bitmap getDirtyOrNull(int i, int i2, @Nullable Bitmap.Config config) {
         InterceptResult invokeIIL;
         Bitmap.Config config2;
         Bitmap bitmap;
@@ -411,6 +422,7 @@ public class LruBitmapPool implements BitmapPool {
         return (Bitmap) invokeIIL.objValue;
     }
 
+    @TargetApi(19)
     public static void maybeSetPreMultiplied(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65548, null, bitmap) == null) && Build.VERSION.SDK_INT >= 19) {

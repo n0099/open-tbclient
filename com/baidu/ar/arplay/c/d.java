@@ -21,7 +21,7 @@ public class d extends BroadcastReceiver {
     public static final String TAG;
     public static boolean fQ;
     public static e.a fR;
-    public static ArrayList fS;
+    public static ArrayList<a> fS;
     public static volatile BroadcastReceiver fT;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +40,7 @@ public class d extends BroadcastReceiver {
         }
         TAG = d.class.getSimpleName();
         fQ = false;
-        fS = new ArrayList();
+        fS = new ArrayList<>();
     }
 
     public d() {
@@ -61,14 +61,14 @@ public class d extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
             if (fS == null) {
-                fS = new ArrayList();
+                fS = new ArrayList<>();
             }
             fS.add(aVar);
         }
     }
 
     public static void b(a aVar) {
-        ArrayList arrayList;
+        ArrayList<a> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, aVar) == null) && (arrayList = fS) != null && arrayList.contains(aVar)) {
             fS.remove(aVar);
@@ -104,7 +104,7 @@ public class d extends BroadcastReceiver {
         }
         int size = fS.size();
         for (int i = 0; i < size; i++) {
-            a aVar = (a) fS.get(i);
+            a aVar = fS.get(i);
             if (aVar != null) {
                 if (bk()) {
                     aVar.a(fR);

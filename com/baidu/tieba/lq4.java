@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class lq4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile lq4 a;
+import java.io.File;
+/* loaded from: classes5.dex */
+public class lq4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(String str, int i, String str2);
-
-        void b(String str);
-
-        void c(AccountData accountData);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,65 +36,116 @@ public abstract class lq4 {
         }
     }
 
-    public abstract BdAsyncTask a(String str, String str2, String str3, String str4, a aVar);
-
-    public abstract b c(String str);
-
-    public abstract void d();
-
-    /* loaded from: classes4.dex */
-    public class b {
+    /* loaded from: classes5.dex */
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
 
-        public b() {
+        /* renamed from: com.baidu.tieba.lq4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0338a extends Thread {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0338a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    super.run();
+                    try {
+                        ChunkUploadDatabaseService.delOverdueChunkUploadData();
+                        lq4.c(TbadkCoreApplication.getInst().getCacheDir());
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = null;
-            this.b = null;
         }
-    }
 
-    public lq4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static lq4 b() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (lq4.class) {
-                    if (a == null && (runTask = MessageManager.getInstance().runTask(2001293, lq4.class)) != null && runTask.getData() != null) {
-                        a = (lq4) runTask.getData();
-                    }
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                long m = ky4.k().m("key_clear_resource", 0L);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (m == 0) {
+                    ky4.k().x("key_clear_resource", currentTimeMillis);
+                    m = currentTimeMillis;
+                }
+                if (currentTimeMillis - m > lq4.a) {
+                    new C0338a(this).start();
+                    ky4.k().x("key_clear_resource", currentTimeMillis);
                 }
             }
-            return a;
         }
-        return (lq4) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2005016));
+        }
+    }
+
+    public static void c(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, file) != null) || file == null) {
+            return;
+        }
+        try {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (int i = 0; i < listFiles.length; i++) {
+                        if (listFiles[i].isDirectory()) {
+                            c(listFiles[i]);
+                        } else {
+                            listFiles[i].delete();
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            file.delete();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

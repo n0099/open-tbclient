@@ -49,13 +49,13 @@ public abstract class fw {
     public String f410a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Collection f411a;
+    public final Collection<fz> f411a;
 
     /* renamed from: a  reason: collision with other field name */
-    public LinkedList f412a;
+    public LinkedList<Pair<Integer, Long>> f412a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map f413a;
+    public final Map<gb, a> f413a;
     public final int b;
 
     /* renamed from: b  reason: collision with other field name */
@@ -65,7 +65,7 @@ public abstract class fw {
     public String f415b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final Map f416b;
+    public final Map<gb, a> f416b;
     public int c;
 
     /* renamed from: c  reason: collision with other field name */
@@ -74,7 +74,7 @@ public abstract class fw {
     public long e;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public gb a;
@@ -160,7 +160,7 @@ public abstract class fw {
         this.f406a = -1L;
         this.f414b = 0L;
         this.f417c = 0L;
-        this.f412a = new LinkedList();
+        this.f412a = new LinkedList<>();
         this.f411a = new CopyOnWriteArrayList();
         this.f413a = new ConcurrentHashMap();
         this.f416b = new ConcurrentHashMap();
@@ -190,7 +190,7 @@ public abstract class fw {
                 if (i == 1) {
                     this.f412a.clear();
                 } else {
-                    this.f412a.add(new Pair(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
+                    this.f412a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
                     if (this.f412a.size() > 6) {
                         this.f412a.remove(0);
                     }
@@ -227,7 +227,7 @@ public abstract class fw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map m355a() {
+    public Map<gb, a> m355a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f413a : (Map) invokeV.objValue;

@@ -1,12 +1,14 @@
 package tv.athena.revenue.payui.webview;
 
-import com.baidu.tieba.d6a;
+import androidx.annotation.Keep;
+import com.baidu.tieba.m7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
+@Keep
 /* loaded from: classes9.dex */
 public class UrlPageParams {
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +42,7 @@ public class UrlPageParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UrlPageParams{title='" + this.title + "', url='" + d6a.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + d6a.a(this.rightUrl) + "', pageType='" + this.pageType + "'}";
+            return "UrlPageParams{title='" + this.title + "', url='" + m7a.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + m7a.a(this.rightUrl) + "', pageType='" + this.pageType + "'}";
         }
         return (String) invokeV.objValue;
     }

@@ -4,7 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.gx5;
+import com.baidu.tieba.qy5;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,8 +21,8 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List liveList;
-    public List recommandList;
+    public List<wn> liveList;
+    public List<wn> recommandList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveThreadsRespMessage() {
@@ -65,11 +66,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        gx5 gx5Var = new gx5();
+                        qy5 qy5Var = new qy5();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        gx5Var.a = threadData;
-                        this.liveList.add(gx5Var);
+                        qy5Var.a = threadData;
+                        this.liveList.add(qy5Var);
                     }
                 }
             }
@@ -79,11 +80,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        gx5 gx5Var2 = new gx5();
+                        qy5 qy5Var2 = new qy5();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        gx5Var2.a = threadData2;
-                        this.recommandList.add(gx5Var2);
+                        qy5Var2.a = threadData2;
+                        this.recommandList.add(qy5Var2);
                     }
                 }
             }
@@ -99,7 +100,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List getLiveList() {
+    public List<wn> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -108,7 +109,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List getRecommandList() {
+    public List<wn> getRecommandList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

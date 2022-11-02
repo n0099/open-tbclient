@@ -21,12 +21,12 @@ public class StatisticMgr {
     public static StatisticMgr sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public ScheduledThreadPoolExecutor mExecutor;
-    public Map mMapStatistic;
+    public Map<String, StatisticInfo> mMapStatistic;
     public IGslbStatistic mStatistic;
 
     /* loaded from: classes8.dex */
     public interface IGslbStatistic {
-        void onStatistic(Map map);
+        void onStatistic(Map<String, String> map);
     }
 
     static {
@@ -74,7 +74,7 @@ public class StatisticMgr {
         return (StatisticMgr) invokeV.objValue;
     }
 
-    public Map getMapStatistic() {
+    public Map<String, StatisticInfo> getMapStatistic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -109,7 +109,7 @@ public class StatisticMgr {
             if (TextUtils.isEmpty(str)) {
                 return new StatisticInfo();
             }
-            StatisticInfo statisticInfo = (StatisticInfo) getMapStatistic().get(str);
+            StatisticInfo statisticInfo = getMapStatistic().get(str);
             if (statisticInfo == null) {
                 return new StatisticInfo();
             }
@@ -118,7 +118,7 @@ public class StatisticMgr {
         return (StatisticInfo) invokeL.objValue;
     }
 
-    public void onStatistic(Map map) {
+    public void onStatistic(Map<String, String> map) {
         IGslbStatistic iGslbStatistic;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, map) != null) || (iGslbStatistic = this.mStatistic) == null) {

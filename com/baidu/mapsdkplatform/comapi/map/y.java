@@ -1,74 +1,94 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import com.baidu.searchbox.network.outback.EngineName;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapsdkplatform.comapi.util.AlgorithmUtil;
+import com.baidu.mapsdkplatform.comjni.tools.JNITools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public final class y {
+public class y {
     public static /* synthetic */ Interceptable $ic;
-    public static final y a;
-    public static final y b;
-    public static final y c;
-    public static final /* synthetic */ y[] e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(724782747, "Lcom/baidu/mapsdkplatform/comapi/map/y;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(724782747, "Lcom/baidu/mapsdkplatform/comapi/map/y;");
-                return;
-            }
-        }
-        a = new y(EngineName.DEFAULT_ENGINE, 0, 1);
-        b = new y("INDOOR", 1, 2);
-        y yVar = new y("STREET", 2, 3);
-        c = yVar;
-        e = new y[]{a, b, yVar};
-    }
-
-    public y(String str, int i, int i2) {
+    public y() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = i2;
     }
 
-    public static y valueOf(String str) {
+    private String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (y) Enum.valueOf(y.class, str) : (y) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
+            String str2 = com.baidu.mapsdkplatform.comapi.util.h.c;
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            String aESSaltKey = JNITools.getAESSaltKey(str2);
+            String aESViKey = JNITools.getAESViKey(str2);
+            if (!TextUtils.isEmpty(aESSaltKey) && !TextUtils.isEmpty(aESViKey) && !TextUtils.isEmpty(str)) {
+                try {
+                    return new String(AlgorithmUtil.getDecryptInfo(aESViKey, aESSaltKey, c(str))).trim();
+                } catch (Exception unused) {
+                    Log.e("PrismBuildingInfo", "getBuildingGeom Decrypt failed");
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static y[] values() {
-        InterceptResult invokeV;
+    public ArrayList<LatLng> a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) e.clone() : (y[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String b = b(str);
+            ArrayList<LatLng> arrayList = new ArrayList<>();
+            if (!TextUtils.isEmpty(b)) {
+                for (String str2 : b.split(ParamableElem.DIVIDE_PARAM)) {
+                    String[] split = str2.split(",");
+                    if (split.length == 2) {
+                        try {
+                            arrayList.add(new LatLng(Double.parseDouble(split[1]), Double.parseDouble(split[0])));
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    private byte[] c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            int length = str.length() / 2;
+            byte[] bArr = new byte[length];
+            for (int i = 0; i < length; i++) {
+                int i2 = i * 2;
+                int i3 = i2 + 1;
+                bArr[i] = (byte) ((Integer.parseInt(str.substring(i2, i3), 16) * 16) + Integer.parseInt(str.substring(i3, i2 + 2), 16));
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

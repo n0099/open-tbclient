@@ -9,10 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.time.MonotonicClock;
 import com.facebook.common.time.RealtimeSinceBootClock;
 import com.facebook.imagepipeline.common.Priority;
+import com.facebook.imagepipeline.image.EncodedImage;
+import com.facebook.imagepipeline.producers.FetchState;
 import com.facebook.imagepipeline.producers.NetworkFetcher;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,17 +26,17 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class PriorityNetworkFetcher implements NetworkFetcher {
+public class PriorityNetworkFetcher<FETCH_STATE extends FetchState> implements NetworkFetcher<PriorityFetchState<FETCH_STATE>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PriorityNetworkFetcher";
     public transient /* synthetic */ FieldHolder $fh;
     public final MonotonicClock mClock;
-    public final HashSet mCurrentlyFetching;
-    public final NetworkFetcher mDelegate;
-    public final LinkedList mHiPriQueue;
+    public final HashSet<PriorityFetchState<FETCH_STATE>> mCurrentlyFetching;
+    public final NetworkFetcher<FETCH_STATE> mDelegate;
+    public final LinkedList<PriorityFetchState<FETCH_STATE>> mHiPriQueue;
     public final boolean mIsHiPriFifo;
     public final Object mLock;
-    public final LinkedList mLowPriQueue;
+    public final LinkedList<PriorityFetchState<FETCH_STATE>> mLowPriQueue;
     public final int mMaxOutstandingHiPri;
     public final int mMaxOutstandingLowPri;
 
@@ -53,24 +56,24 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
     }
 
     /* loaded from: classes7.dex */
-    public class PriorityFetchState extends FetchState {
+    public static class PriorityFetchState<FETCH_STATE extends FetchState> extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetworkFetcher.Callback callback;
-        public final FetchState delegatedState;
+        public final FETCH_STATE delegatedState;
         public long dequeuedTimestamp;
         public final long enqueuedTimestamp;
         public final int hiPriCountWhenCreated;
         public final int lowPriCountWhenCreated;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PriorityFetchState(Consumer consumer, ProducerContext producerContext, FetchState fetchState, long j, int i, int i2) {
+        public PriorityFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext, FETCH_STATE fetch_state, long j, int i, int i2) {
             super(consumer, producerContext);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {consumer, producerContext, fetchState, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {consumer, producerContext, fetch_state, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -82,7 +85,7 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
                     return;
                 }
             }
-            this.delegatedState = fetchState;
+            this.delegatedState = fetch_state;
             this.enqueuedTimestamp = j;
             this.hiPriCountWhenCreated = i;
             this.lowPriCountWhenCreated = i2;
@@ -90,7 +93,7 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PriorityNetworkFetcher(NetworkFetcher networkFetcher, boolean z, int i, int i2) {
+    public PriorityNetworkFetcher(NetworkFetcher<FETCH_STATE> networkFetcher, boolean z, int i, int i2) {
         this(networkFetcher, z, i, i2, RealtimeSinceBootClock.get());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,7 +113,8 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         }
     }
 
-    public PriorityNetworkFetcher(NetworkFetcher networkFetcher, boolean z, int i, int i2, MonotonicClock monotonicClock) {
+    @VisibleForTesting
+    public PriorityNetworkFetcher(NetworkFetcher<FETCH_STATE> networkFetcher, boolean z, int i, int i2, MonotonicClock monotonicClock) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,9 +130,9 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
             }
         }
         this.mLock = new Object();
-        this.mHiPriQueue = new LinkedList();
-        this.mLowPriQueue = new LinkedList();
-        this.mCurrentlyFetching = new HashSet();
+        this.mHiPriQueue = new LinkedList<>();
+        this.mLowPriQueue = new LinkedList<>();
+        this.mCurrentlyFetching = new HashSet<>();
         this.mDelegate = networkFetcher;
         this.mIsHiPriFifo = z;
         this.mMaxOutstandingHiPri = i;
@@ -141,8 +145,8 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void changePriority(PriorityFetchState priorityFetchState, boolean z) {
-        LinkedList linkedList;
+    public void changePriority(PriorityFetchState<FETCH_STATE> priorityFetchState, boolean z) {
+        LinkedList<PriorityFetchState<FETCH_STATE>> linkedList;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, priorityFetchState, z) == null) {
@@ -169,7 +173,7 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void removeFromQueue(PriorityFetchState priorityFetchState, String str) {
+    public void removeFromQueue(PriorityFetchState<FETCH_STATE> priorityFetchState, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, priorityFetchState, str) == null) {
             synchronized (this.mLock) {
@@ -183,18 +187,17 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public PriorityFetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
+    public PriorityFetchState<FETCH_STATE> createFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext)) == null) {
-            return new PriorityFetchState(consumer, producerContext, this.mDelegate.createFetchState(consumer, producerContext), this.mClock.now(), this.mHiPriQueue.size(), this.mLowPriQueue.size());
+            return new PriorityFetchState<>(consumer, producerContext, this.mDelegate.createFetchState(consumer, producerContext), this.mClock.now(), this.mHiPriQueue.size(), this.mLowPriQueue.size());
         }
         return (PriorityFetchState) invokeLL.objValue;
     }
 
-    private void delegateFetch(PriorityFetchState priorityFetchState) {
+    private void delegateFetch(PriorityFetchState<FETCH_STATE> priorityFetchState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, priorityFetchState) == null) {
             try {
@@ -256,19 +259,24 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         }
     }
 
+    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
+    public /* bridge */ /* synthetic */ boolean shouldPropagate(FetchState fetchState) {
+        return shouldPropagate((PriorityFetchState) ((PriorityFetchState) fetchState));
+    }
+
     private void dequeueIfAvailableSlots() {
-        PriorityFetchState priorityFetchState;
+        PriorityFetchState<FETCH_STATE> priorityFetchState;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             synchronized (this.mLock) {
                 int size = this.mCurrentlyFetching.size();
                 if (size < this.mMaxOutstandingHiPri) {
-                    priorityFetchState = (PriorityFetchState) this.mHiPriQueue.pollFirst();
+                    priorityFetchState = this.mHiPriQueue.pollFirst();
                 } else {
                     priorityFetchState = null;
                 }
                 if (priorityFetchState == null && size < this.mMaxOutstandingLowPri) {
-                    priorityFetchState = (PriorityFetchState) this.mLowPriQueue.pollFirst();
+                    priorityFetchState = this.mLowPriQueue.pollFirst();
                 }
                 if (priorityFetchState == null) {
                     return;
@@ -281,7 +289,7 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         }
     }
 
-    private void putInQueue(PriorityFetchState priorityFetchState, boolean z) {
+    private void putInQueue(PriorityFetchState<FETCH_STATE> priorityFetchState, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, this, priorityFetchState, z) == null) {
             if (z) {
@@ -297,9 +305,28 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public void fetch(PriorityFetchState priorityFetchState, NetworkFetcher.Callback callback) {
+    public /* bridge */ /* synthetic */ FetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
+        return createFetchState((Consumer<EncodedImage>) consumer, producerContext);
+    }
+
+    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
+    public /* bridge */ /* synthetic */ void fetch(FetchState fetchState, NetworkFetcher.Callback callback) {
+        fetch((PriorityFetchState) ((PriorityFetchState) fetchState), callback);
+    }
+
+    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
+    @Nullable
+    public /* bridge */ /* synthetic */ Map getExtraMap(FetchState fetchState, int i) {
+        return getExtraMap((PriorityFetchState) ((PriorityFetchState) fetchState), i);
+    }
+
+    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
+    public /* bridge */ /* synthetic */ void onFetchCompletion(FetchState fetchState, int i) {
+        onFetchCompletion((PriorityFetchState) ((PriorityFetchState) fetchState), i);
+    }
+
+    public void fetch(PriorityFetchState<FETCH_STATE> priorityFetchState, NetworkFetcher.Callback callback) {
         boolean z;
         String str;
         Interceptable interceptable = $ic;
@@ -382,15 +409,13 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
     @Nullable
-    public Map getExtraMap(PriorityFetchState priorityFetchState, int i) {
+    public Map<String, String> getExtraMap(PriorityFetchState<FETCH_STATE> priorityFetchState, int i) {
         InterceptResult invokeLI;
         HashMap hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, priorityFetchState, i)) == null) {
-            Map extraMap = this.mDelegate.getExtraMap(priorityFetchState.delegatedState, i);
+            Map<String, String> extraMap = this.mDelegate.getExtraMap(priorityFetchState.delegatedState, i);
             if (extraMap != null) {
                 hashMap = new HashMap(extraMap);
             } else {
@@ -404,7 +429,8 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         return (Map) invokeLI.objValue;
     }
 
-    public HashSet getCurrentlyFetching() {
+    @VisibleForTesting
+    public HashSet<PriorityFetchState<FETCH_STATE>> getCurrentlyFetching() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -413,7 +439,8 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         return (HashSet) invokeV.objValue;
     }
 
-    public List getHiPriQueue() {
+    @VisibleForTesting
+    public List<PriorityFetchState<FETCH_STATE>> getHiPriQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -422,7 +449,8 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         return (List) invokeV.objValue;
     }
 
-    public List getLowPriQueue() {
+    @VisibleForTesting
+    public List<PriorityFetchState<FETCH_STATE>> getLowPriQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -431,9 +459,7 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public void onFetchCompletion(PriorityFetchState priorityFetchState, int i) {
+    public void onFetchCompletion(PriorityFetchState<FETCH_STATE> priorityFetchState, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048586, this, priorityFetchState, i) == null) {
             removeFromQueue(priorityFetchState, "SUCCESS");
@@ -441,9 +467,7 @@ public class PriorityNetworkFetcher implements NetworkFetcher {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public boolean shouldPropagate(PriorityFetchState priorityFetchState) {
+    public boolean shouldPropagate(PriorityFetchState<FETCH_STATE> priorityFetchState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, priorityFetchState)) == null) {

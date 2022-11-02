@@ -1,5 +1,6 @@
 package com.kwad.components.core.webview.b;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,20 +11,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0579a Nb;
+    public InterfaceC0590a Nb;
 
     /* renamed from: com.kwad.components.core.webview.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0579a {
+    public interface InterfaceC0590a {
         void ii();
     }
 
-    public a(InterfaceC0579a interfaceC0579a) {
+    public a(InterfaceC0590a interfaceC0590a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0579a};
+            Object[] objArr = {interfaceC0590a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,20 +34,21 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
         }
-        this.Nb = interfaceC0579a;
+        this.Nb = interfaceC0590a;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
-        InterfaceC0579a interfaceC0579a;
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+        InterfaceC0590a interfaceC0590a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || (interfaceC0579a = this.Nb) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || (interfaceC0590a = this.Nb) == null) {
             return;
         }
-        interfaceC0579a.ii();
+        interfaceC0590a.ii();
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -16,19 +16,19 @@ public class SharedPrefsUtil {
 
     /* renamed from: com.baidu.searchbox.fluency.utils.SharedPrefsUtil$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class FpsPreferences extends SharedPrefsWrapper {
+    public static class FpsPreferences extends SharedPrefsWrapper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FLUENCY_FPS_PREF_NAME = "com.baidu.searchbox.fluency.fps.pref";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public final class Holder {
+        public static final class Holder {
             public static /* synthetic */ Interceptable $ic;
             public static final FpsPreferences INSTANCE;
             public transient /* synthetic */ FieldHolder $fh;

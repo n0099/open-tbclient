@@ -58,14 +58,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     /* loaded from: classes3.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int currentPosition;
 
         /* loaded from: classes3.dex */
-        public final class a implements Parcelable.Creator {
+        public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -400,7 +400,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this.r = null;
         this.s = 0;
         this.t = 0;
-        this.u = R.drawable.obfuscated_res_0x7f080e97;
+        this.u = R.drawable.obfuscated_res_0x7f080eb3;
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.View

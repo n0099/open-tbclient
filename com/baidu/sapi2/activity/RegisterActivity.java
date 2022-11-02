@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
@@ -134,7 +135,7 @@ public class RegisterActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                setContentView(R.layout.obfuscated_res_0x7f0d0515);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -153,11 +154,11 @@ public class RegisterActivity extends BaseActivity {
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
-        List list;
+        List<PassNameValuePair> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10b1);
+            setTitleText(R.string.obfuscated_res_0x7f0f10cc);
             WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.RegisterActivity.2
                 public static /* synthetic */ Interceptable $ic;

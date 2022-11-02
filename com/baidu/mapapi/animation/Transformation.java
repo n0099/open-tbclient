@@ -5,7 +5,6 @@ import android.view.animation.Interpolator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapsdkplatform.comapi.a.c;
 import com.baidu.mapsdkplatform.comapi.a.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,10 +30,11 @@ public class Transformation extends Animation {
                 return;
             }
         }
-        if (pointArr == null || pointArr.length == 0) {
-            throw new NullPointerException("BDMapSDKException: the points is null");
+        if (pointArr != null && pointArr.length != 0) {
+            this.bdAnimation = new l(pointArr);
+            return;
         }
-        this.bdAnimation = new l(pointArr);
+        throw new NullPointerException("BDMapSDKException: the points is null");
     }
 
     public Transformation(LatLng... latLngArr) {
@@ -52,10 +52,11 @@ public class Transformation extends Animation {
                 return;
             }
         }
-        if (latLngArr == null || latLngArr.length == 0) {
-            throw new NullPointerException("BDMapSDKException: the latlngs is null");
+        if (latLngArr != null && latLngArr.length != 0) {
+            this.bdAnimation = new l(latLngArr);
+            return;
         }
-        this.bdAnimation = new l(latLngArr);
+        throw new NullPointerException("BDMapSDKException: the latlngs is null");
     }
 
     @Override // com.baidu.mapapi.animation.Animation
@@ -98,20 +99,13 @@ public class Transformation extends Animation {
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
-        c cVar;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, repeatMode) == null) {
             if (repeatMode == Animation.RepeatMode.RESTART) {
-                cVar = this.bdAnimation;
-                i = 1;
-            } else if (repeatMode != Animation.RepeatMode.REVERSE) {
-                return;
-            } else {
-                cVar = this.bdAnimation;
-                i = 2;
+                this.bdAnimation.a(1);
+            } else if (repeatMode == Animation.RepeatMode.REVERSE) {
+                this.bdAnimation.a(2);
             }
-            cVar.a(i);
         }
     }
 }

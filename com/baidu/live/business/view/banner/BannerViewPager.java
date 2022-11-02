@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +21,7 @@ public class BannerViewPager extends ViewPager {
     public a a;
 
     /* loaded from: classes2.dex */
-    public class a extends Scroller {
+    public static class a extends Scroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -71,7 +73,7 @@ public class BannerViewPager extends ViewPager {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BannerViewPager(Context context) {
+    public BannerViewPager(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,7 +93,7 @@ public class BannerViewPager extends ViewPager {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BannerViewPager(Context context, AttributeSet attributeSet) {
+    public BannerViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

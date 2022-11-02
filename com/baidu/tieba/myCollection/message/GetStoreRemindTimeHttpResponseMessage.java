@@ -17,7 +17,7 @@ import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
 public class GetStoreRemindTimeHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List timeList;
+    public List<String> timeList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStoreRemindTimeHttpResponseMessage(int i) {
@@ -58,7 +58,7 @@ public class GetStoreRemindTimeHttpResponseMessage extends TbHttpResponsedMessag
         }
     }
 
-    public List getTimeList() {
+    public List<String> getTimeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

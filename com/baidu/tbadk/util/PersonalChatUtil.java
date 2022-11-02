@@ -1,13 +1,14 @@
 package com.baidu.tbadk.util;
 
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ii5;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.oh5;
+import com.baidu.tieba.gj5;
+import com.baidu.tieba.kj5;
+import com.baidu.tieba.li5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ public class PersonalChatUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a extends ii5 {
+    public static class a extends gj5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -43,7 +44,8 @@ public class PersonalChatUtil {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ii5
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.gj5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -58,7 +60,7 @@ public class PersonalChatUtil {
     }
 
     /* loaded from: classes3.dex */
-    public final class b implements oh5 {
+    public static class b implements li5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -90,7 +92,7 @@ public class PersonalChatUtil {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oh5
+        @Override // com.baidu.tieba.li5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -117,10 +119,11 @@ public class PersonalChatUtil {
     public static void a(Context context, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), str, str2, str3}) == null) {
-            mi5.b(new a(j), new b(context, j, str, str2, str3));
+            kj5.b(new a(j), new b(context, j, str, str2, str3));
         }
     }
 
+    @Keep
     public static void jump2ChatFromPeiwan(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {

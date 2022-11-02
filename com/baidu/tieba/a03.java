@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +10,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a03 {
+public class a03 extends zz2 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map a;
+    public static final r43<a03> h;
+    public static final s43<a03> i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String g;
+
+    /* loaded from: classes3.dex */
+    public static class a extends r43<a03> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.r43
+        /* renamed from: b */
+        public a03 a(@NonNull jn2 jn2Var) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jn2Var)) == null) {
+                a03 a03Var = new a03();
+                a03Var.g = jn2Var.g();
+                a03Var.b = jn2Var.g();
+                a03Var.c = jn2Var.readLong();
+                a03Var.a = jn2Var.g();
+                a03Var.d = jn2Var.readInt();
+                a03Var.e = jn2Var.g();
+                a03Var.f = jn2Var.g();
+                return a03Var;
+            }
+            return (a03) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b extends s43<a03> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.s43
+        /* renamed from: b */
+        public void a(@NonNull a03 a03Var, @NonNull kn2 kn2Var) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a03Var, kn2Var) == null) {
+                kn2Var.f(a03Var.g);
+                kn2Var.f(a03Var.b);
+                kn2Var.writeLong(a03Var.c);
+                kn2Var.f(a03Var.a);
+                kn2Var.writeInt(a03Var.d);
+                kn2Var.f(a03Var.e);
+                kn2Var.f(a03Var.f);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,9 +108,8 @@ public class a03 {
                 return;
             }
         }
-        a = new ConcurrentHashMap();
-        c(lr1.a());
-        c(tm2.s().d());
+        h = new a();
+        i = new b();
     }
 
     public a03() {
@@ -40,44 +117,68 @@ public class a03 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static ProviderDelegation a(Class cls) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            return (ProviderDelegation) a.get(cls.getName());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && (this.c >= 0 || !TextUtils.isEmpty(this.b))) {
+                return true;
+            }
+            return false;
         }
-        return (ProviderDelegation) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static ProviderDelegation b(String str) {
-        InterceptResult invokeL;
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return (ProviderDelegation) a.get(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.clone();
         }
-        return (ProviderDelegation) invokeL.objValue;
+        return invokeV.objValue;
     }
 
-    public static void c(Map map) {
+    public a03(JSONObject jSONObject, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && map != null) {
-            for (Class cls : map.keySet()) {
-                if (cls != null) {
-                    Object obj = map.get(cls);
-                    if (obj instanceof ProviderDelegation) {
-                        a.put(cls.getName(), (ProviderDelegation) obj);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
+        if (jSONObject == null) {
+            return;
+        }
+        this.b = jSONObject.optString("version");
+        this.c = jSONObject.optLong("version_code", -1L);
+        this.a = jSONObject.optString("provider");
+        this.e = jSONObject.optString("path");
+        this.f = jSONObject.optString("config");
+        this.d = i2;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "SwanPluginModel{pluginAlias='" + this.g + "', versionName='" + this.b + "', versionCode='" + this.c + "', libName='" + this.a + "', category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,6 +16,7 @@ public final class LiveDataKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @MainThread
     public static final <T> Observer<T> observe(LiveData<T> liveData, LifecycleOwner lifecycleOwner, final Function1<? super T, Unit> function1) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;

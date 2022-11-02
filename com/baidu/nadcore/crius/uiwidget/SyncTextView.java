@@ -3,6 +3,7 @@ package com.baidu.nadcore.crius.uiwidget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.crius.data.RenderData;
 import com.baidu.searchbox.crius.render.util.RenderUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ public class SyncTextView extends CriusTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SyncTextView(Context context, AttributeSet attributeSet) {
+    public SyncTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,7 +58,7 @@ public class SyncTextView extends CriusTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SyncTextView(Context context, AttributeSet attributeSet, int i) {
+    public SyncTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,7 +78,7 @@ public class SyncTextView extends CriusTextView {
         }
     }
 
-    public void update(RenderData renderData, boolean z, boolean z2) {
+    public void update(@Nullable RenderData renderData, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{renderData, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || renderData == null) {
             return;

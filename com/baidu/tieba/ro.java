@@ -1,147 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.style.DynamicDrawableSpan;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.lang.reflect.Array;
+import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public class ro extends DynamicDrawableSpan {
+public class ro {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Drawable a;
-    public Uri b;
-    public int c;
-    public Context d;
-    public a e;
-    public Rect f;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        Drawable a(ro roVar);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ro(a aVar, int i, int i2) {
-        super(i2);
+    public static String a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-        }
-        this.f = new Rect();
-        this.c = i;
-        this.e = aVar;
-    }
-
-    public void a(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-            this.a = drawable;
-        }
-    }
-
-    public void b(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            this.f.set(i, i2, i3, i4);
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (drawable = getDrawable()) == null) {
-            return;
-        }
-        canvas.save();
-        int i6 = drawable.getBounds().bottom;
-        if (((DynamicDrawableSpan) this).mVerticalAlignment == 0) {
-            i4 = i5;
-        }
-        canvas.translate(f, i4 - (drawable.getBounds().bottom - 4));
-        drawable.draw(canvas);
-        canvas.restore();
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan
-    public Drawable getDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Drawable drawable = this.a;
-            if (drawable == null) {
-                a aVar = this.e;
-                if (aVar != null) {
-                    drawable = aVar.a(this);
-                } else {
-                    drawable = null;
+            if (obj.getClass().isArray()) {
+                int length = Array.getLength(obj);
+                StringBuilder sb = new StringBuilder();
+                sb.append('[');
+                int i = 0;
+                while (i < length) {
+                    sb.append(Array.get(obj, i));
+                    sb.append(',');
+                    sb.append(WebvttCueParser.CHAR_SPACE);
+                    i++;
                 }
-            }
-            if (drawable != null) {
-                return drawable;
-            }
-            try {
-                if (this.b != null) {
-                    InputStream openInputStream = this.d.getContentResolver().openInputStream(this.b);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(this.d.getResources(), BitmapFactory.decodeStream(openInputStream));
-                    try {
-                        bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-                        openInputStream.close();
-                        return bitmapDrawable;
-                    } catch (Exception unused) {
-                        drawable = bitmapDrawable;
-                    }
-                } else {
-                    drawable = this.d.getResources().getDrawable(this.c);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                if (i > 0) {
+                    sb.delete(sb.length() - 2, sb.length());
                 }
-            } catch (Exception unused2) {
+                sb.append(']');
+                return sb.toString();
             }
-            return drawable;
+            throw new InvalidParameterException("Not a primitive array: " + obj.getClass());
         }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            if (this.a == null && this.e != null) {
-                if (fontMetricsInt != null) {
-                    int i3 = -this.f.bottom;
-                    fontMetricsInt.ascent = i3;
-                    fontMetricsInt.descent = 0;
-                    fontMetricsInt.top = i3;
-                    fontMetricsInt.bottom = 0;
-                }
-                return this.f.right;
-            }
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
-        }
-        return invokeCommon.intValue;
+        return (String) invokeL.objValue;
     }
 }

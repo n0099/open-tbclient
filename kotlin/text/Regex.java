@@ -11,7 +11,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import kotlin.ExperimentalStdlibApi;
 import kotlin.Metadata;
+import kotlin.PublishedApi;
+import kotlin.SinceKotlin;
 import kotlin.collections.CollectionsKt__CollectionsJVMKt;
 import kotlin.collections.CollectionsKt__MutableCollectionsKt;
 import kotlin.jvm.functions.Function0;
@@ -151,6 +154,8 @@ public final class Regex implements Serializable {
         return RegexKt.access$findNext(matcher, i, input);
     }
 
+    @SinceKotlin(version = "1.5")
+    @ExperimentalStdlibApi
     public final MatchResult matchAt(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
         Matcher region = this.nativePattern.matcher(input).useAnchoringBounds(false).useTransparentBounds(true).region(i, input.length());
@@ -161,6 +166,8 @@ public final class Regex implements Serializable {
         return null;
     }
 
+    @SinceKotlin(version = "1.5")
+    @ExperimentalStdlibApi
     public final boolean matchesAt(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
         return this.nativePattern.matcher(input).useAnchoringBounds(false).useTransparentBounds(true).region(i, input.length()).lookingAt();
@@ -182,6 +189,8 @@ public final class Regex implements Serializable {
         return replaceFirst;
     }
 
+    @SinceKotlin(version = "1.5")
+    @ExperimentalStdlibApi
     public final Sequence<String> splitToSequence(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
         StringsKt__StringsKt.requireNonNegativeLimit(i);
@@ -200,6 +209,7 @@ public final class Regex implements Serializable {
         Intrinsics.checkNotNullExpressionValue(compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
     }
 
+    @PublishedApi
     public Regex(Pattern nativePattern) {
         Intrinsics.checkNotNullParameter(nativePattern, "nativePattern");
         this.nativePattern = nativePattern;
@@ -289,7 +299,7 @@ public final class Regex implements Serializable {
             do {
                 Intrinsics.checkNotNull(find$default);
                 sb.append(input, i, find$default.getRange().getStart().intValue());
-                sb.append((CharSequence) transform.invoke(find$default));
+                sb.append(transform.invoke(find$default));
                 i = find$default.getRange().getEndInclusive().intValue() + 1;
                 find$default = find$default.next();
                 if (i >= length) {

@@ -2,12 +2,13 @@ package com.baidu.searchbox.anr.impl;
 
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ioc.IANRRegister_ANRRuntime_ListProvider;
 import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.se1;
-import com.baidu.tieba.ue1;
+import com.baidu.tieba.kf1;
+import com.baidu.tieba.mf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,12 +19,13 @@ public class ANRRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static ANRRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public ue1 mIANRMonitorList;
+    @Inject
+    public mf1<IANRRegister> mIANRMonitorList;
 
     public void initmIANRMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            se1 b = se1.b();
+            kf1 b = kf1.b();
             this.mIANRMonitorList = b;
             b.a(new IANRRegister_ANRRuntime_ListProvider());
         }
@@ -61,21 +63,21 @@ public class ANRRuntime {
         return (ANRRuntime) invokeV.objValue;
     }
 
-    public ue1 getIANRUploadList() {
+    public mf1<IANRRegister> getIANRUploadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mIANRMonitorList;
         }
-        return (ue1) invokeV.objValue;
+        return (mf1) invokeV.objValue;
     }
 
     public boolean enableANR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ue1 ue1Var = this.mIANRMonitorList;
-            if (ue1Var != null && ue1Var.getList() != null) {
+            mf1<IANRRegister> mf1Var = this.mIANRMonitorList;
+            if (mf1Var != null && mf1Var.getList() != null) {
                 for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
                     if (iANRRegister != null && iANRRegister.checkEnable()) {
                         if (AppConfig.isDebug()) {

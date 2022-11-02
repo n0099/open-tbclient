@@ -13,7 +13,7 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PostByteRequest extends HttpRequest {
+public class PostByteRequest extends HttpRequest<PostByteRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType MEDIA_TYPE_STREAM;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class PostByteRequest extends HttpRequest {
     public MediaType mediaType;
 
     /* loaded from: classes2.dex */
-    public class PostByteRequestBuilder extends HttpRequestBuilder {
+    public static class PostByteRequestBuilder extends HttpRequestBuilder<PostByteRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] contentBuffer;

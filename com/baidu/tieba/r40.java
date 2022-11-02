@@ -1,30 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import java.math.BigInteger;
+import javax.crypto.BadPaddingException;
 /* loaded from: classes5.dex */
 public final class r40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public static byte[] a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 76, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 108, -30, -14, -12, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 20, -35, -89, -20, 114, -66, 34, ExifInterface.MARKER_SOF10, 104, 14, -117, 75} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bArr, i, i2)) == null) {
+            if (i == 0 && i2 == bArr.length) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) throws BadPaddingException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 83, 56, 126, -30, -88, -28} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, bigInteger, bigInteger2)) == null) {
+            return f(d(bArr, bigInteger).modPow(bigInteger2, bigInteger), c(bigInteger));
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 
-    public static byte[] c() {
-        InterceptResult invokeV;
+    public static int c(BigInteger bigInteger) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 65, 45, 110, -43, -67, -19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 24} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bigInteger)) == null) {
+            return (bigInteger.bitLength() + 7) >> 3;
+        }
+        return invokeL.intValue;
+    }
+
+    public static BigInteger d(byte[] bArr, BigInteger bigInteger) throws BadPaddingException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bigInteger)) == null) {
+            BigInteger bigInteger2 = new BigInteger(1, bArr);
+            if (bigInteger2.compareTo(bigInteger) < 0) {
+                return bigInteger2;
+            }
+            throw new BadPaddingException("Message is larger than modulus");
+        }
+        return (BigInteger) invokeLL.objValue;
+    }
+
+    public static byte[] e(byte[] bArr, q40 q40Var) throws BadPaddingException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, q40Var)) == null) {
+            return b(bArr, q40Var.b(), q40Var.a());
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] f(BigInteger bigInteger, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bigInteger, i)) == null) {
+            byte[] byteArray = bigInteger.toByteArray();
+            int length = byteArray.length;
+            if (length == i) {
+                return byteArray;
+            }
+            if (length == i + 1 && byteArray[0] == 0) {
+                byte[] bArr = new byte[i];
+                System.arraycopy(byteArray, 1, bArr, 0, i);
+                return bArr;
+            } else if (length >= i) {
+                return null;
+            } else {
+                byte[] bArr2 = new byte[i];
+                System.arraycopy(byteArray, 0, bArr2, i - length, length);
+                return bArr2;
+            }
+        }
+        return (byte[]) invokeLI.objValue;
     }
 }

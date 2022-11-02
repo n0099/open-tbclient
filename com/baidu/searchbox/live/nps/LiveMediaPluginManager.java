@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
@@ -40,9 +42,9 @@ import com.baidu.searchbox.live.ubc.FlowInfoHelper;
 import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b91;
-import com.baidu.tieba.c91;
-import com.baidu.tieba.z81;
+import com.baidu.tieba.r91;
+import com.baidu.tieba.t91;
+import com.baidu.tieba.u91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +117,7 @@ public class LiveMediaPluginManager {
     public LiveNpsLoadingCallback loadingCallback;
     public PluginLoadCallback mCurrentCallback;
     public Handler mHandler;
-    public HashMap mLaunchInfo;
+    public HashMap<String, Object> mLaunchInfo;
     public ILiveNPSPlugin mLiveNPSPlugin;
     public volatile boolean mLiveNpsPreload;
     public ToastService toastService;
@@ -129,7 +131,7 @@ public class LiveMediaPluginManager {
     }
 
     /* loaded from: classes2.dex */
-    public class SingletonHolder {
+    public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final LiveMediaPluginManager INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +213,7 @@ public class LiveMediaPluginManager {
                 dLog("preDownloadMediaBusinessPlugin 预加载媒体二级插件");
                 Log.d(TAG, "preDownloadYYPluginForCreateLive: + com.baidu.live.media.business start Download");
             }
-            NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new z81(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
+            NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
@@ -234,7 +236,7 @@ public class LiveMediaPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.z81
+                @Override // com.baidu.tieba.r91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && this.this$0.isDebug()) {
@@ -244,7 +246,7 @@ public class LiveMediaPluginManager {
                     }
                 }
 
-                @Override // com.baidu.tieba.z81
+                @Override // com.baidu.tieba.r91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && this.this$0.isDebug()) {
@@ -411,7 +413,7 @@ public class LiveMediaPluginManager {
         return invokeII.intValue;
     }
 
-    public Map getMediaLivePlayConfig(String str, Map map) {
+    public Map<String, Object> getMediaLivePlayConfig(String str, Map<String, Object> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, map)) == null) {
@@ -427,19 +429,19 @@ public class LiveMediaPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new z81(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
 
-                @Override // com.baidu.tieba.z81
+                @Override // com.baidu.tieba.r91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.z81
+                @Override // com.baidu.tieba.r91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -463,7 +465,7 @@ public class LiveMediaPluginManager {
                     }
                     this.this$0 = this;
                 }
-            }, new b91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
+            }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
@@ -486,11 +488,11 @@ public class LiveMediaPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.b91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, c91 c91Var) {
+                @Override // com.baidu.tieba.t91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, c91Var) == null) && c91Var != null) {
-                        c91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
+                        u91Var.onResult(1);
                     }
                 }
             }, 1);
@@ -1190,7 +1192,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void isInHistory(String str, LiveStatusDataCallback liveStatusDataCallback) {
+    public void isInHistory(@NonNull String str, @NonNull LiveStatusDataCallback<Boolean> liveStatusDataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, liveStatusDataCallback) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -1253,7 +1255,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void onChangeToSmallWindow(Map map, IYYSmallWindowController.IPlayController iPlayController) {
+    public void onChangeToSmallWindow(Map<String, String> map, IYYSmallWindowController.IPlayController iPlayController) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, map, iPlayController) == null) {
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
@@ -1451,7 +1453,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void getLiveRoomStatus(String str, LiveStatusDataCallback liveStatusDataCallback) {
+    public void getLiveRoomStatus(@NonNull String str, @NonNull LiveStatusDataCallback<String> liveStatusDataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, liveStatusDataCallback) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -1513,7 +1515,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void dispatchHostEvent(Context context, String str, Map map) {
+    public void dispatchHostEvent(Context context, String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, map) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -1528,7 +1530,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void dispatchLiveMasterRouter(Application application, String str, Map map) {
+    public void dispatchLiveMasterRouter(@NonNull Application application, String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, application, str, map) == null) {
             npsLoadChainInitStart();
@@ -1790,7 +1792,7 @@ public class LiveMediaPluginManager {
                         }
 
                         @Override // com.baidu.searchbox.live.interfaces.mix.PluginLoadCallback
-                        public void onResult(boolean z, int i, String str4) {
+                        public void onResult(boolean z, int i, @Nullable String str4) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str4}) == null) {
                                 NpsLoadChainLog npsLoadChainLog3 = NpsLoadChainLog.getInstance();
@@ -1922,7 +1924,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void sendLog(int i, Context context, String str) {
+    public void sendLog(int i, @NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048596, this, i, context, str) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -1983,7 +1985,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void startBjhMasterActivity(Application application, String str, Uri uri) {
+    public void startBjhMasterActivity(@NonNull Application application, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048600, this, application, str, uri) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -2051,7 +2053,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void startBjhMasterActivityNew(Context context, String str, Uri uri) {
+    public void startBjhMasterActivityNew(@NonNull Context context, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048601, this, context, str, uri) == null) {
             if (getPluginInstallVersion() >= 506000000) {
@@ -2124,7 +2126,7 @@ public class LiveMediaPluginManager {
         }
     }
 
-    public void startAudioMasterActivity(Application application, String str) {
+    public void startAudioMasterActivity(@NonNull Application application, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048599, this, application, str) == null) {
             npsLoadChainInitStart();
@@ -2203,7 +2205,7 @@ public class LiveMediaPluginManager {
     public void updateStatInfo(YYStatInfo yYStatInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048602, this, yYStatInfo) == null) && yYStatInfo != null && this.mLiveNPSPlugin != null) {
-            HashMap popFlow = FlowInfoHelper.popFlow(yYStatInfo.roomId);
+            HashMap<String, Object> popFlow = FlowInfoHelper.popFlow(yYStatInfo.roomId);
             if (popFlow != null) {
                 if (yYStatInfo.statInfo == null) {
                     yYStatInfo.statInfo = popFlow;

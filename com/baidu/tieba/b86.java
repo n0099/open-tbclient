@@ -1,55 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
+import com.baidu.tieba.c86;
+import com.baidu.tieba.danmu.data.ItemState;
+import com.baidu.tieba.danmu.data.state.DrawState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class b86 {
+public final class b86 implements c86.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public BdTypeRecyclerView b;
-    public ItemCardViewWrapperAdapter c;
-    public List d;
-    public int e;
-    public int f;
 
-    public b86(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
+    public b86() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = new ArrayList();
-        this.a = baseFragment;
-        this.b = bdTypeRecyclerView;
-        this.e = i;
-        this.f = i2;
-        a();
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.c86.a
+    public void a(h66 item, long j, h86 displayer, b66 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), r76.e, this.e, this.b, this.f);
-            this.c = itemCardViewWrapperAdapter;
-            this.d.add(itemCardViewWrapperAdapter);
-            this.b.a(this.d);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            DrawState f = item.f();
+            if (item.i().compareTo(ItemState.Measured) >= 0) {
+                f.A(displayer.getWidth() - ((((float) (j - item.j())) / ((float) config.t())) * (displayer.getWidth() + f.q())));
+                f.H(true);
+                return;
+            }
+            f.H(false);
         }
     }
 }

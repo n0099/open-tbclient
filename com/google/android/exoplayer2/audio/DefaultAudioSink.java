@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2.audio;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.media.AudioAttributes;
 import android.media.AudioFormat;
 import android.media.AudioTimestamp;
@@ -7,6 +9,7 @@ import android.media.AudioTrack;
 import android.os.ConditionVariable;
 import android.os.SystemClock;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -55,11 +58,13 @@ public final class DefaultAudioSink implements AudioSink {
     public static final int START_NOT_SET = 0;
     public static final int STATE_INITIALIZED = 1;
     public static final String TAG = "AudioTrack";
+    @SuppressLint({"InlinedApi"})
     public static final int WRITE_NON_BLOCKING = 1;
     public static boolean enablePreV21AudioSessionWorkaround;
     public static boolean failOnSpuriousAudioTimestamp;
     public transient /* synthetic */ FieldHolder $fh;
     public AudioAttributes audioAttributes;
+    @Nullable
     public final AudioCapabilities audioCapabilities;
     public AudioProcessor[] audioProcessors;
     public int audioSessionId;
@@ -87,6 +92,7 @@ public final class DefaultAudioSink implements AudioSink {
     public long lastPlayheadSampleTimeUs;
     public long lastTimestampSampleTimeUs;
     public long latencyUs;
+    @Nullable
     public AudioSink.Listener listener;
     public int nextPlayheadOffsetIndex;
     public ByteBuffer outputBuffer;
@@ -96,7 +102,7 @@ public final class DefaultAudioSink implements AudioSink {
     public boolean passthrough;
     public int pcmFrameSize;
     public PlaybackParameters playbackParameters;
-    public final LinkedList playbackParametersCheckpoints;
+    public final LinkedList<PlaybackParametersCheckpoint> playbackParametersCheckpoints;
     public long playbackParametersOffsetUs;
     public long playbackParametersPositionUs;
     public int playheadOffsetCount;
@@ -135,7 +141,7 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     /* loaded from: classes7.dex */
-    public class AudioTrackUtil {
+    public static class AudioTrackUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long FORCE_RESET_WORKAROUND_TIMEOUT_MS = 200;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,8 +289,9 @@ public final class DefaultAudioSink implements AudioSink {
         }
     }
 
+    @TargetApi(19)
     /* loaded from: classes7.dex */
-    public class AudioTrackUtilV19 extends AudioTrackUtil {
+    public static class AudioTrackUtilV19 extends AudioTrackUtil {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AudioTimestamp audioTimestamp;
@@ -363,7 +370,7 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     /* loaded from: classes7.dex */
-    public final class InvalidAudioTrackTimestampException extends RuntimeException {
+    public static final class InvalidAudioTrackTimestampException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -389,7 +396,7 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     /* loaded from: classes7.dex */
-    public final class PlaybackParametersCheckpoint {
+    public static final class PlaybackParametersCheckpoint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long mediaTimeUs;
@@ -417,7 +424,7 @@ public final class DefaultAudioSink implements AudioSink {
         }
     }
 
-    public DefaultAudioSink(AudioCapabilities audioCapabilities, AudioProcessor[] audioProcessorArr) {
+    public DefaultAudioSink(@Nullable AudioCapabilities audioCapabilities, AudioProcessor[] audioProcessorArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -465,7 +472,7 @@ public final class DefaultAudioSink implements AudioSink {
         this.drainingAudioProcessorIndex = -1;
         this.audioProcessors = new AudioProcessor[0];
         this.outputBuffers = new ByteBuffer[0];
-        this.playbackParametersCheckpoints = new LinkedList();
+        this.playbackParametersCheckpoints = new LinkedList<>();
     }
 
     private long durationUsToFrames(long j) {
@@ -583,11 +590,11 @@ public final class DefaultAudioSink implements AudioSink {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
-            while (!this.playbackParametersCheckpoints.isEmpty() && j >= ((PlaybackParametersCheckpoint) this.playbackParametersCheckpoints.getFirst()).positionUs) {
-                PlaybackParametersCheckpoint playbackParametersCheckpoint = (PlaybackParametersCheckpoint) this.playbackParametersCheckpoints.remove();
-                this.playbackParameters = playbackParametersCheckpoint.playbackParameters;
-                this.playbackParametersPositionUs = playbackParametersCheckpoint.positionUs;
-                this.playbackParametersOffsetUs = playbackParametersCheckpoint.mediaTimeUs - this.startMediaTimeUs;
+            while (!this.playbackParametersCheckpoints.isEmpty() && j >= this.playbackParametersCheckpoints.getFirst().positionUs) {
+                PlaybackParametersCheckpoint remove = this.playbackParametersCheckpoints.remove();
+                this.playbackParameters = remove.playbackParameters;
+                this.playbackParametersPositionUs = remove.positionUs;
+                this.playbackParametersOffsetUs = remove.mediaTimeUs - this.startMediaTimeUs;
             }
             if (this.playbackParameters.speed == 1.0f) {
                 return (j + this.playbackParametersOffsetUs) - this.playbackParametersPositionUs;
@@ -690,6 +697,7 @@ public final class DefaultAudioSink implements AudioSink {
         return invokeZ.longValue;
     }
 
+    @TargetApi(21)
     private AudioTrack createAudioTrackV21() {
         InterceptResult invokeV;
         android.media.AudioAttributes audioAttributesV21;
@@ -1236,7 +1244,7 @@ public final class DefaultAudioSink implements AudioSink {
             PlaybackParameters playbackParameters4 = this.drainingPlaybackParameters;
             if (playbackParameters4 == null) {
                 if (!this.playbackParametersCheckpoints.isEmpty()) {
-                    playbackParameters4 = ((PlaybackParametersCheckpoint) this.playbackParametersCheckpoints.getLast()).playbackParameters;
+                    playbackParameters4 = this.playbackParametersCheckpoints.getLast().playbackParameters;
                 } else {
                     playbackParameters4 = this.playbackParameters;
                 }
@@ -1253,6 +1261,7 @@ public final class DefaultAudioSink implements AudioSink {
         return (PlaybackParameters) invokeL.objValue;
     }
 
+    @TargetApi(21)
     public static void setVolumeInternalV21(AudioTrack audioTrack, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(65562, null, audioTrack, f) == null) {
@@ -1341,6 +1350,7 @@ public final class DefaultAudioSink implements AudioSink {
         return invokeLJ.booleanValue;
     }
 
+    @TargetApi(21)
     public static int writeNonBlockingV21(AudioTrack audioTrack, ByteBuffer byteBuffer, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -1350,6 +1360,7 @@ public final class DefaultAudioSink implements AudioSink {
         return invokeLLI.intValue;
     }
 
+    @TargetApi(21)
     private int writeNonBlockingWithAvSyncV21(AudioTrack audioTrack, ByteBuffer byteBuffer, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -1396,7 +1407,7 @@ public final class DefaultAudioSink implements AudioSink {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void configure(String str, int i, int i2, int i3, int i4, int[] iArr, int i5, int i6) throws AudioSink.ConfigurationException {
+    public void configure(String str, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, int i6) throws AudioSink.ConfigurationException {
         boolean z;
         int i7;
         long framesToDurationUs;
@@ -1586,7 +1597,7 @@ public final class DefaultAudioSink implements AudioSink {
                     if (!drainAudioProcessorsToEndOfStream()) {
                         return false;
                     }
-                    LinkedList linkedList = this.playbackParametersCheckpoints;
+                    LinkedList<PlaybackParametersCheckpoint> linkedList = this.playbackParametersCheckpoints;
                     PlaybackParameters playbackParameters = this.drainingPlaybackParameters;
                     long max = Math.max(0L, j);
                     str2 = TAG;
@@ -1662,7 +1673,7 @@ public final class DefaultAudioSink implements AudioSink {
                 this.playbackParameters = playbackParameters;
                 this.drainingPlaybackParameters = null;
             } else if (!this.playbackParametersCheckpoints.isEmpty()) {
-                this.playbackParameters = ((PlaybackParametersCheckpoint) this.playbackParametersCheckpoints.getLast()).playbackParameters;
+                this.playbackParameters = this.playbackParametersCheckpoints.getLast().playbackParameters;
             }
             this.playbackParametersCheckpoints.clear();
             this.playbackParametersOffsetUs = 0L;

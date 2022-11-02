@@ -47,9 +47,9 @@ public final class GeneratorSequence$iterator$1 implements Iterator<T>, KMappedM
             t = function0.invoke();
         } else {
             function1 = this.this$0.getNextValue;
-            Object obj = this.nextItem;
-            Intrinsics.checkNotNull(obj);
-            t = function1.invoke(obj);
+            T t2 = this.nextItem;
+            Intrinsics.checkNotNull(t2);
+            t = function1.invoke(t2);
         }
         this.nextItem = t;
         if (t == 0) {

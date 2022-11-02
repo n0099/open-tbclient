@@ -28,7 +28,7 @@ public class d {
         }
     }
 
-    public static b a(Map map, b bVar, List list) {
+    public static b a(Map<String, List<String>> map, b bVar, List<String> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, map, bVar, list)) == null) {
@@ -62,17 +62,17 @@ public class d {
         return (b) invokeLLL.objValue;
     }
 
-    public static b b(Map map, String str) {
+    public static b b(Map<String, List<String>> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
             b et = com.kwai.filedownloader.download.b.Dp().et(str);
-            for (Map.Entry entry : map.entrySet()) {
-                String str2 = (String) entry.getKey();
-                List<String> list = (List) entry.getValue();
-                if (list != null) {
-                    for (String str3 : list) {
-                        et.addHeader(str2, str3);
+            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+                String key = entry.getKey();
+                List<String> value = entry.getValue();
+                if (value != null) {
+                    for (String str2 : value) {
+                        et.addHeader(key, str2);
                     }
                 }
             }

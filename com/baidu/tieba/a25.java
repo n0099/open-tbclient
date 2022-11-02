@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,131 +11,117 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a25 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public long a;
+    public String b;
     public String c;
     public int d;
-    public List e;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947563301, "Lcom/baidu/tieba/a25;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-997427832, "Lcom/baidu/tieba/a25$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-997427832, "Lcom/baidu/tieba/a25$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947563301, "Lcom/baidu/tieba/a25;");
-                return;
+            int[] iArr = new int[EmotionGroupType.values().length];
+            a = iArr;
+            try {
+                iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
         }
-        HashMap hashMap = new HashMap();
-        f = hashMap;
-        hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        f.put(ShareDialogConfig.From.Concern, 2);
-        f.put(ShareDialogConfig.From.PB, 3);
-        f.put(ShareDialogConfig.From.FRS, 4);
-        f.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        f.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        f.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public a25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.j;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.i;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void c(@NonNull w65 w65Var, @Nullable String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (System.currentTimeMillis() / 1000 >= this.a && System.currentTimeMillis() / 1000 <= this.b) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, w65Var, str) == null) {
+            EmotionGroupType h = w65Var.h();
+            if (str != null) {
+                str2 = ua5.b.b(str);
+            } else {
+                str2 = null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d(ShareDialogConfig.From from) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) {
-            if (this.e == null || (num = (Integer) f.get(from)) == null || !this.e.contains(num)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
-        this.b = jSONObject.optInt("end_time");
-        this.c = jSONObject.optString("text");
-        this.d = jSONObject.optInt("icon_exp");
-        f(jSONObject.optString("page_list"));
-    }
-
-    public final void f(String str) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || ej.isEmpty(str) || (split = str.split(",")) == null) {
-            return;
-        }
-        for (String str2 : split) {
-            int e = eh.e(str2, -1);
-            if (e != -1) {
-                if (this.e == null) {
-                    this.e = new ArrayList();
+            int i = a.a[h.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        this.j = w65Var.f();
+                        this.i = str2;
+                        return;
+                    }
+                    this.j = "3";
+                    this.i = str2;
+                    return;
                 }
-                this.e.add(Integer.valueOf(e));
+                this.j = "2";
+                this.i = str2;
+                return;
             }
+            this.j = "1";
+            this.i = str;
         }
     }
 }

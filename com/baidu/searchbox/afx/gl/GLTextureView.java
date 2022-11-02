@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.gl;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLDebugHelper;
@@ -57,11 +58,11 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public GLWrapper mGLWrapper;
     public boolean mPreserveEGLContextOnPause;
     public Renderer mRenderer;
-    public final WeakReference mThisWeakRef;
+    public final WeakReference<GLTextureView> mThisWeakRef;
 
     /* renamed from: com.baidu.searchbox.afx.gl.GLTextureView$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -154,6 +155,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLConfigChooser
+        @SuppressLint({"BDThrowableCheck"})
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -314,7 +316,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* loaded from: classes2.dex */
-    public class DefaultWindowSurfaceFactory implements EGLWindowSurfaceFactory {
+    public static class DefaultWindowSurfaceFactory implements EGLWindowSurfaceFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -361,7 +363,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* loaded from: classes2.dex */
-    public class EglHelper {
+    public static class EglHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public EGL10 mEgl;
@@ -369,9 +371,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public EGLContext mEglContext;
         public EGLDisplay mEglDisplay;
         public EGLSurface mEglSurface;
-        public WeakReference mGLSurfaceViewWeakRef;
+        public WeakReference<GLTextureView> mGLSurfaceViewWeakRef;
 
-        public EglHelper(WeakReference weakReference) {
+        public EglHelper(WeakReference<GLTextureView> weakReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -402,7 +404,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (eGLSurface = this.mEglSurface) != null && eGLSurface != (eGLSurface2 = EGL10.EGL_NO_SURFACE)) {
                 this.mEgl.eglMakeCurrent(this.mEglDisplay, eGLSurface2, eGLSurface2, EGL10.EGL_NO_CONTEXT);
-                GLTextureView gLTextureView = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
                 if (gLTextureView != null) {
                     gLTextureView.mEGLWindowSurfaceFactory.destroySurface(this.mEgl, this.mEglDisplay, this.mEglSurface);
                 }
@@ -414,7 +416,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 if (this.mEglContext != null) {
-                    GLTextureView gLTextureView = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                    GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
                     if (gLTextureView != null) {
                         gLTextureView.mEGLContextFactory.destroyContext(this.mEgl, this.mEglDisplay, this.mEglContext);
                     }
@@ -437,6 +439,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             return (String) invokeLI.objValue;
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public static void throwEglException(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(65541, null, str, i) == null) {
@@ -456,7 +459,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 GL gl = this.mEglContext.getGL();
-                GLTextureView gLTextureView = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
                 if (gLTextureView != null) {
                     if (gLTextureView.mGLWrapper != null) {
                         gl = gLTextureView.mGLWrapper.wrap(gl);
@@ -479,6 +482,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             return (GL) invokeV.objValue;
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public boolean createSurface() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -487,7 +491,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                     if (this.mEglDisplay != null) {
                         if (this.mEglConfig != null) {
                             destroySurfaceImp();
-                            GLTextureView gLTextureView = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                            GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
                             if (gLTextureView != null) {
                                 this.mEglSurface = gLTextureView.mEGLWindowSurfaceFactory.createWindowSurface(this.mEgl, this.mEglDisplay, this.mEglConfig, gLTextureView.getSurfaceTexture());
                             } else {
@@ -515,6 +519,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             return invokeV.booleanValue;
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public void start() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -524,7 +529,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 this.mEglDisplay = eglGetDisplay;
                 if (eglGetDisplay != EGL10.EGL_NO_DISPLAY) {
                     if (this.mEgl.eglInitialize(eglGetDisplay, new int[2])) {
-                        GLTextureView gLTextureView = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                        GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
                         if (gLTextureView == null) {
                             this.mEglConfig = null;
                             this.mEglContext = null;
@@ -567,13 +572,13 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* loaded from: classes2.dex */
-    public class GLThread extends Thread {
+    public static class GLThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public EglHelper mEglHelper;
-        public ArrayList mEventQueue;
+        public ArrayList<Runnable> mEventQueue;
         public boolean mExited;
-        public WeakReference mGLSurfaceViewWeakRef;
+        public WeakReference<GLTextureView> mGLSurfaceViewWeakRef;
         public boolean mHasSurface;
         public boolean mHaveEglContext;
         public boolean mHaveEglSurface;
@@ -590,7 +595,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public boolean mWaitingForSurface;
         public int mWidth;
 
-        public GLThread(WeakReference weakReference) {
+        public GLThread(WeakReference<GLTextureView> weakReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -605,7 +610,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                     return;
                 }
             }
-            this.mEventQueue = new ArrayList();
+            this.mEventQueue = new ArrayList<>();
             this.mSizeChanged = true;
             this.mWidth = 0;
             this.mHeight = 0;
@@ -642,7 +647,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                             synchronized (GLTextureView.sGLThreadManager) {
                                 while (!this.mShouldExit) {
                                     if (!this.mEventQueue.isEmpty()) {
-                                        runnable = (Runnable) this.mEventQueue.remove(0);
+                                        runnable = this.mEventQueue.remove(0);
                                     } else {
                                         if (this.mPaused != this.mRequestPaused) {
                                             z = this.mRequestPaused;
@@ -666,7 +671,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                             stopEglSurfaceLocked();
                                         }
                                         if (z && this.mHaveEglContext) {
-                                            GLTextureView gLTextureView = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                                            GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
                                             if (gLTextureView == null) {
                                                 z3 = false;
                                             } else {
@@ -765,20 +770,20 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                 z9 = false;
                             }
                             if (z7) {
-                                GLTextureView gLTextureView2 = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                                GLTextureView gLTextureView2 = this.mGLSurfaceViewWeakRef.get();
                                 if (gLTextureView2 != null) {
                                     gLTextureView2.mRenderer.onSurfaceCreated(gl10, this.mEglHelper.mEglConfig);
                                 }
                                 z7 = false;
                             }
                             if (z10) {
-                                GLTextureView gLTextureView3 = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                                GLTextureView gLTextureView3 = this.mGLSurfaceViewWeakRef.get();
                                 if (gLTextureView3 != null) {
                                     gLTextureView3.mRenderer.onSurfaceChanged(gl10, i, i2);
                                 }
                                 z10 = false;
                             }
-                            GLTextureView gLTextureView4 = (GLTextureView) this.mGLSurfaceViewWeakRef.get();
+                            GLTextureView gLTextureView4 = this.mGLSurfaceViewWeakRef.get();
                             if (gLTextureView4 != null) {
                                 gLTextureView4.mRenderer.onDrawFrame(gl10);
                             }
@@ -1008,6 +1013,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public void queueEvent(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
@@ -1022,6 +1028,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public void setRenderMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -1038,7 +1045,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* loaded from: classes2.dex */
-    public class GLThreadManager {
+    public static class GLThreadManager {
         public static /* synthetic */ Interceptable $ic = null;
         public static String TAG = "GLThreadManager";
         public static final int kGLES_20 = 131072;
@@ -1195,7 +1202,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* loaded from: classes2.dex */
-    public class LogWriter extends Writer {
+    public static class LogWriter extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public StringBuilder mBuilder;
@@ -1311,6 +1318,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         sGLThreadManager = new GLThreadManager(null);
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void checkRenderThreadState() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(65548, this) != null) || this.mGLThread == null) {
@@ -1429,7 +1437,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 return;
             }
         }
-        this.mThisWeakRef = new WeakReference(this);
+        this.mThisWeakRef = new WeakReference<>(this);
         init();
     }
 
@@ -1472,7 +1480,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 return;
             }
         }
-        this.mThisWeakRef = new WeakReference(this);
+        this.mThisWeakRef = new WeakReference<>(this);
         init();
     }
 

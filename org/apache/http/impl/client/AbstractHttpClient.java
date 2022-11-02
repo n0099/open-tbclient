@@ -36,7 +36,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractHttpClient implements HttpClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -152,14 +152,14 @@ public abstract class AbstractHttpClient implements HttpClient {
         return (HttpResponseInterceptor) invokeI.objValue;
     }
 
-    public void removeRequestInterceptorByClass(Class cls) {
+    public void removeRequestInterceptorByClass(Class<? extends HttpRequestInterceptor> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, cls) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void removeResponseInterceptorByClass(Class cls) {
+    public void removeResponseInterceptorByClass(Class<? extends HttpResponseInterceptor> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, cls) == null) {
             throw new RuntimeException("Stub!");
@@ -302,13 +302,13 @@ public abstract class AbstractHttpClient implements HttpClient {
     }
 
     @Override // org.apache.http.client.HttpClient
-    public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler) throws IOException, ClientProtocolException {
+    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler) throws IOException, ClientProtocolException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, httpUriRequest, responseHandler)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public synchronized void clearRequestInterceptors() {
@@ -539,33 +539,33 @@ public abstract class AbstractHttpClient implements HttpClient {
     }
 
     @Override // org.apache.http.client.HttpClient
-    public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler) throws IOException, ClientProtocolException {
+    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler) throws IOException, ClientProtocolException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, httpHost, httpRequest, responseHandler)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
-    public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
+    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048602, this, httpHost, httpRequest, responseHandler, httpContext)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeLLLL.objValue;
+        return (T) invokeLLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
-    public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
+    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, httpUriRequest, responseHandler, httpContext)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient

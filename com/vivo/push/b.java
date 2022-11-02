@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class b implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
-    public static Map b;
+    public static Map<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean c;
     public String d;
@@ -137,10 +137,10 @@ public final class b implements ServiceConnection {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            b bVar = (b) b.get(str);
+            b bVar = b.get(str);
             if (bVar == null) {
                 synchronized (a) {
-                    bVar = (b) b.get(str);
+                    bVar = b.get(str);
                     if (bVar == null) {
                         bVar = new b(context, str);
                         b.put(str, bVar);

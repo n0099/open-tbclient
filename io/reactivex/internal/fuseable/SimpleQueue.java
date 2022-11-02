@@ -1,13 +1,17 @@
 package io.reactivex.internal.fuseable;
+
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 /* loaded from: classes8.dex */
-public interface SimpleQueue {
+public interface SimpleQueue<T> {
     void clear();
 
     boolean isEmpty();
 
-    boolean offer(Object obj);
+    boolean offer(@NonNull T t);
 
-    boolean offer(Object obj, Object obj2);
+    boolean offer(@NonNull T t, @NonNull T t2);
 
-    Object poll() throws Exception;
+    @Nullable
+    T poll() throws Exception;
 }

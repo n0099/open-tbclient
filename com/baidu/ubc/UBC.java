@@ -6,9 +6,9 @@ import android.os.RemoteException;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.pa9;
-import com.baidu.tieba.r99;
-import com.baidu.tieba.wb9;
+import com.baidu.tieba.ab9;
+import com.baidu.tieba.fd9;
+import com.baidu.tieba.yb9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class UBC {
                 return;
             }
         }
-        DEBUG = pa9.m();
+        DEBUG = yb9.m();
     }
 
     public UBC() {
@@ -78,7 +78,7 @@ public class UBC {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return pa9.b();
+            return yb9.b();
         }
         return (Context) invokeV.objValue;
     }
@@ -148,7 +148,7 @@ public class UBC {
         }
     }
 
-    public static final Flow beginFlow(String str, Map map) {
+    public static final Flow beginFlow(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
@@ -157,14 +157,14 @@ public class UBC {
         return (Flow) invokeLL.objValue;
     }
 
-    public static final void onEvent(String str, Map map) {
+    public static final void onEvent(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, str, map) == null) {
             onEvent(str, map, 0);
         }
     }
 
-    public static final Flow beginFlow(String str, Map map, int i) {
+    public static final Flow beginFlow(String str, Map<String, String> map, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, str, map, i)) == null) {
@@ -173,7 +173,7 @@ public class UBC {
         return (Flow) invokeLLI.objValue;
     }
 
-    public static final void onEvent(String str, Map map, int i) {
+    public static final void onEvent(String str, Map<String, String> map, int i) {
         UBCManager uBCManager;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLI(65553, null, str, map, i) == null) && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
@@ -220,7 +220,7 @@ public class UBC {
             if (sProxy == null) {
                 synchronized (UBC.class) {
                     if (sProxy == null) {
-                        IBinder e = pa9.e(UBC_REMOTE_SERVICE_NAME);
+                        IBinder e = yb9.e(UBC_REMOTE_SERVICE_NAME);
                         if (e != null) {
                             if (e != null) {
                                 sProxy = IRemoteUBCService.Stub.asInterface(e);
@@ -239,11 +239,11 @@ public class UBC {
     public static void onMutilProcessEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, str3) == null) {
-            String a = wb9.a(str3);
+            String a = fd9.a(str3);
             if (DEBUG) {
                 Log.d(TAG, "on onMultiProcessEvent id:" + str + " value:" + str2 + " name: " + a);
             }
-            r99.w().z(str, str2, a, 8);
+            ab9.w().z(str, str2, a, 8);
         }
     }
 }

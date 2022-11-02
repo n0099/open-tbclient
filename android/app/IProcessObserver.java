@@ -20,7 +20,7 @@ public interface IProcessObserver extends IInterface {
     void onProcessDied(int i, int i2) throws RemoteException;
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IProcessObserver {
+    public static abstract class Stub extends Binder implements IProcessObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "android.app.IProcessObserver";
         public static final int TRANSACTION_onForegroundActivitiesChanged = 1;
@@ -36,7 +36,7 @@ public interface IProcessObserver extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        public class Proxy implements IProcessObserver {
+        public static class Proxy implements IProcessObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;

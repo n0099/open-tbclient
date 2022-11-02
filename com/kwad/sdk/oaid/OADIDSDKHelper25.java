@@ -4,9 +4,12 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Keep;
+import androidx.annotation.WorkerThread;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
+@Keep
 /* loaded from: classes8.dex */
 public class OADIDSDKHelper25 {
     public static final String SUB_TAG = "OADIDSDKHelper25:";
@@ -14,8 +17,9 @@ public class OADIDSDKHelper25 {
     public static boolean mIsRequestIng;
     public static boolean sGetOaidFail;
 
+    @Keep
     /* loaded from: classes8.dex */
-    public class IIdentifierListener25 implements IIdentifierListener {
+    public static class IIdentifierListener25 implements IIdentifierListener {
         public final a mOaidListener;
         public final long mStartTime;
 
@@ -41,6 +45,7 @@ public class OADIDSDKHelper25 {
 
     /* loaded from: classes8.dex */
     public interface a {
+        @WorkerThread
         void cp(String str);
     }
 

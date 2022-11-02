@@ -1,19 +1,51 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class g01 extends b11 {
+public class g01 extends b01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h01 a;
 
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final g01 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-827619101, "Lcom/baidu/tieba/g01$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-827619101, "Lcom/baidu/tieba/g01$b;");
+                    return;
+                }
+            }
+            a = new g01(null);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g01() {
+        super("com.baidu.nadcore_videoplayer");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,268 +53,149 @@ public final class g01 extends b11 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new h01();
     }
 
-    public String A() {
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.f.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new b01("").getString("ad_pcdn_time_config", "");
         }
         return (String) invokeV.objValue;
     }
 
-    public int B() {
+    public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.i.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new b01("").getString("ad_pcdn_white_list", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return l().getBoolean("clarity1080", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return l().getInt("fast_forward_max_speed", 3);
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.b11
-    public a11 b() {
+    public static int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (a11) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.m.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.n.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.g.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.k.getValue();
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.b.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.l.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.e.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.h.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return l().getInt("fast_forward_speed", 2);
         }
         return invokeV.intValue;
     }
 
-    public long x() {
+    public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.a.j.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return TextUtils.equals(l().getString("autoPauseOnDeviceDisconnect", "1"), "1");
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 
-    public int y() {
+    public static g01 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.a.d.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return b.a;
         }
-        return invokeV.intValue;
+        return (g01) invokeV.objValue;
     }
 
-    public int z() {
+    public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.a.c.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new b01("").getBoolean("video_player_multiple_enable", true);
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public g01 k(String str) {
-        InterceptResult invokeL;
+    public static boolean n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.a.m.setValue(str);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return new b01("").getBoolean("video_pcdn_switch_force", false);
         }
-        return (g01) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public g01 l(String str) {
-        InterceptResult invokeL;
+    public static String o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.a.n.setValue(str);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return new b01("").getString("video_pcdn_time_config", "");
         }
-        return (g01) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public g01 m(String str) {
-        InterceptResult invokeL;
+    public static String p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.a.g.setValue(str);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return new b01("").getString("video_pcdn_white_list", "");
         }
-        return (g01) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public g01 n(long j) {
-        InterceptResult invokeJ;
+    public static boolean q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
-            this.a.k.setValue(j);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return new b01("").getBoolean("video_player_debug_enable", false);
         }
-        return (g01) invokeJ.objValue;
+        return invokeV.booleanValue;
     }
 
-    public g01 o(String str) {
-        InterceptResult invokeL;
+    public static boolean r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.a.b.setValue(str);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return l().getBoolean("show_long_press_guide", true);
         }
-        return (g01) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public g01 p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            this.a.l.setValue(str);
-            return this;
-        }
-        return (g01) invokeL.objValue;
+    public /* synthetic */ g01(a aVar) {
+        this();
     }
 
-    public g01 q(String str) {
-        InterceptResult invokeL;
+    public static void s(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            this.a.e.setValue(str);
-            return this;
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) {
+            if ("https://searchvideo.cdn.bcebos.com/default/default.mp4".equals(str2)) {
+                l().d("key_current_video_nid_ufo", "");
+                l().d("key_current_video_url_ufo", "");
+                return;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                l().d("key_current_video_nid_ufo", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                l().d("key_current_video_url_ufo", str2);
+            }
         }
-        return (g01) invokeL.objValue;
-    }
-
-    public g01 r(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            this.a.h.setValue(i);
-            return this;
-        }
-        return (g01) invokeI.objValue;
-    }
-
-    public g01 s(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
-            this.a.j.setValue(j);
-            return this;
-        }
-        return (g01) invokeJ.objValue;
-    }
-
-    public g01 t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.a.d.setValue(i);
-            return this;
-        }
-        return (g01) invokeI.objValue;
-    }
-
-    public g01 u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            this.a.c.setValue(i);
-            return this;
-        }
-        return (g01) invokeI.objValue;
-    }
-
-    public g01 v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            this.a.f.setValue(str);
-            return this;
-        }
-        return (g01) invokeL.objValue;
-    }
-
-    public g01 w(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
-            this.a.i.setValue(i);
-            return this;
-        }
-        return (g01) invokeI.objValue;
     }
 }

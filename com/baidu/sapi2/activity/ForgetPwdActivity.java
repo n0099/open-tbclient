@@ -97,7 +97,7 @@ public class ForgetPwdActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                setContentView(R.layout.obfuscated_res_0x7f0d0515);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -113,7 +113,7 @@ public class ForgetPwdActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
             setBtnVisibility(4, 0, 4);
-            setTitleText(R.string.obfuscated_res_0x7f0f10a4);
+            setTitleText(R.string.obfuscated_res_0x7f0f10bf);
             this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback(this) { // from class: com.baidu.sapi2.activity.ForgetPwdActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

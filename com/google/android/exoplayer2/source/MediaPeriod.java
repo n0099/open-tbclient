@@ -7,7 +7,7 @@ import java.io.IOException;
 public interface MediaPeriod extends SequenceableLoader {
 
     /* loaded from: classes7.dex */
-    public interface Callback extends SequenceableLoader.Callback {
+    public interface Callback extends SequenceableLoader.Callback<MediaPeriod> {
         void onPrepared(MediaPeriod mediaPeriod);
     }
 

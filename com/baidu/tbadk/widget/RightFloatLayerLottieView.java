@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieCompositionFactory;
@@ -19,7 +20,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.j15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,12 +47,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
 
         /* renamed from: com.baidu.tbadk.widget.RightFloatLayerLottieView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0190a extends AnimatorListenerAdapter {
+        public class C0199a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0190a(a aVar) {
+            public C0199a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +105,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.getVisibility() == 0) {
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
-                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0190a(this), 0L);
+                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0199a(this), 0L);
             }
         }
     }
@@ -180,7 +181,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements LottieListener {
+    public class b implements LottieListener<LottieComposition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -226,7 +227,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements LottieListener {
+    public class c implements LottieListener<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RightFloatLayerLottieView a;
@@ -504,14 +505,15 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         this.B = new a(this);
     }
 
-    public static RightFloatLayerView F(t05 t05Var, Context context) {
+    @NonNull
+    public static RightFloatLayerView F(j15 j15Var, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, t05Var, context)) == null) {
-            if (t05Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, j15Var, context)) == null) {
+            if (j15Var == null) {
                 return new RightFloatLayerView(context);
             }
-            if (t05Var.c()) {
+            if (j15Var.c()) {
                 return new RightFloatLayerLottieView(context);
             }
             return new RightFloatLayerView(context);
@@ -602,22 +604,22 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.j(context);
-            this.w = findViewById(R.id.obfuscated_res_0x7f090a04);
-            this.y = findViewById(R.id.obfuscated_res_0x7f0909f8);
-            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909fe);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f091261);
-            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909ff);
-            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a00);
-            SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f080601);
+            this.w = findViewById(R.id.obfuscated_res_0x7f090a17);
+            this.y = findViewById(R.id.obfuscated_res_0x7f090a0b);
+            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a11);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09129c);
+            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a12);
+            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a13);
+            SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f080606);
             this.x.setVisibility(0);
         }
     }
 
     @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setData(t05 t05Var) {
+    public void setData(j15 j15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, t05Var) == null) && t05Var != null && !this.s && !t05Var.a()) {
-            if (l(t05Var)) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, j15Var) == null) && j15Var != null && !this.s && !j15Var.a()) {
+            if (l(j15Var)) {
                 this.v.setVisibility(0);
             } else {
                 this.b.setVisibility(4);
@@ -625,9 +627,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             }
             this.w.setVisibility(0);
             this.y.setVisibility(8);
-            G(t05Var.d, this.x);
-            G(t05Var.c, this.z);
-            w(t05Var);
+            G(j15Var.d, this.x);
+            G(j15Var.c, this.z);
+            w(j15Var);
             this.s = true;
         }
     }
@@ -644,9 +646,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             if (tBLottieAnimationView2 != null) {
                 tBLottieAnimationView2.invalidate();
             }
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080601, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080606, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0112, 1);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.u, R.drawable.obfuscated_res_0x7f080601, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.u, R.drawable.obfuscated_res_0x7f080606, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0112, 1);
         }
     }

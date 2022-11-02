@@ -10,10 +10,10 @@ import java.util.List;
 public class GetPopularPortraitsInfoResult extends SapiResult implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List popularPortraitsInfoList;
+    public List<PopularPortraitsInfo> popularPortraitsInfoList;
 
     /* loaded from: classes2.dex */
-    public class PopularPortraitsInfo implements NoProguard {
+    public static class PopularPortraitsInfo implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String category;

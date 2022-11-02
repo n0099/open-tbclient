@@ -64,13 +64,13 @@ public final class MsgInfo extends Message {
     public final UserInfo userInfo;
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<MsgInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -146,6 +146,7 @@ public final class MsgInfo extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public MsgInfo build(boolean z) {
             InterceptResult invokeZ;

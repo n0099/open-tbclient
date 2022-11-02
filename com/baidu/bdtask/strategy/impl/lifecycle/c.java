@@ -7,6 +7,7 @@ import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.framework.redux.d;
 import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.tieba.rq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +20,7 @@ public final class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(d dVar) {
+    public c(d<com.baidu.bdtask.ctrl.b, rq> dVar) {
         super(dVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +49,7 @@ public final class c extends a {
             }
             n(subTaskState);
             if (subTaskState.isForceCleaned()) {
-                BDPTask.m.H(b(subTaskState).getActionId());
+                BDPTask.m.I(b(subTaskState).getActionId());
                 DebugTrace.a.c(new PassiveLifecycleStrategy$onFinished$1(this, subTaskState));
                 return;
             }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +24,7 @@ public final class EmotionGroupType {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +102,7 @@ public final class EmotionGroupType {
         }
     }
 
-    public static boolean isSendAsPic(EmotionGroupType emotionGroupType) {
+    public static boolean isSendAsPic(@NonNull EmotionGroupType emotionGroupType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, emotionGroupType)) == null) {

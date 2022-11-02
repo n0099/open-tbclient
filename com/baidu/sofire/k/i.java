@@ -1,6 +1,7 @@
 package com.baidu.sofire.k;
 
 import android.accounts.NetworkErrorException;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Proxy;
 import android.os.Build;
@@ -26,6 +27,7 @@ import java.util.Locale;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.conn.ssl.SSLSocketFactory;
+@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;

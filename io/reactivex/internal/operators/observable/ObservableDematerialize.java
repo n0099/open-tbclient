@@ -13,19 +13,19 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableDematerialize extends AbstractObservableWithUpstream {
+public final class ObservableDematerialize<T> extends AbstractObservableWithUpstream<Notification<T>, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class DematerializeObserver implements Observer, Disposable {
+    public static final class DematerializeObserver<T> implements Observer<Notification<T>>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public boolean done;
         public Disposable s;
 
-        public DematerializeObserver(Observer observer) {
+        public DematerializeObserver(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,6 +54,11 @@ public final class ObservableDematerialize extends AbstractObservableWithUpstrea
                 this.done = true;
                 this.actual.onError(th);
             }
+        }
+
+        @Override // io.reactivex.Observer
+        public /* bridge */ /* synthetic */ void onNext(Object obj) {
+            onNext((Notification) ((Notification) obj));
         }
 
         @Override // io.reactivex.Observer
@@ -93,9 +98,7 @@ public final class ObservableDematerialize extends AbstractObservableWithUpstrea
             this.actual.onComplete();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.Observer
-        public void onNext(Notification notification) {
+        public void onNext(Notification<T> notification) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, notification) == null) {
                 if (this.done) {
@@ -116,7 +119,7 @@ public final class ObservableDematerialize extends AbstractObservableWithUpstrea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDematerialize(ObservableSource observableSource) {
+    public ObservableDematerialize(ObservableSource<Notification<T>> observableSource) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,7 +139,7 @@ public final class ObservableDematerialize extends AbstractObservableWithUpstrea
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DematerializeObserver(observer));

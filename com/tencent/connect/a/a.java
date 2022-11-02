@@ -16,8 +16,8 @@ import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static Class a;
-    public static Class b;
+    public static Class<?> a;
+    public static Class<?> b;
     public static Method c;
     public static Method d;
     public static Method e;

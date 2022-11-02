@@ -1,141 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class z96 {
+public final class z96 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, String> a;
+    public static Map<String, String> b;
+    public static Map<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public RankListViewController.RankListViewHolder c;
-    public TextView d;
-    public TextView e;
-    public String f;
-    public int g;
-    public View.OnClickListener h;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z96 a;
-
-        public a(z96 z96Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314834, "Lcom/baidu/tieba/z96;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = z96Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (TextUtils.isEmpty(this.a.f)) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a5e);
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});
-                if (this.a.g == 0) {
-                    return;
-                }
-                if (this.a.g == 2) {
-                    StatisticItem statisticItem = new StatisticItem("c13658");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem);
-                } else if (this.a.g == 1) {
-                    StatisticItem statisticItem2 = new StatisticItem("c13669");
-                    statisticItem2.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem2);
-                }
-            }
-        }
-    }
-
-    public z96(TbPageContext tbPageContext, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948314834, "Lcom/baidu/tieba/z96;");
                 return;
             }
         }
-        this.h = new a(this);
-        this.a = tbPageContext;
-        this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f0924c5));
-        this.c = rankListViewHolder;
-        rankListViewHolder.i(1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ca5);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b4f);
-        this.e = textView;
-        textView.setTextSize(0, fj.f(this.a.getPageActivity(), R.dimen.tbfontsize46));
-        this.d.setOnClickListener(this.h);
+        a = new HashMap();
+        b = new HashMap();
+        c = new HashMap();
+        a.put("CAM_X0906", "CAM_X0906");
+        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
+        c.put("CAM_X0906", "testMethod");
     }
 
-    public void d(int i) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.f(i);
-            SkinManager.setBackgroundColor(this.c.itemView, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void e(ca6 ca6Var) {
-        ba6 ba6Var;
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ca6Var) == null) {
-            if (ca6Var != null && (ba6Var = ca6Var.c) != null && (metaData = ba6Var.f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-                this.b.setVisibility(0);
-                this.c.c(ca6Var.c);
-                this.c.e();
-                this.f = ca6Var.e;
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (b.containsKey(str)) {
+                try {
+                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
+                    declaredMethod.setAccessible(true);
+                    Object invoke = declaredMethod.invoke(null, new Object[0]);
+                    if (invoke instanceof Boolean) {
+                        if (((Boolean) invoke).booleanValue()) {
+                            return a.get(str);
+                        }
+                        return str;
+                    }
+                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                    e.printStackTrace();
+                }
             }
-            this.b.setVisibility(8);
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 }

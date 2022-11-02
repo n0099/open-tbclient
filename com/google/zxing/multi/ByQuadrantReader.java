@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Reader;
@@ -59,7 +60,7 @@ public final class ByQuadrantReader implements Reader {
     }
 
     @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {

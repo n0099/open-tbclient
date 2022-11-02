@@ -50,7 +50,7 @@ public class dv extends al.a {
         this.f235a = com.xiaomi.push.service.ba.a(context);
     }
 
-    private List a(File file) {
+    private List<hr> a(File file) {
         InterceptResult invokeL;
         RandomAccessFile randomAccessFile;
         FileInputStream fileInputStream;
@@ -223,7 +223,7 @@ public class dv extends al.a {
                     file.delete();
                 }
             } else if (!m273a() && file.exists()) {
-                List a = a(file);
+                List<hr> a = a(file);
                 if (!ag.a(a)) {
                     int size = a.size();
                     if (size > 4000) {

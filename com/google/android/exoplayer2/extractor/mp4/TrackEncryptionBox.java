@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.extractor.mp4;
 
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,9 +19,10 @@ public final class TrackEncryptionBox {
     public final byte[] defaultInitializationVector;
     public final int initializationVectorSize;
     public final boolean isEncrypted;
+    @Nullable
     public final String schemeType;
 
-    public TrackEncryptionBox(boolean z, String str, int i, byte[] bArr, int i2, int i3, byte[] bArr2) {
+    public TrackEncryptionBox(boolean z, @Nullable String str, int i, byte[] bArr, int i2, int i3, @Nullable byte[] bArr2) {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,7 +51,7 @@ public final class TrackEncryptionBox {
         this.cryptoData = new TrackOutput.CryptoData(schemeToCryptoMode(str), bArr, i2, i3);
     }
 
-    public static int schemeToCryptoMode(String str) {
+    public static int schemeToCryptoMode(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {

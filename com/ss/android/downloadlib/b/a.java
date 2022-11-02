@@ -3,6 +3,8 @@ package com.ss.android.downloadlib.b;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.ss.android.download.api.config.r;
 import com.ss.android.download.api.constant.BaseConstants;
@@ -13,7 +15,7 @@ import com.ss.android.downloadlib.g.l;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
-    public static void a(com.ss.android.downloadad.api.a.b bVar) {
+    public static void a(@NonNull com.ss.android.downloadad.api.a.b bVar) {
         String f = bVar.f();
         JSONObject a = com.ss.android.downloadlib.g.f.a(new JSONObject(), bVar);
         l.a(a, "applink_source", "notify_click_by_sdk");
@@ -59,14 +61,14 @@ public class a {
         a(a, jSONObject, eVar, z);
     }
 
-    public static void a(String str, com.ss.android.downloadlib.addownload.b.g gVar, JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
+    public static void a(String str, @NonNull com.ss.android.downloadlib.addownload.b.g gVar, @NonNull JSONObject jSONObject, @NonNull com.ss.android.downloadad.api.a.a aVar) {
         l.a(jSONObject, "applink_source", str);
         l.a(jSONObject, "error_code", Integer.valueOf(gVar.a()));
         l.a(jSONObject, "download_scene", Integer.valueOf(aVar.t()));
         com.ss.android.downloadlib.d.a.a().b("deeplink_app_open_fail", jSONObject, aVar);
     }
 
-    public static void b(String str, com.ss.android.downloadlib.addownload.b.g gVar, JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
+    public static void b(String str, @NonNull com.ss.android.downloadlib.addownload.b.g gVar, @NonNull JSONObject jSONObject, @NonNull com.ss.android.downloadad.api.a.a aVar) {
         l.a(jSONObject, "applink_source", str);
         l.a(jSONObject, "error_code", Integer.valueOf(gVar.a()));
         l.a(jSONObject, "download_scene", Integer.valueOf(aVar.t()));
@@ -74,7 +76,7 @@ public class a {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void a(String str, final JSONObject jSONObject, final com.ss.android.downloadad.api.a.a aVar) {
+    public static void a(String str, @NonNull final JSONObject jSONObject, @NonNull final com.ss.android.downloadad.api.a.a aVar) {
         char c;
         l.a(jSONObject, "applink_source", str);
         l.a(jSONObject, "download_scene", Integer.valueOf(aVar.t()));
@@ -138,7 +140,7 @@ public class a {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void b(String str, final JSONObject jSONObject, final com.ss.android.downloadad.api.a.a aVar) {
+    public static void b(String str, @NonNull final JSONObject jSONObject, @NonNull final com.ss.android.downloadad.api.a.a aVar) {
         char c;
         l.a(jSONObject, "applink_source", str);
         l.a(jSONObject, "download_scene", Integer.valueOf(aVar.t()));
@@ -201,7 +203,7 @@ public class a {
         }
     }
 
-    public static void a(final String str, final JSONObject jSONObject, final com.ss.android.downloadlib.addownload.b.e eVar, boolean z) {
+    public static void a(final String str, @Nullable final JSONObject jSONObject, final com.ss.android.downloadlib.addownload.b.e eVar, boolean z) {
         if (jSONObject == null) {
             try {
                 jSONObject = new JSONObject();
@@ -258,7 +260,7 @@ public class a {
         return false;
     }
 
-    public static boolean a(com.ss.android.downloadlib.addownload.b.e eVar) {
+    public static boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar) {
         String openUrl;
         boolean z;
         DeepLink deepLink = eVar.b.getDeepLink();
@@ -312,7 +314,7 @@ public class a {
         return z2;
     }
 
-    public static boolean a(com.ss.android.downloadlib.addownload.b.e eVar, int i) {
+    public static boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar, int i) {
         JSONObject jSONObject = new JSONObject();
         l.a(jSONObject, "download_scene", Integer.valueOf(eVar.t()));
         com.ss.android.downloadlib.d.a.a().b("market_click_open", jSONObject, eVar);
@@ -337,7 +339,7 @@ public class a {
         return true;
     }
 
-    public static boolean a(String str, com.ss.android.downloadad.api.a.b bVar) {
+    public static boolean a(String str, @NonNull com.ss.android.downloadad.api.a.b bVar) {
         if (!com.ss.android.downloadlib.addownload.h.b(bVar.O())) {
             return false;
         }

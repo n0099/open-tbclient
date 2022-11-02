@@ -22,7 +22,7 @@ public final class ExoSoSource extends UnpackingSoSource {
 
     /* renamed from: com.facebook.soloader.ExoSoSource$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -210,7 +210,7 @@ public final class ExoSoSource extends UnpackingSoSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class FileDso extends UnpackingSoSource.Dso {
+    public static final class FileDso extends UnpackingSoSource.Dso {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final File backingFile;

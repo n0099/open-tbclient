@@ -16,6 +16,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
@@ -27,7 +28,7 @@ public class LiteralByteString extends ByteString {
 
     /* renamed from: com.google.protobuf.LiteralByteString$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -107,6 +108,7 @@ public class LiteralByteString extends ByteString {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.Iterator
         public Byte next() {
             InterceptResult invokeV;
@@ -209,7 +211,7 @@ public class LiteralByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public List asReadOnlyByteBufferList() {
+    public List<ByteBuffer> asReadOnlyByteBufferList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -251,8 +253,10 @@ public class LiteralByteString extends ByteString {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.google.protobuf.ByteString$ByteIterator' to match base method */
     @Override // com.google.protobuf.ByteString, java.lang.Iterable
-    public ByteString.ByteIterator iterator() {
+    /* renamed from: iterator */
+    public Iterator<Byte> iterator2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {

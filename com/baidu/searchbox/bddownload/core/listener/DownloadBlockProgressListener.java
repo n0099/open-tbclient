@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload.core.listener;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -14,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class DownloadBlockProgressListener implements DownloadListener, DownloadBlockProgressListenerAssist.Listener4Callback, ListenerAssist {
@@ -22,28 +25,28 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
     public final DownloadBlockProgressListenerAssist assist;
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectTrialEnd(DownloadTask downloadTask, int i, Map map) {
+    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadTask, i, map) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectTrialStart(DownloadTask downloadTask, Map map) {
+    public void connectTrialStart(@NonNull DownloadTask downloadTask, @NonNull Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, map) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchStart(DownloadTask downloadTask, int i, long j) {
+    public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
         }
     }
 
     /* loaded from: classes2.dex */
-    public class Listener4ModelCreator implements ListenerModelHandler.ModelCreator {
+    public static class Listener4ModelCreator implements ListenerModelHandler.ModelCreator<DownloadBlockProgressListenerAssist.Listener4Model> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,6 +65,7 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ModelCreator
         public DownloadBlockProgressListenerAssist.Listener4Model create(int i) {
             InterceptResult invokeI;
@@ -111,7 +115,7 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public final void downloadFromBeginning(DownloadTask downloadTask, BreakpointInfo breakpointInfo, ResumeFailedCause resumeFailedCause) {
+    public final void downloadFromBeginning(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull ResumeFailedCause resumeFailedCause) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, breakpointInfo, resumeFailedCause) == null) {
             this.assist.infoReady(downloadTask, breakpointInfo, false);
@@ -119,7 +123,7 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchEnd(DownloadTask downloadTask, int i, long j) {
+    public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             this.assist.fetchEnd(downloadTask, i);
@@ -127,7 +131,7 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public final void fetchProgress(DownloadTask downloadTask, int i, long j) {
+    public final void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             this.assist.fetchProgress(downloadTask, i, j);
@@ -135,7 +139,7 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public final void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc) {
+    public final void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, downloadTask, endCause, exc) == null) {
             this.assist.taskEnd(downloadTask, endCause, exc);
@@ -143,7 +147,7 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public final void downloadFromBreakpoint(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+    public final void downloadFromBreakpoint(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, downloadTask, breakpointInfo) == null) {
             this.assist.infoReady(downloadTask, breakpointInfo, true);
@@ -176,7 +180,7 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
         }
     }
 
-    public void setAssistExtend(DownloadBlockProgressListenerAssist.AssistExtend assistExtend) {
+    public void setAssistExtend(@NonNull DownloadBlockProgressListenerAssist.AssistExtend assistExtend) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, assistExtend) == null) {
             this.assist.setAssistExtend(assistExtend);

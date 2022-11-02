@@ -1,8 +1,11 @@
 package com.airbnb.lottie;
 
 import android.graphics.Bitmap;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 /* loaded from: classes.dex */
 public class LottieImageAsset {
+    @Nullable
     public Bitmap bitmap;
     public final String dirName;
     public final String fileName;
@@ -10,6 +13,7 @@ public class LottieImageAsset {
     public final String id;
     public final int width;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public LottieImageAsset(int i, int i2, String str, String str2, String str3) {
         this.width = i;
         this.height = i2;
@@ -18,6 +22,7 @@ public class LottieImageAsset {
         this.dirName = str3;
     }
 
+    @Nullable
     public Bitmap getBitmap() {
         return this.bitmap;
     }
@@ -42,7 +47,7 @@ public class LottieImageAsset {
         return this.width;
     }
 
-    public void setBitmap(Bitmap bitmap) {
+    public void setBitmap(@Nullable Bitmap bitmap) {
         this.bitmap = bitmap;
     }
 }

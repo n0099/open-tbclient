@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MusicCategoryBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList list;
+    public ArrayList<MusicBaseBean> list;
     public int mCategory;
 
     public MusicCategoryBean() {

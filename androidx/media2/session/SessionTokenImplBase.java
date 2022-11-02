@@ -4,6 +4,9 @@ import android.content.ComponentName;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.SessionToken;
@@ -60,6 +63,7 @@ public final class SessionTokenImplBase implements SessionToken.SessionTokenImpl
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public ComponentName getComponentName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,6 +74,7 @@ public final class SessionTokenImplBase implements SessionToken.SessionTokenImpl
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
+    @Nullable
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,6 +85,7 @@ public final class SessionTokenImplBase implements SessionToken.SessionTokenImpl
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
+    @NonNull
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,6 +96,7 @@ public final class SessionTokenImplBase implements SessionToken.SessionTokenImpl
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
+    @Nullable
     public String getServiceName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +150,7 @@ public final class SessionTokenImplBase implements SessionToken.SessionTokenImpl
         this.mExtras = bundle;
     }
 
-    public SessionTokenImplBase(ComponentName componentName, int i, int i2) {
+    public SessionTokenImplBase(@NonNull ComponentName componentName, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

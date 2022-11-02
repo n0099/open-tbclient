@@ -1,12 +1,13 @@
 package com.baidu.tieba.enterForum.home;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,20 +20,23 @@ import tbclient.ForumCreateInfo;
 import tbclient.ForumPopupInfo;
 import tbclient.ForumRecommend.DataRes;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
+import tbclient.ForumRecommend.LikeForum;
+import tbclient.FrsTabInfo;
 import tbclient.PrivatePopInfo;
-/* loaded from: classes3.dex */
+import tbclient.RecommendForumInfo;
+/* loaded from: classes4.dex */
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumCreateInfo forum_create_info;
     public ForumPopupInfo forum_popup_info;
     public HotSearchInfoData hotSearchInfo;
-    public List like_forum;
+    public List<LikeForum> like_forum;
     public PrivatePopInfo private_pop_info;
-    public List recommend_concern_forums;
-    public List recommend_forum_info;
+    public List<RecommendForumInfo> recommend_concern_forums;
+    public List<RecommendForumInfo> recommend_forum_info;
     public Integer sortType;
-    public List tabFeedList;
+    public List<FrsTabInfo> tabFeedList;
     public Integer time;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,7 +57,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         }
     }
 
-    public List GetLikeForum() {
+    public List<LikeForum> GetLikeForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -62,7 +66,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         return (List) invokeV.objValue;
     }
 
-    public List GetRecommendForumInfoList() {
+    public List<RecommendForumInfo> GetRecommendForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -116,7 +120,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         return (PrivatePopInfo) invokeV.objValue;
     }
 
-    public List getRecommendConcernForums() {
+    public List<RecommendForumInfo> getRecommendConcernForums() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -134,7 +138,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         return (Integer) invokeV.objValue;
     }
 
-    public List getTabFeedList() {
+    public List<FrsTabInfo> getTabFeedList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -148,12 +152,13 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) && bArr != null && bArr.length > 0 && getError() == 0) {
-            ou4.f();
-            ou4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            hv4.f();
+            hv4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         int intValue;

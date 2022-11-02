@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,15 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class fj2 extends gh2 {
+public class fj2 extends yh2<pk2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gh2
+    @Override // com.baidu.tieba.yh2
+    @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBackgroundMute" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableAgc" : (String) invokeV.objValue;
     }
 
     public fj2() {
@@ -34,16 +36,16 @@ public class fj2 extends gh2 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gh2
+    @Override // com.baidu.tieba.yh2
     /* renamed from: e */
-    public void a(ZeusPlugin.Command command, xj2 xj2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull pk2 pk2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xj2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pk2Var) == null) {
             String str = command.what;
-            d(xj2Var, str, "" + command.obj, true);
+            d(pk2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof Boolean) {
-                xj2Var.M(((Boolean) obj).booleanValue());
+                pk2Var.l0(((Boolean) obj).booleanValue());
             }
         }
     }

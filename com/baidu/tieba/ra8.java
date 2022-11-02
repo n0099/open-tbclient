@@ -1,78 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ra8 implements Runnable {
+public class ra8 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
-    public boolean d;
-    public ab8 e;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
-    public ra8(ab8 ab8Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948115008, "Lcom/baidu/tieba/ra8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948115008, "Lcom/baidu/tieba/ra8;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
+    public ra8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ab8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = false;
-        this.e = ab8Var;
     }
 
-    public void a(int i) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e;
         }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        ab8 ab8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (ab8Var = this.e) == null) {
-            return;
-        }
-        if (!this.d) {
-            ab8Var.m(this.b, this.c, this.a, 2);
-        } else {
-            ab8Var.m(this.b, this.c, this.a, 1);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

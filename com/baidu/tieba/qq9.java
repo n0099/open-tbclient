@@ -1,92 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.widget.Button;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsAppDownloadListener;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qq9 implements KsAppDownloadListener {
+public class qq9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Button a;
-    public String b;
 
-    public qq9(String str, Button button) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qq9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, button};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = str;
-        this.a = button;
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFailed() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object findField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f0798);
-            } else {
-                this.a.setText(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getDeclaredField("b");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.model.RewardADData", obj3)) == null) {
+                    return null;
+                }
+                Field declaredField3 = findField.getClass().getSuperclass().getDeclaredField("L");
+                declaredField3.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField3.get(findField);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return pp9.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f079b);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onIdle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f0798);
-            } else {
-                this.a.setText(this.b);
-            }
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onInstalled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f079c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            Button button = this.a;
-            button.setText(button.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0799, String.format("%s/100", Integer.valueOf(i))));
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

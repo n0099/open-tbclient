@@ -1,5 +1,6 @@
 package androidx.media2.session;
 
+import androidx.annotation.IntRange;
 import androidx.core.util.ObjectsCompat;
 import androidx.media2.common.Rating;
 import com.baidu.android.imsdk.internal.Constants;
@@ -70,7 +71,7 @@ public final class StarRating implements Rating {
         return invokeV.booleanValue;
     }
 
-    public StarRating(int i) {
+    public StarRating(@IntRange(from = 1) int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +94,7 @@ public final class StarRating implements Rating {
         throw new IllegalArgumentException("maxStars should be a positive integer");
     }
 
-    public StarRating(int i, float f) {
+    public StarRating(@IntRange(from = 1) int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -1,10 +1,11 @@
 package com.kwad.sdk.f.kwai;
 
+import androidx.annotation.Nullable;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.at;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public int amE = -1;
     public int amF = -1;
@@ -34,7 +35,7 @@ public final class f extends com.kwad.sdk.core.response.kwai.a implements com.kw
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
-    public final void parseJson(JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         a(this, jSONObject);
         afterParseJson(jSONObject);
     }

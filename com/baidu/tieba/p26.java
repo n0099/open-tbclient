@@ -1,51 +1,43 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p26<T extends BaseCardInfo> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
+public interface p26 {
 
-    public void a(View view2, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, t) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        boolean a(float f);
     }
 
-    public void b(View view2, T t, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, t, obj) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface b {
+        float getSpeed();
     }
 
-    public boolean c(View view2, T t, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, t, str)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface c {
+        boolean a();
     }
 
-    public p26() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean a();
+
+    boolean b();
+
+    int getMaxDuration();
+
+    float getProgress();
+
+    int getSlideNum();
+
+    boolean pause();
+
+    boolean reset();
+
+    boolean setMaxDuration(int i);
+
+    boolean setMinDuration(int i);
+
+    boolean setProgress(long j);
+
+    boolean setShowDeleteLastTip(boolean z);
+
+    boolean start();
 }

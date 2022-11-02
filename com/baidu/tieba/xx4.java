@@ -1,21 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.AgreeView;
-import com.baidu.tieba.pb.ejection.EjectionAnimationView;
-import com.baidu.tieba.view.WaterRippleView;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindData;
+import com.baidu.tbadk.data.LiveRemindNormalConfigData;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,189 +14,74 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class xx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xx4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext a;
-    public int b;
-    public FrameLayout c;
-    public WaterRippleView d;
-    public EjectionAnimationView e;
-    public AgreeView f;
-    public PopupWindow g;
+    public LiveRemindData a;
+    public LiveRemindNormalConfigData b;
+    public List<LiveRemindRecommendData> c;
 
-    /* loaded from: classes6.dex */
-    public class a implements tw7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xx4 a;
-
-        @Override // com.baidu.tieba.tw7
-        public /* synthetic */ void onStart() {
-            sw7.a(this);
-        }
-
-        public a(xx4 xx4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xx4Var;
-        }
-
-        @Override // com.baidu.tieba.tw7
-        public void onStop() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setVisibility(8);
-                if (this.a.g != null && this.a.g.isShowing()) {
-                    jh.d(this.a.g, this.a.a.getPageActivity());
-                }
-                if (this.a.f != null) {
-                    this.a.f.Q();
-                }
-            }
-        }
-    }
-
-    public xx4(TbPageContext tbPageContext) {
+    public xx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 0;
-        this.a = tbPageContext;
-        f();
-        g();
     }
 
-    public void i(AgreeView agreeView) {
-        WaterRippleView waterRippleView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, agreeView) != null) || agreeView == null || (waterRippleView = this.d) == null) {
-            return;
-        }
-        ViewParent parent = waterRippleView.getParent();
-        if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.d);
-        }
-    }
-
-    public void j(boolean z) {
-        PopupWindow popupWindow;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (popupWindow = this.g) != null) {
-            popupWindow.setClippingEnabled(z);
-        }
-    }
-
-    public final int e() {
+    public static xx4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a.getPageActivity());
-        }
-        return invokeV.intValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e.l();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new FrameLayout(this.a.getPageActivity());
-            this.e = new EjectionAnimationView(this.a.getPageActivity());
-            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.e.setEjectionAnimationViewCallback(new a(this));
-            this.c.addView(this.e);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            PopupWindow popupWindow = new PopupWindow();
-            this.g = popupWindow;
-            popupWindow.setContentView(this.c);
-            this.g.setHeight(e());
-            this.g.setWidth(-1);
-            this.g.setOutsideTouchable(false);
-            this.g.setFocusable(false);
-            this.g.setTouchable(false);
-        }
-    }
-
-    public final void h(View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && jh.m(this.g, view2, this.b, 0, 0)) {
-            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
-            this.e.k();
-        }
-    }
-
-    public void k(View view2, List list, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
-            this.e.setVisibility(0);
-            this.e.setBitmaps(list);
-            h(view2, rect);
-        }
-    }
-
-    public void l(LinearLayout linearLayout, AgreeView agreeView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, agreeView) == null) && linearLayout != null && agreeView != null) {
-            if (agreeView.getWidth() != 0 && agreeView.getHeight() != 0) {
-                this.f = agreeView;
-                WaterRippleView waterRippleView = this.d;
-                if (waterRippleView == null) {
-                    this.d = new WaterRippleView(this.a.getPageActivity());
-                } else {
-                    ViewParent parent = waterRippleView.getParent();
-                    if (parent instanceof ViewGroup) {
-                        ((ViewGroup) parent).removeView(this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (xx4.class) {
+                    if (d == null) {
+                        d = new xx4();
                     }
                 }
-                linearLayout.getGlobalVisibleRect(new Rect());
-                Rect rect = new Rect();
-                agreeView.getImgAgree().getGlobalVisibleRect(rect);
-                int centerX = rect.centerX();
-                int centerY = rect.centerY();
-                int f = fj.f(this.a.getPageActivity(), R.dimen.tbds166);
-                int i = centerX - f;
-                int i2 = centerY - f;
-                int i3 = f * 2;
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
-                layoutParams.addRule(13, -1);
-                layoutParams.setMargins(i, i2, 0, 0);
-                this.c.addView(this.d, layoutParams);
-                return;
             }
-            BdLog.e("AgreeView not measured");
+            return d;
         }
+        return (xx4) invokeV.objValue;
+    }
+
+    public final void b() {
+        List<LiveRemindRecommendData> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.c) != null && list.size() >= 1) {
+            LiveRemindConfig.c().e(this.c.get(0));
+        }
+    }
+
+    public LiveRemindRecommendData c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (this.c != null) {
+                for (int i2 = 0; i2 < this.c.size(); i2++) {
+                    if (this.c.get(i2) != null && this.c.get(i2).getShowPage() == i) {
+                        return this.c.get(i2);
+                    }
+                }
+            }
+            return null;
+        }
+        return (LiveRemindRecommendData) invokeI.objValue;
+    }
+
+    public void d(LiveRemindData liveRemindData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveRemindData) != null) || liveRemindData == null) {
+            return;
+        }
+        this.a = liveRemindData;
+        this.b = liveRemindData.getNormalConfig();
+        this.c = liveRemindData.getLiveRecommendList();
+        b();
     }
 }

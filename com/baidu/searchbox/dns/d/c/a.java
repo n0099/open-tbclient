@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes2.dex */
-public abstract class a {
+public abstract class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int aj;
@@ -44,11 +44,11 @@ public abstract class a {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? 403 == i || 404 == i : invokeI.booleanValue;
     }
 
-    public abstract Map getParameters();
+    public abstract Map<String, Object> getParameters();
 
     public abstract String getUrl();
 
-    public abstract Object m(String str);
+    public abstract T m(String str);
 
     public boolean v() {
         InterceptResult invokeV;
@@ -86,7 +86,7 @@ public abstract class a {
         this.al = w();
     }
 
-    private Object Q() {
+    private T Q() {
         InterceptResult invokeV;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public abstract class a {
             }
             throw new com.baidu.searchbox.dns.d.c.a.b(10002, "request canceled");
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public String P() {
@@ -181,15 +181,15 @@ public abstract class a {
         }
     }
 
-    public String c(Map map) {
+    public String c(Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry : map.entrySet()) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
                 String obj = entry.getValue().toString();
                 try {
-                    sb.append(((String) entry.getKey()) + "=" + URLEncoder.encode(obj, "UTF-8"));
+                    sb.append(entry.getKey() + "=" + URLEncoder.encode(obj, "UTF-8"));
                     sb.append("&");
                 } catch (UnsupportedEncodingException unused) {
                     return null;
@@ -321,7 +321,7 @@ public abstract class a {
         }
     }
 
-    public Object x() {
+    public T x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -344,6 +344,6 @@ public abstract class a {
             }
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 }

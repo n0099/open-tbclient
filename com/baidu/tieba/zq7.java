@@ -2,124 +2,167 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class zq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, Object obj, int i, String str2) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            if (obj instanceof pt4) {
-                statisticItem.param("fid", ((pt4) obj).j());
-            } else if (obj instanceof qr7) {
-                qr7 qr7Var = (qr7) obj;
-                ThreadData threadData = qr7Var.h;
-                if (threadData != null) {
-                    statisticItem.param("tid", threadData.getTid());
-                }
-                statisticItem.param("obj_locate", qr7Var.a());
-            }
-            statisticItem.param("topic_id", str2);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
-        }
-    }
-
-    public static void b(cr7 cr7Var, ar4 ar4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, cr7Var, ar4Var) == null) {
-            d(cr7Var, ar4Var, true);
-        }
-    }
-
-    public static void c(cr7 cr7Var, ar4 ar4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, cr7Var, ar4Var) == null) {
-            d(cr7Var, ar4Var, false);
-        }
-    }
-
-    public static void d(cr7 cr7Var, ar4 ar4Var, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65539, null, cr7Var, ar4Var, z) == null) && ar4Var != null && ar4Var.getThreadData() != null) {
-            ThreadData threadData = ar4Var.getThreadData();
-            boolean s = cr7Var.s();
-            if (z) {
-                if (s) {
-                    str = "c13823";
-                } else {
-                    str = "c13822";
-                }
-            } else if (s) {
-                str = "c13824";
-            } else {
-                str = "c13821";
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("tid", threadData.getTid());
-            statisticItem.param("fid", threadData.getFid());
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (cr7Var.t().getOrignalPage() instanceof HotTopicDetailActivity) {
-                statisticItem.param("topic_id", ((HotTopicDetailActivity) cr7Var.t().getOrignalPage()).A1());
-            }
-            statisticItem.eventStat();
-        }
-    }
-
-    public static void e(ThreadData threadData) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) != null) || threadData == null) {
+        if ((interceptable != null && interceptable.invokeL(65536, null, str) != null) || StringUtils.isNull(str)) {
             return;
         }
-        StatisticItem addParam = new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (UbsABTestHelper.isImgClickToPb()) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        addParam.addParam(TiebaStatic.Params.OBJ_TO, i).eventStat();
-    }
-
-    public static void f(TbPageContext tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", ((HotTopicDetailActivity) tbPageContext.getOrignalPage()).A1());
-            statisticItem.eventStat();
+        File file = new File(str);
+        if (!file.exists()) {
+            file.mkdirs();
         }
     }
 
-    public static void g(String str, String str2) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", str2);
-            statisticItem.eventStat();
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        FileHelper.deleteFileOrDir(new File(br7.e + br7.a + str));
+    }
+
+    public static void c(String str, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) && !StringUtils.isNull(str) && jSONArray != null) {
+            try {
+                JSONArray jSONArray2 = new JSONArray(str);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    jSONArray.put(jSONArray2.optJSONObject(i));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public static void h(TbPageContext tbPageContext, String str) {
+    public static JSONArray d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", ((HotTopicDetailActivity) tbPageContext.getOrignalPage()).A1());
-            statisticItem.eventStat();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (StringUtils.isNull(str)) {
+                return jSONArray;
+            }
+            File file = new File(str);
+            if (!file.exists()) {
+                return jSONArray;
+            }
+            String e = e(file);
+            String[] split = e.split("\n");
+            if (split.length > 0) {
+                for (String str2 : split) {
+                    c(str2, jSONArray);
+                }
+            } else {
+                c(e, jSONArray);
+            }
+            FileHelper.deleteFile(file);
+            return jSONArray;
         }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public static String e(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            StringBuilder sb = new StringBuilder();
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    sb.append(new String(bArr, 0, read));
+                }
+                vg.c(fileInputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                vg.c(fileInputStream2);
+                return sb.toString();
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                vg.c(fileInputStream2);
+                throw th;
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) {
+            return g(file, str, true);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(File file, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    fileOutputStream = new FileOutputStream(file, z);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(str.getBytes());
+                fileOutputStream.flush();
+                vg.d(fileOutputStream);
+                return true;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                vg.d(fileOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                vg.d(fileOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

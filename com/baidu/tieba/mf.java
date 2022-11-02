@@ -1,100 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kf;
+import android.graphics.Rect;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.guide.MaskView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mf extends lf {
+public class mf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mf(String str, jf jfVar) {
-        super(str, jfVar);
+    public static View a(LayoutInflater layoutInflater, nf nfVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jfVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (jf) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, nfVar)) == null) {
+            View c = nfVar.c(layoutInflater);
+            MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
+            layoutParams.c = nfVar.getXOffset();
+            layoutParams.d = nfVar.getYOffset();
+            layoutParams.a = nfVar.a();
+            layoutParams.b = nfVar.b();
+            ViewGroup.LayoutParams layoutParams2 = c.getLayoutParams();
+            if (layoutParams2 != null) {
+                ((ViewGroup.LayoutParams) layoutParams).width = layoutParams2.width;
+                ((ViewGroup.LayoutParams) layoutParams).height = layoutParams2.height;
             }
+            c.setLayoutParams(layoutParams);
+            return c;
         }
+        return (View) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.lf, com.baidu.tieba.kf
-    public void e(String str, Object obj, long j) {
+    public static Rect b(View view2, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, obj, Long.valueOf(j)}) == null) {
-            try {
-                super.e(str, obj, j);
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e(th);
-                }
-            }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view2, i, i2)) == null) {
+            int[] iArr = new int[2];
+            view2.getLocationInWindow(iArr);
+            Rect rect = new Rect();
+            rect.set(iArr[0], iArr[1], iArr[0] + view2.getMeasuredWidth(), iArr[1] + view2.getMeasuredHeight());
+            rect.offset(-i, -i2);
+            return rect;
         }
-    }
-
-    @Override // com.baidu.tieba.lf, com.baidu.tieba.kf
-    public Object get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                return super.get(str);
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e(th);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lf, com.baidu.tieba.kf
-    public kf.b h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                return super.h(str);
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e(th);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (kf.b) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lf, com.baidu.tieba.kf
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            try {
-                super.remove(str);
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e(th);
-                }
-            }
-        }
+        return (Rect) invokeLII.objValue;
     }
 }

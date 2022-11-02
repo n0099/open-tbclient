@@ -9,13 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
 public class ANRError$$ implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String _name;
-    public final LinkedHashMap _stackMap;
+    public final LinkedHashMap<Long, StackTraceElement[]> _stackMap;
     public final StackTraceElement[] _stackTrace;
 
     /* loaded from: classes7.dex */
@@ -61,7 +60,7 @@ public class ANRError$$ implements Serializable {
             return (Throwable) invokeV.objValue;
         }
 
-        public LinkedHashMap getStackMap() {
+        public LinkedHashMap<Long, StackTraceElement[]> getStackMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
@@ -71,7 +70,7 @@ public class ANRError$$ implements Serializable {
         }
     }
 
-    public ANRError$$(String str, LinkedHashMap linkedHashMap) {
+    public ANRError$$(String str, LinkedHashMap<Long, StackTraceElement[]> linkedHashMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +86,7 @@ public class ANRError$$ implements Serializable {
             }
         }
         this._name = str;
-        this._stackTrace = (StackTraceElement[]) ((Map.Entry) linkedHashMap.entrySet().iterator().next()).getValue();
+        this._stackTrace = linkedHashMap.entrySet().iterator().next().getValue();
         this._stackMap = linkedHashMap;
     }
 
@@ -112,7 +111,7 @@ public class ANRError$$ implements Serializable {
         }
         this._name = str;
         this._stackTrace = stackTraceElementArr;
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
+        LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = new LinkedHashMap<>();
         this._stackMap = linkedHashMap;
         linkedHashMap.put(Long.valueOf(System.currentTimeMillis()), this._stackTrace);
     }

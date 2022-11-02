@@ -35,8 +35,8 @@ public class q7 implements d7 {
     public static final byte[] m;
     public static final byte[] n;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b7 a;
-    public final b7 b;
+    public final b7<JsonValue> a;
+    public final b7<JsonValue> b;
     public JsonValue c;
     public JsonValue d;
 
@@ -114,8 +114,8 @@ public class q7 implements d7 {
                 return;
             }
         }
-        this.a = new b7(8);
-        this.b = new b7(8);
+        this.a = new b7<>(8);
+        this.b = new b7<>(8);
     }
 
     public static byte[] e() {
@@ -149,13 +149,13 @@ public class q7 implements d7 {
         JsonValue jsonValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = (JsonValue) this.a.pop();
+            this.c = this.a.pop();
             if (this.d.j > 0) {
                 this.b.pop();
             }
-            b7 b7Var = this.a;
+            b7<JsonValue> b7Var = this.a;
             if (b7Var.b > 0) {
-                jsonValue = (JsonValue) b7Var.peek();
+                jsonValue = b7Var.peek();
             } else {
                 jsonValue = null;
             }
@@ -257,9 +257,9 @@ public class q7 implements d7 {
                 if (jsonValue3.j == 0) {
                     jsonValue3.f = jsonValue;
                 } else {
-                    JsonValue jsonValue4 = (JsonValue) this.b.pop();
-                    jsonValue4.h = jsonValue;
-                    jsonValue.i = jsonValue4;
+                    JsonValue pop = this.b.pop();
+                    pop.h = jsonValue;
+                    jsonValue.i = pop;
                 }
                 this.b.a(jsonValue);
                 this.d.j++;
@@ -1019,11 +1019,11 @@ public class q7 implements d7 {
                 int max = Math.max(0, i13 - 32);
                 throw new SerializationException("Error parsing JSON on line " + i39 + " near: " + new String(cArr, max, i13 - max) + "*ERROR*" + new String(cArr, i13, Math.min(64, i3 - i13)), runtimeException);
             }
-            b7 b7Var3 = this.a;
+            b7<JsonValue> b7Var3 = this.a;
             if (b7Var3.b != 0) {
-                JsonValue jsonValue3 = (JsonValue) b7Var3.peek();
+                JsonValue peek = b7Var3.peek();
                 this.a.clear();
-                if (jsonValue3 != null && jsonValue3.C()) {
+                if (peek != null && peek.C()) {
                     throw new SerializationException("Error parsing JSON, unmatched brace.");
                 }
                 throw new SerializationException("Error parsing JSON, unmatched bracket.");

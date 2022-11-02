@@ -1,5 +1,6 @@
 package com.baidu.sapi2.utils;
 
+import android.annotation.TargetApi;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
@@ -29,8 +30,8 @@ public final class StatService implements NoProguard {
     public static final String AUTO_STATISTIC = "auto_statistic";
     public static final String STAT_ENENT_QR_LOGIN_ENTER = "qrlogin_enter";
     public static final String TAG = "StatService";
-    public static final Map commonParams;
-    public static List delayRequestName;
+    public static final Map<String, String> commonParams;
+    public static List<String> delayRequestName;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -105,7 +106,7 @@ public final class StatService implements NoProguard {
         }
     }
 
-    public static void onEventAutoStatistic(LinkedHashMap linkedHashMap) {
+    public static void onEventAutoStatistic(LinkedHashMap<String, String> linkedHashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, linkedHashMap) == null) {
             onEventAutoStatistic(linkedHashMap, null);
@@ -149,7 +150,7 @@ public final class StatService implements NoProguard {
         }
     }
 
-    public static void onEvent(String str, Map map) {
+    public static void onEvent(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65541, null, str, map) != null) || TextUtils.isEmpty(str)) {
             return;
@@ -161,9 +162,9 @@ public final class StatService implements NoProguard {
             httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
             if (map != null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
-                        httpHashMapWrap.put((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
+                        httpHashMapWrap.put(entry.getKey(), entry.getValue());
                     }
                 }
             }
@@ -208,18 +209,19 @@ public final class StatService implements NoProguard {
         }
     }
 
-    public static void onEventAutoStatistic(LinkedHashMap linkedHashMap, Map map) {
+    @TargetApi(8)
+    public static void onEventAutoStatistic(LinkedHashMap<String, String> linkedHashMap, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, linkedHashMap, map) == null) {
             if (map == null) {
-                map = new HashMap();
+                map = new HashMap<>();
             }
             StringBuilder sb = new StringBuilder();
             sb.append("{");
             for (String str : linkedHashMap.keySet()) {
                 sb.append(str);
                 sb.append(":");
-                sb.append((String) linkedHashMap.get(str));
+                sb.append(linkedHashMap.get(str));
                 sb.append(",");
             }
             int lastIndexOf = sb.lastIndexOf(",");
@@ -235,7 +237,7 @@ public final class StatService implements NoProguard {
         }
     }
 
-    public static void onEventAutoStat(String str, Map map) {
+    public static void onEventAutoStat(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, map) == null) {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
@@ -247,7 +249,7 @@ public final class StatService implements NoProguard {
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    httpHashMapWrap.put(str2, (String) map.get(str2));
+                    httpHashMapWrap.put(str2, map.get(str2));
                 }
             }
             try {

@@ -1,73 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e05 {
+public class e05 extends Editable.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public f05 a;
 
-    public static synchronized void a() {
+    public e05(f05 f05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (e05.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f05Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = f05Var;
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static d05 c(String str) {
+    @Override // android.text.Editable.Factory
+    public Editable newEditable(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            d05 d05Var = new d05();
-            if (str == null) {
-                d05Var.c = 6;
-                d05Var.d = d05.a(6);
-                return d05Var;
-            }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                d05Var.c = 7;
-                d05Var.d = d05.a(7);
-                return d05Var;
-            }
-            String b = mj.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                d05Var.c = 5;
-                d05Var.d = d05.a(5);
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    d05Var.b = filePath;
-                    d05Var.a = b;
-                } else {
-                    d05Var.c = 1;
-                    d05Var.d = d05.a(1);
-                }
-            }
-            return d05Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
+            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 18);
+            return spannableStringBuilder;
         }
-        return (d05) invokeL.objValue;
+        return (Editable) invokeL.objValue;
     }
 }

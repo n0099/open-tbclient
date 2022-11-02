@@ -1,6 +1,7 @@
 package com.kwad.components.core.m;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,11 +20,11 @@ public class b {
     public static volatile b IP;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.utils.h IL;
-    public List IM;
+    public List<WeakReference<h.a>> IM;
     public boolean IN;
     public boolean IO;
 
-    public b(Context context) {
+    public b(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,7 +45,7 @@ public class b {
         init(context);
     }
 
-    public static b at(Context context) {
+    public static b at(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
@@ -130,7 +131,7 @@ public class b {
     public final void a(h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.IM.add(new WeakReference(aVar));
+            this.IM.add(new WeakReference<>(aVar));
         }
     }
 
@@ -154,10 +155,10 @@ public class b {
     public final void b(h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            Iterator it = this.IM.iterator();
+            Iterator<WeakReference<h.a>> it = this.IM.iterator();
             while (it.hasNext()) {
-                WeakReference weakReference = (WeakReference) it.next();
-                if (weakReference == null || weakReference.get() == aVar) {
+                WeakReference<h.a> next = it.next();
+                if (next == null || next.get() == aVar) {
                     it.remove();
                 }
             }

@@ -2,6 +2,8 @@ package com.baidu.tbadk.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +15,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NestedNoScrollViewPager(Context context) {
+    public NestedNoScrollViewPager(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,7 +35,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NestedNoScrollViewPager(Context context, AttributeSet attributeSet) {
+    public NestedNoScrollViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

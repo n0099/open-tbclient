@@ -1,6 +1,8 @@
 package androidx.core.util;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +21,7 @@ public class AtomicFile {
     public final File mBackupName;
     public final File mBaseName;
 
-    public AtomicFile(File file) {
+    public AtomicFile(@NonNull File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +40,7 @@ public class AtomicFile {
         this.mBackupName = new File(file.getPath() + ".bak");
     }
 
-    public static boolean sync(FileOutputStream fileOutputStream) {
+    public static boolean sync(@NonNull FileOutputStream fileOutputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fileOutputStream)) == null) {
@@ -52,7 +54,7 @@ public class AtomicFile {
         return invokeL.booleanValue;
     }
 
-    public void failWrite(FileOutputStream fileOutputStream) {
+    public void failWrite(@Nullable FileOutputStream fileOutputStream) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fileOutputStream) == null) && fileOutputStream != null) {
             sync(fileOutputStream);
@@ -66,7 +68,7 @@ public class AtomicFile {
         }
     }
 
-    public void finishWrite(FileOutputStream fileOutputStream) {
+    public void finishWrite(@Nullable FileOutputStream fileOutputStream) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fileOutputStream) == null) && fileOutputStream != null) {
             sync(fileOutputStream);
@@ -87,6 +89,7 @@ public class AtomicFile {
         }
     }
 
+    @NonNull
     public File getBaseFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,6 +99,7 @@ public class AtomicFile {
         return (File) invokeV.objValue;
     }
 
+    @NonNull
     public FileInputStream openRead() throws FileNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,6 +113,7 @@ public class AtomicFile {
         return (FileInputStream) invokeV.objValue;
     }
 
+    @NonNull
     public byte[] readFully() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -138,6 +143,7 @@ public class AtomicFile {
         }
     }
 
+    @NonNull
     public FileOutputStream startWrite() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

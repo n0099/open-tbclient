@@ -17,7 +17,7 @@ import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public abstract class LocalFetchProducer implements Producer {
+public abstract class LocalFetchProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
@@ -69,13 +69,13 @@ public abstract class LocalFetchProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
             producerContext.putOriginExtra(ImagesContract.LOCAL, "fetch");
-            StatefulProducerRunnable statefulProducerRunnable = new StatefulProducerRunnable(this, consumer, producerListener, producerContext, getProducerName(), imageRequest, producerListener, producerContext) { // from class: com.facebook.imagepipeline.producers.LocalFetchProducer.1
+            StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerListener, producerContext, getProducerName(), imageRequest, producerListener, producerContext) { // from class: com.facebook.imagepipeline.producers.LocalFetchProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LocalFetchProducer this$0;

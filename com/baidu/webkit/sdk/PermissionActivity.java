@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.a.a;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_CAMERA_RECORD_CODE = 1003;
@@ -83,6 +84,7 @@ public class PermissionActivity extends Activity {
     }
 
     @Override // android.app.Activity
+    @SuppressLint({"NewApi"})
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

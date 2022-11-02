@@ -1,80 +1,171 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ij9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
 
-    public ij9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947855569, "Lcom/baidu/tieba/ij9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947855569, "Lcom/baidu/tieba/ij9;");
                 return;
             }
         }
-        this.c = null;
+        a();
+        b();
+        a = d();
+        c();
+        e();
+        f();
+        b = g();
+        h();
     }
 
-    public int a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 14) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public ij9(boolean z, int i, String str) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                return true;
             }
+            return false;
         }
-        this.c = null;
-        this.a = z;
-        this.b = i;
-        this.c = str;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 18) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static float i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            return ue9.c().getContext().getResources().getDimension(i);
+        }
+        return invokeI.floatValue;
+    }
+
+    public static int j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            return ue9.c().getContext().getResources().getDimensionPixelOffset(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
+            return ue9.c().getContext().getResources().getDimensionPixelSize(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static String l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            return ue9.c().getContext().getResources().getString(i);
+        }
+        return (String) invokeI.objValue;
     }
 }

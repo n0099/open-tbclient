@@ -71,7 +71,7 @@ public final class NTLMEngineImpl {
     }
 
     /* loaded from: classes7.dex */
-    public class CipherGen {
+    public static class CipherGen {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] challenge;
@@ -449,7 +449,7 @@ public final class NTLMEngineImpl {
     }
 
     /* loaded from: classes7.dex */
-    public class HMACMD5 {
+    public static class HMACMD5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] ipad;
@@ -527,7 +527,7 @@ public final class NTLMEngineImpl {
     }
 
     /* loaded from: classes7.dex */
-    public class MD4 {
+    public static class MD4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int A;
@@ -748,7 +748,7 @@ public final class NTLMEngineImpl {
     }
 
     /* loaded from: classes7.dex */
-    public class NTLMEngineException extends Exception {
+    public static class NTLMEngineException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -795,7 +795,7 @@ public final class NTLMEngineImpl {
     }
 
     /* loaded from: classes7.dex */
-    public class NTLMMessage {
+    public static class NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int currentOutputPosition;
@@ -993,7 +993,7 @@ public final class NTLMEngineImpl {
     }
 
     /* loaded from: classes7.dex */
-    public class Type1Message extends NTLMMessage {
+    public static class Type1Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] domainBytes;
@@ -1077,7 +1077,7 @@ public final class NTLMEngineImpl {
     }
 
     /* loaded from: classes7.dex */
-    public class Type2Message extends NTLMMessage {
+    public static class Type2Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] challenge;
@@ -1173,7 +1173,7 @@ public final class NTLMEngineImpl {
     }
 
     /* loaded from: classes7.dex */
-    public class Type3Message extends NTLMMessage {
+    public static class Type3Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] domainBytes;

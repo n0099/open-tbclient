@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetAddressList.friendList;
+import tbclient.GetAddressList.listData;
+import tbclient.GetAddressList.robotsList;
 /* loaded from: classes6.dex */
 public class xr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public String d;
-    public Map e;
-    public String f;
-    public String g;
-    public String h;
+    public List<t35> b;
 
     public xr5() {
         Interceptable interceptable = $ic;
@@ -28,6 +28,59 @@ public class xr5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public List<t35> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                this.b = new ArrayList();
+            }
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(listData listdata) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) && listdata != null) {
+            this.a = listdata.key;
+            if (listdata.friend_list != null) {
+                this.b = new ArrayList();
+                for (friendList friendlist : listdata.friend_list) {
+                    t35 t35Var = new t35();
+                    t35Var.i(friendlist);
+                    t35Var.j(this.a);
+                    this.b.add(t35Var);
+                }
+            }
+        }
+    }
+
+    public void d(robotsList robotslist) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) && robotslist != null) {
+            this.a = robotslist.key;
+            if (robotslist.friend_list != null) {
+                this.b = new ArrayList();
+                for (friendList friendlist : robotslist.friend_list) {
+                    t35 t35Var = new t35();
+                    t35Var.i(friendlist);
+                    t35Var.j(this.a);
+                    this.b.add(t35Var);
+                }
             }
         }
     }

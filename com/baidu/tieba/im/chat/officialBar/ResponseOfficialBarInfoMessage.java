@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,6 +39,7 @@ public class ResponseOfficialBarInfoMessage extends TbSocketReponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

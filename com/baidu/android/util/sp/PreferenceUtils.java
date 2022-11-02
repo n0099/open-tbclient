@@ -1,5 +1,6 @@
 package com.baidu.android.util.sp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -190,6 +191,7 @@ public final class PreferenceUtils {
         }
     }
 
+    @SuppressLint({"ApplySharedPref"})
     public static void setStringCommit(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {

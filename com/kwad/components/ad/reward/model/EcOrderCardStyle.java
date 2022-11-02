@@ -1,5 +1,6 @@
 package com.kwad.components.ad.reward.model;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -67,6 +68,7 @@ public final class EcOrderCardStyle {
         this.value = i2;
     }
 
+    @Nullable
     public static EcOrderCardStyle createFromAdInfo(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

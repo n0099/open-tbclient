@@ -1,5 +1,10 @@
 package io.reactivex;
+
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
+@Experimental
 /* loaded from: classes8.dex */
-public interface ObservableConverter {
-    Object apply(Observable observable);
+public interface ObservableConverter<T, R> {
+    @NonNull
+    R apply(@NonNull Observable<T> observable);
 }

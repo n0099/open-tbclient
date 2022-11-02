@@ -2,9 +2,9 @@ package rx.functions;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ky9;
-import com.baidu.tieba.ly9;
-import com.baidu.tieba.my9;
+import com.baidu.tieba.tz9;
+import com.baidu.tieba.uz9;
+import com.baidu.tieba.vz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ public final class Actions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class NotImplemented implements ly9 {
+    public static final class NotImplemented implements uz9<Throwable> {
         public static final /* synthetic */ NotImplemented[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NotImplemented INSTANCE;
@@ -83,7 +83,7 @@ public final class Actions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ly9
+        @Override // com.baidu.tieba.uz9
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -93,70 +93,70 @@ public final class Actions {
     }
 
     /* loaded from: classes9.dex */
-    public final class a implements ky9, ly9, my9 {
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements tz9, uz9<T0>, vz9<T0, T1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.ky9
+        @Override // com.baidu.tieba.tz9
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.ly9
-        public void call(Object obj) {
+        @Override // com.baidu.tieba.uz9
+        public void call(T0 t0) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t0) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.my9
-        public void call(Object obj, Object obj2) {
+        @Override // com.baidu.tieba.vz9
+        public void call(T0 t0, T1 t1) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, obj2) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t0, t1) == null) {
             }
         }
 
-        public void call(Object obj, Object obj2, Object obj3) {
+        public void call(T0 t0, T1 t1, T2 t2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, obj, obj2, obj3) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, t0, t1, t2) == null) {
             }
         }
 
-        public void call(Object obj, Object obj2, Object obj3, Object obj4) {
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048580, this, obj, obj2, obj3, obj4) == null) {
+            if (interceptable == null || interceptable.invokeLLLL(1048580, this, t0, t1, t2, t3) == null) {
             }
         }
 
-        public void call(Object obj, Object obj2, Object obj3, Object obj4, Object obj5) {
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLLL(1048581, this, obj, obj2, obj3, obj4, obj5) == null) {
+            if (interceptable == null || interceptable.invokeLLLLL(1048581, this, t0, t1, t2, t3, t4) == null) {
             }
         }
 
-        public void call(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6) {
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4, T5 t5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{obj, obj2, obj3, obj4, obj5, obj6}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{t0, t1, t2, t3, t4, t5}) == null) {
             }
         }
 
-        public void call(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7) {
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{t0, t1, t2, t3, t4, t5, t6}) == null) {
             }
         }
 
-        public void call(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8) {
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{t0, t1, t2, t3, t4, t5, t6, t7}) == null) {
             }
         }
 
-        public void call(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8, Object obj9) {
+        public void call(T0 t0, T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{t0, t1, t2, t3, t4, t5, t6, t7, t8}) == null) {
             }
         }
 
@@ -197,7 +197,7 @@ public final class Actions {
         a = new a();
     }
 
-    public static a a() {
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> a<T0, T1, T2, T3, T4, T5, T6, T7, T8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -206,12 +206,12 @@ public final class Actions {
         return (a) invokeV.objValue;
     }
 
-    public static ly9 b() {
+    public static uz9<Throwable> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return NotImplemented.INSTANCE;
         }
-        return (ly9) invokeV.objValue;
+        return (uz9) invokeV.objValue;
     }
 }

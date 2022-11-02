@@ -1,108 +1,169 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qu4 {
+public class qu4 implements vm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public Activity b;
-    public View c;
-    public DialogInterface.OnDismissListener d;
+    public int a;
+    public List<a> b;
 
-    public qu4(Activity activity) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public String c;
+        public String d;
+        public int e;
+        public boolean f;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.e;
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.f;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void g(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("icon_name");
+            this.b = jSONObject.optInt("icon_level");
+            this.c = jSONObject.optString("icon_small_pic");
+            this.d = jSONObject.optString("icon_pic");
+            this.e = jSONObject.optInt("light_up");
+        }
+
+        public void h(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+                this.f = z;
+            }
+        }
+    }
+
+    public qu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = activity;
     }
 
-    public void c(View view2) {
+    public List<a> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.c = view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-    }
-
-    public void d(DialogInterface.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onDismissListener) == null) {
-            this.d = onDismissListener;
-        }
-    }
-
-    public void a() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.a) != null && alertDialog.isShowing()) {
-            this.a.dismiss();
-        }
+        return (List) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return 5894;
-            }
-            return 1280;
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public void e() {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        if (this.a == null) {
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.a = create;
-            create.requestWindowFeature(b());
-        }
-        if (this.a.isShowing()) {
-            this.a.dismiss();
-        }
-        this.a.setCancelable(true);
-        this.a.setOnDismissListener(this.d);
-        this.a.show();
-        Window window = this.a.getWindow();
-        window.getDecorView().setSystemUiVisibility(b());
-        window.addFlags(Integer.MIN_VALUE);
-        window.setStatusBarColor(0);
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = -1;
-        attributes.height = -1;
-        window.setNavigationBarColor(0);
-        window.setAttributes(attributes);
-        window.setDimAmount(0.0f);
-        View view2 = this.c;
-        if (view2 != null) {
-            this.a.setContentView(view2);
+        this.a = jSONObject.optInt("levelup");
+        JSONArray optJSONArray = jSONObject.optJSONArray("icon_info");
+        if (optJSONArray != null) {
+            this.b = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                if (optJSONArray.optJSONObject(i) != null) {
+                    a aVar = new a();
+                    aVar.g(optJSONArray.optJSONObject(i));
+                    this.b.add(aVar);
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tieba.write.write.work.topic.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
@@ -11,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.h97;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
-import com.baidu.tieba.x77;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,10 +61,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(x77 x77Var) {
+        public void a(h97 h97Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x77Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, x77Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, h97Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, h97Var));
             }
         }
     }
@@ -114,7 +115,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectTopicSuggestLayout(Context context, AttributeSet attributeSet) {
+    public SelectTopicSuggestLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,7 +137,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectTopicSuggestLayout(Context context, AttributeSet attributeSet, int i) {
+    public SelectTopicSuggestLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -157,7 +158,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         b();
     }
 
-    public void a(String str, List list) {
+    public void a(String str, List<h97> list) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && (videoHotTopicSearchAdapter = this.b) != null) {

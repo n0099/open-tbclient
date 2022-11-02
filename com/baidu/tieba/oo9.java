@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,31 +11,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderSession;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.express2.NativeExpressAD2;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
-import com.qq.e.ads.nativ.express2.VideoOption2;
-import com.qq.e.comm.util.AdError;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class oo9 extends ReporterPidLoader {
+public class oo9 extends jo9<so9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap e;
+    public final HashMap<so9, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> f;
+
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final int b;
+        public PidLoaderSession<so9> c;
+        public boolean d;
+        public final /* synthetic */ oo9 e;
+
+        public b(oo9 oo9Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oo9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = oo9Var;
+            this.d = false;
+            this.b = i;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public oo9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,37 +83,11 @@ public class oo9 extends ReporterPidLoader {
                 return;
             }
         }
-        this.e = new HashMap();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new ep9(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
-            }
-            NativeExpressAD2 nativeExpressAD2 = new NativeExpressAD2(context.getApplicationContext(), this.mPid.pid, new a(this, funAdSlot));
-            onLoadStart(funAdSlot);
-            nativeExpressAD2.setAdSize(expressWidth, expressHeight);
-            VideoOption2.Builder builder = new VideoOption2.Builder();
-            builder.setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? VideoOption2.AutoPlayPolicy.ALWAYS : VideoOption2.AutoPlayPolicy.WIFI).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setMaxVideoDuration(0).setMinVideoDuration(0);
-            nativeExpressAD2.setVideoOption2(builder.build());
-            nativeExpressAD2.loadAd(1);
-        }
+        this.f = new HashMap<>();
     }
 
     /* loaded from: classes5.dex */
-    public class a implements NativeExpressAD2.AdLoadListener {
+    public class a implements TTAdNative.NativeExpressAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FunAdSlot a;
@@ -106,33 +112,39 @@ public class oo9 extends ReporterPidLoader {
             this.a = funAdSlot;
         }
 
-        @Override // com.qq.e.ads.NativeAbstractAD.BasicADListener
-        public void onNoAD(AdError adError) {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
-                LogPrinter.e("onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.b.onError(adError.getErrorCode(), adError.getErrorMsg());
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
             }
         }
 
-        @Override // com.qq.e.ads.nativ.express2.NativeExpressAD2.AdLoadListener
-        public void onLoadSuccess(List list) {
+        /* JADX DEBUG: Multi-variable search result rejected for r10v1, resolved type: com.bytedance.sdk.openadsdk.TTNativeExpressAd */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r12v1, types: [com.baidu.tieba.ro9, A, com.bytedance.sdk.openadsdk.TTNativeExpressAd$ExpressAdInteractionListener] */
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 LogPrinter.d();
                 if (list != null && !list.isEmpty()) {
-                    NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) list.get(0);
                     oo9 oo9Var = this.b;
                     String sid = this.a.getSid();
                     oo9Var.getClass();
-                    ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
-                    po9 po9Var = new po9(oo9Var, nativeExpressADData2, expressAdListenerWrapper, sid);
-                    expressAdListenerWrapper.listener = po9Var;
-                    nativeExpressADData2.setAdEventListener(po9Var);
-                    nativeExpressADData2.render();
+                    b bVar = new b(oo9Var, list.size());
+                    for (TTNativeExpressAd tTNativeExpressAd : list) {
+                        so9 so9Var = new so9(tTNativeExpressAd);
+                        ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
+                        ?? ro9Var = new ro9(oo9Var, so9Var, expressAdListenerWrapper, sid, bVar, tTNativeExpressAd);
+                        expressAdListenerWrapper.listener = ro9Var;
+                        tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.ExpressAdInteractionListener) ro9Var);
+                        tTNativeExpressAd.render();
+                    }
                     return;
                 }
-                this.b.onError(0, "NoFill");
+                onError(0, "NoFill");
             }
         }
     }
@@ -140,52 +152,41 @@ public class oo9 extends ReporterPidLoader {
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
-            this.e.remove(nativeExpressADData2);
-            if (nativeExpressADData2 != null) {
-                nativeExpressADData2.destroy();
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            so9 so9Var = (so9) obj;
+            this.f.remove(so9Var);
+            if (so9Var != null) {
+                ((TTNativeExpressAd) so9Var.a).destroy();
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return ((NativeExpressADData2) obj).getECPM() / 100.0d;
-        }
-        return invokeL.doubleValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) {
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (NativeExpressADData2) obj, new qo9(this, this));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) {
+            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (so9) obj, new to9(this, this));
         }
         return (FunNativeAd2) invokeLLL.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
-            double d3 = d * 100.0d;
-            if (z) {
-                nativeExpressADData2.sendWinNotification((int) d3);
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
             }
-            int i2 = 1;
-            if (i == 3) {
-                i2 = 2;
-            } else if (i == 5) {
-                i2 = 3;
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
             }
-            nativeExpressADData2.sendLossNotification((int) d3, i2, "");
+            AdSlot.Builder adCount = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setExpressViewAcceptedSize(expressWidth, expressHeight).setImageAcceptedSize(640, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3));
+            TTAdNative createAdNative = TTAdSdk.getAdManager().createAdNative(context);
+            onLoadStart(funAdSlot);
+            createAdNative.loadExpressDrawFeedAd(adCount.build(), new a(this, funAdSlot));
         }
     }
 
@@ -193,15 +194,15 @@ public class oo9 extends ReporterPidLoader {
     public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, obj)) == null) {
-            NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
-            onShowStart(nativeExpressADData2);
-            View adView = nativeExpressADData2.getAdView();
-            if (adView.getParent() != null) {
-                ((ViewGroup) adView.getParent()).removeView(adView);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            so9 so9Var = (so9) obj;
+            onShowStart(so9Var);
+            View expressAdView = ((TTNativeExpressAd) so9Var.a).getExpressAdView();
+            if (expressAdView.getParent() != null) {
+                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
             }
             viewGroup.removeAllViews();
-            viewGroup.addView(adView);
+            viewGroup.addView(expressAdView);
             return true;
         }
         return invokeLLLL.booleanValue;

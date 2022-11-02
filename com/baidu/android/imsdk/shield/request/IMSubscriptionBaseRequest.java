@@ -25,10 +25,10 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public static final String TAG = "IMSubscriptionBaseRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
-    public List mMiNiAppTopicList;
+    public List<String> mMiNiAppTopicList;
     public long mPaid;
     public String mSource;
-    public List mTopicList;
+    public List<Long> mTopicList;
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
@@ -56,7 +56,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
         return invokeV.booleanValue;
     }
 
-    public IMSubscriptionBaseRequest(Context context, long j, List list, List list2, String str, String str2) {
+    public IMSubscriptionBaseRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

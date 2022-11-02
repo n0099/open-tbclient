@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
@@ -12,7 +13,7 @@ import android.os.Handler;
 import android.util.Range;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nx9;
+import com.baidu.tieba.wy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,8 @@ import org.webrtc.Camera2Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 import org.webrtc.VideoFrame;
-/* loaded from: classes8.dex */
+@TargetApi(21)
+/* loaded from: classes9.dex */
 public class Camera2Session implements CameraSession {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Camera2Session";
@@ -63,14 +65,14 @@ public class Camera2Session implements CameraSession {
     public final int width;
 
     /* renamed from: org.webrtc.Camera2Session$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
-    public class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
+    /* loaded from: classes9.dex */
+    public static class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,7 +103,7 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class CameraStateCallback extends CameraDevice.StateCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,7 +216,7 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class CaptureSessionCallback extends CameraCaptureSession.StateCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -303,7 +305,7 @@ public class Camera2Session implements CameraSession {
                 this.this$0.firstFrameReported = true;
                 Camera2Session.camera2StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
             }
-            VideoFrame videoFrame2 = new VideoFrame(nx9.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
+            VideoFrame videoFrame2 = new VideoFrame(wy9.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
             this.this$0.events.onFrameCaptured(this.this$0, videoFrame2);
             videoFrame2.release();
         }
@@ -324,7 +326,7 @@ public class Camera2Session implements CameraSession {
                     chooseFocusMode(createCaptureRequest);
                     createCaptureRequest.addTarget(this.this$0.surface);
                     cameraCaptureSession.setRepeatingRequest(createCaptureRequest.build(), new CameraCaptureCallback(null), this.this$0.cameraThreadHandler);
-                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.mw9
+                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.vx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -347,8 +349,8 @@ public class Camera2Session implements CameraSession {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class SessionState {
+    /* loaded from: classes9.dex */
+    public static final class SessionState {
         public static final /* synthetic */ SessionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SessionState RUNNING;
@@ -501,7 +503,7 @@ public class Camera2Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            int b = nx9.b(this.applicationContext);
+            int b = wy9.b(this.applicationContext);
             if (!this.isCameraFrontFacing) {
                 b = 360 - b;
             }
@@ -524,8 +526,8 @@ public class Camera2Session implements CameraSession {
             Range[] rangeArr = (Range[]) this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES);
             int fpsUnitFactor = Camera2Enumerator.getFpsUnitFactor(rangeArr);
             this.fpsUnitFactor = fpsUnitFactor;
-            List convertFramerates = Camera2Enumerator.convertFramerates(rangeArr, fpsUnitFactor);
-            List supportedSizes = Camera2Enumerator.getSupportedSizes(this.cameraCharacteristics);
+            List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = Camera2Enumerator.convertFramerates(rangeArr, fpsUnitFactor);
+            List<Size> supportedSizes = Camera2Enumerator.getSupportedSizes(this.cameraCharacteristics);
             Logging.d(TAG, "Available preview sizes: " + supportedSizes);
             Logging.d(TAG, "Available fps ranges: " + convertFramerates);
             if (!convertFramerates.isEmpty() && !supportedSizes.isEmpty()) {

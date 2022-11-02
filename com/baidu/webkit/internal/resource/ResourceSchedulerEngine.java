@@ -15,7 +15,7 @@ public class ResourceSchedulerEngine implements INoProGuard {
     public static final String LOG_TAG = "ResourceTaskSchedulerEngine";
     public static ResourceSchedulerEngine sIntance;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference mZeusResourceScheduler;
+    public WeakReference<IResourceScheduler> mZeusResourceScheduler;
 
     /* loaded from: classes6.dex */
     public interface IResourceScheduler extends INoProGuard {
@@ -58,11 +58,11 @@ public class ResourceSchedulerEngine implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference weakReference = this.mZeusResourceScheduler;
+            WeakReference<IResourceScheduler> weakReference = this.mZeusResourceScheduler;
             if (weakReference == null || weakReference.get() == null) {
                 return false;
             }
-            ((IResourceScheduler) this.mZeusResourceScheduler.get()).fetchIntegrationInfoFromServer();
+            this.mZeusResourceScheduler.get().fetchIntegrationInfoFromServer();
             Log.i(LOG_TAG, "fetchIntegrationInfoFromServer success");
             return true;
         }
@@ -73,11 +73,11 @@ public class ResourceSchedulerEngine implements INoProGuard {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iResourceTask, iResouceNetTaskListener)) == null) {
-            WeakReference weakReference = this.mZeusResourceScheduler;
+            WeakReference<IResourceScheduler> weakReference = this.mZeusResourceScheduler;
             if (weakReference == null || weakReference.get() == null) {
                 return false;
             }
-            ((IResourceScheduler) this.mZeusResourceScheduler.get()).registTaskAndListener(iResourceTask, iResouceNetTaskListener);
+            this.mZeusResourceScheduler.get().registTaskAndListener(iResourceTask, iResouceNetTaskListener);
             Log.i(LOG_TAG, "registTaskAndListener success");
             return true;
         }
@@ -97,7 +97,7 @@ public class ResourceSchedulerEngine implements INoProGuard {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, iResourceScheduler) == null) || iResourceScheduler == null) {
             return;
         }
-        this.mZeusResourceScheduler = new WeakReference(iResourceScheduler);
+        this.mZeusResourceScheduler = new WeakReference<>(iResourceScheduler);
         Log.i(LOG_TAG, "setZeusResourceScheduler success");
     }
 
@@ -105,11 +105,11 @@ public class ResourceSchedulerEngine implements INoProGuard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iResourceTask)) == null) {
-            WeakReference weakReference = this.mZeusResourceScheduler;
+            WeakReference<IResourceScheduler> weakReference = this.mZeusResourceScheduler;
             if (weakReference == null || weakReference.get() == null) {
                 return false;
             }
-            ((IResourceScheduler) this.mZeusResourceScheduler.get()).unregistTaskAndListener(iResourceTask);
+            this.mZeusResourceScheduler.get().unregistTaskAndListener(iResourceTask);
             Log.i(LOG_TAG, "unregistTaskAndListener success");
             return true;
         }

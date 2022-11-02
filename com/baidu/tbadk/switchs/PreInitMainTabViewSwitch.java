@@ -1,6 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.ky4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +33,7 @@ public class PreInitMainTabViewSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.rf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.jf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,12 +54,13 @@ public class PreInitMainTabViewSwitch extends BaseNormalSwitch {
         }
     }
 
+    @Modify(description = "预加载首页view")
     public static boolean getIsOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = ux4.k().l(KEY_SWITCH, 0);
+                type = ky4.k().l(KEY_SWITCH, 0);
             }
             if (type != 1) {
                 return false;

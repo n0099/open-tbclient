@@ -29,7 +29,7 @@ public final class PayMethodFactory {
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PayMethodFactory$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

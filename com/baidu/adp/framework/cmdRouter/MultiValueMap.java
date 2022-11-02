@@ -4,34 +4,34 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
-public interface MultiValueMap {
-    void add(Object obj, Object obj2);
+public interface MultiValueMap<K, V> {
+    void add(K k, V v);
 
-    void add(Object obj, List list);
+    void add(K k, List<V> list);
 
-    void addAll(Map map);
+    void addAll(Map<K, V> map);
 
     void clear();
 
-    boolean containsKey(Object obj);
+    boolean containsKey(K k);
 
-    Object getValue(Object obj, int i);
+    V getValue(K k, int i);
 
-    List getValues(Object obj);
+    List<V> getValues(K k);
 
     boolean isEmpty();
 
-    Set keySet();
+    Set<K> keySet();
 
-    List remove(Object obj);
+    List<V> remove(K k);
 
-    void set(Object obj, Object obj2);
+    void set(K k, V v);
 
-    void set(Object obj, List list);
+    void set(K k, List<V> list);
 
-    void set(Map map);
+    void set(Map<K, List<V>> map);
 
     int size();
 
-    List values();
+    List<V> values();
 }

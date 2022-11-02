@@ -1,10 +1,12 @@
 package androidx.room;
 
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class RoomMasterTable {
     public static /* synthetic */ Interceptable $ic = null;

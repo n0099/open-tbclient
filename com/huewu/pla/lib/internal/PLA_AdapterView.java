@@ -1,5 +1,6 @@
 package com.huewu.pla.lib.internal;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.os.Parcelable;
@@ -14,14 +15,14 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.Adapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ws9;
+import com.baidu.tieba.fu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class PLA_AdapterView extends ViewGroup {
+public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_POSITION = -1;
     public static final long INVALID_ROW_ID = Long.MIN_VALUE;
@@ -50,7 +51,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
     @ViewDebug.ExportedProperty(category = "list")
     public int mSelectedPosition;
     public long mSelectedRowId;
-    public g mSelectionNotifier;
+    public PLA_AdapterView<T>.g mSelectionNotifier;
     public int mSpecificTop;
     public int[] mSpecificTops;
     public long mSyncHeight;
@@ -59,29 +60,29 @@ public abstract class PLA_AdapterView extends ViewGroup {
     public long mSyncRowId;
 
     /* loaded from: classes7.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
     public interface d {
-        void onItemClick(PLA_AdapterView pLA_AdapterView, View view2, int i, long j);
+        void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view2, int i, long j);
     }
 
     /* loaded from: classes7.dex */
     public interface e {
-        boolean onItemLongClick(PLA_AdapterView pLA_AdapterView, View view2, int i, long j);
+        boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view2, int i, long j);
     }
 
     /* loaded from: classes7.dex */
     public interface f {
-        void onItemSelected(PLA_AdapterView pLA_AdapterView, View view2, int i, long j);
+        void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view2, int i, long j);
 
-        void onNothingSelected(PLA_AdapterView pLA_AdapterView);
+        void onNothingSelected(PLA_AdapterView<?> pLA_AdapterView);
     }
 
-    public abstract Adapter getAdapter();
+    public abstract T getAdapter();
 
     @ViewDebug.CapturedViewProperty
     public long getSelectedItemId() {
@@ -120,12 +121,12 @@ public abstract class PLA_AdapterView extends ViewGroup {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? i : invokeCommon.intValue;
     }
 
-    public abstract void setAdapter(Adapter adapter);
+    public abstract void setAdapter(T t);
 
     public abstract void setSelection(int i);
 
     /* loaded from: classes7.dex */
-    public class b implements ContextMenu.ContextMenuInfo {
+    public static class b implements ContextMenu.ContextMenuInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
@@ -180,7 +181,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
             Parcelable parcelable;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ws9.a("data changed by onChanged()");
+                fu9.a("data changed by onChanged()");
                 PLA_AdapterView pLA_AdapterView = this.b;
                 pLA_AdapterView.mDataChanged = true;
                 pLA_AdapterView.mOldItemCount = pLA_AdapterView.mItemCount;
@@ -202,7 +203,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ws9.a("data changed by onInvalidated()");
+                fu9.a("data changed by onInvalidated()");
                 PLA_AdapterView pLA_AdapterView = this.b;
                 pLA_AdapterView.mDataChanged = true;
                 if (pLA_AdapterView.getAdapter().hasStableIds()) {
@@ -294,6 +295,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
         this.mBlockLayoutRequests = false;
     }
 
+    @SuppressLint({"WrongCall"})
     private void updateEmptyStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, this, z) == null) {
@@ -399,7 +401,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void dispatchRestoreInstanceState(SparseArray sparseArray) {
+    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, sparseArray) == null) {
             dispatchThawSelfOnly(sparseArray);
@@ -407,7 +409,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void dispatchSaveInstanceState(SparseArray sparseArray) {
+    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sparseArray) == null) {
             dispatchFreezeSelfOnly(sparseArray);
@@ -418,7 +420,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            Adapter adapter = getAdapter();
+            T adapter = getAdapter();
             if (adapter != null && i >= 0) {
                 return adapter.getItem(i);
             }
@@ -431,7 +433,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            Adapter adapter = getAdapter();
+            T adapter = getAdapter();
             if (adapter != null && i >= 0) {
                 return adapter.getItemId(i);
             }
@@ -461,7 +463,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, view2) == null) {
             this.mEmptyView = view2;
-            Adapter adapter = getAdapter();
+            T adapter = getAdapter();
             if (adapter != null && !adapter.isEmpty()) {
                 z = false;
             } else {
@@ -632,7 +634,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            Adapter adapter = getAdapter();
+            T adapter = getAdapter();
             int selectedItemPosition = getSelectedItemPosition();
             if (adapter != null && adapter.getCount() > 0 && selectedItemPosition >= 0) {
                 return adapter.getItem(selectedItemPosition);
@@ -752,7 +754,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
             int i3 = i - 1;
             int min = Math.min(i3, Math.max(0, i2));
             long uptimeMillis = SystemClock.uptimeMillis() + 100;
-            Adapter adapter = getAdapter();
+            T adapter = getAdapter();
             if (adapter == null) {
                 return -1;
             }
@@ -822,7 +824,7 @@ public abstract class PLA_AdapterView extends ViewGroup {
             this.mNeedSync = true;
             this.mSyncHeight = this.mLayoutHeight;
             View childAt = getChildAt(0);
-            Adapter adapter = getAdapter();
+            T adapter = getAdapter();
             int i = this.mFirstPosition;
             if (i >= 0 && i < adapter.getCount()) {
                 this.mSyncRowId = adapter.getItemId(this.mFirstPosition);

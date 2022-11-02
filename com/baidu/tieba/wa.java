@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.client.socket.coder.CoderException;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,22 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class wa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static byte g = 4;
-    public static byte h = Byte.MIN_VALUE;
-    public static byte i = 64;
-    public static byte j = 8;
-    public static byte k = 4;
+    public static /* synthetic */ Interceptable $ic;
+    public static wa a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public int d;
-    public int e;
-    public boolean f;
 
     static {
         InterceptResult invokeClinit;
@@ -41,144 +37,205 @@ public class wa {
         }
     }
 
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 9;
-        }
-        return invokeV.intValue;
-    }
-
     public wa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.f = false;
     }
 
-    public int b() {
+    public static wa f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (wa.class) {
+                    if (a == null) {
+                        a = new wa();
+                    }
+                }
+            }
+            return a;
         }
-        return invokeV.intValue;
+        return (wa) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public byte[] a(byte[] bArr, int i, int i2) throws Exception {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                ti.a(byteArrayInputStream, byteArrayOutputStream);
+                byteArrayOutputStream.flush();
+                return byteArrayOutputStream.toByteArray();
+            } finally {
+                vg.d(byteArrayOutputStream);
+                vg.c(byteArrayInputStream);
+            }
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeLII.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public byte[] g(byte[] bArr, int i, int i2) throws Exception {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                ti.c(byteArrayInputStream, byteArrayOutputStream);
+                byteArrayOutputStream.flush();
+                return byteArrayOutputStream.toByteArray();
+            } finally {
+                vg.d(byteArrayOutputStream);
+                vg.c(byteArrayInputStream);
+            }
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeLII.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public SocketResponsedMessage b(int i, byte[] bArr, SocketMessage socketMessage, SocketMessageTask socketMessageTask, boolean z) throws CoderException {
+        InterceptResult invokeCommon;
+        int i2;
+        SocketResponsedMessage newInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), bArr, socketMessage, socketMessageTask, Boolean.valueOf(z)})) == null) {
+            try {
+                Class<? extends SocketResponsedMessage> responsedClass = socketMessageTask.getResponsedClass();
+                try {
+                    newInstance = responsedClass.getConstructor(new Class[0]).newInstance(new Object[0]);
+                } catch (Exception unused) {
+                    newInstance = responsedClass.getConstructor(Integer.TYPE).newInstance(Integer.valueOf(i));
+                }
+                newInstance.setOrginalMessage(socketMessage);
+                if (z) {
+                    try {
+                        newInstance.onDecodeFailedInBackGround(i, bArr, ta.c);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    newInstance.decodeInBackGround(i, bArr);
+                }
+                return newInstance;
+            } catch (Throwable th) {
+                long j = 0;
+                if (socketMessage != null) {
+                    j = socketMessage.getClientLogID();
+                }
+                long j2 = j;
+                if (bArr != null) {
+                    i2 = bArr.length;
+                } else {
+                    i2 = 0;
+                }
+                BdStatisticsManager.getInstance().error("im", j2, (String) null, "cmd", Integer.valueOf(i), "byteslength", Integer.valueOf(i2), "comment", th.getMessage());
+                throw new CoderException(ta.c);
+            }
         }
-        return invokeV.booleanValue;
+        return (SocketResponsedMessage) invokeCommon.objValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public static wa a(byte[] bArr) {
+    public xa c(byte[] bArr) throws CoderException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, f());
-            wa waVar = new wa();
-            byte b = wrap.get();
-            if ((h & b) != 0) {
-                waVar.a = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            int f = va.f();
+            if (bArr != null && bArr.length >= f) {
+                va a2 = va.a(bArr);
+                if (a2 != null) {
+                    xa xaVar = new xa();
+                    xaVar.a = a2;
+                    xaVar.b = bArr;
+                    xaVar.c = f;
+                    xaVar.d = bArr.length - f;
+                    return xaVar;
+                }
+                throw new CoderException(ta.b);
             }
-            if ((i & b) != 0) {
-                waVar.b = true;
-            }
-            if ((j & b) != 0) {
-                waVar.c = true;
-            }
-            if ((b & k) != 0) {
-                waVar.f = true;
-            }
-            waVar.d = wrap.getInt();
-            waVar.e = wrap.getInt();
-            return waVar;
+            throw new CoderException(ta.b);
         }
-        return (wa) invokeL.objValue;
+        return (xa) invokeL.objValue;
     }
 
-    public static byte[] i(boolean z, boolean z2, int i2, int i3, byte[] bArr, boolean z3) {
-        InterceptResult invokeCommon;
-        int i4;
+    public xa d(xa xaVar) throws CoderException {
+        InterceptResult invokeL;
+        va vaVar;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3), bArr, Boolean.valueOf(z3)})) == null) {
-            byte b = 0;
-            if (bArr != null) {
-                i4 = bArr.length;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, xaVar)) == null) {
+            if (xaVar != null && (vaVar = xaVar.a) != null && xaVar.b != null) {
+                if (vaVar.d() && xaVar.d > 0) {
+                    if (ya.a().b() != null) {
+                        try {
+                            byte[] a2 = fj.a(ya.a().b(), xaVar.b, xaVar.c, xaVar.d);
+                            xaVar.b = a2;
+                            xaVar.c = 0;
+                            xaVar.d = a2.length;
+                        } catch (Exception unused) {
+                            throw new CoderException(ta.h);
+                        }
+                    } else {
+                        throw new CoderException(ta.g);
+                    }
+                }
+                if (vaVar.c() && (i = xaVar.d) > 0) {
+                    try {
+                        byte[] g = g(xaVar.b, xaVar.c, i);
+                        xaVar.b = g;
+                        xaVar.c = 0;
+                        xaVar.d = g.length;
+                    } catch (Exception unused2) {
+                        throw new CoderException(ta.f);
+                    }
+                }
+                return xaVar;
+            }
+            throw new CoderException(ta.b);
+        }
+        return (xa) invokeL.objValue;
+    }
+
+    public byte[] e(SocketMessage socketMessage, int i, boolean z, boolean z2) throws CoderException {
+        InterceptResult invokeCommon;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socketMessage, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (socketMessage == null) {
+                return null;
+            }
+            byte[] encodeInBackGround = socketMessage.encodeInBackGround();
+            byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
+            if (encodeExtraDataInBackGround != null) {
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + va.g);
+                if (encodeExtraDataInBackGround.length <= Integer.MAX_VALUE) {
+                    allocate.putInt(encodeExtraDataInBackGround.length);
+                    allocate.put(encodeExtraDataInBackGround);
+                    allocate.put(encodeInBackGround);
+                    encodeInBackGround = allocate.array();
+                    z3 = true;
+                } else {
+                    throw new CoderException(ta.e);
+                }
             } else {
-                i4 = 0;
+                z3 = false;
             }
-            ByteBuffer allocate = ByteBuffer.allocate(f() + i4);
-            if (z) {
-                b = (byte) (h | 0);
+            if (encodeInBackGround != null && z) {
+                encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
             }
-            if (z2) {
-                b = (byte) (i | b);
+            if (encodeInBackGround != null && z2) {
+                encodeInBackGround = fj.c(ya.a().b(), encodeInBackGround);
             }
-            byte b2 = (byte) (j | b);
-            if (z3) {
-                b2 = (byte) (b2 | k);
-            }
-            allocate.put(b2);
-            allocate.putInt(i2);
-            allocate.putInt(i3);
-            if (bArr != null) {
-                allocate.put(bArr);
-            }
-            allocate.flip();
-            return allocate.array();
+            return va.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         }
         return (byte[]) invokeCommon.objValue;
     }

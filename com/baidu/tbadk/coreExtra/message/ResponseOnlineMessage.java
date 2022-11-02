@@ -1,8 +1,9 @@
 package com.baidu.tbadk.coreExtra.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c95;
+import com.baidu.tieba.v95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConfigVersion configVersion;
-    public List groupInfos;
+    public List<GroupUpdateMessage> groupInfos;
     public boolean isUserAvailable;
     public MaskInfo maskInfo;
 
@@ -53,7 +54,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         return (ConfigVersion) invokeV.objValue;
     }
 
-    public List getGroupInfos() {
+    public List<GroupUpdateMessage> getGroupInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -81,6 +82,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         int size;
@@ -91,10 +93,10 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
             setError(updateClientInfoResIdl.error.errorno.intValue());
             setErrorString(updateClientInfoResIdl.error.usermsg);
             if (getError() != 0) {
-                c95.b(1001, 0, 2, 0, 0);
+                v95.b(1001, 0, 2, 0, 0);
                 return updateClientInfoResIdl;
             }
-            c95.b(1001, 0, 1, 0, 0);
+            v95.b(1001, 0, 1, 0, 0);
             this.groupInfos = new ArrayList();
             DataRes dataRes = updateClientInfoResIdl.data;
             if (dataRes != null) {

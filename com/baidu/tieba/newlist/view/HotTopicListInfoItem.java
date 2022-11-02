@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.DrawableCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,10 +24,10 @@ import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai5;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.rp4;
-import com.baidu.tieba.xt7;
+import com.baidu.tieba.gv7;
+import com.baidu.tieba.iq4;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.xi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,8 +44,8 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     public TextView f;
     public TextView g;
     public View h;
-    public xt7 i;
-    public rp4 j;
+    public gv7 i;
+    public iq4<gv7> j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicListInfoItem(Context context) {
@@ -83,7 +84,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicListInfoItem(Context context, AttributeSet attributeSet) {
+    public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,7 +107,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicListInfoItem(Context context, AttributeSet attributeSet, int i) {
+    public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -128,21 +129,21 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         c();
     }
 
-    public void a(xt7 xt7Var) {
+    public void a(gv7 gv7Var) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, xt7Var) == null) && xt7Var != null) {
-            this.i = xt7Var;
-            this.b.L(xt7Var.f, 10, false);
-            if (xt7Var.b()) {
-                drawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4a, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, gv7Var) == null) && gv7Var != null) {
+            this.i = gv7Var;
+            this.b.K(gv7Var.f, 10, false);
+            if (gv7Var.b()) {
+                drawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a63, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL);
             } else {
                 drawable = null;
             }
             this.d.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.d.setText(xt7Var.c);
-            this.g.setText(xt7Var.d);
-            String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), xt7Var.g);
+            this.d.setText(gv7Var.c);
+            this.g.setText(gv7Var.d);
+            String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), gv7Var.g);
             if (TextUtils.isEmpty(hotTopicTagStr)) {
                 this.e.setVisibility(8);
             } else {
@@ -150,23 +151,23 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
                 this.e.setText(hotTopicTagStr);
             }
             b();
-            if (xt7Var.e > 0) {
+            if (gv7Var.e > 0) {
                 this.f.setVisibility(0);
-                String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(xt7Var.e);
+                String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(gv7Var.e);
                 TextView textView = this.f;
-                textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08ae, numberUniformFormatExtraWithRoundInt));
+                textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08b8, numberUniformFormatExtraWithRoundInt));
             } else {
                 this.f.setVisibility(4);
             }
-            this.c.setText("" + xt7Var.b);
+            this.c.setText("" + gv7Var.b);
         }
     }
 
     public final void b() {
-        xt7 xt7Var;
+        gv7 gv7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (xt7Var = this.i) != null) {
-            int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(xt7Var.g);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (gv7Var = this.i) != null) {
+            int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(gv7Var.g);
             Drawable background = this.e.getBackground();
             DrawableCompat.setTint(background, SkinManager.getColor(hotTopicTagColorRes));
             this.e.setBackgroundDrawable(background);
@@ -180,31 +181,31 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a5, (ViewGroup) this, true);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091c6a);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09071e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f16);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092209);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092033);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09170b);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0907a3);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ad, (ViewGroup) this, true);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091cb2);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09072c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f4f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09207e);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09174c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0907b1);
             this.b.setPlaceHolder(1);
-            this.b.setRadius(fj.f(getContext(), R.dimen.tbds10));
+            this.b.setRadius(xi.g(getContext(), R.dimen.tbds10));
             this.b.setConrers(15);
-            findViewById(R.id.obfuscated_res_0x7f091c6a).setOnClickListener(this);
+            findViewById(R.id.obfuscated_res_0x7f091cb2).setOnClickListener(this);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        xt7 xt7Var;
+        gv7 gv7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (xt7Var = this.i) != null) {
-            long j = xt7Var.a;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (gv7Var = this.i) != null) {
+            long j = gv7Var.a;
             if (j > 0) {
-                rp4 rp4Var = this.j;
-                if (rp4Var != null) {
-                    rp4Var.c(view2, xt7Var, xt7Var.b, j);
+                iq4<gv7> iq4Var = this.j;
+                if (iq4Var != null) {
+                    iq4Var.c(view2, gv7Var, gv7Var.b, j);
                 }
                 String tryFixDefaultValue = StringUtils.tryFixDefaultValue(String.valueOf(this.i.a));
                 String tryFixDefaultValue2 = StringUtils.tryFixDefaultValue(this.i.c);
@@ -214,7 +215,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
                 }
                 if (!this.i.b() && NewWebHotTopicPageSwitch.isOn()) {
                     if (getContext() instanceof BaseActivity) {
-                        ai5.e(((BaseActivity) getContext()).getPageContext(), tryFixDefaultValue, tryFixDefaultValue2);
+                        xi5.e(((BaseActivity) getContext()).getPageContext(), tryFixDefaultValue, tryFixDefaultValue2);
                         return;
                     }
                     return;
@@ -224,10 +225,10 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         }
     }
 
-    public void setOnItemCoverListener(rp4 rp4Var) {
+    public void setOnItemCoverListener(iq4<gv7> iq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rp4Var) == null) {
-            this.j = rp4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iq4Var) == null) {
+            this.j = iq4Var;
         }
     }
 }

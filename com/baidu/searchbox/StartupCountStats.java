@@ -3,6 +3,8 @@ package com.baidu.searchbox;
 import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -42,10 +44,11 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class ExtDataCallBack {
+    public static class ExtDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Nullable
         public JSONObject addData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -71,10 +74,11 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     }
 
     /* loaded from: classes2.dex */
-    public class StatsRule {
+    public static class StatsRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Nullable
         public boolean shouldStats(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -199,6 +203,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @NonNull
     public static String getSampleFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -246,6 +251,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
@@ -253,6 +259,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartupCountExtCallBack(ExtDataCallBack extDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, extDataCallBack) == null) {
@@ -260,6 +267,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartupCountStatsRule(StatsRule statsRule) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, statsRule) == null) {
@@ -267,6 +275,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartupCountStatsType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
@@ -274,6 +283,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartupCountUploadId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
@@ -281,6 +291,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setUseDurationExtCallBack(ExtDataCallBack extDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, extDataCallBack) == null) {
@@ -288,6 +299,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setUseDurationStatsRule(StatsRule statsRule) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, statsRule) == null) {
@@ -295,6 +307,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setUseDurationStatsType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
@@ -302,6 +315,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setUseDurationUploadId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
@@ -310,6 +324,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    @Nullable
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
@@ -318,6 +333,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    @Nullable
     public void onForegroundToBackground(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
@@ -344,6 +360,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    @Nullable
     public void onBackgroundToForeground(Activity activity) {
         String str;
         Interceptable interceptable = $ic;

@@ -13,100 +13,11 @@ import org.json.JSONObject;
 public class vg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List b;
-
-    /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public int c;
-        public int d;
-        public String e;
-        public String f;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optLong("forum_id");
-                aVar.b = jSONObject.optString("forum_name");
-                aVar.c = jSONObject.optInt("member_count");
-                aVar.d = jSONObject.optInt("thread_count");
-                aVar.e = jSONObject.optString("avatar");
-                aVar.f = jSONObject.optString("slogan");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public List b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("name");
-                JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        a a = a.a(optJSONArray.optJSONObject(i));
-                        if (a != null) {
-                            arrayList.add(a);
-                        }
-                    }
-                    bVar.b = arrayList;
-                }
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
+    public boolean a;
+    public double b;
+    public List<String> c;
+    public int d;
+    public int e;
 
     public vg8() {
         Interceptable interceptable = $ic;
@@ -124,24 +35,34 @@ public class vg8 {
 
     public static vg8 a(JSONObject jSONObject) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
             vg8 vg8Var = new vg8();
-            vg8Var.a = jSONObject.optInt("showLocate");
-            JSONArray optJSONArray = jSONObject.optJSONArray("tabList");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    b a2 = b.a(optJSONArray.optJSONObject(i));
-                    if (a2 != null) {
-                        arrayList.add(a2);
+            if (jSONObject.optInt("label_measure") == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            vg8Var.a = z;
+            vg8Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        vi7.a(arrayList, optJSONObject.optString("pic"));
                     }
                 }
-                vg8Var.b = arrayList;
             }
+            vg8Var.c = arrayList;
+            vg8Var.d = jSONObject.optInt("width");
+            vg8Var.e = jSONObject.optInt("height");
             return vg8Var;
         }
         return (vg8) invokeL.objValue;

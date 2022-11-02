@@ -1,9 +1,10 @@
 package com.bumptech.glide.module;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.bumptech.glide.GlideBuilder;
 @Deprecated
 /* loaded from: classes7.dex */
 public interface AppliesOptions {
-    void applyOptions(Context context, GlideBuilder glideBuilder);
+    void applyOptions(@NonNull Context context, @NonNull GlideBuilder glideBuilder);
 }

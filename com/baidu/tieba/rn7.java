@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rn7 {
+public class rn7 implements LiveCustomSettingService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,11 +25,13 @@ public class rn7 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService
+    public boolean isFreeTrafficMode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            jSONObject.optString("error_code");
-            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ax8.c().d();
         }
+        return invokeV.booleanValue;
     }
 }

@@ -13,15 +13,14 @@ import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.impls.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b implements l {
-    public List a;
+    public List<Integer> a;
     public BroadcastReceiver b;
 
     @Override // com.ss.android.socialbase.downloader.downloader.l
-    public List a() {
+    public List<String> a() {
         return c.c();
     }
 
@@ -235,7 +234,7 @@ public class b implements l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(List list, int i) {
+    public void b(List<DownloadInfo> list, int i) {
         if (list != null && !list.isEmpty()) {
             g l = d.j().l();
             if (l != null) {
@@ -246,11 +245,10 @@ public class b implements l {
                 return;
             }
             boolean b = f.b(N);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                a(N, (DownloadInfo) it.next(), b, i);
+            for (DownloadInfo downloadInfo : list) {
+                a(N, downloadInfo, b, i);
             }
-            List list2 = this.a;
+            List<Integer> list2 = this.a;
             if (list2 != null && !list2.isEmpty() && this.b == null) {
                 this.b = new BroadcastReceiver() { // from class: com.ss.android.socialbase.appdownloader.d.b.2
                     @Override // android.content.BroadcastReceiver
@@ -270,9 +268,9 @@ public class b implements l {
                                         b.this.a.toArray(numArr);
                                         b.this.a.clear();
                                         for (int i2 = 0; i2 < size; i2++) {
-                                            DownloadInfo downloadInfo = Downloader.getInstance(applicationContext).getDownloadInfo(numArr[i2].intValue());
-                                            if (downloadInfo != null && (downloadInfo.getRealStatus() == -5 || (downloadInfo.getRealStatus() == -2 && downloadInfo.isPauseReserveOnWifi()))) {
-                                                b.this.a(applicationContext, downloadInfo, true, 2);
+                                            DownloadInfo downloadInfo2 = Downloader.getInstance(applicationContext).getDownloadInfo(numArr[i2].intValue());
+                                            if (downloadInfo2 != null && (downloadInfo2.getRealStatus() == -5 || (downloadInfo2.getRealStatus() == -2 && downloadInfo2.isPauseReserveOnWifi()))) {
+                                                b.this.a(applicationContext, downloadInfo2, true, 2);
                                             }
                                         }
                                     }
@@ -302,7 +300,7 @@ public class b implements l {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.l
-    public void a(final List list, final int i) {
+    public void a(final List<DownloadInfo> list, final int i) {
         if (f.d()) {
             com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.d.b.1
                 @Override // java.lang.Runnable

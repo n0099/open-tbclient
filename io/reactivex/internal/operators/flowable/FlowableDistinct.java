@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
@@ -18,21 +19,21 @@ import java.util.Collection;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableDistinct extends AbstractFlowableWithUpstream {
+public final class FlowableDistinct<T, K> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable collectionSupplier;
-    public final Function keySelector;
+    public final Callable<? extends Collection<? super K>> collectionSupplier;
+    public final Function<? super T, K> keySelector;
 
     /* loaded from: classes8.dex */
-    public final class DistinctSubscriber extends BasicFuseableSubscriber {
+    public static final class DistinctSubscriber<T, K> extends BasicFuseableSubscriber<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Collection collection;
-        public final Function keySelector;
+        public final Collection<? super K> collection;
+        public final Function<? super T, K> keySelector;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DistinctSubscriber(Subscriber subscriber, Function function, Collection collection) {
+        public DistinctSubscriber(Subscriber<? super T> subscriber, Function<? super T, K> function, Collection<? super K> collection) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -97,15 +98,15 @@ public final class FlowableDistinct extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.done) {
                 return;
             }
             if (this.sourceMode == 0) {
                 try {
-                    if (this.collection.add(ObjectHelper.requireNonNull(this.keySelector.apply(obj), "The keySelector returned a null key"))) {
-                        this.actual.onNext(obj);
+                    if (this.collection.add(ObjectHelper.requireNonNull(this.keySelector.apply(t), "The keySelector returned a null key"))) {
+                        this.actual.onNext(t);
                         return;
                     } else {
                         this.s.request(1L);
@@ -120,14 +121,15 @@ public final class FlowableDistinct extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
-            Object poll;
+        @Nullable
+        public T poll() throws Exception {
+            T poll;
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 while (true) {
                     poll = this.qs.poll();
-                    if (poll == null || this.collection.add(ObjectHelper.requireNonNull(this.keySelector.apply(poll), "The keySelector returned a null key"))) {
+                    if (poll == null || this.collection.add((Object) ObjectHelper.requireNonNull(this.keySelector.apply(poll), "The keySelector returned a null key"))) {
                         break;
                     } else if (this.sourceMode == 2) {
                         this.s.request(1L);
@@ -135,12 +137,12 @@ public final class FlowableDistinct extends AbstractFlowableWithUpstream {
                 }
                 return poll;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDistinct(Flowable flowable, Function function, Callable callable) {
+    public FlowableDistinct(Flowable<T> flowable, Function<? super T, K> function, Callable<? extends Collection<? super K>> callable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -162,7 +164,7 @@ public final class FlowableDistinct extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

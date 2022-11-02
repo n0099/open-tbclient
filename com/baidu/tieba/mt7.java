@@ -1,178 +1,172 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.RecommendForumInfo;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 /* loaded from: classes5.dex */
 public class mt7 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947984281, "Lcom/baidu/tieba/mt7;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984281, "Lcom/baidu/tieba/mt7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984281, "Lcom/baidu/tieba/mt7;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947984281, "Lcom/baidu/tieba/mt7;");
-        }
+        a = et7.c + "draft/";
+        b = a + "upload_draft";
     }
 
-    public mt7() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists()) {
+                file.delete();
             }
         }
     }
 
-    public void a(int i, ht7 ht7Var, int i2, List list, BdTypeRecyclerView bdTypeRecyclerView) {
-        List list2;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
+    public static FaceGroupDraft b() {
+        InterceptResult invokeV;
+        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), ht7Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) && ht7Var != null && (list2 = ht7Var.a) != null && !ListUtils.isEmpty(list2)) {
-            ArrayList arrayList = new ArrayList();
-            c(i, arrayList, list);
-            List<ft7> list3 = ht7Var.a;
-            if (list3 != null && list3.size() > 0) {
-                int i3 = 0;
-                for (ft7 ft7Var : list3) {
-                    if (ft7Var != null && i == ft7Var.b.intValue()) {
-                        List list4 = ft7Var.a;
-                        if (list4 != null && list4.size() > 0) {
-                            for (int i4 = 0; i4 < list4.size(); i4++) {
-                                if (list4.get(i4) != null) {
-                                    if (arrayList.size() >= 20) {
-                                        d((eo) list.get(i2));
-                                        bdTypeRecyclerView.setData(list);
-                                        return;
-                                    } else if (i3 >= 4) {
-                                        bdTypeRecyclerView.setData(list);
-                                        return;
-                                    } else {
-                                        if (i4 == list4.size() - 1) {
-                                            d((eo) list.get(i2));
-                                        }
-                                        RecommendForumInfo recommendForumInfo = ((lt7) list4.get(i4)).a;
-                                        if (!arrayList.contains(recommendForumInfo.forum_id)) {
-                                            it7 it7Var = new it7();
-                                            it7Var.n(ft7Var.b.intValue());
-                                            it7Var.l(recommendForumInfo.avatar);
-                                            it7Var.q(recommendForumInfo.forum_id.longValue());
-                                            it7Var.r(recommendForumInfo.forum_name);
-                                            it7Var.s(recommendForumInfo.member_count.intValue());
-                                            it7Var.w(recommendForumInfo.thread_count.intValue());
-                                            it7Var.v(recommendForumInfo.slogan);
-                                            it7Var.t(false);
-                                            list.add(i2, it7Var);
-                                            arrayList.add(recommendForumInfo.forum_id);
-                                            i2++;
-                                            i3++;
-                                        }
-                                    }
-                                }
-                            }
-                            bdTypeRecyclerView.setData(list);
-                        } else {
-                            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(b);
+            ?? r2 = 0;
+            r2 = null;
+            r2 = null;
+            r2 = null;
+            r2 = null;
+            FaceGroupDraft faceGroupDraft2 = null;
+            r2 = null;
+            r2 = null;
+            ObjectInputStream objectInputStream = null;
+            try {
+                if (!file.exists()) {
+                    return null;
+                }
+                try {
+                    ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
+                    try {
+                        Object readObject = objectInputStream2.readObject();
+                        if (readObject != null && (readObject instanceof FaceGroupDraft)) {
+                            faceGroupDraft2 = (FaceGroupDraft) readObject;
                         }
+                        objectInputStream2.close();
+                        vg.c(objectInputStream2);
+                        return faceGroupDraft2;
+                    } catch (IOException e) {
+                        e = e;
+                        FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft3;
+                        e.printStackTrace();
+                        vg.c(objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
+                    } catch (ClassNotFoundException e2) {
+                        e = e2;
+                        FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft4;
+                        e.printStackTrace();
+                        vg.c(objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
+                    } catch (Throwable th) {
+                        th = th;
+                        FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft5;
+                        th.printStackTrace();
+                        vg.c(objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
                     }
+                } catch (IOException e3) {
+                    e = e3;
+                    faceGroupDraft = null;
+                } catch (ClassNotFoundException e4) {
+                    e = e4;
+                    faceGroupDraft = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    faceGroupDraft = null;
                 }
+            } catch (Throwable th3) {
+                vg.c(r2);
+                throw th3;
             }
+        } else {
+            return (FaceGroupDraft) invokeV.objValue;
         }
     }
 
-    public List b(List list) {
-        InterceptResult invokeL;
+    public static void c(FaceGroupDraft faceGroupDraft) {
+        ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (list != null && list.size() > 0) {
-                ArrayList arrayList = new ArrayList();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    ft7 ft7Var = (ft7) it.next();
-                    if (ft7Var != null) {
-                        kt7 kt7Var = new kt7();
-                        kt7Var.f(ft7Var.b.intValue());
-                        kt7Var.c(ft7Var.d);
-                        kt7Var.g(ft7Var.c);
-                        arrayList.add(kt7Var);
-                        List<lt7> list2 = ft7Var.a;
-                        if (list2 != null && list2.size() > 0) {
-                            a = 0;
-                            for (lt7 lt7Var : list2) {
-                                if (lt7Var != null) {
-                                    if (a >= 4) {
-                                        break;
-                                    }
-                                    it7 it7Var = new it7();
-                                    RecommendForumInfo recommendForumInfo = lt7Var.a;
-                                    it7Var.n(ft7Var.b.intValue());
-                                    it7Var.o(ft7Var.c);
-                                    it7Var.l(recommendForumInfo.avatar);
-                                    it7Var.q(recommendForumInfo.forum_id.longValue());
-                                    it7Var.r(recommendForumInfo.forum_name);
-                                    it7Var.s(recommendForumInfo.member_count.intValue());
-                                    it7Var.w(recommendForumInfo.thread_count.intValue());
-                                    it7Var.v(recommendForumInfo.slogan);
-                                    arrayList.add(it7Var);
-                                    a++;
-                                }
-                            }
-                            jt7 jt7Var = new jt7();
-                            jt7Var.f(ft7Var.b.intValue());
-                            jt7Var.g(ft7Var.c);
-                            arrayList.add(jt7Var);
-                        }
+        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
+            ObjectOutputStream objectOutputStream2 = null;
+            try {
+                try {
+                    File file = new File(a);
+                    if (!file.exists()) {
+                        file.mkdirs();
                     }
+                    a();
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
+                } finally {
+                    vg.d(objectOutputStream2);
                 }
-                return arrayList;
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Throwable th) {
+                th = th;
             }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void c(int i, List list, List list2) {
-        it7 it7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
-            Iterator it = list2.iterator();
-            while (it.hasNext()) {
-                eo eoVar = (eo) it.next();
-                if ((eoVar instanceof it7) && (it7Var = (it7) eoVar) != null && it7Var.b() == i) {
-                    list.add(Long.valueOf(it7Var.c()));
-                }
+            try {
+                objectOutputStream.writeObject(faceGroupDraft);
+                vg.d(objectOutputStream);
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (IOException e4) {
+                e = e4;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (Throwable th2) {
+                th = th2;
+                objectOutputStream2 = objectOutputStream;
+                th.printStackTrace();
             }
-        }
-    }
-
-    public final void d(eo eoVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, eoVar) == null) && (eoVar instanceof jt7)) {
-            ((jt7) eoVar).h(false);
         }
     }
 }

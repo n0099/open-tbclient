@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.utils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +18,7 @@ public final class BdVideoLog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class DefaultVideoLog extends VideoLog {
+    public static class DefaultVideoLog extends VideoLog {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +37,7 @@ public final class BdVideoLog {
         }
 
         @Override // com.baidu.searchbox.player.utils.VideoLog
-        public boolean isLoggable(int i, String str) {
+        public boolean isLoggable(int i, @Nullable String str) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
@@ -103,7 +105,7 @@ public final class BdVideoLog {
         }
     }
 
-    public static void inject(VideoLog videoLog) {
+    public static void inject(@NonNull VideoLog videoLog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, videoLog) == null) {
             sVideoLog = videoLog;
@@ -132,7 +134,7 @@ public final class BdVideoLog {
         }
     }
 
-    public static void d(String str, String str2) {
+    public static void d(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
             doLog(3, str, str2, null);
@@ -210,7 +212,7 @@ public final class BdVideoLog {
         }
     }
 
-    public static void doLog(int i, String str, String str2, Throwable th) {
+    public static void doLog(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
             sVideoLog.doLog(i, str, str2, th);

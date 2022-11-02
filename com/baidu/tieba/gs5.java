@@ -1,179 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountRealNameCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.dto.RealNameDTO;
-import com.baidu.sapi2.result.AccountRealNameResult;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tieba.ww3;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.tencent.connect.share.QzonePublish;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gs5 extends ActivityDelegation implements t04 {
+public class gs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements SapiCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ww3.d a;
-        public final /* synthetic */ gs5 b;
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public a(gs5 gs5Var, ww3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gs5Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gs5Var;
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) {
-                this.a.onFail(checkUserFaceIdResult.getResultMsg());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
-                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
-                    this.b.f(null, null, this.a);
-                } else {
-                    this.a.onSuccess();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends AccountRealNameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ww3.d a;
-
-        public b(gs5 gs5Var, ww3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gs5Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
-        public void onFinish(AccountRealNameResult accountRealNameResult) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
-                super.onFinish(accountRealNameResult);
-                if (accountRealNameResult.getResultCode() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    this.a.onSuccess();
-                } else {
-                    this.a.onFail(accountRealNameResult.getResultMsg());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements ww3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gs5 a;
-
-        public c(gs5 gs5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gs5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gs5Var;
-        }
-
-        @Override // com.baidu.tieba.ww3.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.mResult.putString("bundle_fail", "real_name_success");
-                this.a.finish();
-            }
-        }
-
-        @Override // com.baidu.tieba.ww3.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mResult.putString("bundle_success", "real_name_success");
-                this.a.finish();
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public long j;
+    public long k;
 
     public gs5() {
         Interceptable interceptable = $ic;
@@ -185,48 +37,110 @@ public class gs5 extends ActivityDelegation implements t04 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = "";
+        this.c = "";
+        this.e = "";
+        this.f = "";
+        this.b = "";
+        this.a = "";
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f((Context) getAgent(), lg3.g(this.mParams, "swanAppId"), new c(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.d);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static gs5 a(AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
+            gs5 gs5Var = new gs5();
+            if (adInfo == null) {
+                return gs5Var;
+            }
+            gs5Var.a = adInfo.adImgUrl;
+            gs5Var.b = adInfo.redirectUrl;
+            gs5Var.j = adInfo.startShowTime;
+            gs5Var.k = adInfo.endShowTime;
+            gs5Var.d = adInfo.videoLocalPath;
+            gs5Var.e = adInfo.videoJumpUrl;
+            gs5Var.f = adInfo.videoMd5;
+            gs5Var.g = adInfo.videoDuration;
+            gs5Var.h = adInfo.videoWidth;
+            gs5Var.i = adInfo.videoHight;
+            gs5Var.c = adInfo.adVideoUrl;
+            return gs5Var;
+        }
+        return (gs5) invokeL.objValue;
+    }
+
+    public static gs5 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            gs5 gs5Var = new gs5();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                gs5Var.a = jSONObject.optString("adImgUrl");
+                gs5Var.b = jSONObject.optString("redirectUrl");
+                gs5Var.d = jSONObject.optString("videoLocalPath");
+                gs5Var.j = jSONObject.optLong("startShowTime");
+                gs5Var.k = jSONObject.optLong("endShowTime");
+                gs5Var.e = jSONObject.optString("videoJumpUrl");
+                gs5Var.f = jSONObject.optString("videoMd5");
+                gs5Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
+                gs5Var.h = jSONObject.optInt("videoWidth");
+                gs5Var.i = jSONObject.optInt("videoHeight");
+                gs5Var.c = jSONObject.optString("adVideoUrl");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return gs5Var;
+        }
+        return (gs5) invokeL.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if ((System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0)) {
+                return true;
+            }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t04
-    public void b(ww3.d dVar) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adImgUrl", this.a);
+                jSONObject.put("redirectUrl", this.b);
+                jSONObject.put("videoLocalPath", this.d);
+                jSONObject.put("startShowTime", this.j);
+                jSONObject.put("endShowTime", this.k);
+                jSONObject.put("videoMd5", this.f);
+                jSONObject.put("videoJumpUrl", this.e);
+                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
+                jSONObject.put("videoWidth", this.h);
+                jSONObject.put("videoHeight", this.i);
+                jSONObject.put("adVideoUrl", this.c);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", "baidugame");
-            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new a(this, dVar), session.bduss, hashMap);
+            return jSONObject.toString();
         }
-    }
-
-    public final void f(Context context, String str, ww3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
-            }
-            RealNameDTO realNameDTO = new RealNameDTO();
-            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
-            realNameDTO.scene = "baidugame";
-            realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(zo2.U().getActivity(), new b(this, dVar), realNameDTO);
-        }
+        return (String) invokeV.objValue;
     }
 }

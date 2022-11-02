@@ -1,5 +1,7 @@
 package com.bumptech.glide.provider;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,8 +16,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public class ModelToResourceClassCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap registeredResourceClassCache;
-    public final AtomicReference resourceClassKeyRef;
+    public final ArrayMap<MultiClassKey, List<Class<?>>> registeredResourceClassCache;
+    public final AtomicReference<MultiClassKey> resourceClassKeyRef;
 
     public ModelToResourceClassCache() {
         Interceptable interceptable = $ic;
@@ -30,8 +32,8 @@ public class ModelToResourceClassCache {
                 return;
             }
         }
-        this.resourceClassKeyRef = new AtomicReference();
-        this.registeredResourceClassCache = new ArrayMap();
+        this.resourceClassKeyRef = new AtomicReference<>();
+        this.registeredResourceClassCache = new ArrayMap<>();
     }
 
     public void clear() {
@@ -43,27 +45,28 @@ public class ModelToResourceClassCache {
         }
     }
 
-    public List get(Class cls, Class cls2, Class cls3) {
+    @Nullable
+    public List<Class<?>> get(@NonNull Class<?> cls, @NonNull Class<?> cls2, @NonNull Class<?> cls3) {
         InterceptResult invokeLLL;
-        List list;
+        List<Class<?>> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2, cls3)) == null) {
-            MultiClassKey multiClassKey = (MultiClassKey) this.resourceClassKeyRef.getAndSet(null);
-            if (multiClassKey == null) {
-                multiClassKey = new MultiClassKey(cls, cls2, cls3);
+            MultiClassKey andSet = this.resourceClassKeyRef.getAndSet(null);
+            if (andSet == null) {
+                andSet = new MultiClassKey(cls, cls2, cls3);
             } else {
-                multiClassKey.set(cls, cls2, cls3);
+                andSet.set(cls, cls2, cls3);
             }
             synchronized (this.registeredResourceClassCache) {
-                list = (List) this.registeredResourceClassCache.get(multiClassKey);
+                list = this.registeredResourceClassCache.get(andSet);
             }
-            this.resourceClassKeyRef.set(multiClassKey);
+            this.resourceClassKeyRef.set(andSet);
             return list;
         }
         return (List) invokeLLL.objValue;
     }
 
-    public void put(Class cls, Class cls2, Class cls3, List list) {
+    public void put(@NonNull Class<?> cls, @NonNull Class<?> cls2, @NonNull Class<?> cls3, @NonNull List<Class<?>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, cls3, list) == null) {
             synchronized (this.registeredResourceClassCache) {

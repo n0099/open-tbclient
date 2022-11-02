@@ -1,115 +1,139 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class uc4 {
-    public static /* synthetic */ Interceptable $ic;
+public class uc4 extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile uc4 b = null;
+    public static final int c = 12;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Class<?>, mc4> a;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948206179, "Lcom/baidu/tieba/uc4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948206179, "Lcom/baidu/tieba/uc4;");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public uc4() {
+        this("ai_apps_pms.db", c);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String a = vj4.a(vj4.a(vj4.a(vj4.a(vj4.a(vj4.a(vj4.a(vj4.a(vj4.a(vj4.a(vj4.a(str, "cuid", xa4.b().g()), "uuid", xa4.b().e()), "ut", xa4.b().I()), "ua", vj4.b(xa4.b().h())), "host_app", xa4.b().c()), "host_app_ver", xa4.b().h()), "host_os", nj4.f()), "host_os_ver", nj4.g()), "network", nj4.e()), "sdk_ver", xa4.b().b()), "ut_score", String.valueOf(xa4.b().a()));
-            String q = xa4.b().q();
-            if (!TextUtils.isEmpty(q)) {
-                return vj4.a(a, "sid", q);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return a;
         }
-        return (String) invokeL.objValue;
+        c();
     }
 
-    public static String b(String str, Map map) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uc4(String str, int i) {
+        super(AppRuntime.getAppContext(), str, null, i, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (map != null) {
-                for (String str2 : map.keySet()) {
-                    if (!TextUtils.isEmpty((CharSequence) map.get(str2))) {
-                        str = vj4.a(str, str2, (String) map.get(str2));
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return str;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return h() + "/getopenbundleid";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
+    public static uc4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h() + "/fetchpkglist";
+            if (b == null) {
+                synchronized (uc4.class) {
+                    if (b == null) {
+                        b = new uc4();
+                    }
+                }
+            }
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (uc4) invokeV.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return h() + "/getpkg";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b = null;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h() + "/getplugin";
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ConcurrentHashMap<Class<?>, mc4> concurrentHashMap = new ConcurrentHashMap<>();
+            this.a = concurrentHashMap;
+            concurrentHashMap.put(dd4.class, new qc4());
+            this.a.put(ed4.class, new rc4());
+            this.a.put(PMSAppInfo.class, new nc4());
+            this.a.put(bd4.class, new pc4());
+            this.a.put(zc4.class, new oc4());
+            this.a.put(fd4.class, new sc4());
+            this.a.put(gd4.class, new tc4());
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String g() {
-        InterceptResult invokeV;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h() + "/updatecore";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            for (mc4 mc4Var : this.a.values()) {
+                mc4Var.a(sQLiteDatabase);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String h() {
-        InterceptResult invokeV;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return xa4.b().E();
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+            for (mc4 mc4Var : this.a.values()) {
+                mc4Var.onUpgrade(sQLiteDatabase, i, i2);
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return a(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(String str, Map map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
-            return b(a(str), map);
-        }
-        return (String) invokeLL.objValue;
     }
 }

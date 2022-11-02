@@ -15,7 +15,7 @@ public interface IRevenueService {
         void onRevenueResponse(int i, IResponse iResponse);
     }
 
-    IRequest obtainRequest(int i, RequestParams requestParams);
+    <T extends RequestParams> IRequest obtainRequest(int i, T t);
 
     void sendRequest(IRequest iRequest);
 }

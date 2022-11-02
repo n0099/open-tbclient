@@ -5,10 +5,10 @@ import android.graphics.RectF;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b56;
-import com.baidu.tieba.b76;
-import com.baidu.tieba.t46;
-import com.baidu.tieba.z66;
+import com.baidu.tieba.d66;
+import com.baidu.tieba.j86;
+import com.baidu.tieba.l66;
+import com.baidu.tieba.l86;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,38 +19,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.collections.MapsKt__MapWithDefaultKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.MutablePropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
-@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010%\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u001e\b\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010_\u001a\u00020<2\u0006\u0010+\u001a\u00020\nJ\b\u0010`\u001a\u00020*H\u0002J\u0006\u0010a\u001a\u00020*J\b\u0010b\u001a\u00020*H\u0016J\u0006\u0010c\u001a\u00020*J\b\u0010d\u001a\u00020\u001eH\u0016J\u0010\u0010e\u001a\u00020*2\u0006\u0010f\u001a\u00020JH\u0002J\u0010\u0010g\u001a\u00020*2\u0006\u00107\u001a\u000208H\u0002R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR+\u0010\u000b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0012\u001a\u00020\u0013X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R+\u0010\u0018\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8V@VX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u001b\u0010\u0011\u001a\u0004\b\u0019\u0010\r\"\u0004\b\u001a\u0010\u000fR\u001a\u0010\u001c\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020\n0\u001dX\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u001f\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\"\u0010#\u001a\u0004\b \u0010\u0006\"\u0004\b!\u0010\bR+\u0010$\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b'\u0010\u0011\u001a\u0004\b%\u0010\r\"\u0004\b&\u0010\u000fR\u001a\u0010(\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020*0)X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010+\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b.\u0010\u0011\u001a\u0004\b,\u0010\r\"\u0004\b-\u0010\u000fR+\u0010/\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b2\u0010#\u001a\u0004\b0\u0010\u0006\"\u0004\b1\u0010\bR+\u00103\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b6\u0010#\u001a\u0004\b4\u0010\u0006\"\u0004\b5\u0010\bR\u0016\u00107\u001a\u0002088@X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b9\u0010:R\u000e\u0010;\u001a\u00020<X\u0082\u000e¢\u0006\u0002\n\u0000R+\u0010=\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b@\u0010#\u001a\u0004\b>\u0010\u0006\"\u0004\b?\u0010\bR+\u0010A\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bD\u0010#\u001a\u0004\bB\u0010\u0006\"\u0004\bC\u0010\bR+\u0010E\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bH\u0010#\u001a\u0004\bF\u0010\u0006\"\u0004\bG\u0010\bR\u0016\u0010I\u001a\u00020J8@X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\bK\u0010LR\u000e\u0010M\u001a\u00020<X\u0082\u000e¢\u0006\u0002\n\u0000R+\u0010N\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bQ\u0010#\u001a\u0004\bO\u0010\u0006\"\u0004\bP\u0010\bR+\u0010R\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bU\u0010#\u001a\u0004\bS\u0010\u0006\"\u0004\bT\u0010\bR\u001a\u0010V\u001a\u00020<X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR+\u0010[\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b^\u0010#\u001a\u0004\b\\\u0010\u0006\"\u0004\b]\u0010\b¨\u0006h"}, d2 = {"Lcom/baidu/tieba/danmu/data/state/DrawState;", "Lcom/baidu/tieba/danmu/data/state/State;", "()V", Key.ALPHA, "", "getAlpha", "()F", "setAlpha", "(F)V", "<set-?>", "", "cacheGeneration", "getCacheGeneration", "()I", "setCacheGeneration", "(I)V", "cacheGeneration$delegate", "Ljava/util/Map;", "drawingCache", "Lcom/baidu/tieba/danmu/cache/DrawingCache;", "getDrawingCache", "()Lcom/baidu/tieba/danmu/cache/DrawingCache;", "setDrawingCache", "(Lcom/baidu/tieba/danmu/cache/DrawingCache;)V", "generation", "getGeneration", "setGeneration", "generation$delegate", "generationMap", "", "", "height", "getHeight", "setHeight", "height$delegate", "Lcom/baidu/tieba/danmu/utils/ChangeObserverDelegate;", "layoutGeneration", "getLayoutGeneration", "setLayoutGeneration", "layoutGeneration$delegate", "marker", "Lkotlin/Function1;", "", "measureGeneration", "getMeasureGeneration", "setMeasureGeneration", "measureGeneration$delegate", "positionX", "getPositionX", "setPositionX", "positionX$delegate", "positionY", "getPositionY", "setPositionY", "positionY$delegate", "rect", "Landroid/graphics/RectF;", "getRect$danmu_release", "()Landroid/graphics/RectF;", "rectDirty", "", Key.ROTATION, "getRotation", "setRotation", "rotation$delegate", Key.SCALE_X, "getScaleX", "setScaleX", "scaleX$delegate", Key.SCALE_Y, "getScaleY", "setScaleY", "scaleY$delegate", "transform", "Landroid/graphics/Matrix;", "getTransform$danmu_release", "()Landroid/graphics/Matrix;", "transformDirty", "translateX", "getTranslateX", "setTranslateX", "translateX$delegate", "translateY", "getTranslateY", "setTranslateY", "translateY$delegate", "visibility", "getVisibility", "()Z", "setVisibility", "(Z)V", "width", "getWidth", "setWidth", "width$delegate", "isMeasured", "markDirty", "recycle", "reset", "resetActionProperty", "toString", "updateMatrix", "matrix", "updateRect", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010%\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u001e\b\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010_\u001a\u00020<2\u0006\u0010+\u001a\u00020\nJ\b\u0010`\u001a\u00020*H\u0002J\u0006\u0010a\u001a\u00020*J\b\u0010b\u001a\u00020*H\u0016J\u0006\u0010c\u001a\u00020*J\b\u0010d\u001a\u00020\u001eH\u0016J\u0010\u0010e\u001a\u00020*2\u0006\u0010f\u001a\u00020JH\u0002J\u0010\u0010g\u001a\u00020*2\u0006\u00107\u001a\u000208H\u0002R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR+\u0010\u000b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0012\u001a\u00020\u0013X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R+\u0010\u0018\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8V@VX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u001b\u0010\u0011\u001a\u0004\b\u0019\u0010\r\"\u0004\b\u001a\u0010\u000fR\u001a\u0010\u001c\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020\n0\u001dX\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u001f\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\"\u0010#\u001a\u0004\b \u0010\u0006\"\u0004\b!\u0010\bR+\u0010$\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b'\u0010\u0011\u001a\u0004\b%\u0010\r\"\u0004\b&\u0010\u000fR\u001a\u0010(\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020*0)X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010+\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b.\u0010\u0011\u001a\u0004\b,\u0010\r\"\u0004\b-\u0010\u000fR+\u0010/\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b2\u0010#\u001a\u0004\b0\u0010\u0006\"\u0004\b1\u0010\bR+\u00103\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b6\u0010#\u001a\u0004\b4\u0010\u0006\"\u0004\b5\u0010\bR\u0016\u00107\u001a\u0002088@X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b9\u0010:R\u000e\u0010;\u001a\u00020<X\u0082\u000e¢\u0006\u0002\n\u0000R+\u0010=\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b@\u0010#\u001a\u0004\b>\u0010\u0006\"\u0004\b?\u0010\bR+\u0010A\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bD\u0010#\u001a\u0004\bB\u0010\u0006\"\u0004\bC\u0010\bR+\u0010E\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bH\u0010#\u001a\u0004\bF\u0010\u0006\"\u0004\bG\u0010\bR\u0016\u0010I\u001a\u00020J8@X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\bK\u0010LR\u000e\u0010M\u001a\u00020<X\u0082\u000e¢\u0006\u0002\n\u0000R+\u0010N\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bQ\u0010#\u001a\u0004\bO\u0010\u0006\"\u0004\bP\u0010\bR+\u0010R\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bU\u0010#\u001a\u0004\bS\u0010\u0006\"\u0004\bT\u0010\bR\u001a\u0010V\u001a\u00020<X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR+\u0010[\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b^\u0010#\u001a\u0004\b\\\u0010\u0006\"\u0004\b]\u0010\b¨\u0006h"}, d2 = {"Lcom/baidu/tieba/danmu/data/state/DrawState;", "Lcom/baidu/tieba/danmu/data/state/State;", "()V", Key.ALPHA, "", "getAlpha", "()F", "setAlpha", "(F)V", "<set-?>", "", "cacheGeneration", "getCacheGeneration", "()I", "setCacheGeneration", "(I)V", "cacheGeneration$delegate", "Ljava/util/Map;", "drawingCache", "Lcom/baidu/tieba/danmu/cache/DrawingCache;", "getDrawingCache", "()Lcom/baidu/tieba/danmu/cache/DrawingCache;", "setDrawingCache", "(Lcom/baidu/tieba/danmu/cache/DrawingCache;)V", "generation", "getGeneration", "setGeneration", "generation$delegate", "generationMap", "", "", "height", "getHeight", "setHeight", "height$delegate", "Lcom/baidu/tieba/danmu/utils/ChangeObserverDelegate;", "layoutGeneration", "getLayoutGeneration", "setLayoutGeneration", "layoutGeneration$delegate", "marker", "Lkotlin/Function1;", "", "measureGeneration", "getMeasureGeneration", "setMeasureGeneration", "measureGeneration$delegate", "positionX", "getPositionX", "setPositionX", "positionX$delegate", "positionY", "getPositionY", "setPositionY", "positionY$delegate", "rect", "Landroid/graphics/RectF;", "getRect$danmu_release", "()Landroid/graphics/RectF;", "rectDirty", "", "rotation", "getRotation", "setRotation", "rotation$delegate", Key.SCALE_X, "getScaleX", "setScaleX", "scaleX$delegate", Key.SCALE_Y, "getScaleY", "setScaleY", "scaleY$delegate", "transform", "Landroid/graphics/Matrix;", "getTransform$danmu_release", "()Landroid/graphics/Matrix;", "transformDirty", "translateX", "getTranslateX", "setTranslateX", "translateX$delegate", "translateY", "getTranslateY", "setTranslateY", "translateY$delegate", "visibility", "getVisibility", "()Z", "setVisibility", "(Z)V", "width", "getWidth", "setWidth", "width$delegate", "isMeasured", "markDirty", "recycle", "reset", "resetActionProperty", "toString", "updateMatrix", "matrix", "updateRect", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class DrawState extends b56 {
+public final class DrawState extends l66 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ KProperty[] u;
+    public static final /* synthetic */ KProperty<Object>[] u;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public final RectF b;
     public boolean c;
     public final Matrix d;
-    public final Map e;
+    public final Map<String, Integer> e;
     public final Map f;
     public final Map g;
     public final Map h;
-    public final Function1 i;
-    public t46 j;
+    public final Function1<Float, Unit> i;
+    public d66 j;
     public boolean k;
-    public final z66 l;
-    public final z66 m;
-    public final z66 n;
-    public final z66 o;
-    public final z66 p;
-    public final z66 q;
-    public final z66 r;
-    public final z66 s;
-    public final z66 t;
+    public final j86 l;
+    public final j86 m;
+    public final j86 n;
+    public final j86 o;
+    public final j86 p;
+    public final j86 q;
+    public final j86 r;
+    public final j86 s;
+    public final j86 t;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +66,7 @@ public final class DrawState extends b56 {
                 return;
             }
         }
-        u = new KProperty[]{Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "layoutGeneration", "getLayoutGeneration()I", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "measureGeneration", "getMeasureGeneration()I", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "cacheGeneration", "getCacheGeneration()I", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "generation", "getGeneration()I", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "positionX", "getPositionX()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "positionY", "getPositionY()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "width", "getWidth()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "height", "getHeight()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "translateX", "getTranslateX()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "translateY", "getTranslateY()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, Key.SCALE_X, "getScaleX()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, Key.SCALE_Y, "getScaleY()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, Key.ROTATION, "getRotation()F", 0))};
+        u = new KProperty[]{Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "layoutGeneration", "getLayoutGeneration()I", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "measureGeneration", "getMeasureGeneration()I", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "cacheGeneration", "getCacheGeneration()I", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "generation", "getGeneration()I", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "positionX", "getPositionX()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "positionY", "getPositionY()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "width", "getWidth()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "height", "getHeight()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "translateX", "getTranslateX()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "translateY", "getTranslateY()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, Key.SCALE_X, "getScaleX()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, Key.SCALE_Y, "getScaleY()F", 0)), Reflection.mutableProperty1(new MutablePropertyReference1Impl(DrawState.class, "rotation", "getRotation()F", 0))};
     }
 
     public DrawState() {
@@ -83,24 +84,24 @@ public final class DrawState extends b56 {
         }
         this.b = new RectF();
         this.d = new Matrix();
-        Map withDefaultMutable = MapsKt__MapWithDefaultKt.withDefaultMutable(new LinkedHashMap(), DrawState$generationMap$1.INSTANCE);
+        Map<String, Integer> withDefaultMutable = MapsKt__MapWithDefaultKt.withDefaultMutable(new LinkedHashMap(), DrawState$generationMap$1.INSTANCE);
         this.e = withDefaultMutable;
         this.f = withDefaultMutable;
         this.g = withDefaultMutable;
         this.h = withDefaultMutable;
         this.i = new DrawState$marker$1(this);
-        this.j = t46.f.a();
+        this.j = d66.f.a();
         Float valueOf = Float.valueOf(0.0f);
-        this.l = b76.a(valueOf, this.i);
-        this.m = b76.a(valueOf, this.i);
-        this.n = b76.a(valueOf, this.i);
-        this.o = b76.a(valueOf, this.i);
-        this.p = b76.a(valueOf, this.i);
-        this.q = b76.a(valueOf, this.i);
+        this.l = l86.a(valueOf, this.i);
+        this.m = l86.a(valueOf, this.i);
+        this.n = l86.a(valueOf, this.i);
+        this.o = l86.a(valueOf, this.i);
+        this.p = l86.a(valueOf, this.i);
+        this.q = l86.a(valueOf, this.i);
         Float valueOf2 = Float.valueOf(1.0f);
-        this.r = b76.a(valueOf2, this.i);
-        this.s = b76.a(valueOf2, this.i);
-        this.t = b76.a(valueOf, this.i);
+        this.r = l86.a(valueOf2, this.i);
+        this.s = l86.a(valueOf2, this.i);
+        this.t = l86.a(valueOf, this.i);
     }
 
     public final void A(float f) {
@@ -190,16 +191,16 @@ public final class DrawState extends b56 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
             Map map = this.h;
-            KProperty kProperty = u[2];
+            KProperty<Object> kProperty = u[2];
             map.put(kProperty.getName(), Integer.valueOf(i));
         }
     }
 
-    public final void w(t46 t46Var) {
+    public final void w(d66 d66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, t46Var) == null) {
-            Intrinsics.checkNotNullParameter(t46Var, "<set-?>");
-            this.j = t46Var;
+        if (interceptable == null || interceptable.invokeL(1048609, this, d66Var) == null) {
+            Intrinsics.checkNotNullParameter(d66Var, "<set-?>");
+            this.j = d66Var;
         }
     }
 
@@ -214,7 +215,7 @@ public final class DrawState extends b56 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             Map map = this.f;
-            KProperty kProperty = u[0];
+            KProperty<Object> kProperty = u[0];
             map.put(kProperty.getName(), Integer.valueOf(i));
         }
     }
@@ -223,7 +224,7 @@ public final class DrawState extends b56 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
             Map map = this.g;
-            KProperty kProperty = u[1];
+            KProperty<Object> kProperty = u[1];
             map.put(kProperty.getName(), Integer.valueOf(i));
         }
     }
@@ -248,13 +249,13 @@ public final class DrawState extends b56 {
         return invokeV.intValue;
     }
 
-    public final t46 c() {
+    public final d66 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.j;
         }
-        return (t46) invokeV.objValue;
+        return (d66) invokeV.objValue;
     }
 
     public final float d() {
@@ -411,10 +412,10 @@ public final class DrawState extends b56 {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            if (!Intrinsics.areEqual(this.j, t46.f.a())) {
+            if (!Intrinsics.areEqual(this.j, d66.f.a())) {
                 this.j.d();
             }
-            this.j = t46.f.a();
+            this.j = d66.f.a();
             y(-1);
             v(-1);
             this.k = false;

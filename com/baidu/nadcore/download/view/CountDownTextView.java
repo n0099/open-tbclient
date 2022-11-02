@@ -7,16 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xl0;
+import com.baidu.tieba.wl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CountDownTextView extends LinearLayout implements xl0 {
+public class CountDownTextView extends LinearLayout implements wl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -45,7 +47,7 @@ public class CountDownTextView extends LinearLayout implements xl0 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CountDownTextView(Context context, AttributeSet attributeSet) {
+    public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,7 +86,7 @@ public class CountDownTextView extends LinearLayout implements xl0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CountDownTextView(Context context, AttributeSet attributeSet, int i) {
+    public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,7 +108,7 @@ public class CountDownTextView extends LinearLayout implements xl0 {
         d();
     }
 
-    @Override // com.baidu.tieba.xl0
+    @Override // com.baidu.tieba.wl0
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -121,7 +123,7 @@ public class CountDownTextView extends LinearLayout implements xl0 {
         }
     }
 
-    public void setTextColor(int i) {
+    public void setTextColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.a.setTextColor(i);
@@ -138,7 +140,7 @@ public class CountDownTextView extends LinearLayout implements xl0 {
         }
     }
 
-    @Override // com.baidu.tieba.xl0
+    @Override // com.baidu.tieba.wl0
     public void b(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -146,7 +148,7 @@ public class CountDownTextView extends LinearLayout implements xl0 {
         }
     }
 
-    @Override // com.baidu.tieba.xl0
+    @Override // com.baidu.tieba.wl0
     public void c(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -154,7 +156,7 @@ public class CountDownTextView extends LinearLayout implements xl0 {
         }
     }
 
-    @Override // com.baidu.tieba.xl0
+    @Override // com.baidu.tieba.wl0
     public void onProgress(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -165,7 +167,7 @@ public class CountDownTextView extends LinearLayout implements xl0 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05e4, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f4, this);
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09009b);
             this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09009c);
         }

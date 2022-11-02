@@ -92,8 +92,8 @@ public final class YYLoadPluginPlugin {
             LiveItemModelListService liveItemModelListService = (LiveItemModelListService) ServiceLocator.Companion.getGlobalService(LiveItemModelListService.class);
             this.itemModelListService = liveItemModelListService;
             if (liveItemModelListService != null) {
-                List liveItemModels = liveItemModelListService.getLiveItemModels();
-                if ((!liveItemModels.isEmpty()) && liveItemModelListService.getCurrentPosition() == 0 && (liveItemModel = (LiveContainer.LiveItemModel) liveItemModels.get(0)) != null && (originJson = liveItemModel.getOriginJson()) != null && originJson.optInt("isMix") == 1) {
+                List<LiveContainer.LiveItemModel> liveItemModels = liveItemModelListService.getLiveItemModels();
+                if ((!liveItemModels.isEmpty()) && liveItemModelListService.getCurrentPosition() == 0 && (liveItemModel = liveItemModels.get(0)) != null && (originJson = liveItemModel.getOriginJson()) != null && originJson.optInt("isMix") == 1) {
                     z = true;
                     if (!z) {
                         NpsLoadChainLog.getInstance().initAndStart();
@@ -119,6 +119,7 @@ public final class YYLoadPluginPlugin {
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ YYLoadPluginPlugin this$0;
 
+                        /* JADX DEBUG: Incorrect args count in method signature: ()V */
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {

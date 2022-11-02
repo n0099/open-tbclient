@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
@@ -16,9 +18,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u77;
+import com.baidu.tieba.e97;
+import com.baidu.tieba.h97;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
-import com.baidu.tieba.x77;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,10 +63,10 @@ public class VideoTopicListFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(x77 x77Var) {
+        public void a(h97 h97Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x77Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, x77Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, h97Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, h97Var));
             }
         }
     }
@@ -136,16 +138,17 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public void t1(u77 u77Var) {
+    public void t1(e97 e97Var) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, u77Var) == null) && (videoHotTopicSearchAdapter = this.d) != null && u77Var != null) {
-            videoHotTopicSearchAdapter.d("", u77Var.c());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, e97Var) == null) && (videoHotTopicSearchAdapter = this.d) != null && e97Var != null) {
+            videoHotTopicSearchAdapter.d("", e97Var.c());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Nullable
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {

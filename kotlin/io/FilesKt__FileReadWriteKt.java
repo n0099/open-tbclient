@@ -1,7 +1,6 @@
 package kotlin.io;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,6 +17,7 @@ import java.util.List;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.collections.ArraysKt___ArraysJvmKt;
+import kotlin.internal.InlineOnly;
 import kotlin.internal.PlatformImplementationsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
@@ -48,6 +48,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         forEachBlock(forEachBlock, 4096, action);
     }
 
+    @InlineOnly
     public static final PrintWriter printWriter(File file, Charset charset) {
         BufferedWriter bufferedWriter;
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
@@ -80,6 +81,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
+    @InlineOnly
     public static final InputStreamReader reader(File file, Charset charset) {
         return new InputStreamReader(new FileInputStream(file), charset);
     }
@@ -97,6 +99,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
+    @InlineOnly
     public static final OutputStreamWriter writer(File file, Charset charset) {
         return new OutputStreamWriter(new FileOutputStream(file), charset);
     }
@@ -110,6 +113,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         appendBytes(appendText, bytes);
     }
 
+    @InlineOnly
     public static final BufferedReader bufferedReader(File file, Charset charset, int i) {
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
         if (inputStreamReader instanceof BufferedReader) {
@@ -118,6 +122,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         return new BufferedReader(inputStreamReader, i);
     }
 
+    @InlineOnly
     public static final BufferedWriter bufferedWriter(File file, Charset charset, int i) {
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
         if (outputStreamWriter instanceof BufferedWriter) {
@@ -192,29 +197,34 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.io.FileInputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [byte[], java.lang.Object] */
     public static final void forEachBlock(File forEachBlock, int i, Function2<? super byte[], ? super Integer, Unit> action) {
         Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
         Intrinsics.checkNotNullParameter(action, "action");
-        byte[] bArr = new byte[RangesKt___RangesKt.coerceAtLeast(i, 512)];
+        ?? r2 = new byte[RangesKt___RangesKt.coerceAtLeast(i, 512)];
         FileInputStream fileInputStream = new FileInputStream(forEachBlock);
         while (true) {
             try {
-                int read = fileInputStream.read(bArr);
+                int read = fileInputStream.read(r2);
                 if (read <= 0) {
                     Unit unit = Unit.INSTANCE;
                     CloseableKt.closeFinally(fileInputStream, null);
                     return;
                 }
-                action.invoke(bArr, Integer.valueOf(read));
+                action.invoke(r2, Integer.valueOf(read));
             } finally {
             }
         }
     }
 
+    @InlineOnly
     public static final FileInputStream inputStream(File file) {
         return new FileInputStream(file);
     }
 
+    @InlineOnly
     public static final FileOutputStream outputStream(File file) {
         return new FileOutputStream(file);
     }
@@ -286,7 +296,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
                 } else {
                     int read2 = fileInputStream.read();
                     if (read2 != -1) {
-                        ExposingBufferByteArrayOutputStream exposingBufferByteArrayOutputStream = new ExposingBufferByteArrayOutputStream(UIMsg.k_event.V_WM_ROTATE);
+                        ExposingBufferByteArrayOutputStream exposingBufferByteArrayOutputStream = new ExposingBufferByteArrayOutputStream(8193);
                         exposingBufferByteArrayOutputStream.write(read2);
                         ByteStreamsKt.copyTo$default(fileInputStream, exposingBufferByteArrayOutputStream, 0, 2, null);
                         int size = exposingBufferByteArrayOutputStream.size() + i;
@@ -327,7 +337,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
             bufferedReader = new BufferedReader(inputStreamReader, 8192);
         }
         try {
-            T t = (T) block.invoke(TextStreamsKt.lineSequence(bufferedReader));
+            T invoke = block.invoke(TextStreamsKt.lineSequence(bufferedReader));
             InlineMarker.finallyStart(1);
             if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 1, 0)) {
                 CloseableKt.closeFinally(bufferedReader, null);
@@ -335,7 +345,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
                 bufferedReader.close();
             }
             InlineMarker.finallyEnd(1);
-            return t;
+            return invoke;
         } catch (Throwable th) {
             try {
                 throw th;

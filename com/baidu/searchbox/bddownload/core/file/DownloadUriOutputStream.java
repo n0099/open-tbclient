@@ -7,6 +7,7 @@ import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.file.DownloadOutputStream;
@@ -26,13 +27,17 @@ import java.nio.channels.FileChannel;
 public class DownloadUriOutputStream implements DownloadOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final FileChannel channel;
+    @NonNull
     public final FileOutputStream fos;
+    @NonNull
     public final BufferedOutputStream out;
+    @NonNull
     public final ParcelFileDescriptor pdf;
 
     /* loaded from: classes2.dex */
-    public class Factory implements DownloadOutputStream.Factory {
+    public static class Factory implements DownloadOutputStream.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -108,7 +113,7 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
         throw new FileNotFoundException("result of " + uri + " is null!");
     }
 
-    public DownloadUriOutputStream(FileChannel fileChannel, ParcelFileDescriptor parcelFileDescriptor, FileOutputStream fileOutputStream, BufferedOutputStream bufferedOutputStream) {
+    public DownloadUriOutputStream(@NonNull FileChannel fileChannel, @NonNull ParcelFileDescriptor parcelFileDescriptor, @NonNull FileOutputStream fileOutputStream, @NonNull BufferedOutputStream bufferedOutputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

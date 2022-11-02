@@ -18,7 +18,7 @@ public class InduceSharingABTest extends AbsGroupUbsABTest {
     public static final String INDUCE_SHARING_SID = "12_8_share_a";
     public static final String INDUCE_SHARING_SID_A = "12_8_share_b";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTestSwitch;
 
     static {
@@ -38,7 +38,7 @@ public class InduceSharingABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -80,7 +80,7 @@ public class InduceSharingABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(2);
+        ArrayList<String> arrayList = new ArrayList<>(2);
         this.mABTestList = arrayList;
         arrayList.add(INDUCE_SHARING_SID);
         this.mABTestList.add(INDUCE_SHARING_SID_A);

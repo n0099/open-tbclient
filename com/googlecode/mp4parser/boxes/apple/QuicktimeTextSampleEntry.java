@@ -117,7 +117,7 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer, com.coremedia.iso.boxes.Container
-    public void setBoxes(List list) {
+    public void setBoxes(List<Box> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {
             throw new RuntimeException("QuicktimeTextSampleEntries may not have child boxes");

@@ -1,321 +1,120 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.websocket.WebSocketManager;
-import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.searchbox.websocket.WebSocketTask;
-import com.baidu.swan.games.network.websocket.WebSocketEventTarget;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tieba.p43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Callback;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes4.dex */
-public class l24 extends WebSocketEventTarget {
+public class l24 extends HttpManager {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile l24 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public k24 d;
-
-    /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-682536962, "Lcom/baidu/tieba/l24$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-682536962, "Lcom/baidu/tieba/l24$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[WebSocketEventTarget.SocketTaskState.values().length];
-            a = iArr;
-            try {
-                iArr[WebSocketEventTarget.SocketTaskState.IDLE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[WebSocketEventTarget.SocketTaskState.CLOSE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l24(k24 k24Var, wa2 wa2Var) {
-        super(wa2Var);
+    public l24() {
+        super(ln2.c());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k24Var, wa2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = k24Var;
     }
 
-    public final boolean C(String str, String str2) {
-        InterceptResult invokeLL;
+    public static l24 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (lz2.q()) {
-                return true;
-            }
-            if (!str.startsWith("wss://") || d43.c("socket", str, str2) != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void A(tv1 tv1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tv1Var, str) == null) {
-            String format = String.format("%s:ok", str);
-            if (WebSocketEventTarget.b) {
-                Log.i("WebSocket", format);
-            }
-            y54.call(tv1Var, true, new o24(format));
-        }
-    }
-
-    @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
-    public void onError(Throwable th, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th, jSONObject) == null) {
-            super.onError(th, jSONObject);
-            if (this.d != null && jSONObject != null) {
-                this.d.c(jSONObject.optString("taskID"));
-            }
-        }
-    }
-
-    public l24 B(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject)) == null) {
-            tv1 D = D(jsObject);
-            this.c = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
-            int type = D.getType("url");
-            if (type != 7) {
-                z(D, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", w44.f(7), w44.f(type)));
-                return this;
-            }
-            String B = D.B("url");
-            String B2 = D.B("__plugin__");
-            if (!this.d.a()) {
-                z(D, "connectSocket", "up to max connect count");
-                return this;
-            } else if (!C(B, B2)) {
-                z(D, "connectSocket", String.format("invalid url \"%s\"", B));
-                return this;
-            } else {
-                WebSocketRequest y = y(B, D);
-                E(jsObject);
-                try {
-                    WebSocketTask connect = WebSocketManager.INSTANCE.connect(y, this);
-                    this.c = connect.getTaskId();
-                    this.d.b(connect);
-                    y54.call(D, true, new p24(this.c, String.format("%s:ok", "connectSocket")));
-                    return this;
-                } catch (Exception e) {
-                    z(D, "connectSocket", e.getMessage());
-                    return this;
-                }
-            }
-        }
-        return (l24) invokeL.objValue;
-    }
-
-    public final tv1 D(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsObject)) == null) {
-            tv1 F = tv1.F(jsObject);
-            if (F == null) {
-                return new tv1();
-            }
-            return F;
-        }
-        return (tv1) invokeL.objValue;
-    }
-
-    public final void E(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) && jsObject != null) {
-            jsObject.release();
-        }
-    }
-
-    @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
-    public void onClose(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            super.onClose(jSONObject);
-            if (this.d != null && jSONObject != null) {
-                this.d.c(jSONObject.optString("taskID"));
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            close(null);
-        }
-    }
-
-    @JavascriptInterface
-    public void close(JsObject jsObject) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
-            tv1 D = D(jsObject);
-            if (this.a == WebSocketEventTarget.SocketTaskState.CLOSE) {
-                z(D, "SocketTask.close", "SocketTask.readyState is CLOSED");
-                return;
-            }
-            int r = D.r("code", 1000);
-            String B = D.B("reason");
-            if (r != 1000 && (r < 3000 || r > 4999)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            try {
-                if (!z) {
-                    z(D, "SocketTask.close", m24.a);
-                    return;
-                }
-                try {
-                    WebSocketManager.INSTANCE.close(this.c, r, B);
-                    A(D, "SocketTask.close");
-                } catch (Exception e) {
-                    z(D, "SocketTask.close", e.getMessage());
-                }
-            } finally {
-                this.d.c(this.c);
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public void send(JsObject jsObject) {
-        JsArrayBuffer jsArrayBuffer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
-            tv1 D = D(jsObject);
-            int i = a.a[this.a.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    int type = D.getType("data");
-                    String str = null;
-                    if (type != 7) {
-                        if (type != 10) {
-                            z(D, "SocketTask.send", "invalid data type");
-                            return;
-                        }
-                        jsArrayBuffer = D.t("data", null);
-                    } else {
-                        str = D.C("data", null);
-                        jsArrayBuffer = null;
-                    }
-                    if (str == null && jsArrayBuffer == null) {
-                        z(D, "SocketTask.send", "invalid data type");
-                        return;
-                    }
-                    try {
-                        if (str != null) {
-                            WebSocketManager.INSTANCE.send(this.c, str);
-                        } else if (jsArrayBuffer != null) {
-                            WebSocketManager.INSTANCE.send(this.c, ByteBuffer.wrap(jsArrayBuffer.buffer()));
-                        }
-                        A(D, "SocketTask.send");
-                        return;
-                    } catch (Exception e) {
-                        z(D, "SocketTask.send", e.getMessage());
-                        return;
-                    }
-                }
-                z(D, "SocketTask.send", "SocketTask.readyState is CLOSED");
-                return;
-            }
-            z(D, "SocketTask.send", "SocketTask.readyState is not OPEN");
-        }
-    }
-
-    public final WebSocketRequest y(String str, tv1 tv1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, tv1Var)) == null) {
-            WebSocketRequest.Builder builder = new WebSocketRequest.Builder();
-            builder.setUrl(str);
-            builder.setMethod(tv1Var.B("method"));
-            tv1 w = tv1Var.w("header");
-            if (w != null) {
-                for (String str2 : w.j()) {
-                    if (!TextUtils.isEmpty(str2) && !ou2.d.contains(str2.toUpperCase(Locale.US))) {
-                        builder.addHeader(str2, w.H(str2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (l24.class) {
+                    if (a == null) {
+                        a = new l24();
                     }
                 }
             }
-            String[] D = tv1Var.D(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-            ArrayList arrayList = new ArrayList();
-            if (D != null && D.length != 0) {
-                arrayList.addAll(Arrays.asList(D));
-            } else {
-                arrayList.add("");
-            }
-            builder.setProtocols(arrayList);
-            builder.setConnectionLostTimeout(0);
-            return builder.build();
+            return a;
         }
-        return (WebSocketRequest) invokeLL.objValue;
+        return (l24) invokeV.objValue;
     }
 
-    public final void z(tv1 tv1Var, String str, String str2) {
+    public static l24 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, tv1Var, str, str2) == null) {
-            String format = String.format("%s:fail %s", str, str2);
-            if (WebSocketEventTarget.b) {
-                Log.i("WebSocket", format);
-            }
-            y54.call(tv1Var, false, new o24(format));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            l24 l24Var = new l24();
+            l24Var.setHttpDnsEnable(a().getHttpDnsEnable());
+            return l24Var;
         }
+        return (l24) invokeV.objValue;
+    }
+
+    public void call(Request request, List<Interceptor> list, Callback callback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, request, list, callback) != null) || request == null) {
+            return;
+        }
+        OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
+        if (list != null && !list.isEmpty()) {
+            for (Interceptor interceptor : list) {
+                if (interceptor != null) {
+                    newBuilder.addInterceptor(interceptor);
+                }
+            }
+        }
+        newBuilder.build().newCall(request).enqueue(callback);
+    }
+
+    public void call(Request request, Callback callback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, callback) == null) && request != null) {
+            getOkHttpClient().newCall(request).enqueue(callback);
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    public OkHttpClient initClient() {
+        InterceptResult invokeV;
+        p43.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (e43.M() == null) {
+                return super.initClient();
+            }
+            y34 y34Var = (y34) e43.M().T();
+            OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
+            int i = 60000;
+            if (y34Var != null && (aVar = y34Var.a) != null) {
+                i = aVar.a;
+                newBuilder.connectTimeout(aVar.b, TimeUnit.MILLISECONDS);
+                newBuilder.addNetworkInterceptor(new xv2());
+            }
+            long j = i;
+            newBuilder.readTimeout(j, TimeUnit.MILLISECONDS);
+            newBuilder.writeTimeout(j, TimeUnit.MILLISECONDS);
+            OkHttpClient build = newBuilder.build();
+            build.dispatcher().setMaxRequests(10);
+            return build;
+        }
+        return (OkHttpClient) invokeV.objValue;
     }
 }

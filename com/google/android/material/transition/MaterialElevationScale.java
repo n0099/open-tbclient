@@ -3,6 +3,7 @@ package com.google.android.material.transition;
 import android.animation.Animator;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import androidx.transition.TransitionValues;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class MaterialElevationScale extends MaterialVisibility {
+public final class MaterialElevationScale extends MaterialVisibility<ScaleProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_SCALE = 0.85f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public final class MaterialElevationScale extends MaterialVisibility {
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
-    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(VisibilityAnimatorProvider visibilityAnimatorProvider) {
+    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(@Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {
         super.setSecondaryAnimatorProvider(visibilityAnimatorProvider);
     }
 
@@ -66,6 +67,7 @@ public final class MaterialElevationScale extends MaterialVisibility {
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
+    @Nullable
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getSecondaryAnimatorProvider() {
         return super.getSecondaryAnimatorProvider();
     }

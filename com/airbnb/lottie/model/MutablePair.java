@@ -1,23 +1,28 @@
 package com.airbnb.lottie.model;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.Pair;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
-public class MutablePair {
-    public Object first;
-    public Object second;
+public class MutablePair<T> {
+    @Nullable
+    public T first;
+    @Nullable
+    public T second;
 
     public int hashCode() {
         int hashCode;
-        Object obj = this.first;
+        T t = this.first;
         int i = 0;
-        if (obj == null) {
+        if (t == null) {
             hashCode = 0;
         } else {
-            hashCode = obj.hashCode();
+            hashCode = t.hashCode();
         }
-        Object obj2 = this.second;
-        if (obj2 != null) {
-            i = obj2.hashCode();
+        T t2 = this.second;
+        if (t2 != null) {
+            i = t2.hashCode();
         }
         return hashCode ^ i;
     }
@@ -33,9 +38,9 @@ public class MutablePair {
         return true;
     }
 
-    public void set(Object obj, Object obj2) {
-        this.first = obj;
-        this.second = obj2;
+    public void set(T t, T t2) {
+        this.first = t;
+        this.second = t2;
     }
 
     public boolean equals(Object obj) {

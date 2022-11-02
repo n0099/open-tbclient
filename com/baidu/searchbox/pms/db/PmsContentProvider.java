@@ -4,6 +4,8 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +60,7 @@ public class PmsContentProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int delete(Uri uri, String str, String[] strArr) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
@@ -68,7 +70,8 @@ public class PmsContentProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public String getType(Uri uri) {
+    @Nullable
+    public String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
@@ -79,7 +82,8 @@ public class PmsContentProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    @Nullable
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValues)) == null) {
@@ -89,7 +93,8 @@ public class PmsContentProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
@@ -99,7 +104,7 @@ public class PmsContentProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {

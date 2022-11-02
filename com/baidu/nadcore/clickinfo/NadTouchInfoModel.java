@@ -16,7 +16,7 @@ public class NadTouchInfoModel {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class CRCErrorCode {
+    public static final class CRCErrorCode {
         public static final /* synthetic */ CRCErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CRCErrorCode NO_IM_TIME_SIGN;

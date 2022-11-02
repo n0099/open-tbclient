@@ -1,5 +1,6 @@
 package com.bumptech.glide.manager;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import java.util.WeakHashMap;
 public final class TargetTracker implements LifecycleListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set targets;
+    public final Set<Target<?>> targets;
 
     public TargetTracker() {
         Interceptable interceptable = $ic;
@@ -41,7 +42,8 @@ public final class TargetTracker implements LifecycleListener {
         }
     }
 
-    public List getAll() {
+    @NonNull
+    public List<Target<?>> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -80,14 +82,14 @@ public final class TargetTracker implements LifecycleListener {
         }
     }
 
-    public void track(Target target) {
+    public void track(@NonNull Target<?> target) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, target) == null) {
             this.targets.add(target);
         }
     }
 
-    public void untrack(Target target) {
+    public void untrack(@NonNull Target<?> target) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, target) == null) {
             this.targets.remove(target);

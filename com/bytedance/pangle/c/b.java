@@ -35,7 +35,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
     public static String b;
-    public static Map c;
+    public static Map<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -86,7 +86,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return ((Integer) c.get(a())).intValue();
+            return c.get(a()).intValue();
         }
         return invokeV.intValue;
     }
@@ -138,7 +138,7 @@ public final class b {
                         }
                         a(jSONObject, "processMode", String.valueOf(i));
                         if (i != 0) {
-                            if (((Integer) c.get(str)).intValue() == i) {
+                            if (c.get(str).intValue() == i) {
                                 ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto2, sHostAbi=".concat(String.valueOf(str)));
                                 return str;
                             }
@@ -159,7 +159,7 @@ public final class b {
         return (String) invokeL.objValue;
     }
 
-    public static Map a(ZipFile zipFile) {
+    public static Map<String, List<ZipEntry>> a(ZipFile zipFile) {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
@@ -194,7 +194,7 @@ public final class b {
             try {
                 ZipFile zipFile2 = new ZipFile(file);
                 try {
-                    Map a2 = a(zipFile2);
+                    Map<String, List<ZipEntry>> a2 = a(zipFile2);
                     boolean containsKey = a2.containsKey(a);
                     ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper copyNativeLib pre-verify-matchHostAbi[" + containsKey + "], pkg=" + str);
                     if (containsKey) {
@@ -312,10 +312,10 @@ public final class b {
         }
     }
 
-    public static void a(Map map, String str, List list, Set set) {
+    public static void a(Map<String, List<ZipEntry>> map, String str, List<ZipEntry> list, Set<String> set) {
         List<ZipEntry> list2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65541, null, map, str, list, set) == null) && (list2 = (List) map.get(str)) != null && list2.size() != 0) {
+        if ((interceptable == null || interceptable.invokeLLLL(65541, null, map, str, list, set) == null) && (list2 = map.get(str)) != null && list2.size() != 0) {
             for (ZipEntry zipEntry : list2) {
                 String substring = zipEntry.getName().substring(zipEntry.getName().lastIndexOf(File.separator) + 1);
                 if (!set.contains(substring)) {
@@ -381,7 +381,7 @@ public final class b {
                 e = e;
             }
             try {
-                Map a2 = a(zipFile);
+                Map<String, List<ZipEntry>> a2 = a(zipFile);
                 if (a2.isEmpty()) {
                     containsKey = true;
                     ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi [true] soEntries empty, ".concat(String.valueOf(file)));

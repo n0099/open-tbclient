@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.KeyEvent;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class mg2 implements kg2 {
+public class mg2 implements hc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public ic3 a;
 
     public mg2() {
         Interceptable interceptable = $ic;
@@ -29,122 +30,163 @@ public class mg2 implements kg2 {
                 return;
             }
         }
-        this.a = new CopyOnWriteArrayList();
+        og2.X(og2.p(), og2.t());
     }
 
-    @Override // com.baidu.tieba.kg2
-    public void b() {
-        List list;
+    @Override // com.baidu.tieba.hc3
+    @NonNull
+    public synchronized ic3 d() {
+        InterceptResult invokeV;
+        ic3 ic3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (kg2 kg2Var : this.a) {
-                kg2Var.b();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kg2
-    public void c() {
-        List list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (kg2 kg2Var : this.a) {
-                kg2Var.c();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kg2
-    public void d() {
-        List list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (kg2 kg2Var : this.a) {
-                kg2Var.d();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kg2
-    public void e() {
-        List list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (kg2 kg2Var : this.a) {
-                kg2Var.e();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kg2
-    public void f() {
-        List list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (kg2 kg2Var : this.a) {
-                kg2Var.f();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kg2
-    public void g() {
-        List list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (kg2 kg2Var : this.a) {
-                kg2Var.g();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kg2
-    public void a() {
-        List list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (kg2 kg2Var : this.a) {
-                if (kg2Var != null) {
-                    kg2Var.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new ng2();
                 }
+                ic3Var = this.a;
             }
+            return ic3Var;
         }
+        return (ic3) invokeV.objValue;
     }
 
-    public void h(kg2 kg2Var) {
+    @Override // com.baidu.tieba.hc3
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, kg2Var) == null) {
-            this.a.add(kg2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return og2.P(bg2.USER_DATA_PATH);
         }
+        return (String) invokeV.objValue;
     }
 
-    public void i(kg2 kg2Var) {
+    @Override // com.baidu.tieba.hc3
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kg2Var) == null) {
-            this.a.remove(kg2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return og2.N("bdfile://tmp");
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kg2
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tieba.hc3
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
-            List list = this.a;
-            if (list == null || list.size() <= 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return og2.Y(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return og2.N("bdfile://tmp" + File.separator + str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (mb3.s(str) == PathType.RELATIVE) {
+                return og2.Y(str);
             }
-            while (true) {
-                boolean z = false;
-                for (kg2 kg2Var : this.a) {
-                    boolean onKeyDown = kg2Var.onKeyDown(i, keyEvent);
-                    if (z || onKeyDown) {
-                        z = true;
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return og2.Z(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return g(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            String B = og2.B(str);
+            if (TextUtils.isEmpty(B)) {
+                return null;
+            }
+            return B;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return e(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if (!bg2.USER_DATA_PATH.equals(str)) {
+                    if (str.startsWith(bg2.USER_DATA_PATH + File.separator)) {
                     }
                 }
-                return z;
+                return true;
             }
+            return false;
         }
-        return invokeIL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if (str.startsWith("bdfile://tmp" + File.separator) || "bdfile://tmp".equals(str)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hc3
+    public boolean j(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
+            return og2.V(str);
+        }
+        return invokeLZ.booleanValue;
     }
 }

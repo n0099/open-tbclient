@@ -20,12 +20,12 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class DraweeHolder implements VisibilityCallback {
+public class DraweeHolder<DH extends DraweeHierarchy> implements VisibilityCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DraweeController mController;
     public final DraweeEventTracker mEventTracker;
-    public DraweeHierarchy mHierarchy;
+    public DH mHierarchy;
     public boolean mIsControllerAttached;
     public boolean mIsHolderAttached;
     public boolean mIsVisible;
@@ -36,12 +36,12 @@ public class DraweeHolder implements VisibilityCallback {
         }
     }
 
-    public DraweeHolder(@Nullable DraweeHierarchy draweeHierarchy) {
+    public DraweeHolder(@Nullable DH dh) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {draweeHierarchy};
+            Object[] objArr = {dh};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,21 +56,21 @@ public class DraweeHolder implements VisibilityCallback {
         this.mIsVisible = true;
         this.mController = null;
         this.mEventTracker = DraweeEventTracker.newInstance();
-        if (draweeHierarchy != null) {
-            setHierarchy(draweeHierarchy);
+        if (dh != null) {
+            setHierarchy(dh);
         }
     }
 
-    public void setHierarchy(DraweeHierarchy draweeHierarchy) {
+    public void setHierarchy(DH dh) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, draweeHierarchy) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, dh) == null) {
             this.mEventTracker.recordEvent(DraweeEventTracker.Event.ON_SET_HIERARCHY);
             boolean isControllerValid = isControllerValid();
             setVisibilityCallback(null);
-            DraweeHierarchy draweeHierarchy2 = (DraweeHierarchy) Preconditions.checkNotNull(draweeHierarchy);
-            this.mHierarchy = draweeHierarchy2;
-            Drawable topLevelDrawable = draweeHierarchy2.getTopLevelDrawable();
+            DH dh2 = (DH) Preconditions.checkNotNull(dh);
+            this.mHierarchy = dh2;
+            Drawable topLevelDrawable = dh2.getTopLevelDrawable();
             if (topLevelDrawable != null && !topLevelDrawable.isVisible()) {
                 z = false;
             } else {
@@ -79,7 +79,7 @@ public class DraweeHolder implements VisibilityCallback {
             onVisibilityChange(z);
             setVisibilityCallback(this);
             if (isControllerValid) {
-                this.mController.setHierarchy(draweeHierarchy);
+                this.mController.setHierarchy(dh);
             }
         }
     }
@@ -139,13 +139,13 @@ public class DraweeHolder implements VisibilityCallback {
         return (DraweeEventTracker) invokeV.objValue;
     }
 
-    public DraweeHierarchy getHierarchy() {
+    public DH getHierarchy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (DraweeHierarchy) Preconditions.checkNotNull(this.mHierarchy);
+            return (DH) Preconditions.checkNotNull(this.mHierarchy);
         }
-        return (DraweeHierarchy) invokeV.objValue;
+        return (DH) invokeV.objValue;
     }
 
     @Nullable
@@ -153,11 +153,11 @@ public class DraweeHolder implements VisibilityCallback {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            DraweeHierarchy draweeHierarchy = this.mHierarchy;
-            if (draweeHierarchy == null) {
+            DH dh = this.mHierarchy;
+            if (dh == null) {
                 return null;
             }
-            return draweeHierarchy.getTopLevelDrawable();
+            return dh.getTopLevelDrawable();
         }
         return (Drawable) invokeV.objValue;
     }
@@ -214,11 +214,11 @@ public class DraweeHolder implements VisibilityCallback {
         }
     }
 
-    public static DraweeHolder create(@Nullable DraweeHierarchy draweeHierarchy, Context context) {
+    public static <DH extends DraweeHierarchy> DraweeHolder<DH> create(@Nullable DH dh, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, draweeHierarchy, context)) == null) {
-            DraweeHolder draweeHolder = new DraweeHolder(draweeHierarchy);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, dh, context)) == null) {
+            DraweeHolder<DH> draweeHolder = new DraweeHolder<>(dh);
             draweeHolder.registerWithContext(context);
             return draweeHolder;
         }

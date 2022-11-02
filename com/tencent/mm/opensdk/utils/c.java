@@ -13,7 +13,7 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,7 +49,7 @@ public final class c {
     }
 
     /* loaded from: classes8.dex */
-    public final class b implements BaseColumns {
+    public static final class b implements BaseColumns {
         public static /* synthetic */ Interceptable $ic;
         public static final Uri CONTENT_URI;
         public transient /* synthetic */ FieldHolder $fh;

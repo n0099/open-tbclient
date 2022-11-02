@@ -20,10 +20,10 @@ import java.util.ArrayList;
 public class h0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
-    public ArrayList b;
+    public ArrayList<String> a;
+    public ArrayList<String> b;
     public Context c;
-    public ArrayList d;
+    public ArrayList<String> d;
     public i0 e;
     public boolean f;
     public int g;
@@ -70,7 +70,7 @@ public class h0 {
                     this.b.d.remove(customCheckBox2.getText());
                 }
                 for (int i = 0; i < this.b.d.size(); i++) {
-                    String str = "选中的原因：" + ((String) this.b.d.get(i));
+                    String str = "选中的原因：" + this.b.d.get(i);
                 }
                 if (!this.b.d.contains("抄袭") && !this.b.d.contains("疑似抄袭") && !this.b.d.contains("恶意抄袭")) {
                     if (this.b.d.contains("虚假欺诈")) {
@@ -134,7 +134,7 @@ public class h0 {
         }
     }
 
-    public h0(ArrayList arrayList, Context context, i0 i0Var, Boolean bool) {
+    public h0(ArrayList<String> arrayList, Context context, i0 i0Var, Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,9 +154,9 @@ public class h0 {
         this.c = context;
         this.e = i0Var;
         this.f = bool.booleanValue();
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.d = new ArrayList();
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.d = new ArrayList<>();
         a(arrayList);
     }
 
@@ -188,13 +188,13 @@ public class h0 {
                     i2 = -13421773;
                 }
                 customCheckBox.setTextColor(i2);
-                customCheckBox.setText((String) this.b.get(i3));
+                customCheckBox.setText(this.b.get(i3));
                 customCheckBox.setTextSize(14.0f);
                 linearLayout.addView(customCheckBox, layoutParams);
                 customCheckBox.setOnClickListener(new a(this, customCheckBox));
             }
             if (!this.h && q1.a()) {
-                linearLayout.addView(a((String) this.b.get(size)), layoutParams);
+                linearLayout.addView(a(this.b.get(size)), layoutParams);
             }
             return linearLayout;
         }
@@ -232,7 +232,7 @@ public class h0 {
         return (LinearLayout) invokeL.objValue;
     }
 
-    public final void a(ArrayList arrayList) {
+    public final void a(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             if (q1.a()) {

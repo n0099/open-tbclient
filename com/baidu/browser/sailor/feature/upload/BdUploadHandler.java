@@ -1,5 +1,6 @@
 package com.baidu.browser.sailor.feature.upload;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
@@ -16,9 +17,9 @@ import com.baidu.browser.core.permission.BdPermissionActivity;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.dw;
+import com.baidu.tieba.kw;
 import com.baidu.tieba.lw;
-import com.baidu.tieba.sw;
-import com.baidu.tieba.tw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,8 +49,8 @@ public class BdUploadHandler implements INoProGuard {
     public boolean mCaughtActivityNotFoundException;
     public boolean mHandled;
     public WebChromeClient.FileChooserParams mParams;
-    public ValueCallback mUploadMessage;
-    public ValueCallback mUploadMessage1;
+    public ValueCallback<Uri> mUploadMessage;
+    public ValueCallback<Uri[]> mUploadMessage1;
 
     /* loaded from: classes.dex */
     public class a implements ActivityCompat.OnRequestPermissionsResultCallback {
@@ -90,7 +91,7 @@ public class BdUploadHandler implements INoProGuard {
                     this.a.mCanHandleResult = true;
                     this.a.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
                 }
-                sw.b().d(4099);
+                kw.b().d(4099);
             }
         }
     }
@@ -133,7 +134,7 @@ public class BdUploadHandler implements INoProGuard {
                     this.a.mCanHandleResult = true;
                     this.a.mActivity.startActivityForResult(this.a.createCamcorderIntent(), 11);
                 }
-                sw.b().d(4099);
+                kw.b().d(4099);
             }
         }
     }
@@ -162,19 +163,20 @@ public class BdUploadHandler implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (tw.a(this.mActivity)) {
+            if (lw.a(this.mActivity)) {
                 return new Intent("android.media.action.VIDEO_CAPTURE");
             }
             Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
             intent.putExtra("request_code", 4099);
             intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-            sw.b().a(4099, new b(this));
+            kw.b().a(4099, new b(this));
             return intent;
         }
         return (Intent) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @SuppressLint({"NewApi"})
     public Intent createCameraIntentAfterCheckPermission() {
         InterceptResult invokeV;
         Uri fromFile;
@@ -209,7 +211,7 @@ public class BdUploadHandler implements INoProGuard {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, intentArr)) == null) {
             Intent intent = new Intent("android.intent.action.CHOOSER");
             intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-            intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(lw.c(EMABTest.TYPE_STRING, "sailor_choose_upload")));
+            intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(dw.c(EMABTest.TYPE_STRING, "sailor_choose_upload")));
             return intent;
         }
         return (Intent) invokeL.objValue;
@@ -224,11 +226,11 @@ public class BdUploadHandler implements INoProGuard {
     public void cancelUpload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ValueCallback valueCallback = this.mUploadMessage;
+            ValueCallback<Uri> valueCallback = this.mUploadMessage;
             if (valueCallback != null) {
                 valueCallback.onReceiveValue(null);
             }
-            ValueCallback valueCallback2 = this.mUploadMessage1;
+            ValueCallback<Uri[]> valueCallback2 = this.mUploadMessage1;
             if (valueCallback2 != null) {
                 valueCallback2.onReceiveValue(null);
             }
@@ -239,18 +241,19 @@ public class BdUploadHandler implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (tw.a(this.mActivity) && tw.b(this.mActivity)) {
+            if (lw.a(this.mActivity) && lw.b(this.mActivity)) {
                 return createCameraIntentAfterCheckPermission();
             }
             Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
             intent.putExtra("request_code", 4099);
             intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"});
-            sw.b().a(4099, new a(this));
+            kw.b().a(4099, new a(this));
             return intent;
         }
         return (Intent) invokeV.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public Intent createDefaultOpenableIntent() {
         InterceptResult invokeV;
         WebChromeClient.FileChooserParams fileChooserParams;
@@ -299,7 +302,7 @@ public class BdUploadHandler implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mHandled : invokeV.booleanValue;
     }
 
-    public void onOpenFileChooser(ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    public void onOpenFileChooser(ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, valueCallback, fileChooserParams) == null) {
             this.mUploadMessage1 = valueCallback;
@@ -307,7 +310,7 @@ public class BdUploadHandler implements INoProGuard {
         }
     }
 
-    public void onOpenFileChooser(ValueCallback valueCallback, String str) {
+    public void onOpenFileChooser(ValueCallback<Uri> valueCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, valueCallback, str) == null) {
             this.mUploadMessage = valueCallback;
@@ -391,18 +394,18 @@ public class BdUploadHandler implements INoProGuard {
     public void onResult(Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, uri) == null) {
-            ValueCallback valueCallback = this.mUploadMessage;
+            ValueCallback<Uri> valueCallback = this.mUploadMessage;
             if (valueCallback != null) {
                 valueCallback.onReceiveValue(uri);
             }
-            ValueCallback valueCallback2 = this.mUploadMessage1;
+            ValueCallback<Uri[]> valueCallback2 = this.mUploadMessage1;
             if (valueCallback2 != null) {
                 valueCallback2.onReceiveValue(new Uri[]{uri});
             }
         }
     }
 
-    public boolean openFileChooser(ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    public boolean openFileChooser(ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         InterceptResult invokeLL;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -448,7 +451,7 @@ public class BdUploadHandler implements INoProGuard {
         return invokeLL.booleanValue;
     }
 
-    public boolean openFileChooser(ValueCallback valueCallback, String str) {
+    public boolean openFileChooser(ValueCallback<Uri> valueCallback, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, valueCallback, str)) == null) {
@@ -467,7 +470,7 @@ public class BdUploadHandler implements INoProGuard {
         return invokeLL.booleanValue;
     }
 
-    public boolean openFileChooser(ValueCallback valueCallback, String str, String str2) {
+    public boolean openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, valueCallback, str, str2)) == null) {

@@ -8,10 +8,14 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.os.Build;
+import androidx.annotation.CallSuper;
+import androidx.annotation.FloatRange;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.LPaint;
+import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.DrawingContent;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
 import com.airbnb.lottie.animation.keyframe.FloatKeyframeAnimation;
@@ -20,6 +24,7 @@ import com.airbnb.lottie.animation.keyframe.TransformKeyframeAnimation;
 import com.airbnb.lottie.model.KeyPath;
 import com.airbnb.lottie.model.KeyPathElement;
 import com.airbnb.lottie.model.content.Mask;
+import com.airbnb.lottie.model.content.ShapeData;
 import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
@@ -34,13 +39,17 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     public static final int MATRIX_SAVE_FLAG = 1;
     public static final int SAVE_FLAGS = 19;
     public final String drawTraceName;
+    @Nullable
     public FloatKeyframeAnimation inOutAnimation;
     public final Layer layerModel;
     public final LottieDrawable lottieDrawable;
+    @Nullable
     public MaskKeyframeAnimation mask;
+    @Nullable
     public BaseLayer matteLayer;
+    @Nullable
     public BaseLayer parentLayer;
-    public List parentLayers;
+    public List<BaseLayer> parentLayers;
     public final TransformKeyframeAnimation transform;
     public final Path path = new Path();
     public final Matrix matrix = new Matrix();
@@ -54,21 +63,21 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     public final RectF matteBoundsRect = new RectF();
     public final RectF tempMaskBoundsRect = new RectF();
     public final Matrix boundsMatrix = new Matrix();
-    public final List animations = new ArrayList();
+    public final List<BaseKeyframeAnimation<?, ?>> animations = new ArrayList();
     public boolean visible = true;
 
     public abstract void drawLayer(Canvas canvas, Matrix matrix, int i);
 
-    public void resolveChildKeyPath(KeyPath keyPath, int i, List list, KeyPath keyPath2) {
+    public void resolveChildKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
-    public void setContents(List list, List list2) {
+    public void setContents(List<Content> list, List<Content> list2) {
     }
 
     /* renamed from: com.airbnb.lottie.model.layer.BaseLayer$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass2 {
+    public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode;
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$LayerType;
 
@@ -139,10 +148,10 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         if (layer.getMasks() != null && !layer.getMasks().isEmpty()) {
             MaskKeyframeAnimation maskKeyframeAnimation = new MaskKeyframeAnimation(layer.getMasks());
             this.mask = maskKeyframeAnimation;
-            for (BaseKeyframeAnimation baseKeyframeAnimation : maskKeyframeAnimation.getMaskAnimations()) {
+            for (BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation : maskKeyframeAnimation.getMaskAnimations()) {
                 baseKeyframeAnimation.addUpdateListener(this);
             }
-            for (BaseKeyframeAnimation baseKeyframeAnimation2 : this.mask.getOpacityAnimations()) {
+            for (BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2 : this.mask.getOpacityAnimations()) {
                 addAnimation(baseKeyframeAnimation2);
                 baseKeyframeAnimation2.addUpdateListener(this);
             }
@@ -158,9 +167,9 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         }
         L.endSection("Layer#saveLayer");
         for (int i = 0; i < this.mask.getMasks().size(); i++) {
-            Mask mask = (Mask) this.mask.getMasks().get(i);
-            BaseKeyframeAnimation baseKeyframeAnimation = (BaseKeyframeAnimation) this.mask.getMaskAnimations().get(i);
-            BaseKeyframeAnimation baseKeyframeAnimation2 = (BaseKeyframeAnimation) this.mask.getOpacityAnimations().get(i);
+            Mask mask = this.mask.getMasks().get(i);
+            BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation = this.mask.getMaskAnimations().get(i);
+            BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2 = this.mask.getOpacityAnimations().get(i);
             int i2 = AnonymousClass2.$SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode[mask.getMaskMode().ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
@@ -218,22 +227,22 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         }
     }
 
-    public void addAnimation(BaseKeyframeAnimation baseKeyframeAnimation) {
+    public void addAnimation(@Nullable BaseKeyframeAnimation<?, ?> baseKeyframeAnimation) {
         if (baseKeyframeAnimation == null) {
             return;
         }
         this.animations.add(baseKeyframeAnimation);
     }
 
-    public void removeAnimation(BaseKeyframeAnimation baseKeyframeAnimation) {
+    public void removeAnimation(BaseKeyframeAnimation<?, ?> baseKeyframeAnimation) {
         this.animations.remove(baseKeyframeAnimation);
     }
 
-    public void setMatteLayer(BaseLayer baseLayer) {
+    public void setMatteLayer(@Nullable BaseLayer baseLayer) {
         this.matteLayer = baseLayer;
     }
 
-    public void setParentLayer(BaseLayer baseLayer) {
+    public void setParentLayer(@Nullable BaseLayer baseLayer) {
         this.parentLayer = baseLayer;
     }
 
@@ -249,57 +258,58 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
-        this.transform.applyValueCallback(obj, lottieValueCallback);
+    @CallSuper
+    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
+        this.transform.applyValueCallback(t, lottieValueCallback);
     }
 
-    private void applyAddMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation baseKeyframeAnimation, BaseKeyframeAnimation baseKeyframeAnimation2) {
-        this.path.set((Path) baseKeyframeAnimation.getValue());
+    private void applyAddMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation, BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2) {
+        this.path.set(baseKeyframeAnimation.getValue());
         this.path.transform(matrix);
-        this.contentPaint.setAlpha((int) (((Integer) baseKeyframeAnimation2.getValue()).intValue() * 2.55f));
+        this.contentPaint.setAlpha((int) (baseKeyframeAnimation2.getValue().intValue() * 2.55f));
         canvas.drawPath(this.path, this.contentPaint);
     }
 
-    private void applySubtractMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation baseKeyframeAnimation, BaseKeyframeAnimation baseKeyframeAnimation2) {
-        this.path.set((Path) baseKeyframeAnimation.getValue());
+    private void applySubtractMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation, BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2) {
+        this.path.set(baseKeyframeAnimation.getValue());
         this.path.transform(matrix);
         canvas.drawPath(this.path, this.dstOutPaint);
     }
 
-    private void applyIntersectMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation baseKeyframeAnimation, BaseKeyframeAnimation baseKeyframeAnimation2) {
+    private void applyIntersectMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation, BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2) {
         Utils.saveLayerCompat(canvas, this.rect, this.dstInPaint);
-        this.path.set((Path) baseKeyframeAnimation.getValue());
+        this.path.set(baseKeyframeAnimation.getValue());
         this.path.transform(matrix);
-        this.contentPaint.setAlpha((int) (((Integer) baseKeyframeAnimation2.getValue()).intValue() * 2.55f));
+        this.contentPaint.setAlpha((int) (baseKeyframeAnimation2.getValue().intValue() * 2.55f));
         canvas.drawPath(this.path, this.contentPaint);
         canvas.restore();
     }
 
-    private void applyInvertedAddMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation baseKeyframeAnimation, BaseKeyframeAnimation baseKeyframeAnimation2) {
+    private void applyInvertedAddMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation, BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2) {
         Utils.saveLayerCompat(canvas, this.rect, this.contentPaint);
         canvas.drawRect(this.rect, this.contentPaint);
-        this.path.set((Path) baseKeyframeAnimation.getValue());
+        this.path.set(baseKeyframeAnimation.getValue());
         this.path.transform(matrix);
-        this.contentPaint.setAlpha((int) (((Integer) baseKeyframeAnimation2.getValue()).intValue() * 2.55f));
+        this.contentPaint.setAlpha((int) (baseKeyframeAnimation2.getValue().intValue() * 2.55f));
         canvas.drawPath(this.path, this.dstOutPaint);
         canvas.restore();
     }
 
-    private void applyInvertedIntersectMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation baseKeyframeAnimation, BaseKeyframeAnimation baseKeyframeAnimation2) {
+    private void applyInvertedIntersectMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation, BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2) {
         Utils.saveLayerCompat(canvas, this.rect, this.dstInPaint);
         canvas.drawRect(this.rect, this.contentPaint);
-        this.dstOutPaint.setAlpha((int) (((Integer) baseKeyframeAnimation2.getValue()).intValue() * 2.55f));
-        this.path.set((Path) baseKeyframeAnimation.getValue());
+        this.dstOutPaint.setAlpha((int) (baseKeyframeAnimation2.getValue().intValue() * 2.55f));
+        this.path.set(baseKeyframeAnimation.getValue());
         this.path.transform(matrix);
         canvas.drawPath(this.path, this.dstOutPaint);
         canvas.restore();
     }
 
-    private void applyInvertedSubtractMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation baseKeyframeAnimation, BaseKeyframeAnimation baseKeyframeAnimation2) {
+    private void applyInvertedSubtractMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation, BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2) {
         Utils.saveLayerCompat(canvas, this.rect, this.dstOutPaint);
         canvas.drawRect(this.rect, this.contentPaint);
-        this.dstOutPaint.setAlpha((int) (((Integer) baseKeyframeAnimation2.getValue()).intValue() * 2.55f));
-        this.path.set((Path) baseKeyframeAnimation.getValue());
+        this.dstOutPaint.setAlpha((int) (baseKeyframeAnimation2.getValue().intValue() * 2.55f));
+        this.path.set(baseKeyframeAnimation.getValue());
         this.path.transform(matrix);
         canvas.drawPath(this.path, this.dstOutPaint);
         canvas.restore();
@@ -310,7 +320,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
             return false;
         }
         for (int i = 0; i < this.mask.getMasks().size(); i++) {
-            if (((Mask) this.mask.getMasks().get(i)).getMaskMode() != Mask.MaskMode.MASK_MODE_NONE) {
+            if (this.mask.getMasks().get(i).getMaskMode() != Mask.MaskMode.MASK_MODE_NONE) {
                 return false;
             }
         }
@@ -364,6 +374,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         invalidateSelf();
     }
 
+    @Nullable
     public static BaseLayer forModel(Layer layer, LottieDrawable lottieDrawable, LottieComposition lottieComposition) {
         switch (AnonymousClass2.$SwitchMap$com$airbnb$lottie$model$layer$Layer$LayerType[layer.getLayerType().ordinal()]) {
             case 1:
@@ -391,8 +402,8 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         }
         int size = this.mask.getMasks().size();
         for (int i = 0; i < size; i++) {
-            Mask mask = (Mask) this.mask.getMasks().get(i);
-            this.path.set((Path) ((BaseKeyframeAnimation) this.mask.getMaskAnimations().get(i)).getValue());
+            Mask mask = this.mask.getMasks().get(i);
+            this.path.set(this.mask.getMaskAnimations().get(i).getValue());
             this.path.transform(matrix);
             int i2 = AnonymousClass2.$SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode[mask.getMaskMode().ordinal()];
             if (i2 != 1 && i2 != 2) {
@@ -434,7 +445,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
                     baseLayer.setVisible(z2);
                 }
             });
-            if (((Float) this.inOutAnimation.getValue()).floatValue() != 1.0f) {
+            if (this.inOutAnimation.getValue().floatValue() != 1.0f) {
                 z = false;
             }
             setVisible(z);
@@ -454,13 +465,13 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
             this.matrix.reset();
             this.matrix.set(matrix);
             for (int size = this.parentLayers.size() - 1; size >= 0; size--) {
-                this.matrix.preConcat(((BaseLayer) this.parentLayers.get(size)).transform.getMatrix());
+                this.matrix.preConcat(this.parentLayers.get(size).transform.getMatrix());
             }
             L.endSection("Layer#parentMatrix");
             if (this.transform.getOpacity() == null) {
                 intValue = 100;
             } else {
-                intValue = ((Integer) this.transform.getOpacity().getValue()).intValue();
+                intValue = this.transform.getOpacity().getValue().intValue();
             }
             int i2 = (int) ((((i / 255.0f) * intValue) / 100.0f) * 255.0f);
             if (!hasMatteOnThisLayer() && !hasMasksOnThisLayer()) {
@@ -515,15 +526,16 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     }
 
     @Override // com.airbnb.lottie.animation.content.DrawingContent
+    @CallSuper
     public void getBounds(RectF rectF, Matrix matrix, boolean z) {
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         buildParentLayerListIfNeeded();
         this.boundsMatrix.set(matrix);
         if (z) {
-            List list = this.parentLayers;
+            List<BaseLayer> list = this.parentLayers;
             if (list != null) {
                 for (int size = list.size() - 1; size >= 0; size--) {
-                    this.boundsMatrix.preConcat(((BaseLayer) this.parentLayers.get(size)).transform.getMatrix());
+                    this.boundsMatrix.preConcat(this.parentLayers.get(size).transform.getMatrix());
                 }
             } else {
                 BaseLayer baseLayer = this.parentLayer;
@@ -536,7 +548,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i, List list, KeyPath keyPath2) {
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
         if (!keyPath.matches(getName(), i)) {
             return;
         }
@@ -551,11 +563,11 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         }
     }
 
-    public void setProgress(float f) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         this.transform.setProgress(f);
         if (this.mask != null) {
             for (int i = 0; i < this.mask.getMaskAnimations().size(); i++) {
-                ((BaseKeyframeAnimation) this.mask.getMaskAnimations().get(i)).setProgress(f);
+                this.mask.getMaskAnimations().get(i).setProgress(f);
             }
         }
         if (this.layerModel.getTimeStretch() != 0.0f) {
@@ -570,7 +582,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
             this.matteLayer.setProgress(baseLayer.layerModel.getTimeStretch() * f);
         }
         for (int i2 = 0; i2 < this.animations.size(); i2++) {
-            ((BaseKeyframeAnimation) this.animations.get(i2)).setProgress(f);
+            this.animations.get(i2).setProgress(f);
         }
     }
 }

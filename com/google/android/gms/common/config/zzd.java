@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.Preconditions;
 /* loaded from: classes7.dex */
-public final class zzd extends GservicesValue {
+public final class zzd extends GservicesValue<Float> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,8 +31,9 @@ public final class zzd extends GservicesValue {
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.google.android.gms.common.config.GservicesValue
-    public final /* bridge */ /* synthetic */ Object zza(String str) {
+    public final /* bridge */ /* synthetic */ Float zza(String str) {
         Preconditions.checkNotNull(null);
         Float f = (Float) this.zzb;
         throw null;

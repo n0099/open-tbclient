@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.mcast;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
@@ -30,7 +31,7 @@ public class ParseM3u8 {
     public transient /* synthetic */ FieldHolder $fh;
     public int mDuration;
     public boolean mIsend;
-    public ArrayList mTslist;
+    public ArrayList<TS> mTslist;
 
     static {
         InterceptResult invokeClinit;
@@ -90,7 +91,7 @@ public class ParseM3u8 {
                 return;
             }
         }
-        this.mTslist = new ArrayList();
+        this.mTslist = new ArrayList<>();
         this.mIsend = false;
     }
 
@@ -99,8 +100,8 @@ public class ParseM3u8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.mTslist.size() > 0) {
-                ArrayList arrayList = this.mTslist;
-                return ((TS) arrayList.get(arrayList.size() - 1)).time;
+                ArrayList<TS> arrayList = this.mTslist;
+                return arrayList.get(arrayList.size() - 1).time;
             }
             return 0L;
         }
@@ -116,7 +117,7 @@ public class ParseM3u8 {
         return invokeV.intValue;
     }
 
-    public ArrayList getTslist() {
+    public ArrayList<TS> getTslist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -174,7 +175,7 @@ public class ParseM3u8 {
                         if (this.mTslist.size() == 0) {
                             ts.relativetime = 0L;
                         } else {
-                            ts.relativetime = (ts.time - ((TS) this.mTslist.get(0)).time) / 1000;
+                            ts.relativetime = (ts.time - this.mTslist.get(0).time) / 1000;
                         }
                         String str7 = TAG;
                         LogUtils.d(str7, "  parseTSline attr:   " + ts.time + " " + ts.relativetime + GlideException.IndentedAppendable.INDENT + ts.duration + GlideException.IndentedAppendable.INDENT + str3);
@@ -189,6 +190,7 @@ public class ParseM3u8 {
         }
     }
 
+    @SuppressLint({"SimpleDateFormat"})
     public static Date stringToDate(String str, String str2) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -211,17 +213,17 @@ public class ParseM3u8 {
         return invokeLL.longValue;
     }
 
-    public List getLatestTS(long j) {
+    public List<TS> getLatestTS(long j) {
         InterceptResult invokeJ;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            Iterator it = this.mTslist.iterator();
+            Iterator<TS> it = this.mTslist.iterator();
             int i = -1;
             while (true) {
                 if (it.hasNext()) {
                     i++;
-                    if (((TS) it.next()).time == j) {
+                    if (it.next().time == j) {
                         z = true;
                         break;
                     }
@@ -231,7 +233,7 @@ public class ParseM3u8 {
                 }
             }
             if (z && this.mTslist.size() > i) {
-                ArrayList arrayList = this.mTslist;
+                ArrayList<TS> arrayList = this.mTslist;
                 return arrayList.subList(i, arrayList.size());
             }
             return null;
@@ -239,11 +241,11 @@ public class ParseM3u8 {
         return (List) invokeJ.objValue;
     }
 
-    public List getNewAppendTS(long j) {
+    public List<TS> getNewAppendTS(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            Iterator it = this.mTslist.iterator();
+            Iterator<TS> it = this.mTslist.iterator();
             boolean z = false;
             int i = 0;
             while (true) {
@@ -251,13 +253,13 @@ public class ParseM3u8 {
                     break;
                 }
                 i++;
-                if (((TS) it.next()).time == j) {
+                if (it.next().time == j) {
                     z = true;
                     break;
                 }
             }
             if (z && this.mTslist.size() > i) {
-                ArrayList arrayList = this.mTslist;
+                ArrayList<TS> arrayList = this.mTslist;
                 return arrayList.subList(i, arrayList.size());
             }
             return null;
@@ -265,17 +267,17 @@ public class ParseM3u8 {
         return (List) invokeJ.objValue;
     }
 
-    public List getTslist(int i) {
+    public List<TS> getTslist(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            Iterator it = this.mTslist.iterator();
+            Iterator<TS> it = this.mTslist.iterator();
             int i2 = -1;
             while (true) {
                 if (it.hasNext()) {
                     i2++;
-                    if (((TS) it.next()).relativetime >= i) {
+                    if (it.next().relativetime >= i) {
                         z = true;
                         break;
                     }
@@ -285,7 +287,7 @@ public class ParseM3u8 {
                 }
             }
             if (z) {
-                ArrayList arrayList = this.mTslist;
+                ArrayList<TS> arrayList = this.mTslist;
                 return arrayList.subList(i2, arrayList.size());
             }
             return null;

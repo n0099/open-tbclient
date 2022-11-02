@@ -1,5 +1,7 @@
 package com.baidu.searchbox.config;
 
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.sapi2.SapiWebView;
@@ -9,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BDOfflineUrl"})
 /* loaded from: classes2.dex */
 public final class HostConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -67,6 +70,7 @@ public final class HostConfig {
         }
     }
 
+    @NonNull
     public static String getAladdinCommonHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,6 +80,7 @@ public final class HostConfig {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public static String getAladdinSportHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -292,6 +297,7 @@ public final class HostConfig {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public static String getSearchFullVideoSetHost() {
         InterceptResult invokeV;
         String str;

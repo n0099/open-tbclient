@@ -12,22 +12,22 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class ObservableRepeat extends AbstractObservableWithUpstream {
+public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
 
     /* loaded from: classes8.dex */
-    public final class RepeatObserver extends AtomicInteger implements Observer {
+    public static final class RepeatObserver<T> extends AtomicInteger implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public long remaining;
         public final SequentialDisposable sd;
-        public final ObservableSource source;
+        public final ObservableSource<? extends T> source;
 
-        public RepeatObserver(Observer observer, long j, SequentialDisposable sequentialDisposable, ObservableSource observableSource) {
+        public RepeatObserver(Observer<? super T> observer, long j, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,10 +87,10 @@ public final class ObservableRepeat extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -104,7 +104,7 @@ public final class ObservableRepeat extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableRepeat(Observable observable, long j) {
+    public ObservableRepeat(Observable<T> observable, long j) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,7 +125,7 @@ public final class ObservableRepeat extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SequentialDisposable sequentialDisposable = new SequentialDisposable();

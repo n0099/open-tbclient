@@ -1,48 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.gd2;
-import com.baidu.tieba.jo2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.Window;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import com.baidu.swan.apps.view.SwanAppRoundedImageView;
+import com.baidu.tieba.i33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zg2 implements ak1 {
+public final class zg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public final class a implements xg2 {
+    public interface f {
+        boolean a(DialogInterface dialogInterface, int i, List<ah2> list);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jo2 a;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ TextView b;
+        public final /* synthetic */ Resources c;
 
-        public a(jo2 jo2Var) {
+        public a(List list, TextView textView, Resources resources) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jo2Var};
+                Object[] objArr = {list, textView, resources};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,30 +54,38 @@ public class zg2 implements ak1 {
                     return;
                 }
             }
-            this.a = jo2Var;
+            this.a = list;
+            this.b = textView;
+            this.c = resources;
         }
 
-        @Override // com.baidu.tieba.xg2
-        public void onResult(boolean z) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                pa2.u(AppRuntime.getAppContext().getContentResolver(), this.a.H(), 1);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.size() > 0) {
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081171));
+                } else {
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081170));
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public final class b extends ResponseCallback {
+    public static class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xg2 a;
+        public final /* synthetic */ f a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ i33 c;
 
-        public b(xg2 xg2Var) {
+        public b(f fVar, List list, i33 i33Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xg2Var};
+                Object[] objArr = {fVar, list, i33Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,126 +95,33 @@ public class zg2 implements ak1 {
                     return;
                 }
             }
-            this.a = xg2Var;
+            this.a = fVar;
+            this.b = list;
+            this.c = i33Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            xg2 xg2Var;
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, exc) != null) || (xg2Var = this.a) == null) {
-                return;
-            }
-            xg2Var.onResult(false);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            xg2 xg2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) != null) || (xg2Var = this.a) == null) {
-                return;
-            }
-            if (jSONObject == null) {
-                xg2Var.onResult(false);
-                return;
-            }
-            if (zg2.a) {
-                Log.d("SwanHistoryManager", "上报数据 onSuccess: response=" + jSONObject);
-            }
-            if (jSONObject.optInt("errno", -1) == 0) {
-                this.a.onResult(true);
-            } else {
-                this.a.onResult(false);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return mg3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public final class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zg2.h(true);
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) && this.a.a(dialogInterface, i, this.b)) {
+                this.c.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public final class d implements wg2 {
+    public static class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i33 a;
+        public final /* synthetic */ DialogInterface.OnClickListener b;
 
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wg2
-        public void a(List list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
-                return;
-            }
-            pa2.f();
-            pa2.l(list);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public final class e extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wg2 a;
-
-        public e(wg2 wg2Var) {
+        public c(i33 i33Var, DialogInterface.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wg2Var};
+                Object[] objArr = {i33Var, onClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -214,302 +131,187 @@ public class zg2 implements ak1 {
                     return;
                 }
             }
-            this.a = wg2Var;
+            this.a = i33Var;
+            this.b = onClickListener;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            wg2 wg2Var;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && (wg2Var = this.a) != null) {
-                wg2Var.a(null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.e(-1);
+                this.b.onClick(this.a, -1);
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            wg2 wg2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) != null) || (wg2Var = this.a) == null) {
-                return;
-            }
-            if (jSONObject == null) {
-                wg2Var.a(null);
-                return;
-            }
-            if (zg2.a) {
-                Log.d("SwanHistoryManager", "下拉数据 onSuccess: response=" + jSONObject);
-            }
-            if (jSONObject.optInt("errno", -1) != 0) {
-                this.a.a(null);
-                return;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                this.a.a(null);
-                return;
-            }
-            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
-            if (optJSONArray == null) {
-                this.a.a(null);
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                yg2 b = yg2.b(optJSONArray.optJSONObject(i2));
-                if (b != null) {
-                    arrayList.add(b);
-                }
-            }
-            ac3.a().putString("fetch_history_data_last_id", optJSONObject.optString(ImageViewerConfig.LAST_ID));
-            this.a.a(arrayList);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return mg3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f {
+    public static class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final zg2 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i33 a;
+        public final /* synthetic */ DialogInterface.OnClickListener b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-232841662, "Lcom/baidu/tieba/zg2$f;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-232841662, "Lcom/baidu/tieba/zg2$f;");
+        public d(i33 i33Var, DialogInterface.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i33Var, onClickListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new zg2(null);
+            this.a = i33Var;
+            this.b = onClickListener;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.e(-2);
+                this.b.onClick(this.a, -2);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948358916, "Lcom/baidu/tieba/zg2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ TextView b;
+        public final /* synthetic */ Drawable c;
+        public final /* synthetic */ Drawable d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ List f;
+        public final /* synthetic */ ah2 g;
+        public final /* synthetic */ View.OnClickListener h;
+
+        public e(TextView textView, Drawable drawable, Drawable drawable2, int i, List list, ah2 ah2Var, View.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948358916, "Lcom/baidu/tieba/zg2;");
-                return;
-            }
-        }
-        a = wj1.a;
-    }
-
-    public zg2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        tm2.h0().c(this);
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            gg3.k(new c(), "fetchHistoryDataFromServer");
-        }
-    }
-
-    public static zg2 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return f.a;
-        }
-        return (zg2) invokeV.objValue;
-    }
-
-    public /* synthetic */ zg2(a aVar) {
-        this();
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            List r = pa2.r();
-            if (!z && (r == null || r.size() <= 0)) {
-                return;
-            }
-            g("ADD", r, new d());
-        }
-    }
-
-    @Override // com.baidu.tieba.ak1
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            f();
-        }
-    }
-
-    public static void c(m33 m33Var, gd2.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, m33Var, bVar) != null) || m33Var == null) {
-            return;
-        }
-        jo2.a W = m33Var.W();
-        if (TextUtils.equals("1", W.c0())) {
-            m02.b("SwanHistoryManager", "add history with 'notinhis=1': " + W.H() + "/" + W.K());
-            return;
-        }
-        m02.b("SwanHistoryManager", "add history: " + W.H() + "/" + W.K());
-        yg2 a2 = yg2.a(W);
-        boolean c2 = pa2.c(AppRuntime.getAppContext().getContentResolver(), a2, bVar);
-        a aVar = new a(W);
-        if (c2) {
-            j("ADD", a2.a, a2.e, a2.b, a2.g, a2.j, aVar);
-        }
-        if (a && !c2) {
-            Log.e("SwanHistoryManager", "addHistoryAsync Failed!");
-        }
-    }
-
-    public static String d(String str, List list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, list)) == null) {
-            if (list != null && list.size() > 0) {
-                JSONObject jSONObject = new JSONObject();
-                JSONArray jSONArray = new JSONArray();
-                try {
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        yg2 yg2Var = (yg2) it.next();
-                        if (yg2Var != null) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("cmd", str);
-                            jSONObject2.put("bundle_id", yg2Var.a);
-                            jSONObject2.put("time", yg2Var.e);
-                            jSONArray.put(jSONObject2);
-                        }
-                    }
-                    jSONObject.put("items", jSONArray);
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {textView, drawable, drawable2, Integer.valueOf(i), list, ah2Var, onClickListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return jSONObject.toString();
             }
-            return null;
+            this.b = textView;
+            this.c = drawable;
+            this.d = drawable2;
+            this.e = i;
+            this.f = list;
+            this.g = ah2Var;
+            this.h = onClickListener;
+            this.a = true;
         }
-        return (String) invokeLL.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Drawable drawable;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                boolean z = !this.a;
+                this.a = z;
+                TextView textView = this.b;
+                if (z) {
+                    drawable = this.c;
+                } else {
+                    drawable = this.d;
+                }
+                textView.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+                this.b.setCompoundDrawablePadding(this.e);
+                if (this.a) {
+                    this.f.add(this.g);
+                } else {
+                    this.f.remove(this.g);
+                }
+                this.h.onClick(view2);
+            }
+        }
     }
 
-    public static String e(String str, String str2, long j, String str3, String str4, String str5) {
+    @UiThread
+    public static i33 a(@NonNull Activity activity, @NonNull e43 e43Var, @Nullable String str, @NonNull List<ah2> list, @NonNull f fVar, @Nullable DialogInterface.OnCancelListener onCancelListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, str5})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{activity, e43Var, str, list, fVar, onCancelListener})) == null) {
+            View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d0834, null);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09200e);
+            Resources resources = activity.getResources();
+            if (swanAppRoundedImageView != null) {
+                swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, yh3.i(e43Var.W(), "SwanSubscribeMsgDialog", false)));
+                swanAppRoundedImageView.setBorderColor(resources.getColor(R.color.obfuscated_res_0x7f060a68));
             }
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("cmd", str);
-                if (TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("bundle_id", str2);
-                } else {
-                    jSONObject2.put("appkey", str3);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject2.put("pkg_type", Integer.parseInt(str4));
-                }
-                if (!TextUtils.isEmpty(str5)) {
-                    jSONObject2.put("version_code", Integer.parseInt(str5));
-                }
-                jSONObject2.put("time", j);
-                jSONArray.put(jSONObject2);
-                jSONObject.put("items", jSONArray);
-            } catch (JSONException e2) {
-                if (a) {
-                    e2.printStackTrace();
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ff);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090300);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092010)).setText(e43Var.Z());
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092253)).setText(str);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092144);
+            ArrayList arrayList = new ArrayList(list);
+            if (list.size() > 0) {
+                for (ah2 ah2Var : list) {
+                    linearLayout.addView(b(activity, ah2Var, arrayList, new a(arrayList, textView2, resources)));
                 }
             }
-            return jSONObject.toString();
+            i33.a aVar = new i33.a(activity);
+            aVar.f(true);
+            aVar.W(inflate);
+            aVar.n(new mj3());
+            aVar.p(R.drawable.obfuscated_res_0x7f080125);
+            aVar.k(false);
+            aVar.j();
+            aVar.t(false);
+            i33 c2 = aVar.c();
+            b bVar = new b(fVar, arrayList, c2);
+            textView2.setOnClickListener(new c(c2, bVar));
+            textView.setOnClickListener(new d(c2, bVar));
+            c2.a(false);
+            c2.setOnCancelListener(onCancelListener);
+            Window window = c2.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(vh3.s(activity), -2);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+            }
+            return c2;
         }
-        return (String) invokeCommon.objValue;
+        return (i33) invokeCommon.objValue;
     }
 
-    public static void g(String str, List list, wg2 wg2Var) {
+    public static View b(@NonNull Activity activity, @NonNull ah2 ah2Var, List<ah2> list, View.OnClickListener onClickListener) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, list, wg2Var) == null) {
-            String p = tm2.o().p();
-            HashMap hashMap = new HashMap();
-            hashMap.put(ImageViewerConfig.LAST_ID, ac3.a().getString("fetch_history_data_last_id", ""));
-            String b2 = eh3.b(p, hashMap);
-            String d2 = d(str, list);
-            if (a) {
-                Log.d("SwanHistoryManager", "fetchHistoryDataFromServer: url=" + b2 + "  params=" + d2);
-            }
-            e eVar = new e(wg2Var);
-            pa4 pa4Var = new pa4();
-            pa4Var.b = "POST";
-            pa4Var.a = b2;
-            pa4Var.f = true;
-            pa4Var.g = true;
-            if (!TextUtils.isEmpty(d2)) {
-                pa4Var.d = RequestBody.create(tu2.a, d2);
-            }
-            pa4Var.e = eVar;
-            qa4.g().e(pa4Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, activity, ah2Var, list, onClickListener)) == null) {
+            Resources resources = activity.getResources();
+            int dimension = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f070662);
+            TextView textView = new TextView(activity);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams.setMargins(0, 16, 0, 16);
+            textView.setLayoutParams(layoutParams);
+            textView.setTextColor(hi4.b(activity, R.color.obfuscated_res_0x7f060a81));
+            textView.setText(ah2Var.b);
+            Drawable drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c2);
+            Drawable drawable2 = resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c1);
+            textView.setCompoundDrawablesWithIntrinsicBounds(drawable2, (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setCompoundDrawablePadding(dimension);
+            textView.setTextSize(18.0f);
+            textView.setOnClickListener(new e(textView, drawable2, drawable, dimension, list, ah2Var, onClickListener));
+            return textView;
         }
-    }
-
-    public static void j(String str, String str2, long j, String str3, String str4, String str5, xg2 xg2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, str5, xg2Var}) == null) {
-            String c2 = tm2.o().c();
-            String e2 = e(str, str2, j, str3, str4, str5);
-            if (TextUtils.isEmpty(e2)) {
-                return;
-            }
-            if (a) {
-                Log.d("SwanHistoryManager", "reportHistoryDataToServer: 上行参数" + e2);
-            }
-            b bVar = new b(xg2Var);
-            pa4 pa4Var = new pa4();
-            pa4Var.b = "POST";
-            pa4Var.a = c2;
-            pa4Var.f = true;
-            pa4Var.g = true;
-            pa4Var.d = RequestBody.create(tu2.a, e2);
-            pa4Var.e = bVar;
-            qa4.g().e(pa4Var);
-        }
+        return (View) invokeLLLL.objValue;
     }
 }

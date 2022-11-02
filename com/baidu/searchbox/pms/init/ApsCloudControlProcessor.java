@@ -9,6 +9,7 @@ import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.pms.IPmsContext;
 import com.baidu.searchbox.pms.PmsRuntime;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.searchbox.pms.init.request.RequestDataUtils;
 import com.baidu.searchbox.pms.init.request.RequestTask;
 import com.baidu.searchbox.pms.init.response.ResponseDataProcess;
@@ -160,7 +161,7 @@ public class ApsCloudControlProcessor implements ICloudControlProcessor {
                     if (pmsContext == null) {
                         return;
                     }
-                    List longConnectParams = pmsContext.getLongConnectParams();
+                    List<RequestParams.Channel> longConnectParams = pmsContext.getLongConnectParams();
                     if (longConnectParams != null && longConnectParams.size() > 0) {
                         responseDataProcess.setResponseInfo(cloudControlResponseInfo);
                         responseDataProcess.setChannelList(longConnectParams);

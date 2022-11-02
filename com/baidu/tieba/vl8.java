@@ -1,109 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Color;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vl8 {
+public abstract class vl8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThemeElement a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
 
-    public static int a(int i, float f) {
-        InterceptResult invokeCommon;
+    public abstract void d(JSONObject jSONObject) throws Exception;
+
+    public vl8() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) ((i >>> 24) * f)) << 24) : invokeCommon.intValue;
-    }
-
-    public static boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948244743, "Lcom/baidu/tieba/vl8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948244743, "Lcom/baidu/tieba/vl8;");
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        ThemeElement.Builder builder = new ThemeElement.Builder();
-        builder.common_color = "#FF614EC2";
-        builder.dark_color = "#FF614EC2";
-        builder.light_color = "#FF614EC2";
-        builder.pattern_image = "http://imgsrc.baidu.com/forum/pic/item/00a8540828381f3028c4e2d1a6014c086f06f075.jpg";
-        builder.font_color = "#FFFFFFFF";
-        a = builder.build(false);
     }
 
-    public static ThemeElement b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (ThemeElement) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            float[] fArr = new float[3];
-            Color.colorToHSV(i, fArr);
-            if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
-                fArr[0] = fArr[0] + 15.0f;
-            } else {
-                fArr[0] = fArr[0] - 15.0f;
-            }
-            return Color.HSVToColor(fArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeI.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int d(Context context, String str) {
-        InterceptResult invokeLL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            if (context != null && context.getResources() != null) {
-                return context.getResources().getIdentifier(str, "color", context.getPackageName());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a != null) {
+                return true;
             }
-            return 0;
+            return false;
         }
-        return invokeLL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static int f(String str) {
-        InterceptResult invokeL;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str == null) {
-                return Integer.MAX_VALUE;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                f(new JSONObject(str));
+            } catch (Exception e) {
+                g("网络不给力呀");
+                e.printStackTrace();
             }
-            if (str.length() != 0) {
-                try {
-                    if (!str.startsWith("#")) {
-                        str = "#" + str;
-                    }
-                } catch (Exception unused) {
-                    return Integer.MAX_VALUE;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            try {
+                int optInt = jSONObject.optInt("error_code", 0);
+                this.b = optInt;
+                if (optInt != 0) {
+                    g(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络不给力呀"));
+                    return;
                 }
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                if (optJSONObject != null) {
+                    int optInt2 = optJSONObject.optInt("errno", 0);
+                    this.b = optInt2;
+                    if (optInt2 != 0) {
+                        g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
+                        return;
+                    }
+                }
+                long optLong = jSONObject.optLong("ctime", 0L);
+                if (optLong > 0) {
+                    new Date(optLong * 1000);
+                }
+                d(jSONObject);
+            } catch (Exception e) {
+                g("网络不给力呀");
+                e.printStackTrace();
             }
-            return Color.parseColor(str);
         }
-        return invokeL.intValue;
     }
 }

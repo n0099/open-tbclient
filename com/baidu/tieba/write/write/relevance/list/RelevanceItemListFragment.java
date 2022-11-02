@@ -29,7 +29,7 @@ public class RelevanceItemListFragment extends BaseFragment {
     public View a;
     public RelevanceItemListController b;
     public String c;
-    public ArrayList d;
+    public ArrayList<Long> d;
     public CustomMessageListener e;
 
     /* loaded from: classes6.dex */
@@ -61,7 +61,7 @@ public class RelevanceItemListFragment extends BaseFragment {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
                 this.a.q1(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
@@ -137,8 +137,8 @@ public class RelevanceItemListFragment extends BaseFragment {
                 }
             }
             this.b = new RelevanceItemListController(this, this.a, this.c, getUniqueId());
-            if (((RelevanceItemSearchActivity) getActivity()).b1() != null && ((RelevanceItemSearchActivity) getActivity()).b1().h() != null) {
-                str = ((RelevanceItemSearchActivity) getActivity()).b1().h().getText().toString();
+            if (((RelevanceItemSearchActivity) getActivity()).d1() != null && ((RelevanceItemSearchActivity) getActivity()).d1().h() != null) {
+                str = ((RelevanceItemSearchActivity) getActivity()).d1().h().getText().toString();
             } else {
                 str = "";
             }
@@ -190,7 +190,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         }
     }
 
-    public void w1(String str) {
+    public void x1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.c = str;
@@ -203,7 +203,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e4, (ViewGroup) null);
+                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e6, (ViewGroup) null);
             }
             initData();
             s1();

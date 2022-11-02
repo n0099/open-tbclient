@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeSet;
+@NotProguard
 /* loaded from: classes2.dex */
 public class V8Timer implements V8Engine.V8StatusListener {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -21,7 +22,7 @@ public class V8Timer implements V8Engine.V8StatusListener {
     public static final boolean DEBUG = false;
     public static final String TAG = "V8Timer";
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap mActiveTimer;
+    public LinkedHashMap<Long, TimeTask> mActiveTimer;
     public volatile boolean mDestroyed;
     public boolean mInitialized;
     public Handler mUiHandler;
@@ -192,7 +193,7 @@ public class V8Timer implements V8Engine.V8StatusListener {
         this.mV8Engine = null;
         this.mInitialized = false;
         this.mDestroyed = false;
-        this.mActiveTimer = new LinkedHashMap(30);
+        this.mActiveTimer = new LinkedHashMap<>(30);
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8StatusListener
@@ -201,8 +202,8 @@ public class V8Timer implements V8Engine.V8StatusListener {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
                 if (!this.mActiveTimer.isEmpty()) {
-                    for (Map.Entry entry : this.mActiveTimer.entrySet()) {
-                        this.mUiHandler.removeCallbacks((TimeTask) entry.getValue());
+                    for (Map.Entry<Long, TimeTask> entry : this.mActiveTimer.entrySet()) {
+                        this.mUiHandler.removeCallbacks(entry.getValue());
                     }
                 }
             }
@@ -215,9 +216,9 @@ public class V8Timer implements V8Engine.V8StatusListener {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
                 if (!this.mActiveTimer.isEmpty()) {
-                    for (Map.Entry entry : this.mActiveTimer.entrySet()) {
-                        TimeTask timeTask = (TimeTask) entry.getValue();
-                        this.mUiHandler.postDelayed(timeTask, timeTask.nextFireTime());
+                    for (Map.Entry<Long, TimeTask> entry : this.mActiveTimer.entrySet()) {
+                        TimeTask value = entry.getValue();
+                        this.mUiHandler.postDelayed(value, value.nextFireTime());
                     }
                 }
             }
@@ -243,7 +244,7 @@ public class V8Timer implements V8Engine.V8StatusListener {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.mDestroyed = true;
             for (Long l : new TreeSet(this.mActiveTimer.keySet())) {
-                TimeTask timeTask = (TimeTask) this.mActiveTimer.get(l);
+                TimeTask timeTask = this.mActiveTimer.get(l);
                 if (timeTask != null) {
                     removeTimeTask(timeTask.mTimerID, timeTask.mTimerPtr);
                 }
@@ -278,7 +279,7 @@ public class V8Timer implements V8Engine.V8StatusListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             synchronized (this) {
-                TimeTask timeTask = (TimeTask) this.mActiveTimer.get(Long.valueOf(j));
+                TimeTask timeTask = this.mActiveTimer.get(Long.valueOf(j));
                 if (timeTask == null) {
                     return;
                 }

@@ -20,7 +20,7 @@ public abstract class TagPayloadReader {
     public abstract void seek();
 
     /* loaded from: classes7.dex */
-    public final class UnsupportedFormatException extends ParserException {
+    public static final class UnsupportedFormatException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

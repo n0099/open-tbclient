@@ -14,7 +14,7 @@ public abstract class BidirectionalStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public abstract class BidirectionalStream {
     public abstract void b(ByteBuffer byteBuffer, boolean z);
 
     /* loaded from: classes6.dex */
-    public abstract class Callback {
+    public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

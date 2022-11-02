@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.graphics.BitmapCompat;
 import androidx.core.view.GravityCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -94,7 +96,8 @@ public final class RoundedBitmapDrawableFactory {
         }
     }
 
-    public static RoundedBitmapDrawable create(Resources resources, Bitmap bitmap) {
+    @NonNull
+    public static RoundedBitmapDrawable create(@NonNull Resources resources, @Nullable Bitmap bitmap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, bitmap)) == null) {
@@ -106,7 +109,8 @@ public final class RoundedBitmapDrawableFactory {
         return (RoundedBitmapDrawable) invokeLL.objValue;
     }
 
-    public static RoundedBitmapDrawable create(Resources resources, InputStream inputStream) {
+    @NonNull
+    public static RoundedBitmapDrawable create(@NonNull Resources resources, @NonNull InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, inputStream)) == null) {
@@ -119,7 +123,8 @@ public final class RoundedBitmapDrawableFactory {
         return (RoundedBitmapDrawable) invokeLL.objValue;
     }
 
-    public static RoundedBitmapDrawable create(Resources resources, String str) {
+    @NonNull
+    public static RoundedBitmapDrawable create(@NonNull Resources resources, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resources, str)) == null) {

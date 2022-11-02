@@ -19,6 +19,7 @@ public class YyExtData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<YyExtData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public String feedId;
     public boolean isYyGame;
     public String liveId;
     public String mIconUrl;
@@ -40,7 +41,7 @@ public class YyExtData implements Serializable, Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<YyExtData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,6 +156,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mRankShow = jSONObject.optString("rank_show");
         this.mIconUrl = jSONObject.optString("icon_url");
         this.streamInfo = jSONObject.optString("stream_info");
+        this.feedId = jSONObject.optString("feed_id");
     }
 
     public void parseProtoBuf(YyExt yyExt) {
@@ -174,6 +176,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mRankShow = yyExt.rank_show;
         this.mIconUrl = yyExt.icon_url;
         this.streamInfo = yyExt.stream_info;
+        this.feedId = yyExt.feed_id;
     }
 
     @Override // android.os.Parcelable

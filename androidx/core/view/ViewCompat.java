@@ -1,6 +1,7 @@
 package androidx.core.view;
 
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -28,6 +29,14 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeProvider;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.UiThread;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -121,21 +130,25 @@ public class ViewCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface FocusDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface FocusRealDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface FocusRelativeDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface NestedScrollType {
     }
@@ -146,11 +159,13 @@ public class ViewCompat {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ScrollAxis {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ScrollIndicators {
     }
@@ -184,6 +199,7 @@ public class ViewCompat {
             this.mPanesToVisible = new WeakHashMap<>();
         }
 
+        @RequiresApi(19)
         private void checkPaneVisibility(View view2, boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
@@ -202,6 +218,7 @@ public class ViewCompat {
             }
         }
 
+        @RequiresApi(19)
         private void registerForLayoutCallback(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, view2) == null) {
@@ -209,6 +226,7 @@ public class ViewCompat {
             }
         }
 
+        @RequiresApi(19)
         private void unregisterForLayoutCallback(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, view2) == null) {
@@ -216,6 +234,7 @@ public class ViewCompat {
             }
         }
 
+        @RequiresApi(19)
         public void addAccessibilityPane(View view2) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -235,6 +254,7 @@ public class ViewCompat {
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
+        @RequiresApi(19)
         public void onViewAttachedToWindow(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
@@ -242,6 +262,7 @@ public class ViewCompat {
             }
         }
 
+        @RequiresApi(19)
         public void removeAccessibilityPane(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
@@ -252,6 +273,7 @@ public class ViewCompat {
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        @RequiresApi(19)
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -405,6 +427,7 @@ public class ViewCompat {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes.dex */
     public static class Api21Impl {
         public static /* synthetic */ Interceptable $ic;
@@ -424,7 +447,7 @@ public class ViewCompat {
             }
         }
 
-        public static WindowInsetsCompat computeSystemWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat, Rect rect) {
+        public static WindowInsetsCompat computeSystemWindowInsets(@NonNull View view2, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Rect rect) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view2, windowInsetsCompat, rect)) == null) {
@@ -439,6 +462,7 @@ public class ViewCompat {
         }
     }
 
+    @RequiresApi(23)
     /* loaded from: classes.dex */
     public static class Api23Impl {
         public static /* synthetic */ Interceptable $ic;
@@ -468,6 +492,7 @@ public class ViewCompat {
         }
     }
 
+    @RequiresApi(29)
     /* loaded from: classes.dex */
     public static class Api29Impl {
         public static /* synthetic */ Interceptable $ic;
@@ -487,7 +512,7 @@ public class ViewCompat {
             }
         }
 
-        public static void saveAttributeDataForStyleable(View view2, Context context, int[] iArr, AttributeSet attributeSet, TypedArray typedArray, int i, int i2) {
+        public static void saveAttributeDataForStyleable(@NonNull View view2, @NonNull Context context, @NonNull int[] iArr, @Nullable AttributeSet attributeSet, @NonNull TypedArray typedArray, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, context, iArr, attributeSet, typedArray, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
                 view2.saveAttributeDataForStyleable(context, iArr, attributeSet, typedArray, i, i2);
@@ -502,6 +527,7 @@ public class ViewCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public SparseArray<WeakReference<View>> mCapturedKeys;
         public WeakReference<KeyEvent> mLastDispatchedPreViewKeyEvent;
+        @Nullable
         public WeakHashMap<View, Boolean> mViewsContainingListeners;
 
         static {
@@ -554,10 +580,10 @@ public class ViewCompat {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-                UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view2.getTag(R.id.obfuscated_res_0x7f09208f);
+                UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view2.getTag(R.id.obfuscated_res_0x7f0920db);
                 if (unhandledKeyEventManager == null) {
                     UnhandledKeyEventManager unhandledKeyEventManager2 = new UnhandledKeyEventManager();
-                    view2.setTag(R.id.obfuscated_res_0x7f09208f, unhandledKeyEventManager2);
+                    view2.setTag(R.id.obfuscated_res_0x7f0920db, unhandledKeyEventManager2);
                     return unhandledKeyEventManager2;
                 }
                 return unhandledKeyEventManager;
@@ -565,6 +591,7 @@ public class ViewCompat {
             return (UnhandledKeyEventManager) invokeL.objValue;
         }
 
+        @Nullable
         private View dispatchInOrder(View view2, KeyEvent keyEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -589,11 +616,11 @@ public class ViewCompat {
             return (View) invokeLL.objValue;
         }
 
-        private boolean onUnhandledKeyEvent(View view2, KeyEvent keyEvent) {
+        private boolean onUnhandledKeyEvent(@NonNull View view2, @NonNull KeyEvent keyEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view2, keyEvent)) == null) {
-                ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092090);
+                ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f0920dc);
                 if (arrayList != null) {
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
                         if (((OnUnhandledKeyEventListenerCompat) arrayList.get(size)).onUnhandledKeyEvent(view2, keyEvent)) {
@@ -757,7 +784,7 @@ public class ViewCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f092036, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.5
+            return new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f092081, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -785,6 +812,7 @@ public class ViewCompat {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
+                @RequiresApi(28)
                 public Boolean frameworkGet(View view2) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -796,6 +824,7 @@ public class ViewCompat {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
+                @RequiresApi(28)
                 public void frameworkSet(View view2, Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bool) == null) {
@@ -822,7 +851,7 @@ public class ViewCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65646, null)) == null) {
-            return new AccessibilityViewProperty<CharSequence>(R.id.obfuscated_res_0x7f092037, CharSequence.class, 8, 28) { // from class: androidx.core.view.ViewCompat.4
+            return new AccessibilityViewProperty<CharSequence>(R.id.obfuscated_res_0x7f092082, CharSequence.class, 8, 28) { // from class: androidx.core.view.ViewCompat.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -850,6 +879,7 @@ public class ViewCompat {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
+                @RequiresApi(28)
                 public CharSequence frameworkGet(View view2) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -861,6 +891,7 @@ public class ViewCompat {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
+                @RequiresApi(28)
                 public void frameworkSet(View view2, CharSequence charSequence) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, charSequence) == null) {
@@ -887,7 +918,7 @@ public class ViewCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65661, null)) == null) {
-            return new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f09207f, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.3
+            return new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f0920cb, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -915,6 +946,7 @@ public class ViewCompat {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
+                @RequiresApi(28)
                 public Boolean frameworkGet(View view2) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -926,6 +958,7 @@ public class ViewCompat {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
+                @RequiresApi(28)
                 public void frameworkSet(View view2, Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bool) == null) {
@@ -948,7 +981,7 @@ public class ViewCompat {
         return (AccessibilityViewProperty) invokeV.objValue;
     }
 
-    public static int addAccessibilityAction(View view2, CharSequence charSequence, AccessibilityViewCommand accessibilityViewCommand) {
+    public static int addAccessibilityAction(@NonNull View view2, @NonNull CharSequence charSequence, @NonNull AccessibilityViewCommand accessibilityViewCommand) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, view2, charSequence, accessibilityViewCommand)) == null) {
@@ -961,14 +994,15 @@ public class ViewCompat {
         return invokeLLL.intValue;
     }
 
-    public static void addKeyboardNavigationClusters(View view2, Collection<View> collection, int i) {
+    public static void addKeyboardNavigationClusters(@NonNull View view2, @NonNull Collection<View> collection, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLI(65541, null, view2, collection, i) == null) && Build.VERSION.SDK_INT >= 26) {
             view2.addKeyboardNavigationClusters(collection, i);
         }
     }
 
-    public static WindowInsetsCompat computeSystemWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat, Rect rect) {
+    @NonNull
+    public static WindowInsetsCompat computeSystemWindowInsets(@NonNull View view2, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Rect rect) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, view2, windowInsetsCompat, rect)) == null) {
@@ -980,7 +1014,7 @@ public class ViewCompat {
         return (WindowInsetsCompat) invokeLLL.objValue;
     }
 
-    public static View keyboardNavigationClusterSearch(View view2, View view3, int i) {
+    public static View keyboardNavigationClusterSearch(@NonNull View view2, View view3, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65638, null, view2, view3, i)) == null) {
@@ -992,7 +1026,7 @@ public class ViewCompat {
         return (View) invokeLLI.objValue;
     }
 
-    public static boolean performAccessibilityAction(View view2, int i, Bundle bundle) {
+    public static boolean performAccessibilityAction(@NonNull View view2, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65647, null, view2, i, bundle)) == null) {
@@ -1022,14 +1056,14 @@ public class ViewCompat {
         }
     }
 
-    public static void setScrollIndicators(View view2, int i, int i2) {
+    public static void setScrollIndicators(@NonNull View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(65701, null, view2, i, i2) == null) && Build.VERSION.SDK_INT >= 23) {
             view2.setScrollIndicators(i, i2);
         }
     }
 
-    public static boolean startNestedScroll(View view2, int i, int i2) {
+    public static boolean startNestedScroll(@NonNull View view2, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65713, null, view2, i, i2)) == null) {
@@ -1044,7 +1078,7 @@ public class ViewCompat {
         return invokeLII.booleanValue;
     }
 
-    public static void addAccessibilityAction(View view2, AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat) {
+    public static void addAccessibilityAction(@NonNull View view2, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, accessibilityActionCompat) == null) && Build.VERSION.SDK_INT >= 21) {
             getOrCreateAccessibilityDelegateCompat(view2);
@@ -1112,7 +1146,8 @@ public class ViewCompat {
         }
     }
 
-    public static WindowInsetsCompat dispatchApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
+    @NonNull
+    public static WindowInsetsCompat dispatchApplyWindowInsets(@NonNull View view2, @NonNull WindowInsetsCompat windowInsetsCompat) {
         InterceptResult invokeLL;
         WindowInsets windowInsets;
         Interceptable interceptable = $ic;
@@ -1125,6 +1160,7 @@ public class ViewCompat {
         return (WindowInsetsCompat) invokeLL.objValue;
     }
 
+    @UiThread
     public static boolean dispatchUnhandledKeyEventBeforeCallback(View view2, KeyEvent keyEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -1137,6 +1173,7 @@ public class ViewCompat {
         return invokeLL.booleanValue;
     }
 
+    @UiThread
     public static boolean dispatchUnhandledKeyEventBeforeHierarchy(View view2, KeyEvent keyEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -1149,7 +1186,7 @@ public class ViewCompat {
         return invokeLL.booleanValue;
     }
 
-    public static boolean hasNestedScrollingParent(View view2, int i) {
+    public static boolean hasNestedScrollingParent(@NonNull View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65620, null, view2, i)) == null) {
@@ -1165,7 +1202,8 @@ public class ViewCompat {
         return invokeLI.booleanValue;
     }
 
-    public static WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
+    @NonNull
+    public static WindowInsetsCompat onApplyWindowInsets(@NonNull View view2, @NonNull WindowInsetsCompat windowInsetsCompat) {
         InterceptResult invokeLL;
         WindowInsets windowInsets;
         Interceptable interceptable = $ic;
@@ -1189,7 +1227,7 @@ public class ViewCompat {
         }
     }
 
-    public static void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+    public static void onInitializeAccessibilityNodeInfo(@NonNull View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65644, null, view2, accessibilityNodeInfoCompat) == null) {
             view2.onInitializeAccessibilityNodeInfo(accessibilityNodeInfoCompat.unwrap());
@@ -1204,7 +1242,7 @@ public class ViewCompat {
         }
     }
 
-    public static void postOnAnimation(View view2, Runnable runnable) {
+    public static void postOnAnimation(@NonNull View view2, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65650, null, view2, runnable) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
@@ -1215,7 +1253,7 @@ public class ViewCompat {
         }
     }
 
-    public static void removeAccessibilityAction(View view2, int i) {
+    public static void removeAccessibilityAction(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65652, null, view2, i) == null) && Build.VERSION.SDK_INT >= 21) {
             removeActionWithId(i, view2);
@@ -1236,7 +1274,8 @@ public class ViewCompat {
         }
     }
 
-    public static <T extends View> T requireViewById(View view2, int i) {
+    @NonNull
+    public static <T extends View> T requireViewById(@NonNull View view2, @IdRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65657, null, view2, i)) == null) {
@@ -1252,7 +1291,7 @@ public class ViewCompat {
         return (T) invokeLI.objValue;
     }
 
-    public static void setAccessibilityDelegate(View view2, AccessibilityDelegateCompat accessibilityDelegateCompat) {
+    public static void setAccessibilityDelegate(@NonNull View view2, AccessibilityDelegateCompat accessibilityDelegateCompat) {
         View.AccessibilityDelegate bridge;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65662, null, view2, accessibilityDelegateCompat) == null) {
@@ -1268,6 +1307,7 @@ public class ViewCompat {
         }
     }
 
+    @UiThread
     public static void setAccessibilityHeading(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65663, null, view2, z) == null) {
@@ -1275,13 +1315,14 @@ public class ViewCompat {
         }
     }
 
-    public static void setAccessibilityLiveRegion(View view2, int i) {
+    public static void setAccessibilityLiveRegion(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65664, null, view2, i) == null) && Build.VERSION.SDK_INT >= 19) {
             view2.setAccessibilityLiveRegion(i);
         }
     }
 
+    @UiThread
     public static void setAccessibilityPaneTitle(View view2, CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65665, null, view2, charSequence) == null) && Build.VERSION.SDK_INT >= 19) {
@@ -1303,21 +1344,21 @@ public class ViewCompat {
     }
 
     @Deprecated
-    public static void setAlpha(View view2, float f) {
+    public static void setAlpha(View view2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(65667, null, view2, f) == null) {
             view2.setAlpha(f);
         }
     }
 
-    public static void setAutofillHints(View view2, String... strArr) {
+    public static void setAutofillHints(@NonNull View view2, @Nullable String... strArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65668, null, view2, strArr) == null) && Build.VERSION.SDK_INT >= 26) {
             view2.setAutofillHints(strArr);
         }
     }
 
-    public static void setBackground(View view2, Drawable drawable) {
+    public static void setBackground(@NonNull View view2, @Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65669, null, view2, drawable) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
@@ -1328,14 +1369,14 @@ public class ViewCompat {
         }
     }
 
-    public static void setClipBounds(View view2, Rect rect) {
+    public static void setClipBounds(@NonNull View view2, Rect rect) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65673, null, view2, rect) == null) && Build.VERSION.SDK_INT >= 18) {
             view2.setClipBounds(rect);
         }
     }
 
-    public static void setElevation(View view2, float f) {
+    public static void setElevation(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLF(65674, null, view2, f) == null) && Build.VERSION.SDK_INT >= 21) {
             view2.setElevation(f);
@@ -1350,21 +1391,21 @@ public class ViewCompat {
         }
     }
 
-    public static void setFocusedByDefault(View view2, boolean z) {
+    public static void setFocusedByDefault(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65676, null, view2, z) == null) && Build.VERSION.SDK_INT >= 26) {
             view2.setFocusedByDefault(z);
         }
     }
 
-    public static void setHasTransientState(View view2, boolean z) {
+    public static void setHasTransientState(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65677, null, view2, z) == null) && Build.VERSION.SDK_INT >= 16) {
             view2.setHasTransientState(z);
         }
     }
 
-    public static void setImportantForAccessibility(View view2, int i) {
+    public static void setImportantForAccessibility(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65678, null, view2, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
@@ -1379,28 +1420,28 @@ public class ViewCompat {
         }
     }
 
-    public static void setImportantForAutofill(View view2, int i) {
+    public static void setImportantForAutofill(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65679, null, view2, i) == null) && Build.VERSION.SDK_INT >= 26) {
             view2.setImportantForAutofill(i);
         }
     }
 
-    public static void setKeyboardNavigationCluster(View view2, boolean z) {
+    public static void setKeyboardNavigationCluster(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65680, null, view2, z) == null) && Build.VERSION.SDK_INT >= 26) {
             view2.setKeyboardNavigationCluster(z);
         }
     }
 
-    public static void setLabelFor(View view2, int i) {
+    public static void setLabelFor(@NonNull View view2, @IdRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65681, null, view2, i) == null) && Build.VERSION.SDK_INT >= 17) {
             view2.setLabelFor(i);
         }
     }
 
-    public static void setLayerPaint(View view2, Paint paint) {
+    public static void setLayerPaint(@NonNull View view2, Paint paint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65682, null, view2, paint) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
@@ -1412,14 +1453,14 @@ public class ViewCompat {
         }
     }
 
-    public static void setLayoutDirection(View view2, int i) {
+    public static void setLayoutDirection(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65684, null, view2, i) == null) && Build.VERSION.SDK_INT >= 17) {
             view2.setLayoutDirection(i);
         }
     }
 
-    public static void setNestedScrollingEnabled(View view2, boolean z) {
+    public static void setNestedScrollingEnabled(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65685, null, view2, z) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -1430,14 +1471,14 @@ public class ViewCompat {
         }
     }
 
-    public static void setNextClusterForwardId(View view2, int i) {
+    public static void setNextClusterForwardId(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65686, null, view2, i) == null) && Build.VERSION.SDK_INT >= 26) {
             view2.setNextClusterForwardId(i);
         }
     }
 
-    public static void setOnApplyWindowInsetsListener(View view2, OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
+    public static void setOnApplyWindowInsetsListener(@NonNull View view2, @Nullable OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65687, null, view2, onApplyWindowInsetsListener) == null) && Build.VERSION.SDK_INT >= 21) {
             if (onApplyWindowInsetsListener == null) {
@@ -1504,7 +1545,7 @@ public class ViewCompat {
         }
     }
 
-    public static void setPointerIcon(View view2, PointerIconCompat pointerIconCompat) {
+    public static void setPointerIcon(@NonNull View view2, PointerIconCompat pointerIconCompat) {
         Object obj;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65692, null, view2, pointerIconCompat) == null) && Build.VERSION.SDK_INT >= 24) {
@@ -1565,6 +1606,7 @@ public class ViewCompat {
         }
     }
 
+    @UiThread
     public static void setScreenReaderFocusable(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65699, null, view2, z) == null) {
@@ -1572,28 +1614,28 @@ public class ViewCompat {
         }
     }
 
-    public static void setScrollIndicators(View view2, int i) {
+    public static void setScrollIndicators(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65700, null, view2, i) == null) && Build.VERSION.SDK_INT >= 23) {
             view2.setScrollIndicators(i);
         }
     }
 
-    public static void setSystemGestureExclusionRects(View view2, List<Rect> list) {
+    public static void setSystemGestureExclusionRects(@NonNull View view2, @NonNull List<Rect> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65702, null, view2, list) == null) && Build.VERSION.SDK_INT >= 29) {
             view2.setSystemGestureExclusionRects(list);
         }
     }
 
-    public static void setTooltipText(View view2, CharSequence charSequence) {
+    public static void setTooltipText(@NonNull View view2, @Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65703, null, view2, charSequence) == null) && Build.VERSION.SDK_INT >= 26) {
             view2.setTooltipText(charSequence);
         }
     }
 
-    public static void setTransitionName(View view2, String str) {
+    public static void setTransitionName(@NonNull View view2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65704, null, view2, str) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -1623,7 +1665,7 @@ public class ViewCompat {
         }
     }
 
-    public static void setTranslationZ(View view2, float f) {
+    public static void setTranslationZ(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLF(65707, null, view2, f) == null) && Build.VERSION.SDK_INT >= 21) {
             view2.setTranslationZ(f);
@@ -1646,14 +1688,14 @@ public class ViewCompat {
         }
     }
 
-    public static void setZ(View view2, float f) {
+    public static void setZ(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLF(65710, null, view2, f) == null) && Build.VERSION.SDK_INT >= 21) {
             view2.setZ(f);
         }
     }
 
-    public static boolean startNestedScroll(View view2, int i) {
+    public static boolean startNestedScroll(@NonNull View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65712, null, view2, i)) == null) {
@@ -1668,7 +1710,7 @@ public class ViewCompat {
         return invokeLI.booleanValue;
     }
 
-    public static void stopNestedScroll(View view2, int i) {
+    public static void stopNestedScroll(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65715, null, view2, i) == null) {
             if (view2 instanceof NestedScrollingChild2) {
@@ -1679,21 +1721,21 @@ public class ViewCompat {
         }
     }
 
-    public static void updateDragShadow(View view2, View.DragShadowBuilder dragShadowBuilder) {
+    public static void updateDragShadow(@NonNull View view2, View.DragShadowBuilder dragShadowBuilder) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65717, null, view2, dragShadowBuilder) == null) && Build.VERSION.SDK_INT >= 24) {
             view2.updateDragShadow(dragShadowBuilder);
         }
     }
 
-    public static void addOnUnhandledKeyEventListener(View view2, OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
+    public static void addOnUnhandledKeyEventListener(@NonNull View view2, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, view2, onUnhandledKeyEventListenerCompat) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f092090);
+                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f0920dc);
                 if (simpleArrayMap == null) {
                     simpleArrayMap = new SimpleArrayMap();
-                    view2.setTag(R.id.obfuscated_res_0x7f092090, simpleArrayMap);
+                    view2.setTag(R.id.obfuscated_res_0x7f0920dc, simpleArrayMap);
                 }
                 View.OnUnhandledKeyEventListener onUnhandledKeyEventListener = new View.OnUnhandledKeyEventListener(onUnhandledKeyEventListenerCompat) { // from class: androidx.core.view.ViewCompat.2
                     public static /* synthetic */ Interceptable $ic;
@@ -1732,10 +1774,10 @@ public class ViewCompat {
                 view2.addOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
                 return;
             }
-            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092090);
+            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f0920dc);
             if (arrayList == null) {
                 arrayList = new ArrayList();
-                view2.setTag(R.id.obfuscated_res_0x7f092090, arrayList);
+                view2.setTag(R.id.obfuscated_res_0x7f0920dc, arrayList);
             }
             arrayList.add(onUnhandledKeyEventListenerCompat);
             if (arrayList.size() == 1) {
@@ -1744,7 +1786,7 @@ public class ViewCompat {
         }
     }
 
-    public static void setBackgroundTintList(View view2, ColorStateList colorStateList) {
+    public static void setBackgroundTintList(@NonNull View view2, ColorStateList colorStateList) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65670, null, view2, colorStateList) == null) {
@@ -1770,7 +1812,7 @@ public class ViewCompat {
         }
     }
 
-    public static void setBackgroundTintMode(View view2, PorterDuff.Mode mode) {
+    public static void setBackgroundTintMode(@NonNull View view2, PorterDuff.Mode mode) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65671, null, view2, mode) == null) {
@@ -1820,7 +1862,8 @@ public class ViewCompat {
         }
     }
 
-    public static ViewPropertyAnimatorCompat animate(View view2) {
+    @NonNull
+    public static ViewPropertyAnimatorCompat animate(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
@@ -1838,7 +1881,7 @@ public class ViewCompat {
         return (ViewPropertyAnimatorCompat) invokeL.objValue;
     }
 
-    public static void dispatchFinishTemporaryDetach(View view2) {
+    public static void dispatchFinishTemporaryDetach(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, view2) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
@@ -1862,7 +1905,7 @@ public class ViewCompat {
         }
     }
 
-    public static void dispatchStartTemporaryDetach(View view2) {
+    public static void dispatchStartTemporaryDetach(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, null, view2) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
@@ -1886,7 +1929,8 @@ public class ViewCompat {
         }
     }
 
-    public static View.AccessibilityDelegate getAccessibilityDelegateThroughReflection(View view2) {
+    @Nullable
+    public static View.AccessibilityDelegate getAccessibilityDelegateThroughReflection(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, view2)) == null) {
@@ -1917,7 +1961,8 @@ public class ViewCompat {
         return (View.AccessibilityDelegate) invokeL.objValue;
     }
 
-    public static Display getDisplay(View view2) {
+    @Nullable
+    public static Display getDisplay(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, view2)) == null) {
@@ -1932,7 +1977,7 @@ public class ViewCompat {
         return (Display) invokeL.objValue;
     }
 
-    public static int getMinimumHeight(View view2) {
+    public static int getMinimumHeight(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, view2)) == null) {
@@ -1961,7 +2006,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getMinimumWidth(View view2) {
+    public static int getMinimumWidth(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, view2)) == null) {
@@ -2042,7 +2087,7 @@ public class ViewCompat {
         return (Rect) invokeV.objValue;
     }
 
-    public static void cancelDragAndDrop(View view2) {
+    public static void cancelDragAndDrop(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, null, view2) == null) && Build.VERSION.SDK_INT >= 24) {
             view2.cancelDragAndDrop();
@@ -2056,7 +2101,8 @@ public class ViewCompat {
         }
     }
 
-    public static AccessibilityDelegateCompat getAccessibilityDelegate(View view2) {
+    @Nullable
+    public static AccessibilityDelegateCompat getAccessibilityDelegate(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, view2)) == null) {
@@ -2072,7 +2118,8 @@ public class ViewCompat {
         return (AccessibilityDelegateCompat) invokeL.objValue;
     }
 
-    public static View.AccessibilityDelegate getAccessibilityDelegateInternal(View view2) {
+    @Nullable
+    public static View.AccessibilityDelegate getAccessibilityDelegateInternal(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, view2)) == null) {
@@ -2084,7 +2131,7 @@ public class ViewCompat {
         return (View.AccessibilityDelegate) invokeL.objValue;
     }
 
-    public static int getAccessibilityLiveRegion(View view2) {
+    public static int getAccessibilityLiveRegion(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, view2)) == null) {
@@ -2096,7 +2143,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view2) {
+    public static AccessibilityNodeProviderCompat getAccessibilityNodeProvider(@NonNull View view2) {
         InterceptResult invokeL;
         AccessibilityNodeProvider accessibilityNodeProvider;
         Interceptable interceptable = $ic;
@@ -2109,6 +2156,7 @@ public class ViewCompat {
         return (AccessibilityNodeProviderCompat) invokeL.objValue;
     }
 
+    @UiThread
     public static CharSequence getAccessibilityPaneTitle(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2122,10 +2170,10 @@ public class ViewCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, view2)) == null) {
-            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092034);
+            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f09207f);
             if (arrayList == null) {
                 ArrayList arrayList2 = new ArrayList();
-                view2.setTag(R.id.obfuscated_res_0x7f092034, arrayList2);
+                view2.setTag(R.id.obfuscated_res_0x7f09207f, arrayList2);
                 return arrayList2;
             }
             return arrayList;
@@ -2143,7 +2191,7 @@ public class ViewCompat {
         return invokeL.floatValue;
     }
 
-    public static ColorStateList getBackgroundTintList(View view2) {
+    public static ColorStateList getBackgroundTintList(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, view2)) == null) {
@@ -2158,7 +2206,7 @@ public class ViewCompat {
         return (ColorStateList) invokeL.objValue;
     }
 
-    public static PorterDuff.Mode getBackgroundTintMode(View view2) {
+    public static PorterDuff.Mode getBackgroundTintMode(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, view2)) == null) {
@@ -2173,7 +2221,8 @@ public class ViewCompat {
         return (PorterDuff.Mode) invokeL.objValue;
     }
 
-    public static Rect getClipBounds(View view2) {
+    @Nullable
+    public static Rect getClipBounds(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, view2)) == null) {
@@ -2185,7 +2234,7 @@ public class ViewCompat {
         return (Rect) invokeL.objValue;
     }
 
-    public static float getElevation(View view2) {
+    public static float getElevation(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, view2)) == null) {
@@ -2197,7 +2246,7 @@ public class ViewCompat {
         return invokeL.floatValue;
     }
 
-    public static boolean getFitsSystemWindows(View view2) {
+    public static boolean getFitsSystemWindows(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, view2)) == null) {
@@ -2209,7 +2258,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static int getImportantForAccessibility(View view2) {
+    public static int getImportantForAccessibility(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, view2)) == null) {
@@ -2221,7 +2270,8 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getImportantForAutofill(View view2) {
+    @SuppressLint({"InlinedApi"})
+    public static int getImportantForAutofill(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, view2)) == null) {
@@ -2233,7 +2283,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getLabelFor(View view2) {
+    public static int getLabelFor(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, view2)) == null) {
@@ -2255,7 +2305,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getLayoutDirection(View view2) {
+    public static int getLayoutDirection(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, view2)) == null) {
@@ -2267,6 +2317,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
+    @Nullable
     @Deprecated
     public static Matrix getMatrix(View view2) {
         InterceptResult invokeL;
@@ -2307,7 +2358,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getNextClusterForwardId(View view2) {
+    public static int getNextClusterForwardId(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, view2)) == null) {
@@ -2319,7 +2370,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static AccessibilityDelegateCompat getOrCreateAccessibilityDelegateCompat(View view2) {
+    public static AccessibilityDelegateCompat getOrCreateAccessibilityDelegateCompat(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, view2)) == null) {
@@ -2343,7 +2394,8 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getPaddingEnd(View view2) {
+    @Px
+    public static int getPaddingEnd(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, view2)) == null) {
@@ -2355,7 +2407,8 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getPaddingStart(View view2) {
+    @Px
+    public static int getPaddingStart(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, view2)) == null) {
@@ -2367,7 +2420,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static ViewParent getParentForAccessibility(View view2) {
+    public static ViewParent getParentForAccessibility(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, view2)) == null) {
@@ -2399,7 +2452,8 @@ public class ViewCompat {
         return invokeL.floatValue;
     }
 
-    public static WindowInsetsCompat getRootWindowInsets(View view2) {
+    @Nullable
+    public static WindowInsetsCompat getRootWindowInsets(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, view2)) == null) {
@@ -2461,7 +2515,7 @@ public class ViewCompat {
         return invokeL.floatValue;
     }
 
-    public static int getScrollIndicators(View view2) {
+    public static int getScrollIndicators(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65607, null, view2)) == null) {
@@ -2473,7 +2527,8 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static List<Rect> getSystemGestureExclusionRects(View view2) {
+    @NonNull
+    public static List<Rect> getSystemGestureExclusionRects(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65608, null, view2)) == null) {
@@ -2485,7 +2540,8 @@ public class ViewCompat {
         return (List) invokeL.objValue;
     }
 
-    public static String getTransitionName(View view2) {
+    @Nullable
+    public static String getTransitionName(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, view2)) == null) {
@@ -2521,7 +2577,7 @@ public class ViewCompat {
         return invokeL.floatValue;
     }
 
-    public static float getTranslationZ(View view2) {
+    public static float getTranslationZ(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65612, null, view2)) == null) {
@@ -2533,7 +2589,7 @@ public class ViewCompat {
         return invokeL.floatValue;
     }
 
-    public static int getWindowSystemUiVisibility(View view2) {
+    public static int getWindowSystemUiVisibility(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65613, null, view2)) == null) {
@@ -2565,7 +2621,7 @@ public class ViewCompat {
         return invokeL.floatValue;
     }
 
-    public static float getZ(View view2) {
+    public static float getZ(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, view2)) == null) {
@@ -2577,7 +2633,7 @@ public class ViewCompat {
         return invokeL.floatValue;
     }
 
-    public static boolean hasAccessibilityDelegate(View view2) {
+    public static boolean hasAccessibilityDelegate(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65617, null, view2)) == null) {
@@ -2589,7 +2645,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasExplicitFocusable(View view2) {
+    public static boolean hasExplicitFocusable(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65618, null, view2)) == null) {
@@ -2601,7 +2657,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasNestedScrollingParent(View view2) {
+    public static boolean hasNestedScrollingParent(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65619, null, view2)) == null) {
@@ -2616,7 +2672,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasOnClickListeners(View view2) {
+    public static boolean hasOnClickListeners(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65621, null, view2)) == null) {
@@ -2628,7 +2684,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasOverlappingRendering(View view2) {
+    public static boolean hasOverlappingRendering(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65622, null, view2)) == null) {
@@ -2640,7 +2696,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasTransientState(View view2) {
+    public static boolean hasTransientState(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, view2)) == null) {
@@ -2652,6 +2708,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
+    @UiThread
     public static boolean isAccessibilityHeading(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2665,7 +2722,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isAttachedToWindow(View view2) {
+    public static boolean isAttachedToWindow(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, view2)) == null) {
@@ -2680,7 +2737,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isFocusedByDefault(View view2) {
+    public static boolean isFocusedByDefault(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, view2)) == null) {
@@ -2692,7 +2749,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isImportantForAccessibility(View view2) {
+    public static boolean isImportantForAccessibility(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, view2)) == null) {
@@ -2704,7 +2761,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isImportantForAutofill(View view2) {
+    public static boolean isImportantForAutofill(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65628, null, view2)) == null) {
@@ -2716,7 +2773,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isInLayout(View view2) {
+    public static boolean isInLayout(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65629, null, view2)) == null) {
@@ -2728,7 +2785,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isKeyboardNavigationCluster(View view2) {
+    public static boolean isKeyboardNavigationCluster(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65630, null, view2)) == null) {
@@ -2740,7 +2797,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isLaidOut(View view2) {
+    public static boolean isLaidOut(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65631, null, view2)) == null) {
@@ -2755,7 +2812,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isLayoutDirectionResolved(View view2) {
+    public static boolean isLayoutDirectionResolved(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65632, null, view2)) == null) {
@@ -2767,7 +2824,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isNestedScrollingEnabled(View view2) {
+    public static boolean isNestedScrollingEnabled(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65633, null, view2)) == null) {
@@ -2792,7 +2849,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isPaddingRelative(View view2) {
+    public static boolean isPaddingRelative(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65635, null, view2)) == null) {
@@ -2804,6 +2861,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
+    @UiThread
     public static boolean isScreenReaderFocusable(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2825,7 +2883,7 @@ public class ViewCompat {
         }
     }
 
-    public static void postInvalidateOnAnimation(View view2) {
+    public static void postInvalidateOnAnimation(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65648, null, view2) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
@@ -2836,7 +2894,7 @@ public class ViewCompat {
         }
     }
 
-    public static void requestApplyInsets(View view2) {
+    public static void requestApplyInsets(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65656, null, view2) == null) {
             int i = Build.VERSION.SDK_INT;
@@ -2848,7 +2906,7 @@ public class ViewCompat {
         }
     }
 
-    public static boolean restoreDefaultFocus(View view2) {
+    public static boolean restoreDefaultFocus(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65659, null, view2)) == null) {
@@ -2860,7 +2918,7 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static void stopNestedScroll(View view2) {
+    public static void stopNestedScroll(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65714, null, view2) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -2880,7 +2938,7 @@ public class ViewCompat {
         }
     }
 
-    public static boolean dispatchNestedFling(View view2, float f, float f2, boolean z) {
+    public static boolean dispatchNestedFling(@NonNull View view2, float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
@@ -2895,7 +2953,7 @@ public class ViewCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean dispatchNestedPreFling(View view2, float f, float f2) {
+    public static boolean dispatchNestedPreFling(@NonNull View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -2910,7 +2968,7 @@ public class ViewCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static void postOnAnimationDelayed(View view2, Runnable runnable, long j) {
+    public static void postOnAnimationDelayed(@NonNull View view2, Runnable runnable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view2, runnable, Long.valueOf(j)}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
@@ -2921,7 +2979,7 @@ public class ViewCompat {
         }
     }
 
-    public static boolean dispatchNestedPreScroll(View view2, int i, int i2, int[] iArr, int[] iArr2) {
+    public static boolean dispatchNestedPreScroll(@NonNull View view2, int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
@@ -2936,7 +2994,7 @@ public class ViewCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean dispatchNestedPreScroll(View view2, int i, int i2, int[] iArr, int[] iArr2, int i3) {
+    public static boolean dispatchNestedPreScroll(@NonNull View view2, int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2, Integer.valueOf(i3)})) == null) {
@@ -2951,7 +3009,7 @@ public class ViewCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean dispatchNestedScroll(View view2, int i, int i2, int i3, int i4, int[] iArr) {
+    public static boolean dispatchNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, @Nullable int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
@@ -2966,7 +3024,7 @@ public class ViewCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static void dispatchNestedScroll(View view2, int i, int i2, int i3, int i4, int[] iArr, int i5, int[] iArr2) {
+    public static void dispatchNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @NonNull int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), iArr2}) == null) {
             if (view2 instanceof NestedScrollingChild3) {
@@ -2977,7 +3035,7 @@ public class ViewCompat {
         }
     }
 
-    public static boolean dispatchNestedScroll(View view2, int i, int i2, int i3, int i4, int[] iArr, int i5) {
+    public static boolean dispatchNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
@@ -3025,6 +3083,7 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
+    @RequiresApi(19)
     public static void notifyViewAccessibilityStateChangedIfNeeded(View view2, int i) {
         boolean z;
         int i2;
@@ -3060,7 +3119,7 @@ public class ViewCompat {
         view2.sendAccessibilityEventUnchecked(obtain);
     }
 
-    public static void offsetLeftAndRight(View view2, int i) {
+    public static void offsetLeftAndRight(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65640, null, view2, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
@@ -3085,7 +3144,7 @@ public class ViewCompat {
         }
     }
 
-    public static void offsetTopAndBottom(View view2, int i) {
+    public static void offsetTopAndBottom(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65641, null, view2, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
@@ -3110,7 +3169,7 @@ public class ViewCompat {
         }
     }
 
-    public static void postInvalidateOnAnimation(View view2, int i, int i2, int i3, int i4) {
+    public static void postInvalidateOnAnimation(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65649, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
@@ -3121,7 +3180,7 @@ public class ViewCompat {
         }
     }
 
-    public static void setPaddingRelative(View view2, int i, int i2, int i3, int i4) {
+    public static void setPaddingRelative(@NonNull View view2, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65689, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
@@ -3132,7 +3191,7 @@ public class ViewCompat {
         }
     }
 
-    public static boolean startDragAndDrop(View view2, ClipData clipData, View.DragShadowBuilder dragShadowBuilder, Object obj, int i) {
+    public static boolean startDragAndDrop(@NonNull View view2, ClipData clipData, View.DragShadowBuilder dragShadowBuilder, Object obj, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65711, null, new Object[]{view2, clipData, dragShadowBuilder, obj, Integer.valueOf(i)})) == null) {
@@ -3144,19 +3203,19 @@ public class ViewCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static void removeOnUnhandledKeyEventListener(View view2, OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
+    public static void removeOnUnhandledKeyEventListener(@NonNull View view2, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
         View.OnUnhandledKeyEventListener onUnhandledKeyEventListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65654, null, view2, onUnhandledKeyEventListenerCompat) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f092090);
+                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f0920dc);
                 if (simpleArrayMap != null && (onUnhandledKeyEventListener = (View.OnUnhandledKeyEventListener) simpleArrayMap.get(onUnhandledKeyEventListenerCompat)) != null) {
                     view2.removeOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
                     return;
                 }
                 return;
             }
-            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092090);
+            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f0920dc);
             if (arrayList != null) {
                 arrayList.remove(onUnhandledKeyEventListenerCompat);
                 if (arrayList.size() == 0) {
@@ -3166,7 +3225,7 @@ public class ViewCompat {
         }
     }
 
-    public static void replaceAccessibilityAction(View view2, AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, CharSequence charSequence, AccessibilityViewCommand accessibilityViewCommand) {
+    public static void replaceAccessibilityAction(@NonNull View view2, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, @Nullable CharSequence charSequence, @Nullable AccessibilityViewCommand accessibilityViewCommand) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65655, null, view2, accessibilityActionCompat, charSequence, accessibilityViewCommand) == null) {
             if (accessibilityViewCommand == null && charSequence == null) {
@@ -3177,7 +3236,7 @@ public class ViewCompat {
         }
     }
 
-    public static void saveAttributeDataForStyleable(View view2, Context context, int[] iArr, AttributeSet attributeSet, TypedArray typedArray, int i, int i2) {
+    public static void saveAttributeDataForStyleable(@NonNull View view2, @NonNull @SuppressLint({"ContextFirst"}) Context context, @NonNull int[] iArr, @Nullable AttributeSet attributeSet, @NonNull TypedArray typedArray, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65660, null, new Object[]{view2, context, iArr, attributeSet, typedArray, Integer.valueOf(i), Integer.valueOf(i2)}) == null) && Build.VERSION.SDK_INT >= 29) {
             Api29Impl.saveAttributeDataForStyleable(view2, context, iArr, attributeSet, typedArray, i, i2);

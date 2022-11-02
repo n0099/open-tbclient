@@ -1,5 +1,7 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +35,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     /* loaded from: classes7.dex */
-    public class InvalidMarkException extends IOException {
+    public static class InvalidMarkException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4338378848813561757L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +62,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RecyclableBufferedInputStream(InputStream inputStream, ArrayPool arrayPool) {
+    public RecyclableBufferedInputStream(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) {
         this(inputStream, arrayPool, 65536);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,7 +83,8 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecyclableBufferedInputStream(InputStream inputStream, ArrayPool arrayPool, int i) {
+    @VisibleForTesting
+    public RecyclableBufferedInputStream(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool, int i) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -275,7 +278,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized int read(byte[] bArr, int i, int i2) throws IOException {
+    public synchronized int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         int i3;
         int i4;

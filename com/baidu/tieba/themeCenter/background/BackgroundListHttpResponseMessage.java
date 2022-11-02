@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.cu8;
+import com.baidu.tieba.lv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +21,9 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List mBackgroundList;
+    public List<DressItemData> mBackgroundList;
     public int mIsDefault;
-    public cu8 mRecommand;
+    public lv8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundListHttpResponseMessage(int i) {
@@ -65,9 +65,9 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes = getBgListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    cu8 cu8Var = new cu8();
-                    this.mRecommand = cu8Var;
-                    cu8Var.d(getBgListResIdl.data.recommend);
+                    lv8 lv8Var = new lv8();
+                    this.mRecommand = lv8Var;
+                    lv8Var.d(getBgListResIdl.data.recommend);
                 }
                 this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {
@@ -86,7 +86,7 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List getBackgroundList() {
+    public List<DressItemData> getBackgroundList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -107,13 +107,13 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public cu8 getRecommand() {
+    public lv8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mRecommand;
         }
-        return (cu8) invokeV.objValue;
+        return (lv8) invokeV.objValue;
     }
 
     public boolean hasMore() {

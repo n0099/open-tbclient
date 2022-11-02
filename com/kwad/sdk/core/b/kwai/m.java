@@ -2,9 +2,10 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class m implements com.kwad.sdk.core.d {
-    public static void a(AdInfo.AdFeedInfo adFeedInfo, JSONObject jSONObject) {
+/* loaded from: classes8.dex */
+public final class m implements com.kwad.sdk.core.d<AdInfo.AdFeedInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.AdFeedInfo adFeedInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -12,7 +13,8 @@ public final class m implements com.kwad.sdk.core.d {
         adFeedInfo.videoAutoPlayType = jSONObject.optInt("videoAutoPlayType");
     }
 
-    public static JSONObject b(AdInfo.AdFeedInfo adFeedInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.AdFeedInfo adFeedInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -27,13 +29,15 @@ public final class m implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((AdInfo.AdFeedInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(AdInfo.AdFeedInfo adFeedInfo, JSONObject jSONObject) {
+        a2(adFeedInfo, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((AdInfo.AdFeedInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdFeedInfo adFeedInfo, JSONObject jSONObject) {
+        return b2(adFeedInfo, jSONObject);
     }
 }

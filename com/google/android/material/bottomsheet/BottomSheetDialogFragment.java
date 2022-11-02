@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +23,7 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
 
     /* renamed from: com.google.android.material.bottomsheet.BottomSheetDialogFragment$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -33,7 +35,7 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         public final /* synthetic */ BottomSheetDialogFragment this$0;
 
         @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-        public void onSlide(View view2, float f) {
+        public void onSlide(@NonNull View view2, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
             }
@@ -62,7 +64,7 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         }
 
         @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-        public void onStateChanged(View view2, int i) {
+        public void onStateChanged(@NonNull View view2, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) && i == 5) {
                 this.this$0.dismissAfterAnimation();
@@ -132,7 +134,8 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
     }
 
     @Override // androidx.appcompat.app.AppCompatDialogFragment, androidx.fragment.app.DialogFragment
-    public Dialog onCreateDialog(Bundle bundle) {
+    @NonNull
+    public Dialog onCreateDialog(@Nullable Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
@@ -141,7 +144,7 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         return (Dialog) invokeL.objValue;
     }
 
-    private void dismissWithAnimation(BottomSheetBehavior bottomSheetBehavior, boolean z) {
+    private void dismissWithAnimation(@NonNull BottomSheetBehavior<?> bottomSheetBehavior, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, this, bottomSheetBehavior, z) == null) {
             this.waitingForDismissAllowingStateLoss = z;

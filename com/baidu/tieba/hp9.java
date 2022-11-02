@@ -1,76 +1,76 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
+import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hp9 extends BaseAdRipper {
+public class hp9 implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ yo9 b;
+    public final /* synthetic */ FunAdInteractionListener c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ ep9 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hp9(Ssp.Pid pid) {
-        super(pid);
+    public hp9(ep9 ep9Var, View view2, yo9 yo9Var, FunAdInteractionListener funAdInteractionListener, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {ep9Var, view2, yo9Var, funAdInteractionListener, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = ep9Var;
+        this.a = view2;
+        this.b = yo9Var;
+        this.c = funAdInteractionListener;
+        this.d = str;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object findField;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            View view2 = this.a;
+            if (view2 != null && view2.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
-            try {
-                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
-                    return null;
-                }
-                Field declaredField2 = obj2.getClass().getDeclaredField("b");
-                declaredField2.setAccessible(true);
-                Object obj3 = declaredField2.get(obj2);
-                if (obj3 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.model.RewardADData", obj3)) == null) {
-                    return null;
-                }
-                Field declaredField3 = findField.getClass().getSuperclass().getDeclaredField("L");
-                declaredField3.setAccessible(true);
-                JSONObject jSONObject = (JSONObject) declaredField3.get(findField);
-                if (jSONObject == null) {
-                    return null;
-                }
-                return go9.a(jSONObject);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+            this.e.onAdClose(this.b);
+            FunAdInteractionListener funAdInteractionListener = this.c;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClose(this.d);
             }
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
     }
 }

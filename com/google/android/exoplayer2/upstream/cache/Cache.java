@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.upstream.cache;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +21,7 @@ public interface Cache {
         void onSpanTouched(Cache cache, CacheSpan cacheSpan, CacheSpan cacheSpan2);
     }
 
-    NavigableSet addListener(String str, Listener listener);
+    NavigableSet<CacheSpan> addListener(String str, Listener listener);
 
     void commitFile(File file) throws CacheException;
 
@@ -28,11 +29,12 @@ public interface Cache {
 
     long getCachedBytes(String str, long j, long j2);
 
-    NavigableSet getCachedSpans(String str);
+    @Nullable
+    NavigableSet<CacheSpan> getCachedSpans(String str);
 
     long getContentLength(String str);
 
-    Set getKeys();
+    Set<String> getKeys();
 
     boolean isCached(String str, long j, long j2);
 
@@ -48,10 +50,11 @@ public interface Cache {
 
     CacheSpan startReadWrite(String str, long j) throws InterruptedException, CacheException;
 
+    @Nullable
     CacheSpan startReadWriteNonBlocking(String str, long j) throws CacheException;
 
     /* loaded from: classes7.dex */
-    public class CacheException extends IOException {
+    public static class CacheException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

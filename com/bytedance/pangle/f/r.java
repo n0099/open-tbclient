@@ -82,7 +82,7 @@ public class r extends X509Certificate {
     }
 
     @Override // java.security.cert.X509Extension
-    public Set getCriticalExtensionOIDs() {
+    public Set<String> getCriticalExtensionOIDs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -132,7 +132,7 @@ public class r extends X509Certificate {
     }
 
     @Override // java.security.cert.X509Extension
-    public Set getNonCriticalExtensionOIDs() {
+    public Set<String> getNonCriticalExtensionOIDs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {

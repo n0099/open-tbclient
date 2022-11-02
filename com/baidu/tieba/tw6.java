@@ -1,85 +1,199 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ad.AbsDataRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActivityPage.ActivityPageReqIdl;
-import tbclient.ActivityPage.DataReq;
+import java.util.List;
+import tbclient.AdMixFloor;
+import tbclient.FrsTabInfo;
 /* loaded from: classes6.dex */
-public class tw6 implements vf5 {
+public class tw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final pf5 b;
+    public int a;
 
-    @Override // com.baidu.tieba.vf5
-    public void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-        }
-    }
-
-    public tw6(String str, String str2) {
+    public tw6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new pf5(false);
-        this.a = str2;
     }
 
-    @Override // com.baidu.tieba.vf5
-    public pf5 c() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return UbsABTestHelper.isFrsFunAdSdkTest();
         }
-        return (pf5) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vf5
-    /* renamed from: d */
-    public ActivityPageReqIdl b(boolean z) {
+    public static boolean f() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static tw6 a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.activity_name = this.a;
-                builder.pn = Integer.valueOf(this.b.c);
-                builder.rn = 20;
-                builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) fj.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(jq4.c().e());
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    yh5.a(builder, true);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            if (z && d()) {
+                return new tw6();
+            }
+            return null;
+        }
+        return (tw6) invokeZ.objValue;
+    }
+
+    public static boolean e(FrsTabInfo frsTabInfo, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, frsTabInfo, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return false;
+            }
+            if (frsTabInfo != null && 505 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) {
+                return false;
+            }
+            if ((frsTabInfo == null || 502 != frsTabInfo.tab_id.intValue() || 91 != frsTabInfo.tab_type.intValue()) && i != 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public void b(List<wn> list, boolean z, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), str}) == null) {
+            int h = mw6.m().h();
+            if (z) {
+                i = mw6.m().i() - 1;
+                for (wn wnVar : list) {
+                    if (wnVar instanceof ThreadData) {
+                        if (((ThreadData) wnVar).getIs_top() != 1) {
+                            break;
+                        }
+                        i++;
+                    }
                 }
-                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
+            } else {
+                i = this.a;
+            }
+            this.a = c(i, h, list, str);
+        }
+    }
+
+    public final int c(int i, int i2, List<wn> list, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, str})) == null) {
+            int i3 = 0;
+            if (list != null && list.size() != 0) {
+                if (i > list.size() - 1) {
+                    return 0;
+                }
+                int i4 = 0;
+                int i5 = 0;
+                while (true) {
+                    if (i4 >= list.size()) {
+                        break;
+                    }
+                    ThreadData threadData = new ThreadData();
+                    yo8 yo8Var = new yo8();
+                    yo8Var.n(true);
+                    threadData.funAdData = yo8Var;
+                    yo8Var.m(str);
+                    list.add(i, threadData);
+                    if (i5 == 0) {
+                        i5 = i + 1;
+                    }
+                    i = i + i2 + 1;
+                    if (i > list.size() - 1) {
+                        i3 = (i - (list.size() - 1)) - 1;
+                        break;
+                    }
+                    i4++;
+                }
+                if (i5 > 0 && zq5.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
+                    zq5.i().n(list, i5, 2);
+                }
+            }
+            return i3;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void g(List<wn> list, List<AdMixFloor> list2, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, list2, Boolean.valueOf(z), str}) == null) {
+            if (((AdMixFloor) ListUtils.getItem(list2, 0)) == null) {
+                return;
+            }
+            int i = 0;
+            for (int i2 = 0; z && i2 < list.size(); i2++) {
+                wn wnVar = list.get(i2);
+                if (wnVar instanceof ThreadData) {
+                    if (((ThreadData) wnVar).getIs_top() != 1) {
+                        break;
+                    }
+                    i++;
+                }
+            }
+            int i3 = 0;
+            for (int i4 = 0; i4 < list2.size(); i4++) {
+                AdMixFloor adMixFloor = list2.get(i4);
+                if (adMixFloor.ad_type.intValue() != 1) {
+                    ThreadData threadData = new ThreadData();
+                    yo8 yo8Var = new yo8();
+                    yo8Var.n(true);
+                    threadData.funAdData = yo8Var;
+                    yo8Var.m(str);
+                    ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
+                    if (i3 == 0) {
+                        i3 = adMixFloor.floor_num.intValue() + i;
+                    }
+                }
+            }
+            if (i3 > 0 && zq5.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
+                zq5.i().n(list, i3, 2);
             }
         }
-        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

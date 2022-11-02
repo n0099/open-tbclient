@@ -16,27 +16,27 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableDoOnEach extends AbstractObservableWithUpstream {
+public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onAfterTerminate;
     public final Action onComplete;
-    public final Consumer onError;
-    public final Consumer onNext;
+    public final Consumer<? super Throwable> onError;
+    public final Consumer<? super T> onNext;
 
     /* loaded from: classes8.dex */
-    public final class DoOnEachObserver implements Observer, Disposable {
+    public static final class DoOnEachObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public boolean done;
         public final Action onAfterTerminate;
         public final Action onComplete;
-        public final Consumer onError;
-        public final Consumer onNext;
+        public final Consumer<? super Throwable> onError;
+        public final Consumer<? super T> onNext;
         public Disposable s;
 
-        public DoOnEachObserver(Observer observer, Consumer consumer, Consumer consumer2, Action action, Action action2) {
+        public DoOnEachObserver(Observer<? super T> observer, Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Action action2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,14 +124,14 @@ public final class ObservableDoOnEach extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             try {
-                this.onNext.accept(obj);
-                this.actual.onNext(obj);
+                this.onNext.accept(t);
+                this.actual.onNext(t);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.dispose();
@@ -150,7 +150,7 @@ public final class ObservableDoOnEach extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDoOnEach(ObservableSource observableSource, Consumer consumer, Consumer consumer2, Action action, Action action2) {
+    public ObservableDoOnEach(ObservableSource<T> observableSource, Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Action action2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -174,7 +174,7 @@ public final class ObservableDoOnEach extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DoOnEachObserver(observer, this.onNext, this.onError, this.onComplete, this.onAfterTerminate));

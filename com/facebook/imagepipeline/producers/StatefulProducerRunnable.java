@@ -10,19 +10,19 @@ import com.facebook.common.executors.StatefulRunnable;
 import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public abstract class StatefulProducerRunnable extends StatefulRunnable {
+public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer mConsumer;
+    public final Consumer<T> mConsumer;
     public final ProducerContext mProducerContext;
     public final ProducerListener2 mProducerListener;
     public final String mProducerName;
 
     @Override // com.facebook.common.executors.StatefulRunnable
-    public abstract void disposeResult(Object obj);
+    public abstract void disposeResult(T t);
 
     @Nullable
-    public Map getExtraMapOnCancellation() {
+    public Map<String, String> getExtraMapOnCancellation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -32,7 +32,7 @@ public abstract class StatefulProducerRunnable extends StatefulRunnable {
     }
 
     @Nullable
-    public Map getExtraMapOnFailure(Exception exc) {
+    public Map<String, String> getExtraMapOnFailure(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc)) == null) {
@@ -42,16 +42,16 @@ public abstract class StatefulProducerRunnable extends StatefulRunnable {
     }
 
     @Nullable
-    public Map getExtraMapOnSuccess(Object obj) {
+    public Map<String, String> getExtraMapOnSuccess(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
             return null;
         }
         return (Map) invokeL.objValue;
     }
 
-    public StatefulProducerRunnable(Consumer consumer, ProducerListener2 producerListener2, ProducerContext producerContext, String str) {
+    public StatefulProducerRunnable(Consumer<T> consumer, ProducerListener2 producerListener2, ProducerContext producerContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +75,7 @@ public abstract class StatefulProducerRunnable extends StatefulRunnable {
 
     @Override // com.facebook.common.executors.StatefulRunnable
     public void onCancellation() {
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             ProducerListener2 producerListener2 = this.mProducerListener;
@@ -93,7 +93,7 @@ public abstract class StatefulProducerRunnable extends StatefulRunnable {
 
     @Override // com.facebook.common.executors.StatefulRunnable
     public void onFailure(Exception exc) {
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, exc) == null) {
             ProducerListener2 producerListener2 = this.mProducerListener;
@@ -110,20 +110,20 @@ public abstract class StatefulProducerRunnable extends StatefulRunnable {
     }
 
     @Override // com.facebook.common.executors.StatefulRunnable
-    public void onSuccess(Object obj) {
-        Map map;
+    public void onSuccess(T t) {
+        Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
             ProducerListener2 producerListener2 = this.mProducerListener;
             ProducerContext producerContext = this.mProducerContext;
             String str = this.mProducerName;
             if (producerListener2.requiresExtraMap(producerContext, str)) {
-                map = getExtraMapOnSuccess(obj);
+                map = getExtraMapOnSuccess(t);
             } else {
                 map = null;
             }
             producerListener2.onProducerFinishWithSuccess(producerContext, str, map);
-            this.mConsumer.onNewResult(obj, 1);
+            this.mConsumer.onNewResult(t, 1);
         }
     }
 }

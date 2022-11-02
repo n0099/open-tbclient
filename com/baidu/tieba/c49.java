@@ -1,150 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.write.checkquestion.message.CheckIsQuestionThreadRequestMsg;
-import com.baidu.tieba.write.write.checkquestion.message.CheckIsQuestionThreadRespondedMsg;
+import com.baidu.tieba.write.editor.EditorInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c49 {
+public class c49 extends p65 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile c49 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
-    public final HttpMessageListener c;
+    public Context t;
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c49 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(c49 c49Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c49Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c49Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.a = false;
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003544 && (httpResponsedMessage instanceof CheckIsQuestionThreadRespondedMsg)) {
-                    if (httpResponsedMessage.getError() != 0) {
-                        if (this.a.b != null) {
-                            this.a.b.a(false);
-                        }
-                    } else if (this.a.b != null) {
-                        this.a.b.a(((CheckIsQuestionThreadRespondedMsg) httpResponsedMessage).isQuestionThread());
-                    }
-                } else if (this.a.b != null) {
-                    this.a.b.a(false);
-                }
-            }
-        }
-    }
-
-    public c49() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c49(Context context, String str) {
+        super(context, (String) null, 15);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this, CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD);
-        d();
+        this.o = false;
+        this.t = context;
+        this.n = 3;
+        this.m = new EditorInfoContainer(context, str);
+        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57, 65};
     }
 
-    public static c49 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (c49.class) {
-                    if (d == null) {
-                        d = new c49();
-                    }
-                }
-            }
-            return d;
-        }
-        return (c49) invokeV.objValue;
-    }
-
-    public final void d() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e();
-            f();
+            q65 q65Var = this.m;
+            if (q65Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) q65Var).i();
+            }
         }
     }
 
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
-        }
-    }
-
-    public final void e() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD, TbConfig.SERVER_ADDRESS + "c/s/checkIsQuestionThread");
-            tbHttpMessageTask.setResponsedClass(CheckIsQuestionThreadRespondedMsg.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            q65 q65Var = this.m;
+            if (q65Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) q65Var).j();
+            }
         }
     }
 
-    public void g(String str, String str2, b bVar) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048579, this, str, str2, bVar) != null) || this.a) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            q65 q65Var = this.m;
+            if (q65Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) q65Var).k();
+            }
         }
-        this.b = bVar;
-        this.a = true;
-        CheckIsQuestionThreadRequestMsg checkIsQuestionThreadRequestMsg = new CheckIsQuestionThreadRequestMsg(CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD);
-        checkIsQuestionThreadRequestMsg.addParam(MissonDetailsActivityConfig.THREAD_TITLE, str);
-        checkIsQuestionThreadRequestMsg.addParam("thread_content", str2);
-        MessageManager.getInstance().sendMessage(checkIsQuestionThreadRequestMsg);
+    }
+
+    public void j(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            q65 q65Var = this.m;
+            if (q65Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) q65Var).p(str, i);
+            }
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            q65 q65Var = this.m;
+            if (q65Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) q65Var).q(i);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            q65 q65Var = this.m;
+            if (q65Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) q65Var).r(z);
+            }
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            q65 q65Var = this.m;
+            if (q65Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) q65Var).setFrom(str);
+            }
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            q65 q65Var = this.m;
+            if (q65Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) q65Var).v(z);
+            }
+        }
     }
 }

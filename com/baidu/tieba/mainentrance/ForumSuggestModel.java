@@ -17,7 +17,7 @@ public class ForumSuggestModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6239604692561216871L;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList forum_list;
+    public ArrayList<Forum> forum_list;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -40,7 +40,7 @@ public class ForumSuggestModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class Forum extends OrmObject implements Serializable {
+    public static class Forum extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9180642468980325020L;
         public transient /* synthetic */ FieldHolder $fh;

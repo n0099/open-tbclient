@@ -2,15 +2,15 @@ package rx.internal.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ay9;
-import com.baidu.tieba.az9;
-import com.baidu.tieba.ly9;
-import com.baidu.tieba.my9;
-import com.baidu.tieba.oy9;
-import com.baidu.tieba.py9;
-import com.baidu.tieba.qy9;
-import com.baidu.tieba.v1a;
-import com.baidu.tieba.xx9;
+import com.baidu.tieba.e3a;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.j0a;
+import com.baidu.tieba.jz9;
+import com.baidu.tieba.uz9;
+import com.baidu.tieba.vz9;
+import com.baidu.tieba.xz9;
+import com.baidu.tieba.yz9;
+import com.baidu.tieba.zz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,8 +29,8 @@ public final class InternalObservableUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final g COUNTER;
     public static final e ERROR_EXTRACTOR;
-    public static final ly9 ERROR_NOT_IMPLEMENTED;
-    public static final xx9.b IS_EMPTY;
+    public static final uz9<Throwable> ERROR_NOT_IMPLEMENTED;
+    public static final gz9.b<Boolean, Object> IS_EMPTY;
     public static final h LONG_COUNTER;
     public static final f OBJECT_EQUALS;
     public static final o RETURNS_VOID;
@@ -38,17 +38,17 @@ public final class InternalObservableUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
-    public final class a implements qy9 {
+    public static final class a<T, R> implements zz9<R, T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final my9 a;
+        public final vz9<R, ? super T> a;
 
-        public a(my9 my9Var) {
+        public a(vz9<R, ? super T> vz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {my9Var};
+                Object[] objArr = {vz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,23 +58,23 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.a = my9Var;
+            this.a = vz9Var;
         }
 
-        @Override // com.baidu.tieba.qy9
-        public Object call(Object obj, Object obj2) {
+        @Override // com.baidu.tieba.zz9
+        public R call(R r, T t) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                this.a.call(obj, obj2);
-                return obj;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r, t)) == null) {
+                this.a.call(r, t);
+                return r;
             }
-            return invokeLL.objValue;
+            return (R) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public final class b implements py9 {
+    public static final class b implements yz9<Object, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object a;
@@ -98,7 +98,8 @@ public final class InternalObservableUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.yz9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             boolean z;
@@ -117,12 +118,12 @@ public final class InternalObservableUtils {
     }
 
     /* loaded from: classes9.dex */
-    public final class d implements py9 {
+    public static final class d implements yz9<Object, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Class a;
+        public final Class<?> a;
 
-        public d(Class cls) {
+        public d(Class<?> cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +142,8 @@ public final class InternalObservableUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.yz9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -153,7 +155,7 @@ public final class InternalObservableUtils {
     }
 
     /* loaded from: classes9.dex */
-    public final class e implements py9 {
+    public static final class e implements yz9<Notification<?>, Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -172,8 +174,8 @@ public final class InternalObservableUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
-        public Throwable call(Notification notification) {
+        @Override // com.baidu.tieba.yz9
+        public Throwable call(Notification<?> notification) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notification)) == null) {
@@ -184,17 +186,17 @@ public final class InternalObservableUtils {
     }
 
     /* loaded from: classes9.dex */
-    public final class i implements py9 {
+    public static final class i implements yz9<gz9<? extends Notification<?>>, gz9<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final py9 a;
+        public final yz9<? super gz9<? extends Void>, ? extends gz9<?>> a;
 
-        public i(py9 py9Var) {
+        public i(yz9<? super gz9<? extends Void>, ? extends gz9<?>> yz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {py9Var};
+                Object[] objArr = {yz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -204,34 +206,34 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.a = py9Var;
+            this.a = yz9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
-        public xx9 call(xx9 xx9Var) {
+        @Override // com.baidu.tieba.yz9
+        public gz9<?> call(gz9<? extends Notification<?>> gz9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xx9Var)) == null) {
-                return (xx9) this.a.call(xx9Var.h(InternalObservableUtils.RETURNS_VOID));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gz9Var)) == null) {
+                return this.a.call(gz9Var.h(InternalObservableUtils.RETURNS_VOID));
             }
-            return (xx9) invokeL.objValue;
+            return (gz9) invokeL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public final class j implements oy9 {
+    public static final class j<T> implements xz9<e3a<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final xx9 a;
+        public final gz9<T> a;
         public final int b;
 
-        public j(xx9 xx9Var, int i) {
+        public j(gz9<T> gz9Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xx9Var, Integer.valueOf(i)};
+                Object[] objArr = {gz9Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -241,37 +243,37 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.a = xx9Var;
+            this.a = gz9Var;
             this.b = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oy9, java.util.concurrent.Callable
-        public v1a call() {
+        @Override // com.baidu.tieba.xz9
+        public e3a<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.a.p(this.b);
             }
-            return (v1a) invokeV.objValue;
+            return (e3a) invokeV.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public final class k implements oy9 {
+    public static final class k<T> implements xz9<e3a<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TimeUnit a;
-        public final xx9 b;
+        public final gz9<T> b;
         public final long c;
-        public final ay9 d;
+        public final jz9 d;
 
-        public k(xx9 xx9Var, long j, TimeUnit timeUnit, ay9 ay9Var) {
+        public k(gz9<T> gz9Var, long j, TimeUnit timeUnit, jz9 jz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xx9Var, Long.valueOf(j), timeUnit, ay9Var};
+                Object[] objArr = {gz9Var, Long.valueOf(j), timeUnit, jz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -282,35 +284,35 @@ public final class InternalObservableUtils {
                 }
             }
             this.a = timeUnit;
-            this.b = xx9Var;
+            this.b = gz9Var;
             this.c = j;
-            this.d = ay9Var;
+            this.d = jz9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oy9, java.util.concurrent.Callable
-        public v1a call() {
+        @Override // com.baidu.tieba.xz9
+        public e3a<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.b.r(this.c, this.a, this.d);
             }
-            return (v1a) invokeV.objValue;
+            return (e3a) invokeV.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public final class l implements oy9 {
+    public static final class l<T> implements xz9<e3a<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final xx9 a;
+        public final gz9<T> a;
 
-        public l(xx9 xx9Var) {
+        public l(gz9<T> gz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xx9Var};
+                Object[] objArr = {gz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -320,37 +322,37 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.a = xx9Var;
+            this.a = gz9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oy9, java.util.concurrent.Callable
-        public v1a call() {
+        @Override // com.baidu.tieba.xz9
+        public e3a<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.a.o();
             }
-            return (v1a) invokeV.objValue;
+            return (e3a) invokeV.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public final class m implements oy9 {
+    public static final class m<T> implements xz9<e3a<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long a;
         public final TimeUnit b;
-        public final ay9 c;
+        public final jz9 c;
         public final int d;
-        public final xx9 e;
+        public final gz9<T> e;
 
-        public m(xx9 xx9Var, int i, long j, TimeUnit timeUnit, ay9 ay9Var) {
+        public m(gz9<T> gz9Var, int i, long j, TimeUnit timeUnit, jz9 jz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xx9Var, Integer.valueOf(i), Long.valueOf(j), timeUnit, ay9Var};
+                Object[] objArr = {gz9Var, Integer.valueOf(i), Long.valueOf(j), timeUnit, jz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -362,35 +364,35 @@ public final class InternalObservableUtils {
             }
             this.a = j;
             this.b = timeUnit;
-            this.c = ay9Var;
+            this.c = jz9Var;
             this.d = i;
-            this.e = xx9Var;
+            this.e = gz9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oy9, java.util.concurrent.Callable
-        public v1a call() {
+        @Override // com.baidu.tieba.xz9
+        public e3a<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.e.q(this.d, this.a, this.b, this.c);
             }
-            return (v1a) invokeV.objValue;
+            return (e3a) invokeV.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public final class n implements py9 {
+    public static final class n implements yz9<gz9<? extends Notification<?>>, gz9<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final py9 a;
+        public final yz9<? super gz9<? extends Throwable>, ? extends gz9<?>> a;
 
-        public n(py9 py9Var) {
+        public n(yz9<? super gz9<? extends Throwable>, ? extends gz9<?>> yz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {py9Var};
+                Object[] objArr = {yz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -400,28 +402,28 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.a = py9Var;
+            this.a = yz9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
-        public xx9 call(xx9 xx9Var) {
+        @Override // com.baidu.tieba.yz9
+        public gz9<?> call(gz9<? extends Notification<?>> gz9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xx9Var)) == null) {
-                return (xx9) this.a.call(xx9Var.h(InternalObservableUtils.ERROR_EXTRACTOR));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gz9Var)) == null) {
+                return this.a.call(gz9Var.h(InternalObservableUtils.ERROR_EXTRACTOR));
             }
-            return (xx9) invokeL.objValue;
+            return (gz9) invokeL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public final class o implements py9 {
+    public static final class o implements yz9<Object, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
+        @Override // com.baidu.tieba.yz9
         public Void call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -447,18 +449,18 @@ public final class InternalObservableUtils {
     }
 
     /* loaded from: classes9.dex */
-    public final class p implements py9 {
+    public static final class p<T, R> implements yz9<gz9<T>, gz9<R>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final py9 a;
-        public final ay9 b;
+        public final yz9<? super gz9<T>, ? extends gz9<R>> a;
+        public final jz9 b;
 
-        public p(py9 py9Var, ay9 ay9Var) {
+        public p(yz9<? super gz9<T>, ? extends gz9<R>> yz9Var, jz9 jz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {py9Var, ay9Var};
+                Object[] objArr = {yz9Var, jz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -468,19 +470,22 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.a = py9Var;
-            this.b = ay9Var;
+            this.a = yz9Var;
+            this.b = jz9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
-        public xx9 call(xx9 xx9Var) {
+        public gz9<R> call(gz9<T> gz9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xx9Var)) == null) {
-                return ((xx9) this.a.call(xx9Var)).k(this.b);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gz9Var)) == null) {
+                return this.a.call(gz9Var).k(this.b);
             }
-            return (xx9) invokeL.objValue;
+            return (gz9) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.yz9
+        public /* bridge */ /* synthetic */ Object call(Object obj) {
+            return call((gz9) ((gz9) obj));
         }
     }
 
@@ -502,7 +507,7 @@ public final class InternalObservableUtils {
             }
         }
         $VALUES = new InternalObservableUtils[0];
-        LONG_COUNTER = new qy9() { // from class: rx.internal.util.InternalObservableUtils.h
+        LONG_COUNTER = new zz9<Long, Object, Long>() { // from class: rx.internal.util.InternalObservableUtils.h
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -521,7 +526,7 @@ public final class InternalObservableUtils {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qy9
+            @Override // com.baidu.tieba.zz9
             public Long call(Long l2, Object obj) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
@@ -531,7 +536,7 @@ public final class InternalObservableUtils {
                 return (Long) invokeLL.objValue;
             }
         };
-        OBJECT_EQUALS = new qy9() { // from class: rx.internal.util.InternalObservableUtils.f
+        OBJECT_EQUALS = new zz9<Object, Object, Boolean>() { // from class: rx.internal.util.InternalObservableUtils.f
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -550,7 +555,8 @@ public final class InternalObservableUtils {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qy9
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // com.baidu.tieba.zz9
             public Boolean call(Object obj, Object obj2) {
                 InterceptResult invokeLL;
                 boolean z;
@@ -566,7 +572,7 @@ public final class InternalObservableUtils {
                 return (Boolean) invokeLL.objValue;
             }
         };
-        TO_ARRAY = new py9() { // from class: rx.internal.util.InternalObservableUtils.q
+        TO_ARRAY = new yz9<List<? extends gz9<?>>, gz9<?>[]>() { // from class: rx.internal.util.InternalObservableUtils.q
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -585,18 +591,18 @@ public final class InternalObservableUtils {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.py9
-            public xx9[] call(List list) {
+            @Override // com.baidu.tieba.yz9
+            public gz9<?>[] call(List<? extends gz9<?>> list) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                    return (xx9[]) list.toArray(new xx9[list.size()]);
+                    return (gz9[]) list.toArray(new gz9[list.size()]);
                 }
-                return (xx9[]) invokeL.objValue;
+                return (gz9[]) invokeL.objValue;
             }
         };
         RETURNS_VOID = new o();
-        COUNTER = new qy9() { // from class: rx.internal.util.InternalObservableUtils.g
+        COUNTER = new zz9<Integer, Object, Integer>() { // from class: rx.internal.util.InternalObservableUtils.g
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -615,7 +621,7 @@ public final class InternalObservableUtils {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qy9
+            @Override // com.baidu.tieba.zz9
             public Integer call(Integer num, Object obj) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
@@ -626,7 +632,7 @@ public final class InternalObservableUtils {
             }
         };
         ERROR_EXTRACTOR = new e();
-        ERROR_NOT_IMPLEMENTED = new ly9() { // from class: rx.internal.util.InternalObservableUtils.c
+        ERROR_NOT_IMPLEMENTED = new uz9<Throwable>() { // from class: rx.internal.util.InternalObservableUtils.c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -645,7 +651,7 @@ public final class InternalObservableUtils {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ly9
+            @Override // com.baidu.tieba.uz9
             public void call(Throwable th) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -653,7 +659,7 @@ public final class InternalObservableUtils {
                 }
             }
         };
-        IS_EMPTY = new az9(UtilityFunctions.a(), true);
+        IS_EMPTY = new j0a(UtilityFunctions.a(), true);
     }
 
     public InternalObservableUtils(String str, int i2) {
@@ -675,58 +681,58 @@ public final class InternalObservableUtils {
         }
     }
 
-    public static qy9 createCollectorCaller(my9 my9Var) {
+    public static <T, R> zz9<R, T, R> createCollectorCaller(vz9<R, ? super T> vz9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, my9Var)) == null) {
-            return new a(my9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, vz9Var)) == null) {
+            return new a(vz9Var);
         }
-        return (qy9) invokeL.objValue;
+        return (zz9) invokeL.objValue;
     }
 
-    public static py9 createRepeatDematerializer(py9 py9Var) {
+    public static yz9<gz9<? extends Notification<?>>, gz9<?>> createRepeatDematerializer(yz9<? super gz9<? extends Void>, ? extends gz9<?>> yz9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, py9Var)) == null) {
-            return new i(py9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yz9Var)) == null) {
+            return new i(yz9Var);
         }
-        return (py9) invokeL.objValue;
+        return (yz9) invokeL.objValue;
     }
 
-    public static oy9 createReplaySupplier(xx9 xx9Var) {
+    public static <T> xz9<e3a<T>> createReplaySupplier(gz9<T> gz9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, xx9Var)) == null) {
-            return new l(xx9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, gz9Var)) == null) {
+            return new l(gz9Var);
         }
-        return (oy9) invokeL.objValue;
+        return (xz9) invokeL.objValue;
     }
 
-    public static py9 createRetryDematerializer(py9 py9Var) {
+    public static yz9<gz9<? extends Notification<?>>, gz9<?>> createRetryDematerializer(yz9<? super gz9<? extends Throwable>, ? extends gz9<?>> yz9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, py9Var)) == null) {
-            return new n(py9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, yz9Var)) == null) {
+            return new n(yz9Var);
         }
-        return (py9) invokeL.objValue;
+        return (yz9) invokeL.objValue;
     }
 
-    public static py9 equalsWith(Object obj) {
+    public static yz9<Object, Boolean> equalsWith(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) {
             return new b(obj);
         }
-        return (py9) invokeL.objValue;
+        return (yz9) invokeL.objValue;
     }
 
-    public static py9 isInstanceOf(Class cls) {
+    public static yz9<Object, Boolean> isInstanceOf(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cls)) == null) {
             return new d(cls);
         }
-        return (py9) invokeL.objValue;
+        return (yz9) invokeL.objValue;
     }
 
     public static InternalObservableUtils valueOf(String str) {
@@ -738,40 +744,40 @@ public final class InternalObservableUtils {
         return (InternalObservableUtils) invokeL.objValue;
     }
 
-    public static py9 createReplaySelectorAndObserveOn(py9 py9Var, ay9 ay9Var) {
+    public static <T, R> yz9<gz9<T>, gz9<R>> createReplaySelectorAndObserveOn(yz9<? super gz9<T>, ? extends gz9<R>> yz9Var, jz9 jz9Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, py9Var, ay9Var)) == null) {
-            return new p(py9Var, ay9Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, yz9Var, jz9Var)) == null) {
+            return new p(yz9Var, jz9Var);
         }
-        return (py9) invokeLL.objValue;
+        return (yz9) invokeLL.objValue;
     }
 
-    public static oy9 createReplaySupplier(xx9 xx9Var, int i2) {
+    public static <T> xz9<e3a<T>> createReplaySupplier(gz9<T> gz9Var, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, xx9Var, i2)) == null) {
-            return new j(xx9Var, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, gz9Var, i2)) == null) {
+            return new j(gz9Var, i2);
         }
-        return (oy9) invokeLI.objValue;
+        return (xz9) invokeLI.objValue;
     }
 
-    public static oy9 createReplaySupplier(xx9 xx9Var, int i2, long j2, TimeUnit timeUnit, ay9 ay9Var) {
+    public static <T> xz9<e3a<T>> createReplaySupplier(gz9<T> gz9Var, int i2, long j2, TimeUnit timeUnit, jz9 jz9Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{xx9Var, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, ay9Var})) == null) {
-            return new m(xx9Var, i2, j2, timeUnit, ay9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{gz9Var, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, jz9Var})) == null) {
+            return new m(gz9Var, i2, j2, timeUnit, jz9Var);
         }
-        return (oy9) invokeCommon.objValue;
+        return (xz9) invokeCommon.objValue;
     }
 
-    public static oy9 createReplaySupplier(xx9 xx9Var, long j2, TimeUnit timeUnit, ay9 ay9Var) {
+    public static <T> xz9<e3a<T>> createReplaySupplier(gz9<T> gz9Var, long j2, TimeUnit timeUnit, jz9 jz9Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{xx9Var, Long.valueOf(j2), timeUnit, ay9Var})) == null) {
-            return new k(xx9Var, j2, timeUnit, ay9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{gz9Var, Long.valueOf(j2), timeUnit, jz9Var})) == null) {
+            return new k(gz9Var, j2, timeUnit, jz9Var);
         }
-        return (oy9) invokeCommon.objValue;
+        return (xz9) invokeCommon.objValue;
     }
 
     public static InternalObservableUtils[] values() {

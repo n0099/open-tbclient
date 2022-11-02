@@ -4,7 +4,7 @@ import android.content.Context;
 import com.kwad.components.offline.api.core.api.ILoggerReporter;
 import com.kwad.sdk.commercial.model.SDKInitMsg;
 import com.kwad.sdk.core.report.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static int QV;
 

@@ -18,6 +18,14 @@ import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -64,28 +72,33 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     public int currentOffset;
     public int downPreScrollRange;
     public int downScrollRange;
+    @Nullable
     public ValueAnimator elevationOverlayAnimator;
     public boolean haveChildWithInterpolator;
+    @Nullable
     public WindowInsetsCompat lastInsets;
     public boolean liftOnScroll;
+    @Nullable
     public WeakReference<View> liftOnScrollTargetView;
+    @IdRes
     public int liftOnScrollTargetViewId;
     public boolean liftable;
     public boolean liftableOverride;
     public boolean lifted;
     public List<BaseOnOffsetChangedListener> listeners;
     public int pendingAction;
+    @Nullable
     public Drawable statusBarForeground;
     public int[] tmpStatesArray;
     public int totalScrollRange;
 
     /* loaded from: classes7.dex */
-    public interface BaseOnOffsetChangedListener {
-        void onOffsetChanged(AppBarLayout appBarLayout, int i);
+    public interface BaseOnOffsetChangedListener<T extends AppBarLayout> {
+        void onOffsetChanged(T t, int i);
     }
 
     /* loaded from: classes7.dex */
-    public interface OnOffsetChangedListener extends BaseOnOffsetChangedListener {
+    public interface OnOffsetChangedListener extends BaseOnOffsetChangedListener<AppBarLayout> {
         @Override // com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         void onOffsetChanged(AppBarLayout appBarLayout, int i);
     }
@@ -116,12 +129,13 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     /* loaded from: classes7.dex */
-    public class BaseBehavior extends HeaderBehavior {
+    public static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;
         public static final int MAX_OFFSET_ANIMATION_DURATION = 600;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference lastNestedScrollingChildRef;
+        @Nullable
+        public WeakReference<View> lastNestedScrollingChildRef;
         public int lastStartedType;
         public ValueAnimator offsetAnimator;
         public int offsetDelta;
@@ -137,11 +151,11 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
 
         /* loaded from: classes7.dex */
-        public abstract class BaseDragCallback {
+        public static abstract class BaseDragCallback<T extends AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public abstract boolean canDrag(AppBarLayout appBarLayout);
+            public abstract boolean canDrag(@NonNull T t);
 
             public BaseDragCallback() {
                 Interceptable interceptable = $ic;
@@ -159,9 +173,9 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
 
         /* loaded from: classes7.dex */
-        public class SavedState extends AbsSavedState {
+        public static class SavedState extends AbsSavedState {
             public static /* synthetic */ Interceptable $ic;
-            public static final Parcelable.Creator CREATOR;
+            public static final Parcelable.Creator<SavedState> CREATOR;
             public transient /* synthetic */ FieldHolder $fh;
             public boolean firstVisibleChildAtMinimumHeight;
             public int firstVisibleChildIndex;
@@ -180,7 +194,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                         return;
                     }
                 }
-                CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.SavedState.1
+                CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.SavedState.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,7 +214,8 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // android.os.Parcelable.Creator
-                    public SavedState createFromParcel(Parcel parcel) {
+                    @Nullable
+                    public SavedState createFromParcel(@NonNull Parcel parcel) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -211,6 +226,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // android.os.Parcelable.Creator
+                    @NonNull
                     public SavedState[] newArray(int i) {
                         InterceptResult invokeI;
                         Interceptable interceptable2 = $ic;
@@ -221,8 +237,10 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // android.os.Parcelable.ClassLoaderCreator
-                    public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                    @NonNull
+                    public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
@@ -234,7 +252,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public SavedState(Parcel parcel, ClassLoader classLoader) {
+            public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
                 super(parcel, classLoader);
                 boolean z;
                 Interceptable interceptable = $ic;
@@ -284,7 +302,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
 
             @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-            public void writeToParcel(Parcel parcel, int i) {
+            public void writeToParcel(@NonNull Parcel parcel, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
                     super.writeToParcel(parcel, i);
@@ -321,6 +339,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return invokeV.intValue;
         }
 
+        @VisibleForTesting
         public boolean isOffsetAnimatorRunning() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -356,7 +375,8 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             this.offsetToChildIndexOnLayout = -1;
         }
 
-        public static View getAppBarChildOnOffset(AppBarLayout appBarLayout, int i) {
+        @Nullable
+        public static View getAppBarChildOnOffset(@NonNull AppBarLayout appBarLayout, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, appBarLayout, i)) == null) {
@@ -373,11 +393,11 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return (View) invokeLI.objValue;
         }
 
-        private boolean shouldJumpElevationState(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout) {
+        private boolean shouldJumpElevationState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, coordinatorLayout, appBarLayout)) == null) {
-                List<View> dependents = coordinatorLayout.getDependents(appBarLayout);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, coordinatorLayout, t)) == null) {
+                List<View> dependents = coordinatorLayout.getDependents(t);
                 int size = dependents.size();
                 for (int i = 0; i < size; i++) {
                     CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) dependents.get(i).getLayoutParams()).getBehavior();
@@ -393,20 +413,21 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return invokeLL.booleanValue;
         }
 
-        private void updateAccessibilityActions(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout) {
+        private void updateAccessibilityActions(CoordinatorLayout coordinatorLayout, @NonNull T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65551, this, coordinatorLayout, appBarLayout) == null) {
+            if (interceptable == null || interceptable.invokeLL(65551, this, coordinatorLayout, t) == null) {
                 ViewCompat.removeAccessibilityAction(coordinatorLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_FORWARD.getId());
                 ViewCompat.removeAccessibilityAction(coordinatorLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_BACKWARD.getId());
                 View findFirstScrollingChild = findFirstScrollingChild(coordinatorLayout);
-                if (findFirstScrollingChild == null || appBarLayout.getTotalScrollRange() == 0 || !(((CoordinatorLayout.LayoutParams) findFirstScrollingChild.getLayoutParams()).getBehavior() instanceof ScrollingViewBehavior)) {
+                if (findFirstScrollingChild == null || t.getTotalScrollRange() == 0 || !(((CoordinatorLayout.LayoutParams) findFirstScrollingChild.getLayoutParams()).getBehavior() instanceof ScrollingViewBehavior)) {
                     return;
                 }
-                addAccessibilityScrollActions(coordinatorLayout, appBarLayout, findFirstScrollingChild);
+                addAccessibilityScrollActions(coordinatorLayout, t, findFirstScrollingChild);
             }
         }
 
-        private View findFirstScrollingChild(CoordinatorLayout coordinatorLayout) {
+        @Nullable
+        private View findFirstScrollingChild(@NonNull CoordinatorLayout coordinatorLayout) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, coordinatorLayout)) == null) {
@@ -422,24 +443,45 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return (View) invokeL.objValue;
         }
 
-        public void setDragCallback(BaseDragCallback baseDragCallback) {
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.google.android.material.appbar.HeaderBehavior
+        public /* bridge */ /* synthetic */ boolean canDragView(View view2) {
+            return canDragView((BaseBehavior<T>) ((AppBarLayout) view2));
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.google.android.material.appbar.HeaderBehavior
+        public /* bridge */ /* synthetic */ int getMaxDragOffset(@NonNull View view2) {
+            return getMaxDragOffset((BaseBehavior<T>) ((AppBarLayout) view2));
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.google.android.material.appbar.HeaderBehavior
+        public /* bridge */ /* synthetic */ int getScrollRangeForDragFling(@NonNull View view2) {
+            return getScrollRangeForDragFling((BaseBehavior<T>) ((AppBarLayout) view2));
+        }
+
+        public void setDragCallback(@Nullable BaseDragCallback baseDragCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048602, this, baseDragCallback) == null) {
                 this.onDragCallback = baseDragCallback;
             }
         }
 
-        private void addAccessibilityScrollActions(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2) {
+        private void addAccessibilityScrollActions(CoordinatorLayout coordinatorLayout, @NonNull T t, @NonNull View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65539, this, coordinatorLayout, appBarLayout, view2) == null) {
-                if (getTopBottomOffsetForScrollingSibling() != (-appBarLayout.getTotalScrollRange()) && view2.canScrollVertically(1)) {
-                    addActionToExpand(coordinatorLayout, appBarLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_FORWARD, false);
+            if (interceptable == null || interceptable.invokeLLL(65539, this, coordinatorLayout, t, view2) == null) {
+                if (getTopBottomOffsetForScrollingSibling() != (-t.getTotalScrollRange()) && view2.canScrollVertically(1)) {
+                    addActionToExpand(coordinatorLayout, t, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_FORWARD, false);
                 }
                 if (getTopBottomOffsetForScrollingSibling() != 0) {
                     if (view2.canScrollVertically(-1)) {
-                        int i = -appBarLayout.getDownNestedPreScrollRange();
+                        int i = -t.getDownNestedPreScrollRange();
                         if (i != 0) {
-                            ViewCompat.replaceAccessibilityAction(coordinatorLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_BACKWARD, null, new AccessibilityViewCommand(this, coordinatorLayout, appBarLayout, view2, i) { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.2
+                            ViewCompat.replaceAccessibilityAction(coordinatorLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_BACKWARD, null, new AccessibilityViewCommand(this, coordinatorLayout, t, view2, i) { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ BaseBehavior this$0;
@@ -453,7 +495,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                                     if (interceptable2 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, coordinatorLayout, appBarLayout, view2, Integer.valueOf(i)};
+                                        Object[] objArr = {this, coordinatorLayout, t, view2, Integer.valueOf(i)};
                                         interceptable2.invokeUnInit(65536, newInitContext);
                                         int i2 = newInitContext.flag;
                                         if ((i2 & 1) != 0) {
@@ -465,17 +507,19 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                                     }
                                     this.this$0 = this;
                                     this.val$coordinatorLayout = coordinatorLayout;
-                                    this.val$appBarLayout = appBarLayout;
+                                    this.val$appBarLayout = t;
                                     this.val$scrollingView = view2;
                                     this.val$dy = i;
                                 }
 
+                                /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior */
+                                /* JADX WARN: Multi-variable type inference failed */
                                 @Override // androidx.core.view.accessibility.AccessibilityViewCommand
-                                public boolean perform(View view3, AccessibilityViewCommand.CommandArguments commandArguments) {
+                                public boolean perform(@NonNull View view3, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
                                     InterceptResult invokeLL;
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, commandArguments)) == null) {
-                                        this.this$0.onNestedPreScroll(this.val$coordinatorLayout, this.val$appBarLayout, this.val$scrollingView, 0, this.val$dy, new int[]{0, 0}, 1);
+                                        this.this$0.onNestedPreScroll(this.val$coordinatorLayout, (CoordinatorLayout) this.val$appBarLayout, this.val$scrollingView, 0, this.val$dy, new int[]{0, 0}, 1);
                                         return true;
                                     }
                                     return invokeLL.booleanValue;
@@ -485,15 +529,15 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                         }
                         return;
                     }
-                    addActionToExpand(coordinatorLayout, appBarLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_BACKWARD, true);
+                    addActionToExpand(coordinatorLayout, t, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_BACKWARD, true);
                 }
             }
         }
 
-        private void addActionToExpand(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, boolean z) {
+        private void addActionToExpand(CoordinatorLayout coordinatorLayout, @NonNull T t, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{coordinatorLayout, appBarLayout, accessibilityActionCompat, Boolean.valueOf(z)}) == null) {
-                ViewCompat.replaceAccessibilityAction(coordinatorLayout, accessibilityActionCompat, null, new AccessibilityViewCommand(this, appBarLayout, z) { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.3
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{coordinatorLayout, t, accessibilityActionCompat, Boolean.valueOf(z)}) == null) {
+                ViewCompat.replaceAccessibilityAction(coordinatorLayout, accessibilityActionCompat, null, new AccessibilityViewCommand(this, t, z) { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BaseBehavior this$0;
@@ -505,7 +549,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, appBarLayout, Boolean.valueOf(z)};
+                            Object[] objArr = {this, t, Boolean.valueOf(z)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -516,12 +560,12 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                             }
                         }
                         this.this$0 = this;
-                        this.val$appBarLayout = appBarLayout;
+                        this.val$appBarLayout = t;
                         this.val$expand = z;
                     }
 
                     @Override // androidx.core.view.accessibility.AccessibilityViewCommand
-                    public boolean perform(View view2, AccessibilityViewCommand.CommandArguments commandArguments) {
+                    public boolean perform(@NonNull View view2, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, commandArguments)) == null) {
@@ -534,24 +578,31 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
         }
 
-        private void animateOffsetTo(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i, float f) {
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public /* bridge */ /* synthetic */ void onStopNestedScroll(CoordinatorLayout coordinatorLayout, @NonNull View view2, View view3, int i) {
+            onStopNestedScroll(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2), view3, i);
+        }
+
+        private void animateOffsetTo(CoordinatorLayout coordinatorLayout, @NonNull T t, int i, float f) {
             int height;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{coordinatorLayout, appBarLayout, Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{coordinatorLayout, t, Integer.valueOf(i), Float.valueOf(f)}) == null) {
                 int abs = Math.abs(getTopBottomOffsetForScrollingSibling() - i);
                 float abs2 = Math.abs(f);
                 if (abs2 > 0.0f) {
                     height = Math.round((abs / abs2) * 1000.0f) * 3;
                 } else {
-                    height = (int) (((abs / appBarLayout.getHeight()) + 1.0f) * 150.0f);
+                    height = (int) (((abs / t.getHeight()) + 1.0f) * 150.0f);
                 }
-                animateOffsetWithDuration(coordinatorLayout, appBarLayout, i, height);
+                animateOffsetWithDuration(coordinatorLayout, t, i, height);
             }
         }
 
-        private void animateOffsetWithDuration(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i, int i2) {
+        private void animateOffsetWithDuration(CoordinatorLayout coordinatorLayout, T t, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(65542, this, coordinatorLayout, appBarLayout, i, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLII(65542, this, coordinatorLayout, t, i, i2) == null) {
                 int topBottomOffsetForScrollingSibling = getTopBottomOffsetForScrollingSibling();
                 if (topBottomOffsetForScrollingSibling == i) {
                     ValueAnimator valueAnimator = this.offsetAnimator;
@@ -566,7 +617,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                     ValueAnimator valueAnimator3 = new ValueAnimator();
                     this.offsetAnimator = valueAnimator3;
                     valueAnimator3.setInterpolator(AnimationUtils.DECELERATE_INTERPOLATOR);
-                    this.offsetAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, coordinatorLayout, appBarLayout) { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.1
+                    this.offsetAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, coordinatorLayout, t) { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BaseBehavior this$0;
@@ -578,7 +629,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, coordinatorLayout, appBarLayout};
+                                Object[] objArr = {this, coordinatorLayout, t};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i3 = newInitContext.flag;
                                 if ((i3 & 1) != 0) {
@@ -590,11 +641,11 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                             }
                             this.this$0 = this;
                             this.val$coordinatorLayout = coordinatorLayout;
-                            this.val$child = appBarLayout;
+                            this.val$child = t;
                         }
 
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                        public void onAnimationUpdate(ValueAnimator valueAnimator4) {
+                        public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator4) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator4) == null) {
                                 this.this$0.setHeaderTopBottomOffset(this.val$coordinatorLayout, this.val$child, ((Integer) valueAnimator4.getAnimatedValue()).intValue());
@@ -610,11 +661,11 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
         }
 
-        private boolean canScrollChildren(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2) {
+        private boolean canScrollChildren(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t, @NonNull View view2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, coordinatorLayout, appBarLayout, view2)) == null) {
-                if (appBarLayout.hasScrollableChildren() && coordinatorLayout.getHeight() - view2.getHeight() <= appBarLayout.getHeight()) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, coordinatorLayout, t, view2)) == null) {
+                if (t.hasScrollableChildren() && coordinatorLayout.getHeight() - view2.getHeight() <= t.getHeight()) {
                     return true;
                 }
                 return false;
@@ -622,13 +673,27 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return invokeLLL.booleanValue;
         }
 
-        private int getChildIndexOnOffset(AppBarLayout appBarLayout, int i) {
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public /* bridge */ /* synthetic */ boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i) {
+            return onLayoutChild(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2), i);
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public /* bridge */ /* synthetic */ void onRestoreInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, Parcelable parcelable) {
+            onRestoreInstanceState(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2), parcelable);
+        }
+
+        private int getChildIndexOnOffset(@NonNull T t, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, this, appBarLayout, i)) == null) {
-                int childCount = appBarLayout.getChildCount();
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, this, t, i)) == null) {
+                int childCount = t.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = appBarLayout.getChildAt(i2);
+                    View childAt = t.getChildAt(i2);
                     int top = childAt.getTop();
                     int bottom = childAt.getBottom();
                     LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
@@ -646,23 +711,21 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return invokeLI.intValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public Parcelable onSaveInstanceState(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout) {
+        public Parcelable onSaveInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, coordinatorLayout, appBarLayout)) == null) {
-                Parcelable onSaveInstanceState = super.onSaveInstanceState(coordinatorLayout, (CoordinatorLayout) appBarLayout);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, coordinatorLayout, t)) == null) {
+                Parcelable onSaveInstanceState = super.onSaveInstanceState(coordinatorLayout, (CoordinatorLayout) t);
                 int topAndBottomOffset = getTopAndBottomOffset();
-                int childCount = appBarLayout.getChildCount();
+                int childCount = t.getChildCount();
                 boolean z = false;
                 for (int i = 0; i < childCount; i++) {
-                    View childAt = appBarLayout.getChildAt(i);
+                    View childAt = t.getChildAt(i);
                     int bottom = childAt.getBottom() + topAndBottomOffset;
                     if (childAt.getTop() + topAndBottomOffset <= 0 && bottom >= 0) {
                         SavedState savedState = new SavedState(onSaveInstanceState);
                         savedState.firstVisibleChildIndex = i;
-                        if (bottom == ViewCompat.getMinimumHeight(childAt) + appBarLayout.getTopInset()) {
+                        if (bottom == ViewCompat.getMinimumHeight(childAt) + t.getTopInset()) {
                             z = true;
                         }
                         savedState.firstVisibleChildAtMinimumHeight = z;
@@ -675,19 +738,19 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return (Parcelable) invokeLL.objValue;
         }
 
-        private int interpolateOffset(AppBarLayout appBarLayout, int i) {
+        private int interpolateOffset(@NonNull T t, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, this, appBarLayout, i)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, this, t, i)) == null) {
                 int abs = Math.abs(i);
-                int childCount = appBarLayout.getChildCount();
+                int childCount = t.getChildCount();
                 int i2 = 0;
                 int i3 = 0;
                 while (true) {
                     if (i3 >= childCount) {
                         break;
                     }
-                    View childAt = appBarLayout.getChildAt(i3);
+                    View childAt = t.getChildAt(i3);
                     LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                     Interpolator scrollInterpolator = layoutParams.getScrollInterpolator();
                     if (abs >= childAt.getTop() && abs <= childAt.getBottom()) {
@@ -700,7 +763,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                                 }
                             }
                             if (ViewCompat.getFitsSystemWindows(childAt)) {
-                                i2 -= appBarLayout.getTopInset();
+                                i2 -= t.getTopInset();
                             }
                             if (i2 > 0) {
                                 float f = i2;
@@ -716,19 +779,19 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return invokeLI.intValue;
         }
 
-        private void snapToChildIfNeeded(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout) {
+        private void snapToChildIfNeeded(CoordinatorLayout coordinatorLayout, @NonNull T t) {
             int topBottomOffsetForScrollingSibling;
             int childIndexOnOffset;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65550, this, coordinatorLayout, appBarLayout) == null) && (childIndexOnOffset = getChildIndexOnOffset(appBarLayout, (topBottomOffsetForScrollingSibling = getTopBottomOffsetForScrollingSibling()))) >= 0) {
-                View childAt = appBarLayout.getChildAt(childIndexOnOffset);
+            if ((interceptable == null || interceptable.invokeLL(65550, this, coordinatorLayout, t) == null) && (childIndexOnOffset = getChildIndexOnOffset(t, (topBottomOffsetForScrollingSibling = getTopBottomOffsetForScrollingSibling()))) >= 0) {
+                View childAt = t.getChildAt(childIndexOnOffset);
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 int scrollFlags = layoutParams.getScrollFlags();
                 if ((scrollFlags & 17) == 17) {
                     int i = -childAt.getTop();
                     int i2 = -childAt.getBottom();
-                    if (childIndexOnOffset == appBarLayout.getChildCount() - 1) {
-                        i2 += appBarLayout.getTopInset();
+                    if (childIndexOnOffset == t.getChildCount() - 1) {
+                        i2 += t.getTopInset();
                     }
                     if (checkFlag(scrollFlags, 2)) {
                         i2 += ViewCompat.getMinimumHeight(childAt);
@@ -747,89 +810,85 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                     if (topBottomOffsetForScrollingSibling < (i2 + i) / 2) {
                         i = i2;
                     }
-                    animateOffsetTo(coordinatorLayout, appBarLayout, MathUtils.clamp(i, -appBarLayout.getTotalScrollRange(), 0), 0.0f);
+                    animateOffsetTo(coordinatorLayout, t, MathUtils.clamp(i, -t.getTotalScrollRange(), 0), 0.0f);
                 }
             }
         }
 
-        private void updateAppBarLayoutDrawableState(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i, int i2, boolean z) {
+        private void updateAppBarLayoutDrawableState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t, int i, int i2, boolean z) {
             View appBarChildOnOffset;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{coordinatorLayout, appBarLayout, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && (appBarChildOnOffset = getAppBarChildOnOffset(appBarLayout, i)) != null) {
+            if ((interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{coordinatorLayout, t, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && (appBarChildOnOffset = getAppBarChildOnOffset(t, i)) != null) {
                 int scrollFlags = ((LayoutParams) appBarChildOnOffset.getLayoutParams()).getScrollFlags();
                 boolean z2 = false;
                 if ((scrollFlags & 1) != 0) {
                     int minimumHeight = ViewCompat.getMinimumHeight(appBarChildOnOffset);
-                    if (i2 <= 0 || (scrollFlags & 12) == 0 ? !((scrollFlags & 2) == 0 || (-i) < (appBarChildOnOffset.getBottom() - minimumHeight) - appBarLayout.getTopInset()) : (-i) >= (appBarChildOnOffset.getBottom() - minimumHeight) - appBarLayout.getTopInset()) {
+                    if (i2 <= 0 || (scrollFlags & 12) == 0 ? !((scrollFlags & 2) == 0 || (-i) < (appBarChildOnOffset.getBottom() - minimumHeight) - t.getTopInset()) : (-i) >= (appBarChildOnOffset.getBottom() - minimumHeight) - t.getTopInset()) {
                         z2 = true;
                     }
                 }
-                if (appBarLayout.isLiftOnScroll()) {
-                    z2 = appBarLayout.shouldLift(findFirstScrollingChild(coordinatorLayout));
+                if (t.isLiftOnScroll()) {
+                    z2 = t.shouldLift(findFirstScrollingChild(coordinatorLayout));
                 }
-                boolean liftedState = appBarLayout.setLiftedState(z2);
-                if (z || (liftedState && shouldJumpElevationState(coordinatorLayout, appBarLayout))) {
-                    appBarLayout.jumpDrawablesToCurrentState();
+                boolean liftedState = t.setLiftedState(z2);
+                if (z || (liftedState && shouldJumpElevationState(coordinatorLayout, t))) {
+                    t.jumpDrawablesToCurrentState();
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.material.appbar.HeaderBehavior
-        public int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i, int i2, int i3) {
+        public int setHeaderTopBottomOffset(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t, int i, int i2, int i3) {
             InterceptResult invokeCommon;
             int i4;
             int i5;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{coordinatorLayout, appBarLayout, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{coordinatorLayout, t, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
                 int topBottomOffsetForScrollingSibling = getTopBottomOffsetForScrollingSibling();
                 int i6 = 0;
                 if (i2 != 0 && topBottomOffsetForScrollingSibling >= i2 && topBottomOffsetForScrollingSibling <= i3) {
                     int clamp = MathUtils.clamp(i, i2, i3);
                     if (topBottomOffsetForScrollingSibling != clamp) {
-                        if (appBarLayout.hasChildWithInterpolator()) {
-                            i4 = interpolateOffset(appBarLayout, clamp);
+                        if (t.hasChildWithInterpolator()) {
+                            i4 = interpolateOffset(t, clamp);
                         } else {
                             i4 = clamp;
                         }
                         boolean topAndBottomOffset = setTopAndBottomOffset(i4);
                         i6 = topBottomOffsetForScrollingSibling - clamp;
                         this.offsetDelta = clamp - i4;
-                        if (!topAndBottomOffset && appBarLayout.hasChildWithInterpolator()) {
-                            coordinatorLayout.dispatchDependentViewsChanged(appBarLayout);
+                        if (!topAndBottomOffset && t.hasChildWithInterpolator()) {
+                            coordinatorLayout.dispatchDependentViewsChanged(t);
                         }
-                        appBarLayout.onOffsetChanged(getTopAndBottomOffset());
+                        t.onOffsetChanged(getTopAndBottomOffset());
                         if (clamp < topBottomOffsetForScrollingSibling) {
                             i5 = -1;
                         } else {
                             i5 = 1;
                         }
-                        updateAppBarLayoutDrawableState(coordinatorLayout, appBarLayout, clamp, i5, false);
+                        updateAppBarLayoutDrawableState(coordinatorLayout, t, clamp, i5, false);
                     }
                 } else {
                     this.offsetDelta = 0;
                 }
-                updateAccessibilityActions(coordinatorLayout, appBarLayout);
+                updateAccessibilityActions(coordinatorLayout, t);
                 return i6;
             }
             return invokeCommon.intValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.material.appbar.HeaderBehavior
-        public boolean canDragView(AppBarLayout appBarLayout) {
+        public boolean canDragView(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, appBarLayout)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
                 BaseDragCallback baseDragCallback = this.onDragCallback;
                 if (baseDragCallback != null) {
-                    return baseDragCallback.canDrag(appBarLayout);
+                    return baseDragCallback.canDrag(t);
                 }
-                WeakReference weakReference = this.lastNestedScrollingChildRef;
+                WeakReference<View> weakReference = this.lastNestedScrollingChildRef;
                 if (weakReference == null) {
                     return true;
                 }
-                View view2 = (View) weakReference.get();
+                View view2 = weakReference.get();
                 if (view2 != null && view2.isShown() && !view2.canScrollVertically(-1)) {
                     return true;
                 }
@@ -838,60 +897,66 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return invokeL.booleanValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.material.appbar.HeaderBehavior
-        public int getMaxDragOffset(AppBarLayout appBarLayout) {
+        public int getMaxDragOffset(@NonNull T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, appBarLayout)) == null) {
-                return -appBarLayout.getDownNestedScrollRange();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+                return -t.getDownNestedScrollRange();
             }
             return invokeL.intValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.material.appbar.HeaderBehavior
-        public int getScrollRangeForDragFling(AppBarLayout appBarLayout) {
+        public int getScrollRangeForDragFling(@NonNull T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, appBarLayout)) == null) {
-                return appBarLayout.getTotalScrollRange();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
+                return t.getTotalScrollRange();
             }
             return invokeL.intValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.appbar.HeaderBehavior
-        public void onFlingFinished(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout) {
+        public /* bridge */ /* synthetic */ void onFlingFinished(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2) {
+            onFlingFinished(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2));
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public /* bridge */ /* synthetic */ Parcelable onSaveInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2) {
+            return onSaveInstanceState(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2));
+        }
+
+        public void onFlingFinished(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048585, this, coordinatorLayout, appBarLayout) == null) {
-                snapToChildIfNeeded(coordinatorLayout, appBarLayout);
-                if (appBarLayout.isLiftOnScroll()) {
-                    appBarLayout.setLiftedState(appBarLayout.shouldLift(findFirstScrollingChild(coordinatorLayout)));
+            if (interceptable == null || interceptable.invokeLL(1048585, this, coordinatorLayout, t) == null) {
+                snapToChildIfNeeded(coordinatorLayout, t);
+                if (t.isLiftOnScroll()) {
+                    t.setLiftedState(t.shouldLift(findFirstScrollingChild(coordinatorLayout)));
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
+        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t, int i) {
             InterceptResult invokeLLI;
             boolean z;
             int round;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048587, this, coordinatorLayout, appBarLayout, i)) == null) {
-                boolean onLayoutChild = super.onLayoutChild(coordinatorLayout, (View) appBarLayout, i);
-                int pendingAction = appBarLayout.getPendingAction();
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048587, this, coordinatorLayout, t, i)) == null) {
+                boolean onLayoutChild = super.onLayoutChild(coordinatorLayout, (CoordinatorLayout) t, i);
+                int pendingAction = t.getPendingAction();
                 int i2 = this.offsetToChildIndexOnLayout;
                 if (i2 >= 0 && (pendingAction & 8) == 0) {
-                    View childAt = appBarLayout.getChildAt(i2);
+                    View childAt = t.getChildAt(i2);
                     int i3 = -childAt.getBottom();
                     if (this.offsetToChildIndexOnLayoutIsMinHeight) {
-                        round = ViewCompat.getMinimumHeight(childAt) + appBarLayout.getTopInset();
+                        round = ViewCompat.getMinimumHeight(childAt) + t.getTopInset();
                     } else {
                         round = Math.round(childAt.getHeight() * this.offsetToChildIndexOnLayoutPerc);
                     }
-                    setHeaderTopBottomOffset(coordinatorLayout, appBarLayout, i3 + round);
+                    setHeaderTopBottomOffset(coordinatorLayout, t, i3 + round);
                 } else if (pendingAction != 0) {
                     if ((pendingAction & 4) != 0) {
                         z = true;
@@ -899,55 +964,65 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                         z = false;
                     }
                     if ((pendingAction & 2) != 0) {
-                        int i4 = -appBarLayout.getUpNestedPreScrollRange();
+                        int i4 = -t.getUpNestedPreScrollRange();
                         if (z) {
-                            animateOffsetTo(coordinatorLayout, appBarLayout, i4, 0.0f);
+                            animateOffsetTo(coordinatorLayout, t, i4, 0.0f);
                         } else {
-                            setHeaderTopBottomOffset(coordinatorLayout, appBarLayout, i4);
+                            setHeaderTopBottomOffset(coordinatorLayout, t, i4);
                         }
                     } else if ((pendingAction & 1) != 0) {
                         if (z) {
-                            animateOffsetTo(coordinatorLayout, appBarLayout, 0, 0.0f);
+                            animateOffsetTo(coordinatorLayout, t, 0, 0.0f);
                         } else {
-                            setHeaderTopBottomOffset(coordinatorLayout, appBarLayout, 0);
+                            setHeaderTopBottomOffset(coordinatorLayout, t, 0);
                         }
                     }
                 }
-                appBarLayout.resetPendingAction();
+                t.resetPendingAction();
                 this.offsetToChildIndexOnLayout = -1;
-                setTopAndBottomOffset(MathUtils.clamp(getTopAndBottomOffset(), -appBarLayout.getTotalScrollRange(), 0));
-                updateAppBarLayoutDrawableState(coordinatorLayout, appBarLayout, getTopAndBottomOffset(), 0, true);
-                appBarLayout.onOffsetChanged(getTopAndBottomOffset());
-                updateAccessibilityActions(coordinatorLayout, appBarLayout);
+                setTopAndBottomOffset(MathUtils.clamp(getTopAndBottomOffset(), -t.getTotalScrollRange(), 0));
+                updateAppBarLayoutDrawableState(coordinatorLayout, t, getTopAndBottomOffset(), 0, true);
+                t.onOffsetChanged(getTopAndBottomOffset());
+                updateAccessibilityActions(coordinatorLayout, t);
                 return onLayoutChild;
             }
             return invokeLLI.booleanValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onMeasureChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i, int i2, int i3, int i4) {
+        public /* bridge */ /* synthetic */ boolean onMeasureChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i, int i2, int i3, int i4) {
+            return onMeasureChild(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2), i, i2, i3, i4);
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public /* bridge */ /* synthetic */ boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull View view3, View view4, int i, int i2) {
+            return onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2), view3, view4, i, i2);
+        }
+
+        public boolean onMeasureChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t, int i, int i2, int i3, int i4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{coordinatorLayout, appBarLayout, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (((ViewGroup.MarginLayoutParams) ((CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams())).height == -2) {
-                    coordinatorLayout.onMeasureChild(appBarLayout, i, i2, View.MeasureSpec.makeMeasureSpec(0, 0), i4);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{coordinatorLayout, t, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (((ViewGroup.MarginLayoutParams) ((CoordinatorLayout.LayoutParams) t.getLayoutParams())).height == -2) {
+                    coordinatorLayout.onMeasureChild(t, i, i2, View.MeasureSpec.makeMeasureSpec(0, 0), i4);
                     return true;
                 }
-                return super.onMeasureChild(coordinatorLayout, (CoordinatorLayout) appBarLayout, i, i2, i3, i4);
+                return super.onMeasureChild(coordinatorLayout, (CoordinatorLayout) t, i, i2, i3, i4);
             }
             return invokeCommon.booleanValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, View view3, int i, int i2) {
+        public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t, @NonNull View view2, View view3, int i, int i2) {
             InterceptResult invokeCommon;
             boolean z;
             ValueAnimator valueAnimator;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{coordinatorLayout, appBarLayout, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-                if ((i & 2) != 0 && (appBarLayout.isLiftOnScroll() || canScrollChildren(coordinatorLayout, appBarLayout, view2))) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{coordinatorLayout, t, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+                if ((i & 2) != 0 && (t.isLiftOnScroll() || canScrollChildren(coordinatorLayout, t, view2))) {
                     z = true;
                 } else {
                     z = false;
@@ -962,87 +1037,100 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return invokeCommon.booleanValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, int i, int i2, int[] iArr, int i3) {
+        public /* bridge */ /* synthetic */ void onNestedPreScroll(CoordinatorLayout coordinatorLayout, @NonNull View view2, View view3, int i, int i2, int[] iArr, int i3) {
+            onNestedPreScroll(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2), view3, i, i2, iArr, i3);
+        }
+
+        public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, @NonNull T t, View view2, int i, int i2, int[] iArr, int i3) {
             int i4;
             int i5;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{coordinatorLayout, appBarLayout, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{coordinatorLayout, t, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
                 if (i2 != 0) {
                     if (i2 < 0) {
-                        int i6 = -appBarLayout.getTotalScrollRange();
+                        int i6 = -t.getTotalScrollRange();
                         i4 = i6;
-                        i5 = appBarLayout.getDownNestedPreScrollRange() + i6;
+                        i5 = t.getDownNestedPreScrollRange() + i6;
                     } else {
-                        i4 = -appBarLayout.getUpNestedPreScrollRange();
+                        i4 = -t.getUpNestedPreScrollRange();
                         i5 = 0;
                     }
                     if (i4 != i5) {
-                        iArr[1] = scroll(coordinatorLayout, appBarLayout, i2, i4, i5);
+                        iArr[1] = scroll(coordinatorLayout, t, i2, i4, i5);
                     }
                 }
-                if (appBarLayout.isLiftOnScroll()) {
-                    appBarLayout.setLiftedState(appBarLayout.shouldLift(view2));
+                if (t.isLiftOnScroll()) {
+                    t.setLiftedState(t.shouldLift(view2));
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+        public /* bridge */ /* synthetic */ void onNestedScroll(CoordinatorLayout coordinatorLayout, @NonNull View view2, View view3, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+            onNestedScroll(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2), view3, i, i2, i3, i4, i5, iArr);
+        }
+
+        public void onNestedScroll(CoordinatorLayout coordinatorLayout, @NonNull T t, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{coordinatorLayout, appBarLayout, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{coordinatorLayout, t, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
                 if (i4 < 0) {
-                    iArr[1] = scroll(coordinatorLayout, appBarLayout, i4, -appBarLayout.getDownNestedScrollRange(), 0);
+                    iArr[1] = scroll(coordinatorLayout, t, i4, -t.getDownNestedScrollRange(), 0);
                 }
                 if (i4 == 0) {
-                    updateAccessibilityActions(coordinatorLayout, appBarLayout);
+                    updateAccessibilityActions(coordinatorLayout, t);
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onRestoreInstanceState(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, Parcelable parcelable) {
+        public void onRestoreInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull T t, Parcelable parcelable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048595, this, coordinatorLayout, appBarLayout, parcelable) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048595, this, coordinatorLayout, t, parcelable) == null) {
                 if (parcelable instanceof SavedState) {
                     SavedState savedState = (SavedState) parcelable;
-                    super.onRestoreInstanceState(coordinatorLayout, (CoordinatorLayout) appBarLayout, savedState.getSuperState());
+                    super.onRestoreInstanceState(coordinatorLayout, (CoordinatorLayout) t, savedState.getSuperState());
                     this.offsetToChildIndexOnLayout = savedState.firstVisibleChildIndex;
                     this.offsetToChildIndexOnLayoutPerc = savedState.firstVisibleChildPercentageShown;
                     this.offsetToChildIndexOnLayoutIsMinHeight = savedState.firstVisibleChildAtMinimumHeight;
                     return;
                 }
-                super.onRestoreInstanceState(coordinatorLayout, (CoordinatorLayout) appBarLayout, parcelable);
+                super.onRestoreInstanceState(coordinatorLayout, (CoordinatorLayout) t, parcelable);
                 this.offsetToChildIndexOnLayout = -1;
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onStopNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, int i) {
+        public void onStopNestedScroll(CoordinatorLayout coordinatorLayout, @NonNull T t, View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(1048601, this, coordinatorLayout, appBarLayout, view2, i) == null) {
+            if (interceptable == null || interceptable.invokeLLLI(1048601, this, coordinatorLayout, t, view2, i) == null) {
                 if (this.lastStartedType == 0 || i == 1) {
-                    snapToChildIfNeeded(coordinatorLayout, appBarLayout);
-                    if (appBarLayout.isLiftOnScroll()) {
-                        appBarLayout.setLiftedState(appBarLayout.shouldLift(view2));
+                    snapToChildIfNeeded(coordinatorLayout, t);
+                    if (t.isLiftOnScroll()) {
+                        t.setLiftedState(t.shouldLift(view2));
                     }
                 }
-                this.lastNestedScrollingChildRef = new WeakReference(view2);
+                this.lastNestedScrollingChildRef = new WeakReference<>(view2);
             }
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.material.appbar.AppBarLayout$BaseBehavior<T extends com.google.android.material.appbar.AppBarLayout> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.google.android.material.appbar.HeaderBehavior
+        public /* bridge */ /* synthetic */ int setHeaderTopBottomOffset(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i, int i2, int i3) {
+            return setHeaderTopBottomOffset(coordinatorLayout, (CoordinatorLayout) ((AppBarLayout) view2), i, i2, i3);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class Behavior extends BaseBehavior {
+    public static class Behavior extends BaseBehavior<AppBarLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes7.dex */
-        public abstract class DragCallback extends BaseBehavior.BaseDragCallback {
+        public static abstract class DragCallback extends BaseBehavior.BaseDragCallback<AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1117,47 +1205,47 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
-            return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
+        public /* bridge */ /* synthetic */ boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, int i) {
+            return super.onLayoutChild(coordinatorLayout, (CoordinatorLayout) appBarLayout, i);
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ void onRestoreInstanceState(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, Parcelable parcelable) {
-            super.onRestoreInstanceState(coordinatorLayout, appBarLayout, parcelable);
+        public /* bridge */ /* synthetic */ void onRestoreInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, Parcelable parcelable) {
+            super.onRestoreInstanceState(coordinatorLayout, (CoordinatorLayout) appBarLayout, parcelable);
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ boolean onMeasureChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i, int i2, int i3, int i4) {
-            return super.onMeasureChild(coordinatorLayout, appBarLayout, i, i2, i3, i4);
+        public /* bridge */ /* synthetic */ boolean onMeasureChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, int i, int i2, int i3, int i4) {
+            return super.onMeasureChild(coordinatorLayout, (CoordinatorLayout) appBarLayout, i, i2, i3, i4);
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, View view3, int i, int i2) {
-            return super.onStartNestedScroll(coordinatorLayout, appBarLayout, view2, view3, i, i2);
+        public /* bridge */ /* synthetic */ boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view2, View view3, int i, int i2) {
+            return super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view2, view3, i, i2);
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, int i, int i2, int[] iArr, int i3) {
-            super.onNestedPreScroll(coordinatorLayout, appBarLayout, view2, i, i2, iArr, i3);
+        public /* bridge */ /* synthetic */ void onNestedPreScroll(CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, View view2, int i, int i2, int[] iArr, int i3) {
+            super.onNestedPreScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view2, i, i2, iArr, i3);
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
-            super.onNestedScroll(coordinatorLayout, appBarLayout, view2, i, i2, i3, i4, i5, iArr);
+        public /* bridge */ /* synthetic */ void onNestedScroll(CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+            super.onNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view2, i, i2, i3, i4, i5, iArr);
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ Parcelable onSaveInstanceState(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout) {
-            return super.onSaveInstanceState(coordinatorLayout, appBarLayout);
+        public /* bridge */ /* synthetic */ Parcelable onSaveInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout) {
+            return super.onSaveInstanceState(coordinatorLayout, (CoordinatorLayout) appBarLayout);
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ void onStopNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, int i) {
-            super.onStopNestedScroll(coordinatorLayout, appBarLayout, view2, i);
+        public /* bridge */ /* synthetic */ void onStopNestedScroll(CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, View view2, int i) {
+            super.onStopNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view2, i);
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior
-        public /* bridge */ /* synthetic */ void setDragCallback(BaseBehavior.BaseDragCallback baseDragCallback) {
+        public /* bridge */ /* synthetic */ void setDragCallback(@Nullable BaseBehavior.BaseDragCallback baseDragCallback) {
             super.setDragCallback(baseDragCallback);
         }
 
@@ -1183,7 +1271,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     /* loaded from: classes7.dex */
-    public class LayoutParams extends LinearLayout.LayoutParams {
+    public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COLLAPSIBLE_FLAGS = 10;
         public static final int FLAG_QUICK_RETURN = 5;
@@ -1200,6 +1288,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         public Interpolator scrollInterpolator;
 
         @Retention(RetentionPolicy.SOURCE)
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         /* loaded from: classes7.dex */
         public @interface ScrollFlags {
         }
@@ -1319,6 +1408,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        @RequiresApi(19)
         public LayoutParams(LinearLayout.LayoutParams layoutParams) {
             super(layoutParams);
             Interceptable interceptable = $ic;
@@ -1340,7 +1430,8 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(LayoutParams layoutParams) {
+        @RequiresApi(19)
+        public LayoutParams(@NonNull LayoutParams layoutParams) {
             super((LinearLayout.LayoutParams) layoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1409,7 +1500,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     /* loaded from: classes7.dex */
-    public class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
+    public static class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1471,7 +1562,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             obtainStyledAttributes.recycle();
         }
 
-        public static int getAppBarLayoutOffset(AppBarLayout appBarLayout) {
+        public static int getAppBarLayoutOffset(@NonNull AppBarLayout appBarLayout) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, appBarLayout)) == null) {
@@ -1482,6 +1573,12 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                 return 0;
             }
             return invokeL.intValue;
+        }
+
+        @Override // com.google.android.material.appbar.HeaderScrollingViewBehavior
+        @Nullable
+        public /* bridge */ /* synthetic */ View findFirstDependency(@NonNull List list) {
+            return findFirstDependency((List<View>) list);
         }
 
         @Override // com.google.android.material.appbar.HeaderScrollingViewBehavior
@@ -1517,7 +1614,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             super.setVerticalOffsetEnabled(z);
         }
 
-        private void offsetChildAsNeeded(View view2, View view3) {
+        private void offsetChildAsNeeded(@NonNull View view2, @NonNull View view3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65539, this, view2, view3) == null) {
                 CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) view3.getLayoutParams()).getBehavior();
@@ -1537,15 +1634,15 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.material.appbar.HeaderScrollingViewBehavior
-        public AppBarLayout findFirstDependency(List list) {
+        @Nullable
+        public AppBarLayout findFirstDependency(@NonNull List<View> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
-                    View view2 = (View) list.get(i);
+                    View view2 = list.get(i);
                     if (view2 instanceof AppBarLayout) {
                         return (AppBarLayout) view2;
                     }
@@ -1586,7 +1683,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, View view2, View view3) {
+        public boolean onDependentViewChanged(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull View view3) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, coordinatorLayout, view2, view3)) == null) {
@@ -1598,7 +1695,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onDependentViewRemoved(CoordinatorLayout coordinatorLayout, View view2, View view3) {
+        public void onDependentViewRemoved(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull View view3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(1048586, this, coordinatorLayout, view2, view3) == null) && (view3 instanceof AppBarLayout)) {
                 ViewCompat.removeAccessibilityAction(coordinatorLayout, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_FORWARD.getId());
@@ -1607,21 +1704,21 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
 
         @Override // com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public /* bridge */ /* synthetic */ boolean onLayoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
+        public /* bridge */ /* synthetic */ boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i) {
             return super.onLayoutChild(coordinatorLayout, view2, i);
         }
 
         @Override // com.google.android.material.appbar.HeaderScrollingViewBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public /* bridge */ /* synthetic */ boolean onMeasureChild(CoordinatorLayout coordinatorLayout, View view2, int i, int i2, int i3, int i4) {
+        public /* bridge */ /* synthetic */ boolean onMeasureChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i, int i2, int i3, int i4) {
             return super.onMeasureChild(coordinatorLayout, view2, i, i2, i3, i4);
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onRequestChildRectangleOnScreen(CoordinatorLayout coordinatorLayout, View view2, Rect rect, boolean z) {
+        public boolean onRequestChildRectangleOnScreen(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull Rect rect, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{coordinatorLayout, view2, rect, Boolean.valueOf(z)})) == null) {
-                AppBarLayout findFirstDependency = findFirstDependency((List) coordinatorLayout.getDependencies(view2));
+                AppBarLayout findFirstDependency = findFirstDependency(coordinatorLayout.getDependencies(view2));
                 if (findFirstDependency != null) {
                     rect.offset(view2.getLeft(), view2.getTop());
                     Rect rect2 = this.tempRect1;
@@ -1638,7 +1735,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppBarLayout(Context context) {
+    public AppBarLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1714,7 +1811,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppBarLayout(Context context, AttributeSet attributeSet) {
+    public AppBarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f040096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1734,7 +1831,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    private void startLiftOnScrollElevationOverlayAnimation(MaterialShapeDrawable materialShapeDrawable, boolean z) {
+    private void startLiftOnScrollElevationOverlayAnimation(@NonNull MaterialShapeDrawable materialShapeDrawable, boolean z) {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65548, this, materialShapeDrawable, z) == null) {
@@ -1781,7 +1878,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator2) {
+                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
                         this.val$background.setElevation(((Float) valueAnimator2.getAnimatedValue()).floatValue());
@@ -1814,7 +1911,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppBarLayout(Context context, AttributeSet attributeSet, int i) {
+    public AppBarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1987,6 +2084,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.AttachedBehavior
+    @NonNull
     public CoordinatorLayout.Behavior<AppBarLayout> getBehavior() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1996,6 +2094,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return (CoordinatorLayout.Behavior) invokeV.objValue;
     }
 
+    @IdRes
     public int getLiftOnScrollTargetViewId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2014,6 +2113,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return invokeV.intValue;
     }
 
+    @Nullable
     public Drawable getStatusBarForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2023,6 +2123,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return (Drawable) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public final int getTopInset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2100,7 +2201,8 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    private View findLiftOnScrollTargetView(View view2) {
+    @Nullable
+    private View findLiftOnScrollTargetView(@Nullable View view2) {
         InterceptResult invokeL;
         int i;
         View view3;
@@ -2128,7 +2230,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return (View) invokeL.objValue;
     }
 
-    public void setStatusBarForeground(Drawable drawable) {
+    public void setStatusBarForeground(@Nullable Drawable drawable) {
         Drawable drawable2;
         boolean z;
         Interceptable interceptable = $ic;
@@ -2199,7 +2301,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return invokeZ.booleanValue;
     }
 
-    public void addOnOffsetChangedListener(BaseOnOffsetChangedListener baseOnOffsetChangedListener) {
+    public void addOnOffsetChangedListener(@Nullable BaseOnOffsetChangedListener baseOnOffsetChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, baseOnOffsetChangedListener) == null) {
             if (this.listeners == null) {
@@ -2222,7 +2324,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     @Override // android.view.View
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.draw(canvas);
@@ -2255,7 +2357,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return (WindowInsetsCompat) invokeL.objValue;
     }
 
-    public void removeOnOffsetChangedListener(BaseOnOffsetChangedListener baseOnOffsetChangedListener) {
+    public void removeOnOffsetChangedListener(@Nullable BaseOnOffsetChangedListener baseOnOffsetChangedListener) {
         List<BaseOnOffsetChangedListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048611, this, baseOnOffsetChangedListener) == null) && (list = this.listeners) != null && baseOnOffsetChangedListener != null) {
@@ -2264,6 +2366,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     @Override // android.view.View
+    @RequiresApi(21)
     public void setElevation(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048614, this, f) == null) {
@@ -2286,7 +2389,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    public void setLiftOnScrollTargetViewId(int i) {
+    public void setLiftOnScrollTargetViewId(@IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
             this.liftOnScrollTargetViewId = i;
@@ -2325,14 +2428,14 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    public void setStatusBarForegroundColor(int i) {
+    public void setStatusBarForegroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
             setStatusBarForeground(new ColorDrawable(i));
         }
     }
 
-    public void setStatusBarForegroundResource(int i) {
+    public void setStatusBarForegroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
             setStatusBarForeground(AppCompatResources.getDrawable(getContext(), i));
@@ -2365,7 +2468,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    public boolean shouldLift(View view2) {
+    public boolean shouldLift(@Nullable View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, view2)) == null) {
@@ -2382,7 +2485,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     }
 
     @Override // android.view.View
-    public boolean verifyDrawable(Drawable drawable) {
+    public boolean verifyDrawable(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, drawable)) == null) {

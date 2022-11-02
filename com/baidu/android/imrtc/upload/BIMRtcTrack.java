@@ -19,7 +19,7 @@ public class BIMRtcTrack {
 
     /* renamed from: com.baidu.android.imrtc.upload.BIMRtcTrack$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass2 {
+    public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class BIMRtcTrack {
     }
 
     /* loaded from: classes.dex */
-    public final class RequestBuilder {
+    public static final class RequestBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REQUEST_BIM_RTC = 501210;
         public transient /* synthetic */ FieldHolder $fh;

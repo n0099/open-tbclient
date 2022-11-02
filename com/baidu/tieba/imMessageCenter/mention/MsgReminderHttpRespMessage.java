@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.he7;
+import com.baidu.tieba.rf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public he7 msgData;
+    public rf7 msgData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgReminderHttpRespMessage(int i) {
@@ -45,20 +45,20 @@ public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0 && jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("message");
                 if (jSONObject != null) {
-                    he7 he7Var = new he7();
-                    he7Var.f(optJSONObject);
-                    this.msgData = he7Var;
+                    rf7 rf7Var = new rf7();
+                    rf7Var.f(optJSONObject);
+                    this.msgData = rf7Var;
                 }
             }
         }
     }
 
-    public he7 getMsgData() {
+    public rf7 getMsgData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.msgData;
         }
-        return (he7) invokeV.objValue;
+        return (rf7) invokeV.objValue;
     }
 }

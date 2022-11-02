@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.request.Message;
@@ -80,6 +81,7 @@ public class IMFetchConfigMsg extends Message {
             this.mStrMsg = str;
         }
 
+        /* JADX WARN: Type inference failed for: r7v0, types: [T, java.lang.Long] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
             long j;
@@ -110,7 +112,7 @@ public class IMFetchConfigMsg extends Message {
                             }
                         }
                         if (this.mObj.has(NotificationCompat.CarExtender.KEY_MESSAGES)) {
-                            ArrayList parserMessage = MessageParser.parserMessage(this.mContext, this.mObj.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES), type, true, false);
+                            ArrayList<ChatMsg> parserMessage = MessageParser.parserMessage(this.mContext, this.mObj.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES), type, true, false);
                             ChatMsgManagerImpl.getInstance(this.mContext).configMsgsFilter(parserMessage);
                             ChatMsgManagerImpl.getInstance(this.mContext).deliverConfigMessage(parserMessage);
                         }

@@ -1,75 +1,53 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sn5 {
+public final class sn5 extends Handler {
     public static /* synthetic */ Interceptable $ic;
-    public static final sn5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray a;
+    public final WheelView a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157199, "Lcom/baidu/tieba/sn5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948157199, "Lcom/baidu/tieba/sn5;");
-                return;
-            }
-        }
-        b = new sn5();
-    }
-
-    public sn5() {
+    public sn5(WheelView wheelView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wheelView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray();
+        this.a = wheelView;
     }
 
-    public static sn5 b() {
-        InterceptResult invokeV;
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (sn5) invokeV.objValue;
-    }
-
-    public rn5 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (rn5) this.a.get(i);
-        }
-        return (rn5) invokeI.objValue;
-    }
-
-    public void c(int i, rn5 rn5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, rn5Var) == null) {
-            this.a.put(i, rn5Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
+            if (i != 1000) {
+                if (i != 2000) {
+                    if (i == 3000) {
+                        this.a.n();
+                        return;
+                    }
+                    return;
+                }
+                this.a.r(WheelView.ACTION.FLING);
+                return;
+            }
+            this.a.invalidate();
         }
     }
 }

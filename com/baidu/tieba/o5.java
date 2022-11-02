@@ -2,16 +2,17 @@ package com.baidu.tieba;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.p3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o5 implements Comparable {
+public class o5<T extends p3> implements Comparable<o5<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p3 a;
+    public T a;
     public Texture.TextureFilter b;
     public Texture.TextureFilter c;
     public Texture.TextureWrap d;
@@ -34,13 +35,13 @@ public class o5 implements Comparable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public o5(p3 p3Var) {
-        this(p3Var, null, null, null, null);
+    public o5(T t) {
+        this(t, null, null, null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p3Var};
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,12 +55,12 @@ public class o5 implements Comparable {
         }
     }
 
-    public o5(p3 p3Var, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
+    public o5(T t, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p3Var, textureFilter, textureFilter2, textureWrap, textureWrap2};
+            Object[] objArr = {t, textureFilter, textureFilter2, textureWrap, textureWrap2};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,13 +71,13 @@ public class o5 implements Comparable {
             }
         }
         this.a = null;
-        b(p3Var, textureFilter, textureFilter2, textureWrap, textureWrap2);
+        b(t, textureFilter, textureFilter2, textureWrap, textureWrap2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
-    public int compareTo(o5 o5Var) {
+    public int compareTo(o5<T> o5Var) {
         InterceptResult invokeL;
         int i;
         int i2;
@@ -92,32 +93,32 @@ public class o5 implements Comparable {
             if (o5Var == this) {
                 return 0;
             }
-            p3 p3Var = this.a;
-            if (p3Var == null) {
+            T t = this.a;
+            if (t == null) {
                 i = 0;
             } else {
-                i = p3Var.a;
+                i = t.a;
             }
-            p3 p3Var2 = o5Var.a;
-            if (p3Var2 == null) {
+            T t2 = o5Var.a;
+            if (t2 == null) {
                 i2 = 0;
             } else {
-                i2 = p3Var2.a;
+                i2 = t2.a;
             }
             if (i != i2) {
                 return i - i2;
             }
-            p3 p3Var3 = this.a;
-            if (p3Var3 == null) {
+            T t3 = this.a;
+            if (t3 == null) {
                 i3 = 0;
             } else {
-                i3 = p3Var3.i();
+                i3 = t3.i();
             }
-            p3 p3Var4 = o5Var.a;
-            if (p3Var4 == null) {
+            T t4 = o5Var.a;
+            if (t4 == null) {
                 i4 = 0;
             } else {
-                i4 = p3Var4.i();
+                i4 = t4.i();
             }
             if (i3 != i4) {
                 return i3 - i4;
@@ -179,10 +180,10 @@ public class o5 implements Comparable {
         return invokeL.intValue;
     }
 
-    public void b(p3 p3Var, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
+    public void b(T t, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p3Var, textureFilter, textureFilter2, textureWrap, textureWrap2) == null) {
-            this.a = p3Var;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, textureFilter, textureFilter2, textureWrap, textureWrap2) == null) {
+            this.a = t;
             this.b = textureFilter;
             this.c = textureFilter2;
             this.d = textureWrap;
@@ -190,7 +191,8 @@ public class o5 implements Comparable {
         }
     }
 
-    public void c(o5 o5Var) {
+    /* JADX WARN: Type inference failed for: r0v2, types: [T extends com.baidu.tieba.p3] */
+    public <V extends T> void c(o5<V> o5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o5Var) == null) {
             this.a = o5Var.a;
@@ -232,19 +234,19 @@ public class o5 implements Comparable {
         int gLEnum3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            p3 p3Var = this.a;
+            T t = this.a;
             int i3 = 0;
-            if (p3Var == null) {
+            if (t == null) {
                 i = 0;
             } else {
-                i = p3Var.a;
+                i = t.a;
             }
             long j = i * 811;
-            p3 p3Var2 = this.a;
-            if (p3Var2 == null) {
+            T t2 = this.a;
+            if (t2 == null) {
                 i2 = 0;
             } else {
-                i2 = p3Var2.i();
+                i2 = t2.i();
             }
             long j2 = (j + i2) * 811;
             Texture.TextureFilter textureFilter = this.b;

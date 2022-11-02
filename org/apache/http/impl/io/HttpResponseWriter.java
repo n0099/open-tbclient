@@ -10,7 +10,7 @@ import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.message.LineFormatter;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpResponseWriter extends AbstractMessageWriter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

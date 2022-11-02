@@ -151,7 +151,7 @@ public class LiveMessageParser {
         return (LiveMessageBean.MessageBody) invokeL.objValue;
     }
 
-    public static List getMessageList(JSONArray jSONArray) {
+    public static List<LiveMessageBean> getMessageList(JSONArray jSONArray) {
         InterceptResult invokeL;
         LiveMessageBean parseJson;
         Interceptable interceptable = $ic;

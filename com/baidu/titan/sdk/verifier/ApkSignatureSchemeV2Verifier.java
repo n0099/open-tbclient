@@ -84,7 +84,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes6.dex */
-    public final class ByteBufferDataSource implements DataSource {
+    public static final class ByteBufferDataSource implements DataSource {
         public final ByteBuffer mBuf;
 
         public ByteBufferDataSource(ByteBuffer byteBuffer) {
@@ -113,7 +113,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes6.dex */
-    public final class MemoryMappedFileDataSource implements DataSource {
+    public static final class MemoryMappedFileDataSource implements DataSource {
         public final FileChannel mChannel;
         public final long mFilePosition;
         public final long mSize;
@@ -140,7 +140,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes6.dex */
-    public class SignatureInfo {
+    public static class SignatureInfo {
         public final long apkSigningBlockOffset;
         public final long centralDirOffset;
         public final ByteBuffer eocd;
@@ -157,7 +157,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes6.dex */
-    public class SignatureNotFoundException extends Exception {
+    public static class SignatureNotFoundException extends Exception {
         public static final long serialVersionUID = 1;
 
         public SignatureNotFoundException(String str) {
@@ -170,7 +170,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes6.dex */
-    public class VerbatimX509Certificate extends WrappedX509Certificate {
+    public static class VerbatimX509Certificate extends WrappedX509Certificate {
         public byte[] encodedVerbatim;
 
         public VerbatimX509Certificate(X509Certificate x509Certificate, byte[] bArr) {
@@ -185,7 +185,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes6.dex */
-    public class WrappedX509Certificate extends X509Certificate {
+    public static class WrappedX509Certificate extends X509Certificate {
         public final X509Certificate wrapped;
 
         public WrappedX509Certificate(X509Certificate x509Certificate) {
@@ -218,7 +218,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
 
         @Override // java.security.cert.X509Extension
-        public Set getCriticalExtensionOIDs() {
+        public Set<String> getCriticalExtensionOIDs() {
             return this.wrapped.getCriticalExtensionOIDs();
         }
 
@@ -243,7 +243,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
 
         @Override // java.security.cert.X509Extension
-        public Set getNonCriticalExtensionOIDs() {
+        public Set<String> getNonCriticalExtensionOIDs() {
             return this.wrapped.getNonCriticalExtensionOIDs();
         }
 
@@ -354,8 +354,8 @@ public class ApkSignatureSchemeV2Verifier {
         return 32;
     }
 
-    public static Pair getEocd(RandomAccessFile randomAccessFile) throws IOException, SignatureNotFoundException {
-        Pair findZipEndOfCentralDirectoryRecord = ZipUtils.findZipEndOfCentralDirectoryRecord(randomAccessFile);
+    public static Pair<ByteBuffer, Long> getEocd(RandomAccessFile randomAccessFile) throws IOException, SignatureNotFoundException {
+        Pair<ByteBuffer, Long> findZipEndOfCentralDirectoryRecord = ZipUtils.findZipEndOfCentralDirectoryRecord(randomAccessFile);
         if (findZipEndOfCentralDirectoryRecord != null) {
             return findZipEndOfCentralDirectoryRecord;
         }
@@ -539,7 +539,7 @@ public class ApkSignatureSchemeV2Verifier {
         throw new SignatureNotFoundException("No APK Signature Scheme v2 block in APK Signing Block");
     }
 
-    public static Pair findApkSigningBlock(RandomAccessFile randomAccessFile, long j) throws IOException, SignatureNotFoundException {
+    public static Pair<ByteBuffer, Long> findApkSigningBlock(RandomAccessFile randomAccessFile, long j) throws IOException, SignatureNotFoundException {
         if (j >= 32) {
             ByteBuffer allocate = ByteBuffer.allocate(24);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
@@ -571,12 +571,12 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     public static SignatureInfo findSignature(RandomAccessFile randomAccessFile) throws IOException, SignatureNotFoundException {
-        Pair eocd = getEocd(randomAccessFile);
+        Pair<ByteBuffer, Long> eocd = getEocd(randomAccessFile);
         ByteBuffer byteBuffer = (ByteBuffer) eocd.first;
         long longValue = ((Long) eocd.second).longValue();
         if (!ZipUtils.isZip64EndOfCentralDirectoryLocatorPresent(randomAccessFile, longValue)) {
             long centralDirOffset = getCentralDirOffset(byteBuffer, longValue);
-            Pair findApkSigningBlock = findApkSigningBlock(randomAccessFile, centralDirOffset);
+            Pair<ByteBuffer, Long> findApkSigningBlock = findApkSigningBlock(randomAccessFile, centralDirOffset);
             return new SignatureInfo(findApkSignatureSchemeV2Block((ByteBuffer) findApkSigningBlock.first), ((Long) findApkSigningBlock.second).longValue(), centralDirOffset, longValue, byteBuffer);
         }
         throw new SignatureNotFoundException("ZIP64 APK not supported");
@@ -681,7 +681,7 @@ public class ApkSignatureSchemeV2Verifier {
         throw new IOException("Remaining buffer too short to contain length of length-prefixed field. Remaining: " + byteBuffer.remaining());
     }
 
-    public static Pair getSignatureAlgorithmJcaSignatureAlgorithm(int i) {
+    public static Pair<String, ? extends AlgorithmParameterSpec> getSignatureAlgorithmJcaSignatureAlgorithm(int i) {
         if (i != 513) {
             if (i != 514) {
                 if (i != 769) {
@@ -800,7 +800,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    public static void verifyIntegrity(Map map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
+    public static void verifyIntegrity(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
         DataSource byteBufferDataSource;
         DataSource byteBufferDataSource2;
         if (!map.isEmpty()) {
@@ -842,7 +842,7 @@ public class ApkSignatureSchemeV2Verifier {
                 byte[][] computeContentDigests = computeContentDigests(iArr, new DataSource[]{byteBufferDataSource, byteBufferDataSource2, byteBufferDataSource3});
                 for (int i2 = 0; i2 < size; i2++) {
                     int i3 = iArr[i2];
-                    if (!MessageDigest.isEqual((byte[]) map.get(Integer.valueOf(i3)), computeContentDigests[i2])) {
+                    if (!MessageDigest.isEqual(map.get(Integer.valueOf(i3)), computeContentDigests[i2])) {
                         throw new SecurityException(getContentDigestAlgorithmJcaDigestAlgorithm(i3) + " digest of contents did not verify");
                     }
                 }
@@ -854,7 +854,7 @@ public class ApkSignatureSchemeV2Verifier {
         throw new SecurityException("No digests provided");
     }
 
-    public static X509Certificate[] verifySigner(ByteBuffer byteBuffer, Map map, CertificateFactory certificateFactory) throws SecurityException, IOException {
+    public static X509Certificate[] verifySigner(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) throws SecurityException, IOException {
         int signatureAlgorithmContentDigestAlgorithm;
         ByteBuffer lengthPrefixedSlice = getLengthPrefixedSlice(byteBuffer);
         ByteBuffer lengthPrefixedSlice2 = getLengthPrefixedSlice(byteBuffer);
@@ -889,7 +889,7 @@ public class ApkSignatureSchemeV2Verifier {
             throw new SecurityException("No supported signatures found");
         }
         String signatureAlgorithmJcaKeyAlgorithm = getSignatureAlgorithmJcaKeyAlgorithm(i);
-        Pair signatureAlgorithmJcaSignatureAlgorithm = getSignatureAlgorithmJcaSignatureAlgorithm(i);
+        Pair<String, ? extends AlgorithmParameterSpec> signatureAlgorithmJcaSignatureAlgorithm = getSignatureAlgorithmJcaSignatureAlgorithm(i);
         String str = (String) signatureAlgorithmJcaSignatureAlgorithm.first;
         AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) signatureAlgorithmJcaSignatureAlgorithm.second;
         try {
@@ -923,8 +923,8 @@ public class ApkSignatureSchemeV2Verifier {
                     }
                 }
                 if (arrayList.equals(arrayList2)) {
-                    byte[] bArr3 = (byte[]) map.put(Integer.valueOf(getSignatureAlgorithmContentDigestAlgorithm(i)), bArr);
-                    if (bArr3 != null && !MessageDigest.isEqual(bArr3, bArr)) {
+                    byte[] put = map.put(Integer.valueOf(getSignatureAlgorithmContentDigestAlgorithm(i)), bArr);
+                    if (put != null && !MessageDigest.isEqual(put, bArr)) {
                         throw new SecurityException(getContentDigestAlgorithmJcaDigestAlgorithm(signatureAlgorithmContentDigestAlgorithm) + " contents digest does not match the digest specified by a preceding signer");
                     }
                     ByteBuffer lengthPrefixedSlice6 = getLengthPrefixedSlice(lengthPrefixedSlice);

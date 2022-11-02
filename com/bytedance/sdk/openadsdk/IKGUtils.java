@@ -7,9 +7,9 @@ import java.util.Map;
 public interface IKGUtils {
     WebResourceResponse findRes(String str, String str2, FindResProxy findResProxy);
 
-    Map getChannelVersion();
+    Map<String, Long> getChannelVersion();
 
-    void preload(List list);
+    void preload(List<String> list);
 
     void releaseLoader();
 }

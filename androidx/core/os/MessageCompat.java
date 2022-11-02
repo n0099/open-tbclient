@@ -1,7 +1,9 @@
 package androidx.core.os;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +47,8 @@ public final class MessageCompat {
         }
     }
 
-    public static boolean isAsynchronous(Message message) {
+    @SuppressLint({"NewApi"})
+    public static boolean isAsynchronous(@NonNull Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, message)) == null) {
@@ -65,7 +68,8 @@ public final class MessageCompat {
         return invokeL.booleanValue;
     }
 
-    public static void setAsynchronous(Message message, boolean z) {
+    @SuppressLint({"NewApi"})
+    public static void setAsynchronous(@NonNull Message message, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, message, z) == null) {
             int i = Build.VERSION.SDK_INT;

@@ -1,87 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.LoadDraftMessage;
-import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fc7 implements CustomMessageTask.CustomRunnable {
+public class fc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rb7 a;
-    public int b;
 
-    public fc7(rb7 rb7Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rb7Var, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = rb7Var;
-        this.b = i;
-    }
-
-    public final LoadDraftResponsedMessage a(int i) {
+    public static boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
-            loadDraftResponsedMessage.setError(-18);
-            return loadDraftResponsedMessage;
-        }
-        return (LoadDraftResponsedMessage) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == 1 || i == 5 || i == -1 || i == -9 || i == -2 || i == 8 || i == 7 || i == 6 : invokeI.booleanValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage run(CustomMessage customMessage) {
-        InterceptResult invokeL;
-        String str;
+    public static boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
-            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
-                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
-                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
-                } else {
-                    str = "";
-                }
-                LoadDraftMessage.a aVar = (LoadDraftMessage.a) loadDraftMessage.getData();
-                ChatSetting a = this.a.a(str, aVar.a);
-                if (a == null) {
-                    return a(loadDraftMessage.getCmd());
-                }
-                String draft = a.getDraft();
-                LoadDraftResponsedMessage.a aVar2 = new LoadDraftResponsedMessage.a();
-                aVar2.a = draft;
-                String str2 = aVar.a;
-                try {
-                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadDraftResponsedMessage;
-            }
-            return a(this.b);
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 8 || i == 7 : invokeI.booleanValue;
     }
 }

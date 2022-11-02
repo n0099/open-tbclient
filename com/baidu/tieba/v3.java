@@ -21,12 +21,12 @@ public class v3 implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final a a;
-    public b7 b;
+    public b7<d4> b;
     public boolean c;
     public boolean d;
 
     /* loaded from: classes6.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -717,7 +717,7 @@ public class v3 implements i7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -903,7 +903,7 @@ public class v3 implements i7 {
         }
     }
 
-    public v3(a aVar, b7 b7Var, boolean z) {
+    public v3(a aVar, b7<d4> b7Var, boolean z) {
         k3 d;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -929,7 +929,7 @@ public class v3 implements i7 {
             String[] strArr = aVar.b;
             if (strArr != null) {
                 int length = strArr.length;
-                this.b = new b7(length);
+                this.b = new b7<>(length);
                 for (int i3 = 0; i3 < length; i3++) {
                     k3 k3Var = aVar.c;
                     if (k3Var == null) {
@@ -993,9 +993,9 @@ public class v3 implements i7 {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d) {
             int i = 0;
             while (true) {
-                b7 b7Var = this.b;
+                b7<d4> b7Var = this.b;
                 if (i < b7Var.b) {
-                    ((d4) b7Var.get(i)).f().dispose();
+                    b7Var.get(i).f().dispose();
                     i++;
                 } else {
                     return;
@@ -1043,14 +1043,14 @@ public class v3 implements i7 {
                 if (bVarArr2 != null) {
                     for (b bVar : bVarArr2) {
                         if (bVar != null) {
-                            aVar.g(bVar, (d4) this.b.get(bVar.n));
+                            aVar.g(bVar, this.b.get(bVar.n));
                         }
                     }
                 }
             }
             b bVar2 = aVar.r;
             if (bVar2 != null) {
-                aVar.g(bVar2, (d4) this.b.get(bVar2.n));
+                aVar.g(bVar2, this.b.get(bVar2.n));
             }
         }
     }

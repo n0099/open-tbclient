@@ -46,7 +46,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
     public final HlsPlaylistTracker playlistTracker;
     public HlsSampleStreamWrapper[] sampleStreamWrappers;
     public CompositeSequenceableLoader sequenceableLoader;
-    public final IdentityHashMap streamWrapperIndices;
+    public final IdentityHashMap<SampleStream, Integer> streamWrapperIndices;
     public final TimestampAdjusterProvider timestampAdjusterProvider;
     public TrackGroupArray trackGroups;
 
@@ -78,7 +78,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
         this.minLoadableRetryCount = i;
         this.eventDispatcher = eventDispatcher;
         this.allocator = allocator;
-        this.streamWrapperIndices = new IdentityHashMap();
+        this.streamWrapperIndices = new IdentityHashMap<>();
         this.timestampAdjusterProvider = new TimestampAdjusterProvider();
         this.continueLoadingHandler = new Handler();
         this.sampleStreamWrappers = new HlsSampleStreamWrapper[0];
@@ -107,8 +107,8 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             } else if (arrayList3.size() < arrayList.size()) {
                 arrayList.removeAll(arrayList3);
             }
-            List list = masterPlaylist.audios;
-            List list2 = masterPlaylist.subtitles;
+            List<HlsMasterPlaylist.HlsUrl> list = masterPlaylist.audios;
+            List<HlsMasterPlaylist.HlsUrl> list2 = masterPlaylist.subtitles;
             HlsSampleStreamWrapper[] hlsSampleStreamWrapperArr = new HlsSampleStreamWrapper[list.size() + 1 + list2.size()];
             this.sampleStreamWrappers = hlsSampleStreamWrapperArr;
             this.pendingPrepareCount = hlsSampleStreamWrapperArr.length;
@@ -122,7 +122,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             int i2 = 0;
             int i3 = 1;
             while (i2 < list.size()) {
-                HlsSampleStreamWrapper buildSampleStreamWrapper2 = buildSampleStreamWrapper(1, new HlsMasterPlaylist.HlsUrl[]{(HlsMasterPlaylist.HlsUrl) list.get(i2)}, null, Collections.emptyList(), j);
+                HlsSampleStreamWrapper buildSampleStreamWrapper2 = buildSampleStreamWrapper(1, new HlsMasterPlaylist.HlsUrl[]{list.get(i2)}, null, Collections.emptyList(), j);
                 this.sampleStreamWrappers[i3] = buildSampleStreamWrapper2;
                 buildSampleStreamWrapper2.continuePreparing();
                 i2++;
@@ -130,7 +130,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             }
             int i4 = 0;
             while (i4 < list2.size()) {
-                HlsMasterPlaylist.HlsUrl hlsUrl2 = (HlsMasterPlaylist.HlsUrl) list2.get(i4);
+                HlsMasterPlaylist.HlsUrl hlsUrl2 = list2.get(i4);
                 HlsSampleStreamWrapper buildSampleStreamWrapper3 = buildSampleStreamWrapper(3, new HlsMasterPlaylist.HlsUrl[]{hlsUrl2}, null, Collections.emptyList(), j);
                 buildSampleStreamWrapper3.prepareSingleTrack(hlsUrl2.format);
                 this.sampleStreamWrappers[i3] = buildSampleStreamWrapper3;
@@ -141,7 +141,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
         }
     }
 
-    private HlsSampleStreamWrapper buildSampleStreamWrapper(int i, HlsMasterPlaylist.HlsUrl[] hlsUrlArr, Format format, List list, long j) {
+    private HlsSampleStreamWrapper buildSampleStreamWrapper(int i, HlsMasterPlaylist.HlsUrl[] hlsUrlArr, Format format, List<Format> list, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), hlsUrlArr, format, list, Long.valueOf(j)})) == null) {
@@ -370,7 +370,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
                 if (sampleStreamArr2[i] == null) {
                     intValue = -1;
                 } else {
-                    intValue = ((Integer) this.streamWrapperIndices.get(sampleStreamArr2[i])).intValue();
+                    intValue = this.streamWrapperIndices.get(sampleStreamArr2[i]).intValue();
                 }
                 iArr[i] = intValue;
                 iArr2[i] = -1;

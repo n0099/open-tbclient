@@ -1,95 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.live.interfaces.player.BuildParams;
+import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes4.dex */
-public class kn7 implements eo {
+public class kn7 implements ILivePlayerService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918933, "Lcom/baidu/tieba/kn7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947918933, "Lcom/baidu/tieba/kn7;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public boolean isAuthError(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i == -2403 || i == -33403 : invokeI.booleanValue;
     }
 
-    public kn7(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
+    public kn7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (dataRes != null && (vipUser = dataRes.user) != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUser.card_id;
-            String str2 = vipUser.total_scores_link;
-            String str3 = vipUser.speed_link;
-            String str4 = vipUser.task_scores_link;
-            vipUser.task_scores.intValue();
-            String str5 = vipUser.name;
-            vipUser.id.longValue();
-            String str6 = vipUser.portrait;
-            String str7 = vipUser.name_show;
-            String str8 = vipUser.vip_link;
-            VipInfo vipInfo = vipUser.vipInfo;
-            if (vipInfo != null) {
-                String str9 = vipInfo.icon_url;
-                vipInfo.s_time.intValue();
-                vipUser.vipInfo.e_time.intValue();
-                vipUser.now_time.intValue();
-                vipUser.vipInfo.v_status.intValue();
-                vipUser.vipInfo.v_level.intValue();
-                vipUser.vipInfo.ext_score.intValue();
-                vipUser.vipInfo.a_score.intValue();
-                vipUser.vipInfo.n_score.intValue();
+    }
+
+    public final LivePlayer a(BuildParams buildParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, buildParams)) == null) {
+            return new mn7(buildParams);
+        }
+        return (LivePlayer) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createBackPlayer(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return new gn7(str);
+        }
+        return (LivePlayer) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createPlayer(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return new hn7(str);
+        }
+        return (LivePlayer) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createPlayer(BuildParams buildParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, buildParams)) == null) {
+            int playerType = buildParams.getPlayerType();
+            if (playerType != 1) {
+                if (playerType != 2) {
+                    return createPlayer(buildParams.getRoomId());
+                }
+                return a(buildParams);
             }
-            dataRes.today_get_score.intValue();
-            dataRes.today_unget_score.intValue();
-            vipUpgrade.normal.intValue();
-            vipUpgrade.pay.intValue();
-            AutoPayInfo autoPayInfo = dataRes.autopay_info;
+            return createBackPlayer(buildParams.getRoomId());
+        }
+        return (LivePlayer) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public void initPlayerEvn(CyberPlayerManager.InstallListener installListener, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, installListener, i) == null) {
+            in7.e().h(installListener, i);
         }
     }
 }

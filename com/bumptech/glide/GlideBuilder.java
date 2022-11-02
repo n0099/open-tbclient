@@ -2,6 +2,8 @@ package com.bumptech.glide;
 
 import android.content.Context;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -42,9 +44,10 @@ public final class GlideBuilder {
     public ArrayPool arrayPool;
     public BitmapPool bitmapPool;
     public ConnectivityMonitorFactory connectivityMonitorFactory;
-    public List defaultRequestListeners;
+    @Nullable
+    public List<RequestListener<Object>> defaultRequestListeners;
     public Glide.RequestOptionsFactory defaultRequestOptionsFactory;
-    public final Map defaultTransitionOptions;
+    public final Map<Class<?>, TransitionOptions<?, ?>> defaultTransitionOptions;
     public GlideExecutor diskCacheExecutor;
     public DiskCache.Factory diskCacheFactory;
     public Engine engine;
@@ -53,11 +56,12 @@ public final class GlideBuilder {
     public int logLevel;
     public MemoryCache memoryCache;
     public MemorySizeCalculator memorySizeCalculator;
+    @Nullable
     public RequestManagerRetriever.RequestManagerFactory requestManagerFactory;
     public GlideExecutor sourceExecutor;
 
     /* loaded from: classes7.dex */
-    public final class EnableImageDecoderForBitmaps implements GlideExperiments.Experiment {
+    public static final class EnableImageDecoderForBitmaps implements GlideExperiments.Experiment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,7 +81,7 @@ public final class GlideBuilder {
     }
 
     /* loaded from: classes7.dex */
-    public final class LogRequestOrigins implements GlideExperiments.Experiment {
+    public static final class LogRequestOrigins implements GlideExperiments.Experiment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,7 +101,7 @@ public final class GlideBuilder {
     }
 
     /* loaded from: classes7.dex */
-    public final class ManualOverrideHardwareBitmapMaxFdCount implements GlideExperiments.Experiment {
+    public static final class ManualOverrideHardwareBitmapMaxFdCount implements GlideExperiments.Experiment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int fdCount;
@@ -122,7 +126,7 @@ public final class GlideBuilder {
     }
 
     /* loaded from: classes7.dex */
-    public final class WaitForFramesAfterTrimMemory implements GlideExperiments.Experiment {
+    public static final class WaitForFramesAfterTrimMemory implements GlideExperiments.Experiment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -181,6 +185,7 @@ public final class GlideBuilder {
             }
 
             @Override // com.bumptech.glide.Glide.RequestOptionsFactory
+            @NonNull
             public RequestOptions build() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -192,7 +197,8 @@ public final class GlideBuilder {
         };
     }
 
-    public GlideBuilder addGlobalRequestListener(RequestListener requestListener) {
+    @NonNull
+    public GlideBuilder addGlobalRequestListener(@NonNull RequestListener<Object> requestListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestListener)) == null) {
@@ -205,7 +211,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setAnimationExecutor(GlideExecutor glideExecutor) {
+    @NonNull
+    public GlideBuilder setAnimationExecutor(@Nullable GlideExecutor glideExecutor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, glideExecutor)) == null) {
@@ -215,7 +222,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setArrayPool(ArrayPool arrayPool) {
+    @NonNull
+    public GlideBuilder setArrayPool(@Nullable ArrayPool arrayPool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayPool)) == null) {
@@ -225,7 +233,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setBitmapPool(BitmapPool bitmapPool) {
+    @NonNull
+    public GlideBuilder setBitmapPool(@Nullable BitmapPool bitmapPool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bitmapPool)) == null) {
@@ -235,7 +244,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setConnectivityMonitorFactory(ConnectivityMonitorFactory connectivityMonitorFactory) {
+    @NonNull
+    public GlideBuilder setConnectivityMonitorFactory(@Nullable ConnectivityMonitorFactory connectivityMonitorFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, connectivityMonitorFactory)) == null) {
@@ -245,7 +255,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setDefaultRequestOptions(Glide.RequestOptionsFactory requestOptionsFactory) {
+    @NonNull
+    public GlideBuilder setDefaultRequestOptions(@NonNull Glide.RequestOptionsFactory requestOptionsFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, requestOptionsFactory)) == null) {
@@ -255,7 +266,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setDiskCache(DiskCache.Factory factory) {
+    @NonNull
+    public GlideBuilder setDiskCache(@Nullable DiskCache.Factory factory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, factory)) == null) {
@@ -265,7 +277,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setDiskCacheExecutor(GlideExecutor glideExecutor) {
+    @NonNull
+    public GlideBuilder setDiskCacheExecutor(@Nullable GlideExecutor glideExecutor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, glideExecutor)) == null) {
@@ -303,6 +316,7 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeZ.objValue;
     }
 
+    @NonNull
     public GlideBuilder setIsActiveResourceRetentionAllowed(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -313,6 +327,7 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeZ.objValue;
     }
 
+    @NonNull
     public GlideBuilder setLogLevel(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -336,7 +351,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeZ.objValue;
     }
 
-    public GlideBuilder setMemoryCache(MemoryCache memoryCache) {
+    @NonNull
+    public GlideBuilder setMemoryCache(@Nullable MemoryCache memoryCache) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, memoryCache)) == null) {
@@ -346,7 +362,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setMemorySizeCalculator(MemorySizeCalculator.Builder builder) {
+    @NonNull
+    public GlideBuilder setMemorySizeCalculator(@NonNull MemorySizeCalculator.Builder builder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, builder)) == null) {
@@ -355,7 +372,7 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public void setRequestManagerFactory(RequestManagerRetriever.RequestManagerFactory requestManagerFactory) {
+    public void setRequestManagerFactory(@Nullable RequestManagerRetriever.RequestManagerFactory requestManagerFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, requestManagerFactory) == null) {
             this.requestManagerFactory = requestManagerFactory;
@@ -363,7 +380,7 @@ public final class GlideBuilder {
     }
 
     @Deprecated
-    public GlideBuilder setResizeExecutor(GlideExecutor glideExecutor) {
+    public GlideBuilder setResizeExecutor(@Nullable GlideExecutor glideExecutor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, glideExecutor)) == null) {
@@ -372,7 +389,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setSourceExecutor(GlideExecutor glideExecutor) {
+    @NonNull
+    public GlideBuilder setSourceExecutor(@Nullable GlideExecutor glideExecutor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, glideExecutor)) == null) {
@@ -382,7 +400,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public Glide build(Context context) {
+    @NonNull
+    public Glide build(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -421,7 +440,7 @@ public final class GlideBuilder {
             if (this.engine == null) {
                 this.engine = new Engine(this.memoryCache, this.diskCacheFactory, this.diskCacheExecutor, this.sourceExecutor, GlideExecutor.newUnlimitedSourceExecutor(), this.animationExecutor, this.isActiveResourceRetentionAllowed);
             }
-            List list = this.defaultRequestListeners;
+            List<RequestListener<Object>> list = this.defaultRequestListeners;
             if (list == null) {
                 this.defaultRequestListeners = Collections.emptyList();
             } else {
@@ -433,7 +452,8 @@ public final class GlideBuilder {
         return (Glide) invokeL.objValue;
     }
 
-    public GlideBuilder setDefaultRequestOptions(RequestOptions requestOptions) {
+    @NonNull
+    public GlideBuilder setDefaultRequestOptions(@Nullable RequestOptions requestOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, requestOptions)) == null) {
@@ -463,6 +483,7 @@ public final class GlideBuilder {
                 }
 
                 @Override // com.bumptech.glide.Glide.RequestOptionsFactory
+                @NonNull
                 public RequestOptions build() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -480,7 +501,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setMemorySizeCalculator(MemorySizeCalculator memorySizeCalculator) {
+    @NonNull
+    public GlideBuilder setMemorySizeCalculator(@Nullable MemorySizeCalculator memorySizeCalculator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, memorySizeCalculator)) == null) {
@@ -490,7 +512,8 @@ public final class GlideBuilder {
         return (GlideBuilder) invokeL.objValue;
     }
 
-    public GlideBuilder setDefaultTransitionOptions(Class cls, TransitionOptions transitionOptions) {
+    @NonNull
+    public <T> GlideBuilder setDefaultTransitionOptions(@NonNull Class<T> cls, @Nullable TransitionOptions<?, T> transitionOptions) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, transitionOptions)) == null) {

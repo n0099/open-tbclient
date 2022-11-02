@@ -24,13 +24,13 @@ public class gr {
     public String f446a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f447a;
+    public List<gk> f447a;
     public String b;
     public String c;
     public String d;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -125,7 +125,7 @@ public class gr {
         }
     }
 
-    public gr(int i, String str, String str2, String str3, String str4, List list) {
+    public gr(int i, String str, String str2, String str3, String str4, List<gk> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -233,7 +233,7 @@ public class gr {
             if (str4 != null) {
                 bundle.putString("ext_err_msg", str4);
             }
-            List list = this.f447a;
+            List<gk> list = this.f447a;
             if (list != null) {
                 Bundle[] bundleArr = new Bundle[list.size()];
                 int i = 0;
@@ -281,8 +281,8 @@ public class gr {
                 sb.append(this.d);
                 sb.append("</text>");
             }
-            for (go goVar : m374a()) {
-                sb.append(goVar.d());
+            for (gk gkVar : m374a()) {
+                sb.append(gkVar.d());
             }
             sb.append("</error>");
             return sb.toString();
@@ -291,7 +291,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List m374a() {
+    public synchronized List<gk> m374a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

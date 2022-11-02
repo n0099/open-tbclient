@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.internal.Util;
@@ -23,21 +24,24 @@ public abstract class ResponseBody implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 8192;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Reader reader;
 
     public abstract long contentLength();
 
+    @Nullable
     public abstract MediaType contentType();
 
     public abstract InputStream inputStream();
 
     /* loaded from: classes2.dex */
-    public final class BomAwareReader extends Reader {
+    public static final class BomAwareReader extends Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BufferedInputStream bis;
         public final Charset charset;
         public boolean closed;
+        @Nullable
         public Reader delegate;
 
         public BomAwareReader(InputStream inputStream, Charset charset) {
@@ -166,7 +170,7 @@ public abstract class ResponseBody implements Closeable {
         return (String) invokeV.objValue;
     }
 
-    public static ResponseBody create(MediaType mediaType, long j, InputStream inputStream) {
+    public static ResponseBody create(@Nullable MediaType mediaType, long j, InputStream inputStream) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{mediaType, Long.valueOf(j), inputStream})) == null) {
@@ -209,6 +213,7 @@ public abstract class ResponseBody implements Closeable {
                     }
 
                     @Override // com.baidu.searchbox.network.outback.core.ResponseBody
+                    @Nullable
                     public MediaType contentType() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -234,7 +239,7 @@ public abstract class ResponseBody implements Closeable {
         return (ResponseBody) invokeCommon.objValue;
     }
 
-    public static ResponseBody create(MediaType mediaType, String str) {
+    public static ResponseBody create(@Nullable MediaType mediaType, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, mediaType, str)) == null) {
@@ -248,7 +253,7 @@ public abstract class ResponseBody implements Closeable {
         return (ResponseBody) invokeLL.objValue;
     }
 
-    public static ResponseBody create(MediaType mediaType, byte[] bArr) {
+    public static ResponseBody create(@Nullable MediaType mediaType, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr)) == null) {

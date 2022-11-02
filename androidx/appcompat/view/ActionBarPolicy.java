@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.view.ViewConfiguration;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionBarPolicy {
     public static /* synthetic */ Interceptable $ic;

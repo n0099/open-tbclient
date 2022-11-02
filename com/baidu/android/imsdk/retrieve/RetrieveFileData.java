@@ -29,18 +29,18 @@ public class RetrieveFileData {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public final class RetrieveFileBean {
+    public static final class RetrieveFileBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mExpiredTime;
         public String mJobId;
         public long mMaxFileSize;
-        public List mPathList;
+        public List<String> mPathList;
         public String mPathStr;
         public String mType;
         public String mVersion;
 
-        public RetrieveFileBean(String str, String str2, String str3, long j, List list, String str4, long j2) {
+        public RetrieveFileBean(String str, String str2, String str3, long j, List<String> list, String str4, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

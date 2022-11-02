@@ -1,62 +1,144 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public HashMap<String, Integer> c;
 
-    public static void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(vc8 vc8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vc8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
+            }
         }
     }
 
-    public static void b(Context context, String str) {
+    public vc8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
-        }
-    }
-
-    public static void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
-        }
-    }
-
-    public static void e(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
-            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
-        }
-    }
-
-    public static Ringtone f() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
-            ringtone.play();
-            return ringtone;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (Ringtone) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a) {
+                yc8.f();
+            }
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean a(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            HashMap<String, Integer> hashMap = this.c;
+            if (hashMap != null && uri != null) {
+                return hashMap.containsKey(uri.getHost());
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        boolean z3 = this.a;
+        if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.a = z;
+        if (jSONObject.optInt("p2p_config", 0) == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.b = z2;
+        JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
+        if (optJSONArray != null) {
+            this.c = new HashMap<>();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                String optString = optJSONArray.optString(i);
+                if (!StringUtils.isNull(optString)) {
+                    this.c.put(optString, 0);
+                }
+            }
+        }
+        if (this.a) {
+            yc8.f();
+            if (!z3) {
+                Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
+                intent.putExtra("pcdn", true);
+                TbadkCoreApplication.getInst().getContext().startService(intent);
+                zg.a().postDelayed(new a(this), 3000L);
+            }
+        }
     }
 }

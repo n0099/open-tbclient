@@ -1,143 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.kz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class y0a extends c1a {
+public final class y0a<T> implements gz9.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final kz9.c<T> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y0a(int i) {
-        super(i);
+    public y0a(kz9.c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = cVar;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        InterceptResult invokeV;
+    public void call(mz9<? super T> mz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (k() == h()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long k = k();
-            while (true) {
-                long h = h();
-                long k2 = k();
-                if (k == k2) {
-                    return (int) (h - k2);
-                }
-                k = k2;
-            }
-        } else {
-            return invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mz9Var) == null) {
+            w0a w0aVar = new w0a(mz9Var);
+            mz9Var.b(w0aVar);
+            this.a.call(w0aVar);
         }
     }
 
-    @Override // java.util.Queue
-    public boolean offer(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj != null) {
-                Object[] objArr = this.b;
-                long j = this.a;
-                long h = h();
-                long a = a(h);
-                if (e(objArr, a) != null) {
-                    if (h - k() > j) {
-                        return false;
-                    }
-                    do {
-                    } while (e(objArr, a) != null);
-                    g(objArr, a, obj);
-                    i(h + 1);
-                    return true;
-                }
-                g(objArr, a, obj);
-                i(h + 1);
-                return true;
-            }
-            throw new NullPointerException("Null is not a valid element");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Queue
-    public Object peek() {
-        InterceptResult invokeV;
-        Object d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long l = l();
-            do {
-                long k = k();
-                if (k >= l) {
-                    long h = h();
-                    if (k >= h) {
-                        return null;
-                    }
-                    m(h);
-                }
-                d = d(a(k));
-            } while (d == null);
-            return d;
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // java.util.Queue, com.baidu.tieba.w0a
-    public Object poll() {
-        InterceptResult invokeV;
-        long k;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long l = l();
-            do {
-                k = k();
-                if (k >= l) {
-                    long h = h();
-                    if (k >= h) {
-                        return null;
-                    }
-                    m(h);
-                }
-            } while (!j(k, 1 + k));
-            long a = a(k);
-            Object[] objArr = this.b;
-            Object c = c(objArr, a);
-            f(objArr, a, null);
-            return c;
-        }
-        return invokeV.objValue;
+    @Override // com.baidu.tieba.gz9.a, com.baidu.tieba.uz9
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((mz9) ((mz9) obj));
     }
 }

@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
@@ -178,7 +179,7 @@ public class BindVerifyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);

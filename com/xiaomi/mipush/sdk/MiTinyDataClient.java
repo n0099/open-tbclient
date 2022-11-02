@@ -15,7 +15,6 @@ import com.xiaomi.push.hj;
 import com.xiaomi.push.hn;
 import com.xiaomi.push.hw;
 import com.xiaomi.push.ii;
-import com.xiaomi.push.iu;
 import com.xiaomi.push.service.bd;
 import com.xiaomi.push.service.bz;
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class MiTinyDataClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static volatile a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +41,7 @@ public class MiTinyDataClient {
         public Context f37a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C0704a f38a;
+        public C0715a f38a;
 
         /* renamed from: a  reason: collision with other field name */
         public Boolean f39a;
@@ -51,11 +50,11 @@ public class MiTinyDataClient {
         public String f40a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final ArrayList f41a;
+        public final ArrayList<hn> f41a;
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0704a {
+        public class C0715a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -64,15 +63,15 @@ public class MiTinyDataClient {
             public final Runnable f42a;
 
             /* renamed from: a  reason: collision with other field name */
-            public final ArrayList f43a;
+            public final ArrayList<hn> f43a;
 
             /* renamed from: a  reason: collision with other field name */
-            public ScheduledFuture f44a;
+            public ScheduledFuture<?> f44a;
 
             /* renamed from: a  reason: collision with other field name */
             public ScheduledThreadPoolExecutor f45a;
 
-            public C0704a(a aVar) {
+            public C0715a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +88,7 @@ public class MiTinyDataClient {
                 }
                 this.a = aVar;
                 this.f45a = new ScheduledThreadPoolExecutor(1);
-                this.f43a = new ArrayList();
+                this.f43a = new ArrayList<>();
                 this.f42a = new ab(this);
             }
 
@@ -105,10 +104,10 @@ public class MiTinyDataClient {
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-                    hn hnVar = (hn) this.f43a.remove(0);
-                    for (ii iiVar : bz.a(Arrays.asList(hnVar), this.a.f37a.getPackageName(), b.m131a(this.a.f37a).m132a(), (int) TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
-                        com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item by PushServiceClient.sendMessage(XmActionNotification)." + hnVar.d());
-                        ao.a(this.a.f37a).a((iu) iiVar, hj.i, true, (hw) null);
+                    hn remove = this.f43a.remove(0);
+                    for (ii iiVar : bz.a(Arrays.asList(remove), this.a.f37a.getPackageName(), b.m131a(this.a.f37a).m132a(), (int) TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
+                        com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item by PushServiceClient.sendMessage(XmActionNotification)." + remove.d());
+                        ao.a(this.a.f37a).a((ao) iiVar, hj.i, true, (hw) null);
                     }
                 }
             }
@@ -134,8 +133,8 @@ public class MiTinyDataClient {
                     return;
                 }
             }
-            this.f38a = new C0704a(this);
-            this.f41a = new ArrayList();
+            this.f38a = new C0715a(this);
+            this.f41a = new ArrayList<>();
         }
 
         public static a a() {

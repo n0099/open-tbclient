@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function2;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.BroadcastKt$broadcast$1", f = "Broadcast.kt", i = {0, 1, 1}, l = {50, 51}, m = "invokeSuspend", n = {"$this$broadcast", "$this$broadcast", "e"}, s = {"L$0", "L$0", "L$1"})
 /* loaded from: classes8.dex */
-public final class BroadcastKt$broadcast$1 extends SuspendLambda implements Function2 {
+public final class BroadcastKt$broadcast$1 extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $this_broadcast;
     public Object L$0;
     public Object L$1;
@@ -27,15 +27,16 @@ public final class BroadcastKt$broadcast$1 extends SuspendLambda implements Func
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         BroadcastKt$broadcast$1 broadcastKt$broadcast$1 = new BroadcastKt$broadcast$1(this.$this_broadcast, continuation);
         broadcastKt$broadcast$1.p$ = (ProducerScope) obj;
         return broadcastKt$broadcast$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((BroadcastKt$broadcast$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return ((BroadcastKt$broadcast$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0048 A[RETURN] */

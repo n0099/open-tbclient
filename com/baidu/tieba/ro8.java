@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,47 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ro8 extends so8 {
+public class ro8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] c;
+    public static final int[] d;
+    public static final int[] e;
+    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap d;
-
-    /* loaded from: classes5.dex */
-    public final class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().e();
-            }
-        }
-    }
+    public SparseIntArray a;
+    public final int[] b;
 
     static {
         InterceptResult invokeClinit;
@@ -68,56 +33,85 @@ public class ro8 extends so8 {
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(2005016));
+        c = new int[]{3, 8, 13};
+        d = new int[]{2, 12};
+        e = new int[]{20};
+        f = new int[]{3, 13, 23};
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.c.clear();
-                this.d.clear();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ro8(int i) {
-        super(i);
+    public ro8(String str, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new HashMap();
+        this.b = iArr;
+        this.a = new SparseIntArray();
     }
 
-    public long f(String str) {
-        InterceptResult invokeL;
+    public void a(int i, int i2) {
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                synchronized (this) {
-                    if (this.d.get(str) == null) {
-                        return 0L;
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 >= 0 && (sparseIntArray = this.a) != null) {
+            sparseIntArray.append(i2, i);
+        }
+    }
+
+    public int b(int i) {
+        InterceptResult invokeI;
+        SparseIntArray sparseIntArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0 || (sparseIntArray = this.a) == null) {
+                return -1;
+            }
+            return sparseIntArray.get(i, -1);
+        }
+        return invokeI.intValue;
+    }
+
+    public void c(int i) {
+        SparseIntArray sparseIntArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (sparseIntArray = this.a) != null) {
+            sparseIntArray.delete(i);
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            SparseIntArray sparseIntArray = this.a;
+            if (sparseIntArray != null) {
+                sparseIntArray.clear();
+                int[] iArr = this.b;
+                if (iArr != null) {
+                    for (int i2 : iArr) {
+                        if (i2 >= 0) {
+                            this.a.append(i2 + i, i2);
+                        }
                     }
-                    return ((Long) this.d.get(str)).longValue();
                 }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0L;
             }
         }
-        return invokeL.longValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(0);
+        }
     }
 }

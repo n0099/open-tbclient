@@ -25,7 +25,7 @@ public class NotificationMsgData {
     public ChatMsg mMsg;
     public PaInfo mPainfo;
     public int mType;
-    public List mUids;
+    public List<Long> mUids;
 
     public NotificationMsgData(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class NotificationMsgData {
         this.mMsg = chatMsg;
     }
 
-    public List getInterActiveUserBduids() {
+    public List<Long> getInterActiveUserBduids() {
         InterceptResult invokeV;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class NotificationMsgData {
         return invokeV.intValue;
     }
 
-    public List getUids() {
+    public List<Long> getUids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

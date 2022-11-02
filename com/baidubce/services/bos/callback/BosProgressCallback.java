@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.callback.BceProgressCallback;
 import com.baidubce.model.AbstractBceRequest;
 /* loaded from: classes7.dex */
-public abstract class BosProgressCallback implements BceProgressCallback {
+public abstract class BosProgressCallback<T extends AbstractBceRequest> implements BceProgressCallback<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,9 +34,9 @@ public abstract class BosProgressCallback implements BceProgressCallback {
     }
 
     @Override // com.baidubce.callback.BceProgressCallback
-    public void onProgress(AbstractBceRequest abstractBceRequest, long j, long j2) {
+    public void onProgress(T t, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{abstractBceRequest, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{t, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             onProgress(j, j2);
         }
     }

@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -24,7 +25,7 @@ public class SchemeCollecter {
     public static final String CLASSIFY_SWAN_V8 = "swan/v8";
     public static final String CLASSIFY_SWAN_WEBVIEW = "swan/webview";
     public static String finalDesPatch;
-    public static HashMap schemesDes;
+    public static HashMap<String, List<String>> schemesDes;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +41,7 @@ public class SchemeCollecter {
                 return;
             }
         }
-        schemesDes = new HashMap();
+        schemesDes = new HashMap<>();
     }
 
     public SchemeCollecter() {

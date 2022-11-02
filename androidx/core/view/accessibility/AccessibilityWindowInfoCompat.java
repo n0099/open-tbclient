@@ -3,6 +3,7 @@ package androidx.core.view.accessibility;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -277,6 +278,7 @@ public class AccessibilityWindowInfoCompat {
         }
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         boolean z;

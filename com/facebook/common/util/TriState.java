@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.infer.annotation.Functional;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import javax.annotation.Nullable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -23,7 +24,7 @@ public final class TriState {
 
     /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,6 +98,7 @@ public final class TriState {
         }
     }
 
+    @Functional
     public static TriState fromDbValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -112,6 +114,7 @@ public final class TriState {
         return (TriState) invokeI.objValue;
     }
 
+    @Functional
     public static TriState valueOf(Boolean bool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -133,6 +136,7 @@ public final class TriState {
         return (TriState) invokeL.objValue;
     }
 
+    @Functional
     public static TriState valueOf(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -154,6 +158,7 @@ public final class TriState {
         return (TriState[]) invokeV.objValue;
     }
 
+    @Functional
     public int getDbValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -171,6 +176,7 @@ public final class TriState {
         return invokeV.intValue;
     }
 
+    @Functional
     public boolean isSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -183,6 +189,7 @@ public final class TriState {
         return invokeV.booleanValue;
     }
 
+    @Functional
     public boolean asBoolean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -203,6 +210,7 @@ public final class TriState {
     }
 
     @Nullable
+    @Functional
     public Boolean asBooleanObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -222,6 +230,7 @@ public final class TriState {
         return (Boolean) invokeV.objValue;
     }
 
+    @Functional
     public boolean asBoolean(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;

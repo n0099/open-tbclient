@@ -20,7 +20,7 @@ public final class TTAdConfig implements AdConfig {
     public String[] m;
     public boolean n;
     public int o;
-    public Map p;
+    public Map<String, Object> p;
     public TTCustomController q;
     public int r;
 
@@ -142,7 +142,7 @@ public final class TTAdConfig implements AdConfig {
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public String a;
         public String b;
         public String d;

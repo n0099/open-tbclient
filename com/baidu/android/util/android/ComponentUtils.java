@@ -21,7 +21,7 @@ public final class ComponentUtils {
 
     /* renamed from: com.baidu.android.util.android.ComponentUtils$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public final class ComponentUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class ComponentType {
+    public static final class ComponentType {
         public static final /* synthetic */ ComponentType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ComponentType ACTIVITY;

@@ -24,9 +24,9 @@ import java.util.Map;
 public class VirtualCriusLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mChildren;
+    public final List<View> mChildren;
     public CriusData mCriusData;
-    public Map mCriusDatas;
+    public Map<View, CriusData> mCriusDatas;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VirtualCriusLayout(Context context) {
@@ -108,7 +108,7 @@ public class VirtualCriusLayout extends ViewGroup {
                     criusData2.addChildAt(criusData, criusData2.getChildCount());
                 }
             } else if (this.mCriusDatas.containsKey(view2)) {
-                CriusData criusData3 = (CriusData) this.mCriusDatas.get(view2);
+                CriusData criusData3 = this.mCriusDatas.get(view2);
                 CriusLayout.applyLayoutParams((CriusLayout.LayoutParams) view2.getLayoutParams(), criusData3.criusNode, view2);
                 criusData3.criusNode.setData(view2);
                 criusData3.criusNode.setMeasureFunction(new CriusLayout.ViewMeasureFunction());
@@ -228,11 +228,11 @@ public class VirtualCriusLayout extends ViewGroup {
         if (interceptable == null || interceptable.invokeL(1048585, this, viewGroup) == null) {
             if (viewGroup instanceof VirtualCriusLayout) {
                 for (View view2 : this.mChildren) {
-                    ((VirtualCriusLayout) viewGroup).addView(view2, (CriusData) this.mCriusDatas.get(view2));
+                    ((VirtualCriusLayout) viewGroup).addView(view2, this.mCriusDatas.get(view2));
                 }
             } else if (viewGroup instanceof CriusLayout) {
                 for (View view3 : this.mChildren) {
-                    ((CriusLayout) viewGroup).addView(view3, (CriusData) this.mCriusDatas.get(view3));
+                    ((CriusLayout) viewGroup).addView(view3, this.mCriusDatas.get(view3));
                 }
             } else if (CriusRuntime.DEBUG) {
                 throw new RuntimeException("VirtualCriusLayout cannot transfer children to ViewGroup of type " + viewGroup.getClass().getCanonicalName() + ".  Must either be a VirtualCriusLayout or a CriusLayout.");

@@ -1,5 +1,6 @@
 package com.baidu.live.arch.utils;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Dialog;
@@ -33,7 +34,7 @@ public class StatusBarUtils {
     public Window window;
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View actionBarView;
@@ -348,6 +349,7 @@ public class StatusBarUtils {
         return invokeV.booleanValue;
     }
 
+    @TargetApi(19)
     public void processKitkat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -373,6 +375,7 @@ public class StatusBarUtils {
         return invokeV.booleanValue;
     }
 
+    @TargetApi(21)
     private boolean processLollipopAbove() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

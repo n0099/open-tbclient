@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,13 +19,14 @@ public class GamePersonalChatActivityConfig extends PersonalChatActivityConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class SerializableMap implements Serializable {
+    public static final class SerializableMap implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2440454508522550999L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map map;
+        @NonNull
+        public final Map<String, Object> map;
 
-        public SerializableMap(Map map) {
+        public SerializableMap(@NonNull Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +44,8 @@ public class GamePersonalChatActivityConfig extends PersonalChatActivityConfig {
             this.map = map;
         }
 
-        public Map getMap() {
+        @NonNull
+        public Map<String, Object> getMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -53,7 +56,7 @@ public class GamePersonalChatActivityConfig extends PersonalChatActivityConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GamePersonalChatActivityConfig(Context context, Map map) {
+    public GamePersonalChatActivityConfig(Context context, Map<String, Object> map) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,7 +76,8 @@ public class GamePersonalChatActivityConfig extends PersonalChatActivityConfig {
         getIntent().putExtra(KEY_FLUTTER_INIT_PARAM, new SerializableMap(map));
     }
 
-    public static Map getIntentParam(Intent intent) {
+    @NonNull
+    public static Map<String, Object> getIntentParam(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
@@ -102,7 +106,7 @@ public class GamePersonalChatActivityConfig extends PersonalChatActivityConfig {
         }
     }
 
-    public static void start(Context context, Map map) {
+    public static void start(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65539, null, context, map) != null) || map == null) {
             return;

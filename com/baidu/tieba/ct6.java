@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.tbadk.TbadkApplication;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: NavBarLogic.java */
 /* loaded from: classes3.dex */
-public class ct6 {
+public final /* synthetic */ class ct6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PackageInfo a(String str) {
-        InterceptResult invokeL;
+    @NonNull
+    public static dt6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new et6();
         }
-        return (PackageInfo) invokeL.objValue;
+        return (dt6) invokeV.objValue;
     }
 }

@@ -13,21 +13,25 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
+import kotlinx.coroutines.ExperimentalCoroutinesApi;
+import kotlinx.coroutines.FlowPreview;
 import kotlinx.coroutines.flow.internal.NullSurrogateKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\u001a%\u0010\u0002\u001a\b\u0012\u0004\u0012\u00028\u00000\u0001\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u0001H\u0007¢\u0006\u0004\b\u0002\u0010\u0003\u001a]\u0010\u0002\u001a\b\u0012\u0004\u0012\u00028\u00000\u0001\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u000126\u0010\n\u001a2\u0012\u0013\u0012\u00118\u0000¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0013\u0012\u00118\u0000¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\b\u0012\u0004\u0012\u00020\t0\u0004H\u0007¢\u0006\u0004\b\u0002\u0010\u000b\u001a?\u0010\u000f\u001a\b\u0012\u0004\u0012\u00028\u00000\u0001\"\u0004\b\u0000\u0010\u0000\"\u0004\b\u0001\u0010\f*\b\u0012\u0004\u0012\u00028\u00000\u00012\u0012\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\rH\u0007¢\u0006\u0004\b\u000f\u0010\u0010\u001a|\u0010\u000f\u001a\b\u0012\u0004\u0012\u00028\u00000\u0001\"\u0004\b\u0000\u0010\u0000\"\u0004\b\u0001\u0010\f*\b\u0012\u0004\u0012\u00028\u00000\u00012\u0014\b\u0004\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\r28\b\u0004\u0010\n\u001a2\u0012\u0013\u0012\u00118\u0001¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0013\u0012\u00118\u0001¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\b\u0012\u0004\u0012\u00020\t0\u0004H\u0082\b¢\u0006\u0004\b\u0011\u0010\u0012¨\u0006\u0013"}, d2 = {ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/flow/Flow;", "distinctUntilChanged", "(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "old", "new", "", "areEquivalent", "(Lkotlinx/coroutines/flow/Flow;Lkotlin/Function2;)Lkotlinx/coroutines/flow/Flow;", "K", "Lkotlin/Function1;", "keySelector", "distinctUntilChangedBy", "(Lkotlinx/coroutines/flow/Flow;Lkotlin/Function1;)Lkotlinx/coroutines/flow/Flow;", "distinctUntilChangedBy$FlowKt__DistinctKt", "(Lkotlinx/coroutines/flow/Flow;Lkotlin/Function1;Lkotlin/Function2;)Lkotlinx/coroutines/flow/Flow;", "kotlinx-coroutines-core"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlinx/coroutines/flow/FlowKt")
 /* loaded from: classes8.dex */
 public final /* synthetic */ class FlowKt__DistinctKt {
-    public static final Flow distinctUntilChanged(Flow flow) {
+    @ExperimentalCoroutinesApi
+    public static final <T> Flow<T> distinctUntilChanged(Flow<? extends T> flow) {
         return FlowKt.distinctUntilChangedBy(flow, FlowKt__DistinctKt$distinctUntilChanged$1.INSTANCE);
     }
 
-    public static final Flow distinctUntilChanged(final Flow flow, final Function2 function2) {
-        return new Flow() { // from class: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1
+    @FlowPreview
+    public static final <T> Flow<T> distinctUntilChanged(final Flow<? extends T> flow, final Function2<? super T, ? super T, Boolean> function2) {
+        return new Flow<T>() { // from class: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1
 
             @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$1$lambda$1"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
             /* renamed from: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2  reason: invalid class name */
             /* loaded from: classes8.dex */
-            public final class AnonymousClass2 implements FlowCollector {
+            public static final class AnonymousClass2 implements FlowCollector<T> {
                 public final /* synthetic */ Ref.ObjectRef $previousKey$inlined;
                 public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
                 public final /* synthetic */ FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1 this$0;
@@ -36,7 +40,7 @@ public final /* synthetic */ class FlowKt__DistinctKt {
                 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2", f = "Distinct.kt", i = {0, 0, 0, 0, 0}, l = {141}, m = "emit", n = {"this", "value", "continuation", "value", "key"}, s = {"L$0", "L$1", "L$2", "L$3", "L$4"})
                 /* renamed from: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1  reason: invalid class name */
                 /* loaded from: classes8.dex */
-                public final class AnonymousClass1 extends ContinuationImpl {
+                public static final class AnonymousClass1 extends ContinuationImpl {
                     public Object L$0;
                     public Object L$1;
                     public Object L$2;
@@ -95,8 +99,8 @@ public final /* synthetic */ class FlowKt__DistinctKt {
                                 }
                             } else {
                                 ResultKt.throwOnFailure(obj2);
-                                Object obj6 = this.$previousKey$inlined.element;
-                                if (obj6 == NullSurrogateKt.NULL || !((Boolean) function2.invoke(obj6, obj)).booleanValue()) {
+                                T t = this.$previousKey$inlined.element;
+                                if (t == NullSurrogateKt.NULL || !((Boolean) function2.invoke(t, obj)).booleanValue()) {
                                     this.$previousKey$inlined.element = obj;
                                     FlowCollector flowCollector = this.$this_unsafeFlow$inlined;
                                     anonymousClass1.L$0 = this;
@@ -137,13 +141,14 @@ public final /* synthetic */ class FlowKt__DistinctKt {
         };
     }
 
-    public static final Flow distinctUntilChangedBy(final Flow flow, final Function1 function1) {
-        return new Flow() { // from class: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1
+    @FlowPreview
+    public static final <T, K> Flow<T> distinctUntilChangedBy(final Flow<? extends T> flow, final Function1<? super T, ? extends K> function1) {
+        return new Flow<T>() { // from class: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1
 
             @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$2$lambda$1"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
             /* renamed from: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2  reason: invalid class name */
             /* loaded from: classes8.dex */
-            public final class AnonymousClass2 implements FlowCollector {
+            public static final class AnonymousClass2 implements FlowCollector<T> {
                 public final /* synthetic */ Ref.ObjectRef $previousKey$inlined;
                 public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
                 public final /* synthetic */ FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1 this$0;
@@ -152,7 +157,7 @@ public final /* synthetic */ class FlowKt__DistinctKt {
                 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2", f = "Distinct.kt", i = {0, 0, 0, 0, 0}, l = {141}, m = "emit", n = {"this", "value", "continuation", "value", "key"}, s = {"L$0", "L$1", "L$2", "L$3", "L$4"})
                 /* renamed from: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1  reason: invalid class name */
                 /* loaded from: classes8.dex */
-                public final class AnonymousClass1 extends ContinuationImpl {
+                public static final class AnonymousClass1 extends ContinuationImpl {
                     public Object L$0;
                     public Object L$1;
                     public Object L$2;
@@ -253,7 +258,7 @@ public final /* synthetic */ class FlowKt__DistinctKt {
         };
     }
 
-    public static final Flow distinctUntilChangedBy$FlowKt__DistinctKt(Flow flow, Function1 function1, Function2 function2) {
+    public static final <T, K> Flow<T> distinctUntilChangedBy$FlowKt__DistinctKt(Flow<? extends T> flow, Function1<? super T, ? extends K> function1, Function2<? super K, ? super K, Boolean> function2) {
         return new FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$3(flow, function1, function2);
     }
 }

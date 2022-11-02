@@ -11,19 +11,19 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableCount extends AbstractObservableWithUpstream {
+public final class ObservableCount<T> extends AbstractObservableWithUpstream<T, Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class CountObserver implements Observer, Disposable {
+    public static final class CountObserver implements Observer<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super Long> actual;
         public long count;
         public Disposable s;
 
-        public CountObserver(Observer observer) {
+        public CountObserver(Observer<? super Long> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public final class ObservableCount extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableCount(ObservableSource observableSource) {
+    public ObservableCount(ObservableSource<T> observableSource) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -115,7 +115,7 @@ public final class ObservableCount extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Long> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new CountObserver(observer));

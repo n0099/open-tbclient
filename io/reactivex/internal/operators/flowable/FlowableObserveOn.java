@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
@@ -24,7 +25,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
+public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayError;
@@ -32,7 +33,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
     public final Scheduler scheduler;
 
     /* loaded from: classes8.dex */
-    public abstract class BaseObserveOnSubscriber extends BasicIntQueueSubscription implements FlowableSubscriber, Runnable {
+    public static abstract class BaseObserveOnSubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T>, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8241002408341274697L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +45,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
         public boolean outputFused;
         public final int prefetch;
         public long produced;
-        public SimpleQueue queue;
+        public SimpleQueue<T> queue;
         public final AtomicLong requested;
         public Subscription s;
         public int sourceMode;
@@ -141,7 +142,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
             this.worker.schedule(this);
         }
 
-        public final boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber) {
+        public final boolean checkTerminated(boolean z, boolean z2, Subscriber<?> subscriber) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber})) == null) {
@@ -220,16 +221,16 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public final void onNext(Object obj) {
+        public final void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048582, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048582, this, t) != null) || this.done) {
                 return;
             }
             if (this.sourceMode == 2) {
                 trySchedule();
                 return;
             }
-            if (!this.queue.offer(obj)) {
+            if (!this.queue.offer(t)) {
                 this.s.cancel();
                 this.error = new MissingBackpressureException("Queue is full?!");
                 this.done = true;
@@ -239,15 +240,15 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class ObserveOnConditionalSubscriber extends BaseObserveOnSubscriber {
+    public static final class ObserveOnConditionalSubscriber<T> extends BaseObserveOnSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 644624475404284533L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber actual;
+        public final ConditionalSubscriber<? super T> actual;
         public long consumed;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ObserveOnConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Scheduler.Worker worker, boolean z, int i) {
+        public ObserveOnConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, Scheduler.Worker worker, boolean z, int i) {
             super(worker, z, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -297,11 +298,12 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Object poll = this.queue.poll();
+                T poll = this.queue.poll();
                 if (poll != null && this.sourceMode != 1) {
                     long j = this.consumed + 1;
                     if (j == this.limit) {
@@ -313,7 +315,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
                 }
                 return poll;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn.BaseObserveOnSubscriber
@@ -348,8 +350,8 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                ConditionalSubscriber conditionalSubscriber = this.actual;
-                SimpleQueue simpleQueue = this.queue;
+                ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
+                SimpleQueue<T> simpleQueue = this.queue;
                 long j = this.produced;
                 long j2 = this.consumed;
                 int i2 = 1;
@@ -362,8 +364,8 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
                         }
                         boolean z2 = this.done;
                         try {
-                            Object poll = simpleQueue.poll();
-                            if (poll == null) {
+                            Object obj = (T) simpleQueue.poll();
+                            if (obj == null) {
                                 z = true;
                             } else {
                                 z = false;
@@ -374,7 +376,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
                             if (z) {
                                 break;
                             }
-                            if (conditionalSubscriber.tryOnNext(poll)) {
+                            if (conditionalSubscriber.tryOnNext(obj)) {
                                 j++;
                             }
                             j2++;
@@ -413,23 +415,23 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
         public void runSync() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                ConditionalSubscriber conditionalSubscriber = this.actual;
-                SimpleQueue simpleQueue = this.queue;
+                ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
+                SimpleQueue<T> simpleQueue = this.queue;
                 long j = this.produced;
                 int i = 1;
                 while (true) {
                     long j2 = this.requested.get();
                     while (j != j2) {
                         try {
-                            Object poll = simpleQueue.poll();
+                            Object obj = (T) simpleQueue.poll();
                             if (this.cancelled) {
                                 return;
                             }
-                            if (poll == null) {
+                            if (obj == null) {
                                 conditionalSubscriber.onComplete();
                                 this.worker.dispose();
                                 return;
-                            } else if (conditionalSubscriber.tryOnNext(poll)) {
+                            } else if (conditionalSubscriber.tryOnNext(obj)) {
                                 j++;
                             }
                         } catch (Throwable th) {
@@ -464,14 +466,14 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class ObserveOnSubscriber extends BaseObserveOnSubscriber implements FlowableSubscriber {
+    public static final class ObserveOnSubscriber<T> extends BaseObserveOnSubscriber<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4547113800637756442L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ObserveOnSubscriber(Subscriber subscriber, Scheduler.Worker worker, boolean z, int i) {
+        public ObserveOnSubscriber(Subscriber<? super T> subscriber, Scheduler.Worker worker, boolean z, int i) {
             super(worker, z, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -521,11 +523,12 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Object poll = this.queue.poll();
+                T poll = this.queue.poll();
                 if (poll != null && this.sourceMode != 1) {
                     long j = this.produced + 1;
                     if (j == this.limit) {
@@ -537,7 +540,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
                 }
                 return poll;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn.BaseObserveOnSubscriber
@@ -572,8 +575,8 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Subscriber subscriber = this.actual;
-                SimpleQueue simpleQueue = this.queue;
+                Subscriber<? super T> subscriber = this.actual;
+                SimpleQueue<T> simpleQueue = this.queue;
                 long j = this.produced;
                 int i2 = 1;
                 while (true) {
@@ -585,8 +588,8 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
                         }
                         boolean z2 = this.done;
                         try {
-                            Object poll = simpleQueue.poll();
-                            if (poll == null) {
+                            Object obj = (T) simpleQueue.poll();
+                            if (obj == null) {
                                 z = true;
                             } else {
                                 z = false;
@@ -597,7 +600,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
                             if (z) {
                                 break;
                             }
-                            subscriber.onNext(poll);
+                            subscriber.onNext(obj);
                             j++;
                             if (j == this.limit) {
                                 if (j2 != Long.MAX_VALUE) {
@@ -636,24 +639,24 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
         public void runSync() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                Subscriber subscriber = this.actual;
-                SimpleQueue simpleQueue = this.queue;
+                Subscriber<? super T> subscriber = this.actual;
+                SimpleQueue<T> simpleQueue = this.queue;
                 long j = this.produced;
                 int i = 1;
                 while (true) {
                     long j2 = this.requested.get();
                     while (j != j2) {
                         try {
-                            Object poll = simpleQueue.poll();
+                            Object obj = (T) simpleQueue.poll();
                             if (this.cancelled) {
                                 return;
                             }
-                            if (poll == null) {
+                            if (obj == null) {
                                 subscriber.onComplete();
                                 this.worker.dispose();
                                 return;
                             }
-                            subscriber.onNext(poll);
+                            subscriber.onNext(obj);
                             j++;
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
@@ -687,7 +690,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableObserveOn(Flowable flowable, Scheduler scheduler, boolean z, int i) {
+    public FlowableObserveOn(Flowable<T> flowable, Scheduler scheduler, boolean z, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -710,7 +713,7 @@ public final class FlowableObserveOn extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             Scheduler.Worker createWorker = this.scheduler.createWorker();

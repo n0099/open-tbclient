@@ -28,12 +28,14 @@ public final class CharRange extends CharProgression implements ClosedRange<Char
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.ranges.ClosedRange
     public Character getEndInclusive() {
         return Character.valueOf(getLast());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.ranges.ClosedRange
     public Character getStart() {
         return Character.valueOf(getFirst());
@@ -84,8 +86,9 @@ public final class CharRange extends CharProgression implements ClosedRange<Char
         return false;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
-        return contains(((Character) comparable).charValue());
+    public /* bridge */ /* synthetic */ boolean contains(Character ch) {
+        return contains(ch.charValue());
     }
 }

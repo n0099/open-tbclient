@@ -162,7 +162,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
             getShieldAndTopResult.setErrorCode(((Integer) transErrorCode.first).intValue());
             getShieldAndTopResult.setErrorMsg((String) transErrorCode.second);

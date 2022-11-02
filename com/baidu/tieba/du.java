@@ -1,92 +1,80 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class du {
+public final class du implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final TaskUIData b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof du) {
-                    du duVar = (du) obj;
-                    if (!(this.a == duVar.a) || !Intrinsics.areEqual(this.b, duVar.b)) {
-                    }
-                }
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = this.a * 31;
-            TaskUIData taskUIData = this.b;
-            return i + (taskUIData != null ? taskUIData.hashCode() : 0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
         }
-        return invokeV.intValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "CurUIData(uiType=" + this.a + ", UIData=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public du(int i, TaskUIData taskUIData) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
+
+    public du() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), taskUIData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = taskUIData;
     }
 
-    public final TaskUIData a() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            jr.c.h().b(activity);
         }
-        return (TaskUIData) invokeV.objValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            jr.c.h().b(activity);
         }
-        return invokeV.intValue;
     }
 }

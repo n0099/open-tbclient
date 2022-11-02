@@ -49,7 +49,7 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
     }
 
     /* loaded from: classes4.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d005c);
             VoiceRoomListFragment voiceRoomListFragment = new VoiceRoomListFragment();
             voiceRoomListFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090ad6, voiceRoomListFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090ae9, voiceRoomListFragment).commitAllowingStateLoss();
         }
     }
 }

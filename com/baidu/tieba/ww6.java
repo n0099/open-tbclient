@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.funad.adapter.FunAdNativeNewAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class ww6 {
+public class ww6 implements pw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List a;
-    public sq7 b;
 
     public ww6() {
         Interceptable interceptable = $ic;
@@ -27,73 +25,104 @@ public class ww6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new ArrayList();
-    }
-
-    public List c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List list = this.a;
-            if (list == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(list);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void a(x47 x47Var) {
-        sq7 sq7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, x47Var) == null) && (sq7Var = this.b) != null && !ListUtils.isEmpty(sq7Var.b)) {
-            x47Var.a.add(0, this.b);
         }
     }
 
-    public x47 b(int i, boolean z, vw6 vw6Var) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.pw6
+    public jn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), vw6Var})) == null) {
-            x47 x47Var = new x47();
-            x47Var.c = vw6Var.f();
-            x47Var.e = vw6Var.a();
-            x47Var.f = vw6Var.b();
-            ArrayList e = vw6Var.e();
-            if (z) {
-                this.b = vw6Var.d();
-                if (!ListUtils.isEmpty(e)) {
-                    this.a.clear();
-                    this.a.addAll(e);
-                    x47Var.d = 1;
-                }
-            } else if (!ListUtils.isEmpty(e)) {
-                this.a.addAll(e);
-                x47Var.d = i + 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a);
-            u37.h(true, arrayList, vw6Var.c());
-            x47Var.a = u37.c(arrayList);
-            a(x47Var);
-            sq7 sq7Var = this.b;
-            if (sq7Var != null && sq7Var.a && TbSingleton.getInstance().isShouldShowHomeLocalCompleteInfoCard()) {
-                x47Var.a.add(0, new u47());
+            if (bdUniqueId == AdvertAppInfo.F) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(sw6.e().d("pb_banner"));
+                funAdNativeNewAdapter.setPageType("pb");
+                funAdNativeNewAdapter.setSceneKey("pb_banner");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId == AdvertAppInfo.I) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter2 = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter2.setSid(mw6.f());
+                funAdNativeNewAdapter2.setPageType("pb");
+                return funAdNativeNewAdapter2;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new xw6(baseFragmentActivity, bdUniqueId);
             }
-            return x47Var;
         }
-        return (x47) invokeCommon.objValue;
+        return (jn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pw6
+    public jn<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(mw6.g());
+                funAdNativeNewAdapter.setPageType("personalize");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new xw6(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (jn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pw6
+    public jn<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(sw6.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new xw6(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (jn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pw6
+    public jn<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, baseFragmentActivity, bdUniqueId, str)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(sw6.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setPageTab(str);
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new xw6(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (jn) invokeLLL.objValue;
     }
 }

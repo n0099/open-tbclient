@@ -19,7 +19,7 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public SimpleArrayMap mPagerList;
+    public SimpleArrayMap<Integer, FrameLayout> mPagerList;
 
     private void setRealRoomInfo(FrameLayout frameLayout, LiveContainer.LiveItemModel liveItemModel) {
         Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
             }
         }
         this.mContext = context;
-        this.mPagerList = new SimpleArrayMap();
+        this.mPagerList = new SimpleArrayMap<>();
     }
 
     public FrameLayout getDefaultPage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return (FrameLayout) this.mPagerList.get(Integer.valueOf(i));
+            return this.mPagerList.get(Integer.valueOf(i));
         }
         return (FrameLayout) invokeI.objValue;
     }
@@ -92,7 +92,7 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return (FrameLayout) this.mPagerList.get(Integer.valueOf(i));
+            return this.mPagerList.get(Integer.valueOf(i));
         }
         return (FrameLayout) invokeI.objValue;
     }
@@ -110,7 +110,7 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.mPagerList == null) {
-                this.mPagerList = new SimpleArrayMap();
+                this.mPagerList = new SimpleArrayMap<>();
             }
             this.mPagerList.put(0, new FrameLayout(this.mContext));
             this.mPagerList.put(1, new FrameLayout(this.mContext));
@@ -123,11 +123,11 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
-            if (this.mPagerList.get(Integer.valueOf(i)) != null && ((FrameLayout) this.mPagerList.get(Integer.valueOf(i))).getParent() != null) {
-                ((ViewGroup) ((FrameLayout) this.mPagerList.get(Integer.valueOf(i))).getParent()).removeView((View) this.mPagerList.get(Integer.valueOf(i)));
+            if (this.mPagerList.get(Integer.valueOf(i)) != null && this.mPagerList.get(Integer.valueOf(i)).getParent() != null) {
+                ((ViewGroup) this.mPagerList.get(Integer.valueOf(i)).getParent()).removeView(this.mPagerList.get(Integer.valueOf(i)));
             }
             if (this.mPagerList.get(Integer.valueOf(i)) != null) {
-                viewGroup.addView((View) this.mPagerList.get(Integer.valueOf(i)));
+                viewGroup.addView(this.mPagerList.get(Integer.valueOf(i)));
             }
             return this.mPagerList.get(Integer.valueOf(i));
         }
@@ -144,21 +144,21 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
     public void setCurRoomInfo(int i, LiveContainer.LiveItemModel liveItemModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i, liveItemModel) == null) {
-            setRealRoomInfo((FrameLayout) this.mPagerList.get(Integer.valueOf(i)), liveItemModel);
+            setRealRoomInfo(this.mPagerList.get(Integer.valueOf(i)), liveItemModel);
         }
     }
 
     public void setNextRoomInfo(int i, LiveContainer.LiveItemModel liveItemModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048587, this, i, liveItemModel) == null) {
-            setRealRoomInfo((FrameLayout) this.mPagerList.get(Integer.valueOf(getNextItemIndex(i))), liveItemModel);
+            setRealRoomInfo(this.mPagerList.get(Integer.valueOf(getNextItemIndex(i))), liveItemModel);
         }
     }
 
     public void setPreRoomInfo(int i, LiveContainer.LiveItemModel liveItemModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, liveItemModel) == null) {
-            setRealRoomInfo((FrameLayout) this.mPagerList.get(Integer.valueOf(getPreItemIndex(i))), liveItemModel);
+            setRealRoomInfo(this.mPagerList.get(Integer.valueOf(getPreItemIndex(i))), liveItemModel);
         }
     }
 }

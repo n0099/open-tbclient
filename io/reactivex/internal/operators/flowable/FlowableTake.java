@@ -13,23 +13,23 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableTake extends AbstractFlowableWithUpstream {
+public final class FlowableTake<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long limit;
 
     /* loaded from: classes8.dex */
-    public final class TakeSubscriber extends AtomicBoolean implements FlowableSubscriber, Subscription {
+    public static final class TakeSubscriber<T> extends AtomicBoolean implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5636543848937116287L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public boolean done;
         public final long limit;
         public long remaining;
         public Subscription subscription;
 
-        public TakeSubscriber(Subscriber subscriber, long j) {
+        public TakeSubscriber(Subscriber<? super T> subscriber, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,10 +77,10 @@ public final class FlowableTake extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !this.done) {
                 long j = this.remaining;
                 long j2 = j - 1;
                 this.remaining = j2;
@@ -90,7 +90,7 @@ public final class FlowableTake extends AbstractFlowableWithUpstream {
                     } else {
                         z = false;
                     }
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     if (z) {
                         this.subscription.cancel();
                         onComplete();
@@ -129,7 +129,7 @@ public final class FlowableTake extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTake(Flowable flowable, long j) {
+    public FlowableTake(Flowable<T> flowable, long j) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -150,7 +150,7 @@ public final class FlowableTake extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new TakeSubscriber(subscriber, this.limit));

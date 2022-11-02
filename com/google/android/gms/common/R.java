@@ -10,7 +10,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class integer {
+    public static final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int google_play_services_version = 0x7f0a000e;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class string {
+    public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int common_google_play_services_unknown_issue = 0x7f0f0422;
+        public static final int common_google_play_services_unknown_issue = 0x7f0f0424;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

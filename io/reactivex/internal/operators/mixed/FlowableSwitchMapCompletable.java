@@ -14,6 +14,7 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -25,16 +26,17 @@ import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
+@Experimental
 /* loaded from: classes8.dex */
-public final class FlowableSwitchMapCompletable extends Completable {
+public final class FlowableSwitchMapCompletable<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function mapper;
-    public final Flowable source;
+    public final Function<? super T, ? extends CompletableSource> mapper;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class SwitchMapCompletableObserver implements FlowableSubscriber, Disposable {
+    public static final class SwitchMapCompletableObserver<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchMapInnerObserver INNER_DISPOSED;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,18 +44,18 @@ public final class FlowableSwitchMapCompletable extends Completable {
         public volatile boolean done;
         public final CompletableObserver downstream;
         public final AtomicThrowable errors;
-        public final AtomicReference inner;
-        public final Function mapper;
+        public final AtomicReference<SwitchMapInnerObserver> inner;
+        public final Function<? super T, ? extends CompletableSource> mapper;
         public Subscription upstream;
 
         /* loaded from: classes8.dex */
-        public final class SwitchMapInnerObserver extends AtomicReference implements CompletableObserver {
+        public static final class SwitchMapInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8003404460084760287L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final SwitchMapCompletableObserver parent;
+            public final SwitchMapCompletableObserver<?> parent;
 
-            public SwitchMapInnerObserver(SwitchMapCompletableObserver switchMapCompletableObserver) {
+            public SwitchMapInnerObserver(SwitchMapCompletableObserver<?> switchMapCompletableObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,10 +131,10 @@ public final class FlowableSwitchMapCompletable extends Completable {
         }
 
         public void disposeInner() {
-            SwitchMapInnerObserver switchMapInnerObserver;
+            SwitchMapInnerObserver andSet;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (switchMapInnerObserver = (SwitchMapInnerObserver) this.inner.getAndSet(INNER_DISPOSED)) != null && switchMapInnerObserver != INNER_DISPOSED) {
-                switchMapInnerObserver.dispose();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (andSet = this.inner.getAndSet(INNER_DISPOSED)) != null && andSet != INNER_DISPOSED) {
+                andSet.dispose();
             }
         }
 
@@ -165,7 +167,7 @@ public final class FlowableSwitchMapCompletable extends Completable {
             }
         }
 
-        public SwitchMapCompletableObserver(CompletableObserver completableObserver, Function function, boolean z) {
+        public SwitchMapCompletableObserver(CompletableObserver completableObserver, Function<? super T, ? extends CompletableSource> function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,7 +186,7 @@ public final class FlowableSwitchMapCompletable extends Completable {
             this.mapper = function;
             this.delayErrors = z;
             this.errors = new AtomicThrowable();
-            this.inner = new AtomicReference();
+            this.inner = new AtomicReference<>();
         }
 
         public void innerComplete(SwitchMapInnerObserver switchMapInnerObserver) {
@@ -254,15 +256,15 @@ public final class FlowableSwitchMapCompletable extends Completable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             SwitchMapInnerObserver switchMapInnerObserver;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
                 try {
-                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null CompletableSource");
+                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                     SwitchMapInnerObserver switchMapInnerObserver2 = new SwitchMapInnerObserver(this);
                     do {
-                        switchMapInnerObserver = (SwitchMapInnerObserver) this.inner.get();
+                        switchMapInnerObserver = this.inner.get();
                         if (switchMapInnerObserver == INNER_DISPOSED) {
                             return;
                         }
@@ -280,7 +282,7 @@ public final class FlowableSwitchMapCompletable extends Completable {
         }
     }
 
-    public FlowableSwitchMapCompletable(Flowable flowable, Function function, boolean z) {
+    public FlowableSwitchMapCompletable(Flowable<T> flowable, Function<? super T, ? extends CompletableSource> function, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

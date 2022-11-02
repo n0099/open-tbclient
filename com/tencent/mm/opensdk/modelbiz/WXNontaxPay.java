@@ -17,7 +17,7 @@ public class WXNontaxPay {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class Req extends BaseReq {
+    public static final class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.WXNontaxPay.Req";
         public static final int URL_LENGTH_LIMIT = 10240;
@@ -86,7 +86,7 @@ public class WXNontaxPay {
     }
 
     /* loaded from: classes8.dex */
-    public final class Resp extends BaseResp {
+    public static final class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String wxOrderId;

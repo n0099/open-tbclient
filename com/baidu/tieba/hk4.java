@@ -1,48 +1,49 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class hk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static String a(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) {
+            if (jSONObject != null) {
+                return jSONObject.optString(str, str2);
             }
-            return sb.toString();
+            return str2;
         }
-        return (String) invokeLLZ.objValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static JSONObject b(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                bArr = messageDigest.digest();
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "NA";
             }
-            return a(bArr, "", z);
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            try {
+                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
+                    jSONObject.put("pre_source", str);
+                }
+                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
+                    jSONObject.put("pre_appid", "NA");
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return (String) invokeLZ.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 }

@@ -14,21 +14,21 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableSingleMaybe extends Maybe {
+public final class ObservableSingleMaybe<T> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource source;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class SingleElementObserver implements Observer, Disposable {
+    public static final class SingleElementObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public boolean done;
         public Disposable s;
-        public Object value;
+        public T value;
 
-        public SingleElementObserver(MaybeObserver maybeObserver) {
+        public SingleElementObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,9 +60,9 @@ public final class ObservableSingleMaybe extends Maybe {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             if (this.value != null) {
@@ -71,7 +71,7 @@ public final class ObservableSingleMaybe extends Maybe {
                 this.actual.onError(new IllegalArgumentException("Sequence contains more than one element!"));
                 return;
             }
-            this.value = obj;
+            this.value = t;
         }
 
         @Override // io.reactivex.Observer
@@ -108,17 +108,17 @@ public final class ObservableSingleMaybe extends Maybe {
                 return;
             }
             this.done = true;
-            Object obj = this.value;
+            T t = this.value;
             this.value = null;
-            if (obj == null) {
+            if (t == null) {
                 this.actual.onComplete();
             } else {
-                this.actual.onSuccess(obj);
+                this.actual.onSuccess(t);
             }
         }
     }
 
-    public ObservableSingleMaybe(ObservableSource observableSource) {
+    public ObservableSingleMaybe(ObservableSource<T> observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public final class ObservableSingleMaybe extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new SingleElementObserver(maybeObserver));

@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class ExtendSysWebViewMethodResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map params;
+    public Map<String, Object> params;
     public PassFaceRecogResult recogResult;
 
     public ExtendSysWebViewMethodResult() {
@@ -69,8 +69,8 @@ public class ExtendSysWebViewMethodResult extends SapiResult {
                         jSONObject.put("originimage", this.recogResult.originalImage);
                     }
                 }
-                for (Map.Entry entry : this.params.entrySet()) {
-                    jSONObject.put((String) entry.getKey(), entry.getValue().toString());
+                for (Map.Entry<String, Object> entry : this.params.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue().toString());
                 }
                 jSONObject2.put(TiebaStatic.LogFields.RESULT, jSONObject);
                 if (this.recogResult != null) {

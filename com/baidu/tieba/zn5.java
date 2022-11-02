@@ -1,18 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,134 +8,53 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class zn5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public ao5 b;
-    public BaseFragmentActivity c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948365736, "Lcom/baidu/tieba/zn5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948365736, "Lcom/baidu/tieba/zn5;");
-        }
-    }
-
-    public zn5(BaseFragmentActivity baseFragmentActivity) {
+    public zn5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = -1L;
-        this.c = baseFragmentActivity;
     }
 
-    public final void b(Bundle bundle) {
+    public static void b(l15 l15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (yj8.a(this.c.getIntent())) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
-            }
-            if (bundle != null) {
-                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
+        if ((interceptable != null && interceptable.invokeL(65537, null, l15Var) != null) || l15Var == null) {
+            return;
+        }
+        if (l15Var.b != 0) {
+            ky4.k().y("app_entrance_nologin", l15Var.b + "");
+        }
+        if (l15Var.a != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+            ky4.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), l15Var.a + "");
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        String q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                q = ky4.k().q("app_entrance_nologin", "");
             } else {
-                LogoActivityConfig.isFirst = true;
+                ky4 k = ky4.k();
+                q = k.q("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-        }
-    }
-
-    public final void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
-            if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
-                Intent intent2 = new Intent();
-                intent2.putExtra(DealIntentService.KEY_CLASS, 2);
-                intent2.putExtra("fname", intent.getStringExtra("fname"));
-                intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
-                intent2.putExtra("back_special", true);
-                intent2.putExtra("from", "short_cut");
-                intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
+            int e = wg.e(q, 0);
+            if (e != 1 && e == 2) {
+                return 1;
             }
-            TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
+            return 2;
         }
-    }
-
-    public void c(Configuration configuration) {
-        ao5 ao5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) && (ao5Var = this.b) != null) {
-            ao5Var.d(configuration);
-        }
-    }
-
-    public void d(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            this.a = System.currentTimeMillis();
-            if ("MuMu".equals(hj.g()) && "6.0.1".equals(hj.k())) {
-                this.c.finish();
-                return;
-            }
-            b(bundle);
-            if (!yj8.a(this.c.getIntent()) && (yj8.b(this.c.getIntent()) || this.c.isTaskRoot())) {
-                a(this.c.getIntent());
-            }
-            sl8.g().i(this.c.getUniqueId());
-            ao5 ao5Var = new ao5(this.c);
-            this.b = ao5Var;
-            ao5Var.i(d);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            sl8.g().k(this.c.getUniqueId());
-            d = false;
-            ao5 ao5Var = this.b;
-            if (ao5Var != null) {
-                ao5Var.g();
-            }
-        }
-    }
-
-    public void f() {
-        ao5 ao5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ao5Var = this.b) != null) {
-            ao5Var.e();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (LogoActivityConfig.isFirst && this.a >= 0) {
-                yd5.b().v(System.currentTimeMillis() - this.a);
-            }
-            ao5 ao5Var = this.b;
-            if (ao5Var != null) {
-                ao5Var.f();
-            }
-        }
+        return invokeV.intValue;
     }
 }

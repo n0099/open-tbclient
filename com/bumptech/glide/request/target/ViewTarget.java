@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,19 +30,20 @@ import java.util.Iterator;
 import java.util.List;
 @Deprecated
 /* loaded from: classes7.dex */
-public abstract class ViewTarget extends BaseTarget {
+public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ViewTarget";
     public static boolean isTagUsedAtLeastOnce = false;
-    public static int tagId = 2131299539;
+    public static int tagId = 2131299570;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
     public boolean isAttachStateListenerAdded;
     public boolean isClearedByUs;
     public final SizeDeterminer sizeDeterminer;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1063view;
+    public final T f1064view;
 
     static {
         InterceptResult invokeClinit;
@@ -55,17 +60,21 @@ public abstract class ViewTarget extends BaseTarget {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public final class SizeDeterminer {
+    public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
+        @Nullable
+        @VisibleForTesting
         public static Integer maxDisplayLength;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List cbs;
+        public final List<SizeReadyCallback> cbs;
+        @Nullable
         public SizeDeterminerLayoutListener layoutListener;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1064view;
+        public final View f1065view;
         public boolean waitForLayout;
 
         private boolean isDimensionValid(int i) {
@@ -75,12 +84,12 @@ public abstract class ViewTarget extends BaseTarget {
         }
 
         /* loaded from: classes7.dex */
-        public final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
+        public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final WeakReference sizeDeterminerRef;
+            public final WeakReference<SizeDeterminer> sizeDeterminerRef;
 
-            public SizeDeterminerLayoutListener(SizeDeterminer sizeDeterminer) {
+            public SizeDeterminerLayoutListener(@NonNull SizeDeterminer sizeDeterminer) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +104,7 @@ public abstract class ViewTarget extends BaseTarget {
                         return;
                     }
                 }
-                this.sizeDeterminerRef = new WeakReference(sizeDeterminer);
+                this.sizeDeterminerRef = new WeakReference<>(sizeDeterminer);
             }
 
             @Override // android.view.ViewTreeObserver.OnPreDrawListener
@@ -106,7 +115,7 @@ public abstract class ViewTarget extends BaseTarget {
                     if (Log.isLoggable(ViewTarget.TAG, 2)) {
                         Log.v(ViewTarget.TAG, "OnGlobalLayoutListener called attachStateListener=" + this);
                     }
-                    SizeDeterminer sizeDeterminer = (SizeDeterminer) this.sizeDeterminerRef.get();
+                    SizeDeterminer sizeDeterminer = this.sizeDeterminerRef.get();
                     if (sizeDeterminer != null) {
                         sizeDeterminer.checkCurrentDimens();
                         return true;
@@ -117,7 +126,7 @@ public abstract class ViewTarget extends BaseTarget {
             }
         }
 
-        public SizeDeterminer(View view2) {
+        public SizeDeterminer(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,10 +142,10 @@ public abstract class ViewTarget extends BaseTarget {
                 }
             }
             this.cbs = new ArrayList();
-            this.f1064view = view2;
+            this.f1065view = view2;
         }
 
-        public void getSize(SizeReadyCallback sizeReadyCallback) {
+        public void getSize(@NonNull SizeReadyCallback sizeReadyCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sizeReadyCallback) == null) {
                 int targetWidth = getTargetWidth();
@@ -149,7 +158,7 @@ public abstract class ViewTarget extends BaseTarget {
                     this.cbs.add(sizeReadyCallback);
                 }
                 if (this.layoutListener == null) {
-                    ViewTreeObserver viewTreeObserver = this.f1064view.getViewTreeObserver();
+                    ViewTreeObserver viewTreeObserver = this.f1065view.getViewTreeObserver();
                     SizeDeterminerLayoutListener sizeDeterminerLayoutListener = new SizeDeterminerLayoutListener(this);
                     this.layoutListener = sizeDeterminerLayoutListener;
                     viewTreeObserver.addOnPreDrawListener(sizeDeterminerLayoutListener);
@@ -157,7 +166,7 @@ public abstract class ViewTarget extends BaseTarget {
             }
         }
 
-        public static int getMaxDisplayLength(Context context) {
+        public static int getMaxDisplayLength(@NonNull Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -180,20 +189,20 @@ public abstract class ViewTarget extends BaseTarget {
                 if (i4 > 0) {
                     return i4;
                 }
-                if (this.waitForLayout && this.f1064view.isLayoutRequested()) {
+                if (this.waitForLayout && this.f1065view.isLayoutRequested()) {
                     return 0;
                 }
                 int i5 = i - i3;
                 if (i5 > 0) {
                     return i5;
                 }
-                if (this.f1064view.isLayoutRequested() || i2 != -2) {
+                if (this.f1065view.isLayoutRequested() || i2 != -2) {
                     return 0;
                 }
                 if (Log.isLoggable(ViewTarget.TAG, 4)) {
                     Log.i(ViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
                 }
-                return getMaxDisplayLength(this.f1064view.getContext());
+                return getMaxDisplayLength(this.f1065view.getContext());
             }
             return invokeIII.intValue;
         }
@@ -203,14 +212,14 @@ public abstract class ViewTarget extends BaseTarget {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                int paddingTop = this.f1064view.getPaddingTop() + this.f1064view.getPaddingBottom();
-                ViewGroup.LayoutParams layoutParams = this.f1064view.getLayoutParams();
+                int paddingTop = this.f1065view.getPaddingTop() + this.f1065view.getPaddingBottom();
+                ViewGroup.LayoutParams layoutParams = this.f1065view.getLayoutParams();
                 if (layoutParams != null) {
                     i = layoutParams.height;
                 } else {
                     i = 0;
                 }
-                return getTargetDimen(this.f1064view.getHeight(), i, paddingTop);
+                return getTargetDimen(this.f1065view.getHeight(), i, paddingTop);
             }
             return invokeV.intValue;
         }
@@ -220,14 +229,14 @@ public abstract class ViewTarget extends BaseTarget {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-                int paddingLeft = this.f1064view.getPaddingLeft() + this.f1064view.getPaddingRight();
-                ViewGroup.LayoutParams layoutParams = this.f1064view.getLayoutParams();
+                int paddingLeft = this.f1065view.getPaddingLeft() + this.f1065view.getPaddingRight();
+                ViewGroup.LayoutParams layoutParams = this.f1065view.getLayoutParams();
                 if (layoutParams != null) {
                     i = layoutParams.width;
                 } else {
                     i = 0;
                 }
-                return getTargetDimen(this.f1064view.getWidth(), i, paddingLeft);
+                return getTargetDimen(this.f1065view.getWidth(), i, paddingLeft);
             }
             return invokeV.intValue;
         }
@@ -271,7 +280,7 @@ public abstract class ViewTarget extends BaseTarget {
         public void clearCallbacksAndListener() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ViewTreeObserver viewTreeObserver = this.f1064view.getViewTreeObserver();
+                ViewTreeObserver viewTreeObserver = this.f1065view.getViewTreeObserver();
                 if (viewTreeObserver.isAlive()) {
                     viewTreeObserver.removeOnPreDrawListener(this.layoutListener);
                 }
@@ -280,7 +289,7 @@ public abstract class ViewTarget extends BaseTarget {
             }
         }
 
-        public void removeCallback(SizeReadyCallback sizeReadyCallback) {
+        public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, sizeReadyCallback) == null) {
                 this.cbs.remove(sizeReadyCallback);
@@ -288,12 +297,12 @@ public abstract class ViewTarget extends BaseTarget {
         }
     }
 
-    public ViewTarget(View view2) {
+    public ViewTarget(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -303,19 +312,19 @@ public abstract class ViewTarget extends BaseTarget {
                 return;
             }
         }
-        this.f1063view = (View) Preconditions.checkNotNull(view2);
-        this.sizeDeterminer = new SizeDeterminer(view2);
+        this.f1064view = (T) Preconditions.checkNotNull(t);
+        this.sizeDeterminer = new SizeDeterminer(t);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public ViewTarget(View view2, boolean z) {
-        this(view2);
+    public ViewTarget(@NonNull T t, boolean z) {
+        this(t);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Boolean.valueOf(z)};
+            Object[] objArr = {t, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -331,11 +340,12 @@ public abstract class ViewTarget extends BaseTarget {
         }
     }
 
+    @Nullable
     private Object getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return this.f1063view.getTag(tagId);
+            return this.f1064view.getTag(tagId);
         }
         return invokeV.objValue;
     }
@@ -344,7 +354,7 @@ public abstract class ViewTarget extends BaseTarget {
         View.OnAttachStateChangeListener onAttachStateChangeListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && (onAttachStateChangeListener = this.attachStateListener) != null && !this.isAttachStateListenerAdded) {
-            this.f1063view.addOnAttachStateChangeListener(onAttachStateChangeListener);
+            this.f1064view.addOnAttachStateChangeListener(onAttachStateChangeListener);
             this.isAttachStateListenerAdded = true;
         }
     }
@@ -353,12 +363,13 @@ public abstract class ViewTarget extends BaseTarget {
         View.OnAttachStateChangeListener onAttachStateChangeListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && (onAttachStateChangeListener = this.attachStateListener) != null && this.isAttachStateListenerAdded) {
-            this.f1063view.removeOnAttachStateChangeListener(onAttachStateChangeListener);
+            this.f1064view.removeOnAttachStateChangeListener(onAttachStateChangeListener);
             this.isAttachStateListenerAdded = false;
         }
     }
 
-    public final ViewTarget clearOnDetach() {
+    @NonNull
+    public final ViewTarget<T, Z> clearOnDetach() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -411,6 +422,7 @@ public abstract class ViewTarget extends BaseTarget {
     }
 
     @Override // com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
+    @Nullable
     public Request getRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -427,13 +439,14 @@ public abstract class ViewTarget extends BaseTarget {
         return (Request) invokeV.objValue;
     }
 
-    public View getView() {
+    @NonNull
+    public T getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f1063view;
+            return this.f1064view;
         }
-        return (View) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public void pauseMyRequest() {
@@ -458,12 +471,13 @@ public abstract class ViewTarget extends BaseTarget {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "Target for: " + this.f1063view;
+            return "Target for: " + this.f1064view;
         }
         return (String) invokeV.objValue;
     }
 
-    public final ViewTarget waitForLayout() {
+    @NonNull
+    public final ViewTarget<T, Z> waitForLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -473,11 +487,11 @@ public abstract class ViewTarget extends BaseTarget {
         return (ViewTarget) invokeV.objValue;
     }
 
-    private void setTag(Object obj) {
+    private void setTag(@Nullable Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, obj) == null) {
             isTagUsedAtLeastOnce = true;
-            this.f1063view.setTag(tagId, obj);
+            this.f1064view.setTag(tagId, obj);
         }
     }
 
@@ -494,7 +508,8 @@ public abstract class ViewTarget extends BaseTarget {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void getSize(SizeReadyCallback sizeReadyCallback) {
+    @CallSuper
+    public void getSize(@NonNull SizeReadyCallback sizeReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sizeReadyCallback) == null) {
             this.sizeDeterminer.getSize(sizeReadyCallback);
@@ -502,7 +517,8 @@ public abstract class ViewTarget extends BaseTarget {
     }
 
     @Override // com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
-    public void onLoadCleared(Drawable drawable) {
+    @CallSuper
+    public void onLoadCleared(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
             super.onLoadCleared(drawable);
@@ -514,7 +530,8 @@ public abstract class ViewTarget extends BaseTarget {
     }
 
     @Override // com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
-    public void onLoadStarted(Drawable drawable) {
+    @CallSuper
+    public void onLoadStarted(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
             super.onLoadStarted(drawable);
@@ -523,7 +540,8 @@ public abstract class ViewTarget extends BaseTarget {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void removeCallback(SizeReadyCallback sizeReadyCallback) {
+    @CallSuper
+    public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, sizeReadyCallback) == null) {
             this.sizeDeterminer.removeCallback(sizeReadyCallback);
@@ -531,7 +549,7 @@ public abstract class ViewTarget extends BaseTarget {
     }
 
     @Override // com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
-    public void setRequest(Request request) {
+    public void setRequest(@Nullable Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, request) == null) {
             setTag(request);

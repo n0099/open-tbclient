@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel;
 
-import com.baidu.tieba.sp9;
+import com.baidu.tieba.br9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class KsModule implements Module {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements PersonalRecommendObserver {
+    public static class a implements PersonalRecommendObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,7 +76,7 @@ public class KsModule implements Module {
                 KsAdSDK.init(funAdConfig.appContext, new SdkConfig.Builder().appId(str).appName(funAdConfig.appName).showNotification(true).debug(funAdConfig.logEnabled).canReadICCID(moduleConfigKs.ksCanReadICCID).canReadNearbyWifiList(moduleConfigKs.ksCanReadNearbyWifiList).canReadMacAddress(moduleConfigKs.ksCanReadMacAddress).customController(moduleConfigKs.ksCustomCtr).build());
                 KsAdSDK.setPersonalRecommend(funAdConfig.runtimeAdConfig.personalRecommendStatus);
                 funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new a());
-                return new sp9(moduleConfigKs);
+                return new br9(moduleConfigKs);
             }
             throw new RuntimeException("The ks config need ModuleConfigKs!");
         }

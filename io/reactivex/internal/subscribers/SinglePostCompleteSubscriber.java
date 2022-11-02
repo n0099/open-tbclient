@@ -13,24 +13,24 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class SinglePostCompleteSubscriber extends AtomicLong implements FlowableSubscriber, Subscription {
+public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long COMPLETE_MASK = Long.MIN_VALUE;
     public static final long REQUEST_MASK = Long.MAX_VALUE;
     public static final long serialVersionUID = 7917814472626990048L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber actual;
+    public final Subscriber<? super R> actual;
     public long produced;
     public Subscription s;
-    public Object value;
+    public R value;
 
-    public void onDrop(Object obj) {
+    public void onDrop(R r) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r) == null) {
         }
     }
 
-    public SinglePostCompleteSubscriber(Subscriber subscriber) {
+    public SinglePostCompleteSubscriber(Subscriber<? super R> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,9 +64,9 @@ public abstract class SinglePostCompleteSubscriber extends AtomicLong implements
         }
     }
 
-    public final void complete(Object obj) {
+    public final void complete(R r) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r) == null) {
             long j = this.produced;
             if (j != 0) {
                 BackpressureHelper.produced(this, j);
@@ -74,15 +74,15 @@ public abstract class SinglePostCompleteSubscriber extends AtomicLong implements
             while (true) {
                 long j2 = get();
                 if ((j2 & Long.MIN_VALUE) != 0) {
-                    onDrop(obj);
+                    onDrop(r);
                     return;
                 } else if ((j2 & Long.MAX_VALUE) != 0) {
                     lazySet(C.TIME_UNSET);
-                    this.actual.onNext(obj);
+                    this.actual.onNext(r);
                     this.actual.onComplete();
                     return;
                 } else {
-                    this.value = obj;
+                    this.value = r;
                     if (compareAndSet(0L, Long.MIN_VALUE)) {
                         return;
                     }
@@ -92,6 +92,7 @@ public abstract class SinglePostCompleteSubscriber extends AtomicLong implements
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r11v0. Raw type applied. Possible types: R, ? super R */
     @Override // org.reactivestreams.Subscription
     public final void request(long j) {
         long j2;
@@ -101,7 +102,7 @@ public abstract class SinglePostCompleteSubscriber extends AtomicLong implements
                 j2 = get();
                 if ((j2 & Long.MIN_VALUE) != 0) {
                     if (compareAndSet(Long.MIN_VALUE, C.TIME_UNSET)) {
-                        this.actual.onNext(this.value);
+                        this.actual.onNext((R) this.value);
                         this.actual.onComplete();
                         return;
                     }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
-public class ForumListModel extends BdBaseModel implements Serializable {
+public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "_list";
     public static boolean isOk = false;
@@ -74,7 +74,7 @@ public class ForumListModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class List extends OrmObject implements Serializable {
+    public static class List extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3206282936395220632L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class ForumListModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class RequestParams extends OrmObject implements Serializable {
+    public static class RequestParams extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8487620337266534315L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class ForumListModel extends BdBaseModel implements Serializable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumListModel(TbPageContext tbPageContext) {
+    public ForumListModel(TbPageContext<ForumListActivity> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -215,8 +215,8 @@ public class ForumListModel extends BdBaseModel implements Serializable {
             isOk = netWork.isNetSuccess();
             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
             if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
-                ou4.f();
-                kf g = ou4.g("tb.my_posts");
+                hv4.f();
+                cf<String> g = hv4.g("tb.my_posts");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
                 }

@@ -1,5 +1,6 @@
 package com.baidu.sapi2.share;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -489,6 +490,7 @@ public class ShareStorage {
         }
     }
 
+    @TargetApi(4)
     private String getDataFromShareInternal(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -583,6 +585,7 @@ public class ShareStorage {
         }
     }
 
+    @TargetApi(8)
     public StorageModel getModelFromSd(String str) {
         InterceptResult invokeL;
         String str2;
@@ -677,6 +680,7 @@ public class ShareStorage {
         return (String) invokeL.objValue;
     }
 
+    @TargetApi(4)
     public boolean setSp(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

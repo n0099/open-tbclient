@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public HashSet b;
-    public HashSet c;
+    public HashSet<String> b;
+    public HashSet<String> c;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class c {
         }
         this.a = "full";
         this.a = str;
-        this.b = new HashSet();
-        this.c = new HashSet();
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {

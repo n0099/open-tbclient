@@ -5,20 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public final class ou implements rs {
+public class ou implements ms {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rs
-    public Map a() {
+    @Override // com.baidu.tieba.ms
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+            return true;
         }
-        return (Map) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public ou() {

@@ -17,13 +17,13 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class GetSubscriptionResult extends HttpHelper.ResponseResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GetSubscriptionResult> CREATOR;
     public static final String TAG = "GetSubscriptionResult";
     public transient /* synthetic */ FieldHolder $fh;
     public String mPaAvatar;
     public String mPaNickName;
     public long mPauid;
-    public List mSubscriptionList;
+    public List<SubscriptionInfo> mSubscriptionList;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -36,9 +36,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
     }
 
     /* loaded from: classes.dex */
-    public class SubscriptionInfo implements Parcelable {
+    public static class SubscriptionInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SubscriptionInfo> CREATOR;
         public static final String TAG = "SubscriptionInfo";
         public transient /* synthetic */ FieldHolder $fh;
         public String mDescription;
@@ -70,7 +70,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.shield.model.GetSubscriptionResult.SubscriptionInfo.1
+            CREATOR = new Parcelable.Creator<SubscriptionInfo>() { // from class: com.baidu.android.imsdk.shield.model.GetSubscriptionResult.SubscriptionInfo.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,6 +89,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public SubscriptionInfo createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -100,6 +101,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public SubscriptionInfo[] newArray(int i) {
                     InterceptResult invokeI;
@@ -282,7 +284,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.shield.model.GetSubscriptionResult.1
+        CREATOR = new Parcelable.Creator<GetSubscriptionResult>() { // from class: com.baidu.android.imsdk.shield.model.GetSubscriptionResult.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -301,6 +303,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GetSubscriptionResult createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -312,6 +315,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GetSubscriptionResult[] newArray(int i) {
                 InterceptResult invokeI;
@@ -367,7 +371,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         return invokeV.longValue;
     }
 
-    public List getSubscriptionList() {
+    public List<SubscriptionInfo> getSubscriptionList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -422,7 +426,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         }
     }
 
-    public void setSubscriptionList(List list) {
+    public void setSubscriptionList(List<SubscriptionInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.mSubscriptionList.clear();

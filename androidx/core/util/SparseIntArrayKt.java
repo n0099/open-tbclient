@@ -105,7 +105,7 @@ public final class SparseIntArrayKt {
             if (indexOfKey >= 0) {
                 return sparseIntArray.valueAt(indexOfKey);
             }
-            return ((Number) function0.invoke()).intValue();
+            return function0.invoke().intValue();
         }
         return invokeLIL.intValue;
     }

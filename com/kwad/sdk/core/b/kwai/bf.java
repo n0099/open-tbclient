@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.components.core.webview.a.a;
 import com.kwad.components.core.webview.jshandler.WebCardVideoPositionHandler;
 import com.kwad.components.core.webview.jshandler.a;
@@ -20,6 +21,7 @@ import com.kwad.components.splash.SplashPreloadManager;
 import com.kwad.components.splash.monitor.SplashMonitorInfo;
 /* loaded from: classes7.dex */
 public final class bf {
+    @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
     public static void tl() {
         dd.tm().put(com.kwad.components.a.kwai.a.class, new cn());
         dd.tm().put(t.a.class, new bi());
@@ -45,10 +47,10 @@ public final class bf {
         dd.tm().put(SplashMonitorInfo.class, new fi());
         dd.tm().put(com.kwad.components.core.webview.b.a.n.class, new ew());
         dd.tm().put(com.kwad.components.core.webview.b.a.c.class, new ak());
-        dd.tm().put(a.C0578a.class, new bo());
+        dd.tm().put(a.C0589a.class, new bo());
         dd.tm().put(com.kwad.components.core.webview.b.a.o.class, new ex());
         dd.tm().put(com.kwad.components.core.f.a.class, new n());
-        dd.tm().put(a.C0583a.class, new ci());
+        dd.tm().put(a.C0594a.class, new ci());
         dd.tm().put(com.kwad.components.core.webview.b.a.e.class, new av());
         dd.tm().put(com.kwad.components.a.kwai.b.class, new dk());
         dd.tm().put(m.a.class, new eg());

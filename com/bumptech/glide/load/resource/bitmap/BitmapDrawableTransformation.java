@@ -1,7 +1,10 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,18 +17,18 @@ import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 @Deprecated
 /* loaded from: classes7.dex */
-public class BitmapDrawableTransformation implements Transformation {
+public class BitmapDrawableTransformation implements Transformation<BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Transformation wrapped;
+    public final Transformation<Drawable> wrapped;
 
-    public static Resource convertToDrawableResource(Resource resource) {
+    public static Resource<Drawable> convertToDrawableResource(Resource<BitmapDrawable> resource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, resource)) == null) ? resource : (Resource) invokeL.objValue;
     }
 
-    public BitmapDrawableTransformation(Transformation transformation) {
+    public BitmapDrawableTransformation(Transformation<Bitmap> transformation) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +46,9 @@ public class BitmapDrawableTransformation implements Transformation {
         this.wrapped = (Transformation) Preconditions.checkNotNull(new DrawableTransformation(transformation, false));
     }
 
-    public static Resource convertToBitmapDrawableResource(Resource resource) {
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.bumptech.glide.load.engine.Resource<android.graphics.drawable.Drawable> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static Resource<BitmapDrawable> convertToBitmapDrawableResource(Resource<Drawable> resource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, resource)) == null) {
@@ -69,7 +74,7 @@ public class BitmapDrawableTransformation implements Transformation {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
             this.wrapped.updateDiskCacheKey(messageDigest);
@@ -87,7 +92,8 @@ public class BitmapDrawableTransformation implements Transformation {
     }
 
     @Override // com.bumptech.glide.load.Transformation
-    public Resource transform(Context context, Resource resource, int i, int i2) {
+    @NonNull
+    public Resource<BitmapDrawable> transform(@NonNull Context context, @NonNull Resource<BitmapDrawable> resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i, i2)) == null) {

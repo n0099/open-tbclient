@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
@@ -37,13 +38,13 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
 
     /* renamed from: com.google.zxing.multi.qrcode.QRCodeMultiReader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class SAComparator implements Serializable, Comparator {
+    public static final class SAComparator implements Serializable, Comparator<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -116,15 +117,15 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
         }
     }
 
-    public static List processStructuredAppend(List list) {
+    public static List<Result> processStructuredAppend(List<Result> list) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            Iterator it = list.iterator();
+            Iterator<Result> it = list.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    if (((Result) it.next()).getResultMetadata().containsKey(ResultMetadataType.STRUCTURED_APPEND_SEQUENCE)) {
+                    if (it.next().getResultMetadata().containsKey(ResultMetadataType.STRUCTURED_APPEND_SEQUENCE)) {
                         z = true;
                         break;
                     }
@@ -138,9 +139,7 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
             }
             ArrayList arrayList = new ArrayList();
             ArrayList<Result> arrayList2 = new ArrayList();
-            Iterator it2 = list.iterator();
-            while (it2.hasNext()) {
-                Result result = (Result) it2.next();
+            for (Result result : list) {
                 arrayList.add(result);
                 if (result.getResultMetadata().containsKey(ResultMetadataType.STRUCTURED_APPEND_SEQUENCE)) {
                     arrayList2.add(result);
@@ -196,7 +195,7 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
     }
 
     @Override // com.google.zxing.multi.MultipleBarcodeReader
-    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
+    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeLL;
         DetectorResult[] detectMulti;
         Interceptable interceptable = $ic;
@@ -210,7 +209,7 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
                         ((QRCodeDecoderMetaData) decode.getOther()).applyMirroredCorrection(points);
                     }
                     Result result = new Result(decode.getText(), decode.getRawBytes(), points, BarcodeFormat.QR_CODE);
-                    List byteSegments = decode.getByteSegments();
+                    List<byte[]> byteSegments = decode.getByteSegments();
                     if (byteSegments != null) {
                         result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);
                     }
@@ -229,7 +228,7 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
             if (arrayList.isEmpty()) {
                 return EMPTY_RESULT_ARRAY;
             }
-            List processStructuredAppend = processStructuredAppend(arrayList);
+            List<Result> processStructuredAppend = processStructuredAppend(arrayList);
             return (Result[]) processStructuredAppend.toArray(new Result[processStructuredAppend.size()]);
         }
         return (Result[]) invokeLL.objValue;

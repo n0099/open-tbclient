@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.annotation.ColorRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotUserRankImageOverlayView extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -238,7 +239,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         }
     }
 
-    public void setData(List list) {
+    public void setData(List<String> list) {
         String str;
         boolean z;
         Interceptable interceptable = $ic;
@@ -251,7 +252,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
                 return;
             }
             if (list.size() > 0) {
-                str = (String) list.remove(0);
+                str = list.remove(0);
                 z = true;
             } else {
                 str = null;
@@ -262,15 +263,15 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             } else {
                 headImageView.setVisibility(0);
                 if (this.h == 12) {
-                    headImageView.H(str, 12, this.b, this.c, false);
+                    headImageView.G(str, 12, this.b, this.c, false);
                 } else {
-                    headImageView.H(str, 10, this.b, this.c, false);
+                    headImageView.G(str, 10, this.b, this.c, false);
                 }
             }
         }
     }
 
-    public void setFirstImageStrokeColor(int i) {
+    public void setFirstImageStrokeColor(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.k = i;

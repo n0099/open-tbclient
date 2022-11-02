@@ -1,42 +1,86 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.Set;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public interface x66 {
-    int a();
+public final class x66 extends d76<String> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Function1<Long, Boolean> e;
 
-    float b();
-
-    int c();
-
-    float d();
-
-    float e();
-
-    int getHeight();
-
-    int getWidth();
-
-    void setHeight(int i);
-
-    void setWidth(int i);
-
-    /* loaded from: classes6.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static float a(x66 x66Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, x66Var)) == null) {
-                Intrinsics.checkNotNullParameter(x66Var, "this");
-                return 1 / (x66Var.b() - 0.6f);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x66(Function1<? super Long, Boolean> selfPredicate) {
+        super(2048, false, 2, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {selfPredicate};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return invokeL.floatValue;
         }
+        Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
+        this.e = selfPredicate;
+    }
+
+    @Override // com.baidu.tieba.d76, com.baidu.tieba.y66
+    public boolean b(h66 item, k86 timer, b66 config) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            i66 e = item.e();
+            if (!this.e.invoke(e.o()).booleanValue()) {
+                Set<String> d = d();
+                if (!(d instanceof Collection) || !d.isEmpty()) {
+                    for (String str : d) {
+                        if (StringsKt__StringsKt.contains$default((CharSequence) e.c(), (CharSequence) str, false, 2, (Object) null)) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (z) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.d76
+    /* renamed from: e */
+    public String c(i66 data) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return data.c();
+        }
+        return (String) invokeL.objValue;
     }
 }

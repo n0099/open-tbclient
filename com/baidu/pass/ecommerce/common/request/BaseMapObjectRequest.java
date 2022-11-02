@@ -30,10 +30,10 @@ public class BaseMapObjectRequest extends BaseRequest {
         }
         this.relativeUrl = str;
         if (mapObject != null) {
-            Iterator keyIterator = mapObject.keyIterator();
+            Iterator<String> keyIterator = mapObject.keyIterator();
             while (keyIterator.hasNext()) {
-                String str2 = (String) keyIterator.next();
-                addParams(str2, "" + mapObject.getObjValue(str2));
+                String next = keyIterator.next();
+                addParams(next, "" + mapObject.getObjValue(next));
             }
         }
     }

@@ -2,6 +2,7 @@ package com.kwad.components.ad.interstitial;
 
 import android.os.SystemClock;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +25,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void loadInterstitialAd(KsScene ksScene, KsLoadManager.InterstitialAdListener interstitialAdListener) {
+    public static void loadInterstitialAd(@NonNull KsScene ksScene, @NonNull KsLoadManager.InterstitialAdListener interstitialAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, ksScene, interstitialAdListener) == null) {
             boolean a = m.oF().a(ksScene, "loadInterstitialAd");
@@ -32,7 +33,7 @@ public final class e {
             ksScene.setAdStyle(13);
             com.kwad.components.ad.interstitial.monitor.b.cr().cs();
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0571a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(interstitialAdListener, elapsedRealtime, ksScene) { // from class: com.kwad.components.ad.interstitial.e.1
+            KsAdLoadManager.a(new a.C0582a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(interstitialAdListener, elapsedRealtime, ksScene) { // from class: com.kwad.components.ad.interstitial.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsScene cU;
@@ -60,7 +61,7 @@ public final class e {
                 }
 
                 @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.b
-                public final void a(AdResultData adResultData, boolean z) {
+                public final void a(@NonNull AdResultData adResultData, boolean z) {
                     b bVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, adResultData, z) == null) {
@@ -107,7 +108,7 @@ public final class e {
                                 }
                             }
                         });
-                        com.kwad.components.ad.interstitial.monitor.b.cr().a((AdTemplate) adTemplateList.get(0), this.fu, z);
+                        com.kwad.components.ad.interstitial.monitor.b.cr().a(adTemplateList.get(0), this.fu, z);
                         long elapsedRealtime2 = SystemClock.elapsedRealtime();
                         ArrayList arrayList = new ArrayList();
                         for (AdTemplate adTemplate : adTemplateList) {
@@ -131,7 +132,7 @@ public final class e {
                             onError(fVar2.errorCode, fVar2.Qd);
                             return;
                         }
-                        com.kwad.components.ad.interstitial.monitor.b.cr().b((AdTemplate) adTemplateList.get(0), elapsedRealtime2, z);
+                        com.kwad.components.ad.interstitial.monitor.b.cr().b(adTemplateList.get(0), elapsedRealtime2, z);
                         bd.runOnUiThread(new Runnable(this, arrayList, adResultData) { // from class: com.kwad.components.ad.interstitial.e.1.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;

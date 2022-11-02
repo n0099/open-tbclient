@@ -1,5 +1,6 @@
 package androidx.appcompat.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -11,6 +12,9 @@ import android.os.LocaleList;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -34,6 +38,7 @@ public class AppCompatTextHelper {
     public static final int TEXT_FONT_WEIGHT_UNSPECIFIED = -1;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAsyncFontPending;
+    @NonNull
     public final AppCompatTextViewAutoSizeHelper mAutoSizeTextHelper;
     public TintInfo mDrawableBottomTint;
     public TintInfo mDrawableEndTint;
@@ -45,9 +50,10 @@ public class AppCompatTextHelper {
     public Typeface mFontTypeface;
     public int mFontWeight;
     public int mStyle;
+    @NonNull
     public final TextView mView;
 
-    public AppCompatTextHelper(TextView textView) {
+    public AppCompatTextHelper(@NonNull TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,13 +99,14 @@ public class AppCompatTextHelper {
         }
     }
 
-    public void setAutoSizeTextTypeUniformWithPresetSizes(int[] iArr, int i) throws IllegalArgumentException {
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048593, this, iArr, i) == null) {
             this.mAutoSizeTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setTextSize(int i, float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) && !AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE && !isAutoSizeEnabled()) {
@@ -191,6 +198,7 @@ public class AppCompatTextHelper {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void autoSizeText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -243,6 +251,7 @@ public class AppCompatTextHelper {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getCompoundDrawableTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -256,6 +265,7 @@ public class AppCompatTextHelper {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public PorterDuff.Mode getCompoundDrawableTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -269,6 +279,7 @@ public class AppCompatTextHelper {
         return (PorterDuff.Mode) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isAutoSizeEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -366,7 +377,7 @@ public class AppCompatTextHelper {
                         }
 
                         @Override // androidx.core.content.res.ResourcesCompat.FontCallback
-                        public void onFontRetrieved(Typeface typeface) {
+                        public void onFontRetrieved(@NonNull Typeface typeface) {
                             int i6;
                             boolean z4;
                             Interceptable interceptable2 = $ic;
@@ -443,10 +454,11 @@ public class AppCompatTextHelper {
 
     /* JADX WARN: Removed duplicated region for block: B:49:0x0101  */
     /* JADX WARN: Removed duplicated region for block: B:50:0x0106  */
+    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         boolean z;
         ColorStateList colorStateList;
         String str;
@@ -690,6 +702,7 @@ public class AppCompatTextHelper {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && !AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
@@ -738,7 +751,7 @@ public class AppCompatTextHelper {
         }
     }
 
-    public void setCompoundDrawableTintList(ColorStateList colorStateList) {
+    public void setCompoundDrawableTintList(@Nullable ColorStateList colorStateList) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, colorStateList) == null) {
@@ -757,7 +770,7 @@ public class AppCompatTextHelper {
         }
     }
 
-    public void setCompoundDrawableTintMode(PorterDuff.Mode mode) {
+    public void setCompoundDrawableTintMode(@Nullable PorterDuff.Mode mode) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, mode) == null) {

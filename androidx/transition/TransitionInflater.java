@@ -1,5 +1,6 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -8,6 +9,7 @@ import android.util.AttributeSet;
 import android.util.Xml;
 import android.view.InflateException;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.collection.ArrayMap;
 import androidx.core.content.res.TypedArrayUtils;
@@ -51,7 +53,7 @@ public class TransitionInflater {
         CONSTRUCTORS = new ArrayMap<>();
     }
 
-    public TransitionInflater(Context context) {
+    public TransitionInflater(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -229,6 +231,7 @@ public class TransitionInflater {
         }
     }
 
+    @SuppressLint({"RestrictedApi"})
     private void getTargetIds(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, this, xmlPullParser, attributeSet, transition) == null) {
@@ -285,6 +288,7 @@ public class TransitionInflater {
         }
     }
 
+    @SuppressLint({"RestrictedApi"})
     private void loadTransition(AttributeSet attributeSet, XmlPullParser xmlPullParser, ViewGroup viewGroup, TransitionManager transitionManager) throws Resources.NotFoundException {
         Scene sceneForLayout;
         Transition inflateTransition;

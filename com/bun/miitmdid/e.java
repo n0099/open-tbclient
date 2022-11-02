@@ -1,6 +1,7 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +12,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
 import java.util.concurrent.atomic.AtomicLong;
+@Keep
 /* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static boolean a;
+    @Keep
     public static boolean b;
+    @Keep
     public static AtomicLong c;
+    @Keep
     public static boolean d;
+    @Keep
     public static boolean e;
+    @Keep
     public static boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     /* loaded from: classes7.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        @Keep
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,13 +212,18 @@ public class e {
         a(z2, z3, z4);
     }
 
+    @Keep
     public static native int a();
 
+    @Keep
     public static native boolean a(Context context, String str);
 
+    @Keep
     public final native int a(int i, IdSupplier idSupplier);
 
+    @Keep
     public native int a(Context context, IIdentifierListener iIdentifierListener);
 
+    @Keep
     public native void a(boolean z, boolean z2, boolean z3);
 }

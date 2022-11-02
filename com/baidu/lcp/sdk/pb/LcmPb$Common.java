@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y80;
+import com.baidu.tieba.x80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
     public static final int MODEL_TYPE_FIELD_NUMBER = 5;
     public static final int NETWORK_FIELD_NUMBER = 9;
     public static final int OS_VERSION_FIELD_NUMBER = 3;
-    public static Parser PARSER = null;
+    public static Parser<LcmPb$Common> PARSER = null;
     public static final int ROM_VERSION_FIELD_NUMBER = 10;
     public static final int SDK_VERSION_FIELD_NUMBER = 8;
     public static final LcmPb$Common defaultInstance;
@@ -56,7 +56,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
     public Object sdkVersion_;
 
     /* loaded from: classes2.dex */
-    public final class a extends AbstractParser {
+    public static class a extends AbstractParser<LcmPb$Common> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +88,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
     }
 
     /* loaded from: classes2.dex */
-    public final class b extends GeneratedMessageLite.Builder implements MessageLiteOrBuilder {
+    public static final class b extends GeneratedMessageLite.Builder<LcmPb$Common, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -258,9 +258,11 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             return (b) invokeL.objValue;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
+        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder mergeFrom(GeneratedMessageLite generatedMessageLite) {
-            s((LcmPb$Common) generatedMessageLite);
+        public /* bridge */ /* synthetic */ b mergeFrom(LcmPb$Common lcmPb$Common) {
+            s(lcmPb$Common);
             return this;
         }
 
@@ -373,7 +375,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                LcmPb$Common lcmPb$Common = new LcmPb$Common(this, (y80) null);
+                LcmPb$Common lcmPb$Common = new LcmPb$Common(this, (x80) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -524,18 +526,18 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
                 LcmPb$Common lcmPb$Common = null;
                 try {
                     try {
-                        LcmPb$Common lcmPb$Common2 = (LcmPb$Common) LcmPb$Common.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                        if (lcmPb$Common2 != null) {
-                            s(lcmPb$Common2);
+                        LcmPb$Common parsePartialFrom = LcmPb$Common.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (parsePartialFrom != null) {
+                            s(parsePartialFrom);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
-                        LcmPb$Common lcmPb$Common3 = (LcmPb$Common) e.getUnfinishedMessage();
+                        LcmPb$Common lcmPb$Common2 = (LcmPb$Common) e.getUnfinishedMessage();
                         try {
                             throw e;
                         } catch (Throwable th) {
                             th = th;
-                            lcmPb$Common = lcmPb$Common3;
+                            lcmPb$Common = lcmPb$Common2;
                             if (lcmPb$Common != null) {
                             }
                             throw th;
@@ -882,7 +884,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-    public Parser getParserForType() {
+    public Parser<LcmPb$Common> getParserForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -1214,7 +1216,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ LcmPb$Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, y80 y80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, x80 x80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -1240,7 +1242,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ LcmPb$Common(GeneratedMessageLite.Builder builder, y80 y80Var) {
+    public /* synthetic */ LcmPb$Common(GeneratedMessageLite.Builder builder, x80 x80Var) {
         this(builder);
     }
 
@@ -1248,7 +1250,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, inputStream, extensionRegistryLite)) == null) {
-            return (LcmPb$Common) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
         }
         return (LcmPb$Common) invokeLL.objValue;
     }
@@ -1257,7 +1259,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, byteString, extensionRegistryLite)) == null) {
-            return (LcmPb$Common) PARSER.parseFrom(byteString, extensionRegistryLite);
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
         }
         return (LcmPb$Common) invokeLL.objValue;
     }
@@ -1296,7 +1298,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
-            return (LcmPb$Common) PARSER.parseDelimitedFrom(inputStream);
+            return PARSER.parseDelimitedFrom(inputStream);
         }
         return (LcmPb$Common) invokeL.objValue;
     }
@@ -1305,7 +1307,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, byteString)) == null) {
-            return (LcmPb$Common) PARSER.parseFrom(byteString);
+            return PARSER.parseFrom(byteString);
         }
         return (LcmPb$Common) invokeL.objValue;
     }
@@ -1314,7 +1316,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, codedInputStream)) == null) {
-            return (LcmPb$Common) PARSER.parseFrom(codedInputStream);
+            return PARSER.parseFrom(codedInputStream);
         }
         return (LcmPb$Common) invokeL.objValue;
     }
@@ -1323,7 +1325,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, codedInputStream, extensionRegistryLite)) == null) {
-            return (LcmPb$Common) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
         return (LcmPb$Common) invokeLL.objValue;
     }
@@ -1332,7 +1334,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, inputStream)) == null) {
-            return (LcmPb$Common) PARSER.parseFrom(inputStream);
+            return PARSER.parseFrom(inputStream);
         }
         return (LcmPb$Common) invokeL.objValue;
     }
@@ -1341,7 +1343,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, inputStream, extensionRegistryLite)) == null) {
-            return (LcmPb$Common) PARSER.parseFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
         }
         return (LcmPb$Common) invokeLL.objValue;
     }
@@ -1350,7 +1352,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, bArr)) == null) {
-            return (LcmPb$Common) PARSER.parseFrom(bArr);
+            return PARSER.parseFrom(bArr);
         }
         return (LcmPb$Common) invokeL.objValue;
     }
@@ -1359,7 +1361,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, bArr, extensionRegistryLite)) == null) {
-            return (LcmPb$Common) PARSER.parseFrom(bArr, extensionRegistryLite);
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
         }
         return (LcmPb$Common) invokeLL.objValue;
     }

@@ -1,130 +1,131 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
+import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class rf6 implements eo {
+public class rf6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public final List<jn> c;
+    public qf6 d;
+    public sf6 e;
+    public final List<wn> f;
 
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948119751, "Lcom/baidu/tieba/rf6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948119751, "Lcom/baidu/tieba/rf6;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public rf6() {
+    public rf6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, forumEmotionModel};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
+        this.c = new ArrayList();
+        this.f = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        c(forumEmotionModel);
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(List<wn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        d();
+    }
+
+    public void f(pf6 pf6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pf6Var) == null) {
+            this.d.u(pf6Var);
+            this.e.u(pf6Var);
+        }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.f.size();
         }
         return invokeV.intValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void d() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.d) && this.a >= 0 && this.b >= 0) {
-                return false;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public final void c(ForumEmotionModel forumEmotionModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionModel) == null) {
+            qf6 qf6Var = new qf6(this.a, forumEmotionModel.B(), vf6.b);
+            this.d = qf6Var;
+            this.c.add(qf6Var);
+            sf6 sf6Var = new sf6(this.a, forumEmotionModel.B(), tf6.a);
+            this.e = sf6Var;
+            this.c.add(sf6Var);
+            this.b.a(this.c);
+        }
+    }
+
+    public void e(List<wn> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        d();
+    }
+
+    public void g(ForumEmotionPackageData forumEmotionPackageData) {
+        ForumEmotionPackageData forumEmotionPackageData2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, forumEmotionPackageData) != null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (wn wnVar : this.f) {
+            if (wnVar != null && (wnVar instanceof vf6) && (forumEmotionPackageData2 = ((vf6) wnVar).a) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
+                forumEmotionPackageData2.download = forumEmotionPackageData.download;
+                forumEmotionPackageData2.share = forumEmotionPackageData.share;
+                d();
+                return;
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
         }
     }
 }

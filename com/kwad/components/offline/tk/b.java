@@ -1,6 +1,7 @@
 package com.kwad.components.offline.tk;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -125,7 +126,7 @@ public final class b implements ITkOfflineCompoInitConfig {
             }
 
             @Override // com.kwad.components.offline.api.core.soloader.ISoLoader
-            public final void loadSo(Context context, SoLoadListener soLoadListener) {
+            public final void loadSo(Context context, @NonNull SoLoadListener soLoadListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, soLoadListener) == null) {
                     com.kwad.components.offline.tk.a.a.a(context, soLoadListener);

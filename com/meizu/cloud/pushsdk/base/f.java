@@ -6,7 +6,7 @@ import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public class f extends i implements Executor {
+public class f extends i<Executor> implements Executor {
     public static f c;
 
     public f(Executor executor) {
@@ -31,6 +31,6 @@ public class f extends i implements Executor {
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        ((Executor) c()).execute(runnable);
+        c().execute(runnable);
     }
 }

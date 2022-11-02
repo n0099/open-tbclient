@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.model;
 
 import android.graphics.Bitmap;
+import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +20,8 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -339604626740227228L;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map extraMap;
+    @Nullable
+    public Map<String, Object> extraMap;
     public String mDName;
     public String mDPath;
     public GetImageTask mImageTask;
@@ -28,7 +30,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
 
     /* renamed from: com.baidu.tieba.im.model.LocalPicModel$1  reason: invalid class name */
     /* loaded from: classes4.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -44,7 +46,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes4.dex */
-    public class GetImageTask extends BdAsyncTask {
+    public class GetImageTask extends BdAsyncTask<Object, Integer, ResponseData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalPicModel this$0;
@@ -94,6 +96,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public ResponseData doInBackground(Object... objArr) {
             InterceptResult invokeL;
@@ -114,16 +117,16 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes4.dex */
-    public class ResponseData implements Serializable {
+    public static class ResponseData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9099542245580007084L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map extraMap;
+        public final Map<String, Object> extraMap;
         public Bitmap mBitmap;
         public String mDPathGen;
         public String mSPathGen;
 
-        public ResponseData(Bitmap bitmap, String str, String str2, Map map) {
+        public ResponseData(Bitmap bitmap, String str, String str2, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +168,8 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             return (String) invokeV.objValue;
         }
 
-        public Map getExtraMap() {
+        @Nullable
+        public Map<String, Object> getExtraMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -213,7 +217,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         this.mDName = str4;
     }
 
-    public void setExtraMap(Map map) {
+    public void setExtraMap(@Nullable Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
             this.extraMap = map;

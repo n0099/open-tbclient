@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.en6;
+import com.baidu.tieba.po6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
 /* loaded from: classes4.dex */
-public class LabelDataList extends ArrayList {
+public class LabelDataList extends ArrayList<po6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,11 +35,11 @@ public class LabelDataList extends ArrayList {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Iterator it = iterator();
+            Iterator<po6> it = iterator();
             while (it.hasNext()) {
-                en6 en6Var = (en6) it.next();
-                if (en6Var != null && en6Var.a == i) {
-                    return en6Var.b;
+                po6 next = it.next();
+                if (next != null && next.a == i) {
+                    return next.b;
                 }
             }
             return null;
@@ -51,56 +51,54 @@ public class LabelDataList extends ArrayList {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Iterator it = iterator();
+            Iterator<po6> it = iterator();
             while (it.hasNext()) {
-                en6 en6Var = (en6) it.next();
-                if (en6Var != null && en6Var.c) {
-                    return en6Var.a;
+                po6 next = it.next();
+                if (next != null && next.c) {
+                    return next.a;
                 }
             }
-            en6 en6Var2 = (en6) ListUtils.getItem(this, 0);
-            if (en6Var2 == null) {
+            po6 po6Var = (po6) ListUtils.getItem(this, 0);
+            if (po6Var == null) {
                 return 0;
             }
-            en6Var2.c = true;
-            return en6Var2.a;
+            po6Var.c = true;
+            return po6Var.a;
         }
         return invokeV.intValue;
     }
 
-    public void parseProtu(List list) {
+    public void parseProtu(List<ForumSubLabel> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             clear();
             if (ListUtils.isEmpty(list)) {
                 return;
             }
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                ForumSubLabel forumSubLabel = (ForumSubLabel) it.next();
+            for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
-                    en6 en6Var = new en6();
-                    en6Var.a = forumSubLabel.id.intValue();
-                    en6Var.b = forumSubLabel.sub_label_name;
-                    add(en6Var);
+                    po6 po6Var = new po6();
+                    po6Var.a = forumSubLabel.id.intValue();
+                    po6Var.b = forumSubLabel.sub_label_name;
+                    add(po6Var);
                 }
             }
             if (!isEmpty()) {
-                ((en6) get(0)).c = true;
+                get(0).c = true;
             }
         }
     }
 
     public void setSelectedIndex(int i) {
-        en6 en6Var;
+        po6 po6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (en6Var = (en6) ListUtils.getItem(this, i)) != null) {
-            en6Var.c = true;
-            Iterator it = iterator();
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (po6Var = (po6) ListUtils.getItem(this, i)) != null) {
+            po6Var.c = true;
+            Iterator<po6> it = iterator();
             while (it.hasNext()) {
-                en6 en6Var2 = (en6) it.next();
-                if (en6Var2 != null && en6Var2 != en6Var) {
-                    en6Var2.c = false;
+                po6 next = it.next();
+                if (next != null && next != po6Var) {
+                    next.c = false;
                 }
             }
         }

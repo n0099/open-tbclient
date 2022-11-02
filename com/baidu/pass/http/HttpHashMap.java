@@ -12,7 +12,7 @@ import java.util.Map;
 public class HttpHashMap implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map a;
+    public Map<String, String> a;
 
     public void doSign(String str) {
         Interceptable interceptable = $ic;
@@ -49,12 +49,12 @@ public class HttpHashMap implements com.baidu.pass.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return (String) this.a.get(str);
+            return this.a.get(str);
         }
         return (String) invokeL.objValue;
     }
 
-    public void putAll(Map map) {
+    public void putAll(Map<? extends String, ? extends String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.a.putAll(map);

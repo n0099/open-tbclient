@@ -1,57 +1,97 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tu7 {
+public class tu7 implements wn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static String a = "c12585";
-        public static String b = "c12586";
-        public transient /* synthetic */ FieldHolder $fh;
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-391538474, "Lcom/baidu/tieba/tu7$a;")) == null) {
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193779, "Lcom/baidu/tieba/tu7;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
                 $ic = interceptable;
             }
             if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-391538474, "Lcom/baidu/tieba/tu7$a;");
+                classClinitInterceptable.invokePostClinit(1948193779, "Lcom/baidu/tieba/tu7;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public tu7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static CustomDialogData a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
-                try {
-                    return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (CustomDialogData) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
     }
 }

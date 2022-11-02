@@ -3,6 +3,8 @@ package androidx.vectordrawable.graphics.drawable;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,9 +15,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface Animatable2Compat extends Animatable {
     void clearAnimationCallbacks();
 
-    void registerAnimationCallback(AnimationCallback animationCallback);
+    void registerAnimationCallback(@NonNull AnimationCallback animationCallback);
 
-    boolean unregisterAnimationCallback(AnimationCallback animationCallback);
+    boolean unregisterAnimationCallback(@NonNull AnimationCallback animationCallback);
 
     /* loaded from: classes.dex */
     public static abstract class AnimationCallback {
@@ -49,6 +51,7 @@ public interface Animatable2Compat extends Animatable {
             }
         }
 
+        @RequiresApi(23)
         public Animatable2.AnimationCallback getPlatformCallback() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

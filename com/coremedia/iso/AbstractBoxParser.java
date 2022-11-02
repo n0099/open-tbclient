@@ -20,7 +20,7 @@ public abstract class AbstractBoxParser implements BoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadLocal header;
+    public ThreadLocal<ByteBuffer> header;
 
     public abstract Box createBox(String str, byte[] bArr, String str2);
 
@@ -53,7 +53,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                 return;
             }
         }
-        this.header = new ThreadLocal(this) { // from class: com.coremedia.iso.AbstractBoxParser.1
+        this.header = new ThreadLocal<ByteBuffer>(this) { // from class: com.coremedia.iso.AbstractBoxParser.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AbstractBoxParser this$0;
@@ -98,25 +98,25 @@ public abstract class AbstractBoxParser implements BoxParser {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource, container)) == null) {
-            ((ByteBuffer) this.header.get()).rewind().limit(8);
+            this.header.get().rewind().limit(8);
             int i = 0;
             do {
-                i += dataSource.read((ByteBuffer) this.header.get());
+                i += dataSource.read(this.header.get());
                 if (i == 8) {
-                    ((ByteBuffer) this.header.get()).rewind();
-                    long readUInt32 = IsoTypeReader.readUInt32((ByteBuffer) this.header.get());
+                    this.header.get().rewind();
+                    long readUInt32 = IsoTypeReader.readUInt32(this.header.get());
                     byte[] bArr = null;
                     if (readUInt32 < 8 && readUInt32 > 1) {
                         Logger logger = LOG;
                         logger.severe("Plausibility check failed: size < 8 (size = " + readUInt32 + "). Stop parsing!");
                         return null;
                     }
-                    String read4cc = IsoTypeReader.read4cc((ByteBuffer) this.header.get());
+                    String read4cc = IsoTypeReader.read4cc(this.header.get());
                     if (readUInt32 == 1) {
-                        ((ByteBuffer) this.header.get()).limit(16);
-                        dataSource.read((ByteBuffer) this.header.get());
-                        ((ByteBuffer) this.header.get()).position(8);
-                        j = IsoTypeReader.readUInt64((ByteBuffer) this.header.get()) - 16;
+                        this.header.get().limit(16);
+                        dataSource.read(this.header.get());
+                        this.header.get().position(8);
+                        j = IsoTypeReader.readUInt64(this.header.get()) - 16;
                     } else if (readUInt32 == 0) {
                         dataSource.size();
                         dataSource.position();
@@ -135,11 +135,11 @@ public abstract class AbstractBoxParser implements BoxParser {
                         j = readUInt32 - 8;
                     }
                     if ("uuid".equals(read4cc)) {
-                        ((ByteBuffer) this.header.get()).limit(((ByteBuffer) this.header.get()).limit() + 16);
-                        dataSource.read((ByteBuffer) this.header.get());
+                        this.header.get().limit(this.header.get().limit() + 16);
+                        dataSource.read(this.header.get());
                         byte[] bArr2 = new byte[16];
-                        for (int position = ((ByteBuffer) this.header.get()).position() - 16; position < ((ByteBuffer) this.header.get()).position(); position++) {
-                            bArr2[position - (((ByteBuffer) this.header.get()).position() - 16)] = ((ByteBuffer) this.header.get()).get(position);
+                        for (int position = this.header.get().position() - 16; position < this.header.get().position(); position++) {
+                            bArr2[position - (this.header.get().position() - 16)] = this.header.get().get(position);
                         }
                         j2 = j - 16;
                         bArr = bArr2;
@@ -153,8 +153,8 @@ public abstract class AbstractBoxParser implements BoxParser {
                     }
                     Box createBox = createBox(read4cc, bArr, str2);
                     createBox.setParent(container);
-                    ((ByteBuffer) this.header.get()).rewind();
-                    createBox.parse(dataSource, (ByteBuffer) this.header.get(), j2, this);
+                    this.header.get().rewind();
+                    createBox.parse(dataSource, this.header.get(), j2, this);
                     return createBox;
                 }
             } while (i >= 0);

@@ -1,9 +1,10 @@
 package com.baidu.nadcore.download.view;
 
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.network.outback.EngineName;
-import com.baidu.tieba.fl0;
+import com.baidu.tieba.el0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,11 +17,11 @@ public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
     public static final IDownloadViewCreator b = new a();
 
-    fl0 a(ViewGroup viewGroup, ViewType viewType);
+    el0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ViewType {
+    public static final class ViewType {
         public static final /* synthetic */ ViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ViewType DEFAULT;
@@ -89,7 +90,7 @@ public interface IDownloadViewCreator {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements IDownloadViewCreator {
+    public static class a implements IDownloadViewCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -108,7 +109,7 @@ public interface IDownloadViewCreator {
         }
 
         @Override // com.baidu.nadcore.download.view.IDownloadViewCreator
-        public fl0 a(ViewGroup viewGroup, ViewType viewType) {
+        public el0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, viewType)) == null) {
@@ -125,12 +126,12 @@ public interface IDownloadViewCreator {
                 defaultDownloadViewLP.b(viewGroup);
                 return defaultDownloadViewLP;
             }
-            return (fl0) invokeLL.objValue;
+            return (el0) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class b {
+    public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;

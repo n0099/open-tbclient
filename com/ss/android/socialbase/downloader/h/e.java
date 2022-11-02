@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
 public final class e implements Handler.Callback {
     public volatile Handler a = new Handler(a.a, this);
@@ -14,7 +15,7 @@ public final class e implements Handler.Callback {
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static final Looper a;
 
         static {
@@ -49,7 +50,7 @@ public final class e implements Handler.Callback {
     }
 
     @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public boolean handleMessage(@NonNull Message message) {
         if (message.what == 0) {
             try {
                 b bVar = (b) message.obj;

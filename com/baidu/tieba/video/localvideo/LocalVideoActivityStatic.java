@@ -18,13 +18,14 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.lv8;
-import com.baidu.tieba.lw8;
-import com.baidu.tieba.qm;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.im;
+import com.baidu.tieba.j56;
+import com.baidu.tieba.jm;
+import com.baidu.tieba.uw8;
+import com.baidu.tieba.ux8;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +40,7 @@ public class LocalVideoActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public final class b extends CustomMessageListener {
+    public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +76,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    fj.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a03);
+                    xi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a0f);
                 }
             }
 
@@ -84,7 +85,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    fj.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a03);
+                    xi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0a0f);
                 }
             }
 
@@ -95,13 +96,13 @@ public class LocalVideoActivityStatic {
                     return;
                 }
                 if ("libnama.so".equals(packageInfo.name)) {
-                    this.a = (String) BdBaseApplication.getInst().getResHashMap().get("libnama.so");
+                    this.a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
                 }
                 if ("face_beautification.mp3".equals(packageInfo.name)) {
-                    this.b = (String) BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                    this.b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
                 }
                 if ("v3.mp3".equals(packageInfo.name)) {
-                    this.c = (String) BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                    this.c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
                 }
                 if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b) && !StringUtils.isNull(this.c)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.d.getData()));
@@ -132,14 +133,14 @@ public class LocalVideoActivityStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921615 || !(customResponsedMessage.getData() instanceof IntentConfig)) {
                 return;
             }
-            String str = (String) BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
-            String str2 = (String) BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
-            if (!StringUtils.isNull((String) BdBaseApplication.getInst().getResHashMap().get("libnama.so")) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            String str = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+            String str2 = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+            if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libnama.so")) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) customResponsedMessage.getData()));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                 return;
@@ -149,15 +150,15 @@ public class LocalVideoActivityStatic {
             arrayList.add("com.baidu.tieba.resloader.face_beautification.mp3");
             arrayList.add("com.baidu.tieba.resloader.v3.mp3");
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(rm.a);
+            requestParams.setRunType(jm.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new qm(arrayList, new a(this, customResponsedMessage)));
+            requestParams.addChannel(new im(arrayList, new a(this, customResponsedMessage)));
             PmsManager.getInstance().execute(requestParams);
         }
     }
 
     /* loaded from: classes6.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -176,12 +177,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<j56> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof lv8)) {
-                    return new CustomResponsedMessage(2921466, new lw8((lv8) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof uw8)) {
+                    return new CustomResponsedMessage<>(2921466, new ux8((uw8) customMessage.getData()));
                 }
                 return null;
             }

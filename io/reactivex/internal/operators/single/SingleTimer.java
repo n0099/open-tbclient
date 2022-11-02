@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleTimer extends Single {
+public final class SingleTimer extends Single<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -22,13 +22,13 @@ public final class SingleTimer extends Single {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class TimerDisposable extends AtomicReference implements Disposable, Runnable {
+    public static final class TimerDisposable extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8465401857522493082L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super Long> actual;
 
-        public TimerDisposable(SingleObserver singleObserver) {
+        public TimerDisposable(SingleObserver<? super Long> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public final class SingleTimer extends Single {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -101,7 +101,7 @@ public final class SingleTimer extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super Long> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             TimerDisposable timerDisposable = new TimerDisposable(singleObserver);

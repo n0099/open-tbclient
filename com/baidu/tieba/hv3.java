@@ -1,73 +1,92 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.PushManager;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hv3 {
+public class hv3 extends kw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
 
-    public hv3(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947837124, "Lcom/baidu/tieba/hv3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947837124, "Lcom/baidu/tieba/hv3;");
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = i;
+        c = ok1.a;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hv3() {
+        super("checkAppInstalled");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kw3
+    public ew1 a(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
+            if (c) {
+                Log.d("checkAppInstalled", "handle: " + jSONObject);
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                ih2Var.onFail(31010, "package name is empty");
+                return null;
+            }
+            try {
+                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
+                if (c) {
+                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
+                }
+                if (packageInfo != null) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject3.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
+                    jSONObject2.put("data", jSONObject3);
+                    ih2Var.a(jSONObject2);
+                } else {
+                    ih2Var.onFail(31016, "no package info");
+                }
+            } catch (Exception unused) {
+                ih2Var.onFail(31011, "app is not installed");
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return TextUtils.equals(this.a, "onSuccess");
-        }
-        return invokeV.booleanValue;
+        return (ew1) invokeLL.objValue;
     }
 }

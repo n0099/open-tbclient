@@ -4,13 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.to0;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.cq0;
+import com.baidu.tieba.ip0;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,8 +25,9 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     public int o;
     public int p;
     public int q;
+    @Nullable
     public AdImageView r;
-    public to0 s;
+    public ip0 s;
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
     public void m(AdBaseModel adBaseModel) {
@@ -89,7 +91,7 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (np0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cq0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -98,19 +100,19 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadExpressSingleImgOperateView(Context context, AttributeSet attributeSet, int i, np0 np0Var) {
-        super(context, attributeSet, i, np0Var);
+    public NadExpressSingleImgOperateView(Context context, AttributeSet attributeSet, int i, cq0 cq0Var) {
+        super(context, attributeSet, i, cq0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), np0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), cq0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (np0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cq0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -124,18 +126,18 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, np0 np0Var) {
+    public void j(LayoutInflater layoutInflater, cq0 cq0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, np0Var) == null) {
-            int i = R.layout.obfuscated_res_0x7f0d0613;
-            if (np0Var != null) {
-                int a = np0Var.a(AdBaseModel.STYLE.SMALL_IMAGE);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, cq0Var) == null) {
+            int i = R.layout.obfuscated_res_0x7f0d0627;
+            if (cq0Var != null) {
+                int a = cq0Var.a(AdBaseModel.STYLE.SMALL_IMAGE);
                 if (a != 0) {
                     i = a;
-                } else if (np0Var.b) {
-                    i = R.layout.obfuscated_res_0x7f0d0614;
+                } else if (cq0Var.b) {
+                    i = R.layout.obfuscated_res_0x7f0d0628;
                 }
-                np0.a aVar = np0Var.j;
+                cq0.a aVar = cq0Var.j;
                 if (aVar != null) {
                     this.m = aVar.a;
                     this.n = aVar.b;
@@ -153,15 +155,15 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
         int e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            AdImageView adImageView = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0915e9);
+            AdImageView adImageView = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091628);
             this.r = adImageView;
             if (adImageView == null) {
                 return;
             }
             if (this.q > 0) {
-                e = u21.c.a(getContext(), this.q);
+                e = m31.c.a(getContext(), this.q);
             } else {
-                e = (((((u21.c.e(context) - u21.c.a(getContext(), this.m)) - u21.c.a(getContext(), this.n)) - u21.c.a(getContext(), this.o)) - u21.c.a(getContext(), this.p)) - (u21.c.a(getContext(), 6.0f) * 2)) / 3;
+                e = (((((m31.c.e(context) - m31.c.a(getContext(), this.m)) - m31.c.a(getContext(), this.n)) - m31.c.a(getContext(), this.o)) - m31.c.a(getContext(), this.p)) - (m31.c.a(getContext(), 6.0f) * 2)) / 3;
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.r.getLayoutParams();
             layoutParams.width = e;
@@ -173,14 +175,14 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
     public void n(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || !(adBaseModel instanceof to0)) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || !(adBaseModel instanceof ip0)) {
             return;
         }
-        to0 to0Var = (to0) adBaseModel;
-        this.s = to0Var;
+        ip0 ip0Var = (ip0) adBaseModel;
+        this.s = ip0Var;
         AdImageView adImageView = this.r;
         if (adImageView != null) {
-            adImageView.g(to0Var.r.a);
+            adImageView.g(ip0Var.r.a);
         }
     }
 }

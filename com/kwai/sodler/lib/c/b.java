@@ -1,5 +1,6 @@
 package com.kwai.sodler.lib.c;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
-public final class b implements Comparable {
+public final class b implements Comparable<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean Dv;
@@ -18,9 +19,9 @@ public final class b implements Comparable {
     public String ayC;
     public boolean ayD;
     public boolean ayE;
-    public HashMap ayF;
-    public List ayG;
-    public List ayH;
+    public HashMap<String, String> ayF;
+    public List<String> ayG;
+    public List<String> ayH;
     public ClassLoader ayI;
     public String ayz;
     public String version;
@@ -40,14 +41,14 @@ public final class b implements Comparable {
         }
         this.ayD = false;
         this.ayE = true;
-        this.ayF = new HashMap(10);
+        this.ayF = new HashMap<>(10);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     @Override // java.lang.Comparable
     /* renamed from: c */
-    public int compareTo(b bVar) {
+    public int compareTo(@NonNull b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bVar)) == null) ? -this.version.compareTo(bVar.version) : invokeL.intValue;

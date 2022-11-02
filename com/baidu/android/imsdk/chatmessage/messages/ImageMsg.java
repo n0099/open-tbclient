@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ImageMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int mHeight;
     public String mThumbUrl;
@@ -45,7 +46,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.ImageMsg.1
+        CREATOR = new Parcelable.Creator<ImageMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ImageMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,6 +65,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ImageMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -75,6 +77,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ImageMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -169,7 +172,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                     jSONObject.put("url", str);
                     jSONObject.put("thumbnail", this.mThumbUrl);
                     if (this.mWidth > 0 && this.mHeight > 0) {
-                        jSONObject.put("w", this.mWidth);
+                        jSONObject.put(Config.DEVICE_WIDTH, this.mWidth);
                         jSONObject.put("h", this.mHeight);
                     }
                     return jSONObject.toString();
@@ -241,7 +244,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 JSONObject jSONObject = new JSONObject(this.mjsonContent);
                 this.mRemoteUrl = jSONObject.optString("url");
                 this.mThumbUrl = jSONObject.optString("thumbnail");
-                this.mWidth = jSONObject.optInt("w", 0);
+                this.mWidth = jSONObject.optInt(Config.DEVICE_WIDTH, 0);
                 this.mHeight = jSONObject.optInt("h", 0);
                 return true;
             } catch (JSONException e) {

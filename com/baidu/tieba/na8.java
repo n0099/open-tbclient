@@ -1,102 +1,62 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class na8 extends p16 {
+public class na8 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public View j;
-    public TbImageView k;
-    public TextView l;
+    public int a;
+    public int b;
 
-    @Override // com.baidu.tieba.p16
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d03ea : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947995844, "Lcom/baidu/tieba/na8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947995844, "Lcom/baidu/tieba/na8;");
+                return;
+            }
         }
+        c = BdUniqueId.gen();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public na8(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public na8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        View k = k();
-        this.j = k;
-        this.i = tbPageContext;
-        k.setTag(this);
-        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090cc6);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090cc4);
+        this.a = 0;
+        this.b = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p16
-    /* renamed from: r */
-    public void l(k98 k98Var) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, k98Var) == null) {
-            if (k98Var == null) {
-                this.j.setVisibility(8);
-                return;
-            }
-            m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            this.k.L(k98Var.a, 10, false);
-            this.j.setOnClickListener(this);
-            if (k98Var.b > 0) {
-                this.l.setVisibility(0);
-                long j = k98Var.b;
-                if (j > 99) {
-                    this.l.setText("99");
-                    return;
-                } else {
-                    this.l.setText(String.valueOf(j));
-                    return;
-                }
-            }
-            this.l.setVisibility(8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
         }
-    }
-
-    @Override // com.baidu.tieba.p16
-    public void m(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
-            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

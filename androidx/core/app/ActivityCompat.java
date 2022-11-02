@@ -16,6 +16,12 @@ import android.os.Looper;
 import android.os.Parcelable;
 import android.view.DragEvent;
 import android.view.View;
+import androidx.annotation.IdRes;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.app.SharedElementCallback;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.DragAndDropPermissionsCompat;
@@ -36,21 +42,23 @@ public class ActivityCompat extends ContextCompat {
 
     /* loaded from: classes.dex */
     public interface OnRequestPermissionsResultCallback {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
     /* loaded from: classes.dex */
     public interface PermissionCompatDelegate {
-        boolean onActivityResult(Activity activity, int i, int i2, Intent intent);
+        boolean onActivityResult(@NonNull Activity activity, @IntRange(from = 0) int i, int i2, @Nullable Intent intent);
 
-        boolean requestPermissions(Activity activity, String[] strArr, int i);
+        boolean requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, @IntRange(from = 0) int i);
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface RequestPermissionsRequestCodeValidator {
         void validateRequestPermissionsRequestCode(int i);
     }
 
+    @RequiresApi(21)
     /* loaded from: classes.dex */
     public static class SharedElementCallback21Impl extends android.app.SharedElementCallback {
         public static /* synthetic */ Interceptable $ic;
@@ -110,6 +118,7 @@ public class ActivityCompat extends ContextCompat {
         }
 
         @Override // android.app.SharedElementCallback
+        @RequiresApi(23)
         public void onSharedElementsArrived(List<String> list, List<View> list2, SharedElementCallback.OnSharedElementsReadyListener onSharedElementsReadyListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048582, this, list, list2, onSharedElementsReadyListener) == null) {
@@ -182,6 +191,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static PermissionCompatDelegate getPermissionCompatDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -191,7 +201,7 @@ public class ActivityCompat extends ContextCompat {
         return (PermissionCompatDelegate) invokeV.objValue;
     }
 
-    public static void finishAffinity(Activity activity) {
+    public static void finishAffinity(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
@@ -202,7 +212,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static void finishAfterTransition(Activity activity) {
+    public static void finishAfterTransition(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, activity) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -224,28 +234,29 @@ public class ActivityCompat extends ContextCompat {
         return invokeL.booleanValue;
     }
 
-    public static void postponeEnterTransition(Activity activity) {
+    public static void postponeEnterTransition(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, null, activity) == null) && Build.VERSION.SDK_INT >= 21) {
             activity.postponeEnterTransition();
         }
     }
 
-    public static void setPermissionCompatDelegate(PermissionCompatDelegate permissionCompatDelegate) {
+    public static void setPermissionCompatDelegate(@Nullable PermissionCompatDelegate permissionCompatDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, permissionCompatDelegate) == null) {
             sDelegate = permissionCompatDelegate;
         }
     }
 
-    public static void startPostponedEnterTransition(Activity activity) {
+    public static void startPostponedEnterTransition(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65553, null, activity) == null) && Build.VERSION.SDK_INT >= 21) {
             activity.startPostponedEnterTransition();
         }
     }
 
-    public static Uri getReferrer(Activity activity) {
+    @Nullable
+    public static Uri getReferrer(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
@@ -266,7 +277,7 @@ public class ActivityCompat extends ContextCompat {
         return (Uri) invokeL.objValue;
     }
 
-    public static void recreate(Activity activity) {
+    public static void recreate(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, activity) == null) {
             int i = Build.VERSION.SDK_INT;
@@ -310,6 +321,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
+    @Nullable
     public static DragAndDropPermissionsCompat requestDragAndDropPermissions(Activity activity, DragEvent dragEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -319,7 +331,8 @@ public class ActivityCompat extends ContextCompat {
         return (DragAndDropPermissionsCompat) invokeLL.objValue;
     }
 
-    public static <T extends View> T requireViewById(Activity activity, int i) {
+    @NonNull
+    public static <T extends View> T requireViewById(@NonNull Activity activity, @IdRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, activity, i)) == null) {
@@ -335,7 +348,7 @@ public class ActivityCompat extends ContextCompat {
         return (T) invokeLI.objValue;
     }
 
-    public static void setEnterSharedElementCallback(Activity activity, SharedElementCallback sharedElementCallback) {
+    public static void setEnterSharedElementCallback(@NonNull Activity activity, @Nullable SharedElementCallback sharedElementCallback) {
         SharedElementCallback21Impl sharedElementCallback21Impl;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65547, null, activity, sharedElementCallback) == null) && Build.VERSION.SDK_INT >= 21) {
@@ -348,7 +361,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static void setExitSharedElementCallback(Activity activity, SharedElementCallback sharedElementCallback) {
+    public static void setExitSharedElementCallback(@NonNull Activity activity, @Nullable SharedElementCallback sharedElementCallback) {
         SharedElementCallback21Impl sharedElementCallback21Impl;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65548, null, activity, sharedElementCallback) == null) && Build.VERSION.SDK_INT >= 21) {
@@ -361,7 +374,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
+    public static boolean shouldShowRequestPermissionRationale(@NonNull Activity activity, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, activity, str)) == null) {
@@ -373,7 +386,7 @@ public class ActivityCompat extends ContextCompat {
         return invokeLL.booleanValue;
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, @IntRange(from = 0) int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65545, null, activity, strArr, i) == null) {
             PermissionCompatDelegate permissionCompatDelegate = sDelegate;
@@ -432,7 +445,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
+    public static void startActivityForResult(@NonNull Activity activity, @NonNull Intent intent, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65551, null, activity, intent, i, bundle) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
@@ -443,7 +456,7 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static void startIntentSenderForResult(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public static void startIntentSenderForResult(@NonNull Activity activity, @NonNull IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {

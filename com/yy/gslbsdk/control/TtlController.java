@@ -22,7 +22,7 @@ public class TtlController {
     public static final int[] TTL_INTERVAL;
     public static TtlController sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mList;
+    public List<Boolean> mList;
     public int mTtlFailedCount;
     public int mTtlIntervalCount;
 

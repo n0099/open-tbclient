@@ -15,10 +15,10 @@ public class d {
     public static volatile d a;
     public static final String[] c = {"com", "android", "ss"};
     public static final int[] d = {3101, 3102, 3103, 3201, 3202, 3203};
-    public final LinkedList b = new LinkedList();
+    public final LinkedList<a> b = new LinkedList<>();
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public final String a;
         public final int b;
         public final String c;
@@ -54,8 +54,8 @@ public class d {
     private void b() {
         long currentTimeMillis = System.currentTimeMillis();
         synchronized (this.b) {
-            Iterator it = this.b.iterator();
-            while (it.hasNext() && currentTimeMillis - ((a) it.next()).e > FlushManager.ReportTimer.DEFAULT_INTERVAL) {
+            Iterator<a> it = this.b.iterator();
+            while (it.hasNext() && currentTimeMillis - it.next().e > FlushManager.ReportTimer.DEFAULT_INTERVAL) {
                 it.remove();
             }
         }
@@ -138,11 +138,11 @@ public class d {
         }
         b();
         synchronized (this.b) {
-            Iterator it = this.b.iterator();
+            Iterator<a> it = this.b.iterator();
             while (it.hasNext()) {
-                a aVar = (a) it.next();
-                if (aVar.e > bVar.C()) {
-                    return aVar;
+                a next = it.next();
+                if (next.e > bVar.C()) {
+                    return next;
                 }
             }
             return null;
@@ -155,9 +155,9 @@ public class d {
             return;
         }
         synchronized (this.b) {
-            Iterator it = this.b.iterator();
+            Iterator<a> it = this.b.iterator();
             while (it.hasNext()) {
-                if (str.equals(((a) it.next()).a)) {
+                if (str.equals(it.next().a)) {
                     it.remove();
                     return;
                 }
@@ -181,9 +181,9 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Pair b(com.ss.android.downloadad.api.a.b bVar) {
+    public Pair<a, Integer> b(com.ss.android.downloadad.api.a.b bVar) {
         int i;
-        a aVar;
+        a next;
         if (bVar == null) {
             return null;
         }
@@ -202,14 +202,14 @@ public class d {
         int length = d.length;
         a[] aVarArr = new a[length];
         synchronized (this.b) {
-            Iterator it = this.b.iterator();
+            Iterator<a> it = this.b.iterator();
             PackageInfo packageInfo = null;
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                aVar = (a) it.next();
-                if (aVar.e >= bVar.C()) {
+                next = it.next();
+                if (next.e >= bVar.C()) {
                     if (TextUtils.isEmpty(N)) {
                         if (packageInfo == null) {
                             packageInfo = l.a(bVar);
@@ -221,12 +221,12 @@ public class d {
                             }
                         }
                     }
-                    if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(aVar.d)) {
+                    if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.d)) {
                         N = N.toLowerCase();
-                        if (N.equals(aVar.d)) {
-                            aVarArr[0] = aVar;
+                        if (N.equals(next.d)) {
+                            aVarArr[0] = next;
                             break;
-                        } else if (N.contains(aVar.d) || aVar.d.contains(N)) {
+                        } else if (N.contains(next.d) || next.d.contains(N)) {
                             break;
                         }
                     }
@@ -238,13 +238,13 @@ public class d {
                             e = packageInfo.packageName;
                         }
                     }
-                    if (!TextUtils.isEmpty(e) && !TextUtils.isEmpty(aVar.a)) {
+                    if (!TextUtils.isEmpty(e) && !TextUtils.isEmpty(next.a)) {
                         e = e.toLowerCase();
-                        if (e.contains(aVar.a) || aVar.a.contains(e)) {
+                        if (e.contains(next.a) || next.a.contains(e)) {
                             break;
                         } else if (aVarArr[3] == null) {
-                            if (a(e, aVar.a)) {
-                                aVarArr[3] = aVar;
+                            if (a(e, next.a)) {
+                                aVarArr[3] = next;
                             }
                         }
                     }
@@ -257,10 +257,10 @@ public class d {
                                 J = packageInfo.versionName;
                             }
                         }
-                        if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(aVar.c)) {
+                        if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.c)) {
                             J = J.toLowerCase();
-                            if (J.equals(aVar.c)) {
-                                aVarArr[4] = aVar;
+                            if (J.equals(next.c)) {
+                                aVarArr[4] = next;
                             }
                         }
                         if (aVarArr[5] == null) {
@@ -272,18 +272,18 @@ public class d {
                                     I = packageInfo.versionCode;
                                 }
                             }
-                            if (I == aVar.b) {
-                                aVarArr[5] = aVar;
+                            if (I == next.b) {
+                                aVarArr[5] = next;
                             }
                         }
                     }
                 }
             }
-            aVarArr[2] = aVar;
+            aVarArr[2] = next;
         }
         for (i = 0; i < length; i++) {
             if (aVarArr[i] != null) {
-                return new Pair(aVarArr[i], Integer.valueOf(d[i]));
+                return new Pair<>(aVarArr[i], Integer.valueOf(d[i]));
             }
         }
         return null;

@@ -1,5 +1,6 @@
 package com.bumptech.glide.signature;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +24,7 @@ public final class EmptySignature implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageDigest) == null) {
         }
@@ -59,6 +60,7 @@ public final class EmptySignature implements Key {
         }
     }
 
+    @NonNull
     public static EmptySignature obtain() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

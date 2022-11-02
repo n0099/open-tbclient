@@ -1,6 +1,8 @@
 package com.baidu.searchbox.player.ubc;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
@@ -38,6 +40,7 @@ public class CoreStatPlugin extends AbsPlugin {
     public final UBCManager mUBCService;
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
+    @Nullable
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,7 +95,7 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    private long getMsgChannelCost(String str) {
+    private long getMsgChannelCost(@Nullable String str) {
         InterceptResult invokeL;
         long parseLong;
         long j;
@@ -153,7 +156,7 @@ public class CoreStatPlugin extends AbsPlugin {
         return (BDVideoPlayerUbcContent) invokeV.objValue;
     }
 
-    private void onCarlton(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, String str) {
+    private void onCarlton(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, this, bDVideoPlayerUbcContent, str) == null) && !TextUtils.isEmpty(str)) {
             BdVideoLog.d("【Statistics】 onCarlton upload begin");
@@ -172,7 +175,7 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onError(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i, String str) {
+    private void onError(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, this, bDVideoPlayerUbcContent, i, str) == null) {
             BdVideoLog.d("【Statistics】 onError upload begin");
@@ -188,7 +191,7 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    public void onFirstFrameDisPlay(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    public void onFirstFrameDisPlay(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bDVideoPlayerUbcContent) == null) {
             BdVideoLog.d("【Statistics】 onFirstFrameDisPlay upload begin");
@@ -204,7 +207,7 @@ public class CoreStatPlugin extends AbsPlugin {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(VideoEvent videoEvent) {
+    public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
@@ -326,18 +329,18 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    public void setKernelExternalInfo(Flow flow) {
+    public void setKernelExternalInfo(@Nullable Flow flow) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, flow) == null) && flow != null && getBindPlayer() != null) {
-            HashMap slotMaps = flow.getSlotMaps();
+            HashMap<String, Slot> slotMaps = flow.getSlotMaps();
             long startTime = flow.getStartTime();
             if (slotMaps != null && slotMaps.size() > 0) {
                 HashMap hashMap = new HashMap();
-                for (Map.Entry entry : slotMaps.entrySet()) {
-                    String str = (String) entry.getKey();
-                    Slot slot = (Slot) entry.getValue();
-                    if (!TextUtils.isEmpty(str) && slot != null) {
-                        hashMap.put(str, String.valueOf(slot.getEnd() - slot.getStart()));
+                for (Map.Entry<String, Slot> entry : slotMaps.entrySet()) {
+                    String key = entry.getKey();
+                    Slot value = entry.getValue();
+                    if (!TextUtils.isEmpty(key) && value != null) {
+                        hashMap.put(key, String.valueOf(value.getEnd() - value.getStart()));
                     }
                 }
                 hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_FIRST_SCREEN));

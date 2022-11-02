@@ -19,7 +19,7 @@ public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
     public Executor mDownloadStatusPoster;
 
     /* loaded from: classes2.dex */
-    public class DownloadStatusDeliveryRunnable implements Runnable {
+    public static class DownloadStatusDeliveryRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DownloadCallback mCallBack;

@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class NetWorkState {
     public static /* synthetic */ Interceptable $ic;
     public static AtomicInteger mErrorNums;
-    public static ArrayList mStatisticsDatas;
+    public static ArrayList<StatisticsData> mStatisticsDatas;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -55,7 +55,7 @@ public class NetWorkState {
                 return;
             }
         }
-        mStatisticsDatas = new ArrayList();
+        mStatisticsDatas = new ArrayList<>();
         mErrorNums = new AtomicInteger(0);
     }
 
@@ -80,7 +80,7 @@ public class NetWorkState {
             synchronized (NetWorkState.class) {
                 int size = mStatisticsDatas.size();
                 if (size > 0) {
-                    return (StatisticsData) mStatisticsDatas.remove(size - 1);
+                    return mStatisticsDatas.remove(size - 1);
                 }
                 return null;
             }

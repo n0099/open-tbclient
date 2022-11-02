@@ -1,8 +1,10 @@
 package androidx.fragment.app;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -180,6 +183,7 @@ public final class FragmentState implements Parcelable {
         this.mMaxLifecycleState = fragment.mMaxState.ordinal();
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

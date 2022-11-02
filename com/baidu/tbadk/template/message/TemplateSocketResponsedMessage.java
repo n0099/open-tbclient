@@ -1,9 +1,10 @@
 package com.baidu.tbadk.template.message;
 
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wf5;
+import com.baidu.tieba.sg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wf5 mIResp;
+    public sg5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateSocketResponsedMessage(int i) {
@@ -66,6 +67,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -73,7 +75,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
             Log.i("Template", "TemplateSocketResponsedMessage-->decodeInBackGround");
             TemplateNetMessage templateNetMessage = getTemplateNetMessage();
             if (templateNetMessage != null && templateNetMessage.getIResp() != null) {
-                wf5 iResp = templateNetMessage.getIResp();
+                sg5 iResp = templateNetMessage.getIResp();
                 this.mIResp = iResp;
                 iResp.a(i, bArr);
                 setError(this.mIResp.getErrorCode());
@@ -85,12 +87,12 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public wf5 getIResp() {
+    public sg5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mIResp;
         }
-        return (wf5) invokeV.objValue;
+        return (sg5) invokeV.objValue;
     }
 }

@@ -19,10 +19,10 @@ public class ExtensionRegistryLite {
     public static final ExtensionRegistryLite EMPTY;
     public static volatile boolean eagerlyParseMessageSets;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map extensionsByNumber;
+    public final Map<ObjectIntPair, GeneratedMessageLite.GeneratedExtension<?, ?>> extensionsByNumber;
 
     /* loaded from: classes7.dex */
-    public final class ObjectIntPair {
+    public static final class ObjectIntPair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int number;
@@ -188,18 +188,18 @@ public class ExtensionRegistryLite {
         }
     }
 
-    public final void add(GeneratedMessageLite.GeneratedExtension generatedExtension) {
+    public final void add(GeneratedMessageLite.GeneratedExtension<?, ?> generatedExtension) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, generatedExtension) == null) {
             this.extensionsByNumber.put(new ObjectIntPair(generatedExtension.getContainingTypeDefaultInstance(), generatedExtension.getNumber()), generatedExtension);
         }
     }
 
-    public GeneratedMessageLite.GeneratedExtension findLiteExtensionByNumber(MessageLite messageLite, int i) {
+    public <ContainingType extends MessageLite> GeneratedMessageLite.GeneratedExtension<ContainingType, ?> findLiteExtensionByNumber(ContainingType containingtype, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageLite, i)) == null) {
-            return (GeneratedMessageLite.GeneratedExtension) this.extensionsByNumber.get(new ObjectIntPair(messageLite, i));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, containingtype, i)) == null) {
+            return (GeneratedMessageLite.GeneratedExtension<ContainingType, ?>) this.extensionsByNumber.get(new ObjectIntPair(containingtype, i));
         }
         return (GeneratedMessageLite.GeneratedExtension) invokeLI.objValue;
     }

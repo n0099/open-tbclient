@@ -129,7 +129,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                 ProgressBar progressBar = new ProgressBar(this, null, 16842872);
                 this.progressBar = progressBar;
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(this, 2.0f), 0, 0));
-                this.progressBar.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a02));
+                this.progressBar.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a14));
                 this.e.addView(this.progressBar);
             } catch (Throwable th) {
                 Log.e(th);
@@ -244,9 +244,9 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             if (z) {
-                overridePendingTransition(R.anim.obfuscated_res_0x7f01011c, R.anim.obfuscated_res_0x7f01011b);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f01011d, R.anim.obfuscated_res_0x7f01011c);
             } else {
-                overridePendingTransition(R.anim.obfuscated_res_0x7f01011a, R.anim.obfuscated_res_0x7f01011d);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f01011b, R.anim.obfuscated_res_0x7f01011e);
             }
         }
     }
@@ -269,8 +269,8 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             if (this.a) {
                 setTheme(R.style.obfuscated_res_0x7f10017c);
             }
-            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092642);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092699);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092256);
             ImageView imageView = (ImageView) findViewById(R.id.title_btn_left_iv);
             this.mLeftBtnIv = imageView;
             imageView.setOnClickListener(this);
@@ -307,26 +307,26 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                 ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.getTextZoom());
             }
             if (this.a) {
-                this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f081041);
-                this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
-                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
+                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f08105d);
+                this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
+                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
+                this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
                 ImageView imageView2 = this.mBottomBackBtnIv;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081041);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08105d);
                 }
                 RelativeLayout relativeLayout = this.mBottomBgLayout;
                 if (relativeLayout != null) {
-                    relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                    relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
                 }
                 TextView textView2 = this.mBottomBackTvText;
                 if (textView2 != null) {
-                    textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
+                    textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
                 }
                 ImageView imageView3 = this.mBottomDividerLine;
                 if (imageView3 != null) {
-                    imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                    imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f4));
                 }
             }
             a();
@@ -351,7 +351,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             if (this.configuration == null) {
                 this.configuration = SapiAccountManager.getInstance().getConfignation();
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0500);
+            setContentView(R.layout.obfuscated_res_0x7f0d0510);
             a(true);
             b();
             c();

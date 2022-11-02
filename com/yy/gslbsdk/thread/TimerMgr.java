@@ -18,7 +18,7 @@ public class TimerMgr {
     public static TimerMgr mTimerMgr;
     public transient /* synthetic */ FieldHolder $fh;
     public Timer mTimer;
-    public HashMap workerList;
+    public HashMap<String, TimerTaskInfo> workerList;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class TimerMgr {
                 return;
             }
         }
-        this.workerList = new HashMap();
+        this.workerList = new HashMap<>();
         this.mTimer = new Timer("Timer-gslb");
     }
 

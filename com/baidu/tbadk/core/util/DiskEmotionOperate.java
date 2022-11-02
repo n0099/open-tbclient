@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
     public BitmapFactory.Options mOptions;
 
     /* loaded from: classes3.dex */
-    public class DiskPicHeader {
+    public static class DiskPicHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static byte GIF_FLAG = Byte.MIN_VALUE;
         public static final int MAGIC_DIGIT = 1786600510;
@@ -226,7 +226,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
             super.setData(bArr);
-            if (!isGif() && fj.B(bArr)) {
+            if (!isGif() && xi.D(bArr)) {
                 setGif(true);
             }
         }

@@ -24,16 +24,16 @@ public final class DataRes extends Message {
     public final Integer total;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List res;
+        public List<MsgInfo> res;
         public Integer total;
 
         public Builder() {
@@ -129,7 +129,7 @@ public final class DataRes extends Message {
             } else {
                 this.total = num;
             }
-            List list = builder.res;
+            List<MsgInfo> list = builder.res;
             if (list == null) {
                 this.res = DEFAULT_RES;
                 return;

@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,7 +71,7 @@ public class AtListActivityConfig extends IntentConfig {
         }
     }
 
-    public void setSelectedAtList(ArrayList arrayList) {
+    public void setSelectedAtList(ArrayList<AtSelectData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
             getIntent().putParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA, arrayList);

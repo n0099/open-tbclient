@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ue9;
+import com.baidu.tieba.dg9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +53,7 @@ public class MediaSegment implements Parcelable, Cloneable {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<MediaSegment> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -205,7 +205,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new ue9().c(str, new b().getType());
+                return (List) new dg9().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }

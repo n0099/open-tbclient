@@ -25,7 +25,7 @@ public class SoftInputUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "SoftInputUtil";
-    public static WeakReference sContentViewRef;
+    public static WeakReference<ViewGroup> sContentViewRef;
     public static int sLastSaveSoftInputHeight;
     public static int sMaxPanelHeight;
     public static int sMaxSoftInputHeight;
@@ -39,7 +39,7 @@ public class SoftInputUtil {
     }
 
     /* loaded from: classes2.dex */
-    public class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
+    public static class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Activity mActivity;
@@ -253,11 +253,11 @@ public class SoftInputUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            WeakReference weakReference = sContentViewRef;
+            WeakReference<ViewGroup> weakReference = sContentViewRef;
             if (weakReference == null) {
                 return null;
             }
-            return (ViewGroup) weakReference.get();
+            return weakReference.get();
         }
         return (ViewGroup) invokeV.objValue;
     }
@@ -315,7 +315,7 @@ public class SoftInputUtil {
             }
             SoftInputStatusListener softInputStatusListener = new SoftInputStatusListener(activity, viewGroup, iPanelHeightTarget, onSoftInputShowingListener);
             viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(softInputStatusListener);
-            sContentViewRef = new WeakReference(viewGroup);
+            sContentViewRef = new WeakReference<>(viewGroup);
             return softInputStatusListener;
         }
         return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLLL.objValue;
@@ -400,7 +400,7 @@ public class SoftInputUtil {
     public static void setContentView(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, viewGroup) == null) {
-            sContentViewRef = new WeakReference(viewGroup);
+            sContentViewRef = new WeakReference<>(viewGroup);
         }
     }
 

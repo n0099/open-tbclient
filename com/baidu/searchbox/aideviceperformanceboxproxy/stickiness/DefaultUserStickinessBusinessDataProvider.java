@@ -28,7 +28,7 @@ public class DefaultUserStickinessBusinessDataProvider implements IUserStickines
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.stickiness.IUserStickinessBusinessDataProvider
-    public List getRegisteredBusinessIdsList() {
+    public List<String> getRegisteredBusinessIdsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

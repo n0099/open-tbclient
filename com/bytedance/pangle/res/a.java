@@ -31,9 +31,9 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static Map a;
+    public static Map<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap b;
+    public LinkedHashMap<String, Integer> b;
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +70,7 @@ public final class a {
                 return;
             }
         }
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
+        LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
         this.b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
     }
@@ -98,10 +98,10 @@ public final class a {
                 }
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
                 synchronized (this.b) {
-                    for (Map.Entry entry : this.b.entrySet()) {
+                    for (Map.Entry<String, Integer> entry : this.b.entrySet()) {
                         if (!a.containsKey(entry.getKey())) {
-                            sb.append((String) entry.getKey());
-                            b(assetManager2, (String) entry.getKey(), false);
+                            sb.append(entry.getKey());
+                            b(assetManager2, entry.getKey(), false);
                         }
                     }
                 }

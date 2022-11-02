@@ -1,16 +1,18 @@
 package com.baidu.nadcore.video.plugin.videoplayer.model;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.lx0;
-import com.baidu.tieba.sr0;
-import com.baidu.tieba.wr0;
-import com.baidu.tieba.xr0;
-import com.baidu.tieba.yy0;
+import com.baidu.tieba.cy0;
+import com.baidu.tieba.js0;
+import com.baidu.tieba.ns0;
+import com.baidu.tieba.os0;
+import com.baidu.tieba.pz0;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +28,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClarityUrlList extends ArrayList {
+public class ClarityUrlList extends ArrayList<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mClarityInfoStr;
@@ -42,7 +44,7 @@ public class ClarityUrlList extends ArrayList {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements Comparator {
+    public class a implements Comparator<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ClarityUrlList a;
@@ -127,7 +129,7 @@ public class ClarityUrlList extends ArrayList {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements Comparable {
+    public static class c implements Comparable<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -136,11 +138,11 @@ public class ClarityUrlList extends ArrayList {
         public String d;
         public String e;
         public float f;
-        public HashMap g;
+        public HashMap<String, String> g;
         public float h;
         public int i;
         public int j;
-        public wr0 k;
+        public ns0 k;
 
         static {
             InterceptResult invokeClinit;
@@ -155,11 +157,11 @@ public class ClarityUrlList extends ArrayList {
                     return;
                 }
             }
-            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c3b);
-            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c39);
-            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c3a);
-            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c37);
-            aj0.b().getString(R.string.obfuscated_res_0x7f0f0c38);
+            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c52);
+            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c50);
+            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c51);
+            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c4e);
+            zi0.b().getString(R.string.obfuscated_res_0x7f0f0c4f);
         }
 
         public c() {
@@ -180,13 +182,13 @@ public class ClarityUrlList extends ArrayList {
             this.f = -1.0f;
         }
 
-        public wr0 b() {
+        public ns0 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.k;
             }
-            return (wr0) invokeV.objValue;
+            return (ns0) invokeV.objValue;
         }
 
         public String c() {
@@ -252,7 +254,7 @@ public class ClarityUrlList extends ArrayList {
             return invokeV.floatValue;
         }
 
-        public HashMap j() {
+        public HashMap<String, String> j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -309,7 +311,7 @@ public class ClarityUrlList extends ArrayList {
             this.g = null;
             this.i = jSONObject.optInt("videoBps");
             this.j = jSONObject.optInt("vodMoovSize");
-            this.k = xr0.b(jSONObject.optString("auth"));
+            this.k = os0.b(jSONObject.optString("auth"));
             jSONObject.optLong("expire_date");
             jSONObject.optString("interact_url");
             jSONObject.optInt("prefetch_size");
@@ -359,12 +361,13 @@ public class ClarityUrlList extends ArrayList {
         }
     }
 
+    @Nullable
     public b getAutoClarity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             for (int i = 0; i < size(); i++) {
-                c cVar = (c) get(i);
+                c cVar = get(i);
                 if (cVar instanceof b) {
                     return (b) cVar;
                 }
@@ -374,13 +377,14 @@ public class ClarityUrlList extends ArrayList {
         return (b) invokeV.objValue;
     }
 
+    @Nullable
     public c getClarityByIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int i = this.mDefaultClarity;
             if (i >= 0 && i < size()) {
-                return (c) get(this.mDefaultClarity);
+                return get(this.mDefaultClarity);
             }
             return null;
         }
@@ -405,6 +409,7 @@ public class ClarityUrlList extends ArrayList {
         return (c) invokeV.objValue;
     }
 
+    @NonNull
     public String getCurrentKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -427,7 +432,7 @@ public class ClarityUrlList extends ArrayList {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             for (int i = 0; i < size(); i++) {
-                c cVar = (c) get(i);
+                c cVar = get(i);
                 if (cVar != null && cVar.compareTo(this.mCurrentClarityUrl) == 0) {
                     return cVar.c;
                 }
@@ -450,7 +455,7 @@ public class ClarityUrlList extends ArrayList {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return ((c) get(this.mDefaultClarity)).f();
+            return get(this.mDefaultClarity).f();
         }
         return (String) invokeV.objValue;
     }
@@ -491,7 +496,7 @@ public class ClarityUrlList extends ArrayList {
         convert(jSONArray, false);
     }
 
-    private void convert(JSONArray jSONArray) {
+    private void convert(@NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, jSONArray) == null) {
             convert(jSONArray, false);
@@ -503,7 +508,7 @@ public class ClarityUrlList extends ArrayList {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             for (int i2 = 0; i2 < size(); i2++) {
-                c cVar = (c) get(i2);
+                c cVar = get(i2);
                 if (cVar.e() == i) {
                     return cVar;
                 }
@@ -564,7 +569,7 @@ public class ClarityUrlList extends ArrayList {
         }
     }
 
-    private void convert(JSONArray jSONArray, boolean z) {
+    private void convert(@NonNull JSONArray jSONArray, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONArray, z) == null) {
             int length = jSONArray.length();
@@ -578,11 +583,11 @@ public class ClarityUrlList extends ArrayList {
                 return;
             }
             Collections.sort(this);
-            lx0 b2 = yy0.b(this, ((c) get(size() - 1)).i());
+            cy0 b2 = pz0.b(this, get(size() - 1).i());
             this.mSelectType = b2.b;
             int i2 = b2.a;
             this.mDefaultClarity = i2;
-            c cVar = (c) get(i2);
+            c cVar = get(i2);
             this.mCurrentClarityUrl = cVar;
             this.mMultiRateSwitchRank = cVar.c;
         }
@@ -594,10 +599,10 @@ public class ClarityUrlList extends ArrayList {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.mDefaultClarity < size() && (i = this.mDefaultClarity) >= 0) {
-                if (!"auto".equals(((c) get(i)).c())) {
-                    return ((c) get(this.mDefaultClarity)).g();
+                if (!"auto".equals(get(i).c())) {
+                    return get(this.mDefaultClarity).g();
                 }
-                return ((c) get(0)).g();
+                return get(0).g();
             }
             return "";
         }
@@ -612,7 +617,7 @@ public class ClarityUrlList extends ArrayList {
         ArrayList arrayList = new ArrayList(this);
         Collections.sort(arrayList, new a(this));
         setCurrentClarityUrl((c) arrayList.get(0));
-        if (sr0.b()) {
+        if (js0.b()) {
             setMultiRateSwitchRank(((c) arrayList.get(0)).c);
         }
     }

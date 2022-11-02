@@ -1,10 +1,15 @@
 package com.baidu.searchbox.player;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.callback.UniversalPlayerCallbackManager;
 import com.baidu.searchbox.player.constants.PlayerConstant;
 import com.baidu.searchbox.player.context.IPlayerContext;
@@ -31,13 +36,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"KotlinPropertyAccess"})
 /* loaded from: classes2.dex */
 public class UniversalPlayer extends BDVideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UniversalPlayer";
     public static boolean sIsOrientationLock;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleArrayMap mContextMap;
+    public final SimpleArrayMap<Class<? extends IPlayerContext>, IPlayerContext> mContextMap;
     public String mCurrentMode;
     public boolean mIsEnableOrientation;
     public OrientationHelper mOrientationHelper;
@@ -70,6 +76,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         return invokeV.booleanValue;
     }
 
+    @Nullable
     public INeuronSetupHelper getNeuronSetupHelper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +96,7 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer
-    public void setupLayers(Context context) {
+    public void setupLayers(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, context) == null) {
         }
@@ -162,7 +169,7 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UniversalPlayer(Context context) {
+    public UniversalPlayer(@Nullable Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -180,12 +187,12 @@ public class UniversalPlayer extends BDVideoPlayer {
             }
         }
         this.mCurrentMode = PlayerConstant.HALF_MODE;
-        this.mContextMap = new SimpleArrayMap();
+        this.mContextMap = new SimpleArrayMap<>();
         this.mVideoSession = VideoSessionManager.getInstance().createVideoSession();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UniversalPlayer(Context context, BaseKernelLayer baseKernelLayer) {
+    public UniversalPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer) {
         super(context, baseKernelLayer);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -204,12 +211,12 @@ public class UniversalPlayer extends BDVideoPlayer {
             }
         }
         this.mCurrentMode = PlayerConstant.HALF_MODE;
-        this.mContextMap = new SimpleArrayMap();
+        this.mContextMap = new SimpleArrayMap<>();
         this.mVideoSession = VideoSessionManager.getInstance().createVideoSession();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UniversalPlayer(Context context, BaseKernelLayer baseKernelLayer, String str) {
+    public UniversalPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer, @NonNull String str) {
         super(context, baseKernelLayer, str, "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -228,12 +235,12 @@ public class UniversalPlayer extends BDVideoPlayer {
             }
         }
         this.mCurrentMode = PlayerConstant.HALF_MODE;
-        this.mContextMap = new SimpleArrayMap();
+        this.mContextMap = new SimpleArrayMap<>();
         this.mVideoSession = VideoSessionManager.getInstance().createVideoSession();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UniversalPlayer(Context context, String str, String str2) {
+    public UniversalPlayer(@Nullable Context context, @NonNull String str, @Nullable String str2) {
         super(context, null, str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -252,10 +259,11 @@ public class UniversalPlayer extends BDVideoPlayer {
             }
         }
         this.mCurrentMode = PlayerConstant.HALF_MODE;
-        this.mContextMap = new SimpleArrayMap();
+        this.mContextMap = new SimpleArrayMap<>();
         this.mVideoSession = VideoSessionManager.getInstance().createVideoSession();
     }
 
+    @PublicMethod
     public static boolean isOrientationLock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -265,6 +273,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public void disableOrientationEventHelper() {
         OrientationHelper orientationHelper;
         Interceptable interceptable = $ic;
@@ -275,6 +284,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         orientationHelper.disable();
     }
 
+    @PublicMethod
     public void enableOrientationEventHelper() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mOrientationHelper.canDetectOrientation()) {
@@ -282,6 +292,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public String getCurrentMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -291,6 +302,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         return (String) invokeV.objValue;
     }
 
+    @PublicMethod
     public OrientationHelper getOrientationHelper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -302,6 +314,8 @@ public class UniversalPlayer extends BDVideoPlayer {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.BDVideoPlayer
+    @NonNull
+    @PublicMethod
     public UniversalPlayerCallbackManager getPlayerCallbackManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -313,6 +327,8 @@ public class UniversalPlayer extends BDVideoPlayer {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.BDVideoPlayer
+    @NonNull
+    @PublicMethod
     public IUniversalPlayerStatDispatcher getStatDispatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -322,6 +338,8 @@ public class UniversalPlayer extends BDVideoPlayer {
         return (IUniversalPlayerStatDispatcher) invokeV.objValue;
     }
 
+    @NonNull
+    @PublicMethod
     public IPlayerStyleSwitchHelper getStyleSwitchHelper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -331,6 +349,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         return (IPlayerStyleSwitchHelper) invokeV.objValue;
     }
 
+    @NonNull
     @Deprecated
     public VideoSession getVideoSession() {
         InterceptResult invokeV;
@@ -357,6 +376,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public boolean isFloatingMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -366,6 +386,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isFullMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -375,6 +396,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isReverseLandscape() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -388,6 +410,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean onKeyBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -403,6 +426,7 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer
+    @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
@@ -411,6 +435,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public void switchOrientationLock() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
@@ -418,6 +443,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public void switchToHalf() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
@@ -425,14 +451,16 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
-    private void setupInternalNeuron(Context context) {
+    private void setupInternalNeuron(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, this, context) == null) && getNeuronSetupHelper() != null) {
             getNeuronSetupHelper().setupInternalNeuron(context);
         }
     }
 
-    public int findLayerIndex(ILayer iLayer) {
+    @IntRange(from = -1)
+    @PublicMethod
+    public int findLayerIndex(@NonNull ILayer iLayer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iLayer)) == null) {
@@ -441,20 +469,23 @@ public class UniversalPlayer extends BDVideoPlayer {
         return invokeL.intValue;
     }
 
-    public IPlayerContext getPlayerContext(Class cls) {
+    @Nullable
+    @PublicMethod
+    public <T extends IPlayerContext> T getPlayerContext(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) {
-            IPlayerContext iPlayerContext = (IPlayerContext) this.mContextMap.get(cls);
-            if (iPlayerContext != null) {
-                return iPlayerContext;
+            T t = (T) this.mContextMap.get(cls);
+            if (t != null) {
+                return t;
             }
             return null;
         }
-        return (IPlayerContext) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer
+    @PublicMethod
     public void goBackOrForeground(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
@@ -467,6 +498,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public void setIsFullMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
@@ -478,13 +510,15 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
-    public void setOrientationHelper(OrientationHelper orientationHelper) {
+    @PublicMethod
+    public void setOrientationHelper(@NonNull OrientationHelper orientationHelper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, orientationHelper) == null) {
             this.mOrientationHelper = orientationHelper;
         }
     }
 
+    @PublicMethod
     public void setOrientationLock(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
@@ -495,6 +529,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public void setPlayerMode(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
@@ -502,6 +537,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public void setRemote(boolean z) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
@@ -510,13 +546,15 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
-    public void setStyleSwitchHelper(IPlayerStyleSwitchHelper iPlayerStyleSwitchHelper) {
+    @PublicMethod
+    public void setStyleSwitchHelper(@NonNull IPlayerStyleSwitchHelper iPlayerStyleSwitchHelper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, iPlayerStyleSwitchHelper) == null) {
             this.mStyleSwitchHelper = iPlayerStyleSwitchHelper;
         }
     }
 
+    @PublicMethod
     public void switchToFull(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
@@ -524,7 +562,8 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
-    public int findLayerIndex(Class cls) {
+    @PublicMethod
+    public int findLayerIndex(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
@@ -554,6 +593,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public void switchToFull() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
@@ -568,7 +608,8 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
-    public void registerContext(Class cls, IPlayerContext iPlayerContext) {
+    @PublicMethod
+    public void registerContext(Class<? extends IPlayerContext> cls, @NonNull IPlayerContext iPlayerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048600, this, cls, iPlayerContext) == null) {
             iPlayerContext.setPlayer(this);
@@ -577,7 +618,7 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer
-    public void setupPlayer(Context context, BaseKernelLayer baseKernelLayer) {
+    public void setupPlayer(@NonNull Context context, @Nullable BaseKernelLayer baseKernelLayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048609, this, context, baseKernelLayer) == null) {
             super.setupPlayer(context, baseKernelLayer);
@@ -585,6 +626,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
     }
 
+    @PublicMethod
     public void switchToHalf(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {

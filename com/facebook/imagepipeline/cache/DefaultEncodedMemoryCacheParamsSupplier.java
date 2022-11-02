@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class DefaultEncodedMemoryCacheParamsSupplier implements Supplier {
+public class DefaultEncodedMemoryCacheParamsSupplier implements Supplier<MemoryCacheParams> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_ENTRIES = Integer.MAX_VALUE;
     public static final int MAX_EVICTION_QUEUE_ENTRIES = Integer.MAX_VALUE;
@@ -64,6 +64,7 @@ public class DefaultEncodedMemoryCacheParamsSupplier implements Supplier {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.internal.Supplier
     public MemoryCacheParams get() {
         InterceptResult invokeV;

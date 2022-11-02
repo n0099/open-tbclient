@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -183,7 +184,7 @@ public class DropDownListView extends ListView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DropDownListView(Context context, boolean z) {
+    public DropDownListView(@NonNull Context context, boolean z) {
         super(context, null, R.attr.obfuscated_res_0x7f040264);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -629,7 +630,7 @@ public class DropDownListView extends ListView {
     }
 
     @Override // android.view.View
-    public boolean onHoverEvent(MotionEvent motionEvent) {
+    public boolean onHoverEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {

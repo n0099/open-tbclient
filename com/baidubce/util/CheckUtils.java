@@ -34,9 +34,9 @@ public class CheckUtils {
         throw new IllegalArgumentException(String.valueOf(obj));
     }
 
-    public static void isNotNull(Object obj, String str) {
+    public static <T> void isNotNull(T t, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, obj, str) != null) || obj != null) {
+        if ((interceptable != null && interceptable.invokeLL(65541, null, t, str) != null) || t != null) {
             return;
         }
         throw new NullPointerException(String.valueOf(str));
@@ -50,16 +50,16 @@ public class CheckUtils {
         throw new IllegalArgumentException(format(str, objArr));
     }
 
-    public static Object isNotNull(Object obj, String str, Object... objArr) {
+    public static <T> T isNotNull(T t, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, objArr)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, t, str, objArr)) == null) {
+            if (t != null) {
+                return t;
             }
             throw new NullPointerException(format(str, objArr));
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
     public static String format(String str, Object... objArr) {

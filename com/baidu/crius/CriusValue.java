@@ -1,6 +1,7 @@
 package com.baidu.crius;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.crius.annotations.DoNotStrip;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+@DoNotStrip
 /* loaded from: classes.dex */
 public class CriusValue {
     public static /* synthetic */ Interceptable $ic;
@@ -21,7 +23,7 @@ public class CriusValue {
 
     /* renamed from: com.baidu.crius.CriusValue$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$crius$CriusUnit;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,6 +81,7 @@ public class CriusValue {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @DoNotStrip
     public CriusValue(float f, int i) {
         this(f, CriusUnit.fromInt(i));
         Interceptable interceptable = $ic;

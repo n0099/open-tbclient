@@ -1,6 +1,8 @@
 package com.google.android.gms.common.wrappers;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.util.VisibleForTesting;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class Wrappers {
     public static /* synthetic */ Interceptable $ic;
     public static Wrappers zza;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public PackageManagerWrapper zzb;
 
     static {
@@ -47,7 +53,9 @@ public class Wrappers {
         this.zzb = null;
     }
 
-    public static PackageManagerWrapper packageManager(Context context) {
+    @NonNull
+    @KeepForSdk
+    public static PackageManagerWrapper packageManager(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -56,7 +64,9 @@ public class Wrappers {
         return (PackageManagerWrapper) invokeL.objValue;
     }
 
-    public final synchronized PackageManagerWrapper zza(Context context) {
+    @NonNull
+    @VisibleForTesting
+    public final synchronized PackageManagerWrapper zza(@NonNull Context context) {
         InterceptResult invokeL;
         PackageManagerWrapper packageManagerWrapper;
         Interceptable interceptable = $ic;

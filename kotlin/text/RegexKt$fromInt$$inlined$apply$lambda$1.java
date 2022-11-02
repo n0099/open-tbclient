@@ -16,8 +16,9 @@ public final class RegexKt$fromInt$$inlined$apply$lambda$1 extends Lambda implem
         this.$value$inlined = i;
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+    public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
         return Boolean.valueOf(invoke((Enum) obj));
     }
 

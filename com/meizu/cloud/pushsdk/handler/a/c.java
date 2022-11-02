@@ -25,7 +25,7 @@ import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends a {
+public class c extends a<MessageV3> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
     }
@@ -48,6 +48,7 @@ public class c extends a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
         if (cVar != null) {
@@ -76,6 +77,7 @@ public class c extends a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: d */
     public void b(MessageV3 messageV3) {
@@ -83,6 +85,7 @@ public class c extends a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: e */
     public void c(MessageV3 messageV3) {
@@ -91,14 +94,14 @@ public class c extends a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: f */
+    /* renamed from: f  reason: avoid collision after fix types in other method */
     public boolean g(MessageV3 messageV3) {
         return a(messageV3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: g */
+    /* renamed from: g  reason: avoid collision after fix types in other method */
     public com.meizu.cloud.pushsdk.notification.c a(MessageV3 messageV3) {
         PushNotificationBuilder pushNotificationBuilder = new PushNotificationBuilder(c());
         pushNotificationBuilder.setClickPackageName(k(messageV3));

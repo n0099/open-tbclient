@@ -9,6 +9,11 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
@@ -43,39 +48,47 @@ public class MediaController implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaController";
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("mLock")
     public boolean mClosed;
+    @GuardedBy("mLock")
     public final List<Pair<ControllerCallback, Executor>> mExtraControllerCallbacks;
+    @GuardedBy("mLock")
     public MediaControllerImpl mImpl;
     public final Object mLock;
     public final ControllerCallback mPrimaryCallback;
     public final Executor mPrimaryCallbackExecutor;
     public Long mTimeDiff;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public interface ControllerCallbackRunnable {
-        void run(ControllerCallback controllerCallback);
+        void run(@NonNull ControllerCallback controllerCallback);
     }
 
     /* loaded from: classes.dex */
     public interface MediaControllerImpl extends Closeable {
-        ListenableFuture addPlaylistItem(int i, String str);
+        ListenableFuture<SessionResult> addPlaylistItem(int i, @NonNull String str);
 
-        ListenableFuture adjustVolume(int i, int i2);
+        ListenableFuture<SessionResult> adjustVolume(int i, int i2);
 
-        ListenableFuture deselectTrack(SessionPlayer.TrackInfo trackInfo);
+        ListenableFuture<SessionResult> deselectTrack(SessionPlayer.TrackInfo trackInfo);
 
-        ListenableFuture fastForward();
+        ListenableFuture<SessionResult> fastForward();
 
+        @Nullable
         SessionCommandGroup getAllowedCommands();
 
+        @Nullable
         MediaBrowserCompat getBrowserCompat();
 
         long getBufferedPosition();
 
         int getBufferingState();
 
+        @Nullable
         SessionToken getConnectedToken();
 
+        @NonNull
         Context getContext();
 
         MediaItem getCurrentMediaItem();
@@ -88,89 +101,98 @@ public class MediaController implements Closeable {
 
         int getNextMediaItemIndex();
 
+        @Nullable
         PlaybackInfo getPlaybackInfo();
 
         float getPlaybackSpeed();
 
         int getPlayerState();
 
-        List getPlaylist();
+        @Nullable
+        List<MediaItem> getPlaylist();
 
+        @Nullable
         MediaMetadata getPlaylistMetadata();
 
         int getPreviousMediaItemIndex();
 
         int getRepeatMode();
 
+        @Nullable
         SessionPlayer.TrackInfo getSelectedTrack(int i);
 
+        @Nullable
         PendingIntent getSessionActivity();
 
         int getShuffleMode();
 
-        List getTracks();
+        @NonNull
+        List<SessionPlayer.TrackInfo> getTracks();
 
+        @NonNull
         VideoSize getVideoSize();
 
         boolean isConnected();
 
-        ListenableFuture movePlaylistItem(int i, int i2);
+        ListenableFuture<SessionResult> movePlaylistItem(int i, int i2);
 
-        ListenableFuture pause();
+        ListenableFuture<SessionResult> pause();
 
-        ListenableFuture play();
+        ListenableFuture<SessionResult> play();
 
-        ListenableFuture prepare();
+        ListenableFuture<SessionResult> prepare();
 
-        ListenableFuture removePlaylistItem(int i);
+        ListenableFuture<SessionResult> removePlaylistItem(int i);
 
-        ListenableFuture replacePlaylistItem(int i, String str);
+        ListenableFuture<SessionResult> replacePlaylistItem(int i, @NonNull String str);
 
-        ListenableFuture rewind();
+        ListenableFuture<SessionResult> rewind();
 
-        ListenableFuture seekTo(long j);
+        ListenableFuture<SessionResult> seekTo(long j);
 
-        ListenableFuture selectTrack(SessionPlayer.TrackInfo trackInfo);
+        ListenableFuture<SessionResult> selectTrack(SessionPlayer.TrackInfo trackInfo);
 
-        ListenableFuture sendCustomCommand(SessionCommand sessionCommand, Bundle bundle);
+        ListenableFuture<SessionResult> sendCustomCommand(@NonNull SessionCommand sessionCommand, @Nullable Bundle bundle);
 
-        ListenableFuture setMediaItem(String str);
+        ListenableFuture<SessionResult> setMediaItem(@NonNull String str);
 
-        ListenableFuture setMediaUri(Uri uri, Bundle bundle);
+        ListenableFuture<SessionResult> setMediaUri(@NonNull Uri uri, @Nullable Bundle bundle);
 
-        ListenableFuture setPlaybackSpeed(float f);
+        ListenableFuture<SessionResult> setPlaybackSpeed(float f);
 
-        ListenableFuture setPlaylist(List list, MediaMetadata mediaMetadata);
+        ListenableFuture<SessionResult> setPlaylist(@NonNull List<String> list, @Nullable MediaMetadata mediaMetadata);
 
-        ListenableFuture setRating(String str, Rating rating);
+        ListenableFuture<SessionResult> setRating(@NonNull String str, @NonNull Rating rating);
 
-        ListenableFuture setRepeatMode(int i);
+        ListenableFuture<SessionResult> setRepeatMode(int i);
 
-        ListenableFuture setShuffleMode(int i);
+        ListenableFuture<SessionResult> setShuffleMode(int i);
 
-        ListenableFuture setSurface(Surface surface);
+        ListenableFuture<SessionResult> setSurface(@Nullable Surface surface);
 
-        ListenableFuture setVolumeTo(int i, int i2);
+        ListenableFuture<SessionResult> setVolumeTo(int i, int i2);
 
-        ListenableFuture skipBackward();
+        ListenableFuture<SessionResult> skipBackward();
 
-        ListenableFuture skipForward();
+        ListenableFuture<SessionResult> skipForward();
 
-        ListenableFuture skipToNextItem();
+        ListenableFuture<SessionResult> skipToNextItem();
 
-        ListenableFuture skipToPlaylistItem(int i);
+        ListenableFuture<SessionResult> skipToPlaylistItem(int i);
 
-        ListenableFuture skipToPreviousItem();
+        ListenableFuture<SessionResult> skipToPreviousItem();
 
-        ListenableFuture updatePlaylistMetadata(MediaMetadata mediaMetadata);
+        ListenableFuture<SessionResult> updatePlaylistMetadata(@Nullable MediaMetadata mediaMetadata);
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface VolumeDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface VolumeFlags {
     }
@@ -181,7 +203,7 @@ public class MediaController implements Closeable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Builder(Context context) {
+        public Builder(@NonNull Context context) {
             super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -201,6 +223,7 @@ public class MediaController implements Closeable {
         }
 
         @Override // androidx.media2.session.MediaController.BuilderBase
+        @NonNull
         public MediaController build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -220,7 +243,8 @@ public class MediaController implements Closeable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaController.BuilderBase
-        public Builder setConnectionHints(Bundle bundle) {
+        @NonNull
+        public Builder setConnectionHints(@NonNull Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
@@ -232,7 +256,8 @@ public class MediaController implements Closeable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaController.BuilderBase
-        public Builder setSessionCompatToken(MediaSessionCompat.Token token) {
+        @NonNull
+        public Builder setSessionCompatToken(@NonNull MediaSessionCompat.Token token) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, token)) == null) {
@@ -244,7 +269,8 @@ public class MediaController implements Closeable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaController.BuilderBase
-        public Builder setSessionToken(SessionToken sessionToken) {
+        @NonNull
+        public Builder setSessionToken(@NonNull SessionToken sessionToken) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sessionToken)) == null) {
@@ -256,7 +282,8 @@ public class MediaController implements Closeable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaController.BuilderBase
-        public Builder setControllerCallback(Executor executor, ControllerCallback controllerCallback) {
+        @NonNull
+        public Builder setControllerCallback(@NonNull Executor executor, @NonNull ControllerCallback controllerCallback) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, executor, controllerCallback)) == null) {
@@ -266,6 +293,7 @@ public class MediaController implements Closeable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public static abstract class BuilderBase<T extends MediaController, U extends BuilderBase<T, U, C>, C extends ControllerCallback> {
         public static /* synthetic */ Interceptable $ic;
@@ -277,9 +305,10 @@ public class MediaController implements Closeable {
         public final Context mContext;
         public SessionToken mToken;
 
+        @NonNull
         public abstract T build();
 
-        public BuilderBase(Context context) {
+        public BuilderBase(@NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -301,7 +330,8 @@ public class MediaController implements Closeable {
             throw new NullPointerException("context shouldn't be null");
         }
 
-        public U setConnectionHints(Bundle bundle) {
+        @NonNull
+        public U setConnectionHints(@NonNull Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
@@ -317,7 +347,8 @@ public class MediaController implements Closeable {
             return (U) invokeL.objValue;
         }
 
-        public U setControllerCallback(Executor executor, C c) {
+        @NonNull
+        public U setControllerCallback(@NonNull Executor executor, @NonNull C c) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, executor, c)) == null) {
@@ -334,7 +365,8 @@ public class MediaController implements Closeable {
             return (U) invokeLL.objValue;
         }
 
-        public U setSessionCompatToken(MediaSessionCompat.Token token) {
+        @NonNull
+        public U setSessionCompatToken(@NonNull MediaSessionCompat.Token token) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, token)) == null) {
@@ -348,7 +380,8 @@ public class MediaController implements Closeable {
             return (U) invokeL.objValue;
         }
 
-        public U setSessionToken(SessionToken sessionToken) {
+        @NonNull
+        public U setSessionToken(@NonNull SessionToken sessionToken) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sessionToken)) == null) {
@@ -368,85 +401,85 @@ public class MediaController implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onAllowedCommandsChanged(MediaController mediaController, SessionCommandGroup sessionCommandGroup) {
+        public void onAllowedCommandsChanged(@NonNull MediaController mediaController, @NonNull SessionCommandGroup sessionCommandGroup) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, mediaController, sessionCommandGroup) == null) {
             }
         }
 
-        public void onBufferingStateChanged(MediaController mediaController, MediaItem mediaItem, int i) {
+        public void onBufferingStateChanged(@NonNull MediaController mediaController, @NonNull MediaItem mediaItem, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaController, mediaItem, i) == null) {
             }
         }
 
-        public void onConnected(MediaController mediaController, SessionCommandGroup sessionCommandGroup) {
+        public void onConnected(@NonNull MediaController mediaController, @NonNull SessionCommandGroup sessionCommandGroup) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, mediaController, sessionCommandGroup) == null) {
             }
         }
 
-        public void onCurrentMediaItemChanged(MediaController mediaController, MediaItem mediaItem) {
+        public void onCurrentMediaItemChanged(@NonNull MediaController mediaController, @Nullable MediaItem mediaItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, mediaController, mediaItem) == null) {
             }
         }
 
-        public void onDisconnected(MediaController mediaController) {
+        public void onDisconnected(@NonNull MediaController mediaController) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, mediaController) == null) {
             }
         }
 
-        public void onPlaybackCompleted(MediaController mediaController) {
+        public void onPlaybackCompleted(@NonNull MediaController mediaController) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, mediaController) == null) {
             }
         }
 
-        public void onPlaybackInfoChanged(MediaController mediaController, PlaybackInfo playbackInfo) {
+        public void onPlaybackInfoChanged(@NonNull MediaController mediaController, @NonNull PlaybackInfo playbackInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, mediaController, playbackInfo) == null) {
             }
         }
 
-        public void onPlaybackSpeedChanged(MediaController mediaController, float f) {
+        public void onPlaybackSpeedChanged(@NonNull MediaController mediaController, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaController, f) == null) {
             }
         }
 
-        public void onPlayerStateChanged(MediaController mediaController, int i) {
+        public void onPlayerStateChanged(@NonNull MediaController mediaController, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048585, this, mediaController, i) == null) {
             }
         }
 
-        public void onPlaylistChanged(MediaController mediaController, List<MediaItem> list, MediaMetadata mediaMetadata) {
+        public void onPlaylistChanged(@NonNull MediaController mediaController, @Nullable List<MediaItem> list, @Nullable MediaMetadata mediaMetadata) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048586, this, mediaController, list, mediaMetadata) == null) {
             }
         }
 
-        public void onPlaylistMetadataChanged(MediaController mediaController, MediaMetadata mediaMetadata) {
+        public void onPlaylistMetadataChanged(@NonNull MediaController mediaController, @Nullable MediaMetadata mediaMetadata) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048587, this, mediaController, mediaMetadata) == null) {
             }
         }
 
-        public void onRepeatModeChanged(MediaController mediaController, int i) {
+        public void onRepeatModeChanged(@NonNull MediaController mediaController, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048588, this, mediaController, i) == null) {
             }
         }
 
-        public void onSeekCompleted(MediaController mediaController, long j) {
+        public void onSeekCompleted(@NonNull MediaController mediaController, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048589, this, mediaController, j) == null) {
             }
         }
 
-        public int onSetCustomLayout(MediaController mediaController, List<MediaSession.CommandButton> list) {
+        public int onSetCustomLayout(@NonNull MediaController mediaController, @NonNull List<MediaSession.CommandButton> list) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, mediaController, list)) == null) {
@@ -455,44 +488,45 @@ public class MediaController implements Closeable {
             return invokeLL.intValue;
         }
 
-        public void onShuffleModeChanged(MediaController mediaController, int i) {
+        public void onShuffleModeChanged(@NonNull MediaController mediaController, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048591, this, mediaController, i) == null) {
             }
         }
 
-        public void onSubtitleData(MediaController mediaController, MediaItem mediaItem, SessionPlayer.TrackInfo trackInfo, SubtitleData subtitleData) {
+        public void onSubtitleData(@NonNull MediaController mediaController, @NonNull MediaItem mediaItem, @NonNull SessionPlayer.TrackInfo trackInfo, @NonNull SubtitleData subtitleData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048592, this, mediaController, mediaItem, trackInfo, subtitleData) == null) {
             }
         }
 
-        public void onTrackDeselected(MediaController mediaController, SessionPlayer.TrackInfo trackInfo) {
+        public void onTrackDeselected(@NonNull MediaController mediaController, @NonNull SessionPlayer.TrackInfo trackInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048593, this, mediaController, trackInfo) == null) {
             }
         }
 
-        public void onTrackSelected(MediaController mediaController, SessionPlayer.TrackInfo trackInfo) {
+        public void onTrackSelected(@NonNull MediaController mediaController, @NonNull SessionPlayer.TrackInfo trackInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048594, this, mediaController, trackInfo) == null) {
             }
         }
 
-        public void onTracksChanged(MediaController mediaController, List<SessionPlayer.TrackInfo> list) {
+        public void onTracksChanged(@NonNull MediaController mediaController, @NonNull List<SessionPlayer.TrackInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048595, this, mediaController, list) == null) {
             }
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         @Deprecated
-        public void onVideoSizeChanged(MediaController mediaController, MediaItem mediaItem, VideoSize videoSize) {
+        public void onVideoSizeChanged(@NonNull MediaController mediaController, @NonNull MediaItem mediaItem, @NonNull VideoSize videoSize) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048596, this, mediaController, mediaItem, videoSize) == null) {
             }
         }
 
-        public void onVideoSizeChanged(MediaController mediaController, VideoSize videoSize) {
+        public void onVideoSizeChanged(@NonNull MediaController mediaController, @NonNull VideoSize videoSize) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048597, this, mediaController, videoSize) == null) {
             }
@@ -512,7 +546,8 @@ public class MediaController implements Closeable {
             }
         }
 
-        public SessionResult onCustomCommand(MediaController mediaController, SessionCommand sessionCommand, Bundle bundle) {
+        @NonNull
+        public SessionResult onCustomCommand(@NonNull MediaController mediaController, @NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, mediaController, sessionCommand, bundle)) == null) {
@@ -548,6 +583,7 @@ public class MediaController implements Closeable {
             }
         }
 
+        @Nullable
         public AudioAttributesCompat getAudioAttributes() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -624,7 +660,7 @@ public class MediaController implements Closeable {
             return (PlaybackInfo) invokeCommon.objValue;
         }
 
-        public boolean equals(Object obj) {
+        public boolean equals(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -650,7 +686,7 @@ public class MediaController implements Closeable {
         }
     }
 
-    public MediaController(final Context context, MediaSessionCompat.Token token, final Bundle bundle, Executor executor, ControllerCallback controllerCallback) {
+    public MediaController(@NonNull final Context context, @NonNull MediaSessionCompat.Token token, @Nullable final Bundle bundle, @Nullable Executor executor, @Nullable ControllerCallback controllerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -690,7 +726,7 @@ public class MediaController implements Closeable {
         throw new NullPointerException("context shouldn't be null");
     }
 
-    public MediaController(Context context, SessionToken sessionToken, Bundle bundle, Executor executor, ControllerCallback controllerCallback) {
+    public MediaController(@NonNull Context context, @NonNull SessionToken sessionToken, @Nullable Bundle bundle, @Nullable Executor executor, @Nullable ControllerCallback controllerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -750,6 +786,7 @@ public class MediaController implements Closeable {
         }
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> fastForward() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -762,6 +799,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeV.objValue;
     }
 
+    @Nullable
     public SessionCommandGroup getAllowedCommands() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -798,6 +836,7 @@ public class MediaController implements Closeable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public SessionToken getConnectedToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -810,6 +849,7 @@ public class MediaController implements Closeable {
         return (SessionToken) invokeV.objValue;
     }
 
+    @Nullable
     public MediaItem getCurrentMediaItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -858,6 +898,8 @@ public class MediaController implements Closeable {
         return invokeV.longValue;
     }
 
+    @NonNull
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public List<Pair<ControllerCallback, Executor>> getExtraControllerCallbacks() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -896,6 +938,7 @@ public class MediaController implements Closeable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public PlaybackInfo getPlaybackInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -932,6 +975,7 @@ public class MediaController implements Closeable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public List<MediaItem> getPlaylist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -944,6 +988,7 @@ public class MediaController implements Closeable {
         return (List) invokeV.objValue;
     }
 
+    @Nullable
     public MediaMetadata getPlaylistMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -980,6 +1025,7 @@ public class MediaController implements Closeable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public PendingIntent getSessionActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1004,6 +1050,7 @@ public class MediaController implements Closeable {
         return invokeV.intValue;
     }
 
+    @NonNull
     public List<SessionPlayer.TrackInfo> getTracks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1016,6 +1063,7 @@ public class MediaController implements Closeable {
         return (List) invokeV.objValue;
     }
 
+    @NonNull
     public VideoSize getVideoSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1041,6 +1089,7 @@ public class MediaController implements Closeable {
         return invokeV.booleanValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> pause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1053,6 +1102,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeV.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> play() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1065,6 +1115,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeV.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> prepare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1077,6 +1128,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeV.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> rewind() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1089,6 +1141,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeV.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> skipBackward() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1101,6 +1154,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeV.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> skipForward() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1113,6 +1167,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeV.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> skipToNextPlaylistItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1125,6 +1180,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeV.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> skipToPreviousPlaylistItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1141,7 +1197,8 @@ public class MediaController implements Closeable {
         controllerCallback.onDisconnected(this);
     }
 
-    public ListenableFuture<SessionResult> deselectTrack(SessionPlayer.TrackInfo trackInfo) {
+    @NonNull
+    public ListenableFuture<SessionResult> deselectTrack(@NonNull SessionPlayer.TrackInfo trackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, trackInfo)) == null) {
@@ -1156,6 +1213,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeL.objValue;
     }
 
+    @Nullable
     public SessionPlayer.TrackInfo getSelectedTrack(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -1168,7 +1226,7 @@ public class MediaController implements Closeable {
         return (SessionPlayer.TrackInfo) invokeI.objValue;
     }
 
-    public void notifyPrimaryControllerCallback(ControllerCallbackRunnable controllerCallbackRunnable) {
+    public void notifyPrimaryControllerCallback(@NonNull ControllerCallbackRunnable controllerCallbackRunnable) {
         Executor executor;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048610, this, controllerCallbackRunnable) == null) && this.mPrimaryCallback != null && (executor = this.mPrimaryCallbackExecutor) != null) {
@@ -1208,7 +1266,8 @@ public class MediaController implements Closeable {
         }
     }
 
-    public ListenableFuture<SessionResult> removePlaylistItem(int i) {
+    @NonNull
+    public ListenableFuture<SessionResult> removePlaylistItem(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i)) == null) {
@@ -1223,6 +1282,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeI.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> seekTo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -1235,7 +1295,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeJ.objValue;
     }
 
-    public ListenableFuture<SessionResult> selectTrack(SessionPlayer.TrackInfo trackInfo) {
+    @NonNull
+    public ListenableFuture<SessionResult> selectTrack(@NonNull SessionPlayer.TrackInfo trackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, trackInfo)) == null) {
@@ -1250,6 +1311,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeL.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> setRepeatMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -1262,6 +1324,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeI.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> setShuffleMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -1274,7 +1337,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeI.objValue;
     }
 
-    public ListenableFuture<SessionResult> setSurface(Surface surface) {
+    @NonNull
+    public ListenableFuture<SessionResult> setSurface(@Nullable Surface surface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, surface)) == null) {
@@ -1286,6 +1350,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void setTimeDiff(Long l) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, l) == null) {
@@ -1293,7 +1358,8 @@ public class MediaController implements Closeable {
         }
     }
 
-    public ListenableFuture<SessionResult> skipToPlaylistItem(int i) {
+    @NonNull
+    public ListenableFuture<SessionResult> skipToPlaylistItem(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i)) == null) {
@@ -1308,7 +1374,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeI.objValue;
     }
 
-    public ListenableFuture<SessionResult> updatePlaylistMetadata(MediaMetadata mediaMetadata) {
+    @NonNull
+    public ListenableFuture<SessionResult> updatePlaylistMetadata(@Nullable MediaMetadata mediaMetadata) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, mediaMetadata)) == null) {
@@ -1320,7 +1387,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeL.objValue;
     }
 
-    public ListenableFuture<SessionResult> addPlaylistItem(int i, String str) {
+    @NonNull
+    public ListenableFuture<SessionResult> addPlaylistItem(@IntRange(from = 0) int i, @NonNull String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
@@ -1338,7 +1406,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeIL.objValue;
     }
 
-    public ListenableFuture<SessionResult> movePlaylistItem(int i, int i2) {
+    @NonNull
+    public ListenableFuture<SessionResult> movePlaylistItem(@IntRange(from = 0) int i, @IntRange(from = 0) int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048608, this, i, i2)) == null) {
@@ -1353,7 +1422,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeII.objValue;
     }
 
-    public ListenableFuture<SessionResult> replacePlaylistItem(int i, String str) {
+    @NonNull
+    public ListenableFuture<SessionResult> replacePlaylistItem(@IntRange(from = 0) int i, @NonNull String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048616, this, i, str)) == null) {
@@ -1371,7 +1441,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeIL.objValue;
     }
 
-    public ListenableFuture<SessionResult> sendCustomCommand(SessionCommand sessionCommand, Bundle bundle) {
+    @NonNull
+    public ListenableFuture<SessionResult> sendCustomCommand(@NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048620, this, sessionCommand, bundle)) == null) {
@@ -1389,6 +1460,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeLL.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> adjustVolume(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -1401,7 +1473,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeII.objValue;
     }
 
-    public ListenableFuture<SessionResult> setMediaUri(Uri uri, Bundle bundle) {
+    @NonNull
+    public ListenableFuture<SessionResult> setMediaUri(@NonNull Uri uri, @Nullable Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048622, this, uri, bundle)) == null) {
@@ -1416,6 +1489,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeLL.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> setVolumeTo(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -1449,7 +1523,7 @@ public class MediaController implements Closeable {
         }
     }
 
-    public MediaControllerImpl createImpl(Context context, SessionToken sessionToken, Bundle bundle) {
+    public MediaControllerImpl createImpl(@NonNull Context context, @NonNull SessionToken sessionToken, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, sessionToken, bundle)) == null) {
@@ -1461,7 +1535,8 @@ public class MediaController implements Closeable {
         return (MediaControllerImpl) invokeLLL.objValue;
     }
 
-    public void notifyAllControllerCallbacks(ControllerCallbackRunnable controllerCallbackRunnable) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public void notifyAllControllerCallbacks(@NonNull ControllerCallbackRunnable controllerCallbackRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, controllerCallbackRunnable) == null) {
             notifyPrimaryControllerCallback(controllerCallbackRunnable);
@@ -1513,7 +1588,8 @@ public class MediaController implements Closeable {
         }
     }
 
-    public void unregisterExtraCallback(ControllerCallback controllerCallback) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void unregisterExtraCallback(@NonNull ControllerCallback controllerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, controllerCallback) == null) {
             if (controllerCallback != null) {
@@ -1542,7 +1618,8 @@ public class MediaController implements Closeable {
         }
     }
 
-    public void registerExtraCallback(Executor executor, ControllerCallback controllerCallback) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void registerExtraCallback(@NonNull Executor executor, @NonNull ControllerCallback controllerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048614, this, executor, controllerCallback) == null) {
             if (executor != null) {
@@ -1574,7 +1651,8 @@ public class MediaController implements Closeable {
         }
     }
 
-    public ListenableFuture<SessionResult> setPlaylist(List<String> list, MediaMetadata mediaMetadata) {
+    @NonNull
+    public ListenableFuture<SessionResult> setPlaylist(@NonNull List<String> list, @Nullable MediaMetadata mediaMetadata) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048624, this, list, mediaMetadata)) == null) {
@@ -1594,7 +1672,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeLL.objValue;
     }
 
-    public ListenableFuture<SessionResult> setRating(String str, Rating rating) {
+    @NonNull
+    public ListenableFuture<SessionResult> setRating(@NonNull String str, @NonNull Rating rating) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048625, this, str, rating)) == null) {
@@ -1615,7 +1694,8 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeLL.objValue;
     }
 
-    public ListenableFuture<SessionResult> setMediaItem(String str) {
+    @NonNull
+    public ListenableFuture<SessionResult> setMediaItem(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, str)) == null) {
@@ -1630,6 +1710,7 @@ public class MediaController implements Closeable {
         return (ListenableFuture) invokeL.objValue;
     }
 
+    @NonNull
     public ListenableFuture<SessionResult> setPlaybackSpeed(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;

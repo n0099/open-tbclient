@@ -1,64 +1,170 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import android.view.View;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tieba.rg3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pi3 {
+public class pi3 extends rg3.a {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String b;
 
-    /* loaded from: classes5.dex */
-    public final class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long[] b;
-        public final /* synthetic */ Runnable c;
-
-        public a(Runnable runnable) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948062959, "Lcom/baidu/tieba/pi3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = runnable;
-            this.a = 5;
-            this.b = new long[5];
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                long[] jArr = this.b;
-                System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
-                long[] jArr2 = this.b;
-                jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
-                if (this.b[0] >= SystemClock.uptimeMillis() - 1000) {
-                    this.b = new long[this.a];
-                    this.c.run();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948062959, "Lcom/baidu/tieba/pi3;");
+                return;
             }
         }
+        c = ok1.a;
     }
 
-    public static void a(View view2, Runnable runnable) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pi3(boolean z) {
+        super(z);
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
-            view2.setOnClickListener(new a(runnable));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        if (z) {
+            str = "swan_js_native_v8_ab.txt";
+        } else {
+            str = "swan_js_native_webview_ab.txt";
+        }
+        this.b = an2.g().getPath() + File.separator + "js_native" + File.separator + str;
+    }
+
+    public boolean a(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            String str = an2.g().getPath() + File.separator + "js_native" + File.separator;
+            if ((i & 1) != 0) {
+                z = ik4.M(str + "swan_js_native_v8_ab.txt");
+            } else {
+                z = true;
+            }
+            if ((i & 2) != 0) {
+                return z & ik4.M(str + "swan_js_native_webview_ab.txt");
+            }
+            return z;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Nullable
+    public final List<String> b(boolean z, String str) {
+        InterceptResult invokeZL;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
+            if (z) {
+                str2 = SchemeCollecter.CLASSIFY_SWAN_V8;
+            } else {
+                str2 = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+            }
+            if (z) {
+                str3 = "swan/v8_ab";
+            } else {
+                str3 = "swan/webview_ab";
+            }
+            List<JSONObject> b = ni3.b(str2, str3);
+            if (b != null) {
+                File file = new File(str);
+                ArrayList arrayList = new ArrayList();
+                for (JSONObject jSONObject : b) {
+                    if (jSONObject != null) {
+                        arrayList.add(jSONObject.toString());
+                    }
+                }
+                if (file.exists()) {
+                    ik4.L(file);
+                }
+                ik4.h(file);
+                ik4.P(arrayList, file);
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeZL.objValue;
+    }
+
+    public boolean c(@NonNull JSONArray jSONArray) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+            if (jSONArray.length() > 0 && ik4.v(this.b)) {
+                if (this.a) {
+                    str = SchemeCollecter.CLASSIFY_SWAN_V8;
+                } else {
+                    str = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+                }
+                return oi3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(str));
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public List<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (c) {
+                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
+            }
+            if (!lg4.b() && !TextUtils.equals(lg4.a(), "0")) {
+                File file = new File(this.b);
+                if (file.exists()) {
+                    ik4.L(file);
+                }
+            }
+            if (ik4.v(this.b)) {
+                if (c) {
+                    Log.d("SwanAppCompat", "start create cache");
+                }
+                return ik4.F(new File(this.b));
+            }
+            return b(this.a, this.b);
+        }
+        return (List) invokeV.objValue;
     }
 }

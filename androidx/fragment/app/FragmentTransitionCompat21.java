@@ -6,6 +6,8 @@ import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.os.CancellationSignal;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,6 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
     public static /* synthetic */ Interceptable $ic;
@@ -484,7 +487,7 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
     }
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
-    public void setListenerForTransitionEnd(Fragment fragment, Object obj, CancellationSignal cancellationSignal, Runnable runnable) {
+    public void setListenerForTransitionEnd(@NonNull Fragment fragment, @NonNull Object obj, @NonNull CancellationSignal cancellationSignal, @NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048589, this, fragment, obj, cancellationSignal, runnable) == null) {
             ((Transition) obj).addListener(new Transition.TransitionListener(this, runnable) { // from class: androidx.fragment.app.FragmentTransitionCompat21.4

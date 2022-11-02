@@ -1,5 +1,6 @@
 package com.bytedance.pangle.transform;
 
+import androidx.annotation.Keep;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public class HostPartUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -15,7 +17,7 @@ public class HostPartUtils {
     public Class fragmentActivityClazz;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final HostPartUtils a;
         public transient /* synthetic */ FieldHolder $fh;

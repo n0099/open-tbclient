@@ -13,6 +13,9 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,8 +26,10 @@ import com.kwad.sdk.R;
 public class JinniuCouponLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @ColorInt
     public int endColor;
     public Paint mPaint;
+    @ColorInt
     public int startColor;
     public float wl;
     public float wm;
@@ -68,7 +73,7 @@ public class JinniuCouponLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JinniuCouponLayout(Context context, AttributeSet attributeSet) {
+    public JinniuCouponLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,7 +106,7 @@ public class JinniuCouponLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JinniuCouponLayout(Context context, AttributeSet attributeSet, int i) {
+    public JinniuCouponLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,6 +139,7 @@ public class JinniuCouponLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @RequiresApi(api = 21)
     public JinniuCouponLayout(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
@@ -166,7 +172,7 @@ public class JinniuCouponLayout extends LinearLayout {
         a(context, attributeSet, i);
     }
 
-    private void a(Context context, AttributeSet attributeSet, int i) {
+    private void a(Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_JinniuCouponLayout, i, 0);

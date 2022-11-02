@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PushMessage extends CustomResponsedMessage {
+public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,7 +97,7 @@ public class PushMessage extends CustomResponsedMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (GroupNewsPojo) getData();
+            return getData();
         }
         return (GroupNewsPojo) invokeV.objValue;
     }

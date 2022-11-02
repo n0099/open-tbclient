@@ -1,6 +1,7 @@
 package com.bytedance.pangle.wrapper;
 
 import android.app.Activity;
+import androidx.annotation.Keep;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleRegistry;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.PluginContext;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.util.FieldUtils;
+@Keep
 /* loaded from: classes7.dex */
 public class PluginFragmentActivityWrapper extends GenerateFragmentActivityWrapper {
     public static /* synthetic */ Interceptable $ic;

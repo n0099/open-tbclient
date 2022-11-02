@@ -1,5 +1,6 @@
 package com.bumptech.glide.gifdecoder;
 
+import androidx.annotation.ColorInt;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,11 +15,13 @@ public class GifHeader {
     public static final int NETSCAPE_LOOP_COUNT_DOES_NOT_EXIST = -1;
     public static final int NETSCAPE_LOOP_COUNT_FOREVER = 0;
     public transient /* synthetic */ FieldHolder $fh;
+    @ColorInt
     public int bgColor;
     public int bgIndex;
     public GifFrame currentFrame;
     public int frameCount;
-    public final List frames;
+    public final List<GifFrame> frames;
+    @ColorInt
     public int[] gct;
     public boolean gctFlag;
     public int gctSize;

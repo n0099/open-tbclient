@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.vi.VIContext;
 /* loaded from: classes2.dex */
 public class JNIInitializer {
     public static /* synthetic */ Interceptable $ic;
@@ -30,18 +31,23 @@ public class JNIInitializer {
     public static Context getCachedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static void setContext(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
-            if (application == null) {
-                throw new RuntimeException();
+            if (application != null) {
+                if (a == null) {
+                    a = application;
+                }
+                VIContext.init(application);
+                return;
             }
-            if (a == null) {
-                a = application;
-            }
+            throw new RuntimeException();
         }
     }
 }

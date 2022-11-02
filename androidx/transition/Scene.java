@@ -5,6 +5,9 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +26,7 @@ public class Scene {
     public int mLayoutId;
     public ViewGroup mSceneRoot;
 
-    public Scene(ViewGroup viewGroup) {
+    public Scene(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,23 +45,24 @@ public class Scene {
         this.mSceneRoot = viewGroup;
     }
 
-    public static Scene getCurrentScene(ViewGroup viewGroup) {
+    @Nullable
+    public static Scene getCurrentScene(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewGroup)) == null) {
-            return (Scene) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092315);
+            return (Scene) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092369);
         }
         return (Scene) invokeL.objValue;
     }
 
-    public void setEnterAction(Runnable runnable) {
+    public void setEnterAction(@Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, runnable) == null) {
             this.mEnterAction = runnable;
         }
     }
 
-    public void setExitAction(Runnable runnable) {
+    public void setExitAction(@Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
             this.mExitAction = runnable;
@@ -86,14 +90,15 @@ public class Scene {
         this.mLayoutId = i;
     }
 
-    public static Scene getSceneForLayout(ViewGroup viewGroup, int i, Context context) {
+    @NonNull
+    public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i, @NonNull Context context) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, i, context)) == null) {
-            SparseArray sparseArray = (SparseArray) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092318);
+            SparseArray sparseArray = (SparseArray) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236c);
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
-                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092318, sparseArray);
+                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236c, sparseArray);
             }
             Scene scene = (Scene) sparseArray.get(i);
             if (scene != null) {
@@ -106,7 +111,7 @@ public class Scene {
         return (Scene) invokeLIL.objValue;
     }
 
-    public Scene(ViewGroup viewGroup, View view2) {
+    public Scene(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,10 +131,10 @@ public class Scene {
         this.mLayout = view2;
     }
 
-    public static void setCurrentScene(ViewGroup viewGroup, Scene scene) {
+    public static void setCurrentScene(@NonNull ViewGroup viewGroup, @Nullable Scene scene) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, viewGroup, scene) == null) {
-            viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092315, scene);
+            viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092369, scene);
         }
     }
 
@@ -160,6 +165,7 @@ public class Scene {
         }
     }
 
+    @NonNull
     public ViewGroup getSceneRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

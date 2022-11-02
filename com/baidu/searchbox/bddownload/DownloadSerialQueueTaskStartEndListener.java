@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -27,12 +29,13 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
     public static final Executor SERIAL_EXECUTOR;
     public static final String TAG = "DownloadSerialQueueTaskStartEndListener";
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public DownloadListenerBunch listenerBunch;
     public volatile boolean looping;
     public volatile boolean paused;
     public volatile DownloadTask runningTask;
     public volatile boolean shutedDown;
-    public final ArrayList taskList;
+    public final ArrayList<DownloadTask> taskList;
 
     static {
         InterceptResult invokeClinit;
@@ -52,19 +55,19 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
 
     @Override // java.lang.Runnable
     public void run() {
-        DownloadTask downloadTask;
+        DownloadTask remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             while (!this.shutedDown) {
                 synchronized (this) {
                     if (!this.taskList.isEmpty() && !this.paused) {
-                        downloadTask = (DownloadTask) this.taskList.remove(0);
+                        remove = this.taskList.remove(0);
                     }
                     this.runningTask = null;
                     this.looping = false;
                     return;
                 }
-                downloadTask.execute(this.listenerBunch);
+                remove.execute(this.listenerBunch);
             }
         }
     }
@@ -155,7 +158,7 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
         }
     }
 
-    public DownloadSerialQueueTaskStartEndListener(DownloadListener downloadListener, ArrayList arrayList) {
+    public DownloadSerialQueueTaskStartEndListener(DownloadListener downloadListener, ArrayList<DownloadTask> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,7 +202,7 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void taskStart(DownloadTask downloadTask) {
+    public void taskStart(@NonNull DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, downloadTask) == null) {
             this.runningTask = downloadTask;
@@ -242,7 +245,7 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public synchronized void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc) {
+    public synchronized void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, downloadTask, endCause, exc) == null) {
             synchronized (this) {

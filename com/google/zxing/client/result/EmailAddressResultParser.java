@@ -82,26 +82,26 @@ public final class EmailAddressResultParser extends ResultParser {
                 } else {
                     strArr = null;
                 }
-                Map parseNameValuePairs = ResultParser.parseNameValuePairs(massagedText);
+                Map<String, String> parseNameValuePairs = ResultParser.parseNameValuePairs(massagedText);
                 if (parseNameValuePairs != null) {
-                    if (strArr == null && (str3 = (String) parseNameValuePairs.get("to")) != null) {
+                    if (strArr == null && (str3 = parseNameValuePairs.get("to")) != null) {
                         strArr = COMMA.split(str3);
                     }
-                    String str4 = (String) parseNameValuePairs.get("cc");
+                    String str4 = parseNameValuePairs.get("cc");
                     if (str4 != null) {
                         strArr5 = COMMA.split(str4);
                     } else {
                         strArr5 = null;
                     }
-                    String str5 = (String) parseNameValuePairs.get("bcc");
+                    String str5 = parseNameValuePairs.get("bcc");
                     if (str5 != null) {
                         strArr6 = COMMA.split(str5);
                     }
-                    str2 = (String) parseNameValuePairs.get(TtmlNode.TAG_BODY);
+                    str2 = parseNameValuePairs.get(TtmlNode.TAG_BODY);
                     strArr2 = strArr;
                     strArr4 = strArr6;
                     strArr3 = strArr5;
-                    str = (String) parseNameValuePairs.get("subject");
+                    str = parseNameValuePairs.get("subject");
                 } else {
                     strArr2 = strArr;
                     strArr3 = null;

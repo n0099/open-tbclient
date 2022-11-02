@@ -27,16 +27,16 @@ public final class VipCloseAd extends Message {
     public final Integer vipClose;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<VipCloseAd> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List forumClose;
+        public List<Integer> forumClose;
         public Integer isOpen;
         public Integer vipClose;
 
@@ -141,7 +141,7 @@ public final class VipCloseAd extends Message {
             } else {
                 this.vipClose = num2;
             }
-            List list = builder.forumClose;
+            List<Integer> list = builder.forumClose;
             if (list == null) {
                 this.forumClose = DEFAULT_FORUMCLOSE;
                 return;

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p06;
+import com.baidu.tieba.z16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class CandidateSearchAdapter extends RecyclerView.Adapter {
+public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<z16> a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(CandidateSearchItemHolder candidateSearchItemHolder, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048576, this, candidateSearchItemHolder, i) == null) && candidateSearchItemHolder != null && !ListUtils.isEmpty(this.a)) {
-            candidateSearchItemHolder.g((p06) this.a.get(i));
+            candidateSearchItemHolder.g(this.a.get(i));
         }
     }
 
@@ -63,12 +63,12 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            return new CandidateSearchItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e5, (ViewGroup) null));
+            return new CandidateSearchItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f9, (ViewGroup) null));
         }
         return (CandidateSearchItemHolder) invokeLI.objValue;
     }
 
-    public void setData(List list) {
+    public void setData(List<z16> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a.clear();

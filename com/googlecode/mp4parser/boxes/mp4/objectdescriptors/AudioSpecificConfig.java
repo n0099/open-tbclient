@@ -21,8 +21,8 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
-    public static Map audioObjectTypeMap;
-    public static Map samplingFrequencyIndexMap;
+    public static Map<Integer, String> audioObjectTypeMap;
+    public static Map<Integer, Integer> samplingFrequencyIndexMap;
     public transient /* synthetic */ FieldHolder $fh;
     public int aacScalefactorDataResilienceFlag;
     public int aacSectionDataResilienceFlag;
@@ -214,7 +214,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
             if (i == 15) {
                 return this.samplingFrequency;
             }
-            return ((Integer) samplingFrequencyIndexMap.get(Integer.valueOf(i))).intValue();
+            return samplingFrequencyIndexMap.get(Integer.valueOf(i)).intValue();
         }
         return invokeV.intValue;
     }
@@ -618,7 +618,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
             sb.append(", audioObjectType=");
             sb.append(this.audioObjectType);
             sb.append(" (");
-            sb.append((String) audioObjectTypeMap.get(Integer.valueOf(this.audioObjectType)));
+            sb.append(audioObjectTypeMap.get(Integer.valueOf(this.audioObjectType)));
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             sb.append(", samplingFrequencyIndex=");
             sb.append(this.samplingFrequencyIndex);
@@ -633,7 +633,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 sb.append(", extensionAudioObjectType=");
                 sb.append(this.extensionAudioObjectType);
                 sb.append(" (");
-                sb.append((String) audioObjectTypeMap.get(Integer.valueOf(this.extensionAudioObjectType)));
+                sb.append(audioObjectTypeMap.get(Integer.valueOf(this.extensionAudioObjectType)));
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 sb.append(", sbrPresentFlag=");
                 sb.append(this.sbrPresentFlag);

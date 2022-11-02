@@ -6,6 +6,8 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,21 +23,28 @@ public interface IFragmentWrapper extends IInterface {
 
     int zzc() throws RemoteException;
 
+    @Nullable
     Bundle zzd() throws RemoteException;
 
+    @Nullable
     IFragmentWrapper zze() throws RemoteException;
 
+    @Nullable
     IFragmentWrapper zzf() throws RemoteException;
 
+    @NonNull
     IObjectWrapper zzg() throws RemoteException;
 
+    @NonNull
     IObjectWrapper zzh() throws RemoteException;
 
+    @NonNull
     IObjectWrapper zzi() throws RemoteException;
 
+    @Nullable
     String zzj() throws RemoteException;
 
-    void zzk(IObjectWrapper iObjectWrapper) throws RemoteException;
+    void zzk(@NonNull IObjectWrapper iObjectWrapper) throws RemoteException;
 
     void zzl(boolean z) throws RemoteException;
 
@@ -45,11 +54,11 @@ public interface IFragmentWrapper extends IInterface {
 
     void zzo(boolean z) throws RemoteException;
 
-    void zzp(Intent intent) throws RemoteException;
+    void zzp(@NonNull Intent intent) throws RemoteException;
 
-    void zzq(Intent intent, int i) throws RemoteException;
+    void zzq(@NonNull Intent intent, int i) throws RemoteException;
 
-    void zzr(IObjectWrapper iObjectWrapper) throws RemoteException;
+    void zzr(@NonNull IObjectWrapper iObjectWrapper) throws RemoteException;
 
     boolean zzs() throws RemoteException;
 
@@ -68,7 +77,7 @@ public interface IFragmentWrapper extends IInterface {
     boolean zzz() throws RemoteException;
 
     /* loaded from: classes7.dex */
-    public abstract class Stub extends com.google.android.gms.internal.common.zzb implements IFragmentWrapper {
+    public static abstract class Stub extends com.google.android.gms.internal.common.zzb implements IFragmentWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,7 +99,8 @@ public interface IFragmentWrapper extends IInterface {
             }
         }
 
-        public static IFragmentWrapper asInterface(IBinder iBinder) {
+        @NonNull
+        public static IFragmentWrapper asInterface(@NonNull IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -107,7 +117,7 @@ public interface IFragmentWrapper extends IInterface {
         }
 
         @Override // com.google.android.gms.internal.common.zzb
-        public final boolean zza(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        public final boolean zza(int i, @NonNull Parcel parcel, @NonNull Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {

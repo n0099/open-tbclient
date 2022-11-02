@@ -31,8 +31,8 @@ public final class b {
     public static final Object a;
     public static final Object b;
     public static final Object c;
-    public static final Map d;
-    public static final Map e;
+    public static final Map<String, Boolean> d;
+    public static final Map<String, d> e;
     public static c f;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,7 +71,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             if (Zeus.hasInit()) {
-                if (((ProviderInfo) Zeus.getServerManagerHashMap().get(str2)) != null) {
+                if (Zeus.getServerManagerHashMap().get(str2) != null) {
                     Bundle call = Zeus.getAppApplication().getContentResolver().call(Uri.parse("content://" + providerInfo.authority), AbsServerManager.METHOD_QUERY_BINDER, str, (Bundle) null);
                     if (call != null) {
                         call.setClassLoader(AbsServerManager.class.getClassLoader());
@@ -112,11 +112,11 @@ public final class b {
                                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                                 b.d.put(this.a, Boolean.FALSE);
                                                 ZeusLogger.e(ZeusLogger.TAG_SERVER, "generateServerManager binderDied.");
-                                                HashMap hashMap = (HashMap) ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
+                                                HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
                                                 for (ServiceConnection serviceConnection : hashMap.keySet()) {
-                                                    Iterator it = ((HashSet) hashMap.get(serviceConnection)).iterator();
+                                                    Iterator<ComponentName> it = hashMap.get(serviceConnection).iterator();
                                                     while (it.hasNext()) {
-                                                        serviceConnection.onServiceDisconnected((ComponentName) it.next());
+                                                        serviceConnection.onServiceDisconnected(it.next());
                                                     }
                                                 }
                                             }
@@ -188,11 +188,11 @@ public final class b {
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     b.d.put(this.a, Boolean.FALSE);
                                     ZeusLogger.e(ZeusLogger.TAG_SERVER, "generateServerManager binderDied.");
-                                    HashMap hashMap = (HashMap) ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
+                                    HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
                                     for (ServiceConnection serviceConnection : hashMap.keySet()) {
-                                        Iterator it = ((HashSet) hashMap.get(serviceConnection)).iterator();
+                                        Iterator<ComponentName> it = hashMap.get(serviceConnection).iterator();
                                         while (it.hasNext()) {
-                                            serviceConnection.onServiceDisconnected((ComponentName) it.next());
+                                            serviceConnection.onServiceDisconnected(it.next());
                                         }
                                     }
                                 }
@@ -216,7 +216,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Boolean bool = (Boolean) d.get("main");
+            Boolean bool = d.get("main");
             if (bool == null || !bool.booleanValue()) {
                 f = null;
             }
@@ -239,7 +239,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Boolean bool = (Boolean) d.get(str);
+            Boolean bool = d.get(str);
             if (bool == null || !bool.booleanValue()) {
                 e.remove(str);
             }
@@ -253,7 +253,7 @@ public final class b {
                     e.put(str, dVar);
                 }
             }
-            return (d) e.get(str);
+            return e.get(str);
         }
         return (d) invokeL.objValue;
     }

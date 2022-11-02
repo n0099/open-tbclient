@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class MemoryClearStrangerItemsMessage extends CustomResponsedMessage {
+public class MemoryClearStrangerItemsMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isAllClear;
 
     /* loaded from: classes4.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List a;
+        public List<MemoryModifyVisibilityMessage.a> a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

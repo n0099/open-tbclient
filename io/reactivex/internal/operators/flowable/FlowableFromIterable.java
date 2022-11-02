@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
@@ -17,18 +18,18 @@ import io.reactivex.internal.util.BackpressureHelper;
 import java.util.Iterator;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableFromIterable extends Flowable {
+public final class FlowableFromIterable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable source;
+    public final Iterable<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public abstract class BaseRangeSubscription extends BasicQueueSubscription {
+    public static abstract class BaseRangeSubscription<T> extends BasicQueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2252972430506210021L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean cancelled;
-        public Iterator it;
+        public Iterator<? extends T> it;
         public boolean once;
 
         public abstract void fastPath();
@@ -42,7 +43,7 @@ public final class FlowableFromIterable extends Flowable {
 
         public abstract void slowPath(long j);
 
-        public BaseRangeSubscription(Iterator it) {
+        public BaseRangeSubscription(Iterator<? extends T> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +94,7 @@ public final class FlowableFromIterable extends Flowable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Iterator it = this.it;
+                Iterator<? extends T> it = this.it;
                 if (it != null && it.hasNext()) {
                     return false;
                 }
@@ -103,11 +104,12 @@ public final class FlowableFromIterable extends Flowable {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public final Object poll() {
+        @Nullable
+        public final T poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                Iterator it = this.it;
+                Iterator<? extends T> it = this.it;
                 if (it == null) {
                     return null;
                 }
@@ -116,21 +118,21 @@ public final class FlowableFromIterable extends Flowable {
                 } else if (!it.hasNext()) {
                     return null;
                 }
-                return ObjectHelper.requireNonNull(this.it.next(), "Iterator.next() returned a null value");
+                return (T) ObjectHelper.requireNonNull(this.it.next(), "Iterator.next() returned a null value");
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class IteratorConditionalSubscription extends BaseRangeSubscription {
+    public static final class IteratorConditionalSubscription<T> extends BaseRangeSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6022804456014692607L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber actual;
+        public final ConditionalSubscriber<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public IteratorConditionalSubscription(ConditionalSubscriber conditionalSubscriber, Iterator it) {
+        public IteratorConditionalSubscription(ConditionalSubscriber<? super T> conditionalSubscriber, Iterator<? extends T> it) {
             super(it);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -154,19 +156,19 @@ public final class FlowableFromIterable extends Flowable {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Iterator it = this.it;
-                ConditionalSubscriber conditionalSubscriber = this.actual;
+                Iterator<? extends T> it = this.it;
+                ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
                 while (!this.cancelled) {
                     try {
-                        Object next = it.next();
+                        Object obj = (T) it.next();
                         if (this.cancelled) {
                             return;
                         }
-                        if (next == null) {
+                        if (obj == null) {
                             conditionalSubscriber.onError(new NullPointerException("Iterator.next() returned a null value"));
                             return;
                         }
-                        conditionalSubscriber.tryOnNext(next);
+                        conditionalSubscriber.tryOnNext(obj);
                         if (this.cancelled) {
                             return;
                         }
@@ -196,8 +198,8 @@ public final class FlowableFromIterable extends Flowable {
         public void slowPath(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                Iterator it = this.it;
-                ConditionalSubscriber conditionalSubscriber = this.actual;
+                Iterator<? extends T> it = this.it;
+                ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
                 do {
                     long j2 = 0;
                     while (true) {
@@ -206,15 +208,15 @@ public final class FlowableFromIterable extends Flowable {
                                 return;
                             }
                             try {
-                                Object next = it.next();
+                                Object obj = (T) it.next();
                                 if (this.cancelled) {
                                     return;
                                 }
-                                if (next == null) {
+                                if (obj == null) {
                                     conditionalSubscriber.onError(new NullPointerException("Iterator.next() returned a null value"));
                                     return;
                                 }
-                                boolean tryOnNext = conditionalSubscriber.tryOnNext(next);
+                                boolean tryOnNext = conditionalSubscriber.tryOnNext(obj);
                                 if (this.cancelled) {
                                     return;
                                 }
@@ -251,14 +253,14 @@ public final class FlowableFromIterable extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class IteratorSubscription extends BaseRangeSubscription {
+    public static final class IteratorSubscription<T> extends BaseRangeSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6022804456014692607L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public IteratorSubscription(Subscriber subscriber, Iterator it) {
+        public IteratorSubscription(Subscriber<? super T> subscriber, Iterator<? extends T> it) {
             super(it);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -282,19 +284,19 @@ public final class FlowableFromIterable extends Flowable {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Iterator it = this.it;
-                Subscriber subscriber = this.actual;
+                Iterator<? extends T> it = this.it;
+                Subscriber<? super T> subscriber = this.actual;
                 while (!this.cancelled) {
                     try {
-                        Object next = it.next();
+                        Object obj = (T) it.next();
                         if (this.cancelled) {
                             return;
                         }
-                        if (next == null) {
+                        if (obj == null) {
                             subscriber.onError(new NullPointerException("Iterator.next() returned a null value"));
                             return;
                         }
-                        subscriber.onNext(next);
+                        subscriber.onNext(obj);
                         if (this.cancelled) {
                             return;
                         }
@@ -324,8 +326,8 @@ public final class FlowableFromIterable extends Flowable {
         public void slowPath(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                Iterator it = this.it;
-                Subscriber subscriber = this.actual;
+                Iterator<? extends T> it = this.it;
+                Subscriber<? super T> subscriber = this.actual;
                 do {
                     long j2 = 0;
                     while (true) {
@@ -334,15 +336,15 @@ public final class FlowableFromIterable extends Flowable {
                                 return;
                             }
                             try {
-                                Object next = it.next();
+                                Object obj = (T) it.next();
                                 if (this.cancelled) {
                                     return;
                                 }
-                                if (next == null) {
+                                if (obj == null) {
                                     subscriber.onError(new NullPointerException("Iterator.next() returned a null value"));
                                     return;
                                 }
-                                subscriber.onNext(next);
+                                subscriber.onNext(obj);
                                 if (this.cancelled) {
                                     return;
                                 }
@@ -377,7 +379,7 @@ public final class FlowableFromIterable extends Flowable {
         }
     }
 
-    public FlowableFromIterable(Iterable iterable) {
+    public FlowableFromIterable(Iterable<? extends T> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -396,7 +398,7 @@ public final class FlowableFromIterable extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {
@@ -408,7 +410,7 @@ public final class FlowableFromIterable extends Flowable {
         }
     }
 
-    public static void subscribe(Subscriber subscriber, Iterator it) {
+    public static <T> void subscribe(Subscriber<? super T> subscriber, Iterator<? extends T> it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, subscriber, it) == null) {
             try {

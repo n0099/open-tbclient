@@ -12,6 +12,7 @@ import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
+import com.baidu.mobstat.Config;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.fun.ad.sdk.FunAdSdk;
 import java.io.IOException;
@@ -21,8 +22,8 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class LottieCompositionMoshiParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
-    public static JsonReader.Options ASSETS_NAMES = JsonReader.Options.of("id", "layers", "w", "h", "p", "u");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(Config.DEVICE_WIDTH, "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
+    public static JsonReader.Options ASSETS_NAMES = JsonReader.Options.of("id", "layers", Config.DEVICE_WIDTH, "h", "p", "u");
     public static final JsonReader.Options FONT_NAMES = JsonReader.Options.of("list");
     public static final JsonReader.Options MARKER_NAMES = JsonReader.Options.of(FunAdSdk.PLATFORM_CM, "tm", "dr");
 
@@ -31,13 +32,13 @@ public class LottieCompositionMoshiParser {
         ArrayList arrayList;
         JsonReader jsonReader2 = jsonReader;
         float dpScale = Utils.dpScale();
-        LongSparseArray longSparseArray = new LongSparseArray();
+        LongSparseArray<Layer> longSparseArray = new LongSparseArray<>();
         ArrayList arrayList2 = new ArrayList();
         HashMap hashMap2 = new HashMap();
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();
         ArrayList arrayList3 = new ArrayList();
-        SparseArrayCompat sparseArrayCompat = new SparseArrayCompat();
+        SparseArrayCompat<FontCharacter> sparseArrayCompat = new SparseArrayCompat<>();
         LottieComposition lottieComposition = new LottieComposition();
         jsonReader.beginObject();
         int i = 0;
@@ -117,7 +118,7 @@ public class LottieCompositionMoshiParser {
         return lottieComposition;
     }
 
-    public static void parseAssets(JsonReader jsonReader, LottieComposition lottieComposition, Map map, Map map2) throws IOException {
+    public static void parseAssets(JsonReader jsonReader, LottieComposition lottieComposition, Map<String, List<Layer>> map, Map<String, LottieImageAsset> map2) throws IOException {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             ArrayList arrayList = new ArrayList();
@@ -174,7 +175,7 @@ public class LottieCompositionMoshiParser {
         jsonReader.endArray();
     }
 
-    public static void parseChars(JsonReader jsonReader, LottieComposition lottieComposition, SparseArrayCompat sparseArrayCompat) throws IOException {
+    public static void parseChars(JsonReader jsonReader, LottieComposition lottieComposition, SparseArrayCompat<FontCharacter> sparseArrayCompat) throws IOException {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             FontCharacter parse = FontCharacterParser.parse(jsonReader, lottieComposition);
@@ -183,7 +184,7 @@ public class LottieCompositionMoshiParser {
         jsonReader.endArray();
     }
 
-    public static void parseFonts(JsonReader jsonReader, Map map) throws IOException {
+    public static void parseFonts(JsonReader jsonReader, Map<String, Font> map) throws IOException {
         jsonReader.beginObject();
         while (jsonReader.hasNext()) {
             if (jsonReader.selectName(FONT_NAMES) != 0) {
@@ -201,7 +202,7 @@ public class LottieCompositionMoshiParser {
         jsonReader.endObject();
     }
 
-    public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List list, LongSparseArray longSparseArray) throws IOException {
+    public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List<Layer> list, LongSparseArray<Layer> longSparseArray) throws IOException {
         jsonReader.beginArray();
         int i = 0;
         while (jsonReader.hasNext()) {
@@ -218,7 +219,7 @@ public class LottieCompositionMoshiParser {
         jsonReader.endArray();
     }
 
-    public static void parseMarkers(JsonReader jsonReader, LottieComposition lottieComposition, List list) throws IOException {
+    public static void parseMarkers(JsonReader jsonReader, LottieComposition lottieComposition, List<Marker> list) throws IOException {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             String str = null;

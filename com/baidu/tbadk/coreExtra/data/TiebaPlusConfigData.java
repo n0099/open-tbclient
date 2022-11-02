@@ -1,6 +1,8 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class TiebaPlusConfigData {
     public static /* synthetic */ Interceptable $ic = null;
+    @NonNull
     public static final TiebaPlusConfigData DEFAULT;
     public static final String URL_PARAM_TID = "tid";
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +99,8 @@ public class TiebaPlusConfigData {
         }
     }
 
-    public String getJumpUrlWithTid(String str) {
+    @Nullable
+    public String getJumpUrlWithTid(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -122,7 +126,7 @@ public class TiebaPlusConfigData {
         }
     }
 
-    public static boolean dealFireLinkWithTid(TbPageContext tbPageContext, String str) {
+    public static boolean dealFireLinkWithTid(TbPageContext<?> tbPageContext, String str) {
         InterceptResult invokeLL;
         String jumpUrlWithTid;
         Interceptable interceptable = $ic;

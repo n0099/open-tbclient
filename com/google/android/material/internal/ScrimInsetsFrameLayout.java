@@ -8,6 +8,9 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -18,12 +21,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ScrimInsetsFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean drawBottomInsetForeground;
     public boolean drawTopInsetForeground;
+    @Nullable
     public Drawable insetForeground;
     public Rect insets;
     public Rect tempRect;
@@ -35,7 +40,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScrimInsetsFrameLayout(Context context) {
+    public ScrimInsetsFrameLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,7 +61,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScrimInsetsFrameLayout(Context context, AttributeSet attributeSet) {
+    public ScrimInsetsFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,7 +82,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrimInsetsFrameLayout(Context context, AttributeSet attributeSet, int i) {
+    public ScrimInsetsFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,7 +131,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
             }
 
             @Override // androidx.core.view.OnApplyWindowInsetsListener
-            public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
+            public WindowInsetsCompat onApplyWindowInsets(View view2, @NonNull WindowInsetsCompat windowInsetsCompat) {
                 InterceptResult invokeLL;
                 boolean z;
                 Interceptable interceptable2 = $ic;
@@ -153,7 +158,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.draw(canvas);
@@ -225,7 +230,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
         }
     }
 
-    public void setScrimInsetForeground(Drawable drawable) {
+    public void setScrimInsetForeground(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
             this.insetForeground = drawable;

@@ -1,10 +1,14 @@
 package com.google.android.material.internal;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
@@ -15,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +30,7 @@ public class FlowLayout extends ViewGroup {
     public boolean singleLine;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FlowLayout(Context context) {
+    public FlowLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,7 +51,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FlowLayout(Context context, AttributeSet attributeSet) {
+    public FlowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,7 +72,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowLayout(Context context, AttributeSet attributeSet, int i) {
+    public FlowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -90,7 +95,8 @@ public class FlowLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowLayout(Context context, AttributeSet attributeSet, int i, int i2) {
+    @TargetApi(21)
+    public FlowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +133,7 @@ public class FlowLayout extends ViewGroup {
         return invokeIII.intValue;
     }
 
-    private void loadFromAttributes(Context context, AttributeSet attributeSet) {
+    private void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.FlowLayout, 0, 0);
@@ -173,11 +179,11 @@ public class FlowLayout extends ViewGroup {
         return invokeV.booleanValue;
     }
 
-    public int getRowIndex(View view2) {
+    public int getRowIndex(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            Object tag = view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c8f);
+            Object tag = view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091cd8);
             if (!(tag instanceof Integer)) {
                 return -1;
             }
@@ -243,7 +249,7 @@ public class FlowLayout extends ViewGroup {
             for (int i10 = 0; i10 < getChildCount(); i10++) {
                 View childAt = getChildAt(i10);
                 if (childAt.getVisibility() == 8) {
-                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c8f, -1);
+                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091cd8, -1);
                 } else {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -260,7 +266,7 @@ public class FlowLayout extends ViewGroup {
                         this.rowCount++;
                         i8 = paddingLeft;
                     }
-                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c8f, Integer.valueOf(this.rowCount - 1));
+                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091cd8, Integer.valueOf(this.rowCount - 1));
                     int i11 = i8 + i6;
                     int measuredWidth2 = childAt.getMeasuredWidth() + i11;
                     int measuredHeight = childAt.getMeasuredHeight() + i9;

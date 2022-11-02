@@ -72,7 +72,7 @@ public class IMManagerImpl {
         return (String) invokeV.objValue;
     }
 
-    private List getIndex() {
+    private List<Integer> getIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
@@ -120,18 +120,18 @@ public class IMManagerImpl {
         return invokeL.booleanValue;
     }
 
-    public ChatMsg checkKickOffMsg(ArrayList arrayList) {
+    public ChatMsg checkKickOffMsg(ArrayList<ChatMsg> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
             if (arrayList == null) {
                 return null;
             }
-            Iterator it = arrayList.iterator();
+            Iterator<ChatMsg> it = arrayList.iterator();
             while (it.hasNext()) {
-                ChatMsg chatMsg = (ChatMsg) it.next();
-                if (isKickOffMsg(chatMsg)) {
-                    return chatMsg;
+                ChatMsg next = it.next();
+                if (isKickOffMsg(next)) {
+                    return next;
                 }
             }
             return null;
@@ -172,14 +172,14 @@ public class IMManagerImpl {
     }
 
     private void loadClasses() {
-        List index;
+        List<Integer> index;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(65543, this) != null) || (index = getIndex()) == null) {
             return;
         }
         String[] strArr = {"com.baidu.android.imsdk.account.AccountManager", "com.baidu.android.imsdk.chatmessage.ChatMsgManager", "com.baidu.android.imsdk.chatuser.ChatUserManager", "com.baidu.android.imsdk.friend.FriendManager", "com.baidu.android.imsdk.group.GroupManager", "com.baidu.android.imsdk.pubaccount.PaManager"};
-        for (int i = 0; i < index.size() && ((Integer) index.get(i)).intValue() < 6; i++) {
-            loadClassForName(strArr[((Integer) index.get(i)).intValue()]);
+        for (int i = 0; i < index.size() && index.get(i).intValue() < 6; i++) {
+            loadClassForName(strArr[index.get(i).intValue()]);
         }
     }
 }

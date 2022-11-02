@@ -25,7 +25,7 @@ public class v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a extends RuntimeException {
+    public static class a extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public class v {
     }
 
     /* loaded from: classes8.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -85,7 +85,7 @@ public class v {
         }
     }
 
-    public static ActivityInfo a(PackageManager packageManager, Intent intent, Class cls) {
+    public static ActivityInfo a(PackageManager packageManager, Intent intent, Class<?> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, packageManager, intent, cls)) == null) {

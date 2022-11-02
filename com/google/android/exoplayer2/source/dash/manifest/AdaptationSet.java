@@ -11,15 +11,15 @@ public class AdaptationSet {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_UNSET = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List accessibilityDescriptors;
+    public final List<Descriptor> accessibilityDescriptors;
     public final int id;
-    public final List representations;
-    public final List supplementalProperties;
+    public final List<Representation> representations;
+    public final List<Descriptor> supplementalProperties;
     public final int type;
 
-    public AdaptationSet(int i, int i2, List list, List list2, List list3) {
-        List unmodifiableList;
-        List unmodifiableList2;
+    public AdaptationSet(int i, int i2, List<Representation> list, List<Descriptor> list2, List<Descriptor> list3) {
+        List<Descriptor> unmodifiableList;
+        List<Descriptor> unmodifiableList2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

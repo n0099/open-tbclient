@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.recommend.detail;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,8 +52,8 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
         UserInfoBigVip userInfoBigVip;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            ou4.f();
-            kf d = ou4.d("tb.im_recommend_detail");
+            hv4.f();
+            cf<byte[]> d = hv4.d("tb.im_recommend_detail");
             if (d != null && bArr != null && (userInfoBigVip = this.mDetailInfo) != null && userInfoBigVip.user_id != null) {
                 d.g(this.mDetailInfo.user_id + "", bArr);
             }
@@ -60,6 +61,7 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

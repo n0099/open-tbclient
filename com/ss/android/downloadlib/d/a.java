@@ -1,6 +1,7 @@
 package com.ss.android.downloadlib.d;
 
 import android.os.Build;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -21,7 +22,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0657a {
+    public static class C0668a {
         public static a a = new a();
     }
 
@@ -29,7 +30,7 @@ public class a {
     }
 
     public static a a() {
-        return C0657a.a;
+        return C0668a.a;
     }
 
     private void a(com.ss.android.download.api.model.c cVar) {
@@ -336,7 +337,7 @@ public class a {
         a(j, i, (DownloadInfo) null);
     }
 
-    public void a(String str, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
+    public void a(String str, @NonNull DownloadModel downloadModel, @NonNull DownloadEventConfig downloadEventConfig, @NonNull DownloadController downloadController) {
         b(str, new e(downloadModel.getId(), downloadModel, downloadEventConfig, downloadController));
     }
 
@@ -376,7 +377,7 @@ public class a {
         a("embeded_ad", "ttdownloader_unity", l.a(jSONObject, jSONObject2), aVar);
     }
 
-    public void a(JSONObject jSONObject, com.ss.android.downloadad.api.a.b bVar) {
+    public void a(JSONObject jSONObject, @NonNull com.ss.android.downloadad.api.a.b bVar) {
         a(bVar.j(), "install_finish", jSONObject, bVar);
     }
 }

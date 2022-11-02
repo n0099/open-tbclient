@@ -1,51 +1,62 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.sdk.container.interfaces.LoadState;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.x8;
+import com.baidu.tieba.wd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.text.DecimalFormat;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class xd1 implements mg1 {
+public class xd1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kg1 a;
-    public String b;
-    public final Context c;
-    public final sd1 d;
-    public x8.b e;
-    public int f;
-    public int g;
-    public ce1 h;
-    public int i;
-    public qd1 j;
-    public final rd1 k;
+    public List<wd1.a> a;
+    public Context b;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements rd1 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xd1 a;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+        public TextView d;
+        public ImageView e;
+        public LinearLayout f;
+        public LinearLayout g;
+        public TextView h;
+        public ImageView i;
 
-        public a(xd1 xd1Var) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xd1Var};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,79 +66,24 @@ public class xd1 implements mg1 {
                     return;
                 }
             }
-            this.a = xd1Var;
-        }
-
-        @Override // com.baidu.tieba.rd1
-        public void a(Throwable th) {
-            String message;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                if (this.a.e != null) {
-                    this.a.e.onFailed();
-                } else if (this.a.d == null) {
-                } else {
-                    sd1 sd1Var = this.a.d;
-                    if (th == null) {
-                        message = "unKnow";
-                    } else {
-                        message = th.getMessage();
-                    }
-                    sd1Var.b(message);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rd1
-        public void b(ce1 ce1Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ce1Var) != null) || x8.f().i()) {
-                return;
-            }
-            int f = ae1.f(ce1Var, this.a.i);
-            if (f == 0) {
-                this.a.h = ce1Var;
-                kg1 a = new sf1().a(this.a.c, yd1.a(ce1Var));
-                if (a != null) {
-                    this.a.a = a;
-                    if (this.a.d != null) {
-                        td1 td1Var = new td1(a, this.a.d.g(), ce1Var);
-                        td1Var.l(this.a.d);
-                        a.c(td1Var);
-                        a.a(td1Var);
-                        td1Var.k(this.a);
-                        this.a.j(!ce1Var.i());
-                        this.a.m(!ce1Var.g());
-                        this.a.d.e(this.a);
-                    }
-                    if (this.a.e != null) {
-                        this.a.e.onSuccess();
-                        return;
-                    }
-                    return;
-                } else if (this.a.d != null) {
-                    this.a.d.b("创建 AdContainer 失败");
-                    return;
-                } else {
-                    return;
-                }
-            }
-            if (this.a.e != null) {
-                this.a.e.onFailed();
-            } else if (this.a.d != null) {
-                sd1 sd1Var = this.a.d;
-                sd1Var.b("query 后物料效验失败: " + f);
-            }
-            BaseVM.h(f);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090728);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090727);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e88);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b8);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090729);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090725);
+            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090722);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090726);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e92);
         }
     }
 
-    public xd1(Context context, String str, uf1 uf1Var, sd1 sd1Var) {
+    public xd1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, uf1Var, sd1Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -137,158 +93,105 @@ public class xd1 implements mg1 {
                 return;
             }
         }
-        LoadState loadState = LoadState.INIT;
-        this.i = 0;
-        this.k = new a(this);
-        this.c = context;
-        this.b = str;
-        this.d = sd1Var;
-        if (uf1Var != null && uf1Var.a() != null && uf1Var.a().containsKey("launch_type")) {
-            try {
-                this.i = Integer.parseInt((String) uf1Var.a().get("launch_type"));
-            } catch (NumberFormatException unused) {
-                this.i = 0;
+        this.b = context;
+    }
+
+    public final String a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return new DecimalFormat("0").format((j * 1.0d) / 100.0d);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public wd1.a getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < this.a.size()) {
+                return this.a.get(i);
             }
+            return null;
+        }
+        return (wd1.a) invokeI.objValue;
+    }
+
+    public void c(List<wd1.a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
+            notifyDataSetChanged();
         }
     }
 
-    public void j(int i) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<wd1.a> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
         }
+        return invokeV.intValue;
     }
 
-    public void k(kg1 kg1Var) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, kg1Var) == null) {
-            this.a = kg1Var;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void n(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) {
-            kg1 kg1Var = this.a;
-            if (viewGroup != null && kg1Var != null) {
-                kg1Var.load();
-                View adView = kg1Var.getAdView();
-                if (adView != null && adView.getParent() == null) {
-                    viewGroup.addView(adView);
-                    return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            wd1.a item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            boolean z2 = false;
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01ff, (ViewGroup) null, false);
+                view2.setTag(new a(view2));
+            }
+            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
+                a aVar = (a) view2.getTag();
+                if (item.a == -1) {
+                    aVar.g.setVisibility(8);
+                    aVar.f.setVisibility(0);
+                    aVar.h.setText(item.d);
+                    ImageView imageView = aVar.i;
+                    if (item.h == 1) {
+                        z2 = true;
+                    }
+                    imageView.setSelected(z2);
                 } else {
-                    h();
-                    return;
-                }
-            }
-            h();
-        }
-    }
-
-    @Override // com.baidu.tieba.mg1
-    public ce1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
-        }
-        return (ce1) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
-            this.a = null;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!x8.f().h()) {
-                l(ae1.p(this.i));
-                return;
-            }
-            qd1 qd1Var = new qd1();
-            this.j = qd1Var;
-            qd1Var.j(this.b, this.k);
-        }
-    }
-
-    @Override // com.baidu.tieba.mg1
-    public JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (this.h != null) {
-                    jSONObject.put("source", this.h.E);
-                    jSONObject.put(QuickPersistConfigConst.KEY_SPLASH_SORT, this.h.F);
-                }
-                jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f);
-                jSONObject.put("full_type", this.g);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void l(ce1 ce1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ce1Var) == null) {
-            if (ce1Var != null) {
-                this.h = ce1Var;
-                tf1 a2 = yd1.a(ce1Var);
-                kg1 a3 = new sf1().a(this.c, a2);
-                if (a3 == null) {
-                    if (((ld1) ld1.a.get()).a()) {
-                        Log.e("PrologueAd", "创建 AdContainer 失败，params: " + a2.a());
+                    aVar.g.setVisibility(0);
+                    aVar.f.setVisibility(8);
+                    aVar.a.setText(item.d);
+                    if (TextUtils.isEmpty(item.e)) {
+                        aVar.b.setVisibility(8);
+                    } else {
+                        aVar.b.setVisibility(0);
+                        aVar.b.setText(item.e);
                     }
-                    sd1 sd1Var = this.d;
-                    if (sd1Var != null) {
-                        sd1Var.b("创建 AdContainer 失败");
-                        return;
+                    ImageView imageView2 = aVar.c;
+                    if (item.h == 1) {
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                    return;
+                    imageView2.setSelected(z);
+                    SpannableString spannableString = new SpannableString("￥" + a(item.g.longValue()));
+                    spannableString.setSpan(new AbsoluteSizeSpan(yc1.a(this.b, 14.0f)), 0, 1, 33);
+                    aVar.d.setText(spannableString);
                 }
-                this.a = a3;
-                sd1 sd1Var2 = this.d;
-                if (sd1Var2 != null) {
-                    td1 td1Var = new td1(a3, sd1Var2.g(), ce1Var);
-                    td1Var.l(this.d);
-                    a3.c(td1Var);
-                    a3.a(td1Var);
-                    td1Var.k(this);
-                    j(!ce1Var.i());
-                    m(!ce1Var.g());
-                    this.d.e(this);
-                }
-                x8.b bVar = this.e;
-                if (bVar != null) {
-                    bVar.onSuccess();
-                    return;
-                }
-                return;
             }
-            x8.b bVar2 = this.e;
-            if (bVar2 != null) {
-                bVar2.onFailed();
-                return;
-            }
-            sd1 sd1Var3 = this.d;
-            if (sd1Var3 != null) {
-                sd1Var3.b("本地物料null");
-            }
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

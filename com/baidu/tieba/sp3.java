@@ -1,53 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public class sp3 {
+public class sp3 implements un1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public int delete(Uri uri, String str, String[] strArr) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.un1
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
         }
-        return invokeLLL.intValue;
-    }
-
-    public Uri insert(Uri uri, ContentValues contentValues) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, contentValues)) == null) {
-            return null;
-        }
-        return (Uri) invokeLL.objValue;
-    }
-
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
-            return null;
-        }
-        return (Cursor) invokeLLLLL.objValue;
-    }
-
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, uri, contentValues, str, strArr)) == null) {
-            return 0;
-        }
-        return invokeLLLL.intValue;
+        return invokeV.booleanValue;
     }
 
     public sp3() {

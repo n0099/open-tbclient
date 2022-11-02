@@ -1,25 +1,24 @@
 package com.baidu.platform.core.b;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.search.geocode.GeoCodeOption;
-import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
-import com.baidu.platform.base.SearchType;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.mapapi.search.district.DistrictSearchOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 /* loaded from: classes2.dex */
-public class a extends com.baidu.platform.base.a implements d {
+public class a extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public OnGetGeoCoderResultListener b;
 
-    public a() {
+    public a(DistrictSearchOption districtSearchOption) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {districtSearchOption};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,55 +28,38 @@ public class a extends com.baidu.platform.base.a implements d {
                 return;
             }
         }
-        this.b = null;
+        a(districtSearchOption);
     }
 
-    @Override // com.baidu.platform.core.b.d
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.lock();
-            this.b = null;
-            this.a.unlock();
-        }
-    }
-
-    @Override // com.baidu.platform.core.b.d
-    public void a(OnGetGeoCoderResultListener onGetGeoCoderResultListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetGeoCoderResultListener) == null) {
-            this.a.lock();
-            this.b = onGetGeoCoderResultListener;
-            this.a.unlock();
-        }
-    }
-
-    @Override // com.baidu.platform.core.b.d
-    public boolean a(GeoCodeOption geoCodeOption) {
+    @Override // com.baidu.platform.base.e
+    public String a(com.baidu.platform.domain.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, geoCodeOption)) == null) {
-            b bVar = new b();
-            com.baidu.platform.base.e cVar = new c(geoCodeOption);
-            bVar.a(SearchType.g);
-            if (geoCodeOption != null) {
-                bVar.b(geoCodeOption.getAddress());
-            }
-            return a(cVar, this.b, bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            return cVar.n();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.platform.core.b.d
-    public boolean a(ReverseGeoCodeOption reverseGeoCodeOption) {
-        InterceptResult invokeL;
+    private void a(DistrictSearchOption districtSearchOption) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, reverseGeoCodeOption)) == null) {
-            e eVar = new e();
-            f fVar = new f(reverseGeoCodeOption);
-            eVar.a(SearchType.h);
-            return a(fVar, this.b, eVar);
+        if ((interceptable != null && interceptable.invokeL(65537, this, districtSearchOption) != null) || districtSearchOption == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a.a("qt", "con");
+        this.a.a("rp_format", "json");
+        this.a.a("rp_filter", "mobile");
+        this.a.a("area_res", "true");
+        this.a.a("addr_identify", "1");
+        this.a.a("ie", IMAudioTransRequest.CHARSET);
+        this.a.a("pn", "0");
+        this.a.a("rn", "10");
+        this.a.a("c", districtSearchOption.mCityName);
+        String str = districtSearchOption.mDistrictName;
+        if (str != null && !str.equals("")) {
+            this.a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mDistrictName);
+        } else {
+            this.a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mCityName);
+        }
     }
 }

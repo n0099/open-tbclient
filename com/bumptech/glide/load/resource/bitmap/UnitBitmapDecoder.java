@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,13 +13,13 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Util;
 /* loaded from: classes7.dex */
-public final class UnitBitmapDecoder implements ResourceDecoder {
+public final class UnitBitmapDecoder implements ResourceDecoder<Bitmap, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(Bitmap bitmap, Options options) {
+    public boolean handles(@NonNull Bitmap bitmap, @NonNull Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, options)) == null) {
@@ -28,7 +29,7 @@ public final class UnitBitmapDecoder implements ResourceDecoder {
     }
 
     /* loaded from: classes7.dex */
-    public final class NonOwnedBitmapResource implements Resource {
+    public static final class NonOwnedBitmapResource implements Resource<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Bitmap bitmap;
@@ -40,7 +41,7 @@ public final class UnitBitmapDecoder implements ResourceDecoder {
             }
         }
 
-        public NonOwnedBitmapResource(Bitmap bitmap) {
+        public NonOwnedBitmapResource(@NonNull Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +60,9 @@ public final class UnitBitmapDecoder implements ResourceDecoder {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.bumptech.glide.load.engine.Resource
+        @NonNull
         public Bitmap get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -70,7 +73,8 @@ public final class UnitBitmapDecoder implements ResourceDecoder {
         }
 
         @Override // com.bumptech.glide.load.engine.Resource
-        public Class getResourceClass() {
+        @NonNull
+        public Class<Bitmap> getResourceClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -106,7 +110,7 @@ public final class UnitBitmapDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource decode(Bitmap bitmap, int i, int i2, Options options) {
+    public Resource<Bitmap> decode(@NonNull Bitmap bitmap, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {

@@ -1,6 +1,11 @@
 package androidx.media;
 
+import android.annotation.SuppressLint;
 import android.media.AudioAttributes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,12 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class AudioAttributesImplApi21 implements AudioAttributesImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AudioAttributesCompat21";
     public transient /* synthetic */ FieldHolder $fh;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributes mAudioAttributes;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mLegacyStreamType;
 
     /* loaded from: classes.dex */
@@ -40,6 +49,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         }
 
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public AudioAttributesImpl build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -69,6 +79,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setContentType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -81,6 +92,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setFlags(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -93,6 +105,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setLegacyStreamType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -105,6 +118,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setUsage(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -119,6 +133,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesImplApi21() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,6 +151,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
     }
 
     @Override // androidx.media.AudioAttributesImpl
+    @Nullable
     public Object getAudioAttributes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -200,6 +216,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
     }
 
     @Override // androidx.media.AudioAttributesImpl
+    @SuppressLint({"NewApi"})
     public int getVolumeControlStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,6 +235,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

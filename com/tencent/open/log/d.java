@@ -1,5 +1,6 @@
 package com.tencent.open.log;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
@@ -17,7 +18,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +30,7 @@ public class d {
     }
 
     /* loaded from: classes8.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +61,7 @@ public class d {
     }
 
     /* loaded from: classes8.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public File a;
@@ -156,10 +157,11 @@ public class d {
 
     /* renamed from: com.tencent.open.log.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public final class C0702d {
+    public static final class C0713d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

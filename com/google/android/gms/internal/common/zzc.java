@@ -47,16 +47,16 @@ public final class zzc {
         zza = zzc.class.getClassLoader();
     }
 
-    public static Parcelable zza(Parcel parcel, Parcelable.Creator creator) {
+    public static <T extends Parcelable> T zza(Parcel parcel, Parcelable.Creator<T> creator) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
             if (parcel.readInt() == 0) {
                 return null;
             }
-            return (Parcelable) creator.createFromParcel(parcel);
+            return creator.createFromParcel(parcel);
         }
-        return (Parcelable) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static void zzb(Parcel parcel, boolean z) {

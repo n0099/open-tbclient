@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,60 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public final class kw {
+public class kw {
     public static /* synthetic */ Interceptable $ic;
-    public static ConcurrentHashMap a;
-    public static b b;
-    public static volatile boolean c;
+    public static kw b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ b(Looper looper, a aVar) {
-            this(looper);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
-                kw.d();
-                kw.b.sendEmptyMessageDelayed(0, 15000L);
-            }
-        }
-    }
+    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
 
     static {
         InterceptResult invokeClinit;
@@ -83,112 +31,68 @@ public final class kw {
                 return;
             }
         }
-        a = new ConcurrentHashMap();
-        c = false;
-        b bVar = new b(ow.a("PreferenceQueue").getLooper(), null);
-        b = bVar;
-        bVar.sendEmptyMessageDelayed(0, 15000L);
+        b = new kw();
     }
 
-    public static void f() {
+    public kw() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, null) == null) && !b.hasMessages(0)) {
-            b.sendEmptyMessageDelayed(0, 15000L);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = new HashMap();
     }
 
-    public static void g() {
+    public static kw b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            Log.d("BdPreferenceQueueWorker", "wait to finish");
-            b.removeMessages(0);
-            d();
-            f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (kw) invokeV.objValue;
     }
 
-    public static void c(String str, String str2, Object obj) {
+    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, obj) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) != null) || this.a == null) {
             return;
         }
-        if (a.containsKey(str)) {
-            ConcurrentHashMap concurrentHashMap = (ConcurrentHashMap) a.get(str);
-            if (concurrentHashMap != null) {
-                if (obj != null) {
-                    concurrentHashMap.put(str2, obj);
-                } else {
-                    concurrentHashMap.remove(str2);
-                }
-            } else if (obj != null && str2 != null) {
-                ConcurrentHashMap concurrentHashMap2 = new ConcurrentHashMap();
-                concurrentHashMap2.put(str2, obj);
-                a.put(str, concurrentHashMap2);
+        synchronized (kw.class) {
+            if (this.a.containsKey(Integer.valueOf(i))) {
+                this.a.remove(Integer.valueOf(i));
             }
-        } else if (obj != null && str2 != null) {
-            ConcurrentHashMap concurrentHashMap3 = new ConcurrentHashMap();
-            concurrentHashMap3.put(str2, obj);
-            a.put(str, concurrentHashMap3);
+            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
         }
     }
 
-    public static void d() {
-        int i;
+    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || c) {
-            return;
-        }
-        c = true;
-        try {
-            try {
-                Context baseContext = gw.a().getBaseContext();
-                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + a.size());
-                for (String str : a.keySet()) {
-                    ConcurrentHashMap concurrentHashMap = (ConcurrentHashMap) a.get(str);
-                    if (concurrentHashMap != null && concurrentHashMap.size() > 0) {
-                        SharedPreferences.Editor edit = baseContext.getSharedPreferences(str, 0).edit();
-                        i = 0;
-                        for (String str2 : concurrentHashMap.keySet()) {
-                            Object obj = concurrentHashMap.get(str2);
-                            if (obj != null) {
-                                if (obj instanceof Integer) {
-                                    edit.putInt(str2, ((Integer) obj).intValue());
-                                } else if (obj instanceof Long) {
-                                    edit.putLong(str2, ((Long) obj).longValue());
-                                } else if (obj instanceof Float) {
-                                    edit.putFloat(str2, ((Float) obj).floatValue());
-                                } else if (obj instanceof Boolean) {
-                                    edit.putBoolean(str2, ((Boolean) obj).booleanValue());
-                                } else if (obj instanceof String) {
-                                    edit.putString(str2, (String) obj);
-                                } else if (obj instanceof Set) {
-                                    edit.putStringSet(str2, (Set) obj);
-                                }
-                                i++;
-                            }
-                        }
-                        edit.commit();
-                    } else {
-                        i = 0;
-                    }
-                    concurrentHashMap.clear();
-                    if (i > 0) {
-                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i + " items have been wroten");
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
+            if (map != null && map.containsKey(Integer.valueOf(i))) {
+                return this.a.get(Integer.valueOf(i));
             }
-        } finally {
-            c = false;
+            return null;
         }
+        return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
     }
 
-    public static void e(String str) {
-        ConcurrentHashMap concurrentHashMap;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && str != null && (concurrentHashMap = (ConcurrentHashMap) a.get(str)) != null) {
-            concurrentHashMap.clear();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (kw.class) {
+                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
+                    this.a.remove(Integer.valueOf(i));
+                }
+            }
         }
     }
 }

@@ -2,13 +2,15 @@ package com.kwad.sdk.core.report;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.annotation.WorkerThread;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class s {
     public static Context ab;
     public static String abt = uJ();
     public static long abu = 0;
 
+    @WorkerThread
     public static long by(Context context) {
         SharedPreferences sharedPreferences;
         if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_seq", 0)) == null) {
@@ -17,6 +19,7 @@ public final class s {
         return sharedPreferences.getLong("seq", 1L);
     }
 
+    @WorkerThread
     public static boolean d(Context context, long j) {
         if (context != null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_seq", 0).edit();
@@ -41,6 +44,7 @@ public final class s {
         return abt;
     }
 
+    @WorkerThread
     public static long uH() {
         long by = by(ab);
         d(ab, 1 + by);

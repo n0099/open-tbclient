@@ -1,6 +1,8 @@
 package com.kwad.sdk.core.network.idc.kwai;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.utils.r;
 import java.util.Collections;
@@ -12,9 +14,9 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements b {
-    public final Map Zg = new ConcurrentHashMap();
+    public final Map<String, List<String>> Zg = new ConcurrentHashMap();
 
     public static a cb(String str) {
         a aVar = new a();
@@ -26,7 +28,8 @@ public final class a implements b {
         return aVar;
     }
 
-    private Map tK() {
+    @NonNull
+    private Map<String, List<String>> tK() {
         return this.Zg;
     }
 
@@ -37,8 +40,9 @@ public final class a implements b {
         }
     }
 
-    public final List ca(String str) {
-        List list = (List) this.Zg.get(str);
+    @NonNull
+    public final List<String> ca(String str) {
+        List<String> list = this.Zg.get(str);
         return list == null ? Collections.emptyList() : list;
     }
 
@@ -47,7 +51,7 @@ public final class a implements b {
     }
 
     @Override // com.kwad.sdk.core.b
-    public final void parseJson(JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -63,16 +67,17 @@ public final class a implements b {
         this.Zg.putAll(hashMap);
     }
 
-    public final Set tL() {
+    @NonNull
+    public final Set<String> tL() {
         return this.Zg.keySet();
     }
 
     @Override // com.kwad.sdk.core.b
     public final JSONObject toJson() {
-        Map map = this.Zg;
+        Map<String, List<String>> map = this.Zg;
         JSONObject jSONObject = new JSONObject();
         for (String str : map.keySet()) {
-            r.putValue(jSONObject, str, r.B((List) map.get(str)));
+            r.putValue(jSONObject, str, r.B(map.get(str)));
         }
         return jSONObject;
     }

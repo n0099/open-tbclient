@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.util.Log;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -430,6 +431,7 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static void setDefaultExecutor(Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executor) == null) {

@@ -31,10 +31,10 @@ public final class CompletableConcat extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int prefetch;
-    public final Publisher sources;
+    public final Publisher<? extends CompletableSource> sources;
 
     /* loaded from: classes8.dex */
-    public final class CompletableConcatSubscriber extends AtomicInteger implements FlowableSubscriber, Disposable {
+    public static final class CompletableConcatSubscriber extends AtomicInteger implements FlowableSubscriber<CompletableSource>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9032184911934499404L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,12 +46,12 @@ public final class CompletableConcat extends Completable {
         public final int limit;
         public final AtomicBoolean once;
         public final int prefetch;
-        public SimpleQueue queue;
+        public SimpleQueue<CompletableSource> queue;
         public Subscription s;
         public int sourceFused;
 
         /* loaded from: classes8.dex */
-        public final class ConcatInnerObserver extends AtomicReference implements CompletableObserver {
+        public static final class ConcatInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -5454794857847146511L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public final class CompletableConcat extends Completable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) this.inner.get());
+                return DisposableHelper.isDisposed(this.inner.get());
             }
             return invokeV.booleanValue;
         }
@@ -181,8 +181,8 @@ public final class CompletableConcat extends Completable {
                 if (!this.active) {
                     boolean z2 = this.done;
                     try {
-                        CompletableSource completableSource = (CompletableSource) this.queue.poll();
-                        if (completableSource == null) {
+                        CompletableSource poll = this.queue.poll();
+                        if (poll == null) {
                             z = true;
                         } else {
                             z = false;
@@ -195,7 +195,7 @@ public final class CompletableConcat extends Completable {
                             return;
                         } else if (!z) {
                             this.active = true;
-                            completableSource.subscribe(this.inner);
+                            poll.subscribe(this.inner);
                             request();
                         }
                     } catch (Throwable th) {
@@ -289,7 +289,7 @@ public final class CompletableConcat extends Completable {
         }
     }
 
-    public CompletableConcat(Publisher publisher, int i) {
+    public CompletableConcat(Publisher<? extends CompletableSource> publisher, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

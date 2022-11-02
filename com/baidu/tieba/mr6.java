@@ -1,128 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.live.FrsLiveTipResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class mr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public HttpMessageListener b;
 
-    public static void a(StatisticItem statisticItem, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage);
     }
 
-    public static void b(Context context, xm8 xm8Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, xm8Var) != null) || xm8Var == null) {
-            return;
-        }
-        TbPageContext tbPageContext = null;
-        if (context instanceof BaseActivity) {
-            tbPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
-        }
-        if (tbPageContext == null) {
-            return;
-        }
-        ym8 ym8Var = xm8Var.f;
-        if (ym8Var != null) {
-            tr5.b(ym8Var.b, ym8Var.c, "1191003700000000", ym8Var.d);
-        } else {
-            if (YYLiveUtil.isYYLiveLink(xm8Var.d)) {
-                str = xm8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
-            } else {
-                str = xm8Var.d;
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mr6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mr6 mr6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mr6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+            this.a = mr6Var;
         }
-        mt6.a(tbPageContext, xm8Var.e);
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && this.a.a != null) {
+                this.a.a.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            }
+        }
     }
 
-    public static void c(xm8 xm8Var) {
-        int i;
-        String str;
+    public mr6(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, xm8Var) != null) || xm8Var == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", xm8Var.g);
-        if (xm8Var.f == null) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", xm8Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        ym8 ym8Var = xm8Var.f;
-        if (ym8Var != null) {
-            str = ym8Var.c;
-        } else {
-            str = xm8Var.d;
-        }
-        ym8 ym8Var2 = xm8Var.f;
-        if (ym8Var2 != null) {
-            String str2 = ym8Var2.a;
-        } else {
-            String str3 = xm8Var.c;
-        }
-        statisticItem.param("obj_name", xm8Var.c);
-        statisticItem.param("obj_param1", xm8Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(xm8Var.i, 1));
+        this.b = new a(this, CmdConfigHttp.FRS_LIVE_TIP_CMD);
+        this.a = bVar;
+        d();
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public static void d(xm8 xm8Var) {
-        int i;
-        String str;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, xm8Var) != null) || xm8Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.FRS_LIVE_TIP_CMD);
+            httpMessage.addParam("forum_id", i);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", xm8Var.g);
-        if (xm8Var.f == null) {
-            i = 1;
-        } else {
-            i = 2;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.FRS_LIVE_TIP_CMD);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", xm8Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        ym8 ym8Var = xm8Var.f;
-        if (ym8Var != null) {
-            str = ym8Var.c;
-        } else {
-            str = xm8Var.d;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LIVE_TIP_CMD, TbConfig.FRS_LIVE_TIP_ADDRESS);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(FrsLiveTipResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        ym8 ym8Var2 = xm8Var.f;
-        if (ym8Var2 != null) {
-            String str2 = ym8Var2.a;
-        } else {
-            String str3 = xm8Var.c;
-        }
-        statisticItem.param("obj_name", xm8Var.c);
-        statisticItem.param("obj_param1", xm8Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(xm8Var.i, 0));
     }
 }

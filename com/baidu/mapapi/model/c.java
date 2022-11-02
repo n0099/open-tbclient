@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class c implements Parcelable.Creator {
+public final class c implements Parcelable.Creator<ParcelItem> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,6 +47,9 @@ public final class c implements Parcelable.Creator {
     public ParcelItem[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ParcelItem[i] : (ParcelItem[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new ParcelItem[i];
+        }
+        return (ParcelItem[]) invokeI.objValue;
     }
 }

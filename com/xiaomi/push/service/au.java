@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.content.Context;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+@TargetApi(24)
 /* loaded from: classes8.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
@@ -35,8 +37,8 @@ public class au {
         public final /* synthetic */ au a;
 
         /* renamed from: a  reason: collision with other field name */
-        public List f908a;
-        public List b;
+        public List<b> f908a;
+        public List<b> b;
 
         public a(au auVar) {
             Interceptable interceptable = $ic;
@@ -163,11 +165,11 @@ public class au {
         return (String) invokeL.objValue;
     }
 
-    private List a(ax axVar) {
+    private List<StatusBarNotification> a(ax axVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, axVar)) == null) {
-            List m631b = axVar != null ? axVar.m631b() : null;
+            List<StatusBarNotification> m631b = axVar != null ? axVar.m631b() : null;
             if (m631b == null || m631b.size() == 0) {
                 return null;
             }
@@ -193,20 +195,20 @@ public class au {
                             a(hashMap, statusBarNotification);
                         }
                     }
-                    for (Map.Entry entry : hashMap.entrySet()) {
-                        String str2 = (String) entry.getKey();
-                        if (!TextUtils.isEmpty(str2)) {
-                            a aVar = (a) entry.getValue();
-                            if (z && str2.equals(b2) && !m620b(notification)) {
-                                (m619a(notification) ? aVar.b : aVar.f908a).add(new b(this, i, notification));
+                    for (Map.Entry<String, a> entry : hashMap.entrySet()) {
+                        String key = entry.getKey();
+                        if (!TextUtils.isEmpty(key)) {
+                            a value = entry.getValue();
+                            if (z && key.equals(b2) && !m620b(notification)) {
+                                (m619a(notification) ? value.b : value.f908a).add(new b(this, i, notification));
                             }
-                            int size = aVar.f908a.size();
-                            if (aVar.b.size() <= 0) {
+                            int size = value.f908a.size();
+                            if (value.b.size() <= 0) {
                                 if (z && size >= 2) {
-                                    a(context, c, str2, ((b) aVar.f908a.get(0)).f909a);
+                                    a(context, c, key, value.f908a.get(0).f909a);
                                 }
                             } else if (size <= 0) {
-                                a(context, c, str2);
+                                a(context, c, key);
                             }
                         }
                     }
@@ -265,11 +267,11 @@ public class au {
         }
     }
 
-    private void a(Map map, StatusBarNotification statusBarNotification) {
+    private void a(Map<String, a> map, StatusBarNotification statusBarNotification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, map, statusBarNotification) == null) {
             String b2 = b(statusBarNotification.getNotification());
-            a aVar = (a) map.get(b2);
+            a aVar = map.get(b2);
             if (aVar == null) {
                 aVar = new a(this, null);
                 map.put(b2, aVar);

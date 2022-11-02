@@ -14,8 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.qq4;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,9 +77,9 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ab, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ad, (ViewGroup) this, true);
             setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f1b);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f54);
         }
     }
 
@@ -88,7 +88,7 @@ public class ItemInfoView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
             boolean z = true;
             SkinManager.setViewTextColor(this.a, R.color.common_color_10177, 1);
-            zp4 layoutMode = forumDetailActivity.getLayoutMode();
+            qq4 layoutMode = forumDetailActivity.getLayoutMode();
             if (i != 1) {
                 z = false;
             }
@@ -97,14 +97,14 @@ public class ItemInfoView extends LinearLayout {
         }
     }
 
-    public final SpannableStringBuilder c(List list, String str) {
+    public final SpannableStringBuilder c(List<PbContent> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + "\n");
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                PbContent pbContent = (PbContent) list.get(i);
+                PbContent pbContent = list.get(i);
                 if (pbContent != null) {
                     if (pbContent.type.intValue() == 2) {
                         Bitmap b = TbFaceManager.i().b(pbContent.text);
@@ -129,10 +129,10 @@ public class ItemInfoView extends LinearLayout {
         List<PbContent> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, recommendForumInfo) == null) {
-            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !ej.isEmpty(recommendForumInfo.slogan))) {
+            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !wi.isEmpty(recommendForumInfo.slogan))) {
                 this.a.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0687));
+                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f068a));
             }
             setVisibility(0);
         }

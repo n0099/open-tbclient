@@ -1,5 +1,6 @@
 package androidx.webkit.internal;
 
+import androidx.annotation.NonNull;
 import androidx.webkit.ProxyConfig;
 import androidx.webkit.ProxyController;
 import androidx.webkit.WebViewFeature;
@@ -46,7 +47,7 @@ public class ProxyControllerImpl extends ProxyController {
     }
 
     @Override // androidx.webkit.ProxyController
-    public void clearProxyOverride(Executor executor, Runnable runnable) {
+    public void clearProxyOverride(@NonNull Executor executor, @NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, executor, runnable) == null) {
             if (WebViewFeatureInternal.getFeature(WebViewFeature.PROXY_OVERRIDE).isSupportedByWebView()) {
@@ -58,7 +59,7 @@ public class ProxyControllerImpl extends ProxyController {
     }
 
     @Override // androidx.webkit.ProxyController
-    public void setProxyOverride(ProxyConfig proxyConfig, Executor executor, Runnable runnable) {
+    public void setProxyOverride(@NonNull ProxyConfig proxyConfig, @NonNull Executor executor, @NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, proxyConfig, executor, runnable) == null) {
             if (WebViewFeatureInternal.getFeature(WebViewFeature.PROXY_OVERRIDE).isSupportedByWebView()) {

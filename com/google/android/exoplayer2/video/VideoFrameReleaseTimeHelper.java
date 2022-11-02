@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.video;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.os.Handler;
@@ -8,6 +9,7 @@ import android.os.Message;
 import android.view.Choreographer;
 import android.view.Display;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
@@ -20,6 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.util.Util;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public final class VideoFrameReleaseTimeHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -41,6 +44,7 @@ public final class VideoFrameReleaseTimeHelper {
     public final VSyncSampler vsyncSampler;
     public final WindowManager windowManager;
 
+    @TargetApi(17)
     /* loaded from: classes7.dex */
     public final class DefaultDisplayListener implements DisplayManager.DisplayListener {
         public static /* synthetic */ Interceptable $ic;
@@ -106,7 +110,7 @@ public final class VideoFrameReleaseTimeHelper {
     }
 
     /* loaded from: classes7.dex */
-    public final class VSyncSampler implements Choreographer.FrameCallback, Handler.Callback {
+    public static final class VSyncSampler implements Choreographer.FrameCallback, Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_CHOREOGRAPHER = 0;
         public static final VSyncSampler INSTANCE;
@@ -298,7 +302,7 @@ public final class VideoFrameReleaseTimeHelper {
         }
     }
 
-    public VideoFrameReleaseTimeHelper(Context context) {
+    public VideoFrameReleaseTimeHelper(@Nullable Context context) {
         WindowManager windowManager;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -331,6 +335,7 @@ public final class VideoFrameReleaseTimeHelper {
         this.vsyncOffsetNs = C.TIME_UNSET;
     }
 
+    @TargetApi(17)
     private DefaultDisplayListener maybeBuildDefaultDisplayListenerV17(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

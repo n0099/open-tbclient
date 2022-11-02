@@ -16,10 +16,10 @@ public class ImageMetaData {
     @Nullable
     public final ColorSpace mColorSpace;
     @Nullable
-    public final Pair mDimensions;
+    public final Pair<Integer, Integer> mDimensions;
 
     public ImageMetaData(int i, int i2, @Nullable ColorSpace colorSpace) {
-        Pair pair;
+        Pair<Integer, Integer> pair;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,7 +35,7 @@ public class ImageMetaData {
             }
         }
         if (i != -1 && i2 != -1) {
-            pair = new Pair(Integer.valueOf(i), Integer.valueOf(i2));
+            pair = new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
         } else {
             pair = null;
         }
@@ -54,7 +54,7 @@ public class ImageMetaData {
     }
 
     @Nullable
-    public Pair getDimensions() {
+    public Pair<Integer, Integer> getDimensions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

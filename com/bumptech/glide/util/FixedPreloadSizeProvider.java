@@ -1,5 +1,7 @@
 package com.bumptech.glide.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -7,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.ListPreloader;
 /* loaded from: classes7.dex */
-public class FixedPreloadSizeProvider implements ListPreloader.PreloadSizeProvider {
+public class FixedPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProvider<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int[] size;
@@ -31,10 +33,11 @@ public class FixedPreloadSizeProvider implements ListPreloader.PreloadSizeProvid
     }
 
     @Override // com.bumptech.glide.ListPreloader.PreloadSizeProvider
-    public int[] getPreloadSize(Object obj, int i, int i2) {
+    @Nullable
+    public int[] getPreloadSize(@NonNull T t, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, obj, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, t, i, i2)) == null) {
             return this.size;
         }
         return (int[]) invokeLII.objValue;

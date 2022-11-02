@@ -1,5 +1,6 @@
 package com.kwad.components.ad.reward;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ public final class r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String errorMsg;
@@ -50,7 +51,7 @@ public final class r {
             parseJson(jSONObject);
         }
 
-        private void parseJson(JSONObject jSONObject) {
+        private void parseJson(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) || jSONObject == null) {
                 return;

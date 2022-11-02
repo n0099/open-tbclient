@@ -71,7 +71,7 @@ public class ax {
     public static /* synthetic */ Interceptable $ic;
     public static final ax b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap a;
+    public HashMap<String, String> a;
 
     static {
         InterceptResult invokeClinit;
@@ -102,7 +102,7 @@ public class ax {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = new HashMap<>();
         b();
     }
 
@@ -416,7 +416,7 @@ public class ax {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return (String) this.a.get(str);
+            return this.a.get(str);
         }
         return (String) invokeL.objValue;
     }

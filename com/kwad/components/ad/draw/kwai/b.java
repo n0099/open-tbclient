@@ -1,5 +1,7 @@
 package com.kwad.components.ad.draw.kwai;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,12 +14,19 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 public final class b extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public KsDrawAd.AdInteractionListener aJ;
+    @NonNull
     public com.kwad.components.ad.draw.b.a aL;
+    @NonNull
     public com.kwad.components.ad.draw.a.a.a ba;
+    @Nullable
     public com.kwad.components.ad.i.b bb;
+    @NonNull
     public AdTemplate mAdTemplate;
+    @Nullable
     public c mApkDownloadHelper;
+    @NonNull
     public AdBaseFrameLayout mRootContainer;
 
     public b() {

@@ -3,12 +3,13 @@ package com.ss.android.downloadlib.d;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes8.dex */
 public class b extends SQLiteOpenHelper {
     public static final String[] a = {"_id", LegoListActivityConfig.AD_ID, "req_id", "time"};
 
-    public b(Context context) {
+    public b(@Nullable Context context) {
         super(context, "click_event", (SQLiteDatabase.CursorFactory) null, 1);
     }
 

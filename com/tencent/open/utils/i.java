@@ -1,5 +1,6 @@
 package com.tencent.open.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -303,6 +304,7 @@ public class i {
 
     /* JADX WARN: Removed duplicated region for block: B:66:0x00c2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:76:0x00c9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SdCardPath"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

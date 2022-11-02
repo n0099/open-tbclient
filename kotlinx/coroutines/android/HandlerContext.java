@@ -47,7 +47,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
     }
 
     @Override // kotlinx.coroutines.Delay
-    public void scheduleResumeAfterDelay(long j, final CancellableContinuation cancellableContinuation) {
+    public void scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
         Runnable runnable = new Runnable() { // from class: kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {

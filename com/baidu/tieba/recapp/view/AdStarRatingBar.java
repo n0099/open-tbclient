@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
 import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +26,7 @@ public class AdStarRatingBar extends FrameLayout {
     public int c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdStarRatingBar(Context context) {
+    public AdStarRatingBar(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +47,7 @@ public class AdStarRatingBar extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdStarRatingBar(Context context, AttributeSet attributeSet) {
+    public AdStarRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +68,7 @@ public class AdStarRatingBar extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdStarRatingBar(Context context, AttributeSet attributeSet, int i) {
+    public AdStarRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,10 +93,10 @@ public class AdStarRatingBar extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d006f, this);
-            this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900e5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e6);
-            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080a64).getIntrinsicHeight();
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0070, this);
+            this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900ed);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ee);
+            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080a7e).getIntrinsicHeight();
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = intrinsicHeight;

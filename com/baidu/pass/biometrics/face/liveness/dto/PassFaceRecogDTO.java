@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import com.baidu.pass.biometrics.face.liveness.a.a;
+import com.baidu.pass.biometrics.face.liveness.enums.HeadPose;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +30,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String di;
     public String exUid;
     public Bundle extraParams;
-    public Map extraParamsMap;
+    public Map<String, String> extraParamsMap;
     public int faceDebug;
     public String idCardNum;
     public String imageFlag;
@@ -37,7 +38,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public boolean needAuthorizeCertInfo;
     public String passProductId;
     public String phoneNum;
-    public List poseList;
+    public List<HeadPose> poseList;
     public String processid;
     public int quality;
     public String realName;
@@ -90,7 +91,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (String) this.extraParamsMap.get("access_token");
+            return this.extraParamsMap.get("access_token");
         }
         return (String) invokeV.objValue;
     }
@@ -99,7 +100,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (String) this.extraParamsMap.get(KEY_EXTRA_PASS_PRODUCT_ID);
+            return this.extraParamsMap.get(KEY_EXTRA_PASS_PRODUCT_ID);
         }
         return (String) invokeV.objValue;
     }
@@ -133,17 +134,17 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry : this.extraParamsMap.entrySet()) {
-                if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
+            for (Map.Entry<String, String> entry : this.extraParamsMap.entrySet()) {
+                if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
                     if (TextUtils.isEmpty(sb.toString())) {
-                        sb.append((String) entry.getKey());
+                        sb.append(entry.getKey());
                         sb.append("=");
-                        sb.append((String) entry.getValue());
+                        sb.append(entry.getValue());
                     } else {
                         sb.append("&");
-                        sb.append((String) entry.getKey());
+                        sb.append(entry.getKey());
                         sb.append("=");
-                        sb.append((String) entry.getValue());
+                        sb.append(entry.getValue());
                     }
                 }
             }

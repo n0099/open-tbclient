@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MediaStreamTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_TRACK_KIND = "audio";
@@ -29,8 +29,8 @@ public class MediaStreamTrack {
     public static native boolean nativeSetEnabled(long j, boolean z);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class MediaType {
+    /* loaded from: classes9.dex */
+    public static final class MediaType {
         public static final /* synthetic */ MediaType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MediaType MEDIA_TYPE_AUDIO;
@@ -78,6 +78,7 @@ public class MediaStreamTrack {
             this.nativeIndex = i2;
         }
 
+        @CalledByNative("MediaType")
         public static MediaType fromNativeIndex(int i) {
             InterceptResult invokeI;
             MediaType[] values;
@@ -111,6 +112,7 @@ public class MediaStreamTrack {
             return (MediaType[]) invokeV.objValue;
         }
 
+        @CalledByNative("MediaType")
         public int getNative() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -122,8 +124,8 @@ public class MediaStreamTrack {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class State {
+    /* loaded from: classes9.dex */
+    public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State ENDED;
@@ -168,6 +170,7 @@ public class MediaStreamTrack {
             }
         }
 
+        @CalledByNative("State")
         public static State fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;

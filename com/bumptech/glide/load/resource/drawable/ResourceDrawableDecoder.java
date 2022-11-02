@@ -3,7 +3,11 @@ package com.bumptech.glide.load.resource.drawable;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +21,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.facebook.common.util.UriUtil;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class ResourceDrawableDecoder implements ResourceDecoder {
+public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDROID_PACKAGE_NAME = "android";
     public static final int ID_PATH_SEGMENTS = 1;
@@ -47,6 +51,7 @@ public class ResourceDrawableDecoder implements ResourceDecoder {
         this.context = context.getApplicationContext();
     }
 
+    @DrawableRes
     private int findResourceIdFromResourceIdUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -60,6 +65,7 @@ public class ResourceDrawableDecoder implements ResourceDecoder {
         return invokeL.intValue;
     }
 
+    @NonNull
     private Context findContextForPackage(Uri uri, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -79,6 +85,7 @@ public class ResourceDrawableDecoder implements ResourceDecoder {
         return (Context) invokeLL.objValue;
     }
 
+    @DrawableRes
     private int findResourceIdFromTypeAndNameResourceUri(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -99,6 +106,7 @@ public class ResourceDrawableDecoder implements ResourceDecoder {
         return invokeLL.intValue;
     }
 
+    @DrawableRes
     private int findResourceIdFromUri(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -117,7 +125,8 @@ public class ResourceDrawableDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource decode(Uri uri, int i, int i2, Options options) {
+    @Nullable
+    public Resource<Drawable> decode(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
@@ -129,7 +138,7 @@ public class ResourceDrawableDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(Uri uri, Options options) {
+    public boolean handles(@NonNull Uri uri, @NonNull Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, options)) == null) {

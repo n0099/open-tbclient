@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.e;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -84,6 +85,7 @@ public class r {
         return (r) invokeL.objValue;
     }
 
+    @TargetApi(21)
     public synchronized void a(a aVar) {
         NetworkInfo networkInfo;
         Interceptable interceptable = $ic;

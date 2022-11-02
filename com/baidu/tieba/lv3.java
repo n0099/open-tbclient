@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.jo2;
+import android.content.Intent;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class lv3 {
+/* loaded from: classes5.dex */
+public class lv3 extends kw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lv3() {
+        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,86 +25,48 @@ public class lv3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "swan";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        if (m33.b0() == null) {
-            return;
-        }
-        jo2.a W = m33.b0().W();
-        this.a = fa3.n(W.G());
-        this.c = W.H();
-        this.b = W.T();
-        this.f = W.s0().getString("aiapp_extra_need_download", "");
-        this.g = W.W();
-        this.h = W.e0();
-        this.i = W.V();
-        this.d = W.v1();
-        this.e = W.w1();
     }
 
-    public lv3(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.kw3
+    public ew1 a(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
+            if (nh3.m()) {
+                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
+            } else if (nh3.n()) {
+                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
+            } else if (nh3.o()) {
+                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+            } else if (nh3.r()) {
+                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
+            } else {
+                z = false;
             }
+            if (!z) {
+                Toast.makeText(ln2.c(), (int) R.string.obfuscated_res_0x7f0f0190, 0).show();
+            }
+            ih2Var.a(null);
+            return null;
         }
-        this.a = "swan";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        if (jSONObject != null && jSONObject.length() != 0) {
-            this.a = jSONObject.optString("from", "swan");
-            this.c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            this.b = jSONObject.optString("source");
-            this.f = jSONObject.optString("needDown");
-            this.g = jSONObject.optString("scheme");
-            this.h = jSONObject.optString("extPage");
-            this.i = jSONObject.optString("launchId", null);
-            this.d = jSONObject.optString("appVersion");
-            this.e = jSONObject.optString("thirdVersion");
-        }
+        return (ew1) invokeLL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", this.a);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.c);
-                jSONObject.put("source", this.b);
-                jSONObject.put("needDown", this.f);
-                jSONObject.put("scheme", this.g);
-                jSONObject.put("extPage", this.h);
-                jSONObject.put("launchId", this.i);
-                jSONObject.put("appVersion", this.d);
-                jSONObject.put("thirdVersion", this.e);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(str, str2);
+            return ng3.i(ln2.c(), intent, true, false);
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

@@ -25,7 +25,7 @@ public abstract class n {
         }
     }
 
-    public static void a(Map map, String str, String str2) {
+    public static void a(Map<String, String> map, String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65538, null, map, str, str2) == null) || map == null || str == null || str2 == null) {
             return;

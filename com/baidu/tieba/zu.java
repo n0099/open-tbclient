@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.service.ubc.model.UBCActionTaskInfo;
+import com.baidu.bdtask.service.ubc.model.UBCRecoveryTaskQueue;
+import com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo;
+import com.baidu.bdtask.service.ubc.model.UBCTaskStatusInfo;
+import com.baidu.bdtask.service.ubc.model.UBCUnRegisterTaskInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class zu {
     public static /* synthetic */ Interceptable $ic;
-    public static final zu a;
+    public static av a;
+    public static boolean b;
+    public static final zu c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +41,7 @@ public final class zu {
                 return;
             }
         }
-        a = new zu();
+        c = new zu();
     }
 
     public zu() {
@@ -47,61 +58,154 @@ public final class zu {
         }
     }
 
-    public static /* synthetic */ JSONObject b(zu zuVar, String str, String str2, String str3, int i, Object obj) {
-        if ((i & 4) != 0) {
-            str3 = null;
+    public final void a() {
+        hu v;
+        qu f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_info_sync", new JSONObject());
         }
-        return zuVar.a(str, str2, str3);
     }
 
-    public final JSONObject a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public final void b(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("taskId", str);
-            jSONObject.put(TaskInfo.keyActTaskId, str2);
-            if (str3 != null) {
-                jSONObject.put("phase", str3);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public final String c(TaskStatus taskStatus) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskStatus)) == null) {
-            if (taskStatus.isFinished()) {
-                return "finish";
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subTaskState) == null) {
+            TaskStatus taskStatus = subTaskState.getTaskStatus();
+            TaskInfo taskInfo = subTaskState.getTaskInfo();
             if (taskStatus.isRegistered()) {
-                return "guide";
+                f(UBCRegisterTaskInfo.Companion.a(taskInfo, taskStatus));
+            } else if (taskStatus.isRunning()) {
+                g(new UBCTaskStatusInfo(taskInfo, taskStatus, 0, null, 12, null));
+            } else if (taskStatus.isFinished()) {
+                j(new UBCTaskStatusInfo(taskInfo, taskStatus, 0, null, 12, null));
             }
-            return "doing";
         }
-        return (String) invokeL.objValue;
     }
 
-    public final String d(TaskStatus taskStatus) {
-        InterceptResult invokeL;
+    public final void c(TaskInfo taskInfo, TaskStatus taskStatus) {
+        qu f;
+        hu v;
+        qu f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskStatus)) == null) {
-            if (taskStatus.isUnRegistered()) {
-                return "y_task_unregister";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, taskInfo, taskStatus) == null) {
+            av avVar = new av(taskInfo.getSingleKey(), ru.a.d(taskStatus));
+            if (!Intrinsics.areEqual(avVar, a)) {
+                a = avVar;
+                if (Intrinsics.areEqual(avVar.a(), "y_task_local_done") && !b && (v = BDPTask.m.v()) != null && (f2 = v.f()) != null) {
+                    f2.a("y_task_start", "c_pv", ru.b(ru.a, taskInfo.getId(), taskInfo.getActTaskId(), null, 4, null));
+                }
+                if (Intrinsics.areEqual(avVar.a(), "y_task_start") || Intrinsics.areEqual(avVar.a(), "y_task_local_done")) {
+                    b = true;
+                }
+                if (Intrinsics.areEqual(avVar.a(), "y_task_active") || Intrinsics.areEqual(avVar.a(), "y_task_done")) {
+                    b = false;
+                }
+                hu v2 = BDPTask.m.v();
+                if (v2 != null && (f = v2.f()) != null) {
+                    f.a(avVar.a(), "c_pv", ru.b(ru.a, taskInfo.getId(), taskInfo.getActTaskId(), null, 4, null));
+                }
             }
-            if (taskStatus.isFinished()) {
-                return "y_task_done";
-            }
-            if (taskStatus.isRegistered()) {
-                return "y_task_active";
-            }
-            if (taskStatus.isRunning() && taskStatus.isLocalCompleted()) {
-                return "y_task_local_done";
-            }
-            return "y_task_start";
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final void d(UBCActionTaskInfo uBCActionTaskInfo) {
+        hu v;
+        qu f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, uBCActionTaskInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_action", uBCActionTaskInfo.toJson());
+        }
+    }
+
+    public final void e(UBCRecoveryTaskQueue uBCRecoveryTaskQueue) {
+        hu v;
+        qu f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, uBCRecoveryTaskQueue) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_sdk_init", uBCRecoveryTaskQueue.toJson());
+        }
+    }
+
+    public final void f(UBCRegisterTaskInfo uBCRegisterTaskInfo) {
+        hu v;
+        qu f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, uBCRegisterTaskInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_register", uBCRegisterTaskInfo.toJson());
+        }
+    }
+
+    public final void g(UBCTaskStatusInfo uBCTaskStatusInfo) {
+        hu v;
+        qu f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, uBCTaskStatusInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_running", uBCTaskStatusInfo.toJson());
+        }
+    }
+
+    public final void h(UBCUnRegisterTaskInfo uBCUnRegisterTaskInfo) {
+        hu v;
+        qu f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, uBCUnRegisterTaskInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_unregistered", uBCUnRegisterTaskInfo.toJson());
+        }
+    }
+
+    public void i(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subTaskState) == null) {
+            c(subTaskState.getTaskInfo(), subTaskState.getTaskStatus());
+            f(UBCRegisterTaskInfo.Companion.a(subTaskState.getTaskInfo(), subTaskState.getTaskStatus()));
+        }
+    }
+
+    public final void j(UBCTaskStatusInfo uBCTaskStatusInfo) {
+        hu v;
+        qu f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, uBCTaskStatusInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_done_req", uBCTaskStatusInfo.toJson());
+        }
+    }
+
+    public void k(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, subTaskState) == null) {
+            c(subTaskState.getTaskInfo(), subTaskState.getTaskStatus());
+            g(new UBCTaskStatusInfo(subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), 0, null, 12, null));
+        }
+    }
+
+    public final void l(UBCTaskStatusInfo uBCTaskStatusInfo) {
+        hu v;
+        qu f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, uBCTaskStatusInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.b("task_passive_interrupted", uBCTaskStatusInfo.toJson());
+        }
+    }
+
+    public void m(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, subTaskState) == null) {
+            c(subTaskState.getTaskInfo(), subTaskState.getTaskStatus());
+            j(new UBCTaskStatusInfo(subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), 0, null, 12, null));
+        }
+    }
+
+    public void n(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, subTaskState) == null) {
+            l(new UBCTaskStatusInfo(subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), 0, null, 12, null));
+        }
+    }
+
+    public void o(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, subTaskState) == null) {
+            h(new UBCUnRegisterTaskInfo(subTaskState.getTaskInfo(), subTaskState.getTaskStatus()));
+        }
     }
 }

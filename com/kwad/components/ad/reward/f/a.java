@@ -1,6 +1,7 @@
 package com.kwad.components.ad.reward.f;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,6 +14,7 @@ import com.kwad.sdk.utils.t;
 public final class a implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Context mContext;
 
     public a(Context context) {
@@ -40,7 +42,7 @@ public final class a implements j {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Context context = this.mContext;
             if (context != null) {
-                t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f09e2), 0L);
+                t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f09ee), 0L);
                 return true;
             }
             return true;

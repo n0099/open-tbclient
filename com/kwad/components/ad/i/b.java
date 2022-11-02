@@ -1,9 +1,12 @@
 package com.kwad.components.ad.i;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
@@ -13,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.components.core.c.a.c;
 import com.kwad.components.core.webview.KsAdWebView;
 import com.kwad.components.core.webview.jshandler.aa;
 import com.kwad.components.core.webview.jshandler.ac;
@@ -37,16 +41,19 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View BT;
-    public List Ca;
-    public List Cb;
+    public List<AdTemplate> Ca;
+    @NonNull
+    public List<c> Cb;
     public boolean Cc;
     public String Cd;
     public c.a Ce;
     public a Cf;
-    public InterfaceC0528b Cg;
+    @Nullable
+    public InterfaceC0539b Cg;
     public KsAdWebView bF;
     public int bH;
     public aa bI;
+    @Nullable
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
     public q.b bL;
     public x.b bM;
@@ -55,6 +62,7 @@ public class b {
     public AdTemplate mAdTemplate;
     public com.kwad.sdk.core.webview.b mJsBridgeContext;
     public com.kwad.components.core.webview.a mJsInterface;
+    @Nullable
     public JSONObject mReportExtData;
     public int mScreenOrientation;
     public ae uF;
@@ -66,7 +74,7 @@ public class b {
 
     /* renamed from: com.kwad.components.ad.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0528b {
+    public interface InterfaceC0539b {
         void hk();
     }
 
@@ -155,7 +163,7 @@ public class b {
         };
     }
 
-    public b(JSONObject jSONObject, String str) {
+    public b(@Nullable JSONObject jSONObject, @Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,6 +252,7 @@ public class b {
         this.Cd = str;
     }
 
+    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void aF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -278,7 +287,7 @@ public class b {
     public static int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? R.layout.obfuscated_res_0x7f0d040a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? R.layout.obfuscated_res_0x7f0d0415 : invokeV.intValue;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -350,7 +359,7 @@ public class b {
         }
     }
 
-    public final void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, com.kwad.components.core.c.a.c cVar) {
+    public final void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, frameLayout, adBaseFrameLayout, adTemplate, cVar) == null) {
             a(frameLayout, adBaseFrameLayout, adTemplate, cVar, 0);
@@ -371,7 +380,7 @@ public class b {
         }
     }
 
-    public final void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, List list, List list2, int i) {
+    public final void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, List<AdTemplate> list, List<com.kwad.components.core.c.a.c> list2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{frameLayout, adBaseFrameLayout, list, list2, Integer.valueOf(i)}) == null) {
             this.Cb = list2;
@@ -380,7 +389,7 @@ public class b {
             this.mScreenOrientation = i;
             if (list != null && list.size() > 0) {
                 this.Ca = list;
-                this.mAdTemplate = (AdTemplate) list.get(0);
+                this.mAdTemplate = list.get(0);
             }
             fh();
             inflateJsBridgeContext();
@@ -394,10 +403,10 @@ public class b {
         }
     }
 
-    public final void a(InterfaceC0528b interfaceC0528b) {
+    public final void a(@Nullable InterfaceC0539b interfaceC0539b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0528b) == null) {
-            this.Cg = interfaceC0528b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0539b) == null) {
+            this.Cg = interfaceC0539b;
             this.bS.setVisibility(4);
             this.bH = -1;
             String l = l(this.mAdTemplate);
@@ -415,12 +424,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             if (this.Cb.size() <= 1 || this.Ca.size() <= 1) {
-                com.kwad.components.core.c.a.c cVar = (com.kwad.components.core.c.a.c) this.Cb.get(0);
+                com.kwad.components.core.c.a.c cVar = this.Cb.get(0);
                 aVar.a(new i(this.mJsBridgeContext, cVar, this.bJ));
                 aVar.a(new f(this.mJsBridgeContext, cVar, this.bJ));
                 aVar.a(new ac(this.mJsBridgeContext, cVar));
             } else {
-                aVar.a(new i(this.mJsBridgeContext, (com.kwad.components.core.c.a.c) this.Cb.get(0), this.bJ));
+                aVar.a(new i(this.mJsBridgeContext, this.Cb.get(0), this.bJ));
                 aVar.a(new f(this.mJsBridgeContext, this.Cb, this.bJ));
                 aVar.a(new u(this.Ca, this.Cb));
             }
@@ -437,7 +446,7 @@ public class b {
             aVar.a(aaVar);
             aVar.a(new q(this.bL));
             aVar.a(new s(this.mJsBridgeContext));
-            c cVar2 = new c();
+            com.kwad.components.core.webview.jshandler.c cVar2 = new com.kwad.components.core.webview.jshandler.c();
             cVar2.b(new c.a(this) { // from class: com.kwad.components.ad.i.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -548,13 +557,14 @@ public class b {
         }
     }
 
+    @SuppressLint({"ClickableViewAccessibility"})
     public void fh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.bS.removeAllViews();
             this.bS.setVisibility(4);
             this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091232);
+            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09126c);
             this.bF = ksAdWebView;
             ksAdWebView.setBackgroundColor(0);
             this.bF.getBackground().setAlpha(0);

@@ -1,13 +1,16 @@
 package com.kwad.components.ad.reward;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity;
 @KsAdSdkDynamicImpl(KSRewardLandScapeVideoActivity.class)
+@Keep
 /* loaded from: classes7.dex */
 public class KSRewardLandScapeVideoActivityProxy extends KSRewardVideoActivityProxy {
     public static /* synthetic */ Interceptable $ic;
@@ -27,6 +30,7 @@ public class KSRewardLandScapeVideoActivityProxy extends KSRewardVideoActivityPr
         }
     }
 
+    @InvokeBy(invokerClass = KsAdSDKImpl.class, methodId = KsAdSDKImpl.INVOKER_ID_INIT_COMPONENT_PROXY)
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {

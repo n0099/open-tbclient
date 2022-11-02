@@ -37,7 +37,7 @@ public class Drawable2d {
 
     /* renamed from: com.faceunity.gles.Drawable2d$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$Drawable2d$Prefab;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class Drawable2d {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Prefab {
+    public static final class Prefab {
         public static final /* synthetic */ Prefab[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Prefab FULL_RECTANGLE;

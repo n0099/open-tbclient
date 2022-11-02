@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.instrumentation;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,21 +10,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class FrescoInstrumenter {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
     public static volatile Instrumenter sInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface Instrumenter {
+        @Nullable
         Runnable decorateRunnable(Runnable runnable, String str);
 
         boolean isTracing();
 
         void markFailure(Object obj, Throwable th);
 
+        @Nullable
         Object onBeforeSubmitWork(String str);
 
-        Object onBeginWork(Object obj, String str);
+        @Nullable
+        Object onBeginWork(Object obj, @Nullable String str);
 
+        @Nullable
         void onEndWork(Object obj);
     }
 
@@ -54,7 +60,8 @@ public final class FrescoInstrumenter {
         return invokeV.booleanValue;
     }
 
-    public static Runnable decorateRunnable(Runnable runnable, String str) {
+    @Nullable
+    public static Runnable decorateRunnable(@Nullable Runnable runnable, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, runnable, str)) == null) {
@@ -67,7 +74,7 @@ public final class FrescoInstrumenter {
         return (Runnable) invokeLL.objValue;
     }
 
-    public static void markFailure(Object obj, Throwable th) {
+    public static void markFailure(@Nullable Object obj, Throwable th) {
         Instrumenter instrumenter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, obj, th) == null) && (instrumenter = sInstance) != null && obj != null) {
@@ -75,7 +82,8 @@ public final class FrescoInstrumenter {
         }
     }
 
-    public static Object onBeginWork(Object obj, String str) {
+    @Nullable
+    public static Object onBeginWork(@Nullable Object obj, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
@@ -88,7 +96,8 @@ public final class FrescoInstrumenter {
         return invokeLL.objValue;
     }
 
-    public static Object onBeforeSubmitWork(String str) {
+    @Nullable
+    public static Object onBeforeSubmitWork(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -101,7 +110,7 @@ public final class FrescoInstrumenter {
         return invokeL.objValue;
     }
 
-    public static void onEndWork(Object obj) {
+    public static void onEndWork(@Nullable Object obj) {
         Instrumenter instrumenter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, null, obj) == null) && (instrumenter = sInstance) != null && obj != null) {
@@ -109,7 +118,7 @@ public final class FrescoInstrumenter {
         }
     }
 
-    public static void provide(Instrumenter instrumenter) {
+    public static void provide(@Nullable Instrumenter instrumenter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, instrumenter) == null) {
             sInstance = instrumenter;

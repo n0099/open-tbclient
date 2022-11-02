@@ -2,10 +2,10 @@ package com.baidu.nadcore.thread.executor;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.tieba.k11;
-import com.baidu.tieba.m11;
-import com.baidu.tieba.n11;
-import com.baidu.tieba.o11;
+import com.baidu.tieba.b21;
+import com.baidu.tieba.d21;
+import com.baidu.tieba.e21;
+import com.baidu.tieba.f21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public abstract class BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList a;
+    public LinkedList<ElasticTask> a;
     public int b;
     public ThreadPoolExecutor c;
 
@@ -29,7 +29,7 @@ public abstract class BaseExecutorCell {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ExecutorType {
+    public static final class ExecutorType {
         public static final /* synthetic */ ExecutorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ExecutorType ARTERY;
@@ -141,7 +141,7 @@ public abstract class BaseExecutorCell {
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class b {
+    public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,7 +195,7 @@ public abstract class BaseExecutorCell {
                 return;
             }
         }
-        this.a = new LinkedList();
+        this.a = new LinkedList<>();
         this.b = i;
     }
 
@@ -245,15 +245,15 @@ public abstract class BaseExecutorCell {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            return new n11(i);
+                            return new e21(i);
                         }
-                        return new o11(i);
+                        return new f21(i);
                     }
-                    return new m11(i);
+                    return new d21(i);
                 }
-                return new n11(i);
+                return new e21(i);
             }
-            return new k11(i);
+            return new b21(i);
         }
         return (BaseExecutorCell) invokeIL.objValue;
     }

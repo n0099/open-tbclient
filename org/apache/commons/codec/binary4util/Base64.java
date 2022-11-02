@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util;
 
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,6 +16,7 @@ import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.math.BigInteger;
 import org.apache.commons.codec.binary4util.BaseNCodec;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes8.dex */
 public class Base64 extends BaseNCodec {
     public static /* synthetic */ Interceptable $ic = null;

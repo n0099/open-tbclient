@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,33 +13,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class r64 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int g;
-    public static volatile r64 h;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static r64 c = null;
+    public static String d = "banner_ad_close_btn_show_key";
+    public static String e = "banner_ad_close_duration_key";
+    public static String f = "gdt_banner_ad_app_id_key";
+    public static String g = "gdt_video_ad_app_id_key";
+    public static String h = "gdt_banner_ad_id_key";
+    public static String i = "gdt_video_ad_id_key";
+    public static String j = "gdt_video_ad_config_time";
+    public static String k = "video_interaction_optimization";
+    public static String l = "video_request_optimization";
+    public static String m = "first_request_optimization";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public boolean d;
-    public int e;
-    public ViewTreeObserver.OnGlobalLayoutListener f;
+    public long a;
+    public long b;
 
     /* loaded from: classes5.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ q64 b;
-        public final /* synthetic */ r64 c;
+        public final /* synthetic */ r64 a;
 
-        public a(r64 r64Var, View view2, q64 q64Var) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            }
+        }
+
+        public a(r64 r64Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r64Var, view2, q64Var};
+                Object[] objArr = {r64Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,50 +61,96 @@ public class r64 {
                     return;
                 }
             }
-            this.c = r64Var;
-            this.a = view2;
-            this.b = q64Var;
+            this.a = r64Var;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            JSONObject optJSONObject;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                View view2 = this.a;
-                if (view2 == null) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                try {
+                    if (m24.a(str, i) && (optJSONObject = new JSONObject(str).optJSONObject("data")) != null) {
+                        this.a.J(optJSONObject.optString("show", "1"));
+                        this.a.L(optJSONObject.optString("duration", "1"));
+                        this.a.I(optJSONObject.optLong("startNoBannerADGap", 5L));
+                        this.a.H(optJSONObject.optLong("bannerShowSuccGap", 120L));
+                        this.a.G(optJSONObject.optLong("preventBannerADShowingGap", 60L));
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r64 a;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            }
+        }
+
+        public b(r64 r64Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r64Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                view2.getWindowVisibleDisplayFrame(rect);
-                int i = rect.bottom - rect.top;
-                int n = dh3.n(AppRuntime.getAppContext());
-                int t = dh3.t();
-                if (!this.c.d) {
-                    this.c.d = true;
-                    this.c.c = (n - i) - t;
-                    if (this.c.c < 0) {
-                        this.c.c = 0;
-                    }
-                }
-                if (i > 0) {
-                    if (i >= this.c.e || this.a.getHeight() - i <= 200) {
-                        if (i <= this.c.e || this.a.getHeight() - i >= 200) {
+            }
+            this.a = r64Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && 200 == i) {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        JSONObject jSONObject = new JSONObject(str);
+                        if (jSONObject.optInt("errno") != 0) {
                             return;
                         }
-                        this.c.e = i;
-                        this.c.s(this.b);
-                        return;
-                    }
-                    this.c.e = i;
-                    this.c.b = i - r64.g;
-                    r64 r64Var = this.c;
-                    r64Var.a = ((n - i) - t) - r64Var.c;
-                    if (this.c.a > 0) {
-                        r64 r64Var2 = this.c;
-                        if (!r64Var2.t(this.b, r64Var2.a, this.c.b)) {
-                            this.c.s(this.b);
+                        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+                        if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject("ads_config")) == null) {
+                            this.a.N("");
+                            this.a.P("");
+                            this.a.Q("");
+                            this.a.R("");
+                            this.a.O(0L);
+                            this.a.T(false);
+                            this.a.S(false);
+                            this.a.M(false);
+                            return;
                         }
+                        this.a.N(optJSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER));
+                        this.a.P(optJSONObject.optString("video"));
+                        this.a.Q(optJSONObject.optString("banner_app_id"));
+                        this.a.R(optJSONObject.optString("video_app_id"));
+                        this.a.O(System.currentTimeMillis());
+                        this.a.T(optJSONObject.optBoolean("video_ui_opt"));
+                        this.a.S(optJSONObject.optBoolean("video_request_opt"));
+                        this.a.M(optJSONObject.optBoolean("first_request_opt"));
                     }
+                } catch (JSONException unused) {
                 }
             }
         }
@@ -111,8 +169,7 @@ public class r64 {
                 return;
             }
         }
-        g = c64.a(42.0f);
-        h = null;
+        c = new r64();
     }
 
     public r64() {
@@ -120,66 +177,294 @@ public class r64 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.f = null;
     }
 
-    public static r64 p() {
+    public static r64 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (h == null) {
-                synchronized (r64.class) {
-                    if (h == null) {
-                        h = new r64();
-                    }
-                }
-            }
-            return h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
         }
         return (r64) invokeV.objValue;
     }
 
-    public final st2 o() {
+    public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            st2 st2Var = new st2();
-            st2Var.k(true);
-            st2Var.n(-1);
-            st2Var.j(-2);
-            return st2Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return sc3.a().getBoolean(l, false);
         }
-        return (st2) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final st2 q(int i) {
-        InterceptResult invokeI;
+    public boolean C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            st2 st2Var = new st2();
-            st2Var.k(true);
-            st2Var.m(i);
-            st2Var.n(-1);
-            st2Var.j(-2);
-            return st2Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return sc3.a().getBoolean(k, false);
         }
-        return (st2) invokeI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean r(View view2) {
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = System.currentTimeMillis();
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = System.currentTimeMillis();
+        }
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.a != 0 && System.currentTimeMillis() - this.a <= p()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (this.b != 0 && System.currentTimeMillis() - this.b <= o()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return sc3.a().getLong("banner_ad_close_key", 60L) * 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public long o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return sc3.a().getLong("banner_ad_repeat_show_key", 120L) * 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public long p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return sc3.a().getLong("banner_ad_start_show_key", 5L) * 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return sc3.a().getBoolean(d, true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return sc3.a().getBoolean(m, false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return sc3.a().getString(h, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Long w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return Long.valueOf(sc3.a().getLong(j, 0L));
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return sc3.a().getString(i, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return sc3.a().getString(f, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return sc3.a().getString(g, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void K(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+            sc3.a().putString(str, str2);
+        }
+    }
+
+    public void F() {
+        e43 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (M = e43.M()) != null && v04.b() != null && ln2.q() != null) {
+            M.i0().getRequest().cookieManager(ln2.q().a()).url(v04.b().b()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam("host", M.getPackageName()).addUrlParam("os", "android").requestFrom(16).requestFrom(1604).build().executeAsync(new b(this));
+        }
+    }
+
+    public final void G(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            sc3.a().putLong("banner_ad_close_key", j2);
+        }
+    }
+
+    public final void H(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            sc3.a().putLong("banner_ad_repeat_show_key", j2);
+        }
+    }
+
+    public final void I(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            sc3.a().putLong("banner_ad_start_show_key", j2);
+        }
+    }
+
+    public final void J(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            sc3.a().putBoolean(d, "1".equals(str));
+        }
+    }
+
+    public final void L(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            sc3.a().putString(e, str);
+        }
+    }
+
+    public void M(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            sc3.a().putBoolean(m, z);
+        }
+    }
+
+    public final void N(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            sc3.a().putString(h, str);
+        }
+    }
+
+    public final void O(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            sc3.a().putLong(j, j2);
+        }
+    }
+
+    public final void P(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            sc3.a().putString(i, str);
+        }
+    }
+
+    public final void Q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            sc3.a().putString(f, str);
+        }
+    }
+
+    public final void R(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            sc3.a().putString(g, str);
+        }
+    }
+
+    public void S(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            sc3.a().putBoolean(l, z);
+        }
+    }
+
+    public void T(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            sc3.a().putBoolean(k, z);
+        }
+    }
+
+    public final long r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
-            dl1 X = zo2.U().X();
-            if (X != null && X.d(view2)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
+            String string = sc3.a().getString(str, "0");
+            if (string != null) {
+                return Long.valueOf(string).longValue();
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
+            if (System.currentTimeMillis() - r(str) <= s()) {
                 return true;
             }
             return false;
@@ -187,77 +472,24 @@ public class r64 {
         return invokeL.booleanValue;
     }
 
-    public final void m(View view2, q64 q64Var) {
+    public void m() {
+        e43 M;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, q64Var) == null) && view2 != null && q64Var != null) {
-            this.e = view2.getHeight();
-            this.f = new a(this, view2, q64Var);
-            view2.getViewTreeObserver().addOnGlobalLayoutListener(this.f);
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (M = e43.M()) != null && ln2.o() != null && ln2.q() != null) {
+            M.i0().getRequest().cookieManager(ln2.q().a()).url(v04.b().e()).requestFrom(16).requestFrom(1603).build().executeAsync(new a(this));
         }
     }
 
-    public boolean n(q64 q64Var) {
-        InterceptResult invokeL;
-        boolean z;
+    public final long s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q64Var)) == null) {
-            dl1 X = zo2.U().X();
-            if (X != null && !r(q64Var.f()) && X.c(q64Var.f(), o())) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            String string = sc3.a().getString(e, "1");
+            if (string != null) {
+                return Long.valueOf(string).longValue() * 60 * 60 * 1000;
             }
-            if (z) {
-                if (!q64Var.l() || X == null) {
-                    return false;
-                }
-                m(X.getRootView(), q64Var);
-            }
-            return z;
+            return 3600000L;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean s(q64 q64Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, q64Var)) == null) {
-            dl1 X = zo2.U().X();
-            if (X == null) {
-                return false;
-            }
-            FrameLayout rootView = X.getRootView();
-            if (rootView != null && this.f != null) {
-                rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this.f);
-            }
-            q64Var.h();
-            this.f = null;
-            this.a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = false;
-            this.e = -1;
-            return X.removeView(q64Var.f());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean t(q64 q64Var, int i, int i2) {
-        InterceptResult invokeLII;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, q64Var, i, i2)) == null) {
-            dl1 X = zo2.U().X();
-            if (X != null && X.a(q64Var.f(), q(i2))) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                q64Var.k(i);
-            }
-            return z;
-        }
-        return invokeLII.booleanValue;
+        return invokeV.longValue;
     }
 }

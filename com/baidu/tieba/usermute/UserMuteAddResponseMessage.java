@@ -2,8 +2,8 @@ package com.baidu.tieba.usermute;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.eh;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class UserMuteAddResponseMessage extends JsonHttpResponsedMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return eh.e(this.errorNo, -1);
+            return wg.e(this.errorNo, -1);
         }
         return invokeV.intValue;
     }

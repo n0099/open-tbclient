@@ -1,5 +1,6 @@
 package com.baidu.pass.biometrics.base.activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
@@ -47,6 +48,7 @@ public class BaseActivity extends Activity implements NoProguard {
         this.d = false;
     }
 
+    @TargetApi(24)
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
@@ -134,6 +136,7 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
+    @TargetApi(5)
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -147,6 +150,7 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity
+    @TargetApi(24)
     public void onMultiWindowModeChanged(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && Build.VERSION.SDK_INT >= 24) {

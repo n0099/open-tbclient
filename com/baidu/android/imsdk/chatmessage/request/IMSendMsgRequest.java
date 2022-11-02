@@ -76,14 +76,14 @@ public class IMSendMsgRequest extends BaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure errorCode: " + transErrorCode.first);
             ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(((Integer) transErrorCode.first).intValue(), this.msg, -1L, this.key);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -306,7 +306,7 @@ public abstract class BaseApi {
         this.c = qQToken;
     }
 
-    private Intent a(Activity activity, Intent intent, Map map) {
+    private Intent a(Activity activity, Intent intent, Map<String, Object> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, activity, intent, map)) == null) {
@@ -401,11 +401,11 @@ public abstract class BaseApi {
     public void a(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, activity, intent, i) == null) {
-            a(activity, intent, i, (Map) null);
+            a(activity, intent, i, (Map<String, Object>) null);
         }
     }
 
-    public void a(Activity activity, Intent intent, int i, Map map) {
+    public void a(Activity activity, Intent intent, int i, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048580, this, activity, intent, i, map) == null) {
             intent.putExtra(Constants.KEY_REQUEST_CODE, i);
@@ -421,7 +421,7 @@ public abstract class BaseApi {
         }
     }
 
-    public void a(Fragment fragment, Intent intent, int i, Map map) {
+    public void a(Fragment fragment, Intent intent, int i, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048582, this, fragment, intent, i, map) == null) {
             intent.putExtra(Constants.KEY_REQUEST_CODE, i);

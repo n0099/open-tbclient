@@ -46,7 +46,7 @@ public final class f implements Runnable {
     public void run() {
         boolean z;
         ApkInfo b;
-        List a;
+        List<ApkInfo> a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
@@ -75,10 +75,10 @@ public final class f implements Runnable {
                     k kVar = k.f;
                     if (kVar != null && (a = kVar.a()) != null) {
                         for (int i = 0; i < a.size(); i++) {
-                            ApkInfo apkInfo = (ApkInfo) a.get(i);
+                            ApkInfo apkInfo = a.get(i);
                             if (apkInfo.intentFilters != null) {
                                 for (int i2 = 0; i2 < apkInfo.intentFilters.size(); i2++) {
-                                    l lVar = (l) apkInfo.intentFilters.get(i2);
+                                    l lVar = apkInfo.intentFilters.get(i2);
                                     if (lVar.d.match(this.a.getAction(), this.a.getType(), this.a.getScheme(), this.a.getData(), this.a.getCategories(), "PIF") >= 0) {
                                         Class<?> loadClass = apkInfo.classLoader.loadClass(lVar.b);
                                         loadClass.getDeclaredMethod(lVar.c, Context.class, Intent.class).invoke(loadClass.newInstance(), this.b.getApplicationContext(), this.a);

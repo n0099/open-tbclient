@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,43 +9,50 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes4.dex */
-public class kl2 extends gh2 {
+public class kl2 implements ZeusPluginFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.gh2
-    public String b() {
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_live" : (String) invokeV.objValue;
     }
 
-    public kl2() {
+    public kl2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gh2
-    /* renamed from: e */
-    public void a(ZeusPlugin.Command command, xl2 xl2Var) {
-        Object obj;
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xl2Var) != null) || (obj = command.obj) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
+            pm2 c = ln2.D().c(invoker, this.a);
+            if (ok1.a) {
+                Log.i("【InlineLiveFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline live「Hash:" + c.hashCode() + "」");
+            }
+            vu1.e().b(c);
+            return new il2(c);
         }
-        xl2Var.setSurface((Surface) obj);
-        String str = command.what;
-        d(xl2Var, str, "Surface:" + command.obj.hashCode(), false);
+        return (ZeusPlugin) invokeL.objValue;
     }
 }

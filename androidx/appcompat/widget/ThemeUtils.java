@@ -8,6 +8,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -18,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class ThemeUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -88,7 +92,7 @@ public class ThemeUtils {
         return (TypedValue) invokeV.objValue;
     }
 
-    public static void checkAppCompatTheme(View view2, Context context) {
+    public static void checkAppCompatTheme(@NonNull View view2, @NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, view2, context) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(R.styleable.AppCompatTheme);
@@ -102,6 +106,7 @@ public class ThemeUtils {
         }
     }
 
+    @NonNull
     public static ColorStateList createDisabledStateList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -111,7 +116,7 @@ public class ThemeUtils {
         return (ColorStateList) invokeII.objValue;
     }
 
-    public static int getThemeAttrColor(Context context, int i) {
+    public static int getThemeAttrColor(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
@@ -127,7 +132,8 @@ public class ThemeUtils {
         return invokeLI.intValue;
     }
 
-    public static ColorStateList getThemeAttrColorStateList(Context context, int i) {
+    @Nullable
+    public static ColorStateList getThemeAttrColorStateList(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
@@ -143,7 +149,7 @@ public class ThemeUtils {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public static int getDisabledThemeAttrColor(Context context, int i) {
+    public static int getDisabledThemeAttrColor(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
@@ -158,7 +164,7 @@ public class ThemeUtils {
         return invokeLI.intValue;
     }
 
-    public static int getThemeAttrColor(Context context, int i, float f) {
+    public static int getThemeAttrColor(@NonNull Context context, int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Float.valueOf(f)})) == null) {

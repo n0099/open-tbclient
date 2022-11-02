@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 /* loaded from: classes2.dex */
@@ -21,7 +20,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +106,7 @@ public class f {
         return (LivenessTypeEnum) invokeL.objValue;
     }
 
-    public static void b(List list) {
+    public static void b(List<LivenessTypeEnum> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, list) == null) {
             while (list.size() < 3) {
@@ -119,7 +118,7 @@ public class f {
         }
     }
 
-    public static void a(List list, Integer num, HeadPose headPose) {
+    public static void a(List<LivenessTypeEnum> list, Integer num, HeadPose headPose) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65538, null, list, num, headPose) != null) || list == null) {
             return;
@@ -131,7 +130,7 @@ public class f {
         }
     }
 
-    public static void a(List list, List list2) {
+    public static void a(List<LivenessTypeEnum> list, List<Integer> list2) {
         int i;
         int i2;
         int i3;
@@ -139,7 +138,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, list, list2) == null) {
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
             }
             int size = list2.size() - 1;
             while (true) {
@@ -147,7 +146,7 @@ public class f {
                 if (size <= 0) {
                     break;
                 }
-                Integer num = (Integer) list2.get(size);
+                Integer num = list2.get(size);
                 if (num != null) {
                     if ((num.intValue() == HeadPose.EYES_BLINK.value || num.intValue() == HeadPose.DOWN.value || num.intValue() == HeadPose.UP.value || num.intValue() == HeadPose.TURN_LEFT.value || num.intValue() == HeadPose.TURN_RIGHT.value || num.intValue() == HeadPose.MOUTH_OPEN.value) ? true : true) {
                         int i4 = size - 1;
@@ -163,7 +162,7 @@ public class f {
             int size3 = list2.size();
             LivenessTypeEnum[] livenessTypeEnumArr = new LivenessTypeEnum[size3];
             for (int i5 = 0; i5 < list2.size(); i5++) {
-                Integer num2 = (Integer) list2.get(i5);
+                Integer num2 = list2.get(i5);
                 if (num2 != null) {
                     if (num2.intValue() != HeadPose.EYES_BLINK.value && num2.intValue() != HeadPose.DOWN.value && num2.intValue() != HeadPose.UP.value && num2.intValue() != HeadPose.TURN_LEFT.value && num2.intValue() != HeadPose.TURN_RIGHT.value && num2.intValue() != HeadPose.MOUTH_OPEN.value) {
                         z = false;
@@ -178,7 +177,7 @@ public class f {
             }
             for (int i6 = 0; i6 < size2; i6++) {
                 if (!boolArr[i6].booleanValue()) {
-                    Integer num3 = (Integer) list2.get(i6);
+                    Integer num3 = list2.get(i6);
                     ArrayList arrayList = new ArrayList();
                     a(arrayList, num3, HeadPose.EYES_BLINK);
                     a(arrayList, num3, HeadPose.DOWN);
@@ -224,17 +223,15 @@ public class f {
         }
     }
 
-    public static boolean a(List list) {
+    public static boolean a(List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             if (list == null || list.isEmpty()) {
                 return false;
             }
-            Integer num = (Integer) list.get(0);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                Integer num2 = (Integer) it.next();
+            Integer num = list.get(0);
+            for (Integer num2 : list) {
                 if (num == null || !num.equals(num2) || num2.intValue() != 63) {
                     return false;
                 }
@@ -245,17 +242,16 @@ public class f {
         return invokeL.booleanValue;
     }
 
-    public static void b(List list, List list2) {
+    public static void b(List<LivenessTypeEnum> list, List<HeadPose> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, list, list2) == null) {
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
             } else {
                 list.clear();
             }
-            Iterator it = list2.iterator();
-            while (it.hasNext()) {
-                int i = a.a[((HeadPose) it.next()).ordinal()];
+            for (HeadPose headPose : list2) {
+                int i = a.a[headPose.ordinal()];
                 if (i != 1) {
                     if (i != 2) {
                         if (i != 3) {

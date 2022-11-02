@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -65,11 +67,11 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static void b(com.ss.android.downloadad.api.a.a aVar) {
+    public static void b(@NonNull com.ss.android.downloadad.api.a.a aVar) {
         a(aVar, 5, "", "", "");
     }
 
-    public static Intent c(com.ss.android.downloadad.api.a.a aVar) {
+    public static Intent c(@NonNull com.ss.android.downloadad.api.a.a aVar) {
         return new Intent(j.getContext(), TTDelegateActivity.class);
     }
 
@@ -78,7 +80,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         b();
         this.a = getIntent();
@@ -123,7 +125,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static void a(com.ss.android.downloadad.api.a.a aVar, int i, String str, String str2, String str3) {
+    public static void a(@NonNull com.ss.android.downloadad.api.a.a aVar, int i, String str, String str2, String str3) {
         Intent c = c(aVar);
         c.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         c.putExtra("type", i);
@@ -162,11 +164,11 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static void a(com.ss.android.downloadad.api.a.a aVar, String str, String str2, String str3) {
+    public static void a(@NonNull com.ss.android.downloadad.api.a.a aVar, String str, String str2, String str3) {
         a(aVar, 8, str, str2, str3);
     }
 
-    public static void b(com.ss.android.downloadad.api.a.a aVar, String str, String str2, String str3) {
+    public static void b(@NonNull com.ss.android.downloadad.api.a.a aVar, String str, String str2, String str3) {
         a(aVar, 7, str, str2, str3);
     }
 
@@ -194,7 +196,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static void a(String str, long j, String str2, JSONObject jSONObject) {
+    public static void a(String str, long j, String str2, @NonNull JSONObject jSONObject) {
         Intent intent = new Intent(j.getContext(), TTDelegateActivity.class);
         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra("type", 12);
@@ -257,22 +259,22 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     private void b(final String str, String[] strArr) {
         if (!TextUtils.isEmpty(str) && strArr != null && strArr.length > 0) {
             s sVar = new s() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.1
-                public WeakReference c;
+                public WeakReference<Activity> c;
 
                 {
-                    this.c = new WeakReference(TTDelegateActivity.this);
+                    this.c = new WeakReference<>(TTDelegateActivity.this);
                 }
 
                 @Override // com.ss.android.download.api.config.s
                 public void a() {
                     com.ss.android.downloadlib.g.j.a(str);
-                    c.a((Activity) this.c.get());
+                    c.a(this.c.get());
                 }
 
                 @Override // com.ss.android.download.api.config.s
                 public void a(String str2) {
                     com.ss.android.downloadlib.g.j.a(str, str2);
-                    c.a((Activity) this.c.get());
+                    c.a(this.c.get());
                 }
             };
             if (Build.VERSION.SDK_INT >= 23) {
@@ -395,22 +397,22 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             N = d2.N();
         }
         objArr[0] = N;
-        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(l.c(this, d2.e())).a(new b.InterfaceC0648b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
-            @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(l.c(this, d2.e())).a(new b.InterfaceC0659b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+            @Override // com.ss.android.download.api.model.b.InterfaceC0659b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.b(d2);
                 dialogInterface.dismiss();
                 c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0659b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("market_openapp_cancel", d2);
                 dialogInterface.dismiss();
                 c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0659b
             public void c(DialogInterface dialogInterface) {
                 c.a((Activity) TTDelegateActivity.this);
             }
@@ -419,7 +421,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     @Override // android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         j.e().a(this, i, strArr, iArr);
     }

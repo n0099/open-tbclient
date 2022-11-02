@@ -24,9 +24,9 @@ public class v {
     public Context f1007a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f1008a;
-    public final List b;
-    public final List c;
+    public List<String> f1008a;
+    public final List<String> b;
+    public final List<String> c;
 
     static {
         InterceptResult invokeClinit;

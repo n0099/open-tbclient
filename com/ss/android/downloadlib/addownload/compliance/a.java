@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 import com.ss.android.downloadlib.addownload.compliance.d;
 import com.ss.android.downloadlib.addownload.j;
@@ -30,22 +31,22 @@ public class a extends Dialog {
     public long k;
     public final com.ss.android.downloadlib.addownload.b.b l;
 
-    public a(Activity activity, long j) {
+    public a(@NonNull Activity activity, long j) {
         super(activity);
         this.i = activity;
         this.j = j;
-        this.l = (com.ss.android.downloadlib.addownload.b.b) c.a().get(Long.valueOf(j));
+        this.l = c.a().get(Long.valueOf(j));
     }
 
     private void a() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092357);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092356);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092355);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092358);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092393);
-        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f090fe8);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913e8);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ab);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923aa);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a9);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ac);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e8);
+        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f091021);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091426);
         this.a.setText(l.a(this.l.e, "--"));
         TextView textView = this.b;
         textView.setText("版本号：" + l.a(this.l.f, "--"));
@@ -110,10 +111,10 @@ public class a extends Dialog {
             return;
         }
         requestWindowFeature(1);
-        setContentView(R.layout.obfuscated_res_0x7f0d08a4);
+        setContentView(R.layout.obfuscated_res_0x7f0d08b8);
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08125f);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08127b);
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);

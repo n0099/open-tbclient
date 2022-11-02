@@ -213,7 +213,7 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v1 */
-    /* JADX WARN: Type inference failed for: r5v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r5v2, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v3 */
     public void u(boolean z) {
         ?? r5;
@@ -595,12 +595,12 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
                 }
             }
             if (z4) {
-                h8 lifecycleListeners = this.d.getLifecycleListeners();
+                h8<h1> lifecycleListeners = this.d.getLifecycleListeners();
                 synchronized (lifecycleListeners) {
-                    h1[] h1VarArr = (h1[]) lifecycleListeners.p();
+                    h1[] p = lifecycleListeners.p();
                     int i = lifecycleListeners.b;
                     for (int i2 = 0; i2 < i; i2++) {
-                        h1VarArr[i2].resume();
+                        p[i2].resume();
                     }
                     lifecycleListeners.q();
                 }
@@ -615,7 +615,7 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
                 }
                 for (int i3 = 0; i3 < this.d.getExecutedRunnables().b; i3++) {
                     try {
-                        ((Runnable) this.d.getExecutedRunnables().get(i3)).run();
+                        this.d.getExecutedRunnables().get(i3).run();
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
@@ -625,24 +625,24 @@ public class r2 extends a1 implements GLSurfaceView.Renderer {
                 this.d.getApplicationListener().render();
             }
             if (z2) {
-                h8 lifecycleListeners2 = this.d.getLifecycleListeners();
+                h8<h1> lifecycleListeners2 = this.d.getLifecycleListeners();
                 synchronized (lifecycleListeners2) {
-                    h1[] h1VarArr2 = (h1[]) lifecycleListeners2.p();
+                    h1[] p2 = lifecycleListeners2.p();
                     int i4 = lifecycleListeners2.b;
                     for (int i5 = 0; i5 < i4; i5++) {
-                        h1VarArr2[i5].pause();
+                        p2[i5].pause();
                     }
                 }
                 this.d.getApplicationListener().pause();
                 f1.a.log("AndroidGraphics", "paused");
             }
             if (z3) {
-                h8 lifecycleListeners3 = this.d.getLifecycleListeners();
+                h8<h1> lifecycleListeners3 = this.d.getLifecycleListeners();
                 synchronized (lifecycleListeners3) {
-                    h1[] h1VarArr3 = (h1[]) lifecycleListeners3.p();
+                    h1[] p3 = lifecycleListeners3.p();
                     int i6 = lifecycleListeners3.b;
                     for (int i7 = 0; i7 < i6; i7++) {
-                        h1VarArr3[i7].dispose();
+                        p3[i7].dispose();
                     }
                 }
                 this.d.getApplicationListener().dispose();

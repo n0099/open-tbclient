@@ -1,76 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cf3 extends j53 {
+public class cf3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cf3(j43 j43Var) {
-        super(j43Var, "/swanAPI/closeTextarea");
+    public cf3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    @NonNull
+    public static cf3 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            cf3 cf3Var = new cf3();
+            if (jSONObject == null) {
+                return cf3Var;
             }
-            m02.i("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
-            yz1 yz1Var = new yz1();
-            try {
-                yz1Var.a(optParamsAsJo);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                m02.d("CloseTextAreaAction", "model parse exception:", e);
-            }
-            xz1 xz1Var = (xz1) zz1.a(yz1Var);
-            if (xz1Var == null) {
-                String str = "can't find textarea component:#" + yz1Var.b;
-                m02.c("CloseTextAreaAction", str);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
-                return false;
-            }
-            dz1 B = xz1Var.B();
-            if (!B.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+            cf3Var.a = jSONObject.optString("SSID");
+            cf3Var.b = jSONObject.optString("BSSID");
+            cf3Var.e = jSONObject.optBoolean("maunal");
+            cf3Var.d = jSONObject.optString(com.baidu.sapi2.views.logindialog.view.a.m);
+            cf3Var.c = jSONObject.optString("identity");
+            return cf3Var;
         }
-        return invokeLLLL.booleanValue;
+        return (cf3) invokeL.objValue;
     }
 }

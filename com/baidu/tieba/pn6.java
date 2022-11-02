@@ -1,38 +1,107 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
-public abstract class pn6 extends BaseAdapter {
+public class pn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tn6 a;
-    public boolean b;
+    public View a;
+    public FrsFragment b;
+    public TextView c;
+    public FrsTabSortSwitchButton d;
+    public String e;
+    public int f;
+    public FrsTabSortSwitchButton.e g;
 
-    public abstract int b();
+    /* loaded from: classes5.dex */
+    public class a implements FrsTabSortSwitchButton.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pn6 a;
 
-    public abstract Object c(int i);
+        public a(pn6 pn6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pn6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pn6Var;
+        }
 
-    public abstract int d();
+        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
+        public boolean a(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                boolean z = false;
+                if (!li6.f().i() && !ki6.h().j()) {
+                    if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c7f);
+                        return false;
+                    } else if (this.a.b.J0() != null && this.a.b.j1() != null) {
+                        z = true;
+                        if (this.a.f == i) {
+                            return true;
+                        }
+                        this.a.b.J0().R0(this.a.d.w(this.a.f));
+                        this.a.f = i;
+                        if (this.a.f != 7) {
+                            cj5.c();
+                            cq8.a();
+                        } else {
+                            cq8.b();
+                        }
+                        this.a.b.J0().N0(this.a.d.w(this.a.f));
+                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
+                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.f));
+                        }
+                        this.a.b.J0().Q0(true);
+                        this.a.b.j1().X1();
+                        this.a.b.J0().P0(true);
+                        this.a.f();
+                    }
+                }
+                return z;
+            }
+            return invokeI.booleanValue;
+        }
+    }
 
-    public abstract long e(int i);
-
-    public abstract View g(int i, View view2, ViewGroup viewGroup);
-
-    public abstract void j(int i);
-
-    public pn6() {
+    public pn6(FrsFragment frsFragment, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,171 +111,73 @@ public abstract class pn6 extends BaseAdapter {
                 return;
             }
         }
-        this.b = true;
+        this.f = -1;
+        this.g = new a(this);
+        if (frsFragment != null && relativeLayout != null) {
+            this.b = frsFragment;
+            View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d034e, relativeLayout);
+            this.a = inflate;
+            inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f64);
+            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f091f65);
+            this.d = frsTabSortSwitchButton;
+            frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
+            this.f = this.d.getState();
+            i();
+        }
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public void g(int i) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (frsTabSortSwitchButton = this.d) != null) {
+            frsTabSortSwitchButton.t(i);
+            this.f = this.d.getState();
+        }
+    }
+
+    public void j(List<FrsTabInfo> list) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && (frsTabSortSwitchButton = this.d) != null) {
+            frsTabSortSwitchButton.setData(list);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c11437");
+            statisticItem.param("obj_type", this.d.w(this.f));
+            statisticItem.param("fid", this.e);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public FrsTabSortSwitchButton h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (h()) {
-                return 2;
-            }
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return invokeV.intValue;
+        return (FrsTabSortSwitchButton) invokeV.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            tn6 tn6Var = this.a;
-            if (tn6Var != null && tn6Var.b() && b() - 1 > this.a.getArrowIndex()) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
+            if (frsTabSortSwitchButton != null) {
+                frsTabSortSwitchButton.D();
             }
-            return false;
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
         }
-        return invokeV.booleanValue;
-    }
-
-    public final View a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            tn6 tn6Var = this.a;
-            if (tn6Var == null) {
-                return view2;
-            }
-            if (view2 == null || view2 != tn6Var.getArrowView()) {
-                view2 = this.a.getArrowView();
-                if (view2.getLayoutParams() == null) {
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, d()));
-                }
-            }
-            this.a.a(view2);
-            return view2;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            tn6 tn6Var = this.a;
-            if (tn6Var != null && tn6Var.b()) {
-                int arrowIndex = this.a.getArrowIndex();
-                if (i < arrowIndex) {
-                    return i;
-                }
-                if (i == arrowIndex) {
-                    return -1;
-                }
-                return i - 1;
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (h()) {
-                int f = f(i);
-                if (f >= 0) {
-                    return c(f);
-                }
-                return c(i);
-            }
-            return c(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (h()) {
-                int f = f(i);
-                if (f >= 0) {
-                    return e(f);
-                }
-                return e(i);
-            }
-            return e(i);
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int arrowIndex;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (!h() || (arrowIndex = this.a.getArrowIndex()) <= 0 || i != arrowIndex) {
-                return 0;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void i(tn6 tn6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, tn6Var) == null) {
-            this.a = tn6Var;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (h()) {
-                if (this.b) {
-                    b = this.a.getArrowIndex();
-                } else {
-                    tn6 tn6Var = this.a;
-                    if (tn6Var != null && tn6Var.b()) {
-                        b = b();
-                    } else {
-                        return b();
-                    }
-                }
-                return b + 1;
-            }
-            return b();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            if (getItemViewType(i) == 0) {
-                return g(f(i), view2, viewGroup);
-            }
-            return a(view2);
-        }
-        return (View) invokeILL.objValue;
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.util.SparseArray;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -23,6 +24,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+@RequiresApi(16)
 /* loaded from: classes.dex */
 public class NotificationCompatJellybean {
     public static /* synthetic */ Interceptable $ic = null;

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ public class OneKeyLoginActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OneKeyLoginActivityConfig(Context context, String str) {
+    public OneKeyLoginActivityConfig(Context context, @NonNull String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,7 +37,7 @@ public class OneKeyLoginActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OneKeyLoginActivityConfig(Context context, String str, String str2, String str3) {
+    public OneKeyLoginActivityConfig(Context context, @NonNull String str, @NonNull String str2, @NonNull String str3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

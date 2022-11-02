@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.b73;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes3.dex */
-public class e53 extends j53 {
+public class e53 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements b73.e {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ SwanAppActivity a;
 
-        public a(e53 e53Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+        public a(e53 e53Var, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e53Var, callbackHandler, unitedSchemeEntity, str};
+                Object[] objArr = {e53Var, swanAppActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,38 +38,26 @@ public class e53 extends j53 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
+            this.a = swanAppActivity;
         }
 
-        @Override // com.baidu.tieba.b73.e
-        public void a(String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                m02.i("PreloadSubPackage", "preload subPackage success");
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.c);
-            }
-        }
-
-        @Override // com.baidu.tieba.b73.e
-        public void b(int i, ff3 ff3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ff3Var) == null) {
-                m02.c("PreloadSubPackage", "preload subPackage failed");
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.c);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                mh3.a(this.a);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e53(j43 j43Var) {
-        super(j43Var, "/swanAPI/preloadSubPackage");
+    public e53(b53 b53Var) {
+        super(b53Var, "/swanAPI/applyUpdate");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,50 +71,30 @@ public class e53 extends j53 {
         }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (m33Var == null) {
-                m02.c("PreloadSubPackage", "swanApp is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (e43Var == null) {
+                e12.c("applyUpdate", "swanApp is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                m02.c("PreloadSubPackage", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                m02.c("PreloadSubPackage", "none cb");
-                if (j53.b) {
-                    Log.d("SwanAppAction", "preload subPackage cb is empty");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString2 = optParamsAsJo.optString("root");
-            if (TextUtils.isEmpty(optString2)) {
-                m02.c("PreloadSubPackage", "subPackage root is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (m33Var.v0(optString2) && m33Var.u0(optString2)) {
-                m02.i("PreloadSubPackage", "subPackage have existed");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "subPackage have existed");
+            } else if (!(context instanceof SwanAppActivity)) {
+                e12.c("applyUpdate", "context is not SwanAppActivity");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             } else {
-                String R = m33Var.R(optString2);
-                if (TextUtils.isEmpty(R)) {
-                    m02.i("PreloadSubPackage", "subPackage cannot find aps key");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
+                SwanAppActivity swanAppActivity = (SwanAppActivity) context;
+                Intent intent = swanAppActivity.getIntent();
+                if (!swanAppActivity.isDestroyed() && intent != null) {
+                    yh3.e0(new a(this, swanAppActivity));
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
                 }
-                b73.l(m33Var.b, m33Var.k0(), "1", optString2, R, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                e12.c("applyUpdate", "launchScheme is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty launchScheme");
+                return false;
             }
         }
         return invokeLLLL.booleanValue;

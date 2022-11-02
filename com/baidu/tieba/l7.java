@@ -23,7 +23,7 @@ public class l7 {
     public transient /* synthetic */ FieldHolder $fh;
     public l7 a;
     public Locale b;
-    public x7 c;
+    public x7<String, String> c;
 
     static {
         InterceptResult invokeClinit;
@@ -95,7 +95,7 @@ public class l7 {
     public void h(Reader reader) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reader) == null) {
-            x7 x7Var = new x7();
+            x7<String, String> x7Var = new x7<>();
             this.c = x7Var;
             c8.a(x7Var, reader);
         }
@@ -148,7 +148,7 @@ public class l7 {
             if (k3Var != null && locale != null && str != null) {
                 Locale locale2 = locale;
                 do {
-                    List e2 = e(locale2);
+                    List<Locale> e2 = e(locale2);
                     j = j(k3Var, str, e2, 0, l7Var);
                     if (j != null) {
                         Locale g = j.g();
@@ -168,7 +168,7 @@ public class l7 {
         return (l7) invokeLLL.objValue;
     }
 
-    public static List e(Locale locale) {
+    public static List<Locale> e(Locale locale) {
         InterceptResult invokeL;
         Locale locale2;
         Interceptable interceptable = $ic;
@@ -230,12 +230,12 @@ public class l7 {
         return (l7) invokeLLL.objValue;
     }
 
-    public static l7 j(k3 k3Var, String str, List list, int i, l7 l7Var) {
+    public static l7 j(k3 k3Var, String str, List<Locale> list, int i, l7 l7Var) {
         InterceptResult invokeCommon;
         l7 l7Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{k3Var, str, list, Integer.valueOf(i), l7Var})) == null) {
-            Locale locale = (Locale) list.get(i);
+            Locale locale = list.get(i);
             if (i != list.size() - 1) {
                 l7Var2 = j(k3Var, str, list, i + 1, l7Var);
             } else if (l7Var != null && locale.equals(d)) {

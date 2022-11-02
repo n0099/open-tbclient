@@ -31,8 +31,8 @@ public class ARAuthFacade implements j {
     public boolean iY;
     public volatile i iZ;
     public IAuthCallback ja;
-    public final List jb;
-    public List jc;
+    public final List<IDuMixAuthCallback> jb;
+    public List<IAuthCallback> jc;
     public boolean jd;
     public com.baidu.ar.h.d je;
     public byte[] jf;
@@ -86,7 +86,7 @@ public class ARAuthFacade implements j {
         return (k) invokeL.objValue;
     }
 
-    private void a(Context context, IAuthCallback iAuthCallback, Runnable runnable, ICallbackWith iCallbackWith) {
+    private void a(Context context, IAuthCallback iAuthCallback, Runnable runnable, ICallbackWith<List<Integer>> iCallbackWith) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, this, context, iAuthCallback, runnable, iCallbackWith) == null) {
             if (this.iZ == null) {
@@ -138,7 +138,7 @@ public class ARAuthFacade implements j {
         }
     }
 
-    private boolean a(Context context, IAuthCallback iAuthCallback, f fVar, ICallbackWith iCallbackWith) {
+    private boolean a(Context context, IAuthCallback iAuthCallback, f fVar, ICallbackWith<List<Integer>> iCallbackWith) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, this, context, iAuthCallback, fVar, iCallbackWith)) == null) {
@@ -170,7 +170,7 @@ public class ARAuthFacade implements j {
                     }
 
                     @Override // com.baidu.ar.auth.k.a
-                    public void a(Set set) {
+                    public void a(Set<Integer> set) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, set) == null) || this.jj.iZ == null) {
                             return;
@@ -396,7 +396,7 @@ public class ARAuthFacade implements j {
     }
 
     @Override // com.baidu.ar.auth.j
-    public List checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
+    public List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, bArr, iDuMixAuthCallback)) == null) {
@@ -499,7 +499,7 @@ public class ARAuthFacade implements j {
                             }
                         }
                     }
-                }, runnable, new ICallbackWith(this) { // from class: com.baidu.ar.auth.ARAuthFacade.4
+                }, runnable, new ICallbackWith<List<Integer>>(this) { // from class: com.baidu.ar.auth.ARAuthFacade.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ARAuthFacade jj;
@@ -525,7 +525,7 @@ public class ARAuthFacade implements j {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.ar.callback.ICallbackWith
                     /* renamed from: e */
-                    public void run(List list) {
+                    public void run(List<Integer> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
                             for (IDuMixAuthCallback iDuMixAuthCallback2 : this.jj.cv()) {
@@ -543,7 +543,7 @@ public class ARAuthFacade implements j {
     }
 
     @Override // com.baidu.ar.auth.j
-    public List checkAuth(Context context, byte[] bArr, ICallbackWith iCallbackWith, ICallbackWith iCallbackWith2) {
+    public List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bArr, iCallbackWith, iCallbackWith2)) == null) {
@@ -575,7 +575,7 @@ public class ARAuthFacade implements j {
                 }
 
                 @Override // com.baidu.ar.auth.IDuMixAuthCallback
-                public void onAvailFeaturesUpdate(List list) {
+                public void onAvailFeaturesUpdate(List<Integer> list) {
                     ICallbackWith iCallbackWith3;
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) || (iCallbackWith3 = this.jh) == null) {
@@ -714,7 +714,7 @@ public class ARAuthFacade implements j {
                 }
                 this.jl.onError(this.jj.jd ? "请检查传入checkAuth方法的arLicense数据" : !d.cx() ? "请检查dumixar.license文件" : "请检查license文件", 0);
             }
-        }, (ICallbackWith) null);
+        }, (ICallbackWith<List<Integer>>) null);
     }
 
     @Override // com.baidu.ar.auth.j

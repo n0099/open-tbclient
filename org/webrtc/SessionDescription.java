@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SessionDescription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,8 +18,8 @@ public class SessionDescription {
     public final Type type;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class Type {
+    /* loaded from: classes9.dex */
+    public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type ANSWER;
@@ -66,6 +66,7 @@ public class SessionDescription {
             }
         }
 
+        @CalledByNative("Type")
         public static Type fromCanonicalForm(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -103,6 +104,7 @@ public class SessionDescription {
         }
     }
 
+    @CalledByNative
     public SessionDescription(Type type, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -122,6 +124,7 @@ public class SessionDescription {
         this.description = str;
     }
 
+    @CalledByNative
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,6 +134,7 @@ public class SessionDescription {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public String getTypeInCanonicalForm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,5 +1,7 @@
 package com.bumptech.glide.signature;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,10 +16,11 @@ public class MediaStoreSignature implements Key {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long dateModified;
+    @NonNull
     public final String mimeType;
     public final int orientation;
 
-    public MediaStoreSignature(String str, long j, int i) {
+    public MediaStoreSignature(@Nullable String str, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +61,7 @@ public class MediaStoreSignature implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, messageDigest) == null) {
             messageDigest.update(ByteBuffer.allocate(12).putLong(this.dateModified).putInt(this.orientation).array());

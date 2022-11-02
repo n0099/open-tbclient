@@ -24,13 +24,13 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.cyberplayer.sdk.config.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public final class EnumC0089a {
+    public static final class EnumC0090a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0089a a;
-        public static final EnumC0089a b;
-        public static final EnumC0089a c;
-        public static final EnumC0089a d;
-        public static final /* synthetic */ EnumC0089a[] e;
+        public static final EnumC0090a a;
+        public static final EnumC0090a b;
+        public static final EnumC0090a c;
+        public static final EnumC0090a d;
+        public static final /* synthetic */ EnumC0090a[] e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,15 +46,15 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC0089a("FAILED", 0);
-            b = new EnumC0089a("AND_NEED_CHECK_NEXT", 1);
-            c = new EnumC0089a("OR_NEED_CHECK_NEXT", 2);
-            EnumC0089a enumC0089a = new EnumC0089a("SUCCESS", 3);
-            d = enumC0089a;
-            e = new EnumC0089a[]{a, b, c, enumC0089a};
+            a = new EnumC0090a("FAILED", 0);
+            b = new EnumC0090a("AND_NEED_CHECK_NEXT", 1);
+            c = new EnumC0090a("OR_NEED_CHECK_NEXT", 2);
+            EnumC0090a enumC0090a = new EnumC0090a("SUCCESS", 3);
+            d = enumC0090a;
+            e = new EnumC0090a[]{a, b, c, enumC0090a};
         }
 
-        public EnumC0089a(String str, int i) {
+        public EnumC0090a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,21 +73,21 @@ public class a {
             }
         }
 
-        public static EnumC0089a valueOf(String str) {
+        public static EnumC0090a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0089a) Enum.valueOf(EnumC0089a.class, str) : (EnumC0089a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0090a) Enum.valueOf(EnumC0090a.class, str) : (EnumC0090a) invokeL.objValue;
         }
 
-        public static EnumC0089a[] values() {
+        public static EnumC0090a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0089a[]) e.clone() : (EnumC0089a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0090a[]) e.clone() : (EnumC0090a[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String[] a;
@@ -230,17 +230,17 @@ public class a {
             return invokeLLLL.booleanValue;
         }
 
-        public EnumC0089a b(String str) {
+        public EnumC0090a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 if (this.d) {
-                    return EnumC0089a.a;
+                    return EnumC0090a.a;
                 }
                 boolean a = a(str);
-                return this.b ? a ? EnumC0089a.b : EnumC0089a.a : a ? EnumC0089a.d : EnumC0089a.c;
+                return this.b ? a ? EnumC0090a.b : EnumC0090a.a : a ? EnumC0090a.d : EnumC0090a.c;
             }
-            return (EnumC0089a) invokeL.objValue;
+            return (EnumC0090a) invokeL.objValue;
         }
     }
 
@@ -252,13 +252,13 @@ public class a {
             boolean z = false;
             bVar.a(0);
             bVar.a(str, "|", ParamableElem.DIVIDE_PARAM);
-            EnumC0089a b2 = bVar.b(str2);
-            return Boolean.valueOf((b2 == EnumC0089a.d || b2 == EnumC0089a.b) ? true : true);
+            EnumC0090a b2 = bVar.b(str2);
+            return Boolean.valueOf((b2 == EnumC0090a.d || b2 == EnumC0090a.b) ? true : true);
         }
         return (Boolean) invokeLL.objValue;
     }
 
-    public static boolean a(String str, ArrayList arrayList) {
+    public static boolean a(String str, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, arrayList)) == null) {
@@ -266,7 +266,7 @@ public class a {
                 return true;
             }
             for (int i = 0; i < arrayList.size(); i++) {
-                if (str.indexOf((String) arrayList.get(i)) > -1) {
+                if (str.indexOf(arrayList.get(i)) > -1) {
                     return true;
                 }
             }
@@ -275,19 +275,19 @@ public class a {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(ArrayList arrayList, ArrayList arrayList2) {
+    public static boolean a(ArrayList<String> arrayList, ArrayList<String> arrayList2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, arrayList2)) == null) ? b(Build.DEVICE, arrayList) || b(Build.MODEL, arrayList2) : invokeLL.booleanValue;
     }
 
-    public static boolean b(String str, ArrayList arrayList) {
+    public static boolean b(String str, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, arrayList)) == null) {
             if (!TextUtils.isEmpty(str) && arrayList != null) {
                 for (int i = 0; i < arrayList.size(); i++) {
-                    if (str.equalsIgnoreCase((String) arrayList.get(i))) {
+                    if (str.equalsIgnoreCase(arrayList.get(i))) {
                         return true;
                     }
                 }

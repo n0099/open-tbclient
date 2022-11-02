@@ -1,12 +1,13 @@
 package com.kwad.sdk.core.a;
 
+import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.n;
 import java.util.Base64;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class f implements h {
     @Override // com.kwad.sdk.core.a.h
-    public final void a(String str, Map map, String str2) {
+    public final void a(String str, Map<String, String> map, String str2) {
     }
 
     @Override // com.kwad.sdk.core.a.h
@@ -20,7 +21,7 @@ public final class f implements h {
     }
 
     @Override // com.kwad.sdk.core.a.h
-    public final void c(Map map) {
+    public final void c(@NonNull Map<String, String> map) {
     }
 
     @Override // com.kwad.sdk.core.a.h

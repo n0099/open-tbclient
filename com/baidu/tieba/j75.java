@@ -9,55 +9,44 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class j75 {
     public static /* synthetic */ Interceptable $ic;
-    public static j75 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public k55 a;
+    public int b;
 
-    public j75() {
+    public j75(k55 k55Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k55Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
+        this.a = k55Var;
+        this.b = i;
     }
 
-    public static j75 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (j75.class) {
-                    if (b == null) {
-                        b = new j75();
-                    }
-                }
-            }
-            return b;
-        }
-        return (j75) invokeV.objValue;
-    }
-
-    public int b() {
+    public k55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (k55) invokeV.objValue;
     }
 
-    public void c(int i) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 }

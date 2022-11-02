@@ -1,89 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.AdapterViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.homepage.personalize.data.CheckInterestCommitResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class l47 extends rn implements x37 {
+public final class l47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public String b;
 
-    public void u(ko koVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, koVar) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l47(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c07.a);
+    public l47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        b();
     }
 
-    @Override // com.baidu.tieba.x37
-    public void h(String str) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: s */
-    public AdapterViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new AdapterViewHolder(new HotTopicRankLayout(viewGroup.getContext()));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT, Intrinsics.stringPlus(TbConfig.SERVER_ADDRESS, TbConfig.URL_CHECK_INTEREST_COMMIT));
+            tbHttpMessageTask.setResponsedClass(CheckInterestCommitResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w47 w47Var, AdapterViewHolder adapterViewHolder) {
-        InterceptResult invokeCommon;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w47Var, adapterViewHolder})) == null) {
-            if (w47Var != null && adapterViewHolder != null) {
-                HotTopicRankLayout hotTopicRankLayout = (HotTopicRankLayout) adapterViewHolder.a();
-                hotTopicRankLayout.setTabCode(this.b);
-                hotTopicRankLayout.a(w47Var);
-                hotTopicRankLayout.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return adapterViewHolder.getView();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT));
         }
-        return (View) invokeCommon.objValue;
     }
 }

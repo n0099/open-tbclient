@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.defs.controller;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -50,6 +51,7 @@ public class ActivityLifecycleController {
         return invokeV.booleanValue;
     }
 
+    @SuppressLint({"NewApi"})
     public void registerActivityLifecycleCallbacks(Context context, ActivityLifecycleCallback activityLifecycleCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, activityLifecycleCallback) == null) {

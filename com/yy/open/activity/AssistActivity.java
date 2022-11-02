@@ -1,5 +1,6 @@
 package com.yy.open.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +26,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nu9;
+import com.baidu.tieba.wv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -207,7 +208,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(nu9.g(false))) {
+                if (str.startsWith(wv9.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -250,7 +251,7 @@ public final class AssistActivity extends Activity {
                         e.printStackTrace();
                         return true;
                     }
-                } else if (!str.startsWith(nu9.g(true))) {
+                } else if (!str.startsWith(wv9.g(true))) {
                     return false;
                 } else {
                     try {
@@ -543,7 +544,7 @@ public final class AssistActivity extends Activity {
             this.a.addView(this.d);
             this.a.addView(this.c);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805e8);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805ed);
             imageView.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(a(5.0f), a(5.0f), 0, 0);
@@ -553,6 +554,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

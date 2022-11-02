@@ -20,7 +20,7 @@ import java.nio.charset.Charset;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FileVideoCapturer implements VideoCapturer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileVideoCapturer";
@@ -30,7 +30,7 @@ public class FileVideoCapturer implements VideoCapturer {
     public final Timer timer;
     public final VideoReader videoReader;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface VideoReader {
         void close();
 
@@ -54,8 +54,8 @@ public class FileVideoCapturer implements VideoCapturer {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class VideoReaderY4M implements VideoReader {
+    /* loaded from: classes9.dex */
+    public static class VideoReaderY4M implements VideoReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FRAME_DELIMETER_LENGTH = 6;
         public static final String TAG = "VideoReaderY4M";

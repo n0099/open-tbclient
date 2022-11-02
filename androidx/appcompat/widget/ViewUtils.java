@@ -4,6 +4,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ViewUtils {
     public static /* synthetic */ Interceptable $ic = null;

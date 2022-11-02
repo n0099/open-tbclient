@@ -25,7 +25,7 @@ public class UIListenerManager {
     public static /* synthetic */ Interceptable $ic;
     public static UIListenerManager a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map b;
+    public Map<String, ApiTask> b;
 
     static {
         InterceptResult invokeClinit;
@@ -84,7 +84,7 @@ public class UIListenerManager {
                 return;
             }
         }
-        Map synchronizedMap = Collections.synchronizedMap(new HashMap());
+        Map<String, ApiTask> synchronizedMap = Collections.synchronizedMap(new HashMap());
         this.b = synchronizedMap;
         if (synchronizedMap == null) {
             this.b = Collections.synchronizedMap(new HashMap());
@@ -129,7 +129,7 @@ public class UIListenerManager {
                 return null;
             }
             synchronized (this.b) {
-                apiTask = (ApiTask) this.b.get(str);
+                apiTask = this.b.get(str);
                 this.b.remove(str);
             }
             if (apiTask == null) {
@@ -295,7 +295,7 @@ public class UIListenerManager {
 
     public Object setListenerWithRequestcode(int i, IUiListener iUiListener) {
         InterceptResult invokeIL;
-        ApiTask apiTask;
+        ApiTask put;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, iUiListener)) == null) {
             String a2 = i.a(i);
@@ -304,19 +304,19 @@ public class UIListenerManager {
                 return null;
             }
             synchronized (this.b) {
-                apiTask = (ApiTask) this.b.put(a2, new ApiTask(this, i, iUiListener));
+                put = this.b.put(a2, new ApiTask(this, i, iUiListener));
             }
-            if (apiTask == null) {
+            if (put == null) {
                 return null;
             }
-            return apiTask.mListener;
+            return put.mListener;
         }
         return invokeIL.objValue;
     }
 
     public Object setListnerWithAction(String str, IUiListener iUiListener) {
         InterceptResult invokeLL;
-        ApiTask apiTask;
+        ApiTask put;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, iUiListener)) == null) {
             int a2 = i.a(str);
@@ -325,12 +325,12 @@ public class UIListenerManager {
                 return null;
             }
             synchronized (this.b) {
-                apiTask = (ApiTask) this.b.put(str, new ApiTask(this, a2, iUiListener));
+                put = this.b.put(str, new ApiTask(this, a2, iUiListener));
             }
-            if (apiTask == null) {
+            if (put == null) {
                 return null;
             }
-            return apiTask.mListener;
+            return put.mListener;
         }
         return invokeLL.objValue;
     }

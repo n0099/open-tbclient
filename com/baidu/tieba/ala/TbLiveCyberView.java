@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.PowerManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -18,8 +19,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.TbLiveCyberView;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.rv8;
+import com.baidu.tieba.ax8;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,7 +71,7 @@ public class TbLiveCyberView extends CyberVideoView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 this.a.n();
@@ -115,7 +116,7 @@ public class TbLiveCyberView extends CyberVideoView {
                 BdLog.e(e);
             }
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.mt5
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.vu5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -126,7 +127,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i, i2, obj)) == null) ? TbLiveCyberView.this.l(i, i2, obj) : invokeIIL.booleanValue;
                 }
             });
-            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.nt5
+            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.wu5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -165,7 +166,7 @@ public class TbLiveCyberView extends CyberVideoView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbLiveCyberView(Context context, AttributeSet attributeSet, int i) {
+    public TbLiveCyberView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -246,10 +247,10 @@ public class TbLiveCyberView extends CyberVideoView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (ej.isEmpty(str)) {
+            if (wi.isEmpty(str)) {
                 return str;
             }
-            if (rv8.c().d()) {
+            if (ax8.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -282,7 +283,7 @@ public class TbLiveCyberView extends CyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || ej.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || wi.isEmpty(str)) {
             return;
         }
         this.J = str;

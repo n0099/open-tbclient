@@ -13,13 +13,13 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", "ok", ""}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class SClient$sendHandShake$ok$1$1 extends Lambda implements Function1 {
+public final class SClient$sendHandShake$ok$1$1 extends Lambda implements Function1<Boolean, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Continuation $it;
+    public final /* synthetic */ Continuation<Boolean> $it;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SClient$sendHandShake$ok$1$1(Continuation continuation) {
+    public SClient$sendHandShake$ok$1$1(Continuation<? super Boolean> continuation) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,16 +39,18 @@ public final class SClient$sendHandShake$ok$1$1 extends Lambda implements Functi
         this.$it = continuation;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        invoke(((Boolean) obj).booleanValue());
+    public /* bridge */ /* synthetic */ Unit invoke(Boolean bool) {
+        invoke(bool.booleanValue());
         return Unit.INSTANCE;
     }
 
     public final void invoke(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            Continuation continuation = this.$it;
+            Continuation<Boolean> continuation = this.$it;
             Boolean valueOf = Boolean.valueOf(z);
             Result.Companion companion = Result.Companion;
             continuation.resumeWith(Result.m698constructorimpl(valueOf));

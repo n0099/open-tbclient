@@ -2,6 +2,7 @@ package androidx.core.view;
 
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ public class NestedScrollingParentHelper {
     public int mNestedScrollAxesNonTouch;
     public int mNestedScrollAxesTouch;
 
-    public NestedScrollingParentHelper(ViewGroup viewGroup) {
+    public NestedScrollingParentHelper(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,7 +32,7 @@ public class NestedScrollingParentHelper {
         }
     }
 
-    public void onStopNestedScroll(View view2) {
+    public void onStopNestedScroll(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             onStopNestedScroll(view2, 0);
@@ -47,14 +48,14 @@ public class NestedScrollingParentHelper {
         return invokeV.intValue;
     }
 
-    public void onNestedScrollAccepted(View view2, View view3, int i) {
+    public void onNestedScrollAccepted(@NonNull View view2, @NonNull View view3, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3, i) == null) {
             onNestedScrollAccepted(view2, view3, i, 0);
         }
     }
 
-    public void onNestedScrollAccepted(View view2, View view3, int i, int i2) {
+    public void onNestedScrollAccepted(@NonNull View view2, @NonNull View view3, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, view2, view3, i, i2) == null) {
             if (i2 == 1) {
@@ -65,7 +66,7 @@ public class NestedScrollingParentHelper {
         }
     }
 
-    public void onStopNestedScroll(View view2, int i) {
+    public void onStopNestedScroll(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, view2, i) == null) {
             if (i == 1) {

@@ -15,7 +15,7 @@ public class JumpToOfflinePay {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class Req extends BaseReq {
+    public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.JumpToOfflinePay.Req";
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class JumpToOfflinePay {
     }
 
     /* loaded from: classes8.dex */
-    public class Resp extends BaseResp {
+    public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

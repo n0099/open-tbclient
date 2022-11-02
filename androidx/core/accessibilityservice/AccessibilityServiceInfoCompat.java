@@ -3,6 +3,8 @@ package androidx.core.accessibilityservice;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
@@ -29,12 +31,14 @@ public final class AccessibilityServiceInfoCompat {
     public static final int FLAG_REQUEST_TOUCH_EXPLORATION_MODE = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @NonNull
     public static String capabilityToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 1 ? i != 2 ? i != 4 ? i != 8 ? RomUtils.UNKNOWN : "CAPABILITY_CAN_FILTER_KEY_EVENTS" : "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY" : "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION" : "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT" : (String) invokeI.objValue;
     }
 
+    @Nullable
     public static String flagToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -76,6 +80,7 @@ public final class AccessibilityServiceInfoCompat {
         }
     }
 
+    @NonNull
     public static String feedbackTypeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -114,7 +119,7 @@ public final class AccessibilityServiceInfoCompat {
         return (String) invokeI.objValue;
     }
 
-    public static int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
+    public static int getCapabilities(@NonNull AccessibilityServiceInfo accessibilityServiceInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, accessibilityServiceInfo)) == null) {
@@ -129,7 +134,8 @@ public final class AccessibilityServiceInfoCompat {
         return invokeL.intValue;
     }
 
-    public static String loadDescription(AccessibilityServiceInfo accessibilityServiceInfo, PackageManager packageManager) {
+    @Nullable
+    public static String loadDescription(@NonNull AccessibilityServiceInfo accessibilityServiceInfo, @NonNull PackageManager packageManager) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, accessibilityServiceInfo, packageManager)) == null) {

@@ -1,9 +1,12 @@
 package com.kwad.sdk.core.response.model;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import java.text.DecimalFormat;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
     public static final float COUPON_DISCOUNT_THRESHOLD = 20.0f;
     public static final String JINNIIU_DISCOUNT = "2";
@@ -17,6 +20,7 @@ public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com
     public String displayType;
     public String displayValue;
 
+    @Nullable
     public static String jinniuFormatCoupon(CouponInfo couponInfo) {
         StringBuilder sb;
         String str = null;
@@ -64,6 +68,7 @@ public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com
         }
     }
 
+    @Nullable
     public static String rinToYuan(String str) {
         if (str == null) {
             return null;
@@ -100,6 +105,7 @@ public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com
         return this.displayValue;
     }
 
+    @Nullable
     public String getFormattedDisplayDiscount() {
         try {
             return new DecimalFormat("#.#").format(Float.valueOf(this.displayDiscount).floatValue() / 10.0f);

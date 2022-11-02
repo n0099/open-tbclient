@@ -31,7 +31,7 @@ public final class RequestMethod {
     public final String value;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;

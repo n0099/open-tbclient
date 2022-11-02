@@ -8,6 +8,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
@@ -32,6 +34,7 @@ public class FragmentStateManager {
     public static final String VIEW_STATE_TAG = "android:view_state";
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentLifecycleCallbacksDispatcher mDispatcher;
+    @NonNull
     public final Fragment mFragment;
     public int mFragmentManagerState;
 
@@ -72,7 +75,7 @@ public class FragmentStateManager {
         }
     }
 
-    public FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, Fragment fragment) {
+    public FragmentStateManager(@NonNull FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, @NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +95,7 @@ public class FragmentStateManager {
         this.mFragment = fragment;
     }
 
-    public FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, Fragment fragment, FragmentState fragmentState) {
+    public FragmentStateManager(@NonNull FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, @NonNull Fragment fragment, @NonNull FragmentState fragmentState) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -132,7 +135,7 @@ public class FragmentStateManager {
         }
     }
 
-    public FragmentStateManager(FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, ClassLoader classLoader, FragmentFactory fragmentFactory, FragmentState fragmentState) {
+    public FragmentStateManager(@NonNull FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, @NonNull ClassLoader classLoader, @NonNull FragmentFactory fragmentFactory, @NonNull FragmentState fragmentState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -229,6 +232,7 @@ public class FragmentStateManager {
         }
     }
 
+    @NonNull
     public FragmentState saveState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -330,7 +334,7 @@ public class FragmentStateManager {
         }
     }
 
-    public void attach(FragmentHostCallback<?> fragmentHostCallback, FragmentManager fragmentManager, Fragment fragment) {
+    public void attach(@NonNull FragmentHostCallback<?> fragmentHostCallback, @NonNull FragmentManager fragmentManager, @Nullable Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentHostCallback, fragmentManager, fragment) == null) {
             Fragment fragment2 = this.mFragment;
@@ -409,7 +413,7 @@ public class FragmentStateManager {
                 if (view2 != null) {
                     view2.setSaveFromParentEnabled(false);
                     Fragment fragment3 = this.mFragment;
-                    fragment3.mView.setTag(R.id.obfuscated_res_0x7f090ad7, fragment3);
+                    fragment3.mView.setTag(R.id.obfuscated_res_0x7f090aea, fragment3);
                     Fragment fragment4 = this.mFragment;
                     if (fragment4.mHidden) {
                         fragment4.mView.setVisibility(8);
@@ -424,7 +428,7 @@ public class FragmentStateManager {
         }
     }
 
-    public void createView(FragmentContainer fragmentContainer) {
+    public void createView(@NonNull FragmentContainer fragmentContainer) {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, fragmentContainer) != null) || this.mFragment.mFromLayout) {
@@ -467,7 +471,7 @@ public class FragmentStateManager {
             boolean z = false;
             view2.setSaveFromParentEnabled(false);
             Fragment fragment4 = this.mFragment;
-            fragment4.mView.setTag(R.id.obfuscated_res_0x7f090ad7, fragment4);
+            fragment4.mView.setTag(R.id.obfuscated_res_0x7f090aea, fragment4);
             if (viewGroup != null) {
                 viewGroup.addView(this.mFragment.mView);
             }
@@ -489,7 +493,7 @@ public class FragmentStateManager {
         }
     }
 
-    public void destroy(FragmentHostCallback<?> fragmentHostCallback, FragmentManagerViewModel fragmentManagerViewModel) {
+    public void destroy(@NonNull FragmentHostCallback<?> fragmentHostCallback, @NonNull FragmentManagerViewModel fragmentManagerViewModel) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -526,7 +530,7 @@ public class FragmentStateManager {
         }
     }
 
-    public void detach(FragmentManagerViewModel fragmentManagerViewModel) {
+    public void detach(@NonNull FragmentManagerViewModel fragmentManagerViewModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fragmentManagerViewModel) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
@@ -552,7 +556,7 @@ public class FragmentStateManager {
         }
     }
 
-    public void restoreState(ClassLoader classLoader) {
+    public void restoreState(@NonNull ClassLoader classLoader) {
         Bundle bundle;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048586, this, classLoader) != null) || (bundle = this.mFragment.mSavedFragmentState) == null) {
@@ -581,6 +585,7 @@ public class FragmentStateManager {
         }
     }
 
+    @NonNull
     public Fragment getFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -590,6 +595,7 @@ public class FragmentStateManager {
         return (Fragment) invokeV.objValue;
     }
 
+    @Nullable
     public Fragment.SavedState saveInstanceState() {
         InterceptResult invokeV;
         Bundle saveBasicState;

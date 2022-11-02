@@ -2,103 +2,87 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.livecard.holder.FrsPageAlaStageViewHolder;
-import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wx5 extends kh6 implements n26 {
+public class wx5 extends z26<sx5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String l;
-    public hy5 m;
+    public xx5 i;
+    public xx5 j;
 
-    @Override // com.baidu.tieba.n26
-    public void p(int i) {
+    @Override // com.baidu.tieba.z26
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0103 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wx5(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public wx5(TbPageContext<?> tbPageContext, boolean z) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.i = new xx5(g(), z);
+        this.j = new xx5(g(), z);
+        ViewGroup viewGroup = (ViewGroup) k();
+        View view2 = new View(getContext());
+        viewGroup.addView(this.i.k());
+        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
+        viewGroup.addView(this.j.k());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: E */
-    public FrsPageAlaStageViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.z26
+    /* renamed from: r */
+    public void l(sx5 sx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            TbPageContext tbPageContext = this.c;
-            if (tbPageContext == null) {
-                return null;
-            }
-            hy5 hy5Var = new hy5(tbPageContext);
-            this.m = hy5Var;
-            hy5Var.a(this.l);
-            return new FrsPageAlaStageViewHolder(this.m);
-        }
-        return (FrsPageAlaStageViewHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.n26
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.l = str;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, sx5Var) == null) && sx5Var != null) {
+            this.i.l(sx5Var.a);
+            this.j.l(sx5Var.b);
         }
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, am8 am8Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
-        InterceptResult invokeCommon;
+    public void s(by5 by5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, am8Var, frsPageAlaStageViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, am8Var, frsPageAlaStageViewHolder);
-            if (am8Var != null) {
-                int i2 = 0;
-                FrsViewData frsViewData = this.b;
-                if (frsViewData != null) {
-                    i2 = frsViewData.getTopThreadSize();
-                }
-                hy5 hy5Var = frsPageAlaStageViewHolder.a;
-                hy5Var.x = (i + 1) - i2;
-                hy5Var.a(this.l);
-                frsPageAlaStageViewHolder.a.l(am8Var);
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeL(1048581, this, by5Var) == null) {
+            this.i.y(by5Var);
+            this.j.y(by5Var);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.kh6, com.baidu.tieba.rn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (am8) obj, (FrsPageAlaStageViewHolder) viewHolder);
-        return view2;
+    @Override // com.baidu.tieba.z26
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.m(tbPageContext, i);
+            this.j.m(tbPageContext, i);
+        }
     }
 }

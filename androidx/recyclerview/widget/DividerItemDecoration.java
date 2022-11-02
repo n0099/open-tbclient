@@ -7,6 +7,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,6 +46,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         ATTRS = new int[]{16843284};
     }
 
+    @Nullable
     public Drawable getDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,7 +161,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    public void setDrawable(Drawable drawable) {
+    public void setDrawable(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
             if (drawable != null) {

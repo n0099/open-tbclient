@@ -77,14 +77,14 @@ public class GetObjectRequest extends GenericObjectRequest {
         this.progressCallback = null;
     }
 
-    public void setProgressCallback(BosProgressCallback bosProgressCallback) {
+    public <T extends GetObjectRequest> void setProgressCallback(BosProgressCallback<T> bosProgressCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bosProgressCallback) == null) {
             this.progressCallback = bosProgressCallback;
         }
     }
 
-    public GetObjectRequest withProgressCallback(BosProgressCallback bosProgressCallback) {
+    public <T extends GetObjectRequest> GetObjectRequest withProgressCallback(BosProgressCallback<T> bosProgressCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bosProgressCallback)) == null) {

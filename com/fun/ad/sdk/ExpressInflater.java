@@ -11,7 +11,7 @@ import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 public abstract class ExpressInflater implements NativeInflater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseNativeAd2 a;
+    public final BaseNativeAd2<?, ? extends View> a;
 
     public ExpressInflater(FunNativeAd2 funNativeAd2) {
         Interceptable interceptable = $ic;

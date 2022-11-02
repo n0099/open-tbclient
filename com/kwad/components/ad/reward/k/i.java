@@ -30,7 +30,9 @@ public final class i extends d implements View.OnClickListener {
     public DialogFragment vf;
     public TextView vg;
     public View vh;
-    public View vi;
+
+    /* renamed from: vi  reason: collision with root package name */
+    public View f1082vi;
     public View vj;
 
     public i(DialogFragment dialogFragment, AdTemplate adTemplate, LayoutInflater layoutInflater, ViewGroup viewGroup, l.a aVar) {
@@ -51,23 +53,23 @@ public final class i extends d implements View.OnClickListener {
         this.vf = dialogFragment;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0457, viewGroup, false);
+        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0462, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091169);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09116b);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091167);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09116a);
-            this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f091168);
-            this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f091164);
-            this.vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091166);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091165);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a3);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a5);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a1);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a4);
+            this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a2);
+            this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f09119e);
+            this.f1082vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911a0);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f09119f);
             this.kP.setOnClickListener(this);
-            this.vi.setOnClickListener(this);
+            this.f1082vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.it.setOnClickListener(this);
             this.eQ.setOnClickListener(this);
@@ -104,7 +106,7 @@ public final class i extends d implements View.OnClickListener {
                 if (aVar2 != null) {
                     aVar2.fI();
                 }
-            } else if (view2.equals(this.vi)) {
+            } else if (view2.equals(this.f1082vi)) {
                 this.vf.dismiss();
                 l.a aVar3 = this.nf;
                 if (aVar3 != null) {

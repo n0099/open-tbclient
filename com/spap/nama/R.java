@@ -10,7 +10,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class attr {
+    public static final class attr {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public final class R {
     }
 
     /* loaded from: classes8.dex */
-    public final class drawable {
+    public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ic_launcher = 0x7f020000;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public final class R {
     }
 
     /* loaded from: classes8.dex */
-    public final class string {
+    public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: app_name */

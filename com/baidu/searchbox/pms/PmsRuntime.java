@@ -1,11 +1,14 @@
 package com.baidu.searchbox.pms;
 
-import com.baidu.tieba.km;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tieba.cm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class PmsRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -25,11 +28,12 @@ public class PmsRuntime {
         }
     }
 
+    @Inject(force = false)
     public static IPmsContext getPmsContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return km.a();
+            return cm.a();
         }
         return (IPmsContext) invokeV.objValue;
     }

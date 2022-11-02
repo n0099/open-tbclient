@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.atomData.SelectForumConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.attention.AttentionResMsg;
+import com.baidu.tieba.related.GameRelatedForumsResMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,6 +35,7 @@ public class SelectForumStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumConfig.class, SelectForumActivity.class);
         a();
+        b();
     }
 
     public SelectForumStatic() {
@@ -55,6 +57,16 @@ public class SelectForumStatic {
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION, TbConfig.SERVER_ADDRESS + "c/f/forum/like");
             tbHttpMessageTask.setResponsedClass(AttentionResMsg.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_RELATED_FORUMS, TbConfig.SERVER_ADDRESS + "c/f/forum/getRecreationForum");
+            tbHttpMessageTask.setResponsedClass(GameRelatedForumsResMsg.class);
             tbHttpMessageTask.setIsNeedTbs(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

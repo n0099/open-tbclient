@@ -3,129 +3,71 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.UnsubscribeFailedException;
+import java.util.Iterator;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public class y1a extends dy9 {
+public abstract class y1a<E> extends z1a<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dy9 e;
-    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y1a(dy9 dy9Var) {
-        super(dy9Var);
+    public y1a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dy9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((dy9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = dy9Var;
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void g(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            h2a.c().b().a(th);
-            try {
-                this.e.onError(th);
-                try {
-                    unsubscribe();
-                } catch (Throwable th2) {
-                    e2a.j(th2);
-                    throw new OnErrorFailedException(th2);
-                }
-            } catch (OnErrorNotImplementedException e) {
-                try {
-                    unsubscribe();
-                    throw e;
-                } catch (Throwable th3) {
-                    e2a.j(th3);
-                    throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
-                }
-            } catch (Throwable th4) {
-                e2a.j(th4);
-                try {
-                    unsubscribe();
-                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
-                } catch (Throwable th5) {
-                    e2a.j(th5);
-                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
-                }
             }
         }
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    @Override // com.baidu.tieba.yx9
-    public void onCompleted() {
-        UnsubscribeFailedException unsubscribeFailedException;
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final boolean isEmpty() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f) {
-            this.f = true;
-            try {
-                this.e.onCompleted();
-                try {
-                    unsubscribe();
-                } finally {
-                }
-            } catch (Throwable th) {
-                try {
-                    jy9.e(th);
-                    e2a.j(th);
-                    throw new OnCompletedFailedException(th.getMessage(), th);
-                } catch (Throwable th2) {
-                    try {
-                        unsubscribe();
-                        throw th2;
-                    } finally {
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c() == a()) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yx9
-    public void onError(Throwable th) {
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public final Iterator<E> iterator() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            jy9.e(th);
-            if (!this.f) {
-                this.f = true;
-                g(th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new UnsupportedOperationException();
         }
+        return (Iterator) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yx9
-    public void onNext(Object obj) {
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final int size() {
+        InterceptResult invokeV;
+        LinkedQueueNode<E> lvNext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            try {
-                if (!this.f) {
-                    this.e.onNext(obj);
-                }
-            } catch (Throwable th) {
-                jy9.f(th, this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedQueueNode<E> c = c();
+            LinkedQueueNode<E> a = a();
+            int i = 0;
+            while (c != a && i < Integer.MAX_VALUE) {
+                do {
+                    lvNext = c.lvNext();
+                } while (lvNext == null);
+                i++;
+                c = lvNext;
             }
+            return i;
         }
+        return invokeV.intValue;
     }
 }

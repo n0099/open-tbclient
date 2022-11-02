@@ -1,79 +1,55 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
+import android.text.SpannableString;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.view.SortSwitchButton;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class y38 {
+public class y38 implements z38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
-    public TextView c;
-    public SortSwitchButton d;
-    public SortSwitchButton.f e;
-    public int f;
-    public View.OnClickListener g;
-    public int h;
-    public int i;
-    public SortSwitchButton.f j;
-    public View.OnClickListener k;
+    public SpannableString a;
+    public String b;
+    public TbPageContext<?> c;
 
     /* loaded from: classes6.dex */
-    public class a implements SortSwitchButton.f {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y38 a;
+    }
 
-        public a(y38 y38Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y38Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y38Var;
+    @Override // com.baidu.tieba.z38
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.view.SortSwitchButton.f
-        public boolean a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (this.a.e != null) {
-                    return this.a.e.a(i);
-                }
-                return true;
-            }
-            return invokeI.booleanValue;
+    @Override // com.baidu.tieba.a48
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
         }
+        return invokeV.intValue;
     }
 
     /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
+    public class b extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ y38 a;
@@ -96,33 +72,34 @@ public class y38 {
             this.a = y38Var;
         }
 
-        @Override // android.view.View.OnClickListener
+        @Override // android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.g != null) {
-                    this.a.g.onClick(view2);
-                }
-                if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    if (view2 != null && (view2.getTag() instanceof Boolean) && !((Boolean) view2.getTag()).booleanValue()) {
-                        return;
-                    }
-                    if (view2 == this.a.b) {
-                        this.a.k(0);
-                    } else if (view2 == this.a.c) {
-                        this.a.k(1);
-                    }
-                }
+                UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.b});
             }
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setUnderlineText(false);
+            }
+        }
+
+        public /* synthetic */ b(y38 y38Var, a aVar) {
+            this(y38Var);
         }
     }
 
-    public y38(View view2) {
+    public y38(TbPageContext<?> tbPageContext, ExcContent excContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {tbPageContext, excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,137 +109,22 @@ public class y38 {
                 return;
             }
         }
-        this.f = 0;
-        this.j = new a(this);
-        this.k = new b(this);
-        if (view2 == null) {
+        if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
             return;
         }
-        this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09026e);
-        this.b = textView;
-        textView.setOnClickListener(this.k);
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091772);
-        this.c = textView2;
-        textView2.setOnClickListener(this.k);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f09253d);
-        this.d = sortSwitchButton;
-        sortSwitchButton.setOnSwitchChangeListener(this.j);
-        this.d.w(2);
-        h(TbadkCoreApplication.getInst().getSkinType());
+        this.c = tbPageContext;
+        this.a = new SpannableString(excContent.text);
+        this.a.setSpan(new b(this, null), 0, excContent.text.length(), 17);
+        this.b = excContent.link;
     }
 
-    public void f(boolean z) {
+    @Override // com.baidu.tieba.z38
+    public CharSequence b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                k(1);
-            } else {
-                k(0);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-    }
-
-    public void i(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    public void j(SortSwitchButton.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.e = fVar;
-        }
-    }
-
-    public void e(hw7 hw7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hw7Var) != null) || hw7Var == null) {
-            return;
-        }
-        int i = 0;
-        if (hw7Var.b == hw7.i) {
-            this.b.setClickable(true);
-            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0277));
-            this.c.setVisibility(0);
-            f(hw7Var.d);
-        }
-        if (hw7Var.e) {
-            this.c.setVisibility(8);
-            this.d.setVisibility(8);
-        } else if (hw7Var.f) {
-            this.c.setVisibility(8);
-        } else {
-            this.c.setVisibility(0);
-        }
-        if (!hw7Var.e && hw7Var.g != null) {
-            this.d.setVisibility(0);
-            int i2 = 0;
-            while (true) {
-                if (i2 < hw7Var.g.size()) {
-                    if (hw7Var.g.get(i2) != null && hw7Var.c == ((PbSortType) hw7Var.g.get(i2)).sort_type.intValue()) {
-                        i = i2;
-                        break;
-                    }
-                    i2++;
-                } else {
-                    break;
-                }
-            }
-            g(hw7Var.g, i);
-        }
-        h(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void g(List list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i) == null) {
-            if (ListUtils.isEmpty(list)) {
-                this.d.setVisibility(8);
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                PbSortType pbSortType = (PbSortType) it.next();
-                tn8 tn8Var = new tn8();
-                tn8Var.c(pbSortType.sort_type.intValue());
-                tn8Var.d(pbSortType.sort_name);
-                arrayList.add(tn8Var);
-            }
-            this.d.setVisibility(0);
-            this.d.setData(arrayList, i);
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
-            this.i = SkinManager.getColor(R.color.CAM_X0105);
-            this.h = SkinManager.getColor(R.color.CAM_X0107);
-            k(this.f);
-            this.d.H();
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
-            if (i == 0) {
-                this.b.setTypeface(Typeface.defaultFromStyle(1));
-                this.c.setTypeface(Typeface.defaultFromStyle(0));
-                this.b.setTextColor(this.i);
-                this.c.setTextColor(this.h);
-            } else if (i == 1) {
-                this.b.setTypeface(Typeface.defaultFromStyle(0));
-                this.c.setTypeface(Typeface.defaultFromStyle(1));
-                this.b.setTextColor(this.h);
-                this.c.setTextColor(this.i);
-            }
-        }
+        return (CharSequence) invokeV.objValue;
     }
 }

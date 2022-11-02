@@ -5,25 +5,25 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
-public abstract class BaseAnimatableValue implements AnimatableValue {
-    public final List keyframes;
+public abstract class BaseAnimatableValue<V, O> implements AnimatableValue<V, O> {
+    public final List<Keyframe<V>> keyframes;
 
-    public BaseAnimatableValue(Object obj) {
-        this(Collections.singletonList(new Keyframe(obj)));
+    public BaseAnimatableValue(V v) {
+        this(Collections.singletonList(new Keyframe(v)));
     }
 
-    public BaseAnimatableValue(List list) {
+    public BaseAnimatableValue(List<Keyframe<V>> list) {
         this.keyframes = list;
     }
 
     @Override // com.airbnb.lottie.model.animatable.AnimatableValue
-    public List getKeyframes() {
+    public List<Keyframe<V>> getKeyframes() {
         return this.keyframes;
     }
 
     @Override // com.airbnb.lottie.model.animatable.AnimatableValue
     public boolean isStatic() {
-        if (!this.keyframes.isEmpty() && (this.keyframes.size() != 1 || !((Keyframe) this.keyframes.get(0)).isStatic())) {
+        if (!this.keyframes.isEmpty() && (this.keyframes.size() != 1 || !this.keyframes.get(0).isStatic())) {
             return false;
         }
         return true;

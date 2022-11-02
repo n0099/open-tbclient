@@ -17,25 +17,25 @@ import io.reactivex.internal.util.QueueDrain;
 import io.reactivex.internal.util.QueueDrainHelper;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public abstract class QueueDrainSubscriber extends QueueDrainSubscriberPad4 implements FlowableSubscriber, QueueDrain {
+public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriberPad4 implements FlowableSubscriber<T>, QueueDrain<U, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber actual;
+    public final Subscriber<? super V> actual;
     public volatile boolean cancelled;
     public volatile boolean done;
     public Throwable error;
-    public final SimplePlainQueue queue;
+    public final SimplePlainQueue<U> queue;
 
-    public boolean accept(Subscriber subscriber, Object obj) {
+    public boolean accept(Subscriber<? super V> subscriber, U u) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, subscriber, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, subscriber, u)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public QueueDrainSubscriber(Subscriber subscriber, SimplePlainQueue simplePlainQueue) {
+    public QueueDrainSubscriber(Subscriber<? super V> subscriber, SimplePlainQueue<U> simplePlainQueue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,15 +119,15 @@ public abstract class QueueDrainSubscriber extends QueueDrainSubscriberPad4 impl
         return invokeV.longValue;
     }
 
-    public final void fastPathEmitMax(Object obj, boolean z, Disposable disposable) {
+    public final void fastPathEmitMax(U u, boolean z, Disposable disposable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{obj, Boolean.valueOf(z), disposable}) == null) {
-            Subscriber subscriber = this.actual;
-            SimplePlainQueue simplePlainQueue = this.queue;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{u, Boolean.valueOf(z), disposable}) == null) {
+            Subscriber<? super V> subscriber = this.actual;
+            SimplePlainQueue<U> simplePlainQueue = this.queue;
             if (fastEnter()) {
                 long j = this.requested.get();
                 if (j != 0) {
-                    if (accept(subscriber, obj) && j != Long.MAX_VALUE) {
+                    if (accept(subscriber, u) && j != Long.MAX_VALUE) {
                         produced(1L);
                     }
                     if (leave(-1) == 0) {
@@ -139,7 +139,7 @@ public abstract class QueueDrainSubscriber extends QueueDrainSubscriberPad4 impl
                     return;
                 }
             } else {
-                simplePlainQueue.offer(obj);
+                simplePlainQueue.offer(u);
                 if (!enter()) {
                     return;
                 }
@@ -148,23 +148,23 @@ public abstract class QueueDrainSubscriber extends QueueDrainSubscriberPad4 impl
         }
     }
 
-    public final void fastPathOrderedEmitMax(Object obj, boolean z, Disposable disposable) {
+    public final void fastPathOrderedEmitMax(U u, boolean z, Disposable disposable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, Boolean.valueOf(z), disposable}) == null) {
-            Subscriber subscriber = this.actual;
-            SimplePlainQueue simplePlainQueue = this.queue;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{u, Boolean.valueOf(z), disposable}) == null) {
+            Subscriber<? super V> subscriber = this.actual;
+            SimplePlainQueue<U> simplePlainQueue = this.queue;
             if (fastEnter()) {
                 long j = this.requested.get();
                 if (j != 0) {
                     if (simplePlainQueue.isEmpty()) {
-                        if (accept(subscriber, obj) && j != Long.MAX_VALUE) {
+                        if (accept(subscriber, u) && j != Long.MAX_VALUE) {
                             produced(1L);
                         }
                         if (leave(-1) == 0) {
                             return;
                         }
                     } else {
-                        simplePlainQueue.offer(obj);
+                        simplePlainQueue.offer(u);
                     }
                 } else {
                     this.cancelled = true;
@@ -173,7 +173,7 @@ public abstract class QueueDrainSubscriber extends QueueDrainSubscriberPad4 impl
                     return;
                 }
             } else {
-                simplePlainQueue.offer(obj);
+                simplePlainQueue.offer(u);
                 if (!enter()) {
                     return;
                 }

@@ -18,21 +18,21 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.ResumeSingleObserver;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleResumeNext extends Single {
+public final class SingleResumeNext<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function nextFunction;
-    public final SingleSource source;
+    public final Function<? super Throwable, ? extends SingleSource<? extends T>> nextFunction;
+    public final SingleSource<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class ResumeMainSingleObserver extends AtomicReference implements SingleObserver, Disposable {
+    public static final class ResumeMainSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5314538511045349925L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final Function nextFunction;
+        public final SingleObserver<? super T> actual;
+        public final Function<? super Throwable, ? extends SingleSource<? extends T>> nextFunction;
 
-        public ResumeMainSingleObserver(SingleObserver singleObserver, Function function) {
+        public ResumeMainSingleObserver(SingleObserver<? super T> singleObserver, Function<? super Throwable, ? extends SingleSource<? extends T>> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public final class SingleResumeNext extends Single {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -91,15 +91,15 @@ public final class SingleResumeNext extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
     }
 
-    public SingleResumeNext(SingleSource singleSource, Function function) {
+    public SingleResumeNext(SingleSource<? extends T> singleSource, Function<? super Throwable, ? extends SingleSource<? extends T>> function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public final class SingleResumeNext extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new ResumeMainSingleObserver(singleObserver, this.nextFunction));

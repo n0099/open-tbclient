@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.c78;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.m88;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public c78 a;
+    public m88 a;
     public boolean b;
     public String c;
     public int d;
@@ -99,7 +99,7 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new c78();
+        this.a = new m88();
         this.b = z;
     }
 
@@ -128,13 +128,13 @@ public class PersonBarModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public c78 z() {
+    public m88 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.a;
         }
-        return (c78) invokeV.objValue;
+        return (m88) invokeV.objValue;
     }
 
     public void C(boolean z, String str, int i, int i2) {
@@ -166,8 +166,8 @@ public class PersonBarModel extends BdBaseModel {
         }
         if (str != null) {
             try {
-                ou4.f();
-                kf g = ou4.g("tb.my_pages");
+                hv4.f();
+                cf<String> g = hv4.g("tb.my_pages");
                 if (g != null) {
                     g.e(str2, str, 604800000L);
                 }

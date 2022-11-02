@@ -22,7 +22,7 @@ public class UnvarnishedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String mMessage;
     public long mMsgId;
-    public Map mParams;
+    public Map<String, String> mParams;
     public int mTargetType;
     public String mTragetContent;
 
@@ -60,7 +60,7 @@ public class UnvarnishedMessage {
         return invokeV.longValue;
     }
 
-    public Map getParams() {
+    public Map<String, String> getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -140,7 +140,7 @@ public class UnvarnishedMessage {
         }
     }
 
-    public void setParams(Map map) {
+    public void setParams(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
             this.mParams = map;

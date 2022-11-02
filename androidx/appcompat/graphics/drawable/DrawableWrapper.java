@@ -7,6 +7,7 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DrawableWrapper extends Drawable implements Drawable.Callback {
     public static /* synthetic */ Interceptable $ic;

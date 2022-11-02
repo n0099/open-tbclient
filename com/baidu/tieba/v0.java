@@ -12,13 +12,13 @@ public class v0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public b7 b;
-    public z0 c;
-    public x7 d;
+    public b7<r0> b;
+    public z0<r0> c;
+    public x7<Class<?>, r0> d;
     public c e;
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -31,7 +31,7 @@ public class v0 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Comparator {
+    public static class b implements Comparator<r0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,10 +90,10 @@ public class v0 {
             }
         }
         this.a = new b(null);
-        b7 b7Var = new b7(true, 16);
+        b7<r0> b7Var = new b7<>(true, 16);
         this.b = b7Var;
-        this.c = new z0(b7Var);
-        this.d = new x7();
+        this.c = new z0<>(b7Var);
+        this.d = new x7<>();
         this.e = cVar;
     }
 
@@ -112,13 +112,13 @@ public class v0 {
         }
     }
 
-    public r0 b(Class cls) {
+    public <T extends r0> T b(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-            return (r0) this.d.c(cls);
+            return (T) this.d.c(cls);
         }
-        return (r0) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public void d(r0 r0Var) {
@@ -129,7 +129,7 @@ public class v0 {
         }
     }
 
-    public z0 c() {
+    public z0<r0> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

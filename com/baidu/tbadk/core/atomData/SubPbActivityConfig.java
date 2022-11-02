@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
@@ -11,6 +12,8 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -95,7 +98,7 @@ public class SubPbActivityConfig extends IntentConfig {
         }
     }
 
-    public SubPbActivityConfig addBigImageData(ArrayList arrayList, ConcurrentHashMap concurrentHashMap, boolean z, int i) {
+    public SubPbActivityConfig addBigImageData(ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{arrayList, concurrentHashMap, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
@@ -110,7 +113,7 @@ public class SubPbActivityConfig extends IntentConfig {
                 while (it.hasNext()) {
                     String next = it.next();
                     if (!StringUtils.isNull(next)) {
-                        bundle.putSerializable(next, (Serializable) concurrentHashMap.get(next));
+                        bundle.putSerializable(next, concurrentHashMap.get(next));
                     }
                 }
                 bundle.putInt(SUB_KEY_IMG_OFFSET, i);
@@ -187,7 +190,7 @@ public class SubPbActivityConfig extends IntentConfig {
         return (SubPbActivityConfig) invokeCommon.objValue;
     }
 
-    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, boolean z2, String str4, boolean z3, String str5, int i, SmallTailInfo smallTailInfo, AntiData antiData, boolean z4, ArrayList arrayList, int i2) {
+    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, boolean z2, String str4, boolean z3, String str5, int i, SmallTailInfo smallTailInfo, AntiData antiData, boolean z4, ArrayList<IconData> arrayList, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), str4, Boolean.valueOf(z3), str5, Integer.valueOf(i), smallTailInfo, antiData, Boolean.valueOf(z4), arrayList, Integer.valueOf(i2)})) == null) {
@@ -196,7 +199,7 @@ public class SubPbActivityConfig extends IntentConfig {
         return (SubPbActivityConfig) invokeCommon.objValue;
     }
 
-    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, boolean z2, String str4, boolean z3, String str5, int i, SmallTailInfo smallTailInfo, AntiData antiData, boolean z4, ArrayList arrayList, int i2, boolean z5) {
+    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, boolean z2, String str4, boolean z3, String str5, int i, SmallTailInfo smallTailInfo, AntiData antiData, boolean z4, ArrayList<IconData> arrayList, int i2, boolean z5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), str4, Boolean.valueOf(z3), str5, Integer.valueOf(i), smallTailInfo, antiData, Boolean.valueOf(z4), arrayList, Integer.valueOf(i2), Boolean.valueOf(z5)})) == null) {
@@ -374,7 +377,7 @@ public class SubPbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setWorksInfoData(WorksInfoData worksInfoData) {
+    public void setWorksInfoData(@Nullable WorksInfoData worksInfoData) {
         Intent intent;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048604, this, worksInfoData) == null) && (intent = getIntent()) != null) {

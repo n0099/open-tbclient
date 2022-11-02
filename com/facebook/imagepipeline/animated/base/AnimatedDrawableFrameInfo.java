@@ -21,7 +21,7 @@ public class AnimatedDrawableFrameInfo {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class BlendOperation {
+    public static final class BlendOperation {
         public static final /* synthetic */ BlendOperation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BlendOperation BLEND_WITH_PREVIOUS;
@@ -87,7 +87,7 @@ public class AnimatedDrawableFrameInfo {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class DisposalMethod {
+    public static final class DisposalMethod {
         public static final /* synthetic */ DisposalMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DisposalMethod DISPOSE_DO_NOT;

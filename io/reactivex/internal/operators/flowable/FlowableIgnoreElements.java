@@ -9,20 +9,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableIgnoreElements extends AbstractFlowableWithUpstream {
+public final class FlowableIgnoreElements<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class IgnoreElementsSubscriber implements FlowableSubscriber, QueueSubscription {
+    public static final class IgnoreElementsSubscriber<T> implements FlowableSubscriber<T>, QueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public Subscription s;
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -43,20 +44,21 @@ public final class FlowableIgnoreElements extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
             }
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() {
+        @Nullable
+        public T poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 return null;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -73,7 +75,7 @@ public final class FlowableIgnoreElements extends AbstractFlowableWithUpstream {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? i & 2 : invokeI.intValue;
         }
 
-        public IgnoreElementsSubscriber(Subscriber subscriber) {
+        public IgnoreElementsSubscriber(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,10 +94,10 @@ public final class FlowableIgnoreElements extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean offer(Object obj) {
+        public boolean offer(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 throw new UnsupportedOperationException("Should not be called!");
             }
             return invokeL.booleanValue;
@@ -136,10 +138,10 @@ public final class FlowableIgnoreElements extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean offer(Object obj, Object obj2) {
+        public boolean offer(T t, T t2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, obj, obj2)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, t, t2)) == null) {
                 throw new UnsupportedOperationException("Should not be called!");
             }
             return invokeLL.booleanValue;
@@ -147,7 +149,7 @@ public final class FlowableIgnoreElements extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableIgnoreElements(Flowable flowable) {
+    public FlowableIgnoreElements(Flowable<T> flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -167,7 +169,7 @@ public final class FlowableIgnoreElements extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new IgnoreElementsSubscriber(subscriber));

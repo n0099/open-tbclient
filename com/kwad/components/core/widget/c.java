@@ -1,5 +1,6 @@
 package com.kwad.components.core.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Message;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.bg;
 import java.util.concurrent.atomic.AtomicBoolean;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes7.dex */
 public final class c extends View implements bg.a {
     public static /* synthetic */ Interceptable $ic;

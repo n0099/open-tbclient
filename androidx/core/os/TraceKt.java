@@ -21,7 +21,7 @@ public final class TraceKt {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, function0)) == null) {
             TraceCompat.beginSection(str);
             try {
-                return (T) function0.invoke();
+                return function0.invoke();
             } finally {
                 InlineMarker.finallyStart(1);
                 TraceCompat.endSection();

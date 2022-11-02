@@ -21,7 +21,7 @@ public final class BackgroundPoster implements Runnable, Poster {
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
     public BdEventBusCore bdEventBusCore;
-    public final BlockingQueue blockingQueue;
+    public final BlockingQueue<Pair<Object, SubscriptionInfo>> blockingQueue;
     public volatile boolean executorRunning;
 
     public BackgroundPoster(BdEventBusCore bdEventBusCore) {
@@ -52,7 +52,7 @@ public final class BackgroundPoster implements Runnable, Poster {
             Intrinsics.checkNotNullParameter(event, "event");
             Intrinsics.checkNotNullParameter(subscriptionInfo, "subscriptionInfo");
             synchronized (this) {
-                this.blockingQueue.offer(new Pair(event, subscriptionInfo));
+                this.blockingQueue.offer(new Pair<>(event, subscriptionInfo));
                 if (!this.executorRunning) {
                     this.executorRunning = true;
                     this.bdEventBusCore.getExecutorService$lib_bd_event_bus_release().execute(this);
@@ -71,7 +71,7 @@ public final class BackgroundPoster implements Runnable, Poster {
         return (BdEventBusCore) invokeV.objValue;
     }
 
-    public final BlockingQueue getBlockingQueue() {
+    public final BlockingQueue<Pair<Object, SubscriptionInfo>> getBlockingQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -106,21 +106,21 @@ public final class BackgroundPoster implements Runnable, Poster {
         }
         while (true) {
             try {
-                Pair pair = (Pair) this.blockingQueue.poll(1000L, TimeUnit.MILLISECONDS);
-                if (pair == null) {
+                Pair<Object, SubscriptionInfo> poll = this.blockingQueue.poll(1000L, TimeUnit.MILLISECONDS);
+                if (poll == null) {
                     synchronized (this) {
-                        pair = (Pair) this.blockingQueue.poll();
-                        if (pair == null) {
+                        poll = this.blockingQueue.poll();
+                        if (poll == null) {
                             this.executorRunning = false;
                             return;
                         }
                         Unit unit = Unit.INSTANCE;
                     }
                 }
-                Intrinsics.checkNotNull(pair);
-                Action action = ((SubscriptionInfo) pair.getSecond()).getAction();
-                Intrinsics.checkNotNull(pair);
-                action.call(pair.getFirst());
+                Intrinsics.checkNotNull(poll);
+                Action<Object> action = poll.getSecond().getAction();
+                Intrinsics.checkNotNull(poll);
+                action.call(poll.getFirst());
             } catch (Exception unused) {
                 return;
             } finally {

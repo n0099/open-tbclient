@@ -44,7 +44,7 @@ public class PassBiometricResult {
     public static final int RESULT_CODE_SUCCESS = 0;
     public static final String RESULT_MSG_SUCCESS;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray msgMap;
+    public SparseArray<String> msgMap;
     public int resultCode;
     public String resultMsg;
 
@@ -90,7 +90,7 @@ public class PassBiometricResult {
                 return;
             }
         }
-        SparseArray sparseArray = new SparseArray();
+        SparseArray<String> sparseArray = new SparseArray<>();
         this.msgMap = sparseArray;
         this.resultCode = -202;
         sparseArray.put(0, RESULT_MSG_SUCCESS);
@@ -113,7 +113,7 @@ public class PassBiometricResult {
 
     public String getResultMsg() {
         InterceptResult invokeV;
-        SparseArray sparseArray;
+        SparseArray<String> sparseArray;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -127,7 +127,7 @@ public class PassBiometricResult {
                 sparseArray = this.msgMap;
                 i = -202;
             }
-            return (String) sparseArray.get(i);
+            return sparseArray.get(i);
         }
         return (String) invokeV.objValue;
     }

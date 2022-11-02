@@ -2,16 +2,17 @@ package com.kwad.sdk.crash;
 
 import android.content.Context;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.b;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public com.kwad.sdk.crash.a.b ahc;
     public b ahd;
     public long ahe;
 
-    /* loaded from: classes7.dex */
-    public final class a {
+    /* loaded from: classes8.dex */
+    public static class a {
         public static final d ahf = new d((byte) 0);
     }
 
@@ -28,7 +29,7 @@ public final class d {
         return a.ahf;
     }
 
-    public final void a(b bVar) {
+    public final void a(@NonNull b bVar) {
         this.ahd = bVar;
         this.ahe = SystemClock.elapsedRealtime();
         this.ahc.a(bVar.agI, bVar.agJ);

@@ -10,6 +10,7 @@ import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.InlineMarker;
 import kotlinx.coroutines.internal.Symbol;
@@ -18,6 +19,7 @@ import kotlinx.coroutines.internal.ThreadContextKt;
 /* loaded from: classes8.dex */
 public final class DispatchedContinuationKt {
     public static final Symbol UNDEFINED = new Symbol("UNDEFINED");
+    @JvmField
     public static final Symbol REUSABLE_CLAIMED = new Symbol("REUSABLE_CLAIMED");
 
     public static /* synthetic */ void REUSABLE_CLAIMED$annotations() {
@@ -26,12 +28,12 @@ public final class DispatchedContinuationKt {
     public static /* synthetic */ void UNDEFINED$annotations() {
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [kotlinx.coroutines.DispatchedContinuation.<init>(kotlinx.coroutines.CoroutineDispatcher, kotlin.coroutines.Continuation):void, kotlinx.coroutines.DispatchedContinuation.takeState$kotlinx_coroutines_core():java.lang.Object] */
+    /* JADX DEBUG: Method not inlined, still used in: [kotlinx.coroutines.DispatchedContinuation.<init>(kotlinx.coroutines.CoroutineDispatcher, kotlin.coroutines.Continuation<? super T>):void, kotlinx.coroutines.DispatchedContinuation.takeState$kotlinx_coroutines_core():java.lang.Object] */
     public static final /* synthetic */ Symbol access$getUNDEFINED$p() {
         return UNDEFINED;
     }
 
-    public static final boolean executeUnconfined(DispatchedContinuation dispatchedContinuation, Object obj, int i, boolean z, Function0 function0) {
+    public static final boolean executeUnconfined(DispatchedContinuation<?> dispatchedContinuation, Object obj, int i, boolean z, Function0<Unit> function0) {
         EventLoop eventLoop$kotlinx_coroutines_core = ThreadLocalEventLoop.INSTANCE.getEventLoop$kotlinx_coroutines_core();
         if (z && eventLoop$kotlinx_coroutines_core.isUnconfinedQueueEmpty()) {
             return false;
@@ -100,7 +102,8 @@ public final class DispatchedContinuationKt {
         return false;
     }
 
-    public static final void resumeCancellableWith(Continuation continuation, Object obj) {
+    @InternalCoroutinesApi
+    public static final <T> void resumeCancellableWith(Continuation<? super T> continuation, Object obj) {
         boolean z;
         if (continuation instanceof DispatchedContinuation) {
             DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
@@ -150,7 +153,7 @@ public final class DispatchedContinuationKt {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[CONST, CONST]}, finally: {[CONST, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static final boolean yieldUndispatched(DispatchedContinuation dispatchedContinuation) {
+    public static final boolean yieldUndispatched(DispatchedContinuation<? super Unit> dispatchedContinuation) {
         Unit unit = Unit.INSTANCE;
         EventLoop eventLoop$kotlinx_coroutines_core = ThreadLocalEventLoop.INSTANCE.getEventLoop$kotlinx_coroutines_core();
         if (eventLoop$kotlinx_coroutines_core.isUnconfinedQueueEmpty()) {

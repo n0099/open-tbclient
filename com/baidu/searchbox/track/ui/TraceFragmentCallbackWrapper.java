@@ -1,6 +1,7 @@
 package com.baidu.searchbox.track.ui;
 
 import android.app.Activity;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +41,7 @@ public class TraceFragmentCallbackWrapper implements ITraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean register(Activity activity) {
+    public boolean register(@Nullable Activity activity) {
         InterceptResult invokeL;
         TraceFragmentNativeCallback traceFragmentNativeCallback;
         Interceptable interceptable = $ic;
@@ -62,7 +63,7 @@ public class TraceFragmentCallbackWrapper implements ITraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean unregister(Activity activity) {
+    public boolean unregister(@Nullable Activity activity) {
         InterceptResult invokeL;
         TraceFragmentNativeCallback traceFragmentNativeCallback;
         Interceptable interceptable = $ic;

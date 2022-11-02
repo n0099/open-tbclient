@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.camera2.CameraManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,7 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes8.dex */
+@TargetApi(21)
+/* loaded from: classes9.dex */
 public class Camera2Capturer extends CameraCapturer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

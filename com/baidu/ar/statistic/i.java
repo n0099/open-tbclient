@@ -58,19 +58,19 @@ public class i {
         return invokeL.booleanValue;
     }
 
-    public void a(Context context, List list) {
+    public void a(Context context, List<a> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, list) == null) || list.size() == 0) {
             return;
         }
         if (list.size() == 1) {
-            this.wH.a(context, (a) list.get(0));
+            this.wH.a(context, list.get(0));
         } else {
             this.wH.a(context, list);
         }
     }
 
-    public List gn() {
+    public List<List<a>> gn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -84,7 +84,7 @@ public class i {
                 int size = this.wp.size();
                 ArrayList arrayList3 = new ArrayList();
                 for (int i = 0; i < size; i++) {
-                    a aVar = (a) this.wp.get(i);
+                    a aVar = this.wp.get(i);
                     String gg = aVar.gg();
                     if (!hashMap.containsKey(gg)) {
                         if (l(aVar)) {
@@ -105,7 +105,7 @@ public class i {
                 if (!arrayList3.isEmpty()) {
                     ArrayList arrayList4 = new ArrayList(arrayList3.size());
                     for (int size2 = arrayList3.size() - 1; size2 >= 0; size2--) {
-                        arrayList4.add((a) this.wp.remove(((Integer) arrayList3.get(size2)).intValue()));
+                        arrayList4.add(this.wp.remove(((Integer) arrayList3.get(size2)).intValue()));
                     }
                     for (int size3 = arrayList4.size() - 1; size3 >= 0; size3--) {
                         this.wp.k((a) arrayList4.get(size3));

@@ -56,7 +56,9 @@ public class SegAR extends c {
     public int vf;
     public float vg;
     public float vh;
-    public float vi;
+
+    /* renamed from: vi  reason: collision with root package name */
+    public float f1036vi;
     public float vj;
     public float vk;
     public float vl;
@@ -69,7 +71,7 @@ public class SegAR extends c {
 
     /* renamed from: com.baidu.ar.seg.SegAR$3  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass3 {
+    public static /* synthetic */ class AnonymousClass3 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] vB;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +173,7 @@ public class SegAR extends c {
         this.vf = 0;
         this.vg = 0.0f;
         this.vh = 0.0f;
-        this.vi = 0.0f;
+        this.f1036vi = 0.0f;
         this.vj = 0.0f;
         this.vk = 0.0f;
         this.vl = 0.0f;
@@ -186,7 +188,7 @@ public class SegAR extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap a(a aVar) {
+    public HashMap<String, Object> a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
@@ -194,12 +196,12 @@ public class SegAR extends c {
             if (i != 4) {
                 if (i == 2) {
                     getImgSegOrientation(aVar.getOrientation());
-                    HashMap hashMap = new HashMap();
+                    HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("u_maskRotate", this.vc);
                     return hashMap;
                 } else if (i == 5) {
                     getSkySegOrientation(aVar.getOrientation());
-                    HashMap hashMap2 = new HashMap();
+                    HashMap<String, Object> hashMap2 = new HashMap<>();
                     hashMap2.put("u_maskRotate", this.vc);
                     return hashMap2;
                 } else {
@@ -208,7 +210,7 @@ public class SegAR extends c {
             }
             getHairSegOrientation(aVar.getOrientation());
             b(aVar.gc(), aVar.getWidth(), aVar.getHeight());
-            HashMap hashMap3 = new HashMap();
+            HashMap<String, Object> hashMap3 = new HashMap<>();
             hashMap3.put("enableSeq", Float.valueOf(1.0f));
             hashMap3.put("cameraFront", Integer.valueOf(this.pH ? 1 : 0));
             hashMap3.put("deviceOrientation", Integer.valueOf(this.vb));
@@ -219,7 +221,7 @@ public class SegAR extends c {
             hashMap3.put("hairTopPos", Float.valueOf(this.vm));
             hashMap3.put("hairBottomPos", Float.valueOf(this.vn));
             hashMap3.put("hairTop", new Vector4f(this.vj, this.vk, this.vl, 1.0f));
-            hashMap3.put("hairBottom", new Vector4f(this.vg, this.vh, this.vi, 1.0f));
+            hashMap3.put("hairBottom", new Vector4f(this.vg, this.vh, this.f1036vi, 1.0f));
             return hashMap3;
         }
         return (HashMap) invokeL.objValue;
@@ -287,7 +289,7 @@ public class SegAR extends c {
                     }
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
-                    public List getMsgKeyListened() {
+                    public List<String> getMsgKeyListened() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
@@ -299,7 +301,7 @@ public class SegAR extends c {
                     }
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
-                    public void onLuaMessage(HashMap hashMap) {
+                    public void onLuaMessage(HashMap<String, Object> hashMap) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) && "adjust_hair_segmentation".equals((String) hashMap.get("event_name"))) {
                             this.vA.m(hashMap);
@@ -384,7 +386,7 @@ public class SegAR extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void l(HashMap hashMap) {
+    private void l(HashMap<String, Object> hashMap) {
         String str;
         int i;
         int i2;
@@ -451,7 +453,7 @@ public class SegAR extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m(HashMap hashMap) {
+    public void m(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65565, this, hashMap) == null) {
             String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
@@ -460,7 +462,7 @@ public class SegAR extends c {
             this.vf = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
             this.vg = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_r"), 0.0f);
             this.vh = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_g"), 0.0f);
-            this.vi = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
+            this.f1036vi = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
             this.vj = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
             this.vk = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
             this.vl = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
@@ -587,7 +589,7 @@ public class SegAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap hashMap) {
+    public void setup(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
             super.setup(hashMap);

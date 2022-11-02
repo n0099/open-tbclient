@@ -22,14 +22,14 @@ public class AlgoHandleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int ir;
-    public final List ml;
+    public final List<Long> ml;
     public boolean mm;
     public long mn;
     public HandlerThread mo;
     public a mp;
 
     /* loaded from: classes.dex */
-    public final class a extends Handler {
+    public static final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean cC;
@@ -179,7 +179,7 @@ public class AlgoHandleController {
         }
         b.aR("type:" + this.ir + " destroyIgnoreHandles current size:" + i);
         for (int i2 = 0; i2 < i; i2++) {
-            long longValue = ((Long) this.ml.get(0)).longValue();
+            long longValue = this.ml.get(0).longValue();
             this.ml.remove(0);
             AlgoHandleAdapter.destroyHandle(longValue);
         }

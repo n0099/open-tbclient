@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.model;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,21 +17,21 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class ByteArrayLoader implements ModelLoader {
+public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Converter converter;
+    public final Converter<Data> converter;
 
     /* loaded from: classes7.dex */
-    public interface Converter {
-        Object convert(byte[] bArr);
+    public interface Converter<Data> {
+        Data convert(byte[] bArr);
 
-        Class getDataClass();
+        Class<Data> getDataClass();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(byte[] bArr) {
+    public boolean handles(@NonNull byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
@@ -40,7 +41,7 @@ public class ByteArrayLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class ByteBufferFactory implements ModelLoaderFactory {
+    public static class ByteBufferFactory implements ModelLoaderFactory<byte[], ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,11 +67,12 @@ public class ByteArrayLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<byte[], ByteBuffer> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
-                return new ByteArrayLoader(new Converter(this) { // from class: com.bumptech.glide.load.model.ByteArrayLoader.ByteBufferFactory.1
+                return new ByteArrayLoader(new Converter<ByteBuffer>(this) { // from class: com.bumptech.glide.load.model.ByteArrayLoader.ByteBufferFactory.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ByteBufferFactory this$0;
@@ -105,7 +107,7 @@ public class ByteArrayLoader implements ModelLoader {
                     }
 
                     @Override // com.bumptech.glide.load.model.ByteArrayLoader.Converter
-                    public Class getDataClass() {
+                    public Class<ByteBuffer> getDataClass() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -120,10 +122,10 @@ public class ByteArrayLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class Fetcher implements DataFetcher {
+    public static class Fetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Converter converter;
+        public final Converter<Data> converter;
         public final byte[] model;
 
         @Override // com.bumptech.glide.load.data.DataFetcher
@@ -140,7 +142,7 @@ public class ByteArrayLoader implements ModelLoader {
             }
         }
 
-        public Fetcher(byte[] bArr, Converter converter) {
+        public Fetcher(byte[] bArr, Converter<Data> converter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +162,8 @@ public class ByteArrayLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public Class getDataClass() {
+        @NonNull
+        public Class<Data> getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -170,6 +173,7 @@ public class ByteArrayLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
+        @NonNull
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -179,17 +183,18 @@ public class ByteArrayLoader implements ModelLoader {
             return (DataSource) invokeV.objValue;
         }
 
+        /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: Data, ? super Data */
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
+        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super Data> dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
-                dataCallback.onDataReady(this.converter.convert(this.model));
+                dataCallback.onDataReady((Data) this.converter.convert(this.model));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class StreamFactory implements ModelLoaderFactory {
+    public static class StreamFactory implements ModelLoaderFactory<byte[], InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,11 +220,12 @@ public class ByteArrayLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<byte[], InputStream> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
-                return new ByteArrayLoader(new Converter(this) { // from class: com.bumptech.glide.load.model.ByteArrayLoader.StreamFactory.1
+                return new ByteArrayLoader(new Converter<InputStream>(this) { // from class: com.bumptech.glide.load.model.ByteArrayLoader.StreamFactory.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ StreamFactory this$0;
@@ -243,6 +249,7 @@ public class ByteArrayLoader implements ModelLoader {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.bumptech.glide.load.model.ByteArrayLoader.Converter
                     public InputStream convert(byte[] bArr) {
                         InterceptResult invokeL2;
@@ -254,7 +261,7 @@ public class ByteArrayLoader implements ModelLoader {
                     }
 
                     @Override // com.bumptech.glide.load.model.ByteArrayLoader.Converter
-                    public Class getDataClass() {
+                    public Class<InputStream> getDataClass() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -268,7 +275,7 @@ public class ByteArrayLoader implements ModelLoader {
         }
     }
 
-    public ByteArrayLoader(Converter converter) {
+    public ByteArrayLoader(Converter<Data> converter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -288,11 +295,11 @@ public class ByteArrayLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(byte[] bArr, int i, int i2, Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull byte[] bArr, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            return new ModelLoader.LoadData(new ObjectKey(bArr), new Fetcher(bArr, this.converter));
+            return new ModelLoader.LoadData<>(new ObjectKey(bArr), new Fetcher(bArr, this.converter));
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }

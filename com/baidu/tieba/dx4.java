@@ -1,74 +1,229 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class dx4 extends vw4 {
+public class dx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static dx4 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public tw4 c;
+    public Handler a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
 
-    @Override // com.baidu.tieba.vw4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_SHOW_SHARE_DIALOG" : (String) invokeV.objValue;
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ dx4 b;
+
+        public a(dx4 dx4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dx4Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dx4Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dx4(tw4 tw4Var) {
-        super(tw4Var);
+    /* loaded from: classes3.dex */
+    public class b implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public b(dx4 dx4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dx4Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                zw4.n(this.a);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    public dx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tw4Var;
+        this.b = 3;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
     }
 
-    @ww4(isAsync = false, value = "showShareDialog")
-    public void showShareDialog(JSONObject jSONObject) throws JSONException {
+    public static dx4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (h == null) {
+                h = new dx4();
+            }
+            return h;
+        }
+        return (dx4) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final Handler c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                this.a = new Handler(Looper.getMainLooper());
+            }
+            return this.a;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.c) {
             return;
         }
-        String optString = jSONObject.optString("title");
-        String optString2 = jSONObject.optString("content");
-        String optString3 = jSONObject.optString("imgUrl");
-        String optString4 = jSONObject.optString("shareUrl");
-        ShareItem shareItem = new ShareItem();
-        shareItem.v = optString;
-        shareItem.w = optString2;
-        if (optString3 == null) {
-            shareItem.z = null;
-        } else {
-            shareItem.z = Uri.parse(optString3);
+        zw4.o(str);
+        this.e = false;
+        this.c = true;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
         }
-        shareItem.x = optString4;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.c.getContext(), shareItem, true);
-        shareDialogConfig.setIsSupportNightMode(true);
-        shareDialogConfig.setIsCopyLink(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.d) {
+            return;
+        }
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            c().post(new a(this, str));
+            return;
+        }
+        Looper.myQueue().addIdleHandler(new b(this, str));
+        this.f = false;
+        this.d = true;
     }
 }

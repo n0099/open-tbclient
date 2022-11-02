@@ -1,320 +1,661 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ur7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public c b;
+    public a c;
+    public ArrayList<MarkData> d;
+    public int e;
+    public int f;
+    public boolean g;
+    public rr7 h;
 
     /* loaded from: classes6.dex */
-    public final class a implements g55 {
+    public class c extends BdAsyncTask<ur7, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yr7 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ zr7 c;
+    }
 
-        @Override // com.baidu.tieba.g55
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
+    /* loaded from: classes6.dex */
+    public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public String c;
+        public int d;
+        public wr7 e;
+        public final /* synthetic */ ur7 f;
 
-        @Override // com.baidu.tieba.g55
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        /* renamed from: com.baidu.tieba.ur7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0422a extends BdAsyncTask {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DownloadData a;
-            public final /* synthetic */ a b;
-
-            public C0422a(a aVar, DownloadData downloadData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, downloadData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = downloadData;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Boolean doInBackground(Void... voidArr) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                    FileHelper.deleteFileOrDir(new File(this.b.b));
-                    if (ur7.g(this.a.getPath(), this.b.c)) {
-                        a aVar = this.b;
-                        return Boolean.valueOf(ur7.f(aVar.c, aVar.b));
-                    }
-                    return Boolean.FALSE;
-                }
-                return (Boolean) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Boolean bool) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                    if (bool.booleanValue()) {
-                        a aVar = this.b;
-                        aVar.a.onSuccess(aVar.b);
-                        return;
-                    }
-                    this.b.a.onFail("fail to download");
-                }
-            }
-        }
-
-        public a(yr7 yr7Var, String str, zr7 zr7Var) {
+        public a(ur7 ur7Var, String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yr7Var, str, zr7Var};
+                Object[] objArr = {ur7Var, str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = yr7Var;
+            this.f = ur7Var;
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = 0;
+            this.e = null;
             this.b = str;
-            this.c = zr7Var;
+            this.d = i;
+            this.c = str2;
+            this.e = new wr7();
         }
 
-        @Override // com.baidu.tieba.g55
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(Boolean... boolArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                tr7.a("【表情下载】 onFileDownloadFailed = " + str);
-                if (this.a != null) {
-                    String str2 = "faile to download:";
-                    if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
-                        str2 = "faile to download:" + downloadData.getUrl();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.a = netWork;
+                netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                this.a.addPostData("tid", this.b);
+                this.a.addPostData("fid", this.c);
+                this.e.c(this.a.postNetData());
+                if (this.a.getNetContext().getResponse().isRequestSuccess() && this.e.a() == 0) {
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                String str = null;
+                this.f.c = null;
+                if (bool.booleanValue()) {
+                    if (this.d < this.f.d.size()) {
+                        this.f.d.remove(this.d);
+                        ur7.i(this.f);
                     }
-                    this.a.onFail(str2);
+                } else {
+                    str = this.a.getNetContext().getResponse().isRequestSuccess() ? this.e.b() : this.a.getErrorString();
+                }
+                rr7 rr7Var = this.f.h;
+                if (rr7Var != null) {
+                    rr7Var.a(2, bool, str);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.g55
-        public void onFileDownloadSucceed(DownloadData downloadData) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                tr7.a("【表情下载】 onFileDownloadSucceed = " + this.b);
-                new C0422a(this, downloadData).execute(new Void[0]);
-            }
-        }
-
-        @Override // com.baidu.tieba.g55
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
-                yr7 yr7Var = this.a;
-                if (yr7Var != null) {
-                    yr7Var.onProgress(downloadData.getProcess());
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
                 }
-                tr7.a("【表情下载】 onFileUpdateProgress = " + downloadData.getProcess());
+                this.f.c = null;
+                rr7 rr7Var = this.f.h;
+                if (rr7Var != null) {
+                    rr7Var.a(2, Boolean.FALSE, null);
+                }
             }
         }
     }
 
-    public static void c(zr7 zr7Var, yr7 yr7Var) {
-        List list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, zr7Var, yr7Var) == null) {
-            if (zr7Var != null && (list = zr7Var.e) != null && list.size() != 0 && !TextUtils.isEmpty(zr7Var.d)) {
-                tr7.a("【表情下载】 url = " + zr7Var.d);
-                a aVar = new a(yr7Var, vr7.c + zr7Var.a + "/", zr7Var);
-                new File(vr7.c).mkdirs();
-                d(zr7Var, vr7.c, aVar);
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<Boolean, String, ur7> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public int c;
+        public wr7 d;
+        public Boolean e;
+        public final /* synthetic */ ur7 f;
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            }
+        }
+
+        public b(ur7 ur7Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ur7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = ur7Var;
+            this.a = null;
+            this.b = null;
+            this.c = 0;
+            this.d = null;
+            this.e = Boolean.FALSE;
+            this.c = i;
+            this.d = new wr7();
+        }
+
+        public final void b(String str) {
+            String currentAccount;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (currentAccount = TbadkCoreApplication.getCurrentAccount()) == null) {
                 return;
             }
-            if (yr7Var != null) {
-                yr7Var.onFail("group data null");
-            }
-            tr7.a("【表情下载】 fail = 参数异常");
-        }
-    }
-
-    public static void d(zr7 zr7Var, String str, g55 g55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, zr7Var, str, g55Var) == null) {
-            if (zr7Var != null && !TextUtils.isEmpty(zr7Var.d)) {
-                String str2 = zr7Var.a + ".zip";
-                DownloadData downloadData = new DownloadData(zr7Var.a, str2, Uri.encode(zr7Var.d, "-![.:/,%?&=]"), g55Var);
-                downloadData.setPath(str + str2);
-                h55.k().l(downloadData);
-            } else if (g55Var != null) {
-                g55Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
+            hv4.f();
+            cf<String> g = hv4.g("tb.my_bookmarks");
+            if (g != null) {
+                g.e(currentAccount, str, 604800000L);
             }
         }
-    }
 
-    public static String e(String str, String str2, Bitmap bitmap, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bitmap, i)) == null) {
-            if (bitmap != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str + str2);
-                try {
-                    if ((file.exists() && !file.delete()) || !file.createNewFile()) {
-                        return null;
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    bitmap.compress(Bitmap.CompressFormat.PNG, i, fileOutputStream);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    return file.getPath();
-                } catch (Exception unused) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public ur7 doInBackground(Boolean... boolArr) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, boolArr)) == null) {
+                this.e = boolArr[0];
+                if (boolArr.length >= 2 && boolArr[1] != null) {
+                    z = boolArr[1].booleanValue();
+                } else {
+                    z = true;
                 }
-            }
-            return null;
-        }
-        return (String) invokeLLLI.objValue;
-    }
-
-    public static boolean f(zr7 zr7Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, zr7Var, str)) == null) {
-            File file = new File(str + "panel.png");
-            File file2 = new File(str + "panel_momo.png");
-            if (file.exists() && file2.exists()) {
-                tr7.a("【表情下载】 savePanelImage");
-                return true;
-            }
-            if (!new File(str + zr7Var.c).exists()) {
-                return false;
-            }
-            Bitmap bitmap = null;
-            try {
-                bitmap = BitmapFactory.decodeFile(str + zr7Var.c);
-            } catch (OutOfMemoryError e) {
-                e.printStackTrace();
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!file.exists() && TextUtils.isEmpty(e(str, "panel.png", bitmap, 60))) {
-                return false;
-            }
-            if (!file2.exists() && TextUtils.isEmpty(e(str, "panel_momo.png", bitmap, 60))) {
-                return false;
-            }
-            tr7.a("【表情下载】 savePanelImage = " + zr7Var.c);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(String str, zr7 zr7Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, zr7Var)) == null) {
-            ZipInputStream zipInputStream = null;
-            try {
-                try {
-                    ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
-                    while (true) {
-                        try {
-                            ZipEntry nextEntry = zipInputStream2.getNextEntry();
-                            if (nextEntry != null) {
-                                if (!nextEntry.isDirectory()) {
-                                    String str2 = ".emotions/" + zr7Var.a;
-                                    String str3 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName();
-                                    FileHelper.saveFileByStream(str3, zipInputStream2);
-                                    tr7.a("【表情下载】 unZipEmotion = " + str3);
-                                }
-                            } else {
-                                zipInputStream2.close();
-                                FileHelper.deleteFile(new File(str));
-                                gj.e(zipInputStream2);
-                                return true;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            zipInputStream = zipInputStream2;
-                            e.printStackTrace();
-                            gj.e(zipInputStream);
-                            return false;
-                        } catch (IOException e2) {
-                            e = e2;
-                            zipInputStream = zipInputStream2;
-                            e.printStackTrace();
-                            gj.e(zipInputStream);
-                            return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            zipInputStream = zipInputStream2;
-                            gj.e(zipInputStream);
-                            throw th;
+                ur7 ur7Var = new ur7();
+                if (this.e.booleanValue() && z) {
+                    hv4.f();
+                    cf<String> g = hv4.g("tb.my_bookmarks");
+                    if (g != null) {
+                        publishProgress(g.get(TbadkCoreApplication.getCurrentAccount()));
+                    }
+                    if (this.f.d == null) {
+                        this.f.d = new ArrayList();
+                    } else {
+                        this.f.d.clear();
+                    }
+                    this.f.e = 0;
+                }
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_GETSTORE);
+                this.a = netWork;
+                netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                if (this.f.g) {
+                    this.a.addPostData("offset", String.valueOf(0));
+                } else {
+                    this.a.addPostData("offset", String.valueOf(this.c));
+                }
+                this.a.addPostData("rn", String.valueOf(20));
+                String postNetData = this.a.postNetData();
+                this.b = postNetData;
+                this.d.c(postNetData);
+                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    ur7Var.u(this.b);
+                    if (this.c == 0) {
+                        if (this.f.d == null) {
+                            this.f.d = new ArrayList();
+                        } else {
+                            this.f.d.clear();
+                        }
+                        this.f.e = 0;
+                        if (this.e.booleanValue()) {
+                            b(this.b);
                         }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
                 }
-            } catch (FileNotFoundException e3) {
-                e = e3;
-            } catch (IOException e4) {
-                e = e4;
+                return ur7Var;
             }
-        } else {
-            return invokeLL.booleanValue;
+            return (ur7) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(ur7 ur7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, ur7Var) == null) {
+                if (ur7Var == null) {
+                    ur7Var = new ur7();
+                }
+                wr7 wr7Var = this.d;
+                if (wr7Var != null) {
+                    zx4.a("collection", 0L, 0, "collection_thread_list_result", wr7Var.a(), this.d.b(), new Object[0]);
+                }
+                this.f.e = ur7Var.m();
+                ArrayList<MarkData> n = ur7Var.n();
+                if (this.e.booleanValue()) {
+                    if (n != null && n.size() != 0) {
+                        this.f.B(n);
+                    }
+                } else {
+                    this.f.k(n);
+                }
+                Iterator<MarkData> it = n.iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    if (it.next().getNewCounts() > 0) {
+                        i++;
+                        this.f.C(i);
+                    }
+                }
+                if (this.f.h != null) {
+                    String str = null;
+                    if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                        if (this.d.a() != 0) {
+                            str = this.d.b();
+                        }
+                        this.f.h.a(0, str, Boolean.FALSE);
+                    } else {
+                        this.f.h.a(3, this.a.getErrorString());
+                    }
+                }
+                this.f.g = false;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
+                this.f.a = null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void onProgressUpdate(String... strArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, strArr) == null) {
+                super.onProgressUpdate(strArr);
+                String str = strArr[0];
+                ArrayList<MarkData> arrayList = new ArrayList<>();
+                if (str != null) {
+                    arrayList = this.f.t(str);
+                    if (this.e.booleanValue()) {
+                        this.f.B(arrayList);
+                    } else {
+                        this.f.k(arrayList);
+                    }
+                } else {
+                    this.f.B(arrayList);
+                }
+                if (ListUtils.isEmpty(arrayList)) {
+                    return;
+                }
+                this.f.h.a(0, null, Boolean.TRUE);
+            }
+        }
+    }
+
+    public ur7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.e = 0;
+        this.f = 0;
+        this.g = false;
+        this.h = null;
+        this.d = new ArrayList<>();
+        this.g = true;
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || this.d == null) {
+            return;
+        }
+        HashSet hashSet = new HashSet();
+        Iterator<MarkData> it = this.d.iterator();
+        while (it.hasNext()) {
+            MarkData next = it.next();
+            String id = next.getId();
+            int replyNum = next.getReplyNum();
+            if (!hashSet.add(id)) {
+                l(id, replyNum);
+                it.remove();
+            }
+        }
+    }
+
+    public static /* synthetic */ int i(ur7 ur7Var) {
+        int i = ur7Var.f;
+        ur7Var.f = i - 1;
+        return i;
+    }
+
+    public void A(rr7 rr7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rr7Var) == null) {
+            this.h = rr7Var;
+        }
+    }
+
+    public void B(ArrayList<MarkData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+            this.d = arrayList;
+        }
+    }
+
+    public void C(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void j(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, markData) == null) {
+            this.d.add(markData);
+        }
+    }
+
+    public void k(ArrayList<MarkData> arrayList) {
+        ArrayList<MarkData> arrayList2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) && (arrayList2 = this.d) != null && arrayList != null) {
+            arrayList2.addAll(arrayList);
+            y();
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            try {
+                v(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public void w(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, bool) == null) {
+            x(bool, true);
+        }
+    }
+
+    public boolean D(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            a aVar = this.c;
+            if (aVar != null) {
+                aVar.cancel();
+            }
+            if (i >= this.d.size() || this.d.get(i) == null || this.d.get(i).getId() == null) {
+                return false;
+            }
+            a aVar2 = new a(this, this.d.get(i).getId(), i, this.d.get(i).getForumId());
+            this.c = aVar2;
+            aVar2.setPriority(2);
+            this.c.execute(new Boolean[0]);
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final ArrayList<MarkData> t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            ArrayList<MarkData> arrayList = new ArrayList<>();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (!jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                    return null;
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MarkData markData = new MarkData();
+                    markData.paserJson(optJSONArray.getJSONObject(i));
+                    arrayList.add(markData);
+                }
+                return arrayList;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+                return null;
+            }
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void v(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
+            try {
+                if (!jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                    return;
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MarkData markData = new MarkData();
+                    markData.paserJson(optJSONArray.getJSONObject(i));
+                    this.d.add(markData);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public String E(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+            ArrayList<MarkData> arrayList = this.d;
+            if (arrayList == null) {
+                return null;
+            }
+            if (i >= arrayList.size()) {
+                i2 -= (i - this.d.size()) - 1;
+                i = this.d.size() - 1;
+            }
+            JSONArray jSONArray = new JSONArray();
+            int i3 = 0;
+            for (int i4 = i; i4 >= 0 && i4 > i - i2; i4--) {
+                try {
+                    JSONObject json = this.d.get(i4).toJson();
+                    if (json != null && i3 >= 0) {
+                        int i5 = i3 + 1;
+                        jSONArray.put(i3, json);
+                        i3 = i5;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
+                    jSONArray = null;
+                }
+            }
+            if (jSONArray == null) {
+                return null;
+            }
+            return jSONArray.toString();
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public final void l(String str, int i) {
+        ArrayList<MarkData> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && (arrayList = this.d) != null && ListUtils.getCount(arrayList) > 0) {
+            Iterator<MarkData> it = this.d.iterator();
+            while (it.hasNext()) {
+                MarkData next = it.next();
+                if (next != null && next.getId().equals(str)) {
+                    next.setReplyNum(i);
+                }
+            }
+        }
+    }
+
+    public void x(Boolean bool, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048595, this, bool, z) == null) {
+            b bVar = this.a;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            b bVar2 = new b(this, q());
+            this.a = bVar2;
+            bVar2.setPriority(3);
+            this.a.execute(bool, Boolean.valueOf(z));
+        }
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayList<MarkData> arrayList = this.d;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public ArrayList<MarkData> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ArrayList<MarkData> arrayList = this.d;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.e > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            b bVar = this.a;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            c cVar = this.b;
+            if (cVar != null) {
+                cVar.cancel();
+            }
+            a aVar = this.c;
+            if (aVar != null) {
+                aVar.cancel();
+            }
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.f = 0;
+            this.e = 0;
+            this.g = true;
         }
     }
 }

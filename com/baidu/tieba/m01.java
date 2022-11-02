@@ -1,16 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.requester.NadRequester;
+import com.baidu.nadcore.requester.RequestParameters;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class m01 extends l01 {
+/* loaded from: classes5.dex */
+public class m01 extends yf1<n01> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements n01 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final n01 b;
+
+        public a(m01 m01Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m01Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = new l01();
+        }
+
+        @Override // com.baidu.tieba.n01
+        public void a(@NonNull RequestParameters requestParameters, @NonNull NadRequester.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
+                this.b.a(requestParameters, bVar);
+            }
+        }
+    }
 
     public m01() {
         Interceptable interceptable = $ic;
@@ -26,47 +61,15 @@ public class m01 extends l01 {
         }
     }
 
-    @Override // com.baidu.tieba.o01
-    public boolean isValid() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf1
+    /* renamed from: a */
+    public n01 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext")) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return invokeV.booleanValue;
-    }
-
-    public m01 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("cr", str);
-            return this;
-        }
-        return (m01) invokeL.objValue;
-    }
-
-    public m01 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("ci", str);
-            return this;
-        }
-        return (m01) invokeL.objValue;
-    }
-
-    public m01 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            d("ext", str);
-            return this;
-        }
-        return (m01) invokeL.objValue;
+        return (n01) invokeV.objValue;
     }
 }

@@ -6,18 +6,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
+import io.reactivex.annotations.Nullable;
 /* loaded from: classes8.dex */
-public abstract class GroupedFlowable extends Flowable {
+public abstract class GroupedFlowable<K, T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object key;
+    public final K key;
 
-    public GroupedFlowable(Object obj) {
+    public GroupedFlowable(@Nullable K k) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {k};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +28,16 @@ public abstract class GroupedFlowable extends Flowable {
                 return;
             }
         }
-        this.key = obj;
+        this.key = k;
     }
 
-    public Object getKey() {
+    @Nullable
+    public K getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.key;
         }
-        return invokeV.objValue;
+        return (K) invokeV.objValue;
     }
 }

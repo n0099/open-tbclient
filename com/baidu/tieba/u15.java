@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class u15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public long b;
+    public int c;
 
     public u15() {
         Interceptable interceptable = $ic;
@@ -26,16 +28,51 @@ public class u15 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject != null) {
-            jSONObject.optInt("offline");
-            jSONObject.optString("title");
-            String optString = jSONObject.optString("link");
-            this.a = optString;
-            if (!TextUtils.isEmpty(optString)) {
-                this.a = this.a.replaceFirst("webview:", "http://");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.b = j;
         }
     }
 }

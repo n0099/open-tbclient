@@ -1,6 +1,7 @@
 package tv.athena.revenue.payui.model;
 
 import android.app.Dialog;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
+@Keep
 /* loaded from: classes9.dex */
 public class PayViewInfo {
     public static /* synthetic */ Interceptable $ic;

@@ -12,22 +12,22 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.ArrayDeque;
 /* loaded from: classes8.dex */
-public final class ObservableTakeLast extends AbstractObservableWithUpstream {
+public final class ObservableTakeLast<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int count;
 
     /* loaded from: classes8.dex */
-    public final class TakeLastObserver extends ArrayDeque implements Observer, Disposable {
+    public static final class TakeLastObserver<T> extends ArrayDeque<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7240042530241604978L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public volatile boolean cancelled;
         public final int count;
         public Disposable s;
 
-        public TakeLastObserver(Observer observer, int i) {
+        public TakeLastObserver(Observer<? super T> observer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,17 +69,17 @@ public final class ObservableTakeLast extends AbstractObservableWithUpstream {
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Observer observer = this.actual;
+                Observer<? super T> observer = this.actual;
                 while (!this.cancelled) {
-                    Object poll = poll();
-                    if (poll == null) {
+                    Object obj = (T) poll();
+                    if (obj == null) {
                         if (!this.cancelled) {
                             observer.onComplete();
                             return;
                         }
                         return;
                     }
-                    observer.onNext(poll);
+                    observer.onNext(obj);
                 }
             }
         }
@@ -93,13 +93,13 @@ public final class ObservableTakeLast extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 if (this.count == size()) {
                     poll();
                 }
-                offer(obj);
+                offer(t);
             }
         }
 
@@ -114,7 +114,7 @@ public final class ObservableTakeLast extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTakeLast(ObservableSource observableSource, int i) {
+    public ObservableTakeLast(ObservableSource<T> observableSource, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -135,7 +135,7 @@ public final class ObservableTakeLast extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new TakeLastObserver(observer, this.count));

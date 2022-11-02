@@ -1,5 +1,6 @@
 package com.baidu.swan.menu;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u94;
+import com.baidu.tieba.ma4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +29,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
     public TextView b;
     public TextView c;
     public ImageView d;
-    public u94 e;
+    public ma4 e;
     public int f;
     public int g;
     public boolean h;
@@ -60,9 +61,9 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            u94 u94Var;
+            ma4 ma4Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (u94Var = this.a.e) != null && u94Var.d() != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ma4Var = this.a.e) != null && ma4Var.d() != null) {
                 SwanAppMenuItemView swanAppMenuItemView = this.a;
                 swanAppMenuItemView.h = swanAppMenuItemView.e.d().a(this.a.e);
             }
@@ -92,17 +93,17 @@ public class SwanAppMenuItemView extends RelativeLayout {
         d();
     }
 
-    public final void g(u94 u94Var) {
+    public final void g(ma4 ma4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, u94Var) != null) || u94Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, ma4Var) != null) || ma4Var == null) {
             return;
         }
         setAlpha(1.0f);
-        this.b.setText(u94Var.h(getContext()));
-        Drawable b = b(u94Var);
+        this.b.setText(ma4Var.h(getContext()));
+        Drawable b = b(ma4Var);
         if (b != null) {
             this.a.setImageDrawable(b);
-            this.a.setImageLevel(u94Var.b());
+            this.a.setImageLevel(ma4Var.b());
         }
     }
 
@@ -175,11 +176,11 @@ public class SwanAppMenuItemView extends RelativeLayout {
         return (String) invokeJ.objValue;
     }
 
-    public final Drawable b(u94 u94Var) {
+    public final Drawable b(ma4 ma4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u94Var)) == null) {
-            return u94Var.a(getContext());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ma4Var)) == null) {
+            return ma4Var.a(getContext());
         }
         return (Drawable) invokeL.objValue;
     }
@@ -198,40 +199,40 @@ public class SwanAppMenuItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setGravity(49);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d008d, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090190);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090193);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090192);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090191);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d008e, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090198);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09019b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09019a);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090199);
             setBackgroundResource(0);
         }
     }
 
-    public final void e(u94 u94Var, int i) {
+    public final void e(ma4 ma4Var, int i) {
         float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, u94Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, ma4Var, i) == null) {
             this.b.setEllipsize(TextUtils.TruncateAt.END);
-            if (u94Var.i()) {
+            if (ma4Var.i()) {
                 f = 1.0f;
             } else {
                 f = 0.3f;
             }
             this.b.setAlpha(f);
-            this.a.setEnabled(u94Var.i());
+            this.a.setEnabled(ma4Var.i());
             this.a.setScaleType(ImageView.ScaleType.CENTER);
             this.a.setVisibility(0);
-            g(u94Var);
-            f(u94Var, i);
+            g(ma4Var);
+            f(ma4Var, i);
         }
     }
 
-    public final void f(u94 u94Var, int i) {
+    public final void f(ma4 ma4Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048581, this, u94Var, i) != null) || u94Var == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048581, this, ma4Var, i) != null) || ma4Var == null) {
             return;
         }
-        int f = u94Var.f();
+        int f = ma4Var.f();
         if (f != 0) {
             if (f != 1) {
                 if (f != 2) {
@@ -240,16 +241,16 @@ public class SwanAppMenuItemView extends RelativeLayout {
                     return;
                 }
                 this.c.setVisibility(8);
-                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116d));
+                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081189));
                 this.d.setVisibility(0);
                 return;
             } else if (i <= 0) {
                 return;
             } else {
                 this.d.setVisibility(8);
-                this.c.setText(a(u94Var.e()));
-                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a6d));
-                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116c));
+                this.c.setText(a(ma4Var.e()));
+                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a7f));
+                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081188));
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
                 marginLayoutParams.leftMargin = c(i);
                 this.c.setLayoutParams(marginLayoutParams);
@@ -261,16 +262,17 @@ public class SwanAppMenuItemView extends RelativeLayout {
         this.c.setVisibility(8);
     }
 
-    public void h(u94 u94Var, int i) {
+    public void h(ma4 ma4Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048583, this, u94Var, i) != null) || u94Var == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048583, this, ma4Var, i) != null) || ma4Var == null) {
             return;
         }
-        e(u94Var, i);
-        this.e = u94Var;
+        e(ma4Var, i);
+        this.e = ma4Var;
     }
 
     @Override // android.view.View
+    @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -301,8 +303,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
                     return super.onTouchEvent(motionEvent);
                 }
             } else {
-                u94 u94Var = this.e;
-                if (u94Var != null && u94Var.d() != null) {
+                ma4 ma4Var = this.e;
+                if (ma4Var != null && ma4Var.d() != null) {
                     removeCallbacks(this.i);
                     this.h = false;
                     this.f = x;

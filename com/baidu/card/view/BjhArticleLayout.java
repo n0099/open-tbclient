@@ -18,31 +18,31 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a26;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.p26;
-import com.baidu.tieba.xx;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.k36;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.rr4;
+import com.baidu.tieba.rx;
+import com.baidu.tieba.sx;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.z36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClickListener, yx {
+public class BjhArticleLayout extends RelativeLayout implements rx<rr4>, View.OnClickListener, sx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public TbImageView c;
     public View d;
-    public ar4 e;
+    public rr4 e;
     public float f;
     public float g;
     public float h;
-    public p26 i;
+    public z36<rr4> i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -85,11 +85,11 @@ public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClick
                 return;
             }
         }
-        this.f = fj.f(context, R.dimen.tbds10);
-        fj.f(context, R.dimen.tbds21);
-        this.g = fj.f(context, R.dimen.tbds16);
-        fj.f(context, R.dimen.tbds30);
-        this.h = fj.f(context, R.dimen.tbds44);
+        this.f = xi.g(context, R.dimen.tbds10);
+        xi.g(context, R.dimen.tbds21);
+        this.g = xi.g(context, R.dimen.tbds16);
+        xi.g(context, R.dimen.tbds30);
+        this.h = xi.g(context, R.dimen.tbds44);
         b();
     }
 
@@ -101,9 +101,9 @@ public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClick
             if (onClickListener != null) {
                 onClickListener.onClick(view2);
             }
-            p26 p26Var = this.i;
-            if (p26Var != null) {
-                p26Var.a(view2, this.e);
+            z36<rr4> z36Var = this.i;
+            if (z36Var != null) {
+                z36Var.a(view2, this.e);
             }
         }
     }
@@ -115,37 +115,37 @@ public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClick
         }
     }
 
-    public void setSubClickListener(p26 p26Var) {
+    public void setSubClickListener(z36<rr4> z36Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, p26Var) == null) {
-            this.i = p26Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z36Var) == null) {
+            this.i = z36Var;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015c, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015e, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            setId(R.id.obfuscated_res_0x7f0903a1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            setId(R.id.obfuscated_res_0x7f0903b0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092256);
             this.a = textView;
-            nv4 d = nv4.d(textView);
+            kw4 d = kw4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X06);
             this.a.setOnClickListener(this);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090e14);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090e43);
             this.b = textView2;
             textView2.setOnClickListener(this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090721);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09072f);
             this.c = tbImageView;
             tbImageView.setPlaceHolder(3);
             this.c.setOnClickListener(this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0903f9);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090406);
             this.d = findViewById;
             findViewById.setOnClickListener(this);
             if (this.c.getLayoutParams() != null) {
-                this.c.getLayoutParams().height = (int) (((fj.k(getContext()) - (this.h * 2.0f)) / 16.0f) * 9.0f);
+                this.c.getLayoutParams().height = (int) (((xi.l(getContext()) - (this.h * 2.0f)) / 16.0f) * 9.0f);
             }
             this.b.setTranslationY(-this.g);
             this.c.setDrawCorner(true);
@@ -156,15 +156,15 @@ public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx
+    @Override // com.baidu.tieba.rx
     /* renamed from: c */
-    public void a(ar4 ar4Var) {
+    public void a(rr4 rr4Var) {
         int i;
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ar4Var) == null) {
-            this.e = ar4Var;
-            ThreadData threadData = ar4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rr4Var) == null) {
+            this.e = rr4Var;
+            ThreadData threadData = rr4Var.getThreadData();
             if (threadData.isShareThread && (originalThreadInfo = threadData.originalThreadData) != null) {
                 if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
                     threadData = threadData.originalThreadData.b();
@@ -182,7 +182,7 @@ public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClick
                 this.b.setVisibility(0);
                 this.c.setVisibility(0);
                 this.d.setVisibility(0);
-                this.c.L(threadData.getArticeCover(), 10, false);
+                this.c.K(threadData.getArticeCover(), 10, false);
             }
             TextView textView = this.a;
             String id = threadData.getId();
@@ -191,7 +191,7 @@ public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClick
             } else {
                 i = R.color.CAM_X0105;
             }
-            a26.l(textView, id, i, R.color.CAM_X0109);
+            k36.l(textView, id, i, R.color.CAM_X0109);
         }
     }
 
@@ -213,13 +213,13 @@ public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClick
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            ar4 ar4Var = this.e;
-            if (ar4Var != null && ar4Var.getThreadData() != null) {
+            rr4 rr4Var = this.e;
+            if (rr4Var != null && rr4Var.getThreadData() != null) {
                 TextView textView = this.a;
                 String id = this.e.getThreadData().getId();
                 if (this.c.getVisibility() == 0) {
@@ -227,11 +227,11 @@ public class BjhArticleLayout extends RelativeLayout implements xx, View.OnClick
                 } else {
                     i2 = R.color.CAM_X0105;
                 }
-                a26.l(textView, id, i2, R.color.CAM_X0109);
+                k36.l(textView, id, i2, R.color.CAM_X0109);
             }
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
             TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f).into(this.b);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(fj.f(getContext(), R.dimen.tbds21)).trRadius(fj.f(getContext(), R.dimen.tbds21)).blRadius(fj.f(getContext(), R.dimen.tbds21)).brRadius(fj.f(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.d);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(xi.g(getContext(), R.dimen.tbds21)).trRadius(xi.g(getContext(), R.dimen.tbds21)).blRadius(xi.g(getContext(), R.dimen.tbds21)).brRadius(xi.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.d);
         }
     }
 }

@@ -1,19 +1,22 @@
 package com.baidu.tieba.personPolymeric.dispatcher;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.jg8;
-import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tieba.th8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class PersonPolymericDispatcher implements jg8 {
-    public static /* synthetic */ Interceptable $ic;
+public class PersonPolymericDispatcher implements th8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String URI_PREFIX = "com.baidu.tieba://unidispatch/usercenter?";
     public transient /* synthetic */ FieldHolder $fh;
 
     public PersonPolymericDispatcher() {
@@ -30,17 +33,22 @@ public class PersonPolymericDispatcher implements jg8 {
         }
     }
 
-    @Override // com.baidu.tieba.jg8
+    @Override // com.baidu.tieba.th8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
-            String optString = jSONObject.optString("portrait");
-            String optString2 = jSONObject.optString("useMainState");
-            Uri parse = Uri.parse("tiebaapp://router/portal?portrait=" + optString + "&useMainState=" + optString2);
-            Intent intent = new Intent();
-            intent.putExtra(IntentConfig.KEY_URI, parse);
-            intent.setClass(context, PersonPolymericActivity.class);
-            context.startActivity(intent);
+            HashMap hashMap = new HashMap();
+            hashMap.put("portrait", jSONObject.optString("portrait"));
+            hashMap.put("source", jSONObject.optString("source"));
+            if (jSONObject.optString("useMainState") != null && jSONObject.optString("useMainState").equals("1")) {
+                hashMap.put("useMainState", "true");
+            } else {
+                hashMap.put("useMainState", "false");
+            }
+            String appendParams = UrlUtils.appendParams(URI_PREFIX, hashMap);
+            PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(context);
+            personPolymericActivityConfig.setUri(Uri.parse(appendParams));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personPolymericActivityConfig));
         }
     }
 }

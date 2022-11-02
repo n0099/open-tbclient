@@ -28,16 +28,16 @@ import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ZeusLogRecorder extends ZeusCrashHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "ZeusLogRecorder";
     public static ZeusLogRecorder instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public List fileNameList;
+    public List<String> fileNameList;
     public boolean isFilterLogRecord;
     public boolean isUploading;
-    public List list;
+    public List<LogRecordBean> list;
     public OnFinishedUploadLogListener listener;
     public Lock lock;
     public File logDir;
@@ -48,7 +48,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     public String recordPrefName;
     public AtomicInteger unUploadFileSize;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class LogRecordBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,18 +103,18 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnFinishedUploadLogListener {
-        void onFinishedUploadLog(List list, String str);
+        void onFinishedUploadLog(List<LogRecordBean> list, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class WatchThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean over;
         public Process p;
-        public ArrayList stream;
+        public ArrayList<String> stream;
         public final /* synthetic */ ZeusLogRecorder this$0;
         public final Writer writer;
 
@@ -137,10 +137,10 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
             this.p = process;
             this.over = false;
             this.writer = writer;
-            this.stream = new ArrayList();
+            this.stream = new ArrayList<>();
         }
 
-        public ArrayList getStream() {
+        public ArrayList<String> getStream() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.stream : (ArrayList) invokeV.objValue;

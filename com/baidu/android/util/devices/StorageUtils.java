@@ -54,7 +54,7 @@ public final class StorageUtils {
     }
 
     /* loaded from: classes.dex */
-    public class StorageInfo {
+    public static class StorageInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int mDisplayNumber;
@@ -392,7 +392,7 @@ public final class StorageUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List getStorageList() {
+    public static List<StorageInfo> getStorageList() {
         InterceptResult invokeV;
         boolean z;
         Throwable th;

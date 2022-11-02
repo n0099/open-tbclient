@@ -1,5 +1,7 @@
 package com.kwad.sdk.crash.handler;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.crash.e;
 import com.kwad.sdk.utils.o;
 import java.io.File;
@@ -9,7 +11,7 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class b {
     public static final String FILE_NAME_BASE = UUID.randomUUID().toString();
     public static final int REAL_TIME_UPLOAD_THRESHOLD = 2;
@@ -73,7 +75,7 @@ public abstract class b {
         this.mUploader = eVar2;
     }
 
-    public abstract void reportException(File[] fileArr, CountDownLatch countDownLatch);
+    public abstract void reportException(@NonNull File[] fileArr, @Nullable CountDownLatch countDownLatch);
 
     public void uploadRemainingExceptions() {
         File[] listFiles = this.mLogDir.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.handler.b.1

@@ -1,289 +1,347 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ml9;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
-public final class ll9 implements Runnable {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class ll9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ List a;
-    public final /* synthetic */ FunAdConfig b;
-    public final /* synthetic */ Map c;
-    public final /* synthetic */ long d;
-    public final /* synthetic */ ml9.a e;
+    public ml9 a;
+    public JSONObject b;
+    public JSONObject c;
 
-    public ll9(List list, FunAdConfig funAdConfig, Map map, long j, ml9.a aVar) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ll9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-628823758, "Lcom/baidu/tieba/ll9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-628823758, "Lcom/baidu/tieba/ll9$b;");
+                    return;
+                }
+            }
+            a = new ll9(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946864, "Lcom/baidu/tieba/ll9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947946864, "Lcom/baidu/tieba/ll9;");
+                return;
+            }
+        }
+        d = AppConfig.isDebug();
+        e = AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "yalog/";
+    }
+
+    public ll9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, funAdConfig, map, Long.valueOf(j), aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = list;
-        this.b = funAdConfig;
-        this.c = map;
-        this.d = j;
-        this.e = aVar;
+        i();
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        String str2;
+    public static ll9 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (Ssp ssp : this.a) {
-                if (this.b.forbiddenPlatforms.contains(ssp.type)) {
-                    LogPrinter.d("Ssp:%s is not initialized for type is forbidden", ssp.type);
-                } else {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    LogPrinter.d("sdk for %s init start", ssp.type);
-                    String str3 = ssp.type;
-                    str3.hashCode();
-                    char c = 65535;
-                    switch (str3.hashCode()) {
-                        case 3116:
-                            if (str3.equals(FunAdSdk.PLATFORM_AM)) {
-                                c = 0;
-                                break;
-                            }
-                            break;
-                        case 3127:
-                            if (str3.equals(FunAdSdk.PLATFORM_AX)) {
-                                c = 1;
-                                break;
-                            }
-                            break;
-                        case 3343:
-                            if (str3.equals(FunAdSdk.PLATFORM_HW)) {
-                                c = 2;
-                                break;
-                            }
-                            break;
-                        case 3407:
-                            if (str3.equals(FunAdSdk.PLATFORM_JY)) {
-                                c = 3;
-                                break;
-                            }
-                            break;
-                        case 3432:
-                            if (str3.equals(FunAdSdk.PLATFORM_KS)) {
-                                c = 4;
-                                break;
-                            }
-                            break;
-                        case 3477:
-                            if (str3.equals(FunAdSdk.PLATFORM_MB)) {
-                                c = 5;
-                                break;
-                            }
-                            break;
-                        case 3483:
-                            if (str3.equals(FunAdSdk.PLATFORM_MH)) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 3488:
-                            if (str3.equals(FunAdSdk.PLATFORM_MM)) {
-                                c = 7;
-                                break;
-                            }
-                            break;
-                        case 3560:
-                            if (str3.equals(FunAdSdk.PLATFORM_OW)) {
-                                c = '\b';
-                                break;
-                            }
-                            break;
-                        case 3575:
-                            if (str3.equals(FunAdSdk.PLATFORM_PG)) {
-                                c = '\t';
-                                break;
-                            }
-                            break;
-                        case 3693:
-                            if (str3.equals(FunAdSdk.PLATFORM_TA)) {
-                                c = '\n';
-                                break;
-                            }
-                            break;
-                        case 102199:
-                            if (str3.equals(FunAdSdk.PLATFORM_GDT)) {
-                                c = 11;
-                                break;
-                            }
-                            break;
-                        case 106042:
-                            if (str3.equals(FunAdSdk.PLATFORM_KDS)) {
-                                c = '\f';
-                                break;
-                            }
-                            break;
-                        case 107876:
-                            if (str3.equals(FunAdSdk.PLATFORM_MAX)) {
-                                c = '\r';
-                                break;
-                            }
-                            break;
-                        case 113873:
-                            if (str3.equals(FunAdSdk.PLATFORM_SIG)) {
-                                c = 14;
-                                break;
-                            }
-                            break;
-                        case 3418016:
-                            if (str3.equals("oppo")) {
-                                c = 15;
-                                break;
-                            }
-                            break;
-                        case 3620012:
-                            if (str3.equals("vivo")) {
-                                c = 16;
-                                break;
-                            }
-                            break;
-                        case 93498907:
-                            if (str3.equals("baidu")) {
-                                c = 17;
-                                break;
-                            }
-                            break;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (ll9) invokeV.objValue;
+    }
+
+    public Map<String, nl9> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.c();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.d();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.e();
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<ol9> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.f();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public float f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.g();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.h();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.i();
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.a == null) {
+                this.a = new ml9();
+            }
+            j();
+            k();
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.j();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a.k();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ ll9(a aVar) {
+        this();
+    }
+
+    public final void j() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (!new File(e).exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "dir not exists.");
+                    return;
+                }
+                return;
+            }
+            File file = new File(e, "yalog_cloud.txt");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "yalog_cloud.txt not exists, use default value.");
+                }
+                this.a.l();
+                return;
+            }
+            String a2 = sl9.a(file);
+            if (d) {
+                Log.d("YaLogConfigManager", "read from local: " + a2);
+            }
+            if (TextUtils.isEmpty(a2)) {
+                this.a.l();
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(a2);
+                this.b = jSONObject;
+                this.a.p(jSONObject.optString(TbConfig.SW_APID));
+                this.a.m(this.b.optString("cl"));
+                this.a.w((float) this.b.optDouble("tosize"));
+                this.a.s((float) this.b.optDouble("sisize"));
+                this.a.u((float) this.b.optDouble("spsize"));
+                this.a.v((float) this.b.optDouble("sptime"));
+                this.a.r((float) this.b.optDouble("idsize"));
+                if (this.b.has("spdelist")) {
+                    List<String> asList = Arrays.asList(this.b.optString("spdelist"));
+                    if (asList.size() > 0) {
+                        this.a.o(asList);
                     }
-                    switch (c) {
-                        case 0:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.am.AmModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 1:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.AxModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 2:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.HwModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 3:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.JyModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 4:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.KsModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 5:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.MbModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 6:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.MhModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 7:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.MmModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case '\b':
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.OwModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case '\t':
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.pg.PgModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case '\n':
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.TAModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 11:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.GdtModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case '\f':
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.KdsModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case '\r':
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.max.MaxModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 14:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.SigModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 15:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.oppo.OppoModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 16:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.VivoModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 17:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.BaiduModule";
-                            ml9.f(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        default:
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
+                }
+                if (this.b.has("splist")) {
+                    JSONObject optJSONObject = this.b.optJSONObject("splist");
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONObject != null && optJSONObject.length() > 0) {
+                        Iterator<String> keys = optJSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                            if (optJSONObject2 != null) {
+                                if (!TextUtils.equals("0", optJSONObject2.optString(TbConfig.SW_APID))) {
+                                    z = true;
+                                } else {
+                                    z = false;
+                                }
+                                arrayList.add(new ol9(next, z, (float) optJSONObject2.optDouble("size"), (float) optJSONObject2.optDouble("time")));
+                            }
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        this.a.t(arrayList);
+                    }
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        boolean z;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (!new File(e).exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "dir not exists.");
+                    return;
+                }
+                return;
+            }
+            File file = new File(e, "yalog_id_cloud.txt");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "yalog_id_cloud.txt not exists.");
+                    return;
+                }
+                return;
+            }
+            String a2 = sl9.a(file);
+            if (d) {
+                Log.d("YaLogConfigManager", "read from local: " + a2);
+            }
+            if (!TextUtils.isEmpty(a2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(a2);
+                    this.c = jSONObject;
+                    if (jSONObject.has("iddemap") && (optJSONObject = this.c.optJSONObject("iddemap")) != null && optJSONObject.length() > 0) {
+                        HashMap hashMap = new HashMap();
+                        Iterator<String> keys = optJSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            hashMap.put(next, optJSONObject.optString(next));
+                        }
+                        if (hashMap.size() > 0) {
+                            this.a.n(hashMap);
+                        }
+                    }
+                    if (this.c.has("idlist")) {
+                        JSONObject optJSONObject2 = this.c.optJSONObject("idlist");
+                        HashMap hashMap2 = new HashMap();
+                        if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                            Iterator<String> keys2 = optJSONObject2.keys();
+                            while (keys2.hasNext()) {
+                                String next2 = keys2.next();
+                                JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next2);
+                                if (optJSONObject3 != null) {
+                                    String optString = optJSONObject3.optString(TbConfig.SW_APID);
+                                    long optLong = optJSONObject3.optLong("v");
+                                    if (!TextUtils.equals("0", optString)) {
+                                        z = true;
+                                    } else {
+                                        z = false;
+                                    }
+                                    hashMap2.put(next2, new nl9(next2, optLong, z, (float) optJSONObject3.optDouble("size")));
+                                }
+                            }
+                        }
+                        if (hashMap2.size() > 0) {
+                            this.a.q(hashMap2);
+                        }
+                    }
+                } catch (JSONException e2) {
+                    if (d) {
+                        e2.printStackTrace();
                     }
                 }
             }
-            ml9.e(this.d, this.e, this.b, this.c);
         }
     }
 }

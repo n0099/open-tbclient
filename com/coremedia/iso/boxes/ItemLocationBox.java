@@ -41,7 +41,7 @@ public class ItemLocationBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public int baseOffsetSize;
     public int indexSize;
-    public List items;
+    public List<Item> items;
     public int lengthSize;
     public int offsetSize;
 
@@ -173,11 +173,11 @@ public class ItemLocationBox extends AbstractFullBox {
         public long baseOffset;
         public int constructionMethod;
         public int dataReferenceIndex;
-        public List extents;
+        public List<Extent> extents;
         public int itemId;
         public final /* synthetic */ ItemLocationBox this$0;
 
-        public Item(ItemLocationBox itemLocationBox, int i, int i2, int i3, long j, List list) {
+        public Item(ItemLocationBox itemLocationBox, int i, int i2, int i3, long j, List<Extent> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,8 +249,8 @@ public class ItemLocationBox extends AbstractFullBox {
                 if (this.baseOffset != item.baseOffset || this.constructionMethod != item.constructionMethod || this.dataReferenceIndex != item.dataReferenceIndex || this.itemId != item.itemId) {
                     return false;
                 }
-                List list = this.extents;
-                List list2 = item.extents;
+                List<Extent> list = this.extents;
+                List<Extent> list2 = item.extents;
                 if (list == null ? list2 == null : list.equals(list2)) {
                     return true;
                 }
@@ -304,7 +304,7 @@ public class ItemLocationBox extends AbstractFullBox {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 long j = this.baseOffset;
                 int i2 = ((((((this.itemId * 31) + this.constructionMethod) * 31) + this.dataReferenceIndex) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
-                List list = this.extents;
+                List<Extent> list = this.extents;
                 if (list != null) {
                     i = list.hashCode();
                 } else {
@@ -382,7 +382,7 @@ public class ItemLocationBox extends AbstractFullBox {
         return invokeV.intValue;
     }
 
-    public List getItems() {
+    public List<Item> getItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -515,7 +515,7 @@ public class ItemLocationBox extends AbstractFullBox {
         }
     }
 
-    public void setItems(List list) {
+    public void setItems(List<Item> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, list));
@@ -539,7 +539,7 @@ public class ItemLocationBox extends AbstractFullBox {
         }
     }
 
-    public Item createItem(int i, int i2, int i3, long j, List list) {
+    public Item createItem(int i, int i2, int i3, long j, List<Extent> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), list})) == null) {

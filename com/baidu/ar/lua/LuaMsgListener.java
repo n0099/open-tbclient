@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface LuaMsgListener {
-    List getMsgKeyListened();
+    List<String> getMsgKeyListened();
 
-    void onLuaMessage(HashMap hashMap);
+    void onLuaMessage(HashMap<String, Object> hashMap);
 }

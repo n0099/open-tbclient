@@ -18,7 +18,7 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class ii implements iu, Serializable, Cloneable {
+public class ii implements iu<ii, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -56,7 +56,7 @@ public class ii implements iu, Serializable, Cloneable {
     public BitSet f644a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f645a;
+    public Map<String, String> f645a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f646a;
@@ -321,7 +321,7 @@ public class ii implements iu, Serializable, Cloneable {
         return (ii) invokeL.objValue;
     }
 
-    public ii a(Map map) {
+    public ii a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
@@ -360,7 +360,7 @@ public class ii implements iu, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map m481a() {
+    public Map<String, String> m481a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f645a : (Map) invokeV.objValue;
@@ -691,9 +691,9 @@ public class ii implements iu, Serializable, Cloneable {
             if (this.f645a != null && h()) {
                 jfVar.a(h);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f645a.size()));
-                for (Map.Entry entry : this.f645a.entrySet()) {
-                    jfVar.a((String) entry.getKey());
-                    jfVar.a((String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.f645a.entrySet()) {
+                    jfVar.a(entry.getKey());
+                    jfVar.a(entry.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -964,7 +964,7 @@ public class ii implements iu, Serializable, Cloneable {
             if (h()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("extra:");
-                Map map = this.f645a;
+                Map<String, String> map = this.f645a;
                 if (map == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

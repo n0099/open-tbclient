@@ -1,92 +1,236 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.App;
-import tbclient.GoodsInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.UUID;
 /* loaded from: classes5.dex */
-public class qd8 {
+public class qd8 implements cr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public HashMap<String, ar7> c;
 
-    public static String a(App app) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            String str = "";
-            if (list == null) {
-                return "";
-            }
-            for (GoodsInfo goodsInfo : list) {
-                if (goodsInfo != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject != null) {
-                            str = optJSONObject.optString("id");
-                        }
-                        return str;
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static int b(App app) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            if (list == null) {
-                return -1;
-            }
-            Iterator<GoodsInfo> it = list.iterator();
-            while (it.hasNext()) {
-                GoodsInfo next = it.next();
-                if (next != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject == null) {
-                            return -1;
-                        }
-                        return eh.e(optJSONObject.optString("pos"), -1);
-                    } catch (JSONException unused) {
-                    }
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cr7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-493095962, "Lcom/baidu/tieba/qd8$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-493095962, "Lcom/baidu/tieba/qd8$b;");
+                    return;
                 }
             }
-            return -1;
+            a = new qd8(null);
         }
-        return invokeL.intValue;
     }
 
-    public static void c(App.Builder builder, int i) {
+    public qd8() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65538, null, builder, i) != null) || builder.goods_info == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new HashMap<>();
+    }
+
+    public static cr7 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (cr7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            n().k(this.a);
+            q(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = this.a;
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = UUID.randomUUID().toString();
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            n().j(this.a);
+        }
+    }
+
+    public final ar7 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            pd8 pd8Var = new pd8(this.a);
+            this.c.put(this.a, pd8Var);
+            return pd8Var;
+        }
+        return (ar7) invokeV.objValue;
+    }
+
+    public final ar7 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ar7 ar7Var = this.c.get(this.a);
+            if (ar7Var == null) {
+                return l();
+            }
+            return ar7Var;
+        }
+        return (ar7) invokeV.objValue;
+    }
+
+    public /* synthetic */ qd8(a aVar) {
+        this();
+    }
+
+    public boolean o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            return n().d(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return n().e(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void q(String str) {
+        ar7 ar7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || (ar7Var = this.c.get(str)) == null) {
             return;
         }
-        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
-            GoodsInfo goodsInfo = (GoodsInfo) lh7.d(builder.goods_info, i2);
-            if (goodsInfo != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
-                    if (optJSONObject != null) {
-                        optJSONObject.put("pos", String.valueOf(eh.e(optJSONObject.optString("pos"), 0) + i));
-                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
-                        builder2.lego_card = jSONObject.toString();
-                        builder.goods_info.set(i2, builder2.build(false));
-                    }
-                } catch (JSONException unused) {
-                }
+        ar7Var.a(str);
+        this.c.remove(str);
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void a(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            n().c(this.a, i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void b(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            n().f(this.a, i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void h(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
+            n().g(this.a, i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void i(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
+            n().l(this.a, i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !StringUtils.isNull(this.b)) {
+            if (!o(this.b) && !p(this.b)) {
+                zq7.b(this.b);
+                this.c.remove(this.a);
+            } else {
+                q(this.b);
             }
+            g();
+            n().h(this.b, str);
+            this.b = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void f(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
+            n().b(this.a, i, i2, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.cr7
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            n().i(this.a, str);
+            if (!o(this.a) && !p(this.a)) {
+                zq7.b(this.a);
+                this.c.remove(this.a);
+            } else {
+                q(this.a);
+            }
+            this.a = null;
         }
     }
 }

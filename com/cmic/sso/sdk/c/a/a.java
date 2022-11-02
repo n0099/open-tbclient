@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.c.a;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
@@ -56,6 +57,7 @@ public class a implements b {
     /* JADX WARN: Removed duplicated region for block: B:131:0x0287  */
     /* JADX WARN: Removed duplicated region for block: B:134:0x0299  */
     @Override // com.cmic.sso.sdk.c.a.b
+    @TargetApi(21)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -87,10 +89,10 @@ public class a implements b {
                 httpURLConnection = httpURLConnection2;
                 try {
                     try {
-                        Map c = cVar.c();
+                        Map<String, String> c = cVar.c();
                         if (c != null) {
                             for (String str3 : c.keySet()) {
-                                httpURLConnection.addRequestProperty(str3, (String) c.get(str3));
+                                httpURLConnection.addRequestProperty(str3, c.get(str3));
                             }
                         }
                         if ((httpURLConnection instanceof HttpsURLConnection) && Build.VERSION.SDK_INT < 20) {

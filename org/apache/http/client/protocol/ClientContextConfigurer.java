@@ -12,7 +12,7 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.cookie.CookieSpecRegistry;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ClientContextConfigurer implements ClientContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class ClientContextConfigurer implements ClientContext {
         throw new RuntimeException("Stub!");
     }
 
-    public void setAuthSchemePref(List list) {
+    public void setAuthSchemePref(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             throw new RuntimeException("Stub!");

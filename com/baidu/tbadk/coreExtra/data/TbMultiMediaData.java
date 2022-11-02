@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.QmFilterItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,10 +22,13 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
     public transient /* synthetic */ FieldHolder $fh;
     public String coverPath;
     public int coverSource;
+    @Nullable
     public List<MultiMediaData> coverStickerList;
     public float lastCoverPercent;
     public String orignalCoverPath;
+    @Nullable
     public String orignalVideoPath;
+    @Nullable
     public QmFilterItem videoFilter;
     public int videoInfoSource;
     public float videoRatio;
@@ -40,7 +44,7 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<TbMultiMediaData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,6 +119,7 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         this.videoInfoSource = 2;
     }
 
+    @Nullable
     public List<MultiMediaData> getCoverStickerList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,6 +129,7 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         return (List) invokeV.objValue;
     }
 
+    @Nullable
     public String getOrignalVideoPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,6 +139,7 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public QmFilterItem getVideoFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -172,21 +179,21 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         this.videoFilter = (QmFilterItem) parcel.readParcelable(QmFilterItem.class.getClassLoader());
     }
 
-    public void setCoverStickerList(List<MultiMediaData> list) {
+    public void setCoverStickerList(@Nullable List<MultiMediaData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.coverStickerList = list;
         }
     }
 
-    public void setOrignalVideoPath(String str) {
+    public void setOrignalVideoPath(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.orignalVideoPath = str;
         }
     }
 
-    public void setVideoFilter(QmFilterItem qmFilterItem) {
+    public void setVideoFilter(@Nullable QmFilterItem qmFilterItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, qmFilterItem) == null) {
             this.videoFilter = qmFilterItem;

@@ -13,7 +13,7 @@ import java.util.List;
 public class MemberPayListAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<MemberPayFragment> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MemberPayListAdapter(FragmentManager fragmentManager) {
@@ -43,14 +43,14 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (this.a.size() > i) {
-                return (MemberPayFragment) this.a.get(i);
+                return this.a.get(i);
             }
             return null;
         }
         return (MemberPayFragment) invokeI.objValue;
     }
 
-    public void c(List list) {
+    public void c(List<MemberPayFragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.a = list;
@@ -62,7 +62,7 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List list = this.a;
+            List<MemberPayFragment> list = this.a;
             if (list != null) {
                 return list.size();
             }

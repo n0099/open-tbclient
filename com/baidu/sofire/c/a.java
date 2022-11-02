@@ -32,19 +32,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0156a a;
+    public C0164a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0156a extends SQLiteOpenHelper {
+    public class C0164a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0156a(a aVar, Context context) {
+        public C0164a(a aVar, Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, aVar.getClass());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -130,10 +130,10 @@ public class a {
             }
         }
         this.c = context.getApplicationContext();
-        C0156a c0156a = new C0156a(this, context.getApplicationContext());
-        this.a = c0156a;
+        C0164a c0164a = new C0164a(this, context.getApplicationContext());
+        this.a = c0164a;
         try {
-            this.b = c0156a.getWritableDatabase();
+            this.b = c0164a.getWritableDatabase();
         } catch (Throwable th) {
             com.baidu.sofire.k.a.a(th);
         }
@@ -274,7 +274,7 @@ public class a {
     }
 
     public void a() {
-        List list;
+        List<Integer> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
@@ -307,7 +307,7 @@ public class a {
         }
     }
 
-    public List b() {
+    public List<ApkInfo> b() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
@@ -481,7 +481,7 @@ public class a {
     public ApkInfo b(int i) {
         InterceptResult invokeI;
         Cursor cursor;
-        ArrayList a;
+        ArrayList<com.baidu.sofire.b.b> a;
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
@@ -513,19 +513,19 @@ public class a {
                                         apkInfo2.activities = new ActivityInfo[size];
                                         for (int i2 = 0; i2 < size; i2++) {
                                             ActivityInfo activityInfo = new ActivityInfo();
-                                            activityInfo.theme = ((com.baidu.sofire.b.b) a.get(i2)).a;
-                                            activityInfo.name = ((com.baidu.sofire.b.b) a.get(i2)).j;
-                                            activityInfo.configChanges = ((com.baidu.sofire.b.b) a.get(i2)).h;
-                                            activityInfo.flags = ((com.baidu.sofire.b.b) a.get(i2)).f;
-                                            activityInfo.labelRes = ((com.baidu.sofire.b.b) a.get(i2)).l;
-                                            activityInfo.launchMode = ((com.baidu.sofire.b.b) a.get(i2)).b;
-                                            activityInfo.nonLocalizedLabel = ((com.baidu.sofire.b.b) a.get(i2)).m;
-                                            activityInfo.packageName = ((com.baidu.sofire.b.b) a.get(i2)).k;
-                                            activityInfo.permission = ((com.baidu.sofire.b.b) a.get(i2)).c;
-                                            activityInfo.screenOrientation = ((com.baidu.sofire.b.b) a.get(i2)).g;
-                                            activityInfo.softInputMode = ((com.baidu.sofire.b.b) a.get(i2)).i;
-                                            activityInfo.targetActivity = ((com.baidu.sofire.b.b) a.get(i2)).e;
-                                            activityInfo.taskAffinity = ((com.baidu.sofire.b.b) a.get(i2)).d;
+                                            activityInfo.theme = a.get(i2).a;
+                                            activityInfo.name = a.get(i2).j;
+                                            activityInfo.configChanges = a.get(i2).h;
+                                            activityInfo.flags = a.get(i2).f;
+                                            activityInfo.labelRes = a.get(i2).l;
+                                            activityInfo.launchMode = a.get(i2).b;
+                                            activityInfo.nonLocalizedLabel = a.get(i2).m;
+                                            activityInfo.packageName = a.get(i2).k;
+                                            activityInfo.permission = a.get(i2).c;
+                                            activityInfo.screenOrientation = a.get(i2).g;
+                                            activityInfo.softInputMode = a.get(i2).i;
+                                            activityInfo.targetActivity = a.get(i2).e;
+                                            activityInfo.taskAffinity = a.get(i2).d;
                                             apkInfo2.activities[i2] = activityInfo;
                                         }
                                     }
@@ -576,7 +576,7 @@ public class a {
     public ApkInfo b(String str) {
         InterceptResult invokeL;
         Cursor cursor;
-        ArrayList a;
+        ArrayList<com.baidu.sofire.b.b> a;
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
@@ -614,19 +614,19 @@ public class a {
                                     apkInfo2.activities = new ActivityInfo[size];
                                     for (int i2 = 0; i2 < size; i2++) {
                                         ActivityInfo activityInfo = new ActivityInfo();
-                                        activityInfo.theme = ((com.baidu.sofire.b.b) a.get(i2)).a;
-                                        activityInfo.name = ((com.baidu.sofire.b.b) a.get(i2)).j;
-                                        activityInfo.configChanges = ((com.baidu.sofire.b.b) a.get(i2)).h;
-                                        activityInfo.flags = ((com.baidu.sofire.b.b) a.get(i2)).f;
-                                        activityInfo.labelRes = ((com.baidu.sofire.b.b) a.get(i2)).l;
-                                        activityInfo.launchMode = ((com.baidu.sofire.b.b) a.get(i2)).b;
-                                        activityInfo.nonLocalizedLabel = ((com.baidu.sofire.b.b) a.get(i2)).m;
-                                        activityInfo.packageName = ((com.baidu.sofire.b.b) a.get(i2)).k;
-                                        activityInfo.permission = ((com.baidu.sofire.b.b) a.get(i2)).c;
-                                        activityInfo.screenOrientation = ((com.baidu.sofire.b.b) a.get(i2)).g;
-                                        activityInfo.softInputMode = ((com.baidu.sofire.b.b) a.get(i2)).i;
-                                        activityInfo.targetActivity = ((com.baidu.sofire.b.b) a.get(i2)).e;
-                                        activityInfo.taskAffinity = ((com.baidu.sofire.b.b) a.get(i2)).d;
+                                        activityInfo.theme = a.get(i2).a;
+                                        activityInfo.name = a.get(i2).j;
+                                        activityInfo.configChanges = a.get(i2).h;
+                                        activityInfo.flags = a.get(i2).f;
+                                        activityInfo.labelRes = a.get(i2).l;
+                                        activityInfo.launchMode = a.get(i2).b;
+                                        activityInfo.nonLocalizedLabel = a.get(i2).m;
+                                        activityInfo.packageName = a.get(i2).k;
+                                        activityInfo.permission = a.get(i2).c;
+                                        activityInfo.screenOrientation = a.get(i2).g;
+                                        activityInfo.softInputMode = a.get(i2).i;
+                                        activityInfo.targetActivity = a.get(i2).e;
+                                        activityInfo.taskAffinity = a.get(i2).d;
                                         apkInfo2.activities[i2] = activityInfo;
                                     }
                                 }
@@ -944,7 +944,7 @@ public class a {
         return invokeI.booleanValue;
     }
 
-    public Map c() {
+    public Map<Integer, String> c() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
@@ -1000,7 +1000,7 @@ public class a {
         return (Map) invokeV.objValue;
     }
 
-    public Map d() {
+    public Map<Integer, String> d() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;

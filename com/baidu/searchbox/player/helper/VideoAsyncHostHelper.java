@@ -1,6 +1,7 @@
 package com.baidu.searchbox.player.helper;
 
 import android.content.SharedPreferences;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +19,7 @@ public class VideoAsyncHostHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VIDEO_MPD_HOST = "key_video_mpd_hosts";
     public static final String SP_FILE_NAME = "com.baidu.searchbox_bdvideoplayer";
-    public static volatile ArrayList sVideoHostWhiteList;
+    public static volatile ArrayList<String> sVideoHostWhiteList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +35,7 @@ public class VideoAsyncHostHelper {
                 return;
             }
         }
-        sVideoHostWhiteList = new ArrayList();
+        sVideoHostWhiteList = new ArrayList<>();
     }
 
     public VideoAsyncHostHelper() {
@@ -51,7 +52,7 @@ public class VideoAsyncHostHelper {
         }
     }
 
-    public static synchronized boolean isVideoUrlNeedAsyncRequest(String str) {
+    public static synchronized boolean isVideoUrlNeedAsyncRequest(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -62,9 +63,9 @@ public class VideoAsyncHostHelper {
                 if (sVideoHostWhiteList.isEmpty()) {
                     updateVideoHostWhiteList();
                 }
-                Iterator it = sVideoHostWhiteList.iterator();
+                Iterator<String> it = sVideoHostWhiteList.iterator();
                 while (it.hasNext()) {
-                    if (str.contains((String) it.next())) {
+                    if (str.contains(it.next())) {
                         return true;
                     }
                 }

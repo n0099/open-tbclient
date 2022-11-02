@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -40,6 +42,7 @@ public class OpenAppIntentUtil {
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0033, code lost:
         r0.setPackage(r2);
      */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -83,7 +86,8 @@ public class OpenAppIntentUtil {
         return (Intent) invokeCommon.objValue;
     }
 
-    public static Intent createIntent(Context context, String str, String str2, boolean z) {
+    @Nullable
+    public static Intent createIntent(@NonNull Context context, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
@@ -92,7 +96,7 @@ public class OpenAppIntentUtil {
         return (Intent) invokeCommon.objValue;
     }
 
-    public static Intent createIntent(Context context, String str, String str2, boolean z, OpenAppCallback openAppCallback) {
+    public static Intent createIntent(@NonNull Context context, String str, String str2, boolean z, @Nullable OpenAppCallback openAppCallback) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z), openAppCallback})) == null) {
@@ -104,6 +108,7 @@ public class OpenAppIntentUtil {
         return (Intent) invokeCommon.objValue;
     }
 
+    @Nullable
     public static Intent createSchemeIntent(Context context, String str, String str2, OpenAppCallback openAppCallback) {
         InterceptResult invokeLLLL;
         List<ResolveInfo> queryIntentActivities;

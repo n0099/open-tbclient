@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.d;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.core.request.model.f;
@@ -15,7 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static SimpleDateFormat EB = new SimpleDateFormat("yyyy-MM-dd");
     public static volatile a XK;
@@ -28,7 +29,7 @@ public class a {
         context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).edit().putInt("reward_aggregation_max_per_day", i).putLong("reward_aggregation_min_interval", j).apply();
     }
 
-    public static boolean a(f fVar) {
+    public static boolean a(@NonNull f fVar) {
         long j = fVar.acW;
         if (j <= 0) {
             return false;
@@ -36,7 +37,8 @@ public class a {
         return EB.format(new Date(j)).equals(EB.format(new Date()));
     }
 
-    public static List aA(int i) {
+    @NonNull
+    public static List<f> aA(int i) {
         ArrayList arrayList = new ArrayList();
         List<f> ts = ts();
         if (ts != null && ts.size() != 0) {
@@ -111,7 +113,7 @@ public class a {
         return XK;
     }
 
-    public static List ts() {
+    public static List<f> ts() {
         if (((d) ServiceProvider.get(d.class)).getContext() == null) {
             return null;
         }

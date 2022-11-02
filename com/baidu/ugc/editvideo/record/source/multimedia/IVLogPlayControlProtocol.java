@@ -23,7 +23,7 @@ public interface IVLogPlayControlProtocol {
     }
 
     /* loaded from: classes6.dex */
-    public abstract class OnPlayStateListenerAdapter implements OnPlayStateListener {
+    public static abstract class OnPlayStateListenerAdapter implements OnPlayStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

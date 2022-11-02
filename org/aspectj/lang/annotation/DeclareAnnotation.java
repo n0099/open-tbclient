@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.CONSTRUCTOR})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface DeclareAnnotation {
     String value();
 }

@@ -1,21 +1,26 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public int c;
-    public int d;
-    public ArrayList e;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public GeoPoint g;
+    public int h;
+    public int i;
+    public boolean j;
+    public int k;
+    public int l;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -28,19 +33,6 @@ public class q {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public ArrayList a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
-    }
-
-    public void a(ArrayList arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.e = arrayList;
         }
     }
 }

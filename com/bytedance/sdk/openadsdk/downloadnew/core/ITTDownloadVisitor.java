@@ -15,7 +15,7 @@ public interface ITTDownloadVisitor {
 
     void clearAllData(String str);
 
-    void execute(int i, String str, Map map, ITTHttpCallback iTTHttpCallback);
+    void execute(int i, String str, Map<String, Object> map, ITTHttpCallback iTTHttpCallback);
 
     void executeLogUpload(TTDownloadEventModel tTDownloadEventModel, boolean z);
 
@@ -35,7 +35,7 @@ public interface ITTDownloadVisitor {
 
     void requestPermission(Activity activity, String[] strArr, ITTPermissionCallback iTTPermissionCallback);
 
-    void showDialogByDelegate(WeakReference weakReference, boolean z, DialogBuilder dialogBuilder);
+    void showDialogByDelegate(WeakReference<Context> weakReference, boolean z, DialogBuilder dialogBuilder);
 
     AlertDialog showDialogBySelf(Activity activity, boolean z, DialogBuilder dialogBuilder);
 }

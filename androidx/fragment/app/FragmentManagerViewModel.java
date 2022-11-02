@@ -1,6 +1,8 @@
 package androidx.fragment.app;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -64,7 +66,8 @@ public final class FragmentManagerViewModel extends ViewModel {
             }
 
             @Override // androidx.lifecycle.ViewModelProvider.Factory
-            public <T extends ViewModel> T create(Class<T> cls) {
+            @NonNull
+            public <T extends ViewModel> T create(@NonNull Class<T> cls) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls)) == null) {
@@ -75,6 +78,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         };
     }
 
+    @NonNull
     public Collection<Fragment> getRetainedFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,7 +140,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         this.mStateAutomaticallySaved = z;
     }
 
-    public void clearNonConfigState(Fragment fragment) {
+    public void clearNonConfigState(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
@@ -155,6 +159,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         }
     }
 
+    @NonNull
     public static FragmentManagerViewModel getInstance(ViewModelStore viewModelStore) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -164,7 +169,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         return (FragmentManagerViewModel) invokeL.objValue;
     }
 
-    public boolean addRetainedFragment(Fragment fragment) {
+    public boolean addRetainedFragment(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fragment)) == null) {
@@ -177,6 +182,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public Fragment findRetainedFragmentByWho(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -186,7 +192,8 @@ public final class FragmentManagerViewModel extends ViewModel {
         return (Fragment) invokeL.objValue;
     }
 
-    public FragmentManagerViewModel getChildNonConfig(Fragment fragment) {
+    @NonNull
+    public FragmentManagerViewModel getChildNonConfig(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fragment)) == null) {
@@ -201,7 +208,8 @@ public final class FragmentManagerViewModel extends ViewModel {
         return (FragmentManagerViewModel) invokeL.objValue;
     }
 
-    public ViewModelStore getViewModelStore(Fragment fragment) {
+    @NonNull
+    public ViewModelStore getViewModelStore(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fragment)) == null) {
@@ -216,7 +224,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         return (ViewModelStore) invokeL.objValue;
     }
 
-    public boolean removeRetainedFragment(Fragment fragment) {
+    public boolean removeRetainedFragment(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, fragment)) == null) {
@@ -228,7 +236,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         return invokeL.booleanValue;
     }
 
-    public boolean shouldDestroy(Fragment fragment) {
+    public boolean shouldDestroy(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, fragment)) == null) {
@@ -262,6 +270,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     @Deprecated
     public FragmentManagerNonConfig getSnapshot() {
         InterceptResult invokeV;
@@ -287,7 +296,7 @@ public final class FragmentManagerViewModel extends ViewModel {
     }
 
     @Deprecated
-    public void restoreFromSnapshot(FragmentManagerNonConfig fragmentManagerNonConfig) {
+    public void restoreFromSnapshot(@Nullable FragmentManagerNonConfig fragmentManagerNonConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, fragmentManagerNonConfig) == null) {
             this.mRetainedFragments.clear();
@@ -319,6 +328,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         }
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

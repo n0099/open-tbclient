@@ -27,7 +27,7 @@ public class UPSNotificationMessage {
     public int mIsMacroReplace;
     public long mMsgId;
     public int mNotifyType;
-    public Map mParams;
+    public Map<String, String> mParams;
     public String mPurePicUrl;
     public boolean mShowTime;
     public String mSkipContent;
@@ -138,7 +138,7 @@ public class UPSNotificationMessage {
         return invokeV.intValue;
     }
 
-    public Map getParams() {
+    public Map<String, String> getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -278,7 +278,7 @@ public class UPSNotificationMessage {
         }
     }
 
-    public void setParams(Map map) {
+    public void setParams(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, map) == null) {
             this.mParams = map;

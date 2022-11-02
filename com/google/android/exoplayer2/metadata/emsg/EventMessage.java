@@ -16,7 +16,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class EventMessage implements Metadata.Entry {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<EventMessage> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final long durationMs;
     public int hashCode;
@@ -48,7 +48,7 @@ public final class EventMessage implements Metadata.Entry {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.emsg.EventMessage.1
+        CREATOR = new Parcelable.Creator<EventMessage>() { // from class: com.google.android.exoplayer2.metadata.emsg.EventMessage.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,6 +67,7 @@ public final class EventMessage implements Metadata.Entry {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public EventMessage createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -78,6 +79,7 @@ public final class EventMessage implements Metadata.Entry {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public EventMessage[] newArray(int i) {
                 InterceptResult invokeI;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.a.i;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class a extends com.sdk.e.b {
+public class a extends com.sdk.e.b<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ b b;
@@ -31,7 +31,7 @@ public class a extends com.sdk.e.b {
     }
 
     @Override // com.sdk.e.b
-    public void a(i iVar, String str) {
+    public void a(i<String> iVar, String str) {
         String str2;
         int i;
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class a extends com.sdk.e.b {
             if (iVar == null) {
                 str2 = "";
             } else {
-                str2 = (String) iVar.b;
+                str2 = iVar.b;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str2);

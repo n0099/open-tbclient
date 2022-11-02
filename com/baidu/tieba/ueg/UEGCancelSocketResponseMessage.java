@@ -1,5 +1,6 @@
 package com.baidu.tieba.ueg;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
@@ -46,6 +47,7 @@ public class UEGCancelSocketResponseMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         QueryBlockAndAppealInfoResIdl queryBlockAndAppealInfoResIdl;

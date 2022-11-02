@@ -1,59 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.container.BaseNativeBrowserContainer;
-import com.baidu.nadcore.webview.container.base.AbsContainer;
-import com.baidu.tieba.t41;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class v41 implements t41.a {
+public class v41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.t41.a
-    public boolean b(HashMap hashMap, int i) {
-        InterceptResult invokeLI;
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, i)) == null) {
-            return true;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return m31.c.a(zi0.b(), f);
         }
-        return invokeLI.booleanValue;
+        return invokeF.intValue;
     }
 
-    @Override // com.baidu.tieba.t41.a
-    public void c(Context context, boolean z, int i) {
+    public static int b(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return m31.c.a(zi0.b(), f);
         }
+        return invokeF.intValue;
     }
 
-    public v41() {
+    public static int c(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) {
+            return Math.round(f / 1.5f);
         }
+        return invokeF.intValue;
     }
 
-    @Override // com.baidu.tieba.t41.a
-    public AbsContainer a(z41 z41Var, a51 a51Var, int i) {
-        InterceptResult invokeLLI;
+    public static int d(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, z41Var, a51Var, i)) == null) {
-            return new BaseNativeBrowserContainer(z41Var, a51Var);
+        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
+            return b(f / 1.5f);
         }
-        return (AbsContainer) invokeLLI.objValue;
+        return invokeF.intValue;
     }
 }

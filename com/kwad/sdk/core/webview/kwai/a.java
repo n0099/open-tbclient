@@ -1,8 +1,11 @@
 package com.kwad.sdk.core.webview.kwai;
-/* loaded from: classes7.dex */
-public interface a {
-    void a(String str, c cVar);
 
+import androidx.annotation.NonNull;
+/* loaded from: classes8.dex */
+public interface a {
+    void a(String str, @NonNull c cVar);
+
+    @NonNull
     String getKey();
 
     void onDestroy();

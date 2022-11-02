@@ -2,8 +2,8 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.v36;
-import com.baidu.tieba.w36;
+import com.baidu.tieba.f56;
+import com.baidu.tieba.g56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,8 +17,8 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public ArrayList orderList;
-    public w36 recommendData;
+    public ArrayList<f56> orderList;
+    public g56 recommendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserOrderHttpResponseMessage(int i) {
@@ -39,7 +39,7 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.hasMore = false;
-        this.orderList = new ArrayList();
+        this.orderList = new ArrayList<>();
     }
 
     private void parseOrderListData(JSONArray jSONArray) {
@@ -49,9 +49,9 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         }
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            v36 v36Var = new v36();
-            v36Var.n(optJSONObject);
-            this.orderList.add(v36Var);
+            f56 f56Var = new f56();
+            f56Var.n(optJSONObject);
+            this.orderList.add(f56Var);
         }
     }
 
@@ -87,7 +87,7 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public ArrayList getOrderList() {
+    public ArrayList<f56> getOrderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -96,12 +96,12 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         return (ArrayList) invokeV.objValue;
     }
 
-    public w36 getRecommendInfo() {
+    public g56 getRecommendInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.recommendData;
         }
-        return (w36) invokeV.objValue;
+        return (g56) invokeV.objValue;
     }
 }

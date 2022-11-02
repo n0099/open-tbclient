@@ -41,7 +41,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
     public static final long MAX_BYTES_TO_DRAIN = 2048;
     public static final int MAX_REDIRECTS = 20;
     public static final String TAG = "DefaultHttpDataSource";
-    public static final AtomicReference skipBufferReference;
+    public static final AtomicReference<byte[]> skipBufferReference;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowCrossProtocolRedirects;
     public long bytesRead;
@@ -50,11 +50,11 @@ public class DefaultHttpDataSource implements HttpDataSource {
     public long bytesToSkip;
     public final int connectTimeoutMillis;
     public HttpURLConnection connection;
-    public final Predicate contentTypePredicate;
+    public final Predicate<String> contentTypePredicate;
     public DataSpec dataSpec;
     public final HttpDataSource.RequestProperties defaultRequestProperties;
     public InputStream inputStream;
-    public final TransferListener listener;
+    public final TransferListener<? super DefaultHttpDataSource> listener;
     public boolean opened;
     public final int readTimeoutMillis;
     public final HttpDataSource.RequestProperties requestProperties;
@@ -74,7 +74,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
             }
         }
         CONTENT_RANGE_HEADER = Pattern.compile("^bytes (\\d+)-(\\d+)/(\\d+)$");
-        skipBufferReference = new AtomicReference();
+        skipBufferReference = new AtomicReference<>();
     }
 
     private void closeConnectionQuietly() {
@@ -139,7 +139,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.HttpDataSource
-    public Map getResponseHeaders() {
+    public Map<String, List<String>> getResponseHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -167,7 +167,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultHttpDataSource(String str, Predicate predicate) {
+    public DefaultHttpDataSource(String str, Predicate<String> predicate) {
         this(str, predicate, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -205,7 +205,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultHttpDataSource(String str, Predicate predicate, TransferListener transferListener) {
+    public DefaultHttpDataSource(String str, Predicate<String> predicate, TransferListener<? super DefaultHttpDataSource> transferListener) {
         this(str, predicate, transferListener, 8000, 8000);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -226,7 +226,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultHttpDataSource(String str, Predicate predicate, TransferListener transferListener, int i, int i2) {
+    public DefaultHttpDataSource(String str, Predicate<String> predicate, TransferListener<? super DefaultHttpDataSource> transferListener, int i, int i2) {
         this(str, predicate, transferListener, i, i2, false, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -246,7 +246,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
         }
     }
 
-    public DefaultHttpDataSource(String str, Predicate predicate, TransferListener transferListener, int i, int i2, boolean z, HttpDataSource.RequestProperties requestProperties) {
+    public DefaultHttpDataSource(String str, Predicate<String> predicate, TransferListener<? super DefaultHttpDataSource> transferListener, int i, int i2, boolean z, HttpDataSource.RequestProperties requestProperties) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -368,12 +368,12 @@ public class DefaultHttpDataSource implements HttpDataSource {
             httpURLConnection.setReadTimeout(this.readTimeoutMillis);
             HttpDataSource.RequestProperties requestProperties = this.defaultRequestProperties;
             if (requestProperties != null) {
-                for (Map.Entry entry : requestProperties.getSnapshot().entrySet()) {
-                    httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : requestProperties.getSnapshot().entrySet()) {
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             }
-            for (Map.Entry entry2 : this.requestProperties.getSnapshot().entrySet()) {
-                httpURLConnection.setRequestProperty((String) entry2.getKey(), (String) entry2.getValue());
+            for (Map.Entry<String, String> entry2 : this.requestProperties.getSnapshot().entrySet()) {
+                httpURLConnection.setRequestProperty(entry2.getKey(), entry2.getValue());
             }
             if (j != 0 || j2 != -1) {
                 String str = "bytes=" + j + "-";
@@ -462,7 +462,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
                 throw new EOFException();
             }
             this.bytesRead += read;
-            TransferListener transferListener = this.listener;
+            TransferListener<? super DefaultHttpDataSource> transferListener = this.listener;
             if (transferListener != null) {
                 transferListener.onBytesTransferred(this, read);
             }
@@ -476,19 +476,19 @@ public class DefaultHttpDataSource implements HttpDataSource {
         if ((interceptable != null && interceptable.invokeV(65548, this) != null) || this.bytesSkipped == this.bytesToSkip) {
             return;
         }
-        byte[] bArr = (byte[]) skipBufferReference.getAndSet(null);
-        if (bArr == null) {
-            bArr = new byte[4096];
+        byte[] andSet = skipBufferReference.getAndSet(null);
+        if (andSet == null) {
+            andSet = new byte[4096];
         }
         while (true) {
             long j = this.bytesSkipped;
             long j2 = this.bytesToSkip;
             if (j != j2) {
-                int read = this.inputStream.read(bArr, 0, (int) Math.min(j2 - j, bArr.length));
+                int read = this.inputStream.read(andSet, 0, (int) Math.min(j2 - j, andSet.length));
                 if (!Thread.interrupted()) {
                     if (read != -1) {
                         this.bytesSkipped += read;
-                        TransferListener transferListener = this.listener;
+                        TransferListener<? super DefaultHttpDataSource> transferListener = this.listener;
                         if (transferListener != null) {
                             transferListener.onBytesTransferred(this, read);
                         }
@@ -499,7 +499,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
                     throw new InterruptedIOException();
                 }
             } else {
-                skipBufferReference.set(bArr);
+                skipBufferReference.set(andSet);
                 return;
             }
         }
@@ -532,7 +532,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
                 closeConnectionQuietly();
                 if (this.opened) {
                     this.opened = false;
-                    TransferListener transferListener = this.listener;
+                    TransferListener<? super DefaultHttpDataSource> transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferEnd(this);
                     }
@@ -557,7 +557,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
                     int responseCode = makeConnection.getResponseCode();
                     if (responseCode >= 200 && responseCode <= 299) {
                         String contentType = this.connection.getContentType();
-                        Predicate predicate = this.contentTypePredicate;
+                        Predicate<String> predicate = this.contentTypePredicate;
                         if (predicate != null && !predicate.evaluate(contentType)) {
                             closeConnectionQuietly();
                             throw new HttpDataSource.InvalidContentTypeException(contentType, dataSpec);
@@ -587,7 +587,7 @@ public class DefaultHttpDataSource implements HttpDataSource {
                         try {
                             this.inputStream = this.connection.getInputStream();
                             this.opened = true;
-                            TransferListener transferListener = this.listener;
+                            TransferListener<? super DefaultHttpDataSource> transferListener = this.listener;
                             if (transferListener != null) {
                                 transferListener.onTransferStart(this, dataSpec);
                             }

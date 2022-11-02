@@ -19,25 +19,25 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes8.dex */
-public final class ObservableRefCount extends AbstractObservableWithUpstream {
+public final class ObservableRefCount<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile CompositeDisposable baseDisposable;
     public final ReentrantLock lock;
-    public final ConnectableObservable source;
+    public final ConnectableObservable<? extends T> source;
     public final AtomicInteger subscriptionCount;
 
     /* loaded from: classes8.dex */
-    public final class ConnectionObserver extends AtomicReference implements Observer, Disposable {
+    public final class ConnectionObserver extends AtomicReference<Disposable> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3813126992133394324L;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompositeDisposable currentBase;
         public final Disposable resource;
-        public final Observer subscriber;
+        public final Observer<? super T> subscriber;
         public final /* synthetic */ ObservableRefCount this$0;
 
-        public ConnectionObserver(ObservableRefCount observableRefCount, Observer observer, CompositeDisposable compositeDisposable, Disposable disposable) {
+        public ConnectionObserver(ObservableRefCount observableRefCount, Observer<? super T> observer, CompositeDisposable compositeDisposable, Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public final class ObservableRefCount extends AbstractObservableWithUpstream {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -115,10 +115,10 @@ public final class ObservableRefCount extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.subscriber.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.subscriber.onNext(t);
             }
         }
 
@@ -132,14 +132,14 @@ public final class ObservableRefCount extends AbstractObservableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class DisposeConsumer implements Consumer {
+    public final class DisposeConsumer implements Consumer<Disposable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer observer;
+        public final Observer<? super T> observer;
         public final /* synthetic */ ObservableRefCount this$0;
         public final AtomicBoolean writeLocked;
 
-        public DisposeConsumer(ObservableRefCount observableRefCount, Observer observer, AtomicBoolean atomicBoolean) {
+        public DisposeConsumer(ObservableRefCount observableRefCount, Observer<? super T> observer, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,7 +222,7 @@ public final class ObservableRefCount extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableRefCount(ConnectableObservable connectableObservable) {
+    public ObservableRefCount(ConnectableObservable<T> connectableObservable) {
         super(connectableObservable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -246,7 +246,7 @@ public final class ObservableRefCount extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer) == null) {
@@ -281,7 +281,7 @@ public final class ObservableRefCount extends AbstractObservableWithUpstream {
         return (Disposable) invokeL.objValue;
     }
 
-    private Consumer onSubscribe(Observer observer, AtomicBoolean atomicBoolean) {
+    private Consumer<Disposable> onSubscribe(Observer<? super T> observer, AtomicBoolean atomicBoolean) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, observer, atomicBoolean)) == null) {
@@ -290,7 +290,7 @@ public final class ObservableRefCount extends AbstractObservableWithUpstream {
         return (Consumer) invokeLL.objValue;
     }
 
-    public void doSubscribe(Observer observer, CompositeDisposable compositeDisposable) {
+    public void doSubscribe(Observer<? super T> observer, CompositeDisposable compositeDisposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, observer, compositeDisposable) == null) {
             ConnectionObserver connectionObserver = new ConnectionObserver(this, observer, compositeDisposable, disconnect(compositeDisposable));

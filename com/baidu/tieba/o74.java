@@ -1,157 +1,79 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class o74 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static Method b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public volatile float height;
+    @V8JavascriptField
+    public volatile float left;
+    @V8JavascriptField
+    public volatile float top;
+    @V8JavascriptField
+    public volatile float width;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947985149, "Lcom/baidu/tieba/o74;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public interface a {
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    public o74() {
+        Resources resources;
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947985149, "Lcom/baidu/tieba/o74;");
+        if (ln2.c() != null) {
+            resources = ln2.c().getResources();
+        } else {
+            resources = null;
         }
+        this.left = a(resources, R.dimen.obfuscated_res_0x7f07070c);
+        this.top = a(resources, R.dimen.obfuscated_res_0x7f07070d);
+        this.width = a(resources, R.dimen.obfuscated_res_0x7f07070e);
+        this.height = a(resources, R.dimen.obfuscated_res_0x7f07070b);
     }
 
-    public static boolean a(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            if (!c) {
-                e();
-            }
-            Method method = b;
-            if (method == null) {
-                return false;
-            }
-            try {
-                method.invoke(a, strArr);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (cls == null) {
-                return false;
-            }
-            return a(b(cls.getName()));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (strArr != null && strArr.length > 0) {
-                return a(strArr);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String replaceAll = str.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "/");
-            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
-            }
-            return replaceAll;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (o74.class) {
-                if (c) {
-                    return;
-                }
-                try {
-                    c = true;
-                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
-                    Method b2 = p74.b(cls, "getRuntime", new Class[0]);
-                    if (b2 != null) {
-                        b2.setAccessible(true);
-                        Object invoke = b2.invoke(null, new Object[0]);
-                        a = invoke;
-                        if (invoke != null) {
-                            Method b3 = p74.b(cls, "setHiddenApiExemptions", String[].class);
-                            b = b3;
-                            if (b3 != null) {
-                                b3.setAccessible(true);
-                            }
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-        }
-    }
-
-    public static boolean f() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public final float a(Resources resources, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT > 29) {
-                return true;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
+            if (resources != null && i != 0) {
+                return u64.b(resources.getDimension(i));
             }
-            return false;
+            return 0.0f;
         }
-        return invokeV.booleanValue;
+        return invokeLI.floatValue;
     }
 }

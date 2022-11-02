@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WebResourceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,11 +19,11 @@ public class WebResourceResponse {
     public InputStream mInputStream;
     public String mMimeType;
     public String mReasonPhrase;
-    public Map mResponseHeaders;
+    public Map<String, String> mResponseHeaders;
     public int mStatusCode;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebResourceResponse(String str, String str2, int i, String str3, Map map, InputStream inputStream) {
+    public WebResourceResponse(String str, String str2, int i, String str3, Map<String, String> map, InputStream inputStream) {
         this(str, str2, inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +65,7 @@ public class WebResourceResponse {
         setData(inputStream);
     }
 
-    public WebResourceResponse(boolean z, String str, String str2, int i, String str3, Map map, InputStream inputStream) {
+    public WebResourceResponse(boolean z, String str, String str2, int i, String str3, Map<String, String> map, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +126,7 @@ public class WebResourceResponse {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mReasonPhrase : (String) invokeV.objValue;
     }
 
-    public Map getResponseHeaders() {
+    public Map<String, String> getResponseHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mResponseHeaders : (Map) invokeV.objValue;
@@ -165,7 +165,7 @@ public class WebResourceResponse {
         }
     }
 
-    public void setResponseHeaders(Map map) {
+    public void setResponseHeaders(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
             checkImmutable();

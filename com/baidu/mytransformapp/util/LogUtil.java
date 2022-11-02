@@ -1,6 +1,7 @@
 package com.baidu.mytransformapp.util;
 
 import android.app.Activity;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Keep
 /* loaded from: classes2.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -61,6 +63,7 @@ public class LogUtil {
         }
     }
 
+    @Keep
     public static void logActivity(Activity activity, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65539, null, activity, str) != null) || !AndroidActivityLogSwitch.isOn() || !"onCreate".equals(str) || activity == null) {

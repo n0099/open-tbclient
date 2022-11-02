@@ -1,8 +1,11 @@
 package com.kwad.components.ad.splashscreen.b;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -151,14 +154,14 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, int i, u.b bVar) {
+    public void a(boolean z, int i, @Nullable u.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), bVar}) == null) {
             this.yF.jD();
             int i2 = 0;
             boolean z2 = bVar != null;
             boolean z3 = i == 1;
-            com.kwad.components.core.c.a.a.a(new a.C0566a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b(this) { // from class: com.kwad.components.ad.splashscreen.b.m.6
+            com.kwad.components.core.c.a.a.a(new a.C0577a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b(this) { // from class: com.kwad.components.ad.splashscreen.b.m.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ m zt;
@@ -233,6 +236,7 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         }
     }
 
+    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void aF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
@@ -344,6 +348,7 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     private KsAdWebView.d getWebErrorListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -424,7 +429,7 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         return invokeV.intValue;
     }
 
-    public static boolean n(AdInfo adInfo) {
+    public static boolean n(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, adInfo)) == null) ? adInfo.adSplashInfo.fullScreenClickSwitch == 1 : invokeL.booleanValue;
@@ -435,8 +440,8 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.aq();
-            this.bF = (KsAdWebView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911f9);
-            this.zq = (ViewStub) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911e6);
+            this.bF = (KsAdWebView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091233);
+            this.zq = (ViewStub) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091220);
             this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
             com.kwad.components.ad.splashscreen.d.b bVar = new com.kwad.components.ad.splashscreen.d.b((ViewGroup) getRootView(), this.zq, this.bF, com.kwad.sdk.core.response.a.c.bF(this.yF.mAdTemplate), this.yF.mApkDownloadHelper);
             this.zp = bVar;
@@ -461,6 +466,7 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         }
     }
 
+    @SuppressLint({"WrongConstant"})
     public final void ku() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.zr) {

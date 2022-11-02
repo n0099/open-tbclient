@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -38,43 +40,45 @@ import com.baidu.tbadk.mutiprocess.event.TipEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad5;
-import com.baidu.tieba.ah6;
-import com.baidu.tieba.bh6;
-import com.baidu.tieba.bj6;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.ch6;
-import com.baidu.tieba.dd5;
-import com.baidu.tieba.dv6;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.bh;
+import com.baidu.tieba.by4;
+import com.baidu.tieba.di0;
+import com.baidu.tieba.dj6;
 import com.baidu.tieba.ei0;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fi0;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.ip5;
-import com.baidu.tieba.jh;
-import com.baidu.tieba.jv6;
-import com.baidu.tieba.ko6;
-import com.baidu.tieba.kx4;
-import com.baidu.tieba.lx4;
+import com.baidu.tieba.hq5;
+import com.baidu.tieba.hu6;
+import com.baidu.tieba.i45;
+import com.baidu.tieba.i56;
+import com.baidu.tieba.ki6;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.li6;
+import com.baidu.tieba.lk6;
+import com.baidu.tieba.mi6;
+import com.baidu.tieba.mo5;
+import com.baidu.tieba.mw6;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.ni6;
-import com.baidu.tieba.nn5;
-import com.baidu.tieba.on5;
-import com.baidu.tieba.pn5;
-import com.baidu.tieba.q35;
-import com.baidu.tieba.sa5;
+import com.baidu.tieba.nb5;
+import com.baidu.tieba.ng;
+import com.baidu.tieba.no5;
+import com.baidu.tieba.oo5;
+import com.baidu.tieba.sw6;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.th6;
-import com.baidu.tieba.ui5;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.tj5;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.tieba.view.GuidePopupWindow;
-import com.baidu.tieba.xg5;
-import com.baidu.tieba.y36;
-import com.baidu.tieba.ys6;
+import com.baidu.tieba.vp6;
+import com.baidu.tieba.wd5;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xj6;
+import com.baidu.tieba.yd5;
+import com.baidu.tieba.zd5;
+import com.baidu.tieba.zq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,50 +89,51 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ItemInfo;
 /* loaded from: classes4.dex */
-public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload, ni6, kx4, ei0 {
+public class FrsActivity extends BaseFragmentActivity implements oo5, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload, xj6, ay4, di0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ko6 a;
-    public ys6 b;
-    public vg c;
-    public vg d;
+    public vp6 a;
+    public hu6 b;
+    public ng<TbImageView> c;
+    public ng<TbImageView> d;
     public boolean e;
     public boolean f;
     public boolean g;
-    public WeakReference h;
-    public bj6 i;
+    public WeakReference<Context> h;
+    public lk6 i;
     public long j;
     public ItemInfo k;
     public GuidePopupWindow l;
     public boolean m;
+    @NonNull
     public final PriorityOrganizer n;
-    public final fi0 o;
-    public sa5 p;
-    public th6 q;
-    public sa5 r;
+    public final ei0 o;
+    public nb5 p;
+    public dj6 q;
+    public nb5 r;
     public CustomMessageListener s;
 
-    @Override // com.baidu.tieba.kx4
-    public String K0() {
+    @Override // com.baidu.tieba.ay4
+    public String L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i d1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i c1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.zc5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.vd5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,7 +141,7 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
     }
 
     /* loaded from: classes4.dex */
-    public class a extends sa5 {
+    public class a extends nb5<TipEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsActivity c;
@@ -160,7 +165,7 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.la5
+        @Override // com.baidu.tieba.gb5
         /* renamed from: a */
         public boolean onEvent(TipEvent tipEvent) {
             InterceptResult invokeL;
@@ -177,7 +182,7 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
     }
 
     /* loaded from: classes4.dex */
-    public class b extends sa5 {
+    public class b extends nb5<GoodsEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsActivity c;
@@ -201,13 +206,13 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.la5
+        @Override // com.baidu.tieba.gb5
         /* renamed from: a */
         public boolean onEvent(GoodsEvent goodsEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, goodsEvent)) == null) {
-                if (goodsEvent == null || this.c.a.G() == null) {
+                if (goodsEvent == null || this.c.a.F() == null) {
                     return false;
                 }
                 if (goodsEvent.getDispose()) {
@@ -216,7 +221,7 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
                 if (WriteActivityConfig.isAsyncWriting()) {
                     return false;
                 }
-                WriteActivityConfig.newInstance(this.c).setType(9).setForumWriteData(this.c.a.G().n3()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
+                WriteActivityConfig.newInstance(this.c).setType(9).setForumWriteData(this.c.a.F().n3()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
                 goodsEvent.setDispost(true);
                 return true;
             }
@@ -253,21 +258,21 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.a1();
+                this.a.b1();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d extends ad5 {
+    public class d extends wd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsActivity b;
 
-        @Override // com.baidu.tieba.ad5
+        @Override // com.baidu.tieba.wd5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -295,12 +300,12 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
             this.b = frsActivity;
         }
 
-        @Override // com.baidu.tieba.ad5
+        @Override // com.baidu.tieba.wd5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return dd5.b().c();
+                return zd5.b().c();
             }
             return invokeV.intValue;
         }
@@ -323,22 +328,22 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         this.g = true;
         this.m = false;
         this.n = PriorityOrganizer.n();
-        this.o = new fi0();
+        this.o = new ei0();
         this.p = new a(this);
-        this.q = new th6(this);
+        this.q = new dj6(this);
         this.r = new b(this);
         this.s = new c(this, 2921476);
     }
 
-    public final boolean U0() {
+    public final boolean X0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (!TbadkCoreApplication.isLogin() || ux4.k().h("has_guide_popup_window_been_shown", false)) {
+            if (!TbadkCoreApplication.isLogin() || ky4.k().h("has_guide_popup_window_been_shown", false)) {
                 return false;
             }
-            ko6 ko6Var = this.a;
-            if (ko6Var != null && ko6Var.L() != null && this.a.L().getUserData() != null && this.a.L().getUserData().getIs_manager() != 1) {
+            vp6 vp6Var = this.a;
+            if (vp6Var != null && vp6Var.K() != null && this.a.K().getUserData() != null && this.a.K().getUserData().getIs_manager() != 1) {
                 return false;
             }
             return true;
@@ -347,15 +352,15 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public cd5 getPageStayDurationItem() {
+    public yd5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            cd5 pageStayDurationItem = super.getPageStayDurationItem();
+            yd5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                ko6 ko6Var = this.a;
-                if (ko6Var != null && ko6Var.G() != null) {
-                    pageStayDurationItem.t(eh.g(this.a.G().l, 0L));
+                vp6 vp6Var = this.a;
+                if (vp6Var != null && vp6Var.F() != null) {
+                    pageStayDurationItem.t(wg.g(this.a.F().l, 0L));
                 }
                 if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                     pageStayDurationItem.q(TbadkCoreApplication.getInst().getAdAdSense().k);
@@ -363,45 +368,45 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
             }
             return pageStayDurationItem;
         }
-        return (cd5) invokeV.objValue;
+        return (yd5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        cd5 pageStayDurationItem;
+        yd5 pageStayDurationItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             this.lastResumeTime = 0L;
             super.onPause();
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                ko6Var.b0();
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                vp6Var.a0();
             }
             long j = this.j;
             if (j >= 0) {
                 long j2 = currentTimeMillis - j;
                 if (j2 >= 0 && (pageStayDurationItem = getPageStayDurationItem()) != null) {
                     pageStayDurationItem.y(j2);
-                    dd5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+                    zd5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
                 }
             }
             TbSingleton.getInstance().isInFrs = false;
-            bj6 bj6Var = this.i;
-            if (bj6Var != null) {
-                bj6Var.a();
+            lk6 lk6Var = this.i;
+            if (lk6Var != null) {
+                lk6Var.a();
             }
             this.m = false;
         }
     }
 
-    @Override // com.baidu.tieba.ni6
+    @Override // com.baidu.tieba.xj6
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var != null && ko6Var.G() != null && this.a.G().E3() != null && this.a.G().E3().C() != null && this.a.G().E3().C().d == 16) {
+            vp6 vp6Var = this.a;
+            if (vp6Var != null && vp6Var.F() != null && this.a.F().E3() != null && this.a.F().E3().C() != null && this.a.F().E3().C().d == 16) {
                 return true;
             }
             return false;
@@ -409,48 +414,48 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ni6
-    public void J0(ItemInfo itemInfo) {
+    @Override // com.baidu.tieba.xj6
+    public void K0(ItemInfo itemInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, itemInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) {
             this.k = itemInfo;
         }
     }
 
-    @Override // com.baidu.tieba.pn5
-    public void M(nn5 nn5Var) {
+    @Override // com.baidu.tieba.oo5
+    public void M(mo5 mo5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nn5Var) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var instanceof pn5) {
-                ko6Var.M(nn5Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, mo5Var) == null) {
+            vp6 vp6Var = this.a;
+            if (vp6Var instanceof oo5) {
+                vp6Var.M(mo5Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pn5
-    public on5 P0(int i) {
+    @Override // com.baidu.tieba.oo5
+    public no5 P0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var instanceof pn5) {
-                return ko6Var.P0(i);
+            vp6 vp6Var = this.a;
+            if (vp6Var instanceof oo5) {
+                return vp6Var.P0(i);
             }
             return null;
         }
-        return (on5) invokeI.objValue;
+        return (no5) invokeI.objValue;
     }
 
-    public void b1(boolean z) {
-        ko6 ko6Var;
-        FragmentTabHost H;
+    public void d1(boolean z) {
+        vp6 vp6Var;
+        FragmentTabHost G;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048593, this, z) == null) && (ko6Var = this.a) != null && (H = ko6Var.H()) != null && H.getFragmentTabWidget() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048595, this, z) == null) && (vp6Var = this.a) != null && (G = vp6Var.G()) != null && G.getFragmentTabWidget() != null) {
             if (z) {
-                H.d(2);
+                G.d(2);
             } else {
-                H.d(4);
+                G.d(4);
             }
         }
     }
@@ -459,7 +464,7 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, motionEvent)) == null) {
             this.o.a(motionEvent);
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -471,16 +476,16 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, view2) == null) {
             super.hideLoadingView(view2);
-            c1(view2, false);
+            f1(view2, false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        ko6 ko6Var;
+        vp6 vp6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048611, this, i) == null) && (ko6Var = this.a) != null) {
-            ko6Var.X(i);
+        if ((interceptable == null || interceptable.invokeI(1048611, this, i) == null) && (vp6Var = this.a) != null) {
+            vp6Var.W(i);
         }
     }
 
@@ -498,9 +503,9 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, intent) == null) {
             super.onNewIntent(intent);
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                ko6Var.a0(intent);
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                vp6Var.Z(intent);
             }
         }
     }
@@ -509,9 +514,9 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, bundle) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                ko6Var.d0(bundle);
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                vp6Var.c0(bundle);
             }
             bundle.putSerializable(FrsActivityConfig.FRS_PAGE_ID, getUniqueId());
         }
@@ -522,15 +527,15 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
             super.onScreenShot(str);
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                ko6Var.e0(str);
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                vp6Var.d0(str);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public vg H() {
+    public ng<TbImageView> H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -539,42 +544,44 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
             }
             return this.d;
         }
-        return (vg) invokeV.objValue;
+        return (ng) invokeV.objValue;
     }
 
-    public FrsFragment N0() {
+    @Override // com.baidu.tieba.di0
+    @NonNull
+    public ei0 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.o;
+        }
+        return (ei0) invokeV.objValue;
+    }
+
+    public FrsFragment O0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            vp6 vp6Var = this.a;
+            if (vp6Var == null) {
                 return null;
             }
-            return ko6Var.G();
+            return vp6Var.F();
         }
         return (FrsFragment) invokeV.objValue;
     }
 
-    public bj6 O0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (bj6) invokeV.objValue;
-    }
-
-    public ko6 R0() {
+    public lk6 R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
+            return this.i;
         }
-        return (ko6) invokeV.objValue;
+        return (lk6) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.e
-    public vg S() {
+    public ng<TbImageView> S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -583,49 +590,48 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
             }
             return this.c;
         }
-        return (vg) invokeV.objValue;
+        return (ng) invokeV.objValue;
     }
 
-    public void S0() {
-        ys6 ys6Var;
+    public vp6 S0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (ys6Var = this.b) != null) {
-            ys6Var.h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return (vp6) invokeV.objValue;
+    }
+
+    public void T0() {
+        hu6 hu6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hu6Var = this.b) != null) {
+            hu6Var.h();
         }
     }
 
-    public boolean T0() {
+    public boolean U0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.m;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ei0
-    public fi0 U() {
-        InterceptResult invokeV;
+    public final void b1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.o;
-        }
-        return (fi0) invokeV.objValue;
-    }
-
-    public final void a1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && U0()) {
-            ux4.k().u("has_guide_popup_window_been_shown", true);
-            Z0();
-            jh.i(this.l, this);
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && X0()) {
+            ky4.k().u("has_guide_popup_window_been_shown", true);
+            a1();
+            bh.i(this.l, this);
         }
     }
 
     public PriorityOrganizer d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.n;
         }
         return (PriorityOrganizer) invokeV.objValue;
@@ -634,7 +640,7 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             if (!this.e && !this.f) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 1);
             } else {
@@ -653,14 +659,14 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.zc5
-    public ad5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.vd5
+    public wd5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return new d(this);
         }
-        return (ad5) invokeV.objValue;
+        return (wd5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -669,9 +675,9 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         TbPageTag tbPageTag;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                tbPageTag = ko6Var.K();
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                tbPageTag = vp6Var.J();
             } else {
                 tbPageTag = null;
             }
@@ -683,7 +689,7 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ni6
+    @Override // com.baidu.tieba.xj6
     public ItemInfo j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -699,12 +705,12 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
             super.onResume();
             if (this.g) {
-                ui5.f(this.h);
+                tj5.f(this.h);
                 this.g = false;
             }
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                ko6Var.c0();
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                vp6Var.b0();
             }
             TbSingleton.getInstance().isInFrs = true;
             this.m = true;
@@ -721,13 +727,13 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager t0() {
+    public VoiceManager s0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                return ko6Var.t0();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                return vp6Var.s0();
             }
             return null;
         }
@@ -739,16 +745,16 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var != null && ko6Var.G() != null) {
-                return this.a.G().videoNeedPreload();
+            vp6 vp6Var = this.a;
+            if (vp6Var != null && vp6Var.F() != null) {
+                return this.a.F().videoNeedPreload();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean V0(int i, KeyEvent keyEvent) {
+    public boolean Y0(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, keyEvent)) == null) {
@@ -757,13 +763,13 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pn5
-    public void o0(int i, on5 on5Var) {
+    @Override // com.baidu.tieba.oo5
+    public void o0(int i, no5 no5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048609, this, i, on5Var) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var instanceof pn5) {
-                ko6Var.o0(i, on5Var);
+        if (interceptable == null || interceptable.invokeIL(1048609, this, i, no5Var) == null) {
+            vp6 vp6Var = this.a;
+            if (vp6Var instanceof oo5) {
+                vp6Var.o0(i, no5Var);
             }
         }
     }
@@ -773,20 +779,20 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i, keyEvent)) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                return ko6Var.Z(i, keyEvent);
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                return vp6Var.Y(i, keyEvent);
             }
             return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
-    public final void Y0() {
-        ko6 ko6Var;
+    public final void Z0() {
+        vp6 vp6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (ko6Var = this.a) != null && ko6Var.L() != null && this.a.L().getForum() != null) {
-            SpecHotTopicHelper.removeSpecTopicIconForFrs(Long.valueOf(eh.g(this.a.L().getForum().getId(), 0L)));
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (vp6Var = this.a) != null && vp6Var.K() != null && this.a.K().getForum() != null) {
+            SpecHotTopicHelper.removeSpecTopicIconForFrs(Long.valueOf(wg.g(this.a.K().getForum().getId(), 0L)));
         }
     }
 
@@ -801,28 +807,28 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         }
     }
 
-    @Override // com.baidu.tieba.kx4
+    @Override // com.baidu.tieba.ay4
     public String g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            ko6 ko6Var = this.a;
-            if (ko6Var != null && ko6Var.L() != null && this.a.L().getForum() != null) {
-                return this.a.L().getForum().getId();
+            vp6 vp6Var = this.a;
+            if (vp6Var != null && vp6Var.K() != null && this.a.K().getForum() != null) {
+                return this.a.K().getForum().getId();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void Z0() {
-        ko6 ko6Var;
+    public final void a1() {
+        vp6 vp6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.l != null && (ko6Var = this.a) != null && ko6Var.L() != null && this.a.L().getForum() != null) {
-            ForumData forum = this.a.L().getForum();
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.l != null && (vp6Var = this.a) != null && vp6Var.K() != null && this.a.K().getForum() != null) {
+            ForumData forum = this.a.K().getForum();
             this.l.t();
-            this.l.s(String.valueOf(this.a.L().getUserData().getLevel_id()));
-            this.l.r(this.a.L().getUserData());
+            this.l.s(String.valueOf(this.a.K().getUserData().getLevel_id()));
+            this.l.r(this.a.K().getUserData());
             this.l.k(forum.getName());
             this.l.p(forum.getMember_num(), forum.getThread_num());
             this.l.o(Integer.parseInt(forum.getId()));
@@ -830,8 +836,8 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.zc5
-    public List getNextPageSourceKeyList() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.vd5
+    public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
@@ -839,9 +845,9 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
             if (nextPageSourceKeyList == null) {
                 nextPageSourceKeyList = new ArrayList<>();
             }
-            ko6 ko6Var = this.a;
-            if (ko6Var != null && ko6Var.R() && this.a.H() != null && (this.a.H().getCurrentFragment() instanceof BaseFragment) && ((BaseFragment) this.a.H().getCurrentFragment()).getCurrentPageKey() != null && ((BaseFragment) this.a.H().getCurrentFragment()).isPrimary()) {
-                nextPageSourceKeyList.add(((BaseFragment) this.a.H().getCurrentFragment()).getCurrentPageKey());
+            vp6 vp6Var = this.a;
+            if (vp6Var != null && vp6Var.Q() && this.a.G() != null && (this.a.G().getCurrentFragment() instanceof BaseFragment) && ((BaseFragment) this.a.G().getCurrentFragment()).getCurrentPageKey() != null && ((BaseFragment) this.a.G().getCurrentFragment()).isPrimary()) {
+                nextPageSourceKeyList.add(((BaseFragment) this.a.G().getCurrentFragment()).getCurrentPageKey());
             } else {
                 nextPageSourceKeyList.add(getCurrentPageKey());
             }
@@ -850,16 +856,16 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         return (List) invokeV.objValue;
     }
 
-    public void c1(View view2, boolean z) {
+    public void f1(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048594, this, view2, z) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090ae8) {
+        if (interceptable == null || interceptable.invokeLZ(1048598, this, view2, z) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090afb) {
                 TbSingleton.getInstance().setFrsRootViewLoadingShow(z);
             } else if (view2.getId() == 16908290) {
                 TbSingleton.getInstance().setFrsContentViewLoadingShow(z);
             }
             if (TbSingleton.getInstance().isFrsLoadingViewHided()) {
-                S0();
+                T0();
             }
         }
     }
@@ -869,28 +875,28 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048610, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                ko6Var.W(i, i2, intent);
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                vp6Var.V(i, i2, intent);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048618, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-            N0().onRequestPermissionsResult(i, strArr, iArr);
+            O0().onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void showLoadingView(View view2, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             super.showLoadingView(view2, z, i);
-            c1(view2, true);
+            f1(view2, true);
         }
     }
 
@@ -916,41 +922,42 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            ip5.k().d();
-            ko6 ko6Var = new ko6(this);
-            this.a = ko6Var;
-            ko6Var.N(bundle);
-            if (ys6.i(intent)) {
+            hq5.k().d();
+            zq5.i().b();
+            vp6 vp6Var = new vp6(this);
+            this.a = vp6Var;
+            vp6Var.L(bundle);
+            if (hu6.i(intent)) {
                 this.e = true;
                 enterExitAnimation();
                 if (this.b == null) {
-                    ys6 ys6Var = new ys6(this, (ViewGroup) getWindow().getDecorView(), getIntent());
-                    this.b = ys6Var;
-                    ys6Var.l();
+                    hu6 hu6Var = new hu6(this, (ViewGroup) getWindow().getDecorView(), getIntent());
+                    this.b = hu6Var;
+                    hu6Var.l();
                 }
             }
-            this.h = new WeakReference(TbadkCoreApplication.getInst());
-            this.i = new bj6(this);
+            this.h = new WeakReference<>(TbadkCoreApplication.getInst());
+            this.i = new lk6(this);
             registerResponsedEventListener(TipEvent.class, this.p);
-            y36.a(getIntent(), getPageContext(), 25050);
+            i56.a(getIntent(), getPageContext(), 25050);
             this.l = new GuidePopupWindow(this);
             registerListener(this.s);
             registerListener(this.q);
             this.r.setPriority(10);
             registerResponsedEventListener(GoodsEvent.class, this.r);
-            if (UbsABTestHelper.isFrsFunAdSdkTest() && xg5.r()) {
-                ko6 ko6Var2 = this.a;
-                if (ko6Var2 != null && ko6Var2.G() != null) {
-                    str = this.a.G().U();
+            if (UbsABTestHelper.isFrsFunAdSdkTest() && th5.r()) {
+                vp6 vp6Var2 = this.a;
+                if (vp6Var2 != null && vp6Var2.F() != null) {
+                    str = this.a.F().U();
                 } else {
                     str = "";
                 }
-                dv6.m().K(this, jv6.e().d("frs_feed"), dv6.b("frs", "1"), str, xg5.f());
+                mw6.m().K(this, sw6.e().d("frs_feed"), mw6.b("frs", "1"), str, th5.f());
             }
             if (this.a != null) {
-                lx4.c(this.a.E() + "_onCreate_" + System.currentTimeMillis());
+                by4.c(this.a.D() + "_onCreate_" + System.currentTimeMillis());
             }
-            q35.b(true);
+            i45.b(true);
         }
     }
 
@@ -959,29 +966,30 @@ public class FrsActivity extends BaseFragmentActivity implements pn5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             super.onDestroy();
-            Y0();
-            ko6 ko6Var = this.a;
-            if (ko6Var != null) {
-                if (ko6Var.L() != null && this.a.L().getForum() != null && !TextUtils.isEmpty(this.a.L().getForum().getId())) {
-                    FrsVideoTabPlayActivityConfig.removeVideoTabListByFid(this.a.L().getForum().getId());
-                    FrsVideoTabPlayActivityConfig.subtractFrsPageCount(this.a.L().getForum().getId());
+            Z0();
+            vp6 vp6Var = this.a;
+            if (vp6Var != null) {
+                if (vp6Var.K() != null && this.a.K().getForum() != null && !TextUtils.isEmpty(this.a.K().getForum().getId())) {
+                    FrsVideoTabPlayActivityConfig.removeVideoTabListByFid(this.a.K().getForum().getId());
+                    FrsVideoTabPlayActivityConfig.subtractFrsPageCount(this.a.K().getForum().getId());
                 }
-                this.a.Y();
+                this.a.X();
             }
-            bh6.f().m();
-            ah6.h().n();
-            ah6.h().c();
-            ch6.c().a();
-            if (!ej.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+            li6.f().m();
+            ki6.h().n();
+            ki6.h().c();
+            mi6.c().a();
+            if (!wi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 TbadkCoreApplication.getInst().setTaskId("");
             }
-            FrsNetModel frsNetModel = (FrsNetModel) TbadkCoreApplication.getInst().getFrsModeArray().get(getUniqueId().getId());
+            FrsNetModel frsNetModel = TbadkCoreApplication.getInst().getFrsModeArray().get(getUniqueId().getId());
             if (frsNetModel != null) {
                 frsNetModel.b0(null);
             }
             TbadkCoreApplication.getInst().getFrsModeArray().remove(getUniqueId().getId());
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
-            ip5.k().e();
+            hq5.k().e();
+            zq5.i().c();
         }
     }
 }

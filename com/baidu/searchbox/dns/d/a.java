@@ -47,16 +47,16 @@ public class a extends com.baidu.searchbox.dns.d.b.a {
     private void a(com.baidu.searchbox.dns.d.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bVar) == null) {
-            Map B = bVar.B();
+            Map<String, com.baidu.searchbox.dns.d.a.a> B = bVar.B();
             if (B != null && !B.isEmpty()) {
-                for (Map.Entry entry : B.entrySet()) {
-                    com.baidu.searchbox.dns.a.a.e().a((String) entry.getKey(), (com.baidu.searchbox.dns.d.a.a) entry.getValue());
+                for (Map.Entry<String, com.baidu.searchbox.dns.d.a.a> entry : B.entrySet()) {
+                    com.baidu.searchbox.dns.a.a.e().a(entry.getKey(), entry.getValue());
                 }
             }
-            Map C = bVar.C();
+            Map<String, com.baidu.searchbox.dns.d.a.a> C = bVar.C();
             if (C != null && !C.isEmpty()) {
-                for (Map.Entry entry2 : C.entrySet()) {
-                    com.baidu.searchbox.dns.a.a.e().b((String) entry2.getKey(), (com.baidu.searchbox.dns.d.a.a) entry2.getValue());
+                for (Map.Entry<String, com.baidu.searchbox.dns.d.a.a> entry2 : C.entrySet()) {
+                    com.baidu.searchbox.dns.a.a.e().b(entry2.getKey(), entry2.getValue());
                 }
             }
             String D = bVar.D();

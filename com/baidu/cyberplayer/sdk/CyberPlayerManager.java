@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+@Keep
+/* loaded from: classes2.dex */
 public class CyberPlayerManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABR_MODE = -1;
@@ -39,9 +39,13 @@ public class CyberPlayerManager {
     public static final int DiskLevelCritical = 2;
     public static final int DiskLevelNormal = 0;
     public static final int DiskLevelWarning = 1;
+    @Keep
     public static final int INSTALL_INFO_CRYPTO_SO_PATH_CHANGED = 102;
+    @Keep
     public static final int INSTALL_INFO_FFMPEG_SO_PATH_CHANGED = 100;
+    @Keep
     public static final int INSTALL_INFO_PROGRESS_UPDATE = 103;
+    @Keep
     public static final int INSTALL_INFO_SSL_SO_PATH_CHANGED = 101;
     public static final String INSTALL_OPT_ABTEST_SID = "abtest_sid";
     public static final String INSTALL_OPT_ABTEST_SWITCH_START_CODE = "cybermedia_abtest_";
@@ -236,10 +240,11 @@ public class CyberPlayerManager {
     public static int l;
     public static String m;
     public static String n;
-    public static Class o;
-    public static Map p;
+    public static Class<?> o;
+    public static Map<String, String> p;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     /* loaded from: classes.dex */
     public interface GetNetHandleListener {
         Long getKerNetHandle();
@@ -247,16 +252,19 @@ public class CyberPlayerManager {
         Long getPcdnNetHandle();
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface HttpDNS {
-        List getIpList(String str);
+        List<String> getIpList(String str);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface HttpDNS2 {
-        List getIpList2(String str, boolean z);
+        List<String> getIpList2(String str, boolean z);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface InstallListener {
         void onInstallError(int i, int i2, String str);
@@ -267,61 +275,73 @@ public class CyberPlayerManager {
         void onInstallSuccess(int i, String str);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface InstallListener2 extends InstallListener {
         void onInstallInfo(int i, int i2, Object obj);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(int i);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnDeleteListener {
         void onDeleteComplete(int i, long j);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnErrorListener {
         boolean onError(int i, int i2, Object obj);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnInfoListener {
         boolean onInfo(int i, int i2, Object obj);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnMediaSourceChangedListener {
         boolean onMediaSourceChanged(int i, int i2, Object obj);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete();
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnUpdateDiskQuotaComplete {
         void notifyCompletion();
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnVideoFlowListener {
-        void onRecordFlow(HashMap hashMap);
+        void onRecordFlow(HashMap<String, String> hashMap);
     }
 
+    @Keep
     /* loaded from: classes.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(int i, int i2, int i3, int i4);
@@ -360,12 +380,12 @@ public class CyberPlayerManager {
         }
     }
 
-    public static void a(Map map) {
+    public static void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65542, null, map) == null) || map == null) {
             return;
         }
-        String str = (String) map.get(INSTALL_OPT_ENABLE_SF_SWITCH);
+        String str = map.get(INSTALL_OPT_ENABLE_SF_SWITCH);
         if (!TextUtils.isEmpty(str)) {
             try {
                 if (Integer.parseInt(str) == 1) {
@@ -375,7 +395,7 @@ public class CyberPlayerManager {
             } catch (Exception unused) {
             }
         }
-        String str2 = (String) map.get(INSTALL_OPT_APP_VERSION_NAME);
+        String str2 = map.get(INSTALL_OPT_APP_VERSION_NAME);
         if (TextUtils.isEmpty(str2)) {
             return;
         }
@@ -522,13 +542,13 @@ public class CyberPlayerManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? CyberVersion.getCoreVersion() : (String) invokeV.objValue;
     }
 
-    public static int getDevicePlayQualityScore(String str, int i2, int i3, int i4, Map map) {
+    public static int getDevicePlayQualityScore(String str, int i2, int i3, int i4, Map<String, String> map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map})) == null) ? d.a(str, i2, i3, i4, map) : invokeCommon.intValue;
     }
 
-    public static List getIPListWithHost(String str) {
+    public static List<String> getIPListWithHost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
@@ -541,7 +561,7 @@ public class CyberPlayerManager {
         return (List) invokeL.objValue;
     }
 
-    public static Map getInstallOpts() {
+    public static Map<String, String> getInstallOpts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? p : (Map) invokeV.objValue;
@@ -574,7 +594,7 @@ public class CyberPlayerManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? CyberCfgManager.getInstance().getCfgIntValue("upload_prelog_thres", -1) : invokeV.intValue;
     }
 
-    public static Class getRemoteServiceClass() {
+    public static Class<?> getRemoteServiceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? o : (Class) invokeV.objValue;
@@ -586,7 +606,7 @@ public class CyberPlayerManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? CyberVersion.getSDKVersion() : (String) invokeV.objValue;
     }
 
-    public static HashMap getSystemInfraInfo() {
+    public static HashMap<Integer, Long> getSystemInfraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? d.j() : (HashMap) invokeV.objValue;
@@ -614,12 +634,12 @@ public class CyberPlayerManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65571, null, context, str, str2) == null) {
             synchronized (CyberPlayerManager.class) {
-                install(context, str, str2, 7, (Class) null, (Map) null, (InstallListener2) null);
+                install(context, str, str2, 7, (Class<?>) null, (Map<String, String>) null, (InstallListener2) null);
             }
         }
     }
 
-    public static synchronized void install(Context context, String str, String str2, int i2, Class cls, Map map, InstallListener2 installListener2) throws Exception {
+    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener2 installListener2) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65572, null, new Object[]{context, str, str2, Integer.valueOf(i2), cls, map, installListener2}) == null) {
             synchronized (CyberPlayerManager.class) {
@@ -648,7 +668,7 @@ public class CyberPlayerManager {
     }
 
     @Deprecated
-    public static synchronized void install(Context context, String str, String str2, int i2, Class cls, Map map, InstallListener installListener) throws Exception {
+    public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener installListener) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{context, str, str2, Integer.valueOf(i2), cls, map, installListener}) == null) {
             synchronized (CyberPlayerManager.class) {
@@ -768,14 +788,13 @@ public class CyberPlayerManager {
         }
     }
 
-    public static void preResolveHosts(List list) {
+    public static void preResolveHosts(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, list) == null) {
             CyberLog.d("CyberPlayer", "preResolveHosts hosts: " + list);
             if (f != null) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    f.getIpList2((String) it.next(), false);
+                for (String str : list) {
+                    f.getIpList2(str, false);
                 }
             }
         }
@@ -879,7 +898,7 @@ public class CyberPlayerManager {
         }
     }
 
-    public static void videoFlowCallback(HashMap hashMap) {
+    public static void videoFlowCallback(HashMap<String, String> hashMap) {
         OnVideoFlowListener onVideoFlowListener;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65594, null, hashMap) == null) || (onVideoFlowListener = e) == null) {

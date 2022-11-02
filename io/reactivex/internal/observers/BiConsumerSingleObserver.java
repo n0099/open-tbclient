@@ -15,13 +15,13 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class BiConsumerSingleObserver extends AtomicReference implements SingleObserver, Disposable {
+public final class BiConsumerSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4943102778943297569L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiConsumer onCallback;
+    public final BiConsumer<? super T, ? super Throwable> onCallback;
 
-    public BiConsumerSingleObserver(BiConsumer biConsumer) {
+    public BiConsumerSingleObserver(BiConsumer<? super T, ? super Throwable> biConsumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,12 +62,12 @@ public final class BiConsumerSingleObserver extends AtomicReference implements S
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(Object obj) {
+    public void onSuccess(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             try {
                 lazySet(DisposableHelper.DISPOSED);
-                this.onCallback.accept(obj, null);
+                this.onCallback.accept(t, null);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

@@ -1,32 +1,35 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zx3 {
+public class zx3 extends kr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public EventTargetImpl d;
+    public wx3 e;
 
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.kr2
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return invokeCommon.intValue;
+        return invokeV.booleanValue;
     }
 
     static {
@@ -42,42 +45,69 @@ public class zx3 {
                 return;
             }
         }
-        a = wj1.a;
+        f = ok1.a;
     }
 
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, String str2) {
-        InterceptResult invokeLL;
-        char c;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zx3(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList arrayList = new ArrayList();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == -1253235525 && str.equals("gamejs")) {
-                c = 0;
-            } else {
-                c = 65535;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eventTargetImpl, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                xx3 a2 = yx3.a();
-                codeCacheSetting.maxCount = a2.a;
-                codeCacheSetting.sizeLimit = a2.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
-            }
-            if (a) {
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
-            }
-            return codeCacheSetting;
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+        this.d = eventTargetImpl;
+    }
+
+    @Override // com.baidu.tieba.kr2
+    public void b(String str, JSONObject jSONObject) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            wx3 wx3Var = this.e;
+            if (wx3Var != null) {
+                wx3Var.p(optString, jSONObject);
+            }
+            if (!this.d.hasEventListener(optString)) {
+                return;
+            }
+            JSEvent jSEvent = new JSEvent(optString);
+            if (jSONObject != null) {
+                jSEvent.data = jSONObject;
+            }
+            if (f && !"onTimeUpdate".equals(str)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("type = ");
+                sb.append(str);
+                sb.append("  result = ");
+                if (jSONObject != null) {
+                    str2 = jSONObject.toString();
+                } else {
+                    str2 = StringUtil.NULL_STRING;
+                }
+                sb.append(str2);
+                Log.d("AudioCallbackForV8", sb.toString());
+            }
+            this.d.dispatchEvent(jSEvent);
+        }
+    }
+
+    public void e(wx3 wx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wx3Var) == null) {
+            this.e = wx3Var;
+        }
     }
 }

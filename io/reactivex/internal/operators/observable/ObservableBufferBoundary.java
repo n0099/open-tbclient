@@ -26,39 +26,39 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableBufferBoundary extends AbstractObservableWithUpstream {
+public final class ObservableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function bufferClose;
-    public final ObservableSource bufferOpen;
-    public final Callable bufferSupplier;
+    public final Function<? super Open, ? extends ObservableSource<? extends Close>> bufferClose;
+    public final ObservableSource<? extends Open> bufferOpen;
+    public final Callable<U> bufferSupplier;
 
     /* loaded from: classes8.dex */
-    public final class BufferBoundaryObserver extends AtomicInteger implements Observer, Disposable {
+    public static final class BufferBoundaryObserver<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8466418554264089604L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final Function bufferClose;
-        public final ObservableSource bufferOpen;
-        public final Callable bufferSupplier;
-        public Map buffers;
+        public final Observer<? super C> actual;
+        public final Function<? super Open, ? extends ObservableSource<? extends Close>> bufferClose;
+        public final ObservableSource<? extends Open> bufferOpen;
+        public final Callable<C> bufferSupplier;
+        public Map<Long, C> buffers;
         public volatile boolean cancelled;
         public volatile boolean done;
         public final AtomicThrowable errors;
         public long index;
         public final CompositeDisposable observers;
-        public final SpscLinkedArrayQueue queue;
-        public final AtomicReference upstream;
+        public final SpscLinkedArrayQueue<C> queue;
+        public final AtomicReference<Disposable> upstream;
 
         /* loaded from: classes8.dex */
-        public final class BufferOpenObserver extends AtomicReference implements Observer, Disposable {
+        public static final class BufferOpenObserver<Open> extends AtomicReference<Disposable> implements Observer<Open>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8498650778633225126L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final BufferBoundaryObserver parent;
+            public final BufferBoundaryObserver<?, ?, Open, ?> parent;
 
-            public BufferOpenObserver(BufferBoundaryObserver bufferBoundaryObserver) {
+            public BufferOpenObserver(BufferBoundaryObserver<?, ?, Open, ?> bufferBoundaryObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,10 +86,10 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             }
 
             @Override // io.reactivex.Observer
-            public void onNext(Object obj) {
+            public void onNext(Open open) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                    this.parent.open(obj);
+                if (interceptable == null || interceptable.invokeL(1048580, this, open) == null) {
+                    this.parent.open(open);
                 }
             }
 
@@ -132,7 +132,7 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             }
         }
 
-        public BufferBoundaryObserver(Observer observer, ObservableSource observableSource, Function function, Callable callable) {
+        public BufferBoundaryObserver(Observer<? super C> observer, ObservableSource<? extends Open> observableSource, Function<? super Open, ? extends ObservableSource<? extends Close>> function, Callable<C> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,9 +151,9 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             this.bufferSupplier = callable;
             this.bufferOpen = observableSource;
             this.bufferClose = function;
-            this.queue = new SpscLinkedArrayQueue(Observable.bufferSize());
+            this.queue = new SpscLinkedArrayQueue<>(Observable.bufferSize());
             this.observers = new CompositeDisposable();
-            this.upstream = new AtomicReference();
+            this.upstream = new AtomicReference<>();
             this.buffers = new LinkedHashMap();
             this.errors = new AtomicThrowable();
         }
@@ -167,7 +167,7 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             }
         }
 
-        public void close(BufferCloseObserver bufferCloseObserver, long j) {
+        public void close(BufferCloseObserver<T, C> bufferCloseObserver, long j) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferCloseObserver, j) == null) {
@@ -212,12 +212,12 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 this.observers.dispose();
                 synchronized (this) {
-                    Map map = this.buffers;
+                    Map<Long, C> map = this.buffers;
                     if (map == null) {
                         return;
                     }
-                    for (Collection collection : map.values()) {
-                        this.queue.offer(collection);
+                    for (C c : map.values()) {
+                        this.queue.offer(c);
                     }
                     this.buffers = null;
                     this.done = true;
@@ -232,8 +232,8 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Observer observer = this.actual;
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            Observer<? super C> observer = this.actual;
+            SpscLinkedArrayQueue<C> spscLinkedArrayQueue = this.queue;
             int i = 1;
             while (!this.cancelled) {
                 boolean z2 = this.done;
@@ -242,8 +242,8 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
                     observer.onError(this.errors.terminate());
                     return;
                 }
-                Collection collection = (Collection) spscLinkedArrayQueue.poll();
-                if (collection == null) {
+                C poll = spscLinkedArrayQueue.poll();
+                if (poll == null) {
                     z = true;
                 } else {
                     z = false;
@@ -257,7 +257,7 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
                         return;
                     }
                 } else {
-                    observer.onNext(collection);
+                    observer.onNext(poll);
                 }
             }
             spscLinkedArrayQueue.clear();
@@ -268,7 +268,7 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) this.upstream.get());
+                return DisposableHelper.isDisposed(this.upstream.get());
             }
             return invokeV.booleanValue;
         }
@@ -300,7 +300,7 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             }
         }
 
-        public void openComplete(BufferOpenObserver bufferOpenObserver) {
+        public void openComplete(BufferOpenObserver<Open> bufferOpenObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, bufferOpenObserver) == null) {
                 this.observers.delete(bufferOpenObserver);
@@ -313,32 +313,34 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
                 synchronized (this) {
-                    Map map = this.buffers;
+                    Map<Long, C> map = this.buffers;
                     if (map == null) {
                         return;
                     }
-                    for (Collection collection : map.values()) {
-                        collection.add(obj);
+                    for (C c : map.values()) {
+                        c.add(t);
                     }
                 }
             }
         }
 
-        public void open(Object obj) {
+        /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.util.Map<java.lang.Long, C extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void open(Open open) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048585, this, open) == null) {
                 try {
                     Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
-                    ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.bufferClose.apply(obj), "The bufferClose returned a null ObservableSource");
+                    ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.bufferClose.apply(open), "The bufferClose returned a null ObservableSource");
                     long j = this.index;
                     this.index = 1 + j;
                     synchronized (this) {
-                        Map map = this.buffers;
-                        if (map == null) {
+                        Map<Long, C> map = this.buffers;
+                        if (map == 0) {
                             return;
                         }
                         map.put(Long.valueOf(j), collection);
@@ -356,14 +358,14 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
     }
 
     /* loaded from: classes8.dex */
-    public final class BufferCloseObserver extends AtomicReference implements Observer, Disposable {
+    public static final class BufferCloseObserver<T, C extends Collection<? super T>> extends AtomicReference<Disposable> implements Observer<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8498650778633225126L;
         public transient /* synthetic */ FieldHolder $fh;
         public final long index;
-        public final BufferBoundaryObserver parent;
+        public final BufferBoundaryObserver<T, C, ?, ?> parent;
 
-        public BufferCloseObserver(BufferBoundaryObserver bufferBoundaryObserver, long j) {
+        public BufferCloseObserver(BufferBoundaryObserver<T, C, ?, ?> bufferBoundaryObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -407,9 +409,9 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Object obj = get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj != disposableHelper) {
+                if (disposable != disposableHelper) {
                     lazySet(disposableHelper);
                     this.parent.close(this, this.index);
                 }
@@ -420,9 +422,9 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                Object obj = get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj != disposableHelper) {
+                if (disposable != disposableHelper) {
                     lazySet(disposableHelper);
                     this.parent.boundaryError(this, th);
                     return;
@@ -436,7 +438,7 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
             Disposable disposable;
             DisposableHelper disposableHelper;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (disposable = (Disposable) get()) != (disposableHelper = DisposableHelper.DISPOSED)) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (disposable = get()) != (disposableHelper = DisposableHelper.DISPOSED)) {
                 lazySet(disposableHelper);
                 disposable.dispose();
                 this.parent.close(this, this.index);
@@ -453,7 +455,7 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableBufferBoundary(ObservableSource observableSource, ObservableSource observableSource2, Function function, Callable callable) {
+    public ObservableBufferBoundary(ObservableSource<T> observableSource, ObservableSource<? extends Open> observableSource2, Function<? super Open, ? extends ObservableSource<? extends Close>> function, Callable<U> callable) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -476,7 +478,7 @@ public final class ObservableBufferBoundary extends AbstractObservableWithUpstre
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super U> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             BufferBoundaryObserver bufferBoundaryObserver = new BufferBoundaryObserver(observer, this.bufferOpen, this.bufferClose, this.bufferSupplier);

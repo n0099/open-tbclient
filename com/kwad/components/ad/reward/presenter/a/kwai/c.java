@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,6 +35,7 @@ import org.json.JSONObject;
 public final class c extends com.kwad.components.ad.reward.presenter.a implements x.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public com.kwad.components.ad.i.b bb;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
@@ -232,7 +234,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
             boolean aY = com.kwad.sdk.core.response.a.a.aY(this.mAdInfo);
             boolean cc = com.kwad.sdk.core.response.a.d.cc(this.mAdTemplate);
             if (aY && cc) {
-                q qVar = new q(R.id.obfuscated_res_0x7f091127);
+                q qVar = new q(R.id.obfuscated_res_0x7f091161);
                 this.sz = qVar;
                 qVar.a(new p.a(this) { // from class: com.kwad.components.ad.reward.presenter.a.kwai.c.2
                     public static /* synthetic */ Interceptable $ic;
@@ -350,7 +352,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
                     detailVideoView.updateTextureViewGravity(i);
                     c cVar3 = this.sE;
                     cVar3.sD = cVar3.mDetailVideoView.getBackground();
-                    this.sE.mDetailVideoView.setBackgroundColor(this.sE.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06077f));
+                    this.sE.mDetailVideoView.setBackgroundColor(this.sE.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060780));
                     this.sE.hL();
                 }
             });
@@ -361,7 +363,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
     public void hL() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || (imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091066)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || (imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a0)) == null) {
             return;
         }
         imageView.setVisibility(0);
@@ -414,10 +416,10 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
             com.kwad.components.ad.reward.c.eZ().a(this.mRewardVerifyListener);
             this.sw.setCallerContext(this.nM);
             this.sw.a(getContext(), this.nM.mScreenOrientation == 0, hN());
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09112d);
-            this.sy = viewStub != null ? new j(this.nM, viewStub) : new j(this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09116f));
-            ViewStub viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09112e);
-            this.sA = viewStub2 != null ? new n(this.mAdTemplate, this.nM, viewStub2, this.mDetailVideoView) : new n(this.mAdTemplate, this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09110e), this.mDetailVideoView);
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091167);
+            this.sy = viewStub != null ? new j(this.nM, viewStub) : new j(this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911a9));
+            ViewStub viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091168);
+            this.sA = viewStub2 != null ? new n(this.mAdTemplate, this.nM, viewStub2, this.mDetailVideoView) : new n(this.mAdTemplate, this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091148), this.mDetailVideoView);
             hJ();
         }
     }
@@ -434,8 +436,8 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.sw = (TailFrameView) findViewById(R.id.obfuscated_res_0x7f091224);
-            DetailVideoView detailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091220);
+            this.sw = (TailFrameView) findViewById(R.id.obfuscated_res_0x7f09125e);
+            DetailVideoView detailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125a);
             this.mDetailVideoView = detailVideoView;
             if (detailVideoView.getLayoutTransition() != null) {
                 this.mDetailVideoView.getLayoutTransition().enableTransitionType(4);

@@ -1,6 +1,9 @@
 package androidx.webkit.internal;
 
+import android.annotation.SuppressLint;
 import android.webkit.WebResourceError;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.webkit.WebResourceErrorCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +22,7 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
     public WebResourceErrorBoundaryInterface mBoundaryInterface;
     public WebResourceError mFrameworksImpl;
 
-    public WebResourceErrorImpl(WebResourceError webResourceError) {
+    public WebResourceErrorImpl(@NonNull WebResourceError webResourceError) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +40,7 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
         this.mFrameworksImpl = webResourceError;
     }
 
-    public WebResourceErrorImpl(InvocationHandler invocationHandler) {
+    public WebResourceErrorImpl(@NonNull InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,6 +70,7 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
         return (WebResourceErrorBoundaryInterface) invokeV.objValue;
     }
 
+    @RequiresApi(23)
     private WebResourceError getFrameworksImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,6 +84,8 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
     }
 
     @Override // androidx.webkit.WebResourceErrorCompat
+    @NonNull
+    @SuppressLint({"NewApi"})
     public CharSequence getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,6 +103,7 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
     }
 
     @Override // androidx.webkit.WebResourceErrorCompat
+    @SuppressLint({"NewApi"})
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

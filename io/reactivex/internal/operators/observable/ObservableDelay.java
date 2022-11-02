@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.observers.SerializedObserver;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class ObservableDelay extends AbstractObservableWithUpstream {
+public final class ObservableDelay<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -23,10 +23,10 @@ public final class ObservableDelay extends AbstractObservableWithUpstream {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class DelayObserver implements Observer, Disposable {
+    public static final class DelayObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public final long delay;
         public final boolean delayError;
         public Disposable s;
@@ -113,15 +113,15 @@ public final class ObservableDelay extends AbstractObservableWithUpstream {
         public final class OnNext implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final Object t;
+            public final T t;
             public final /* synthetic */ DelayObserver this$0;
 
-            public OnNext(DelayObserver delayObserver, Object obj) {
+            public OnNext(DelayObserver delayObserver, T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {delayObserver, obj};
+                    Object[] objArr = {delayObserver, t};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -132,19 +132,20 @@ public final class ObservableDelay extends AbstractObservableWithUpstream {
                     }
                 }
                 this.this$0 = delayObserver;
-                this.t = obj;
+                this.t = t;
             }
 
+            /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$0.actual.onNext(this.t);
+                    this.this$0.actual.onNext((T) this.t);
                 }
             }
         }
 
-        public DelayObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler.Worker worker, boolean z) {
+        public DelayObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,10 +211,10 @@ public final class ObservableDelay extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.w.schedule(new OnNext(this, obj), this.delay, this.unit);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.w.schedule(new OnNext(this, t), this.delay, this.unit);
             }
         }
 
@@ -228,7 +229,7 @@ public final class ObservableDelay extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDelay(ObservableSource observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public ObservableDelay(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -252,7 +253,7 @@ public final class ObservableDelay extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         SerializedObserver serializedObserver;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {

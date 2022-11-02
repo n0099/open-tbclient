@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.auth;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -24,6 +25,7 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
     public static a c;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.cmic.sso.sdk.c.c.a a;

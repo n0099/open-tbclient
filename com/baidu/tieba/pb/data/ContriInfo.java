@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class ContriInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!ej.isEmpty(this.colorMsg) && !ej.isEmpty(this.afterMsg)) {
+            if (!wi.isEmpty(this.colorMsg) && !wi.isEmpty(this.afterMsg)) {
                 return true;
             }
             return false;
@@ -91,7 +91,7 @@ public class ContriInfo implements Serializable {
         this.colorMsg = jSONObject.optString("color_msg");
         String optString = jSONObject.optString("after_msg");
         this.afterMsg = optString;
-        if (!ej.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
+        if (!wi.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.afterMsg.substring(0, indexOf));
             sb.append("\n");

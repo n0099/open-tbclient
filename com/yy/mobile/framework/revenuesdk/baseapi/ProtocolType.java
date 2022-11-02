@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpVersion;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+@Keep
 /* loaded from: classes8.dex */
 public final class ProtocolType {
     public static final /* synthetic */ ProtocolType[] $VALUES;

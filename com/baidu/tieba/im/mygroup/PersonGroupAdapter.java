@@ -21,7 +21,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
     public static int c = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
-    public ArrayList b;
+    public ArrayList<PersonalGroupFragment> b;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.b = new ArrayList();
+        this.b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
@@ -73,9 +73,9 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
             this.a = new int[]{0, 1};
         }
         c = this.a.length;
-        Iterator it = this.b.iterator();
+        Iterator<PersonalGroupFragment> it = this.b.iterator();
         while (it.hasNext()) {
-            ((PersonalGroupFragment) it.next()).getArguments().putInt(SuggestAddrField.KEY_PAGE_SIZE, this.b.size());
+            it.next().getArguments().putInt(SuggestAddrField.KEY_PAGE_SIZE, this.b.size());
         }
     }
 
@@ -94,7 +94,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i < c && i >= 0) {
-                return (Fragment) this.b.get(i);
+                return this.b.get(i);
             }
             return null;
         }

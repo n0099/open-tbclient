@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.platform;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ColorSpace;
@@ -11,6 +12,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.memory.BitmapPool;
 import com.facebook.imageutils.BitmapUtil;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
+@TargetApi(26)
 /* loaded from: classes7.dex */
 public class OreoDecoder extends DefaultDecoder {
     public static /* synthetic */ Interceptable $ic;

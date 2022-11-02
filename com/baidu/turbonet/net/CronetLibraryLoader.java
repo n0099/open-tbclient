@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.z89;
+import com.baidu.tieba.ia9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class CronetLibraryLoader {
     public static final HandlerThread b;
     public static volatile boolean c;
     public static boolean d;
-    public static List e;
+    public static List<Runnable> e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static native void nativeCronetInitOnInitThread();
@@ -38,7 +38,7 @@ public class CronetLibraryLoader {
     public static native String nativeGetTurboNetVersion();
 
     /* loaded from: classes6.dex */
-    public final class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -94,7 +94,7 @@ public class CronetLibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            z89.h("TurboNetLibraryLoader", "getTurboNetHandler, init done " + d, new Object[0]);
+            ia9.h("TurboNetLibraryLoader", "getTurboNetHandler, init done " + d, new Object[0]);
             if (d) {
                 return nativeGetTurboNetHandler();
             }
@@ -140,7 +140,7 @@ public class CronetLibraryLoader {
                 ContextUtils.b(context.getApplicationContext());
                 builder.m();
                 ContextUtils.c();
-                z89.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
+                ia9.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.b(context.getApplicationContext());
                 if (!b.isAlive()) {
                     b.start();

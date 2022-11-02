@@ -3,24 +3,32 @@ package com.kwad.sdk.api.proxy;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
+@Keep
 /* loaded from: classes7.dex */
 public interface IServiceProxy extends IComponentProxy {
     @KsAdSdkDynamicApi
-    IBinder onBind(Service service, Intent intent);
+    @Keep
+    IBinder onBind(@NonNull Service service, Intent intent);
 
     @KsAdSdkDynamicApi
-    void onCreate(Service service);
+    @Keep
+    void onCreate(@NonNull Service service);
 
     @KsAdSdkDynamicApi
-    void onDestroy(Service service);
+    @Keep
+    void onDestroy(@NonNull Service service);
 
     @KsAdSdkDynamicApi
-    void onRebind(Service service, Intent intent);
+    @Keep
+    void onRebind(@NonNull Service service, Intent intent);
 
     @KsAdSdkDynamicApi
-    int onStartCommand(Service service, Intent intent, int i, int i2);
+    @Keep
+    int onStartCommand(@NonNull Service service, Intent intent, int i, int i2);
 
     boolean onUnbind(Service service, Intent intent);
 }

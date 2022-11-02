@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ShareEvent extends SerializableEvent {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int FROM_DUXIAOMAN = 1;
+    public static final int FROM_NAMOAIXUD = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int channel;
     public String extLiveInfo;

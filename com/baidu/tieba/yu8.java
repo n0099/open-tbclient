@@ -1,35 +1,68 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.app.KeyguardManager;
-import android.app.WallpaperManager;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.PowerManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class yu8 {
+public class yu8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public KeyguardManager a;
-    public PowerManager b;
-    public PowerManager.WakeLock c;
-    public KeyguardManager.KeyguardLock d;
-    public Context e;
+    public List<Object> a;
+    public TbPageContext<?> b;
+    public xu8 c;
 
-    public yu8() {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public BubbleItemView b;
+        public BubbleItemView c;
+        public View d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public yu8(TbPageContext<?> tbPageContext, xu8 xu8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, xu8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,106 +72,115 @@ public class yu8 {
                 return;
             }
         }
-        try {
-            Application app = TbadkCoreApplication.getInst().getApp();
-            this.e = app;
-            PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.b = powerManager;
-            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.c = newWakeLock;
-            newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
-            this.a = keyguardManager;
-            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        this.b = tbPageContext;
+        this.c = xu8Var;
     }
 
-    public static Drawable a() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
+    public void a(List<Object> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            try {
-                Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
-                if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
-                    return null;
-                }
-                int min = Math.min(fj.k(inst), bitmap.getWidth());
-                int min2 = Math.min(fj.i(inst), bitmap.getHeight());
-                try {
-                    try {
-                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                    } catch (Throwable unused) {
-                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th.getMessage());
-                    return null;
-                }
-            } catch (Exception unused2) {
-            }
-        } else {
-            return (Drawable) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            List<Object> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
+            return null;
         }
-        return invokeV.booleanValue;
+        return invokeI.objValue;
     }
 
-    public boolean c() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
+            }
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return getItem(i) instanceof List ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.isScreenOn();
+            List<Object> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void d() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                this.d.reenableKeyguard();
-                if (this.c != null) {
-                    this.c.release();
-                    this.c = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            Object item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else if (getItemViewType(i) == 0) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012f, viewGroup, false);
+                aVar = new a();
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d2b);
+                view2.setTag(aVar);
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016b, viewGroup, false);
+                aVar = new a();
+                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090399);
+                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f09039a);
+                aVar.d = view2.findViewById(R.id.divider_line);
+                view2.setTag(aVar);
             }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.c == null) {
-                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
-                    this.c = newWakeLock;
-                    newWakeLock.setReferenceCounted(false);
+            if (item != null) {
+                if (getItemViewType(i) == 0) {
+                    aVar.a.setText(item.toString());
+                } else {
+                    List list = (List) item;
+                    aVar.b.d((DressItemData) list.get(0));
+                    aVar.b.setController(this.c);
+                    aVar.b.setFromBubbleGroup(true);
+                    if (list.size() > 1) {
+                        aVar.c.d((DressItemData) list.get(1));
+                        aVar.c.setController(this.c);
+                        aVar.c.setFromBubbleGroup(true);
+                    } else {
+                        aVar.c.e();
+                    }
+                    if (getItem(i + 1) instanceof List) {
+                        aVar.d.setVisibility(8);
+                    } else {
+                        aVar.d.setVisibility(0);
+                    }
                 }
-                if (this.c != null) {
-                    this.c.acquire(10000L);
-                    this.d.disableKeyguard();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
             }
+            this.b.getLayoutMode().k(view2);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

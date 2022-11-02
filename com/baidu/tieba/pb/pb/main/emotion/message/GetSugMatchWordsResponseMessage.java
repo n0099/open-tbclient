@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mData;
+    public List<String> mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetSugMatchWordsResponseMessage(int i) {
@@ -38,7 +38,7 @@ public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    private List parseSugMatchWordsData(JSONArray jSONArray) {
+    private List<String> parseSugMatchWordsData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
@@ -69,7 +69,7 @@ public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getData() {
+    public List<String> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

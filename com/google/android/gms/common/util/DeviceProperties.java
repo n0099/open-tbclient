@@ -1,10 +1,13 @@
 package com.google.android.gms.common.util;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,20 +15,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.GooglePlayServicesUtilLight;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class DeviceProperties {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
     public static Boolean zza;
+    @Nullable
     public static Boolean zzb;
+    @Nullable
     public static Boolean zzc;
+    @Nullable
     public static Boolean zzd;
+    @Nullable
     public static Boolean zze;
+    @Nullable
     public static Boolean zzf;
+    @Nullable
     public static Boolean zzg;
+    @Nullable
     public static Boolean zzh;
+    @Nullable
     public static Boolean zzi;
+    @Nullable
     public static Boolean zzj;
+    @Nullable
     public static Boolean zzk;
+    @Nullable
     public static Boolean zzl;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +60,8 @@ public final class DeviceProperties {
         }
     }
 
-    public static boolean isAuto(Context context) {
+    @KeepForSdk
+    public static boolean isAuto(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -60,7 +78,8 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isBstar(Context context) {
+    @KeepForSdk
+    public static boolean isBstar(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -76,7 +95,8 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isLatchsky(Context context) {
+    @KeepForSdk
+    public static boolean isLatchsky(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
@@ -93,7 +113,8 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isTablet(Resources resources) {
+    @KeepForSdk
+    public static boolean isTablet(@NonNull Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, resources)) == null) {
@@ -112,7 +133,8 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isTv(Context context) {
+    @KeepForSdk
+    public static boolean isTv(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
@@ -129,7 +151,9 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isWearable(Context context) {
+    @KeepForSdk
+    @TargetApi(20)
+    public static boolean isWearable(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
@@ -146,7 +170,8 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean zza(Context context) {
+    @TargetApi(21)
+    public static boolean zza(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
@@ -162,7 +187,7 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean zzb(Context context) {
+    public static boolean zzb(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
@@ -178,7 +203,7 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean zzc(Resources resources) {
+    public static boolean zzc(@NonNull Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, resources)) == null) {
@@ -198,7 +223,8 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isPhone(Context context) {
+    @KeepForSdk
+    public static boolean isPhone(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -224,7 +250,8 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isSevenInchTablet(Context context) {
+    @KeepForSdk
+    public static boolean isSevenInchTablet(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -233,7 +260,9 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isSidewinder(Context context) {
+    @KeepForSdk
+    @TargetApi(21)
+    public static boolean isSidewinder(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -242,7 +271,8 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isTablet(Context context) {
+    @KeepForSdk
+    public static boolean isTablet(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -251,7 +281,9 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
-    public static boolean isWearableWithoutPlayStore(Context context) {
+    @KeepForSdk
+    @TargetApi(26)
+    public static boolean isWearableWithoutPlayStore(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -268,6 +300,7 @@ public final class DeviceProperties {
         return invokeL.booleanValue;
     }
 
+    @KeepForSdk
     public static boolean isUserBuild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class la extends ka {
+public class la extends ka<CustomMessage<?>, CustomMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a extends BdAsyncTask {
+    public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CustomMessage a;
@@ -97,7 +97,7 @@ public class la extends ka {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public void onPostExecute(CustomResponsedMessage customResponsedMessage) {
+        public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null) {
@@ -131,7 +131,7 @@ public class la extends ka {
     }
 
     @Override // com.baidu.tieba.ha
-    public LinkedList e(int i, BdUniqueId bdUniqueId) {
+    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         String str;
         Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class la extends ka {
                 str = null;
             }
             LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, str);
-            LinkedList linkedList = new LinkedList();
+            LinkedList<CustomMessage<?>> linkedList = new LinkedList<>();
             Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
             while (it.hasNext()) {
                 BdAsyncTask<?, ?, ?> next = it.next();
@@ -162,7 +162,7 @@ public class la extends ka {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, customMessage, customMessageTask) == null) && customMessage != null && customMessageTask != null) {
             if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
-                CustomResponsedMessage customResponsedMessage = null;
+                CustomResponsedMessage<?> customResponsedMessage = null;
                 try {
                     customResponsedMessage = customMessageTask.getRunnable().run(customMessage);
                     if (customResponsedMessage != null) {
@@ -195,7 +195,7 @@ public class la extends ka {
         }
     }
 
-    public LinkedList i(BdUniqueId bdUniqueId) {
+    public LinkedList<CustomMessage<?>> i(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) {
@@ -211,17 +211,17 @@ public class la extends ka {
         }
     }
 
-    public CustomResponsedMessage k(CustomMessage customMessage, CustomMessageTask customMessageTask, Class cls) {
+    public <T> CustomResponsedMessage<T> k(CustomMessage customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, customMessage, customMessageTask, cls)) == null) {
-            CustomResponsedMessage customResponsedMessage = null;
+            CustomResponsedMessage<T> customResponsedMessage = null;
             if (customMessageTask == null) {
                 return null;
             }
             if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 try {
-                    customResponsedMessage = customMessageTask.getRunnable().run(customMessage);
+                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.getRunnable().run(customMessage);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }

@@ -4,11 +4,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.nr9;
+import com.baidu.tieba.ws9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,6 +22,8 @@ import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.Locale;
+@Singleton
+@Service
 /* loaded from: classes2.dex */
 public class BlockMonitor implements IBlockMonitor {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,18 +33,18 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER;
     public static String sBlockTimeStamp;
     public transient /* synthetic */ FieldHolder $fh;
-    public nr9 mBlockWatchDog;
+    public ws9 mBlockWatchDog;
     public boolean mMonitorStarted;
 
     /* renamed from: com.baidu.searchbox.block.impl.BlockMonitor$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class BlockListenerImpl implements nr9.f {
+    public static class BlockListenerImpl implements ws9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +66,7 @@ public class BlockMonitor implements IBlockMonitor {
             this();
         }
 
-        @Override // com.baidu.tieba.nr9.f
+        @Override // com.baidu.tieba.ws9.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -117,15 +121,15 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        nr9 nr9Var;
+        ws9 ws9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (nr9Var = this.mBlockWatchDog) != null) {
-            nr9Var.interrupt();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (ws9Var = this.mBlockWatchDog) != null) {
+            ws9Var.interrupt();
             this.mMonitorStarted = false;
         }
     }
 
-    public static void collectData(LinkedHashMap linkedHashMap) {
+    public static void collectData(LinkedHashMap<Long, StackTraceElement[]> linkedHashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, null, linkedHashMap) != null) || AppRuntime.getAppContext() == null) {
             return;
@@ -141,7 +145,7 @@ public class BlockMonitor implements IBlockMonitor {
         BlockContext.getBlockContext().onAppBlock(AppRuntime.getAppContext(), new BlockInfo(sBlockTimeStamp, str));
     }
 
-    public static String getThreadStackEntries(LinkedHashMap linkedHashMap) {
+    public static String getThreadStackEntries(LinkedHashMap<Long, StackTraceElement[]> linkedHashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedHashMap)) == null) {
@@ -149,7 +153,7 @@ public class BlockMonitor implements IBlockMonitor {
             for (Long l : linkedHashMap.keySet()) {
                 sb.append(TIME_FORMATTER.format(l));
                 sb.append("\r\n");
-                sb.append(stack2String((StackTraceElement[]) linkedHashMap.get(l)));
+                sb.append(stack2String(linkedHashMap.get(l)));
                 sb.append("\r\n");
                 sb.append("\r\n");
             }
@@ -186,9 +190,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        nr9 nr9Var = new nr9(i);
-        this.mBlockWatchDog = nr9Var;
-        nr9Var.e();
+        ws9 ws9Var = new ws9(i);
+        this.mBlockWatchDog = ws9Var;
+        ws9Var.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl(null));
         if (AppConfig.isDebug()) {

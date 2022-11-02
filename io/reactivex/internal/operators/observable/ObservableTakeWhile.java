@@ -14,21 +14,21 @@ import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableTakeWhile extends AbstractObservableWithUpstream {
+public final class ObservableTakeWhile<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
+    public final Predicate<? super T> predicate;
 
     /* loaded from: classes8.dex */
-    public final class TakeWhileObserver implements Observer, Disposable {
+    public static final class TakeWhileObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public boolean done;
-        public final Predicate predicate;
+        public final Predicate<? super T> predicate;
         public Disposable s;
 
-        public TakeWhileObserver(Observer observer, Predicate predicate) {
+        public TakeWhileObserver(Observer<? super T> observer, Predicate<? super T> predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,19 +98,19 @@ public final class ObservableTakeWhile extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             try {
-                if (!this.predicate.test(obj)) {
+                if (!this.predicate.test(t)) {
                     this.done = true;
                     this.s.dispose();
                     this.actual.onComplete();
                     return;
                 }
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.dispose();
@@ -120,7 +120,7 @@ public final class ObservableTakeWhile extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTakeWhile(ObservableSource observableSource, Predicate predicate) {
+    public ObservableTakeWhile(ObservableSource<T> observableSource, Predicate<? super T> predicate) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -141,7 +141,7 @@ public final class ObservableTakeWhile extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new TakeWhileObserver(observer, this.predicate));

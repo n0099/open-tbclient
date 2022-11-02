@@ -5,6 +5,7 @@ import android.util.LruCache;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.spswitch.emotion.EmotionUtils;
 import com.baidu.spswitch.emotion.resource.EmotionAPSManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,7 +28,7 @@ public class EmotionUsageUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_USAGE_FILE_NAME = "emotion-usage.json";
     public static int LRU_MAX_COUNT = 5;
-    public static LruCache sUsageData;
+    public static LruCache<String, Object> sUsageData;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +44,7 @@ public class EmotionUsageUtil {
                 return;
             }
         }
-        sUsageData = new LruCache(LRU_MAX_COUNT);
+        sUsageData = new LruCache<>(LRU_MAX_COUNT);
         restoreFromDisk();
     }
 
@@ -175,7 +176,7 @@ public class EmotionUsageUtil {
         saveToDisk();
     }
 
-    public static List getEmotionUsageList(Map map) {
+    public static List<String> getEmotionUsageList(Map<String, EmotionUtils.EmotionClassic> map) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -187,7 +188,7 @@ public class EmotionUsageUtil {
                     z = false;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (Map.Entry entry : sUsageData.snapshot().entrySet()) {
+                for (Map.Entry<String, Object> entry : sUsageData.snapshot().entrySet()) {
                     if (z) {
                         if (map.containsKey(entry.getKey())) {
                             arrayList.add(entry.getKey());
@@ -204,7 +205,7 @@ public class EmotionUsageUtil {
         return (List) invokeL.objValue;
     }
 
-    public static Map jsonToMap(String str) {
+    public static Map<String, Object> jsonToMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
@@ -234,7 +235,7 @@ public class EmotionUsageUtil {
         return (Map) invokeL.objValue;
     }
 
-    public static String mapToJson(Map map) {
+    public static String mapToJson(Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) {
@@ -242,14 +243,14 @@ public class EmotionUsageUtil {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            Set<Map.Entry> entrySet = map.entrySet();
+            Set<Map.Entry<String, Object>> entrySet = map.entrySet();
             if (entrySet != null) {
-                for (Map.Entry entry : entrySet) {
-                    String str = (String) entry.getKey();
-                    if (!TextUtils.isEmpty(str)) {
+                for (Map.Entry<String, Object> entry : entrySet) {
+                    String key = entry.getKey();
+                    if (!TextUtils.isEmpty(key)) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("id", str);
+                            jSONObject.put("id", key);
                             jSONArray.put(jSONObject);
                         } catch (Exception unused) {
                         }

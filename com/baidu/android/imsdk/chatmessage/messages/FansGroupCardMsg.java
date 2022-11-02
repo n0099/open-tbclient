@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class FansGroupCardMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<FansGroupCardMsg> CREATOR;
     public static final String TAG = "FansGroupCardMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public long mGroupId;
@@ -47,7 +47,7 @@ public class FansGroupCardMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansGroupCardMsg.1
+        CREATOR = new Parcelable.Creator<FansGroupCardMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansGroupCardMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,6 +66,7 @@ public class FansGroupCardMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public FansGroupCardMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -77,6 +78,7 @@ public class FansGroupCardMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public FansGroupCardMsg[] newArray(int i) {
                 InterceptResult invokeI;

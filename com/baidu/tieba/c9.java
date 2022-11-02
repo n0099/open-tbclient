@@ -52,11 +52,11 @@ public class c9 {
         return (e9) invokeV.objValue;
     }
 
-    public HashMap b(String str) {
+    public HashMap<String, a9> b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, a9> hashMap = new HashMap<>();
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray jSONArray = new JSONObject(str).getJSONArray("exps");
@@ -84,7 +84,7 @@ public class c9 {
         return (HashMap) invokeL.objValue;
     }
 
-    public List c(int i) {
+    public List<i9> c(int i) {
         InterceptResult invokeI;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class c9 {
                                 Iterator<String> keys = jSONObject.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    if (r20.a(next, this.c) == i) {
+                                    if (m20.a(next, this.c) == i) {
                                         arrayList.add(new i9(next, jSONObject.get(next)));
                                     }
                                 }
@@ -129,7 +129,7 @@ public class c9 {
                     try {
                         jSONObject.put("version", e);
                         jSONObject.put("data", new JSONObject(d));
-                        i20.i(jSONObject);
+                        d20.i(jSONObject);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }

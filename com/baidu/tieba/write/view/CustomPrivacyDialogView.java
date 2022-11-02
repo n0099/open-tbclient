@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uy4;
+import com.baidu.tieba.kz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,18 +99,18 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0209, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091a7c);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09075f);
-            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090760);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d020b, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091ac0);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076d);
+            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09076e);
             this.b.setTextSize(R.dimen.tbds34);
-            uy4 uy4Var = new uy4();
-            uy4Var.r(R.color.CAM_X0105);
-            this.b.setConfig(uy4Var);
+            kz4 kz4Var = new kz4();
+            kz4Var.r(R.color.CAM_X0105);
+            this.b.setConfig(kz4Var);
             this.c.setTextSize(R.dimen.tbds34);
-            uy4 uy4Var2 = new uy4();
-            uy4Var2.p(R.color.CAM_X0302);
-            this.c.setConfig(uy4Var2);
+            kz4 kz4Var2 = new kz4();
+            kz4Var2.p(R.color.CAM_X0302);
+            this.c.setConfig(kz4Var2);
         }
     }
 

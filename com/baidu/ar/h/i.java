@@ -118,7 +118,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(65539, null, file, file2, z) == null) && file.exists()) {
             if (z) {
-                new AsyncTask(file, file2) { // from class: com.baidu.ar.h.i.1
+                new AsyncTask<Void, Void, Void>(file, file2) { // from class: com.baidu.ar.h.i.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ File yc;

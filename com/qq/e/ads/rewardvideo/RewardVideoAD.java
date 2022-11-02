@@ -24,7 +24,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class RewardVideoAD extends LiteAbstractAD {
+public class RewardVideoAD extends LiteAbstractAD<RVADI> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REWARD_TYPE_PAGE = 1;
     public static final int REWARD_TYPE_VIDEO = 0;
@@ -32,13 +32,13 @@ public class RewardVideoAD extends LiteAbstractAD {
     public RewardVideoADListener g;
     public volatile boolean h;
     public boolean i;
-    public Map j;
+    public Map<String, String> j;
     public LoadAdParams k;
     public ServerSideVerificationOptions l;
     public boolean m;
 
     /* loaded from: classes8.dex */
-    public class ADListenerAdapter implements ADListener {
+    public static class ADListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int EVENT_TYPE_ON_AD_CLICK = 6;
         public static final int EVENT_TYPE_ON_AD_CLOSE = 8;
@@ -52,7 +52,7 @@ public class RewardVideoAD extends LiteAbstractAD {
         public transient /* synthetic */ FieldHolder $fh;
         public CacheCallback a;
         public RewardVideoADListener adListener;
-        public WeakReference b;
+        public WeakReference<RewardVideoAD> b;
 
         /* loaded from: classes8.dex */
         public interface CacheCallback {
@@ -137,7 +137,7 @@ public class RewardVideoAD extends LiteAbstractAD {
                         if (this.b != null && aDEvent.getParas().length == 1) {
                             Object obj = aDEvent.getParas()[0];
                             if ((obj instanceof String) && this.b.get() != null) {
-                                ((RewardVideoAD) this.b.get()).setExt((String) obj);
+                                this.b.get().setExt((String) obj);
                             }
                         }
                         this.adListener.onADClick();
@@ -165,7 +165,7 @@ public class RewardVideoAD extends LiteAbstractAD {
         public void setBase(RewardVideoAD rewardVideoAD) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rewardVideoAD) == null) {
-                this.b = new WeakReference(rewardVideoAD);
+                this.b = new WeakReference<>(rewardVideoAD);
             }
         }
     }
@@ -292,18 +292,18 @@ public class RewardVideoAD extends LiteAbstractAD {
 
     public VideoAdValidity checkValidity() {
         InterceptResult invokeV;
-        Object obj;
+        T t;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? hasShown() ? VideoAdValidity.SHOWED : SystemClock.elapsedRealtime() > getExpireTimestamp() - 1000 ? VideoAdValidity.OVERDUE : (this.i || (obj = this.a) == null || ((RVADI) obj).getRewardAdType() != 0) ? VideoAdValidity.VALID : VideoAdValidity.NONE_CACHE : (VideoAdValidity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? hasShown() ? VideoAdValidity.SHOWED : SystemClock.elapsedRealtime() > getExpireTimestamp() - 1000 ? VideoAdValidity.OVERDUE : (this.i || (t = this.a) == 0 || ((RVADI) t).getRewardAdType() != 0) ? VideoAdValidity.VALID : VideoAdValidity.NONE_CACHE : (VideoAdValidity) invokeV.objValue;
     }
 
     public String getAdNetWorkName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                return ((RVADI) obj).getAdNetWorkName();
+            T t = this.a;
+            if (t != 0) {
+                return ((RVADI) t).getAdNetWorkName();
             }
             a("getAdNetWorkName");
             return null;
@@ -315,9 +315,9 @@ public class RewardVideoAD extends LiteAbstractAD {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                return ((RVADI) obj).getExpireTimestamp();
+            T t = this.a;
+            if (t != 0) {
+                return ((RVADI) t).getExpireTimestamp();
             }
             a("getExpireTimestamp");
             return 0L;
@@ -325,7 +325,7 @@ public class RewardVideoAD extends LiteAbstractAD {
         return invokeV.longValue;
     }
 
-    public Map getExts() {
+    public Map<String, String> getExts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (Map) invokeV.objValue;
@@ -335,9 +335,9 @@ public class RewardVideoAD extends LiteAbstractAD {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                return ((RVADI) obj).getRewardAdType();
+            T t = this.a;
+            if (t != 0) {
+                return ((RVADI) t).getRewardAdType();
             }
             a("getRewardAdType");
             return 0;
@@ -349,9 +349,9 @@ public class RewardVideoAD extends LiteAbstractAD {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                return ((RVADI) obj).getVideoDuration();
+            T t = this.a;
+            if (t != 0) {
+                return ((RVADI) t).getVideoDuration();
             }
             a("getVideoDuration");
             return 0;
@@ -363,9 +363,9 @@ public class RewardVideoAD extends LiteAbstractAD {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                return ((RVADI) obj).hasShown();
+            T t = this.a;
+            if (t != 0) {
+                return ((RVADI) t).hasShown();
             }
             a("hasShown");
             return false;
@@ -380,9 +380,9 @@ public class RewardVideoAD extends LiteAbstractAD {
                 this.h = true;
                 return;
             }
-            Object obj = this.a;
-            if (obj != null) {
-                ((RVADI) obj).loadAD();
+            T t = this.a;
+            if (t != 0) {
+                ((RVADI) t).loadAD();
             } else {
                 a("loadAD");
             }
@@ -400,9 +400,9 @@ public class RewardVideoAD extends LiteAbstractAD {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, loadAdParams) == null) {
             this.k = loadAdParams;
-            Object obj = this.a;
-            if (obj != null) {
-                ((RVADI) obj).setLoadAdParams(loadAdParams);
+            T t = this.a;
+            if (t != 0) {
+                ((RVADI) t).setLoadAdParams(loadAdParams);
             }
         }
     }
@@ -411,9 +411,9 @@ public class RewardVideoAD extends LiteAbstractAD {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, serverSideVerificationOptions) == null) {
             this.l = serverSideVerificationOptions;
-            Object obj = this.a;
-            if (obj != null) {
-                ((RVADI) obj).setServerSideVerificationOptions(serverSideVerificationOptions);
+            T t = this.a;
+            if (t != 0) {
+                ((RVADI) t).setServerSideVerificationOptions(serverSideVerificationOptions);
             }
         }
     }
@@ -421,9 +421,9 @@ public class RewardVideoAD extends LiteAbstractAD {
     public void showAD() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                ((RVADI) obj).showAD();
+            T t = this.a;
+            if (t != 0) {
+                ((RVADI) t).showAD();
             } else {
                 a("showAD");
             }
@@ -433,9 +433,9 @@ public class RewardVideoAD extends LiteAbstractAD {
     public void showAD(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                ((RVADI) obj).showAD(activity);
+            T t = this.a;
+            if (t != 0) {
+                ((RVADI) t).showAD(activity);
             } else {
                 a("showAD");
             }

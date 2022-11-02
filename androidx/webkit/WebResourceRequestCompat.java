@@ -1,6 +1,8 @@
 package androidx.webkit;
 
+import android.annotation.SuppressLint;
 import android.webkit.WebResourceRequest;
+import androidx.annotation.NonNull;
 import androidx.webkit.internal.WebResourceRequestAdapter;
 import androidx.webkit.internal.WebViewFeatureInternal;
 import androidx.webkit.internal.WebViewGlueCommunicator;
@@ -37,7 +39,8 @@ public class WebResourceRequestCompat {
         return (WebResourceRequestAdapter) invokeL.objValue;
     }
 
-    public static boolean isRedirect(WebResourceRequest webResourceRequest) {
+    @SuppressLint({"NewApi"})
+    public static boolean isRedirect(@NonNull WebResourceRequest webResourceRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, webResourceRequest)) == null) {

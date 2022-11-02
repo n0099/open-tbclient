@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SignleGraphicTextMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SignleGraphicTextMsg> CREATOR;
     public static final int GRAPH = 0;
     public static final int VIDEO_1SHARE = 1;
     public static final int VIDEO_2SHARE = 2;
@@ -56,7 +56,7 @@ public class SignleGraphicTextMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg.1
+        CREATOR = new Parcelable.Creator<SignleGraphicTextMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,6 +75,7 @@ public class SignleGraphicTextMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SignleGraphicTextMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -86,6 +87,7 @@ public class SignleGraphicTextMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SignleGraphicTextMsg[] newArray(int i) {
                 InterceptResult invokeI;

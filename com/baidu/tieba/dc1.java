@@ -1,119 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.IOException;
 /* loaded from: classes3.dex */
-public class dc1 {
+public class dc1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Executor a;
-    public static final int b;
-    public static final int c;
-    public static final ThreadFactory d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public Handler b;
+    public String c;
+    public ImageView d;
+    public int e;
+    public int f;
 
-    /* loaded from: classes3.dex */
-    public final class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699639, "Lcom/baidu/tieba/dc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947699639, "Lcom/baidu/tieba/dc1;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        b = availableProcessors;
-        c = (availableProcessors * 2) + 1;
-        d = new a();
-    }
-
-    public dc1() {
+    public dc1(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler, str, imageView, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context.getApplicationContext();
+        this.b = handler;
+        this.c = str;
+        this.d = imageView;
+        this.e = i;
+        this.f = i2;
     }
 
-    public static void a(Runnable runnable) {
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Bitmap a(String str, int i, int i2) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            b().execute(runnable);
-        }
-    }
-
-    public static synchronized Executor b() {
-        InterceptResult invokeV;
-        Executor executor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (dc1.class) {
-                if (a == null) {
-                    synchronized (dc1.class) {
-                        if (a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
-                            threadPoolExecutor.allowCoreThreadTimeOut(true);
-                            a = threadPoolExecutor;
-                        }
-                    }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
+            try {
+                bitmap = xb1.b(this.a).c(str, i, i2);
+            } catch (IOException e) {
+                e = e;
+                bitmap = null;
+            }
+            try {
+            } catch (IOException e2) {
+                e = e2;
+                e.printStackTrace();
+                bitmap2 = bitmap;
+                if (bitmap2 != null) {
                 }
-                executor = a;
             }
-            return executor;
+            if (bitmap != null) {
+                xb1.c().a(str, bitmap);
+                return bitmap;
+            }
+            xb1.b(this.a).a(str);
+            bitmap2 = xb1.b(this.a).c(str, i, i2);
+            if (bitmap2 != null) {
+                return ac1.a(str);
+            }
+            return bitmap2;
         }
-        return (Executor) invokeV.objValue;
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Bitmap a = a(this.c, this.e, this.f);
+            if (this.b != null) {
+                this.b.obtainMessage(1, new cc1(this.d, this.c, a)).sendToTarget();
+            }
+        }
     }
 }

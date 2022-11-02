@@ -23,7 +23,7 @@ public final class CacheUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class CachingCounters {
+    public static class CachingCounters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile long alreadyCachedBytes;

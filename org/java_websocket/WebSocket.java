@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface WebSocket {
     void sendFrame(Framedata framedata);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class READYSTATE {
+    /* loaded from: classes9.dex */
+    public static final class READYSTATE {
         public static final /* synthetic */ READYSTATE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final READYSTATE CLOSED;
@@ -86,8 +86,8 @@ public interface WebSocket {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class Role {
+    /* loaded from: classes9.dex */
+    public static final class Role {
         public static final /* synthetic */ Role[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Role CLIENT;

@@ -25,7 +25,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 public class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_SERVER = "http://nsclick.baidu.com/v.gif";
-    public static final HashSet LOG_TIMES;
+    public static final HashSet<Integer> LOG_TIMES;
     public static final long ONE_SECOND = 1000;
     public static ActivityManager activityManager;
     public static Runnable checkThread;
@@ -49,7 +49,7 @@ public class Logger {
                 return;
             }
         }
-        HashSet hashSet = new HashSet();
+        HashSet<Integer> hashSet = new HashSet<>();
         LOG_TIMES = hashSet;
         hashSet.add(2);
         LOG_TIMES.add(6);

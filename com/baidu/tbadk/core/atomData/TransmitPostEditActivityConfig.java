@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.fj;
 import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class TransmitPostEditActivityConfig extends BaseWriteConfig {
+public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPostEditActivityConfig> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIJIAHAO_DATA = "baijiahao_data";
     public static final String FROM_SHARE = "from_share";
@@ -49,7 +49,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig {
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            fj.N(context, antiData.getForbid_info());
+            xi.P(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);

@@ -33,7 +33,7 @@ public class EmotionLoader {
     public static final long WAITING_FOR_LOAD_MS = 350;
     public static EmotionLoader sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache mLruCache;
+    public LruCache<String, Bitmap> mLruCache;
     public Handler mUIHandler;
 
     /* loaded from: classes2.dex */
@@ -45,7 +45,7 @@ public class EmotionLoader {
         public final /* synthetic */ EmotionLoader this$0;
 
         /* renamed from: tv  reason: collision with root package name */
-        public TextView f1043tv;
+        public TextView f1044tv;
 
         public SpannableBeanHolder(EmotionLoader emotionLoader) {
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class EmotionLoader {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mLruCache = new LruCache(this, ((int) Runtime.getRuntime().maxMemory()) / 16) { // from class: com.baidu.spswitch.emotion.EmotionLoader.1
+            this.mLruCache = new LruCache<String, Bitmap>(this, ((int) Runtime.getRuntime().maxMemory()) / 16) { // from class: com.baidu.spswitch.emotion.EmotionLoader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EmotionLoader this$0;
@@ -158,7 +158,7 @@ public class EmotionLoader {
     }
 
     public void invalidCache() {
-        LruCache lruCache;
+        LruCache<String, Bitmap> lruCache;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lruCache = this.mLruCache) != null) {
             lruCache.evictAll();
@@ -169,9 +169,9 @@ public class EmotionLoader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            LruCache lruCache = this.mLruCache;
+            LruCache<String, Bitmap> lruCache = this.mLruCache;
             if (lruCache != null) {
-                return (Bitmap) lruCache.get(str);
+                return lruCache.get(str);
             }
             return null;
         }
@@ -179,7 +179,7 @@ public class EmotionLoader {
     }
 
     private void addBitmapToLruCache(String str, Bitmap bitmap) {
-        LruCache lruCache;
+        LruCache<String, Bitmap> lruCache;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, bitmap) == null) && (lruCache = this.mLruCache) != null && bitmap != null) {
             lruCache.put(str, bitmap);
@@ -267,7 +267,7 @@ public class EmotionLoader {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                             SpannableBeanHolder spannableBeanHolder = (SpannableBeanHolder) message.obj;
-                            TextView textView2 = spannableBeanHolder.f1043tv;
+                            TextView textView2 = spannableBeanHolder.f1044tv;
                             SpannableString spannableString = spannableBeanHolder.ss;
                             String str2 = spannableBeanHolder.content;
                             if (EmotionLoader.DEBUG) {
@@ -321,7 +321,7 @@ public class EmotionLoader {
                         SpannableString parseEmotion = this.this$0.parseEmotion(this.val$type, this.val$context, this.val$content, this.val$textView);
                         SpannableBeanHolder spannableBeanHolder = new SpannableBeanHolder();
                         spannableBeanHolder.ss = parseEmotion;
-                        spannableBeanHolder.f1043tv = this.val$textView;
+                        spannableBeanHolder.f1044tv = this.val$textView;
                         spannableBeanHolder.content = this.val$content;
                         Message obtain = Message.obtain();
                         obtain.obj = spannableBeanHolder;

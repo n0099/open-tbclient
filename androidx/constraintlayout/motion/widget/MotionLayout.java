@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.utils.StopLogic;
 import androidx.constraintlayout.motion.widget.MotionScene;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
@@ -1683,7 +1685,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MotionLayout(Context context) {
+    public MotionLayout(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1861,7 +1863,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MotionLayout(Context context, AttributeSet attributeSet) {
+    public MotionLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1923,7 +1925,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MotionLayout(Context context, AttributeSet attributeSet, int i) {
+    public MotionLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

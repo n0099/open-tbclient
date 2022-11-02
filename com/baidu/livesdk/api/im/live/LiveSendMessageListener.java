@@ -10,5 +10,5 @@ public interface LiveSendMessageListener {
         public static final int UNKNOW = -1;
     }
 
-    void onSendSuccess(String str, int i, List list);
+    void onSendSuccess(String str, int i, List<LiveMessageBean> list);
 }

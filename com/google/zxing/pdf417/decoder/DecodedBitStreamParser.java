@@ -48,7 +48,7 @@ public final class DecodedBitStreamParser {
 
     /* renamed from: com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public final class DecodedBitStreamParser {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Mode {
+    public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Mode ALPHA;

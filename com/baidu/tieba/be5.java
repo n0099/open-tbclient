@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import android.app.Activity;
+import android.view.View;
+import androidx.appcompat.app.AlertDialog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,62 +17,63 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class be5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public de5 a;
-    public String b;
 
-    public be5(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes3.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlertDialog a;
+
+        public a(AlertDialog alertDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alertDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = alertDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                AlertDialog alertDialog = this.a;
+                if (alertDialog != null) {
+                    alertDialog.dismiss();
+                }
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_USER_BAN_PAY_HINT_CLICK));
             }
         }
-        this.b = str;
     }
 
-    public final void a(String str, int i) {
-        int intValue;
+    public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || ej.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
-            return;
-        }
-        int i2 = intValue + 1;
-        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
-        if (intValue2 > 0) {
-            i = (i + (intValue2 * (i2 - 1))) / i2;
-        }
-        TbSingleton.getInstance().setAnimAvgFps(str, i);
-        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
-        if (i2 >= 5) {
-            TbSingleton.getInstance().setAnimComputedFps(str, i);
-            ce5.a();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && Build.VERSION.SDK_INT >= 16) {
-            if (this.a == null) {
-                this.a = new de5();
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+            if (activity == null) {
+                activity = TbadkCoreApplication.getInst().getCurrentActivity();
             }
-            this.a.c();
-        }
-    }
-
-    public void c() {
-        de5 de5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (de5Var = this.a) != null && Build.VERSION.SDK_INT >= 16) {
-            de5Var.d();
-            a(this.b, this.a.b());
+            if (activity != null && !activity.isFinishing()) {
+                TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04f9, TBAlertConfig.OperateBtnStyle.MAIN);
+                TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0fdc);
+                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0fdb);
+                tBAlertBuilder.r(aVar);
+                tBAlertBuilder.m(true);
+                tBAlertBuilder.h(false);
+                tBAlertBuilder.l(3);
+                AlertDialog w = tBAlertBuilder.w();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_USER_BAN_PAY_HINT_SHOW));
+                aVar.a(new a(w));
+            }
         }
     }
 }

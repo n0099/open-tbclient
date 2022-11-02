@@ -3,13 +3,17 @@ package com.google.android.gms.common.internal;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class Preconditions {
     public static /* synthetic */ Interceptable $ic;
@@ -31,6 +35,7 @@ public final class Preconditions {
         throw new AssertionError("Uninstantiable");
     }
 
+    @KeepForSdk
     public static void checkNotMainThread() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
@@ -38,6 +43,7 @@ public final class Preconditions {
         }
     }
 
+    @KeepForSdk
     public static void checkArgument(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZ(65537, null, z) != null) || z) {
@@ -46,7 +52,8 @@ public final class Preconditions {
         throw new IllegalArgumentException();
     }
 
-    public static void checkMainThread(String str) {
+    @KeepForSdk
+    public static void checkMainThread(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || com.google.android.gms.common.util.zzb.zza()) {
             return;
@@ -54,8 +61,10 @@ public final class Preconditions {
         throw new IllegalStateException(str);
     }
 
+    @NonNull
     @EnsuresNonNull({"#1"})
-    public static String checkNotEmpty(String str) {
+    @KeepForSdk
+    public static String checkNotEmpty(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
@@ -67,7 +76,8 @@ public final class Preconditions {
         return (String) invokeL.objValue;
     }
 
-    public static void checkNotMainThread(String str) {
+    @KeepForSdk
+    public static void checkNotMainThread(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65546, null, str) != null) || !com.google.android.gms.common.util.zzb.zza()) {
             return;
@@ -75,19 +85,22 @@ public final class Preconditions {
         throw new IllegalStateException(str);
     }
 
+    @NonNull
     @EnsuresNonNull({"#1"})
-    public static Object checkNotNull(Object obj) {
+    @KeepForSdk
+    public static <T> T checkNotNull(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, obj)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
             throw new NullPointerException("null reference");
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
+    @KeepForSdk
     public static int checkNotZero(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -100,6 +113,7 @@ public final class Preconditions {
         return invokeI.intValue;
     }
 
+    @KeepForSdk
     public static void checkState(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZ(65553, null, z) != null) || z) {
@@ -108,7 +122,8 @@ public final class Preconditions {
         throw new IllegalStateException();
     }
 
-    public static void checkArgument(boolean z, Object obj) {
+    @KeepForSdk
+    public static void checkArgument(boolean z, @NonNull Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZL(65538, null, z, obj) != null) || z) {
             return;
@@ -116,7 +131,8 @@ public final class Preconditions {
         throw new IllegalArgumentException(String.valueOf(obj));
     }
 
-    public static void checkHandlerThread(Handler handler, String str) {
+    @KeepForSdk
+    public static void checkHandlerThread(@NonNull Handler handler, @NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65541, null, handler, str) != null) || Looper.myLooper() == handler.getLooper()) {
             return;
@@ -124,8 +140,10 @@ public final class Preconditions {
         throw new IllegalStateException(str);
     }
 
+    @NonNull
     @EnsuresNonNull({"#1"})
-    public static String checkNotEmpty(String str, Object obj) {
+    @KeepForSdk
+    public static String checkNotEmpty(@Nullable String str, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, obj)) == null) {
@@ -137,20 +155,23 @@ public final class Preconditions {
         return (String) invokeLL.objValue;
     }
 
+    @NonNull
     @EnsuresNonNull({"#1"})
-    public static Object checkNotNull(Object obj, Object obj2) {
+    @KeepForSdk
+    public static <T> T checkNotNull(@NonNull T t, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, obj, obj2)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
             }
-            throw new NullPointerException(String.valueOf(obj2));
+            throw new NullPointerException(String.valueOf(obj));
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static int checkNotZero(int i, Object obj) {
+    @KeepForSdk
+    public static int checkNotZero(int i, @NonNull Object obj) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65550, null, i, obj)) == null) {
@@ -162,7 +183,8 @@ public final class Preconditions {
         return invokeIL.intValue;
     }
 
-    public static void checkState(boolean z, Object obj) {
+    @KeepForSdk
+    public static void checkState(boolean z, @NonNull Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZL(65554, null, z, obj) != null) || z) {
             return;
@@ -170,7 +192,8 @@ public final class Preconditions {
         throw new IllegalStateException(String.valueOf(obj));
     }
 
-    public static void checkArgument(boolean z, String str, Object... objArr) {
+    @KeepForSdk
+    public static void checkArgument(boolean z, @NonNull String str, @NonNull Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
             return;
@@ -178,7 +201,8 @@ public final class Preconditions {
         throw new IllegalArgumentException(String.format(str, objArr));
     }
 
-    public static void checkState(boolean z, String str, Object... objArr) {
+    @KeepForSdk
+    public static void checkState(boolean z, @NonNull String str, @NonNull Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65555, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
             return;
@@ -186,7 +210,8 @@ public final class Preconditions {
         throw new IllegalStateException(String.format(str, objArr));
     }
 
-    public static void checkHandlerThread(Handler handler) {
+    @KeepForSdk
+    public static void checkHandlerThread(@NonNull Handler handler) {
         Looper myLooper;
         String str;
         Interceptable interceptable = $ic;
@@ -207,6 +232,7 @@ public final class Preconditions {
         }
     }
 
+    @KeepForSdk
     public static long checkNotZero(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -219,7 +245,8 @@ public final class Preconditions {
         return invokeJ.longValue;
     }
 
-    public static long checkNotZero(long j, Object obj) {
+    @KeepForSdk
+    public static long checkNotZero(long j, @NonNull Object obj) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65552, null, j, obj)) == null) {

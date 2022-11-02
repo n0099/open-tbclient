@@ -3,6 +3,7 @@ package com.baidu.searchbox.anr.ubc;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.anr.impl.ANRInfo;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
@@ -26,6 +27,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes2.dex */
 public class UbcANRRegister implements IANRRegister {
     public static /* synthetic */ Interceptable $ic = null;
@@ -141,13 +143,13 @@ public class UbcANRRegister implements IANRRegister {
             if (AppConfig.isDebug()) {
                 Log.d(TAG, "stack format after: " + str);
             }
-            LinkedList trackUIs = aNRInfo.getTrackUIs();
+            LinkedList<TrackUI> trackUIs = aNRInfo.getTrackUIs();
             if (trackUIs != null && trackUIs.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
                 int i = 1;
                 int size = trackUIs.size() - 1;
                 while (true) {
-                    TrackUI trackUI = (TrackUI) trackUIs.get(size);
+                    TrackUI trackUI = trackUIs.get(size);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("time", trackUI.getTimeStamp());
                     jSONObject2.put("page", RukaTrackUIUtil.trackUI2StringPage(trackUI));

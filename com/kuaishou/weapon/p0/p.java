@@ -107,14 +107,14 @@ public class p {
                 }
                 applicationInfo.theme = a.k();
                 packageInfo.applicationInfo = applicationInfo;
-                List a2 = a.a();
+                List<q.a> a2 = a.a();
                 if (a2 != null && a2.size() > 0) {
                     ArrayList arrayList = new ArrayList();
                     for (int i2 = 0; i2 < a2.size(); i2++) {
                         ActivityInfo activityInfo = new ActivityInfo();
-                        activityInfo.name = ((q.a) a2.get(i2)).a();
-                        activityInfo.theme = ((q.a) a2.get(i2)).c();
-                        activityInfo.labelRes = ((q.a) a2.get(i2)).b();
+                        activityInfo.name = a2.get(i2).a();
+                        activityInfo.theme = a2.get(i2).c();
+                        activityInfo.labelRes = a2.get(i2).b();
                         if (!TextUtils.isEmpty(activityInfo.name)) {
                             arrayList.add(activityInfo);
                         }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ListIterator;
 /* loaded from: classes7.dex */
-public abstract class zzak extends zzaj implements ListIterator {
+public abstract class zzak<E> extends zzaj<E> implements ListIterator<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,18 +27,18 @@ public abstract class zzak extends zzaj implements ListIterator {
 
     @Override // java.util.ListIterator
     @Deprecated
-    public final void add(Object obj) {
+    public final void add(E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, e) == null) {
             throw new UnsupportedOperationException();
         }
     }
 
     @Override // java.util.ListIterator
     @Deprecated
-    public final void set(Object obj) {
+    public final void set(E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e) == null) {
             throw new UnsupportedOperationException();
         }
     }

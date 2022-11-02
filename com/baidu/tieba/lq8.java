@@ -1,166 +1,249 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.text.TextUtils;
-import android.text.format.DateFormat;
-import android.text.format.Time;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkSettings;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.RemindRecommendMessage;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes4.dex */
-public class lq8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public class lq8 implements jq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public final int d;
+    public int e;
+    public mq8 f;
+    public boolean g;
+    public nq8 h;
+    public cr7 i;
 
-    public static RemindRecommendMessage a(String str) {
-        InterceptResult invokeL;
+    public lq8(String str, int i, cr7 cr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
-                JSONObject jSONObject = new JSONObject(str);
-                remindRecommendMessage.title = jSONObject.optString("title");
-                remindRecommendMessage.url = jSONObject.optString("url");
-                remindRecommendMessage.picture = jSONObject.optString("picture");
-                remindRecommendMessage.name = jSONObject.optString("name");
-                remindRecommendMessage.isLocal = false;
-                return remindRecommendMessage;
-            } catch (JSONException unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), cr7Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (RemindRecommendMessage) invokeL.objValue;
+        this.c = str;
+        this.d = i;
+        this.i = cr7Var;
+        File file = new File(str);
+        if (!file.exists()) {
+            return;
+        }
+        this.a = file.length();
+        this.b = ej.b(FileHelper.GetStreamFromFile(file));
+        long j = this.a;
+        int i4 = this.d;
+        if (j % i4 == 0) {
+            this.e = (int) (j / i4);
+        } else {
+            this.e = ((int) (j / i4)) + 1;
+        }
     }
 
-    public static String g(DataRes dataRes) {
-        InterceptResult invokeL;
+    public final qq8 g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
-            if (dataRes != null && dataRes.local_dialog != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("title", dataRes.local_dialog.title);
-                    jSONObject.put("picture", dataRes.local_dialog.picture);
-                    jSONObject.put("url", dataRes.local_dialog.url);
-                    jSONObject.put("name", dataRes.local_dialog.name);
-                    return jSONObject.toString();
-                } catch (JSONException unused) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, arrayList, str, i)) == null) {
+            if (ListUtils.isEmpty(arrayList) || StringUtils.isNull(str)) {
+                return null;
+            }
+            if (arrayList.size() > 3) {
+                this.h = new oq8(this.c, this.d, this.e, this.a, this.b);
+            } else {
+                this.h = new pq8(this.c, this.d, this.e, this.a, this.b);
+            }
+            this.h.f(this.f);
+            qq8 g = this.h.g(arrayList, str, i);
+            this.h = null;
+            return g;
+        }
+        return (qq8) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.jq8
+    public void a(mq8 mq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mq8Var) == null) {
+            this.f = mq8Var;
+        }
+    }
+
+    public final void d(int i) {
+        mq8 mq8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (mq8Var = this.f) != null) {
+            mq8Var.onProgressUpdate(i / 100.0f);
+        }
+    }
+
+    @Override // com.baidu.tieba.jq8
+    public VideoFinishResult b(String str, int i) {
+        InterceptResult invokeLI;
+        iq8 c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (StringUtils.isNull(str) || this.a <= 0 || StringUtils.isNull(this.b) || i <= 0 || this.g) {
+                return null;
+            }
+            d(10);
+            long j = i;
+            iq8 c2 = c(this.e, j, false, null);
+            if (c2 != null && !this.g) {
+                if (c2.e != 0) {
+                    VideoFinishResult videoFinishResult = new VideoFinishResult();
+                    videoFinishResult.setErrorNo(c2.e);
+                    videoFinishResult.setUserMessage(c2.d);
+                    e(302, c2.e, c2.d);
+                    return videoFinishResult;
+                }
+                d(30);
+                if (!StringUtils.isNull(c2.c)) {
+                    VideoFinishResult videoFinishResult2 = new VideoFinishResult();
+                    videoFinishResult2.setVideoMd5(this.b);
+                    videoFinishResult2.setVideoUrl(c2.c);
+                    f();
+                    return videoFinishResult2;
+                } else if (this.g) {
+                    return null;
+                } else {
+                    ArrayList<Integer> arrayList = c2.a;
+                    if (ListUtils.isEmpty(arrayList)) {
+                        arrayList = new ArrayList<>();
+                        int i2 = 0;
+                        while (i2 < this.e) {
+                            i2++;
+                            arrayList.add(Integer.valueOf(i2));
+                        }
+                    }
+                    String str2 = c2.b;
+                    qq8 g = g(arrayList, str2, i);
+                    if (g != null && !this.g) {
+                        if (g.b != 0) {
+                            VideoFinishResult videoFinishResult3 = new VideoFinishResult();
+                            videoFinishResult3.setErrorNo(g.b);
+                            videoFinishResult3.setUserMessage(g.c);
+                            e(303, g.b, g.c);
+                            return videoFinishResult3;
+                        }
+                        d(85);
+                        if (!StringUtils.isNull(g.a)) {
+                            VideoFinishResult videoFinishResult4 = new VideoFinishResult();
+                            videoFinishResult4.setVideoUrl(g.a);
+                            videoFinishResult4.setVideoMd5(this.b);
+                            f();
+                            return videoFinishResult4;
+                        } else if (this.g || (c = c(this.e, j, true, str2)) == null) {
+                            return null;
+                        } else {
+                            VideoFinishResult videoFinishResult5 = new VideoFinishResult();
+                            int i3 = c.e;
+                            if (i3 == 0) {
+                                videoFinishResult5.setVideoUrl(c.c);
+                                videoFinishResult5.setVideoMd5(this.b);
+                                f();
+                            } else {
+                                videoFinishResult5.setErrorNo(i3);
+                                videoFinishResult5.setUserMessage(c.d);
+                                e(304, c.e, c.d);
+                                TiebaStatic.log(new StatisticItem("c12024").param("params", c.d));
+                            }
+                            d(100);
+                            return videoFinishResult5;
+                        }
+                    }
                 }
             }
             return null;
         }
-        return (String) invokeL.objValue;
+        return (VideoFinishResult) invokeLI.objValue;
     }
 
-    public static long b() {
-        InterceptResult invokeV;
+    public final iq8 c(int i, long j, boolean z, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c(System.currentTimeMillis());
-        }
-        return invokeV.longValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (ux4.k().l("sync_local_dialog", 1) == 1) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z), str})) == null) {
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
+            netWork.addPostData("chunk_sum", String.valueOf(i));
+            netWork.addPostData("video_size", String.valueOf(this.a));
+            netWork.addPostData("chunk_size", String.valueOf(this.d));
+            netWork.addPostData("is_merge", String.valueOf(z ? 1 : 0));
+            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.b);
+            netWork.addPostData("video_len", String.valueOf(j));
+            netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+            if (!StringUtils.isNull(str)) {
+                netWork.addPostData("upload_id", str);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static long c(long j) {
-        InterceptResult invokeJ;
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            String str = "12:05:00";
-            String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
-            if (!TextUtils.isEmpty(loadString)) {
-                str = loadString;
-            }
-            String[] split = str.split(":");
-            int i4 = 5;
-            if (split != null && split.length == 3) {
-                i2 = eh.e(split[0], 12);
-                i3 = eh.e(split[1], 5);
-                i = eh.e(split[2], 0);
-            } else {
-                i = 0;
-                i2 = 12;
-                i3 = 5;
-            }
-            if (i2 >= 0 && i2 <= 23 && i3 >= 0 && i3 <= 59 && i >= 0 && i <= 59) {
-                i4 = i3;
-            } else {
-                i = 0;
-                i2 = 12;
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
-            calendar.set(12, i4);
-            calendar.set(13, i);
-            Application app = TbadkCoreApplication.getInst().getApp();
-            if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
-                calendar.set(11, i2);
-            } else {
-                if (i2 >= 12) {
-                    i2 -= 12;
-                    calendar.set(9, 1);
-                } else {
-                    calendar.set(9, 0);
+            String postNetData = netWork.postNetData();
+            if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                if (StringUtils.isNull(postNetData)) {
+                    return null;
                 }
-                calendar.set(10, i2);
+                iq8 iq8Var = new iq8();
+                iq8Var.a(postNetData);
+                return iq8Var;
             }
-            return calendar.getTimeInMillis();
+            iq8 iq8Var2 = new iq8();
+            if (netWork.getNetContext().getResponse().isNetSuccess()) {
+                iq8Var2.e = netWork.getNetContext().getResponse().mServerErrorCode;
+            } else {
+                iq8Var2.e = netWork.getNetContext().getResponse().mNetErrorCode;
+            }
+            iq8Var2.d = netWork.getNetContext().getResponse().mErrorString;
+            return iq8Var2;
         }
-        return invokeJ.longValue;
+        return (iq8) invokeCommon.objValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jq8
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TbadkSettings.getInst().loadInt(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_server_switch", 1) == 1) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = true;
+            nq8 nq8Var = this.h;
+            if (nq8Var != null) {
+                nq8Var.a();
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean f(long j) {
-        InterceptResult invokeJ;
+    public final void f() {
+        cr7 cr7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            Time time = new Time();
-            time.set(j);
-            int i = time.year;
-            int i2 = time.month;
-            int i3 = time.monthDay;
-            time.set(System.currentTimeMillis());
-            if (i == time.year && i2 == time.month && i3 == time.monthDay) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (cr7Var = this.i) != null) {
+            cr7Var.j();
         }
-        return invokeJ.booleanValue;
+    }
+
+    public final void e(int i, int i2, String str) {
+        cr7 cr7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) && (cr7Var = this.i) != null) {
+            cr7Var.f(i, i2, str);
+        }
     }
 }

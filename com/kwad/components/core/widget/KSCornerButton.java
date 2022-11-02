@@ -1,10 +1,14 @@
 package com.kwad.components.core.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.Button;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.widget.h;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes7.dex */
 public class KSCornerButton extends Button {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +47,7 @@ public class KSCornerButton extends Button {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSCornerButton(Context context, AttributeSet attributeSet) {
+    public KSCornerButton(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,7 +69,7 @@ public class KSCornerButton extends Button {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSCornerButton(Context context, AttributeSet attributeSet, int i) {
+    public KSCornerButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,7 +91,8 @@ public class KSCornerButton extends Button {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSCornerButton(Context context, AttributeSet attributeSet, int i, int i2) {
+    @RequiresApi(api = 21)
+    public KSCornerButton(Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -107,7 +113,7 @@ public class KSCornerButton extends Button {
         c(context, attributeSet);
     }
 
-    private void c(Context context, AttributeSet attributeSet) {
+    private void c(Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
             h.a aVar = new h.a();
@@ -143,6 +149,7 @@ public class KSCornerButton extends Button {
         }
     }
 
+    @NonNull
     public h.a getCornerConf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -51,7 +51,7 @@ public class cv {
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f189a;
-    public static final Map b;
+    public static final Map<String, cr> b;
     public static String c;
     public static String d;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class cv {
     public String f193a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map f194a;
+    public final Map<String, cs> f194a;
 
     /* renamed from: b  reason: collision with other field name */
     public final long f195b;
@@ -220,7 +220,7 @@ public class cv {
         return (String) invokeL.objValue;
     }
 
-    private ArrayList a(ArrayList arrayList) {
+    private ArrayList<cr> a(ArrayList<String> arrayList) {
         InterceptResult invokeL;
         JSONObject jSONObject;
         JSONObject jSONObject2;
@@ -246,7 +246,7 @@ public class cv {
             if (!arrayList.contains(b())) {
                 arrayList.add(b());
             }
-            ArrayList arrayList2 = new ArrayList(arrayList.size());
+            ArrayList<cr> arrayList2 = new ArrayList<>(arrayList.size());
             for (int i = 0; i < arrayList.size(); i++) {
                 arrayList2.add(null);
             }
@@ -267,7 +267,7 @@ public class cv {
                         com.xiaomi.channel.commonutils.logger.b.c("get bucket: net=" + string3 + ", hosts=" + jSONObject5.toString());
                         int i2 = 0;
                         while (i2 < arrayList.size()) {
-                            String str3 = (String) arrayList.get(i2);
+                            String str3 = arrayList.get(i2);
                             JSONArray optJSONArray = jSONObject5.optJSONArray(str3);
                             if (optJSONArray == null) {
                                 com.xiaomi.channel.commonutils.logger.b.m89a("no bucket found for " + str3);
@@ -339,9 +339,9 @@ public class cv {
                 com.xiaomi.channel.commonutils.logger.b.m89a("failed to get bucket " + e.getMessage());
             }
             for (int i5 = 0; i5 < arrayList.size(); i5++) {
-                cr crVar4 = (cr) arrayList2.get(i5);
+                cr crVar4 = arrayList2.get(i5);
                 if (crVar4 != null) {
-                    a((String) arrayList.get(i5), crVar4);
+                    a(arrayList.get(i5), crVar4);
                 }
             }
             m259c();
@@ -383,7 +383,7 @@ public class cv {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            cr crVar = (cr) b.get(str);
+            cr crVar = b.get(str);
             synchronized (b) {
                 if (crVar == null) {
                     cr crVar2 = new cr(str);
@@ -441,11 +441,11 @@ public class cv {
         return (cr) invokeLZ.objValue;
     }
 
-    public String a(ArrayList arrayList, String str, String str2, boolean z) {
+    public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{arrayList, str, str2, Boolean.valueOf(z)})) == null) {
-            ArrayList arrayList2 = new ArrayList();
+            ArrayList<String> arrayList2 = new ArrayList<>();
             ArrayList<bi> arrayList3 = new ArrayList();
             arrayList3.add(new bg("type", str));
             if (str.equals("wap")) {
@@ -463,21 +463,21 @@ public class cv {
             if (c2 == null) {
                 arrayList2.add(format);
                 synchronized (b) {
-                    cr crVar = (cr) b.get(b2);
+                    cr crVar = b.get(b2);
                     if (crVar != null) {
-                        Iterator it = crVar.a(true).iterator();
+                        Iterator<String> it = crVar.a(true).iterator();
                         while (it.hasNext()) {
-                            arrayList2.add(String.format(Locale.US, "https://%1$s/gslb/?ver=4.0", (String) it.next()));
+                            arrayList2.add(String.format(Locale.US, "https://%1$s/gslb/?ver=4.0", it.next()));
                         }
                     }
                 }
             } else {
                 arrayList2 = c2.a(format);
             }
-            Iterator it2 = arrayList2.iterator();
+            Iterator<String> it2 = arrayList2.iterator();
             IOException e = null;
             while (it2.hasNext()) {
-                Uri.Builder buildUpon = Uri.parse((String) it2.next()).buildUpon();
+                Uri.Builder buildUpon = Uri.parse(it2.next()).buildUpon();
                 for (bi biVar : arrayList3) {
                     buildUpon.appendQueryParameter(biVar.a(), biVar.b());
                 }
@@ -548,7 +548,7 @@ public class cv {
                 synchronized (this.f194a) {
                     m256a();
                     if (this.f194a.containsKey(str)) {
-                        ((cs) this.f194a.get(str)).a(crVar);
+                        this.f194a.get(str).a(crVar);
                     } else {
                         cs csVar = new cs(str);
                         csVar.a(crVar);
@@ -600,23 +600,23 @@ public class cv {
 
     /* renamed from: b  reason: collision with other method in class */
     public void m257b() {
-        ArrayList arrayList;
+        ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this.f194a) {
                 m256a();
-                arrayList = new ArrayList(this.f194a.keySet());
+                arrayList = new ArrayList<>(this.f194a.keySet());
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    cs csVar = (cs) this.f194a.get(arrayList.get(size));
+                    cs csVar = this.f194a.get(arrayList.get(size));
                     if (csVar != null && csVar.a() != null) {
                         arrayList.remove(size);
                     }
                 }
             }
-            ArrayList a2 = a(arrayList);
+            ArrayList<cr> a2 = a(arrayList);
             for (int i = 0; i < arrayList.size(); i++) {
                 if (a2.get(i) != null) {
-                    a((String) arrayList.get(i), (cr) a2.get(i));
+                    a(arrayList.get(i), a2.get(i));
                 }
             }
         }
@@ -667,7 +667,7 @@ public class cv {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             synchronized (this.f194a) {
                 m256a();
-                csVar = (cs) this.f194a.get(str);
+                csVar = this.f194a.get(str);
             }
             if (csVar == null || (a2 = csVar.a()) == null) {
                 return null;
@@ -683,10 +683,10 @@ public class cv {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             StringBuilder sb = new StringBuilder();
             synchronized (this.f194a) {
-                for (Map.Entry entry : this.f194a.entrySet()) {
-                    sb.append((String) entry.getKey());
+                for (Map.Entry<String, cs> entry : this.f194a.entrySet()) {
+                    sb.append(entry.getKey());
                     sb.append(":\n");
-                    sb.append(((cs) entry.getValue()).toString());
+                    sb.append(entry.getValue().toString());
                     sb.append("\n");
                 }
             }
@@ -720,7 +720,7 @@ public class cv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             synchronized (b) {
-                crVar = (cr) b.get(str);
+                crVar = b.get(str);
             }
             return crVar;
         }
@@ -768,6 +768,7 @@ public class cv {
 
     /* renamed from: d  reason: collision with other method in class */
     public void m260d() {
+        String next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             synchronized (this.f194a) {
@@ -776,13 +777,15 @@ public class cv {
                 }
                 while (true) {
                     for (boolean z = false; !z; z = true) {
-                        for (String str : this.f194a.keySet()) {
-                            if (((cs) this.f194a.get(str)).m247a().isEmpty()) {
+                        Iterator<String> it = this.f194a.keySet().iterator();
+                        while (it.hasNext()) {
+                            next = it.next();
+                            if (this.f194a.get(next).m247a().isEmpty()) {
                                 break;
                             }
                         }
                     }
-                    this.f194a.remove(str);
+                    this.f194a.remove(next);
                 }
             }
         }
@@ -794,9 +797,9 @@ public class cv {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
             if (System.currentTimeMillis() - this.f197c > this.f190a * 60 * 1000) {
                 this.f197c = System.currentTimeMillis();
-                ArrayList arrayList = new ArrayList();
+                ArrayList<String> arrayList = new ArrayList<>();
                 arrayList.add(str);
-                cr crVar = (cr) a(arrayList).get(0);
+                cr crVar = a(arrayList).get(0);
                 if (crVar != null) {
                     this.f190a = 0L;
                     return crVar;

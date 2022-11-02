@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -19,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionBarContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -103,7 +105,7 @@ public class ActionBarContainer extends FrameLayout {
         this.mBackground = obtainStyledAttributes.getDrawable(0);
         this.mStackedBackground = obtainStyledAttributes.getDrawable(2);
         this.mHeight = obtainStyledAttributes.getDimensionPixelSize(13, -1);
-        if (getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f091f39) {
+        if (getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f091f84) {
             this.mIsSplit = true;
             this.mSplitBackground = obtainStyledAttributes.getDrawable(1);
         }

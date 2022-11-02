@@ -1,62 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class sm extends BdAsyncTask {
-    public static /* synthetic */ Interceptable $ic;
+public class sm {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "http://mbd.baidu.com";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public sm() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448317075, "Lcom/baidu/tieba/sm;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448317075, "Lcom/baidu/tieba/sm;");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    @SafeVarargs
-    /* renamed from: b */
-    public final Boolean doInBackground(List... listArr) {
-        InterceptResult invokeL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
-            if (listArr != null && listArr.length != 0) {
-                List<PackageInfo> list = listArr[0];
-                if (list != null && !list.isEmpty()) {
-                    boolean z = true;
-                    for (PackageInfo packageInfo : list) {
-                        if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
-                            BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
-                            File file = new File(vm.b(packageInfo.name));
-                            if (file.exists() && !file.delete()) {
-                                z = false;
-                            }
-                        }
-                    }
-                    return Boolean.valueOf(z);
-                }
-                return Boolean.TRUE;
-            }
-            return Boolean.TRUE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return String.format(CloudControlUrlConfig.mUrl, a);
         }
-        return (Boolean) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

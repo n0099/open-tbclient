@@ -30,7 +30,7 @@ public class ThreadPoolService {
     public Handler b;
 
     /* loaded from: classes2.dex */
-    public class SingletonContainer {
+    public static class SingletonContainer {
         public static /* synthetic */ Interceptable $ic;
         public static ThreadPoolService mSingleInstance;
         public transient /* synthetic */ FieldHolder $fh;

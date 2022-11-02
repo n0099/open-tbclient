@@ -22,7 +22,7 @@ public class jl extends jb {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a extends jb.a {
+    public static class a extends jb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class BlockingFirstSubscriber extends BlockingBaseSubscriber {
+public final class BlockingFirstSubscriber<T> extends BlockingBaseSubscriber<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,10 +39,10 @@ public final class BlockingFirstSubscriber extends BlockingBaseSubscriber {
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && this.value == null) {
-            this.value = obj;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && this.value == null) {
+            this.value = t;
             this.s.cancel();
             countDown();
         }

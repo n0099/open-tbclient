@@ -1,91 +1,56 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vs8 {
+public class vs8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static vs8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public boolean b;
+    public final MainTabActivity a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(Application application);
-    }
-
-    public vs8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vs8(MainTabActivity mainTabActivity, or8 or8Var) {
+        super(2921666);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, or8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.a = c();
+        this.a = mainTabActivity;
     }
 
-    public static vs8 b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (vs8.class) {
-                    if (c == null) {
-                        c = new vs8();
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                MainTabActivity mainTabActivity = this.a;
+                mainTabActivity.J = 0;
+                mainTabActivity.K = System.currentTimeMillis();
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(false);
+                dh7.o = false;
+                dh7.p = false;
+                return;
             }
-            return c;
-        }
-        return (vs8) invokeV.objValue;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (ux4.k().l("pref_key_jpush_sdk_enable", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final a c() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a() && (runTask = MessageManager.getInstance().runTask(2156672, a.class)) != null) {
-                return (a) runTask.getData();
-            }
-            return null;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public void d(Application application) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && !this.b && (aVar = this.a) != null) {
-            aVar.a(application);
-            this.b = true;
+            uj5.a(2);
         }
     }
 }

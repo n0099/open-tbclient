@@ -1,6 +1,8 @@
 package com.baidu.searchbox.ruka;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.impl.ANRMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class ANRProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -94,6 +97,7 @@ public class ANRProvider {
         }
     }
 
+    @Inject(force = false)
     public static IANRMonitor getANRMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -47,7 +47,7 @@ public final class Mp4Extractor implements Extractor, SeekMap {
     public int atomHeaderBytesRead;
     public long atomSize;
     public int atomType;
-    public final Stack containerAtoms;
+    public final Stack<Atom.ContainerAtom> containerAtoms;
     public long durationUs;
     public ExtractorOutput extractorOutput;
     public final int flags;
@@ -82,7 +82,7 @@ public final class Mp4Extractor implements Extractor, SeekMap {
     }
 
     /* loaded from: classes7.dex */
-    public final class Mp4Track {
+    public static final class Mp4Track {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int sampleIndex;
@@ -205,7 +205,7 @@ public final class Mp4Extractor implements Extractor, SeekMap {
         }
         this.flags = i;
         this.atomHeader = new ParsableByteArray(16);
-        this.containerAtoms = new Stack();
+        this.containerAtoms = new Stack<>();
         this.nalStartCode = new ParsableByteArray(NalUnitUtil.NAL_START_CODE);
         this.nalLength = new ParsableByteArray(4);
     }
@@ -213,14 +213,14 @@ public final class Mp4Extractor implements Extractor, SeekMap {
     private void processAtomEnded(long j) throws ParserException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65541, this, j) == null) {
-            while (!this.containerAtoms.isEmpty() && ((Atom.ContainerAtom) this.containerAtoms.peek()).endPosition == j) {
-                Atom.ContainerAtom containerAtom = (Atom.ContainerAtom) this.containerAtoms.pop();
-                if (containerAtom.type == Atom.TYPE_moov) {
-                    processMoovAtom(containerAtom);
+            while (!this.containerAtoms.isEmpty() && this.containerAtoms.peek().endPosition == j) {
+                Atom.ContainerAtom pop = this.containerAtoms.pop();
+                if (pop.type == Atom.TYPE_moov) {
+                    processMoovAtom(pop);
                     this.containerAtoms.clear();
                     this.parserState = 2;
                 } else if (!this.containerAtoms.isEmpty()) {
-                    ((Atom.ContainerAtom) this.containerAtoms.peek()).add(containerAtom);
+                    this.containerAtoms.peek().add(pop);
                 }
             }
             if (this.parserState != 2) {
@@ -331,7 +331,7 @@ public final class Mp4Extractor implements Extractor, SeekMap {
             long j = C.TIME_UNSET;
             long j2 = Long.MAX_VALUE;
             for (int i = 0; i < containerAtom.containerChildren.size(); i++) {
-                Atom.ContainerAtom containerAtom2 = (Atom.ContainerAtom) containerAtom.containerChildren.get(i);
+                Atom.ContainerAtom containerAtom2 = containerAtom.containerChildren.get(i);
                 if (containerAtom2.type == Atom.TYPE_trak) {
                     Atom.LeafAtom leafAtomOfType2 = containerAtom.getLeafAtomOfType(Atom.TYPE_mvhd);
                     if ((this.flags & 1) != 0) {
@@ -397,7 +397,7 @@ public final class Mp4Extractor implements Extractor, SeekMap {
             } else if (j == 0) {
                 long length = extractorInput.getLength();
                 if (length == -1 && !this.containerAtoms.isEmpty()) {
-                    length = ((Atom.ContainerAtom) this.containerAtoms.peek()).endPosition;
+                    length = this.containerAtoms.peek().endPosition;
                 }
                 if (length != -1) {
                     this.atomSize = (length - extractorInput.getPosition()) + this.atomHeaderBytesRead;
@@ -453,7 +453,7 @@ public final class Mp4Extractor implements Extractor, SeekMap {
                 if (this.atomType == Atom.TYPE_ftyp) {
                     this.isQuickTime = processFtypAtom(this.atomData);
                 } else if (!this.containerAtoms.isEmpty()) {
-                    ((Atom.ContainerAtom) this.containerAtoms.peek()).add(new Atom.LeafAtom(this.atomType, this.atomData));
+                    this.containerAtoms.peek().add(new Atom.LeafAtom(this.atomType, this.atomData));
                 }
             } else if (j < 262144) {
                 extractorInput.skipFully((int) j);

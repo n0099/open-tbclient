@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
@@ -267,7 +268,8 @@ public class ba {
         return invokeL.booleanValue;
     }
 
-    public static boolean g(Class cls) {
+    @SuppressLint({"DefaultLocale"})
+    public static boolean g(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {

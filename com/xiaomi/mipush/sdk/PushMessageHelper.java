@@ -63,7 +63,7 @@ public class PushMessageHelper {
         }
     }
 
-    public static MiPushCommandMessage generateCommandMessage(String str, List list, long j, String str2, String str3, List list2) {
+    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3, List<String> list2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3, list2})) == null) {

@@ -4,6 +4,10 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import androidx.webkit.internal.AssetHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,7 +32,9 @@ public final class WebViewAssetLoader {
 
     /* loaded from: classes.dex */
     public interface PathHandler {
-        WebResourceResponse handle(String str);
+        @Nullable
+        @WorkerThread
+        WebResourceResponse handle(@NonNull String str);
     }
 
     /* loaded from: classes.dex */
@@ -37,7 +43,7 @@ public final class WebViewAssetLoader {
         public transient /* synthetic */ FieldHolder $fh;
         public AssetHelper mAssetHelper;
 
-        public AssetsPathHandler(Context context) {
+        public AssetsPathHandler(@NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +61,8 @@ public final class WebViewAssetLoader {
             this.mAssetHelper = new AssetHelper(context);
         }
 
-        public AssetsPathHandler(AssetHelper assetHelper) {
+        @VisibleForTesting
+        public AssetsPathHandler(@NonNull AssetHelper assetHelper) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +81,9 @@ public final class WebViewAssetLoader {
         }
 
         @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-        public WebResourceResponse handle(String str) {
+        @Nullable
+        @WorkerThread
+        public WebResourceResponse handle(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -88,6 +97,7 @@ public final class WebViewAssetLoader {
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public List<PathMatcher> mBuilderMatcherList;
         public String mDomain;
         public boolean mHttpAllowed;
@@ -110,6 +120,7 @@ public final class WebViewAssetLoader {
             this.mBuilderMatcherList = new ArrayList();
         }
 
+        @NonNull
         public WebViewAssetLoader build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -119,7 +130,8 @@ public final class WebViewAssetLoader {
             return (WebViewAssetLoader) invokeV.objValue;
         }
 
-        public Builder addPathHandler(String str, PathHandler pathHandler) {
+        @NonNull
+        public Builder addPathHandler(@NonNull String str, @NonNull PathHandler pathHandler) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, pathHandler)) == null) {
@@ -129,7 +141,8 @@ public final class WebViewAssetLoader {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder setDomain(String str) {
+        @NonNull
+        public Builder setDomain(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -139,6 +152,7 @@ public final class WebViewAssetLoader {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setHttpAllowed(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -155,6 +169,7 @@ public final class WebViewAssetLoader {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] FORBIDDEN_DATA_DIRS;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final File mDirectory;
 
         static {
@@ -173,7 +188,7 @@ public final class WebViewAssetLoader {
             FORBIDDEN_DATA_DIRS = new String[]{"app_webview/", "databases/", "lib/", "shared_prefs/", "code_cache/"};
         }
 
-        public InternalStoragePathHandler(Context context, File file) {
+        public InternalStoragePathHandler(@NonNull Context context, @NonNull File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +210,7 @@ public final class WebViewAssetLoader {
             throw new IllegalArgumentException("The given directory \"" + file + "\" doesn't exist under an allowed app internal storage directory");
         }
 
-        public static boolean isAllowedInternalStorageDir(Context context, File file) {
+        public static boolean isAllowedInternalStorageDir(@NonNull Context context, @NonNull File file) {
             InterceptResult invokeLL;
             String[] strArr;
             Interceptable interceptable = $ic;
@@ -220,7 +235,9 @@ public final class WebViewAssetLoader {
         }
 
         @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-        public WebResourceResponse handle(String str) {
+        @NonNull
+        @WorkerThread
+        public WebResourceResponse handle(@NonNull String str) {
             InterceptResult invokeL;
             InputStream inputStream;
             Interceptable interceptable = $ic;
@@ -238,18 +255,22 @@ public final class WebViewAssetLoader {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes.dex */
     public static class PathMatcher {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String HTTPS_SCHEME = "https";
         public static final String HTTP_SCHEME = "http";
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final String mAuthority;
+        @NonNull
         public final PathHandler mHandler;
         public final boolean mHttpEnabled;
+        @NonNull
         public final String mPath;
 
-        public PathMatcher(String str, String str2, boolean z, PathHandler pathHandler) {
+        public PathMatcher(@NonNull String str, @NonNull String str2, boolean z, @NonNull PathHandler pathHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -277,7 +298,9 @@ public final class WebViewAssetLoader {
             throw new IllegalArgumentException("Path should start with a slash '/'.");
         }
 
-        public String getSuffixPath(String str) {
+        @NonNull
+        @WorkerThread
+        public String getSuffixPath(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -286,7 +309,9 @@ public final class WebViewAssetLoader {
             return (String) invokeL.objValue;
         }
 
-        public PathHandler match(Uri uri) {
+        @Nullable
+        @WorkerThread
+        public PathHandler match(@NonNull Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
@@ -308,7 +333,7 @@ public final class WebViewAssetLoader {
         public transient /* synthetic */ FieldHolder $fh;
         public AssetHelper mAssetHelper;
 
-        public ResourcesPathHandler(Context context) {
+        public ResourcesPathHandler(@NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -326,7 +351,8 @@ public final class WebViewAssetLoader {
             this.mAssetHelper = new AssetHelper(context);
         }
 
-        public ResourcesPathHandler(AssetHelper assetHelper) {
+        @VisibleForTesting
+        public ResourcesPathHandler(@NonNull AssetHelper assetHelper) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -345,7 +371,9 @@ public final class WebViewAssetLoader {
         }
 
         @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-        public WebResourceResponse handle(String str) {
+        @Nullable
+        @WorkerThread
+        public WebResourceResponse handle(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -355,7 +383,7 @@ public final class WebViewAssetLoader {
         }
     }
 
-    public WebViewAssetLoader(List<PathMatcher> list) {
+    public WebViewAssetLoader(@NonNull List<PathMatcher> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -373,7 +401,9 @@ public final class WebViewAssetLoader {
         this.mMatchers = list;
     }
 
-    public WebResourceResponse shouldInterceptRequest(Uri uri) {
+    @Nullable
+    @WorkerThread
+    public WebResourceResponse shouldInterceptRequest(@NonNull Uri uri) {
         InterceptResult invokeL;
         WebResourceResponse handle;
         Interceptable interceptable = $ic;

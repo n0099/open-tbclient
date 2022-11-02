@@ -11,18 +11,18 @@ import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class MaybeDetach extends AbstractMaybeWithUpstream {
+public final class MaybeDetach<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class DetachMaybeObserver implements MaybeObserver, Disposable {
+    public static final class DetachMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public MaybeObserver actual;
+        public MaybeObserver<? super T> actual;
         public Disposable d;
 
-        public DetachMaybeObserver(MaybeObserver maybeObserver) {
+        public DetachMaybeObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +45,7 @@ public final class MaybeDetach extends AbstractMaybeWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                MaybeObserver maybeObserver = this.actual;
+                MaybeObserver<? super T> maybeObserver = this.actual;
                 if (maybeObserver != null) {
                     this.actual = null;
                     maybeObserver.onError(th);
@@ -63,14 +63,14 @@ public final class MaybeDetach extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                MaybeObserver maybeObserver = this.actual;
+                MaybeObserver<? super T> maybeObserver = this.actual;
                 if (maybeObserver != null) {
                     this.actual = null;
-                    maybeObserver.onSuccess(obj);
+                    maybeObserver.onSuccess(t);
                 }
             }
         }
@@ -100,7 +100,7 @@ public final class MaybeDetach extends AbstractMaybeWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                MaybeObserver maybeObserver = this.actual;
+                MaybeObserver<? super T> maybeObserver = this.actual;
                 if (maybeObserver != null) {
                     this.actual = null;
                     maybeObserver.onComplete();
@@ -110,7 +110,7 @@ public final class MaybeDetach extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDetach(MaybeSource maybeSource) {
+    public MaybeDetach(MaybeSource<T> maybeSource) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,7 +130,7 @@ public final class MaybeDetach extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new DetachMaybeObserver(maybeObserver));

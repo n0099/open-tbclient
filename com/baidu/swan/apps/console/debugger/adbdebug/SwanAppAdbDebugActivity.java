@@ -8,11 +8,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e33;
-import com.baidu.tieba.lg3;
-import com.baidu.tieba.q23;
-import com.baidu.tieba.ui3;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.i33;
+import com.baidu.tieba.mj3;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.w33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 return;
             }
         }
-        a = wj1.a;
+        a = ok1.a;
     }
 
     public SwanAppAdbDebugActivity() {
@@ -134,24 +134,24 @@ public class SwanAppAdbDebugActivity extends Activity {
             if (a) {
                 Log.d("SwanAppAdbDebugActivity", "ADB Debug onCreate");
             }
-            if (lg3.a(this)) {
+            if (dh3.a(this)) {
                 return;
             }
             Intent intent = getIntent();
             if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-                e33.f(this, R.string.obfuscated_res_0x7f0f0102).G();
+                w33.f(this, R.string.obfuscated_res_0x7f0f0102).G();
                 if (a) {
                     Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
                 }
                 finish();
             }
-            q23.a aVar = new q23.a(this);
+            i33.a aVar = new i33.a(this);
             aVar.V(getString(R.string.obfuscated_res_0x7f0f0100));
             aVar.x(getString(R.string.obfuscated_res_0x7f0f0101));
-            aVar.n(new ui3());
+            aVar.n(new mj3());
             aVar.m(false);
             aVar.O(R.string.obfuscated_res_0x7f0f011a, new b(this, intent));
-            aVar.B(R.string.obfuscated_res_0x7f0f12d5, new a(this));
+            aVar.B(R.string.obfuscated_res_0x7f0f12f3, new a(this));
             aVar.X();
         }
     }

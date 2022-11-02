@@ -54,7 +54,7 @@ public final class r extends z {
             Context context = this.a;
             if (!com.vivo.push.util.t.d(context, context.getPackageName())) {
                 com.vivo.push.b.x xVar = new com.vivo.push.b.x(2101L);
-                HashMap hashMap = new HashMap();
+                HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("messageID", String.valueOf(qVar.f()));
                 Context context2 = this.a;
                 String b = com.vivo.push.util.z.b(context2, context2.getPackageName());
@@ -69,7 +69,7 @@ public final class r extends z {
             com.vivo.push.util.p.d("OnNotificationArrivedTask", "PushMessageReceiver " + this.a.getPackageName() + " isEnablePush :" + isEnablePush);
             if (!isEnablePush) {
                 com.vivo.push.b.x xVar2 = new com.vivo.push.b.x(1020L);
-                HashMap hashMap2 = new HashMap();
+                HashMap<String, String> hashMap2 = new HashMap<>();
                 hashMap2.put("messageID", String.valueOf(qVar.f()));
                 Context context3 = this.a;
                 String b2 = com.vivo.push.util.z.b(context3, context3.getPackageName());
@@ -80,7 +80,7 @@ public final class r extends z {
                 com.vivo.push.e.a().a(xVar2);
             } else if (com.vivo.push.e.a().g() && !a(com.vivo.push.util.z.c(this.a), qVar.e(), qVar.i())) {
                 com.vivo.push.b.x xVar3 = new com.vivo.push.b.x(1021L);
-                HashMap hashMap3 = new HashMap();
+                HashMap<String, String> hashMap3 = new HashMap<>();
                 hashMap3.put("messageID", String.valueOf(qVar.f()));
                 Context context4 = this.a;
                 String b3 = com.vivo.push.util.z.b(context4, context4.getPackageName());

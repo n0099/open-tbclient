@@ -5,11 +5,13 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dv6;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.mw6;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +26,7 @@ public class FunImageView extends RelativeLayout {
     public String c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FunImageView(Context context) {
+    public FunImageView(@NonNull Context context) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +47,7 @@ public class FunImageView extends RelativeLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FunImageView(Context context, AttributeSet attributeSet) {
+    public FunImageView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +68,7 @@ public class FunImageView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunImageView(Context context, AttributeSet attributeSet, int i) {
+    public FunImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,11 +93,11 @@ public class FunImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             removeAllViews();
-            ViewGroup l = dv6.m().l(context);
+            ViewGroup l = mw6.m().l(context);
             this.a = l;
             if (l != null) {
                 SkinManager.setBackgroundColor(l, R.color.CAM_X0101, 0);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(fj.k(context), -2);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(xi.l(context), -2);
                 layoutParams.addRule(14, -1);
                 layoutParams.addRule(15, -1);
                 addView(this.a, layoutParams);

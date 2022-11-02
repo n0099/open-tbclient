@@ -1,23 +1,24 @@
 package com.yy.hiidostatis.message;
 
+import com.yy.hiidostatis.api.StatisContent;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public interface SessionReport {
 
     /* loaded from: classes8.dex */
-    public interface AfterFlush {
-        StatisContentAble reset(String str, StatisContentAble statisContentAble);
+    public interface AfterFlush<K extends StatisContentAble> {
+        K reset(String str, K k);
     }
 
     /* loaded from: classes8.dex */
-    public interface Processor {
-        StatisContentAble process(StatisContentAble statisContentAble, String str, Object obj);
+    public interface Processor<K extends StatisContentAble, T> {
+        K process(K k, String str, T t);
     }
 
     /* loaded from: classes8.dex */
     public interface StatisContentAble {
-        List toStatisContent(String str, String str2);
+        List<StatisContent> toStatisContent(String str, String str2);
     }
 
     void beginSession(String str, String str2, Processor processor, AfterFlush afterFlush);
@@ -28,7 +29,7 @@ public interface SessionReport {
 
     boolean flushSessionAll(String str);
 
-    boolean flushSessionAll(String str, Set set);
+    boolean flushSessionAll(String str, Set<String> set);
 
     boolean pushToSession(String str, String str2, Object obj);
 }

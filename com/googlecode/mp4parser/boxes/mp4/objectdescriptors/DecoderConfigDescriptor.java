@@ -32,7 +32,7 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
     public DecoderSpecificInfo decoderSpecificInfo;
     public long maxBitRate;
     public int objectTypeIndication;
-    public List profileLevelIndicationDescriptors;
+    public List<ProfileLevelIndicationDescriptor> profileLevelIndicationDescriptors;
     public int streamType;
     public int upStream;
 
@@ -122,7 +122,7 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         return invokeV.intValue;
     }
 
-    public List getProfileLevelIndicationDescriptors() {
+    public List<ProfileLevelIndicationDescriptor> getProfileLevelIndicationDescriptors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -333,7 +333,7 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
             }
             sb.append(Hex.encodeHex(bArr));
             sb.append(", profileLevelIndicationDescriptors=");
-            List list = this.profileLevelIndicationDescriptors;
+            List<ProfileLevelIndicationDescriptor> list = this.profileLevelIndicationDescriptors;
             if (list == null) {
                 obj = StringUtil.NULL_STRING;
             } else {

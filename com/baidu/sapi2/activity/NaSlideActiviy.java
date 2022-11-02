@@ -41,7 +41,7 @@ public class NaSlideActiviy extends AppCompatActivity {
     public SapiConfiguration configuration;
     public SlideInterceptor d;
     public SlidingPaneLayout.PanelSlideListener e;
-    public WeakReference f;
+    public WeakReference<Activity> f;
     public SlideHelper mSlideHelper;
 
     public NaSlideActiviy() {
@@ -223,11 +223,11 @@ public class NaSlideActiviy extends AppCompatActivity {
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             try {
                 if (this.f == null || this.f.get() == null) {
-                    this.f = new WeakReference(ActivityStackManager.getInstance().getPenultimateActivity());
+                    this.f = new WeakReference<>(ActivityStackManager.getInstance().getPenultimateActivity());
                 }
                 if (this.f.get() != null) {
                     Activity realTopActivity = ActivityStackManager.getInstance().getRealTopActivity();
-                    Activity activity = (Activity) this.f.get();
+                    Activity activity = this.f.get();
                     if (realTopActivity != null && activity != null && realTopActivity.getLocalClassName().equals(activity.getLocalClassName())) {
                         a(activity, 0.0f);
                     } else {

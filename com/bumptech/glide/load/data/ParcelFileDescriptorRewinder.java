@@ -5,6 +5,8 @@ import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.data.DataRewinder;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public final class ParcelFileDescriptorRewinder implements DataRewinder {
+public final class ParcelFileDescriptorRewinder implements DataRewinder<ParcelFileDescriptor> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final InternalRewinder rewinder;
@@ -26,8 +28,9 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes7.dex */
-    public final class Factory implements DataRewinder.Factory {
+    public static final class Factory implements DataRewinder.Factory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +49,8 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder {
         }
 
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        public Class getDataClass() {
+        @NonNull
+        public Class<ParcelFileDescriptor> getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -57,7 +61,8 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        public DataRewinder build(ParcelFileDescriptor parcelFileDescriptor) {
+        @NonNull
+        public DataRewinder<ParcelFileDescriptor> build(@NonNull ParcelFileDescriptor parcelFileDescriptor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcelFileDescriptor)) == null) {
@@ -67,8 +72,9 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes7.dex */
-    public final class InternalRewinder {
+    public static final class InternalRewinder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ParcelFileDescriptor parcelFileDescriptor;
@@ -106,6 +112,7 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder {
         }
     }
 
+    @RequiresApi(21)
     public ParcelFileDescriptorRewinder(ParcelFileDescriptor parcelFileDescriptor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -137,7 +144,10 @@ public final class ParcelFileDescriptorRewinder implements DataRewinder {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.DataRewinder
+    @NonNull
+    @RequiresApi(21)
     public ParcelFileDescriptor rewindAndGet() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

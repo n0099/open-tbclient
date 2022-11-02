@@ -2,28 +2,29 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rf;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.jf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AsyncGetClipboardSwitch extends rf {
+public class AsyncGetClipboardSwitch extends jf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "xiaomi_async_get_clipboard_12_24";
     public static final int TYPE_CLOSE = 0;
     public static final int TYPE_OPEN = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -33,7 +34,7 @@ public class AsyncGetClipboardSwitch extends rf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +44,7 @@ public class AsyncGetClipboardSwitch extends rf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,14 +54,14 @@ public class AsyncGetClipboardSwitch extends rf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,6 +85,7 @@ public class AsyncGetClipboardSwitch extends rf {
         }
     }
 
+    @Modify(description = "小米子线程读取剪切板", type = 100)
     public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

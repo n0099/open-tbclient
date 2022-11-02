@@ -1,65 +1,49 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class fr9 {
+public class fr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Reporter a;
-    public final String b;
-    public final int c;
-    public final String d;
 
-    /* loaded from: classes4.dex */
-    public class a extends fr9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, Ssp.Pid pid) {
-            super(str, ql9.a(str, pid), "n");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, pid};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public fr9(String str, int i, String str2) {
+    public static RippedAd a(AdInfo adInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        List<AdInfo.AdMaterialInfo.MaterialFeature> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
+            AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
+            AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
+            RippedAd.Builder builder = new RippedAd.Builder();
+            AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
+            ArrayList arrayList = null;
+            if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
+                str = null;
+            } else if (adMaterialInfo.materialType == 1) {
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
+                str2 = materialFeature.materialUrl;
+                str = materialFeature.coverUrl;
+                builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+                return builder.build();
+            } else {
+                ArrayList arrayList2 = new ArrayList();
+                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adMaterialInfo.materialFeatureList) {
+                    arrayList2.add(materialFeature2.materialUrl);
+                }
+                str = null;
+                arrayList = arrayList2;
             }
+            str2 = str;
+            builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+            return builder.build();
         }
-        this.a = vq9.a();
-        this.b = str;
-        this.d = str2;
-        this.c = i;
+        return (RippedAd) invokeL.objValue;
     }
 }

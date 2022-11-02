@@ -21,7 +21,7 @@ public class DeviceIdBag implements Parcelable {
     public static final int CODE_PRIVACY_DISAGREE = -3;
     public static final int CODE_REFUSE = -2;
     public static final int CODE_SYNC_MAPPING = 3;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<DeviceIdBag> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String deviceId;
     public String encodedDeviceId;
@@ -50,7 +50,7 @@ public class DeviceIdBag implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.searchbox.common.security.DeviceIdBag.1
+        CREATOR = new Parcelable.Creator<DeviceIdBag>() { // from class: com.baidu.searchbox.common.security.DeviceIdBag.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,6 +69,7 @@ public class DeviceIdBag implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DeviceIdBag createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -80,6 +81,7 @@ public class DeviceIdBag implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DeviceIdBag[] newArray(int i) {
                 InterceptResult invokeI;

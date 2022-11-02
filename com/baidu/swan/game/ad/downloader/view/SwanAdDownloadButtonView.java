@@ -38,7 +38,7 @@ public class SwanAdDownloadButtonView extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class State {
+    public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State DOWNLOADING;
@@ -105,7 +105,7 @@ public class SwanAdDownloadButtonView extends View {
     }
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,8 +163,8 @@ public class SwanAdDownloadButtonView extends View {
         this.a.setAntiAlias(true);
         this.g.setAntiAlias(true);
         this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070654);
-        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060a85);
-        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060a86);
+        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060a97);
+        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060a98);
     }
 
     public final void e(Canvas canvas) {

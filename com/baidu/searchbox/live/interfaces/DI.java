@@ -75,7 +75,7 @@ public final class DI {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\r\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/DI$BD;", "", "BD_IDENTITY", "Ljava/lang/String;", "COOL_PRAISE_PROXY", "FAVOR", "FEED_PAY", "IM_CHAT", "OEM_NAME", "OPEN_RED_PACKET_DETAIL", "VISIT_HISTORY", "YANHI_TAB_GUIDE", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class BD {
+    public static final class BD {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BD_IDENTITY = "bd_identity";
         public static final String COOL_PRAISE_PROXY = "cool_praise_proxy";
@@ -122,7 +122,7 @@ public final class DI {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/DI$BJH;", "", "BJH_GUIDE_MANAGE", "Ljava/lang/String;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class BJH {
+    public static final class BJH {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BJH_GUIDE_MANAGE = "guide_manage";
         public static final BJH INSTANCE;
@@ -161,7 +161,7 @@ public final class DI {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0007\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/DI$EXT;", "", "EXT_LIVE_JUMP_PAGE", "Ljava/lang/String;", "EXT_LIVE_LOG", "EXT_LIVE_SESSION_ID", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class EXT {
+    public static final class EXT {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXT_LIVE_JUMP_PAGE = "ext_live_jump_page";
         public static final String EXT_LIVE_LOG = "ext_live_log";
@@ -202,7 +202,7 @@ public final class DI {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0007\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/DI$MINI_SHELL;", "", "MEDIA_2_YY", "Ljava/lang/String;", "PLUGIN_MANAGER", "YY_2_MEDIA", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class MINI_SHELL {
+    public static final class MINI_SHELL {
         public static /* synthetic */ Interceptable $ic = null;
         public static final MINI_SHELL INSTANCE;
         public static final String MEDIA_2_YY = "media_2_yy";
@@ -243,7 +243,7 @@ public final class DI {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/DI$TB;", "", "SHARE_CHANNEL", "Ljava/lang/String;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class TB {
+    public static final class TB {
         public static /* synthetic */ Interceptable $ic = null;
         public static final TB INSTANCE;
         public static final String SHARE_CHANNEL = "share_channel";
@@ -282,7 +282,7 @@ public final class DI {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\r\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/DI$YY;", "", "LIVE_OKHTTP_BRIDGE", "Ljava/lang/String;", "MULTI_PLUGIN", "THIRD_PART_ALI_RECHARGE", "THIRD_PART_DXM_RECHARGE", "THIRD_PART_WX_RECHARGE", "YY_HDID", "YY_MULTI_PLUGIN_PROGRESS", YYLiveNPSPluginManager.TAG, "YY_TEST", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class YY {
+    public static final class YY {
         public static /* synthetic */ Interceptable $ic = null;
         public static final YY INSTANCE;
         public static final String LIVE_OKHTTP_BRIDGE = "okhttp_bridge";
@@ -329,7 +329,7 @@ public final class DI {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/DI$YYPAY;", "", "YY_PAY", "Ljava/lang/String;", "YY_PAY_HOST_DATA", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class YYPAY {
+    public static final class YYPAY {
         public static /* synthetic */ Interceptable $ic = null;
         public static final YYPAY INSTANCE;
         public static final String YY_PAY = "yy_pay";

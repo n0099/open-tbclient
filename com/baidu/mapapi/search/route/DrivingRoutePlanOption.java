@@ -17,12 +17,12 @@ public class DrivingRoutePlanOption {
     public PlanNode mFrom;
     public DrivingPolicy mPolicy;
     public PlanNode mTo;
-    public List mWayPoints;
+    public List<PlanNode> mWayPoints;
     public DrivingTrafficPolicy mtrafficPolicy;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class DrivingPolicy {
+    public static final class DrivingPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final DrivingPolicy ECAR_AVOID_JAM;
         public static final DrivingPolicy ECAR_DIS_FIRST;
@@ -77,25 +77,34 @@ public class DrivingRoutePlanOption {
         public static DrivingPolicy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DrivingPolicy) Enum.valueOf(DrivingPolicy.class, str) : (DrivingPolicy) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (DrivingPolicy) Enum.valueOf(DrivingPolicy.class, str);
+            }
+            return (DrivingPolicy) invokeL.objValue;
         }
 
         public static DrivingPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingPolicy[]) b.clone() : (DrivingPolicy[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (DrivingPolicy[]) b.clone();
+            }
+            return (DrivingPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class DrivingTrafficPolicy {
+    public static final class DrivingTrafficPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final DrivingTrafficPolicy ROUTE_PATH;
         public static final DrivingTrafficPolicy ROUTE_PATH_AND_TRAFFIC;
@@ -146,19 +155,28 @@ public class DrivingRoutePlanOption {
         public static DrivingTrafficPolicy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DrivingTrafficPolicy) Enum.valueOf(DrivingTrafficPolicy.class, str) : (DrivingTrafficPolicy) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (DrivingTrafficPolicy) Enum.valueOf(DrivingTrafficPolicy.class, str);
+            }
+            return (DrivingTrafficPolicy) invokeL.objValue;
         }
 
         public static DrivingTrafficPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingTrafficPolicy[]) b.clone() : (DrivingTrafficPolicy[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (DrivingTrafficPolicy[]) b.clone();
+            }
+            return (DrivingTrafficPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -202,7 +220,7 @@ public class DrivingRoutePlanOption {
         return (DrivingRoutePlanOption) invokeL.objValue;
     }
 
-    public DrivingRoutePlanOption passBy(List list) {
+    public DrivingRoutePlanOption passBy(List<PlanNode> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {

@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PutBodyRequest extends HttpCommonRequest {
+public class PutBodyRequest extends HttpCommonRequest<PutBodyRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class PutBodyRequestBuilder extends HttpCommonRequestBuilder {
+    public static class PutBodyRequestBuilder extends HttpCommonRequestBuilder<PutBodyRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

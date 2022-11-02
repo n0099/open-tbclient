@@ -3,6 +3,7 @@ package com.baidu.down.request.task;
 import android.content.Context;
 import com.baidu.down.common.DownConstants;
 import com.baidu.down.common.TaskMsg;
+import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.down.loopj.android.http.BinaryHttpResponseHandler;
 import com.baidu.down.retry.HttpRetryStrategyHandler;
 import com.baidu.down.statistic.TaskSpeedStat;
@@ -19,7 +20,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public abstract class AbstractTask implements DownConstants, Comparable {
+public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DF_SEG_SIZE = 524288;
     public static int DF_SEG_WRITE_SIZE = 524288;
@@ -55,10 +56,10 @@ public abstract class AbstractTask implements DownConstants, Comparable {
     public String mFilePath;
     public String mFilename;
     public String mFromParam;
-    public HashMap mHeaders;
+    public HashMap<String, String> mHeaders;
     public String mHost;
     public HttpRetryStrategyHandler mHttpRetryStrategyHandler;
-    public Map mIntercepters;
+    public Map<String, IIntercepter<?>> mIntercepters;
     public boolean mIsVisibility;
     public boolean mKeepNameAndPath;
     public long mLastNotifyBytes;

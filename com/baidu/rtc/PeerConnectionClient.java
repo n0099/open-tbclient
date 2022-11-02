@@ -13,7 +13,7 @@ import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.SdpPrefer;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.rtc.logreport.SLIReportInterface;
-import com.baidu.tieba.qx9;
+import com.baidu.tieba.zy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,6 +34,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import org.webrtc.AudioSource;
 import org.webrtc.AudioTrack;
+import org.webrtc.CalledByNative;
 import org.webrtc.CameraVideoCapturer;
 import org.webrtc.DataChannel;
 import org.webrtc.EglBase;
@@ -119,18 +120,18 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public MediaStream mediaStream;
     public PeerConnectionFactory.Options options;
     public MediaConstraints pcConstraints;
-    public ConcurrentHashMap peerConnectionMap;
+    public ConcurrentHashMap<BigInteger, JanusConnection> peerConnectionMap;
     public PeerConnectionParameters peerConnectionParameters;
     public String preferredVideoCodec;
     public AudioTrack remoteAudioTrack;
-    public Map remoteLevels;
+    public Map<BigInteger, Integer> remoteLevels;
     public VideoTrack remoteVideoTrack;
     public boolean renderVideo;
     public MediaConstraints sdpMediaConstraints;
     public Timer statsTimer;
-    public Map timerTaskGetQualityMap;
-    public Map timerTaskGetSLIMap;
-    public Map timerTaskGetVolumeMap;
+    public Map<BigInteger, TimerTask> timerTaskGetQualityMap;
+    public Map<BigInteger, TimerTask> timerTaskGetSLIMap;
+    public Map<BigInteger, TimerTask> timerTaskGetVolumeMap;
     public VideoCapturer videoCapturer;
     public boolean videoCapturerStopped;
     public int videoFps;
@@ -210,8 +211,9 @@ public class PeerConnectionClient implements DataChannel.Observer {
         public final /* synthetic */ PeerConnectionClient this$0;
 
         @Override // org.webrtc.PeerConnection.Observer
+        @CalledByNative("Observer")
         public /* synthetic */ void onConnectionChange(PeerConnection.PeerConnectionState peerConnectionState) {
-            qx9.$default$onConnectionChange(this, peerConnectionState);
+            zy9.$default$onConnectionChange(this, peerConnectionState);
         }
 
         @Override // org.webrtc.PeerConnection.Observer
@@ -222,8 +224,9 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
 
         @Override // org.webrtc.PeerConnection.Observer
+        @CalledByNative("Observer")
         public /* synthetic */ void onTrack(RtpTransceiver rtpTransceiver) {
-            qx9.$default$onTrack(this, rtpTransceiver);
+            zy9.$default$onTrack(this, rtpTransceiver);
         }
 
         public PCObserver(PeerConnectionClient peerConnectionClient) {
@@ -283,11 +286,11 @@ public class PeerConnectionClient implements DataChannel.Observer {
                             if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$1.peerConnection != null && !this.this$1.this$0.isError) {
                                 Log.d(PeerConnectionClient.TAG, "=========== onAddStream ==========");
                                 if (this.val$stream.audioTracks.size() == 1) {
-                                    this.this$1.this$0.remoteAudioTrack = (AudioTrack) this.val$stream.audioTracks.get(0);
+                                    this.this$1.this$0.remoteAudioTrack = this.val$stream.audioTracks.get(0);
                                     this.this$1.connection.audioTrack = this.this$1.this$0.remoteAudioTrack;
                                 }
                                 if (this.val$stream.videoTracks.size() == 1) {
-                                    this.this$1.this$0.remoteVideoTrack = (VideoTrack) this.val$stream.videoTracks.get(0);
+                                    this.this$1.this$0.remoteVideoTrack = this.val$stream.videoTracks.get(0);
                                     this.this$1.this$0.remoteVideoTrack.setEnabled(true);
                                     this.this$1.connection.videoTrack = this.this$1.this$0.remoteVideoTrack;
                                     this.this$1.this$0.events.onRemoteRender(this.this$1.connection);
@@ -550,7 +553,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* loaded from: classes2.dex */
-    public class PeerConnectionParameters {
+    public static class PeerConnectionParameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RtcParameterSettings.RtcAudioBitrateMode audioBitrateMode;
@@ -811,7 +814,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class StatsEventsType {
+    public static final class StatsEventsType {
         public static final /* synthetic */ StatsEventsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final StatsEventsType GET_AUDIOLEVEL_EVENT;
@@ -880,7 +883,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* loaded from: classes2.dex */
-    public class VideoDecoderObserver implements MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver {
+    public static class VideoDecoderObserver implements MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PeerConnectionEvents events;
@@ -946,7 +949,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         this.mHasVideoRecv = true;
         this.mHasDataRecv = false;
         this.executor = Executors.newSingleThreadScheduledExecutor();
-        this.peerConnectionMap = new ConcurrentHashMap();
+        this.peerConnectionMap = new ConcurrentHashMap<>();
     }
 
     public AudioDeviceModule createJavaAudioDevice() {
@@ -1347,7 +1350,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bigInteger)) == null) {
-            return (JanusConnection) this.peerConnectionMap.get(bigInteger);
+            return this.peerConnectionMap.get(bigInteger);
         }
         return (JanusConnection) invokeL.objValue;
     }
@@ -1730,7 +1733,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.jf1
+                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.bg1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1872,7 +1875,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         if (interceptable == null || interceptable.invokeV(65576, this) == null) {
             Log.d(TAG, "Closing peer connection.");
             this.statsTimer.cancel();
-            ConcurrentHashMap concurrentHashMap = this.peerConnectionMap;
+            ConcurrentHashMap<BigInteger, JanusConnection> concurrentHashMap = this.peerConnectionMap;
             if (concurrentHashMap != null) {
                 int size = concurrentHashMap.size();
                 for (int i = 0; i < size; i++) {
@@ -2416,7 +2419,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     private void findVideoSender(BigInteger bigInteger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65583, this, bigInteger) == null) {
-            for (RtpSender rtpSender : ((JanusConnection) this.peerConnectionMap.get(bigInteger)).peerConnection.getSenders()) {
+            for (RtpSender rtpSender : this.peerConnectionMap.get(bigInteger).peerConnection.getSenders()) {
                 if (rtpSender.track() != null && rtpSender.track().kind().equals("video")) {
                     Log.d(TAG, "Found video sender.");
                     this.localVideoSender = rtpSender;
@@ -2427,9 +2430,9 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void getStats(BigInteger bigInteger, StatsEventsType statsEventsType) {
-        ConcurrentHashMap concurrentHashMap;
+        ConcurrentHashMap<BigInteger, JanusConnection> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65585, this, bigInteger, statsEventsType) == null) && (concurrentHashMap = this.peerConnectionMap) != null && concurrentHashMap.get(bigInteger) != null && ((JanusConnection) this.peerConnectionMap.get(bigInteger)).peerConnection != null && !((JanusConnection) this.peerConnectionMap.get(bigInteger)).peerConnection.getStats(new StatsObserver(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.8
+        if ((interceptable == null || interceptable.invokeLL(65585, this, bigInteger, statsEventsType) == null) && (concurrentHashMap = this.peerConnectionMap) != null && concurrentHashMap.get(bigInteger) != null && this.peerConnectionMap.get(bigInteger).peerConnection != null && !this.peerConnectionMap.get(bigInteger).peerConnection.getStats(new StatsObserver(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PeerConnectionClient this$0;
@@ -2658,11 +2661,11 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (z) {
                 try {
                     if (statsEventsType == StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-                        timerTask = (TimerTask) this.timerTaskGetVolumeMap.get(bigInteger);
+                        timerTask = this.timerTaskGetVolumeMap.get(bigInteger);
                     } else if (statsEventsType == StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
-                        timerTask = (TimerTask) this.timerTaskGetQualityMap.get(bigInteger);
+                        timerTask = this.timerTaskGetQualityMap.get(bigInteger);
                     } else if (statsEventsType == StatsEventsType.GET_SLI_EVENT) {
-                        timerTask = (TimerTask) this.timerTaskGetSLIMap.get(bigInteger);
+                        timerTask = this.timerTaskGetSLIMap.get(bigInteger);
                     }
                     if (timerTask != null) {
                         timerTask.cancel();
@@ -2718,11 +2721,11 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 }
             }
             if (statsEventsType == StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-                timerTask = (TimerTask) this.timerTaskGetVolumeMap.get(bigInteger);
+                timerTask = this.timerTaskGetVolumeMap.get(bigInteger);
             } else if (statsEventsType == StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
-                timerTask = (TimerTask) this.timerTaskGetQualityMap.get(bigInteger);
+                timerTask = this.timerTaskGetQualityMap.get(bigInteger);
             } else if (statsEventsType == StatsEventsType.GET_SLI_EVENT) {
-                timerTask = (TimerTask) this.timerTaskGetSLIMap.get(bigInteger);
+                timerTask = this.timerTaskGetSLIMap.get(bigInteger);
             }
             if (timerTask != null) {
                 timerTask.cancel();

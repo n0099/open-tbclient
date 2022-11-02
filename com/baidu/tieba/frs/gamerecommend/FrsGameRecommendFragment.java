@@ -14,11 +14,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.ey4;
+import com.baidu.tieba.ck6;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import com.baidu.tieba.go6;
-import com.baidu.tieba.si6;
+import com.baidu.tieba.rp6;
+import com.baidu.tieba.uy4;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,16 +27,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements si6 {
+public class FrsGameRecommendFragment extends BaseFragment implements ck6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public go6 a;
+    public rp6 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public ey4.g g;
+    public uy4.g g;
     public BdListView.p h;
 
     /* loaded from: classes4.dex */
@@ -67,11 +68,11 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split("_");
-                if (split.length == 2 && "FrsGameRecommend".equals(split[0]) && 11 == eh.e(split[1], 0)) {
+                if (split.length == 2 && "FrsGameRecommend".equals(split[0]) && 11 == wg.e(split[1], 0)) {
                     this.a.x();
                 }
             }
@@ -103,7 +104,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
         }
 
         @Override // com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.b
-        public void a(boolean z, List list) {
+        public void a(boolean z, List<wn> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
                 this.a.a.b();
@@ -121,7 +122,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
                 this.a.a.b();
                 if (z) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f038d);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f038e);
                 } else {
                     FrsGameRecommendFragment frsGameRecommendFragment = this.a;
                     frsGameRecommendFragment.showNetRefreshView(frsGameRecommendFragment.a.d(), str, false);
@@ -132,7 +133,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements ey4.g {
+    public class c implements uy4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -155,12 +156,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.ey4.g
+        @Override // com.baidu.tieba.uy4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c68);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c7f);
                     this.a.a.b();
                 } else if (this.a.b != null) {
                     this.a.b.loadData();
@@ -240,10 +241,10 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        go6 go6Var;
+        rp6 rp6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (go6Var = this.a) != null) {
-            go6Var.i(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (rp6Var = this.a) != null) {
+            rp6Var.i(i);
         }
     }
 
@@ -261,7 +262,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
         return (FrsGameRecommendFragment) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.si6
+    @Override // com.baidu.tieba.ck6
     public NavigationBar L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -276,9 +277,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            go6 go6Var = this.a;
-            if (go6Var != null) {
-                go6Var.j();
+            rp6 rp6Var = this.a;
+            if (rp6Var != null) {
+                rp6Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {
@@ -317,9 +318,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements si6 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            go6 go6Var = new go6(getPageContext(), this.c, this.d);
-            this.a = go6Var;
-            go6Var.l(this.g);
+            rp6 rp6Var = new rp6(getPageContext(), this.c, this.d);
+            this.a = rp6Var;
+            rp6Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);

@@ -8,6 +8,10 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.KeyEventDispatcher;
@@ -40,6 +44,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // androidx.appcompat.app.AppCompatCallback
+    @Nullable
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -242,6 +247,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void invalidateOptionsMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -269,7 +275,8 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public <T extends View> T findViewById(int i) {
+    @Nullable
+    public <T extends View> T findViewById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -289,7 +296,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void setContentView(int i) {
+    public void setContentView(@LayoutRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             getDelegate().setContentView(i);

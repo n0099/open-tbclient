@@ -1,5 +1,7 @@
 package com.bumptech.glide.provider;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +15,16 @@ import java.util.List;
 public class ResourceEncoderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List encoders;
+    public final List<Entry<?>> encoders;
 
     /* loaded from: classes7.dex */
-    public final class Entry {
+    public static final class Entry<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ResourceEncoder encoder;
-        public final Class resourceClass;
+        public final ResourceEncoder<T> encoder;
+        public final Class<T> resourceClass;
 
-        public Entry(Class cls, ResourceEncoder resourceEncoder) {
+        public Entry(@NonNull Class<T> cls, @NonNull ResourceEncoder<T> resourceEncoder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +43,7 @@ public class ResourceEncoderRegistry {
             this.encoder = resourceEncoder;
         }
 
-        public boolean handles(Class cls) {
+        public boolean handles(@NonNull Class<?> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
@@ -67,34 +69,35 @@ public class ResourceEncoderRegistry {
         this.encoders = new ArrayList();
     }
 
-    public synchronized void append(Class cls, ResourceEncoder resourceEncoder) {
+    public synchronized <Z> void append(@NonNull Class<Z> cls, @NonNull ResourceEncoder<Z> resourceEncoder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cls, resourceEncoder) == null) {
             synchronized (this) {
-                this.encoders.add(new Entry(cls, resourceEncoder));
+                this.encoders.add(new Entry<>(cls, resourceEncoder));
             }
         }
     }
 
-    public synchronized void prepend(Class cls, ResourceEncoder resourceEncoder) {
+    public synchronized <Z> void prepend(@NonNull Class<Z> cls, @NonNull ResourceEncoder<Z> resourceEncoder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, resourceEncoder) == null) {
             synchronized (this) {
-                this.encoders.add(0, new Entry(cls, resourceEncoder));
+                this.encoders.add(0, new Entry<>(cls, resourceEncoder));
             }
         }
     }
 
-    public synchronized ResourceEncoder get(Class cls) {
+    @Nullable
+    public synchronized <Z> ResourceEncoder<Z> get(@NonNull Class<Z> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
             synchronized (this) {
                 int size = this.encoders.size();
                 for (int i = 0; i < size; i++) {
-                    Entry entry = (Entry) this.encoders.get(i);
+                    Entry<?> entry = this.encoders.get(i);
                     if (entry.handles(cls)) {
-                        return entry.encoder;
+                        return (ResourceEncoder<Z>) entry.encoder;
                     }
                 }
                 return null;

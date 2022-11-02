@@ -130,7 +130,7 @@ public final class PDF417Writer implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
         InterceptResult invokeCommon;
         int i3;
         int i4;

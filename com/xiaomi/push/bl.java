@@ -13,10 +13,10 @@ import java.util.LinkedList;
 public class bl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList a;
+    public LinkedList<a> a;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final bl a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class bl {
                 return;
             }
         }
-        this.a = new LinkedList();
+        this.a = new LinkedList<>();
     }
 
     public static bl a() {
@@ -112,14 +112,14 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList m201a() {
+    public synchronized LinkedList<a> m201a() {
         InterceptResult invokeV;
-        LinkedList linkedList;
+        LinkedList<a> linkedList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
                 linkedList = this.a;
-                this.a = new LinkedList();
+                this.a = new LinkedList<>();
             }
             return linkedList;
         }

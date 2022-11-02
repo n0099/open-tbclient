@@ -23,9 +23,9 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
+    public ArrayList<e> a;
     public Context c;
-    public HashMap d;
+    public HashMap<String, f> d;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -42,15 +42,15 @@ public final class b {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = new HashMap();
+        this.a = new ArrayList<>();
+        this.d = new HashMap<>();
         this.c = context.getApplicationContext();
         String d = com.baidu.android.pushservice.c.c.d(context);
         if (TextUtils.isEmpty(d)) {
             return;
         }
         try {
-            ArrayList c = c(m.b(d));
+            ArrayList<e> c = c(m.b(d));
             if (c != null) {
                 this.a.addAll(c);
             }
@@ -79,7 +79,7 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String a(List list) {
+    private String a(List<e> list) {
         InterceptResult invokeL;
         StringBuffer stringBuffer;
         Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public final class b {
                     stringBuffer = new StringBuffer();
                     for (int i = 0; i < list.size(); i++) {
                         try {
-                            e eVar = (e) list.get(i);
+                            e eVar = list.get(i);
                             if (eVar != null) {
                                 stringBuffer.append(eVar.b);
                                 stringBuffer.append(",");
@@ -132,11 +132,11 @@ public final class b {
             if (this.a == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            Iterator it = this.a.iterator();
+            Iterator<e> it = this.a.iterator();
             while (it.hasNext()) {
-                e eVar = (e) it.next();
-                if (str.equals(eVar.b)) {
-                    return eVar;
+                e next = it.next();
+                if (str.equals(next.b)) {
+                    return next;
                 }
             }
             return null;
@@ -154,18 +154,18 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized String a(e eVar, boolean z, ArrayList arrayList) {
+    public synchronized String a(e eVar, boolean z, ArrayList<e> arrayList) {
         InterceptResult invokeCommon;
         String c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{eVar, Boolean.valueOf(z), arrayList})) == null) {
             synchronized (this) {
                 boolean z2 = false;
-                Iterator it = arrayList.iterator();
+                Iterator<e> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    e eVar2 = (e) it.next();
-                    if (eVar2.b.equals(eVar.b) || eVar2.a.equals(eVar.a)) {
-                        arrayList.remove(eVar2);
+                    e next = it.next();
+                    if (next.b.equals(eVar.b) || next.a.equals(eVar.a)) {
+                        arrayList.remove(next);
                         if (z) {
                             arrayList.add(eVar);
                         }
@@ -204,19 +204,19 @@ public final class b {
                 if (TextUtils.isEmpty(str2)) {
                     return;
                 }
-                ArrayList c = c(m.b(str2));
+                ArrayList<e> c = c(m.b(str2));
                 String str3 = "";
                 if (b != null && c != null) {
                     try {
                         if (str.equals("r_v2")) {
                             ArrayList arrayList = new ArrayList();
-                            Iterator it = c.iterator();
+                            Iterator<e> it = c.iterator();
                             while (it.hasNext()) {
-                                arrayList.add(((e) it.next()).b);
+                                arrayList.add(it.next().b);
                             }
                             int i = 0;
                             while (i < b.a.size()) {
-                                if (arrayList.contains(((e) b.a.get(i)).b)) {
+                                if (arrayList.contains(b.a.get(i).b)) {
                                     b.a.remove(i);
                                     i--;
                                 }
@@ -241,11 +241,11 @@ public final class b {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            Iterator it = this.a.iterator();
+            Iterator<e> it = this.a.iterator();
             while (it.hasNext()) {
-                e eVar = (e) it.next();
-                if (!TextUtils.isEmpty(eVar.a) && eVar.a.equals(str)) {
-                    return eVar;
+                e next = it.next();
+                if (!TextUtils.isEmpty(next.a) && next.a.equals(str)) {
+                    return next;
                 }
             }
             return null;
@@ -258,16 +258,16 @@ public final class b {
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             synchronized (this) {
                 String d = com.baidu.android.pushservice.c.c.d(context);
-                ArrayList c = TextUtils.isEmpty(d) ? null : c(m.b(d));
+                ArrayList<e> c = TextUtils.isEmpty(d) ? null : c(m.b(d));
                 if (b != null && c != null) {
                     ArrayList arrayList = new ArrayList();
-                    Iterator it = c.iterator();
+                    Iterator<e> it = c.iterator();
                     while (it.hasNext()) {
-                        arrayList.add(((e) it.next()).b);
+                        arrayList.add(it.next().b);
                     }
                     int i = 0;
                     while (i < b.a.size()) {
-                        if (arrayList.contains(((e) b.a.get(i)).b)) {
+                        if (arrayList.contains(b.a.get(i).b)) {
                             b.a.remove(i);
                             i--;
                         }
@@ -282,17 +282,17 @@ public final class b {
     public boolean b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.d.containsKey(str) && str2.equals(((f) this.d.get(str)).a()) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.d.containsKey(str) && str2.equals(this.d.get(str).a()) : invokeLL.booleanValue;
     }
 
-    public ArrayList c(String str) {
+    public ArrayList<e> c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList<e> arrayList = new ArrayList<>();
             try {
                 for (String str2 : str.trim().split(ParamableElem.DIVIDE_PARAM)) {
                     String[] split = str2.trim().split(",");
@@ -318,7 +318,7 @@ public final class b {
     public String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.d.get(str) != null ? ((f) this.d.get(str)).b() : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.d.get(str) != null ? this.d.get(str).b() : "" : (String) invokeL.objValue;
     }
 
     public void e(String str) {

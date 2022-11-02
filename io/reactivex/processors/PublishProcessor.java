@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -20,23 +21,23 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class PublishProcessor extends FlowableProcessor {
+public final class PublishProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final PublishSubscription[] EMPTY;
     public static final PublishSubscription[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference subscribers;
+    public final AtomicReference<PublishSubscription<T>[]> subscribers;
 
     /* loaded from: classes8.dex */
-    public final class PublishSubscription extends AtomicLong implements Subscription {
+    public static final class PublishSubscription<T> extends AtomicLong implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3562861878281475070L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final PublishProcessor parent;
+        public final Subscriber<? super T> actual;
+        public final PublishProcessor<T> parent;
 
-        public PublishSubscription(Subscriber subscriber, PublishProcessor publishProcessor) {
+        public PublishSubscription(Subscriber<? super T> subscriber, PublishProcessor<T> publishProcessor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,15 +114,15 @@ public final class PublishProcessor extends FlowableProcessor {
             }
         }
 
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 long j = get();
                 if (j == Long.MIN_VALUE) {
                     return;
                 }
                 if (j != 0) {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     BackpressureHelper.producedCancel(this, 1L);
                     return;
                 }
@@ -161,15 +162,15 @@ public final class PublishProcessor extends FlowableProcessor {
                 return;
             }
         }
-        this.subscribers = new AtomicReference(EMPTY);
+        this.subscribers = new AtomicReference<>(EMPTY);
     }
 
     @CheckReturnValue
-    public static PublishProcessor create() {
+    public static <T> PublishProcessor<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new PublishProcessor();
+            return new PublishProcessor<>();
         }
         return (PublishProcessor) invokeV.objValue;
     }
@@ -205,7 +206,7 @@ public final class PublishProcessor extends FlowableProcessor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (((PublishSubscription[]) this.subscribers.get()).length != 0) {
+            if (this.subscribers.get().length != 0) {
                 return true;
             }
             return false;
@@ -230,25 +231,25 @@ public final class PublishProcessor extends FlowableProcessor {
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Object obj = this.subscribers.get();
-            Object obj2 = TERMINATED;
-            if (obj == obj2) {
+            PublishSubscription<T>[] publishSubscriptionArr = this.subscribers.get();
+            PublishSubscription<T>[] publishSubscriptionArr2 = TERMINATED;
+            if (publishSubscriptionArr == publishSubscriptionArr2) {
                 return;
             }
-            for (PublishSubscription publishSubscription : (PublishSubscription[]) this.subscribers.getAndSet(obj2)) {
+            for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(publishSubscriptionArr2)) {
                 publishSubscription.onComplete();
             }
         }
     }
 
-    public boolean add(PublishSubscription publishSubscription) {
-        PublishSubscription[] publishSubscriptionArr;
-        PublishSubscription[] publishSubscriptionArr2;
+    public boolean add(PublishSubscription<T> publishSubscription) {
+        PublishSubscription<T>[] publishSubscriptionArr;
+        PublishSubscription<T>[] publishSubscriptionArr2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, publishSubscription)) == null) {
             do {
-                publishSubscriptionArr = (PublishSubscription[]) this.subscribers.get();
+                publishSubscriptionArr = this.subscribers.get();
                 if (publishSubscriptionArr == TERMINATED) {
                     return false;
                 }
@@ -274,22 +275,23 @@ public final class PublishProcessor extends FlowableProcessor {
         }
     }
 
-    public boolean offer(Object obj) {
+    @Experimental
+    public boolean offer(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
+            if (t == null) {
                 onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
                 return true;
             }
-            PublishSubscription[] publishSubscriptionArr = (PublishSubscription[]) this.subscribers.get();
-            for (PublishSubscription publishSubscription : publishSubscriptionArr) {
+            PublishSubscription<T>[] publishSubscriptionArr = this.subscribers.get();
+            for (PublishSubscription<T> publishSubscription : publishSubscriptionArr) {
                 if (publishSubscription.isFull()) {
                     return false;
                 }
             }
-            for (PublishSubscription publishSubscription2 : publishSubscriptionArr) {
-                publishSubscription2.onNext(obj);
+            for (PublishSubscription<T> publishSubscription2 : publishSubscriptionArr) {
+                publishSubscription2.onNext(t);
             }
             return true;
         }
@@ -301,38 +303,38 @@ public final class PublishProcessor extends FlowableProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
             ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-            Object obj = this.subscribers.get();
-            Object obj2 = TERMINATED;
-            if (obj == obj2) {
+            PublishSubscription<T>[] publishSubscriptionArr = this.subscribers.get();
+            PublishSubscription<T>[] publishSubscriptionArr2 = TERMINATED;
+            if (publishSubscriptionArr == publishSubscriptionArr2) {
                 RxJavaPlugins.onError(th);
                 return;
             }
             this.error = th;
-            for (PublishSubscription publishSubscription : (PublishSubscription[]) this.subscribers.getAndSet(obj2)) {
+            for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(publishSubscriptionArr2)) {
                 publishSubscription.onError(th);
             }
         }
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
-            ObjectHelper.requireNonNull(obj, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
+            ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.subscribers.get() == TERMINATED) {
                 return;
             }
-            for (PublishSubscription publishSubscription : (PublishSubscription[]) this.subscribers.get()) {
-                publishSubscription.onNext(obj);
+            for (PublishSubscription<T> publishSubscription : this.subscribers.get()) {
+                publishSubscription.onNext(t);
             }
         }
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, subscriber) == null) {
-            PublishSubscription publishSubscription = new PublishSubscription(subscriber, this);
+            PublishSubscription<T> publishSubscription = new PublishSubscription<>(subscriber, this);
             subscriber.onSubscribe(publishSubscription);
             if (add(publishSubscription)) {
                 if (publishSubscription.isCancelled()) {
@@ -350,13 +352,15 @@ public final class PublishProcessor extends FlowableProcessor {
         }
     }
 
-    public void remove(PublishSubscription publishSubscription) {
-        PublishSubscription[] publishSubscriptionArr;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.processors.PublishProcessor$PublishSubscription<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void remove(PublishSubscription<T> publishSubscription) {
+        PublishSubscription<T>[] publishSubscriptionArr;
         PublishSubscription[] publishSubscriptionArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, publishSubscription) == null) {
             do {
-                publishSubscriptionArr = (PublishSubscription[]) this.subscribers.get();
+                publishSubscriptionArr = this.subscribers.get();
                 if (publishSubscriptionArr != TERMINATED && publishSubscriptionArr != EMPTY) {
                     int length = publishSubscriptionArr.length;
                     int i = -1;

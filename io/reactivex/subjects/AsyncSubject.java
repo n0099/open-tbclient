@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
@@ -18,24 +19,24 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class AsyncSubject extends Subject {
+public final class AsyncSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final AsyncDisposable[] EMPTY;
     public static final AsyncDisposable[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference subscribers;
-    public Object value;
+    public final AtomicReference<AsyncDisposable<T>[]> subscribers;
+    public T value;
 
     /* loaded from: classes8.dex */
-    public final class AsyncDisposable extends DeferredScalarDisposable {
+    public static final class AsyncDisposable<T> extends DeferredScalarDisposable<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5629876084736248016L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AsyncSubject parent;
+        public final AsyncSubject<T> parent;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AsyncDisposable(Observer observer, AsyncSubject asyncSubject) {
+        public AsyncDisposable(Observer<? super T> observer, AsyncSubject<T> asyncSubject) {
             super(observer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -112,15 +113,15 @@ public final class AsyncSubject extends Subject {
                 return;
             }
         }
-        this.subscribers = new AtomicReference(EMPTY);
+        this.subscribers = new AtomicReference<>(EMPTY);
     }
 
     @CheckReturnValue
-    public static AsyncSubject create() {
+    public static <T> AsyncSubject<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new AsyncSubject();
+            return new AsyncSubject<>();
         }
         return (AsyncSubject) invokeV.objValue;
     }
@@ -138,7 +139,8 @@ public final class AsyncSubject extends Subject {
         return (Throwable) invokeV.objValue;
     }
 
-    public Object getValue() {
+    @Nullable
+    public T getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -147,14 +149,14 @@ public final class AsyncSubject extends Subject {
             }
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public Object[] getValues() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Object value = getValue();
+            T value = getValue();
             return value != null ? new Object[]{value} : new Object[0];
         }
         return (Object[]) invokeV.objValue;
@@ -178,7 +180,7 @@ public final class AsyncSubject extends Subject {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (((AsyncDisposable[]) this.subscribers.get()).length != 0) {
+            if (this.subscribers.get().length != 0) {
                 return true;
             }
             return false;
@@ -211,14 +213,14 @@ public final class AsyncSubject extends Subject {
         return invokeV.booleanValue;
     }
 
-    public boolean add(AsyncDisposable asyncDisposable) {
-        AsyncDisposable[] asyncDisposableArr;
-        AsyncDisposable[] asyncDisposableArr2;
+    public boolean add(AsyncDisposable<T> asyncDisposable) {
+        AsyncDisposable<T>[] asyncDisposableArr;
+        AsyncDisposable<T>[] asyncDisposableArr2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, asyncDisposable)) == null) {
             do {
-                asyncDisposableArr = (AsyncDisposable[]) this.subscribers.get();
+                asyncDisposableArr = this.subscribers.get();
                 if (asyncDisposableArr == TERMINATED) {
                     return false;
                 }
@@ -232,38 +234,38 @@ public final class AsyncSubject extends Subject {
         return invokeL.booleanValue;
     }
 
-    public Object[] getValues(Object[] objArr) {
+    public T[] getValues(T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, objArr)) == null) {
-            Object value = getValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tArr)) == null) {
+            T value = getValue();
             if (value == null) {
-                if (objArr.length != 0) {
-                    objArr[0] = null;
+                if (tArr.length != 0) {
+                    tArr[0] = null;
                 }
-                return objArr;
+                return tArr;
             }
-            if (objArr.length == 0) {
-                objArr = Arrays.copyOf(objArr, 1);
+            if (tArr.length == 0) {
+                tArr = (T[]) Arrays.copyOf(tArr, 1);
             }
-            objArr[0] = value;
-            if (objArr.length != 1) {
-                objArr[1] = null;
+            tArr[0] = value;
+            if (tArr.length != 1) {
+                tArr[1] = null;
             }
-            return objArr;
+            return tArr;
         }
-        return (Object[]) invokeL.objValue;
+        return (T[]) ((Object[]) invokeL.objValue);
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, obj) == null) {
-            ObjectHelper.requireNonNull(obj, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (interceptable == null || interceptable.invokeL(1048587, this, t) == null) {
+            ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.subscribers.get() == TERMINATED) {
                 return;
             }
-            this.value = obj;
+            this.value = t;
         }
     }
 
@@ -279,25 +281,25 @@ public final class AsyncSubject extends Subject {
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            Object obj = this.subscribers.get();
-            Object obj2 = TERMINATED;
-            if (obj == obj2) {
+            AsyncDisposable<T>[] asyncDisposableArr = this.subscribers.get();
+            AsyncDisposable<T>[] asyncDisposableArr2 = TERMINATED;
+            if (asyncDisposableArr == asyncDisposableArr2) {
                 return;
             }
-            Object obj3 = this.value;
-            AsyncDisposable[] asyncDisposableArr = (AsyncDisposable[]) this.subscribers.getAndSet(obj2);
+            T t = this.value;
+            AsyncDisposable<T>[] andSet = this.subscribers.getAndSet(asyncDisposableArr2);
             int i = 0;
-            if (obj3 == null) {
-                int length = asyncDisposableArr.length;
+            if (t == null) {
+                int length = andSet.length;
                 while (i < length) {
-                    asyncDisposableArr[i].onComplete();
+                    andSet[i].onComplete();
                     i++;
                 }
                 return;
             }
-            int length2 = asyncDisposableArr.length;
+            int length2 = andSet.length;
             while (i < length2) {
-                asyncDisposableArr[i].complete(obj3);
+                andSet[i].complete(t);
                 i++;
             }
         }
@@ -308,25 +310,25 @@ public final class AsyncSubject extends Subject {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, th) == null) {
             ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-            Object obj = this.subscribers.get();
-            Object obj2 = TERMINATED;
-            if (obj == obj2) {
+            AsyncDisposable<T>[] asyncDisposableArr = this.subscribers.get();
+            AsyncDisposable<T>[] asyncDisposableArr2 = TERMINATED;
+            if (asyncDisposableArr == asyncDisposableArr2) {
                 RxJavaPlugins.onError(th);
                 return;
             }
             this.value = null;
             this.error = th;
-            for (AsyncDisposable asyncDisposable : (AsyncDisposable[]) this.subscribers.getAndSet(obj2)) {
+            for (AsyncDisposable<T> asyncDisposable : this.subscribers.getAndSet(asyncDisposableArr2)) {
                 asyncDisposable.onError(th);
             }
         }
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, observer) == null) {
-            AsyncDisposable asyncDisposable = new AsyncDisposable(observer, this);
+            AsyncDisposable<T> asyncDisposable = new AsyncDisposable<>(observer, this);
             observer.onSubscribe(asyncDisposable);
             if (add(asyncDisposable)) {
                 if (asyncDisposable.isDisposed()) {
@@ -340,22 +342,24 @@ public final class AsyncSubject extends Subject {
                 observer.onError(th);
                 return;
             }
-            Object obj = this.value;
-            if (obj != null) {
-                asyncDisposable.complete(obj);
+            T t = this.value;
+            if (t != null) {
+                asyncDisposable.complete(t);
             } else {
                 asyncDisposable.onComplete();
             }
         }
     }
 
-    public void remove(AsyncDisposable asyncDisposable) {
-        AsyncDisposable[] asyncDisposableArr;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.subjects.AsyncSubject$AsyncDisposable<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void remove(AsyncDisposable<T> asyncDisposable) {
+        AsyncDisposable<T>[] asyncDisposableArr;
         AsyncDisposable[] asyncDisposableArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, asyncDisposable) == null) {
             do {
-                asyncDisposableArr = (AsyncDisposable[]) this.subscribers.get();
+                asyncDisposableArr = this.subscribers.get();
                 int length = asyncDisposableArr.length;
                 if (length == 0) {
                     return;

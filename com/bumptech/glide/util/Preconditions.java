@@ -1,6 +1,8 @@
 package com.bumptech.glide.util;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +29,7 @@ public final class Preconditions {
         }
     }
 
-    public static void checkArgument(boolean z, String str) {
+    public static void checkArgument(boolean z, @NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZL(65537, null, z, str) != null) || z) {
             return;
@@ -35,19 +37,21 @@ public final class Preconditions {
         throw new IllegalArgumentException(str);
     }
 
-    public static Object checkNotNull(Object obj, String str) {
+    @NonNull
+    public static <T> T checkNotNull(@Nullable T t, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, t, str)) == null) {
+            if (t != null) {
+                return t;
             }
             throw new NullPointerException(str);
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static String checkNotEmpty(String str) {
+    @NonNull
+    public static String checkNotEmpty(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -59,24 +63,26 @@ public final class Preconditions {
         return (String) invokeL.objValue;
     }
 
-    public static Object checkNotNull(Object obj) {
+    @NonNull
+    public static <T> T checkNotNull(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            return checkNotNull(obj, "Argument must not be null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
+            return (T) checkNotNull(t, "Argument must not be null");
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public static Collection checkNotEmpty(Collection collection) {
+    @NonNull
+    public static <T extends Collection<Y>, Y> T checkNotEmpty(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, collection)) == null) {
-            if (!collection.isEmpty()) {
-                return collection;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
+            if (!t.isEmpty()) {
+                return t;
             }
             throw new IllegalArgumentException("Must not be empty.");
         }
-        return (Collection) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

@@ -26,25 +26,25 @@ public class it {
         return invokeLL.shortValue;
     }
 
-    public static void a(iu iuVar, byte[] bArr) {
+    public static <T extends iu<T, ?>> void a(T t, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, iuVar, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(65538, null, t, bArr) == null) {
             if (bArr == null) {
                 throw new iz("the message byte is empty.");
             }
-            new iy(new jl.a(true, true, bArr.length)).a(iuVar, bArr);
+            new iy(new jl.a(true, true, bArr.length)).a(t, bArr);
         }
     }
 
-    public static byte[] a(iu iuVar) {
+    public static <T extends iu<T, ?>> byte[] a(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iuVar)) == null) {
-            if (iuVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
+            if (t == null) {
                 return null;
             }
             try {
-                return new ja(new jb.a()).a(iuVar);
+                return new ja(new jb.a()).a(t);
             } catch (iz e) {
                 com.xiaomi.channel.commonutils.logger.b.a("convertThriftObjectToBytes catch TException.", e);
                 return null;

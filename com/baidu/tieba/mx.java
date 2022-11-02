@@ -1,73 +1,54 @@
 package com.baidu.tieba;
 
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardForumHeadLayout;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mx extends jx implements xx<ThreadData>, yx {
-    public static /* synthetic */ Interceptable $ic;
+public class mx {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 3;
+    public static int c = 6;
+    public static int d = 7;
+    public static int e = 1;
+    public static int f = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardForumHeadLayout e;
-    public int f;
-    public int g;
-    public int h;
 
-    public mx(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448311650, "Lcom/baidu/tieba/mx;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.f = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        this.g = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds44);
-        this.h = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        this.e = new CardForumHeadLayout(tbPageContext.getPageActivity());
-        h(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.leftMargin = this.g;
-        layoutParams.topMargin = this.f;
-        layoutParams.bottomMargin = this.h;
-        i(layoutParams);
-        g(this.e);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx
-    /* renamed from: k */
-    public void a(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
-            if (threadData != null && threadData.getAuthor() != null) {
-                this.e.setVisibility(0);
-                this.e.setData(threadData);
-                this.e.setTag(threadData);
-                return;
-            }
-            this.e.setVisibility(8);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448311650, "Lcom/baidu/tieba/mx;");
         }
     }
 
-    @Override // com.baidu.tieba.yx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public static void a(int i, String str, int i2, int i3, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.e.d();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW);
+            statisticItem.param("obj_type", i);
+            statisticItem.param("tid", str);
+            statisticItem.param("obj_locate", i2);
+            statisticItem.param("obj_source", i3);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str3);
+            if (i3 == e) {
+                statisticItem.param("obj_name", str2);
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 }

@@ -2,12 +2,14 @@ package com.kwad.sdk.core.video.videoview;
 
 import android.content.Context;
 import android.widget.FrameLayout;
-/* loaded from: classes7.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes8.dex */
 public abstract class b extends FrameLayout {
     public Runnable JJ;
+    @NonNull
     public final c aef;
 
-    public b(Context context, c cVar) {
+    public b(Context context, @NonNull c cVar) {
         super(context);
         this.aef = cVar;
     }

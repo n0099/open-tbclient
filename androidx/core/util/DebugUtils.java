@@ -1,10 +1,12 @@
 package androidx.core.util;
 
+import androidx.annotation.RestrictTo;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DebugUtils {
     public static /* synthetic */ Interceptable $ic;

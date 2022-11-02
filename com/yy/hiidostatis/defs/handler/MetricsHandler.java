@@ -27,8 +27,8 @@ public class MetricsHandler {
     public long defaultMetricsExpire;
     public Context mContext;
     public HttpSendController metricsSend;
-    public Map metricsWorkerMap;
-    public Map timers;
+    public Map<String, MetricsWorker> metricsWorkerMap;
+    public Map<String, TimeWorker> timers;
     public String ver;
 
     /* loaded from: classes8.dex */
@@ -146,7 +146,7 @@ public class MetricsHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
             if (str != null && !str.isEmpty()) {
-                return (MetricsWorker) this.metricsWorkerMap.get(str);
+                return this.metricsWorkerMap.get(str);
             }
             return null;
         }
@@ -471,7 +471,7 @@ public class MetricsHandler {
         }
     }
 
-    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map map) {
+    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) == null) {
             ThreadPool.getPool().executeQueue(new Runnable(this, str, i, str2, j, str3, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.4
@@ -526,7 +526,7 @@ public class MetricsHandler {
         }
     }
 
-    public void reportSrcData(String str, int i, String str2, String str3, long j, Map map) {
+    public void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
             ThreadPool.getPool().executeQueue(new Runnable(this, str, i, str2, str3, j, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.7

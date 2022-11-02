@@ -18,12 +18,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.binaryresource.FileBinaryResource;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.cache.common.WriterCallback;
+import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.cache.DefaultCacheKeyFactory;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.IOException;
@@ -179,9 +181,9 @@ public class FrescoImageLoader implements ImageLoader {
             }
         } else if (imageView instanceof SimpleDraweeView) {
             SimpleDraweeView simpleDraweeView = (SimpleDraweeView) imageView;
-            GenericDraweeHierarchy genericDraweeHierarchy = (GenericDraweeHierarchy) simpleDraweeView.getHierarchy();
-            genericDraweeHierarchy.setFailureImage(i2);
-            genericDraweeHierarchy.setPlaceholderImage(i);
+            GenericDraweeHierarchy hierarchy = simpleDraweeView.getHierarchy();
+            hierarchy.setFailureImage(i2);
+            hierarchy.setPlaceholderImage(i);
             simpleDraweeView.setImageURI(Uri.parse(str));
         } else {
             if (imageView != null && i > 0) {
@@ -221,7 +223,7 @@ public class FrescoImageLoader implements ImageLoader {
                 }
 
                 @Override // com.facebook.datasource.BaseDataSubscriber
-                public void onFailureImpl(DataSource dataSource) {
+                public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, dataSource) == null) {
                         ImageLoadListener imageLoadListener2 = this.val$listener;

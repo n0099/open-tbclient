@@ -41,7 +41,7 @@ public final class k extends v implements View.OnClickListener {
     public View vq;
     public TextView vr;
     public View vs;
-    public Set vt;
+    public Set<ImageView> vt;
     public TextView vu;
     public Animator vv;
 
@@ -77,15 +77,15 @@ public final class k extends v implements View.OnClickListener {
             view2.setPivotY(view2.getHeight());
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 1.0f);
             ofFloat.setDuration(100L);
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.ROTATION, 0.0f, f).setDuration(j);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, "rotation", 0.0f, f).setDuration(j);
             float f2 = -f;
             long j2 = j * 2;
-            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f, f2).setDuration(j2);
+            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, "rotation", f, f2).setDuration(j2);
             duration2.setInterpolator(create);
-            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f2, f).setDuration(j2);
-            ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f, f2).setDuration(j2);
+            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, "rotation", f2, f).setDuration(j2);
+            ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, "rotation", f, f2).setDuration(j2);
             duration4.setInterpolator(create);
-            animatorSet.playSequentially(ofFloat, duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, Key.ROTATION, f2, 0.0f).setDuration(j));
+            animatorSet.playSequentially(ofFloat, duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, "rotation", f2, 0.0f).setDuration(j));
             return animatorSet;
         }
         return (Animator) invokeCommon.objValue;
@@ -97,7 +97,7 @@ public final class k extends v implements View.OnClickListener {
             this.vp.setText(aVar.getTitle());
             this.iu.setText(aVar.gJ());
             String eL = aVar.eL();
-            Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c29);
+            Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c43);
             KSImageLoader.loadCircleIcon(this.nC, eL, drawable);
             String aj = com.kwad.components.ad.c.b.aj();
             if (!ax.dT(aj)) {
@@ -113,12 +113,12 @@ public final class k extends v implements View.OnClickListener {
                 this.vu.setText(String.format("%s已预约直播", gE));
             }
             if (aVar.gI() != null) {
-                List gI = aVar.gI();
+                List<String> gI = aVar.gI();
                 int i = 0;
                 for (ImageView imageView : this.vt) {
                     if (i < gI.size()) {
                         imageView.setVisibility(0);
-                        KSImageLoader.loadCircleIcon(imageView, (String) gI.get(i), drawable);
+                        KSImageLoader.loadCircleIcon(imageView, gI.get(i), drawable);
                     }
                     i++;
                 }
@@ -242,17 +242,17 @@ public final class k extends v implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091181);
-        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09118a);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091189);
-        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09118b);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091184);
-        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f091182);
-        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f091185);
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091186));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091187));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091188));
-        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091183);
+        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911bb);
+        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c4);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c3);
+        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c5);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911be);
+        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f0911bc);
+        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f0911bf);
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c0));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c1));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c2));
+        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911bd);
         this.pV.setOnClickListener(this);
         this.vq.setOnClickListener(this);
     }
@@ -299,7 +299,7 @@ public final class k extends v implements View.OnClickListener {
     public final void f(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f09118e, R.id.obfuscated_res_0x7f09118d);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f0911c8, R.id.obfuscated_res_0x7f0911c7);
             initView();
         }
     }

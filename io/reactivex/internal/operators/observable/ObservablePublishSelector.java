@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -17,19 +18,19 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.subjects.PublishSubject;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservablePublishSelector extends AbstractObservableWithUpstream {
+public final class ObservablePublishSelector<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function selector;
+    public final Function<? super Observable<T>, ? extends ObservableSource<R>> selector;
 
     /* loaded from: classes8.dex */
-    public final class SourceObserver implements Observer {
+    public static final class SourceObserver<T, R> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final PublishSubject subject;
-        public final AtomicReference target;
+        public final PublishSubject<T> subject;
+        public final AtomicReference<Disposable> target;
 
-        public SourceObserver(PublishSubject publishSubject, AtomicReference atomicReference) {
+        public SourceObserver(PublishSubject<T> publishSubject, AtomicReference<Disposable> atomicReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,10 +66,10 @@ public final class ObservablePublishSelector extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.subject.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.subject.onNext(t);
             }
         }
 
@@ -82,14 +83,14 @@ public final class ObservablePublishSelector extends AbstractObservableWithUpstr
     }
 
     /* loaded from: classes8.dex */
-    public final class TargetObserver extends AtomicReference implements Observer, Disposable {
+    public static final class TargetObserver<T, R> extends AtomicReference<Disposable> implements Observer<R>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 854110278590336484L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super R> actual;
         public Disposable d;
 
-        public TargetObserver(Observer observer) {
+        public TargetObserver(Observer<? super R> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,10 +118,10 @@ public final class ObservablePublishSelector extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(R r) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, r) == null) {
+                this.actual.onNext(r);
             }
         }
 
@@ -163,7 +164,7 @@ public final class ObservablePublishSelector extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservablePublishSelector(ObservableSource observableSource, Function function) {
+    public ObservablePublishSelector(ObservableSource<T> observableSource, Function<? super Observable<T>, ? extends ObservableSource<R>> function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -184,7 +185,7 @@ public final class ObservablePublishSelector extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super R> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             PublishSubject create = PublishSubject.create();

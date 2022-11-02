@@ -16,6 +16,11 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.math.MathUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -68,6 +73,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public static final String TAG = "BottomSheetBehavior";
     public transient /* synthetic */ FieldHolder $fh;
     public int activePointerId;
+    @NonNull
     public final ArrayList<BottomSheetCallback> callbacks;
     public int childHeight;
     public int collapsedOffset;
@@ -83,14 +89,17 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public float halfExpandedRatio;
     public boolean hideable;
     public boolean ignoreEvents;
+    @Nullable
     public Map<View, Integer> importantForAccessibilityMap;
     public int initialY;
+    @Nullable
     public ValueAnimator interpolatorAnimator;
     public boolean isShapeExpanded;
     public int lastNestedScrollDy;
     public MaterialShapeDrawable materialShapeDrawable;
     public float maximumVelocity;
     public boolean nestedScrolled;
+    @Nullable
     public WeakReference<View> nestedScrollingChildRef;
     public int parentHeight;
     public int parentWidth;
@@ -106,16 +115,21 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public int state;
     public boolean touchingScrollingChild;
     public boolean updateImportantForAccessibilityOnSiblings;
+    @Nullable
     public VelocityTracker velocityTracker;
+    @Nullable
     public ViewDragHelper viewDragHelper;
+    @Nullable
     public WeakReference<V> viewRef;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface SaveFlags {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface State {
     }
@@ -136,7 +150,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout, V v, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+    public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{coordinatorLayout, v, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
         }
@@ -147,9 +161,9 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract void onSlide(View view2, float f);
+        public abstract void onSlide(@NonNull View view2, float f);
 
-        public abstract void onStateChanged(View view2, int i);
+        public abstract void onStateChanged(@NonNull View view2, int i);
 
         public BottomSheetCallback() {
             Interceptable interceptable = $ic;
@@ -167,9 +181,9 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     /* loaded from: classes7.dex */
-    public class SavedState extends AbsSavedState {
+    public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean fitToContents;
         public boolean hideable;
@@ -190,7 +204,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                     return;
                 }
             }
-            CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.SavedState.1
+            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.SavedState.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,7 +224,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                public SavedState createFromParcel(Parcel parcel) {
+                @Nullable
+                public SavedState createFromParcel(@NonNull Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -221,6 +236,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
+                @NonNull
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
@@ -231,8 +247,10 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.ClassLoaderCreator
-                public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
@@ -244,7 +262,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel) {
+        public SavedState(@NonNull Parcel parcel) {
             this(parcel, (ClassLoader) null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -265,7 +283,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel, ClassLoader classLoader) {
+        public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
             boolean z;
             boolean z2;
@@ -325,7 +343,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcelable parcelable, BottomSheetBehavior bottomSheetBehavior) {
+        public SavedState(Parcelable parcelable, @NonNull BottomSheetBehavior<?> bottomSheetBehavior) {
             super(parcelable);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -350,7 +368,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
@@ -372,7 +390,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         public final /* synthetic */ BottomSheetBehavior this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1071view;
+        public final View f1072view;
 
         public SettleRunnable(BottomSheetBehavior bottomSheetBehavior, View view2, int i) {
             Interceptable interceptable = $ic;
@@ -390,7 +408,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 }
             }
             this.this$0 = bottomSheetBehavior;
-            this.f1071view = view2;
+            this.f1072view = view2;
             this.targetState = i;
         }
 
@@ -400,7 +418,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ViewDragHelper viewDragHelper = this.this$0.viewDragHelper;
                 if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                    ViewCompat.postOnAnimation(this.f1071view, this);
+                    ViewCompat.postOnAnimation(this.f1072view, this);
                 } else {
                     this.this$0.setStateInternal(this.targetState);
                 }
@@ -454,7 +472,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 this.this$0 = this;
             }
 
-            private boolean releasedLow(View view2) {
+            private boolean releasedLow(@NonNull View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, view2)) == null) {
@@ -469,7 +487,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int getViewVerticalDragRange(View view2) {
+            public int getViewVerticalDragRange(@NonNull View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
@@ -491,7 +509,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionHorizontal(View view2, int i3, int i4) {
+            public int clampViewPositionHorizontal(@NonNull View view2, int i3, int i4) {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, view2, i3, i4)) == null) {
@@ -501,7 +519,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionVertical(View view2, int i3, int i4) {
+            public int clampViewPositionVertical(@NonNull View view2, int i3, int i4) {
                 InterceptResult invokeLII;
                 int i5;
                 Interceptable interceptable2 = $ic;
@@ -519,7 +537,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewPositionChanged(View view2, int i3, int i4, int i5, int i6) {
+            public void onViewPositionChanged(@NonNull View view2, int i3, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{view2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
                     this.this$0.dispatchOnSlide(i4);
@@ -527,7 +545,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewReleased(View view2, float f, float f2) {
+            public void onViewReleased(@NonNull View view2, float f, float f2) {
                 int i3;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
@@ -609,7 +627,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public boolean tryCaptureView(View view2, int i3) {
+            public boolean tryCaptureView(@NonNull View view2, int i3) {
                 InterceptResult invokeLI;
                 View view3;
                 Interceptable interceptable2 = $ic;
@@ -642,7 +660,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomSheetBehavior(Context context, AttributeSet attributeSet) {
+    public BottomSheetBehavior(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         int i;
         Interceptable interceptable = $ic;
@@ -693,7 +711,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 this.this$0 = this;
             }
 
-            private boolean releasedLow(View view2) {
+            private boolean releasedLow(@NonNull View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, view2)) == null) {
@@ -708,7 +726,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int getViewVerticalDragRange(View view2) {
+            public int getViewVerticalDragRange(@NonNull View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
@@ -730,7 +748,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionHorizontal(View view2, int i32, int i4) {
+            public int clampViewPositionHorizontal(@NonNull View view2, int i32, int i4) {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, view2, i32, i4)) == null) {
@@ -740,7 +758,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionVertical(View view2, int i32, int i4) {
+            public int clampViewPositionVertical(@NonNull View view2, int i32, int i4) {
                 InterceptResult invokeLII;
                 int i5;
                 Interceptable interceptable2 = $ic;
@@ -758,7 +776,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewPositionChanged(View view2, int i32, int i4, int i5, int i6) {
+            public void onViewPositionChanged(@NonNull View view2, int i32, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{view2, Integer.valueOf(i32), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
                     this.this$0.dispatchOnSlide(i4);
@@ -766,7 +784,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewReleased(View view2, float f, float f2) {
+            public void onViewReleased(@NonNull View view2, float f, float f2) {
                 int i32;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
@@ -848,7 +866,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public boolean tryCaptureView(View view2, int i32) {
+            public boolean tryCaptureView(@NonNull View view2, int i32) {
                 InterceptResult invokeLI;
                 View view3;
                 Interceptable interceptable2 = $ic;
@@ -914,7 +932,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         this.maximumVelocity = ViewConfiguration.get(context).getScaledMaximumFlingVelocity();
     }
 
-    private void setSystemGestureInsets(View view2) {
+    private void setSystemGestureInsets(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65557, this, view2) == null) && Build.VERSION.SDK_INT >= 29 && !isGestureInsetBottomIgnored() && !this.peekHeightAuto) {
             ViewUtils.doOnApplyWindowInsets(view2, new ViewUtils.OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.3
@@ -971,7 +989,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    public void addBottomSheetCallback(BottomSheetCallback bottomSheetCallback) {
+    public void addBottomSheetCallback(@NonNull BottomSheetCallback bottomSheetCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, bottomSheetCallback) == null) && !this.callbacks.contains(bottomSheetCallback)) {
             this.callbacks.add(bottomSheetCallback);
@@ -979,7 +997,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onAttachedToLayoutParams(CoordinatorLayout.LayoutParams layoutParams) {
+    public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, layoutParams) == null) {
             super.onAttachedToLayoutParams(layoutParams);
@@ -988,7 +1006,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    public void removeBottomSheetCallback(BottomSheetCallback bottomSheetCallback) {
+    public void removeBottomSheetCallback(@NonNull BottomSheetCallback bottomSheetCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, bottomSheetCallback) == null) {
             this.callbacks.remove(bottomSheetCallback);
@@ -1051,7 +1069,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    public void setHalfExpandedRatio(float f) {
+    public void setHalfExpandedRatio(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048609, this, f) == null) {
             if (f > 0.0f && f < 1.0f) {
@@ -1121,11 +1139,12 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public Parcelable onSaveInstanceState(CoordinatorLayout coordinatorLayout, V v) {
+    @NonNull
+    public Parcelable onSaveInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, coordinatorLayout, v)) == null) {
-            return new SavedState(super.onSaveInstanceState(coordinatorLayout, v), this);
+            return new SavedState(super.onSaveInstanceState(coordinatorLayout, v), (BottomSheetBehavior<?>) this);
         }
         return (Parcelable) invokeLL.objValue;
     }
@@ -1159,7 +1178,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 }
 
                 @Override // androidx.core.view.accessibility.AccessibilityViewCommand
-                public boolean perform(View view2, AccessibilityViewCommand.CommandArguments commandArguments) {
+                public boolean perform(@NonNull View view2, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, commandArguments)) == null) {
@@ -1172,7 +1191,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    private void createMaterialShapeDrawable(Context context, AttributeSet attributeSet, boolean z) {
+    private void createMaterialShapeDrawable(@NonNull Context context, AttributeSet attributeSet, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65550, this, context, attributeSet, z) == null) {
             createMaterialShapeDrawable(context, attributeSet, z, null);
@@ -1180,7 +1199,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onRestoreInstanceState(CoordinatorLayout coordinatorLayout, V v, Parcelable parcelable) {
+    public void onRestoreInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048598, this, coordinatorLayout, v, parcelable) == null) {
             SavedState savedState = (SavedState) parcelable;
@@ -1240,6 +1259,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @VisibleForTesting
     public void disableShapeAnimations() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -1259,6 +1280,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         return invokeV.intValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getHalfExpandedRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1280,6 +1302,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         return invokeV.intValue;
     }
 
+    @VisibleForTesting
     public int getPeekHeightMin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1408,7 +1431,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
@@ -1421,7 +1444,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    private void createMaterialShapeDrawable(Context context, AttributeSet attributeSet, boolean z, ColorStateList colorStateList) {
+    private void createMaterialShapeDrawable(@NonNull Context context, AttributeSet attributeSet, boolean z, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{context, attributeSet, Boolean.valueOf(z), colorStateList}) == null) && this.shapeThemingEnabled) {
             this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400f6, DEF_STYLE_RES).build();
@@ -1468,7 +1491,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    public static <V extends View> BottomSheetBehavior<V> from(V v) {
+    @NonNull
+    public static <V extends View> BottomSheetBehavior<V> from(@NonNull V v) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, v)) == null) {
@@ -1485,7 +1509,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         return (BottomSheetBehavior) invokeL.objValue;
     }
 
-    private void restoreOptionalState(SavedState savedState) {
+    private void restoreOptionalState(@NonNull SavedState savedState) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65556, this, savedState) != null) || (i = this.saveFlags) == 0) {
@@ -1556,6 +1580,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
+    @Nullable
+    @VisibleForTesting
     public View findScrollingChild(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1733,7 +1759,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onInterceptTouchEvent(CoordinatorLayout coordinatorLayout, V v, MotionEvent motionEvent) {
+    public boolean onInterceptTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         boolean z;
         View view2;
@@ -1800,7 +1826,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, V v, int i) {
+    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
         InterceptResult invokeLLI;
         boolean z;
         float f;
@@ -1877,7 +1903,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, V v, View view2, float f, float f2) {
+    public boolean onNestedPreFling(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{coordinatorLayout, v, view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -1894,7 +1920,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, V v, View view2, int i, int i2, int[] iArr, int i3) {
+    public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i, int i2, @NonNull int[] iArr, int i3) {
         View view3;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048596, this, new Object[]{coordinatorLayout, v, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) != null) || i3 == 1) {
@@ -1943,7 +1969,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, V v, View view2, View view3, int i, int i2) {
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, @NonNull View view3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{coordinatorLayout, v, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
@@ -1958,7 +1984,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onStopNestedScroll(CoordinatorLayout coordinatorLayout, V v, View view2, int i) {
+    public void onStopNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048601, this, coordinatorLayout, v, view2, i) == null) {
@@ -2031,7 +2057,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onTouchEvent(CoordinatorLayout coordinatorLayout, V v, MotionEvent motionEvent) {
+    public boolean onTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048602, this, coordinatorLayout, v, motionEvent)) == null) {
@@ -2083,7 +2109,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    public void settleToState(View view2, int i) {
+    public void settleToState(@NonNull View view2, int i) {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
@@ -2109,7 +2135,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    public boolean shouldHide(View view2, float f) {
+    public boolean shouldHide(@NonNull View view2, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048619, this, view2, f)) == null) {

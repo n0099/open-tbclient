@@ -1,5 +1,6 @@
 package kotlin.collections;
 
+import alaim.AlaMgetLiveStatus.DataReq;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -27,16 +28,23 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import kotlin.Deprecated;
 import kotlin.DeprecatedSinceKotlin;
+import kotlin.ExperimentalStdlibApi;
+import kotlin.ExperimentalUnsignedTypes;
 import kotlin.Metadata;
+import kotlin.OverloadResolutionByLambdaReturnType;
 import kotlin.Pair;
 import kotlin.ReplaceWith;
+import kotlin.SinceKotlin;
 import kotlin.TuplesKt;
 import kotlin.UInt;
 import kotlin.ULong;
 import kotlin.Unit;
+import kotlin.WasExperimental;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareBy$2;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareByDescending$1;
+import kotlin.internal.InlineOnly;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
@@ -56,7 +64,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (byte b : all) {
-            if (!((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (!predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 return false;
             }
         }
@@ -67,15 +75,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (byte b : any) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K> Map<K, T> associateBy(T[] associateBy, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -86,8 +92,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V> Map<Byte, V> associateWith(byte[] bArr, Function1<? super Byte, ? extends V> function1) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(bArr.length), 16));
         for (byte b : bArr) {
@@ -109,7 +115,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (byte b : count) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 i++;
             }
         }
@@ -133,7 +139,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Byte.valueOf(dropLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Byte.valueOf(dropLastWhile[lastIndex])).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
@@ -148,7 +154,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (T t : dropWhile) {
             if (z) {
                 arrayList.add(t);
-            } else if (!((Boolean) predicate.invoke(t)).booleanValue()) {
+            } else if (!predicate.invoke(t).booleanValue()) {
                 arrayList.add(t);
                 z = true;
             }
@@ -156,6 +162,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
+    @InlineOnly
     public static final Boolean elementAtOrNull(boolean[] zArr, int i) {
         return getOrNull(zArr, i);
     }
@@ -165,7 +172,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (byte b : filter) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 arrayList.add(Byte.valueOf(b));
             }
         }
@@ -182,7 +189,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             T t = filterIndexed[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), t)).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), t).booleanValue()) {
                 arrayList.add(t);
             }
             i++;
@@ -208,7 +215,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (byte b : filterNot) {
-            if (!((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (!predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 arrayList.add(Byte.valueOf(b));
             }
         }
@@ -226,15 +233,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @InlineOnly
     public static final Boolean find(boolean[] zArr, Function1<? super Boolean, Boolean> function1) {
         for (boolean z : zArr) {
-            if (((Boolean) function1.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (function1.invoke(Boolean.valueOf(z)).booleanValue()) {
                 return Boolean.valueOf(z);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Boolean findLast(boolean[] zArr, Function1<? super Boolean, Boolean> function1) {
         boolean z;
         int length = zArr.length;
@@ -245,7 +254,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Boolean.valueOf(z))).booleanValue());
+        } while (!function1.invoke(Boolean.valueOf(z)).booleanValue());
         return Boolean.valueOf(z);
     }
 
@@ -253,20 +262,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (byte b : first) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 return b;
             }
         }
         throw new NoSuchElementException("Array contains no element matching the predicate.");
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <T, R> R firstNotNullOf(T[] tArr, Function1<? super T, ? extends R> function1) {
         R r;
         int length = tArr.length;
         int i = 0;
         while (true) {
             if (i < length) {
-                r = (R) function1.invoke(tArr[i]);
+                r = function1.invoke(tArr[i]);
                 if (r != null) {
                     break;
                 }
@@ -282,11 +293,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("No element of the array was transformed to a non-null value.");
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <T, R> R firstNotNullOfOrNull(T[] tArr, Function1<? super T, ? extends R> function1) {
         for (T t : tArr) {
-            R r = (R) function1.invoke(t);
-            if (r != null) {
-                return r;
+            R invoke = function1.invoke(t);
+            if (invoke != null) {
+                return invoke;
             }
         }
         return null;
@@ -296,7 +309,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (boolean z : firstOrNull) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 return Boolean.valueOf(z);
             }
         }
@@ -308,39 +321,50 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (byte b : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Byte.valueOf(b)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Byte.valueOf(b)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(byte[] bArr, Function2<? super Integer, ? super Byte, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (byte b : bArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Byte.valueOf(b)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Byte.valueOf(b)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedSequence")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R> List<R> flatMapIndexedSequence(T[] tArr, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (T t : tArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Sequence) function2.invoke(valueOf, t));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, t));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapSequence")
     public static final <T, R> List<R> flatMapSequence(T[] flatMap, Function1<? super T, ? extends Sequence<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMap, "$this$flatMap");
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (T t : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Sequence) transform.invoke(t));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(t));
         }
         return arrayList;
     }
@@ -372,14 +396,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return null;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K> Map<K, List<T>> groupBy(T[] groupBy, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (T t : groupBy) {
-            Object invoke = keySelector.invoke(t);
+            K invoke = keySelector.invoke(t);
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -390,6 +412,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <T, K> Grouping<T, K> groupingBy(final T[] groupingBy, final Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupingBy, "$this$groupingBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -423,7 +446,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(indexOfFirst[i]))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(indexOfFirst[i])).booleanValue()) {
                 return i;
             }
         }
@@ -434,7 +457,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(indexOfLast[length]))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(indexOfLast[length])).booleanValue()) {
                 return length;
             }
         }
@@ -461,7 +484,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue());
+        } while (!predicate.invoke(Byte.valueOf(b)).booleanValue());
         return b;
     }
 
@@ -487,7 +510,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue());
+        } while (!predicate.invoke(Boolean.valueOf(z)).booleanValue());
         return Boolean.valueOf(z);
     }
 
@@ -523,7 +546,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int i2 = 0;
         while (i < length) {
             int i3 = i2 + 1;
-            Object invoke = transform.invoke(Integer.valueOf(i2), mapIndexedNotNull[i]);
+            R invoke = transform.invoke(Integer.valueOf(i2), mapIndexedNotNull[i]);
             if (invoke != null) {
                 arrayList.add(invoke);
             }
@@ -538,7 +561,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (T t : mapNotNull) {
-            Object invoke = transform.invoke(t);
+            R invoke = transform.invoke(t);
             if (invoke != null) {
                 arrayList.add(invoke);
             }
@@ -546,6 +569,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R extends Comparable<? super R>> R maxOfOrNull(T[] tArr, Function1<? super T, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -557,13 +583,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(tArr[0]);
+        R invoke = function1.invoke(tArr[0]);
         int lastIndex = getLastIndex(tArr);
         if (1 <= lastIndex) {
             while (true) {
-                Comparable comparable = (Comparable) function1.invoke(tArr[i]);
-                if (r.compareTo(comparable) < 0) {
-                    r = (R) comparable;
+                R invoke2 = function1.invoke(tArr[i]);
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -571,7 +597,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
     @Deprecated(message = "Use maxWithOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxWithOrNull(comparator)", imports = {}))
@@ -582,6 +608,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return maxWithOrNull(maxWith, comparator);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T> T maxWithOrNull(T[] maxWithOrNull, Comparator<? super T> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -612,6 +639,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return t;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R extends Comparable<? super R>> R minOfOrNull(T[] tArr, Function1<? super T, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -623,13 +653,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(tArr[0]);
+        R invoke = function1.invoke(tArr[0]);
         int lastIndex = getLastIndex(tArr);
         if (1 <= lastIndex) {
             while (true) {
-                Comparable comparable = (Comparable) function1.invoke(tArr[i]);
-                if (r.compareTo(comparable) > 0) {
-                    r = (R) comparable;
+                R invoke2 = function1.invoke(tArr[i]);
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -637,7 +667,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
     @Deprecated(message = "Use minWithOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minWithOrNull(comparator)", imports = {}))
@@ -648,6 +678,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return minWithOrNull(minWith, comparator);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T> T minWithOrNull(T[] minWithOrNull, Comparator<? super T> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -682,13 +713,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (byte b : none) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final byte[] onEach(byte[] bArr, Function1<? super Byte, Unit> function1) {
         for (byte b : bArr) {
             function1.invoke(Byte.valueOf(b));
@@ -696,6 +729,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return bArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final byte[] onEachIndexed(byte[] bArr, Function2<? super Integer, ? super Byte, Unit> function2) {
         int i = 0;
         for (byte b : bArr) {
@@ -706,6 +741,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return bArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final byte random(byte[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -721,6 +757,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Boolean randomOrNull(boolean[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -747,22 +785,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            S s = (S) reduce[0];
+            S s = (Object) reduce[0];
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    s = (S) operation.invoke(s, reduce[i]);
+                    s = operation.invoke(s, (Object) reduce[i]);
                     if (i == lastIndex) {
                         break;
                     }
                     i++;
                 }
             }
-            return s;
+            return (S) s;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <S, T extends S> S reduceIndexedOrNull(T[] reduceIndexedOrNull, Function3<? super Integer, ? super S, ? super T, ? extends S> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -776,20 +815,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        S s = (S) reduceIndexedOrNull[0];
+        S s = (Object) reduceIndexedOrNull[0];
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                s = (S) operation.invoke(Integer.valueOf(i), s, reduceIndexedOrNull[i]);
+                s = operation.invoke(Integer.valueOf(i), s, (Object) reduceIndexedOrNull[i]);
                 if (i == lastIndex) {
                     break;
                 }
                 i++;
             }
         }
-        return s;
+        return (S) s;
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <S, T extends S> S reduceOrNull(T[] reduceOrNull, Function2<? super S, ? super T, ? extends S> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -803,48 +844,52 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        S s = (S) reduceOrNull[0];
+        S s = (Object) reduceOrNull[0];
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                s = (S) operation.invoke(s, reduceOrNull[i]);
+                s = operation.invoke(s, (Object) reduceOrNull[i]);
                 if (i == lastIndex) {
                     break;
                 }
                 i++;
             }
         }
-        return s;
+        return (S) s;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: S, ? super S */
     public static final <S, T extends S> S reduceRight(T[] reduceRight, Function2<? super T, ? super S, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceRight, "$this$reduceRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         int lastIndex = getLastIndex(reduceRight);
         if (lastIndex >= 0) {
-            S s = (S) reduceRight[lastIndex];
+            Object obj = (S) reduceRight[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                s = (S) operation.invoke(reduceRight[i], s);
+                obj = (S) operation.invoke((Object) reduceRight[i], obj);
             }
-            return s;
+            return (S) obj;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: S, ? super S */
     public static final <S, T extends S> S reduceRightIndexed(T[] reduceRightIndexed, Function3<? super Integer, ? super T, ? super S, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexed, "$this$reduceRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         int lastIndex = getLastIndex(reduceRightIndexed);
         if (lastIndex >= 0) {
-            S s = (S) reduceRightIndexed[lastIndex];
+            Object obj = (S) reduceRightIndexed[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                s = (S) operation.invoke(Integer.valueOf(i), reduceRightIndexed[i], s);
+                obj = (S) operation.invoke(Integer.valueOf(i), (Object) reduceRightIndexed[i], obj);
             }
-            return s;
+            return (S) obj;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: S, ? super S */
+    @SinceKotlin(version = "1.4")
     public static final <S, T extends S> S reduceRightIndexedOrNull(T[] reduceRightIndexedOrNull, Function3<? super Integer, ? super T, ? super S, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -852,13 +897,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex < 0) {
             return null;
         }
-        S s = (S) reduceRightIndexedOrNull[lastIndex];
+        Object obj = (S) reduceRightIndexedOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            s = (S) operation.invoke(Integer.valueOf(i), reduceRightIndexedOrNull[i], s);
+            obj = (S) operation.invoke(Integer.valueOf(i), (Object) reduceRightIndexedOrNull[i], obj);
         }
-        return s;
+        return (S) obj;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: S, ? super S */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <S, T extends S> S reduceRightOrNull(T[] reduceRightOrNull, Function2<? super T, ? super S, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -866,13 +914,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex < 0) {
             return null;
         }
-        S s = (S) reduceRightOrNull[lastIndex];
+        Object obj = (S) reduceRightOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            s = (S) operation.invoke(reduceRightOrNull[i], s);
+            obj = (S) operation.invoke((Object) reduceRightOrNull[i], obj);
         }
-        return s;
+        return (S) obj;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(byte[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -890,7 +939,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Boolean bool = null;
         boolean z = false;
         for (boolean z2 : singleOrNull) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z2))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z2)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -994,7 +1043,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (byte b : sumBy) {
-            i += ((Number) selector.invoke(Byte.valueOf(b))).intValue();
+            i += selector.invoke(Byte.valueOf(b)).intValue();
         }
         return i;
     }
@@ -1006,47 +1055,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (byte b : sumByDouble) {
-            d += ((Number) selector.invoke(Byte.valueOf(b))).doubleValue();
+            d += selector.invoke(Byte.valueOf(b)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(byte[] bArr, Function1<? super Byte, Double> function1) {
         double d = 0;
         for (byte b : bArr) {
-            d += ((Number) function1.invoke(Byte.valueOf(b))).doubleValue();
+            d += function1.invoke(Byte.valueOf(b)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(byte[] bArr, Function1<? super Byte, Integer> function1) {
         int i = 0;
         for (byte b : bArr) {
-            i += ((Number) function1.invoke(Byte.valueOf(b))).intValue();
+            i += function1.invoke(Byte.valueOf(b)).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(byte[] bArr, Function1<? super Byte, Long> function1) {
         long j = 0;
         for (byte b : bArr) {
-            j += ((Number) function1.invoke(Byte.valueOf(b))).longValue();
+            j += function1.invoke(Byte.valueOf(b)).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(byte[] bArr, Function1<? super Byte, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (byte b : bArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Byte.valueOf(b))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Byte.valueOf(b)).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(byte[] bArr, Function1<? super Byte, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (byte b : bArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Byte.valueOf(b))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Byte.valueOf(b)).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -1055,7 +1126,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Byte.valueOf(takeLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Byte.valueOf(takeLastWhile[lastIndex])).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -1067,7 +1138,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (byte b : takeWhile) {
-            if (!((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (!predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 break;
             }
             arrayList.add(Byte.valueOf(b));
@@ -1107,7 +1178,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (char c : all) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 return false;
             }
         }
@@ -1118,15 +1189,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (char c : any) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V> Map<Character, V> associateWith(char[] cArr, Function1<? super Character, ? extends V> function1) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(RangesKt___RangesKt.coerceAtMost(cArr.length, 128)), 16));
         for (char c : cArr) {
@@ -1148,7 +1219,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (char c : count) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 i++;
             }
         }
@@ -1159,13 +1230,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(dropLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(dropLastWhile[lastIndex])).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
+    @InlineOnly
     public static final Byte elementAtOrNull(byte[] bArr, int i) {
         return getOrNull(bArr, i);
     }
@@ -1175,7 +1247,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (char c : filter) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 arrayList.add(Character.valueOf(c));
             }
         }
@@ -1187,22 +1259,24 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (char c : filterNot) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 arrayList.add(Character.valueOf(c));
             }
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final Byte find(byte[] bArr, Function1<? super Byte, Boolean> function1) {
         for (byte b : bArr) {
-            if (((Boolean) function1.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (function1.invoke(Byte.valueOf(b)).booleanValue()) {
                 return Byte.valueOf(b);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Byte findLast(byte[] bArr, Function1<? super Byte, Boolean> function1) {
         byte b;
         int length = bArr.length;
@@ -1213,7 +1287,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Byte.valueOf(b))).booleanValue());
+        } while (!function1.invoke(Byte.valueOf(b)).booleanValue());
         return Byte.valueOf(b);
     }
 
@@ -1221,7 +1295,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (char c : first) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 return c;
             }
         }
@@ -1232,7 +1306,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (byte b : firstOrNull) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 return Byte.valueOf(b);
             }
         }
@@ -1244,18 +1318,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (char c : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Character.valueOf(c)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Character.valueOf(c)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(char[] cArr, Function2<? super Integer, ? super Character, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (char c : cArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Character.valueOf(c)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Character.valueOf(c)));
         }
         return arrayList;
     }
@@ -1303,7 +1381,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Character.valueOf(indexOfFirst[i]))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(indexOfFirst[i])).booleanValue()) {
                 return i;
             }
         }
@@ -1314,7 +1392,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Character.valueOf(indexOfLast[length]))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(indexOfLast[length])).booleanValue()) {
                 return length;
             }
         }
@@ -1341,7 +1419,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue());
+        } while (!predicate.invoke(Character.valueOf(c)).booleanValue());
         return c;
     }
 
@@ -1367,7 +1445,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue());
+        } while (!predicate.invoke(Byte.valueOf(b)).booleanValue());
         return Byte.valueOf(b);
     }
 
@@ -1414,13 +1492,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (char c : none) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final char[] onEach(char[] cArr, Function1<? super Character, Unit> function1) {
         for (char c : cArr) {
             function1.invoke(Character.valueOf(c));
@@ -1428,6 +1508,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return cArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final char[] onEachIndexed(char[] cArr, Function2<? super Integer, ? super Character, Unit> function2) {
         int i = 0;
         for (char c : cArr) {
@@ -1438,6 +1520,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return cArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final char random(char[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -1453,6 +1536,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Byte randomOrNull(byte[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -1468,6 +1553,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Byte.valueOf(randomOrNull[random.nextInt(randomOrNull.length)]);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(char[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -1485,7 +1571,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Byte b = null;
         boolean z = false;
         for (byte b2 : singleOrNull) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b2))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b2)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -1552,7 +1638,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (char c : sumBy) {
-            i += ((Number) selector.invoke(Character.valueOf(c))).intValue();
+            i += selector.invoke(Character.valueOf(c)).intValue();
         }
         return i;
     }
@@ -1564,47 +1650,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (char c : sumByDouble) {
-            d += ((Number) selector.invoke(Character.valueOf(c))).doubleValue();
+            d += selector.invoke(Character.valueOf(c)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(char[] cArr, Function1<? super Character, Double> function1) {
         double d = 0;
         for (char c : cArr) {
-            d += ((Number) function1.invoke(Character.valueOf(c))).doubleValue();
+            d += function1.invoke(Character.valueOf(c)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(char[] cArr, Function1<? super Character, Integer> function1) {
         int i = 0;
         for (char c : cArr) {
-            i += ((Number) function1.invoke(Character.valueOf(c))).intValue();
+            i += function1.invoke(Character.valueOf(c)).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(char[] cArr, Function1<? super Character, Long> function1) {
         long j = 0;
         for (char c : cArr) {
-            j += ((Number) function1.invoke(Character.valueOf(c))).longValue();
+            j += function1.invoke(Character.valueOf(c)).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(char[] cArr, Function1<? super Character, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (char c : cArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Character.valueOf(c))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Character.valueOf(c)).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(char[] cArr, Function1<? super Character, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (char c : cArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Character.valueOf(c))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Character.valueOf(c)).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -1613,7 +1721,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(takeLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(takeLastWhile[lastIndex])).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -1625,7 +1733,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (char c : takeWhile) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 break;
             }
             arrayList.add(Character.valueOf(c));
@@ -1666,7 +1774,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (double d : all) {
-            if (!((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (!predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 return false;
             }
         }
@@ -1677,15 +1785,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (double d : any) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V> Map<Double, V> associateWith(double[] dArr, Function1<? super Double, ? extends V> function1) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(dArr.length), 16));
         for (double d : dArr) {
@@ -1709,7 +1817,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (double d : count) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 i++;
             }
         }
@@ -1720,13 +1828,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Double.valueOf(dropLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Double.valueOf(dropLastWhile[lastIndex])).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
+    @InlineOnly
     public static final Character elementAtOrNull(char[] cArr, int i) {
         return getOrNull(cArr, i);
     }
@@ -1736,7 +1845,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (double d : filter) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 arrayList.add(Double.valueOf(d));
             }
         }
@@ -1748,22 +1857,24 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (double d : filterNot) {
-            if (!((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (!predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 arrayList.add(Double.valueOf(d));
             }
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final Character find(char[] cArr, Function1<? super Character, Boolean> function1) {
         for (char c : cArr) {
-            if (((Boolean) function1.invoke(Character.valueOf(c))).booleanValue()) {
+            if (function1.invoke(Character.valueOf(c)).booleanValue()) {
                 return Character.valueOf(c);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Character findLast(char[] cArr, Function1<? super Character, Boolean> function1) {
         char c;
         int length = cArr.length;
@@ -1774,7 +1885,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Character.valueOf(c))).booleanValue());
+        } while (!function1.invoke(Character.valueOf(c)).booleanValue());
         return Character.valueOf(c);
     }
 
@@ -1782,7 +1893,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (double d : first) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 return d;
             }
         }
@@ -1793,7 +1904,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (char c : firstOrNull) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 return Character.valueOf(c);
             }
         }
@@ -1805,18 +1916,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (double d : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Double.valueOf(d)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Double.valueOf(d)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(double[] dArr, Function2<? super Integer, ? super Double, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (double d : dArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Double.valueOf(d)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Double.valueOf(d)));
         }
         return arrayList;
     }
@@ -1866,7 +1981,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Double.valueOf(indexOfFirst[i]))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(indexOfFirst[i])).booleanValue()) {
                 return i;
             }
         }
@@ -1877,7 +1992,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Double.valueOf(indexOfLast[length]))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(indexOfLast[length])).booleanValue()) {
                 return length;
             }
         }
@@ -1904,7 +2019,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue());
+        } while (!predicate.invoke(Double.valueOf(d)).booleanValue());
         return d;
     }
 
@@ -1932,7 +2047,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue());
+        } while (!predicate.invoke(Character.valueOf(c)).booleanValue());
         return Character.valueOf(c);
     }
 
@@ -1979,13 +2094,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (double d : none) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final double[] onEach(double[] dArr, Function1<? super Double, Unit> function1) {
         for (double d : dArr) {
             function1.invoke(Double.valueOf(d));
@@ -1993,6 +2110,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return dArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final double[] onEachIndexed(double[] dArr, Function2<? super Integer, ? super Double, Unit> function2) {
         int i = 0;
         for (double d : dArr) {
@@ -2003,6 +2122,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return dArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final double random(double[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -2018,6 +2138,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Character randomOrNull(char[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -2033,6 +2155,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Character.valueOf(randomOrNull[random.nextInt(randomOrNull.length)]);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(double[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -2050,7 +2173,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Character ch = null;
         boolean z = false;
         for (char c : singleOrNull) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -2120,7 +2243,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (double d : sumBy) {
-            i += ((Number) selector.invoke(Double.valueOf(d))).intValue();
+            i += selector.invoke(Double.valueOf(d)).intValue();
         }
         return i;
     }
@@ -2132,47 +2255,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (double d2 : sumByDouble) {
-            d += ((Number) selector.invoke(Double.valueOf(d2))).doubleValue();
+            d += selector.invoke(Double.valueOf(d2)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(double[] dArr, Function1<? super Double, Double> function1) {
         double d = 0;
         for (double d2 : dArr) {
-            d += ((Number) function1.invoke(Double.valueOf(d2))).doubleValue();
+            d += function1.invoke(Double.valueOf(d2)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(double[] dArr, Function1<? super Double, Integer> function1) {
         int i = 0;
         for (double d : dArr) {
-            i += ((Number) function1.invoke(Double.valueOf(d))).intValue();
+            i += function1.invoke(Double.valueOf(d)).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(double[] dArr, Function1<? super Double, Long> function1) {
         long j = 0;
         for (double d : dArr) {
-            j += ((Number) function1.invoke(Double.valueOf(d))).longValue();
+            j += function1.invoke(Double.valueOf(d)).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(double[] dArr, Function1<? super Double, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (double d : dArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Double.valueOf(d))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Double.valueOf(d)).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(double[] dArr, Function1<? super Double, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (double d : dArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Double.valueOf(d))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Double.valueOf(d)).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -2181,7 +2326,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Double.valueOf(takeLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Double.valueOf(takeLastWhile[lastIndex])).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -2193,7 +2338,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (double d : takeWhile) {
-            if (!((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (!predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 break;
             }
             arrayList.add(Double.valueOf(d));
@@ -2233,7 +2378,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (float f : all) {
-            if (!((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (!predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 return false;
             }
         }
@@ -2244,15 +2389,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (float f : any) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V> Map<Float, V> associateWith(float[] fArr, Function1<? super Float, ? extends V> function1) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(fArr.length), 16));
         for (float f : fArr) {
@@ -2276,7 +2421,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (float f : count) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 i++;
             }
         }
@@ -2287,13 +2432,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Float.valueOf(dropLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Float.valueOf(dropLastWhile[lastIndex])).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
+    @InlineOnly
     public static final Double elementAtOrNull(double[] dArr, int i) {
         return getOrNull(dArr, i);
     }
@@ -2303,7 +2449,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (float f : filter) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 arrayList.add(Float.valueOf(f));
             }
         }
@@ -2315,22 +2461,24 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (float f : filterNot) {
-            if (!((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (!predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 arrayList.add(Float.valueOf(f));
             }
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final Double find(double[] dArr, Function1<? super Double, Boolean> function1) {
         for (double d : dArr) {
-            if (((Boolean) function1.invoke(Double.valueOf(d))).booleanValue()) {
+            if (function1.invoke(Double.valueOf(d)).booleanValue()) {
                 return Double.valueOf(d);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Double findLast(double[] dArr, Function1<? super Double, Boolean> function1) {
         double d;
         int length = dArr.length;
@@ -2341,7 +2489,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Double.valueOf(d))).booleanValue());
+        } while (!function1.invoke(Double.valueOf(d)).booleanValue());
         return Double.valueOf(d);
     }
 
@@ -2349,7 +2497,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (float f : first) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 return f;
             }
         }
@@ -2360,7 +2508,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (double d : firstOrNull) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 return Double.valueOf(d);
             }
         }
@@ -2372,18 +2520,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (float f : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Float.valueOf(f)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Float.valueOf(f)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(float[] fArr, Function2<? super Integer, ? super Float, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (float f : fArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Float.valueOf(f)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Float.valueOf(f)));
         }
         return arrayList;
     }
@@ -2433,7 +2585,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Float.valueOf(indexOfFirst[i]))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(indexOfFirst[i])).booleanValue()) {
                 return i;
             }
         }
@@ -2444,7 +2596,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Float.valueOf(indexOfLast[length]))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(indexOfLast[length])).booleanValue()) {
                 return length;
             }
         }
@@ -2471,7 +2623,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue());
+        } while (!predicate.invoke(Float.valueOf(f)).booleanValue());
         return f;
     }
 
@@ -2499,7 +2651,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue());
+        } while (!predicate.invoke(Double.valueOf(d)).booleanValue());
         return Double.valueOf(d);
     }
 
@@ -2546,13 +2698,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (float f : none) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final float[] onEach(float[] fArr, Function1<? super Float, Unit> function1) {
         for (float f : fArr) {
             function1.invoke(Float.valueOf(f));
@@ -2560,6 +2714,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return fArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final float[] onEachIndexed(float[] fArr, Function2<? super Integer, ? super Float, Unit> function2) {
         int i = 0;
         for (float f : fArr) {
@@ -2570,6 +2726,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return fArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final float random(float[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -2585,6 +2742,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Double randomOrNull(double[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -2600,6 +2759,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(randomOrNull[random.nextInt(randomOrNull.length)]);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(float[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -2617,7 +2777,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Double d = null;
         boolean z = false;
         for (double d2 : singleOrNull) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d2))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d2)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -2684,7 +2844,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (float f : sumBy) {
-            i += ((Number) selector.invoke(Float.valueOf(f))).intValue();
+            i += selector.invoke(Float.valueOf(f)).intValue();
         }
         return i;
     }
@@ -2696,47 +2856,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (float f : sumByDouble) {
-            d += ((Number) selector.invoke(Float.valueOf(f))).doubleValue();
+            d += selector.invoke(Float.valueOf(f)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(float[] fArr, Function1<? super Float, Double> function1) {
         double d = 0;
         for (float f : fArr) {
-            d += ((Number) function1.invoke(Float.valueOf(f))).doubleValue();
+            d += function1.invoke(Float.valueOf(f)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(float[] fArr, Function1<? super Float, Integer> function1) {
         int i = 0;
         for (float f : fArr) {
-            i += ((Number) function1.invoke(Float.valueOf(f))).intValue();
+            i += function1.invoke(Float.valueOf(f)).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(float[] fArr, Function1<? super Float, Long> function1) {
         long j = 0;
         for (float f : fArr) {
-            j += ((Number) function1.invoke(Float.valueOf(f))).longValue();
+            j += function1.invoke(Float.valueOf(f)).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(float[] fArr, Function1<? super Float, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (float f : fArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Float.valueOf(f))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Float.valueOf(f)).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(float[] fArr, Function1<? super Float, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (float f : fArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Float.valueOf(f))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Float.valueOf(f)).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -2745,7 +2927,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Float.valueOf(takeLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Float.valueOf(takeLastWhile[lastIndex])).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -2757,7 +2939,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (float f : takeWhile) {
-            if (!((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (!predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 break;
             }
             arrayList.add(Float.valueOf(f));
@@ -2798,7 +2980,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i : all) {
-            if (!((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (!predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 return false;
             }
         }
@@ -2809,15 +2991,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i : any) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V> Map<Integer, V> associateWith(int[] iArr, Function1<? super Integer, ? extends V> function1) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(iArr.length), 16));
         for (int i : iArr) {
@@ -2839,7 +3021,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (int i2 : count) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2)).booleanValue()) {
                 i++;
             }
         }
@@ -2850,13 +3032,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Integer.valueOf(dropLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Integer.valueOf(dropLastWhile[lastIndex])).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
+    @InlineOnly
     public static final Float elementAtOrNull(float[] fArr, int i) {
         return getOrNull(fArr, i);
     }
@@ -2866,7 +3049,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (int i : filter) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 arrayList.add(Integer.valueOf(i));
             }
         }
@@ -2878,22 +3061,24 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (int i : filterNot) {
-            if (!((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (!predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 arrayList.add(Integer.valueOf(i));
             }
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final Float find(float[] fArr, Function1<? super Float, Boolean> function1) {
         for (float f : fArr) {
-            if (((Boolean) function1.invoke(Float.valueOf(f))).booleanValue()) {
+            if (function1.invoke(Float.valueOf(f)).booleanValue()) {
                 return Float.valueOf(f);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Float findLast(float[] fArr, Function1<? super Float, Boolean> function1) {
         float f;
         int length = fArr.length;
@@ -2904,7 +3089,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Float.valueOf(f))).booleanValue());
+        } while (!function1.invoke(Float.valueOf(f)).booleanValue());
         return Float.valueOf(f);
     }
 
@@ -2912,7 +3097,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i : first) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 return i;
             }
         }
@@ -2923,7 +3108,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (float f : firstOrNull) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 return Float.valueOf(f);
             }
         }
@@ -2935,18 +3120,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (int i : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Integer.valueOf(i)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Integer.valueOf(i)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(int[] iArr, Function2<? super Integer, ? super Integer, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (int i2 : iArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Integer.valueOf(i2)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Integer.valueOf(i2)));
         }
         return arrayList;
     }
@@ -2994,7 +3183,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(indexOfFirst[i]))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(indexOfFirst[i])).booleanValue()) {
                 return i;
             }
         }
@@ -3005,7 +3194,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(indexOfLast[length]))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(indexOfLast[length])).booleanValue()) {
                 return length;
             }
         }
@@ -3032,7 +3221,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue());
+        } while (!predicate.invoke(Integer.valueOf(i)).booleanValue());
         return i;
     }
 
@@ -3058,7 +3247,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue());
+        } while (!predicate.invoke(Float.valueOf(f)).booleanValue());
         return Float.valueOf(f);
     }
 
@@ -3105,13 +3294,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i : none) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final int[] onEach(int[] iArr, Function1<? super Integer, Unit> function1) {
         for (int i : iArr) {
             function1.invoke(Integer.valueOf(i));
@@ -3119,6 +3310,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return iArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final int[] onEachIndexed(int[] iArr, Function2<? super Integer, ? super Integer, Unit> function2) {
         int i = 0;
         for (int i2 : iArr) {
@@ -3129,6 +3322,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return iArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final int random(int[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -3144,6 +3338,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Float randomOrNull(float[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -3159,6 +3355,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(randomOrNull[random.nextInt(randomOrNull.length)]);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(int[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -3176,7 +3373,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Float f = null;
         boolean z = false;
         for (float f2 : singleOrNull) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f2))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f2)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -3246,7 +3443,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (int i2 : sumBy) {
-            i += ((Number) selector.invoke(Integer.valueOf(i2))).intValue();
+            i += selector.invoke(Integer.valueOf(i2)).intValue();
         }
         return i;
     }
@@ -3258,47 +3455,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (int i : sumByDouble) {
-            d += ((Number) selector.invoke(Integer.valueOf(i))).doubleValue();
+            d += selector.invoke(Integer.valueOf(i)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(int[] iArr, Function1<? super Integer, Double> function1) {
         double d = 0;
         for (int i : iArr) {
-            d += ((Number) function1.invoke(Integer.valueOf(i))).doubleValue();
+            d += function1.invoke(Integer.valueOf(i)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(int[] iArr, Function1<? super Integer, Integer> function1) {
         int i = 0;
         for (int i2 : iArr) {
-            i += ((Number) function1.invoke(Integer.valueOf(i2))).intValue();
+            i += function1.invoke(Integer.valueOf(i2)).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(int[] iArr, Function1<? super Integer, Long> function1) {
         long j = 0;
         for (int i : iArr) {
-            j += ((Number) function1.invoke(Integer.valueOf(i))).longValue();
+            j += function1.invoke(Integer.valueOf(i)).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(int[] iArr, Function1<? super Integer, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (int i : iArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Integer.valueOf(i))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Integer.valueOf(i)).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(int[] iArr, Function1<? super Integer, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (int i : iArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Integer.valueOf(i))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Integer.valueOf(i)).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -3307,7 +3526,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Integer.valueOf(takeLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Integer.valueOf(takeLastWhile[lastIndex])).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -3319,7 +3538,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (int i : takeWhile) {
-            if (!((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (!predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 break;
             }
             arrayList.add(Integer.valueOf(i));
@@ -3359,7 +3578,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (long j : all) {
-            if (!((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (!predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 return false;
             }
         }
@@ -3370,15 +3589,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (long j : any) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V> Map<Long, V> associateWith(long[] jArr, Function1<? super Long, ? extends V> function1) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(jArr.length), 16));
         for (long j : jArr) {
@@ -3400,7 +3619,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (long j : count) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 i++;
             }
         }
@@ -3411,13 +3630,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Long.valueOf(dropLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Long.valueOf(dropLastWhile[lastIndex])).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
+    @InlineOnly
     public static final Integer elementAtOrNull(int[] iArr, int i) {
         return getOrNull(iArr, i);
     }
@@ -3427,7 +3647,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (long j : filter) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 arrayList.add(Long.valueOf(j));
             }
         }
@@ -3439,22 +3659,24 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (long j : filterNot) {
-            if (!((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (!predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 arrayList.add(Long.valueOf(j));
             }
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final Integer find(int[] iArr, Function1<? super Integer, Boolean> function1) {
         for (int i : iArr) {
-            if (((Boolean) function1.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (function1.invoke(Integer.valueOf(i)).booleanValue()) {
                 return Integer.valueOf(i);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Integer findLast(int[] iArr, Function1<? super Integer, Boolean> function1) {
         int i;
         int length = iArr.length;
@@ -3465,7 +3687,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Integer.valueOf(i))).booleanValue());
+        } while (!function1.invoke(Integer.valueOf(i)).booleanValue());
         return Integer.valueOf(i);
     }
 
@@ -3473,7 +3695,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (long j : first) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 return j;
             }
         }
@@ -3484,7 +3706,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i : firstOrNull) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 return Integer.valueOf(i);
             }
         }
@@ -3496,18 +3718,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (long j : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Long.valueOf(j)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Long.valueOf(j)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(long[] jArr, Function2<? super Integer, ? super Long, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (long j : jArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Long.valueOf(j)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Long.valueOf(j)));
         }
         return arrayList;
     }
@@ -3555,7 +3781,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Long.valueOf(indexOfFirst[i]))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(indexOfFirst[i])).booleanValue()) {
                 return i;
             }
         }
@@ -3566,7 +3792,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Long.valueOf(indexOfLast[length]))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(indexOfLast[length])).booleanValue()) {
                 return length;
             }
         }
@@ -3593,7 +3819,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue());
+        } while (!predicate.invoke(Long.valueOf(j)).booleanValue());
         return j;
     }
 
@@ -3619,7 +3845,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue());
+        } while (!predicate.invoke(Integer.valueOf(i)).booleanValue());
         return Integer.valueOf(i);
     }
 
@@ -3666,13 +3892,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (long j : none) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final long[] onEach(long[] jArr, Function1<? super Long, Unit> function1) {
         for (long j : jArr) {
             function1.invoke(Long.valueOf(j));
@@ -3680,6 +3908,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return jArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final long[] onEachIndexed(long[] jArr, Function2<? super Integer, ? super Long, Unit> function2) {
         int i = 0;
         for (long j : jArr) {
@@ -3690,6 +3920,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return jArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final long random(long[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -3705,6 +3936,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Integer randomOrNull(int[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -3720,6 +3953,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Integer.valueOf(randomOrNull[random.nextInt(randomOrNull.length)]);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(long[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -3737,7 +3971,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Integer num = null;
         boolean z = false;
         for (int i : singleOrNull) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -3804,7 +4038,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (long j : sumBy) {
-            i += ((Number) selector.invoke(Long.valueOf(j))).intValue();
+            i += selector.invoke(Long.valueOf(j)).intValue();
         }
         return i;
     }
@@ -3816,47 +4050,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (long j : sumByDouble) {
-            d += ((Number) selector.invoke(Long.valueOf(j))).doubleValue();
+            d += selector.invoke(Long.valueOf(j)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(long[] jArr, Function1<? super Long, Double> function1) {
         double d = 0;
         for (long j : jArr) {
-            d += ((Number) function1.invoke(Long.valueOf(j))).doubleValue();
+            d += function1.invoke(Long.valueOf(j)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(long[] jArr, Function1<? super Long, Integer> function1) {
         int i = 0;
         for (long j : jArr) {
-            i += ((Number) function1.invoke(Long.valueOf(j))).intValue();
+            i += function1.invoke(Long.valueOf(j)).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(long[] jArr, Function1<? super Long, Long> function1) {
         long j = 0;
         for (long j2 : jArr) {
-            j += ((Number) function1.invoke(Long.valueOf(j2))).longValue();
+            j += function1.invoke(Long.valueOf(j2)).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(long[] jArr, Function1<? super Long, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (long j : jArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Long.valueOf(j))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Long.valueOf(j)).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(long[] jArr, Function1<? super Long, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (long j : jArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Long.valueOf(j))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Long.valueOf(j)).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -3865,7 +4121,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Long.valueOf(takeLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Long.valueOf(takeLastWhile[lastIndex])).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -3877,7 +4133,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (long j : takeWhile) {
-            if (!((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (!predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 break;
             }
             arrayList.add(Long.valueOf(j));
@@ -3918,7 +4174,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : all) {
-            if (!((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (!predicate.invoke(t).booleanValue()) {
                 return false;
             }
         }
@@ -3929,15 +4185,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : any) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
     public static final <K, V> Map<K, V> associateWith(K[] associateWith, Function1<? super K, ? extends V> valueSelector) {
         Intrinsics.checkNotNullParameter(associateWith, "$this$associateWith");
         Intrinsics.checkNotNullParameter(valueSelector, "valueSelector");
@@ -3961,7 +4216,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (T t : count) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 i++;
             }
         }
@@ -3972,13 +4227,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(dropLastWhile[lastIndex])).booleanValue()) {
+            if (!predicate.invoke(dropLastWhile[lastIndex]).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
+    @InlineOnly
     public static final Long elementAtOrNull(long[] jArr, int i) {
         return getOrNull(jArr, i);
     }
@@ -3988,7 +4244,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (T t : filter) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 arrayList.add(t);
             }
         }
@@ -4000,22 +4256,24 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (T t : filterNot) {
-            if (!((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (!predicate.invoke(t).booleanValue()) {
                 arrayList.add(t);
             }
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final Long find(long[] jArr, Function1<? super Long, Boolean> function1) {
         for (long j : jArr) {
-            if (((Boolean) function1.invoke(Long.valueOf(j))).booleanValue()) {
+            if (function1.invoke(Long.valueOf(j)).booleanValue()) {
                 return Long.valueOf(j);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Long findLast(long[] jArr, Function1<? super Long, Boolean> function1) {
         long j;
         int length = jArr.length;
@@ -4026,7 +4284,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Long.valueOf(j))).booleanValue());
+        } while (!function1.invoke(Long.valueOf(j)).booleanValue());
         return Long.valueOf(j);
     }
 
@@ -4034,7 +4292,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : first) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 return t;
             }
         }
@@ -4045,7 +4303,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (long j : firstOrNull) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 return Long.valueOf(j);
             }
         }
@@ -4057,18 +4315,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (T t : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(t));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(t));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R> List<R> flatMapIndexedIterable(T[] tArr, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (T t : tArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, t));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, t));
         }
         return arrayList;
     }
@@ -4128,7 +4390,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(indexOfFirst[i])).booleanValue()) {
+            if (predicate.invoke(indexOfFirst[i]).booleanValue()) {
                 return i;
             }
         }
@@ -4139,7 +4401,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(indexOfLast[length])).booleanValue()) {
+            if (predicate.invoke(indexOfLast[length]).booleanValue()) {
                 return length;
             }
         }
@@ -4166,7 +4428,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(t)).booleanValue());
+        } while (!predicate.invoke(t).booleanValue());
         return t;
     }
 
@@ -4200,7 +4462,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue());
+        } while (!predicate.invoke(Long.valueOf(j)).booleanValue());
         return Long.valueOf(j);
     }
 
@@ -4247,13 +4509,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : none) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <T> T[] onEach(T[] tArr, Function1<? super T, Unit> function1) {
         for (T t : tArr) {
             function1.invoke(t);
@@ -4261,6 +4525,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return tArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <T> T[] onEachIndexed(T[] tArr, Function2<? super Integer, ? super T, Unit> function2) {
         int i = 0;
         for (T t : tArr) {
@@ -4271,6 +4537,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return tArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final <T> T random(T[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -4286,6 +4553,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Long randomOrNull(long[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -4301,6 +4570,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Long.valueOf(randomOrNull[random.nextInt(randomOrNull.length)]);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T> void shuffle(T[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -4318,7 +4588,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Long l = null;
         boolean z = false;
         for (long j : singleOrNull) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -4386,7 +4656,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (T t : sumBy) {
-            i += ((Number) selector.invoke(t)).intValue();
+            i += selector.invoke(t).intValue();
         }
         return i;
     }
@@ -4398,47 +4668,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (T t : sumByDouble) {
-            d += ((Number) selector.invoke(t)).doubleValue();
+            d += selector.invoke(t).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> double sumOfDouble(T[] tArr, Function1<? super T, Double> function1) {
         double d = 0;
         for (T t : tArr) {
-            d += ((Number) function1.invoke(t)).doubleValue();
+            d += function1.invoke(t).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> int sumOfInt(T[] tArr, Function1<? super T, Integer> function1) {
         int i = 0;
         for (T t : tArr) {
-            i += ((Number) function1.invoke(t)).intValue();
+            i += function1.invoke(t).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> long sumOfLong(T[] tArr, Function1<? super T, Long> function1) {
         long j = 0;
         for (T t : tArr) {
-            j += ((Number) function1.invoke(t)).longValue();
+            j += function1.invoke(t).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> int sumOfUInt(T[] tArr, Function1<? super T, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (T t : tArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(t)).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(t).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> long sumOfULong(T[] tArr, Function1<? super T, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (T t : tArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(t)).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(t).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -4447,7 +4739,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(takeLastWhile[lastIndex])).booleanValue()) {
+            if (!predicate.invoke(takeLastWhile[lastIndex]).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -4459,7 +4751,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (T t : takeWhile) {
-            if (!((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (!predicate.invoke(t).booleanValue()) {
                 break;
             }
             arrayList.add(t);
@@ -4499,7 +4791,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (short s : all) {
-            if (!((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (!predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 return false;
             }
         }
@@ -4510,15 +4802,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (short s : any) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V> Map<Short, V> associateWith(short[] sArr, Function1<? super Short, ? extends V> function1) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(sArr.length), 16));
         for (short s : sArr) {
@@ -4540,7 +4832,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (short s : count) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 i++;
             }
         }
@@ -4551,13 +4843,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Short.valueOf(dropLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Short.valueOf(dropLastWhile[lastIndex])).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
+    @InlineOnly
     public static final <T> T elementAtOrNull(T[] tArr, int i) {
         return (T) getOrNull(tArr, i);
     }
@@ -4567,7 +4860,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (short s : filter) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 arrayList.add(Short.valueOf(s));
             }
         }
@@ -4579,22 +4872,24 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (short s : filterNot) {
-            if (!((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (!predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 arrayList.add(Short.valueOf(s));
             }
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final <T> T find(T[] tArr, Function1<? super T, Boolean> function1) {
         for (T t : tArr) {
-            if (((Boolean) function1.invoke(t)).booleanValue()) {
+            if (function1.invoke(t).booleanValue()) {
                 return t;
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final <T> T findLast(T[] tArr, Function1<? super T, Boolean> function1) {
         T t;
         int length = tArr.length;
@@ -4605,7 +4900,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(t)).booleanValue());
+        } while (!function1.invoke(t).booleanValue());
         return t;
     }
 
@@ -4613,7 +4908,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (short s : first) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 return s;
             }
         }
@@ -4624,7 +4919,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : firstOrNull) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 return t;
             }
         }
@@ -4636,18 +4931,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (short s : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Short.valueOf(s)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Short.valueOf(s)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(short[] sArr, Function2<? super Integer, ? super Short, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (short s : sArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Short.valueOf(s)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Short.valueOf(s)));
         }
         return arrayList;
     }
@@ -4695,7 +4994,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Short.valueOf(indexOfFirst[i]))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(indexOfFirst[i])).booleanValue()) {
                 return i;
             }
         }
@@ -4706,7 +5005,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Short.valueOf(indexOfLast[length]))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(indexOfLast[length])).booleanValue()) {
                 return length;
             }
         }
@@ -4733,7 +5032,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue());
+        } while (!predicate.invoke(Short.valueOf(s)).booleanValue());
         return s;
     }
 
@@ -4759,7 +5058,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(t)).booleanValue());
+        } while (!predicate.invoke(t).booleanValue());
         return t;
     }
 
@@ -4806,13 +5105,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (short s : none) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final short[] onEach(short[] sArr, Function1<? super Short, Unit> function1) {
         for (short s : sArr) {
             function1.invoke(Short.valueOf(s));
@@ -4820,6 +5121,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return sArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final short[] onEachIndexed(short[] sArr, Function2<? super Integer, ? super Short, Unit> function2) {
         int i = 0;
         for (short s : sArr) {
@@ -4830,6 +5133,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return sArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final short random(short[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -4845,6 +5149,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T> T randomOrNull(T[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -4860,6 +5166,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return randomOrNull[random.nextInt(randomOrNull.length)];
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(short[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -4877,7 +5184,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         T t = null;
         boolean z = false;
         for (T t2 : singleOrNull) {
-            if (((Boolean) predicate.invoke(t2)).booleanValue()) {
+            if (predicate.invoke(t2).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -4944,7 +5251,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (short s : sumBy) {
-            i += ((Number) selector.invoke(Short.valueOf(s))).intValue();
+            i += selector.invoke(Short.valueOf(s)).intValue();
         }
         return i;
     }
@@ -4956,47 +5263,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (short s : sumByDouble) {
-            d += ((Number) selector.invoke(Short.valueOf(s))).doubleValue();
+            d += selector.invoke(Short.valueOf(s)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(short[] sArr, Function1<? super Short, Double> function1) {
         double d = 0;
         for (short s : sArr) {
-            d += ((Number) function1.invoke(Short.valueOf(s))).doubleValue();
+            d += function1.invoke(Short.valueOf(s)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(short[] sArr, Function1<? super Short, Integer> function1) {
         int i = 0;
         for (short s : sArr) {
-            i += ((Number) function1.invoke(Short.valueOf(s))).intValue();
+            i += function1.invoke(Short.valueOf(s)).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(short[] sArr, Function1<? super Short, Long> function1) {
         long j = 0;
         for (short s : sArr) {
-            j += ((Number) function1.invoke(Short.valueOf(s))).longValue();
+            j += function1.invoke(Short.valueOf(s)).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(short[] sArr, Function1<? super Short, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (short s : sArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Short.valueOf(s))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Short.valueOf(s)).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(short[] sArr, Function1<? super Short, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (short s : sArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Short.valueOf(s))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Short.valueOf(s)).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -5005,7 +5334,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Short.valueOf(takeLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Short.valueOf(takeLastWhile[lastIndex])).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -5017,7 +5346,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (short s : takeWhile) {
-            if (!((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (!predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 break;
             }
             arrayList.add(Short.valueOf(s));
@@ -5058,7 +5387,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (boolean z : all) {
-            if (!((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (!predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 return false;
             }
         }
@@ -5069,15 +5398,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (boolean z : any) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V> Map<Boolean, V> associateWith(boolean[] zArr, Function1<? super Boolean, ? extends V> function1) {
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(zArr.length), 16));
         for (boolean z : zArr) {
@@ -5099,7 +5428,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (boolean z : count) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 i++;
             }
         }
@@ -5110,13 +5439,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Boolean.valueOf(dropLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Boolean.valueOf(dropLastWhile[lastIndex])).booleanValue()) {
                 return take(dropLastWhile, lastIndex + 1);
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
+    @InlineOnly
     public static final Short elementAtOrNull(short[] sArr, int i) {
         return getOrNull(sArr, i);
     }
@@ -5126,7 +5456,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (boolean z : filter) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 arrayList.add(Boolean.valueOf(z));
             }
         }
@@ -5138,22 +5468,24 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (boolean z : filterNot) {
-            if (!((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (!predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 arrayList.add(Boolean.valueOf(z));
             }
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final Short find(short[] sArr, Function1<? super Short, Boolean> function1) {
         for (short s : sArr) {
-            if (((Boolean) function1.invoke(Short.valueOf(s))).booleanValue()) {
+            if (function1.invoke(Short.valueOf(s)).booleanValue()) {
                 return Short.valueOf(s);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Short findLast(short[] sArr, Function1<? super Short, Boolean> function1) {
         short s;
         int length = sArr.length;
@@ -5164,7 +5496,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Short.valueOf(s))).booleanValue());
+        } while (!function1.invoke(Short.valueOf(s)).booleanValue());
         return Short.valueOf(s);
     }
 
@@ -5172,7 +5504,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (boolean z : first) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 return z;
             }
         }
@@ -5183,7 +5515,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (short s : firstOrNull) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 return Short.valueOf(s);
             }
         }
@@ -5195,18 +5527,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (boolean z : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Boolean.valueOf(z)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Boolean.valueOf(z)));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(boolean[] zArr, Function2<? super Integer, ? super Boolean, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         for (boolean z : zArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Boolean.valueOf(z)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Boolean.valueOf(z)));
         }
         return arrayList;
     }
@@ -5254,7 +5590,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length;
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(indexOfFirst[i]))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(indexOfFirst[i])).booleanValue()) {
                 return i;
             }
         }
@@ -5265,7 +5601,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(indexOfLast[length]))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(indexOfLast[length])).booleanValue()) {
                 return length;
             }
         }
@@ -5292,7 +5628,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 throw new NoSuchElementException("Array contains no element matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue());
+        } while (!predicate.invoke(Boolean.valueOf(z)).booleanValue());
         return z;
     }
 
@@ -5318,7 +5654,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue());
+        } while (!predicate.invoke(Short.valueOf(s)).booleanValue());
         return Short.valueOf(s);
     }
 
@@ -5365,13 +5701,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (boolean z : none) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final boolean[] onEach(boolean[] zArr, Function1<? super Boolean, Unit> function1) {
         for (boolean z : zArr) {
             function1.invoke(Boolean.valueOf(z));
@@ -5379,6 +5717,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return zArr;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final boolean[] onEachIndexed(boolean[] zArr, Function2<? super Integer, ? super Boolean, Unit> function2) {
         int i = 0;
         for (boolean z : zArr) {
@@ -5389,6 +5729,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return zArr;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final boolean random(boolean[] random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -5404,6 +5745,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException("Array is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Short randomOrNull(short[] randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -5419,6 +5762,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Short.valueOf(randomOrNull[random.nextInt(randomOrNull.length)]);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(boolean[] shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -5436,7 +5780,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Short sh = null;
         boolean z = false;
         for (short s : singleOrNull) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -5506,7 +5850,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (boolean z : sumBy) {
-            i += ((Number) selector.invoke(Boolean.valueOf(z))).intValue();
+            i += selector.invoke(Boolean.valueOf(z)).intValue();
         }
         return i;
     }
@@ -5518,47 +5862,69 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (boolean z : sumByDouble) {
-            d += ((Number) selector.invoke(Boolean.valueOf(z))).doubleValue();
+            d += selector.invoke(Boolean.valueOf(z)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(boolean[] zArr, Function1<? super Boolean, Double> function1) {
         double d = 0;
         for (boolean z : zArr) {
-            d += ((Number) function1.invoke(Boolean.valueOf(z))).doubleValue();
+            d += function1.invoke(Boolean.valueOf(z)).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(boolean[] zArr, Function1<? super Boolean, Integer> function1) {
         int i = 0;
         for (boolean z : zArr) {
-            i += ((Number) function1.invoke(Boolean.valueOf(z))).intValue();
+            i += function1.invoke(Boolean.valueOf(z)).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(boolean[] zArr, Function1<? super Boolean, Long> function1) {
         long j = 0;
         for (boolean z : zArr) {
-            j += ((Number) function1.invoke(Boolean.valueOf(z))).longValue();
+            j += function1.invoke(Boolean.valueOf(z)).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(boolean[] zArr, Function1<? super Boolean, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (boolean z : zArr) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Boolean.valueOf(z))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Boolean.valueOf(z)).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(boolean[] zArr, Function1<? super Boolean, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (boolean z : zArr) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Boolean.valueOf(z))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Boolean.valueOf(z)).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -5567,7 +5933,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Boolean.valueOf(takeLastWhile[lastIndex]))).booleanValue()) {
+            if (!predicate.invoke(Boolean.valueOf(takeLastWhile[lastIndex])).booleanValue()) {
                 return drop(takeLastWhile, lastIndex + 1);
             }
         }
@@ -5579,7 +5945,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         for (boolean z : takeWhile) {
-            if (!((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (!predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 break;
             }
             arrayList.add(Boolean.valueOf(z));
@@ -5673,6 +6039,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfByte")
     public static final double averageOfByte(Byte[] average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -5687,6 +6054,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfDouble")
     public static final double averageOfDouble(Double[] average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -5701,6 +6069,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfFloat")
     public static final double averageOfFloat(Float[] average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -5715,6 +6084,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfInt")
     public static final double averageOfInt(Integer[] average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -5729,6 +6099,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfLong")
     public static final double averageOfLong(Long[] average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -5743,6 +6114,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfShort")
     public static final double averageOfShort(Short[] average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -5757,31 +6129,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @InlineOnly
     public static final byte component1(byte[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final byte component2(byte[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final byte component3(byte[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final byte component4(byte[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final byte component5(byte[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final int count(byte[] bArr) {
         return bArr.length;
     }
@@ -5846,6 +6224,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final boolean isEmpty(byte[] bArr) {
         if (bArr.length == 0) {
             return true;
@@ -5853,6 +6232,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final boolean isNotEmpty(byte[] bArr) {
         boolean z;
         if (bArr.length == 0) {
@@ -5898,6 +6278,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Byte maxOrNull(byte[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -5934,6 +6315,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Byte minOrNull(byte[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -5971,10 +6353,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final byte random(byte[] bArr) {
         return random(bArr, (Random) Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Boolean randomOrNull(boolean[] zArr) {
         return randomOrNull(zArr, Random.Default);
     }
@@ -6055,6 +6442,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return bArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(byte[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, (Random) Random.Default);
@@ -6149,6 +6537,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d;
     }
 
+    @JvmName(name = "sumOfByte")
     public static final int sumOfByte(Byte[] sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
@@ -6158,6 +6547,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return i;
     }
 
+    @JvmName(name = "sumOfDouble")
     public static final double sumOfDouble(Double[] sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         double d = 0.0d;
@@ -6167,6 +6557,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d;
     }
 
+    @JvmName(name = "sumOfFloat")
     public static final float sumOfFloat(Float[] sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         float f = 0.0f;
@@ -6176,6 +6567,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return f;
     }
 
+    @JvmName(name = "sumOfInt")
     public static final int sumOfInt(Integer[] sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
@@ -6185,6 +6577,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return i;
     }
 
+    @JvmName(name = "sumOfLong")
     public static final long sumOfLong(Long[] sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         long j = 0;
@@ -6194,6 +6587,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return j;
     }
 
+    @JvmName(name = "sumOfShort")
     public static final int sumOfShort(Short[] sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
@@ -6389,31 +6783,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @InlineOnly
     public static final char component1(char[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final char component2(char[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final char component3(char[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final char component4(char[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final char component5(char[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final int count(char[] cArr) {
         return cArr.length;
     }
@@ -6461,6 +6861,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final boolean isEmpty(char[] cArr) {
         if (cArr.length == 0) {
             return true;
@@ -6468,6 +6869,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final boolean isNotEmpty(char[] cArr) {
         boolean z;
         if (cArr.length == 0) {
@@ -6513,6 +6915,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character maxOrNull(char[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -6549,6 +6952,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character minOrNull(char[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -6586,10 +6990,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final char random(char[] cArr) {
         return random(cArr, (Random) Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Byte randomOrNull(byte[] bArr) {
         return randomOrNull(bArr, (Random) Random.Default);
     }
@@ -6660,6 +7069,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return cArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(char[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, (Random) Random.Default);
@@ -6860,31 +7270,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @InlineOnly
     public static final double component1(double[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final double component2(double[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final double component3(double[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final double component4(double[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final double component5(double[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final int count(double[] dArr) {
         return dArr.length;
     }
@@ -6932,6 +7348,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final boolean isEmpty(double[] dArr) {
         if (dArr.length == 0) {
             return true;
@@ -6939,6 +7356,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final boolean isNotEmpty(double[] dArr) {
         boolean z;
         if (dArr.length == 0) {
@@ -6984,6 +7402,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (T) maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T extends Comparable<? super T>> T maxOrNull(T[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -7020,6 +7439,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (T) minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T extends Comparable<? super T>> T minOrNull(T[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -7057,10 +7477,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final double random(double[] dArr) {
         return random(dArr, Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Character randomOrNull(char[] cArr) {
         return randomOrNull(cArr, (Random) Random.Default);
     }
@@ -7131,6 +7556,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return dArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(double[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, Random.Default);
@@ -7331,31 +7757,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @InlineOnly
     public static final float component1(float[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final float component2(float[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final float component3(float[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final float component4(float[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final float component5(float[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final int count(float[] fArr) {
         return fArr.length;
     }
@@ -7403,6 +7835,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final boolean isEmpty(float[] fArr) {
         if (fArr.length == 0) {
             return true;
@@ -7410,6 +7843,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final boolean isNotEmpty(float[] fArr) {
         boolean z;
         if (fArr.length == 0) {
@@ -7455,6 +7889,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Double maxOrNull(double[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -7488,6 +7923,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Double minOrNull(double[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -7522,10 +7958,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final float random(float[] fArr) {
         return random(fArr, (Random) Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Double randomOrNull(double[] dArr) {
         return randomOrNull(dArr, Random.Default);
     }
@@ -7596,6 +8037,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return fArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(float[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, (Random) Random.Default);
@@ -7796,31 +8238,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @InlineOnly
     public static final int component1(int[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final int component2(int[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final int component3(int[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final int component4(int[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final int component5(int[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final int count(int[] iArr) {
         return iArr.length;
     }
@@ -7868,6 +8316,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final boolean isEmpty(int[] iArr) {
         if (iArr.length == 0) {
             return true;
@@ -7875,6 +8324,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final boolean isNotEmpty(int[] iArr) {
         boolean z;
         if (iArr.length == 0) {
@@ -7914,12 +8364,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final Double max(Double[] max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Double maxOrNull(Double[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -7947,12 +8399,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final Double min(Double[] min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Double minOrNull(Double[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -7987,10 +8441,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final int random(int[] iArr) {
         return random(iArr, (Random) Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Float randomOrNull(float[] fArr) {
         return randomOrNull(fArr, (Random) Random.Default);
     }
@@ -8061,6 +8520,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return iArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(int[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, (Random) Random.Default);
@@ -8261,31 +8721,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return d / i;
     }
 
+    @InlineOnly
     public static final long component1(long[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final long component2(long[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final long component3(long[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final long component4(long[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final long component5(long[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final int count(long[] jArr) {
         return jArr.length;
     }
@@ -8333,6 +8799,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final boolean isEmpty(long[] jArr) {
         if (jArr.length == 0) {
             return true;
@@ -8340,6 +8807,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final boolean isNotEmpty(long[] jArr) {
         boolean z;
         if (jArr.length == 0) {
@@ -8385,6 +8853,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Float maxOrNull(float[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -8418,6 +8887,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Float minOrNull(float[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -8452,10 +8922,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final long random(long[] jArr) {
         return random(jArr, (Random) Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Integer randomOrNull(int[] iArr) {
         return randomOrNull(iArr, (Random) Random.Default);
     }
@@ -8526,6 +9001,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return jArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(long[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, (Random) Random.Default);
@@ -8712,31 +9188,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         };
     }
 
+    @InlineOnly
     public static final <T> T component1(T[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final <T> T component2(T[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final <T> T component3(T[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final <T> T component4(T[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final <T> T component5(T[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final <T> int count(T[] tArr) {
         return tArr.length;
     }
@@ -8784,6 +9266,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final <T> boolean isEmpty(T[] tArr) {
         if (tArr.length == 0) {
             return true;
@@ -8791,6 +9274,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final <T> boolean isNotEmpty(T[] tArr) {
         boolean z;
         if (tArr.length == 0) {
@@ -8830,12 +9314,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final Float max(Float[] max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Float maxOrNull(Float[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -8863,12 +9349,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final Float min(Float[] min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Float minOrNull(Float[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -8903,10 +9391,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final <T> T random(T[] tArr) {
         return (T) random(tArr, Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Long randomOrNull(long[] jArr) {
         return randomOrNull(jArr, (Random) Random.Default);
     }
@@ -8977,6 +9470,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return tArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T> void shuffle(T[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, Random.Default);
@@ -9144,31 +9638,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         };
     }
 
+    @InlineOnly
     public static final short component1(short[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final short component2(short[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final short component3(short[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final short component4(short[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final short component5(short[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final int count(short[] sArr) {
         return sArr.length;
     }
@@ -9216,6 +9716,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final boolean isEmpty(short[] sArr) {
         if (sArr.length == 0) {
             return true;
@@ -9223,6 +9724,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final boolean isNotEmpty(short[] sArr) {
         boolean z;
         if (sArr.length == 0) {
@@ -9268,6 +9770,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Integer maxOrNull(int[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -9304,6 +9807,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Integer minOrNull(int[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -9341,10 +9845,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final short random(short[] sArr) {
         return random(sArr, (Random) Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <T> T randomOrNull(T[] tArr) {
         return (T) randomOrNull(tArr, Random.Default);
     }
@@ -9415,6 +9924,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return sArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(short[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, (Random) Random.Default);
@@ -9592,31 +10102,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         };
     }
 
+    @InlineOnly
     public static final boolean component1(boolean[] component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1[0];
     }
 
+    @InlineOnly
     public static final boolean component2(boolean[] component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2[1];
     }
 
+    @InlineOnly
     public static final boolean component3(boolean[] component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3[2];
     }
 
+    @InlineOnly
     public static final boolean component4(boolean[] component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4[3];
     }
 
+    @InlineOnly
     public static final boolean component5(boolean[] component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5[4];
     }
 
+    @InlineOnly
     public static final int count(boolean[] zArr) {
         return zArr.length;
     }
@@ -9664,6 +10180,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return lastIndex.length - 1;
     }
 
+    @InlineOnly
     public static final boolean isEmpty(boolean[] zArr) {
         if (zArr.length == 0) {
             return true;
@@ -9671,6 +10188,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @InlineOnly
     public static final boolean isNotEmpty(boolean[] zArr) {
         boolean z;
         if (zArr.length == 0) {
@@ -9716,6 +10234,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Long maxOrNull(long[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -9752,6 +10271,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Long minOrNull(long[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -9789,10 +10309,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final boolean random(boolean[] zArr) {
         return random(zArr, Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Short randomOrNull(short[] sArr) {
         return randomOrNull(sArr, (Random) Random.Default);
     }
@@ -9863,6 +10388,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return zArr;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void shuffle(boolean[] shuffle) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         shuffle(shuffle, Random.Default);
@@ -9924,21 +10450,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return new IndexingIterable(new ArraysKt___ArraysKt$withIndex$8(withIndex));
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(byte[] associate, Function1<? super Byte, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
         for (byte b : associate) {
-            Pair pair = (Pair) transform.invoke(Byte.valueOf(b));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Byte.valueOf(b));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Byte> associateBy(byte[] associateBy, Function1<? super Byte, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -9998,7 +10520,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (byte b : dropWhile) {
             if (z) {
                 arrayList.add(Byte.valueOf(b));
-            } else if (!((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            } else if (!predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 arrayList.add(Byte.valueOf(b));
                 z = true;
             }
@@ -10016,7 +10538,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             byte b = filterIndexed[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Byte.valueOf(b)).booleanValue()) {
                 arrayList.add(Byte.valueOf(b));
             }
             i++;
@@ -10025,14 +10547,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Byte>> groupBy(byte[] groupBy, Function1<? super Byte, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (byte b : groupBy) {
-            Object invoke = keySelector.invoke(Byte.valueOf(b));
+            K invoke = keySelector.invoke(Byte.valueOf(b));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -10061,14 +10581,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         T t = maxBy[0];
         int lastIndex = getLastIndex(maxBy);
         if (lastIndex != 0) {
-            Comparable comparable = (Comparable) selector.invoke(t);
+            R invoke = selector.invoke(t);
             if (1 <= lastIndex) {
                 while (true) {
                     T t2 = maxBy[i];
-                    Comparable comparable2 = (Comparable) selector.invoke(t2);
-                    if (comparable.compareTo(comparable2) < 0) {
+                    R invoke2 = selector.invoke(t2);
+                    if (invoke.compareTo(invoke2) < 0) {
                         t = t2;
-                        comparable = comparable2;
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -10080,6 +10600,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return t;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T, R extends Comparable<? super R>> T maxByOrNull(T[] maxByOrNull, Function1<? super T, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -10098,14 +10619,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return t;
         }
-        Comparable comparable = (Comparable) selector.invoke(t);
+        R invoke = selector.invoke(t);
         if (1 <= lastIndex) {
             while (true) {
                 T t2 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(t2);
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(t2);
+                if (invoke.compareTo(invoke2) < 0) {
                     t = t2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -10116,6 +10637,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return t;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(byte[] bArr, Function1<? super Byte, Double> function1) {
         boolean z;
         int i = 1;
@@ -10125,11 +10649,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Byte.valueOf(bArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Byte.valueOf(bArr[0])).doubleValue();
             int lastIndex = getLastIndex(bArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Byte.valueOf(bArr[i]))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Byte.valueOf(bArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -10141,8 +10665,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(byte[] bArr, Function1<? super Byte, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -10154,13 +10679,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Byte.valueOf(bArr[0]));
+        R invoke = function1.invoke(Byte.valueOf(bArr[0]));
         int lastIndex = getLastIndex(bArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Byte.valueOf(bArr[i]));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Byte.valueOf(bArr[i]));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -10168,9 +10693,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Boolean maxWithOrNull(boolean[] maxWithOrNull, Comparator<? super Boolean> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -10219,14 +10745,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         T t = minBy[0];
         int lastIndex = getLastIndex(minBy);
         if (lastIndex != 0) {
-            Comparable comparable = (Comparable) selector.invoke(t);
+            R invoke = selector.invoke(t);
             if (1 <= lastIndex) {
                 while (true) {
                     T t2 = minBy[i];
-                    Comparable comparable2 = (Comparable) selector.invoke(t2);
-                    if (comparable.compareTo(comparable2) > 0) {
+                    R invoke2 = selector.invoke(t2);
+                    if (invoke.compareTo(invoke2) > 0) {
                         t = t2;
-                        comparable = comparable2;
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -10238,6 +10764,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return t;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T, R extends Comparable<? super R>> T minByOrNull(T[] minByOrNull, Function1<? super T, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -10256,14 +10783,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return t;
         }
-        Comparable comparable = (Comparable) selector.invoke(t);
+        R invoke = selector.invoke(t);
         if (1 <= lastIndex) {
             while (true) {
                 T t2 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(t2);
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(t2);
+                if (invoke.compareTo(invoke2) > 0) {
                     t = t2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -10274,6 +10801,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return t;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(byte[] bArr, Function1<? super Byte, Double> function1) {
         boolean z;
         int i = 1;
@@ -10283,11 +10813,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Byte.valueOf(bArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Byte.valueOf(bArr[0])).doubleValue();
             int lastIndex = getLastIndex(bArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Byte.valueOf(bArr[i]))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Byte.valueOf(bArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -10299,8 +10829,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(byte[] bArr, Function1<? super Byte, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -10312,13 +10843,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Byte.valueOf(bArr[0]));
+        R invoke = function1.invoke(Byte.valueOf(bArr[0]));
         int lastIndex = getLastIndex(bArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Byte.valueOf(bArr[i]));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Byte.valueOf(bArr[i]));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -10326,9 +10857,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Boolean minWithOrNull(boolean[] minWithOrNull, Comparator<? super Boolean> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -10365,7 +10897,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (byte b : partition) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 arrayList.add(Byte.valueOf(b));
             } else {
                 arrayList2.add(Byte.valueOf(b));
@@ -10389,7 +10921,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    b = ((Number) operation.invoke(Byte.valueOf(b), Byte.valueOf(reduce[i]))).byteValue();
+                    b = operation.invoke(Byte.valueOf(b), Byte.valueOf(reduce[i])).byteValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -10416,7 +10948,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    b = ((Number) operation.invoke(Integer.valueOf(i), Byte.valueOf(b), Byte.valueOf(reduceIndexed[i]))).byteValue();
+                    b = operation.invoke(Integer.valueOf(i), Byte.valueOf(b), Byte.valueOf(reduceIndexed[i])).byteValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -10428,6 +10960,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Boolean reduceIndexedOrNull(boolean[] reduceIndexedOrNull, Function3<? super Integer, ? super Boolean, ? super Boolean, Boolean> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -10445,7 +10978,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                z2 = ((Boolean) operation.invoke(Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(reduceIndexedOrNull[i]))).booleanValue();
+                z2 = operation.invoke(Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(reduceIndexedOrNull[i])).booleanValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -10455,6 +10988,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Boolean.valueOf(z2);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Boolean reduceOrNull(boolean[] reduceOrNull, Function2<? super Boolean, ? super Boolean, Boolean> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -10472,7 +11007,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                z2 = ((Boolean) operation.invoke(Boolean.valueOf(z2), Boolean.valueOf(reduceOrNull[i]))).booleanValue();
+                z2 = operation.invoke(Boolean.valueOf(z2), Boolean.valueOf(reduceOrNull[i])).booleanValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -10489,7 +11024,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             byte b = reduceRight[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                b = ((Number) operation.invoke(Byte.valueOf(reduceRight[i]), Byte.valueOf(b))).byteValue();
+                b = operation.invoke(Byte.valueOf(reduceRight[i]), Byte.valueOf(b)).byteValue();
             }
             return b;
         }
@@ -10503,13 +11038,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             byte b = reduceRightIndexed[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                b = ((Number) operation.invoke(Integer.valueOf(i), Byte.valueOf(reduceRightIndexed[i]), Byte.valueOf(b))).byteValue();
+                b = operation.invoke(Integer.valueOf(i), Byte.valueOf(reduceRightIndexed[i]), Byte.valueOf(b)).byteValue();
             }
             return b;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Boolean reduceRightIndexedOrNull(boolean[] reduceRightIndexedOrNull, Function3<? super Integer, ? super Boolean, ? super Boolean, Boolean> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -10519,11 +11055,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         boolean z = reduceRightIndexedOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            z = ((Boolean) operation.invoke(Integer.valueOf(i), Boolean.valueOf(reduceRightIndexedOrNull[i]), Boolean.valueOf(z))).booleanValue();
+            z = operation.invoke(Integer.valueOf(i), Boolean.valueOf(reduceRightIndexedOrNull[i]), Boolean.valueOf(z)).booleanValue();
         }
         return Boolean.valueOf(z);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Boolean reduceRightOrNull(boolean[] reduceRightOrNull, Function2<? super Boolean, ? super Boolean, Boolean> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -10533,11 +11071,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         boolean z = reduceRightOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            z = ((Boolean) operation.invoke(Boolean.valueOf(reduceRightOrNull[i]), Boolean.valueOf(z))).booleanValue();
+            z = operation.invoke(Boolean.valueOf(reduceRightOrNull[i]), Boolean.valueOf(z)).booleanValue();
         }
         return Boolean.valueOf(z);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Byte> runningReduce(byte[] bArr, Function2<? super Byte, ? super Byte, Byte> function2) {
         boolean z;
         if (bArr.length == 0) {
@@ -10553,12 +11093,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Byte.valueOf(b));
         int length = bArr.length;
         for (int i = 1; i < length; i++) {
-            b = ((Number) function2.invoke(Byte.valueOf(b), Byte.valueOf(bArr[i]))).byteValue();
+            b = function2.invoke(Byte.valueOf(b), Byte.valueOf(bArr[i])).byteValue();
             arrayList.add(Byte.valueOf(b));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Byte> runningReduceIndexed(byte[] bArr, Function3<? super Integer, ? super Byte, ? super Byte, Byte> function3) {
         boolean z;
         if (bArr.length == 0) {
@@ -10574,7 +11116,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Byte.valueOf(b));
         int length = bArr.length;
         for (int i = 1; i < length; i++) {
-            b = ((Number) function3.invoke(Integer.valueOf(i), Byte.valueOf(b), Byte.valueOf(bArr[i]))).byteValue();
+            b = function3.invoke(Integer.valueOf(i), Byte.valueOf(b), Byte.valueOf(bArr[i])).byteValue();
             arrayList.add(Byte.valueOf(b));
         }
         return arrayList;
@@ -10586,7 +11128,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         T t = null;
         boolean z = false;
         for (T t2 : single) {
-            if (((Boolean) predicate.invoke(t2)).booleanValue()) {
+            if (predicate.invoke(t2).booleanValue()) {
                 if (!z) {
                     z = true;
                     t = t2;
@@ -10631,21 +11173,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(char[] associate, Function1<? super Character, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
         for (char c : associate) {
-            Pair pair = (Pair) transform.invoke(Character.valueOf(c));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Character.valueOf(c));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Character> associateBy(char[] associateBy, Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -10705,7 +11243,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (char c : dropWhile) {
             if (z) {
                 arrayList.add(Character.valueOf(c));
-            } else if (!((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            } else if (!predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 arrayList.add(Character.valueOf(c));
                 z = true;
             }
@@ -10723,7 +11261,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             char c = filterIndexed[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Character.valueOf(c)).booleanValue()) {
                 arrayList.add(Character.valueOf(c));
             }
             i++;
@@ -10732,14 +11270,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Character>> groupBy(char[] groupBy, Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (char c : groupBy) {
-            Object invoke = keySelector.invoke(Character.valueOf(c));
+            K invoke = keySelector.invoke(Character.valueOf(c));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -10750,6 +11286,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(char[] cArr, Function1<? super Character, Double> function1) {
         boolean z;
         int i = 1;
@@ -10759,11 +11298,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Character.valueOf(cArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Character.valueOf(cArr[0])).doubleValue();
             int lastIndex = getLastIndex(cArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Character.valueOf(cArr[i]))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Character.valueOf(cArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -10775,8 +11314,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(char[] cArr, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -10788,13 +11328,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Character.valueOf(cArr[0]));
+        R invoke = function1.invoke(Character.valueOf(cArr[0]));
         int lastIndex = getLastIndex(cArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Character.valueOf(cArr[i]));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Character.valueOf(cArr[i]));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -10802,9 +11342,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Byte maxWithOrNull(byte[] maxWithOrNull, Comparator<? super Byte> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -10835,6 +11376,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Byte.valueOf(b);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(char[] cArr, Function1<? super Character, Double> function1) {
         boolean z;
         int i = 1;
@@ -10844,11 +11388,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Character.valueOf(cArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Character.valueOf(cArr[0])).doubleValue();
             int lastIndex = getLastIndex(cArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Character.valueOf(cArr[i]))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Character.valueOf(cArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -10860,8 +11404,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(char[] cArr, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -10873,13 +11418,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Character.valueOf(cArr[0]));
+        R invoke = function1.invoke(Character.valueOf(cArr[0]));
         int lastIndex = getLastIndex(cArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Character.valueOf(cArr[i]));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Character.valueOf(cArr[i]));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -10887,9 +11432,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Byte minWithOrNull(byte[] minWithOrNull, Comparator<? super Byte> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -10926,7 +11472,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (char c : partition) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 arrayList.add(Character.valueOf(c));
             } else {
                 arrayList2.add(Character.valueOf(c));
@@ -10950,7 +11496,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    c = ((Character) operation.invoke(Character.valueOf(c), Character.valueOf(reduce[i]))).charValue();
+                    c = operation.invoke(Character.valueOf(c), Character.valueOf(reduce[i])).charValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -10977,7 +11523,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    c = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(c), Character.valueOf(reduceIndexed[i]))).charValue();
+                    c = operation.invoke(Integer.valueOf(i), Character.valueOf(c), Character.valueOf(reduceIndexed[i])).charValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -10989,6 +11535,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Byte reduceIndexedOrNull(byte[] reduceIndexedOrNull, Function3<? super Integer, ? super Byte, ? super Byte, Byte> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -11006,7 +11553,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                b = ((Number) operation.invoke(Integer.valueOf(i), Byte.valueOf(b), Byte.valueOf(reduceIndexedOrNull[i]))).byteValue();
+                b = operation.invoke(Integer.valueOf(i), Byte.valueOf(b), Byte.valueOf(reduceIndexedOrNull[i])).byteValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -11016,6 +11563,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Byte.valueOf(b);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Byte reduceOrNull(byte[] reduceOrNull, Function2<? super Byte, ? super Byte, Byte> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -11033,7 +11582,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                b = ((Number) operation.invoke(Byte.valueOf(b), Byte.valueOf(reduceOrNull[i]))).byteValue();
+                b = operation.invoke(Byte.valueOf(b), Byte.valueOf(reduceOrNull[i])).byteValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -11050,7 +11599,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             char c = reduceRight[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                c = ((Character) operation.invoke(Character.valueOf(reduceRight[i]), Character.valueOf(c))).charValue();
+                c = operation.invoke(Character.valueOf(reduceRight[i]), Character.valueOf(c)).charValue();
             }
             return c;
         }
@@ -11064,13 +11613,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             char c = reduceRightIndexed[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                c = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(reduceRightIndexed[i]), Character.valueOf(c))).charValue();
+                c = operation.invoke(Integer.valueOf(i), Character.valueOf(reduceRightIndexed[i]), Character.valueOf(c)).charValue();
             }
             return c;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Byte reduceRightIndexedOrNull(byte[] reduceRightIndexedOrNull, Function3<? super Integer, ? super Byte, ? super Byte, Byte> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -11080,11 +11630,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         byte b = reduceRightIndexedOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            b = ((Number) operation.invoke(Integer.valueOf(i), Byte.valueOf(reduceRightIndexedOrNull[i]), Byte.valueOf(b))).byteValue();
+            b = operation.invoke(Integer.valueOf(i), Byte.valueOf(reduceRightIndexedOrNull[i]), Byte.valueOf(b)).byteValue();
         }
         return Byte.valueOf(b);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Byte reduceRightOrNull(byte[] reduceRightOrNull, Function2<? super Byte, ? super Byte, Byte> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -11094,11 +11646,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         byte b = reduceRightOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            b = ((Number) operation.invoke(Byte.valueOf(reduceRightOrNull[i]), Byte.valueOf(b))).byteValue();
+            b = operation.invoke(Byte.valueOf(reduceRightOrNull[i]), Byte.valueOf(b)).byteValue();
         }
         return Byte.valueOf(b);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Character> runningReduce(char[] cArr, Function2<? super Character, ? super Character, Character> function2) {
         boolean z;
         if (cArr.length == 0) {
@@ -11114,12 +11668,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Character.valueOf(c));
         int length = cArr.length;
         for (int i = 1; i < length; i++) {
-            c = ((Character) function2.invoke(Character.valueOf(c), Character.valueOf(cArr[i]))).charValue();
+            c = function2.invoke(Character.valueOf(c), Character.valueOf(cArr[i])).charValue();
             arrayList.add(Character.valueOf(c));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Character> runningReduceIndexed(char[] cArr, Function3<? super Integer, ? super Character, ? super Character, Character> function3) {
         boolean z;
         if (cArr.length == 0) {
@@ -11135,7 +11691,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Character.valueOf(c));
         int length = cArr.length;
         for (int i = 1; i < length; i++) {
-            c = ((Character) function3.invoke(Integer.valueOf(i), Character.valueOf(c), Character.valueOf(cArr[i]))).charValue();
+            c = function3.invoke(Integer.valueOf(i), Character.valueOf(c), Character.valueOf(cArr[i])).charValue();
             arrayList.add(Character.valueOf(c));
         }
         return arrayList;
@@ -11171,21 +11727,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(double[] associate, Function1<? super Double, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
         for (double d : associate) {
-            Pair pair = (Pair) transform.invoke(Double.valueOf(d));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Double.valueOf(d));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Double> associateBy(double[] associateBy, Function1<? super Double, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -11245,7 +11797,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (double d : dropWhile) {
             if (z) {
                 arrayList.add(Double.valueOf(d));
-            } else if (!((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            } else if (!predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 arrayList.add(Double.valueOf(d));
                 z = true;
             }
@@ -11263,7 +11815,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             double d = filterIndexed[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Double.valueOf(d)).booleanValue()) {
                 arrayList.add(Double.valueOf(d));
             }
             i++;
@@ -11272,14 +11824,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Double>> groupBy(double[] groupBy, Function1<? super Double, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (double d : groupBy) {
-            Object invoke = keySelector.invoke(Double.valueOf(d));
+            K invoke = keySelector.invoke(Double.valueOf(d));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -11290,6 +11840,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(double[] dArr, Function1<? super Double, Double> function1) {
         boolean z;
         int i = 1;
@@ -11299,11 +11852,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Double.valueOf(dArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Double.valueOf(dArr[0])).doubleValue();
             int lastIndex = getLastIndex(dArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Double.valueOf(dArr[i]))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Double.valueOf(dArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -11315,8 +11868,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(double[] dArr, Function1<? super Double, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -11328,13 +11882,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Double.valueOf(dArr[0]));
+        R invoke = function1.invoke(Double.valueOf(dArr[0]));
         int lastIndex = getLastIndex(dArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Double.valueOf(dArr[i]));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Double.valueOf(dArr[i]));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -11342,9 +11896,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character maxWithOrNull(char[] maxWithOrNull, Comparator<? super Character> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -11375,6 +11930,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Character.valueOf(c);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(double[] dArr, Function1<? super Double, Double> function1) {
         boolean z;
         int i = 1;
@@ -11384,11 +11942,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Double.valueOf(dArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Double.valueOf(dArr[0])).doubleValue();
             int lastIndex = getLastIndex(dArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Double.valueOf(dArr[i]))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Double.valueOf(dArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -11400,8 +11958,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(double[] dArr, Function1<? super Double, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -11413,13 +11972,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Double.valueOf(dArr[0]));
+        R invoke = function1.invoke(Double.valueOf(dArr[0]));
         int lastIndex = getLastIndex(dArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Double.valueOf(dArr[i]));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Double.valueOf(dArr[i]));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -11427,9 +11986,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character minWithOrNull(char[] minWithOrNull, Comparator<? super Character> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -11466,7 +12026,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (double d : partition) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 arrayList.add(Double.valueOf(d));
             } else {
                 arrayList2.add(Double.valueOf(d));
@@ -11490,7 +12050,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    d = ((Number) operation.invoke(Double.valueOf(d), Double.valueOf(reduce[i]))).doubleValue();
+                    d = operation.invoke(Double.valueOf(d), Double.valueOf(reduce[i])).doubleValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -11517,7 +12077,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    d = ((Number) operation.invoke(Integer.valueOf(i), Double.valueOf(d), Double.valueOf(reduceIndexed[i]))).doubleValue();
+                    d = operation.invoke(Integer.valueOf(i), Double.valueOf(d), Double.valueOf(reduceIndexed[i])).doubleValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -11529,6 +12089,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character reduceIndexedOrNull(char[] reduceIndexedOrNull, Function3<? super Integer, ? super Character, ? super Character, Character> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -11546,7 +12107,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                c = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(c), Character.valueOf(reduceIndexedOrNull[i]))).charValue();
+                c = operation.invoke(Integer.valueOf(i), Character.valueOf(c), Character.valueOf(reduceIndexedOrNull[i])).charValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -11556,6 +12117,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Character.valueOf(c);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Character reduceOrNull(char[] reduceOrNull, Function2<? super Character, ? super Character, Character> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -11573,7 +12136,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                c = ((Character) operation.invoke(Character.valueOf(c), Character.valueOf(reduceOrNull[i]))).charValue();
+                c = operation.invoke(Character.valueOf(c), Character.valueOf(reduceOrNull[i])).charValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -11590,7 +12153,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             double d = reduceRight[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                d = ((Number) operation.invoke(Double.valueOf(reduceRight[i]), Double.valueOf(d))).doubleValue();
+                d = operation.invoke(Double.valueOf(reduceRight[i]), Double.valueOf(d)).doubleValue();
             }
             return d;
         }
@@ -11604,13 +12167,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             double d = reduceRightIndexed[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                d = ((Number) operation.invoke(Integer.valueOf(i), Double.valueOf(reduceRightIndexed[i]), Double.valueOf(d))).doubleValue();
+                d = operation.invoke(Integer.valueOf(i), Double.valueOf(reduceRightIndexed[i]), Double.valueOf(d)).doubleValue();
             }
             return d;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character reduceRightIndexedOrNull(char[] reduceRightIndexedOrNull, Function3<? super Integer, ? super Character, ? super Character, Character> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -11620,11 +12184,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         char c = reduceRightIndexedOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            c = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(reduceRightIndexedOrNull[i]), Character.valueOf(c))).charValue();
+            c = operation.invoke(Integer.valueOf(i), Character.valueOf(reduceRightIndexedOrNull[i]), Character.valueOf(c)).charValue();
         }
         return Character.valueOf(c);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Character reduceRightOrNull(char[] reduceRightOrNull, Function2<? super Character, ? super Character, Character> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -11634,11 +12200,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         char c = reduceRightOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            c = ((Character) operation.invoke(Character.valueOf(reduceRightOrNull[i]), Character.valueOf(c))).charValue();
+            c = operation.invoke(Character.valueOf(reduceRightOrNull[i]), Character.valueOf(c)).charValue();
         }
         return Character.valueOf(c);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Double> runningReduce(double[] dArr, Function2<? super Double, ? super Double, Double> function2) {
         boolean z;
         if (dArr.length == 0) {
@@ -11654,12 +12222,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Double.valueOf(d));
         int length = dArr.length;
         for (int i = 1; i < length; i++) {
-            d = ((Number) function2.invoke(Double.valueOf(d), Double.valueOf(dArr[i]))).doubleValue();
+            d = function2.invoke(Double.valueOf(d), Double.valueOf(dArr[i])).doubleValue();
             arrayList.add(Double.valueOf(d));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Double> runningReduceIndexed(double[] dArr, Function3<? super Integer, ? super Double, ? super Double, Double> function3) {
         boolean z;
         if (dArr.length == 0) {
@@ -11675,7 +12245,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Double.valueOf(d));
         int length = dArr.length;
         for (int i = 1; i < length; i++) {
-            d = ((Number) function3.invoke(Integer.valueOf(i), Double.valueOf(d), Double.valueOf(dArr[i]))).doubleValue();
+            d = function3.invoke(Integer.valueOf(i), Double.valueOf(d), Double.valueOf(dArr[i])).doubleValue();
             arrayList.add(Double.valueOf(d));
         }
         return arrayList;
@@ -11711,21 +12281,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(float[] associate, Function1<? super Float, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
         for (float f : associate) {
-            Pair pair = (Pair) transform.invoke(Float.valueOf(f));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Float.valueOf(f));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Float> associateBy(float[] associateBy, Function1<? super Float, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -11785,7 +12351,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (float f : dropWhile) {
             if (z) {
                 arrayList.add(Float.valueOf(f));
-            } else if (!((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            } else if (!predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 arrayList.add(Float.valueOf(f));
                 z = true;
             }
@@ -11803,7 +12369,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             float f = filterIndexed[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Float.valueOf(f)).booleanValue()) {
                 arrayList.add(Float.valueOf(f));
             }
             i++;
@@ -11812,14 +12378,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Float>> groupBy(float[] groupBy, Function1<? super Float, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (float f : groupBy) {
-            Object invoke = keySelector.invoke(Float.valueOf(f));
+            K invoke = keySelector.invoke(Float.valueOf(f));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -11830,6 +12394,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(float[] fArr, Function1<? super Float, Double> function1) {
         boolean z;
         int i = 1;
@@ -11839,11 +12406,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Float.valueOf(fArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Float.valueOf(fArr[0])).doubleValue();
             int lastIndex = getLastIndex(fArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Float.valueOf(fArr[i]))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Float.valueOf(fArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -11855,8 +12422,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(float[] fArr, Function1<? super Float, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -11868,13 +12436,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Float.valueOf(fArr[0]));
+        R invoke = function1.invoke(Float.valueOf(fArr[0]));
         int lastIndex = getLastIndex(fArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Float.valueOf(fArr[i]));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Float.valueOf(fArr[i]));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -11882,9 +12450,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Double maxWithOrNull(double[] maxWithOrNull, Comparator<? super Double> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -11915,6 +12484,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(d);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(float[] fArr, Function1<? super Float, Double> function1) {
         boolean z;
         int i = 1;
@@ -11924,11 +12496,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Float.valueOf(fArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Float.valueOf(fArr[0])).doubleValue();
             int lastIndex = getLastIndex(fArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Float.valueOf(fArr[i]))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Float.valueOf(fArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -11940,8 +12512,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(float[] fArr, Function1<? super Float, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -11953,13 +12526,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Float.valueOf(fArr[0]));
+        R invoke = function1.invoke(Float.valueOf(fArr[0]));
         int lastIndex = getLastIndex(fArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Float.valueOf(fArr[i]));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Float.valueOf(fArr[i]));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -11967,9 +12540,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Double minWithOrNull(double[] minWithOrNull, Comparator<? super Double> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -12006,7 +12580,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (float f : partition) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 arrayList.add(Float.valueOf(f));
             } else {
                 arrayList2.add(Float.valueOf(f));
@@ -12030,7 +12604,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    f = ((Number) operation.invoke(Float.valueOf(f), Float.valueOf(reduce[i]))).floatValue();
+                    f = operation.invoke(Float.valueOf(f), Float.valueOf(reduce[i])).floatValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -12057,7 +12631,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    f = ((Number) operation.invoke(Integer.valueOf(i), Float.valueOf(f), Float.valueOf(reduceIndexed[i]))).floatValue();
+                    f = operation.invoke(Integer.valueOf(i), Float.valueOf(f), Float.valueOf(reduceIndexed[i])).floatValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -12069,6 +12643,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Double reduceIndexedOrNull(double[] reduceIndexedOrNull, Function3<? super Integer, ? super Double, ? super Double, Double> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -12086,7 +12661,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                d = ((Number) operation.invoke(Integer.valueOf(i), Double.valueOf(d), Double.valueOf(reduceIndexedOrNull[i]))).doubleValue();
+                d = operation.invoke(Integer.valueOf(i), Double.valueOf(d), Double.valueOf(reduceIndexedOrNull[i])).doubleValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -12096,6 +12671,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(d);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Double reduceOrNull(double[] reduceOrNull, Function2<? super Double, ? super Double, Double> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -12113,7 +12690,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                d = ((Number) operation.invoke(Double.valueOf(d), Double.valueOf(reduceOrNull[i]))).doubleValue();
+                d = operation.invoke(Double.valueOf(d), Double.valueOf(reduceOrNull[i])).doubleValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -12130,7 +12707,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             float f = reduceRight[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                f = ((Number) operation.invoke(Float.valueOf(reduceRight[i]), Float.valueOf(f))).floatValue();
+                f = operation.invoke(Float.valueOf(reduceRight[i]), Float.valueOf(f)).floatValue();
             }
             return f;
         }
@@ -12144,13 +12721,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             float f = reduceRightIndexed[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                f = ((Number) operation.invoke(Integer.valueOf(i), Float.valueOf(reduceRightIndexed[i]), Float.valueOf(f))).floatValue();
+                f = operation.invoke(Integer.valueOf(i), Float.valueOf(reduceRightIndexed[i]), Float.valueOf(f)).floatValue();
             }
             return f;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Double reduceRightIndexedOrNull(double[] reduceRightIndexedOrNull, Function3<? super Integer, ? super Double, ? super Double, Double> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -12160,11 +12738,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         double d = reduceRightIndexedOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            d = ((Number) operation.invoke(Integer.valueOf(i), Double.valueOf(reduceRightIndexedOrNull[i]), Double.valueOf(d))).doubleValue();
+            d = operation.invoke(Integer.valueOf(i), Double.valueOf(reduceRightIndexedOrNull[i]), Double.valueOf(d)).doubleValue();
         }
         return Double.valueOf(d);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Double reduceRightOrNull(double[] reduceRightOrNull, Function2<? super Double, ? super Double, Double> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -12174,11 +12754,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         double d = reduceRightOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            d = ((Number) operation.invoke(Double.valueOf(reduceRightOrNull[i]), Double.valueOf(d))).doubleValue();
+            d = operation.invoke(Double.valueOf(reduceRightOrNull[i]), Double.valueOf(d)).doubleValue();
         }
         return Double.valueOf(d);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Float> runningReduce(float[] fArr, Function2<? super Float, ? super Float, Float> function2) {
         boolean z;
         if (fArr.length == 0) {
@@ -12194,12 +12776,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Float.valueOf(f));
         int length = fArr.length;
         for (int i = 1; i < length; i++) {
-            f = ((Number) function2.invoke(Float.valueOf(f), Float.valueOf(fArr[i]))).floatValue();
+            f = function2.invoke(Float.valueOf(f), Float.valueOf(fArr[i])).floatValue();
             arrayList.add(Float.valueOf(f));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Float> runningReduceIndexed(float[] fArr, Function3<? super Integer, ? super Float, ? super Float, Float> function3) {
         boolean z;
         if (fArr.length == 0) {
@@ -12215,7 +12799,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Float.valueOf(f));
         int length = fArr.length;
         for (int i = 1; i < length; i++) {
-            f = ((Number) function3.invoke(Integer.valueOf(i), Float.valueOf(f), Float.valueOf(fArr[i]))).floatValue();
+            f = function3.invoke(Integer.valueOf(i), Float.valueOf(f), Float.valueOf(fArr[i])).floatValue();
             arrayList.add(Float.valueOf(f));
         }
         return arrayList;
@@ -12251,21 +12835,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(int[] associate, Function1<? super Integer, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
         for (int i : associate) {
-            Pair pair = (Pair) transform.invoke(Integer.valueOf(i));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Integer.valueOf(i));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Integer> associateBy(int[] associateBy, Function1<? super Integer, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -12325,7 +12905,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (int i : dropWhile) {
             if (z) {
                 arrayList.add(Integer.valueOf(i));
-            } else if (!((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            } else if (!predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 arrayList.add(Integer.valueOf(i));
                 z = true;
             }
@@ -12343,7 +12923,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             int i3 = filterIndexed[i];
             int i4 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Integer.valueOf(i3))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Integer.valueOf(i3)).booleanValue()) {
                 arrayList.add(Integer.valueOf(i3));
             }
             i++;
@@ -12352,14 +12932,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Integer>> groupBy(int[] groupBy, Function1<? super Integer, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (int i : groupBy) {
-            Object invoke = keySelector.invoke(Integer.valueOf(i));
+            K invoke = keySelector.invoke(Integer.valueOf(i));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -12370,6 +12948,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(int[] iArr, Function1<? super Integer, Double> function1) {
         boolean z;
         int i = 1;
@@ -12379,11 +12960,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Integer.valueOf(iArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Integer.valueOf(iArr[0])).doubleValue();
             int lastIndex = getLastIndex(iArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Integer.valueOf(iArr[i]))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Integer.valueOf(iArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -12395,8 +12976,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(int[] iArr, Function1<? super Integer, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -12408,13 +12990,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Integer.valueOf(iArr[0]));
+        R invoke = function1.invoke(Integer.valueOf(iArr[0]));
         int lastIndex = getLastIndex(iArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Integer.valueOf(iArr[i]));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Integer.valueOf(iArr[i]));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -12422,9 +13004,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Float maxWithOrNull(float[] maxWithOrNull, Comparator<? super Float> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -12455,6 +13038,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(f);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(int[] iArr, Function1<? super Integer, Double> function1) {
         boolean z;
         int i = 1;
@@ -12464,11 +13050,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Integer.valueOf(iArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Integer.valueOf(iArr[0])).doubleValue();
             int lastIndex = getLastIndex(iArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Integer.valueOf(iArr[i]))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Integer.valueOf(iArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -12480,8 +13066,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(int[] iArr, Function1<? super Integer, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -12493,13 +13080,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Integer.valueOf(iArr[0]));
+        R invoke = function1.invoke(Integer.valueOf(iArr[0]));
         int lastIndex = getLastIndex(iArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Integer.valueOf(iArr[i]));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Integer.valueOf(iArr[i]));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -12507,9 +13094,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Float minWithOrNull(float[] minWithOrNull, Comparator<? super Float> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -12546,7 +13134,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (int i : partition) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 arrayList.add(Integer.valueOf(i));
             } else {
                 arrayList2.add(Integer.valueOf(i));
@@ -12570,7 +13158,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    i2 = ((Number) operation.invoke(Integer.valueOf(i2), Integer.valueOf(reduce[i]))).intValue();
+                    i2 = operation.invoke(Integer.valueOf(i2), Integer.valueOf(reduce[i])).intValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -12597,7 +13185,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    i2 = ((Number) operation.invoke(Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(reduceIndexed[i]))).intValue();
+                    i2 = operation.invoke(Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(reduceIndexed[i])).intValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -12609,6 +13197,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Float reduceIndexedOrNull(float[] reduceIndexedOrNull, Function3<? super Integer, ? super Float, ? super Float, Float> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -12626,7 +13215,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                f = ((Number) operation.invoke(Integer.valueOf(i), Float.valueOf(f), Float.valueOf(reduceIndexedOrNull[i]))).floatValue();
+                f = operation.invoke(Integer.valueOf(i), Float.valueOf(f), Float.valueOf(reduceIndexedOrNull[i])).floatValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -12636,6 +13225,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(f);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Float reduceOrNull(float[] reduceOrNull, Function2<? super Float, ? super Float, Float> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -12653,7 +13244,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                f = ((Number) operation.invoke(Float.valueOf(f), Float.valueOf(reduceOrNull[i]))).floatValue();
+                f = operation.invoke(Float.valueOf(f), Float.valueOf(reduceOrNull[i])).floatValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -12670,7 +13261,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             int i = reduceRight[lastIndex];
             for (int i2 = lastIndex - 1; i2 >= 0; i2--) {
-                i = ((Number) operation.invoke(Integer.valueOf(reduceRight[i2]), Integer.valueOf(i))).intValue();
+                i = operation.invoke(Integer.valueOf(reduceRight[i2]), Integer.valueOf(i)).intValue();
             }
             return i;
         }
@@ -12684,13 +13275,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             int i = reduceRightIndexed[lastIndex];
             for (int i2 = lastIndex - 1; i2 >= 0; i2--) {
-                i = ((Number) operation.invoke(Integer.valueOf(i2), Integer.valueOf(reduceRightIndexed[i2]), Integer.valueOf(i))).intValue();
+                i = operation.invoke(Integer.valueOf(i2), Integer.valueOf(reduceRightIndexed[i2]), Integer.valueOf(i)).intValue();
             }
             return i;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Float reduceRightIndexedOrNull(float[] reduceRightIndexedOrNull, Function3<? super Integer, ? super Float, ? super Float, Float> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -12700,11 +13292,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         float f = reduceRightIndexedOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            f = ((Number) operation.invoke(Integer.valueOf(i), Float.valueOf(reduceRightIndexedOrNull[i]), Float.valueOf(f))).floatValue();
+            f = operation.invoke(Integer.valueOf(i), Float.valueOf(reduceRightIndexedOrNull[i]), Float.valueOf(f)).floatValue();
         }
         return Float.valueOf(f);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Float reduceRightOrNull(float[] reduceRightOrNull, Function2<? super Float, ? super Float, Float> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -12714,11 +13308,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         float f = reduceRightOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            f = ((Number) operation.invoke(Float.valueOf(reduceRightOrNull[i]), Float.valueOf(f))).floatValue();
+            f = operation.invoke(Float.valueOf(reduceRightOrNull[i]), Float.valueOf(f)).floatValue();
         }
         return Float.valueOf(f);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Integer> runningReduce(int[] iArr, Function2<? super Integer, ? super Integer, Integer> function2) {
         boolean z;
         if (iArr.length == 0) {
@@ -12734,12 +13330,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Integer.valueOf(i));
         int length = iArr.length;
         for (int i2 = 1; i2 < length; i2++) {
-            i = ((Number) function2.invoke(Integer.valueOf(i), Integer.valueOf(iArr[i2]))).intValue();
+            i = function2.invoke(Integer.valueOf(i), Integer.valueOf(iArr[i2])).intValue();
             arrayList.add(Integer.valueOf(i));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Integer> runningReduceIndexed(int[] iArr, Function3<? super Integer, ? super Integer, ? super Integer, Integer> function3) {
         boolean z;
         if (iArr.length == 0) {
@@ -12755,7 +13353,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Integer.valueOf(i));
         int length = iArr.length;
         for (int i2 = 1; i2 < length; i2++) {
-            i = ((Number) function3.invoke(Integer.valueOf(i2), Integer.valueOf(i), Integer.valueOf(iArr[i2]))).intValue();
+            i = function3.invoke(Integer.valueOf(i2), Integer.valueOf(i), Integer.valueOf(iArr[i2])).intValue();
             arrayList.add(Integer.valueOf(i));
         }
         return arrayList;
@@ -12791,21 +13389,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(long[] associate, Function1<? super Long, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
         for (long j : associate) {
-            Pair pair = (Pair) transform.invoke(Long.valueOf(j));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Long.valueOf(j));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Long> associateBy(long[] associateBy, Function1<? super Long, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -12865,7 +13459,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (long j : dropWhile) {
             if (z) {
                 arrayList.add(Long.valueOf(j));
-            } else if (!((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            } else if (!predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 arrayList.add(Long.valueOf(j));
                 z = true;
             }
@@ -12883,7 +13477,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             long j = filterIndexed[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Long.valueOf(j)).booleanValue()) {
                 arrayList.add(Long.valueOf(j));
             }
             i++;
@@ -12892,14 +13486,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Long>> groupBy(long[] groupBy, Function1<? super Long, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (long j : groupBy) {
-            Object invoke = keySelector.invoke(Long.valueOf(j));
+            K invoke = keySelector.invoke(Long.valueOf(j));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -12910,6 +13502,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(long[] jArr, Function1<? super Long, Double> function1) {
         boolean z;
         int i = 1;
@@ -12919,11 +13514,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Long.valueOf(jArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Long.valueOf(jArr[0])).doubleValue();
             int lastIndex = getLastIndex(jArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Long.valueOf(jArr[i]))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Long.valueOf(jArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -12935,8 +13530,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(long[] jArr, Function1<? super Long, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -12948,13 +13544,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Long.valueOf(jArr[0]));
+        R invoke = function1.invoke(Long.valueOf(jArr[0]));
         int lastIndex = getLastIndex(jArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Long.valueOf(jArr[i]));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Long.valueOf(jArr[i]));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -12962,9 +13558,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Integer maxWithOrNull(int[] maxWithOrNull, Comparator<? super Integer> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -12995,6 +13592,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Integer.valueOf(i2);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(long[] jArr, Function1<? super Long, Double> function1) {
         boolean z;
         int i = 1;
@@ -13004,11 +13604,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Long.valueOf(jArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Long.valueOf(jArr[0])).doubleValue();
             int lastIndex = getLastIndex(jArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Long.valueOf(jArr[i]))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Long.valueOf(jArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -13020,8 +13620,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(long[] jArr, Function1<? super Long, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -13033,13 +13634,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Long.valueOf(jArr[0]));
+        R invoke = function1.invoke(Long.valueOf(jArr[0]));
         int lastIndex = getLastIndex(jArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Long.valueOf(jArr[i]));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Long.valueOf(jArr[i]));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -13047,9 +13648,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Integer minWithOrNull(int[] minWithOrNull, Comparator<? super Integer> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -13086,7 +13688,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (long j : partition) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 arrayList.add(Long.valueOf(j));
             } else {
                 arrayList2.add(Long.valueOf(j));
@@ -13110,7 +13712,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    j = ((Number) operation.invoke(Long.valueOf(j), Long.valueOf(reduce[i]))).longValue();
+                    j = operation.invoke(Long.valueOf(j), Long.valueOf(reduce[i])).longValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -13137,7 +13739,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    j = ((Number) operation.invoke(Integer.valueOf(i), Long.valueOf(j), Long.valueOf(reduceIndexed[i]))).longValue();
+                    j = operation.invoke(Integer.valueOf(i), Long.valueOf(j), Long.valueOf(reduceIndexed[i])).longValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -13149,6 +13751,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Integer reduceIndexedOrNull(int[] reduceIndexedOrNull, Function3<? super Integer, ? super Integer, ? super Integer, Integer> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -13166,7 +13769,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                i2 = ((Number) operation.invoke(Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(reduceIndexedOrNull[i]))).intValue();
+                i2 = operation.invoke(Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(reduceIndexedOrNull[i])).intValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -13176,6 +13779,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Integer.valueOf(i2);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Integer reduceOrNull(int[] reduceOrNull, Function2<? super Integer, ? super Integer, Integer> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -13193,7 +13798,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                i2 = ((Number) operation.invoke(Integer.valueOf(i2), Integer.valueOf(reduceOrNull[i]))).intValue();
+                i2 = operation.invoke(Integer.valueOf(i2), Integer.valueOf(reduceOrNull[i])).intValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -13210,7 +13815,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             long j = reduceRight[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                j = ((Number) operation.invoke(Long.valueOf(reduceRight[i]), Long.valueOf(j))).longValue();
+                j = operation.invoke(Long.valueOf(reduceRight[i]), Long.valueOf(j)).longValue();
             }
             return j;
         }
@@ -13224,13 +13829,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             long j = reduceRightIndexed[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                j = ((Number) operation.invoke(Integer.valueOf(i), Long.valueOf(reduceRightIndexed[i]), Long.valueOf(j))).longValue();
+                j = operation.invoke(Integer.valueOf(i), Long.valueOf(reduceRightIndexed[i]), Long.valueOf(j)).longValue();
             }
             return j;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Integer reduceRightIndexedOrNull(int[] reduceRightIndexedOrNull, Function3<? super Integer, ? super Integer, ? super Integer, Integer> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -13240,11 +13846,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         int i = reduceRightIndexedOrNull[lastIndex];
         for (int i2 = lastIndex - 1; i2 >= 0; i2--) {
-            i = ((Number) operation.invoke(Integer.valueOf(i2), Integer.valueOf(reduceRightIndexedOrNull[i2]), Integer.valueOf(i))).intValue();
+            i = operation.invoke(Integer.valueOf(i2), Integer.valueOf(reduceRightIndexedOrNull[i2]), Integer.valueOf(i)).intValue();
         }
         return Integer.valueOf(i);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Integer reduceRightOrNull(int[] reduceRightOrNull, Function2<? super Integer, ? super Integer, Integer> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -13254,11 +13862,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         int i = reduceRightOrNull[lastIndex];
         for (int i2 = lastIndex - 1; i2 >= 0; i2--) {
-            i = ((Number) operation.invoke(Integer.valueOf(reduceRightOrNull[i2]), Integer.valueOf(i))).intValue();
+            i = operation.invoke(Integer.valueOf(reduceRightOrNull[i2]), Integer.valueOf(i)).intValue();
         }
         return Integer.valueOf(i);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Long> runningReduce(long[] jArr, Function2<? super Long, ? super Long, Long> function2) {
         boolean z;
         if (jArr.length == 0) {
@@ -13274,12 +13884,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Long.valueOf(j));
         int length = jArr.length;
         for (int i = 1; i < length; i++) {
-            j = ((Number) function2.invoke(Long.valueOf(j), Long.valueOf(jArr[i]))).longValue();
+            j = function2.invoke(Long.valueOf(j), Long.valueOf(jArr[i])).longValue();
             arrayList.add(Long.valueOf(j));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Long> runningReduceIndexed(long[] jArr, Function3<? super Integer, ? super Long, ? super Long, Long> function3) {
         boolean z;
         if (jArr.length == 0) {
@@ -13295,7 +13907,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Long.valueOf(j));
         int length = jArr.length;
         for (int i = 1; i < length; i++) {
-            j = ((Number) function3.invoke(Integer.valueOf(i), Long.valueOf(j), Long.valueOf(jArr[i]))).longValue();
+            j = function3.invoke(Integer.valueOf(i), Long.valueOf(j), Long.valueOf(jArr[i])).longValue();
             arrayList.add(Long.valueOf(j));
         }
         return arrayList;
@@ -13331,21 +13943,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
     /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, V> Map<K, V> associate(T[] associate, Function1<? super T, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
-        for (T t : associate) {
-            Pair pair = (Pair) transform.invoke(t);
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+        for (DataReq.a aVar : associate) {
+            Pair<? extends K, ? extends V> invoke = transform.invoke(aVar);
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Short> associateBy(short[] associateBy, Function1<? super Short, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -13405,7 +14015,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (short s : dropWhile) {
             if (z) {
                 arrayList.add(Short.valueOf(s));
-            } else if (!((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            } else if (!predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 arrayList.add(Short.valueOf(s));
                 z = true;
             }
@@ -13423,7 +14033,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             short s = filterIndexed[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Short.valueOf(s)).booleanValue()) {
                 arrayList.add(Short.valueOf(s));
             }
             i++;
@@ -13432,14 +14042,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Short>> groupBy(short[] groupBy, Function1<? super Short, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (short s : groupBy) {
-            Object invoke = keySelector.invoke(Short.valueOf(s));
+            K invoke = keySelector.invoke(Short.valueOf(s));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -13450,6 +14058,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T> double maxOf(T[] tArr, Function1<? super T, Double> function1) {
         boolean z;
         int i = 1;
@@ -13459,11 +14070,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(tArr[0])).doubleValue();
+            double doubleValue = function1.invoke(tArr[0]).doubleValue();
             int lastIndex = getLastIndex(tArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(tArr[i])).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(tArr[i]).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -13475,8 +14086,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(short[] sArr, Function1<? super Short, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -13488,13 +14100,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Short.valueOf(sArr[0]));
+        R invoke = function1.invoke(Short.valueOf(sArr[0]));
         int lastIndex = getLastIndex(sArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Short.valueOf(sArr[i]));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Short.valueOf(sArr[i]));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -13502,9 +14114,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Long maxWithOrNull(long[] maxWithOrNull, Comparator<? super Long> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -13535,6 +14148,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Long.valueOf(j);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T> double minOf(T[] tArr, Function1<? super T, Double> function1) {
         boolean z;
         int i = 1;
@@ -13544,11 +14160,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(tArr[0])).doubleValue();
+            double doubleValue = function1.invoke(tArr[0]).doubleValue();
             int lastIndex = getLastIndex(tArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(tArr[i])).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(tArr[i]).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -13560,8 +14176,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(short[] sArr, Function1<? super Short, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -13573,13 +14190,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Short.valueOf(sArr[0]));
+        R invoke = function1.invoke(Short.valueOf(sArr[0]));
         int lastIndex = getLastIndex(sArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Short.valueOf(sArr[i]));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Short.valueOf(sArr[i]));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -13587,9 +14204,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Long minWithOrNull(long[] minWithOrNull, Comparator<? super Long> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -13626,7 +14244,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (T t : partition) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 arrayList.add(t);
             } else {
                 arrayList2.add(t);
@@ -13650,7 +14268,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    s = ((Number) operation.invoke(Short.valueOf(s), Short.valueOf(reduce[i]))).shortValue();
+                    s = operation.invoke(Short.valueOf(s), Short.valueOf(reduce[i])).shortValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -13673,22 +14291,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            S s = (S) reduceIndexed[0];
+            S s = (Object) reduceIndexed[0];
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    s = (S) operation.invoke(Integer.valueOf(i), s, reduceIndexed[i]);
+                    s = operation.invoke(Integer.valueOf(i), s, (Object) reduceIndexed[i]);
                     if (i == lastIndex) {
                         break;
                     }
                     i++;
                 }
             }
-            return s;
+            return (S) s;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Long reduceIndexedOrNull(long[] reduceIndexedOrNull, Function3<? super Integer, ? super Long, ? super Long, Long> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -13706,7 +14325,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                j = ((Number) operation.invoke(Integer.valueOf(i), Long.valueOf(j), Long.valueOf(reduceIndexedOrNull[i]))).longValue();
+                j = operation.invoke(Integer.valueOf(i), Long.valueOf(j), Long.valueOf(reduceIndexedOrNull[i])).longValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -13716,6 +14335,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Long.valueOf(j);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Long reduceOrNull(long[] reduceOrNull, Function2<? super Long, ? super Long, Long> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -13733,7 +14354,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                j = ((Number) operation.invoke(Long.valueOf(j), Long.valueOf(reduceOrNull[i]))).longValue();
+                j = operation.invoke(Long.valueOf(j), Long.valueOf(reduceOrNull[i])).longValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -13750,7 +14371,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             short s = reduceRight[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                s = ((Number) operation.invoke(Short.valueOf(reduceRight[i]), Short.valueOf(s))).shortValue();
+                s = operation.invoke(Short.valueOf(reduceRight[i]), Short.valueOf(s)).shortValue();
             }
             return s;
         }
@@ -13764,13 +14385,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             short s = reduceRightIndexed[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                s = ((Number) operation.invoke(Integer.valueOf(i), Short.valueOf(reduceRightIndexed[i]), Short.valueOf(s))).shortValue();
+                s = operation.invoke(Integer.valueOf(i), Short.valueOf(reduceRightIndexed[i]), Short.valueOf(s)).shortValue();
             }
             return s;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Long reduceRightIndexedOrNull(long[] reduceRightIndexedOrNull, Function3<? super Integer, ? super Long, ? super Long, Long> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -13780,11 +14402,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         long j = reduceRightIndexedOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            j = ((Number) operation.invoke(Integer.valueOf(i), Long.valueOf(reduceRightIndexedOrNull[i]), Long.valueOf(j))).longValue();
+            j = operation.invoke(Integer.valueOf(i), Long.valueOf(reduceRightIndexedOrNull[i]), Long.valueOf(j)).longValue();
         }
         return Long.valueOf(j);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Long reduceRightOrNull(long[] reduceRightOrNull, Function2<? super Long, ? super Long, Long> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -13794,16 +14418,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         long j = reduceRightOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            j = ((Number) operation.invoke(Long.valueOf(reduceRightOrNull[i]), Long.valueOf(j))).longValue();
+            j = operation.invoke(Long.valueOf(reduceRightOrNull[i]), Long.valueOf(j)).longValue();
         }
         return Long.valueOf(j);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <S, T extends S> List<S> runningReduce(T[] runningReduce, Function2<? super S, ? super T, ? extends S> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(runningReduce, "$this$runningReduce");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        int i = 1;
         if (runningReduce.length == 0) {
             z = true;
         } else {
@@ -13812,25 +14437,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return CollectionsKt__CollectionsKt.emptyList();
         }
-        T t = runningReduce[0];
+        S s = (Object) runningReduce[0];
         ArrayList arrayList = new ArrayList(runningReduce.length);
-        arrayList.add(t);
+        arrayList.add(s);
         int length = runningReduce.length;
-        Object obj = t;
-        while (i < length) {
-            Object invoke = operation.invoke(obj, runningReduce[i]);
-            arrayList.add(invoke);
-            i++;
-            obj = invoke;
+        for (int i = 1; i < length; i++) {
+            s = operation.invoke(s, (Object) runningReduce[i]);
+            arrayList.add(s);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <S, T extends S> List<S> runningReduceIndexed(T[] runningReduceIndexed, Function3<? super Integer, ? super S, ? super T, ? extends S> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(runningReduceIndexed, "$this$runningReduceIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        int i = 1;
         if (runningReduceIndexed.length == 0) {
             z = true;
         } else {
@@ -13839,16 +14461,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return CollectionsKt__CollectionsKt.emptyList();
         }
-        T t = runningReduceIndexed[0];
+        S s = (Object) runningReduceIndexed[0];
         ArrayList arrayList = new ArrayList(runningReduceIndexed.length);
-        arrayList.add(t);
+        arrayList.add(s);
         int length = runningReduceIndexed.length;
-        Object obj = t;
-        while (i < length) {
-            Object invoke = operation.invoke(Integer.valueOf(i), obj, runningReduceIndexed[i]);
-            arrayList.add(invoke);
-            i++;
-            obj = invoke;
+        for (int i = 1; i < length; i++) {
+            s = operation.invoke(Integer.valueOf(i), s, (Object) runningReduceIndexed[i]);
+            arrayList.add(s);
         }
         return arrayList;
     }
@@ -13883,21 +14502,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(short[] associate, Function1<? super Short, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
         for (short s : associate) {
-            Pair pair = (Pair) transform.invoke(Short.valueOf(s));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Short.valueOf(s));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Boolean> associateBy(boolean[] associateBy, Function1<? super Boolean, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -13957,7 +14572,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (boolean z2 : dropWhile) {
             if (z) {
                 arrayList.add(Boolean.valueOf(z2));
-            } else if (!((Boolean) predicate.invoke(Boolean.valueOf(z2))).booleanValue()) {
+            } else if (!predicate.invoke(Boolean.valueOf(z2)).booleanValue()) {
                 arrayList.add(Boolean.valueOf(z2));
                 z = true;
             }
@@ -13975,7 +14590,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             boolean z = filterIndexed[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Boolean.valueOf(z)).booleanValue()) {
                 arrayList.add(Boolean.valueOf(z));
             }
             i++;
@@ -13984,14 +14599,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Boolean>> groupBy(boolean[] groupBy, Function1<? super Boolean, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (boolean z : groupBy) {
-            Object invoke = keySelector.invoke(Boolean.valueOf(z));
+            K invoke = keySelector.invoke(Boolean.valueOf(z));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -14002,6 +14615,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(short[] sArr, Function1<? super Short, Double> function1) {
         boolean z;
         int i = 1;
@@ -14011,11 +14627,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Short.valueOf(sArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Short.valueOf(sArr[0])).doubleValue();
             int lastIndex = getLastIndex(sArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Short.valueOf(sArr[i]))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Short.valueOf(sArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -14027,8 +14643,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(boolean[] zArr, Function1<? super Boolean, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -14040,13 +14657,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Boolean.valueOf(zArr[0]));
+        R invoke = function1.invoke(Boolean.valueOf(zArr[0]));
         int lastIndex = getLastIndex(zArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Boolean.valueOf(zArr[i]));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Boolean.valueOf(zArr[i]));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -14054,9 +14671,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Short maxWithOrNull(short[] maxWithOrNull, Comparator<? super Short> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -14087,6 +14705,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Short.valueOf(s);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(short[] sArr, Function1<? super Short, Double> function1) {
         boolean z;
         int i = 1;
@@ -14096,11 +14717,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Short.valueOf(sArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Short.valueOf(sArr[0])).doubleValue();
             int lastIndex = getLastIndex(sArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Short.valueOf(sArr[i]))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Short.valueOf(sArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -14112,8 +14733,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(boolean[] zArr, Function1<? super Boolean, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -14125,13 +14747,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Boolean.valueOf(zArr[0]));
+        R invoke = function1.invoke(Boolean.valueOf(zArr[0]));
         int lastIndex = getLastIndex(zArr);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Boolean.valueOf(zArr[i]));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Boolean.valueOf(zArr[i]));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -14139,9 +14761,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Short minWithOrNull(short[] minWithOrNull, Comparator<? super Short> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -14178,7 +14801,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (short s : partition) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 arrayList.add(Short.valueOf(s));
             } else {
                 arrayList2.add(Short.valueOf(s));
@@ -14202,7 +14825,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    z2 = ((Boolean) operation.invoke(Boolean.valueOf(z2), Boolean.valueOf(reduce[i]))).booleanValue();
+                    z2 = operation.invoke(Boolean.valueOf(z2), Boolean.valueOf(reduce[i])).booleanValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -14229,7 +14852,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    s = ((Number) operation.invoke(Integer.valueOf(i), Short.valueOf(s), Short.valueOf(reduceIndexed[i]))).shortValue();
+                    s = operation.invoke(Integer.valueOf(i), Short.valueOf(s), Short.valueOf(reduceIndexed[i])).shortValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -14241,6 +14864,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Short reduceIndexedOrNull(short[] reduceIndexedOrNull, Function3<? super Integer, ? super Short, ? super Short, Short> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -14258,7 +14882,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                s = ((Number) operation.invoke(Integer.valueOf(i), Short.valueOf(s), Short.valueOf(reduceIndexedOrNull[i]))).shortValue();
+                s = operation.invoke(Integer.valueOf(i), Short.valueOf(s), Short.valueOf(reduceIndexedOrNull[i])).shortValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -14268,6 +14892,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Short.valueOf(s);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Short reduceOrNull(short[] reduceOrNull, Function2<? super Short, ? super Short, Short> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -14285,7 +14911,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int lastIndex = getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                s = ((Number) operation.invoke(Short.valueOf(s), Short.valueOf(reduceOrNull[i]))).shortValue();
+                s = operation.invoke(Short.valueOf(s), Short.valueOf(reduceOrNull[i])).shortValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -14302,7 +14928,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             boolean z = reduceRight[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                z = ((Boolean) operation.invoke(Boolean.valueOf(reduceRight[i]), Boolean.valueOf(z))).booleanValue();
+                z = operation.invoke(Boolean.valueOf(reduceRight[i]), Boolean.valueOf(z)).booleanValue();
             }
             return z;
         }
@@ -14316,13 +14942,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex >= 0) {
             boolean z = reduceRightIndexed[lastIndex];
             for (int i = lastIndex - 1; i >= 0; i--) {
-                z = ((Boolean) operation.invoke(Integer.valueOf(i), Boolean.valueOf(reduceRightIndexed[i]), Boolean.valueOf(z))).booleanValue();
+                z = operation.invoke(Integer.valueOf(i), Boolean.valueOf(reduceRightIndexed[i]), Boolean.valueOf(z)).booleanValue();
             }
             return z;
         }
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Short reduceRightIndexedOrNull(short[] reduceRightIndexedOrNull, Function3<? super Integer, ? super Short, ? super Short, Short> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -14332,11 +14959,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         short s = reduceRightIndexedOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            s = ((Number) operation.invoke(Integer.valueOf(i), Short.valueOf(reduceRightIndexedOrNull[i]), Short.valueOf(s))).shortValue();
+            s = operation.invoke(Integer.valueOf(i), Short.valueOf(reduceRightIndexedOrNull[i]), Short.valueOf(s)).shortValue();
         }
         return Short.valueOf(s);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Short reduceRightOrNull(short[] reduceRightOrNull, Function2<? super Short, ? super Short, Short> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -14346,11 +14975,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         short s = reduceRightOrNull[lastIndex];
         for (int i = lastIndex - 1; i >= 0; i--) {
-            s = ((Number) operation.invoke(Short.valueOf(reduceRightOrNull[i]), Short.valueOf(s))).shortValue();
+            s = operation.invoke(Short.valueOf(reduceRightOrNull[i]), Short.valueOf(s)).shortValue();
         }
         return Short.valueOf(s);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Short> runningReduce(short[] sArr, Function2<? super Short, ? super Short, Short> function2) {
         boolean z;
         if (sArr.length == 0) {
@@ -14366,12 +14997,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Short.valueOf(s));
         int length = sArr.length;
         for (int i = 1; i < length; i++) {
-            s = ((Number) function2.invoke(Short.valueOf(s), Short.valueOf(sArr[i]))).shortValue();
+            s = function2.invoke(Short.valueOf(s), Short.valueOf(sArr[i])).shortValue();
             arrayList.add(Short.valueOf(s));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Short> runningReduceIndexed(short[] sArr, Function3<? super Integer, ? super Short, ? super Short, Short> function3) {
         boolean z;
         if (sArr.length == 0) {
@@ -14387,7 +15020,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Short.valueOf(s));
         int length = sArr.length;
         for (int i = 1; i < length; i++) {
-            s = ((Number) function3.invoke(Integer.valueOf(i), Short.valueOf(s), Short.valueOf(sArr[i]))).shortValue();
+            s = function3.invoke(Integer.valueOf(i), Short.valueOf(s), Short.valueOf(sArr[i])).shortValue();
             arrayList.add(Short.valueOf(s));
         }
         return arrayList;
@@ -14423,15 +15056,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(boolean[] associate, Function1<? super Boolean, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length), 16));
         for (boolean z : associate) {
-            Pair pair = (Pair) transform.invoke(Boolean.valueOf(z));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Boolean.valueOf(z));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
@@ -14464,6 +15095,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new IllegalArgumentException(("Requested element count " + i + " is less than zero.").toString());
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(boolean[] zArr, Function1<? super Boolean, Double> function1) {
         boolean z;
         int i = 1;
@@ -14473,11 +15107,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Boolean.valueOf(zArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Boolean.valueOf(zArr[0])).doubleValue();
             int lastIndex = getLastIndex(zArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Boolean.valueOf(zArr[i]))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Boolean.valueOf(zArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -14489,6 +15123,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1067maxOfOrNull(byte[] bArr, Function1<? super Byte, Double> function1) {
         boolean z;
@@ -14501,11 +15138,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Byte.valueOf(bArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Byte.valueOf(bArr[0])).doubleValue();
         int lastIndex = getLastIndex(bArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Byte.valueOf(bArr[i]))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Byte.valueOf(bArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -14515,6 +15152,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(boolean[] zArr, Function1<? super Boolean, Double> function1) {
         boolean z;
         int i = 1;
@@ -14524,11 +15164,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Boolean.valueOf(zArr[0]))).doubleValue();
+            double doubleValue = function1.invoke(Boolean.valueOf(zArr[0])).doubleValue();
             int lastIndex = getLastIndex(zArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Boolean.valueOf(zArr[i]))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Boolean.valueOf(zArr[i])).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -14540,6 +15180,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1103minOfOrNull(byte[] bArr, Function1<? super Byte, Double> function1) {
         boolean z;
@@ -14552,11 +15195,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Byte.valueOf(bArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Byte.valueOf(bArr[0])).doubleValue();
         int lastIndex = getLastIndex(bArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Byte.valueOf(bArr[i]))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Byte.valueOf(bArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -14572,7 +15215,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (boolean z : partition) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 arrayList.add(Boolean.valueOf(z));
             } else {
                 arrayList2.add(Boolean.valueOf(z));
@@ -14596,7 +15239,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             int lastIndex = getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    z2 = ((Boolean) operation.invoke(Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(reduceIndexed[i]))).booleanValue();
+                    z2 = operation.invoke(Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(reduceIndexed[i])).booleanValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -14608,6 +15251,8 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new UnsupportedOperationException("Empty array can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Boolean> runningReduce(boolean[] zArr, Function2<? super Boolean, ? super Boolean, Boolean> function2) {
         boolean z;
         if (zArr.length == 0) {
@@ -14623,12 +15268,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Boolean.valueOf(z2));
         int length = zArr.length;
         for (int i = 1; i < length; i++) {
-            z2 = ((Boolean) function2.invoke(Boolean.valueOf(z2), Boolean.valueOf(zArr[i]))).booleanValue();
+            z2 = function2.invoke(Boolean.valueOf(z2), Boolean.valueOf(zArr[i])).booleanValue();
             arrayList.add(Boolean.valueOf(z2));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final List<Boolean> runningReduceIndexed(boolean[] zArr, Function3<? super Integer, ? super Boolean, ? super Boolean, Boolean> function3) {
         boolean z;
         if (zArr.length == 0) {
@@ -14644,7 +15291,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(Boolean.valueOf(z2));
         int length = zArr.length;
         for (int i = 1; i < length; i++) {
-            z2 = ((Boolean) function3.invoke(Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(zArr[i]))).booleanValue();
+            z2 = function3.invoke(Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(zArr[i])).booleanValue();
             arrayList.add(Boolean.valueOf(z2));
         }
         return arrayList;
@@ -14680,8 +15327,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(byte[] associateBy, Function1<? super Byte, ? extends K> keySelector, Function1<? super Byte, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -14703,7 +15348,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             byte b = filterIndexedTo[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Byte.valueOf(b)).booleanValue()) {
                 destination.add(Byte.valueOf(b));
             }
             i++;
@@ -14712,33 +15357,29 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(byte[] groupBy, Function1<? super Byte, ? extends K> keySelector, Function1<? super Byte, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (byte b : groupBy) {
-            Object invoke = keySelector.invoke(Byte.valueOf(b));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Byte.valueOf(b));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Byte.valueOf(b)));
+            list.add(valueTransform.invoke(Byte.valueOf(b)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Byte>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Byte>>> M groupByTo(byte[] groupByTo, M destination, Function1<? super Byte, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (byte b : groupByTo) {
-            Object invoke = keySelector.invoke(Byte.valueOf(b));
+            K invoke = keySelector.invoke(Byte.valueOf(b));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -14749,6 +15390,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(byte[] bArr, Comparator<? super R> comparator, Function1<? super Byte, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -14758,13 +15405,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Byte.valueOf(bArr[0]));
+            Object obj = (R) function1.invoke(Byte.valueOf(bArr[0]));
             int lastIndex = getLastIndex(bArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Byte.valueOf(bArr[i]));
+                    R invoke = function1.invoke(Byte.valueOf(bArr[i]));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -14777,6 +15424,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(byte[] bArr, Comparator<? super R> comparator, Function1<? super Byte, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -14788,13 +15441,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Byte.valueOf(bArr[0]));
+        Object obj = (R) function1.invoke(Byte.valueOf(bArr[0]));
         int lastIndex = getLastIndex(bArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Byte.valueOf(bArr[i]));
+                R invoke = function1.invoke(Byte.valueOf(bArr[i]));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -14805,6 +15458,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(byte[] bArr, Comparator<? super R> comparator, Function1<? super Byte, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -14814,13 +15473,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Byte.valueOf(bArr[0]));
+            Object obj = (R) function1.invoke(Byte.valueOf(bArr[0]));
             int lastIndex = getLastIndex(bArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Byte.valueOf(bArr[i]));
+                    R invoke = function1.invoke(Byte.valueOf(bArr[i]));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -14833,6 +15492,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(byte[] bArr, Comparator<? super R> comparator, Function1<? super Byte, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -14844,13 +15509,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Byte.valueOf(bArr[0]));
+        Object obj = (R) function1.invoke(Byte.valueOf(bArr[0]));
         int lastIndex = getLastIndex(bArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Byte.valueOf(bArr[i]));
+                R invoke = function1.invoke(Byte.valueOf(bArr[i]));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -14861,6 +15526,10 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
     public static final <T, R> List<R> runningFold(T[] runningFold, R r, Function2<? super R, ? super T, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(runningFold, "$this$runningFold");
@@ -14875,13 +15544,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         ArrayList arrayList = new ArrayList(runningFold.length + 1);
         arrayList.add(r);
-        for (T t : runningFold) {
-            r = (R) operation.invoke(r, t);
+        for (DataReq.a aVar : runningFold) {
+            r = operation.invoke(r, aVar);
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
     public static final <T, R> List<R> runningFoldIndexed(T[] runningFoldIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(runningFoldIndexed, "$this$runningFoldIndexed");
@@ -14898,12 +15571,17 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = runningFoldIndexed.length;
         for (int i = 0; i < length; i++) {
-            r = (R) operation.invoke(Integer.valueOf(i), r, runningFoldIndexed[i]);
+            r = operation.invoke(Integer.valueOf(i), r, runningFoldIndexed[i]);
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T, R> List<R> scan(T[] scan, R r, Function2<? super R, ? super T, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(scan, "$this$scan");
@@ -14918,13 +15596,18 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
         ArrayList arrayList = new ArrayList(scan.length + 1);
         arrayList.add(r);
-        for (T t : scan) {
-            r = (R) operation.invoke(r, t);
+        for (DataReq.a aVar : scan) {
+            r = operation.invoke(r, aVar);
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T, R> List<R> scanIndexed(T[] scanIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(scanIndexed, "$this$scanIndexed");
@@ -14941,31 +15624,32 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = scanIndexed.length;
         for (int i = 0; i < length; i++) {
-            r = (R) operation.invoke(Integer.valueOf(i), r, scanIndexed[i]);
+            r = operation.invoke(Integer.valueOf(i), r, scanIndexed[i]);
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
     public static final <R, V> List<V> zip(byte[] zip, Iterable<? extends R> other, Function2<? super Byte, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(Byte.valueOf(zip[i]), r));
+            arrayList.add(transform.invoke(Byte.valueOf(zip[i]), obj));
             i++;
         }
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(char[] associateBy, Function1<? super Character, ? extends K> keySelector, Function1<? super Character, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -14987,7 +15671,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             char c = filterIndexedTo[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Character.valueOf(c)).booleanValue()) {
                 destination.add(Character.valueOf(c));
             }
             i++;
@@ -14996,33 +15680,29 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(char[] groupBy, Function1<? super Character, ? extends K> keySelector, Function1<? super Character, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (char c : groupBy) {
-            Object invoke = keySelector.invoke(Character.valueOf(c));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Character.valueOf(c));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Character.valueOf(c)));
+            list.add(valueTransform.invoke(Character.valueOf(c)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Character>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Character>>> M groupByTo(char[] groupByTo, M destination, Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (char c : groupByTo) {
-            Object invoke = keySelector.invoke(Character.valueOf(c));
+            K invoke = keySelector.invoke(Character.valueOf(c));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -15033,6 +15713,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(char[] cArr, Comparator<? super R> comparator, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15042,13 +15728,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Character.valueOf(cArr[0]));
+            Object obj = (R) function1.invoke(Character.valueOf(cArr[0]));
             int lastIndex = getLastIndex(cArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Character.valueOf(cArr[i]));
+                    R invoke = function1.invoke(Character.valueOf(cArr[i]));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15061,6 +15747,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(char[] cArr, Comparator<? super R> comparator, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15072,13 +15764,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Character.valueOf(cArr[0]));
+        Object obj = (R) function1.invoke(Character.valueOf(cArr[0]));
         int lastIndex = getLastIndex(cArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Character.valueOf(cArr[i]));
+                R invoke = function1.invoke(Character.valueOf(cArr[i]));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15089,6 +15781,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(char[] cArr, Comparator<? super R> comparator, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15098,13 +15796,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Character.valueOf(cArr[0]));
+            Object obj = (R) function1.invoke(Character.valueOf(cArr[0]));
             int lastIndex = getLastIndex(cArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Character.valueOf(cArr[i]));
+                    R invoke = function1.invoke(Character.valueOf(cArr[i]));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15117,6 +15815,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(char[] cArr, Comparator<? super R> comparator, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15128,13 +15832,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Character.valueOf(cArr[0]));
+        Object obj = (R) function1.invoke(Character.valueOf(cArr[0]));
         int lastIndex = getLastIndex(cArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Character.valueOf(cArr[i]));
+                R invoke = function1.invoke(Character.valueOf(cArr[i]));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15157,8 +15861,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(double[] associateBy, Function1<? super Double, ? extends K> keySelector, Function1<? super Double, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -15180,7 +15882,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             double d = filterIndexedTo[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Double.valueOf(d)).booleanValue()) {
                 destination.add(Double.valueOf(d));
             }
             i++;
@@ -15189,33 +15891,29 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(double[] groupBy, Function1<? super Double, ? extends K> keySelector, Function1<? super Double, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (double d : groupBy) {
-            Object invoke = keySelector.invoke(Double.valueOf(d));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Double.valueOf(d));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Double.valueOf(d)));
+            list.add(valueTransform.invoke(Double.valueOf(d)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Double>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Double>>> M groupByTo(double[] groupByTo, M destination, Function1<? super Double, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (double d : groupByTo) {
-            Object invoke = keySelector.invoke(Double.valueOf(d));
+            K invoke = keySelector.invoke(Double.valueOf(d));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -15226,6 +15924,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(double[] dArr, Comparator<? super R> comparator, Function1<? super Double, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15235,13 +15939,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Double.valueOf(dArr[0]));
+            Object obj = (R) function1.invoke(Double.valueOf(dArr[0]));
             int lastIndex = getLastIndex(dArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Double.valueOf(dArr[i]));
+                    R invoke = function1.invoke(Double.valueOf(dArr[i]));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15254,6 +15958,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(double[] dArr, Comparator<? super R> comparator, Function1<? super Double, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15265,13 +15975,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Double.valueOf(dArr[0]));
+        Object obj = (R) function1.invoke(Double.valueOf(dArr[0]));
         int lastIndex = getLastIndex(dArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Double.valueOf(dArr[i]));
+                R invoke = function1.invoke(Double.valueOf(dArr[i]));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15282,6 +15992,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(double[] dArr, Comparator<? super R> comparator, Function1<? super Double, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15291,13 +16007,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Double.valueOf(dArr[0]));
+            Object obj = (R) function1.invoke(Double.valueOf(dArr[0]));
             int lastIndex = getLastIndex(dArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Double.valueOf(dArr[i]));
+                    R invoke = function1.invoke(Double.valueOf(dArr[i]));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15310,6 +16026,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(double[] dArr, Comparator<? super R> comparator, Function1<? super Double, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15321,13 +16043,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Double.valueOf(dArr[0]));
+        Object obj = (R) function1.invoke(Double.valueOf(dArr[0]));
         int lastIndex = getLastIndex(dArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Double.valueOf(dArr[i]));
+                R invoke = function1.invoke(Double.valueOf(dArr[i]));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15338,25 +16060,26 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
     public static final <R, V> List<V> zip(char[] zip, Iterable<? extends R> other, Function2<? super Character, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(Character.valueOf(zip[i]), r));
+            arrayList.add(transform.invoke(Character.valueOf(zip[i]), obj));
             i++;
         }
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(float[] associateBy, Function1<? super Float, ? extends K> keySelector, Function1<? super Float, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -15378,7 +16101,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             float f = filterIndexedTo[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Float.valueOf(f)).booleanValue()) {
                 destination.add(Float.valueOf(f));
             }
             i++;
@@ -15387,33 +16110,29 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(float[] groupBy, Function1<? super Float, ? extends K> keySelector, Function1<? super Float, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (float f : groupBy) {
-            Object invoke = keySelector.invoke(Float.valueOf(f));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Float.valueOf(f));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Float.valueOf(f)));
+            list.add(valueTransform.invoke(Float.valueOf(f)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Float>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Float>>> M groupByTo(float[] groupByTo, M destination, Function1<? super Float, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (float f : groupByTo) {
-            Object invoke = keySelector.invoke(Float.valueOf(f));
+            K invoke = keySelector.invoke(Float.valueOf(f));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -15424,6 +16143,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(float[] fArr, Comparator<? super R> comparator, Function1<? super Float, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15433,13 +16158,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Float.valueOf(fArr[0]));
+            Object obj = (R) function1.invoke(Float.valueOf(fArr[0]));
             int lastIndex = getLastIndex(fArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Float.valueOf(fArr[i]));
+                    R invoke = function1.invoke(Float.valueOf(fArr[i]));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15452,6 +16177,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(float[] fArr, Comparator<? super R> comparator, Function1<? super Float, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15463,13 +16194,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Float.valueOf(fArr[0]));
+        Object obj = (R) function1.invoke(Float.valueOf(fArr[0]));
         int lastIndex = getLastIndex(fArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Float.valueOf(fArr[i]));
+                R invoke = function1.invoke(Float.valueOf(fArr[i]));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15480,6 +16211,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(float[] fArr, Comparator<? super R> comparator, Function1<? super Float, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15489,13 +16226,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Float.valueOf(fArr[0]));
+            Object obj = (R) function1.invoke(Float.valueOf(fArr[0]));
             int lastIndex = getLastIndex(fArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Float.valueOf(fArr[i]));
+                    R invoke = function1.invoke(Float.valueOf(fArr[i]));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15508,6 +16245,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(float[] fArr, Comparator<? super R> comparator, Function1<? super Float, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15519,13 +16262,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Float.valueOf(fArr[0]));
+        Object obj = (R) function1.invoke(Float.valueOf(fArr[0]));
         int lastIndex = getLastIndex(fArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Float.valueOf(fArr[i]));
+                R invoke = function1.invoke(Float.valueOf(fArr[i]));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15548,8 +16291,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(int[] associateBy, Function1<? super Integer, ? extends K> keySelector, Function1<? super Integer, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -15571,7 +16312,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             int i3 = filterIndexedTo[i];
             int i4 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Integer.valueOf(i3))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Integer.valueOf(i3)).booleanValue()) {
                 destination.add(Integer.valueOf(i3));
             }
             i++;
@@ -15580,33 +16321,29 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(int[] groupBy, Function1<? super Integer, ? extends K> keySelector, Function1<? super Integer, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (int i : groupBy) {
-            Object invoke = keySelector.invoke(Integer.valueOf(i));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Integer.valueOf(i));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Integer.valueOf(i)));
+            list.add(valueTransform.invoke(Integer.valueOf(i)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Integer>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Integer>>> M groupByTo(int[] groupByTo, M destination, Function1<? super Integer, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (int i : groupByTo) {
-            Object invoke = keySelector.invoke(Integer.valueOf(i));
+            K invoke = keySelector.invoke(Integer.valueOf(i));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -15617,6 +16354,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(int[] iArr, Comparator<? super R> comparator, Function1<? super Integer, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15626,13 +16369,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Integer.valueOf(iArr[0]));
+            Object obj = (R) function1.invoke(Integer.valueOf(iArr[0]));
             int lastIndex = getLastIndex(iArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Integer.valueOf(iArr[i]));
+                    R invoke = function1.invoke(Integer.valueOf(iArr[i]));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15645,6 +16388,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(int[] iArr, Comparator<? super R> comparator, Function1<? super Integer, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15656,13 +16405,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Integer.valueOf(iArr[0]));
+        Object obj = (R) function1.invoke(Integer.valueOf(iArr[0]));
         int lastIndex = getLastIndex(iArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Integer.valueOf(iArr[i]));
+                R invoke = function1.invoke(Integer.valueOf(iArr[i]));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15673,6 +16422,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(int[] iArr, Comparator<? super R> comparator, Function1<? super Integer, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15682,13 +16437,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Integer.valueOf(iArr[0]));
+            Object obj = (R) function1.invoke(Integer.valueOf(iArr[0]));
             int lastIndex = getLastIndex(iArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Integer.valueOf(iArr[i]));
+                    R invoke = function1.invoke(Integer.valueOf(iArr[i]));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15701,6 +16456,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(int[] iArr, Comparator<? super R> comparator, Function1<? super Integer, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15712,13 +16473,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Integer.valueOf(iArr[0]));
+        Object obj = (R) function1.invoke(Integer.valueOf(iArr[0]));
         int lastIndex = getLastIndex(iArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Integer.valueOf(iArr[i]));
+                R invoke = function1.invoke(Integer.valueOf(iArr[i]));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15729,25 +16490,26 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
     public static final <R, V> List<V> zip(double[] zip, Iterable<? extends R> other, Function2<? super Double, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(Double.valueOf(zip[i]), r));
+            arrayList.add(transform.invoke(Double.valueOf(zip[i]), obj));
             i++;
         }
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(long[] associateBy, Function1<? super Long, ? extends K> keySelector, Function1<? super Long, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -15769,7 +16531,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             long j = filterIndexedTo[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Long.valueOf(j)).booleanValue()) {
                 destination.add(Long.valueOf(j));
             }
             i++;
@@ -15778,33 +16540,29 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(long[] groupBy, Function1<? super Long, ? extends K> keySelector, Function1<? super Long, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (long j : groupBy) {
-            Object invoke = keySelector.invoke(Long.valueOf(j));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Long.valueOf(j));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Long.valueOf(j)));
+            list.add(valueTransform.invoke(Long.valueOf(j)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Long>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Long>>> M groupByTo(long[] groupByTo, M destination, Function1<? super Long, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (long j : groupByTo) {
-            Object invoke = keySelector.invoke(Long.valueOf(j));
+            K invoke = keySelector.invoke(Long.valueOf(j));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -15815,6 +16573,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(long[] jArr, Comparator<? super R> comparator, Function1<? super Long, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15824,13 +16588,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Long.valueOf(jArr[0]));
+            Object obj = (R) function1.invoke(Long.valueOf(jArr[0]));
             int lastIndex = getLastIndex(jArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Long.valueOf(jArr[i]));
+                    R invoke = function1.invoke(Long.valueOf(jArr[i]));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15843,6 +16607,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(long[] jArr, Comparator<? super R> comparator, Function1<? super Long, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15854,13 +16624,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Long.valueOf(jArr[0]));
+        Object obj = (R) function1.invoke(Long.valueOf(jArr[0]));
         int lastIndex = getLastIndex(jArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Long.valueOf(jArr[i]));
+                R invoke = function1.invoke(Long.valueOf(jArr[i]));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15871,6 +16641,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(long[] jArr, Comparator<? super R> comparator, Function1<? super Long, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15880,13 +16656,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Long.valueOf(jArr[0]));
+            Object obj = (R) function1.invoke(Long.valueOf(jArr[0]));
             int lastIndex = getLastIndex(jArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Long.valueOf(jArr[i]));
+                    R invoke = function1.invoke(Long.valueOf(jArr[i]));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -15899,6 +16675,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(long[] jArr, Comparator<? super R> comparator, Function1<? super Long, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -15910,13 +16692,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Long.valueOf(jArr[0]));
+        Object obj = (R) function1.invoke(Long.valueOf(jArr[0]));
         int lastIndex = getLastIndex(jArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Long.valueOf(jArr[i]));
+                R invoke = function1.invoke(Long.valueOf(jArr[i]));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -15939,8 +16721,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, V> Map<K, V> associateBy(T[] associateBy, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -15962,7 +16742,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             short s = filterIndexedTo[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Short.valueOf(s)).booleanValue()) {
                 destination.add(Short.valueOf(s));
             }
             i++;
@@ -15971,33 +16751,31 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
     /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, V> Map<K, List<V>> groupBy(T[] groupBy, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (T t : groupBy) {
-            Object invoke = keySelector.invoke(t);
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+        for (DataReq.a aVar : groupBy) {
+            K invoke = keySelector.invoke(aVar);
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(t));
+            list.add(valueTransform.invoke(aVar));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Short>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Short>>> M groupByTo(short[] groupByTo, M destination, Function1<? super Short, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (short s : groupByTo) {
-            Object invoke = keySelector.invoke(Short.valueOf(s));
+            K invoke = keySelector.invoke(Short.valueOf(s));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -16008,6 +16786,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(short[] sArr, Comparator<? super R> comparator, Function1<? super Short, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16017,13 +16801,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Short.valueOf(sArr[0]));
+            Object obj = (R) function1.invoke(Short.valueOf(sArr[0]));
             int lastIndex = getLastIndex(sArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Short.valueOf(sArr[i]));
+                    R invoke = function1.invoke(Short.valueOf(sArr[i]));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -16036,6 +16820,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(short[] sArr, Comparator<? super R> comparator, Function1<? super Short, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16047,13 +16837,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Short.valueOf(sArr[0]));
+        Object obj = (R) function1.invoke(Short.valueOf(sArr[0]));
         int lastIndex = getLastIndex(sArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Short.valueOf(sArr[i]));
+                R invoke = function1.invoke(Short.valueOf(sArr[i]));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -16064,6 +16854,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(short[] sArr, Comparator<? super R> comparator, Function1<? super Short, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16073,13 +16869,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Short.valueOf(sArr[0]));
+            Object obj = (R) function1.invoke(Short.valueOf(sArr[0]));
             int lastIndex = getLastIndex(sArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Short.valueOf(sArr[i]));
+                    R invoke = function1.invoke(Short.valueOf(sArr[i]));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -16092,6 +16888,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(short[] sArr, Comparator<? super R> comparator, Function1<? super Short, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16103,13 +16905,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Short.valueOf(sArr[0]));
+        Object obj = (R) function1.invoke(Short.valueOf(sArr[0]));
         int lastIndex = getLastIndex(sArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Short.valueOf(sArr[i]));
+                R invoke = function1.invoke(Short.valueOf(sArr[i]));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -16120,25 +16922,26 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
     public static final <R, V> List<V> zip(float[] zip, Iterable<? extends R> other, Function2<? super Float, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(Float.valueOf(zip[i]), r));
+            arrayList.add(transform.invoke(Float.valueOf(zip[i]), obj));
             i++;
         }
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(short[] associateBy, Function1<? super Short, ? extends K> keySelector, Function1<? super Short, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -16160,7 +16963,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             boolean z = filterIndexedTo[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Boolean.valueOf(z)).booleanValue()) {
                 destination.add(Boolean.valueOf(z));
             }
             i++;
@@ -16169,33 +16972,29 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(short[] groupBy, Function1<? super Short, ? extends K> keySelector, Function1<? super Short, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (short s : groupBy) {
-            Object invoke = keySelector.invoke(Short.valueOf(s));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Short.valueOf(s));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Short.valueOf(s)));
+            list.add(valueTransform.invoke(Short.valueOf(s)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Boolean>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Boolean>>> M groupByTo(boolean[] groupByTo, M destination, Function1<? super Boolean, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (boolean z : groupByTo) {
-            Object invoke = keySelector.invoke(Boolean.valueOf(z));
+            K invoke = keySelector.invoke(Boolean.valueOf(z));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -16206,6 +17005,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(boolean[] zArr, Comparator<? super R> comparator, Function1<? super Boolean, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16215,13 +17020,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Boolean.valueOf(zArr[0]));
+            Object obj = (R) function1.invoke(Boolean.valueOf(zArr[0]));
             int lastIndex = getLastIndex(zArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Boolean.valueOf(zArr[i]));
+                    R invoke = function1.invoke(Boolean.valueOf(zArr[i]));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -16234,6 +17039,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(boolean[] zArr, Comparator<? super R> comparator, Function1<? super Boolean, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16245,13 +17056,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Boolean.valueOf(zArr[0]));
+        Object obj = (R) function1.invoke(Boolean.valueOf(zArr[0]));
         int lastIndex = getLastIndex(zArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Boolean.valueOf(zArr[i]));
+                R invoke = function1.invoke(Boolean.valueOf(zArr[i]));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -16262,6 +17073,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(boolean[] zArr, Comparator<? super R> comparator, Function1<? super Boolean, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16271,13 +17088,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Boolean.valueOf(zArr[0]));
+            Object obj = (R) function1.invoke(Boolean.valueOf(zArr[0]));
             int lastIndex = getLastIndex(zArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Boolean.valueOf(zArr[i]));
+                    R invoke = function1.invoke(Boolean.valueOf(zArr[i]));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -16290,6 +17107,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(boolean[] zArr, Comparator<? super R> comparator, Function1<? super Boolean, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16301,13 +17124,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Boolean.valueOf(zArr[0]));
+        Object obj = (R) function1.invoke(Boolean.valueOf(zArr[0]));
         int lastIndex = getLastIndex(zArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Boolean.valueOf(zArr[i]));
+                R invoke = function1.invoke(Boolean.valueOf(zArr[i]));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -16330,8 +17153,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(boolean[] associateBy, Function1<? super Boolean, ? extends K> keySelector, Function1<? super Boolean, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -16343,44 +17164,43 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(boolean[] groupBy, Function1<? super Boolean, ? extends K> keySelector, Function1<? super Boolean, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (boolean z : groupBy) {
-            Object invoke = keySelector.invoke(Boolean.valueOf(z));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Boolean.valueOf(z));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Boolean.valueOf(z)));
+            list.add(valueTransform.invoke(Boolean.valueOf(z)));
         }
         return linkedHashMap;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
     public static final <R, V> List<V> zip(int[] zip, Iterable<? extends R> other, Function2<? super Integer, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(Integer.valueOf(zip[i]), r));
+            arrayList.add(transform.invoke(Integer.valueOf(zip[i]), obj));
             i++;
         }
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Byte> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Byte>> M associateByTo(byte[] associateByTo, M destination, Function1<? super Byte, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -16391,21 +17211,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(byte[] associateTo, M destination, Function1<? super Byte, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (byte b : associateTo) {
-            Pair pair = (Pair) transform.invoke(Byte.valueOf(b));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Byte.valueOf(b));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super java.lang.Byte, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V, M extends Map<? super Byte, ? super V>> M associateWithTo(byte[] bArr, M m, Function1<? super Byte, ? extends V> function1) {
         for (byte b : bArr) {
             m.put(Byte.valueOf(b), function1.invoke(Byte.valueOf(b)));
@@ -16413,11 +17231,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    @InlineOnly
     public static final byte elementAtOrElse(byte[] bArr, int i, Function1<? super Integer, Byte> function1) {
         if (i >= 0 && i <= getLastIndex(bArr)) {
             return bArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).byteValue();
+        return function1.invoke(Integer.valueOf(i)).byteValue();
     }
 
     public static final <T, C extends Collection<? super T>> C filterIndexedTo(T[] filterIndexedTo, C destination, Function2<? super Integer, ? super T, Boolean> predicate) {
@@ -16430,7 +17249,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         while (i < length) {
             T t = filterIndexedTo[i];
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), t)).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), t).booleanValue()) {
                 destination.add(t);
             }
             i++;
@@ -16444,7 +17263,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (byte b : filterNotTo) {
-            if (!((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (!predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 destination.add(Byte.valueOf(b));
             }
         }
@@ -16456,39 +17275,50 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (byte b : filterTo) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b)).booleanValue()) {
                 destination.add(Byte.valueOf(b));
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(byte[] bArr, C c, Function2<? super Integer, ? super Byte, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (byte b : bArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Byte.valueOf(b)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Byte.valueOf(b)));
         }
         return c;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedSequenceTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R, C extends Collection<? super R>> C flatMapIndexedSequenceTo(T[] tArr, C c, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
         int i = 0;
         for (T t : tArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Sequence) function2.invoke(valueOf, t));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, t));
         }
         return c;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapSequenceTo")
     public static final <T, R, C extends Collection<? super R>> C flatMapSequenceTo(T[] flatMapTo, C destination, Function1<? super T, ? extends Sequence<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMapTo, "$this$flatMapTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (T t : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Sequence) transform.invoke(t));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(t));
         }
         return destination;
     }
@@ -16498,20 +17328,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (byte b : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Byte.valueOf(b)));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Byte.valueOf(b)));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(byte[] fold, R r, Function2<? super R, ? super Byte, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (byte b : fold) {
-            r = (R) operation.invoke(r, Byte.valueOf(b));
+            r = operation.invoke(r, Byte.valueOf(b));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(byte[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super Byte, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -16519,44 +17351,45 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (byte b : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Byte.valueOf(b));
+            r = operation.invoke(valueOf, r, Byte.valueOf(b));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(byte[] foldRight, R r, Function2<? super Byte, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Byte.valueOf(foldRight[lastIndex]), r);
+            r = operation.invoke(Byte.valueOf(foldRight[lastIndex]), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(byte[] foldRightIndexed, R r, Function3<? super Integer, ? super Byte, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Byte.valueOf(foldRightIndexed[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Byte.valueOf(foldRightIndexed[lastIndex]), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final byte getOrElse(byte[] bArr, int i, Function1<? super Integer, Byte> function1) {
         if (i >= 0 && i <= getLastIndex(bArr)) {
             return bArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).byteValue();
+        return function1.invoke(Integer.valueOf(i)).byteValue();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, java.util.List<T>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, M extends Map<? super K, List<T>>> M groupByTo(T[] groupByTo, M destination, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (T t : groupByTo) {
-            Object invoke = keySelector.invoke(t);
+            K invoke = keySelector.invoke(t);
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -16576,7 +17409,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         int i2 = 0;
         while (i < length) {
             int i3 = i2 + 1;
-            Object invoke = transform.invoke(Integer.valueOf(i2), mapIndexedNotNullTo[i]);
+            R invoke = transform.invoke(Integer.valueOf(i2), mapIndexedNotNullTo[i]);
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -16604,7 +17437,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (T t : mapNotNullTo) {
-            Object invoke = transform.invoke(t);
+            R invoke = transform.invoke(t);
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -16622,6 +17455,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v12. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R maxOfWith(T[] tArr, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16631,13 +17472,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(tArr[0]);
+            Object obj = (R) function1.invoke(tArr[0]);
             int lastIndex = getLastIndex(tArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(tArr[i]);
+                    R invoke = function1.invoke(tArr[i]);
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -16650,6 +17491,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v12. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R maxOfWithOrNull(T[] tArr, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16661,13 +17510,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(tArr[0]);
+        Object obj = (R) function1.invoke(tArr[0]);
         int lastIndex = getLastIndex(tArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(tArr[i]);
+                R invoke = function1.invoke(tArr[i]);
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -16678,6 +17527,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v12. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R minOfWith(T[] tArr, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16687,13 +17544,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(tArr[0]);
+            Object obj = (R) function1.invoke(tArr[0]);
             int lastIndex = getLastIndex(tArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(tArr[i]);
+                    R invoke = function1.invoke(tArr[i]);
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -16706,6 +17563,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v12. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R minOfWithOrNull(T[] tArr, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -16717,13 +17582,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(tArr[0]);
+        Object obj = (R) function1.invoke(tArr[0]);
         int lastIndex = getLastIndex(tArr);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(tArr[i]);
+                R invoke = function1.invoke(tArr[i]);
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -16734,6 +17599,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return (R) obj;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void reverse(byte[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -16751,6 +17617,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFold(byte[] bArr, R r, Function2<? super R, ? super Byte, ? extends R> function2) {
         boolean z;
         if (bArr.length == 0) {
@@ -16764,12 +17633,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(bArr.length + 1);
         arrayList.add(r);
         for (byte b : bArr) {
-            r = (R) function2.invoke(r, Byte.valueOf(b));
+            r = function2.invoke(r, Byte.valueOf(b));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFoldIndexed(byte[] bArr, R r, Function3<? super Integer, ? super R, ? super Byte, ? extends R> function3) {
         boolean z;
         if (bArr.length == 0) {
@@ -16784,12 +17656,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = bArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Byte.valueOf(bArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Byte.valueOf(bArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scan(byte[] bArr, R r, Function2<? super R, ? super Byte, ? extends R> function2) {
         boolean z;
         if (bArr.length == 0) {
@@ -16803,12 +17679,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(bArr.length + 1);
         arrayList.add(r);
         for (byte b : bArr) {
-            r = (R) function2.invoke(r, Byte.valueOf(b));
+            r = function2.invoke(r, Byte.valueOf(b));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scanIndexed(byte[] bArr, R r, Function3<? super Integer, ? super R, ? super Byte, ? extends R> function3) {
         boolean z;
         if (bArr.length == 0) {
@@ -16823,12 +17703,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = bArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Byte.valueOf(bArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Byte.valueOf(bArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void sortDescending(byte[] sortDescending, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortDescending, "$this$sortDescending");
         ArraysKt___ArraysJvmKt.sort(sortDescending, i, i2);
@@ -16847,8 +17728,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(byte[] associateByTo, M destination, Function1<? super Byte, ? extends K> keySelector, Function1<? super Byte, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -16860,8 +17739,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Character> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Character>> M associateByTo(char[] associateByTo, M destination, Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -16872,21 +17749,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(char[] associateTo, M destination, Function1<? super Character, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (char c : associateTo) {
-            Pair pair = (Pair) transform.invoke(Character.valueOf(c));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Character.valueOf(c));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super java.lang.Character, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V, M extends Map<? super Character, ? super V>> M associateWithTo(char[] cArr, M m, Function1<? super Character, ? extends V> function1) {
         for (char c : cArr) {
             m.put(Character.valueOf(c), function1.invoke(Character.valueOf(c)));
@@ -16894,11 +17769,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    @InlineOnly
     public static final char elementAtOrElse(char[] cArr, int i, Function1<? super Integer, Character> function1) {
         if (i >= 0 && i <= getLastIndex(cArr)) {
             return cArr[i];
         }
-        return ((Character) function1.invoke(Integer.valueOf(i))).charValue();
+        return function1.invoke(Integer.valueOf(i)).charValue();
     }
 
     public static final <C extends Collection<? super Character>> C filterNotTo(char[] filterNotTo, C destination, Function1<? super Character, Boolean> predicate) {
@@ -16906,7 +17782,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (char c : filterNotTo) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 destination.add(Character.valueOf(c));
             }
         }
@@ -16918,19 +17794,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (char c : filterTo) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 destination.add(Character.valueOf(c));
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(char[] cArr, C c, Function2<? super Integer, ? super Character, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (char c2 : cArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Character.valueOf(c2)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Character.valueOf(c2)));
         }
         return c;
     }
@@ -16940,20 +17820,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (char c : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Character.valueOf(c)));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Character.valueOf(c)));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(char[] fold, R r, Function2<? super R, ? super Character, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (char c : fold) {
-            r = (R) operation.invoke(r, Character.valueOf(c));
+            r = operation.invoke(r, Character.valueOf(c));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(char[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super Character, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -16961,34 +17843,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (char c : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Character.valueOf(c));
+            r = operation.invoke(valueOf, r, Character.valueOf(c));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(char[] foldRight, R r, Function2<? super Character, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Character.valueOf(foldRight[lastIndex]), r);
+            r = operation.invoke(Character.valueOf(foldRight[lastIndex]), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(char[] foldRightIndexed, R r, Function3<? super Integer, ? super Character, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Character.valueOf(foldRightIndexed[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Character.valueOf(foldRightIndexed[lastIndex]), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final char getOrElse(char[] cArr, int i, Function1<? super Integer, Character> function1) {
         if (i >= 0 && i <= getLastIndex(cArr)) {
             return cArr[i];
         }
-        return ((Character) function1.invoke(Integer.valueOf(i))).charValue();
+        return function1.invoke(Integer.valueOf(i)).charValue();
     }
 
     public static final <R, C extends Collection<? super R>> C mapIndexedTo(char[] mapIndexedTo, C destination, Function2<? super Integer, ? super Character, ? extends R> transform) {
@@ -17014,6 +17899,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void reverse(char[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -17031,6 +17917,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFold(char[] cArr, R r, Function2<? super R, ? super Character, ? extends R> function2) {
         boolean z;
         if (cArr.length == 0) {
@@ -17044,12 +17933,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(cArr.length + 1);
         arrayList.add(r);
         for (char c : cArr) {
-            r = (R) function2.invoke(r, Character.valueOf(c));
+            r = function2.invoke(r, Character.valueOf(c));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFoldIndexed(char[] cArr, R r, Function3<? super Integer, ? super R, ? super Character, ? extends R> function3) {
         boolean z;
         if (cArr.length == 0) {
@@ -17064,12 +17956,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = cArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Character.valueOf(cArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Character.valueOf(cArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scan(char[] cArr, R r, Function2<? super R, ? super Character, ? extends R> function2) {
         boolean z;
         if (cArr.length == 0) {
@@ -17083,12 +17979,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(cArr.length + 1);
         arrayList.add(r);
         for (char c : cArr) {
-            r = (R) function2.invoke(r, Character.valueOf(c));
+            r = function2.invoke(r, Character.valueOf(c));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scanIndexed(char[] cArr, R r, Function3<? super Integer, ? super R, ? super Character, ? extends R> function3) {
         boolean z;
         if (cArr.length == 0) {
@@ -17103,12 +18003,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = cArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Character.valueOf(cArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Character.valueOf(cArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void sortDescending(char[] sortDescending, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortDescending, "$this$sortDescending");
         ArraysKt___ArraysJvmKt.sort(sortDescending, i, i2);
@@ -17127,8 +18028,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(char[] associateByTo, M destination, Function1<? super Character, ? extends K> keySelector, Function1<? super Character, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -17140,8 +18039,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Double> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Double>> M associateByTo(double[] associateByTo, M destination, Function1<? super Double, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -17152,21 +18049,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(double[] associateTo, M destination, Function1<? super Double, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (double d : associateTo) {
-            Pair pair = (Pair) transform.invoke(Double.valueOf(d));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Double.valueOf(d));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super java.lang.Double, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V, M extends Map<? super Double, ? super V>> M associateWithTo(double[] dArr, M m, Function1<? super Double, ? extends V> function1) {
         for (double d : dArr) {
             m.put(Double.valueOf(d), function1.invoke(Double.valueOf(d)));
@@ -17174,11 +18069,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    @InlineOnly
     public static final double elementAtOrElse(double[] dArr, int i, Function1<? super Integer, Double> function1) {
         if (i >= 0 && i <= getLastIndex(dArr)) {
             return dArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).doubleValue();
+        return function1.invoke(Integer.valueOf(i)).doubleValue();
     }
 
     public static final <C extends Collection<? super Double>> C filterNotTo(double[] filterNotTo, C destination, Function1<? super Double, Boolean> predicate) {
@@ -17186,7 +18082,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (double d : filterNotTo) {
-            if (!((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (!predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 destination.add(Double.valueOf(d));
             }
         }
@@ -17198,19 +18094,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (double d : filterTo) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d)).booleanValue()) {
                 destination.add(Double.valueOf(d));
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(double[] dArr, C c, Function2<? super Integer, ? super Double, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (double d : dArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Double.valueOf(d)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Double.valueOf(d)));
         }
         return c;
     }
@@ -17220,20 +18120,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (double d : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Double.valueOf(d)));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Double.valueOf(d)));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(double[] fold, R r, Function2<? super R, ? super Double, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (double d : fold) {
-            r = (R) operation.invoke(r, Double.valueOf(d));
+            r = operation.invoke(r, Double.valueOf(d));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r7v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(double[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super Double, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -17241,34 +18143,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (double d : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Double.valueOf(d));
+            r = operation.invoke(valueOf, r, Double.valueOf(d));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(double[] foldRight, R r, Function2<? super Double, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Double.valueOf(foldRight[lastIndex]), r);
+            r = operation.invoke(Double.valueOf(foldRight[lastIndex]), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(double[] foldRightIndexed, R r, Function3<? super Integer, ? super Double, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Double.valueOf(foldRightIndexed[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Double.valueOf(foldRightIndexed[lastIndex]), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final double getOrElse(double[] dArr, int i, Function1<? super Integer, Double> function1) {
         if (i >= 0 && i <= getLastIndex(dArr)) {
             return dArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).doubleValue();
+        return function1.invoke(Integer.valueOf(i)).doubleValue();
     }
 
     public static final <R, C extends Collection<? super R>> C mapIndexedTo(double[] mapIndexedTo, C destination, Function2<? super Integer, ? super Double, ? extends R> transform) {
@@ -17294,6 +18199,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void reverse(double[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -17311,6 +18217,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFold(double[] dArr, R r, Function2<? super R, ? super Double, ? extends R> function2) {
         boolean z;
         if (dArr.length == 0) {
@@ -17324,12 +18233,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(dArr.length + 1);
         arrayList.add(r);
         for (double d : dArr) {
-            r = (R) function2.invoke(r, Double.valueOf(d));
+            r = function2.invoke(r, Double.valueOf(d));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r7v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFoldIndexed(double[] dArr, R r, Function3<? super Integer, ? super R, ? super Double, ? extends R> function3) {
         boolean z;
         if (dArr.length == 0) {
@@ -17344,12 +18256,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = dArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Double.valueOf(dArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Double.valueOf(dArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scan(double[] dArr, R r, Function2<? super R, ? super Double, ? extends R> function2) {
         boolean z;
         if (dArr.length == 0) {
@@ -17363,12 +18279,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(dArr.length + 1);
         arrayList.add(r);
         for (double d : dArr) {
-            r = (R) function2.invoke(r, Double.valueOf(d));
+            r = function2.invoke(r, Double.valueOf(d));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r7v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scanIndexed(double[] dArr, R r, Function3<? super Integer, ? super R, ? super Double, ? extends R> function3) {
         boolean z;
         if (dArr.length == 0) {
@@ -17383,12 +18303,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = dArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Double.valueOf(dArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Double.valueOf(dArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void sortDescending(double[] sortDescending, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortDescending, "$this$sortDescending");
         ArraysKt___ArraysJvmKt.sort(sortDescending, i, i2);
@@ -17407,8 +18328,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(double[] associateByTo, M destination, Function1<? super Double, ? extends K> keySelector, Function1<? super Double, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -17420,8 +18339,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Float> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Float>> M associateByTo(float[] associateByTo, M destination, Function1<? super Float, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -17432,21 +18349,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(float[] associateTo, M destination, Function1<? super Float, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (float f : associateTo) {
-            Pair pair = (Pair) transform.invoke(Float.valueOf(f));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Float.valueOf(f));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super java.lang.Float, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V, M extends Map<? super Float, ? super V>> M associateWithTo(float[] fArr, M m, Function1<? super Float, ? extends V> function1) {
         for (float f : fArr) {
             m.put(Float.valueOf(f), function1.invoke(Float.valueOf(f)));
@@ -17454,11 +18369,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    @InlineOnly
     public static final float elementAtOrElse(float[] fArr, int i, Function1<? super Integer, Float> function1) {
         if (i >= 0 && i <= getLastIndex(fArr)) {
             return fArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).floatValue();
+        return function1.invoke(Integer.valueOf(i)).floatValue();
     }
 
     public static final <C extends Collection<? super Float>> C filterNotTo(float[] filterNotTo, C destination, Function1<? super Float, Boolean> predicate) {
@@ -17466,7 +18382,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (float f : filterNotTo) {
-            if (!((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (!predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 destination.add(Float.valueOf(f));
             }
         }
@@ -17478,19 +18394,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (float f : filterTo) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f)).booleanValue()) {
                 destination.add(Float.valueOf(f));
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(float[] fArr, C c, Function2<? super Integer, ? super Float, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (float f : fArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Float.valueOf(f)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Float.valueOf(f)));
         }
         return c;
     }
@@ -17500,20 +18420,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (float f : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Float.valueOf(f)));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Float.valueOf(f)));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(float[] fold, R r, Function2<? super R, ? super Float, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (float f : fold) {
-            r = (R) operation.invoke(r, Float.valueOf(f));
+            r = operation.invoke(r, Float.valueOf(f));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(float[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super Float, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -17521,34 +18443,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (float f : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Float.valueOf(f));
+            r = operation.invoke(valueOf, r, Float.valueOf(f));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(float[] foldRight, R r, Function2<? super Float, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Float.valueOf(foldRight[lastIndex]), r);
+            r = operation.invoke(Float.valueOf(foldRight[lastIndex]), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(float[] foldRightIndexed, R r, Function3<? super Integer, ? super Float, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Float.valueOf(foldRightIndexed[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Float.valueOf(foldRightIndexed[lastIndex]), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final float getOrElse(float[] fArr, int i, Function1<? super Integer, Float> function1) {
         if (i >= 0 && i <= getLastIndex(fArr)) {
             return fArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).floatValue();
+        return function1.invoke(Integer.valueOf(i)).floatValue();
     }
 
     public static final <R, C extends Collection<? super R>> C mapIndexedTo(float[] mapIndexedTo, C destination, Function2<? super Integer, ? super Float, ? extends R> transform) {
@@ -17574,6 +18499,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void reverse(float[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -17591,6 +18517,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFold(float[] fArr, R r, Function2<? super R, ? super Float, ? extends R> function2) {
         boolean z;
         if (fArr.length == 0) {
@@ -17604,12 +18533,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(fArr.length + 1);
         arrayList.add(r);
         for (float f : fArr) {
-            r = (R) function2.invoke(r, Float.valueOf(f));
+            r = function2.invoke(r, Float.valueOf(f));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFoldIndexed(float[] fArr, R r, Function3<? super Integer, ? super R, ? super Float, ? extends R> function3) {
         boolean z;
         if (fArr.length == 0) {
@@ -17624,12 +18556,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = fArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Float.valueOf(fArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Float.valueOf(fArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scan(float[] fArr, R r, Function2<? super R, ? super Float, ? extends R> function2) {
         boolean z;
         if (fArr.length == 0) {
@@ -17643,12 +18579,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(fArr.length + 1);
         arrayList.add(r);
         for (float f : fArr) {
-            r = (R) function2.invoke(r, Float.valueOf(f));
+            r = function2.invoke(r, Float.valueOf(f));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scanIndexed(float[] fArr, R r, Function3<? super Integer, ? super R, ? super Float, ? extends R> function3) {
         boolean z;
         if (fArr.length == 0) {
@@ -17663,12 +18603,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = fArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Float.valueOf(fArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Float.valueOf(fArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void sortDescending(float[] sortDescending, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortDescending, "$this$sortDescending");
         ArraysKt___ArraysJvmKt.sort(sortDescending, i, i2);
@@ -17687,8 +18628,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(float[] associateByTo, M destination, Function1<? super Float, ? extends K> keySelector, Function1<? super Float, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -17700,8 +18639,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Integer> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Integer>> M associateByTo(int[] associateByTo, M destination, Function1<? super Integer, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -17712,21 +18649,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(int[] associateTo, M destination, Function1<? super Integer, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (int i : associateTo) {
-            Pair pair = (Pair) transform.invoke(Integer.valueOf(i));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Integer.valueOf(i));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super java.lang.Integer, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V, M extends Map<? super Integer, ? super V>> M associateWithTo(int[] iArr, M m, Function1<? super Integer, ? extends V> function1) {
         for (int i : iArr) {
             m.put(Integer.valueOf(i), function1.invoke(Integer.valueOf(i)));
@@ -17734,11 +18669,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    @InlineOnly
     public static final int elementAtOrElse(int[] iArr, int i, Function1<? super Integer, Integer> function1) {
         if (i >= 0 && i <= getLastIndex(iArr)) {
             return iArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).intValue();
+        return function1.invoke(Integer.valueOf(i)).intValue();
     }
 
     public static final <C extends Collection<? super Integer>> C filterNotTo(int[] filterNotTo, C destination, Function1<? super Integer, Boolean> predicate) {
@@ -17746,7 +18682,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i : filterNotTo) {
-            if (!((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (!predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 destination.add(Integer.valueOf(i));
             }
         }
@@ -17758,19 +18694,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i : filterTo) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 destination.add(Integer.valueOf(i));
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(int[] iArr, C c, Function2<? super Integer, ? super Integer, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (int i2 : iArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Integer.valueOf(i2)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Integer.valueOf(i2)));
         }
         return c;
     }
@@ -17780,20 +18720,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (int i : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Integer.valueOf(i)));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Integer.valueOf(i)));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(int[] fold, R r, Function2<? super R, ? super Integer, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int i : fold) {
-            r = (R) operation.invoke(r, Integer.valueOf(i));
+            r = operation.invoke(r, Integer.valueOf(i));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(int[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super Integer, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -17801,34 +18743,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (int i2 : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Integer.valueOf(i2));
+            r = operation.invoke(valueOf, r, Integer.valueOf(i2));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(int[] foldRight, R r, Function2<? super Integer, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(foldRight[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(foldRight[lastIndex]), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(int[] foldRightIndexed, R r, Function3<? super Integer, ? super Integer, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Integer.valueOf(foldRightIndexed[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Integer.valueOf(foldRightIndexed[lastIndex]), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final int getOrElse(int[] iArr, int i, Function1<? super Integer, Integer> function1) {
         if (i >= 0 && i <= getLastIndex(iArr)) {
             return iArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).intValue();
+        return function1.invoke(Integer.valueOf(i)).intValue();
     }
 
     public static final <R, C extends Collection<? super R>> C mapIndexedTo(int[] mapIndexedTo, C destination, Function2<? super Integer, ? super Integer, ? extends R> transform) {
@@ -17854,6 +18799,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void reverse(int[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -17871,6 +18817,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFold(int[] iArr, R r, Function2<? super R, ? super Integer, ? extends R> function2) {
         boolean z;
         if (iArr.length == 0) {
@@ -17884,12 +18833,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(iArr.length + 1);
         arrayList.add(r);
         for (int i : iArr) {
-            r = (R) function2.invoke(r, Integer.valueOf(i));
+            r = function2.invoke(r, Integer.valueOf(i));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFoldIndexed(int[] iArr, R r, Function3<? super Integer, ? super R, ? super Integer, ? extends R> function3) {
         boolean z;
         if (iArr.length == 0) {
@@ -17904,12 +18856,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = iArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Integer.valueOf(iArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Integer.valueOf(iArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scan(int[] iArr, R r, Function2<? super R, ? super Integer, ? extends R> function2) {
         boolean z;
         if (iArr.length == 0) {
@@ -17923,12 +18879,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(iArr.length + 1);
         arrayList.add(r);
         for (int i : iArr) {
-            r = (R) function2.invoke(r, Integer.valueOf(i));
+            r = function2.invoke(r, Integer.valueOf(i));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scanIndexed(int[] iArr, R r, Function3<? super Integer, ? super R, ? super Integer, ? extends R> function3) {
         boolean z;
         if (iArr.length == 0) {
@@ -17943,12 +18903,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = iArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Integer.valueOf(iArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Integer.valueOf(iArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void sortDescending(int[] sortDescending, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortDescending, "$this$sortDescending");
         ArraysKt___ArraysJvmKt.sort(sortDescending, i, i2);
@@ -17967,8 +18928,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(int[] associateByTo, M destination, Function1<? super Integer, ? extends K> keySelector, Function1<? super Integer, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -17980,8 +18939,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Long> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Long>> M associateByTo(long[] associateByTo, M destination, Function1<? super Long, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -17992,21 +18949,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(long[] associateTo, M destination, Function1<? super Long, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (long j : associateTo) {
-            Pair pair = (Pair) transform.invoke(Long.valueOf(j));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Long.valueOf(j));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super java.lang.Long, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V, M extends Map<? super Long, ? super V>> M associateWithTo(long[] jArr, M m, Function1<? super Long, ? extends V> function1) {
         for (long j : jArr) {
             m.put(Long.valueOf(j), function1.invoke(Long.valueOf(j)));
@@ -18014,11 +18969,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    @InlineOnly
     public static final long elementAtOrElse(long[] jArr, int i, Function1<? super Integer, Long> function1) {
         if (i >= 0 && i <= getLastIndex(jArr)) {
             return jArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).longValue();
+        return function1.invoke(Integer.valueOf(i)).longValue();
     }
 
     public static final <C extends Collection<? super Long>> C filterNotTo(long[] filterNotTo, C destination, Function1<? super Long, Boolean> predicate) {
@@ -18026,7 +18982,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (long j : filterNotTo) {
-            if (!((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (!predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 destination.add(Long.valueOf(j));
             }
         }
@@ -18038,19 +18994,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (long j : filterTo) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 destination.add(Long.valueOf(j));
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(long[] jArr, C c, Function2<? super Integer, ? super Long, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (long j : jArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Long.valueOf(j)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Long.valueOf(j)));
         }
         return c;
     }
@@ -18060,20 +19020,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (long j : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Long.valueOf(j)));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Long.valueOf(j)));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(long[] fold, R r, Function2<? super R, ? super Long, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (long j : fold) {
-            r = (R) operation.invoke(r, Long.valueOf(j));
+            r = operation.invoke(r, Long.valueOf(j));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r7v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(long[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super Long, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -18081,34 +19043,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (long j : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Long.valueOf(j));
+            r = operation.invoke(valueOf, r, Long.valueOf(j));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(long[] foldRight, R r, Function2<? super Long, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Long.valueOf(foldRight[lastIndex]), r);
+            r = operation.invoke(Long.valueOf(foldRight[lastIndex]), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(long[] foldRightIndexed, R r, Function3<? super Integer, ? super Long, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Long.valueOf(foldRightIndexed[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Long.valueOf(foldRightIndexed[lastIndex]), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final long getOrElse(long[] jArr, int i, Function1<? super Integer, Long> function1) {
         if (i >= 0 && i <= getLastIndex(jArr)) {
             return jArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).longValue();
+        return function1.invoke(Integer.valueOf(i)).longValue();
     }
 
     public static final <R, C extends Collection<? super R>> C mapIndexedTo(long[] mapIndexedTo, C destination, Function2<? super Integer, ? super Long, ? extends R> transform) {
@@ -18134,6 +19099,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void reverse(long[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -18151,6 +19117,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFold(long[] jArr, R r, Function2<? super R, ? super Long, ? extends R> function2) {
         boolean z;
         if (jArr.length == 0) {
@@ -18164,12 +19133,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(jArr.length + 1);
         arrayList.add(r);
         for (long j : jArr) {
-            r = (R) function2.invoke(r, Long.valueOf(j));
+            r = function2.invoke(r, Long.valueOf(j));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r7v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFoldIndexed(long[] jArr, R r, Function3<? super Integer, ? super R, ? super Long, ? extends R> function3) {
         boolean z;
         if (jArr.length == 0) {
@@ -18184,12 +19156,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = jArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Long.valueOf(jArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Long.valueOf(jArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scan(long[] jArr, R r, Function2<? super R, ? super Long, ? extends R> function2) {
         boolean z;
         if (jArr.length == 0) {
@@ -18203,12 +19179,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(jArr.length + 1);
         arrayList.add(r);
         for (long j : jArr) {
-            r = (R) function2.invoke(r, Long.valueOf(j));
+            r = function2.invoke(r, Long.valueOf(j));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r7v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scanIndexed(long[] jArr, R r, Function3<? super Integer, ? super R, ? super Long, ? extends R> function3) {
         boolean z;
         if (jArr.length == 0) {
@@ -18223,12 +19203,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = jArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Long.valueOf(jArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Long.valueOf(jArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void sortDescending(long[] sortDescending, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortDescending, "$this$sortDescending");
         ArraysKt___ArraysJvmKt.sort(sortDescending, i, i2);
@@ -18247,8 +19228,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(long[] associateByTo, M destination, Function1<? super Long, ? extends K> keySelector, Function1<? super Long, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -18260,8 +19239,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super T> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, M extends Map<? super K, ? super T>> M associateByTo(T[] associateByTo, M destination, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -18272,21 +19249,18 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, V, M extends Map<? super K, ? super V>> M associateTo(T[] associateTo, M destination, Function1<? super T, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (T t : associateTo) {
-            Pair pair = (Pair) transform.invoke(t);
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(t);
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
     public static final <K, V, M extends Map<? super K, ? super V>> M associateWithTo(K[] associateWithTo, M destination, Function1<? super K, ? extends V> valueSelector) {
         Intrinsics.checkNotNullParameter(associateWithTo, "$this$associateWithTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -18297,11 +19271,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @InlineOnly
     public static final <T> T elementAtOrElse(T[] tArr, int i, Function1<? super Integer, ? extends T> function1) {
         if (i >= 0 && i <= getLastIndex(tArr)) {
             return tArr[i];
         }
-        return (T) function1.invoke(Integer.valueOf(i));
+        return function1.invoke(Integer.valueOf(i));
     }
 
     public static final <T, C extends Collection<? super T>> C filterNotTo(T[] filterNotTo, C destination, Function1<? super T, Boolean> predicate) {
@@ -18309,7 +19284,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : filterNotTo) {
-            if (!((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (!predicate.invoke(t).booleanValue()) {
                 destination.add(t);
             }
         }
@@ -18321,19 +19296,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : filterTo) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 destination.add(t);
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R, C extends Collection<? super R>> C flatMapIndexedIterableTo(T[] tArr, C c, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (T t : tArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, t));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, t));
         }
         return c;
     }
@@ -18343,55 +19322,68 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (T t : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(t));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(t));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, R> R fold(T[] fold, R r, Function2<? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        for (T t : fold) {
-            r = (R) operation.invoke(r, t);
+        for (DataReq.a aVar : fold) {
+            r = operation.invoke(r, aVar);
         }
         return r;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, R> R foldIndexed(T[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         int i = 0;
-        for (T t : foldIndexed) {
+        for (DataReq.a aVar : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, t);
+            r = operation.invoke(valueOf, r, aVar);
         }
         return r;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, R> R foldRight(T[] foldRight, R r, Function2<? super T, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(foldRight[lastIndex], r);
+            r = operation.invoke(foldRight[lastIndex], r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, R> R foldRightIndexed(T[] foldRightIndexed, R r, Function3<? super Integer, ? super T, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), foldRightIndexed[lastIndex], r);
+            r = operation.invoke(Integer.valueOf(lastIndex), foldRightIndexed[lastIndex], r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final <T> T getOrElse(T[] tArr, int i, Function1<? super Integer, ? extends T> function1) {
         if (i >= 0 && i <= getLastIndex(tArr)) {
             return tArr[i];
         }
-        return (T) function1.invoke(Integer.valueOf(i));
+        return function1.invoke(Integer.valueOf(i));
     }
 
     public static final <T, R, C extends Collection<? super R>> C mapIndexedTo(T[] mapIndexedTo, C destination, Function2<? super Integer, ? super T, ? extends R> transform) {
@@ -18417,6 +19409,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T> void reverse(T[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -18434,6 +19427,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFold(short[] sArr, R r, Function2<? super R, ? super Short, ? extends R> function2) {
         boolean z;
         if (sArr.length == 0) {
@@ -18447,12 +19443,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(sArr.length + 1);
         arrayList.add(r);
         for (short s : sArr) {
-            r = (R) function2.invoke(r, Short.valueOf(s));
+            r = function2.invoke(r, Short.valueOf(s));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFoldIndexed(short[] sArr, R r, Function3<? super Integer, ? super R, ? super Short, ? extends R> function3) {
         boolean z;
         if (sArr.length == 0) {
@@ -18467,12 +19466,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = sArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Short.valueOf(sArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Short.valueOf(sArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scan(short[] sArr, R r, Function2<? super R, ? super Short, ? extends R> function2) {
         boolean z;
         if (sArr.length == 0) {
@@ -18486,12 +19489,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(sArr.length + 1);
         arrayList.add(r);
         for (short s : sArr) {
-            r = (R) function2.invoke(r, Short.valueOf(s));
+            r = function2.invoke(r, Short.valueOf(s));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scanIndexed(short[] sArr, R r, Function3<? super Integer, ? super R, ? super Short, ? extends R> function3) {
         boolean z;
         if (sArr.length == 0) {
@@ -18506,12 +19513,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = sArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Short.valueOf(sArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Short.valueOf(sArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T extends Comparable<? super T>> void sortDescending(T[] sortDescending, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortDescending, "$this$sortDescending");
         ArraysKt___ArraysJvmKt.sortWith(sortDescending, ComparisonsKt__ComparisonsKt.reverseOrder(), i, i2);
@@ -18529,8 +19537,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, V, M extends Map<? super K, ? super V>> M associateByTo(T[] associateByTo, M destination, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -18542,8 +19548,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Short> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Short>> M associateByTo(short[] associateByTo, M destination, Function1<? super Short, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -18554,21 +19558,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(short[] associateTo, M destination, Function1<? super Short, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (short s : associateTo) {
-            Pair pair = (Pair) transform.invoke(Short.valueOf(s));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Short.valueOf(s));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super java.lang.Short, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V, M extends Map<? super Short, ? super V>> M associateWithTo(short[] sArr, M m, Function1<? super Short, ? extends V> function1) {
         for (short s : sArr) {
             m.put(Short.valueOf(s), function1.invoke(Short.valueOf(s)));
@@ -18576,11 +19578,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    @InlineOnly
     public static final short elementAtOrElse(short[] sArr, int i, Function1<? super Integer, Short> function1) {
         if (i >= 0 && i <= getLastIndex(sArr)) {
             return sArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).shortValue();
+        return function1.invoke(Integer.valueOf(i)).shortValue();
     }
 
     public static final <C extends Collection<? super Short>> C filterNotTo(short[] filterNotTo, C destination, Function1<? super Short, Boolean> predicate) {
@@ -18588,7 +19591,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (short s : filterNotTo) {
-            if (!((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (!predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 destination.add(Short.valueOf(s));
             }
         }
@@ -18600,19 +19603,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (short s : filterTo) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 destination.add(Short.valueOf(s));
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(short[] sArr, C c, Function2<? super Integer, ? super Short, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (short s : sArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Short.valueOf(s)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Short.valueOf(s)));
         }
         return c;
     }
@@ -18622,20 +19629,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (short s : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Short.valueOf(s)));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Short.valueOf(s)));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(short[] fold, R r, Function2<? super R, ? super Short, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (short s : fold) {
-            r = (R) operation.invoke(r, Short.valueOf(s));
+            r = operation.invoke(r, Short.valueOf(s));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(short[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super Short, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -18643,34 +19652,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (short s : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Short.valueOf(s));
+            r = operation.invoke(valueOf, r, Short.valueOf(s));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(short[] foldRight, R r, Function2<? super Short, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Short.valueOf(foldRight[lastIndex]), r);
+            r = operation.invoke(Short.valueOf(foldRight[lastIndex]), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(short[] foldRightIndexed, R r, Function3<? super Integer, ? super Short, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Short.valueOf(foldRightIndexed[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Short.valueOf(foldRightIndexed[lastIndex]), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final short getOrElse(short[] sArr, int i, Function1<? super Integer, Short> function1) {
         if (i >= 0 && i <= getLastIndex(sArr)) {
             return sArr[i];
         }
-        return ((Number) function1.invoke(Integer.valueOf(i))).shortValue();
+        return function1.invoke(Integer.valueOf(i)).shortValue();
     }
 
     public static final <R, C extends Collection<? super R>> C mapIndexedTo(short[] mapIndexedTo, C destination, Function2<? super Integer, ? super Short, ? extends R> transform) {
@@ -18696,6 +19708,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void reverse(short[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -18713,6 +19726,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFold(boolean[] zArr, R r, Function2<? super R, ? super Boolean, ? extends R> function2) {
         boolean z;
         if (zArr.length == 0) {
@@ -18726,12 +19742,15 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(zArr.length + 1);
         arrayList.add(r);
         for (boolean z2 : zArr) {
-            r = (R) function2.invoke(r, Boolean.valueOf(z2));
+            r = function2.invoke(r, Boolean.valueOf(z2));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <R> List<R> runningFoldIndexed(boolean[] zArr, R r, Function3<? super Integer, ? super R, ? super Boolean, ? extends R> function3) {
         boolean z;
         if (zArr.length == 0) {
@@ -18746,12 +19765,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = zArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Boolean.valueOf(zArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Boolean.valueOf(zArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scan(boolean[] zArr, R r, Function2<? super R, ? super Boolean, ? extends R> function2) {
         boolean z;
         if (zArr.length == 0) {
@@ -18765,12 +19788,16 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         ArrayList arrayList = new ArrayList(zArr.length + 1);
         arrayList.add(r);
         for (boolean z2 : zArr) {
-            r = (R) function2.invoke(r, Boolean.valueOf(z2));
+            r = function2.invoke(r, Boolean.valueOf(z2));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <R> List<R> scanIndexed(boolean[] zArr, R r, Function3<? super Integer, ? super R, ? super Boolean, ? extends R> function3) {
         boolean z;
         if (zArr.length == 0) {
@@ -18785,12 +19812,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         arrayList.add(r);
         int length = zArr.length;
         for (int i = 0; i < length; i++) {
-            r = (R) function3.invoke(Integer.valueOf(i), r, Boolean.valueOf(zArr[i]));
+            r = function3.invoke(Integer.valueOf(i), r, Boolean.valueOf(zArr[i]));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void sortDescending(short[] sortDescending, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortDescending, "$this$sortDescending");
         ArraysKt___ArraysJvmKt.sort(sortDescending, i, i2);
@@ -18809,8 +19837,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(short[] associateByTo, M destination, Function1<? super Short, ? extends K> keySelector, Function1<? super Short, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -18822,8 +19848,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Boolean> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Boolean>> M associateByTo(boolean[] associateByTo, M destination, Function1<? super Boolean, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -18834,21 +19858,19 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(boolean[] associateTo, M destination, Function1<? super Boolean, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (boolean z : associateTo) {
-            Pair pair = (Pair) transform.invoke(Boolean.valueOf(z));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Boolean.valueOf(z));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super java.lang.Boolean, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <V, M extends Map<? super Boolean, ? super V>> M associateWithTo(boolean[] zArr, M m, Function1<? super Boolean, ? extends V> function1) {
         for (boolean z : zArr) {
             m.put(Boolean.valueOf(z), function1.invoke(Boolean.valueOf(z)));
@@ -18856,11 +19878,12 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return m;
     }
 
+    @InlineOnly
     public static final boolean elementAtOrElse(boolean[] zArr, int i, Function1<? super Integer, Boolean> function1) {
         if (i >= 0 && i <= getLastIndex(zArr)) {
             return zArr[i];
         }
-        return ((Boolean) function1.invoke(Integer.valueOf(i))).booleanValue();
+        return function1.invoke(Integer.valueOf(i)).booleanValue();
     }
 
     public static final <C extends Collection<? super Boolean>> C filterNotTo(boolean[] filterNotTo, C destination, Function1<? super Boolean, Boolean> predicate) {
@@ -18868,7 +19891,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (boolean z : filterNotTo) {
-            if (!((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (!predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 destination.add(Boolean.valueOf(z));
             }
         }
@@ -18880,19 +19903,23 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (boolean z : filterTo) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z)).booleanValue()) {
                 destination.add(Boolean.valueOf(z));
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(boolean[] zArr, C c, Function2<? super Integer, ? super Boolean, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (boolean z : zArr) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Boolean.valueOf(z)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Boolean.valueOf(z)));
         }
         return c;
     }
@@ -18902,20 +19929,22 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (boolean z : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Boolean.valueOf(z)));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Boolean.valueOf(z)));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(boolean[] fold, R r, Function2<? super R, ? super Boolean, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (boolean z : fold) {
-            r = (R) operation.invoke(r, Boolean.valueOf(z));
+            r = operation.invoke(r, Boolean.valueOf(z));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(boolean[] foldIndexed, R r, Function3<? super Integer, ? super R, ? super Boolean, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -18923,34 +19952,37 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         for (boolean z : foldIndexed) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Boolean.valueOf(z));
+            r = operation.invoke(valueOf, r, Boolean.valueOf(z));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(boolean[] foldRight, R r, Function2<? super Boolean, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Boolean.valueOf(foldRight[lastIndex]), r);
+            r = operation.invoke(Boolean.valueOf(foldRight[lastIndex]), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(boolean[] foldRightIndexed, R r, Function3<? super Integer, ? super Boolean, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Boolean.valueOf(foldRightIndexed[lastIndex]), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Boolean.valueOf(foldRightIndexed[lastIndex]), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final boolean getOrElse(boolean[] zArr, int i, Function1<? super Integer, Boolean> function1) {
         if (i >= 0 && i <= getLastIndex(zArr)) {
             return zArr[i];
         }
-        return ((Boolean) function1.invoke(Integer.valueOf(i))).booleanValue();
+        return function1.invoke(Integer.valueOf(i)).booleanValue();
     }
 
     public static final <R, C extends Collection<? super R>> C mapIndexedTo(boolean[] mapIndexedTo, C destination, Function2<? super Integer, ? super Boolean, ? extends R> transform) {
@@ -18976,6 +20008,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final void reverse(boolean[] reverse, int i, int i2) {
         Intrinsics.checkNotNullParameter(reverse, "$this$reverse");
         AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, reverse.length);
@@ -19005,8 +20038,6 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(boolean[] associateByTo, M destination, Function1<? super Boolean, ? extends K> keySelector, Function1<? super Boolean, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -19026,7 +20057,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (byte b : groupByTo) {
-            Object invoke = keySelector.invoke(Byte.valueOf(b));
+            K invoke = keySelector.invoke(Byte.valueOf(b));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19045,7 +20076,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (char c : groupByTo) {
-            Object invoke = keySelector.invoke(Character.valueOf(c));
+            K invoke = keySelector.invoke(Character.valueOf(c));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19064,7 +20095,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (double d : groupByTo) {
-            Object invoke = keySelector.invoke(Double.valueOf(d));
+            K invoke = keySelector.invoke(Double.valueOf(d));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19083,7 +20114,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (float f : groupByTo) {
-            Object invoke = keySelector.invoke(Float.valueOf(f));
+            K invoke = keySelector.invoke(Float.valueOf(f));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19102,7 +20133,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (int i : groupByTo) {
-            Object invoke = keySelector.invoke(Integer.valueOf(i));
+            K invoke = keySelector.invoke(Integer.valueOf(i));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19121,7 +20152,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (long j : groupByTo) {
-            Object invoke = keySelector.invoke(Long.valueOf(j));
+            K invoke = keySelector.invoke(Long.valueOf(j));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19140,7 +20171,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (T t : groupByTo) {
-            Object invoke = keySelector.invoke(t);
+            K invoke = keySelector.invoke(t);
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19159,7 +20190,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (short s : groupByTo) {
-            Object invoke = keySelector.invoke(Short.valueOf(s));
+            K invoke = keySelector.invoke(Short.valueOf(s));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19178,7 +20209,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (boolean z : groupByTo) {
-            Object invoke = keySelector.invoke(Boolean.valueOf(z));
+            K invoke = keySelector.invoke(Boolean.valueOf(z));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -19207,7 +20238,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 break;
             }
             if (function1 != null) {
-                buffer.append((CharSequence) function1.invoke(Byte.valueOf(b)));
+                buffer.append(function1.invoke(Byte.valueOf(b)));
             } else {
                 buffer.append(String.valueOf((int) b));
             }
@@ -19237,7 +20268,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 break;
             }
             if (function1 != null) {
-                buffer.append((CharSequence) function1.invoke(Character.valueOf(c)));
+                buffer.append(function1.invoke(Character.valueOf(c)));
             } else {
                 buffer.append(c);
             }
@@ -19267,7 +20298,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 break;
             }
             if (function1 != null) {
-                buffer.append((CharSequence) function1.invoke(Double.valueOf(d)));
+                buffer.append(function1.invoke(Double.valueOf(d)));
             } else {
                 buffer.append(String.valueOf(d));
             }
@@ -19297,7 +20328,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 break;
             }
             if (function1 != null) {
-                buffer.append((CharSequence) function1.invoke(Float.valueOf(f)));
+                buffer.append(function1.invoke(Float.valueOf(f)));
             } else {
                 buffer.append(String.valueOf(f));
             }
@@ -19327,7 +20358,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 break;
             }
             if (function1 != null) {
-                buffer.append((CharSequence) function1.invoke(Integer.valueOf(i3)));
+                buffer.append(function1.invoke(Integer.valueOf(i3)));
             } else {
                 buffer.append(String.valueOf(i3));
             }
@@ -19357,7 +20388,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 break;
             }
             if (function1 != null) {
-                buffer.append((CharSequence) function1.invoke(Long.valueOf(j)));
+                buffer.append(function1.invoke(Long.valueOf(j)));
             } else {
                 buffer.append(String.valueOf(j));
             }
@@ -19413,7 +20444,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 break;
             }
             if (function1 != null) {
-                buffer.append((CharSequence) function1.invoke(Short.valueOf(s)));
+                buffer.append(function1.invoke(Short.valueOf(s)));
             } else {
                 buffer.append(String.valueOf((int) s));
             }
@@ -19443,7 +20474,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                 break;
             }
             if (function1 != null) {
-                buffer.append((CharSequence) function1.invoke(Boolean.valueOf(z)));
+                buffer.append(function1.invoke(Boolean.valueOf(z)));
             } else {
                 buffer.append(String.valueOf(z));
             }
@@ -20173,6 +21204,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Short maxOrNull(short[] maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -20209,6 +21241,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Short minOrNull(short[] minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -20258,14 +21291,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Boolean.valueOf(z2);
         }
-        Comparable comparable = (Comparable) selector.invoke(Boolean.valueOf(z2));
+        R invoke = selector.invoke(Boolean.valueOf(z2));
         if (1 <= lastIndex) {
             while (true) {
                 boolean z3 = maxBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Boolean.valueOf(z3));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Boolean.valueOf(z3));
+                if (invoke.compareTo(invoke2) < 0) {
                     z2 = z3;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20276,6 +21309,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Boolean.valueOf(z2);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Boolean maxByOrNull(boolean[] maxByOrNull, Function1<? super Boolean, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -20294,14 +21328,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Boolean.valueOf(z2);
         }
-        Comparable comparable = (Comparable) selector.invoke(Boolean.valueOf(z2));
+        R invoke = selector.invoke(Boolean.valueOf(z2));
         if (1 <= lastIndex) {
             while (true) {
                 boolean z3 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Boolean.valueOf(z3));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Boolean.valueOf(z3));
+                if (invoke.compareTo(invoke2) < 0) {
                     z2 = z3;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20332,14 +21366,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Boolean.valueOf(z2);
         }
-        Comparable comparable = (Comparable) selector.invoke(Boolean.valueOf(z2));
+        R invoke = selector.invoke(Boolean.valueOf(z2));
         if (1 <= lastIndex) {
             while (true) {
                 boolean z3 = minBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Boolean.valueOf(z3));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Boolean.valueOf(z3));
+                if (invoke.compareTo(invoke2) > 0) {
                     z2 = z3;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20350,6 +21384,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Boolean.valueOf(z2);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Boolean minByOrNull(boolean[] minByOrNull, Function1<? super Boolean, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -20368,14 +21403,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Boolean.valueOf(z2);
         }
-        Comparable comparable = (Comparable) selector.invoke(Boolean.valueOf(z2));
+        R invoke = selector.invoke(Boolean.valueOf(z2));
         if (1 <= lastIndex) {
             while (true) {
                 boolean z3 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Boolean.valueOf(z3));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Boolean.valueOf(z3));
+                if (invoke.compareTo(invoke2) > 0) {
                     z2 = z3;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20392,7 +21427,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Byte b = null;
         boolean z = false;
         for (byte b2 : single) {
-            if (((Boolean) predicate.invoke(Byte.valueOf(b2))).booleanValue()) {
+            if (predicate.invoke(Byte.valueOf(b2)).booleanValue()) {
                 if (!z) {
                     b = Byte.valueOf(b2);
                     z = true;
@@ -20490,14 +21525,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Byte.valueOf(b);
         }
-        Comparable comparable = (Comparable) selector.invoke(Byte.valueOf(b));
+        R invoke = selector.invoke(Byte.valueOf(b));
         if (1 <= lastIndex) {
             while (true) {
                 byte b2 = maxBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Byte.valueOf(b2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Byte.valueOf(b2));
+                if (invoke.compareTo(invoke2) < 0) {
                     b = b2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20508,6 +21543,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Byte.valueOf(b);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Byte maxByOrNull(byte[] maxByOrNull, Function1<? super Byte, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -20526,14 +21562,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Byte.valueOf(b);
         }
-        Comparable comparable = (Comparable) selector.invoke(Byte.valueOf(b));
+        R invoke = selector.invoke(Byte.valueOf(b));
         if (1 <= lastIndex) {
             while (true) {
                 byte b2 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Byte.valueOf(b2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Byte.valueOf(b2));
+                if (invoke.compareTo(invoke2) < 0) {
                     b = b2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20564,14 +21600,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Byte.valueOf(b);
         }
-        Comparable comparable = (Comparable) selector.invoke(Byte.valueOf(b));
+        R invoke = selector.invoke(Byte.valueOf(b));
         if (1 <= lastIndex) {
             while (true) {
                 byte b2 = minBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Byte.valueOf(b2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Byte.valueOf(b2));
+                if (invoke.compareTo(invoke2) > 0) {
                     b = b2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20582,6 +21618,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Byte.valueOf(b);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Byte minByOrNull(byte[] minByOrNull, Function1<? super Byte, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -20600,14 +21637,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Byte.valueOf(b);
         }
-        Comparable comparable = (Comparable) selector.invoke(Byte.valueOf(b));
+        R invoke = selector.invoke(Byte.valueOf(b));
         if (1 <= lastIndex) {
             while (true) {
                 byte b2 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Byte.valueOf(b2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Byte.valueOf(b2));
+                if (invoke.compareTo(invoke2) > 0) {
                     b = b2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20624,7 +21661,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Character ch = null;
         boolean z = false;
         for (char c : single) {
-            if (((Boolean) predicate.invoke(Character.valueOf(c))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(c)).booleanValue()) {
                 if (!z) {
                     ch = Character.valueOf(c);
                     z = true;
@@ -20722,14 +21759,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Character.valueOf(c);
         }
-        Comparable comparable = (Comparable) selector.invoke(Character.valueOf(c));
+        R invoke = selector.invoke(Character.valueOf(c));
         if (1 <= lastIndex) {
             while (true) {
                 char c2 = maxBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Character.valueOf(c2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Character.valueOf(c2));
+                if (invoke.compareTo(invoke2) < 0) {
                     c = c2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20740,6 +21777,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Character.valueOf(c);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Character maxByOrNull(char[] maxByOrNull, Function1<? super Character, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -20758,14 +21796,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Character.valueOf(c);
         }
-        Comparable comparable = (Comparable) selector.invoke(Character.valueOf(c));
+        R invoke = selector.invoke(Character.valueOf(c));
         if (1 <= lastIndex) {
             while (true) {
                 char c2 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Character.valueOf(c2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Character.valueOf(c2));
+                if (invoke.compareTo(invoke2) < 0) {
                     c = c2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20796,14 +21834,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Character.valueOf(c);
         }
-        Comparable comparable = (Comparable) selector.invoke(Character.valueOf(c));
+        R invoke = selector.invoke(Character.valueOf(c));
         if (1 <= lastIndex) {
             while (true) {
                 char c2 = minBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Character.valueOf(c2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Character.valueOf(c2));
+                if (invoke.compareTo(invoke2) > 0) {
                     c = c2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20814,6 +21852,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Character.valueOf(c);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Character minByOrNull(char[] minByOrNull, Function1<? super Character, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -20832,14 +21871,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Character.valueOf(c);
         }
-        Comparable comparable = (Comparable) selector.invoke(Character.valueOf(c));
+        R invoke = selector.invoke(Character.valueOf(c));
         if (1 <= lastIndex) {
             while (true) {
                 char c2 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Character.valueOf(c2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Character.valueOf(c2));
+                if (invoke.compareTo(invoke2) > 0) {
                     c = c2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20856,7 +21895,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Double d = null;
         boolean z = false;
         for (double d2 : single) {
-            if (((Boolean) predicate.invoke(Double.valueOf(d2))).booleanValue()) {
+            if (predicate.invoke(Double.valueOf(d2)).booleanValue()) {
                 if (!z) {
                     d = Double.valueOf(d2);
                     z = true;
@@ -20954,14 +21993,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Double.valueOf(d);
         }
-        Comparable comparable = (Comparable) selector.invoke(Double.valueOf(d));
+        R invoke = selector.invoke(Double.valueOf(d));
         if (1 <= lastIndex) {
             while (true) {
                 double d2 = maxBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Double.valueOf(d2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Double.valueOf(d2));
+                if (invoke.compareTo(invoke2) < 0) {
                     d = d2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -20972,6 +22011,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(d);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Double maxByOrNull(double[] maxByOrNull, Function1<? super Double, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -20990,14 +22030,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Double.valueOf(d);
         }
-        Comparable comparable = (Comparable) selector.invoke(Double.valueOf(d));
+        R invoke = selector.invoke(Double.valueOf(d));
         if (1 <= lastIndex) {
             while (true) {
                 double d2 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Double.valueOf(d2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Double.valueOf(d2));
+                if (invoke.compareTo(invoke2) < 0) {
                     d = d2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21028,14 +22068,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Double.valueOf(d);
         }
-        Comparable comparable = (Comparable) selector.invoke(Double.valueOf(d));
+        R invoke = selector.invoke(Double.valueOf(d));
         if (1 <= lastIndex) {
             while (true) {
                 double d2 = minBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Double.valueOf(d2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Double.valueOf(d2));
+                if (invoke.compareTo(invoke2) > 0) {
                     d = d2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21046,6 +22086,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(d);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Double minByOrNull(double[] minByOrNull, Function1<? super Double, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -21064,14 +22105,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Double.valueOf(d);
         }
-        Comparable comparable = (Comparable) selector.invoke(Double.valueOf(d));
+        R invoke = selector.invoke(Double.valueOf(d));
         if (1 <= lastIndex) {
             while (true) {
                 double d2 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Double.valueOf(d2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Double.valueOf(d2));
+                if (invoke.compareTo(invoke2) > 0) {
                     d = d2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21088,7 +22129,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Float f = null;
         boolean z = false;
         for (float f2 : single) {
-            if (((Boolean) predicate.invoke(Float.valueOf(f2))).booleanValue()) {
+            if (predicate.invoke(Float.valueOf(f2)).booleanValue()) {
                 if (!z) {
                     f = Float.valueOf(f2);
                     z = true;
@@ -21186,14 +22227,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Float.valueOf(f);
         }
-        Comparable comparable = (Comparable) selector.invoke(Float.valueOf(f));
+        R invoke = selector.invoke(Float.valueOf(f));
         if (1 <= lastIndex) {
             while (true) {
                 float f2 = maxBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Float.valueOf(f2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Float.valueOf(f2));
+                if (invoke.compareTo(invoke2) < 0) {
                     f = f2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21204,6 +22245,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(f);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Float maxByOrNull(float[] maxByOrNull, Function1<? super Float, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -21222,14 +22264,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Float.valueOf(f);
         }
-        Comparable comparable = (Comparable) selector.invoke(Float.valueOf(f));
+        R invoke = selector.invoke(Float.valueOf(f));
         if (1 <= lastIndex) {
             while (true) {
                 float f2 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Float.valueOf(f2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Float.valueOf(f2));
+                if (invoke.compareTo(invoke2) < 0) {
                     f = f2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21260,14 +22302,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Float.valueOf(f);
         }
-        Comparable comparable = (Comparable) selector.invoke(Float.valueOf(f));
+        R invoke = selector.invoke(Float.valueOf(f));
         if (1 <= lastIndex) {
             while (true) {
                 float f2 = minBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Float.valueOf(f2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Float.valueOf(f2));
+                if (invoke.compareTo(invoke2) > 0) {
                     f = f2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21278,6 +22320,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(f);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Float minByOrNull(float[] minByOrNull, Function1<? super Float, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -21296,14 +22339,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Float.valueOf(f);
         }
-        Comparable comparable = (Comparable) selector.invoke(Float.valueOf(f));
+        R invoke = selector.invoke(Float.valueOf(f));
         if (1 <= lastIndex) {
             while (true) {
                 float f2 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Float.valueOf(f2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Float.valueOf(f2));
+                if (invoke.compareTo(invoke2) > 0) {
                     f = f2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21320,7 +22363,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Integer num = null;
         boolean z = false;
         for (int i : single) {
-            if (((Boolean) predicate.invoke(Integer.valueOf(i))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i)).booleanValue()) {
                 if (!z) {
                     num = Integer.valueOf(i);
                     z = true;
@@ -21418,14 +22461,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Integer.valueOf(i2);
         }
-        Comparable comparable = (Comparable) selector.invoke(Integer.valueOf(i2));
+        R invoke = selector.invoke(Integer.valueOf(i2));
         if (1 <= lastIndex) {
             while (true) {
                 int i3 = maxBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Integer.valueOf(i3));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Integer.valueOf(i3));
+                if (invoke.compareTo(invoke2) < 0) {
                     i2 = i3;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21436,6 +22479,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Integer.valueOf(i2);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Integer maxByOrNull(int[] maxByOrNull, Function1<? super Integer, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -21454,14 +22498,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Integer.valueOf(i2);
         }
-        Comparable comparable = (Comparable) selector.invoke(Integer.valueOf(i2));
+        R invoke = selector.invoke(Integer.valueOf(i2));
         if (1 <= lastIndex) {
             while (true) {
                 int i3 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Integer.valueOf(i3));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Integer.valueOf(i3));
+                if (invoke.compareTo(invoke2) < 0) {
                     i2 = i3;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21492,14 +22536,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Integer.valueOf(i2);
         }
-        Comparable comparable = (Comparable) selector.invoke(Integer.valueOf(i2));
+        R invoke = selector.invoke(Integer.valueOf(i2));
         if (1 <= lastIndex) {
             while (true) {
                 int i3 = minBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Integer.valueOf(i3));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Integer.valueOf(i3));
+                if (invoke.compareTo(invoke2) > 0) {
                     i2 = i3;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21510,6 +22554,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Integer.valueOf(i2);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Integer minByOrNull(int[] minByOrNull, Function1<? super Integer, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -21528,14 +22573,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Integer.valueOf(i2);
         }
-        Comparable comparable = (Comparable) selector.invoke(Integer.valueOf(i2));
+        R invoke = selector.invoke(Integer.valueOf(i2));
         if (1 <= lastIndex) {
             while (true) {
                 int i3 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Integer.valueOf(i3));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Integer.valueOf(i3));
+                if (invoke.compareTo(invoke2) > 0) {
                     i2 = i3;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21552,7 +22597,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Long l = null;
         boolean z = false;
         for (long j : single) {
-            if (((Boolean) predicate.invoke(Long.valueOf(j))).booleanValue()) {
+            if (predicate.invoke(Long.valueOf(j)).booleanValue()) {
                 if (!z) {
                     l = Long.valueOf(j);
                     z = true;
@@ -21650,14 +22695,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Long.valueOf(j);
         }
-        Comparable comparable = (Comparable) selector.invoke(Long.valueOf(j));
+        R invoke = selector.invoke(Long.valueOf(j));
         if (1 <= lastIndex) {
             while (true) {
                 long j2 = maxBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Long.valueOf(j2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Long.valueOf(j2));
+                if (invoke.compareTo(invoke2) < 0) {
                     j = j2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21668,6 +22713,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Long.valueOf(j);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Long maxByOrNull(long[] maxByOrNull, Function1<? super Long, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -21686,14 +22732,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Long.valueOf(j);
         }
-        Comparable comparable = (Comparable) selector.invoke(Long.valueOf(j));
+        R invoke = selector.invoke(Long.valueOf(j));
         if (1 <= lastIndex) {
             while (true) {
                 long j2 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Long.valueOf(j2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Long.valueOf(j2));
+                if (invoke.compareTo(invoke2) < 0) {
                     j = j2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21724,14 +22770,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Long.valueOf(j);
         }
-        Comparable comparable = (Comparable) selector.invoke(Long.valueOf(j));
+        R invoke = selector.invoke(Long.valueOf(j));
         if (1 <= lastIndex) {
             while (true) {
                 long j2 = minBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Long.valueOf(j2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Long.valueOf(j2));
+                if (invoke.compareTo(invoke2) > 0) {
                     j = j2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21742,6 +22788,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Long.valueOf(j);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Long minByOrNull(long[] minByOrNull, Function1<? super Long, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -21760,14 +22807,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Long.valueOf(j);
         }
-        Comparable comparable = (Comparable) selector.invoke(Long.valueOf(j));
+        R invoke = selector.invoke(Long.valueOf(j));
         if (1 <= lastIndex) {
             while (true) {
                 long j2 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Long.valueOf(j2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Long.valueOf(j2));
+                if (invoke.compareTo(invoke2) > 0) {
                     j = j2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21784,7 +22831,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Short sh = null;
         boolean z = false;
         for (short s : single) {
-            if (((Boolean) predicate.invoke(Short.valueOf(s))).booleanValue()) {
+            if (predicate.invoke(Short.valueOf(s)).booleanValue()) {
                 if (!z) {
                     sh = Short.valueOf(s);
                     z = true;
@@ -21882,14 +22929,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Short.valueOf(s);
         }
-        Comparable comparable = (Comparable) selector.invoke(Short.valueOf(s));
+        R invoke = selector.invoke(Short.valueOf(s));
         if (1 <= lastIndex) {
             while (true) {
                 short s2 = maxBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Short.valueOf(s2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Short.valueOf(s2));
+                if (invoke.compareTo(invoke2) < 0) {
                     s = s2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21900,6 +22947,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Short.valueOf(s);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Short maxByOrNull(short[] maxByOrNull, Function1<? super Short, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -21918,14 +22966,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Short.valueOf(s);
         }
-        Comparable comparable = (Comparable) selector.invoke(Short.valueOf(s));
+        R invoke = selector.invoke(Short.valueOf(s));
         if (1 <= lastIndex) {
             while (true) {
                 short s2 = maxByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Short.valueOf(s2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Short.valueOf(s2));
+                if (invoke.compareTo(invoke2) < 0) {
                     s = s2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21956,14 +23004,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Short.valueOf(s);
         }
-        Comparable comparable = (Comparable) selector.invoke(Short.valueOf(s));
+        R invoke = selector.invoke(Short.valueOf(s));
         if (1 <= lastIndex) {
             while (true) {
                 short s2 = minBy[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Short.valueOf(s2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Short.valueOf(s2));
+                if (invoke.compareTo(invoke2) > 0) {
                     s = s2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -21974,6 +23022,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Short.valueOf(s);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Short minByOrNull(short[] minByOrNull, Function1<? super Short, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -21992,14 +23041,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (lastIndex == 0) {
             return Short.valueOf(s);
         }
-        Comparable comparable = (Comparable) selector.invoke(Short.valueOf(s));
+        R invoke = selector.invoke(Short.valueOf(s));
         if (1 <= lastIndex) {
             while (true) {
                 short s2 = minByOrNull[i];
-                Comparable comparable2 = (Comparable) selector.invoke(Short.valueOf(s2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Short.valueOf(s2));
+                if (invoke.compareTo(invoke2) > 0) {
                     s = s2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -22016,7 +23065,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         Boolean bool = null;
         boolean z = false;
         for (boolean z2 : single) {
-            if (((Boolean) predicate.invoke(Boolean.valueOf(z2))).booleanValue()) {
+            if (predicate.invoke(Boolean.valueOf(z2)).booleanValue()) {
                 if (!z) {
                     bool = Boolean.valueOf(z2);
                     z = true;
@@ -22094,6 +23143,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new IllegalArgumentException(("Requested element count " + i + " is less than zero.").toString());
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1049maxOf(byte[] bArr, Function1<? super Byte, Float> function1) {
         boolean z;
@@ -22104,11 +23156,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Byte.valueOf(bArr[0]))).floatValue();
+            float floatValue = function1.invoke(Byte.valueOf(bArr[0])).floatValue();
             int lastIndex = getLastIndex(bArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Byte.valueOf(bArr[i]))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Byte.valueOf(bArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22120,6 +23172,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1068maxOfOrNull(char[] cArr, Function1<? super Character, Double> function1) {
         boolean z;
@@ -22132,11 +23187,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Character.valueOf(cArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Character.valueOf(cArr[0])).doubleValue();
         int lastIndex = getLastIndex(cArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Character.valueOf(cArr[i]))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Character.valueOf(cArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22146,6 +23201,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1085minOf(byte[] bArr, Function1<? super Byte, Float> function1) {
         boolean z;
@@ -22156,11 +23214,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Byte.valueOf(bArr[0]))).floatValue();
+            float floatValue = function1.invoke(Byte.valueOf(bArr[0])).floatValue();
             int lastIndex = getLastIndex(bArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Byte.valueOf(bArr[i]))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Byte.valueOf(bArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22172,6 +23230,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1104minOfOrNull(char[] cArr, Function1<? super Character, Double> function1) {
         boolean z;
@@ -22184,11 +23245,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Character.valueOf(cArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Character.valueOf(cArr[0])).doubleValue();
         int lastIndex = getLastIndex(cArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Character.valueOf(cArr[i]))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Character.valueOf(cArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22198,6 +23259,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1050maxOf(char[] cArr, Function1<? super Character, Float> function1) {
         boolean z;
@@ -22208,11 +23272,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Character.valueOf(cArr[0]))).floatValue();
+            float floatValue = function1.invoke(Character.valueOf(cArr[0])).floatValue();
             int lastIndex = getLastIndex(cArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Character.valueOf(cArr[i]))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Character.valueOf(cArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22224,6 +23288,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1069maxOfOrNull(double[] dArr, Function1<? super Double, Double> function1) {
         boolean z;
@@ -22236,11 +23303,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Double.valueOf(dArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Double.valueOf(dArr[0])).doubleValue();
         int lastIndex = getLastIndex(dArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Double.valueOf(dArr[i]))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Double.valueOf(dArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22250,6 +23317,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1086minOf(char[] cArr, Function1<? super Character, Float> function1) {
         boolean z;
@@ -22260,11 +23330,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Character.valueOf(cArr[0]))).floatValue();
+            float floatValue = function1.invoke(Character.valueOf(cArr[0])).floatValue();
             int lastIndex = getLastIndex(cArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Character.valueOf(cArr[i]))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Character.valueOf(cArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22276,6 +23346,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1105minOfOrNull(double[] dArr, Function1<? super Double, Double> function1) {
         boolean z;
@@ -22288,11 +23361,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Double.valueOf(dArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Double.valueOf(dArr[0])).doubleValue();
         int lastIndex = getLastIndex(dArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Double.valueOf(dArr[i]))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Double.valueOf(dArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22302,6 +23375,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1051maxOf(double[] dArr, Function1<? super Double, Float> function1) {
         boolean z;
@@ -22312,11 +23388,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Double.valueOf(dArr[0]))).floatValue();
+            float floatValue = function1.invoke(Double.valueOf(dArr[0])).floatValue();
             int lastIndex = getLastIndex(dArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Double.valueOf(dArr[i]))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Double.valueOf(dArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22328,6 +23404,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1070maxOfOrNull(float[] fArr, Function1<? super Float, Double> function1) {
         boolean z;
@@ -22340,11 +23419,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Float.valueOf(fArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Float.valueOf(fArr[0])).doubleValue();
         int lastIndex = getLastIndex(fArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Float.valueOf(fArr[i]))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Float.valueOf(fArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22354,6 +23433,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1087minOf(double[] dArr, Function1<? super Double, Float> function1) {
         boolean z;
@@ -22364,11 +23446,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Double.valueOf(dArr[0]))).floatValue();
+            float floatValue = function1.invoke(Double.valueOf(dArr[0])).floatValue();
             int lastIndex = getLastIndex(dArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Double.valueOf(dArr[i]))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Double.valueOf(dArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22380,6 +23462,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1106minOfOrNull(float[] fArr, Function1<? super Float, Double> function1) {
         boolean z;
@@ -22392,11 +23477,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Float.valueOf(fArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Float.valueOf(fArr[0])).doubleValue();
         int lastIndex = getLastIndex(fArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Float.valueOf(fArr[i]))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Float.valueOf(fArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22406,6 +23491,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1052maxOf(float[] fArr, Function1<? super Float, Float> function1) {
         boolean z;
@@ -22416,11 +23504,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Float.valueOf(fArr[0]))).floatValue();
+            float floatValue = function1.invoke(Float.valueOf(fArr[0])).floatValue();
             int lastIndex = getLastIndex(fArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Float.valueOf(fArr[i]))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Float.valueOf(fArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22432,6 +23520,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1071maxOfOrNull(int[] iArr, Function1<? super Integer, Double> function1) {
         boolean z;
@@ -22444,11 +23535,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Integer.valueOf(iArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Integer.valueOf(iArr[0])).doubleValue();
         int lastIndex = getLastIndex(iArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Integer.valueOf(iArr[i]))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Integer.valueOf(iArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22458,6 +23549,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1088minOf(float[] fArr, Function1<? super Float, Float> function1) {
         boolean z;
@@ -22468,11 +23562,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Float.valueOf(fArr[0]))).floatValue();
+            float floatValue = function1.invoke(Float.valueOf(fArr[0])).floatValue();
             int lastIndex = getLastIndex(fArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Float.valueOf(fArr[i]))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Float.valueOf(fArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22484,6 +23578,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1107minOfOrNull(int[] iArr, Function1<? super Integer, Double> function1) {
         boolean z;
@@ -22496,11 +23593,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Integer.valueOf(iArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Integer.valueOf(iArr[0])).doubleValue();
         int lastIndex = getLastIndex(iArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Integer.valueOf(iArr[i]))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Integer.valueOf(iArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22510,6 +23607,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1053maxOf(int[] iArr, Function1<? super Integer, Float> function1) {
         boolean z;
@@ -22520,11 +23620,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Integer.valueOf(iArr[0]))).floatValue();
+            float floatValue = function1.invoke(Integer.valueOf(iArr[0])).floatValue();
             int lastIndex = getLastIndex(iArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Integer.valueOf(iArr[i]))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Integer.valueOf(iArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22536,6 +23636,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1072maxOfOrNull(long[] jArr, Function1<? super Long, Double> function1) {
         boolean z;
@@ -22548,11 +23651,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Long.valueOf(jArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Long.valueOf(jArr[0])).doubleValue();
         int lastIndex = getLastIndex(jArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Long.valueOf(jArr[i]))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Long.valueOf(jArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22562,6 +23665,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1089minOf(int[] iArr, Function1<? super Integer, Float> function1) {
         boolean z;
@@ -22572,11 +23678,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Integer.valueOf(iArr[0]))).floatValue();
+            float floatValue = function1.invoke(Integer.valueOf(iArr[0])).floatValue();
             int lastIndex = getLastIndex(iArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Integer.valueOf(iArr[i]))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Integer.valueOf(iArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22588,6 +23694,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1108minOfOrNull(long[] jArr, Function1<? super Long, Double> function1) {
         boolean z;
@@ -22600,11 +23709,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Long.valueOf(jArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Long.valueOf(jArr[0])).doubleValue();
         int lastIndex = getLastIndex(jArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Long.valueOf(jArr[i]))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Long.valueOf(jArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22614,6 +23723,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1054maxOf(long[] jArr, Function1<? super Long, Float> function1) {
         boolean z;
@@ -22624,11 +23736,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Long.valueOf(jArr[0]))).floatValue();
+            float floatValue = function1.invoke(Long.valueOf(jArr[0])).floatValue();
             int lastIndex = getLastIndex(jArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Long.valueOf(jArr[i]))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Long.valueOf(jArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22640,6 +23752,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final <T> Double m1073maxOfOrNull(T[] tArr, Function1<? super T, Double> function1) {
         boolean z;
@@ -22652,11 +23767,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(tArr[0])).doubleValue();
+        double doubleValue = function1.invoke(tArr[0]).doubleValue();
         int lastIndex = getLastIndex(tArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(tArr[i])).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(tArr[i]).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22666,6 +23781,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1090minOf(long[] jArr, Function1<? super Long, Float> function1) {
         boolean z;
@@ -22676,11 +23794,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Long.valueOf(jArr[0]))).floatValue();
+            float floatValue = function1.invoke(Long.valueOf(jArr[0])).floatValue();
             int lastIndex = getLastIndex(jArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Long.valueOf(jArr[i]))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Long.valueOf(jArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22692,6 +23810,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final <T> Double m1109minOfOrNull(T[] tArr, Function1<? super T, Double> function1) {
         boolean z;
@@ -22704,11 +23825,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(tArr[0])).doubleValue();
+        double doubleValue = function1.invoke(tArr[0]).doubleValue();
         int lastIndex = getLastIndex(tArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(tArr[i])).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(tArr[i]).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22718,6 +23839,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <T> float m1055maxOf(T[] tArr, Function1<? super T, Float> function1) {
         boolean z;
@@ -22728,11 +23852,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(tArr[0])).floatValue();
+            float floatValue = function1.invoke(tArr[0]).floatValue();
             int lastIndex = getLastIndex(tArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(tArr[i])).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(tArr[i]).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22744,6 +23868,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1074maxOfOrNull(short[] sArr, Function1<? super Short, Double> function1) {
         boolean z;
@@ -22756,11 +23883,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Short.valueOf(sArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Short.valueOf(sArr[0])).doubleValue();
         int lastIndex = getLastIndex(sArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Short.valueOf(sArr[i]))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Short.valueOf(sArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22770,6 +23897,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <T> float m1091minOf(T[] tArr, Function1<? super T, Float> function1) {
         boolean z;
@@ -22780,11 +23910,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(tArr[0])).floatValue();
+            float floatValue = function1.invoke(tArr[0]).floatValue();
             int lastIndex = getLastIndex(tArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(tArr[i])).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(tArr[i]).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22796,6 +23926,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1110minOfOrNull(short[] sArr, Function1<? super Short, Double> function1) {
         boolean z;
@@ -22808,11 +23941,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Short.valueOf(sArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Short.valueOf(sArr[0])).doubleValue();
         int lastIndex = getLastIndex(sArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Short.valueOf(sArr[i]))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Short.valueOf(sArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22822,6 +23955,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1056maxOf(short[] sArr, Function1<? super Short, Float> function1) {
         boolean z;
@@ -22832,11 +23968,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Short.valueOf(sArr[0]))).floatValue();
+            float floatValue = function1.invoke(Short.valueOf(sArr[0])).floatValue();
             int lastIndex = getLastIndex(sArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Short.valueOf(sArr[i]))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Short.valueOf(sArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22848,6 +23984,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1075maxOfOrNull(boolean[] zArr, Function1<? super Boolean, Double> function1) {
         boolean z;
@@ -22860,11 +23999,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Boolean.valueOf(zArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Boolean.valueOf(zArr[0])).doubleValue();
         int lastIndex = getLastIndex(zArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Boolean.valueOf(zArr[i]))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Boolean.valueOf(zArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22874,6 +24013,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1092minOf(short[] sArr, Function1<? super Short, Float> function1) {
         boolean z;
@@ -22884,11 +24026,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Short.valueOf(sArr[0]))).floatValue();
+            float floatValue = function1.invoke(Short.valueOf(sArr[0])).floatValue();
             int lastIndex = getLastIndex(sArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Short.valueOf(sArr[i]))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Short.valueOf(sArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22900,6 +24042,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1111minOfOrNull(boolean[] zArr, Function1<? super Boolean, Double> function1) {
         boolean z;
@@ -22912,11 +24057,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Boolean.valueOf(zArr[0]))).doubleValue();
+        double doubleValue = function1.invoke(Boolean.valueOf(zArr[0])).doubleValue();
         int lastIndex = getLastIndex(zArr);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Boolean.valueOf(zArr[i]))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Boolean.valueOf(zArr[i])).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22926,6 +24071,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1057maxOf(boolean[] zArr, Function1<? super Boolean, Float> function1) {
         boolean z;
@@ -22936,11 +24084,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Boolean.valueOf(zArr[0]))).floatValue();
+            float floatValue = function1.invoke(Boolean.valueOf(zArr[0])).floatValue();
             int lastIndex = getLastIndex(zArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Boolean.valueOf(zArr[i]))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Boolean.valueOf(zArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -22952,6 +24100,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1076maxOfOrNull(byte[] bArr, Function1<? super Byte, Float> function1) {
         boolean z;
@@ -22964,11 +24115,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Byte.valueOf(bArr[0]))).floatValue();
+        float floatValue = function1.invoke(Byte.valueOf(bArr[0])).floatValue();
         int lastIndex = getLastIndex(bArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Byte.valueOf(bArr[i]))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Byte.valueOf(bArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -22978,6 +24129,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1093minOf(boolean[] zArr, Function1<? super Boolean, Float> function1) {
         boolean z;
@@ -22988,11 +24142,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Boolean.valueOf(zArr[0]))).floatValue();
+            float floatValue = function1.invoke(Boolean.valueOf(zArr[0])).floatValue();
             int lastIndex = getLastIndex(zArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Boolean.valueOf(zArr[i]))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Boolean.valueOf(zArr[i])).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -23004,6 +24158,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1112minOfOrNull(byte[] bArr, Function1<? super Byte, Float> function1) {
         boolean z;
@@ -23016,11 +24173,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Byte.valueOf(bArr[0]))).floatValue();
+        float floatValue = function1.invoke(Byte.valueOf(bArr[0])).floatValue();
         int lastIndex = getLastIndex(bArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Byte.valueOf(bArr[i]))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Byte.valueOf(bArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23030,8 +24187,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1058maxOf(byte[] bArr, Function1<? super Byte, ? extends R> function1) {
         boolean z;
@@ -23042,13 +24200,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Byte.valueOf(bArr[0]));
+            R invoke = function1.invoke(Byte.valueOf(bArr[0]));
             int lastIndex = getLastIndex(bArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Byte.valueOf(bArr[i]));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Byte.valueOf(bArr[i]));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23056,11 +24214,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1077maxOfOrNull(char[] cArr, Function1<? super Character, Float> function1) {
         boolean z;
@@ -23073,11 +24234,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Character.valueOf(cArr[0]))).floatValue();
+        float floatValue = function1.invoke(Character.valueOf(cArr[0])).floatValue();
         int lastIndex = getLastIndex(cArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Character.valueOf(cArr[i]))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Character.valueOf(cArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23087,8 +24248,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1094minOf(byte[] bArr, Function1<? super Byte, ? extends R> function1) {
         boolean z;
@@ -23099,13 +24261,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Byte.valueOf(bArr[0]));
+            R invoke = function1.invoke(Byte.valueOf(bArr[0]));
             int lastIndex = getLastIndex(bArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Byte.valueOf(bArr[i]));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Byte.valueOf(bArr[i]));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23113,11 +24275,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1113minOfOrNull(char[] cArr, Function1<? super Character, Float> function1) {
         boolean z;
@@ -23130,11 +24295,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Character.valueOf(cArr[0]))).floatValue();
+        float floatValue = function1.invoke(Character.valueOf(cArr[0])).floatValue();
         int lastIndex = getLastIndex(cArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Character.valueOf(cArr[i]))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Character.valueOf(cArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23144,8 +24309,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1059maxOf(char[] cArr, Function1<? super Character, ? extends R> function1) {
         boolean z;
@@ -23156,13 +24322,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Character.valueOf(cArr[0]));
+            R invoke = function1.invoke(Character.valueOf(cArr[0]));
             int lastIndex = getLastIndex(cArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Character.valueOf(cArr[i]));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Character.valueOf(cArr[i]));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23170,11 +24336,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1078maxOfOrNull(double[] dArr, Function1<? super Double, Float> function1) {
         boolean z;
@@ -23187,11 +24356,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Double.valueOf(dArr[0]))).floatValue();
+        float floatValue = function1.invoke(Double.valueOf(dArr[0])).floatValue();
         int lastIndex = getLastIndex(dArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Double.valueOf(dArr[i]))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Double.valueOf(dArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23201,8 +24370,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1095minOf(char[] cArr, Function1<? super Character, ? extends R> function1) {
         boolean z;
@@ -23213,13 +24383,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Character.valueOf(cArr[0]));
+            R invoke = function1.invoke(Character.valueOf(cArr[0]));
             int lastIndex = getLastIndex(cArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Character.valueOf(cArr[i]));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Character.valueOf(cArr[i]));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23227,11 +24397,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1114minOfOrNull(double[] dArr, Function1<? super Double, Float> function1) {
         boolean z;
@@ -23244,11 +24417,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Double.valueOf(dArr[0]))).floatValue();
+        float floatValue = function1.invoke(Double.valueOf(dArr[0])).floatValue();
         int lastIndex = getLastIndex(dArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Double.valueOf(dArr[i]))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Double.valueOf(dArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23258,8 +24431,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1060maxOf(double[] dArr, Function1<? super Double, ? extends R> function1) {
         boolean z;
@@ -23270,13 +24444,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Double.valueOf(dArr[0]));
+            R invoke = function1.invoke(Double.valueOf(dArr[0]));
             int lastIndex = getLastIndex(dArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Double.valueOf(dArr[i]));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Double.valueOf(dArr[i]));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23284,11 +24458,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1079maxOfOrNull(float[] fArr, Function1<? super Float, Float> function1) {
         boolean z;
@@ -23301,11 +24478,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Float.valueOf(fArr[0]))).floatValue();
+        float floatValue = function1.invoke(Float.valueOf(fArr[0])).floatValue();
         int lastIndex = getLastIndex(fArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Float.valueOf(fArr[i]))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Float.valueOf(fArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23315,8 +24492,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1096minOf(double[] dArr, Function1<? super Double, ? extends R> function1) {
         boolean z;
@@ -23327,13 +24505,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Double.valueOf(dArr[0]));
+            R invoke = function1.invoke(Double.valueOf(dArr[0]));
             int lastIndex = getLastIndex(dArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Double.valueOf(dArr[i]));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Double.valueOf(dArr[i]));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23341,11 +24519,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1115minOfOrNull(float[] fArr, Function1<? super Float, Float> function1) {
         boolean z;
@@ -23358,11 +24539,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Float.valueOf(fArr[0]))).floatValue();
+        float floatValue = function1.invoke(Float.valueOf(fArr[0])).floatValue();
         int lastIndex = getLastIndex(fArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Float.valueOf(fArr[i]))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Float.valueOf(fArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23372,8 +24553,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1061maxOf(float[] fArr, Function1<? super Float, ? extends R> function1) {
         boolean z;
@@ -23384,13 +24566,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Float.valueOf(fArr[0]));
+            R invoke = function1.invoke(Float.valueOf(fArr[0]));
             int lastIndex = getLastIndex(fArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Float.valueOf(fArr[i]));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Float.valueOf(fArr[i]));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23398,11 +24580,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1080maxOfOrNull(int[] iArr, Function1<? super Integer, Float> function1) {
         boolean z;
@@ -23415,11 +24600,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Integer.valueOf(iArr[0]))).floatValue();
+        float floatValue = function1.invoke(Integer.valueOf(iArr[0])).floatValue();
         int lastIndex = getLastIndex(iArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Integer.valueOf(iArr[i]))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Integer.valueOf(iArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23429,8 +24614,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1097minOf(float[] fArr, Function1<? super Float, ? extends R> function1) {
         boolean z;
@@ -23441,13 +24627,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Float.valueOf(fArr[0]));
+            R invoke = function1.invoke(Float.valueOf(fArr[0]));
             int lastIndex = getLastIndex(fArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Float.valueOf(fArr[i]));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Float.valueOf(fArr[i]));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23455,11 +24641,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1116minOfOrNull(int[] iArr, Function1<? super Integer, Float> function1) {
         boolean z;
@@ -23472,11 +24661,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Integer.valueOf(iArr[0]))).floatValue();
+        float floatValue = function1.invoke(Integer.valueOf(iArr[0])).floatValue();
         int lastIndex = getLastIndex(iArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Integer.valueOf(iArr[i]))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Integer.valueOf(iArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23486,8 +24675,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1062maxOf(int[] iArr, Function1<? super Integer, ? extends R> function1) {
         boolean z;
@@ -23498,13 +24688,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Integer.valueOf(iArr[0]));
+            R invoke = function1.invoke(Integer.valueOf(iArr[0]));
             int lastIndex = getLastIndex(iArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Integer.valueOf(iArr[i]));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Integer.valueOf(iArr[i]));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23512,11 +24702,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1081maxOfOrNull(long[] jArr, Function1<? super Long, Float> function1) {
         boolean z;
@@ -23529,11 +24722,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Long.valueOf(jArr[0]))).floatValue();
+        float floatValue = function1.invoke(Long.valueOf(jArr[0])).floatValue();
         int lastIndex = getLastIndex(jArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Long.valueOf(jArr[i]))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Long.valueOf(jArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23543,8 +24736,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1098minOf(int[] iArr, Function1<? super Integer, ? extends R> function1) {
         boolean z;
@@ -23555,13 +24749,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Integer.valueOf(iArr[0]));
+            R invoke = function1.invoke(Integer.valueOf(iArr[0]));
             int lastIndex = getLastIndex(iArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Integer.valueOf(iArr[i]));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Integer.valueOf(iArr[i]));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23569,11 +24763,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1117minOfOrNull(long[] jArr, Function1<? super Long, Float> function1) {
         boolean z;
@@ -23586,11 +24783,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Long.valueOf(jArr[0]))).floatValue();
+        float floatValue = function1.invoke(Long.valueOf(jArr[0])).floatValue();
         int lastIndex = getLastIndex(jArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Long.valueOf(jArr[i]))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Long.valueOf(jArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23600,8 +24797,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1063maxOf(long[] jArr, Function1<? super Long, ? extends R> function1) {
         boolean z;
@@ -23612,13 +24810,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Long.valueOf(jArr[0]));
+            R invoke = function1.invoke(Long.valueOf(jArr[0]));
             int lastIndex = getLastIndex(jArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Long.valueOf(jArr[i]));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Long.valueOf(jArr[i]));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23626,11 +24824,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final <T> Float m1082maxOfOrNull(T[] tArr, Function1<? super T, Float> function1) {
         boolean z;
@@ -23643,11 +24844,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(tArr[0])).floatValue();
+        float floatValue = function1.invoke(tArr[0]).floatValue();
         int lastIndex = getLastIndex(tArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(tArr[i])).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(tArr[i]).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23657,8 +24858,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1099minOf(long[] jArr, Function1<? super Long, ? extends R> function1) {
         boolean z;
@@ -23669,13 +24871,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Long.valueOf(jArr[0]));
+            R invoke = function1.invoke(Long.valueOf(jArr[0]));
             int lastIndex = getLastIndex(jArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Long.valueOf(jArr[i]));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Long.valueOf(jArr[i]));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23683,11 +24885,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final <T> Float m1118minOfOrNull(T[] tArr, Function1<? super T, Float> function1) {
         boolean z;
@@ -23700,11 +24905,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(tArr[0])).floatValue();
+        float floatValue = function1.invoke(tArr[0]).floatValue();
         int lastIndex = getLastIndex(tArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(tArr[i])).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(tArr[i]).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23714,6 +24919,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <T, R extends Comparable<? super R>> R m1064maxOf(T[] tArr, Function1<? super T, ? extends R> function1) {
         boolean z;
@@ -23724,13 +24932,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(tArr[0]);
+            R invoke = function1.invoke(tArr[0]);
             int lastIndex = getLastIndex(tArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Comparable comparable = (Comparable) function1.invoke(tArr[i]);
-                    if (r.compareTo(comparable) < 0) {
-                        r = (R) comparable;
+                    R invoke2 = function1.invoke(tArr[i]);
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23738,11 +24946,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1083maxOfOrNull(short[] sArr, Function1<? super Short, Float> function1) {
         boolean z;
@@ -23755,11 +24966,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Short.valueOf(sArr[0]))).floatValue();
+        float floatValue = function1.invoke(Short.valueOf(sArr[0])).floatValue();
         int lastIndex = getLastIndex(sArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Short.valueOf(sArr[i]))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Short.valueOf(sArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23769,6 +24980,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <T, R extends Comparable<? super R>> R m1100minOf(T[] tArr, Function1<? super T, ? extends R> function1) {
         boolean z;
@@ -23779,13 +24993,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(tArr[0]);
+            R invoke = function1.invoke(tArr[0]);
             int lastIndex = getLastIndex(tArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    Comparable comparable = (Comparable) function1.invoke(tArr[i]);
-                    if (r.compareTo(comparable) > 0) {
-                        r = (R) comparable;
+                    R invoke2 = function1.invoke(tArr[i]);
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23793,11 +25007,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1119minOfOrNull(short[] sArr, Function1<? super Short, Float> function1) {
         boolean z;
@@ -23810,11 +25027,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Short.valueOf(sArr[0]))).floatValue();
+        float floatValue = function1.invoke(Short.valueOf(sArr[0])).floatValue();
         int lastIndex = getLastIndex(sArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Short.valueOf(sArr[i]))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Short.valueOf(sArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23824,8 +25041,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1065maxOf(short[] sArr, Function1<? super Short, ? extends R> function1) {
         boolean z;
@@ -23836,13 +25054,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Short.valueOf(sArr[0]));
+            R invoke = function1.invoke(Short.valueOf(sArr[0]));
             int lastIndex = getLastIndex(sArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Short.valueOf(sArr[i]));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Short.valueOf(sArr[i]));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23850,11 +25068,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1084maxOfOrNull(boolean[] zArr, Function1<? super Boolean, Float> function1) {
         boolean z;
@@ -23867,11 +25088,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Boolean.valueOf(zArr[0]))).floatValue();
+        float floatValue = function1.invoke(Boolean.valueOf(zArr[0])).floatValue();
         int lastIndex = getLastIndex(zArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Boolean.valueOf(zArr[i]))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Boolean.valueOf(zArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23881,8 +25102,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1101minOf(short[] sArr, Function1<? super Short, ? extends R> function1) {
         boolean z;
@@ -23893,13 +25115,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Short.valueOf(sArr[0]));
+            R invoke = function1.invoke(Short.valueOf(sArr[0]));
             int lastIndex = getLastIndex(sArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Short.valueOf(sArr[i]));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Short.valueOf(sArr[i]));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23907,11 +25129,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1120minOfOrNull(boolean[] zArr, Function1<? super Boolean, Float> function1) {
         boolean z;
@@ -23924,11 +25149,11 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Boolean.valueOf(zArr[0]))).floatValue();
+        float floatValue = function1.invoke(Boolean.valueOf(zArr[0])).floatValue();
         int lastIndex = getLastIndex(zArr);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Boolean.valueOf(zArr[i]))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Boolean.valueOf(zArr[i])).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -23938,8 +25163,9 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1066maxOf(boolean[] zArr, Function1<? super Boolean, ? extends R> function1) {
         boolean z;
@@ -23950,13 +25176,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Boolean.valueOf(zArr[0]));
+            R invoke = function1.invoke(Boolean.valueOf(zArr[0]));
             int lastIndex = getLastIndex(zArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Boolean.valueOf(zArr[i]));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Boolean.valueOf(zArr[i]));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23964,13 +25190,14 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1102minOf(boolean[] zArr, Function1<? super Boolean, ? extends R> function1) {
         boolean z;
@@ -23981,13 +25208,13 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Boolean.valueOf(zArr[0]));
+            R invoke = function1.invoke(Boolean.valueOf(zArr[0]));
             int lastIndex = getLastIndex(zArr);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Boolean.valueOf(zArr[i]));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Boolean.valueOf(zArr[i]));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -23995,7 +25222,7 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
@@ -24269,18 +25496,21 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
     public static final <R, V> List<V> zip(long[] zip, Iterable<? extends R> other, Function2<? super Long, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(Long.valueOf(zip[i]), r));
+            arrayList.add(transform.invoke(Long.valueOf(zip[i]), obj));
             i++;
         }
         return arrayList;
@@ -24298,35 +25528,43 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, R, V> List<V> zip(T[] zip, Iterable<? extends R> other, Function2<? super T, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(zip[i], r));
+            arrayList.add(transform.invoke(zip[i], obj));
             i++;
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
     public static final <R, V> List<V> zip(short[] zip, Iterable<? extends R> other, Function2<? super Short, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(Short.valueOf(zip[i]), r));
+            arrayList.add(transform.invoke(Short.valueOf(zip[i]), obj));
             i++;
         }
         return arrayList;
@@ -24344,18 +25582,21 @@ public class ArraysKt___ArraysKt extends ArraysKt___ArraysJvmKt {
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: R, ? super R */
     public static final <R, V> List<V> zip(boolean[] zip, Iterable<? extends R> other, Function2<? super Boolean, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = zip.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10), length));
+        Iterator<? extends R> it = other.iterator();
         int i = 0;
-        for (R r : other) {
+        while (it.hasNext()) {
+            Object obj = (R) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(Boolean.valueOf(zip[i]), r));
+            arrayList.add(transform.invoke(Boolean.valueOf(zip[i]), obj));
             i++;
         }
         return arrayList;

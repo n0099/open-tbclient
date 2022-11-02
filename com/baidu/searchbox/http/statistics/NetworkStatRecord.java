@@ -27,7 +27,7 @@ public class NetworkStatRecord {
     public static final int DEFAULT_SUBFROM_ID = 0;
     public static final String HEAD_X_BFE_SVBBRERS = "X-Bfe-Svbbrers";
     public transient /* synthetic */ FieldHolder $fh;
-    public List addressList;
+    public List<InetAddress> addressList;
     public String bdTraceId;
     public String clientIP;
     public long connTs;

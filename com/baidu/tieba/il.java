@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class il {
+public class il extends hl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BitmapDrawable a;
-    public pn b;
-    public volatile boolean c;
+    public Path v;
+    public boolean w;
+    public Rect x;
 
     public il() {
         Interceptable interceptable = $ic;
@@ -25,85 +28,52 @@ public class il {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = true;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xk
+    public void e(Canvas canvas, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicHeight();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
+            canvas.save();
+            t(drawable.getBounds());
+            try {
+                canvas.clipPath(this.v);
+            } catch (Exception unused) {
             }
-            if (d()) {
-                return this.b.m();
-            }
-            return 0;
+            drawable.draw(canvas);
+            canvas.restore();
         }
-        return invokeV.intValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public final void t(Rect rect) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicWidth();
-            }
-            if (d()) {
-                return this.b.r();
-            }
-            return 0;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!e() && !d()) {
-                return false;
-            }
-            return true;
+        boolean z2 = true;
+        if (this.v != null && this.w == this.l.b) {
+            z = false;
+        } else {
+            z = true;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            pn pnVar = this.b;
-            if (pnVar != null && pnVar.w()) {
-                return true;
-            }
-            return false;
+        Rect rect2 = this.x;
+        if (rect2 != null && rect2.contains(rect)) {
+            z2 = z;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapDrawable bitmapDrawable = this.a;
-            if (bitmapDrawable != null && bitmapDrawable.getBitmap() != null && !this.a.getBitmap().isRecycled()) {
-                return true;
+        this.w = this.l.b;
+        if (z2) {
+            this.x = rect;
+            Path path = new Path();
+            this.v = path;
+            if (this.w) {
+                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+            } else {
+                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = null;
-            this.a = null;
+            this.v.close();
         }
     }
 }

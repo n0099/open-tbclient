@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.i;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class h extends LinkedHashMap {
+public class h<K, T> extends LinkedHashMap<K, T> {
     public int a;
 
     public h() {
@@ -24,7 +24,7 @@ public class h extends LinkedHashMap {
     }
 
     @Override // java.util.LinkedHashMap
-    public boolean removeEldestEntry(Map.Entry entry) {
+    public boolean removeEldestEntry(Map.Entry<K, T> entry) {
         if (size() > this.a) {
             return true;
         }

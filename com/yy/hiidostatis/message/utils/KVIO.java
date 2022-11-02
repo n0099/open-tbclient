@@ -41,7 +41,7 @@ public class KVIO {
         this.editor = sharedPreferences.edit();
     }
 
-    private Set decodeStringSet(String str, Set set, Class cls) {
+    private Set<String> decodeStringSet(String str, Set<String> set, Class<? extends Set> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, set, cls)) == null) {
@@ -143,7 +143,7 @@ public class KVIO {
         return (String) invokeL.objValue;
     }
 
-    public Set decodeStringSet(String str) {
+    public Set<String> decodeStringSet(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
@@ -223,7 +223,7 @@ public class KVIO {
         return (String) invokeLL.objValue;
     }
 
-    public Set decodeStringSet(String str, Set set) {
+    public Set<String> decodeStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, set)) == null) {
@@ -282,7 +282,7 @@ public class KVIO {
         return invokeLL.booleanValue;
     }
 
-    public boolean encode(String str, Set set) {
+    public boolean encode(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, set)) == null) {

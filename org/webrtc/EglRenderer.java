@@ -11,7 +11,7 @@ import android.os.Message;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.px9;
+import com.baidu.tieba.yy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EglRenderer implements VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LOG_INTERVAL_SEC = 4;
@@ -43,7 +43,7 @@ public class EglRenderer implements VideoSink {
     public final EglSurfaceCreation eglSurfaceCreationRunnable;
     public final Object fpsReductionLock;
     public final VideoFrameDrawer frameDrawer;
-    public final ArrayList frameListeners;
+    public final ArrayList<FrameListenerAndParams> frameListeners;
     public final Object frameLock;
     public int framesDropped;
     public int framesReceived;
@@ -66,12 +66,12 @@ public class EglRenderer implements VideoSink {
     public long statisticsStartTimeNs;
     public boolean usePresentationTimeStamp;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FrameListener {
         void onFrame(Bitmap bitmap);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class EglSurfaceCreation implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,8 +126,8 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class FrameListenerAndParams {
+    /* loaded from: classes9.dex */
+    public static class FrameListenerAndParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean applyFpsReduction;
@@ -157,8 +157,8 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class HandlerWithExceptionCallback extends Handler {
+    /* loaded from: classes9.dex */
+    public static class HandlerWithExceptionCallback extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Runnable exceptionCallback;
@@ -215,7 +215,7 @@ public class EglRenderer implements VideoSink {
             }
         }
         this.handlerLock = new Object();
-        this.frameListeners = new ArrayList();
+        this.frameListeners = new ArrayList<>();
         this.fpsReductionLock = new Object();
         this.frameDrawer = new VideoFrameDrawer();
         this.drawMatrix = new Matrix();
@@ -373,18 +373,18 @@ public class EglRenderer implements VideoSink {
     public /* synthetic */ void c(EglBase.Context context, int[] iArr) {
         if (context == null) {
             logD("EglBase10.create context");
-            this.eglBase = px9.d(iArr);
+            this.eglBase = yy9.d(iArr);
             return;
         }
         logD("EglBase.create shared context");
-        this.eglBase = px9.c(context, iArr);
+        this.eglBase = yy9.c(context, iArr);
     }
 
     public /* synthetic */ void g(CountDownLatch countDownLatch, FrameListener frameListener) {
         countDownLatch.countDown();
-        Iterator it = this.frameListeners.iterator();
+        Iterator<FrameListenerAndParams> it = this.frameListeners.iterator();
         while (it.hasNext()) {
-            if (((FrameListenerAndParams) it.next()).listener == frameListener) {
+            if (it.next().listener == frameListener) {
                 it.remove();
             }
         }
@@ -423,7 +423,7 @@ public class EglRenderer implements VideoSink {
                 if (this.renderThreadHandler == null) {
                     return;
                 }
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.tw9
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.cy9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -469,20 +469,20 @@ public class EglRenderer implements VideoSink {
         }
         this.drawMatrix.preScale(1.0f, -1.0f);
         this.drawMatrix.preTranslate(-0.5f, -0.5f);
-        Iterator it = this.frameListeners.iterator();
+        Iterator<FrameListenerAndParams> it = this.frameListeners.iterator();
         while (it.hasNext()) {
-            FrameListenerAndParams frameListenerAndParams = (FrameListenerAndParams) it.next();
-            if (z || !frameListenerAndParams.applyFpsReduction) {
+            FrameListenerAndParams next = it.next();
+            if (z || !next.applyFpsReduction) {
                 it.remove();
-                int rotatedWidth = (int) (frameListenerAndParams.scale * videoFrame.getRotatedWidth());
-                int rotatedHeight = (int) (frameListenerAndParams.scale * videoFrame.getRotatedHeight());
+                int rotatedWidth = (int) (next.scale * videoFrame.getRotatedWidth());
+                int rotatedHeight = (int) (next.scale * videoFrame.getRotatedHeight());
                 if (rotatedWidth != 0 && rotatedHeight != 0) {
                     this.bitmapTextureFramebuffer.setSize(rotatedWidth, rotatedHeight);
                     GLES20.glBindFramebuffer(36160, this.bitmapTextureFramebuffer.getFrameBufferId());
                     GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.bitmapTextureFramebuffer.getTextureId(), 0);
                     GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                     GLES20.glClear(16384);
-                    this.frameDrawer.drawFrame(videoFrame, frameListenerAndParams.drawer, this.drawMatrix, 0, 0, rotatedWidth, rotatedHeight);
+                    this.frameDrawer.drawFrame(videoFrame, next.drawer, this.drawMatrix, 0, 0, rotatedWidth, rotatedHeight);
                     ByteBuffer allocateDirect = ByteBuffer.allocateDirect(rotatedWidth * rotatedHeight * 4);
                     GLES20.glViewport(0, 0, rotatedWidth, rotatedHeight);
                     GLES20.glReadPixels(0, 0, rotatedWidth, rotatedHeight, GeneratedTexture.FORMAT, 5121, allocateDirect);
@@ -490,9 +490,9 @@ public class EglRenderer implements VideoSink {
                     GlUtil.checkNoGLES2Error("EglRenderer.notifyCallbacks");
                     Bitmap createBitmap = Bitmap.createBitmap(rotatedWidth, rotatedHeight, Bitmap.Config.ARGB_8888);
                     createBitmap.copyPixelsFromBuffer(allocateDirect);
-                    frameListenerAndParams.listener.onFrame(createBitmap);
+                    next.listener.onFrame(createBitmap);
                 } else {
-                    frameListenerAndParams.listener.onFrame(null);
+                    next.listener.onFrame(null);
                 }
             }
         }
@@ -604,7 +604,7 @@ public class EglRenderer implements VideoSink {
     public void addFrameListener(final FrameListener frameListener, final float f, @Nullable final RendererCommon.GlDrawer glDrawer, final boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{frameListener, Float.valueOf(f), glDrawer, Boolean.valueOf(z)}) == null) {
-            postToRenderThread(new Runnable() { // from class: com.baidu.tieba.rw9
+            postToRenderThread(new Runnable() { // from class: com.baidu.tieba.ay9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -691,7 +691,7 @@ public class EglRenderer implements VideoSink {
                         }
                     });
                     this.renderThreadHandler = handlerWithExceptionCallback;
-                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: com.baidu.tieba.pw9
+                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: com.baidu.tieba.yx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -737,7 +737,7 @@ public class EglRenderer implements VideoSink {
                     }
                     this.pendingFrame = videoFrame;
                     videoFrame.retain();
-                    this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.uw9
+                    this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.dy9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -811,7 +811,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 this.renderThreadHandler.removeCallbacks(this.logStatisticsRunnable);
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.qw9
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.zx9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -824,7 +824,7 @@ public class EglRenderer implements VideoSink {
                     }
                 });
                 final Looper looper = this.renderThreadHandler.getLooper();
-                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.nw9
+                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.wx9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -856,7 +856,7 @@ public class EglRenderer implements VideoSink {
             synchronized (this.handlerLock) {
                 if (this.renderThreadHandler != null) {
                     this.renderThreadHandler.removeCallbacks(this.eglSurfaceCreationRunnable);
-                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.sw9
+                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.by9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -884,7 +884,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 if (Thread.currentThread() != this.renderThreadHandler.getLooper().getThread()) {
-                    postToRenderThread(new Runnable() { // from class: com.baidu.tieba.ow9
+                    postToRenderThread(new Runnable() { // from class: com.baidu.tieba.xx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

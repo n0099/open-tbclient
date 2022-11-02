@@ -1,6 +1,8 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,13 +16,13 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.io.File;
 /* loaded from: classes7.dex */
-public class BitmapDrawableEncoder implements ResourceEncoder {
+public class BitmapDrawableEncoder implements ResourceEncoder<BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapPool bitmapPool;
-    public final ResourceEncoder encoder;
+    public final ResourceEncoder<Bitmap> encoder;
 
-    public BitmapDrawableEncoder(BitmapPool bitmapPool, ResourceEncoder resourceEncoder) {
+    public BitmapDrawableEncoder(BitmapPool bitmapPool, ResourceEncoder<Bitmap> resourceEncoder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,17 +43,18 @@ public class BitmapDrawableEncoder implements ResourceEncoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
-    public boolean encode(Resource resource, File file, Options options) {
+    public boolean encode(@NonNull Resource<BitmapDrawable> resource, @NonNull File file, @NonNull Options options) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, resource, file, options)) == null) {
-            return this.encoder.encode(new BitmapResource(((BitmapDrawable) resource.get()).getBitmap(), this.bitmapPool), file, options);
+            return this.encoder.encode(new BitmapResource(resource.get().getBitmap(), this.bitmapPool), file, options);
         }
         return invokeLLL.booleanValue;
     }
 
     @Override // com.bumptech.glide.load.ResourceEncoder
-    public EncodeStrategy getEncodeStrategy(Options options) {
+    @NonNull
+    public EncodeStrategy getEncodeStrategy(@NonNull Options options) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, options)) == null) {

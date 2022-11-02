@@ -1,24 +1,119 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.graphics.Rect;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class s61 implements InvocationHandler {
+public class s61 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p61 a;
+    public boolean a;
+    public int b;
+    public WeakReference<View> c;
 
-    public s61(p61 p61Var) {
+    /* loaded from: classes5.dex */
+    public class a implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Application a;
+        public final /* synthetic */ s61 b;
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            }
+        }
+
+        public a(s61 s61Var, Application application) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s61Var, application};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = s61Var;
+            this.a = application;
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+            View view2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || (view2 = (View) this.b.c.get()) == null || activity != view2.getContext()) {
+                return;
+            }
+            this.b.a = false;
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(@NonNull Activity activity) {
+            View view2;
+            Application application;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext() && (application = this.a) != null) {
+                application.unregisterActivityLifecycleCallbacks(this);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(@NonNull Activity activity) {
+            View view2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext()) {
+                this.b.a = true;
+            }
+        }
+    }
+
+    public s61(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p61Var};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,26 +123,51 @@ public class s61 implements InvocationHandler {
                 return;
             }
         }
-        this.a = p61Var;
+        this.a = false;
+        this.b = -1;
+        this.c = new WeakReference<>(view2);
+        c();
     }
 
-    @Override // java.lang.reflect.InvocationHandler
-    public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-        InterceptResult invokeLLL;
+    public final void c() {
+        Application application;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
-            if (this.a != null) {
-                try {
-                    this.a.onTranslucent(((Boolean) objArr[0]).booleanValue());
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    this.a.onTranslucent(false);
-                    return null;
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (v51.b() instanceof Application) {
+                application = (Application) v51.b();
+            } else {
+                application = (Application) v51.b().getApplicationContext();
             }
-            return null;
+            application.registerActivityLifecycleCallbacks(new a(this, application));
         }
-        return invokeLLL.objValue;
+    }
+
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        View view2;
+        int measuredHeight;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (view2 = this.c.get()) == null) {
+            return;
+        }
+        if (this.b >= ((int) (m31.c.f(view2.getContext()) * 0.85f)) && !this.a) {
+            return;
+        }
+        if (ViewCompat.isAttachedToWindow(view2)) {
+            Rect rect = new Rect();
+            view2.getWindowVisibleDisplayFrame(rect);
+            int i = rect.top;
+            if (i == 0) {
+                i = m31.c.g();
+            }
+            measuredHeight = rect.bottom - i;
+        } else {
+            measuredHeight = view2.getMeasuredHeight();
+        }
+        if (this.b != measuredHeight && measuredHeight > 0) {
+            this.b = measuredHeight;
+            view2.getLayoutParams().height = measuredHeight;
+            view2.requestLayout();
+        }
     }
 }

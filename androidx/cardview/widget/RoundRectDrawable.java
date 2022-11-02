@@ -10,6 +10,8 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class RoundRectDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic;
@@ -137,7 +140,7 @@ public class RoundRectDrawable extends Drawable {
         }
     }
 
-    public void setColor(ColorStateList colorStateList) {
+    public void setColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) {
             setBackground(colorStateList);

@@ -1,6 +1,8 @@
 package androidx.media2.session;
 
 import android.os.SystemClock;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.concurrent.futures.ResolvableFuture;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
@@ -30,6 +32,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
     public int mResultCode;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface ResultCode {
     }
@@ -58,6 +61,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
         return invokeV.longValue;
     }
 
+    @Nullable
     public MediaLibraryService.LibraryParams getLibraryParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,6 +72,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     @Override // androidx.media2.common.BaseResult
+    @Nullable
     public MediaItem getMediaItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,6 +82,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
         return (MediaItem) invokeV.objValue;
     }
 
+    @Nullable
     public List<MediaItem> getMediaItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,6 +103,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onPostParceling() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -127,7 +134,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LibraryResult(int i, MediaItem mediaItem, MediaLibraryService.LibraryParams libraryParams) {
+    public LibraryResult(int i, @Nullable MediaItem mediaItem, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         this(i, mediaItem, null, libraryParams);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -147,7 +154,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
         }
     }
 
-    public LibraryResult(int i, MediaItem mediaItem, List<MediaItem> list, MediaLibraryService.LibraryParams libraryParams) {
+    public LibraryResult(int i, @Nullable MediaItem mediaItem, @Nullable List<MediaItem> list, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,7 +177,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LibraryResult(int i, List<MediaItem> list, MediaLibraryService.LibraryParams libraryParams) {
+    public LibraryResult(int i, @Nullable List<MediaItem> list, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         this(i, null, list, libraryParams);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -202,6 +209,7 @@ public class LibraryResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onPreParceling(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {

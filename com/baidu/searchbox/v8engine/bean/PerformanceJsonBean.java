@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine.bean;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,6 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@NotProguard
 /* loaded from: classes2.dex */
 public class PerformanceJsonBean {
     public static /* synthetic */ Interceptable $ic = null;
@@ -19,10 +21,10 @@ public class PerformanceJsonBean {
     public static final String KEY_TIMESTAMP = "timestamp";
     public static final String TAG = "PerformanceJsonBean";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mPerformanceJsonObjectList;
+    public List<PerformanceJsonObject> mPerformanceJsonObjectList;
 
     /* loaded from: classes2.dex */
-    public class PerformanceJsonObject {
+    public static class PerformanceJsonObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String name;
@@ -71,11 +73,11 @@ public class PerformanceJsonBean {
         }
     }
 
-    public List getPerformanceJsonObjectList() {
+    public List<PerformanceJsonObject> getPerformanceJsonObjectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List list = this.mPerformanceJsonObjectList;
+            List<PerformanceJsonObject> list = this.mPerformanceJsonObjectList;
             if (list == null) {
                 return new ArrayList();
             }

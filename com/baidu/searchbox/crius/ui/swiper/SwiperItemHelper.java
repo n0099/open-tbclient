@@ -16,7 +16,7 @@ public class SwiperItemHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SwiperItemHelper";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mBannerItems;
+    public List<CriusData> mBannerItems;
 
     public SwiperItemHelper() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class SwiperItemHelper {
     }
 
     private void clear() {
-        List list;
+        List<CriusData> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (list = this.mBannerItems) != null) {
             list.clear();
@@ -69,7 +69,7 @@ public class SwiperItemHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i < this.mBannerItems.size() && i >= 0) {
-                return (CriusData) this.mBannerItems.get(i);
+                return this.mBannerItems.get(i);
             }
             return null;
         }

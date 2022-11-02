@@ -21,17 +21,17 @@ import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class WebpTranscodeProducer implements Producer {
+public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_JPEG_QUALITY = 80;
     public static final String PRODUCER_NAME = "WebpTranscodeProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
-    public final Producer mInputProducer;
+    public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
     /* loaded from: classes7.dex */
-    public class WebpTranscodeConsumer extends DelegatingConsumer {
+    public class WebpTranscodeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ProducerContext mContext;
@@ -39,7 +39,7 @@ public class WebpTranscodeProducer implements Producer {
         public final /* synthetic */ WebpTranscodeProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WebpTranscodeConsumer(WebpTranscodeProducer webpTranscodeProducer, Consumer consumer, ProducerContext producerContext) {
+        public WebpTranscodeConsumer(WebpTranscodeProducer webpTranscodeProducer, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -82,7 +82,7 @@ public class WebpTranscodeProducer implements Producer {
         }
     }
 
-    public WebpTranscodeProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Producer producer) {
+    public WebpTranscodeProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Producer<EncodedImage> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class WebpTranscodeProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             this.mInputProducer.produceResults(new WebpTranscodeConsumer(this, consumer, producerContext), producerContext);
@@ -150,11 +150,11 @@ public class WebpTranscodeProducer implements Producer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void transcodeLastResult(EncodedImage encodedImage, Consumer consumer, ProducerContext producerContext) {
+    public void transcodeLastResult(EncodedImage encodedImage, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, this, encodedImage, consumer, producerContext) == null) {
             Preconditions.checkNotNull(encodedImage);
-            this.mExecutor.execute(new StatefulProducerRunnable(this, consumer, producerContext.getProducerListener(), producerContext, PRODUCER_NAME, EncodedImage.cloneOrNull(encodedImage)) { // from class: com.facebook.imagepipeline.producers.WebpTranscodeProducer.1
+            this.mExecutor.execute(new StatefulProducerRunnable<EncodedImage>(this, consumer, producerContext.getProducerListener(), producerContext, PRODUCER_NAME, EncodedImage.cloneOrNull(encodedImage)) { // from class: com.facebook.imagepipeline.producers.WebpTranscodeProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebpTranscodeProducer this$0;
@@ -207,7 +207,7 @@ public class WebpTranscodeProducer implements Producer {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, encodedImage2) == null) {
                         EncodedImage.closeSafely(this.val$encodedImageCopy);
-                        super.onSuccess((Object) encodedImage2);
+                        super.onSuccess((AnonymousClass1) encodedImage2);
                     }
                 }
 

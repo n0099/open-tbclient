@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.so;
+import com.baidu.tieba.ko;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public final h q;
     public e r;
     public g s;
-    public final List t;
+    public final List<f> t;
     public d u;
 
     /* loaded from: classes.dex */
@@ -94,7 +94,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class TrackDirection {
+    public static final class TrackDirection {
         public static final /* synthetic */ TrackDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TrackDirection horizontal;
@@ -163,7 +163,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -402,7 +402,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (so.a(f2, f, false) + this.d);
+                this.h.d = (int) (ko.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -424,7 +424,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (so.a(f2, f, false) + this.d);
+                this.h.d = (int) (ko.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -447,7 +447,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (so.a(f2, f, false) + this.d);
+                this.h.d = (int) (ko.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-104, this.f);
             }
@@ -470,7 +470,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (so.a(f2, f, false) + this.d);
+                this.h.d = (int) (ko.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-105, this.f);
             }

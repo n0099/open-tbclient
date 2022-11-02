@@ -2,6 +2,8 @@ package com.kwad.components.ad.e;
 
 import android.content.Context;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -43,7 +45,7 @@ public final class d extends KSFrameLayout {
     public Presenter mPresenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(Context context) {
+    public d(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,16 +136,16 @@ public final class d extends KSFrameLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d043e, this);
-            AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ca);
+            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0449, this);
+            AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
             this.jK = adBasePvFrameLayout;
-            DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091220);
+            DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f09125a);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
         }
     }
 
-    public final void a(AdTemplate adTemplate, com.kwad.components.core.c.a.c cVar, KsAdVideoPlayConfig ksAdVideoPlayConfig) {
+    public final void a(@NonNull AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, cVar, ksAdVideoPlayConfig) == null) {
             this.mAdTemplate = adTemplate;

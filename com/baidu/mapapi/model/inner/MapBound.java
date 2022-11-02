@@ -1,6 +1,7 @@
 package com.baidu.mapapi.model.inner;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,13 +39,19 @@ public class MapBound implements Serializable {
     public Point getPtLB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.ptLB : (Point) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.ptLB;
+        }
+        return (Point) invokeV.objValue;
     }
 
     public Point getPtRT() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.ptRT : (Point) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.ptRT;
+        }
+        return (Point) invokeV.objValue;
     }
 
     public void setPtLB(Point point) {

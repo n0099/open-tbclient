@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.taskmanager.IdleTaskRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gc implements dc {
+public class gc {
     public static /* synthetic */ Interceptable $ic;
+    public static gc d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final IdleTaskRegister a;
+    public boolean b;
+    public boolean c;
 
     public gc() {
         Interceptable interceptable = $ic;
@@ -22,35 +26,60 @@ public class gc implements dc {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new IdleTaskRegister();
+        this.b = false;
+        this.c = false;
+    }
+
+    public static gc b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                d = new gc();
+            }
+            return d;
+        }
+        return (gc) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+            this.a.scheduleIdleTask(true);
         }
     }
 
-    @Override // com.baidu.tieba.dc
-    public pn a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            NSGif f = NSGif.f(bArr, i, i2);
-            if (f == null) {
-                return null;
-            }
-            return new pn(f);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            this.c = true;
+            this.a.scheduleIdleTask(false);
         }
-        return (pn) invokeLII.objValue;
     }
 
-    @Override // com.baidu.tieba.dc
-    public pn get(String str) {
-        InterceptResult invokeL;
+    public void a(String str, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            NSGif e = NSGif.e(str);
-            if (e == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
+            if (!this.b) {
+                this.a.registerIdleTask(str, runnable);
+            } else {
+                runnable.run();
             }
-            return new pn(e);
         }
-        return (pn) invokeL.objValue;
     }
 }

@@ -1,109 +1,99 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.GetRequest;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.ps1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.Iterator;
+@Service
 /* loaded from: classes6.dex */
-public class x64 {
+public class x64 extends ps1 implements ql1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<ps1.a> a;
 
-    /* loaded from: classes6.dex */
-    public final class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+    public x64() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+    }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+    @Nullable
+    public static x64 c() {
+        InterceptResult invokeV;
+        b04 b04Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            n32 V = rp2.U().V();
+            if (V == null || (b04Var = (b04) V.n(b04.class)) == null) {
+                return null;
+            }
+            return b04Var.u3();
+        }
+        return (x64) invokeV.objValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Iterator<ps1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.a.clear();
             }
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.ql1
+    public ps1 getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c();
+        }
+        return (ps1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ps1
+    public synchronized void a(ps1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (!this.a.contains(aVar)) {
+                    this.a.add(aVar);
                 }
             }
         }
     }
 
-    public static Map a(m33 m33Var, int i, String str) {
-        InterceptResult invokeLIL;
+    @Override // com.baidu.tieba.ps1
+    public synchronized void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, m33Var, i, str)) == null) {
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, m33Var.O());
-            treeMap.put("to_app_key", str);
-            treeMap.put("source", String.valueOf(i));
-            treeMap.put("timestamp", c());
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : treeMap.keySet()) {
-                sb.append(str2);
-                sb.append("=");
-                sb.append((String) treeMap.get(str2));
-                sb.append("&");
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
+                Iterator<ps1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().b(i);
+                }
             }
-            sb.append("dsb9Ao44");
-            treeMap.put("sign", sj4.d(sb.toString().getBytes(), false));
-            return treeMap;
         }
-        return (Map) invokeLIL.objValue;
-    }
-
-    public static void b(int i, ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
-            m33 M = m33.M();
-            if (M == null) {
-                responseCallback.onFail(new Exception("framework error: swan app is null."));
-                return;
-            }
-            ((GetRequest.GetRequestBuilder) ((GetRequest.GetRequestBuilder) ((GetRequest.GetRequestBuilder) ((GetRequest.GetRequestBuilder) ((GetRequest.GetRequestBuilder) ((GetRequest.GetRequestBuilder) ((GetRequest.GetRequestBuilder) M.i0().getRequest().cookieManager(tm2.q().a())).url(d04.b().p())).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O())).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5))).addUrlParam("source", String.valueOf(i))).requestFrom(16)).requestFrom(1607)).build().executeAsync(responseCallback);
-        }
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return String.valueOf(System.currentTimeMillis() / 1000);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(int i, String str) {
-        m33 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(65539, null, i, str) != null) || (M = m33.M()) == null) {
-            return;
-        }
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(tm2.q().a())).url(d04.b().g())).addParams(a(M, i, str))).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
     }
 }

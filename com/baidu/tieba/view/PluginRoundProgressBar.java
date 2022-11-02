@@ -10,8 +10,8 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.ri7;
+import com.baidu.tieba.bk7;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,11 +124,11 @@ public class PluginRoundProgressBar extends View {
         }
         this.a = new Paint();
         this.k = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ri7.RoundProgressBar);
-        this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06091c));
-        this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.obfuscated_res_0x7f060461));
-        this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.obfuscated_res_0x7f0608fe));
-        this.e = obtainStyledAttributes.getDimension(6, fj.d(getContext(), 11.0f));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bk7.RoundProgressBar);
+        this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06092e));
+        this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.obfuscated_res_0x7f060462));
+        this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.obfuscated_res_0x7f060910));
+        this.e = obtainStyledAttributes.getDimension(6, xi.d(getContext(), 11.0f));
         this.f = obtainStyledAttributes.getDimension(7, 7.0f);
         this.g = obtainStyledAttributes.getInteger(1, 100);
         this.i = obtainStyledAttributes.getBoolean(5, true);

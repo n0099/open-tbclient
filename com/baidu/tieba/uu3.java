@@ -1,73 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uu3 extends sv3 {
+public class uu3 implements xu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppDownloadNetworkStateReceiver c;
+    public ru3 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948223446, "Lcom/baidu/tieba/uu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948223446, "Lcom/baidu/tieba/uu3;");
-                return;
-            }
-        }
-        boolean z = wj1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uu3() {
-        super("resumeAllDownloadWhileWifi");
+    public uu3(ru3 ru3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ru3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = ru3Var;
     }
 
-    @Override // com.baidu.tieba.sv3
-    public mv1 a(JSONObject jSONObject, qg2 qg2Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.xu3
+    public void a(yu3 yu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, qg2Var)) == null) {
-            if (jSONObject == null) {
-                qg2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (this.c == null) {
-                this.c = new AppDownloadNetworkStateReceiver();
-            }
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            tm2.c().registerReceiver(this.c, intentFilter);
-            qg2Var.a(null);
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yu3Var) == null) {
+            setResult(yu3Var);
         }
-        return (mv1) invokeLL.objValue;
+    }
+
+    private void setResult(yu3 yu3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, yu3Var) == null) {
+            this.a.d.clear();
+            if (yu3Var != null) {
+                this.a.d.putString("functionType", yu3Var.a());
+                this.a.d.putString("resultData", yu3Var.b());
+                this.a.d.putInt("resultStatus", yu3Var.c());
+            }
+            this.a.c();
+        }
     }
 }

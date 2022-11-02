@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.meizu.cloud.pushsdk.PushManager;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +26,7 @@ public abstract class c {
     public AtomicBoolean m = new AtomicBoolean(true);
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public final com.meizu.cloud.pushsdk.c.b.c a;
         public final String b;
         public final String c;
@@ -41,9 +40,9 @@ public abstract class c {
         public long k = 15;
         public int l = 10;
         public TimeUnit m = TimeUnit.SECONDS;
-        public Class n;
+        public Class<? extends c> n;
 
-        public a(com.meizu.cloud.pushsdk.c.b.c cVar, String str, String str2, Context context, Class cls) {
+        public a(com.meizu.cloud.pushsdk.c.b.c cVar, String str, String str2, Context context, Class<? extends c> cls) {
             this.a = cVar;
             this.b = str;
             this.c = str2;
@@ -91,7 +90,7 @@ public abstract class c {
         com.meizu.cloud.pushsdk.c.f.c.c(n, "Tracker created successfully.", new Object[0]);
     }
 
-    private com.meizu.cloud.pushsdk.c.a.b a(List list) {
+    private com.meizu.cloud.pushsdk.c.a.b a(List<com.meizu.cloud.pushsdk.c.a.b> list) {
         if (this.i) {
             list.add(this.d.a());
         }
@@ -105,14 +104,13 @@ public abstract class c {
             }
         }
         LinkedList linkedList = new LinkedList();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            linkedList.add(((com.meizu.cloud.pushsdk.c.a.b) it.next()).a());
+        for (com.meizu.cloud.pushsdk.c.a.b bVar2 : list) {
+            linkedList.add(bVar2.a());
         }
         return new com.meizu.cloud.pushsdk.c.a.b("push_extra_info", linkedList);
     }
 
-    private void a(com.meizu.cloud.pushsdk.c.a.c cVar, List list, boolean z) {
+    private void a(com.meizu.cloud.pushsdk.c.a.c cVar, List<com.meizu.cloud.pushsdk.c.a.b> list, boolean z) {
         if (this.c != null) {
             cVar.a(new HashMap(this.c.c()));
             cVar.a("et", a(list).a());

@@ -1,150 +1,108 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.location.Address;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-import com.baidu.tieba.memberCenter.bubble.BubbleView;
+import com.baidu.searchbox.live.interfaces.location.LocationCallback;
+import com.baidu.searchbox.live.interfaces.location.LocationInfo;
+import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import com.baidu.tieba.sf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class tm7 extends BaseAdapter {
+public class tm7 implements LiveLocationService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public TbPageContext b;
-    public int c;
-    public int d;
-    public boolean e;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+    /* loaded from: classes6.dex */
+    public class a implements sf.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LocationCallback a;
+        public final /* synthetic */ tm7 b;
+
+        public a(tm7 tm7Var, LocationCallback locationCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tm7Var, locationCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tm7Var;
+            this.a = locationCallback;
+        }
+
+        @Override // com.baidu.tieba.sf.c
+        public void a(int i, String str, Address address) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
+                try {
+                    if (this.a != null && address != null) {
+                        this.a.onReceiveLocation(this.b.b(address));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
-    public tm7(TbPageContext tbPageContext) {
+    public tm7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = tbPageContext;
-        this.c = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
-        this.d = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public BubbleListData.BubbleData getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List list = this.a;
-            if (list != null) {
-                if (i >= 0 || i < list.size()) {
-                    return (BubbleListData.BubbleData) this.a.get(i);
-                }
-                return null;
-            }
-            return null;
-        }
-        return (BubbleListData.BubbleData) invokeI.objValue;
-    }
-
-    public void c(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a.clear();
-            BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
-            bubbleData.setBcode(0);
-            this.a.add(bubbleData);
-            this.a.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public List b() {
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public LocationInfo getLocationInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return b(sf.n().k(false, null));
         }
-        return (List) invokeV.objValue;
+        return (LocationInfo) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public final LocationInfo b(Address address) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List list = this.a;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
+            LocationInfo locationInfo = new LocationInfo();
+            if (address != null) {
+                locationInfo.setCity(address.getLocality());
+                locationInfo.setLatitude(address.getLatitude());
+                locationInfo.setLongitude(address.getLongitude());
+                locationInfo.setProvince(address.getAdminArea());
+                locationInfo.setCounty(address.getCountryName());
             }
-            return list.size();
+            return locationInfo;
         }
-        return invokeV.intValue;
+        return (LocationInfo) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        BubbleView bubbleView;
-        BubbleView bubbleView2;
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public void requestLocate(LocationCallback locationCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                bubbleView2 = new BubbleView(this.b.getPageActivity());
-                bubbleView = bubbleView2;
-            } else {
-                bubbleView = view2;
-                bubbleView2 = (BubbleView) view2;
-            }
-            if (i == 0 || i == 1) {
-                bubbleView2.setPadding(0, this.d, 0, 0);
-            }
-            if (getCount() % 2 == 0) {
-                if (i == getCount() - 1 || i == getCount() - 2) {
-                    bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
-                }
-            } else if (i == getCount() - 1) {
-                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
-            }
-            BubbleListData.BubbleData item = getItem(i);
-            if (item != null) {
-                bubbleView2.setShowName(true);
-                bubbleView2.setData(item, this.e);
-            }
-            bubbleView2.a(this.b);
-            return bubbleView;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
+            sf.n().k(false, new a(this, locationCallback));
         }
-        return (View) invokeILL.objValue;
     }
 }

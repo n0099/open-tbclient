@@ -15,16 +15,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.ay;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-    public static final SparseArray a;
+    public static final SparseArray<ay.a<String, String, String>> a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final int[] f980a;
-    public static final SparseArray b;
+    public static final SparseArray<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -163,13 +162,12 @@ public class e {
         }
     }
 
-    public static void a(SharedPreferences sharedPreferences, List list) {
+    public static void a(SharedPreferences sharedPreferences, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, sharedPreferences, list) == null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                edit.remove((String) it.next());
+            for (String str : list) {
+                edit.remove(str);
             }
             edit.commit();
         }
@@ -180,7 +178,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65546, null, str, str2, i, i2) == null) {
             for (int i3 : f980a) {
-                if ((((Integer) b.get(i3)).intValue() & i2) == 0) {
+                if ((b.get(i3).intValue() & i2) == 0) {
                     a(str, str2, i3, (i & i3) > 0);
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.m89a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i3 + "> :stoped by userLock");
@@ -192,7 +190,7 @@ public class e {
     public static void a(String str, String str2, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            boolean a2 = ay.a(com.xiaomi.push.v.m687a(), str, str2, (ay.a) a.get(i), z);
+            boolean a2 = ay.a(com.xiaomi.push.v.m687a(), str, str2, a.get(i), z);
             com.xiaomi.channel.commonutils.logger.b.m89a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i + "=" + z + "> :" + a2);
         }
     }
@@ -207,7 +205,7 @@ public class e {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65549, null, str, str2, i)) == null) {
-            boolean z = ay.a(com.xiaomi.push.v.m687a(), str, str2, (ay.a) a.get(i)) == 1;
+            boolean z = ay.a(com.xiaomi.push.v.m687a(), str, str2, a.get(i)) == 1;
             com.xiaomi.channel.commonutils.logger.b.m89a("ChannelPermissions.checkPermission:" + str + ":" + str2 + ": <" + i + "=" + z + ">");
             return z;
         }

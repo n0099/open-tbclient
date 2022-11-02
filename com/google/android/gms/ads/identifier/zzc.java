@@ -1,6 +1,7 @@
 package com.google.android.gms.ads.identifier;
 
 import android.util.Log;
+import androidx.annotation.WorkerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.gms.internal.ads_identifier.zzi;
@@ -12,6 +13,7 @@ public final class zzc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @WorkerThread
     public static final void zza(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {

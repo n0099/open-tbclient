@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.db;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -39,7 +40,7 @@ public class IMDatabase {
     }
 
     /* loaded from: classes.dex */
-    public class DbOpenHelper extends SQLiteOpenHelper {
+    public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
@@ -75,6 +76,7 @@ public class IMDatabase {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
+        @TargetApi(11)
         public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {

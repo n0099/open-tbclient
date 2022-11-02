@@ -16,17 +16,17 @@ public class ReportInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public int ct;
     public int fc;
-    public LinkedList hijack;
+    public LinkedList<HijackInfo> hijack;
     public String host;
     public int lc;
     public NetStatusInfo netInfo;
     public StatsInfo stats0;
-    public HashMap stats1;
-    public HashMap stats15;
+    public HashMap<String, StatsInfo> stats1;
+    public HashMap<String, StatsInfo> stats15;
     public int tt;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1088view;
+    public String f1091view;
 
     public ReportInfo() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class ReportInfo {
             }
         }
         this.host = null;
-        this.f1088view = null;
+        this.f1091view = null;
         this.netInfo = null;
         this.stats0 = null;
         this.stats1 = null;
@@ -52,9 +52,9 @@ public class ReportInfo {
         this.fc = -1;
         this.lc = -1;
         this.hijack = null;
-        this.stats1 = new HashMap();
-        this.stats15 = new HashMap();
-        this.hijack = new LinkedList();
+        this.stats1 = new HashMap<>();
+        this.stats15 = new HashMap<>();
+        this.hijack = new LinkedList<>();
     }
 
     public int getCt() {
@@ -75,7 +75,7 @@ public class ReportInfo {
         return invokeV.intValue;
     }
 
-    public LinkedList getHijack() {
+    public LinkedList<HijackInfo> getHijack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -120,7 +120,7 @@ public class ReportInfo {
         return (StatsInfo) invokeV.objValue;
     }
 
-    public HashMap getStats1() {
+    public HashMap<String, StatsInfo> getStats1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -129,7 +129,7 @@ public class ReportInfo {
         return (HashMap) invokeV.objValue;
     }
 
-    public HashMap getStats15() {
+    public HashMap<String, StatsInfo> getStats15() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -151,7 +151,7 @@ public class ReportInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f1088view;
+            return this.f1091view;
         }
         return (String) invokeV.objValue;
     }
@@ -170,7 +170,7 @@ public class ReportInfo {
         }
     }
 
-    public void setHijack(LinkedList linkedList) {
+    public void setHijack(LinkedList<HijackInfo> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, linkedList) == null) {
             this.hijack = linkedList;
@@ -205,14 +205,14 @@ public class ReportInfo {
         }
     }
 
-    public void setStats1(HashMap hashMap) {
+    public void setStats1(HashMap<String, StatsInfo> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, hashMap) == null) {
             this.stats1 = hashMap;
         }
     }
 
-    public void setStats15(HashMap hashMap) {
+    public void setStats15(HashMap<String, StatsInfo> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, hashMap) == null) {
             this.stats15 = hashMap;
@@ -229,7 +229,7 @@ public class ReportInfo {
     public void setView(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f1088view = str;
+            this.f1091view = str;
         }
     }
 }

@@ -1,425 +1,120 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.os.Environment;
-import android.os.Process;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.widget.RemoteViews;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.basic.AdAppStateManager;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.notification.NotificationReceiver;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.security.CacheDeviceInfo;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public class pl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public HashMap b;
-    public boolean c;
 
-    /* loaded from: classes5.dex */
-    public class a implements Comparator {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(pl0 pl0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(mk0 mk0Var, mk0 mk0Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mk0Var, mk0Var2)) == null) {
-                long j = mk0Var.m;
-                long j2 = mk0Var2.m;
-                if (j > j2) {
-                    return -1;
-                }
-                if (j < j2) {
-                    return 1;
-                }
-                return 0;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements rn0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mk0 a;
-        public final /* synthetic */ pl0 b;
-
-        @Override // com.baidu.tieba.rn0
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public b(pl0 pl0Var, mk0 mk0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl0Var, mk0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = pl0Var;
-            this.a = mk0Var;
-        }
-
-        @Override // com.baidu.tieba.rn0
-        public void b(Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) != null) || bitmap == null) {
-                return;
-            }
-            PendingIntent e = vk0.f().e(NotificationReceiver.RECEIVER_ACTION_CLICK_ITEM, this.a);
-            PendingIntent e2 = vk0.f().e(NotificationReceiver.RECEIVER_ACTION_REMOVE_ITEM, this.a);
-            RemoteViews i = this.b.i(bitmap, vk0.f().e(NotificationReceiver.RECEIVER_ACTION_CLICK_BUTTON, this.a), this.a);
-            if (i == null) {
-                return;
-            }
-            vk0.f().j(bitmap, i, e, e2, this.a);
-            this.b.s(this.a);
-            HashMap hashMap = this.b.b;
-            mk0 mk0Var = this.a;
-            hashMap.put(mk0Var.d, mk0Var);
-            vk0 f = vk0.f();
-            String str = ClogBuilder.LogType.FREE_SHOW.type;
-            String str2 = ClogBuilder.Area.AD_NOTIFICATION_SHOW.type;
-            mk0 mk0Var2 = this.a;
-            f.h(str, str2, mk0Var2.p.a, mk0Var2.q.m);
-            if (!this.b.c) {
-                vk0.f().h(ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, "", String.valueOf(this.b.j() + 1));
-                this.b.u();
-                this.b.c = true;
-            }
-            this.b.t(this.a, false);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements el0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mk0 a;
-        public final /* synthetic */ pl0 b;
-
-        public c(pl0 pl0Var, mk0 mk0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl0Var, mk0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = pl0Var;
-            this.a = mk0Var;
-        }
-
-        @Override // com.baidu.tieba.el0
-        public void a(AdDownloadAction adDownloadAction, mk0 mk0Var) {
-            mk0 mk0Var2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, mk0Var) == null) && adDownloadAction == AdDownloadAction.INSTALL_FINISH && !xz0.h(this.b.b)) {
-                String str = mk0Var.d;
-                if (!TextUtils.isEmpty(str) && (mk0Var2 = (mk0) zz0.b(this.b.b, str)) != null && mk0Var2.e() != null) {
-                    this.b.t(mk0Var2, true);
-                    vk0.f().a(mk0Var2.e().hashCode());
-                    vk0.f().h(ClogBuilder.LogType.INSTALL_COMPLETE.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, mk0Var2.p.a, mk0Var2.q.m);
-                    zz0.g(this.b.b, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.el0
-        public mk0 getData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (mk0) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final pl0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-514575211, "Lcom/baidu/tieba/pl0$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-514575211, "Lcom/baidu/tieba/pl0$d;");
-                    return;
-                }
-            }
-            a = new pl0(null);
-        }
-    }
-
-    public pl0() {
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (TextUtils.equals(p01.c(str).optString("direct_download_switch"), "1")) {
+                return true;
             }
-        }
-        this.b = new HashMap();
-        this.c = false;
-    }
-
-    public static pl0 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return d.a;
-        }
-        return (pl0) invokeV.objValue;
-    }
-
-    public /* synthetic */ pl0(a aVar) {
-        this();
-    }
-
-    public final void k(mk0 mk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mk0Var) == null) {
-            qn0.a().c(mk0Var.p.g, new b(this, mk0Var));
-        }
-    }
-
-    public final void s(mk0 mk0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, mk0Var) != null) || mk0Var == null) {
-            return;
-        }
-        c cVar = new c(this, mk0Var);
-        AdAppStateManager.instance().register(mk0Var);
-        zj0.b().i(mk0Var.e(), cVar);
-    }
-
-    public final void h(mk0 mk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mk0Var) == null) {
-            Context b2 = aj0.b();
-            String n = n(mk0Var.d);
-            mk0Var.q.m = n;
-            if (TextUtils.equals(n, "notify_type_unactivated")) {
-                mk0Var.q.n = b2.getString(R.string.obfuscated_res_0x7f0f0bf3);
-                return;
-            }
-            mk0Var.q.n = b2.getString(R.string.obfuscated_res_0x7f0f0bf6);
-        }
-    }
-
-    public final RemoteViews i(Bitmap bitmap, PendingIntent pendingIntent, mk0 mk0Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, pendingIntent, mk0Var)) == null) {
-            nl0 c2 = lk0.b().c();
-            if (c2 == null || c2.a <= 0) {
-                return null;
-            }
-            Context b2 = aj0.b();
-            RemoteViews remoteViews = new RemoteViews(b2.getPackageName(), c2.a);
-            int i = c2.c;
-            if (i > 0) {
-                remoteViews.setOnClickPendingIntent(i, pendingIntent);
-                if (TextUtils.equals("notify_type_unactivated", n(mk0Var.d))) {
-                    remoteViews.setTextViewText(c2.c, b2.getString(R.string.obfuscated_res_0x7f0f0bf4));
-                } else {
-                    remoteViews.setTextViewText(c2.c, b2.getString(R.string.obfuscated_res_0x7f0f0bf5));
-                }
-            }
-            int i2 = c2.b;
-            if (i2 > 0) {
-                remoteViews.setImageViewBitmap(i2, r(bitmap, 24.0f));
-            }
-            int i3 = c2.d;
-            if (i3 > 0) {
-                remoteViews.setTextViewText(i3, mk0Var.p.h);
-            }
-            int i4 = c2.e;
-            if (i4 > 0) {
-                remoteViews.setTextViewText(i4, mk0Var.q.n);
-            }
-            return remoteViews;
-        }
-        return (RemoteViews) invokeLLL.objValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String string = f01.a().b("nad_app_quick_config").getString("key_bar_notify_date", "");
-            String format = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-            if (!format.equals(string)) {
-                f01.a().b("nad_app_quick_config").g("key_bar_notify_time_per_day", 0);
-                f01.a().b("nad_app_quick_config").i("key_bar_notify_date", format);
-            }
-            return f01.a().b("nad_app_quick_config").getInt("key_bar_notify_time_per_day", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public final boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (j() >= 3) {
+            if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            List q = q();
-            this.a = q;
-            if (xz0.g(q)) {
-                return false;
-            }
-            if (!vk0.f().g()) {
-                for (mk0 mk0Var : this.a) {
-                    if (mk0Var != null) {
-                        vk0.f().h(ClogBuilder.LogType.AD_NOTIFICATION_NOTIFY_FAILED.type, "", mk0Var.p.a, null);
+            Uri parse = Uri.parse(str2);
+            HashMap hashMap = new HashMap();
+            if (parse != null) {
+                try {
+                    Set<String> queryParameterNames = parse.getQueryParameterNames();
+                    if (queryParameterNames != null) {
+                        for (String str3 : queryParameterNames) {
+                            hashMap.put(str3, parse.getQueryParameter(str3));
+                        }
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            }
+            String str4 = (String) q01.b(hashMap, CacheDeviceInfo.JSON_KEY_ANDROID_ID);
+            if (!TextUtils.isEmpty(str4) && (split = str4.split("_")) != null && split.length >= 4 && TextUtils.equals(split[3], "1")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean e(File file, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, file, z)) == null) {
+            if (!f(file)) {
                 return false;
+            }
+            Context b = zi0.b();
+            Intent intent = new Intent("android.intent.action.VIEW");
+            try {
+                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                intent.setFlags(1342177280);
+                intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", b.getPackageName());
+                if (z) {
+                    intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+                }
+                if (!m31.b.e()) {
+                    intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
+                }
+                g31.a(b, file, intent);
+                g31.d(b, intent);
+            } catch (Exception unused) {
+                intent.setComponent(null);
+                g31.a(b, file, intent);
+                try {
+                    b.startActivity(intent);
+                } catch (Exception unused2) {
+                    return false;
+                }
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public final List q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HashMap a2 = dk0.b().a();
-            if (xz0.h(a2)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : a2.entrySet()) {
-                if (entry != null) {
-                    mk0 mk0Var = (mk0) entry.getValue();
-                    if (m(mk0Var)) {
-                        h(mk0Var);
-                        xz0.b(arrayList, mk0Var);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            int i = f01.a().b("nad_app_quick_config").getInt("key_bar_notify_time_per_day", 0);
-            if (new SimpleDateFormat("yyyy-MM-dd").format(new Date()).equals(f01.a().b("nad_app_quick_config").getString("key_bar_notify_date", ""))) {
-                f01.a().b("nad_app_quick_config").g("key_bar_notify_time_per_day", i + 1);
-            }
-        }
-    }
-
-    public final boolean m(mk0 mk0Var) {
+    public static String b(File file) {
         InterceptResult invokeL;
-        boolean z;
+        PackageManager packageManager;
+        PackageInfo packageArchiveInfo;
+        ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mk0Var)) == null) {
-            if (mk0Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file == null || TextUtils.isEmpty(file.getPath()) || (packageManager = zi0.b().getPackageManager()) == null || (packageArchiveInfo = packageManager.getPackageArchiveInfo(file.getPath(), 1)) == null || (applicationInfo = packageArchiveInfo.applicationInfo) == null) {
+                return "";
             }
-            String n = n(mk0Var.d);
-            if (TextUtils.equals("notify_type_activated", n) || TextUtils.equals("notify_type_no_permission", n)) {
-                return false;
-            }
-            if (TextUtils.equals("notify_type_uninstall", n) && !ql0.e(mk0Var.h)) {
-                return false;
-            }
-            qk0 qk0Var = mk0Var.p;
-            String str = qk0Var.h;
-            String str2 = qk0Var.g;
-            int i = mk0Var.q.k;
-            long j = mk0Var.m;
-            long currentTimeMillis = System.currentTimeMillis();
-            if (j <= currentTimeMillis && j >= currentTimeMillis - 604800000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (i >= 3 || !z || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return applicationInfo.packageName;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(File file) {
+        InterceptResult invokeL;
+        PackageManager packageManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
+            if (file == null || TextUtils.isEmpty(file.getAbsolutePath()) || !file.exists() || (packageManager = zi0.b().getPackageManager()) == null || packageManager.getPackageArchiveInfo(file.getAbsolutePath(), 1) == null) {
                 return false;
             }
             return true;
@@ -427,78 +122,51 @@ public class pl0 {
         return invokeL.booleanValue;
     }
 
-    public final String n(String str) {
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (!ql0.b(str)) {
-                return "notify_type_uninstall";
-            }
-            if (aj0.b().checkPermission(com.kuaishou.weapon.p0.h.i, Process.myPid(), Process.myUid()) != 0) {
-                return "notify_type_no_permission";
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-                if (!new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + str).exists()) {
-                    return "notify_type_unactivated";
-                }
-                return "notify_type_activated";
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "notify_type_no_permission";
+                zi0.b().getPackageManager().getApplicationInfo(str, 0);
+                return true;
+            } catch (PackageManager.NameNotFoundException | Exception unused) {
+                return false;
             }
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void p() {
+    public static boolean d(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !o()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            return e(file, false);
         }
-        xz0.m(this.a, new a(this));
-        int min = Math.min(xz0.l(this.a), 5);
-        for (int i = 0; i < min; i++) {
-            mk0 mk0Var = (mk0) xz0.d(this.a, i);
-            if (mk0Var != null) {
-                k(mk0Var);
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        ResolveInfo next;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-        }
-    }
-
-    public Bitmap r(Bitmap bitmap, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, bitmap, f)) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
-            Canvas canvas = new Canvas(createBitmap);
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            RectF rectF = new RectF(rect);
-            canvas.drawARGB(0, 0, 0, 0);
-            canvas.drawRoundRect(rectF, f, f, paint);
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            canvas.drawBitmap(bitmap, rect, rect, paint);
-            return createBitmap;
-        }
-        return (Bitmap) invokeLF.objValue;
-    }
-
-    public void t(mk0 mk0Var, boolean z) {
-        nk0 nk0Var;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048587, this, mk0Var, z) == null) && mk0Var != null && (nk0Var = mk0Var.q) != null) {
-            if (z) {
-                i = 0;
-            } else {
-                i = nk0Var.k + 1;
+            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = zi0.b().getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities == null || queryIntentActivities.size() <= 0 || (next = queryIntentActivities.iterator().next()) == null) {
+                return false;
             }
-            nk0Var.k = i;
-            g01 g01Var = new g01();
-            g01Var.o(mk0Var.e());
-            g01Var.k(nk0.b(mk0Var.q));
-            dk0.b().f(g01Var);
+            String str2 = next.activityInfo.name;
+            Intent intent2 = new Intent("android.intent.action.MAIN");
+            intent2.addCategory("android.intent.category.LAUNCHER");
+            intent2.setComponent(new ComponentName(str, str2));
+            intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            return g31.e(zi0.b(), intent2, true);
         }
+        return invokeL.booleanValue;
     }
 }

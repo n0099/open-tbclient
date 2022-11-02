@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class ResponseGetStickersMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mStickerItems;
+    public List<StickerItem> mStickerItems;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetStickersMessage() {
@@ -37,7 +37,7 @@ public class ResponseGetStickersMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getStickerItems() {
+    public List<StickerItem> getStickerItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

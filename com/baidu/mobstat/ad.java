@@ -38,7 +38,7 @@ public class ad {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements ActivityLifeObserver.IActivityLifeCallback {
+    public static class a implements ActivityLifeObserver.IActivityLifeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +119,7 @@ public class ad {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
+    public static class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

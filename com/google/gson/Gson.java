@@ -873,6 +873,7 @@ public final class Gson {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.util.Map<com.google.gson.reflect.TypeToken<?>, com.google.gson.TypeAdapter<?>> */
+    /* JADX DEBUG: Type inference failed for r4v5. Raw type applied. Possible types: com.google.gson.TypeAdapter<T>, com.google.gson.TypeAdapter<?> */
     /* JADX WARN: Multi-variable type inference failed */
     public <T> TypeAdapter<T> getAdapter(TypeToken<T> typeToken) {
         InterceptResult invokeL;
@@ -904,11 +905,11 @@ public final class Gson {
                 FutureTypeAdapter<?> futureTypeAdapter2 = new FutureTypeAdapter<>();
                 map2.put(typeToken, futureTypeAdapter2);
                 for (TypeAdapterFactory typeAdapterFactory : this.factories) {
-                    TypeAdapter create = typeAdapterFactory.create(this, typeToken);
-                    if (create != null) {
-                        futureTypeAdapter2.setDelegate(create);
-                        this.typeTokenCache.put(typeToken, create);
-                        return create;
+                    TypeAdapter typeAdapter2 = (TypeAdapter<T>) typeAdapterFactory.create(this, typeToken);
+                    if (typeAdapter2 != null) {
+                        futureTypeAdapter2.setDelegate(typeAdapter2);
+                        this.typeTokenCache.put(typeToken, typeAdapter2);
+                        return typeAdapter2;
                     }
                 }
                 throw new IllegalArgumentException("GSON (2.8.5) cannot handle " + typeToken);

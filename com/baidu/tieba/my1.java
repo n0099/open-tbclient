@@ -1,79 +1,54 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class my1 extends jy1 {
+public class my1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
-    public String l;
-    public float m;
-    public boolean n;
-    public boolean o;
+    public Paint.Join a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public my1(String str) {
-        super(str);
-        String[] split;
+    public my1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.l = "sans-serif";
-        this.m = dh3.g(10.0f);
-        this.n = false;
-        this.o = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = jSONObject.optString("text");
-            String optString = jSONObject.optString("font");
-            if (optString != null && optString.length() > 0) {
-                for (String str2 : optString.split(" ")) {
-                    if (str2.contains("italic")) {
-                        this.o = true;
-                    } else if (str2.contains("oblique")) {
-                        this.o = true;
-                    } else if (str2.contains("bold")) {
-                        this.n = true;
-                    } else if (!str2.contains("normal")) {
-                        if (Character.isDigit(str2.charAt(0))) {
-                            int length = str2.length();
-                            int i3 = 0;
-                            while (true) {
-                                if (i3 >= str2.length()) {
-                                    break;
-                                } else if (!Character.isDigit(str2.charAt(i3))) {
-                                    length = i3;
-                                    break;
-                                } else {
-                                    i3++;
-                                }
-                            }
-                            this.m = dh3.g(Float.parseFloat(str2.substring(0, length)));
-                        } else {
-                            this.l = str2;
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            if (wj1.a) {
-                e.printStackTrace();
+    }
+
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
+        Paint.Join join;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && (join = this.a) != null) {
+            lx1Var.c.setStrokeJoin(join);
+        }
+    }
+
+    @Override // com.baidu.tieba.kx1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            String optString = jSONArray.optString(0);
+            if (TextUtils.equals(optString, "bevel")) {
+                this.a = Paint.Join.BEVEL;
+            } else if (TextUtils.equals(optString, "round")) {
+                this.a = Paint.Join.ROUND;
+            } else if (TextUtils.equals(optString, "miter")) {
+                this.a = Paint.Join.MITER;
             }
         }
     }

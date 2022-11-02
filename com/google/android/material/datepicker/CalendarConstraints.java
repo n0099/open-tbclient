@@ -3,6 +3,7 @@ package com.google.android.material.datepicker;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.FeatureCodes;
@@ -17,11 +18,14 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class CalendarConstraints implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<CalendarConstraints> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final Month end;
     public final int monthSpan;
+    @NonNull
     public final Month openAt;
+    @NonNull
     public final Month start;
     public final DateValidator validator;
     public final int yearSpan;
@@ -42,7 +46,7 @@ public final class CalendarConstraints implements Parcelable {
     }
 
     /* loaded from: classes7.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEEP_COPY_VALIDATOR_KEY = "DEEP_COPY_VALIDATOR_KEY";
         public static final long DEFAULT_END;
@@ -88,7 +92,7 @@ public final class CalendarConstraints implements Parcelable {
             this.validator = DateValidatorPointForward.from(Long.MIN_VALUE);
         }
 
-        public Builder(CalendarConstraints calendarConstraints) {
+        public Builder(@NonNull CalendarConstraints calendarConstraints) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,6 +116,7 @@ public final class CalendarConstraints implements Parcelable {
             this.validator = calendarConstraints.validator;
         }
 
+        @NonNull
         public CalendarConstraints build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -130,6 +135,7 @@ public final class CalendarConstraints implements Parcelable {
             return (CalendarConstraints) invokeV.objValue;
         }
 
+        @NonNull
         public Builder setEnd(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -140,6 +146,7 @@ public final class CalendarConstraints implements Parcelable {
             return (Builder) invokeJ.objValue;
         }
 
+        @NonNull
         public Builder setOpenAt(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -150,6 +157,7 @@ public final class CalendarConstraints implements Parcelable {
             return (Builder) invokeJ.objValue;
         }
 
+        @NonNull
         public Builder setStart(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -160,6 +168,7 @@ public final class CalendarConstraints implements Parcelable {
             return (Builder) invokeJ.objValue;
         }
 
+        @NonNull
         public Builder setValidator(DateValidator dateValidator) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -184,7 +193,7 @@ public final class CalendarConstraints implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.datepicker.CalendarConstraints.1
+        CREATOR = new Parcelable.Creator<CalendarConstraints>() { // from class: com.google.android.material.datepicker.CalendarConstraints.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -203,8 +212,10 @@ public final class CalendarConstraints implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public CalendarConstraints createFromParcel(Parcel parcel) {
+            @NonNull
+            public CalendarConstraints createFromParcel(@NonNull Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -214,7 +225,9 @@ public final class CalendarConstraints implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
+            @NonNull
             public CalendarConstraints[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
@@ -235,6 +248,7 @@ public final class CalendarConstraints implements Parcelable {
         return (DateValidator) invokeV.objValue;
     }
 
+    @NonNull
     public Month getEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -253,6 +267,7 @@ public final class CalendarConstraints implements Parcelable {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Month getOpenAt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -262,6 +277,7 @@ public final class CalendarConstraints implements Parcelable {
         return (Month) invokeV.objValue;
     }
 
+    @NonNull
     public Month getStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -289,7 +305,7 @@ public final class CalendarConstraints implements Parcelable {
         return invokeV.intValue;
     }
 
-    public CalendarConstraints(Month month, Month month2, Month month3, DateValidator dateValidator) {
+    public CalendarConstraints(@NonNull Month month, @NonNull Month month2, @NonNull Month month3, DateValidator dateValidator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

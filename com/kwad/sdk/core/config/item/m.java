@@ -2,9 +2,10 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class m extends b {
+/* loaded from: classes8.dex */
+public final class m extends b<String> {
     public static volatile String[] VG;
 
     public m(String str, String str2) {
@@ -33,15 +34,15 @@ public final class m extends b {
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(SharedPreferences sharedPreferences) {
-        String string = sharedPreferences.getString(getKey(), (String) sx());
+    public final void a(@NonNull SharedPreferences sharedPreferences) {
+        String string = sharedPreferences.getString(getKey(), sx());
         setValue(string);
         bv(string);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void b(SharedPreferences.Editor editor) {
-        editor.putString(getKey(), (String) getValue());
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        editor.putString(getKey(), getValue());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
@@ -50,7 +51,7 @@ public final class m extends b {
             setValue(sx());
             return;
         }
-        String optString = jSONObject.optString(getKey(), (String) sx());
+        String optString = jSONObject.optString(getKey(), sx());
         setValue(optString);
         bv(optString);
     }

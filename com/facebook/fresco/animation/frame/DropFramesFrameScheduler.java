@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.fresco.animation.backend.AnimationInformation;
 /* loaded from: classes7.dex */
 public class DropFramesFrameScheduler implements FrameScheduler {
@@ -51,6 +52,7 @@ public class DropFramesFrameScheduler implements FrameScheduler {
         return invokeCommon.intValue;
     }
 
+    @VisibleForTesting
     public int getFrameNumberWithinLoop(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;

@@ -2,6 +2,10 @@ package androidx.media2.common;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.CustomVersionedParcelable;
@@ -23,14 +27,17 @@ public class MediaItem extends CustomVersionedParcelable {
     public static final String TAG = "MediaItem";
     public transient /* synthetic */ FieldHolder $fh;
     public long mEndPositionMs;
+    @GuardedBy("mLock")
     public final List<Pair<OnMetadataChangedListener, Executor>> mListeners;
     public final Object mLock;
+    @GuardedBy("mLock")
     public MediaMetadata mMetadata;
     public long mStartPositionMs;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public interface OnMetadataChangedListener {
-        void onMetadataChanged(MediaItem mediaItem, MediaMetadata mediaMetadata);
+        void onMetadataChanged(@NonNull MediaItem mediaItem, @Nullable MediaMetadata mediaMetadata);
     }
 
     /* loaded from: classes.dex */
@@ -58,6 +65,7 @@ public class MediaItem extends CustomVersionedParcelable {
             this.mEndPositionMs = 576460752303423487L;
         }
 
+        @NonNull
         public MediaItem build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -67,6 +75,7 @@ public class MediaItem extends CustomVersionedParcelable {
             return (MediaItem) invokeV.objValue;
         }
 
+        @NonNull
         public Builder setEndPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -80,7 +89,8 @@ public class MediaItem extends CustomVersionedParcelable {
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setMetadata(MediaMetadata mediaMetadata) {
+        @NonNull
+        public Builder setMetadata(@Nullable MediaMetadata mediaMetadata) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaMetadata)) == null) {
@@ -90,6 +100,7 @@ public class MediaItem extends CustomVersionedParcelable {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setStartPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -165,7 +176,7 @@ public class MediaItem extends CustomVersionedParcelable {
         }
     }
 
-    public MediaItem(MediaMetadata mediaMetadata, long j, long j2) {
+    public MediaItem(@Nullable MediaMetadata mediaMetadata, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,6 +210,7 @@ public class MediaItem extends CustomVersionedParcelable {
         throw new IllegalStateException("Illegal start/end position: " + j + ZeusCrashHandler.NAME_SEPERATOR + j2);
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void addOnMetadataChangedListener(Executor executor, OnMetadataChangedListener onMetadataChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, executor, onMetadataChangedListener) == null) {
@@ -222,6 +234,8 @@ public class MediaItem extends CustomVersionedParcelable {
         return invokeV.longValue;
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public String getMediaId() {
         InterceptResult invokeV;
         String str;
@@ -239,6 +253,7 @@ public class MediaItem extends CustomVersionedParcelable {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public MediaMetadata getMetadata() {
         InterceptResult invokeV;
         MediaMetadata mediaMetadata;
@@ -262,6 +277,7 @@ public class MediaItem extends CustomVersionedParcelable {
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onPreParceling(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -273,6 +289,7 @@ public class MediaItem extends CustomVersionedParcelable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void removeOnMetadataChangedListener(OnMetadataChangedListener onMetadataChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onMetadataChangedListener) == null) {
@@ -287,7 +304,7 @@ public class MediaItem extends CustomVersionedParcelable {
         }
     }
 
-    public void setMetadata(MediaMetadata mediaMetadata) {
+    public void setMetadata(@Nullable MediaMetadata mediaMetadata) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, mediaMetadata) == null) {
             ArrayList<Pair> arrayList = new ArrayList();

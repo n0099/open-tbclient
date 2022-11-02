@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class GetRequest extends HttpRequest {
+public class GetRequest extends HttpRequest<GetRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +43,7 @@ public class GetRequest extends HttpRequest {
     }
 
     /* loaded from: classes2.dex */
-    public class GetRequestBuilder extends HttpRequestBuilder {
+    public static class GetRequestBuilder extends HttpRequestBuilder<GetRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,6 +152,7 @@ public class GetRequest extends HttpRequest {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public GetRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
@@ -163,6 +164,7 @@ public class GetRequest extends HttpRequest {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public GetRequestBuilder newBuilder() {
         InterceptResult invokeV;

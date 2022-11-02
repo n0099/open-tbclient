@@ -40,8 +40,8 @@ public class ExternalCache {
     public static final String TAG = "ExternalCache";
     public static ExternalCache sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map mDataAsset;
-    public Map mDataExternal;
+    public Map<String, Map<String, List<String>>> mDataAsset;
+    public Map<String, Map<String, List<String>>> mDataExternal;
     public boolean mEnable;
     public boolean mFirstStart;
     public NetType mNetType;
@@ -64,7 +64,7 @@ public class ExternalCache {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class NetType {
+    public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType GSLB_INNER;
@@ -242,13 +242,13 @@ public class ExternalCache {
         return invokeV.booleanValue;
     }
 
-    private List getIp(Map map, String str) {
+    private List<String> getIp(Map<String, Map<String, List<String>>> map, String str) {
         InterceptResult invokeLL;
-        List list;
+        List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, map, str)) == null) {
             LinkedList linkedList = new LinkedList();
-            Map map2 = (Map) map.get(str);
+            Map<String, List<String>> map2 = map.get(str);
             if (map2 == null) {
                 return linkedList;
             }
@@ -260,7 +260,7 @@ public class ExternalCache {
                     linkedList.addAll(getIpCNMobile(map2, netType));
                 }
             }
-            if (!TextUtils.isEmpty(GlobalTools.APP_LOCALIZE_CODE) && (list = (List) map2.get(GlobalTools.APP_LOCALIZE_CODE.toUpperCase())) != null && !list.isEmpty()) {
+            if (!TextUtils.isEmpty(GlobalTools.APP_LOCALIZE_CODE) && (list = map2.get(GlobalTools.APP_LOCALIZE_CODE.toUpperCase())) != null && !list.isEmpty()) {
                 linkedList.addAll(list);
             }
             return linkedList;
@@ -268,17 +268,17 @@ public class ExternalCache {
         return (List) invokeLL.objValue;
     }
 
-    private List getIpCNMobile(Map map, NetType netType) {
+    private List<String> getIpCNMobile(Map<String, List<String>> map, NetType netType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, netType)) == null) {
             LinkedList linkedList = new LinkedList();
             try {
-                List list = (List) map.get(String.valueOf(netType.getValue()));
+                List<String> list = map.get(String.valueOf(netType.getValue()));
                 if (list != null && !list.isEmpty()) {
                     linkedList.addAll(list);
                 } else {
-                    List list2 = (List) map.get(netType.getName());
+                    List<String> list2 = map.get(netType.getName());
                     if (list2 != null && !list2.isEmpty()) {
                         linkedList.addAll(list2);
                     }
@@ -345,20 +345,20 @@ public class ExternalCache {
         }
     }
 
-    private List getIpCNWifi(Map map) {
+    private List<String> getIpCNWifi(Map<String, List<String>> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, map)) == null) {
             LinkedList linkedList = new LinkedList();
-            List ipCNMobile = getIpCNMobile(map, NetType.MOBILE_CTL);
+            List<String> ipCNMobile = getIpCNMobile(map, NetType.MOBILE_CTL);
             if (!ipCNMobile.isEmpty()) {
                 linkedList.addAll(ipCNMobile);
             }
-            List ipCNMobile2 = getIpCNMobile(map, NetType.MOBILE_CNC);
+            List<String> ipCNMobile2 = getIpCNMobile(map, NetType.MOBILE_CNC);
             if (!ipCNMobile2.isEmpty()) {
                 linkedList.addAll(ipCNMobile2);
             }
-            List ipCNMobile3 = getIpCNMobile(map, NetType.MOBILE_CMC);
+            List<String> ipCNMobile3 = getIpCNMobile(map, NetType.MOBILE_CMC);
             if (!ipCNMobile3.isEmpty()) {
                 linkedList.addAll(ipCNMobile3);
             }
@@ -403,7 +403,7 @@ public class ExternalCache {
         return invokeI.booleanValue;
     }
 
-    public void setData(Map map) {
+    public void setData(Map<String, Map<String, List<String>>> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.mDataExternal = map;
@@ -431,7 +431,7 @@ public class ExternalCache {
         }
     }
 
-    private Map parseJson(String str) {
+    private Map<String, Map<String, List<String>>> parseJson(String str) {
         InterceptResult invokeL;
         JSONObject optJSONObject;
         JSONArray optJSONArray;
@@ -471,7 +471,7 @@ public class ExternalCache {
         return (Map) invokeL.objValue;
     }
 
-    public Map getResult(String str, int i) {
+    public Map<String, List<String>> getResult(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
@@ -482,11 +482,11 @@ public class ExternalCache {
                 return null;
             }
             LinkedList linkedList = new LinkedList();
-            Map map = this.mDataExternal;
+            Map<String, Map<String, List<String>>> map = this.mDataExternal;
             if (map != null && map.containsKey(str) && !isWifi()) {
                 linkedList.addAll(getIp(this.mDataExternal, str));
             }
-            Map map2 = this.mDataAsset;
+            Map<String, Map<String, List<String>>> map2 = this.mDataAsset;
             if (map2 != null && map2.containsKey(str)) {
                 linkedList.addAll(getIp(this.mDataAsset, str));
             }
@@ -517,15 +517,15 @@ public class ExternalCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, dnsResultInfo) == null) {
             try {
-                Map result = getResult(str, i);
+                Map<String, List<String>> result = getResult(str, i);
                 if (result == null) {
                     return;
                 }
                 dnsResultInfo.mErrorCode = 0;
                 dnsResultInfo.mDataSource = 5;
-                dnsResultInfo.mIps = (String[]) ((List) result.get("all")).toArray(new String[0]);
-                dnsResultInfo.mIpsV4 = (String[]) ((List) result.get("4")).toArray(new String[0]);
-                dnsResultInfo.mIpsV6 = (String[]) ((List) result.get("6")).toArray(new String[0]);
+                dnsResultInfo.mIps = (String[]) result.get("all").toArray(new String[0]);
+                dnsResultInfo.mIpsV4 = (String[]) result.get("4").toArray(new String[0]);
+                dnsResultInfo.mIpsV6 = (String[]) result.get("6").toArray(new String[0]);
             } catch (Exception e) {
                 LogTools.printWarning(TAG, e);
             }
@@ -542,11 +542,11 @@ public class ExternalCache {
         return invokeLL.booleanValue;
     }
 
-    public Map testLoadAssetsJson(String str, boolean z) {
+    public Map<String, Map<String, List<String>>> testLoadAssetsJson(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
-            Map parseJson = parseJson(str);
+            Map<String, Map<String, List<String>>> parseJson = parseJson(str);
             this.mDataAsset = parseJson;
             this.mFirstStart = z;
             return parseJson;

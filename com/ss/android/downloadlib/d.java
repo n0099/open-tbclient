@@ -19,7 +19,7 @@ public class d {
     public ScheduledExecutorService c;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static d a = new d();
     }
 
@@ -50,9 +50,9 @@ public class d {
                     if (!(x instanceof com.ss.android.socialbase.downloader.impls.d)) {
                         return;
                     }
-                    SparseArray a2 = ((com.ss.android.socialbase.downloader.impls.d) x).a().a();
+                    SparseArray<DownloadInfo> a2 = ((com.ss.android.socialbase.downloader.impls.d) x).a().a();
                     for (int size = a2.size() - 1; size >= 0; size--) {
-                        DownloadInfo downloadInfo = (DownloadInfo) a2.get(a2.keyAt(size));
+                        DownloadInfo downloadInfo = a2.get(a2.keyAt(size));
                         if (downloadInfo != null) {
                             Downloader.getInstance(com.ss.android.downloadlib.addownload.j.getContext()).clearDownloadData(downloadInfo.getId());
                         }

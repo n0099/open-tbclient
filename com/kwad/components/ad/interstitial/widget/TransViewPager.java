@@ -3,6 +3,8 @@ package com.kwad.components.ad.interstitial.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,11 +18,12 @@ public class TransViewPager extends com.kwad.sdk.widget.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float jd;
+    @SlideType
     public int je;
-    public Map map;
+    public Map<Integer, e> map;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TransViewPager(Context context) {
+    public TransViewPager(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,7 +44,7 @@ public class TransViewPager extends com.kwad.sdk.widget.d {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TransViewPager(Context context, AttributeSet attributeSet) {
+    public TransViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,7 +103,7 @@ public class TransViewPager extends com.kwad.sdk.widget.d {
     public final e F(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (e) this.map.get(Integer.valueOf(i)) : (e) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.map.get(Integer.valueOf(i)) : (e) invokeI.objValue;
     }
 
     public final void a(int i, e eVar) {

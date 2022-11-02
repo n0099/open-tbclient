@@ -1,5 +1,6 @@
 package com.sdk.l;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.webkit.WebSettings;
@@ -129,6 +130,7 @@ public class a {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0030 A[Catch: all -> 0x005c, TryCatch #1 {all -> 0x005c, blocks: (B:7:0x0012, B:10:0x0018, B:14:0x0023, B:16:0x0030, B:21:0x003d, B:25:0x0053, B:22:0x0041, B:24:0x004c, B:26:0x0056, B:13:0x001f), top: B:40:0x0012 }] */
+    @SuppressLint({"DefaultLocale", "NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

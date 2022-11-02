@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 /* loaded from: classes8.dex */
-public final class ConnectConsumer implements Consumer {
+public final class ConnectConsumer implements Consumer<Disposable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Disposable disposable;

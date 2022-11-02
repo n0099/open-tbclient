@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LocationMsg> CREATOR;
     public static String TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public double mLatitude;
@@ -48,7 +48,7 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
             }
         }
         TAG = LocationMsg.class.getSimpleName();
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.LocationMsg.1
+        CREATOR = new Parcelable.Creator<LocationMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.LocationMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,6 +67,7 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LocationMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -78,6 +79,7 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LocationMsg[] newArray(int i) {
                 InterceptResult invokeI;

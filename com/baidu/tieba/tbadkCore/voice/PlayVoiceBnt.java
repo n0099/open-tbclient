@@ -23,12 +23,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.ja5;
+import com.baidu.tieba.eb5;
+import com.baidu.tieba.gr8;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,8 +58,8 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
-    public final class PLAY_TYPE {
+    /* loaded from: classes6.dex */
+    public static final class PLAY_TYPE {
         public static final /* synthetic */ PLAY_TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PLAY_TYPE NORMAL;
@@ -143,7 +143,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
             }
         }
         this.a = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.Voice_play_type);
         this.a = obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         e(context);
@@ -158,9 +158,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 return -1;
             }
             int i = voiceModel.duration;
-            int k = fj.k(getContext());
+            int l = xi.l(getContext());
             if (i <= 10) {
-                float f = k;
+                float f = l;
                 int i2 = (int) (0.18f * f);
                 int i3 = (int) (f * 0.3f);
                 if (i < 5) {
@@ -168,11 +168,11 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 }
                 return i2 + (((i - 1) * (i3 - i2)) / 10);
             } else if (i <= 30) {
-                float f2 = k;
+                float f2 = l;
                 int i4 = (int) (0.3f * f2);
                 return i4 + (((i - 10) * (((int) (f2 * 0.45f)) - i4)) / 20);
             } else {
-                return (int) (k * 0.45f);
+                return (int) (l * 0.45f);
             }
         }
         return invokeV.intValue;
@@ -186,10 +186,10 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).d1(this.b);
+                return ((VoiceManager.j) context).c1(this.b);
             }
             if ((w9.a(getContext()) instanceof r9) && (tbPageContext = (TbPageContext) w9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).d1(this.b);
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).c1(this.b);
             }
             return this;
         }
@@ -203,10 +203,10 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).t0();
+                return ((VoiceManager.j) context).s0();
             }
             if ((w9.a(getContext()) instanceof r9) && (tbPageContext = (TbPageContext) w9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).t0();
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).s0();
             }
             return this.i;
         }
@@ -304,8 +304,8 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 }
                 ImageView imageView = this.c;
                 if (imageView != null) {
-                    SkinManager.setImageResource(imageView, R.anim.obfuscated_res_0x7f01014e);
-                    this.c.setPadding(fj.d(getContext(), 12.0f), 0, 0, 0);
+                    SkinManager.setImageResource(imageView, R.anim.obfuscated_res_0x7f01014f);
+                    this.c.setPadding(xi.d(getContext(), 12.0f), 0, 0, 0);
                 }
             } else {
                 if (skinType != 1) {
@@ -321,8 +321,8 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 }
                 ImageView imageView2 = this.c;
                 if (imageView2 != null) {
-                    SkinManager.setImageResource(imageView2, R.anim.obfuscated_res_0x7f01014e);
-                    this.c.setPadding(fj.d(getContext(), 8.0f), 0, 0, 0);
+                    SkinManager.setImageResource(imageView2, R.anim.obfuscated_res_0x7f01014f);
+                    this.c.setPadding(xi.d(getContext(), 8.0f), 0, 0, 0);
                 }
             }
             ImageView imageView3 = this.c;
@@ -335,17 +335,17 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
     public void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073b, (ViewGroup) this, true);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919f6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e7);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ab9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0750, (ViewGroup) this, true);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a3a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a2b);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091afd);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
             }
             this.f = context;
             d();
-            setContentDescription(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b25));
+            setContentDescription(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b31));
         }
     }
 
@@ -361,7 +361,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
             } else {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.b.duration);
             }
-            String charSequence2String = ej.charSequence2String(this.d.getText(), null);
+            String charSequence2String = wi.charSequence2String(this.d.getText(), null);
             if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
                 this.d.setText(formatVoiceTime);
             }
@@ -518,7 +518,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048597, this, i, str) == null) {
-            fj.K(getContext(), str);
+            xi.M(getContext(), str);
         }
     }
 
@@ -535,9 +535,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 return;
             }
             o();
-            if (ja5.b().d()) {
-                ja5.b().n(false);
-                ja5.b().l(false);
+            if (eb5.b().d()) {
+                eb5.b().n(false);
+                eb5.b().l(false);
             }
             if (i == 1) {
                 ImageView imageView2 = this.c;
@@ -564,9 +564,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             int i = this.a;
-            int i2 = R.anim.obfuscated_res_0x7f01014e;
+            int i2 = R.anim.obfuscated_res_0x7f01014f;
             if (i != 0 ? skinType == 1 : skinType == 1) {
-                i2 = R.anim.obfuscated_res_0x7f01014f;
+                i2 = R.anim.obfuscated_res_0x7f010150;
             }
             ImageView imageView = this.c;
             if (imageView != null) {

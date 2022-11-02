@@ -1,6 +1,8 @@
 package com.bumptech.glide.load.engine;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,10 +28,11 @@ public final class GlideException extends Exception {
     public static final StackTraceElement[] EMPTY_ELEMENTS;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List causes;
-    public Class dataClass;
+    public final List<Throwable> causes;
+    public Class<?> dataClass;
     public DataSource dataSource;
     public String detailMessage;
+    @Nullable
     public Exception exception;
     public Key key;
 
@@ -41,7 +44,7 @@ public final class GlideException extends Exception {
     }
 
     /* loaded from: classes7.dex */
-    public final class IndentedAppendable implements Appendable {
+    public static final class IndentedAppendable implements Appendable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EMPTY_SEQUENCE = "";
         public static final String INDENT = "  ";
@@ -49,7 +52,8 @@ public final class GlideException extends Exception {
         public final Appendable appendable;
         public boolean printedNewLine;
 
-        private CharSequence safeSequence(CharSequence charSequence) {
+        @NonNull
+        private CharSequence safeSequence(@Nullable CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, charSequence)) == null) ? charSequence == null ? "" : charSequence : (CharSequence) invokeL.objValue;
@@ -75,7 +79,7 @@ public final class GlideException extends Exception {
         }
 
         @Override // java.lang.Appendable
-        public Appendable append(CharSequence charSequence) throws IOException {
+        public Appendable append(@Nullable CharSequence charSequence) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence)) == null) {
@@ -106,7 +110,7 @@ public final class GlideException extends Exception {
         }
 
         @Override // java.lang.Appendable
-        public Appendable append(CharSequence charSequence, int i, int i2) throws IOException {
+        public Appendable append(@Nullable CharSequence charSequence, int i, int i2) throws IOException {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2)) == null) {
@@ -143,7 +147,7 @@ public final class GlideException extends Exception {
         EMPTY_ELEMENTS = new StackTraceElement[0];
     }
 
-    public List getCauses() {
+    public List<Throwable> getCauses() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -152,6 +156,7 @@ public final class GlideException extends Exception {
         return (List) invokeV.objValue;
     }
 
+    @Nullable
     public Exception getOrigin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,7 +166,7 @@ public final class GlideException extends Exception {
         return (Exception) invokeV.objValue;
     }
 
-    public List getRootCauses() {
+    public List<Throwable> getRootCauses() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -204,7 +209,7 @@ public final class GlideException extends Exception {
     public void logRootCauses(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            List rootCauses = getRootCauses();
+            List<Throwable> rootCauses = getRootCauses();
             int size = rootCauses.size();
             int i = 0;
             while (i < size) {
@@ -215,7 +220,7 @@ public final class GlideException extends Exception {
                 sb.append(" of ");
                 sb.append(size);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                Log.i(str, sb.toString(), (Throwable) rootCauses.get(i));
+                Log.i(str, sb.toString(), rootCauses.get(i));
                 i = i2;
             }
         }
@@ -253,7 +258,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    public GlideException(String str, List list) {
+    public GlideException(String str, List<Throwable> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -273,7 +278,7 @@ public final class GlideException extends Exception {
         this.causes = list;
     }
 
-    private void addRootCauses(Throwable th, List list) {
+    private void addRootCauses(Throwable th, List<Throwable> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, th, list) == null) {
             if (th instanceof GlideException) {
@@ -286,7 +291,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    public static void appendCauses(List list, Appendable appendable) {
+    public static void appendCauses(List<Throwable> list, Appendable appendable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, list, appendable) == null) {
             try {
@@ -304,7 +309,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    public static void appendCausesWrapped(List list, Appendable appendable) throws IOException {
+    public static void appendCausesWrapped(List<Throwable> list, Appendable appendable) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, list, appendable) == null) {
             int size = list.size();
@@ -312,7 +317,7 @@ public final class GlideException extends Exception {
             while (i < size) {
                 int i2 = i + 1;
                 appendable.append("Cause (").append(String.valueOf(i2)).append(" of ").append(String.valueOf(size)).append("): ");
-                Throwable th = (Throwable) list.get(i);
+                Throwable th = list.get(i);
                 if (th instanceof GlideException) {
                     ((GlideException) th).printStackTrace(appendable);
                 } else {
@@ -331,7 +336,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    public void setOrigin(Exception exc) {
+    public void setOrigin(@Nullable Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, exc) == null) {
             this.exception = exc;
@@ -404,7 +409,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    public void setLoggingDetails(Key key, DataSource dataSource, Class cls) {
+    public void setLoggingDetails(Key key, DataSource dataSource, Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, key, dataSource, cls) == null) {
             this.key = key;

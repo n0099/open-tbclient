@@ -18,7 +18,7 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
     public static final int COMPRESS_GZIP_VALUE = 1;
     public static final RpcMetaPb$CompressType COMPRESS_NONE;
     public static final int COMPRESS_NONE_VALUE = 0;
-    public static Internal.EnumLiteMap internalValueMap;
+    public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalValueMap;
     public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
@@ -39,7 +39,7 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
         RpcMetaPb$CompressType rpcMetaPb$CompressType = new RpcMetaPb$CompressType("COMPRESS_GZIP", 1, 1, 1);
         COMPRESS_GZIP = rpcMetaPb$CompressType;
         $VALUES = new RpcMetaPb$CompressType[]{COMPRESS_NONE, rpcMetaPb$CompressType};
-        internalValueMap = new Internal.EnumLiteMap() { // from class: com.baidu.lcp.sdk.pb.RpcMetaPb$CompressType.a
+        internalValueMap = new Internal.EnumLiteMap<RpcMetaPb$CompressType>() { // from class: com.baidu.lcp.sdk.pb.RpcMetaPb$CompressType.a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,7 +92,7 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
         this.value = i3;
     }
 
-    public static Internal.EnumLiteMap internalGetValueMap() {
+    public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalGetValueMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

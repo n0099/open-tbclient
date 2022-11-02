@@ -1,29 +1,66 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import android.view.MotionEvent;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ex8 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class ex8 extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public int c;
-    public Camera d;
-    public kx8 e;
+    public List<ox8> a;
+    public ox8 b;
 
-    public ex8(Camera camera) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+
+        public a(ex8 ex8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public ex8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {camera};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,104 +70,119 @@ public class ex8 {
                 return;
             }
         }
-        this.a = 0;
-        this.d = camera;
+        this.a = new ArrayList();
     }
 
-    public void c(kx8 kx8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kx8Var) == null) {
-            this.e = kx8Var;
-        }
-    }
-
-    public final void d(int i) {
-        Camera camera;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (camera = this.d) == null) {
-            return;
-        }
-        Camera.Parameters parameters = camera.getParameters();
-        if (!parameters.isZoomSupported()) {
-            return;
-        }
-        parameters.setZoom(i);
-        this.d.setParameters(parameters);
-        this.c = i;
-    }
-
-    public final int a() {
+    public List<ox8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Camera camera = this.d;
-            if (camera == null) {
-                return -1;
-            }
-            Camera.Parameters parameters = camera.getParameters();
-            if (!parameters.isZoomSupported()) {
-                return -1;
-            }
-            if (parameters.getMaxZoom() > 40) {
-                return 40;
-            }
-            return parameters.getMaxZoom();
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.size();
         }
         return invokeV.intValue;
     }
 
-    public boolean b(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public void b(ox8 ox8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            kx8 kx8Var = this.e;
-            if (kx8Var != null && kx8Var.j()) {
-                return true;
-            }
-            int action = motionEvent.getAction() & 255;
-            int i = 0;
-            if (action != 0) {
-                if (action != 2) {
-                    if (action == 5) {
-                        this.a = 1;
-                        this.b = e(motionEvent);
-                    }
-                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
-                    return true;
-                } else {
-                    float e = e(motionEvent);
-                    int i2 = (int) ((e - this.b) / 10.0f);
-                    if (i2 >= 1 || i2 <= -1) {
-                        int i3 = this.c + i2;
-                        if (i3 > a()) {
-                            i3 = a();
-                        }
-                        if (i3 >= 0) {
-                            i = i3;
-                        }
-                        d(i);
-                        this.b = e;
-                    }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ox8Var) == null) {
+            if (ox8Var == null) {
+                List<ox8> list = this.a;
+                if (list != null) {
+                    this.b = list.get(0);
                 }
             } else {
-                this.a = 0;
+                this.b = ox8Var;
             }
-            return true;
+            notifyDataSetChanged();
         }
-        return invokeL.booleanValue;
     }
 
-    public final float e(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public void c(List<ox8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return 0.0f;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null) {
+            this.a = list;
+            if (list.size() > 0) {
+                this.b = this.a.get(0);
             }
-            double x = motionEvent.getX(0) - motionEvent.getX(1);
-            double y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
         }
-        return invokeL.floatValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091033 && (view2.getTag() instanceof ox8)) {
+            this.b = (ox8) view2.getTag();
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        a aVar;
+        ox8 ox8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                aVar = new a(this);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0538, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091033);
+                aVar.a = tbImageView;
+                tbImageView.setIsRound(true);
+                aVar.a.setDrawerType(1);
+                aVar.a.setDefaultBgResource(R.color.transparent);
+                aVar.a.setBorderWidth(xi.g(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
+                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                aVar.a.setConrers(15);
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09240f);
+                aVar.b = textView;
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0107);
+                aVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09240f);
+                view3.setTag(aVar);
+            } else {
+                view3 = view2;
+                aVar = (a) view2.getTag();
+            }
+            if (i >= 0 && i < this.a.size()) {
+                ox8 ox8Var2 = this.a.get(i);
+                if (ox8Var2 != null) {
+                    aVar.a.setTag(ox8Var2);
+                    aVar.a.setOnClickListener(this);
+                    aVar.a.K(String.valueOf(ox8Var2.b), 24, false);
+                    aVar.b.setText(ox8Var2.a);
+                }
+                if (!TextUtils.isEmpty(ox8Var2.a) && (ox8Var = this.b) != null && TextUtils.equals(ox8Var2.a, ox8Var.a)) {
+                    aVar.a.setDrawBorder(true);
+                } else {
+                    aVar.a.setDrawBorder(false);
+                }
+            }
+            return view3;
+        }
+        return (View) invokeILL.objValue;
     }
 }

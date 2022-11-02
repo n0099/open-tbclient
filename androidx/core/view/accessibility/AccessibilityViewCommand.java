@@ -2,6 +2,9 @@ package androidx.core.view.accessibility;
 
 import android.os.Bundle;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface AccessibilityViewCommand {
-    boolean perform(View view2, CommandArguments commandArguments);
+    boolean perform(@NonNull View view2, @Nullable CommandArguments commandArguments);
 
     /* loaded from: classes.dex */
     public static abstract class CommandArguments {
@@ -32,6 +35,7 @@ public interface AccessibilityViewCommand {
             }
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public void setBundle(Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {

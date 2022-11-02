@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 import org.apache.http.client.methods.HttpDelete;
@@ -16,9 +17,9 @@ import org.apache.http.client.methods.HttpDelete;
 public interface IRequestParam {
     void addInterceptResult(String str, Object obj);
 
-    Map byteArrays();
+    Map<String, byte[]> byteArrays();
 
-    Map files();
+    Map<String, ValuePart<File>> files();
 
     Context getContext();
 
@@ -28,7 +29,7 @@ public interface IRequestParam {
 
     Bundle getHeader();
 
-    ArrayList getIntercept();
+    ArrayList<IRequestIntercept> getIntercept();
 
     Object getInterceptResult(String str);
 
@@ -52,7 +53,7 @@ public interface IRequestParam {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class RequestType {
+    public static final class RequestType {
         public static final /* synthetic */ RequestType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RequestType DELETE;
@@ -121,11 +122,11 @@ public interface IRequestParam {
     }
 
     /* loaded from: classes8.dex */
-    public class ValuePart {
+    public static class ValuePart<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mimeType;
-        public Object value;
+        public T value;
 
         public ValuePart() {
             Interceptable interceptable = $ic;

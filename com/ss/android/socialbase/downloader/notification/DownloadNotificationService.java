@@ -29,7 +29,7 @@ public class DownloadNotificationService extends Service {
     public static volatile long g;
     public static boolean h;
     public g j;
-    public final SparseArray k = new SparseArray(2);
+    public final SparseArray<Notification> k = new SparseArray<>(2);
     public static final String a = DownloadNotificationService.class.getSimpleName();
     public static int b = -1;
     public static int c = -1;
@@ -67,7 +67,7 @@ public class DownloadNotificationService extends Service {
     public void a(NotificationManager notificationManager, int i2) {
         Notification notification;
         synchronized (this.k) {
-            notification = (Notification) this.k.get(i2);
+            notification = this.k.get(i2);
             this.k.remove(i2);
         }
         if (notification != null) {
@@ -269,10 +269,10 @@ public class DownloadNotificationService extends Service {
             return;
         }
         try {
-            SparseArray b2 = b.a().b();
+            SparseArray<a> b2 = b.a().b();
             if (b2 != null) {
                 for (int size = b2.size() - 1; size >= 0; size--) {
-                    aVar = (a) b2.valueAt(size);
+                    aVar = b2.valueAt(size);
                     if (aVar != null && (a2 = aVar.a()) != i2 && a2 != b && a2 != c && aVar.i()) {
                         if (d.a().a(aVar.a()) == 1 && !f.c()) {
                             z2 = true;

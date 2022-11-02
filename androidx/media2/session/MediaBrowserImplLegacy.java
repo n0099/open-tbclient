@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v4.media.MediaBrowserCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.concurrent.futures.ResolvableFuture;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
@@ -26,7 +29,9 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MB2ImplLegacy";
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("mLock")
     public final HashMap<MediaLibraryService.LibraryParams, MediaBrowserCompat> mBrowserCompats;
+    @GuardedBy("mLock")
     public final HashMap<String, List<SubscribeCallback>> mSubscribeCallbacks;
 
     /* loaded from: classes.dex */
@@ -57,7 +62,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
             this.mParentId = str;
         }
 
-        private void onChildrenLoadedInternal(String str, List<MediaBrowserCompat.MediaItem> list) {
+        private void onChildrenLoadedInternal(@NonNull String str, @NonNull List<MediaBrowserCompat.MediaItem> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, this, str, list) == null) {
                 if (TextUtils.isEmpty(str)) {
@@ -90,7 +95,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.SubscriptionCallback
-        public void onChildrenLoaded(String str, List<MediaBrowserCompat.MediaItem> list) {
+        public void onChildrenLoaded(@NonNull String str, @NonNull List<MediaBrowserCompat.MediaItem> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
                 onChildrenLoadedInternal(str, list);
@@ -98,7 +103,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.SubscriptionCallback
-        public void onError(String str, Bundle bundle) {
+        public void onError(@NonNull String str, @NonNull Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, bundle) == null) {
                 onErrorInternal();
@@ -106,7 +111,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.SubscriptionCallback
-        public void onChildrenLoaded(String str, List<MediaBrowserCompat.MediaItem> list, Bundle bundle) {
+        public void onChildrenLoaded(@NonNull String str, @NonNull List<MediaBrowserCompat.MediaItem> list, @NonNull Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, bundle) == null) {
                 onChildrenLoadedInternal(str, list);
@@ -114,7 +119,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.SubscriptionCallback
-        public void onError(String str) {
+        public void onError(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 onErrorInternal();
@@ -210,7 +215,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
             this.mFuture = resolvableFuture;
         }
 
-        private void onChildrenLoadedInternal(String str, List<MediaBrowserCompat.MediaItem> list) {
+        private void onChildrenLoadedInternal(@NonNull String str, @Nullable List<MediaBrowserCompat.MediaItem> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, this, str, list) == null) {
                 if (TextUtils.isEmpty(str)) {
@@ -249,7 +254,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
                         }
 
                         @Override // androidx.media2.session.MediaBrowser.BrowserCallbackRunnable
-                        public void run(MediaBrowser.BrowserCallback browserCallback) {
+                        public void run(@NonNull MediaBrowser.BrowserCallback browserCallback) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, browserCallback) == null) {
                                 browserCallback.onChildrenChanged(this.this$1.this$0.getMediaBrowser(), this.val$parentId, this.val$itemCount, this.val$params);
@@ -269,7 +274,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.SubscriptionCallback
-        public void onChildrenLoaded(String str, List<MediaBrowserCompat.MediaItem> list) {
+        public void onChildrenLoaded(@NonNull String str, @NonNull List<MediaBrowserCompat.MediaItem> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
                 onChildrenLoadedInternal(str, list);
@@ -277,7 +282,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.SubscriptionCallback
-        public void onError(String str, Bundle bundle) {
+        public void onError(@NonNull String str, @NonNull Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, bundle) == null) {
                 onErrorInternal();
@@ -285,7 +290,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.SubscriptionCallback
-        public void onChildrenLoaded(String str, List<MediaBrowserCompat.MediaItem> list, Bundle bundle) {
+        public void onChildrenLoaded(@NonNull String str, @NonNull List<MediaBrowserCompat.MediaItem> list, @NonNull Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, bundle) == null) {
                 onChildrenLoadedInternal(str, list);
@@ -293,7 +298,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.SubscriptionCallback
-        public void onError(String str) {
+        public void onError(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 onErrorInternal();
@@ -302,7 +307,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaBrowserImplLegacy(Context context, MediaBrowser mediaBrowser, SessionToken sessionToken) {
+    public MediaBrowserImplLegacy(@NonNull Context context, MediaBrowser mediaBrowser, @NonNull SessionToken sessionToken) {
         super(context, mediaBrowser, sessionToken);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -324,7 +329,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         this.mSubscribeCallbacks = new HashMap<>();
     }
 
-    public static Bundle createOptions(MediaLibraryService.LibraryParams libraryParams) {
+    public static Bundle createOptions(@Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, libraryParams)) == null) {
@@ -349,7 +354,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         return (MediaBrowserCompat) invokeL.objValue;
     }
 
-    public static Bundle getExtras(MediaLibraryService.LibraryParams libraryParams) {
+    public static Bundle getExtras(@Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, libraryParams)) == null) {
@@ -362,7 +367,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     }
 
     @Override // androidx.media2.session.MediaBrowser.MediaBrowserImpl
-    public ListenableFuture<LibraryResult> getItem(String str) {
+    public ListenableFuture<LibraryResult> getItem(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -397,7 +402,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
                 }
 
                 @Override // android.support.v4.media.MediaBrowserCompat.ItemCallback
-                public void onError(String str2) {
+                public void onError(@NonNull String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {
                         this.this$0.mHandler.post(new Runnable(this) { // from class: androidx.media2.session.MediaBrowserImplLegacy.2.2
@@ -484,7 +489,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         return (ListenableFuture) invokeL.objValue;
     }
 
-    public static Bundle createOptions(MediaLibraryService.LibraryParams libraryParams, int i, int i2) {
+    public static Bundle createOptions(@Nullable MediaLibraryService.LibraryParams libraryParams, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, libraryParams, i, i2)) == null) {
@@ -510,7 +515,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         }
     }
 
-    public MediaItem createRootMediaItem(MediaBrowserCompat mediaBrowserCompat) {
+    public MediaItem createRootMediaItem(@NonNull MediaBrowserCompat mediaBrowserCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaBrowserCompat)) == null) {
@@ -520,7 +525,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     }
 
     @Override // androidx.media2.session.MediaBrowser.MediaBrowserImpl
-    public ListenableFuture<LibraryResult> unsubscribe(String str) {
+    public ListenableFuture<LibraryResult> unsubscribe(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -543,7 +548,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     }
 
     @Override // androidx.media2.session.MediaBrowser.MediaBrowserImpl
-    public ListenableFuture<LibraryResult> getChildren(String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
+    public ListenableFuture<LibraryResult> getChildren(@NonNull String str, int i, int i2, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
@@ -559,7 +564,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     }
 
     @Override // androidx.media2.session.MediaBrowser.MediaBrowserImpl
-    public ListenableFuture<LibraryResult> getSearchResult(String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
+    public ListenableFuture<LibraryResult> getSearchResult(@NonNull String str, int i, int i2, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
@@ -594,7 +599,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
                 }
 
                 @Override // android.support.v4.media.MediaBrowserCompat.SearchCallback
-                public void onError(String str2, Bundle bundle) {
+                public void onError(@NonNull String str2, Bundle bundle) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str2, bundle) == null) {
                         this.this$0.mHandler.post(new Runnable(this) { // from class: androidx.media2.session.MediaBrowserImplLegacy.4.2
@@ -632,7 +637,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
                 }
 
                 @Override // android.support.v4.media.MediaBrowserCompat.SearchCallback
-                public void onSearchResult(String str2, Bundle bundle, List<MediaBrowserCompat.MediaItem> list) {
+                public void onSearchResult(@NonNull String str2, Bundle bundle, @NonNull List<MediaBrowserCompat.MediaItem> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2, bundle, list) == null) {
                         this.this$0.mHandler.post(new Runnable(this, list) { // from class: androidx.media2.session.MediaBrowserImplLegacy.4.1
@@ -677,7 +682,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     }
 
     @Override // androidx.media2.session.MediaBrowser.MediaBrowserImpl
-    public ListenableFuture<LibraryResult> getLibraryRoot(MediaLibraryService.LibraryParams libraryParams) {
+    public ListenableFuture<LibraryResult> getLibraryRoot(@Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, libraryParams)) == null) {
@@ -731,6 +736,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
         return (ListenableFuture) invokeL.objValue;
     }
 
+    @NonNull
     public MediaBrowser getMediaBrowser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -741,7 +747,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     }
 
     @Override // androidx.media2.session.MediaBrowser.MediaBrowserImpl
-    public ListenableFuture<LibraryResult> search(String str, MediaLibraryService.LibraryParams libraryParams) {
+    public ListenableFuture<LibraryResult> search(@NonNull String str, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, libraryParams)) == null) {
@@ -773,7 +779,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
                 }
 
                 @Override // android.support.v4.media.MediaBrowserCompat.SearchCallback
-                public void onError(String str2, Bundle bundle) {
+                public void onError(@NonNull String str2, Bundle bundle) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str2, bundle) == null) {
                         this.this$0.getMediaBrowser().notifyBrowserCallback(new MediaBrowser.BrowserCallbackRunnable(this, str2) { // from class: androidx.media2.session.MediaBrowserImplLegacy.3.2
@@ -802,7 +808,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
                             }
 
                             @Override // androidx.media2.session.MediaBrowser.BrowserCallbackRunnable
-                            public void run(MediaBrowser.BrowserCallback browserCallback) {
+                            public void run(@NonNull MediaBrowser.BrowserCallback browserCallback) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, browserCallback) == null) {
                                     browserCallback.onSearchResultChanged(this.this$1.this$0.getMediaBrowser(), this.val$query, 0, null);
@@ -813,7 +819,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
                 }
 
                 @Override // android.support.v4.media.MediaBrowserCompat.SearchCallback
-                public void onSearchResult(String str2, Bundle bundle, List<MediaBrowserCompat.MediaItem> list) {
+                public void onSearchResult(@NonNull String str2, Bundle bundle, @NonNull List<MediaBrowserCompat.MediaItem> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2, bundle, list) == null) {
                         this.this$0.getMediaBrowser().notifyBrowserCallback(new MediaBrowser.BrowserCallbackRunnable(this, str2, list) { // from class: androidx.media2.session.MediaBrowserImplLegacy.3.1
@@ -844,7 +850,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
                             }
 
                             @Override // androidx.media2.session.MediaBrowser.BrowserCallbackRunnable
-                            public void run(MediaBrowser.BrowserCallback browserCallback) {
+                            public void run(@NonNull MediaBrowser.BrowserCallback browserCallback) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, browserCallback) == null) {
                                     browserCallback.onSearchResultChanged(this.this$1.this$0.getMediaBrowser(), this.val$query, this.val$items.size(), null);
@@ -860,7 +866,7 @@ public class MediaBrowserImplLegacy extends MediaControllerImplLegacy implements
     }
 
     @Override // androidx.media2.session.MediaBrowser.MediaBrowserImpl
-    public ListenableFuture<LibraryResult> subscribe(String str, MediaLibraryService.LibraryParams libraryParams) {
+    public ListenableFuture<LibraryResult> subscribe(@NonNull String str, @Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, libraryParams)) == null) {

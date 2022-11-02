@@ -12,6 +12,7 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
 import android.provider.Settings;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.animation.LPaint;
 import com.airbnb.lottie.animation.content.TrimPathContent;
@@ -27,28 +28,31 @@ import javax.net.ssl.SSLException;
 /* loaded from: classes.dex */
 public final class Utils {
     public static final int SECOND_IN_NANOS = 1000000000;
-    public static final ThreadLocal threadLocalPathMeasure = new ThreadLocal() { // from class: com.airbnb.lottie.utils.Utils.1
+    public static final ThreadLocal<PathMeasure> threadLocalPathMeasure = new ThreadLocal<PathMeasure>() { // from class: com.airbnb.lottie.utils.Utils.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.lang.ThreadLocal
         public PathMeasure initialValue() {
             return new PathMeasure();
         }
     };
-    public static final ThreadLocal threadLocalTempPath = new ThreadLocal() { // from class: com.airbnb.lottie.utils.Utils.2
+    public static final ThreadLocal<Path> threadLocalTempPath = new ThreadLocal<Path>() { // from class: com.airbnb.lottie.utils.Utils.2
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.lang.ThreadLocal
         public Path initialValue() {
             return new Path();
         }
     };
-    public static final ThreadLocal threadLocalTempPath2 = new ThreadLocal() { // from class: com.airbnb.lottie.utils.Utils.3
+    public static final ThreadLocal<Path> threadLocalTempPath2 = new ThreadLocal<Path>() { // from class: com.airbnb.lottie.utils.Utils.3
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.lang.ThreadLocal
         public Path initialValue() {
             return new Path();
         }
     };
-    public static final ThreadLocal threadLocalPoints = new ThreadLocal() { // from class: com.airbnb.lottie.utils.Utils.4
+    public static final ThreadLocal<float[]> threadLocalPoints = new ThreadLocal<float[]>() { // from class: com.airbnb.lottie.utils.Utils.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.ThreadLocal
         public float[] initialValue() {
@@ -91,9 +95,9 @@ public final class Utils {
 
     public static void applyTrimPathIfNeeded(Path path, float f, float f2, float f3) {
         L.beginSection("applyTrimPathIfNeeded");
-        PathMeasure pathMeasure = (PathMeasure) threadLocalPathMeasure.get();
-        Path path2 = (Path) threadLocalTempPath.get();
-        Path path3 = (Path) threadLocalTempPath2.get();
+        PathMeasure pathMeasure = threadLocalPathMeasure.get();
+        Path path2 = threadLocalTempPath.get();
+        Path path3 = threadLocalTempPath2.get();
         pathMeasure.setPath(path, false);
         float length = pathMeasure.getLength();
         if (f == 1.0f && f2 == 0.0f) {
@@ -141,7 +145,7 @@ public final class Utils {
         }
     }
 
-    public static void applyTrimPathIfNeeded(Path path, TrimPathContent trimPathContent) {
+    public static void applyTrimPathIfNeeded(Path path, @Nullable TrimPathContent trimPathContent) {
         if (trimPathContent != null && !trimPathContent.isHidden()) {
             applyTrimPathIfNeeded(path, ((FloatKeyframeAnimation) trimPathContent.getStart()).getFloatValue() / 100.0f, ((FloatKeyframeAnimation) trimPathContent.getEnd()).getFloatValue() / 100.0f, ((FloatKeyframeAnimation) trimPathContent.getOffset()).getFloatValue() / 360.0f);
         }
@@ -166,7 +170,7 @@ public final class Utils {
     }
 
     public static float getScale(Matrix matrix) {
-        float[] fArr = (float[]) threadLocalPoints.get();
+        float[] fArr = threadLocalPoints.get();
         fArr[0] = 0.0f;
         fArr[1] = 0.0f;
         float f = INV_SQRT_2;
@@ -177,7 +181,7 @@ public final class Utils {
     }
 
     public static boolean hasZeroScaleAxis(Matrix matrix) {
-        float[] fArr = (float[]) threadLocalPoints.get();
+        float[] fArr = threadLocalPoints.get();
         fArr[0] = 0.0f;
         fArr[1] = 0.0f;
         fArr[2] = 37394.73f;

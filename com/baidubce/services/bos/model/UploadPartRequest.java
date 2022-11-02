@@ -167,7 +167,7 @@ public class UploadPartRequest extends GenericUploadRequest {
         }
     }
 
-    public void setProgressCallback(BosProgressCallback bosProgressCallback) {
+    public <T extends UploadPartRequest> void setProgressCallback(BosProgressCallback<T> bosProgressCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bosProgressCallback) == null) {
             this.progressCallback = bosProgressCallback;
@@ -224,7 +224,7 @@ public class UploadPartRequest extends GenericUploadRequest {
         return (UploadPartRequest) invokeJ.objValue;
     }
 
-    public UploadPartRequest withProgressCallback(BosProgressCallback bosProgressCallback) {
+    public <T extends UploadPartRequest> UploadPartRequest withProgressCallback(BosProgressCallback<T> bosProgressCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, bosProgressCallback)) == null) {

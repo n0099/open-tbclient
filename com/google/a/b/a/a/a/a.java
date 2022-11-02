@@ -7,5 +7,5 @@ import java.util.List;
 public interface a extends IInterface {
     void a(String str, Bundle bundle, d dVar);
 
-    void a(String str, List list, Bundle bundle, d dVar);
+    void a(String str, List<Bundle> list, Bundle bundle, d dVar);
 }

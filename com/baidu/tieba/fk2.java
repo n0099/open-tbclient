@@ -1,102 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class fk2 extends j53 {
+public class fk2 extends yh2<pk2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final int j(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.yh2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i != -90) {
-                if (i != 0) {
-                    return i != 90 ? -1 : 0;
-                }
-                return 1;
-            }
-            return 8;
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSoundModel" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fk2(j43 j43Var) {
-        super(j43Var, "/swanAPI/setFullscreenOrientationSync");
+    public fk2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yh2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull pk2 pk2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (m33Var == null) {
-                m02.c("setFullscreenOrientationSync", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal runtime");
-                if (j53.b) {
-                    Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal runtime");
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pk2Var) == null) {
+            String str = command.what;
+            d(pk2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals(str2, "ear")) {
+                    pk2Var.r(str2);
+                } else if (TextUtils.equals(str2, "speaker")) {
+                    pk2Var.r(str2);
                 }
-                return false;
-            } else if (context == null) {
-                m02.c("setFullscreenOrientationSync", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (j53.b) {
-                    Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    m02.c("setFullscreenOrientationSync", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                int optInt = optParamsAsJo.optInt("orientationType", -10000);
-                up1 A = zo2.U().A(optParamsAsJo.optString("slaveId"));
-                if (!(A instanceof SwanAppWebViewManager)) {
-                    m02.c("setFullscreenOrientationSync", "no WebView with this slaveId");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                int j = j(optInt);
-                ((SwanAppWebViewManager) A).a1(j);
-                if (j53.b) {
-                    Log.d("setFullscreenOrientationSync", "orientation set to : " + j);
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                return true;
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

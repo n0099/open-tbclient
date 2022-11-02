@@ -89,7 +89,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     public int n;
     public Path o;
     public int p;
-    public HashMap q;
+    public HashMap<String, x> q;
     public x r;
     public Bitmap s;
     public Bitmap t;
@@ -339,9 +339,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                                         if (i == 4) {
                                             this.r.d = this.A + (f4 - f2);
                                             a(false);
-                                            for (Map.Entry entry : this.q.entrySet()) {
-                                                String str = "key= " + ((String) entry.getKey()) + " and value= " + entry.getValue();
-                                                this.i.drawRect(((x) entry.getValue()).a, ((x) entry.getValue()).b, ((x) entry.getValue()).c, ((x) entry.getValue()).d, this.j);
+                                            for (Map.Entry<String, x> entry : this.q.entrySet()) {
+                                                String str = "key= " + entry.getKey() + " and value= " + entry.getValue();
+                                                this.i.drawRect(entry.getValue().a, entry.getValue().b, entry.getValue().c, entry.getValue().d, this.j);
                                             }
                                             x xVar = this.r;
                                             b(xVar.a, xVar.b, xVar.c, xVar.d);
@@ -354,9 +354,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                                     }
                                     this.r.b = this.y + (f4 - f2);
                                     a(false);
-                                    for (Map.Entry entry2 : this.q.entrySet()) {
-                                        String str2 = "key= " + ((String) entry2.getKey()) + " and value= " + entry2.getValue();
-                                        this.i.drawRect(((x) entry2.getValue()).a, ((x) entry2.getValue()).b, ((x) entry2.getValue()).c, ((x) entry2.getValue()).d, this.j);
+                                    for (Map.Entry<String, x> entry2 : this.q.entrySet()) {
+                                        String str2 = "key= " + entry2.getKey() + " and value= " + entry2.getValue();
+                                        this.i.drawRect(entry2.getValue().a, entry2.getValue().b, entry2.getValue().c, entry2.getValue().d, this.j);
                                     }
                                     x xVar3 = this.r;
                                     b(xVar3.a, xVar3.b, xVar3.c, xVar3.d);
@@ -367,9 +367,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                                 }
                                 this.r.c = this.z + (f3 - f);
                                 a(false);
-                                for (Map.Entry entry3 : this.q.entrySet()) {
-                                    String str3 = "key= " + ((String) entry3.getKey()) + " and value= " + entry3.getValue();
-                                    this.i.drawRect(((x) entry3.getValue()).a, ((x) entry3.getValue()).b, ((x) entry3.getValue()).c, ((x) entry3.getValue()).d, this.j);
+                                for (Map.Entry<String, x> entry3 : this.q.entrySet()) {
+                                    String str3 = "key= " + entry3.getKey() + " and value= " + entry3.getValue();
+                                    this.i.drawRect(entry3.getValue().a, entry3.getValue().b, entry3.getValue().c, entry3.getValue().d, this.j);
                                 }
                                 x xVar5 = this.r;
                                 b(xVar5.a, xVar5.b, xVar5.c, xVar5.d);
@@ -380,9 +380,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                             }
                             this.r.a = this.x + (f3 - f);
                             a(false);
-                            for (Map.Entry entry4 : this.q.entrySet()) {
-                                String str4 = "key= " + ((String) entry4.getKey()) + " and value= " + entry4.getValue();
-                                this.i.drawRect(((x) entry4.getValue()).a, ((x) entry4.getValue()).b, ((x) entry4.getValue()).c, ((x) entry4.getValue()).d, this.j);
+                            for (Map.Entry<String, x> entry4 : this.q.entrySet()) {
+                                String str4 = "key= " + entry4.getKey() + " and value= " + entry4.getValue();
+                                this.i.drawRect(entry4.getValue().a, entry4.getValue().b, entry4.getValue().c, entry4.getValue().d, this.j);
                             }
                             x xVar7 = this.r;
                             b(xVar7.a, xVar7.b, xVar7.c, xVar7.d);
@@ -399,9 +399,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                         xVar9.c = this.z + f5;
                         xVar9.d = this.A + f6;
                         a(false);
-                        for (Map.Entry entry5 : this.q.entrySet()) {
-                            System.out.println("key= " + ((String) entry5.getKey()) + " and value= " + entry5.getValue());
-                            this.i.drawRect(((x) entry5.getValue()).a, ((x) entry5.getValue()).b, ((x) entry5.getValue()).c, ((x) entry5.getValue()).d, this.j);
+                        for (Map.Entry<String, x> entry5 : this.q.entrySet()) {
+                            System.out.println("key= " + entry5.getKey() + " and value= " + entry5.getValue());
+                            this.i.drawRect(entry5.getValue().a, entry5.getValue().b, entry5.getValue().c, entry5.getValue().d, this.j);
                         }
                         x xVar10 = this.r;
                         b(xVar10.a, xVar10.b, xVar10.c, xVar10.d);
@@ -414,9 +414,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                     xVar12.c = this.z + (f3 - f);
                     xVar12.d = this.A + (f4 - f2);
                     a(false);
-                    for (Map.Entry entry6 : this.q.entrySet()) {
-                        String str5 = "key= " + ((String) entry6.getKey()) + " and value= " + entry6.getValue();
-                        this.i.drawRect(((x) entry6.getValue()).a, ((x) entry6.getValue()).b, ((x) entry6.getValue()).c, ((x) entry6.getValue()).d, this.j);
+                    for (Map.Entry<String, x> entry6 : this.q.entrySet()) {
+                        String str5 = "key= " + entry6.getKey() + " and value= " + entry6.getValue();
+                        this.i.drawRect(entry6.getValue().a, entry6.getValue().b, entry6.getValue().c, entry6.getValue().d, this.j);
                     }
                     x xVar13 = this.r;
                     b(xVar13.a, xVar13.b, xVar13.c, xVar13.d);
@@ -429,9 +429,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 xVar15.a = this.x + (f3 - f);
                 xVar15.d = this.A + (f4 - f2);
                 a(false);
-                for (Map.Entry entry7 : this.q.entrySet()) {
-                    String str6 = "key= " + ((String) entry7.getKey()) + " and value= " + entry7.getValue();
-                    this.i.drawRect(((x) entry7.getValue()).a, ((x) entry7.getValue()).b, ((x) entry7.getValue()).c, ((x) entry7.getValue()).d, this.j);
+                for (Map.Entry<String, x> entry7 : this.q.entrySet()) {
+                    String str6 = "key= " + entry7.getKey() + " and value= " + entry7.getValue();
+                    this.i.drawRect(entry7.getValue().a, entry7.getValue().b, entry7.getValue().c, entry7.getValue().d, this.j);
                 }
                 x xVar16 = this.r;
                 b(xVar16.a, xVar16.b, xVar16.c, xVar16.d);
@@ -444,9 +444,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             xVar18.a = this.x + (f3 - f);
             xVar18.b = this.y + (f4 - f2);
             a(false);
-            for (Map.Entry entry8 : this.q.entrySet()) {
-                String str7 = "key= " + ((String) entry8.getKey()) + " and value= " + entry8.getValue();
-                this.i.drawRect(((x) entry8.getValue()).a, ((x) entry8.getValue()).b, ((x) entry8.getValue()).c, ((x) entry8.getValue()).d, this.j);
+            for (Map.Entry<String, x> entry8 : this.q.entrySet()) {
+                String str7 = "key= " + entry8.getKey() + " and value= " + entry8.getValue();
+                this.i.drawRect(entry8.getValue().a, entry8.getValue().b, entry8.getValue().c, entry8.getValue().d, this.j);
             }
             x xVar19 = this.r;
             b(xVar19.a, xVar19.b, xVar19.c, xVar19.d);
@@ -590,16 +590,16 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.G = getIntent().getBooleanExtra("input", false);
             this.J = getIntent().getBooleanExtra("from_app", false);
             this.K = getIntent().getIntExtra("extend_feedback_channel", 0);
-            SoftReference softReference = w.a().a;
+            SoftReference<Bitmap> softReference = w.a().a;
             if (softReference == null) {
                 bitmap = null;
             } else {
-                bitmap = (Bitmap) softReference.get();
+                bitmap = softReference.get();
             }
             if (bitmap != null) {
                 this.b = bitmap;
                 w a2 = w.a();
-                SoftReference softReference2 = a2.a;
+                SoftReference<Bitmap> softReference2 = a2.a;
                 if (softReference2 != null) {
                     softReference2.clear();
                     a2.a = null;
@@ -781,7 +781,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.j.setStrokeCap(Paint.Cap.ROUND);
             this.j.setStrokeJoin(Paint.Join.ROUND);
             this.j.setAntiAlias(true);
-            this.q = new HashMap();
+            this.q = new HashMap<>();
             this.s = p1.b(getApplicationContext(), "arrow_left_right.png");
             this.t = p1.b(getApplicationContext(), "arrow_left_up.png");
             this.u = p1.b(getApplicationContext(), "arrow_move.png");
@@ -920,30 +920,30 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                                 String str = "###selectedRect.getOperateTag(): " + this.r.f;
                             }
                             a(false);
-                            for (Map.Entry entry : this.q.entrySet()) {
-                                String str2 = "key= " + ((String) entry.getKey()) + " and value= " + entry.getValue();
-                                this.i.drawRect(((x) entry.getValue()).a, ((x) entry.getValue()).b, ((x) entry.getValue()).c, ((x) entry.getValue()).d, this.j);
-                                ((x) entry.getValue()).e = false;
-                                ((x) entry.getValue()).f = -1;
+                            for (Map.Entry<String, x> entry : this.q.entrySet()) {
+                                String str2 = "key= " + entry.getKey() + " and value= " + entry.getValue();
+                                this.i.drawRect(entry.getValue().a, entry.getValue().b, entry.getValue().c, entry.getValue().d, this.j);
+                                entry.getValue().e = false;
+                                entry.getValue().f = -1;
                             }
                             if (Math.abs(x2 - this.g) <= 20.0f && Math.abs(y2 - this.h) <= 20.0f) {
-                                Iterator it = this.q.entrySet().iterator();
+                                Iterator<Map.Entry<String, x>> it = this.q.entrySet().iterator();
                                 while (true) {
                                     if (!it.hasNext()) {
                                         break;
                                     }
-                                    Map.Entry entry2 = (Map.Entry) it.next();
-                                    String str3 = "key= " + ((String) entry2.getKey()) + " and value= " + entry2.getValue();
-                                    if (((x) entry2.getValue()).a(x2, b.a(getApplicationContext(), 7.0f), y2, b.a(getApplicationContext(), 7.0f))) {
-                                        ((x) entry2.getValue()).e = true;
-                                        ((x) entry2.getValue()).f = 0;
-                                        b(((x) entry2.getValue()).a, ((x) entry2.getValue()).b, ((x) entry2.getValue()).c, ((x) entry2.getValue()).d);
-                                        this.r = (x) entry2.getValue();
-                                        x xVar = (x) entry2.getValue();
-                                        this.x = xVar.a;
-                                        this.y = xVar.b;
-                                        this.z = xVar.c;
-                                        this.A = xVar.d;
+                                    Map.Entry<String, x> next = it.next();
+                                    String str3 = "key= " + next.getKey() + " and value= " + next.getValue();
+                                    if (next.getValue().a(x2, b.a(getApplicationContext(), 7.0f), y2, b.a(getApplicationContext(), 7.0f))) {
+                                        next.getValue().e = true;
+                                        next.getValue().f = 0;
+                                        b(next.getValue().a, next.getValue().b, next.getValue().c, next.getValue().d);
+                                        this.r = next.getValue();
+                                        x value = next.getValue();
+                                        this.x = value.a;
+                                        this.y = value.b;
+                                        this.z = value.c;
+                                        this.A = value.d;
                                         break;
                                     }
                                 }
@@ -972,9 +972,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                         if (this.r.f == 23) {
                             a(false);
                             this.q.remove(this.r.h);
-                            for (Map.Entry entry3 : this.q.entrySet()) {
-                                String str5 = "key= " + ((String) entry3.getKey()) + " and value= " + entry3.getValue();
-                                this.i.drawRect(((x) entry3.getValue()).a, ((x) entry3.getValue()).b, ((x) entry3.getValue()).c, ((x) entry3.getValue()).d, this.j);
+                            for (Map.Entry<String, x> entry2 : this.q.entrySet()) {
+                                String str5 = "key= " + entry2.getKey() + " and value= " + entry2.getValue();
+                                this.i.drawRect(entry2.getValue().a, entry2.getValue().b, entry2.getValue().c, entry2.getValue().d, this.j);
                             }
                             return true;
                         }

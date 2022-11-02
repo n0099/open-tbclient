@@ -34,7 +34,7 @@ public final class CacheKeyUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cacheKey)) == null) {
             try {
                 if (cacheKey instanceof MultiCacheKey) {
-                    return secureHashKey((CacheKey) ((MultiCacheKey) cacheKey).getCacheKeys().get(0));
+                    return secureHashKey(((MultiCacheKey) cacheKey).getCacheKeys().get(0));
                 }
                 return secureHashKey(cacheKey);
             } catch (UnsupportedEncodingException e) {
@@ -44,7 +44,7 @@ public final class CacheKeyUtil {
         return (String) invokeL.objValue;
     }
 
-    public static List getResourceIds(CacheKey cacheKey) {
+    public static List<String> getResourceIds(CacheKey cacheKey) {
         ArrayList arrayList;
         String secureHashKey;
         InterceptResult invokeL;
@@ -52,10 +52,10 @@ public final class CacheKeyUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cacheKey)) == null) {
             try {
                 if (cacheKey instanceof MultiCacheKey) {
-                    List cacheKeys = ((MultiCacheKey) cacheKey).getCacheKeys();
+                    List<CacheKey> cacheKeys = ((MultiCacheKey) cacheKey).getCacheKeys();
                     arrayList = new ArrayList(cacheKeys.size());
                     for (int i = 0; i < cacheKeys.size(); i++) {
-                        arrayList.add(secureHashKey((CacheKey) cacheKeys.get(i)));
+                        arrayList.add(secureHashKey(cacheKeys.get(i)));
                     }
                 } else {
                     arrayList = new ArrayList(1);

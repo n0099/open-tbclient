@@ -18,7 +18,7 @@ public class SearchLoginUbsABTest extends AbsGroupUbsABTest {
     public static final String SEARCH_LOGIN_SID = "12_3_search_login";
     public static final String SEARCH_LOGIN_SID_A = "12_3_search_login_a";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -38,7 +38,7 @@ public class SearchLoginUbsABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -80,7 +80,7 @@ public class SearchLoginUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(2);
+        ArrayList<String> arrayList = new ArrayList<>(2);
         this.mABTestList = arrayList;
         arrayList.add(SEARCH_LOGIN_SID);
         this.mABTestList.add(SEARCH_LOGIN_SID_A);

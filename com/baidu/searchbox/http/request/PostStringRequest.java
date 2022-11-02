@@ -14,7 +14,7 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PostStringRequest extends HttpRequest {
+public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType MEDIA_TYPE_PLAIN;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public class PostStringRequest extends HttpRequest {
     public MediaType mediaType;
 
     /* loaded from: classes2.dex */
-    public class PostStringRequestBuilder extends HttpRequestBuilder {
+    public static class PostStringRequestBuilder extends HttpRequestBuilder<PostStringRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;

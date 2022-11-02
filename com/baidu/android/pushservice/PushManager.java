@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -23,6 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+@SuppressLint({"WorldReadableFiles"})
 /* loaded from: classes.dex */
 public class PushManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -61,7 +63,7 @@ public class PushManager {
     public static void closeNoDisturb(Context context, UploadDataListener uploadDataListener) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, context, uploadDataListener) == null) && e.a(context, uploadDataListener)) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("do_not_disturb", com.baidu.android.pushservice.frequency.b.a().a(-1, -1));
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
@@ -74,16 +76,16 @@ public class PushManager {
         }
     }
 
-    public static void delTags(Context context, List list) {
+    public static void delTags(Context context, List<String> list) {
         Intent c;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65541, null, context, list) == null) || list == null || list.size() == 0 || (c = e.c(context)) == null) {
             return;
         }
-        Iterator it = list.iterator();
+        Iterator<String> it = list.iterator();
         String str = PreferencesUtil.LEFT_MOUNT;
         while (it.hasNext()) {
-            str = ((str + "\"") + ((String) it.next())) + "\",";
+            str = ((str + "\"") + it.next()) + "\",";
         }
         if (str.length() > 0) {
             str = str.substring(0, str.length() - 1);
@@ -359,7 +361,7 @@ public class PushManager {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("do_not_disturb", com.baidu.android.pushservice.frequency.b.a().a(i, i2));
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
@@ -405,7 +407,7 @@ public class PushManager {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(PushConstants.EXTRA_PUSH_FREQ, Integer.valueOf(i));
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
@@ -427,16 +429,16 @@ public class PushManager {
         context.sendBroadcast(e.b(context));
     }
 
-    public static void setTags(Context context, List list) {
+    public static void setTags(Context context, List<String> list) {
         Intent c;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65567, null, context, list) == null) || list == null || list.size() == 0 || (c = e.c(context)) == null) {
             return;
         }
-        Iterator it = list.iterator();
+        Iterator<String> it = list.iterator();
         String str = PreferencesUtil.LEFT_MOUNT;
         while (it.hasNext()) {
-            str = ((str + "\"") + ((String) it.next())) + "\",";
+            str = ((str + "\"") + it.next()) + "\",";
         }
         if (str.length() > 0) {
             str = str.substring(0, str.length() - 1);
@@ -518,7 +520,7 @@ public class PushManager {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(PushConstants.EXTRA_BDUSS_ACTION, Integer.valueOf(i));
             hashMap.put("bduss", str);
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
@@ -533,7 +535,7 @@ public class PushManager {
         com.baidu.android.pushservice.frequency.b.a().a(context.getApplicationContext(), true, i, str, str2);
     }
 
-    public static void uploadData(Context context, HashMap hashMap, UploadDataListener uploadDataListener) {
+    public static void uploadData(Context context, HashMap<String, Object> hashMap, UploadDataListener uploadDataListener) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65574, null, context, hashMap, uploadDataListener) == null) && e.a(context, uploadDataListener)) {
             if (hashMap == null || hashMap.size() == 0) {
@@ -551,7 +553,7 @@ public class PushManager {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("location", str);
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
@@ -564,7 +566,7 @@ public class PushManager {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(PushConstants.EXTRA_APP_NOTIFY_STATUS, Integer.valueOf(i));
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }

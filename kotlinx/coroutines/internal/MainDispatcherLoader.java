@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ServiceLoader;
 import kotlin.Metadata;
+import kotlin.jvm.JvmField;
 import kotlin.sequences.SequencesKt__SequencesKt;
 import kotlin.sequences.SequencesKt___SequencesKt;
 import kotlinx.coroutines.MainCoroutineDispatcher;
@@ -12,6 +13,7 @@ import kotlinx.coroutines.MainCoroutineDispatcher;
 public final class MainDispatcherLoader {
     public static final boolean FAST_SERVICE_LOADER_ENABLED;
     public static final MainDispatcherLoader INSTANCE;
+    @JvmField
     public static final MainCoroutineDispatcher dispatcher;
 
     static {
@@ -22,7 +24,7 @@ public final class MainDispatcherLoader {
     }
 
     private final MainCoroutineDispatcher loadMainDispatcher() {
-        List list;
+        List<MainDispatcherFactory> list;
         Object next;
         MainCoroutineDispatcher tryCreateDispatcher;
         try {
@@ -31,7 +33,7 @@ public final class MainDispatcherLoader {
             } else {
                 list = SequencesKt___SequencesKt.toList(SequencesKt__SequencesKt.asSequence(ServiceLoader.load(MainDispatcherFactory.class, MainDispatcherFactory.class.getClassLoader()).iterator()));
             }
-            Iterator it = list.iterator();
+            Iterator<T> it = list.iterator();
             if (!it.hasNext()) {
                 next = null;
             } else {

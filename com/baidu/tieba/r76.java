@@ -1,148 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
-import tbclient.ManageInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class r76 implements eo {
+public final class r76 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public int b;
-    public int c;
-    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948074584, "Lcom/baidu/tieba/r76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948074584, "Lcom/baidu/tieba/r76;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public r76() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = true;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public r76 clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            r76 r76Var = new r76();
-            r76Var.a = this.a;
-            r76Var.b = this.b;
-            r76Var.c = this.c;
-            r76Var.d = this.d;
-            return r76Var;
-        }
-        return (r76) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public static r76 b(k45 k45Var) {
+    public static final w66 a(p0 p0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, k45Var)) == null) {
-            r76 r76Var = new r76();
-            r76Var.a = k45Var.b;
-            r76Var.b = k45Var.d;
-            r76Var.c = k45Var.e;
-            return r76Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            return (w66) p0Var.d(w66.class);
         }
-        return (r76) invokeL.objValue;
+        return (w66) invokeL.objValue;
     }
 
-    public static r76 c(ManageInfo manageInfo) {
+    public static final t66 b(p0 p0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
-            r76 r76Var = new r76();
-            ItemData itemData = new ItemData();
-            r76Var.a = itemData;
-            itemData.parseProto(manageInfo.item);
-            r76Var.b = manageInfo.item_source.intValue();
-            return r76Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            return (t66) p0Var.d(t66.class);
         }
-        return (r76) invokeL.objValue;
+        return (t66) invokeL.objValue;
     }
 
-    public boolean f(r76 r76Var) {
+    public static final long c(p0 p0Var) {
         InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        ItemData itemData;
-        ApkDetail apkDetail;
-        ApkDetail apkDetail2;
-        ItemData itemData2;
+        h66 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r76Var)) == null) {
-            if (this.b == r76Var.b && this.c == r76Var.c) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            t66 b = b(p0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
-            ItemData itemData3 = this.a;
-            if (itemData3 != null && (itemData2 = r76Var.a) != null) {
-                z2 = itemData3.pkgName.equals(itemData2.pkgName);
-            } else {
-                z2 = false;
+            return a.g();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final s66 d(p0 p0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            return (s66) p0Var.d(s66.class);
+        }
+        return (s66) invokeL.objValue;
+    }
+
+    public static final u66 e(p0 p0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            return (u66) p0Var.d(u66.class);
+        }
+        return (u66) invokeL.objValue;
+    }
+
+    public static final long f(p0 p0Var) {
+        InterceptResult invokeL;
+        h66 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, p0Var)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            t66 b = b(p0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
-            ItemData itemData4 = this.a;
-            if (itemData4 != null && (itemData = r76Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
-                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
-            } else {
-                z3 = false;
-            }
-            if (z && z2 && z3) {
+            return a.j();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final boolean g(p0 p0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, p0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            if (j - f(p0Var) < 0) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean h(p0 p0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, p0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(p0Var, "<this>");
+            if (j - f(p0Var) > c(p0Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
     }
 }

@@ -1,75 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.live.interfaces.realauth.LiveRealAuthCallback;
-import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
+import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.ICertification;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class pk7 implements LiveRealAuthService {
+public class pk7 extends p65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements ICertification.CertificationCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LiveRealAuthCallback a;
-
-        public a(pk7 pk7Var, LiveRealAuthCallback liveRealAuthCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pk7Var, liveRealAuthCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = liveRealAuthCallback;
-        }
-
-        @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
-        public void onResult(int i, Map map) {
-            LiveRealAuthCallback liveRealAuthCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, map) == null) && (liveRealAuthCallback = this.a) != null) {
-                liveRealAuthCallback.onRealAuthResult(i, map);
-            }
-        }
-    }
-
-    public pk7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pk7(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0551), 7, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveRealAuthService
-    public void doAuth(Map map, LiveRealAuthCallback liveRealAuthCallback) {
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, map, liveRealAuthCallback) == null) && (runTask = MessageManager.getInstance().runTask(2921433, ICertification.class)) != null && runTask.getData() != null) {
-            ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new a(this, liveRealAuthCallback));
-        }
+        this.d = R.drawable.obfuscated_res_0x7f08098d;
+        this.i = true;
+        this.p = new int[]{18};
     }
 }

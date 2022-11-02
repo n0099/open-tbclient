@@ -23,15 +23,15 @@ public final class ReactiveFlowKt {
         throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
     }
 
-    public static final Flow asFlow(Publisher publisher) {
+    public static final <T> Flow<T> asFlow(Publisher<T> publisher) {
         return new PublisherAsFlow(publisher, null, 0, 6, null);
     }
 
-    public static final Publisher asPublisher(Flow flow) {
+    public static final <T> Publisher<T> asPublisher(Flow<? extends T> flow) {
         return new FlowAsPublisher(flow);
     }
 
-    public static final Publisher injectCoroutineContext(Publisher publisher, CoroutineContext coroutineContext) {
+    public static final <T> Publisher<T> injectCoroutineContext(Publisher<T> publisher, CoroutineContext coroutineContext) {
         for (ContextInjector contextInjector : contextInjectors) {
             publisher = contextInjector.injectCoroutineContext(publisher, coroutineContext);
         }

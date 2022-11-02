@@ -5,13 +5,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetitionSubNode;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.ng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import java.util.List;
 public class CardFrsGameCompetitionLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vg a;
+    public ng<CardFrsGameCompetitionItemView> a;
     public int b;
     public int c;
     public int d;
@@ -98,7 +99,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameCompetitionLayout(Context context, AttributeSet attributeSet) {
+    public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -122,7 +123,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameCompetitionLayout(Context context, AttributeSet attributeSet, int i) {
+    public CardFrsGameCompetitionLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -159,10 +160,10 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(vg vgVar) {
+    public void setViewPool(ng<CardFrsGameCompetitionItemView> ngVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vgVar) == null) {
-            this.a = vgVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ngVar) == null) {
+            this.a = ngVar;
         }
     }
 
@@ -229,7 +230,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         cardFrsGameCompetitionItemView.d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void setData(List list) {
+    public void setData(List<FeatureCardCompetitionSubNode> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
@@ -241,7 +242,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
             if (getChildAt(i) instanceof CardFrsGameCompetitionItemView) {
                 CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = (CardFrsGameCompetitionItemView) getChildAt(i);
                 c(cardFrsGameCompetitionItemView, i, this.c);
-                d(cardFrsGameCompetitionItemView, (FeatureCardCompetitionSubNode) list.get(i));
+                d(cardFrsGameCompetitionItemView, list.get(i));
             }
             i++;
         }
@@ -250,13 +251,13 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
             i++;
         }
         while (i < list.size()) {
-            CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView2 = (CardFrsGameCompetitionItemView) this.a.b();
-            if (cardFrsGameCompetitionItemView2.getParent() != null) {
-                ((ViewGroup) cardFrsGameCompetitionItemView2.getParent()).removeView(cardFrsGameCompetitionItemView2);
+            CardFrsGameCompetitionItemView b = this.a.b();
+            if (b.getParent() != null) {
+                ((ViewGroup) b.getParent()).removeView(b);
             }
-            c(cardFrsGameCompetitionItemView2, i, this.c);
-            d(cardFrsGameCompetitionItemView2, (FeatureCardCompetitionSubNode) list.get(i));
-            addView(cardFrsGameCompetitionItemView2);
+            c(b, i, this.c);
+            d(b, list.get(i));
+            addView(b);
             i++;
         }
     }

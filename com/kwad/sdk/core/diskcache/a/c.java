@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.diskcache.a;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.kwad.sdk.core.diskcache.kwai.a;
 import com.kwad.sdk.core.network.o;
@@ -13,16 +14,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static ExecutorService WG = com.kwad.sdk.core.threads.b.vq();
 
-    /* loaded from: classes7.dex */
-    public final class a {
+    /* loaded from: classes8.dex */
+    public static class a {
         public String Qd;
     }
 
-    public static File a(com.kwad.sdk.core.diskcache.kwai.a aVar, String str) {
+    public static File a(@NonNull com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull String str) {
         try {
             a.c bx = aVar.bx(str);
             if (bx != null) {
@@ -34,13 +35,13 @@ public final class c {
         }
     }
 
-    public static void a(final com.kwad.sdk.core.diskcache.kwai.a aVar, final String str, final String str2) {
+    public static void a(@NonNull final com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull final String str, @NonNull final String str2) {
         WG.execute(new Runnable() { // from class: com.kwad.sdk.core.diskcache.a.c.1
             @Override // java.lang.Runnable
             public final void run() {
                 OutputStream outputStream = null;
                 try {
-                    a.C0598a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
+                    a.C0609a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
                     if (by != null) {
                         outputStream = by.au(0);
                         if (c.a(str, outputStream, new a())) {
@@ -58,12 +59,12 @@ public final class c {
         });
     }
 
-    public static boolean a(com.kwad.sdk.core.diskcache.kwai.a aVar, String str, String str2, a aVar2) {
+    public static boolean a(@NonNull com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull String str, @NonNull String str2, a aVar2) {
         boolean z = false;
         OutputStream outputStream = null;
         try {
             try {
-                a.C0598a by = aVar.by(str2);
+                a.C0609a by = aVar.by(str2);
                 if (by != null) {
                     outputStream = by.au(0);
                     if (a(str, outputStream, aVar2)) {

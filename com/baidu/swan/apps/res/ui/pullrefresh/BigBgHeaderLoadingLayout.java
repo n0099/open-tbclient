@@ -82,7 +82,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c7, viewGroup, false);
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c8, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -181,13 +181,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091afc);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afa);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091afd);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091afe);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b00);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b02);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afb);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b40);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b3e);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b41);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091b42);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b44);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b46);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b3f);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

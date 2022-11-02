@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.PanelEventTypeEnum;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class zn0 implements yi0 {
+public final class zn0 extends cm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PanelEventTypeEnum a;
+    @NonNull
+    public String a;
+    @Nullable
+    public HashMap<String, String> b;
 
-    public zn0(PanelEventTypeEnum type) {
+    public zn0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,28 +29,6 @@ public final class zn0 implements yi0 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-    }
-
-    @Override // com.baidu.tieba.yi0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = zn0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "PanelViewEvent::class.java.simpleName");
-            return simpleName;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final PanelEventTypeEnum getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (PanelEventTypeEnum) invokeV.objValue;
+        this.a = "-1";
     }
 }

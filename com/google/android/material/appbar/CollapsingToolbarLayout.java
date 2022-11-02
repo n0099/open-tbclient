@@ -16,6 +16,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -47,8 +55,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
     public static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
     public static final int DEF_STYLE_RES = 2131755827;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final CollapsingTextHelper collapsingTextHelper;
     public boolean collapsingTitleEnabled;
+    @Nullable
     public Drawable contentScrim;
     public int currentOffset;
     public boolean drawCollapsingTitle;
@@ -57,6 +67,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     public int expandedMarginEnd;
     public int expandedMarginStart;
     public int expandedMarginTop;
+    @Nullable
     public WindowInsetsCompat lastInsets;
     public AppBarLayout.OnOffsetChangedListener onOffsetChangedListener;
     public boolean refreshToolbar;
@@ -65,9 +76,12 @@ public class CollapsingToolbarLayout extends FrameLayout {
     public ValueAnimator scrimAnimator;
     public int scrimVisibleHeightTrigger;
     public boolean scrimsAreShown;
+    @Nullable
     public Drawable statusBarScrim;
     public final Rect tmpRect;
+    @Nullable
     public Toolbar toolbar;
+    @Nullable
     public View toolbarDirectChild;
     public int toolbarId;
 
@@ -87,7 +101,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class LayoutParams extends FrameLayout.LayoutParams {
+    public static class LayoutParams extends FrameLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COLLAPSE_MODE_OFF = 0;
         public static final int COLLAPSE_MODE_PARALLAX = 2;
@@ -171,7 +185,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
+        public LayoutParams(@NonNull ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -193,7 +207,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.MarginLayoutParams marginLayoutParams) {
+        public LayoutParams(@NonNull ViewGroup.MarginLayoutParams marginLayoutParams) {
             super(marginLayoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -215,7 +229,8 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(FrameLayout.LayoutParams layoutParams) {
+        @RequiresApi(19)
+        public LayoutParams(@NonNull FrameLayout.LayoutParams layoutParams) {
             super(layoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -331,7 +346,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CollapsingToolbarLayout(Context context) {
+    public CollapsingToolbarLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -351,7 +366,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    public void setContentScrim(Drawable drawable) {
+    public void setContentScrim(@Nullable Drawable drawable) {
         Drawable drawable2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048615, this, drawable) == null) && (drawable2 = this.contentScrim) != drawable) {
@@ -395,7 +410,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CollapsingToolbarLayout(Context context, AttributeSet attributeSet) {
+    public CollapsingToolbarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -416,7 +431,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CollapsingToolbarLayout(Context context, AttributeSet attributeSet, int i) {
+    public CollapsingToolbarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -505,7 +520,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             }
 
             @Override // androidx.core.view.OnApplyWindowInsetsListener
-            public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
+            public WindowInsetsCompat onApplyWindowInsets(View view2, @NonNull WindowInsetsCompat windowInsetsCompat) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, windowInsetsCompat)) == null) {
@@ -557,7 +572,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
                     }
 
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                    public void onAnimationUpdate(ValueAnimator valueAnimator4) {
+                    public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator4) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator4) == null) {
                             this.this$0.setScrimAlpha(((Integer) valueAnimator4.getAnimatedValue()).intValue());
@@ -572,7 +587,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    public void setStatusBarScrim(Drawable drawable) {
+    public void setStatusBarScrim(@Nullable Drawable drawable) {
         Drawable drawable2;
         boolean z;
         Interceptable interceptable = $ic;
@@ -661,7 +676,8 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    private View findDirectChild(View view2) {
+    @NonNull
+    private View findDirectChild(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, view2)) == null) {
@@ -675,7 +691,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (View) invokeL.objValue;
     }
 
-    public static int getHeightWithMargins(View view2) {
+    public static int getHeightWithMargins(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
@@ -689,14 +705,15 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return invokeL.intValue;
     }
 
-    public static ViewOffsetHelper getViewOffsetHelper(View view2) {
+    @NonNull
+    public static ViewOffsetHelper getViewOffsetHelper(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
-            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925b2);
+            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092609);
             if (viewOffsetHelper == null) {
                 ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
-                view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925b2, viewOffsetHelper2);
+                view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092609, viewOffsetHelper2);
                 return viewOffsetHelper2;
             }
             return viewOffsetHelper;
@@ -731,7 +748,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public final int getMaxOffsetForPinChild(View view2) {
+    public final int getMaxOffsetForPinChild(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, view2)) == null) {
@@ -740,7 +757,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return invokeL.intValue;
     }
 
-    public WindowInsetsCompat onWindowInsetChanged(WindowInsetsCompat windowInsetsCompat) {
+    public WindowInsetsCompat onWindowInsetChanged(@NonNull WindowInsetsCompat windowInsetsCompat) {
         InterceptResult invokeL;
         WindowInsetsCompat windowInsetsCompat2;
         Interceptable interceptable = $ic;
@@ -766,42 +783,42 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    public void setCollapsedTitleTextAppearance(int i) {
+    public void setCollapsedTitleTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             this.collapsingTextHelper.setCollapsedTextAppearance(i);
         }
     }
 
-    public void setCollapsedTitleTextColor(int i) {
+    public void setCollapsedTitleTextColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
             setCollapsedTitleTextColor(ColorStateList.valueOf(i));
         }
     }
 
-    public void setCollapsedTitleTypeface(Typeface typeface) {
+    public void setCollapsedTitleTypeface(@Nullable Typeface typeface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, typeface) == null) {
             this.collapsingTextHelper.setCollapsedTypeface(typeface);
         }
     }
 
-    public void setContentScrimColor(int i) {
+    public void setContentScrimColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
             setContentScrim(new ColorDrawable(i));
         }
     }
 
-    public void setContentScrimResource(int i) {
+    public void setContentScrimResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
             setContentScrim(ContextCompat.getDrawable(getContext(), i));
         }
     }
 
-    public void setExpandedTitleColor(int i) {
+    public void setExpandedTitleColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
             setExpandedTitleTextColor(ColorStateList.valueOf(i));
@@ -847,27 +864,28 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    public void setExpandedTitleTextAppearance(int i) {
+    public void setExpandedTitleTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
             this.collapsingTextHelper.setExpandedTextAppearance(i);
         }
     }
 
-    public void setExpandedTitleTextColor(ColorStateList colorStateList) {
+    public void setExpandedTitleTextColor(@NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048626, this, colorStateList) == null) {
             this.collapsingTextHelper.setExpandedTextColor(colorStateList);
         }
     }
 
-    public void setExpandedTitleTypeface(Typeface typeface) {
+    public void setExpandedTitleTypeface(@Nullable Typeface typeface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, typeface) == null) {
             this.collapsingTextHelper.setExpandedTypeface(typeface);
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setMaxLines(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
@@ -887,14 +905,14 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    public void setScrimAnimationDuration(long j) {
+    public void setScrimAnimationDuration(@IntRange(from = 0) long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
             this.scrimAnimationDuration = j;
         }
     }
 
-    public void setScrimVisibleHeightTrigger(int i) {
+    public void setScrimVisibleHeightTrigger(@IntRange(from = 0) int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048631, this, i) == null) && this.scrimVisibleHeightTrigger != i) {
             this.scrimVisibleHeightTrigger = i;
@@ -915,21 +933,21 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    public void setStatusBarScrimColor(int i) {
+    public void setStatusBarScrimColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
             setStatusBarScrim(new ColorDrawable(i));
         }
     }
 
-    public void setStatusBarScrimResource(int i) {
+    public void setStatusBarScrimResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
             setStatusBarScrim(ContextCompat.getDrawable(getContext(), i));
         }
     }
 
-    public void setTitle(CharSequence charSequence) {
+    public void setTitle(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, charSequence) == null) {
             this.collapsingTextHelper.setText(charSequence);
@@ -948,7 +966,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public boolean verifyDrawable(Drawable drawable) {
+    public boolean verifyDrawable(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, drawable)) == null) {
@@ -976,6 +994,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Typeface getCollapsedTitleTypeface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -985,6 +1004,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (Typeface) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getContentScrim() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1039,6 +1059,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Typeface getExpandedTitleTypeface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1048,6 +1069,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (Typeface) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int getMaxLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1075,6 +1097,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return invokeV.longValue;
     }
 
+    @Nullable
     public Drawable getStatusBarScrim() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1084,6 +1107,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1134,7 +1158,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         int i;
         Drawable drawable;
         Interceptable interceptable = $ic;
@@ -1262,7 +1286,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (LayoutParams) invokeV.objValue;
     }
 
-    public void setCollapsedTitleTextColor(ColorStateList colorStateList) {
+    public void setCollapsedTitleTextColor(@NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, colorStateList) == null) {
             this.collapsingTextHelper.setCollapsedTextColor(colorStateList);

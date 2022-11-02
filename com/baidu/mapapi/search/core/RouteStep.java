@@ -17,12 +17,22 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class RouteStep implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<RouteStep> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public String c;
-    public List mWayPoints;
+    public List<LatLng> mWayPoints;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +47,7 @@ public class RouteStep implements Parcelable {
                 return;
             }
         }
-        CREATOR = new k();
+        CREATOR = new m();
     }
 
     public RouteStep() {
@@ -52,6 +62,42 @@ public class RouteStep implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public int getDistance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<LatLng> getWayPoints() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mWayPoints;
+        }
+        return (List) invokeV.objValue;
     }
 
     public RouteStep(Parcel parcel) {
@@ -80,40 +126,6 @@ public class RouteStep implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getDistance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public List getWayPoints() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mWayPoints : (List) invokeV.objValue;
-    }
-
     public void setDistance(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -135,7 +147,7 @@ public class RouteStep implements Parcelable {
         }
     }
 
-    public void setWayPoints(List list) {
+    public void setWayPoints(List<LatLng> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.mWayPoints = list;

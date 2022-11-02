@@ -113,10 +113,10 @@ public class AuthWidgetActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                setContentView(R.layout.obfuscated_res_0x7f0d0515);
                 String stringExtra = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
                 this.t = stringExtra;
-                this.u = (String) SapiUtils.urlParamsToMap(stringExtra).get("u");
+                this.u = SapiUtils.urlParamsToMap(stringExtra).get("u");
                 if (!TextUtils.isEmpty(this.t) && !TextUtils.isEmpty(this.u)) {
                     init();
                     setupViews();
@@ -275,7 +275,7 @@ public class AuthWidgetActivity extends BaseActivity {
                 public void shouldOverrideUrlLoading(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.contains(URLDecoder.decode(this.a.u))) {
-                        CoreViewRouter.getInstance().getAuthWidgetCallback().onSuccess((String) SapiUtils.urlParamsToMap(str).get("authsid"));
+                        CoreViewRouter.getInstance().getAuthWidgetCallback().onSuccess(SapiUtils.urlParamsToMap(str).get("authsid"));
                         this.a.finish();
                     }
                 }

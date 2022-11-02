@@ -1,10 +1,13 @@
 package com.google.android.gms.common.util;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class MurmurHash3 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +27,8 @@ public class MurmurHash3 {
         }
     }
 
-    public static int murmurhash3_x86_32(byte[] bArr, int i, int i2, int i3) {
+    @KeepForSdk
+    public static int murmurhash3_x86_32(@NonNull byte[] bArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65537, null, bArr, i, i2, i3)) == null) {

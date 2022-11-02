@@ -38,7 +38,7 @@ public final class WebvttCssStyle {
     public boolean hasFontColor;
     public int italic;
     public int linethrough;
-    public List targetClasses;
+    public List<String> targetClasses;
     public String targetId;
     public String targetTag;
     public String targetVoice;

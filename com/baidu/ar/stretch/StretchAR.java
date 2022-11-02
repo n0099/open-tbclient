@@ -71,7 +71,7 @@ public class StretchAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap hashMap) {
+    public void setup(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
             super.setup(hashMap);

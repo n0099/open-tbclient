@@ -18,10 +18,10 @@ import org.json.JSONObject;
 public class MetricsPkg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap counterData;
+    public HashMap<String, Counter> counterData;
     public int maxCount;
-    public ConcurrentLinkedQueue metricsValues;
-    public ConcurrentLinkedQueue reqData;
+    public ConcurrentLinkedQueue<IJsonSerialize> metricsValues;
+    public ConcurrentLinkedQueue<IJsonSerialize> reqData;
 
     public MetricsPkg(int i) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class MetricsPkg {
                 return;
             }
         }
-        this.reqData = new ConcurrentLinkedQueue();
-        this.metricsValues = new ConcurrentLinkedQueue();
-        this.counterData = new HashMap();
+        this.reqData = new ConcurrentLinkedQueue<>();
+        this.metricsValues = new ConcurrentLinkedQueue<>();
+        this.counterData = new HashMap<>();
         this.maxCount = i;
     }
 
@@ -49,11 +49,11 @@ public class MetricsPkg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, counter)) == null) {
             String key = counter.getKey();
-            Counter counter2 = (Counter) this.counterData.get(key);
+            Counter counter2 = this.counterData.get(key);
             boolean z = false;
             if (counter2 == null) {
                 synchronized (this.counterData) {
-                    Counter counter3 = (Counter) this.counterData.get(key);
+                    Counter counter3 = this.counterData.get(key);
                     if (counter3 == null) {
                         this.counterData.put(key, (Counter) counter.clone());
                         z = true;
@@ -120,7 +120,7 @@ public class MetricsPkg {
         return invokeV.booleanValue;
     }
 
-    public List toJson() {
+    public List<JSONObject> toJson() {
         InterceptResult invokeV;
         int i;
         JSONObject cutPiece;
@@ -128,12 +128,12 @@ public class MetricsPkg {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList arrayList = new ArrayList();
             long currentTimeMillis = System.currentTimeMillis();
-            Iterator it = this.reqData.iterator();
+            Iterator<IJsonSerialize> it = this.reqData.iterator();
             JSONArray jSONArray = new JSONArray();
             loop0: while (true) {
                 i = 0;
                 while (it.hasNext()) {
-                    jSONArray.put(((IJsonSerialize) it.next()).toJson());
+                    jSONArray.put(it.next().toJson());
                     i++;
                     if (i >= this.maxCount) {
                         JSONObject cutPiece2 = cutPiece(jSONArray, null, null, currentTimeMillis);
@@ -159,10 +159,10 @@ public class MetricsPkg {
                     i = 0;
                 }
             }
-            Iterator it2 = this.metricsValues.iterator();
+            Iterator<IJsonSerialize> it2 = this.metricsValues.iterator();
             JSONArray jSONArray3 = new JSONArray();
             while (it2.hasNext()) {
-                jSONArray3.put(((IJsonSerialize) it2.next()).toJson());
+                jSONArray3.put(it2.next().toJson());
                 i++;
                 if (i >= this.maxCount) {
                     JSONObject cutPiece4 = cutPiece(jSONArray, jSONArray2, jSONArray3, currentTimeMillis);

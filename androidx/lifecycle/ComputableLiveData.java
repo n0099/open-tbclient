@@ -1,5 +1,10 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class ComputableLiveData<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -16,10 +22,13 @@ public abstract class ComputableLiveData<T> {
     public final AtomicBoolean mComputing;
     public final Executor mExecutor;
     public final AtomicBoolean mInvalid;
+    @VisibleForTesting
     public final Runnable mInvalidationRunnable;
     public final LiveData<T> mLiveData;
+    @VisibleForTesting
     public final Runnable mRefreshRunnable;
 
+    @WorkerThread
     public abstract T compute();
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -40,6 +49,7 @@ public abstract class ComputableLiveData<T> {
         }
     }
 
+    @NonNull
     public LiveData<T> getLiveData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,7 +66,7 @@ public abstract class ComputableLiveData<T> {
         }
     }
 
-    public ComputableLiveData(Executor executor) {
+    public ComputableLiveData(@NonNull Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,6 +109,7 @@ public abstract class ComputableLiveData<T> {
             /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: androidx.lifecycle.LiveData<T> */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
+            @WorkerThread
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -153,6 +164,7 @@ public abstract class ComputableLiveData<T> {
             }
 
             @Override // java.lang.Runnable
+            @MainThread
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {

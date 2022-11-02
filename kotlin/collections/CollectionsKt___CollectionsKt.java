@@ -28,17 +28,25 @@ import java.util.RandomAccess;
 import java.util.Set;
 import kotlin.Deprecated;
 import kotlin.DeprecatedSinceKotlin;
+import kotlin.ExperimentalStdlibApi;
+import kotlin.ExperimentalUnsignedTypes;
 import kotlin.Metadata;
+import kotlin.OverloadResolutionByLambdaReturnType;
 import kotlin.Pair;
 import kotlin.ReplaceWith;
+import kotlin.SinceKotlin;
 import kotlin.TuplesKt;
 import kotlin.UInt;
 import kotlin.ULong;
 import kotlin.Unit;
+import kotlin.WasExperimental;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareBy$2;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareByDescending$1;
+import kotlin.internal.HidesMembers;
+import kotlin.internal.InlineOnly;
 import kotlin.internal.PlatformImplementationsKt;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
@@ -54,71 +62,79 @@ import kotlin.text.StringsKt__AppendableKt;
 public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJvmKt {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.lang.Iterable<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
+    @InlineOnly
     public static final <T> Iterable<T> asIterable(Iterable<? extends T> iterable) {
         return iterable;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T> boolean all(Iterable<? extends T> all, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         if ((all instanceof Collection) && ((Collection) all).isEmpty()) {
             return true;
         }
-        for (T t : all) {
-            if (!((Boolean) predicate.invoke(t)).booleanValue()) {
+        Iterator<? extends T> it = all.iterator();
+        while (it.hasNext()) {
+            if (!predicate.invoke((T) it.next()).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T> boolean any(Iterable<? extends T> any, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         if ((any instanceof Collection) && ((Collection) any).isEmpty()) {
             return false;
         }
-        for (T t : any) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+        Iterator<? extends T> it = any.iterator();
+        while (it.hasNext()) {
+            if (predicate.invoke((T) it.next()).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r0v7. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V> Map<K, V> associate(Iterable<? extends T> associate, Function1<? super T, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(CollectionsKt__IterablesKt.collectionSizeOrDefault(associate, 10)), 16));
-        for (T t : associate) {
-            Pair pair = (Pair) transform.invoke(t);
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+        Iterator<? extends T> it = associate.iterator();
+        while (it.hasNext()) {
+            Pair<? extends K, ? extends V> invoke = transform.invoke((T) it.next());
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K> Map<K, T> associateBy(Iterable<? extends T> associateBy, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(CollectionsKt__IterablesKt.collectionSizeOrDefault(associateBy, 10)), 16));
-        for (T t : associateBy) {
-            linkedHashMap.put(keySelector.invoke(t), t);
+        Iterator<? extends T> it = associateBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            linkedHashMap.put(keySelector.invoke(obj), obj);
         }
         return linkedHashMap;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.3")
     public static final <K, V> Map<K, V> associateWith(Iterable<? extends K> associateWith, Function1<? super K, ? extends V> valueSelector) {
         Intrinsics.checkNotNullParameter(associateWith, "$this$associateWith");
         Intrinsics.checkNotNullParameter(valueSelector, "valueSelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(CollectionsKt__IterablesKt.collectionSizeOrDefault(associateWith, 10)), 16));
-        for (K k : associateWith) {
-            linkedHashMap.put(k, valueSelector.invoke(k));
+        Iterator<? extends K> it = associateWith.iterator();
+        while (it.hasNext()) {
+            Object obj = (K) it.next();
+            linkedHashMap.put(obj, valueSelector.invoke(obj));
         }
         return linkedHashMap;
     }
@@ -137,13 +153,14 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new IllegalArgumentException(("Requested element count " + i + " is less than zero.").toString());
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> List<T> dropLastWhile(List<? extends T> dropLastWhile, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         if (!dropLastWhile.isEmpty()) {
             ListIterator<? extends T> listIterator = dropLastWhile.listIterator(dropLastWhile.size());
             while (listIterator.hasPrevious()) {
-                if (!((Boolean) predicate.invoke(listIterator.previous())).booleanValue()) {
+                if (!predicate.invoke((T) listIterator.previous()).booleanValue()) {
                     return take(dropLastWhile, listIterator.nextIndex() + 1);
                 }
             }
@@ -155,22 +172,31 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(dropWhile, "$this$dropWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
+        Iterator<? extends T> it = dropWhile.iterator();
         boolean z = false;
-        for (T t : dropWhile) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             if (z) {
-                arrayList.add(t);
-            } else if (!((Boolean) predicate.invoke(t)).booleanValue()) {
-                arrayList.add(t);
+                arrayList.add(obj);
+            } else if (!predicate.invoke(obj).booleanValue()) {
+                arrayList.add(obj);
                 z = true;
             }
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R> List<R> flatMapIndexedIterable(Iterable<? extends T> iterable, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
+        Iterator<? extends T> it = iterable.iterator();
         int i = 0;
-        for (T t : iterable) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -179,16 +205,23 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(Integer.valueOf(i), t));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedSequence")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R> List<R> flatMapIndexedSequence(Iterable<? extends T> iterable, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
+        Iterator<? extends T> it = iterable.iterator();
         int i = 0;
-        for (T t : iterable) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -197,17 +230,20 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Sequence) function2.invoke(Integer.valueOf(i), t));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> void forEachIndexed(Iterable<? extends T> forEachIndexed, Function2<? super Integer, ? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(forEachIndexed, "$this$forEachIndexed");
         Intrinsics.checkNotNullParameter(action, "action");
+        Iterator<? extends T> it = forEachIndexed.iterator();
         int i = 0;
-        for (T t : forEachIndexed) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -216,34 +252,37 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            action.invoke(Integer.valueOf(i), t);
+            action.invoke(Integer.valueOf(i), obj);
             i = i2;
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K> Map<K, List<T>> groupBy(Iterable<? extends T> groupBy, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (T t : groupBy) {
-            Object invoke = keySelector.invoke(t);
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+        Iterator<? extends T> it = groupBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            K invoke = keySelector.invoke(obj);
+            Object obj2 = linkedHashMap.get(invoke);
+            if (obj2 == null) {
+                obj2 = new ArrayList();
+                linkedHashMap.put(invoke, obj2);
             }
-            ((List) obj).add(t);
+            ((List) obj2).add(obj);
         }
         return linkedHashMap;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> int indexOfFirst(Iterable<? extends T> indexOfFirst, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(indexOfFirst, "$this$indexOfFirst");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
+        Iterator<? extends T> it = indexOfFirst.iterator();
         int i = 0;
-        for (T t : indexOfFirst) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
@@ -251,7 +290,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(obj).booleanValue()) {
                 return i;
             }
             i++;
@@ -259,12 +298,15 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return -1;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> int indexOfLast(Iterable<? extends T> indexOfLast, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
+        Iterator<? extends T> it = indexOfLast.iterator();
         int i = -1;
         int i2 = 0;
-        for (T t : indexOfLast) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             if (i2 < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
@@ -272,7 +314,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(obj).booleanValue()) {
                 i = i2;
             }
             i2++;
@@ -280,13 +322,15 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return i;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T> T last(Iterable<? extends T> last, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(last, "$this$last");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         T t = null;
         boolean z = false;
         for (T t2 : last) {
-            if (((Boolean) predicate.invoke(t2)).booleanValue()) {
+            if (predicate.invoke(t2).booleanValue()) {
                 t = t2;
                 z = true;
             }
@@ -297,6 +341,14 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new NoSuchElementException("Collection contains no element matching the predicate.");
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0020 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v13 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.Object] */
     @Deprecated(message = "Use maxByOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxByOrNull(selector)", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final <T, R extends Comparable<? super R>> T maxBy(Iterable<? extends T> maxBy, Function1<? super T, ? extends R> selector) {
@@ -310,19 +362,27 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!it.hasNext()) {
             return next;
         }
-        Comparable comparable = (Comparable) selector.invoke(next);
+        R invoke = selector.invoke(next);
+        boolean z = next;
         do {
             T next2 = it.next();
-            Comparable comparable2 = (Comparable) selector.invoke(next2);
-            if (comparable.compareTo(comparable2) < 0) {
+            R invoke2 = selector.invoke(next2);
+            next = z;
+            if (invoke.compareTo(invoke2) < 0) {
+                invoke = invoke2;
                 next = next2;
-                comparable = comparable2;
             }
+            z = next;
         } while (it.hasNext());
         return next;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
     public static final <T, R extends Comparable<? super R>> T maxByOrNull(Iterable<? extends T> maxByOrNull, Function1<? super T, ? extends R> selector) {
+        T t;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = maxByOrNull.iterator();
@@ -333,43 +393,64 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!it.hasNext()) {
             return next;
         }
-        Comparable comparable = (Comparable) selector.invoke(next);
+        R invoke = selector.invoke(next);
+        T t2 = next;
         do {
-            Object next2 = it.next();
-            Comparable comparable2 = (Comparable) selector.invoke(next2);
-            if (comparable.compareTo(comparable2) < 0) {
-                next = next2;
-                comparable = comparable2;
+            T next2 = it.next();
+            R invoke2 = selector.invoke(next2);
+            t = t2;
+            if (invoke.compareTo(invoke2) < 0) {
+                invoke = invoke2;
+                t = next2;
             }
+            t2 = t;
         } while (it.hasNext());
-        return next;
+        return t;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T> double maxOf(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
-            double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+            double doubleValue = function1.invoke((T) it.next()).doubleValue();
             while (it.hasNext()) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke((T) it.next()).doubleValue());
             }
             return doubleValue;
         }
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull */
     public static final <T> Double m1125maxOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+        double doubleValue = function1.invoke((T) it.next()).doubleValue();
         while (it.hasNext()) {
-            doubleValue = Math.max(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+            doubleValue = Math.max(doubleValue, function1.invoke((T) it.next()).doubleValue());
         }
         return Double.valueOf(doubleValue);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0020 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v13 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.Object] */
     @Deprecated(message = "Use minByOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minByOrNull(selector)", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final <T, R extends Comparable<? super R>> T minBy(Iterable<? extends T> minBy, Function1<? super T, ? extends R> selector) {
@@ -383,19 +464,27 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!it.hasNext()) {
             return next;
         }
-        Comparable comparable = (Comparable) selector.invoke(next);
+        R invoke = selector.invoke(next);
+        boolean z = next;
         do {
             T next2 = it.next();
-            Comparable comparable2 = (Comparable) selector.invoke(next2);
-            if (comparable.compareTo(comparable2) > 0) {
+            R invoke2 = selector.invoke(next2);
+            next = z;
+            if (invoke.compareTo(invoke2) > 0) {
+                invoke = invoke2;
                 next = next2;
-                comparable = comparable2;
             }
+            z = next;
         } while (it.hasNext());
         return next;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
     public static final <T, R extends Comparable<? super R>> T minByOrNull(Iterable<? extends T> minByOrNull, Function1<? super T, ? extends R> selector) {
+        T t;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = minByOrNull.iterator();
@@ -406,39 +495,52 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!it.hasNext()) {
             return next;
         }
-        Comparable comparable = (Comparable) selector.invoke(next);
+        R invoke = selector.invoke(next);
+        T t2 = next;
         do {
-            Object next2 = it.next();
-            Comparable comparable2 = (Comparable) selector.invoke(next2);
-            if (comparable.compareTo(comparable2) > 0) {
-                next = next2;
-                comparable = comparable2;
+            T next2 = it.next();
+            R invoke2 = selector.invoke(next2);
+            t = t2;
+            if (invoke.compareTo(invoke2) > 0) {
+                invoke = invoke2;
+                t = next2;
             }
+            t2 = t;
         } while (it.hasNext());
-        return next;
+        return t;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T> double minOf(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
-            double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+            double doubleValue = function1.invoke((T) it.next()).doubleValue();
             while (it.hasNext()) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke((T) it.next()).doubleValue());
             }
             return doubleValue;
         }
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull */
     public static final <T> Double m1133minOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+        double doubleValue = function1.invoke((T) it.next()).doubleValue();
         while (it.hasNext()) {
-            doubleValue = Math.min(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+            doubleValue = Math.min(doubleValue, function1.invoke((T) it.next()).doubleValue());
         }
         return Double.valueOf(doubleValue);
     }
@@ -459,14 +561,16 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T> boolean none(Iterable<? extends T> none, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         if ((none instanceof Collection) && ((Collection) none).isEmpty()) {
             return true;
         }
-        for (T t : none) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+        Iterator<? extends T> it = none.iterator();
+        while (it.hasNext()) {
+            if (predicate.invoke((T) it.next()).booleanValue()) {
                 return false;
             }
         }
@@ -478,44 +582,50 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        for (T t : partition) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
-                arrayList.add(t);
+        Iterator<? extends T> it = partition.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (predicate.invoke(obj).booleanValue()) {
+                arrayList.add(obj);
             } else {
-                arrayList2.add(t);
+                arrayList2.add(obj);
             }
         }
         return new Pair<>(arrayList, arrayList2);
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T extends S, ? super T extends S */
     public static final <S, T extends S> S reduceRight(List<? extends T> reduceRight, Function2<? super T, ? super S, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceRight, "$this$reduceRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         ListIterator<? extends T> listIterator = reduceRight.listIterator(reduceRight.size());
         if (listIterator.hasPrevious()) {
-            T previous = listIterator.previous();
+            S previous = listIterator.previous();
             while (listIterator.hasPrevious()) {
-                previous = (S) operation.invoke(listIterator.previous(), previous);
+                previous = operation.invoke((T) listIterator.previous(), previous);
             }
             return (S) previous;
         }
         throw new UnsupportedOperationException("Empty list can't be reduced.");
     }
 
+    /* JADX DEBUG: Type inference failed for r2v0. Raw type applied. Possible types: T extends S, ? super T extends S */
     public static final <S, T extends S> S reduceRightIndexed(List<? extends T> reduceRightIndexed, Function3<? super Integer, ? super T, ? super S, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexed, "$this$reduceRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         ListIterator<? extends T> listIterator = reduceRightIndexed.listIterator(reduceRightIndexed.size());
         if (listIterator.hasPrevious()) {
-            T previous = listIterator.previous();
+            S previous = listIterator.previous();
             while (listIterator.hasPrevious()) {
-                previous = (S) operation.invoke(Integer.valueOf(listIterator.previousIndex()), listIterator.previous(), previous);
+                previous = operation.invoke(Integer.valueOf(listIterator.previousIndex()), (T) listIterator.previous(), previous);
             }
             return (S) previous;
         }
         throw new UnsupportedOperationException("Empty list can't be reduced.");
     }
 
+    /* JADX DEBUG: Type inference failed for r2v0. Raw type applied. Possible types: T extends S, ? super T extends S */
+    @SinceKotlin(version = "1.4")
     public static final <S, T extends S> S reduceRightIndexedOrNull(List<? extends T> reduceRightIndexedOrNull, Function3<? super Integer, ? super T, ? super S, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -523,13 +633,16 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!listIterator.hasPrevious()) {
             return null;
         }
-        T previous = listIterator.previous();
+        S previous = listIterator.previous();
         while (listIterator.hasPrevious()) {
-            previous = (S) operation.invoke(Integer.valueOf(listIterator.previousIndex()), listIterator.previous(), previous);
+            previous = operation.invoke(Integer.valueOf(listIterator.previousIndex()), (T) listIterator.previous(), previous);
         }
         return (S) previous;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v3. Raw type applied. Possible types: T extends S, ? super T extends S */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <S, T extends S> List<S> runningReduce(Iterable<? extends T> runningReduce, Function2<? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(runningReduce, "$this$runningReduce");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -537,16 +650,18 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!it.hasNext()) {
             return CollectionsKt__CollectionsKt.emptyList();
         }
-        Object next = it.next();
+        S next = it.next();
         ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(runningReduce, 10));
         arrayList.add(next);
         while (it.hasNext()) {
-            next = operation.invoke(next, it.next());
+            next = operation.invoke(next, (T) it.next());
             arrayList.add(next);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v0. Raw type applied. Possible types: T extends S, ? super T extends S */
+    @SinceKotlin(version = "1.4")
     public static final <S, T extends S> List<S> runningReduceIndexed(Iterable<? extends T> runningReduceIndexed, Function3<? super Integer, ? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(runningReduceIndexed, "$this$runningReduceIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -554,26 +669,28 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!it.hasNext()) {
             return CollectionsKt__CollectionsKt.emptyList();
         }
-        Object next = it.next();
+        S next = it.next();
         ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(runningReduceIndexed, 10));
         arrayList.add(next);
         int i = 1;
         while (it.hasNext()) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            next = operation.invoke(valueOf, next, it.next());
+            next = operation.invoke(valueOf, next, (T) it.next());
             arrayList.add(next);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T> T single(Iterable<? extends T> single, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(single, "$this$single");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         T t = null;
         boolean z = false;
         for (T t2 : single) {
-            if (((Boolean) predicate.invoke(t2)).booleanValue()) {
+            if (predicate.invoke(t2).booleanValue()) {
                 if (!z) {
                     t = t2;
                     z = true;
@@ -639,6 +756,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T, R> List<R> zipWithNext(Iterable<? extends T> zipWithNext, Function2<? super T, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -651,7 +769,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         while (it.hasNext()) {
             T next2 = it.next();
             arrayList.add(transform.invoke(next, next2));
-            next = next2;
+            next = (Object) next2;
         }
         return arrayList;
     }
@@ -674,6 +792,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         };
     }
 
+    @JvmName(name = "averageOfByte")
     public static final double averageOfByte(Iterable<Byte> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -691,6 +810,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return d / i;
     }
 
+    @JvmName(name = "averageOfDouble")
     public static final double averageOfDouble(Iterable<Double> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -708,6 +828,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return d / i;
     }
 
+    @JvmName(name = "averageOfFloat")
     public static final double averageOfFloat(Iterable<Float> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -725,6 +846,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return d / i;
     }
 
+    @JvmName(name = "averageOfInt")
     public static final double averageOfInt(Iterable<Integer> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -742,6 +864,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return d / i;
     }
 
+    @JvmName(name = "averageOfLong")
     public static final double averageOfLong(Iterable<Long> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -759,6 +882,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return d / i;
     }
 
+    @JvmName(name = "averageOfShort")
     public static final double averageOfShort(Iterable<Short> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
@@ -776,26 +900,31 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return d / i;
     }
 
+    @InlineOnly
     public static final <T> T component1(List<? extends T> component1) {
         Intrinsics.checkNotNullParameter(component1, "$this$component1");
         return component1.get(0);
     }
 
+    @InlineOnly
     public static final <T> T component2(List<? extends T> component2) {
         Intrinsics.checkNotNullParameter(component2, "$this$component2");
         return component2.get(1);
     }
 
+    @InlineOnly
     public static final <T> T component3(List<? extends T> component3) {
         Intrinsics.checkNotNullParameter(component3, "$this$component3");
         return component3.get(2);
     }
 
+    @InlineOnly
     public static final <T> T component4(List<? extends T> component4) {
         Intrinsics.checkNotNullParameter(component4, "$this$component4");
         return component4.get(3);
     }
 
+    @InlineOnly
     public static final <T> T component5(List<? extends T> component5) {
         Intrinsics.checkNotNullParameter(component5, "$this$component5");
         return component5.get(4);
@@ -899,6 +1028,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return (T) maxOrNull(max);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T extends Comparable<? super T>> T maxOrNull(Iterable<? extends T> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<? extends T> it = maxOrNull.iterator();
@@ -922,6 +1052,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return (T) minOrNull(min);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T extends Comparable<? super T>> T minOrNull(Iterable<? extends T> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<? extends T> it = minOrNull.iterator();
@@ -946,10 +1077,15 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return !none.iterator().hasNext();
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final <T> T random(Collection<? extends T> collection) {
         return (T) random(collection, Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final <T> T randomOrNull(Collection<? extends T> collection) {
         return (T) randomOrNull(collection, Random.Default);
     }
@@ -1006,6 +1142,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return sortedWith(sortedDescending, ComparisonsKt__ComparisonsKt.reverseOrder());
     }
 
+    @JvmName(name = "sumOfByte")
     public static final int sumOfByte(Iterable<Byte> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
@@ -1015,6 +1152,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return i;
     }
 
+    @JvmName(name = "sumOfDouble")
     public static final double sumOfDouble(Iterable<Double> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         double d = 0.0d;
@@ -1024,6 +1162,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return d;
     }
 
+    @JvmName(name = "sumOfFloat")
     public static final float sumOfFloat(Iterable<Float> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         float f = 0.0f;
@@ -1033,6 +1172,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return f;
     }
 
+    @JvmName(name = "sumOfInt")
     public static final int sumOfInt(Iterable<Integer> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
@@ -1042,6 +1182,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return i;
     }
 
+    @JvmName(name = "sumOfLong")
     public static final long sumOfLong(Iterable<Long> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         long j = 0;
@@ -1051,6 +1192,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return j;
     }
 
+    @JvmName(name = "sumOfShort")
     public static final int sumOfShort(Iterable<Short> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
@@ -1174,6 +1316,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return new IndexingIterable(new CollectionsKt___CollectionsKt$withIndex$1(withIndex));
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T> List<Pair<T, T>> zipWithNext(Iterable<? extends T> zipWithNext) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         Iterator<? extends T> it = zipWithNext.iterator();
@@ -1190,22 +1333,30 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V> Map<K, V> associateBy(Iterable<? extends T> associateBy, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(CollectionsKt__IterablesKt.collectionSizeOrDefault(associateBy, 10)), 16));
-        for (T t : associateBy) {
-            linkedHashMap.put(keySelector.invoke(t), valueTransform.invoke(t));
+        Iterator<? extends T> it = associateBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            linkedHashMap.put(keySelector.invoke(obj), valueTransform.invoke(obj));
         }
         return linkedHashMap;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R, C extends Collection<? super R>> C flatMapIndexedIterableTo(Iterable<? extends T> iterable, C c, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
+        Iterator<? extends T> it = iterable.iterator();
         int i = 0;
-        for (T t : iterable) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1214,15 +1365,22 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(Integer.valueOf(i), t));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
         return c;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedSequenceTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R, C extends Collection<? super R>> C flatMapIndexedSequenceTo(Iterable<? extends T> iterable, C c, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
+        Iterator<? extends T> it = iterable.iterator();
         int i = 0;
-        for (T t : iterable) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1231,17 +1389,21 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Sequence) function2.invoke(Integer.valueOf(i), t));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
         return c;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r7v4. Raw type applied. Possible types: R, ? super R */
     public static final <T, R> R foldIndexed(Iterable<? extends T> foldIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
+        Iterator<? extends T> it = foldIndexed.iterator();
         int i = 0;
-        for (T t : foldIndexed) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1250,55 +1412,59 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            r = (R) operation.invoke(Integer.valueOf(i), r, t);
+            r = operation.invoke(Integer.valueOf(i), r, obj);
             i = i2;
         }
         return r;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V> Map<K, List<V>> groupBy(Iterable<? extends T> groupBy, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (T t : groupBy) {
-            Object invoke = keySelector.invoke(t);
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+        Iterator<? extends T> it = groupBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            K invoke = keySelector.invoke(obj);
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(t));
+            list.add(valueTransform.invoke(obj));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: M extends java.util.Map<? super K, java.util.List<T>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, M extends Map<? super K, List<T>>> M groupByTo(Iterable<? extends T> groupByTo, M destination, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
-        for (T t : groupByTo) {
-            Object invoke = keySelector.invoke(t);
-            Object obj = destination.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                destination.put(invoke, obj);
+        Iterator<? extends T> it = groupByTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            K invoke = keySelector.invoke(obj);
+            Object obj2 = destination.get(invoke);
+            if (obj2 == null) {
+                obj2 = new ArrayList();
+                destination.put(invoke, obj2);
             }
-            ((List) obj).add(t);
+            ((List) obj2).add(obj);
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C mapIndexedTo(Iterable<? extends T> mapIndexedTo, C destination, Function2<? super Integer, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapIndexedTo, "$this$mapIndexedTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
+        Iterator<? extends T> it = mapIndexedTo.iterator();
         int i = 0;
-        for (T t : mapIndexedTo) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1307,12 +1473,15 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            destination.add(transform.invoke(Integer.valueOf(i), t));
+            destination.add(transform.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v6. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r3v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
     public static final <T, R> List<R> runningFold(Iterable<? extends T> runningFold, R r, Function2<? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(runningFold, "$this$runningFold");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -1322,13 +1491,17 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         }
         ArrayList arrayList = new ArrayList(collectionSizeOrDefault + 1);
         arrayList.add(r);
-        for (T t : runningFold) {
-            r = (R) operation.invoke(r, t);
+        Iterator<? extends T> it = runningFold.iterator();
+        while (it.hasNext()) {
+            r = operation.invoke(r, (T) it.next());
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
     public static final <T, R> List<R> runningFoldIndexed(Iterable<? extends T> runningFoldIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(runningFoldIndexed, "$this$runningFoldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -1339,15 +1512,20 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         ArrayList arrayList = new ArrayList(collectionSizeOrDefault + 1);
         arrayList.add(r);
         int i = 0;
-        for (T t : runningFoldIndexed) {
+        Iterator<? extends T> it = runningFoldIndexed.iterator();
+        while (it.hasNext()) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, t);
+            r = operation.invoke(valueOf, r, (T) it.next());
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v6. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r3v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T, R> List<R> scan(Iterable<? extends T> scan, R r, Function2<? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(scan, "$this$scan");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -1357,13 +1535,18 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         }
         ArrayList arrayList = new ArrayList(collectionSizeOrDefault + 1);
         arrayList.add(r);
-        for (T t : scan) {
-            r = (R) operation.invoke(r, t);
+        Iterator<? extends T> it = scan.iterator();
+        while (it.hasNext()) {
+            r = operation.invoke(r, (T) it.next());
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T, R> List<R> scanIndexed(Iterable<? extends T> scanIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(scanIndexed, "$this$scanIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -1374,89 +1557,102 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         ArrayList arrayList = new ArrayList(collectionSizeOrDefault + 1);
         arrayList.add(r);
         int i = 0;
-        for (T t : scanIndexed) {
+        Iterator<? extends T> it = scanIndexed.iterator();
+        while (it.hasNext()) {
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, t);
+            r = operation.invoke(valueOf, r, (T) it.next());
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, R, V> List<V> zip(Iterable<? extends T> zip, R[] other, Function2<? super T, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
         Intrinsics.checkNotNullParameter(transform, "transform");
         int length = other.length;
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(zip, 10), length));
+        Iterator<? extends T> it = zip.iterator();
         int i = 0;
-        for (T t : zip) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             if (i >= length) {
                 break;
             }
-            arrayList.add(transform.invoke(t, other[i]));
+            arrayList.add(transform.invoke(obj, other[i]));
             i++;
         }
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: M extends java.util.Map<? super K, ? super T> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, M extends Map<? super K, ? super T>> M associateByTo(Iterable<? extends T> associateByTo, M destination, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
-        for (T t : associateByTo) {
-            destination.put(keySelector.invoke(t), t);
+        Iterator<? extends T> it = associateByTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            destination.put(keySelector.invoke(obj), obj);
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V, M extends Map<? super K, ? super V>> M associateTo(Iterable<? extends T> associateTo, M destination, Function1<? super T, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        for (T t : associateTo) {
-            Pair pair = (Pair) transform.invoke(t);
-            destination.put(pair.getFirst(), pair.getSecond());
+        Iterator<? extends T> it = associateTo.iterator();
+        while (it.hasNext()) {
+            Pair<? extends K, ? extends V> invoke = transform.invoke((T) it.next());
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: M extends java.util.Map<? super K, ? super V> */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.3")
     public static final <K, V, M extends Map<? super K, ? super V>> M associateWithTo(Iterable<? extends K> associateWithTo, M destination, Function1<? super K, ? extends V> valueSelector) {
         Intrinsics.checkNotNullParameter(associateWithTo, "$this$associateWithTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(valueSelector, "valueSelector");
-        for (K k : associateWithTo) {
-            destination.put(k, valueSelector.invoke(k));
+        Iterator<? extends K> it = associateWithTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (K) it.next();
+            destination.put(obj, valueSelector.invoke(obj));
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T, R> List<R> chunked(Iterable<? extends T> chunked, int i, Function1<? super List<? extends T>, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         Intrinsics.checkNotNullParameter(transform, "transform");
         return windowed(chunked, i, i, true, transform);
     }
 
+    @InlineOnly
     public static final <T> T elementAtOrElse(List<? extends T> list, int i, Function1<? super Integer, ? extends T> function1) {
         if (i >= 0 && i <= CollectionsKt__CollectionsKt.getLastIndex(list)) {
             return list.get(i);
         }
-        return (T) function1.invoke(Integer.valueOf(i));
+        return function1.invoke(Integer.valueOf(i));
     }
 
     public static final <T, C extends Collection<? super T>> C filterNotTo(Iterable<? extends T> filterNotTo, C destination, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(filterNotTo, "$this$filterNotTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        for (T t : filterNotTo) {
-            if (!((Boolean) predicate.invoke(t)).booleanValue()) {
-                destination.add(t);
+        Iterator<? extends T> it = filterNotTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (!predicate.invoke(obj).booleanValue()) {
+                destination.add(obj);
             }
         }
         return destination;
@@ -1466,80 +1662,99 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(filterTo, "$this$filterTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        for (T t : filterTo) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
-                destination.add(t);
+        Iterator<? extends T> it = filterTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (predicate.invoke(obj).booleanValue()) {
+                destination.add(obj);
             }
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapSequenceTo")
     public static final <T, R, C extends Collection<? super R>> C flatMapSequenceTo(Iterable<? extends T> flatMapTo, C destination, Function1<? super T, ? extends Sequence<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMapTo, "$this$flatMapTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        for (T t : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Sequence) transform.invoke(t));
+        Iterator<? extends T> it = flatMapTo.iterator();
+        while (it.hasNext()) {
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke((T) it.next()));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C flatMapTo(Iterable<? extends T> flatMapTo, C destination, Function1<? super T, ? extends Iterable<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMapTo, "$this$flatMapTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        for (T t : flatMapTo) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(t));
+        Iterator<? extends T> it = flatMapTo.iterator();
+        while (it.hasNext()) {
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke((T) it.next()));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v4. Raw type applied. Possible types: R, ? super R */
     public static final <T, R> R fold(Iterable<? extends T> fold, R r, Function2<? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        for (T t : fold) {
-            r = (R) operation.invoke(r, t);
+        Iterator<? extends T> it = fold.iterator();
+        while (it.hasNext()) {
+            r = operation.invoke(r, (T) it.next());
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v5. Raw type applied. Possible types: R, ? super R */
     public static final <T, R> R foldRight(List<? extends T> foldRight, R r, Function2<? super T, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         if (!foldRight.isEmpty()) {
             ListIterator<? extends T> listIterator = foldRight.listIterator(foldRight.size());
             while (listIterator.hasPrevious()) {
-                r = (R) operation.invoke(listIterator.previous(), r);
+                r = operation.invoke((T) listIterator.previous(), r);
             }
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r3v5. Raw type applied. Possible types: R, ? super R */
     public static final <T, R> R foldRightIndexed(List<? extends T> foldRightIndexed, R r, Function3<? super Integer, ? super T, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         if (!foldRightIndexed.isEmpty()) {
             ListIterator<? extends T> listIterator = foldRightIndexed.listIterator(foldRightIndexed.size());
             while (listIterator.hasPrevious()) {
-                r = (R) operation.invoke(Integer.valueOf(listIterator.previousIndex()), listIterator.previous(), r);
+                r = operation.invoke(Integer.valueOf(listIterator.previousIndex()), (T) listIterator.previous(), r);
             }
         }
         return r;
     }
 
+    @InlineOnly
     public static final <T> T getOrElse(List<? extends T> list, int i, Function1<? super Integer, ? extends T> function1) {
         if (i >= 0 && i <= CollectionsKt__CollectionsKt.getLastIndex(list)) {
             return list.get(i);
         }
-        return (T) function1.invoke(Integer.valueOf(i));
+        return function1.invoke(Integer.valueOf(i));
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C mapNotNullTo(Iterable<? extends T> mapNotNullTo, C destination, Function1<? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapNotNullTo, "$this$mapNotNullTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        for (T t : mapNotNullTo) {
-            Object invoke = transform.invoke(t);
+        Iterator<? extends T> it = mapNotNullTo.iterator();
+        while (it.hasNext()) {
+            R invoke = transform.invoke((T) it.next());
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -1547,25 +1762,34 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C mapTo(Iterable<? extends T> mapTo, C destination, Function1<? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapTo, "$this$mapTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        for (T t : mapTo) {
-            destination.add(transform.invoke(t));
+        Iterator<? extends T> it = mapTo.iterator();
+        while (it.hasNext()) {
+            destination.add(transform.invoke((T) it.next()));
         }
         return destination;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R maxOfWith(Iterable<? extends T> iterable, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
-            Object obj = (R) function1.invoke(it.next());
+            Object obj = (R) function1.invoke((T) it.next());
             while (it.hasNext()) {
-                Object invoke = function1.invoke(it.next());
+                R invoke = function1.invoke((T) it.next());
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
             }
             return (R) obj;
@@ -1573,31 +1797,45 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new NoSuchElementException();
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R maxOfWithOrNull(Iterable<? extends T> iterable, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Object obj = (R) function1.invoke(it.next());
+        Object obj = (R) function1.invoke((T) it.next());
         while (it.hasNext()) {
-            Object invoke = function1.invoke(it.next());
+            R invoke = function1.invoke((T) it.next());
             if (comparator.compare(obj, invoke) < 0) {
-                obj = (R) invoke;
+                obj = invoke;
             }
         }
         return (R) obj;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R minOfWith(Iterable<? extends T> iterable, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
-            Object obj = (R) function1.invoke(it.next());
+            Object obj = (R) function1.invoke((T) it.next());
             while (it.hasNext()) {
-                Object invoke = function1.invoke(it.next());
+                R invoke = function1.invoke((T) it.next());
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
             }
             return (R) obj;
@@ -1605,35 +1843,44 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new NoSuchElementException();
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R minOfWithOrNull(Iterable<? extends T> iterable, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Object obj = (R) function1.invoke(it.next());
+        Object obj = (R) function1.invoke((T) it.next());
         while (it.hasNext()) {
-            Object invoke = function1.invoke(it.next());
+            R invoke = function1.invoke((T) it.next());
             if (comparator.compare(obj, invoke) > 0) {
-                obj = (R) invoke;
+                obj = invoke;
             }
         }
         return (R) obj;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V, M extends Map<? super K, ? super V>> M associateByTo(Iterable<? extends T> associateByTo, M destination, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
-        for (T t : associateByTo) {
-            destination.put(keySelector.invoke(t), valueTransform.invoke(t));
+        Iterator<? extends T> it = associateByTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            destination.put(keySelector.invoke(obj), valueTransform.invoke(obj));
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T> List<List<T>> chunked(Iterable<? extends T> chunked, int i) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         return windowed(chunked, i, i, true);
@@ -1655,9 +1902,11 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(selector, "selector");
         HashSet hashSet = new HashSet();
         ArrayList arrayList = new ArrayList();
-        for (T t : distinctBy) {
-            if (hashSet.add(selector.invoke(t))) {
-                arrayList.add(t);
+        Iterator<? extends T> it = distinctBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (hashSet.add(selector.invoke(obj))) {
+                arrayList.add(obj);
             }
         }
         return arrayList;
@@ -1694,9 +1943,11 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(filter, "$this$filter");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
-        for (T t : filter) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
-                arrayList.add(t);
+        Iterator<? extends T> it = filter.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (predicate.invoke(obj).booleanValue()) {
+                arrayList.add(obj);
             }
         }
         return arrayList;
@@ -1718,9 +1969,11 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(filterNot, "$this$filterNot");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
-        for (T t : filterNot) {
-            if (!((Boolean) predicate.invoke(t)).booleanValue()) {
-                arrayList.add(t);
+        Iterator<? extends T> it = filterNot.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (!predicate.invoke(obj).booleanValue()) {
+                arrayList.add(obj);
             }
         }
         return arrayList;
@@ -1737,42 +1990,51 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return destination;
     }
 
+    /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
+    @InlineOnly
     public static final <T> T find(Iterable<? extends T> iterable, Function1<? super T, Boolean> function1) {
         for (T t : iterable) {
-            if (((Boolean) function1.invoke(t)).booleanValue()) {
+            if (function1.invoke(t).booleanValue()) {
                 return t;
             }
         }
         return null;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    @InlineOnly
     public static final <T> T findLast(Iterable<? extends T> iterable, Function1<? super T, Boolean> function1) {
         T t = null;
         for (T t2 : iterable) {
-            if (((Boolean) function1.invoke(t2)).booleanValue()) {
+            if (function1.invoke(t2).booleanValue()) {
                 t = t2;
             }
         }
         return t;
     }
 
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
     public static final <T> T first(Iterable<? extends T> first, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : first) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 return t;
             }
         }
         throw new NoSuchElementException("Collection contains no element matching the predicate.");
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <T, R> R firstNotNullOf(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
         R r;
         Iterator<? extends T> it = iterable.iterator();
         while (true) {
             if (it.hasNext()) {
-                r = (R) function1.invoke(it.next());
+                r = function1.invoke((T) it.next());
                 if (r != null) {
                     break;
                 }
@@ -1787,52 +2049,67 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new NoSuchElementException("No element of the collection was transformed to a non-null value.");
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <T, R> R firstNotNullOfOrNull(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
-        for (T t : iterable) {
-            R r = (R) function1.invoke(t);
-            if (r != null) {
-                return r;
+        Iterator<? extends T> it = iterable.iterator();
+        while (it.hasNext()) {
+            R invoke = function1.invoke((T) it.next());
+            if (invoke != null) {
+                return invoke;
             }
         }
         return null;
     }
 
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
     public static final <T> T firstOrNull(Iterable<? extends T> firstOrNull, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : firstOrNull) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 return t;
             }
         }
         return null;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, R> List<R> flatMap(Iterable<? extends T> flatMap, Function1<? super T, ? extends Iterable<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMap, "$this$flatMap");
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
-        for (T t : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(t));
+        Iterator<? extends T> it = flatMap.iterator();
+        while (it.hasNext()) {
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke((T) it.next()));
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapSequence")
     public static final <T, R> List<R> flatMapSequence(Iterable<? extends T> flatMap, Function1<? super T, ? extends Sequence<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMap, "$this$flatMap");
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
-        for (T t : flatMap) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Sequence) transform.invoke(t));
+        Iterator<? extends T> it = flatMap.iterator();
+        while (it.hasNext()) {
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke((T) it.next()));
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
+    @HidesMembers
     public static final <T> void forEach(Iterable<? extends T> forEach, Function1<? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(forEach, "$this$forEach");
         Intrinsics.checkNotNullParameter(action, "action");
-        for (T t : forEach) {
-            action.invoke(t);
+        Iterator<? extends T> it = forEach.iterator();
+        while (it.hasNext()) {
+            action.invoke((T) it.next());
         }
     }
 
@@ -1844,6 +2121,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return null;
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <T, K> Grouping<T, K> groupingBy(final Iterable<? extends T> groupingBy, final Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupingBy, "$this$groupingBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -1879,12 +2157,14 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return -1;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> int indexOfFirst(List<? extends T> indexOfFirst, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(indexOfFirst, "$this$indexOfFirst");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
+        Iterator<? extends T> it = indexOfFirst.iterator();
         int i = 0;
-        for (T t : indexOfFirst) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+        while (it.hasNext()) {
+            if (predicate.invoke((T) it.next()).booleanValue()) {
                 return i;
             }
             i++;
@@ -1892,12 +2172,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return -1;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T> int indexOfLast(List<? extends T> indexOfLast, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ListIterator<? extends T> listIterator = indexOfLast.listIterator(indexOfLast.size());
         while (listIterator.hasPrevious()) {
-            if (((Boolean) predicate.invoke(listIterator.previous())).booleanValue()) {
+            if (predicate.invoke((T) listIterator.previous()).booleanValue()) {
                 return listIterator.nextIndex();
             }
         }
@@ -1912,13 +2193,14 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return mutableSet;
     }
 
+    /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
     public static final <T> T last(List<? extends T> last, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(last, "$this$last");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ListIterator<? extends T> listIterator = last.listIterator(last.size());
         while (listIterator.hasPrevious()) {
             T previous = listIterator.previous();
-            if (((Boolean) predicate.invoke(previous)).booleanValue()) {
+            if (predicate.invoke(previous).booleanValue()) {
                 return previous;
             }
         }
@@ -1944,34 +2226,40 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return i;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T> T lastOrNull(Iterable<? extends T> lastOrNull, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(lastOrNull, "$this$lastOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         T t = null;
         for (T t2 : lastOrNull) {
-            if (((Boolean) predicate.invoke(t2)).booleanValue()) {
+            if (predicate.invoke(t2).booleanValue()) {
                 t = t2;
             }
         }
         return t;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T, ? super T */
     public static final <T, R> List<R> map(Iterable<? extends T> map, Function1<? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(map, "$this$map");
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(map, 10));
-        for (T t : map) {
-            arrayList.add(transform.invoke(t));
+        Iterator<? extends T> it = map.iterator();
+        while (it.hasNext()) {
+            arrayList.add(transform.invoke((T) it.next()));
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, R> List<R> mapNotNull(Iterable<? extends T> mapNotNull, Function1<? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapNotNull, "$this$mapNotNull");
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
-        for (T t : mapNotNull) {
-            Object invoke = transform.invoke(t);
+        Iterator<? extends T> it = mapNotNull.iterator();
+        while (it.hasNext()) {
+            R invoke = transform.invoke((T) it.next());
             if (invoke != null) {
                 arrayList.add(invoke);
             }
@@ -1979,22 +2267,24 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v9, types: [java.lang.Comparable] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R extends Comparable<? super R>> R maxOfOrNull(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        R r = (R) function1.invoke(it.next());
+        R invoke = function1.invoke((T) it.next());
         while (it.hasNext()) {
-            ?? r1 = (Comparable) function1.invoke(it.next());
-            if (r.compareTo(r1) < 0) {
-                r = r1;
+            R invoke2 = function1.invoke((T) it.next());
+            if (invoke.compareTo(invoke2) < 0) {
+                invoke = invoke2;
             }
         }
-        return r;
+        return invoke;
     }
 
     @Deprecated(message = "Use maxWithOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxWithOrNull(comparator)", imports = {}))
@@ -2008,6 +2298,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object */
     /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: T, ? super T */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
     public static final <T> T maxWithOrNull(Iterable<? extends T> maxWithOrNull, Comparator<? super T> comparator) {
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
@@ -2025,22 +2316,24 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return (T) obj;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v9, types: [java.lang.Comparable] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R extends Comparable<? super R>> R minOfOrNull(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        R r = (R) function1.invoke(it.next());
+        R invoke = function1.invoke((T) it.next());
         while (it.hasNext()) {
-            ?? r1 = (Comparable) function1.invoke(it.next());
-            if (r.compareTo(r1) > 0) {
-                r = r1;
+            R invoke2 = function1.invoke((T) it.next());
+            if (invoke.compareTo(invoke2) > 0) {
+                invoke = invoke2;
             }
         }
-        return r;
+        return invoke;
     }
 
     @Deprecated(message = "Use minWithOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minWithOrNull(comparator)", imports = {}))
@@ -2054,6 +2347,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object */
     /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: T, ? super T */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
     public static final <T> T minWithOrNull(Iterable<? extends T> minWithOrNull, Comparator<? super T> comparator) {
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
@@ -2088,10 +2382,12 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
+    @InlineOnly
     public static final <T> List<T> minusElement(Iterable<? extends T> iterable, T t) {
         return minus(iterable, t);
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <T, C extends Iterable<? extends T>> C onEach(C onEach, Function1<? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(onEach, "$this$onEach");
         Intrinsics.checkNotNullParameter(action, "action");
@@ -2102,6 +2398,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return onEach;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T, C extends Iterable<? extends T>> C onEachIndexed(C onEachIndexed, Function2<? super Integer, ? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(onEachIndexed, "$this$onEachIndexed");
         Intrinsics.checkNotNullParameter(action, "action");
@@ -2129,10 +2426,12 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
+    @InlineOnly
     public static final <T> List<T> plusElement(Iterable<? extends T> iterable, T t) {
         return plus(iterable, t);
     }
 
+    @SinceKotlin(version = "1.3")
     public static final <T> T random(Collection<? extends T> random, Random random2) {
         Intrinsics.checkNotNullParameter(random, "$this$random");
         Intrinsics.checkNotNullParameter(random2, "random");
@@ -2142,6 +2441,8 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new NoSuchElementException("Collection is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T> T randomOrNull(Collection<? extends T> randomOrNull, Random random) {
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -2151,20 +2452,24 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return (T) elementAt(randomOrNull, random.nextInt(randomOrNull.size()));
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T extends S, ? super T extends S */
     public static final <S, T extends S> S reduce(Iterable<? extends T> reduce, Function2<? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduce, "$this$reduce");
         Intrinsics.checkNotNullParameter(operation, "operation");
         Iterator<? extends T> it = reduce.iterator();
         if (it.hasNext()) {
-            T next = it.next();
+            S next = it.next();
             while (it.hasNext()) {
-                next = (S) operation.invoke(next, it.next());
+                next = operation.invoke(next, (T) it.next());
             }
             return (S) next;
         }
         throw new UnsupportedOperationException("Empty collection can't be reduced.");
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T extends S, ? super T extends S */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <S, T extends S> S reduceOrNull(Iterable<? extends T> reduceOrNull, Function2<? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -2172,13 +2477,16 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!it.hasNext()) {
             return null;
         }
-        T next = it.next();
+        S next = it.next();
         while (it.hasNext()) {
-            next = (S) operation.invoke(next, it.next());
+            next = operation.invoke(next, (T) it.next());
         }
         return (S) next;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T extends S, ? super T extends S */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <S, T extends S> S reduceRightOrNull(List<? extends T> reduceRightOrNull, Function2<? super T, ? super S, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -2186,13 +2494,14 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!listIterator.hasPrevious()) {
             return null;
         }
-        T previous = listIterator.previous();
+        S previous = listIterator.previous();
         while (listIterator.hasPrevious()) {
-            previous = (S) operation.invoke(listIterator.previous(), previous);
+            previous = operation.invoke((T) listIterator.previous(), previous);
         }
         return (S) previous;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final <T> void shuffle(List<T> shuffle, Random random) {
         Intrinsics.checkNotNullParameter(shuffle, "$this$shuffle");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -2202,13 +2511,15 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T> T singleOrNull(Iterable<? extends T> singleOrNull, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(singleOrNull, "$this$singleOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         boolean z = false;
         T t = null;
         for (T t2 : singleOrNull) {
-            if (((Boolean) predicate.invoke(t2)).booleanValue()) {
+            if (predicate.invoke(t2).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -2267,66 +2578,102 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return mutableSet;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     @Deprecated(message = "Use sumOf instead.", replaceWith = @ReplaceWith(expression = "this.sumOf(selector)", imports = {}))
     @DeprecatedSinceKotlin(warningSince = "1.5")
     public static final <T> int sumBy(Iterable<? extends T> sumBy, Function1<? super T, Integer> selector) {
         Intrinsics.checkNotNullParameter(sumBy, "$this$sumBy");
         Intrinsics.checkNotNullParameter(selector, "selector");
+        Iterator<? extends T> it = sumBy.iterator();
         int i = 0;
-        for (T t : sumBy) {
-            i += ((Number) selector.invoke(t)).intValue();
+        while (it.hasNext()) {
+            i += selector.invoke((T) it.next()).intValue();
         }
         return i;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     @Deprecated(message = "Use sumOf instead.", replaceWith = @ReplaceWith(expression = "this.sumOf(selector)", imports = {}))
     @DeprecatedSinceKotlin(warningSince = "1.5")
     public static final <T> double sumByDouble(Iterable<? extends T> sumByDouble, Function1<? super T, Double> selector) {
         Intrinsics.checkNotNullParameter(sumByDouble, "$this$sumByDouble");
         Intrinsics.checkNotNullParameter(selector, "selector");
+        Iterator<? extends T> it = sumByDouble.iterator();
         double d = 0.0d;
-        for (T t : sumByDouble) {
-            d += ((Number) selector.invoke(t)).doubleValue();
+        while (it.hasNext()) {
+            d += selector.invoke((T) it.next()).doubleValue();
         }
         return d;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> double sumOfDouble(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
         double d = 0;
-        for (T t : iterable) {
-            d += ((Number) function1.invoke(t)).doubleValue();
+        Iterator<? extends T> it = iterable.iterator();
+        while (it.hasNext()) {
+            d += function1.invoke((T) it.next()).doubleValue();
         }
         return d;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> int sumOfInt(Iterable<? extends T> iterable, Function1<? super T, Integer> function1) {
+        Iterator<? extends T> it = iterable.iterator();
         int i = 0;
-        for (T t : iterable) {
-            i += ((Number) function1.invoke(t)).intValue();
+        while (it.hasNext()) {
+            i += function1.invoke((T) it.next()).intValue();
         }
         return i;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> long sumOfLong(Iterable<? extends T> iterable, Function1<? super T, Long> function1) {
+        Iterator<? extends T> it = iterable.iterator();
         long j = 0;
-        for (T t : iterable) {
-            j += ((Number) function1.invoke(t)).longValue();
+        while (it.hasNext()) {
+            j += function1.invoke((T) it.next()).longValue();
         }
         return j;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> int sumOfUInt(Iterable<? extends T> iterable, Function1<? super T, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
-        for (T t : iterable) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(t)).m843unboximpl());
+        Iterator<? extends T> it = iterable.iterator();
+        while (it.hasNext()) {
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke((T) it.next()).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> long sumOfULong(Iterable<? extends T> iterable, Function1<? super T, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
-        for (T t : iterable) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(t)).m921unboximpl());
+        Iterator<? extends T> it = iterable.iterator();
+        while (it.hasNext()) {
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke((T) it.next()).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -2335,11 +2682,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(takeWhile, "$this$takeWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
-        for (T t : takeWhile) {
-            if (!((Boolean) predicate.invoke(t)).booleanValue()) {
+        Iterator<? extends T> it = takeWhile.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (!predicate.invoke(obj).booleanValue()) {
                 break;
             }
-            arrayList.add(t);
+            arrayList.add(obj);
         }
         return arrayList;
     }
@@ -2361,15 +2710,17 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return mutableSet;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> int count(Iterable<? extends T> count, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(count, "$this$count");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         if ((count instanceof Collection) && ((Collection) count).isEmpty()) {
             return 0;
         }
+        Iterator<? extends T> it = count.iterator();
         int i = 0;
-        for (T t : count) {
-            if (((Boolean) predicate.invoke(t)).booleanValue() && (i = i + 1) < 0) {
+        while (it.hasNext()) {
+            if (predicate.invoke((T) it.next()).booleanValue() && (i = i + 1) < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                     CollectionsKt__CollectionsKt.throwCountOverflow();
                 } else {
@@ -2384,8 +2735,10 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(filterIndexed, "$this$filterIndexed");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
+        Iterator<? extends T> it = filterIndexed.iterator();
         int i = 0;
-        for (T t : filterIndexed) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -2394,20 +2747,23 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            if (((Boolean) predicate.invoke(Integer.valueOf(i), t)).booleanValue()) {
-                arrayList.add(t);
+            if (predicate.invoke(Integer.valueOf(i), obj).booleanValue()) {
+                arrayList.add(obj);
             }
             i = i2;
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, R> List<R> mapIndexed(Iterable<? extends T> mapIndexed, Function2<? super Integer, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapIndexed, "$this$mapIndexed");
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mapIndexed, 10));
+        Iterator<? extends T> it = mapIndexed.iterator();
         int i = 0;
-        for (T t : mapIndexed) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -2416,18 +2772,21 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            arrayList.add(transform.invoke(Integer.valueOf(i), t));
+            arrayList.add(transform.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, R> List<R> mapIndexedNotNull(Iterable<? extends T> mapIndexedNotNull, Function2<? super Integer, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapIndexedNotNull, "$this$mapIndexedNotNull");
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
+        Iterator<? extends T> it = mapIndexedNotNull.iterator();
         int i = 0;
-        for (T t : mapIndexedNotNull) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -2436,7 +2795,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            Object invoke = transform.invoke(Integer.valueOf(i), t);
+            R invoke = transform.invoke(Integer.valueOf(i), obj);
             if (invoke != null) {
                 arrayList.add(invoke);
             }
@@ -2445,12 +2804,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v0. Raw type applied. Possible types: T extends S, ? super T extends S */
     public static final <S, T extends S> S reduceIndexed(Iterable<? extends T> reduceIndexed, Function3<? super Integer, ? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceIndexed, "$this$reduceIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         Iterator<? extends T> it = reduceIndexed.iterator();
         if (it.hasNext()) {
-            T next = it.next();
+            S next = it.next();
             int i = 1;
             while (it.hasNext()) {
                 int i2 = i + 1;
@@ -2461,7 +2821,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                         throw new ArithmeticException("Index overflow has happened.");
                     }
                 }
-                next = (S) operation.invoke(Integer.valueOf(i), next, it.next());
+                next = operation.invoke(Integer.valueOf(i), next, (T) it.next());
                 i = i2;
             }
             return (S) next;
@@ -2469,6 +2829,8 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new UnsupportedOperationException("Empty collection can't be reduced.");
     }
 
+    /* JADX DEBUG: Type inference failed for r4v0. Raw type applied. Possible types: T extends S, ? super T extends S */
+    @SinceKotlin(version = "1.4")
     public static final <S, T extends S> S reduceIndexedOrNull(Iterable<? extends T> reduceIndexedOrNull, Function3<? super Integer, ? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -2476,7 +2838,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (!it.hasNext()) {
             return null;
         }
-        T next = it.next();
+        S next = it.next();
         int i = 1;
         while (it.hasNext()) {
             int i2 = i + 1;
@@ -2487,12 +2849,13 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            next = (S) operation.invoke(Integer.valueOf(i), next, it.next());
+            next = operation.invoke(Integer.valueOf(i), next, (T) it.next());
             i = i2;
         }
         return (S) next;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> List<T> takeLastWhile(List<? extends T> takeLastWhile, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
@@ -2501,7 +2864,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         }
         ListIterator<? extends T> listIterator = takeLastWhile.listIterator(takeLastWhile.size());
         while (listIterator.hasPrevious()) {
-            if (!((Boolean) predicate.invoke(listIterator.previous())).booleanValue()) {
+            if (!predicate.invoke((T) listIterator.previous()).booleanValue()) {
                 listIterator.next();
                 int size = takeLastWhile.size() - listIterator.nextIndex();
                 if (size == 0) {
@@ -2517,6 +2880,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return toList(takeLastWhile);
     }
 
+    @InlineOnly
     public static final <T> int count(Collection<? extends T> collection) {
         return collection.size();
     }
@@ -2546,6 +2910,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max */
     public static final Double m1121max(Iterable<Double> max) {
@@ -2554,6 +2919,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min */
     public static final Double m1129min(Iterable<Double> min) {
@@ -2628,19 +2994,23 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new IllegalArgumentException(("Requested element count " + i + " is less than zero.").toString());
     }
 
+    @InlineOnly
     public static final <T> T elementAt(List<? extends T> list, int i) {
         return list.get(i);
     }
 
+    @InlineOnly
     public static final <T> T elementAtOrNull(List<? extends T> list, int i) {
         return (T) getOrNull(list, i);
     }
 
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
+    @InlineOnly
     public static final <T> T findLast(List<? extends T> list, Function1<? super T, Boolean> function1) {
         ListIterator<? extends T> listIterator = list.listIterator(list.size());
         while (listIterator.hasPrevious()) {
             T previous = listIterator.previous();
-            if (((Boolean) function1.invoke(previous)).booleanValue()) {
+            if (function1.invoke(previous).booleanValue()) {
                 return previous;
             }
         }
@@ -2657,13 +3027,14 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return lastIndexOf.lastIndexOf(t);
     }
 
+    /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
     public static final <T> T lastOrNull(List<? extends T> lastOrNull, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(lastOrNull, "$this$lastOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ListIterator<? extends T> listIterator = lastOrNull.listIterator(lastOrNull.size());
         while (listIterator.hasPrevious()) {
             T previous = listIterator.previous();
-            if (((Boolean) predicate.invoke(previous)).booleanValue()) {
+            if (predicate.invoke(previous).booleanValue()) {
                 return previous;
             }
         }
@@ -2681,6 +3052,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
+    @InlineOnly
     public static final <T> List<T> plusElement(Collection<? extends T> collection, T t) {
         return plus((Collection) collection, (Object) t);
     }
@@ -2693,9 +3065,9 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
             if (i >= 0 && i <= CollectionsKt__CollectionsKt.getLastIndex(list)) {
                 return (T) list.get(i);
             }
-            return (T) defaultValue.invoke(Integer.valueOf(i));
+            return defaultValue.invoke(Integer.valueOf(i));
         } else if (i < 0) {
-            return (T) defaultValue.invoke(Integer.valueOf(i));
+            return defaultValue.invoke(Integer.valueOf(i));
         } else {
             int i2 = 0;
             for (T t : elementAtOrElse) {
@@ -2705,7 +3077,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                 }
                 i2 = i3;
             }
-            return (T) defaultValue.invoke(Integer.valueOf(i));
+            return defaultValue.invoke(Integer.valueOf(i));
         }
     }
 
@@ -2713,8 +3085,10 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(filterIndexedTo, "$this$filterIndexedTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
+        Iterator<? extends T> it = filterIndexedTo.iterator();
         int i = 0;
-        for (T t : filterIndexedTo) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -2723,20 +3097,23 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            if (((Boolean) predicate.invoke(Integer.valueOf(i), t)).booleanValue()) {
-                destination.add(t);
+            if (predicate.invoke(Integer.valueOf(i), obj).booleanValue()) {
+                destination.add(obj);
             }
             i = i2;
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C mapIndexedNotNullTo(Iterable<? extends T> mapIndexedNotNullTo, C destination, Function2<? super Integer, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapIndexedNotNullTo, "$this$mapIndexedNotNullTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
+        Iterator<? extends T> it = mapIndexedNotNullTo.iterator();
         int i = 0;
-        for (T t : mapIndexedNotNullTo) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -2745,7 +3122,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            Object invoke = transform.invoke(Integer.valueOf(i), t);
+            R invoke = transform.invoke(Integer.valueOf(i), obj);
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -2754,6 +3131,8 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v5. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: R, ? super R */
     public static final <T, R, V> List<V> zip(Iterable<? extends T> zip, Iterable<? extends R> other, Function2<? super T, ? super R, ? extends V> transform) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
@@ -2762,26 +3141,29 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Iterator<? extends R> it2 = other.iterator();
         ArrayList arrayList = new ArrayList(Math.min(CollectionsKt__IterablesKt.collectionSizeOrDefault(zip, 10), CollectionsKt__IterablesKt.collectionSizeOrDefault(other, 10)));
         while (it.hasNext() && it2.hasNext()) {
-            arrayList.add(transform.invoke(it.next(), it2.next()));
+            arrayList.add(transform.invoke((T) it.next(), (R) it2.next()));
         }
         return arrayList;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: M extends java.util.Map<? super K, java.util.List<V>> */
+    /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: T, ? super T */
     /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, V, M extends Map<? super K, List<V>>> M groupByTo(Iterable<? extends T> groupByTo, M destination, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
-        for (T t : groupByTo) {
-            Object invoke = keySelector.invoke(t);
-            Object obj = destination.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                destination.put(invoke, obj);
+        Iterator<? extends T> it = groupByTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            K invoke = keySelector.invoke(obj);
+            Object obj2 = destination.get(invoke);
+            if (obj2 == null) {
+                obj2 = new ArrayList();
+                destination.put(invoke, obj2);
             }
-            ((List) obj).add(valueTransform.invoke(t));
+            ((List) obj2).add(valueTransform.invoke(obj));
         }
         return destination;
     }
@@ -2911,6 +3293,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return next;
     }
 
+    @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull */
     public static final Double m1127maxOrNull(Iterable<Double> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -2925,6 +3308,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull */
     public static final Double m1135minOrNull(Iterable<Double> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -2991,6 +3375,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max */
     public static final Float m1122max(Iterable<Float> max) {
@@ -2999,6 +3384,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min */
     public static final Float m1130min(Iterable<Float> min) {
@@ -3006,54 +3392,74 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return m1136minOrNull(min);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf */
     public static final <T> float m1123maxOf(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
-            float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+            float floatValue = function1.invoke((T) it.next()).floatValue();
             while (it.hasNext()) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke((T) it.next()).floatValue());
             }
             return floatValue;
         }
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull */
     public static final <T> Float m1126maxOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+        float floatValue = function1.invoke((T) it.next()).floatValue();
         while (it.hasNext()) {
-            floatValue = Math.max(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+            floatValue = Math.max(floatValue, function1.invoke((T) it.next()).floatValue());
         }
         return Float.valueOf(floatValue);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf */
     public static final <T> float m1131minOf(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
-            float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+            float floatValue = function1.invoke((T) it.next()).floatValue();
             while (it.hasNext()) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke((T) it.next()).floatValue());
             }
             return floatValue;
         }
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull */
     public static final <T> Float m1134minOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+        float floatValue = function1.invoke((T) it.next()).floatValue();
         while (it.hasNext()) {
-            floatValue = Math.min(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+            floatValue = Math.min(floatValue, function1.invoke((T) it.next()).floatValue());
         }
         return Float.valueOf(floatValue);
     }
@@ -3090,40 +3496,44 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v9, types: [java.lang.Comparable] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf */
     public static final <T, R extends Comparable<? super R>> R m1124maxOf(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
-            R r = (R) function1.invoke(it.next());
+            R invoke = function1.invoke((T) it.next());
             while (it.hasNext()) {
-                ?? r1 = (Comparable) function1.invoke(it.next());
-                if (r.compareTo(r1) < 0) {
-                    r = r1;
+                R invoke2 = function1.invoke((T) it.next());
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v9, types: [java.lang.Comparable] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf */
     public static final <T, R extends Comparable<? super R>> R m1132minOf(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
-            R r = (R) function1.invoke(it.next());
+            R invoke = function1.invoke((T) it.next());
             while (it.hasNext()) {
-                ?? r1 = (Comparable) function1.invoke(it.next());
-                if (r.compareTo(r1) > 0) {
-                    r = r1;
+                R invoke2 = function1.invoke((T) it.next());
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
@@ -3150,6 +3560,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull */
     public static final Float m1128maxOrNull(Iterable<Float> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -3164,6 +3575,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return Float.valueOf(floatValue);
     }
 
+    @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull */
     public static final Float m1136minOrNull(Iterable<Float> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -3370,6 +3782,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new IllegalArgumentException(("Requested element count " + i + " is less than zero.").toString());
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T> List<List<T>> windowed(Iterable<? extends T> windowed, int i, int i2, boolean z) {
         int i3;
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
@@ -3407,6 +3820,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList3;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T, R> List<R> windowed(Iterable<? extends T> windowed, int i, int i2, boolean z, Function1<? super List<? extends T>, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         Intrinsics.checkNotNullParameter(transform, "transform");

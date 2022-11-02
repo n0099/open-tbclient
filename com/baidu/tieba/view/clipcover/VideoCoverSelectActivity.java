@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class VideoCoverSelectActivity extends BaseActivity implements View.OnClickListener {
+public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CoverSelectLayout a;
@@ -50,7 +50,7 @@ public class VideoCoverSelectActivity extends BaseActivity implements View.OnCli
             if (view2 == this.c) {
                 finish();
             } else if (view2 == this.e) {
-                y1();
+                x1();
             }
         }
     }
@@ -66,12 +66,12 @@ public class VideoCoverSelectActivity extends BaseActivity implements View.OnCli
                 this.f = getIntent().getIntExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_TYPE, 1);
                 this.g = getIntent().getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);
             }
-            z1();
+            y1();
             this.a.setClipType(this.f);
         }
     }
 
-    public final void y1() {
+    public final void x1() {
         Bitmap c;
         String str;
         Interceptable interceptable = $ic;
@@ -90,19 +90,19 @@ public class VideoCoverSelectActivity extends BaseActivity implements View.OnCli
         finish();
     }
 
-    public void z1() {
+    public void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f090729);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092598);
+            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f090737);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ef);
             this.b = navigationBar;
-            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0ead));
+            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0ec5));
             this.d = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092668)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a23));
-            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c75));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f0926c0)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3c));
+            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c8c));
             this.e = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
             this.c.setOnClickListener(this);

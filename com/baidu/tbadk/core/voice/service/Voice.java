@@ -15,7 +15,7 @@ import java.util.Date;
 /* loaded from: classes3.dex */
 public class Voice implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<Voice> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Date createDate;
     public int duration;
@@ -35,7 +35,7 @@ public class Voice implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<Voice> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

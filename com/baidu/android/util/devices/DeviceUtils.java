@@ -1,5 +1,6 @@
 package com.baidu.android.util.devices;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -10,6 +11,7 @@ import android.util.DisplayMetrics;
 import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
@@ -39,7 +41,7 @@ public class DeviceUtils implements IDevices {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public final class CPUInfo {
+    public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";
@@ -358,7 +360,7 @@ public class DeviceUtils implements IDevices {
     }
 
     /* loaded from: classes.dex */
-    public class OSInfo {
+    public static class OSInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -404,6 +406,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.intValue;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasFroyo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -416,6 +419,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasGingerbread() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -428,6 +432,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasHoneycomb() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -440,6 +445,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasHoneycombMR1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -452,6 +458,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasICS() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -464,6 +471,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasICSMR1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -632,6 +640,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean isGingerbread() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -644,6 +653,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
+        @SuppressLint({"ObsoleteSdkInt"})
         public static boolean isGingerbreadmr1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -682,7 +692,7 @@ public class DeviceUtils implements IDevices {
     }
 
     /* loaded from: classes.dex */
-    public class ScreenInfo {
+    public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
         public static int originDensityDip;
@@ -742,7 +752,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.booleanValue;
         }
 
-        public static int dp2px(Context context, float f) {
+        public static int dp2px(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) {
@@ -754,7 +764,7 @@ public class DeviceUtils implements IDevices {
             return invokeLF.intValue;
         }
 
-        public static float dp2pxf(Context context, float f) {
+        public static float dp2pxf(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) {
@@ -763,7 +773,7 @@ public class DeviceUtils implements IDevices {
             return invokeLF.floatValue;
         }
 
-        public static int px2dp(Context context, float f) {
+        public static int px2dp(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f)) == null) {
@@ -775,7 +785,7 @@ public class DeviceUtils implements IDevices {
             return invokeLF.intValue;
         }
 
-        public static float px2dpFloat(Context context, float f) {
+        public static float px2dpFloat(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(65555, null, context, f)) == null) {
@@ -784,7 +794,7 @@ public class DeviceUtils implements IDevices {
             return invokeLF.floatValue;
         }
 
-        public static float getDensity(Context context) {
+        public static float getDensity(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -798,7 +808,7 @@ public class DeviceUtils implements IDevices {
             return invokeL.floatValue;
         }
 
-        public static int getDensityDpi(Context context) {
+        public static int getDensityDpi(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -812,7 +822,7 @@ public class DeviceUtils implements IDevices {
             return invokeL.intValue;
         }
 
-        public static int getDisplayHeight(Context context) {
+        public static int getDisplayHeight(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -837,7 +847,7 @@ public class DeviceUtils implements IDevices {
             return (DisplayMetrics) invokeL.objValue;
         }
 
-        public static int getDisplayWidth(Context context) {
+        public static int getDisplayWidth(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -850,7 +860,7 @@ public class DeviceUtils implements IDevices {
             return invokeL.intValue;
         }
 
-        public static int[] getRealScreenSize(Context context) {
+        public static int[] getRealScreenSize(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
@@ -909,7 +919,7 @@ public class DeviceUtils implements IDevices {
             return invokeV.intValue;
         }
 
-        public static int getRealScreenHeight(Context context) {
+        public static int getRealScreenHeight(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
@@ -948,6 +958,7 @@ public class DeviceUtils implements IDevices {
             return invokeL.booleanValue;
         }
 
+        @SuppressLint({"PrivateApi"})
         public static int getScreenOriginDensityDip() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -981,6 +992,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
+    @SuppressLint({"PrivateApi"})
     public static String getHarmonyVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

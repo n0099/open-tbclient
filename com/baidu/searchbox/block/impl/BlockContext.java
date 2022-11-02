@@ -3,13 +3,15 @@ package com.baidu.searchbox.block.impl;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.block.ioc.IBlockContext;
 import com.baidu.searchbox.block.ioc.IBlockRegister;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.ue1;
+import com.baidu.tieba.mf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class BlockContext {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +64,7 @@ public class BlockContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppBlock");
                     }
-                    ue1 iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
+                    mf1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
                     if (iBlockUploadList != null && iBlockUploadList.getList() != null && blockInfo != null) {
                         if (AppConfig.isDebug()) {
                             Log.i(BlockMonitor.TAG, "blockInfo = " + blockInfo.getStackTrace());
@@ -99,6 +102,7 @@ public class BlockContext {
         }
     }
 
+    @Inject(force = false)
     public static IBlockContext getBlockContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -3,6 +3,8 @@ package com.baidu.live.feed.search.recmore;
 import android.content.Context;
 import android.view.View;
 import android.widget.EditText;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,29 +42,29 @@ public interface ILiveRecSearchPanel {
 
     void resetView();
 
-    void setBackgroundResource(int i);
+    void setBackgroundResource(@DrawableRes int i);
 
     void setEditable(boolean z);
 
-    void setHintTextColor(int i);
+    void setHintTextColor(@ColorInt int i);
 
     void setOnEditClickListener(View.OnClickListener onClickListener);
 
-    void setQueryHintList(String str, List list);
+    void setQueryHintList(String str, List<String> list);
 
     void setQueryListener(OnSearchPanelListener onSearchPanelListener);
 
     void setText(String str);
 
-    void setTextColor(int i);
+    void setTextColor(@ColorInt int i);
 
-    void setTextCursorDrawable(int i);
+    void setTextCursorDrawable(@DrawableRes int i);
 
     void setTextSize(float f);
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class DefaultImpls {
+    public static final class DefaultImpls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

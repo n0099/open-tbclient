@@ -3,12 +3,12 @@ package com.baidu.tieba.barselect.segment;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tieba.b16;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.d16;
-import com.baidu.tieba.s06;
-import com.baidu.tieba.t06;
-import com.baidu.tieba.u06;
+import com.baidu.tieba.c26;
+import com.baidu.tieba.d26;
+import com.baidu.tieba.e26;
+import com.baidu.tieba.l26;
+import com.baidu.tieba.n26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,8 +19,8 @@ public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public u06 b;
-    public s06 c;
+    public e26 b;
+    public c26 c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CardBasicLayout(Context context) {
@@ -65,32 +65,32 @@ public class CardBasicLayout extends LinearLayout {
         this.a = -1;
     }
 
-    public void setData(int i, u06 u06Var) {
-        t06 a;
+    public void setData(int i, e26 e26Var) {
+        d26 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, u06Var) == null) {
-            this.b = u06Var;
-            if (u06Var != null && u06Var.a() != null && (a = this.b.a()) != null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, e26Var) == null) {
+            this.b = e26Var;
+            if (e26Var != null && e26Var.a() != null && (a = this.b.a()) != null) {
                 int h = a.h();
-                if (h == d16.b) {
+                if (h == n26.b) {
                     if (i == VoteCandidateCard.A) {
-                        this.a = b16.d;
+                        this.a = l26.d;
                         this.c = this.b.f();
                         return;
                     }
-                    this.a = b16.a;
-                    List b = this.b.b();
+                    this.a = l26.a;
+                    List<c26> b = this.b.b();
                     if (b != null && b.size() > i) {
-                        this.c = (s06) b.get(i);
+                        this.c = b.get(i);
                     }
-                } else if (h == d16.c) {
+                } else if (h == n26.c) {
                     if (i == VoteCandidateCard.A) {
-                        this.a = b16.c;
-                        List<s06> b2 = this.b.b();
+                        this.a = l26.c;
+                        List<c26> b2 = this.b.b();
                         if (b2 != null && b2.size() > 0) {
-                            for (s06 s06Var : b2) {
-                                if (s06Var.i() == 1) {
-                                    this.c = s06Var;
+                            for (c26 c26Var : b2) {
+                                if (c26Var.i() == 1) {
+                                    this.c = c26Var;
                                     return;
                                 }
                             }
@@ -98,13 +98,13 @@ public class CardBasicLayout extends LinearLayout {
                         }
                         return;
                     }
-                    this.a = b16.b;
-                    List b3 = this.b.b();
+                    this.a = l26.b;
+                    List<c26> b3 = this.b.b();
                     if (b3 != null && b3.size() > i) {
-                        s06 s06Var2 = (s06) b3.get(i);
-                        this.c = s06Var2;
-                        if (s06Var2.i() == 1 && i == 0) {
-                            this.a = b16.c;
+                        c26 c26Var2 = b3.get(i);
+                        this.c = c26Var2;
+                        if (c26Var2.i() == 1 && i == 0) {
+                            this.a = l26.c;
                         }
                     }
                 }

@@ -6,25 +6,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.image.EncodedImage;
 /* loaded from: classes7.dex */
-public class AddImageTransformMetaDataProducer implements Producer {
+public class AddImageTransformMetaDataProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Producer mInputProducer;
+    public final Producer<EncodedImage> mInputProducer;
 
     /* renamed from: com.facebook.imagepipeline.producers.AddImageTransformMetaDataProducer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class AddImageTransformMetaDataConsumer extends DelegatingConsumer {
+    public static class AddImageTransformMetaDataConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AddImageTransformMetaDataConsumer(Consumer consumer) {
+        public AddImageTransformMetaDataConsumer(Consumer<EncodedImage> consumer) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -64,7 +64,7 @@ public class AddImageTransformMetaDataProducer implements Producer {
         }
     }
 
-    public AddImageTransformMetaDataProducer(Producer producer) {
+    public AddImageTransformMetaDataProducer(Producer<EncodedImage> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +83,7 @@ public class AddImageTransformMetaDataProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             this.mInputProducer.produceResults(new AddImageTransformMetaDataConsumer(consumer, null), producerContext);

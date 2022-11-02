@@ -1,5 +1,6 @@
 package com.airbnb.lottie.parser;
 
+import android.graphics.PointF;
 import androidx.appcompat.widget.SearchView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatablePointValue;
@@ -20,7 +21,7 @@ public class CircleShapeParser {
         }
         boolean z2 = z;
         String str = null;
-        AnimatableValue animatableValue = null;
+        AnimatableValue<PointF, PointF> animatableValue = null;
         AnimatablePointValue animatablePointValue = null;
         boolean z3 = false;
         while (jsonReader.hasNext()) {

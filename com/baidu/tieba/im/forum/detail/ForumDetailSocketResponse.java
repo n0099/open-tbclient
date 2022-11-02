@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.forum.detail;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -18,6 +19,7 @@ import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.ManagerApplyInfo;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
+import tbclient.SimpleThreadInfo;
 /* loaded from: classes4.dex */
 public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +31,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public boolean isComplaintShow;
     public ManagerElectionTab managerElectionTab;
     public PriManagerApplyInfo privateApplyInfo;
-    public List threadInfoList;
+    public List<SimpleThreadInfo> threadInfoList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumDetailSocketResponse() {
@@ -94,7 +96,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
         return (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public List getThreadInfoList() {
+    public List<SimpleThreadInfo> getThreadInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -122,6 +124,7 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

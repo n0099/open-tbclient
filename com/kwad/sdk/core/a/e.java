@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class e {
-    public static void a(String str, Map map, String str2) {
+    public static void a(String str, Map<String, String> map, String str2) {
         map.put("Ks-Sig1", bS(x(str, str2)));
     }
 

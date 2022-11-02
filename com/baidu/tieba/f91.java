@@ -1,213 +1,194 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.File;
+import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
-public class f91 extends SQLiteOpenHelper {
+public class f91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Class a;
+    public Class b;
+    public Method c;
+    public Method d;
+    public Method e;
+    public Method f;
+    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f91(Context context) {
-        super(context, "nps.db", (SQLiteDatabase.CursorFactory) null, 6);
+    public f91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        e();
     }
 
-    public final void d(SQLiteDatabase sQLiteDatabase) {
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("patch_url");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-            sb.delete(0, sb.length());
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("patch_md5");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-        }
-    }
-
-    public final void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD network_strategy Text ");
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
             }
-        }
-    }
-
-    public final void b(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD silence INTEGER DEFAULT 1");
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (i < 21) {
+                return false;
             }
-        }
-    }
-
-    public final void c(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("sub_bundle");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-            sb.delete(0, sb.length());
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("dependency");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-            sb.delete(0, sb.length());
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("main_bundle");
-            sb.append(" TEXT;");
-            sQLiteDatabase.execSQL(sb.toString());
-        }
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("silence_update");
-            sb.append(" INTEGER DEFAULT ");
-            sb.append(1);
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            try {
-                sQLiteDatabase.execSQL(sb.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length <= 0) {
+                return false;
             }
-            sb.delete(0, sb.length());
-            sb.append("ALTER TABLE ");
-            sb.append("bundleinfo");
-            sb.append(" ADD COLUMN ");
-            sb.append("wifionly");
-            sb.append(" INTEGER DEFAULT ");
-            sb.append(1);
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            try {
-                sQLiteDatabase.execSQL(sb.toString());
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+            return Build.CPU_ABI.equals(strArr[0]);
         }
+        return invokeV.booleanValue;
     }
 
-    public final void f(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(g());
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
-            f(sQLiteDatabase);
-        }
-    }
-
-    public final String g() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CREATE TABLE bundleinfo (_id INTEGER PRIMARY KEY," + EmotionResourceInfo.JSON_KEY_PKG_NAME + " TEXT NOT NULL,version_code INTEGER,path TEXT,min_version INTEGER,update_v LONG,type INTEGER DEFAULT 0,broken INTEGER DEFAULT 0,force_update INTEGER DEFAULT 0,forbidden INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT," + SocialOperation.GAME_SIGNATURE + " TEXT,name TEXT,description TEXT,download_url TEXT,icon_url TEXT,dependence TEXT,visible INTEGER DEFAULT 0,removalbe INTEGER DEFAULT 0,size TEXT,need_remove INTEGER DEFAULT 0," + PackageTable.ABI + " INTEGER DEFAULT -1,ext TEXT,silence INTEGER DEFAULT 1,silence_update INTEGER DEFAULT 1,wifionly INTEGER DEFAULT 1,patch_url TEXT,patch_md5 TEXT, network_strategy TEXT, sub_bundle TEXT, dependency TEXT, main_bundle TEXT  );";
+            return this.g;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public final void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
-            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS bundleinfo");
-            onCreate(sQLiteDatabase);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i == 5) {
-                                c(sQLiteDatabase);
-                                return;
-                            }
-                            return;
-                        }
-                        a(sQLiteDatabase);
-                        c(sQLiteDatabase);
-                        return;
-                    }
-                    d(sQLiteDatabase);
-                    a(sQLiteDatabase);
-                    c(sQLiteDatabase);
-                    return;
-                }
-                e(sQLiteDatabase);
-                d(sQLiteDatabase);
-                a(sQLiteDatabase);
-                c(sQLiteDatabase);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            try {
+                this.f.invoke(obj, new Object[0]);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-            b(sQLiteDatabase);
-            e(sQLiteDatabase);
-            d(sQLiteDatabase);
-            a(sQLiteDatabase);
-            c(sQLiteDatabase);
         }
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public final Object c(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            try {
+                return this.c.invoke(null, file);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    @TargetApi(21)
+    public boolean b(Object obj, String str, File file) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str, file)) == null) {
+            try {
+                if (((Integer) this.e.invoke(null, obj, file, str)).intValue() != 1) {
+                    return false;
+                }
+                return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public int d(Object obj, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, obj, strArr)) == null) {
+            try {
+                System.currentTimeMillis();
+                return ((Integer) this.d.invoke(null, obj, strArr)).intValue();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1;
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !k91.d()) {
+            return;
+        }
+        try {
+            Class<?> a = k91.a("com.android.internal.content.NativeLibraryHelper$Handle");
+            this.a = a;
+            Method b = k91.b(a, "create", File.class);
+            this.c = b;
+            b.setAccessible(true);
+            Method b2 = k91.b(this.a, "close", new Class[0]);
+            this.f = b2;
+            b2.setAccessible(true);
+            Class<?> a2 = k91.a("com.android.internal.content.NativeLibraryHelper");
+            this.b = a2;
+            Method b3 = k91.b(a2, "copyNativeBinaries", this.a, File.class, String.class);
+            this.e = b3;
+            b3.setAccessible(true);
+            Method b4 = k91.b(this.b, "findSupportedAbi", this.a, String[].class);
+            this.d = b4;
+            b4.setAccessible(true);
+            this.g = true;
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public boolean f(String str, File file) {
+        InterceptResult invokeLL;
+        String[] strArr;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
+            Object c = c(new File(str));
+            if (c == null) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= 21) {
+                if (g()) {
+                    strArr = Build.SUPPORTED_64_BIT_ABIS;
+                } else {
+                    strArr = Build.SUPPORTED_32_BIT_ABIS;
+                }
+            } else {
+                strArr = new String[]{Build.CPU_ABI, Build.CPU_ABI2};
+            }
+            int d = d(c, strArr);
+            if (d == -114) {
+                a(c);
+                return true;
+            }
+            if (d >= 0 && d < strArr.length) {
+                str2 = strArr[d];
+            } else {
+                str2 = null;
+            }
+            boolean b = b(c, str2, file);
+            a(c);
+            return b;
+        }
+        return invokeLL.booleanValue;
     }
 }

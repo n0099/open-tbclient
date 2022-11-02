@@ -1,76 +1,51 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.topic.local.LocalChannelTopicHolder;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class z47 extends rn {
+public class z47 extends fx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public zc8 z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z47(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public z47(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: s */
-    public LocalChannelTopicHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.fx, com.baidu.tieba.vy
+    public zc8 t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new LocalChannelTopicHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04aa, viewGroup, false));
-        }
-        return (LocalChannelTopicHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        t(i, view2, viewGroup, (c57) obj, (LocalChannelTopicHolder) viewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, c57 c57Var, LocalChannelTopicHolder localChannelTopicHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c57Var, localChannelTopicHolder})) == null) {
-            if (c57Var != null && localChannelTopicHolder != null) {
-                localChannelTopicHolder.a(c57Var);
-                localChannelTopicHolder.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.k) && this.k.equals("index")) {
+                this.z = new b57(this.b, this.i);
+            } else {
+                this.z = new a57(this.b, this.i);
             }
-            return view2;
+            this.z.setStageType("2001");
+            return this.z;
         }
-        return (View) invokeCommon.objValue;
+        return (zc8) invokeV.objValue;
     }
 }

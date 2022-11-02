@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppPageInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SwanAppPageInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String appDesc;
     public String appName;
@@ -38,8 +38,8 @@ public class SwanAppPageInfo implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<SwanAppPageInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -124,6 +124,25 @@ public class SwanAppPageInfo implements Parcelable {
         this.fragmentId = parcel.readString();
     }
 
+    private void parsePageInfo(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.type = jSONObject.optString("type");
+        JSONObject optJSONObject = jSONObject.optJSONObject("pageInfo");
+        if (optJSONObject != null) {
+            this.title = optJSONObject.optString("title");
+            this.imageUrl = optJSONObject.optString("img");
+        }
+        this.url = jSONObject.optString("url");
+        this.appName = jSONObject.optString("appName");
+        this.iconUrl = jSONObject.optString("iconUrl");
+        this.appDesc = jSONObject.optString("appDesc");
+        this.scheme = jSONObject.optString("scheme");
+        this.fragmentId = jSONObject.optString("pageId");
+    }
+
     public SwanAppPageInfo(String str) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -165,25 +184,6 @@ public class SwanAppPageInfo implements Parcelable {
             }
         }
         parsePageInfo(jSONObject);
-    }
-
-    private void parsePageInfo(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.type = jSONObject.optString("type");
-        JSONObject optJSONObject = jSONObject.optJSONObject("pageInfo");
-        if (optJSONObject != null) {
-            this.title = optJSONObject.optString("title");
-            this.imageUrl = optJSONObject.optString("img");
-        }
-        this.url = jSONObject.optString("url");
-        this.appName = jSONObject.optString("appName");
-        this.iconUrl = jSONObject.optString("iconUrl");
-        this.appDesc = jSONObject.optString("appDesc");
-        this.scheme = jSONObject.optString("scheme");
-        this.fragmentId = jSONObject.optString("pageId");
     }
 
     public String toString() {

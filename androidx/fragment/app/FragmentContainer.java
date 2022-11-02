@@ -3,6 +3,9 @@ package androidx.fragment.app;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +16,8 @@ public abstract class FragmentContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract View onFindViewById(int i);
+    @Nullable
+    public abstract View onFindViewById(@IdRes int i);
 
     public abstract boolean onHasView();
 
@@ -31,8 +35,9 @@ public abstract class FragmentContainer {
         }
     }
 
+    @NonNull
     @Deprecated
-    public Fragment instantiate(Context context, String str, Bundle bundle) {
+    public Fragment instantiate(@NonNull Context context, @NonNull String str, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, bundle)) == null) {

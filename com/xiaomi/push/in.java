@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class in implements iu, Serializable, Cloneable {
+public class in implements iu<in, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -38,7 +38,7 @@ public class in implements iu, Serializable, Cloneable {
     public String f734a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f735a;
+    public List<String> f735a;
 
     /* renamed from: b  reason: collision with other field name */
     public String f736b;
@@ -581,7 +581,7 @@ public class in implements iu, Serializable, Cloneable {
             if (h()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("aliases:");
-                List list = this.f735a;
+                List<String> list = this.f735a;
                 if (list == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

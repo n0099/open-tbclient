@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes.dex */
-public class JsonValue implements Iterable {
+public class JsonValue implements Iterable<JsonValue> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ValueType a;
@@ -33,7 +33,7 @@ public class JsonValue implements Iterable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class ValueType {
+    public static final class ValueType {
         public static final /* synthetic */ ValueType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ValueType array;
@@ -108,7 +108,7 @@ public class JsonValue implements Iterable {
     }
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class JsonValue implements Iterable {
     }
 
     /* loaded from: classes.dex */
-    public class b implements Iterator, Iterable {
+    public class b implements Iterator<JsonValue>, Iterable<JsonValue> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JsonValue a;
@@ -160,7 +160,7 @@ public class JsonValue implements Iterable {
         public final /* synthetic */ JsonValue c;
 
         @Override // java.lang.Iterable
-        public Iterator iterator() {
+        public Iterator<JsonValue> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (Iterator) invokeV.objValue;
@@ -243,7 +243,7 @@ public class JsonValue implements Iterable {
     }
 
     /* loaded from: classes.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JsonWriter$OutputType a;

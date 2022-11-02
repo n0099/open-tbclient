@@ -2,66 +2,115 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemGameCodeLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class np6 extends hx {
+public class np6 extends jn<w86, CardViewHolder<f36>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemGameCodeLayout f;
+    public TbPageContext<?> a;
+    public f36 b;
+    public String c;
+
+    /* loaded from: classes5.dex */
+    public class a extends z36<w86> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ np6 b;
+
+        public a(np6 np6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {np6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = np6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.z36
+        /* renamed from: d */
+        public void a(View view2, w86 w86Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, w86Var) == null) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.b.c));
+                UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(view2.getContext()), new String[]{w86Var.c().score_url}, true);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public np6(Context context) {
-        super(context);
+    public np6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), w86.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new CardItemGameCodeLayout(context);
+        this.a = tbPageContext;
+        this.c = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx
-    /* renamed from: s */
-    public void a(up6 up6Var) {
+    @Override // com.baidu.tieba.jn
+    /* renamed from: t */
+    public CardViewHolder<f36> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, up6Var) == null) {
-            this.f.setData(up6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new f36(this.a);
+            return new CardViewHolder<>(this.b);
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hx
-    public View k() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w86 w86Var, CardViewHolder<f36> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w86Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
+            }
+            cardViewHolder.a().l(w86Var);
+            cardViewHolder.a().n(new a(this));
+            cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.a().k();
         }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

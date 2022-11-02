@@ -3,18 +3,21 @@ package com.bumptech.glide.manager;
 import android.app.Activity;
 import android.content.ComponentCallbacks2;
 import android.content.res.Configuration;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(26)
 /* loaded from: classes7.dex */
 public final class FirstFrameAndAfterTrimMemoryWaiter implements FrameWaiter, ComponentCallbacks2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
+    public void onConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
         }

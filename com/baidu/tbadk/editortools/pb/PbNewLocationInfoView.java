@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, fj.f(context, R.dimen.obfuscated_res_0x7f0701e8));
+        setTextSize(0, xi.g(context, R.dimen.obfuscated_res_0x7f0701e8));
         setState(0, null);
     }
 
@@ -71,17 +71,17 @@ public class PbNewLocationInfoView extends TextView {
             this.a = i;
             if (i == 1) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a79);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a85);
                 }
                 setText(str);
             } else if (i == 2) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a76);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a82);
                 }
                 setText(str);
             } else {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a76);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a82);
                 }
                 setText(str);
             }

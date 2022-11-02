@@ -16,19 +16,19 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwai.filedownloader.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public abstract class AbstractBinderC0620a extends Binder implements a {
+    public static abstract class AbstractBinderC0631a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.kwai.filedownloader.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public final class C0621a implements a {
+        public static class C0632a implements a {
             public static /* synthetic */ Interceptable $ic;
             public static a avK;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
 
-            public C0621a(IBinder iBinder) {
+            public C0632a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,10 +66,10 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (this.mRemote.transact(1, obtain, null, 1) || AbstractBinderC0620a.DV() == null) {
+                        if (this.mRemote.transact(1, obtain, null, 1) || AbstractBinderC0631a.DV() == null) {
                             return;
                         }
-                        AbstractBinderC0620a.DV().q(messageSnapshot);
+                        AbstractBinderC0631a.DV().q(messageSnapshot);
                     } finally {
                         obtain.recycle();
                     }
@@ -77,7 +77,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0620a() {
+        public AbstractBinderC0631a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public interface a extends IInterface {
         public static a DV() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0621a.avK : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0632a.avK : (a) invokeV.objValue;
         }
 
         public static a c(IBinder iBinder) {
@@ -107,7 +107,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0621a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0632a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }
@@ -126,7 +126,7 @@ public interface a extends IInterface {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
                 if (i == 1) {
                     parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                    q(parcel.readInt() != 0 ? (MessageSnapshot) MessageSnapshot.CREATOR.createFromParcel(parcel) : null);
+                    q(parcel.readInt() != 0 ? MessageSnapshot.CREATOR.createFromParcel(parcel) : null);
                     return true;
                 } else if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);

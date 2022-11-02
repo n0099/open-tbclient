@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rc0;
+import com.baidu.tieba.qc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +23,7 @@ public class LiveSearchGuideView extends FrameLayout {
     public TextView b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LiveSearchGuideView(Context context) {
+    public LiveSearchGuideView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +44,7 @@ public class LiveSearchGuideView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LiveSearchGuideView(Context context, AttributeSet attributeSet) {
+    public LiveSearchGuideView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,23 +68,23 @@ public class LiveSearchGuideView extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) && this.b != null) {
             if (z) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d11);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d0f);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d2b);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d29);
                 this.b.setTextColor(-1);
             } else if ("day".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d10);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d0e);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d2a);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d28);
                 this.b.setTextColor(-1);
             } else if ("night".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d11);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d0f);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d2b);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d29);
                 this.b.setTextColor(-1);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveSearchGuideView(Context context, AttributeSet attributeSet, int i) {
+    public LiveSearchGuideView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,9 +108,9 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0549, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091357);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091358);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0559, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091394);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091395);
             c();
         }
     }
@@ -117,7 +119,7 @@ public class LiveSearchGuideView extends FrameLayout {
         TextView textView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (textView = this.b) != null) {
-            rc0.h(textView, 1, 12.0f);
+            qc0.h(textView, 1, 12.0f);
         }
     }
 }

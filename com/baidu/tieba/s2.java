@@ -182,7 +182,7 @@ public final class s2 extends r2 {
                     this.d.getExecutedRunnables().b(this.d.getRunnables());
                     this.d.getRunnables().clear();
                     for (int i = 0; i < this.d.getExecutedRunnables().b; i++) {
-                        ((Runnable) this.d.getExecutedRunnables().get(i)).run();
+                        this.d.getExecutedRunnables().get(i).run();
                     }
                 }
                 this.d.getInput().Q0();

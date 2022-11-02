@@ -1,19 +1,44 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class pg5 implements sg5 {
+public abstract class pg5<T> extends qg5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a();
+    public abstract List<rr4> e();
 
-    public abstract void b();
+    public abstract List<ThreadData> f();
 
-    public abstract void c();
+    public void g(og5 og5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, og5Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.sg5
+    public mg5 getPageInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (mg5) invokeV.objValue;
+    }
+
+    public void h(List<ThreadData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+        }
+    }
+
+    public abstract List<wn> i(List<? extends wn> list);
 
     public pg5() {
         Interceptable interceptable = $ic;
@@ -27,5 +52,14 @@ public abstract class pg5 implements sg5 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public final List<wn> d(List<? extends wn> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            return i(list);
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -21,21 +21,21 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservablePublish extends ConnectableObservable implements HasUpstreamObservableSource {
+public final class ObservablePublish<T> extends ConnectableObservable<T> implements HasUpstreamObservableSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference current;
-    public final ObservableSource onSubscribe;
-    public final ObservableSource source;
+    public final AtomicReference<PublishObserver<T>> current;
+    public final ObservableSource<T> onSubscribe;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class InnerDisposable extends AtomicReference implements Disposable {
+    public static final class InnerDisposable<T> extends AtomicReference<Object> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1100270633763673112L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer child;
+        public final Observer<? super T> child;
 
-        public InnerDisposable(Observer observer) {
+        public InnerDisposable(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
             this.child = observer;
         }
 
-        public void setParent(PublishObserver publishObserver) {
+        public void setParent(PublishObserver<T> publishObserver) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, publishObserver) == null) && !compareAndSet(null, publishObserver)) {
                 publishObserver.remove(this);
@@ -84,14 +84,14 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
     }
 
     /* loaded from: classes8.dex */
-    public final class PublishObserver implements Observer, Disposable {
+    public static final class PublishObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public static final InnerDisposable[] EMPTY;
         public static final InnerDisposable[] TERMINATED;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference current;
-        public final AtomicReference observers;
-        public final AtomicReference s;
+        public final AtomicReference<PublishObserver<T>> current;
+        public final AtomicReference<InnerDisposable<T>[]> observers;
+        public final AtomicReference<Disposable> s;
         public final AtomicBoolean shouldConnect;
 
         static {
@@ -114,7 +114,7 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ((InnerDisposable[]) this.observers.getAndSet(TERMINATED)) != TERMINATED) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.observers.getAndSet(TERMINATED) != TERMINATED) {
                 this.current.compareAndSet(this, null);
                 DisposableHelper.dispose(this.s);
             }
@@ -138,13 +138,13 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 this.current.compareAndSet(this, null);
-                for (InnerDisposable innerDisposable : (InnerDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(TERMINATED)) {
                     innerDisposable.child.onComplete();
                 }
             }
         }
 
-        public PublishObserver(AtomicReference atomicReference) {
+        public PublishObserver(AtomicReference<PublishObserver<T>> atomicReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,19 +159,21 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
                     return;
                 }
             }
-            this.s = new AtomicReference();
-            this.observers = new AtomicReference(EMPTY);
+            this.s = new AtomicReference<>();
+            this.observers = new AtomicReference<>(EMPTY);
             this.current = atomicReference;
             this.shouldConnect = new AtomicBoolean();
         }
 
-        public void remove(InnerDisposable innerDisposable) {
-            InnerDisposable[] innerDisposableArr;
+        /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.observable.ObservablePublish$InnerDisposable<T>[]> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void remove(InnerDisposable<T> innerDisposable) {
+            InnerDisposable<T>[] innerDisposableArr;
             InnerDisposable[] innerDisposableArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, innerDisposable) == null) {
                 do {
-                    innerDisposableArr = (InnerDisposable[]) this.observers.get();
+                    innerDisposableArr = this.observers.get();
                     int length = innerDisposableArr.length;
                     if (length == 0) {
                         return;
@@ -203,14 +205,14 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
             }
         }
 
-        public boolean add(InnerDisposable innerDisposable) {
-            InnerDisposable[] innerDisposableArr;
-            InnerDisposable[] innerDisposableArr2;
+        public boolean add(InnerDisposable<T> innerDisposable) {
+            InnerDisposable<T>[] innerDisposableArr;
+            InnerDisposable<T>[] innerDisposableArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerDisposable)) == null) {
                 do {
-                    innerDisposableArr = (InnerDisposable[]) this.observers.get();
+                    innerDisposableArr = this.observers.get();
                     if (innerDisposableArr == TERMINATED) {
                         return false;
                     }
@@ -225,11 +227,11 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                for (InnerDisposable innerDisposable : (InnerDisposable[]) this.observers.get()) {
-                    innerDisposable.child.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                for (InnerDisposable<T> innerDisposable : this.observers.get()) {
+                    innerDisposable.child.onNext(t);
                 }
             }
         }
@@ -247,9 +249,9 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
                 this.current.compareAndSet(this, null);
-                InnerDisposable[] innerDisposableArr = (InnerDisposable[]) this.observers.getAndSet(TERMINATED);
-                if (innerDisposableArr.length != 0) {
-                    for (InnerDisposable innerDisposable : innerDisposableArr) {
+                InnerDisposable<T>[] andSet = this.observers.getAndSet(TERMINATED);
+                if (andSet.length != 0) {
+                    for (InnerDisposable<T> innerDisposable : andSet) {
                         innerDisposable.child.onError(th);
                     }
                     return;
@@ -260,12 +262,12 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
     }
 
     /* loaded from: classes8.dex */
-    public final class PublishSource implements ObservableSource {
+    public static final class PublishSource<T> implements ObservableSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference curr;
+        public final AtomicReference<PublishObserver<T>> curr;
 
-        public PublishSource(AtomicReference atomicReference) {
+        public PublishSource(AtomicReference<PublishObserver<T>> atomicReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -284,15 +286,15 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
         }
 
         @Override // io.reactivex.ObservableSource
-        public void subscribe(Observer observer) {
+        public void subscribe(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
                 InnerDisposable innerDisposable = new InnerDisposable(observer);
                 observer.onSubscribe(innerDisposable);
                 while (true) {
-                    PublishObserver publishObserver = (PublishObserver) this.curr.get();
+                    PublishObserver<T> publishObserver = this.curr.get();
                     if (publishObserver == null || publishObserver.isDisposed()) {
-                        PublishObserver publishObserver2 = new PublishObserver(this.curr);
+                        PublishObserver<T> publishObserver2 = new PublishObserver<>(this.curr);
                         if (this.curr.compareAndSet(publishObserver, publishObserver2)) {
                             publishObserver = publishObserver2;
                         } else {
@@ -308,7 +310,7 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
         }
     }
 
-    public ObservablePublish(ObservableSource observableSource, ObservableSource observableSource2, AtomicReference atomicReference) {
+    public ObservablePublish(ObservableSource<T> observableSource, ObservableSource<T> observableSource2, AtomicReference<PublishObserver<T>> atomicReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -328,7 +330,7 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
         this.current = atomicReference;
     }
 
-    public static ConnectableObservable create(ObservableSource observableSource) {
+    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, observableSource)) == null) {
@@ -339,7 +341,7 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observer) == null) {
             this.onSubscribe.subscribe(observer);
@@ -347,16 +349,16 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
     }
 
     @Override // io.reactivex.observables.ConnectableObservable
-    public void connect(Consumer consumer) {
-        PublishObserver publishObserver;
+    public void connect(Consumer<? super Disposable> consumer) {
+        PublishObserver<T> publishObserver;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, consumer) == null) {
             while (true) {
-                publishObserver = (PublishObserver) this.current.get();
+                publishObserver = this.current.get();
                 if (publishObserver != null && !publishObserver.isDisposed()) {
                     break;
                 }
-                PublishObserver publishObserver2 = new PublishObserver(this.current);
+                PublishObserver<T> publishObserver2 = new PublishObserver<>(this.current);
                 if (this.current.compareAndSet(publishObserver, publishObserver2)) {
                     publishObserver = publishObserver2;
                     break;
@@ -377,7 +379,7 @@ public final class ObservablePublish extends ConnectableObservable implements Ha
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamObservableSource
-    public ObservableSource source() {
+    public ObservableSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.video;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
@@ -25,6 +26,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
 import org.webrtc.EglBase10;
+@TargetApi(17)
 /* loaded from: classes7.dex */
 public final class DummySurface extends Surface {
     public static /* synthetic */ Interceptable $ic = null;
@@ -39,13 +41,13 @@ public final class DummySurface extends Surface {
 
     /* renamed from: com.google.android.exoplayer2.video.DummySurface$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class DummySurfaceThread extends HandlerThread implements SurfaceTexture.OnFrameAvailableListener, Handler.Callback {
+    public static class DummySurfaceThread extends HandlerThread implements SurfaceTexture.OnFrameAvailableListener, Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_INIT = 1;
         public static final int MSG_RELEASE = 3;
@@ -339,6 +341,7 @@ public final class DummySurface extends Surface {
         }
     }
 
+    @TargetApi(24)
     public static boolean enableSecureDummySurfaceV24(Context context) {
         InterceptResult invokeL;
         String eglQueryString;

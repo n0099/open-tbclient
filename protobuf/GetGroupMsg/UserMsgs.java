@@ -22,16 +22,16 @@ public final class UserMsgs extends Message {
     public final List<MsgInfo> msgs;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<UserMsgs> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List msgs;
+        public List<MsgInfo> msgs;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public final class UserMsgs extends Message {
             }
         }
         if (z) {
-            List list = builder.msgs;
+            List<MsgInfo> list = builder.msgs;
             if (list == null) {
                 this.msgs = DEFAULT_MSGS;
                 return;

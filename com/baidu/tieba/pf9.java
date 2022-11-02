@@ -1,179 +1,187 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class pf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<AudioPlayData> a;
+    public List<AudioPlayData> b;
+    public xf9 c;
+    public int d;
+    public b e;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends mh9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ AudioPlayData b;
+        public final /* synthetic */ pf9 c;
 
-        public a(int i, int i2) {
+        public a(pf9 pf9Var, String str, AudioPlayData audioPlayData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {pf9Var, str, audioPlayData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
-            this.b = i2;
+            this.c = pf9Var;
+            this.a = str;
+            this.b = audioPlayData;
         }
 
-        public int a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.mh9, com.baidu.tieba.lh9
+        public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.c.e == null) {
+                return;
+            }
+            this.c.e.onFailed(str);
         }
 
-        public int b() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.mh9
+        public void onFinishedWriting(boolean z) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                AudioPlayData audioPlayData = new AudioPlayData(this.a, 0, (int) mj9.b(this.a), this.b.volume);
+                if (this.c.b == null) {
+                    this.c.b = new ArrayList();
+                }
+                this.c.b.add(audioPlayData);
+                pf9.c(this.c);
+                this.c.f();
+            }
+        }
+
+        @Override // com.baidu.tieba.mh9, com.baidu.tieba.lh9
+        public void onProgressChanged(int i, double d, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.mh9, com.baidu.tieba.lh9
+        public void onTrackEnd(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
         }
     }
 
-    public static int[] a(float f, int i) {
-        InterceptResult invokeCommon;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onFailed(String str);
+
+        void onSuccess(List<AudioPlayData> list);
+    }
+
+    public pf9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            int[] iArr = new int[2];
-            if (f > 1.0f) {
-                iArr[0] = i;
-                iArr[1] = (int) (i * f);
-                int i2 = iArr[1] % 16;
-                if (i2 > 8) {
-                    iArr[1] = iArr[1] + (16 - i2);
-                } else {
-                    iArr[1] = iArr[1] - i2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static /* synthetic */ int c(pf9 pf9Var) {
+        int i = pf9Var.d;
+        pf9Var.d = i + 1;
+        return i;
+    }
+
+    public final void f() {
+        AudioPlayData audioPlayData;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (wi9.c(this.a, this.d) == null) {
+                b bVar = this.e;
+                if (bVar != null) {
+                    bVar.onSuccess(this.b);
+                    return;
                 }
+                return;
+            }
+            AudioPlayData audioPlayData2 = this.a.get(this.d);
+            if (!FileUtils.isExists(audioPlayData2.audioPath)) {
+                String str = audioPlayData2.audioPath;
+                int i = audioPlayData2.start;
+                audioPlayData = new AudioPlayData(str, i, audioPlayData2.end - i, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
+            } else if (audioPlayData2.mSpeed == 1.0f) {
+                audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
             } else {
-                iArr[1] = i;
-                iArr[0] = (int) (i * (1.0f / f));
-                int i3 = iArr[0] % 16;
-                if (i3 > 8) {
-                    iArr[0] = iArr[0] + (16 - i3);
-                } else {
-                    iArr[0] = iArr[0] - i3;
+                String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
+                try {
+                    xf9 xf9Var = new xf9(audioPlayData2.audioPath, str2, null);
+                    this.c = xf9Var;
+                    xf9Var.S(new a(this, str2, audioPlayData2));
+                    this.c.D(null);
+                    this.c.G(audioPlayData2.mSpeed);
+                    this.c.B(audioPlayData2.start);
+                    this.c.R(audioPlayData2.end);
+                    this.c.I();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-            return iArr;
         }
-        return (int[]) invokeCommon.objValue;
     }
 
-    public static int[] b(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int[] iArr = new int[2];
-            if (i > i2) {
-                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i3 == 0) {
-                    iArr[0] = c(i);
-                    iArr[1] = c(i);
-                    return iArr;
-                }
-                if (i3 > 0) {
-                    iArr[1] = i;
-                    iArr[0] = (int) (i * (1.0f / f));
-                } else {
-                    iArr[1] = i2;
-                    iArr[0] = (int) (i2 * (1.0f / f));
-                }
-                iArr[0] = c(iArr[0]);
-            } else {
-                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i4 == 0) {
-                    iArr[0] = c(i2);
-                    iArr[1] = c(i2);
-                    return iArr;
-                }
-                if (i4 > 0) {
-                    iArr[0] = i;
-                    iArr[1] = (int) (i * f);
-                } else {
-                    iArr[0] = i2;
-                    iArr[1] = (int) (i2 * f);
-                }
-                iArr[1] = c(iArr[1]);
-            }
-            return iArr;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.e = bVar;
         }
-        return (int[]) invokeCommon.objValue;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    public void h(List<AudioPlayData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = i % 16;
-            return i2 > 8 ? i + (16 - i2) : i - i2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
-        return invokeI.intValue;
     }
 
-    public static a d(int i, int i2) {
-        InterceptResult invokeII;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            if (i > 1920 || i2 > 1920) {
-                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                return new a(a2[0], a2[1]);
-            }
-            return new a(i, i2);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f();
         }
-        return (a) invokeII.objValue;
-    }
-
-    public static a e(float f, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
-            }
-            int[] a2 = a(f, i);
-            return new a(a2[0], a2[1]);
-        }
-        return (a) invokeCommon.objValue;
-    }
-
-    public static a f(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
-            }
-            int[] b = b(f, i, i2);
-            return new a(b[0], b[1]);
-        }
-        return (a) invokeCommon.objValue;
-    }
-
-    public static boolean g(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
     }
 }

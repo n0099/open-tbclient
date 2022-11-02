@@ -1,7 +1,9 @@
 package com.bytedance.pangle;
 
 import android.app.Application;
+import android.content.pm.ProviderInfo;
 import android.os.RemoteException;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,12 +20,13 @@ import com.bytedance.pangle.util.MethodUtils;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.HashMap;
 import java.util.List;
+@Keep
 /* loaded from: classes7.dex */
 public class Zeus {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean onPrivacyAgreed;
     public static Application sApplication;
-    public static final HashMap serverManagerHashMap;
+    public static final HashMap<String, ProviderInfo> serverManagerHashMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +42,7 @@ public class Zeus {
                 return;
             }
         }
-        serverManagerHashMap = new HashMap();
+        serverManagerHashMap = new HashMap<>();
         onPrivacyAgreed = false;
     }
 
@@ -91,7 +94,7 @@ public class Zeus {
         return invokeV.intValue;
     }
 
-    public static HashMap getServerManagerHashMap() {
+    public static HashMap<String, ProviderInfo> getServerManagerHashMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
@@ -222,7 +225,7 @@ public class Zeus {
     }
 
     public static void unregisterPluginStateListener(ZeusPluginStateListener zeusPluginStateListener) {
-        List list;
+        List<ZeusPluginStateListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) && (list = g.a().b) != null) {
             list.remove(zeusPluginStateListener);
@@ -235,7 +238,7 @@ public class Zeus {
             com.bytedance.pangle.download.b a = com.bytedance.pangle.download.b.a();
             if (com.bytedance.pangle.c.d.a(getAppApplication())) {
                 final com.bytedance.pangle.download.c a2 = com.bytedance.pangle.download.c.a();
-                Runnable runnable = (Runnable) a2.c.get(str);
+                Runnable runnable = a2.c.get(str);
                 if (runnable != null) {
                     a2.b.removeCallbacks(runnable);
                 }

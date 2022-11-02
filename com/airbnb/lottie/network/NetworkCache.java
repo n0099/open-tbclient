@@ -1,6 +1,8 @@
 package com.airbnb.lottie.network;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import androidx.core.util.Pair;
 import com.airbnb.lottie.utils.Logger;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -18,6 +20,7 @@ public class NetworkCache {
         this.appContext = context.getApplicationContext();
     }
 
+    @Nullable
     private File getCachedFile(String str) throws FileNotFoundException {
         File file = new File(parentDir(), filenameForUrl(str, FileExtension.JSON, false));
         if (file.exists()) {
@@ -68,7 +71,9 @@ public class NetworkCache {
         }
     }
 
-    public Pair fetch(String str) {
+    @Nullable
+    @WorkerThread
+    public Pair<FileExtension, InputStream> fetch(String str) {
         FileExtension fileExtension;
         try {
             File cachedFile = getCachedFile(str);
@@ -82,7 +87,7 @@ public class NetworkCache {
                 fileExtension = FileExtension.JSON;
             }
             Logger.debug("Cache hit for " + str + " at " + cachedFile.getAbsolutePath());
-            return new Pair(fileExtension, fileInputStream);
+            return new Pair<>(fileExtension, fileInputStream);
         } catch (FileNotFoundException unused) {
             return null;
         }

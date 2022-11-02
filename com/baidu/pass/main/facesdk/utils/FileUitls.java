@@ -382,11 +382,11 @@ public class FileUitls {
         return (String) invokeL.objValue;
     }
 
-    public static ArrayList readLicense(String str) {
+    public static ArrayList<String> readLicense(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             File file = new File(str);
             if (!file.isDirectory()) {
                 try {

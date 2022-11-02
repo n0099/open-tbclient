@@ -5,6 +5,8 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -128,7 +130,8 @@ public final class ScaleProvider implements VisibilityAnimatorProvider {
     }
 
     @Override // com.google.android.material.transition.VisibilityAnimatorProvider
-    public Animator createAppear(ViewGroup viewGroup, View view2) {
+    @Nullable
+    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) {
@@ -141,7 +144,8 @@ public final class ScaleProvider implements VisibilityAnimatorProvider {
     }
 
     @Override // com.google.android.material.transition.VisibilityAnimatorProvider
-    public Animator createDisappear(ViewGroup viewGroup, View view2) {
+    @Nullable
+    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2)) == null) {

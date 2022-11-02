@@ -2,6 +2,7 @@ package com.baidu.minivideo.effect.core.vlogedit;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -52,7 +53,7 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<MediaTrackConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,6 +130,7 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @NonNull
     /* renamed from: clone */
     public MediaTrackConfig m34clone() {
         InterceptResult invokeV;

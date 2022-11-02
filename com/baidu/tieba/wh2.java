@@ -1,51 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class wh2 implements ZeusPluginFactory {
+public class wh2 {
     public static /* synthetic */ Interceptable $ic;
+    public static File a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
+    public static String k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "media_extractor" : (String) invokeV.objValue;
-    }
-
-    public wh2(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270504, "Lcom/baidu/tieba/wh2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948270504, "Lcom/baidu/tieba/wh2;");
                 return;
             }
         }
-        this.a = str;
+        a = an2.g();
+        b = "swan_core";
+        c = "extension_core";
+        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+        e = "cloneFolder_";
+        f = d + File.separator + e;
+        g = "clone_pkg_folder";
+        h = "clone_core_folder";
+        i = "clone_dynamic_lib_folder";
+        j = "clone_sp_folder";
+        k = "clone_db_folder";
+        l = "cloneZip.zip";
+        m = "clone_zipFiles";
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            return new vh2(tm2.D().e(invoker, this.a));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(mb3.w());
+            if (!ik4.l(file)) {
+                return null;
+            }
+            return file;
         }
-        return (ZeusPlugin) invokeL.objValue;
+        return (File) invokeV.objValue;
     }
 }

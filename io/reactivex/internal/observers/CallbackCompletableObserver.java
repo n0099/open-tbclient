@@ -17,12 +17,12 @@ import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class CallbackCompletableObserver extends AtomicReference implements CompletableObserver, Disposable, Consumer, LambdaConsumerIntrospection {
+public final class CallbackCompletableObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable, Consumer<Throwable>, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4361286194466301354L;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onComplete;
-    public final Consumer onError;
+    public final Consumer<? super Throwable> onError;
 
     public CallbackCompletableObserver(Action action) {
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public final class CallbackCompletableObserver extends AtomicReference implement
         }
     }
 
-    public CallbackCompletableObserver(Consumer consumer, Action action) {
+    public CallbackCompletableObserver(Consumer<? super Throwable> consumer, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

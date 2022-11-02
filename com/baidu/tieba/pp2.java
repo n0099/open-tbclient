@@ -1,142 +1,114 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rp2;
-import com.baidu.tieba.sp2;
-import com.baidu.tieba.tp2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.qp2;
 /* loaded from: classes5.dex */
-public class pp2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final List a;
+public interface pp2 extends qp2.b {
+    mq1 A(String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948069655, "Lcom/baidu/tieba/pp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948069655, "Lcom/baidu/tieba/pp2;");
-                return;
-            }
-        }
-        b = wj1.a;
-    }
+    View B(String str);
 
-    public pp2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        e();
-    }
+    String C();
 
-    public List c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Collections.unmodifiableList(this.a);
-        }
-        return (List) invokeV.objValue;
-    }
+    e43 D();
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
-            m02.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
-        }
-    }
+    void E(bp2 bp2Var, ym2 ym2Var);
 
-    public final sp2 a(String str, int i, int i2, String str2, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
-            sp2.a aVar = new sp2.a();
-            aVar.e(str);
-            aVar.g(i);
-            aVar.c(i2);
-            aVar.b(str2);
-            aVar.f(obj);
-            sp2 a = aVar.a();
-            if (a == null) {
-                if (b) {
-                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
-                    return null;
-                }
-                return null;
-            }
-            return a;
-        }
-        return (sp2) invokeCommon.objValue;
-    }
+    sl1 F();
 
-    public final tp2 b(int i, String str, Object obj) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
-            tp2.a aVar = new tp2.a();
-            aVar.e(i);
-            aVar.d(str);
-            aVar.b(obj);
-            tp2 a = aVar.a();
-            if (a == null) {
-                if (b) {
-                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
-                }
-                return null;
-            }
-            return a;
-        }
-        return (tp2) invokeILL.objValue;
-    }
+    @NonNull
+    hc3 G();
 
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            tp2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
-            if (b2 == null) {
-                return false;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
-            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
-            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
-            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
-            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
-            rp2.a aVar = new rp2.a();
-            aVar.c(b2);
-            aVar.a(arrayList);
-            rp2 b3 = aVar.b();
-            if (b3 == null) {
-                return false;
-            }
-            return this.a.add(b3);
-        }
-        return invokeV.booleanValue;
-    }
+    m32 H();
+
+    void I();
+
+    SwanAppPropertyWindow J(Activity activity);
+
+    void K(String str);
+
+    vl1 L();
+
+    SwanCoreVersion M();
+
+    boolean N();
+
+    void O();
+
+    vl1 P();
+
+    void a();
+
+    String b();
+
+    void c();
+
+    void d(bp2 bp2Var, ym2 ym2Var);
+
+    @NonNull
+    t43 e(String str, SwanAppConfigData swanAppConfigData, String str2);
+
+    void exit();
+
+    @NonNull
+    t43 f(String str);
+
+    String g();
+
+    SwanAppActivity getActivity();
+
+    lq1 i();
+
+    @NonNull
+    t43 j(String str);
+
+    boolean k();
+
+    void l(SwanAppActivity swanAppActivity);
+
+    void m(String str, ee2 ee2Var);
+
+    FullScreenFloatView n(Activity activity);
+
+    void o();
+
+    void p();
+
+    @DebugTrace
+    jq1 q();
+
+    @NonNull
+    Pair<Integer, Integer> r();
+
+    void registerReceiver(Context context);
+
+    SwanAppConfigData s();
+
+    void t(Intent intent);
+
+    void u(ee2 ee2Var);
+
+    void unregisterReceiver(Context context);
+
+    void v();
+
+    void w();
+
+    @NonNull
+    Pair<Integer, Integer> x();
+
+    void y(he2 he2Var, boolean z);
+
+    String z();
 }

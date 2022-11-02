@@ -3,14 +3,14 @@ package com.baidu.swan.config.core;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mn3;
-import com.baidu.tieba.nn3;
-import com.baidu.tieba.on3;
-import com.baidu.tieba.pn3;
-import com.baidu.tieba.qn3;
-import com.baidu.tieba.rn3;
-import com.baidu.tieba.tn3;
-import com.baidu.tieba.un3;
+import com.baidu.tieba.eo3;
+import com.baidu.tieba.fo3;
+import com.baidu.tieba.go3;
+import com.baidu.tieba.ho3;
+import com.baidu.tieba.io3;
+import com.baidu.tieba.jo3;
+import com.baidu.tieba.lo3;
+import com.baidu.tieba.mo3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,8 +30,8 @@ public final class ConfigNode {
     public static final ConfigNode TIP_MSG;
     public transient /* synthetic */ FieldHolder $fh;
     public String mName;
-    public Class mParamsProvider;
-    public Class mProcessor;
+    public Class<? extends Object> mParamsProvider;
+    public Class<? extends Object> mProcessor;
 
     static {
         InterceptResult invokeClinit;
@@ -46,10 +46,10 @@ public final class ConfigNode {
                 return;
             }
         }
-        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", qn3.class, rn3.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", on3.class, pn3.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, mn3.class, nn3.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", tn3.class, un3.class);
+        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", io3.class, jo3.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", go3.class, ho3.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, eo3.class, fo3.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", lo3.class, mo3.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }
@@ -119,7 +119,7 @@ public final class ConfigNode {
         return (String) invokeV.objValue;
     }
 
-    public Class getParamsProvider() {
+    public Class<? extends Object> getParamsProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -128,7 +128,7 @@ public final class ConfigNode {
         return (Class) invokeV.objValue;
     }
 
-    public Class getProcessor() {
+    public Class<? extends Object> getProcessor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

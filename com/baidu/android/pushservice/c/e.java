@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.c;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -24,14 +25,15 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object a;
     public static String b = "PushTrackDatabase";
-    public static C0019e c;
+    public static C0020e c;
+    @SuppressLint({"StaticFieldLeak"})
     public static e d;
     public transient /* synthetic */ FieldHolder $fh;
     public Context e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -87,7 +89,7 @@ public class e {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public static final b b;
@@ -147,7 +149,7 @@ public class e {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public static final c b;
@@ -201,7 +203,7 @@ public class e {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class d {
+    public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public static final d a;
         public static final d b;
@@ -265,7 +267,7 @@ public class e {
 
     /* renamed from: com.baidu.android.pushservice.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0019e extends SQLiteOpenHelper {
+    public static class C0020e extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String a;
         public static final String b;
@@ -328,7 +330,7 @@ public class e {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0019e(Context context, String str, int i) {
+        public C0020e(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -390,7 +392,7 @@ public class e {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class f {
+    public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
         public static final f b;
@@ -480,7 +482,7 @@ public class e {
             }
         }
         this.e = context;
-        c = new C0019e(context, "push_track.db", 1);
+        c = new C0020e(context, "push_track.db", 1);
     }
 
     public static e a(Context context) {
@@ -504,7 +506,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (c == null) {
-                c = new C0019e(context, "push_track.db", 1);
+                c = new C0020e(context, "push_track.db", 1);
             }
             try {
                 return c.getWritableDatabase();
@@ -515,7 +517,7 @@ public class e {
         return (SQLiteDatabase) invokeL.objValue;
     }
 
-    public List a() {
+    public List<com.baidu.android.pushservice.c.a.c> a() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
@@ -747,7 +749,7 @@ public class e {
         }
     }
 
-    public List b() {
+    public List<com.baidu.android.pushservice.c.a.d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -797,7 +799,7 @@ public class e {
         return (List) invokeV.objValue;
     }
 
-    public List c() {
+    public List<com.baidu.android.pushservice.c.a.b> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -845,7 +847,7 @@ public class e {
         return (List) invokeV.objValue;
     }
 
-    public List d() {
+    public List<com.baidu.android.pushservice.c.a.e> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -893,7 +895,7 @@ public class e {
         return (List) invokeV.objValue;
     }
 
-    public List e() {
+    public List<com.baidu.android.pushservice.c.a.a> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {

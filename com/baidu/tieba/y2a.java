@@ -4,15 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
 /* loaded from: classes6.dex */
-public abstract class y2a {
+public abstract class y2a<E> extends a3a<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a(Request request, boolean z, Exception exc);
-
-    public abstract void b(Object obj);
+    public long e;
+    public E[] f;
 
     public y2a() {
         Interceptable interceptable = $ic;

@@ -15,14 +15,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SubscriberResourceWrapper extends AtomicReference implements FlowableSubscriber, Disposable, Subscription {
+public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposable> implements FlowableSubscriber<T>, Disposable, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8612022020200669122L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber actual;
-    public final AtomicReference subscription;
+    public final Subscriber<? super T> actual;
+    public final AtomicReference<Subscription> subscription;
 
-    public SubscriberResourceWrapper(Subscriber subscriber) {
+    public SubscriberResourceWrapper(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +37,7 @@ public final class SubscriberResourceWrapper extends AtomicReference implements 
                 return;
             }
         }
-        this.subscription = new AtomicReference();
+        this.subscription = new AtomicReference<>();
         this.actual = subscriber;
     }
 
@@ -90,10 +90,10 @@ public final class SubscriberResourceWrapper extends AtomicReference implements 
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            this.actual.onNext(obj);
+        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            this.actual.onNext(t);
         }
     }
 
@@ -109,7 +109,7 @@ public final class SubscriberResourceWrapper extends AtomicReference implements 
     public void request(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
-            ((Subscription) this.subscription.get()).request(j);
+            this.subscription.get().request(j);
         }
     }
 

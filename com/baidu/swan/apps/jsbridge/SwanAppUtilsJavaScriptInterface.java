@@ -5,19 +5,20 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.gh3;
-import com.baidu.tieba.k22;
-import com.baidu.tieba.mg3;
-import com.baidu.tieba.rn2;
-import com.baidu.tieba.t52;
-import com.baidu.tieba.t93;
-import com.baidu.tieba.tm2;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.y93;
-import com.baidu.tieba.zw2;
+import com.baidu.tieba.c32;
+import com.baidu.tieba.eh3;
+import com.baidu.tieba.jo2;
+import com.baidu.tieba.l62;
+import com.baidu.tieba.la3;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.qa3;
+import com.baidu.tieba.rx2;
+import com.baidu.tieba.yh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +28,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+@Keep
+/* loaded from: classes3.dex */
 public class SwanAppUtilsJavaScriptInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -40,9 +42,9 @@ public class SwanAppUtilsJavaScriptInterface {
     public Context mActivity;
     public boolean mIsForceLight;
     public String mSource;
-    public k22 mWebView;
+    public c32 mWebView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,8 +86,8 @@ public class SwanAppUtilsJavaScriptInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b implements rn2.a {
+    /* loaded from: classes3.dex */
+    public class b implements jo2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -112,7 +114,7 @@ public class SwanAppUtilsJavaScriptInterface {
             this.b = str2;
         }
 
-        @Override // com.baidu.tieba.rn2.a
+        @Override // com.baidu.tieba.jo2.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -121,7 +123,7 @@ public class SwanAppUtilsJavaScriptInterface {
             this.c.notifyCallback(this.b, String.valueOf(false));
         }
 
-        @Override // com.baidu.tieba.rn2.a
+        @Override // com.baidu.tieba.jo2.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
@@ -131,7 +133,7 @@ public class SwanAppUtilsJavaScriptInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,15 +184,15 @@ public class SwanAppUtilsJavaScriptInterface {
                 return;
             }
         }
-        DEBUG = wj1.a;
+        DEBUG = ok1.a;
     }
 
-    public SwanAppUtilsJavaScriptInterface(Context context, k22 k22Var) {
+    public SwanAppUtilsJavaScriptInterface(Context context, c32 c32Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, k22Var};
+            Object[] objArr = {context, c32Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -203,13 +205,13 @@ public class SwanAppUtilsJavaScriptInterface {
         this.mIsForceLight = false;
         this.mSource = "";
         this.mActivity = context;
-        this.mWebView = k22Var;
+        this.mWebView = c32Var;
     }
 
     public void loadJavaScript(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.mWebView != null) {
-            gh3.e0(new a(this, str));
+            yh3.e0(new a(this, str));
         }
     }
 
@@ -264,8 +266,8 @@ public class SwanAppUtilsJavaScriptInterface {
                 if (j < UBC_MIN_VERSION) {
                     return;
                 }
-                t93.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
-                zw2.h().g().b(jSONObject);
+                la3.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
+                rx2.h().g().b(jSONObject);
             } catch (NumberFormatException | JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -305,11 +307,11 @@ public class SwanAppUtilsJavaScriptInterface {
     @JavascriptInterface
     public void ubcEvent(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || TextUtils.isEmpty(str) || y93.b(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || TextUtils.isEmpty(str) || qa3.b(str)) {
             return;
         }
-        k22 k22Var = this.mWebView;
-        if (t52.a(k22Var, "ubcEvent - " + str)) {
+        c32 c32Var = this.mWebView;
+        if (l62.a(c32Var, "ubcEvent - " + str)) {
             return;
         }
         ExecutorUtilsExt.postOnElastic(new c(this, str), "ubcEvent", 3);
@@ -321,14 +323,14 @@ public class SwanAppUtilsJavaScriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "callShare");
             }
-            JSONObject d = mg3.d(str2);
+            JSONObject d = eh3.d(str2);
             try {
                 d.put(KEY_SHARE_SNAPSHOT, z);
                 d.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            tm2.f0().a(context, d, new b(this, str3, str4));
+            ln2.f0().a(context, d, new b(this, str3, str4));
         }
     }
 }

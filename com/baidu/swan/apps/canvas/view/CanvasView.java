@@ -9,12 +9,12 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cx1;
-import com.baidu.tieba.gh3;
-import com.baidu.tieba.sw1;
-import com.baidu.tieba.tw1;
-import com.baidu.tieba.xw1;
-import com.baidu.tieba.xx1;
+import com.baidu.tieba.kx1;
+import com.baidu.tieba.lx1;
+import com.baidu.tieba.px1;
+import com.baidu.tieba.py1;
+import com.baidu.tieba.ux1;
+import com.baidu.tieba.yh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,10 +28,10 @@ import java.util.List;
 public class CanvasView extends AbsCanvasView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List b;
+    public List<b> b;
     public final DrawFilter c;
     public int d;
-    public HashMap e;
+    public HashMap<String, Bitmap> e;
 
     /* loaded from: classes2.dex */
     public interface c {
@@ -73,11 +73,11 @@ public class CanvasView extends AbsCanvasView {
     }
 
     /* loaded from: classes2.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List a;
-        public tw1 b;
+        public List<kx1> a;
+        public lx1 b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public void c(List list, boolean z) {
+    public void c(List<kx1> list, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) && list != null && !this.b.contains(list)) {
@@ -155,17 +155,17 @@ public class CanvasView extends AbsCanvasView {
             }
             b bVar = new b(null);
             if (z2) {
-                b bVar2 = (b) this.b.get(size - 1);
+                b bVar2 = this.b.get(size - 1);
                 bVar.b = bVar2.b;
-                List list2 = bVar2.a;
+                List<kx1> list2 = bVar2.a;
                 bVar.a = list2;
                 list2.addAll(list);
             } else {
-                bVar.b = new tw1(this);
+                bVar.b = new lx1(this);
                 bVar.a = list;
             }
             this.b.add(bVar);
-            gh3.e0(new a(this));
+            yh3.e0(new a(this));
         }
     }
 
@@ -191,7 +191,7 @@ public class CanvasView extends AbsCanvasView {
         this.b = new ArrayList();
         this.c = new PaintFlagsDrawFilter(0, 3);
         this.d = 0;
-        this.e = new HashMap();
+        this.e = new HashMap<>();
         this.d = getLayerType();
     }
 
@@ -202,7 +202,7 @@ public class CanvasView extends AbsCanvasView {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return (Bitmap) this.e.get(str);
+            return this.e.get(str);
         }
         return (Bitmap) invokeL.objValue;
     }
@@ -226,13 +226,13 @@ public class CanvasView extends AbsCanvasView {
             int i = this.d;
             if (this.b.size() > 0) {
                 for (b bVar : this.b) {
-                    Iterator it = bVar.a.iterator();
+                    Iterator<kx1> it = bVar.a.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            sw1 sw1Var = (sw1) it.next();
-                            if (sw1Var instanceof xw1) {
+                            kx1 next = it.next();
+                            if (next instanceof px1) {
                                 i = 2;
-                            } else if (sw1Var instanceof xx1) {
+                            } else if (next instanceof py1) {
                                 i = 1;
                                 break;
                             }
@@ -255,17 +255,17 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public tw1 getCanvasContext() {
+    public lx1 getCanvasContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.b.size() > 0) {
-                List list = this.b;
-                return ((b) list.get(list.size() - 1)).b;
+                List<b> list = this.b;
+                return list.get(list.size() - 1).b;
             }
             return null;
         }
-        return (tw1) invokeV.objValue;
+        return (lx1) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -277,13 +277,13 @@ public class CanvasView extends AbsCanvasView {
                 int save = canvas.save();
                 canvas.setDrawFilter(this.c);
                 for (b bVar : this.b) {
-                    List<sw1> list = bVar.a;
-                    tw1 tw1Var = bVar.b;
-                    tw1Var.d();
-                    for (sw1 sw1Var : list) {
-                        sw1Var.a(tw1Var, canvas);
-                        if (sw1Var instanceof cx1) {
-                            ((cx1) sw1Var).e(this.e);
+                    List<kx1> list = bVar.a;
+                    lx1 lx1Var = bVar.b;
+                    lx1Var.d();
+                    for (kx1 kx1Var : list) {
+                        kx1Var.a(lx1Var, canvas);
+                        if (kx1Var instanceof ux1) {
+                            ((ux1) kx1Var).e(this.e);
                         }
                     }
                 }

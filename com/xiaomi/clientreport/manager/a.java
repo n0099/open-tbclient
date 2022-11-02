@@ -52,11 +52,11 @@ public class a {
     public String f24a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap f25a;
+    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f25a;
 
     /* renamed from: a  reason: collision with other field name */
     public ExecutorService f26a;
-    public HashMap b;
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> b;
 
     static {
         InterceptResult invokeClinit;
@@ -90,8 +90,8 @@ public class a {
             }
         }
         this.f26a = Executors.newSingleThreadExecutor();
-        this.f25a = new HashMap();
-        this.b = new HashMap();
+        this.f25a = new HashMap<>();
+        this.b = new HashMap<>();
         this.f20a = context;
     }
 
@@ -100,11 +100,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            HashMap hashMap = this.b;
+            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.b;
             if (hashMap != null) {
                 int i = 0;
                 for (String str : hashMap.keySet()) {
-                    ArrayList arrayList = (ArrayList) this.b.get(str);
+                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.b.get(str);
                     i += arrayList != null ? arrayList.size() : 0;
                 }
                 return i;
@@ -142,14 +142,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            HashMap hashMap = this.f25a;
+            HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap = this.f25a;
             int i = 0;
             if (hashMap != null) {
                 for (String str : hashMap.keySet()) {
-                    HashMap hashMap2 = (HashMap) this.f25a.get(str);
+                    HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f25a.get(str);
                     if (hashMap2 != null) {
                         for (String str2 : hashMap2.keySet()) {
-                            com.xiaomi.clientreport.data.a aVar = (com.xiaomi.clientreport.data.a) hashMap2.get(str2);
+                            com.xiaomi.clientreport.data.a aVar = hashMap2.get(str2);
                             if (aVar instanceof PerfClientReport) {
                                 i = (int) (i + ((PerfClientReport) aVar).perfCounts);
                             }

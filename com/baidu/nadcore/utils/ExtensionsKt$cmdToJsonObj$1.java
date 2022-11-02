@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u0003H\n¢\u0006\u0002\b\u0005"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "", "kotlin.jvm.PlatformType", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class ExtensionsKt$cmdToJsonObj$1 extends Lambda implements Function1 {
+public final class ExtensionsKt$cmdToJsonObj$1 extends Lambda implements Function1<String, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $this_cmdToJsonObj;
@@ -41,12 +41,15 @@ public final class ExtensionsKt$cmdToJsonObj$1 extends Lambda implements Functio
         this.$uri = uri;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return Boolean.valueOf(invoke((String) obj));
+    public /* bridge */ /* synthetic */ Boolean invoke(String str) {
+        return Boolean.valueOf(invoke2(str));
     }
 
-    public final boolean invoke(String str) {
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final boolean invoke2(String str) {
         InterceptResult invokeL;
         boolean z;
         boolean z2;

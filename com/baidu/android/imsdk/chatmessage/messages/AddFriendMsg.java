@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AddFriendMsg extends NotifyMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<AddFriendMsg> CREATOR;
     public static final String TAG = "AddFriendMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String description;
@@ -35,7 +35,7 @@ public class AddFriendMsg extends NotifyMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.AddFriendMsg.1
+        CREATOR = new Parcelable.Creator<AddFriendMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AddFriendMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,6 +54,7 @@ public class AddFriendMsg extends NotifyMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AddFriendMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -65,6 +66,7 @@ public class AddFriendMsg extends NotifyMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AddFriendMsg[] newArray(int i) {
                 InterceptResult invokeI;

@@ -1,5 +1,6 @@
 package com.baidu.swan.game.ad.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -8,7 +9,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.es3;
+import com.baidu.tieba.ws3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -138,6 +139,7 @@ public class RewardWebView extends WebView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"SetJavaScriptEnabled"})
     public RewardWebView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
@@ -185,7 +187,7 @@ public class RewardWebView extends WebView {
     }
 
     @Override // android.webkit.WebView
-    public void evaluateJavascript(String str, ValueCallback valueCallback) {
+    public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) && !this.a) {
             d(new c(this, str, valueCallback));
@@ -237,7 +239,7 @@ public class RewardWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebSettings settings = getSettings();
-            settings.setUserAgentString(es3.b().i(settings.getUserAgentString()));
+            settings.setUserAgentString(ws3.b().i(settings.getUserAgentString()));
         }
     }
 

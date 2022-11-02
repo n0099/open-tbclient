@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Type;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class rd implements pd {
+public class rd implements ud {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
+    public char a;
 
-    public rd(JSONObject jSONObject) {
+    public rd(char c) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
+            Object[] objArr = {Character.valueOf(c)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,67 +27,59 @@ public class rd implements pd {
                 return;
             }
         }
-        this.a = jSONObject;
+        this.a = c;
     }
 
-    public Object c(String str) {
+    @Override // com.baidu.tieba.ud
+    public Object a(ke keVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.a.opt(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keVar)) == null) {
+            Class<?> a = keVar.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        boolean z = false;
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return String.valueOf(this.a);
+                                            }
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return pi.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                        if (((byte) this.a) == 0) {
+                                            z = true;
+                                        }
+                                        return Boolean.valueOf(z);
+                                    }
+                                    return Character.valueOf(this.a);
+                                }
+                                return Double.valueOf(this.a);
+                            }
+                            return Float.valueOf(this.a);
+                        }
+                        return Long.valueOf(this.a);
+                    }
+                    return Integer.valueOf(this.a);
+                }
+                return Short.valueOf((short) this.a);
+            }
+            return Byte.valueOf((byte) this.a);
         }
         return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pd
-    public void a(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
-            try {
-                this.a.putOpt(str, obj);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pd
-    public Object b(String str, Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
-            Object c = c(str);
-            if (c != null) {
-                se seVar = new se(type);
-                ce a = we.a(c);
-                if (a != null) {
-                    return a.a(seVar);
-                }
-                return c;
-            }
-            return c;
-        }
-        return invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pd
-    public Set getKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Iterator<String> keys = this.a.keys();
-            if (keys != null) {
-                HashSet hashSet = new HashSet();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (next != null) {
-                        hashSet.add(next.toString());
-                    }
-                }
-                return hashSet;
-            }
-            return null;
-        }
-        return (Set) invokeV.objValue;
     }
 }

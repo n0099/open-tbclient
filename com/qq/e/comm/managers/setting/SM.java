@@ -73,12 +73,12 @@ public class SM {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            f.b a = f.a(this.m);
+            f.b<a> a = f.a(this.m);
             if (a == null) {
                 GDTLogger.d("Load Local DEV Cloud setting fail");
                 return;
             }
-            this.c = (a) a.a();
+            this.c = a.a();
             this.b = a.b();
         }
     }
@@ -86,12 +86,12 @@ public class SM {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            f.b b = f.b(this.m);
+            f.b<d> b = f.b(this.m);
             if (b == null) {
                 GDTLogger.d("Load Local DEV Cloud setting fail");
                 return;
             }
-            this.i = (d) b.a();
+            this.i = b.a();
             this.h = b.b();
         }
     }
@@ -99,13 +99,13 @@ public class SM {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            f.b c = f.c(this.m);
+            f.b<e> c = f.c(this.m);
             if (c == null) {
                 GDTLogger.d("Load Local SDK Cloud setting fail");
                 return;
             }
             this.e = c.b();
-            this.f = (e) c.a();
+            this.f = c.a();
         }
     }
 
@@ -304,7 +304,7 @@ public class SM {
         return invokeL.objValue;
     }
 
-    public Set getSettingKeySet(String str) {
+    public Set<String> getSettingKeySet(String str) {
         InterceptResult invokeL;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;

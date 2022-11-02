@@ -4,10 +4,11 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.os.LocaleList;
+import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public class LPaint extends Paint {
     @Override // android.graphics.Paint
-    public void setTextLocales(LocaleList localeList) {
+    public void setTextLocales(@NonNull LocaleList localeList) {
     }
 
     public LPaint() {

@@ -11,6 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Transformation;
+import androidx.annotation.AnimRes;
+import androidx.annotation.NonNull;
 import androidx.core.os.CancellationSignal;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.fragment.app.FragmentTransition;
@@ -26,6 +28,7 @@ public class FragmentAnim {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @AnimRes
     public static int transitToAnimResourceId(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -108,7 +111,7 @@ public class FragmentAnim {
         public boolean mTransitionEnded;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EndViewTransitionAnimation(Animation animation, ViewGroup viewGroup, View view2) {
+        public EndViewTransitionAnimation(@NonNull Animation animation, @NonNull ViewGroup viewGroup, @NonNull View view2) {
             super(false);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -133,7 +136,7 @@ public class FragmentAnim {
         }
 
         @Override // android.view.animation.AnimationSet, android.view.animation.Animation
-        public boolean getTransformation(long j, Transformation transformation) {
+        public boolean getTransformation(long j, @NonNull Transformation transformation) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, transformation)) == null) {
@@ -151,7 +154,7 @@ public class FragmentAnim {
         }
 
         @Override // android.view.animation.Animation
-        public boolean getTransformation(long j, Transformation transformation, float f) {
+        public boolean getTransformation(long j, @NonNull Transformation transformation, float f) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), transformation, Float.valueOf(f)})) == null) {
@@ -197,7 +200,7 @@ public class FragmentAnim {
         }
     }
 
-    public static void animateRemoveFragment(Fragment fragment, AnimationOrAnimator animationOrAnimator, FragmentTransition.Callback callback) {
+    public static void animateRemoveFragment(@NonNull Fragment fragment, @NonNull AnimationOrAnimator animationOrAnimator, @NonNull FragmentTransition.Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, fragment, animationOrAnimator, callback) == null) {
             View view2 = fragment.mView;
@@ -381,7 +384,7 @@ public class FragmentAnim {
         }
     }
 
-    public static AnimationOrAnimator loadAnimation(Context context, FragmentContainer fragmentContainer, Fragment fragment, boolean z) {
+    public static AnimationOrAnimator loadAnimation(@NonNull Context context, @NonNull FragmentContainer fragmentContainer, @NonNull Fragment fragment, boolean z) {
         InterceptResult invokeCommon;
         int transitToAnimResourceId;
         Interceptable interceptable = $ic;
@@ -391,8 +394,8 @@ public class FragmentAnim {
             boolean z2 = false;
             fragment.setNextAnim(0);
             View onFindViewById = fragmentContainer.onFindViewById(fragment.mContainerId);
-            if (onFindViewById != null && onFindViewById.getTag(R.id.obfuscated_res_0x7f0925f5) != null) {
-                onFindViewById.setTag(R.id.obfuscated_res_0x7f0925f5, null);
+            if (onFindViewById != null && onFindViewById.getTag(R.id.obfuscated_res_0x7f09264c) != null) {
+                onFindViewById.setTag(R.id.obfuscated_res_0x7f09264c, null);
             }
             ViewGroup viewGroup = fragment.mContainer;
             if (viewGroup != null && viewGroup.getLayoutTransition() != null) {

@@ -1,52 +1,66 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public final class ed9 {
+/* loaded from: classes4.dex */
+public class ed9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                char[] charArray = str.toCharArray();
-                StringBuilder sb = new StringBuilder();
-                for (char c : charArray) {
-                    String binaryString = Integer.toBinaryString(c);
-                    while (binaryString.length() < 8) {
-                        binaryString = "0" + binaryString;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
+            }
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
                     }
-                    sb.append(binaryString);
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
                 }
-                while (sb.length() % 6 != 0) {
-                    sb.append("0");
-                }
-                String valueOf = String.valueOf(sb);
-                int length = valueOf.length() / 6;
-                char[] cArr = new char[length];
-                for (int i = 0; i < length; i++) {
-                    int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
-                    valueOf = valueOf.substring(6);
-                    cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
-                }
-                StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
-                if (str.length() % 3 == 1) {
-                    sb2.append("==");
-                } else if (str.length() % 3 == 2) {
-                    sb2.append("=");
-                }
-                for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                    sb2.insert(i2, "\r\n");
-                }
-                sb2.append("\r\n");
-                return String.valueOf(sb2);
+                return str;
             }
             return str;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLLL.objValue;
     }
 }

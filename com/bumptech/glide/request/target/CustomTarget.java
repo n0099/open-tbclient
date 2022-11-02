@@ -1,6 +1,8 @@
 package com.bumptech.glide.request.target;
 
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.util.Util;
 /* loaded from: classes7.dex */
-public abstract class CustomTarget implements Target {
+public abstract class CustomTarget<T> implements Target<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int height;
+    @Nullable
     public Request request;
     public final int width;
 
@@ -26,14 +29,14 @@ public abstract class CustomTarget implements Target {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadFailed(Drawable drawable) {
+    public void onLoadFailed(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
         }
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadStarted(Drawable drawable) {
+    public void onLoadStarted(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
         }
@@ -54,7 +57,7 @@ public abstract class CustomTarget implements Target {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public final void removeCallback(SizeReadyCallback sizeReadyCallback) {
+    public final void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, sizeReadyCallback) == null) {
         }
@@ -103,6 +106,7 @@ public abstract class CustomTarget implements Target {
     }
 
     @Override // com.bumptech.glide.request.target.Target
+    @Nullable
     public final Request getRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +117,7 @@ public abstract class CustomTarget implements Target {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public final void getSize(SizeReadyCallback sizeReadyCallback) {
+    public final void getSize(@NonNull SizeReadyCallback sizeReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sizeReadyCallback) == null) {
             sizeReadyCallback.onSizeReady(this.width, this.height);
@@ -121,7 +125,7 @@ public abstract class CustomTarget implements Target {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public final void setRequest(Request request) {
+    public final void setRequest(@Nullable Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, request) == null) {
             this.request = request;

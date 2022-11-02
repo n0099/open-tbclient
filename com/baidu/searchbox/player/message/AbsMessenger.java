@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.message;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.constants.PlayerStatus;
@@ -23,12 +25,15 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public abstract class AbsMessenger implements IMessenger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mDispatcherList;
+    @Nullable
+    public List<InternalEventDispatcher> mDispatcherList;
+    @Nullable
     public IVideoEventInterceptor mInterceptor;
-    public List mInterceptorList;
-    public final ConcurrentHashMap mSubscribers;
+    @Nullable
+    public List<IVideoEventInterceptor> mInterceptorList;
+    public final ConcurrentHashMap<Integer, CopyOnWriteArrayList<INeuron>> mSubscribers;
 
-    public abstract void publishEventToQueue(VideoEvent videoEvent);
+    public abstract void publishEventToQueue(@NonNull VideoEvent videoEvent);
 
     public AbsMessenger() {
         Interceptable interceptable = $ic;
@@ -43,21 +48,21 @@ public abstract class AbsMessenger implements IMessenger {
                 return;
             }
         }
-        this.mSubscribers = new ConcurrentHashMap();
+        this.mSubscribers = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            List list = this.mDispatcherList;
+            List<InternalEventDispatcher> list = this.mDispatcherList;
             if (list != null) {
                 list.clear();
                 this.mDispatcherList = null;
             }
             this.mSubscribers.clear();
             this.mInterceptor = null;
-            List list2 = this.mInterceptorList;
+            List<IVideoEventInterceptor> list2 = this.mInterceptorList;
             if (list2 != null) {
                 list2.clear();
                 this.mInterceptorList = null;
@@ -76,11 +81,11 @@ public abstract class AbsMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void addInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
+    public void addInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVideoEventInterceptor) == null) {
-            List list = this.mInterceptorList;
+            List<IVideoEventInterceptor> list = this.mInterceptorList;
             if (list == null) {
                 size = 0;
             } else {
@@ -91,7 +96,7 @@ public abstract class AbsMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void addInternalDispatcher(InternalEventDispatcher internalEventDispatcher) {
+    public void addInternalDispatcher(@NonNull InternalEventDispatcher internalEventDispatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, internalEventDispatcher) == null) {
             performAddInternalDispatcher(internalEventDispatcher);
@@ -99,8 +104,8 @@ public abstract class AbsMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void removeInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
-        List list;
+    public void removeInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor) {
+        List<IVideoEventInterceptor> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, iVideoEventInterceptor) == null) && (list = this.mInterceptorList) != null) {
             list.remove(iVideoEventInterceptor);
@@ -108,8 +113,8 @@ public abstract class AbsMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void removeInternalDispatcher(InternalEventDispatcher internalEventDispatcher) {
-        List list;
+    public void removeInternalDispatcher(@NonNull InternalEventDispatcher internalEventDispatcher) {
+        List<InternalEventDispatcher> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, internalEventDispatcher) == null) && (list = this.mDispatcherList) != null) {
             list.remove(internalEventDispatcher);
@@ -118,7 +123,7 @@ public abstract class AbsMessenger implements IMessenger {
 
     @Override // com.baidu.searchbox.player.message.IMessenger
     @Deprecated
-    public void setInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
+    public void setInterceptor(@Nullable IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iVideoEventInterceptor) == null) {
             this.mInterceptor = iVideoEventInterceptor;
@@ -129,7 +134,7 @@ public abstract class AbsMessenger implements IMessenger {
     public void unregister(INeuron iNeuron) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, iNeuron) == null) {
-            for (CopyOnWriteArrayList copyOnWriteArrayList : this.mSubscribers.values()) {
+            for (CopyOnWriteArrayList<INeuron> copyOnWriteArrayList : this.mSubscribers.values()) {
                 copyOnWriteArrayList.remove(iNeuron);
             }
         }
@@ -146,7 +151,7 @@ public abstract class AbsMessenger implements IMessenger {
                 if (expectOrder != 0) {
                     if (expectOrder != 1) {
                         if (expectOrder == 2) {
-                            List list = this.mDispatcherList;
+                            List<InternalEventDispatcher> list = this.mDispatcherList;
                             list.add(list.size(), internalEventDispatcher);
                             return;
                         }
@@ -174,7 +179,7 @@ public abstract class AbsMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void notifyEvent(VideoEvent videoEvent) {
+    public void notifyEvent(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, videoEvent) == null) {
             String type = getType();
@@ -192,7 +197,7 @@ public abstract class AbsMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void addInterceptor(int i, IVideoEventInterceptor iVideoEventInterceptor) {
+    public void addInterceptor(int i, @NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, iVideoEventInterceptor) == null) {
             if (this.mInterceptorList == null) {
@@ -207,42 +212,42 @@ public abstract class AbsMessenger implements IMessenger {
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
             printDispatchLog(videoEvent);
             internalDispatch(videoEvent);
-            CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.mSubscribers.get(Integer.valueOf(videoEvent.getType()));
+            CopyOnWriteArrayList<INeuron> copyOnWriteArrayList = this.mSubscribers.get(Integer.valueOf(videoEvent.getType()));
             if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
-                Iterator it = copyOnWriteArrayList.iterator();
+                Iterator<INeuron> it = copyOnWriteArrayList.iterator();
                 while (it.hasNext()) {
-                    INeuron iNeuron = (INeuron) it.next();
-                    if (!videoEvent.filter(iNeuron)) {
+                    INeuron next = it.next();
+                    if (!videoEvent.filter(next)) {
                         switch (videoEvent.getType()) {
                             case -1:
                             case 6:
-                                iNeuron.onVideoEventNotify(videoEvent);
+                                next.onVideoEventNotify(videoEvent);
                                 continue;
                             case 1:
-                                iNeuron.onSystemEventNotify(videoEvent);
+                                next.onSystemEventNotify(videoEvent);
                                 continue;
                             case 2:
-                                iNeuron.onControlEventNotify(videoEvent);
+                                next.onControlEventNotify(videoEvent);
                                 continue;
                             case 3:
-                                iNeuron.onLayerEventNotify(videoEvent);
+                                next.onLayerEventNotify(videoEvent);
                                 continue;
                             case 4:
-                                iNeuron.onPlayerEventNotify(videoEvent);
+                                next.onPlayerEventNotify(videoEvent);
                                 continue;
                             case 5:
-                                iNeuron.onPlayerStatusChanged((PlayerStatus) videoEvent.getExtra(2), (PlayerStatus) videoEvent.getExtra(1));
+                                next.onPlayerStatusChanged((PlayerStatus) videoEvent.getExtra(2), (PlayerStatus) videoEvent.getExtra(1));
                                 continue;
                             case 7:
-                                if (iNeuron instanceof IPlugin) {
-                                    ((IPlugin) iNeuron).onPluginEventNotify(videoEvent);
+                                if (next instanceof IPlugin) {
+                                    ((IPlugin) next).onPluginEventNotify(videoEvent);
                                     break;
                                 } else {
-                                    iNeuron.onVideoEventNotify(videoEvent);
+                                    next.onVideoEventNotify(videoEvent);
                                     continue;
                                 }
                             case 8:
-                                iNeuron.onInteractiveEventNotify(videoEvent);
+                                next.onInteractiveEventNotify(videoEvent);
                                 continue;
                         }
                     }
@@ -278,12 +283,12 @@ public abstract class AbsMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void register(int i, INeuron iNeuron) {
+    public void register(int i, @NonNull INeuron iNeuron) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i, iNeuron) == null) {
-            CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.mSubscribers.get(Integer.valueOf(i));
+            CopyOnWriteArrayList<INeuron> copyOnWriteArrayList = this.mSubscribers.get(Integer.valueOf(i));
             if (copyOnWriteArrayList == null) {
-                copyOnWriteArrayList = new CopyOnWriteArrayList();
+                copyOnWriteArrayList = new CopyOnWriteArrayList<>();
             }
             if (!copyOnWriteArrayList.contains(iNeuron)) {
                 int expectOrder = iNeuron.getExpectOrder();

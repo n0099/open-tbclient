@@ -6,9 +6,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i41;
+import com.baidu.tieba.a51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LockImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i41 a;
+    public a51 a;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -77,7 +78,7 @@ public class LockImageView extends ImageView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LockImageView(Context context, AttributeSet attributeSet) {
+    public LockImageView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,7 +99,7 @@ public class LockImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LockImageView(Context context, AttributeSet attributeSet, int i) {
+    public LockImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -122,7 +123,7 @@ public class LockImageView extends ImageView {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new i41(c(getResources(), R.drawable.obfuscated_res_0x7f080e42), c(getResources(), R.drawable.obfuscated_res_0x7f080e41));
+            this.a = new a51(c(getResources(), R.drawable.obfuscated_res_0x7f080e5d), c(getResources(), R.drawable.obfuscated_res_0x7f080e5c));
         }
     }
 

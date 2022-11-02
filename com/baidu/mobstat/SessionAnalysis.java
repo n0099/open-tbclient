@@ -18,7 +18,7 @@ public class SessionAnalysis {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public Map b;
+    public Map<String, a> b;
     public a c;
     public a d;
     public boolean e;
@@ -44,7 +44,7 @@ public class SessionAnalysis {
     }
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -149,7 +149,7 @@ public class SessionAnalysis {
             if (!this.b.containsKey(str)) {
                 this.b.put(str, new a(str));
             }
-            return (a) this.b.get(str);
+            return this.b.get(str);
         }
         return (a) invokeL.objValue;
     }

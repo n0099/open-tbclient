@@ -1,11 +1,11 @@
 package com.baidu.tieba;
+
+import java.lang.reflect.Type;
 /* loaded from: classes3.dex */
 public interface cg9 {
-    void onCancel();
+    String a(Object obj);
 
-    void onExceptionThrown(String str);
+    <T> T b(String str, Class<T> cls);
 
-    void onProgressChanged(int i, double d, long j);
-
-    void onTrackEnd(int i);
+    <T> T c(String str, Type type);
 }

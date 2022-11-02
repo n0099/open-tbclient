@@ -1,5 +1,6 @@
 package com.google.android.material.drawable;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -12,6 +13,10 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Xml;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.XmlRes;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,6 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.xmlpull.v1.XmlPullParserException;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class DrawableUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +45,8 @@ public final class DrawableUtils {
         }
     }
 
-    public static AttributeSet parseDrawableXml(Context context, int i, CharSequence charSequence) {
+    @NonNull
+    public static AttributeSet parseDrawableXml(@NonNull Context context, @XmlRes int i, @NonNull CharSequence charSequence) {
         int next;
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -68,7 +75,8 @@ public final class DrawableUtils {
         return (AttributeSet) invokeLIL.objValue;
     }
 
-    public static void setRippleDrawableRadius(RippleDrawable rippleDrawable, int i) {
+    @TargetApi(21)
+    public static void setRippleDrawableRadius(@Nullable RippleDrawable rippleDrawable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, rippleDrawable, i) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
@@ -83,7 +91,8 @@ public final class DrawableUtils {
         }
     }
 
-    public static PorterDuffColorFilter updateTintFilter(Drawable drawable, ColorStateList colorStateList, PorterDuff.Mode mode) {
+    @Nullable
+    public static PorterDuffColorFilter updateTintFilter(@NonNull Drawable drawable, @Nullable ColorStateList colorStateList, @Nullable PorterDuff.Mode mode) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, drawable, colorStateList, mode)) == null) {

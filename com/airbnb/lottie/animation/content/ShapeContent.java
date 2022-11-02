@@ -3,6 +3,7 @@ package com.airbnb.lottie.animation.content;
 import android.graphics.Path;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
+import com.airbnb.lottie.model.content.ShapeData;
 import com.airbnb.lottie.model.content.ShapePath;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import com.airbnb.lottie.model.layer.BaseLayer;
@@ -13,7 +14,7 @@ public class ShapeContent implements PathContent, BaseKeyframeAnimation.Animatio
     public boolean isPathValid;
     public final LottieDrawable lottieDrawable;
     public final String name;
-    public final BaseKeyframeAnimation shapeAnimation;
+    public final BaseKeyframeAnimation<?, Path> shapeAnimation;
     public final Path path = new Path();
     public CompoundTrimPathContent trimPaths = new CompoundTrimPathContent();
 
@@ -21,7 +22,7 @@ public class ShapeContent implements PathContent, BaseKeyframeAnimation.Animatio
         this.name = shapePath.getName();
         this.hidden = shapePath.isHidden();
         this.lottieDrawable = lottieDrawable;
-        BaseKeyframeAnimation createAnimation = shapePath.getShapePath().createAnimation();
+        BaseKeyframeAnimation<ShapeData, Path> createAnimation = shapePath.getShapePath().createAnimation();
         this.shapeAnimation = createAnimation;
         baseLayer.addAnimation(createAnimation);
         this.shapeAnimation.addUpdateListener(this);
@@ -52,7 +53,7 @@ public class ShapeContent implements PathContent, BaseKeyframeAnimation.Animatio
             this.isPathValid = true;
             return this.path;
         }
-        this.path.set((Path) this.shapeAnimation.getValue());
+        this.path.set(this.shapeAnimation.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
         this.trimPaths.apply(this.path);
         this.isPathValid = true;
@@ -60,9 +61,9 @@ public class ShapeContent implements PathContent, BaseKeyframeAnimation.Animatio
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
-    public void setContents(List list, List list2) {
+    public void setContents(List<Content> list, List<Content> list2) {
         for (int i = 0; i < list.size(); i++) {
-            Content content = (Content) list.get(i);
+            Content content = list.get(i);
             if (content instanceof TrimPathContent) {
                 TrimPathContent trimPathContent = (TrimPathContent) content;
                 if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {

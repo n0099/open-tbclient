@@ -42,7 +42,7 @@ public class MsgUtility {
         return invokeL.booleanValue;
     }
 
-    public static JSONArray listToJsonArray(List list) {
+    public static JSONArray listToJsonArray(List<Long> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {

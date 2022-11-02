@@ -10,7 +10,7 @@ public interface NUADI extends ADI {
 
     void loadData(int i, LoadAdParams loadAdParams);
 
-    void setCategories(List list);
+    void setCategories(List<String> list);
 
     void setMaxVideoDuration(int i);
 

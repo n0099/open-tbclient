@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.mediacodec;
 
+import android.annotation.TargetApi;
 import android.graphics.Point;
 import android.media.MediaCodecInfo;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public final class MediaCodecInfo {
     public static /* synthetic */ Interceptable $ic = null;
@@ -88,6 +90,7 @@ public final class MediaCodecInfo {
         return invokeLLI.intValue;
     }
 
+    @TargetApi(21)
     public boolean isVideoSizeAndRateSupportedV21(int i, int i2, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -115,6 +118,7 @@ public final class MediaCodecInfo {
         return invokeCommon.booleanValue;
     }
 
+    @TargetApi(21)
     public static boolean areSizeAndRateSupportedV21(MediaCodecInfo.VideoCapabilities videoCapabilities, int i, int i2, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -139,6 +143,7 @@ public final class MediaCodecInfo {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(19)
     public static boolean isAdaptiveV19(MediaCodecInfo.CodecCapabilities codecCapabilities) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -160,6 +165,7 @@ public final class MediaCodecInfo {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(21)
     public static boolean isSecureV21(MediaCodecInfo.CodecCapabilities codecCapabilities) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -181,6 +187,7 @@ public final class MediaCodecInfo {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(21)
     public static boolean isTunnelingV21(MediaCodecInfo.CodecCapabilities codecCapabilities) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -213,6 +220,7 @@ public final class MediaCodecInfo {
         }
     }
 
+    @TargetApi(21)
     public boolean isAudioChannelCountSupportedV21(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -254,6 +262,7 @@ public final class MediaCodecInfo {
         return (MediaCodecInfo) invokeCommon.objValue;
     }
 
+    @TargetApi(21)
     public Point alignVideoSizeV21(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -289,6 +298,7 @@ public final class MediaCodecInfo {
         return (MediaCodecInfo.CodecProfileLevel[]) invokeV.objValue;
     }
 
+    @TargetApi(21)
     public boolean isAudioSampleRateSupportedV21(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -325,7 +335,7 @@ public final class MediaCodecInfo {
                 logNoSupport("codec.mime " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + mediaMimeType);
                 return false;
             }
-            Pair codecProfileAndLevel = MediaCodecUtil.getCodecProfileAndLevel(str);
+            Pair<Integer, Integer> codecProfileAndLevel = MediaCodecUtil.getCodecProfileAndLevel(str);
             if (codecProfileAndLevel == null) {
                 return true;
             }

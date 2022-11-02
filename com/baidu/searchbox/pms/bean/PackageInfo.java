@@ -2,9 +2,11 @@ package com.baidu.searchbox.pms.bean;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.bdutil.cuid.sdk.AppCuidManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
@@ -35,7 +37,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
     public long createTime;
     public long currentSize;
     public String dependInfo;
-    public HashMap dependencies;
+    public HashMap<String, String> dependencies;
     public String dependenciesString;
     public int disable;
     public int downloadOption;
@@ -101,7 +103,8 @@ public class PackageInfo implements NoProGuard, Cloneable {
         return invokeV.objValue;
     }
 
-    public Map getDependencies() {
+    @Nullable
+    public Map<String, String> getDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -110,6 +113,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
         return (Map) invokeV.objValue;
     }
 
+    @Nullable
     public String getDependenciesString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,7 +289,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) {
             if (this.dependencies == null) {
-                this.dependencies = new HashMap();
+                this.dependencies = new HashMap<>();
             }
             this.dependencies.put(str, str2);
         }
@@ -478,7 +482,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
             if (Long.parseLong(optString) == 0) {
                 return;
             }
-            long optLong = jSONObject.optLong("ratio");
+            long optLong = jSONObject.optLong(MapBundleKey.OfflineMapKey.OFFLINE_RATION);
             if (optLong == 0) {
                 return;
             }

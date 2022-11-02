@@ -1,6 +1,9 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -10,7 +13,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lp8;
+import com.baidu.tieba.vq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,19 +29,24 @@ public class WorkPostNotifyFlutterData {
     public static final String SUCC_UPLOAD_VIDEO = "1";
     public transient /* synthetic */ FieldHolder $fh;
     public String errorMessage;
+    @NonNull
     public String flutterPageId;
+    @Nullable
     public String forumId;
+    @Nullable
     public String forumName;
     public String status;
+    @NonNull
     public NewWriteThreadData4Flutter threadData;
     public String videoId;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @Keep
     /* loaded from: classes3.dex */
     public static class NewWriteThreadData4Flutter {
         public static /* synthetic */ Interceptable $ic;
@@ -52,6 +60,7 @@ public class WorkPostNotifyFlutterData {
         @SerializedName(WriteActivityConfig.VIDEO_INFO)
         public VideoInfo videoInfo;
 
+        @Keep
         /* loaded from: classes3.dex */
         public static class Author {
             public static /* synthetic */ Interceptable $ic;
@@ -77,6 +86,7 @@ public class WorkPostNotifyFlutterData {
             }
         }
 
+        @Keep
         /* loaded from: classes3.dex */
         public static class Location {
             public static /* synthetic */ Interceptable $ic;
@@ -98,6 +108,7 @@ public class WorkPostNotifyFlutterData {
             }
         }
 
+        @Keep
         /* loaded from: classes3.dex */
         public static class VideoInfo {
             public static /* synthetic */ Interceptable $ic;
@@ -191,28 +202,28 @@ public class WorkPostNotifyFlutterData {
         return (WorkPostNotifyFlutterData) invokeL.objValue;
     }
 
-    public void setFlutterPageId(String str) {
+    public void setFlutterPageId(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.flutterPageId = str;
         }
     }
 
-    public void setForumId(String str) {
+    public void setForumId(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.forumId = str;
         }
     }
 
-    public void setForumName(String str) {
+    public void setForumName(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.forumName = str;
         }
     }
 
-    public void setThreadDataByWriteData(WriteData writeData) {
+    public void setThreadDataByWriteData(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
             this.threadData = parseFromWriteData4Flutter(writeData);
@@ -228,6 +239,7 @@ public class WorkPostNotifyFlutterData {
         return (WorkPostNotifyFlutterData) invokeV.objValue;
     }
 
+    @NonNull
     public String getFlutterPageId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -237,6 +249,7 @@ public class WorkPostNotifyFlutterData {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -246,6 +259,7 @@ public class WorkPostNotifyFlutterData {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,7 +269,8 @@ public class WorkPostNotifyFlutterData {
         return (String) invokeV.objValue;
     }
 
-    public Map getThreadDataMap() {
+    @Nullable
+    public Map<String, Object> getThreadDataMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -268,14 +283,14 @@ public class WorkPostNotifyFlutterData {
         return (Map) invokeV.objValue;
     }
 
-    public static NewWriteThreadData4Flutter parseFromWriteData4Flutter(WriteData writeData) {
+    public static NewWriteThreadData4Flutter parseFromWriteData4Flutter(@NonNull WriteData writeData) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData)) == null) {
             NewWriteThreadData4Flutter.VideoInfo videoInfo = new NewWriteThreadData4Flutter.VideoInfo();
             VideoInfo videoInfo2 = writeData.getVideoInfo();
-            String n = lp8.k().n();
+            String n = vq8.k().n();
             if (TextUtils.isEmpty(n)) {
                 n = videoInfo2.getThumbPath();
             }
@@ -293,7 +308,7 @@ public class WorkPostNotifyFlutterData {
             videoInfo.postType = writeData.getType();
             videoInfo.videoUrl = videoInfo2.getVideoUrl();
             NewWriteThreadData4Flutter.Location location = new NewWriteThreadData4Flutter.Location();
-            location.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1553);
+            location.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1571);
             NewWriteThreadData4Flutter.Author author = new NewWriteThreadData4Flutter.Author();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {

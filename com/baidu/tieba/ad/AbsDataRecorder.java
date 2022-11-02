@@ -16,7 +16,7 @@ public class AbsDataRecorder {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class Scene {
+    public static final class Scene {
         public static final /* synthetic */ Scene[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Scene FRS_HOT;

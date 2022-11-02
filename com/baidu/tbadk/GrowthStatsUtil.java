@@ -9,7 +9,7 @@ import com.baidu.searchbox.datacollector.growth.model.ChannelData;
 import com.baidu.searchbox.datacollector.growth.model.ClipBoardData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.h85;
+import com.baidu.tieba.a95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class GrowthStatsUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class SPLASH_SOURCE {
+    public static class SPLASH_SOURCE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PUSH = "push";
         public static final String THIRD_PARTY = "third_party";
@@ -45,7 +45,7 @@ public class GrowthStatsUtil {
     }
 
     /* loaded from: classes3.dex */
-    public class SPLASH_TYPE {
+    public static class SPLASH_TYPE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLD = "cold_start";
         public static final String WARM = "warm_start";
@@ -98,7 +98,7 @@ public class GrowthStatsUtil {
             return;
         }
         GrowthCollectManager.statisticActiveData(new ActiveData.Builder(TbadkCoreApplication.getFrom()).build(), TbadkCoreApplication.getInst());
-        h85.b();
+        a95.b();
     }
 
     public static void statisticDeviceInfo() {

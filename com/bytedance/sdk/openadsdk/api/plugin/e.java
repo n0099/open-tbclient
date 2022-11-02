@@ -36,12 +36,12 @@ public class e {
     public volatile String i = "none";
     public final Context j;
     public static final String a = UnitedSchemeConstants.UNITED_SCHEME_NEXT + File.separator;
-    public static final HashMap b = new HashMap();
-    public static final HashMap c = new HashMap();
+    public static final HashMap<String, TTPluginListener> b = new HashMap<>();
+    public static final HashMap<String, Handler> c = new HashMap<>();
     public static volatile e e = null;
 
     /* loaded from: classes7.dex */
-    public final class a implements IZeusLogger {
+    public static final class a implements IZeusLogger {
         public a() {
         }
 
@@ -77,7 +77,7 @@ public class e {
     }
 
     /* loaded from: classes7.dex */
-    public final class b implements TTAdEvent {
+    public static final class b implements TTAdEvent {
         @Override // com.bytedance.sdk.openadsdk.TTAdEvent
         public void onEvent(int i, Bundle bundle) {
             if (i == 1) {
@@ -268,7 +268,7 @@ public class e {
         com.bytedance.sdk.openadsdk.api.a.d("TTPluginManager", "plugin update failed");
         Bundle bundle = new Bundle();
         bundle.putInt("code", i);
-        TTPluginListener tTPluginListener = (TTPluginListener) b.get(str);
+        TTPluginListener tTPluginListener = b.get(str);
         if (tTPluginListener != null) {
             tTPluginListener.onPluginListener(1001, null, null, bundle);
         }
@@ -284,7 +284,7 @@ public class e {
     public static void b(boolean z, String str) {
         String str2;
         boolean z2;
-        TTPluginListener tTPluginListener = (TTPluginListener) b.get(str);
+        TTPluginListener tTPluginListener = b.get(str);
         StringBuilder sb = new StringBuilder();
         sb.append("Install dl plugin ");
         sb.append(str);
@@ -302,7 +302,7 @@ public class e {
         }
         sb.append(z2);
         com.bytedance.sdk.openadsdk.api.a.b("TTPluginManager", sb.toString());
-        Handler handler = (Handler) c.get(str);
+        Handler handler = c.get(str);
         if (z) {
             if (tTPluginListener != null && handler != null) {
                 if (Zeus.loadPlugin(str)) {

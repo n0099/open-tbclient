@@ -2,6 +2,7 @@ package androidx.core.widget;
 
 import android.view.View;
 import android.widget.ListView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +26,7 @@ public class ListViewAutoScrollHelper extends AutoScrollHelper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ListViewAutoScrollHelper(ListView listView) {
+    public ListViewAutoScrollHelper(@NonNull ListView listView) {
         super(listView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

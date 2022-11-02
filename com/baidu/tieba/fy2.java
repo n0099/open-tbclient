@@ -1,142 +1,211 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fy2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static List b;
+public class fy2 implements ip2 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Boolean c = null;
+    public static int d = -1;
+    public static int e = -1;
+    public static int f = -1;
+    public static int g = -1;
+    public static int h = -1;
+    public static int i = -1;
+    public static int j = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947780394, "Lcom/baidu/tieba/fy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947780394, "Lcom/baidu/tieba/fy2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947780394, "Lcom/baidu/tieba/fy2;")) == null) {
+            return;
         }
-        boolean z = wj1.a;
-        a = z;
-        if (z) {
-            ArrayList arrayList = new ArrayList();
-            b = arrayList;
-            arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            b.add(new Pair("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            b.add(new Pair("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            b.add(new Pair("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            b.add(new Pair("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            b.add(new Pair("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            b.add(new Pair("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            b.add(new Pair("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947780394, "Lcom/baidu/tieba/fy2;");
         }
     }
 
-    public static void a(String str, String str2, List list, String str3) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, list, str3) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            s93 c = fa3.c("770");
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                UbcFlowEvent ubcFlowEvent = (UbcFlowEvent) it.next();
-                if (ubcFlowEvent != null) {
-                    t93.e(c, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == -1) {
+                f = b("swanswitch_file_res_cache_option");
             }
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.put("from", "swan");
-                jSONObject.put("type", str2);
-                jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", cg3.c());
-                jSONObject2.put("net", SwanAppNetworkUtils.f().type);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = "0";
-                }
-                jSONObject2.put("scene", str3);
-                ea3.a(jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (f == 1) {
+                return true;
             }
-            t93.f(c, jSONObject.toString());
-            t93.c(c);
-            b(str, list, b);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void b(String str, List list, List list2) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) && a && list != null && list2 != null) {
-            HashMap hashMap = new HashMap();
-            StringBuilder sb = new StringBuilder();
-            sb.append("小程序PMS下载耗时Log：");
-            sb.append("\n");
-            sb.append("小程序ID：");
-            sb.append(str);
-            sb.append("\n");
-            sb.append("小程序ID：");
-            sb.append(str);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                UbcFlowEvent ubcFlowEvent = (UbcFlowEvent) it.next();
-                if (ubcFlowEvent != null) {
-                    sb.append("\n");
-                    sb.append(ubcFlowEvent.g());
-                    sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-                    sb.append(ubcFlowEvent.a);
-                    hashMap.put(ubcFlowEvent.a, Long.valueOf(ubcFlowEvent.g()));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (i == -1) {
+                i = b("swan_http_interceptor_opt");
             }
-            sb.append("\n");
-            sb.append("耗时计算开始：>>>>>>>>>>>>");
-            Iterator it2 = list2.iterator();
-            while (it2.hasNext()) {
-                Pair pair = (Pair) it2.next();
-                if (pair != null) {
-                    String str2 = (String) pair.first;
-                    Object obj = pair.second;
-                    String str3 = (String) ((Pair) obj).first;
-                    String str4 = (String) ((Pair) obj).second;
-                    if (hashMap.get(str3) != null && hashMap.get(str4) != null) {
-                        long longValue = ((Long) hashMap.get(str3)).longValue();
-                        String format = String.format(Locale.CHINA, "%-13d", Long.valueOf(((Long) hashMap.get(str4)).longValue() - longValue));
-                        sb.append("\n");
-                        sb.append("耗时：");
-                        sb.append(format);
-                        sb.append(" >>> ");
-                        sb.append(str2);
-                        sb.append("，计算方式：");
-                        sb.append(str4);
-                        sb.append(" - ");
-                        sb.append(str3);
-                    }
-                }
+            if (i > 0) {
+                return true;
             }
-            Log.i("SwanAppPMS", sb.toString());
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (f() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (j == -1) {
+                j = b("swan_js_thread_opt");
+            }
+            return j;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (h == -1) {
+                h = b("swan_preload_slave_opt");
+            }
+            return h;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            if (d > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            int i2 = d;
+            if (i2 > 0 && i2 != 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (g == -1) {
+                g = b("swan_ubc_samping_opt");
+            }
+            return g;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (j() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (c == null) {
+                c = Boolean.valueOf(d("swan_js_thread_dispatch"));
+            }
+            return c.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (e == -1) {
+                e = b("swan_webview_ssl_opt");
+            }
+            if (e > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            ln2.g0().getSwitch(str, 0);
+            if (ip2.a) {
+                Log.d("SwanPerformance", "packing[" + str + " = 0" + PreferencesUtil.RIGHT_MOUNT);
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (b(str) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

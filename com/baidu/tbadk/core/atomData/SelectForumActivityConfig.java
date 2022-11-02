@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,7 +93,7 @@ public class SelectForumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setForumList(ArrayList arrayList) {
+    public void setForumList(ArrayList<TransmitForumData> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) && getIntent() != null) {
             getIntent().putParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST", arrayList);

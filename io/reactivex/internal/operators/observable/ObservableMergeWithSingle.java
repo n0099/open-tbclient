@@ -21,36 +21,36 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableMergeWithSingle extends AbstractObservableWithUpstream {
+public final class ObservableMergeWithSingle<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource other;
+    public final SingleSource<? extends T> other;
 
     /* loaded from: classes8.dex */
-    public final class MergeWithObserver extends AtomicInteger implements Observer, Disposable {
+    public static final class MergeWithObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
         public static final int OTHER_STATE_HAS_VALUE = 1;
         public static final long serialVersionUID = -4592979584110982903L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public volatile boolean disposed;
         public final AtomicThrowable error;
-        public final AtomicReference mainDisposable;
+        public final AtomicReference<Disposable> mainDisposable;
         public volatile boolean mainDone;
-        public final OtherObserver otherObserver;
+        public final OtherObserver<T> otherObserver;
         public volatile int otherState;
-        public volatile SimplePlainQueue queue;
-        public Object singleItem;
+        public volatile SimplePlainQueue<T> queue;
+        public T singleItem;
 
         /* loaded from: classes8.dex */
-        public final class OtherObserver extends AtomicReference implements SingleObserver {
+        public static final class OtherObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final MergeWithObserver parent;
+            public final MergeWithObserver<T> parent;
 
-            public OtherObserver(MergeWithObserver mergeWithObserver) {
+            public OtherObserver(MergeWithObserver<T> mergeWithObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,15 +85,15 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(T t) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    this.parent.otherSuccess(obj);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                    this.parent.otherSuccess(t);
                 }
             }
         }
 
-        public MergeWithObserver(Observer observer) {
+        public MergeWithObserver(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,22 +109,22 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
                 }
             }
             this.actual = observer;
-            this.mainDisposable = new AtomicReference();
-            this.otherObserver = new OtherObserver(this);
+            this.mainDisposable = new AtomicReference<>();
+            this.otherObserver = new OtherObserver<>(this);
             this.error = new AtomicThrowable();
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
                 if (compareAndSet(0, 1)) {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     if (decrementAndGet() == 0) {
                         return;
                     }
                 } else {
-                    getOrCreateQueue().offer(obj);
+                    getOrCreateQueue().offer(t);
                     if (getAndIncrement() != 0) {
                         return;
                     }
@@ -154,11 +154,11 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
             }
         }
 
-        public SimplePlainQueue getOrCreateQueue() {
+        public SimplePlainQueue<T> getOrCreateQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                SimplePlainQueue simplePlainQueue = this.queue;
+                SimplePlainQueue<T> simplePlainQueue = this.queue;
                 if (simplePlainQueue == null) {
                     SpscLinkedArrayQueue spscLinkedArrayQueue = new SpscLinkedArrayQueue(Observable.bufferSize());
                     this.queue = spscLinkedArrayQueue;
@@ -174,7 +174,7 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) this.mainDisposable.get());
+                return DisposableHelper.isDisposed(this.mainDisposable.get());
             }
             return invokeV.booleanValue;
         }
@@ -188,12 +188,13 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r3v5. Raw type applied. Possible types: T, ? super T */
         public void drainLoop() {
-            Object obj;
+            T t;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Observer observer = this.actual;
+                Observer<? super T> observer = this.actual;
                 int i = 1;
                 while (!this.disposed) {
                     if (this.error.get() != null) {
@@ -204,20 +205,19 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
                     }
                     int i2 = this.otherState;
                     if (i2 == 1) {
-                        Object obj2 = this.singleItem;
                         this.singleItem = null;
                         this.otherState = 2;
-                        observer.onNext(obj2);
+                        observer.onNext((T) this.singleItem);
                         i2 = 2;
                     }
                     boolean z2 = this.mainDone;
-                    SimplePlainQueue simplePlainQueue = this.queue;
+                    SimplePlainQueue<T> simplePlainQueue = this.queue;
                     if (simplePlainQueue != null) {
-                        obj = simplePlainQueue.poll();
+                        t = simplePlainQueue.poll();
                     } else {
-                        obj = null;
+                        t = (Object) null;
                     }
-                    if (obj == null) {
+                    if (t == null) {
                         z = true;
                     } else {
                         z = false;
@@ -232,7 +232,7 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
                             return;
                         }
                     } else {
-                        observer.onNext(obj);
+                        observer.onNext(t);
                     }
                 }
                 this.singleItem = null;
@@ -273,14 +273,14 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
             }
         }
 
-        public void otherSuccess(Object obj) {
+        public void otherSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048586, this, t) == null) {
                 if (compareAndSet(0, 1)) {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     this.otherState = 2;
                 } else {
-                    this.singleItem = obj;
+                    this.singleItem = t;
                     this.otherState = 1;
                     if (getAndIncrement() != 0) {
                         return;
@@ -292,7 +292,7 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableMergeWithSingle(Observable observable, SingleSource singleSource) {
+    public ObservableMergeWithSingle(Observable<T> observable, SingleSource<? extends T> singleSource) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -313,7 +313,7 @@ public final class ObservableMergeWithSingle extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             MergeWithObserver mergeWithObserver = new MergeWithObserver(observer);

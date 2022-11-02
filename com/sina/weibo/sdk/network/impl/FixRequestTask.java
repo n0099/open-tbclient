@@ -25,17 +25,17 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class FixRequestTask implements Runnable, RequestCancelable {
+public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RequestCallback callback;
+    public FixRequestTask<T, R>.RequestCallback callback;
     public IRequestParam param;
-    public Class tClass;
-    public Target target;
+    public Class<T> tClass;
+    public Target<R> target;
 
     /* renamed from: com.sina.weibo.sdk.network.impl.FixRequestTask$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -78,6 +78,8 @@ public class FixRequestTask implements Runnable, RequestCancelable {
             this(fixRequestTask);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: com.sina.weibo.sdk.network.target.Target */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             InterceptResult invokeL;
@@ -100,7 +102,7 @@ public class FixRequestTask implements Runnable, RequestCancelable {
         }
     }
 
-    public FixRequestTask(IRequestParam iRequestParam, Target target) {
+    public FixRequestTask(IRequestParam iRequestParam, Target<R> target) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,18 +142,18 @@ public class FixRequestTask implements Runnable, RequestCancelable {
             if (this.param.needIntercept()) {
                 try {
                     Bundle bundle = new Bundle();
-                    HashMap globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
+                    HashMap<String, IRequestIntercept> globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
                     for (String str : globalIntercept.keySet()) {
-                        IRequestIntercept iRequestIntercept = (IRequestIntercept) globalIntercept.get(str);
+                        IRequestIntercept iRequestIntercept = globalIntercept.get(str);
                         if (iRequestIntercept != null && iRequestIntercept.needIntercept(this.param, bundle)) {
                             iRequestIntercept.doIntercept(this.param, bundle);
                         }
                     }
-                    Iterator it = this.param.getIntercept().iterator();
+                    Iterator<IRequestIntercept> it = this.param.getIntercept().iterator();
                     while (it.hasNext()) {
-                        IRequestIntercept iRequestIntercept2 = (IRequestIntercept) it.next();
-                        if (iRequestIntercept2.needIntercept(this.param, bundle)) {
-                            iRequestIntercept2.doIntercept(this.param, bundle);
+                        IRequestIntercept next = it.next();
+                        if (next.needIntercept(this.param, bundle)) {
+                            next.doIntercept(this.param, bundle);
                         }
                     }
                     this.param.getGetBundle().putAll(bundle);
@@ -168,7 +170,7 @@ public class FixRequestTask implements Runnable, RequestCancelable {
             }
             try {
                 WbResponse request = RequestEngine.request(this.param);
-                Object transResponse = this.target.transResponse(request);
+                R transResponse = this.target.transResponse(request);
                 this.target.onRequestSuccessBg(transResponse);
                 requestResult.setResponse(transResponse);
                 try {

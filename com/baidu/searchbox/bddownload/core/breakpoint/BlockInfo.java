@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.breakpoint;
 
+import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,8 +15,10 @@ import java.util.concurrent.atomic.AtomicLong;
 public class BlockInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @IntRange(from = 0)
     public final long contentLength;
     public final AtomicLong currentOffset;
+    @IntRange(from = 0)
     public final long startOffset;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -39,7 +42,7 @@ public class BlockInfo {
         }
     }
 
-    public BlockInfo(long j, long j2, long j3) {
+    public BlockInfo(long j, long j2, @IntRange(from = 0) long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +127,7 @@ public class BlockInfo {
         }
     }
 
-    public void increaseCurrentOffset(long j) {
+    public void increaseCurrentOffset(@IntRange(from = 1) long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             this.currentOffset.addAndGet(j);

@@ -31,7 +31,7 @@ public class c {
     public d b;
     public long d;
     public Handler e;
-    public WeakReference f;
+    public WeakReference<Activity> f;
     public Runnable g;
 
     public c(Activity activity) {
@@ -106,7 +106,7 @@ public class c {
                 }
             }
         };
-        this.f = new WeakReference(activity);
+        this.f = new WeakReference<>(activity);
         this.e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +186,7 @@ public class c {
                     return;
                 }
                 if (this.f.get() != null) {
-                    Activity activity = (Activity) this.f.get();
+                    Activity activity = this.f.get();
                     File h = l.h(activity, "Images");
                     File externalStorageDirectory = Environment.getExternalStorageDirectory();
                     if (h == null) {

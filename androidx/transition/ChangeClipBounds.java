@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -104,7 +105,7 @@ public class ChangeClipBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -112,7 +113,7 @@ public class ChangeClipBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -120,7 +121,7 @@ public class ChangeClipBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator createAnimator(@NonNull ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
         boolean z;
         Interceptable interceptable = $ic;

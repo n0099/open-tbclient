@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import java.util.Iterator;
 import org.json.JSONObject;
@@ -16,7 +17,7 @@ public class c extends a {
         this.d = jSONObject;
     }
 
-    public static void a(Intent intent, JSONObject jSONObject, JSONObject jSONObject2) {
+    public static void a(@NonNull Intent intent, JSONObject jSONObject, JSONObject jSONObject2) {
         Iterator<String> keys;
         if (jSONObject != null && jSONObject2 != null && jSONObject.length() == jSONObject2.length() && intent != null && (keys = jSONObject.keys()) != null) {
             while (keys.hasNext()) {

@@ -12,20 +12,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import javax.annotation.concurrent.GuardedBy;
+@VisibleForTesting
 /* loaded from: classes7.dex */
-public class SharedReference {
+public class SharedReference<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map sLiveObjects;
+    @GuardedBy("itself")
+    public static final Map<Object, Integer> sLiveObjects;
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("this")
     public int mRefCount;
-    public final ResourceReleaser mResourceReleaser;
-    public Object mValue;
+    public final ResourceReleaser<T> mResourceReleaser;
+    @GuardedBy("this")
+    public T mValue;
 
     /* loaded from: classes7.dex */
-    public class NullReferenceException extends RuntimeException {
+    public static class NullReferenceException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,15 +135,15 @@ public class SharedReference {
     }
 
     public void deleteReference() {
-        Object obj;
+        T t;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && decreaseRefCount() == 0) {
             synchronized (this) {
-                obj = this.mValue;
+                t = this.mValue;
                 this.mValue = null;
             }
-            this.mResourceReleaser.release(obj);
-            removeLiveReference(obj);
+            this.mResourceReleaser.release(t);
+            removeLiveReference(t);
         }
     }
 
@@ -156,17 +162,17 @@ public class SharedReference {
         return invokeV.booleanValue;
     }
 
-    public synchronized Object get() {
+    public synchronized T get() {
         InterceptResult invokeV;
-        Object obj;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                obj = this.mValue;
+                t = this.mValue;
             }
-            return obj;
+            return t;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public synchronized int getRefCountTestOnly() {
@@ -199,12 +205,12 @@ public class SharedReference {
         return invokeV.booleanValue;
     }
 
-    public SharedReference(Object obj, ResourceReleaser resourceReleaser) {
+    public SharedReference(T t, ResourceReleaser<T> resourceReleaser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, resourceReleaser};
+            Object[] objArr = {t, resourceReleaser};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -214,10 +220,10 @@ public class SharedReference {
                 return;
             }
         }
-        this.mValue = Preconditions.checkNotNull(obj);
+        this.mValue = (T) Preconditions.checkNotNull(t);
         this.mResourceReleaser = (ResourceReleaser) Preconditions.checkNotNull(resourceReleaser);
         this.mRefCount = 1;
-        addLiveReference(obj);
+        addLiveReference(t);
     }
 
     public static void addLiveReference(Object obj) {
@@ -227,7 +233,7 @@ public class SharedReference {
                 return;
             }
             synchronized (sLiveObjects) {
-                Integer num = (Integer) sLiveObjects.get(obj);
+                Integer num = sLiveObjects.get(obj);
                 if (num == null) {
                     sLiveObjects.put(obj, 1);
                 } else {
@@ -241,7 +247,7 @@ public class SharedReference {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, obj) == null) {
             synchronized (sLiveObjects) {
-                Integer num = (Integer) sLiveObjects.get(obj);
+                Integer num = sLiveObjects.get(obj);
                 if (num == null) {
                     FLog.wtf("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
                 } else if (num.intValue() == 1) {
@@ -253,7 +259,7 @@ public class SharedReference {
         }
     }
 
-    public static boolean isValid(SharedReference sharedReference) {
+    public static boolean isValid(SharedReference<?> sharedReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sharedReference)) == null) {

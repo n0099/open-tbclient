@@ -32,7 +32,7 @@ public abstract class Task {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class RunningStatus {
+    public static final class RunningStatus {
         public static final /* synthetic */ RunningStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RunningStatus UI_THREAD;
@@ -98,7 +98,7 @@ public abstract class Task {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class Status {
+    public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status FINISHED;

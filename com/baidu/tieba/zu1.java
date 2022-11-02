@@ -1,46 +1,69 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class zu1 implements av1 {
+public class zu1 extends hs1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
 
-    public zu1() {
+    @Override // com.baidu.tieba.hs1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Menu" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hs1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "MenuButtonBoundsApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zu1(@NonNull fs1 fs1Var) {
+        super(fs1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fs1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public void c() {
+    public ew1 x() {
+        InterceptResult invokeV;
+        av1 bv1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            boolean z = false;
+            q("#getMenuButtonBoundingClientRect", false);
+            e43 b0 = e43.b0();
+            if (b0 != null) {
+                z = b0.w0();
+            }
+            if (z) {
+                bv1Var = new cv1();
+            } else {
+                bv1Var = new bv1();
+            }
+            return bv1Var.a();
         }
-    }
-
-    public void b(BasePendingOperation basePendingOperation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
-            this.a.add(basePendingOperation);
-        }
+        return (ew1) invokeV.objValue;
     }
 }

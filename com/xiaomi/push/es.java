@@ -47,10 +47,10 @@ public abstract class es extends eq {
     public String f320a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList f321a;
+    public ArrayList<Notification.Action> f321a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f322a;
+    public Map<String, String> f322a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f323a;
@@ -80,7 +80,7 @@ public abstract class es extends eq {
                 return;
             }
         }
-        this.f321a = new ArrayList();
+        this.f321a = new ArrayList<>();
         this.b = 0;
         this.f320a = str;
         this.a = i;
@@ -144,8 +144,8 @@ public abstract class es extends eq {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            Map map = this.f322a;
-            return map != null && Boolean.parseBoolean((String) map.get("custom_builder_set_title"));
+            Map<String, String> map = this.f322a;
+            return map != null && Boolean.parseBoolean(map.get("custom_builder_set_title"));
         }
         return invokeV.booleanValue;
     }
@@ -226,7 +226,7 @@ public abstract class es extends eq {
     }
 
     @Override // com.xiaomi.push.eq
-    public eq a(Map map) {
+    public eq a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {

@@ -3,7 +3,7 @@ package com.baidu.swan.apps.performance;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UbcFlowEvent {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean g;
@@ -27,8 +27,8 @@ public class UbcFlowEvent {
     public boolean f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public final class RecordType {
+    /* loaded from: classes3.dex */
+    public static final class RecordType {
         public static final /* synthetic */ RecordType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RecordType KEEP;
@@ -109,7 +109,7 @@ public class UbcFlowEvent {
                 return;
             }
         }
-        g = wj1.a;
+        g = ok1.a;
     }
 
     public boolean b() {

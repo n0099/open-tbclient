@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.resource.bytes;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
-public class BytesResource implements Resource {
+public class BytesResource implements Resource<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] bytes;
@@ -40,7 +41,8 @@ public class BytesResource implements Resource {
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public Class getResourceClass() {
+    @NonNull
+    public Class<byte[]> getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -61,6 +63,7 @@ public class BytesResource implements Resource {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.Resource
+    @NonNull
     public byte[] get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

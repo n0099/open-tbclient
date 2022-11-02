@@ -59,15 +59,15 @@ public final class DownloadManager {
     public static final String TAG = "DownloadManager";
     public static DownloadManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mBadFileDir;
+    public List<String> mBadFileDir;
     public Context mContext;
     public DownloadDao mDownloadDao;
-    public ConcurrentHashMap mDownloadKeyMap;
-    public ConcurrentHashMap mDownloadMap;
+    public ConcurrentHashMap<String, Download> mDownloadKeyMap;
+    public ConcurrentHashMap<Long, Download> mDownloadMap;
     public ExecutorService mExecutor;
     public Handler mHandler;
-    public CopyOnWriteArrayList mOnProgressChangeListeners;
-    public CopyOnWriteArrayList mOnStateChangeListeners;
+    public CopyOnWriteArrayList<OnProgressChangeListener> mOnProgressChangeListeners;
+    public CopyOnWriteArrayList<OnStateChangeListener> mOnStateChangeListeners;
     public long mProgressNotifyDownloadId;
     public int mProgressNotifyPercentage;
     public Runnable mProgressNotifyRunnable;
@@ -106,7 +106,7 @@ public final class DownloadManager {
         DEBUG = DownloadConstants.mDebug;
     }
 
-    public Collection getAllDownloads() {
+    public Collection<Download> getAllDownloads() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -130,10 +130,10 @@ public final class DownloadManager {
                 return;
             }
         }
-        this.mDownloadMap = new ConcurrentHashMap();
-        this.mDownloadKeyMap = new ConcurrentHashMap();
-        this.mOnStateChangeListeners = new CopyOnWriteArrayList();
-        this.mOnProgressChangeListeners = new CopyOnWriteArrayList();
+        this.mDownloadMap = new ConcurrentHashMap<>();
+        this.mDownloadKeyMap = new ConcurrentHashMap<>();
+        this.mOnStateChangeListeners = new CopyOnWriteArrayList<>();
+        this.mOnProgressChangeListeners = new CopyOnWriteArrayList<>();
         this.mHandler = new Handler(Looper.getMainLooper());
         this.mExecutor = Executors.newFixedThreadPool(1, new NamingThreadFactory("DownloadManagerAsync"));
         this.mWifiOnlyIntercepter = null;
@@ -510,7 +510,7 @@ public final class DownloadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jArr) == null) {
             for (long j : jArr) {
-                Download download = (Download) this.mDownloadMap.get(Long.valueOf(j));
+                Download download = this.mDownloadMap.get(Long.valueOf(j));
                 if (download != null) {
                     runAsync(new Runnable(this, download) { // from class: com.baidu.down.manage.DownloadManager.3
                         public static /* synthetic */ Interceptable $ic;
@@ -554,7 +554,7 @@ public final class DownloadManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return (Download) this.mDownloadKeyMap.get(str);
+            return this.mDownloadKeyMap.get(str);
         }
         return (Download) invokeL.objValue;
     }
@@ -563,7 +563,7 @@ public final class DownloadManager {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            return (Download) this.mDownloadMap.get(Long.valueOf(j));
+            return this.mDownloadMap.get(Long.valueOf(j));
         }
         return (Download) invokeJ.objValue;
     }
@@ -666,7 +666,7 @@ public final class DownloadManager {
     public void changeState(Download.DownloadState downloadState, long j) {
         Download download;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65551, this, downloadState, j) == null) && (download = (Download) this.mDownloadMap.get(Long.valueOf(j))) != null) {
+        if ((interceptable == null || interceptable.invokeLJ(65551, this, downloadState, j) == null) && (download = this.mDownloadMap.get(Long.valueOf(j))) != null) {
             if (downloadState == Download.DownloadState.DOWNLOADING && download.getState() == Download.DownloadState.PAUSE) {
                 return;
             }
@@ -806,7 +806,7 @@ public final class DownloadManager {
         }
     }
 
-    public Collection getDownloadListByFilter(DownloadItemFilter downloadItemFilter) {
+    public Collection<Download> getDownloadListByFilter(DownloadItemFilter downloadItemFilter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadItemFilter)) == null) {
@@ -828,7 +828,7 @@ public final class DownloadManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, jArr) == null) && jArr != null && jArr.length > 0) {
             for (long j : jArr) {
-                Download download = (Download) this.mDownloadMap.get(Long.valueOf(j));
+                Download download = this.mDownloadMap.get(Long.valueOf(j));
                 if (download != null) {
                     download.setState(Download.DownloadState.PAUSE);
                 }
@@ -1152,7 +1152,7 @@ public final class DownloadManager {
     public void resume(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            Download download = (Download) this.mDownloadMap.get(Long.valueOf(j));
+            Download download = this.mDownloadMap.get(Long.valueOf(j));
             if (download != null && download.getState() != Download.DownloadState.DOWNLOADING) {
                 changeState(Download.DownloadState.WAITING, j);
                 if (!new File(download.getSavedPathForUser(), download.getFileName()).exists()) {

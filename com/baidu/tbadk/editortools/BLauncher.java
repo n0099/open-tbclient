@@ -14,22 +14,22 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.w55;
+import com.baidu.tieba.e65;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.p65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BLauncher extends ImageView implements s55 {
+public class BLauncher extends ImageView implements l65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public w55 d;
+    public p65 d;
     public Drawable e;
     public boolean f;
 
@@ -40,13 +40,13 @@ public class BLauncher extends ImageView implements s55 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, w55 w55Var) {
+    public BLauncher(Context context, p65 p65Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, w55Var};
+            Object[] objArr = {context, p65Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,19 +59,19 @@ public class BLauncher extends ImageView implements s55 {
         }
         this.c = 0;
         this.f = false;
-        if (w55Var == null) {
+        if (p65Var == null) {
             return;
         }
-        this.d = w55Var;
+        this.d = p65Var;
         setIcon();
-        setToolId(w55Var.c);
+        setToolId(p65Var.c);
     }
 
-    @Override // com.baidu.tieba.m55
-    public void B(l55 l55Var) {
+    @Override // com.baidu.tieba.f65
+    public void B(e65 e65Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, l55Var) == null) && l55Var != null && l55Var.a == 2) {
-            Object obj = l55Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, e65Var) == null) && e65Var != null && e65Var.a == 2) {
+            Object obj = e65Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -133,11 +133,11 @@ public class BLauncher extends ImageView implements s55 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (textView = this.a) != null) {
             textView.setVisibility(8);
-            j0();
+            i0();
         }
     }
 
-    @Override // com.baidu.tieba.s55
+    @Override // com.baidu.tieba.l65
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -163,7 +163,7 @@ public class BLauncher extends ImageView implements s55 {
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s55
+    @Override // com.baidu.tieba.l65
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class BLauncher extends ImageView implements s55 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.s55
+    @Override // com.baidu.tieba.l65
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -182,8 +182,8 @@ public class BLauncher extends ImageView implements s55 {
         }
     }
 
-    @Override // com.baidu.tieba.s55
-    public void j0() {
+    @Override // com.baidu.tieba.l65
+    public void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.d.q = false;
@@ -206,7 +206,7 @@ public class BLauncher extends ImageView implements s55 {
         }
     }
 
-    @Override // com.baidu.tieba.s55
+    @Override // com.baidu.tieba.l65
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -240,19 +240,19 @@ public class BLauncher extends ImageView implements s55 {
     }
 
     public void setIcon() {
-        w55 w55Var;
+        p65 p65Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (w55Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (p65Var = this.d) == null) {
             return;
         }
-        if (w55Var.i) {
+        if (p65Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            w55 w55Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(w55Var2.d, w55Var2.e, this.c));
-        } else if (w55Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(w55Var.d, w55Var.e, w55Var.f, w55Var.g, this.c));
+            p65 p65Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(p65Var2.d, p65Var2.e, this.c));
+        } else if (p65Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(p65Var.d, p65Var.e, p65Var.f, p65Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, w55Var.d, this.c);
+            SkinManager.setImageResource(this, p65Var.d, this.c);
         }
         if (!this.d.c()) {
             setEnabled(false);

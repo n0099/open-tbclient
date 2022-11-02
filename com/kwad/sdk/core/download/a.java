@@ -1,7 +1,10 @@
 package com.kwad.sdk.core.download;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.ksad.download.DownloadTask;
@@ -38,20 +41,21 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static AdDownloadProxy WK;
+    @SuppressLint({"StaticFieldLeak"})
     public static Context mContext;
     public static volatile boolean mHasInit;
     public static final String WL = as.cX(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext()) + "/downloadFileSync/.temp";
     public static final ExecutorService WG = com.kwad.sdk.core.threads.b.vq();
 
     /* renamed from: com.kwad.sdk.core.download.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public final class C0600a implements c {
+    /* loaded from: classes8.dex */
+    public static class C0611a implements c {
         public final OutputStream WM;
 
-        public C0600a(File file, boolean z) {
+        public C0611a(File file, boolean z) {
             this.WM = new FileOutputStream(file, z);
         }
 
@@ -66,24 +70,24 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c extends Closeable {
         void write(byte[] bArr, int i, int i2);
     }
 
-    public static InputStream a(Map map, InputStream inputStream) {
-        List list;
-        for (Map.Entry entry : map.entrySet()) {
-            if ("Content-Encoding".equalsIgnoreCase((String) entry.getKey()) && (list = (List) entry.getValue()) != null && !list.isEmpty()) {
+    public static InputStream a(Map<String, List<String>> map, InputStream inputStream) {
+        List<String> value;
+        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+            if ("Content-Encoding".equalsIgnoreCase(entry.getKey()) && (value = entry.getValue()) != null && !value.isEmpty()) {
                 boolean z = false;
-                Iterator it = list.iterator();
+                Iterator<String> it = value.iterator();
                 while (true) {
                     if (it.hasNext()) {
-                        if ("gzip".equalsIgnoreCase((String) it.next())) {
+                        if ("gzip".equalsIgnoreCase(it.next())) {
                             z = true;
                             break;
                         }
@@ -124,7 +128,7 @@ public final class a {
         }
     }
 
-    public static synchronized void a(Context context, File file, boolean z) {
+    public static synchronized void a(Context context, @NonNull File file, boolean z) {
         synchronized (a.class) {
             if (context != null) {
                 if (!mHasInit) {
@@ -148,37 +152,37 @@ public final class a {
     }
 
     public static boolean a(String str, File file, b bVar, int i) {
-        C0600a c0600a;
-        C0600a c0600a2 = null;
+        C0611a c0611a;
+        C0611a c0611a2 = null;
         try {
-            c0600a = new C0600a(file, false);
+            c0611a = new C0611a(file, false);
         } catch (Throwable th) {
             th = th;
         }
         try {
-            boolean a = a(str, (String) null, c0600a, (b) null, 0);
-            com.kwad.sdk.crash.utils.b.closeQuietly(c0600a);
+            boolean a = a(str, (String) null, c0611a, (b) null, 0);
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0611a);
             return a;
         } catch (Throwable th2) {
             th = th2;
-            c0600a2 = c0600a;
-            com.kwad.sdk.crash.utils.b.closeQuietly(c0600a2);
+            c0611a2 = c0611a;
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0611a2);
             throw th;
         }
     }
 
     public static boolean a(String str, File file, b bVar, int i, boolean z) {
-        C0600a c0600a = null;
+        C0611a c0611a = null;
         try {
-            C0600a c0600a2 = new C0600a(file, true);
+            C0611a c0611a2 = new C0611a(file, true);
             try {
-                boolean a = a(str, (String) null, (c) c0600a2, (b) null, -1, file.length(), -1L, true);
-                com.kwad.sdk.crash.utils.b.closeQuietly(c0600a2);
+                boolean a = a(str, (String) null, (c) c0611a2, (b) null, -1, file.length(), -1L, true);
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0611a2);
                 return a;
             } catch (Throwable th) {
                 th = th;
-                c0600a = c0600a2;
-                com.kwad.sdk.crash.utils.b.closeQuietly(c0600a);
+                c0611a = c0611a2;
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0611a);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -353,7 +357,7 @@ public final class a {
         }
     }
 
-    public static void b(AdInfo adInfo, boolean z) {
+    public static void b(@NonNull AdInfo adInfo, boolean z) {
         Context context = mContext;
         if (context == null) {
             return;
@@ -393,12 +397,13 @@ public final class a {
         }
     }
 
+    @Nullable
     public static String w(AdInfo adInfo) {
         AdDownloadProxy adDownloadProxy;
         return (mContext == null || (adDownloadProxy = WK) == null) ? "" : adDownloadProxy.getDownloadFilePath(DownloadParams.transform(adInfo));
     }
 
-    public static void x(AdInfo adInfo) {
+    public static void x(@NonNull AdInfo adInfo) {
         b(adInfo, false);
     }
 }

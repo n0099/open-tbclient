@@ -6,6 +6,8 @@ import android.animation.ValueAnimator;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,6 +21,7 @@ public class MotionTiming {
     public transient /* synthetic */ FieldHolder $fh;
     public long delay;
     public long duration;
+    @Nullable
     public TimeInterpolator interpolator;
     public int repeatCount;
     public int repeatMode;
@@ -47,7 +50,7 @@ public class MotionTiming {
         this.duration = j2;
     }
 
-    public MotionTiming(long j, long j2, TimeInterpolator timeInterpolator) {
+    public MotionTiming(long j, long j2, @NonNull TimeInterpolator timeInterpolator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +75,8 @@ public class MotionTiming {
         this.interpolator = timeInterpolator;
     }
 
-    public static MotionTiming createFromAnimator(ValueAnimator valueAnimator) {
+    @NonNull
+    public static MotionTiming createFromAnimator(@NonNull ValueAnimator valueAnimator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, valueAnimator)) == null) {
@@ -84,7 +88,7 @@ public class MotionTiming {
         return (MotionTiming) invokeL.objValue;
     }
 
-    public void apply(Animator animator) {
+    public void apply(@NonNull Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
             animator.setStartDelay(getDelay());
@@ -98,7 +102,7 @@ public class MotionTiming {
         }
     }
 
-    public static TimeInterpolator getInterpolatorCompat(ValueAnimator valueAnimator) {
+    public static TimeInterpolator getInterpolatorCompat(@NonNull ValueAnimator valueAnimator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, valueAnimator)) == null) {
@@ -117,7 +121,7 @@ public class MotionTiming {
         return (TimeInterpolator) invokeL.objValue;
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -154,6 +158,7 @@ public class MotionTiming {
         return invokeV.longValue;
     }
 
+    @Nullable
     public TimeInterpolator getInterpolator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,6 +199,7 @@ public class MotionTiming {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

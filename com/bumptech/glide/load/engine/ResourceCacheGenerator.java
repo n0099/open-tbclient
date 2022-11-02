@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.engine;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,21 +15,21 @@ import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback {
+public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public File cacheFile;
     public final DataFetcherGenerator.FetcherReadyCallback cb;
     public ResourceCacheKey currentKey;
-    public final DecodeHelper helper;
-    public volatile ModelLoader.LoadData loadData;
+    public final DecodeHelper<?> helper;
+    public volatile ModelLoader.LoadData<?> loadData;
     public int modelLoaderIndex;
-    public List modelLoaders;
+    public List<ModelLoader<File, ?>> modelLoaders;
     public int resourceClassIndex;
     public int sourceIdIndex;
     public Key sourceKey;
 
-    public ResourceCacheGenerator(DecodeHelper decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
+    public ResourceCacheGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +63,7 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
 
     @Override // com.bumptech.glide.load.engine.DataFetcherGenerator
     public void cancel() {
-        ModelLoader.LoadData loadData;
+        ModelLoader.LoadData<?> loadData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (loadData = this.loadData) != null) {
             loadData.fetcher.cancel();
@@ -78,7 +79,7 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
-    public void onLoadFailed(Exception exc) {
+    public void onLoadFailed(@NonNull Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
             this.cb.onDataFetcherFailed(this.currentKey, exc, this.loadData.fetcher, DataSource.RESOURCE_DISK_CACHE);
@@ -90,12 +91,12 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List cacheKeys = this.helper.getCacheKeys();
+            List<Key> cacheKeys = this.helper.getCacheKeys();
             boolean z = false;
             if (cacheKeys.isEmpty()) {
                 return false;
             }
-            List registeredResourceClasses = this.helper.getRegisteredResourceClasses();
+            List<Class<?>> registeredResourceClasses = this.helper.getRegisteredResourceClasses();
             if (registeredResourceClasses.isEmpty()) {
                 if (File.class.equals(this.helper.getTranscodeClass())) {
                     return false;
@@ -106,10 +107,10 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
                 if (this.modelLoaders != null && hasNextModelLoader()) {
                     this.loadData = null;
                     while (!z && hasNextModelLoader()) {
-                        List list = this.modelLoaders;
+                        List<ModelLoader<File, ?>> list = this.modelLoaders;
                         int i = this.modelLoaderIndex;
                         this.modelLoaderIndex = i + 1;
-                        this.loadData = ((ModelLoader) list.get(i)).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
+                        this.loadData = list.get(i).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
                         if (this.loadData != null && this.helper.hasLoadPath(this.loadData.fetcher.getDataClass())) {
                             this.loadData.fetcher.loadData(this.helper.getPriority(), this);
                             z = true;
@@ -127,8 +128,8 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
                     }
                     this.resourceClassIndex = 0;
                 }
-                Key key = (Key) cacheKeys.get(this.sourceIdIndex);
-                Class cls = (Class) registeredResourceClasses.get(this.resourceClassIndex);
+                Key key = cacheKeys.get(this.sourceIdIndex);
+                Class<?> cls = registeredResourceClasses.get(this.resourceClassIndex);
                 this.currentKey = new ResourceCacheKey(this.helper.getArrayPool(), key, this.helper.getSignature(), this.helper.getWidth(), this.helper.getHeight(), this.helper.getTransformation(cls), cls, this.helper.getOptions());
                 File file = this.helper.getDiskCache().get(this.currentKey);
                 this.cacheFile = file;

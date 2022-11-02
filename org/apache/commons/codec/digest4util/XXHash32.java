@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,6 +89,7 @@ public class XXHash32 implements Checksum {
         initializeState();
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static long fromLittleEndian(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;

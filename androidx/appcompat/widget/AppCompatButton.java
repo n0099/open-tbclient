@@ -1,5 +1,6 @@
 package androidx.appcompat.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
@@ -9,6 +10,10 @@ import android.view.ActionMode;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.AutoSizeableTextView;
@@ -29,7 +34,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     public final AppCompatTextHelper mTextHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatButton(Context context) {
+    public AppCompatButton(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +55,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatButton(Context context, AttributeSet attributeSet) {
+    public AppCompatButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f04012a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +76,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatButton(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,6 +121,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeMaxTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,6 +139,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeMinTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -150,6 +157,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeStepGranularity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -167,6 +175,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int[] getAutoSizeTextAvailableSizes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -184,6 +193,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @SuppressLint({"WrongConstant"})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeTextType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -204,6 +215,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,6 +231,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -232,6 +247,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportCompoundDrawablesTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -242,6 +259,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportCompoundDrawablesTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -270,6 +289,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAutoSizeTextTypeWithDefaults(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -297,7 +317,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             super.setBackgroundResource(i);
@@ -325,7 +345,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048597, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -334,7 +355,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048598, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -343,7 +365,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
-    public void setSupportCompoundDrawablesTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportCompoundDrawablesTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, colorStateList) == null) {
             this.mTextHelper.setCompoundDrawableTintList(colorStateList);
@@ -352,7 +375,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
-    public void setSupportCompoundDrawablesTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportCompoundDrawablesTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, mode) == null) {
             this.mTextHelper.setCompoundDrawableTintMode(mode);
@@ -385,6 +409,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
@@ -400,7 +425,8 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    public void setAutoSizeTextTypeUniformWithPresetSizes(int[] iArr, int i) throws IllegalArgumentException {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048591, this, iArr, i) == null) {
             if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {

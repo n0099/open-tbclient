@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.la5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class InitBearAdViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                s95.e().a(1007, (ViewGroup) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d07e4, (ViewGroup) null, false));
+                la5.e().a(1007, (ViewGroup) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d07f9, (ViewGroup) null, false));
             } catch (Exception e) {
                 BdLog.e(e);
             }

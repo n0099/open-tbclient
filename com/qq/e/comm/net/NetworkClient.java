@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.net.rr.Request;
+import com.qq.e.comm.net.rr.Response;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 /* loaded from: classes8.dex */
@@ -15,7 +16,7 @@ public interface NetworkClient {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class Priority {
+    public static final class Priority {
         public static /* synthetic */ Interceptable $ic;
         public static final Priority High;
         public static final Priority Low;
@@ -84,9 +85,9 @@ public interface NetworkClient {
         }
     }
 
-    Future submit(Request request);
+    Future<Response> submit(Request request);
 
-    Future submit(Request request, Priority priority);
+    Future<Response> submit(Request request, Priority priority);
 
     void submit(Request request, NetworkCallBack networkCallBack);
 

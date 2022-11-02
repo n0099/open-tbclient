@@ -61,7 +61,7 @@ public final class Id3Decoder implements MetadataDecoder {
     }
 
     /* loaded from: classes7.dex */
-    public final class Id3Header {
+    public static final class Id3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int framesSize;

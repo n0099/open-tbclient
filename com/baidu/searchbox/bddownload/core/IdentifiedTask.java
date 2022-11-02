@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload.core;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +17,18 @@ public abstract class IdentifiedTask {
     public static final String EMPTY_URL = "";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Nullable
     public abstract String getFilename();
 
     public abstract int getId();
 
+    @NonNull
     public abstract File getParentFile();
 
+    @NonNull
     public abstract File getProvidedPathFile();
 
+    @NonNull
     public abstract String getUrl();
 
     static {

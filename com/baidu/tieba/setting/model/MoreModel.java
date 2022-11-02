@@ -40,7 +40,7 @@ public class MoreModel extends BdBaseModel {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
-    public final class TaskType {
+    public static final class TaskType {
         public static final /* synthetic */ TaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TaskType DO_CACHE_CLEAR;

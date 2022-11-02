@@ -5,7 +5,7 @@ import com.kwad.sdk.core.network.o;
 import com.kwad.sdk.utils.r;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends d {
     public String ags;
     public String mUrl;

@@ -16,23 +16,23 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableElementAtMaybe extends Maybe implements FuseToFlowable {
+public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long index;
-    public final Flowable source;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ElementAtSubscriber implements FlowableSubscriber, Disposable {
+    public static final class ElementAtSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public long count;
         public boolean done;
         public final long index;
         public Subscription s;
 
-        public ElementAtSubscriber(MaybeObserver maybeObserver, long j) {
+        public ElementAtSubscriber(MaybeObserver<? super T> maybeObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,9 +110,9 @@ public final class FlowableElementAtMaybe extends Maybe implements FuseToFlowabl
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             long j = this.count;
@@ -120,14 +120,14 @@ public final class FlowableElementAtMaybe extends Maybe implements FuseToFlowabl
                 this.done = true;
                 this.s.cancel();
                 this.s = SubscriptionHelper.CANCELLED;
-                this.actual.onSuccess(obj);
+                this.actual.onSuccess(t);
                 return;
             }
             this.count = j + 1;
         }
     }
 
-    public FlowableElementAtMaybe(Flowable flowable, long j) {
+    public FlowableElementAtMaybe(Flowable<T> flowable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public final class FlowableElementAtMaybe extends Maybe implements FuseToFlowabl
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable fuseToFlowable() {
+    public Flowable<T> fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -157,7 +157,7 @@ public final class FlowableElementAtMaybe extends Maybe implements FuseToFlowabl
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new ElementAtSubscriber(maybeObserver, this.index));

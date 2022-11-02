@@ -20,7 +20,7 @@ public interface IPCServiceManagerAidl extends IInterface {
     boolean removeService(String str) throws RemoteException;
 
     /* loaded from: classes2.dex */
-    public abstract class Stub extends Binder implements IPCServiceManagerAidl {
+    public static abstract class Stub extends Binder implements IPCServiceManagerAidl {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl";
         public static final int TRANSACTION_addService = 3;
@@ -36,7 +36,7 @@ public interface IPCServiceManagerAidl extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        public class Proxy implements IPCServiceManagerAidl {
+        public static class Proxy implements IPCServiceManagerAidl {
             public static /* synthetic */ Interceptable $ic;
             public static IPCServiceManagerAidl sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -254,7 +254,7 @@ public interface IPCServiceManagerAidl extends IInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class Default implements IPCServiceManagerAidl {
+    public static class Default implements IPCServiceManagerAidl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

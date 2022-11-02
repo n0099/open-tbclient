@@ -1,17 +1,21 @@
 package com.kwad.sdk.core.diskcache.a;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.core.diskcache.a.c;
 import com.kwad.sdk.utils.am;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static a WD;
     public com.kwad.sdk.core.diskcache.kwai.a WE;
     public Context WF;
 
+    @Nullable
     private File bB(String str) {
         if (sT() || TextUtils.isEmpty(str)) {
             return null;
@@ -34,6 +38,7 @@ public class a {
         return this.WE == null;
     }
 
+    @SuppressLint({"MissingPermission"})
     public final void a(b bVar) {
         if (this.WE != null) {
             return;
@@ -59,6 +64,7 @@ public class a {
         return false;
     }
 
+    @Nullable
     public final File ad(String str) {
         if (sT() || TextUtils.isEmpty(str)) {
             return null;
@@ -66,7 +72,7 @@ public class a {
         return bB(d.bC(str));
     }
 
-    public final boolean b(String str, String str2, c.a aVar) {
+    public final boolean b(String str, @NonNull String str2, c.a aVar) {
         File bB;
         if (!sT() && !TextUtils.isEmpty(str)) {
             String bC = d.bC(str2);

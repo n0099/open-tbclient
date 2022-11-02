@@ -125,8 +125,8 @@ public class c implements l {
                     this.qL.setUseCaches(this.qK.rc.ri);
                     this.qL.setRequestMethod(this.qK.method);
                     if (this.qK.rd != null) {
-                        for (Map.Entry entry : this.qK.rd.entrySet()) {
-                            this.qL.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                        for (Map.Entry<String, String> entry : this.qK.rd.entrySet()) {
+                            this.qL.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
                     if (!"POST".equals(this.qK.method) || this.qK.re == null) {

@@ -91,16 +91,16 @@ public final class SubscriptionHelper implements Subscription {
         }
     }
 
-    public static boolean cancel(AtomicReference atomicReference) {
+    public static boolean cancel(AtomicReference<Subscription> atomicReference) {
         InterceptResult invokeL;
-        Subscription subscription;
+        Subscription andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, atomicReference)) == null) {
-            Subscription subscription2 = (Subscription) atomicReference.get();
+            Subscription subscription = atomicReference.get();
             SubscriptionHelper subscriptionHelper = CANCELLED;
-            if (subscription2 != subscriptionHelper && (subscription = (Subscription) atomicReference.getAndSet(subscriptionHelper)) != CANCELLED) {
-                if (subscription != null) {
-                    subscription.cancel();
+            if (subscription != subscriptionHelper && (andSet = atomicReference.getAndSet(subscriptionHelper)) != CANCELLED) {
+                if (andSet != null) {
+                    andSet.cancel();
                     return true;
                 }
                 return true;
@@ -138,15 +138,15 @@ public final class SubscriptionHelper implements Subscription {
         return (SubscriptionHelper) invokeL.objValue;
     }
 
-    public static void deferredRequest(AtomicReference atomicReference, AtomicLong atomicLong, long j) {
+    public static void deferredRequest(AtomicReference<Subscription> atomicReference, AtomicLong atomicLong, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{atomicReference, atomicLong, Long.valueOf(j)}) == null) {
-            Subscription subscription = (Subscription) atomicReference.get();
+            Subscription subscription = atomicReference.get();
             if (subscription != null) {
                 subscription.request(j);
             } else if (validate(j)) {
                 BackpressureHelper.add(atomicLong, j);
-                Subscription subscription2 = (Subscription) atomicReference.get();
+                Subscription subscription2 = atomicReference.get();
                 if (subscription2 != null) {
                     long andSet = atomicLong.getAndSet(0L);
                     if (andSet != 0) {
@@ -157,7 +157,7 @@ public final class SubscriptionHelper implements Subscription {
         }
     }
 
-    public static boolean deferredSetOnce(AtomicReference atomicReference, AtomicLong atomicLong, Subscription subscription) {
+    public static boolean deferredSetOnce(AtomicReference<Subscription> atomicReference, AtomicLong atomicLong, Subscription subscription) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference, atomicLong, subscription)) == null) {
@@ -174,7 +174,7 @@ public final class SubscriptionHelper implements Subscription {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean setOnce(AtomicReference atomicReference, Subscription subscription, long j) {
+    public static boolean setOnce(AtomicReference<Subscription> atomicReference, Subscription subscription, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{atomicReference, subscription, Long.valueOf(j)})) == null) {
@@ -187,13 +187,13 @@ public final class SubscriptionHelper implements Subscription {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean replace(AtomicReference atomicReference, Subscription subscription) {
+    public static boolean replace(AtomicReference<Subscription> atomicReference, Subscription subscription) {
         Subscription subscription2;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, atomicReference, subscription)) == null) {
             do {
-                subscription2 = (Subscription) atomicReference.get();
+                subscription2 = atomicReference.get();
                 if (subscription2 == CANCELLED) {
                     if (subscription != null) {
                         subscription.cancel();
@@ -207,13 +207,13 @@ public final class SubscriptionHelper implements Subscription {
         return invokeLL.booleanValue;
     }
 
-    public static boolean set(AtomicReference atomicReference, Subscription subscription) {
+    public static boolean set(AtomicReference<Subscription> atomicReference, Subscription subscription) {
         Subscription subscription2;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, atomicReference, subscription)) == null) {
             do {
-                subscription2 = (Subscription) atomicReference.get();
+                subscription2 = atomicReference.get();
                 if (subscription2 == CANCELLED) {
                     if (subscription != null) {
                         subscription.cancel();
@@ -231,7 +231,7 @@ public final class SubscriptionHelper implements Subscription {
         return invokeLL.booleanValue;
     }
 
-    public static boolean setOnce(AtomicReference atomicReference, Subscription subscription) {
+    public static boolean setOnce(AtomicReference<Subscription> atomicReference, Subscription subscription) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, atomicReference, subscription)) == null) {

@@ -33,14 +33,14 @@ public abstract class ci extends cf implements ce, Runnable {
     public Proxy g;
     public Thread h;
     public cj i;
-    public Map j;
+    public Map<String, String> j;
     public CountDownLatch k;
     public CountDownLatch l;
     public int m;
 
     /* renamed from: com.baidu.mobstat.ci$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -119,8 +119,8 @@ public abstract class ci extends cf implements ce, Runnable {
                 Thread.currentThread().setName("WebsocketWriteThread");
                 while (!Thread.interrupted()) {
                     try {
-                        ByteBuffer byteBuffer = (ByteBuffer) this.a.a.d.take();
-                        this.a.f.write(byteBuffer.array(), 0, byteBuffer.limit());
+                        ByteBuffer take = this.a.a.d.take();
+                        this.a.f.write(take.array(), 0, take.limit());
                         this.a.f.flush();
                     } catch (IOException unused) {
                         this.a.a.b();
@@ -217,7 +217,7 @@ public abstract class ci extends cf implements ce, Runnable {
         return invokeV.booleanValue;
     }
 
-    public ci(URI uri, cj cjVar, Map map, int i) {
+    public ci(URI uri, cj cjVar, Map<String, String> map, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -310,10 +310,10 @@ public abstract class ci extends cf implements ce, Runnable {
             db dbVar = new db();
             dbVar.a(rawPath);
             dbVar.a("Host", sb2);
-            Map map = this.j;
+            Map<String, String> map = this.j;
             if (map != null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    dbVar.a((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    dbVar.a(entry.getKey(), entry.getValue());
                 }
             }
             this.a.a((cz) dbVar);

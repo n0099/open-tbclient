@@ -14,19 +14,19 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 /* loaded from: classes8.dex */
-public final class MaybeCount extends Single implements HasUpstreamMaybeSource {
+public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource source;
+    public final MaybeSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class CountMaybeObserver implements MaybeObserver, Disposable {
+    public static final class CountMaybeObserver implements MaybeObserver<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super Long> actual;
         public Disposable d;
 
-        public CountMaybeObserver(SingleObserver singleObserver) {
+        public CountMaybeObserver(SingleObserver<? super Long> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public final class MaybeCount extends Single implements HasUpstreamMaybeSource {
         }
     }
 
-    public MaybeCount(MaybeSource maybeSource) {
+    public MaybeCount(MaybeSource<T> maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public final class MaybeCount extends Single implements HasUpstreamMaybeSource {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super Long> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new CountMaybeObserver(singleObserver));
@@ -127,7 +127,7 @@ public final class MaybeCount extends Single implements HasUpstreamMaybeSource {
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource source() {
+    public MaybeSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

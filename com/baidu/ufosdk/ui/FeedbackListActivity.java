@@ -1,5 +1,6 @@
 package com.baidu.ufosdk.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -55,6 +56,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+@SuppressLint({"HandlerLeak", "InlinedApi"})
 /* loaded from: classes6.dex */
 public class FeedbackListActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -63,7 +65,7 @@ public class FeedbackListActivity extends Activity {
     public LinearLayout b;
     public LinearLayout c;
     public TextView d;
-    public List e;
+    public List<Map<String, Object>> e;
     public int f;
     public Button g;
     public ImageView h;
@@ -289,7 +291,7 @@ public class FeedbackListActivity extends Activity {
                     while (true) {
                         if (i >= this.a.e.size()) {
                             break;
-                        } else if (!((Map) this.a.e.get(i)).get("newmsg").equals("0")) {
+                        } else if (!this.a.e.get(i).get("newmsg").equals("0")) {
                             this.a.v.obtainMessage(2, Integer.valueOf(i)).sendToTarget();
                             break;
                         } else {
@@ -402,15 +404,15 @@ public class FeedbackListActivity extends Activity {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                ((Map) this.a.e.get(i)).put("newmsg", "0");
+                this.a.e.get(i).put("newmsg", "0");
                 this.a.k.notifyDataSetChanged();
                 Intent intent = new Intent();
                 intent.setClass(this.a, FeedbackInputActivity.class);
-                intent.putExtra("msgid", (String) ((Map) this.a.e.get(i)).get("id"));
-                intent.putExtra("appid", (String) ((Map) this.a.e.get(i)).get("appid"));
+                intent.putExtra("msgid", (String) this.a.e.get(i).get("id"));
+                intent.putExtra("appid", (String) this.a.e.get(i).get("appid"));
                 intent.putExtra("isToolEva", 1);
                 if (!com.baidu.ufosdk.b.n()) {
                     this.a.startActivity(intent);
@@ -444,12 +446,12 @@ public class FeedbackListActivity extends Activity {
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView adapterView, View view2, int i, long j) {
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                String str = (String) ((Map) this.a.e.get(i)).get("id");
-                String str2 = (String) ((Map) this.a.e.get(i)).get("appid");
+                String str = (String) this.a.e.get(i).get("id");
+                String str2 = (String) this.a.e.get(i).get("appid");
                 FeedbackListActivity feedbackListActivity = this.a;
                 Context applicationContext = feedbackListActivity.getApplicationContext();
                 String a = t1.a("3");
@@ -685,11 +687,11 @@ public class FeedbackListActivity extends Activity {
                     iVar = (i) view2.getTag();
                     relativeLayout = view2;
                 }
-                iVar.a.setText((String) ((Map) this.b.e.get(i)).get("content"));
+                iVar.a.setText((String) this.b.e.get(i).get("content"));
                 TextView textView5 = iVar.c;
                 StringBuilder sb = new StringBuilder();
                 sb.append("");
-                String str = (String) ((Map) this.b.e.get(i)).get("time");
+                String str = (String) this.b.e.get(i).get("time");
                 StringBuffer stringBuffer = new StringBuffer();
                 try {
                     String format = new SimpleDateFormat("HH:mm").format(Long.valueOf(Long.parseLong(str)));
@@ -733,20 +735,20 @@ public class FeedbackListActivity extends Activity {
                 }
                 sb.append(stringBuffer.toString());
                 textView5.setText(sb.toString());
-                if (((Map) this.b.e.get(i)).get("replied").equals("1")) {
+                if (this.b.e.get(i).get("replied").equals("1")) {
                     iVar3 = iVar2;
-                    iVar3.d.setText("[已回复] " + ((Map) this.b.e.get(i)).get("lastmsg"));
+                    iVar3.d.setText("[已回复] " + this.b.e.get(i).get("lastmsg"));
                 } else {
                     iVar3 = iVar2;
-                    if (((Map) this.b.e.get(i)).get("replied").equals("0")) {
-                        iVar3.d.setText("[待回复] " + ((Map) this.b.e.get(i)).get("lastmsg"));
-                    } else if (((Map) this.b.e.get(i)).get("replied").equals("2")) {
-                        iVar3.d.setText("[邀请评价] " + ((Map) this.b.e.get(i)).get("lastmsg"));
-                    } else if (((Map) this.b.e.get(i)).get("replied").equals("3")) {
-                        iVar3.d.setText("[已评价] " + ((Map) this.b.e.get(i)).get("lastmsg"));
+                    if (this.b.e.get(i).get("replied").equals("0")) {
+                        iVar3.d.setText("[待回复] " + this.b.e.get(i).get("lastmsg"));
+                    } else if (this.b.e.get(i).get("replied").equals("2")) {
+                        iVar3.d.setText("[邀请评价] " + this.b.e.get(i).get("lastmsg"));
+                    } else if (this.b.e.get(i).get("replied").equals("3")) {
+                        iVar3.d.setText("[已评价] " + this.b.e.get(i).get("lastmsg"));
                     }
                 }
-                if (!((Map) this.b.e.get(i)).get("newmsg").equals("0")) {
+                if (!this.b.e.get(i).get("newmsg").equals("0")) {
                     TextView textView6 = iVar3.b;
                     int a = p1.a(this.b.getApplicationContext(), 20.0f);
                     Bitmap createBitmap = Bitmap.createBitmap(a, a, Bitmap.Config.ARGB_4444);
@@ -863,6 +865,7 @@ public class FeedbackListActivity extends Activity {
     }
 
     @Override // android.app.Activity
+    @SuppressLint({"NewApi"})
     public void onCreate(Bundle bundle) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -1071,7 +1074,7 @@ public class FeedbackListActivity extends Activity {
             while (true) {
                 if (i2 >= this.e.size()) {
                     break;
-                } else if (!((Map) this.e.get(i2)).get("newmsg").equals("0")) {
+                } else if (!this.e.get(i2).get("newmsg").equals("0")) {
                     this.v.obtainMessage(2, Integer.valueOf(i2)).sendToTarget();
                     break;
                 } else {

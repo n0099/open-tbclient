@@ -27,19 +27,19 @@ public class SubSampleInformationBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List entries;
+    public List<SampleEntry> entries;
     public long entryCount;
 
     /* loaded from: classes7.dex */
-    public class SampleEntry {
+    public static class SampleEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long sampleDelta;
         public int subsampleCount;
-        public List subsampleEntries;
+        public List<SubsampleEntry> subsampleEntries;
 
         /* loaded from: classes7.dex */
-        public class SubsampleEntry {
+        public static class SubsampleEntry {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int discardable;
@@ -169,7 +169,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
             return invokeV.intValue;
         }
 
-        public List getSubsampleEntries() {
+        public List<SubsampleEntry> getSubsampleEntries() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -226,7 +226,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
-    public List getEntries() {
+    public List<SampleEntry> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -346,7 +346,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         }
     }
 
-    public void setEntries(List list) {
+    public void setEntries(List<SampleEntry> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));

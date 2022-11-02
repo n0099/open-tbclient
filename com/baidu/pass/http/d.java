@@ -1,5 +1,6 @@
 package com.baidu.pass.http;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
@@ -93,6 +94,7 @@ public class d {
         return (String) invokeCommon.objValue;
     }
 
+    @TargetApi(9)
     public static void a(Context context, HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) {
         Map<String, List<String>> headerFields;
         List<String> list;
@@ -164,6 +166,7 @@ public class d {
         return invokeLL.booleanValue;
     }
 
+    @TargetApi(9)
     public static boolean a(String str, HttpCookie httpCookie) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -197,6 +200,7 @@ public class d {
         return invokeLZ.booleanValue;
     }
 
+    @TargetApi(9)
     public static void b(Context context, HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) {
         HttpCookie httpCookie;
         Interceptable interceptable = $ic;

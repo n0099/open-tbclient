@@ -19,7 +19,7 @@ public interface TTSplashAd extends TTClientBidding {
 
     int getInteractionType();
 
-    Map getMediaExtraInfo();
+    Map<String, Object> getMediaExtraInfo();
 
     int[] getSplashClickEyeSizeToDp();
 

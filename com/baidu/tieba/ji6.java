@@ -1,82 +1,134 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.view.FrsTopItemInfoView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ItemInfo;
 /* loaded from: classes4.dex */
-public class ji6 {
+public class ji6 extends z26<ei6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public FrsTopItemInfoView b;
+    public BarImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public int m;
+    public ei6 n;
+    public View.OnClickListener o;
 
-    public ji6(BaseFragment baseFragment) {
-        FrsViewData frsViewData;
+    @Override // com.baidu.tieba.z26
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02cc : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ji6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (baseFragment == null) {
+        this.m = 3;
+        this.i = (BarImageView) k().findViewById(R.id.obfuscated_res_0x7f090a68);
+        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090aab);
+        this.k = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090a66);
+        this.l = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090ad3);
+        k().setOnClickListener(this);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.z26
+    /* renamed from: r */
+    public void l(ei6 ei6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ei6Var) != null) || ei6Var == null) {
             return;
         }
-        this.a = baseFragment;
-        this.b = new FrsTopItemInfoView(baseFragment.getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        this.b.setLayoutParams(layoutParams);
-        b();
-        BaseFragment baseFragment2 = this.a;
-        if ((baseFragment2 instanceof FrsCommonTabFragment) && (frsViewData = ((FrsCommonTabFragment) baseFragment2).d) != null && frsViewData.getForum() != null) {
-            ForumData forum = frsViewData.getForum();
-            this.b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+        this.n = ei6Var;
+        this.i.K(ei6Var.c(), 10, false);
+        this.j.setText(s(ei6Var.j(), ei6Var.r()));
+        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0432), ei6Var.f()));
+        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1104), ei6Var.n()));
+        m(this.b, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || this.n == null) {
+            return;
+        }
+        TiebaStatic.log("c12261");
+        ci6.d(this.n.r());
+        view2.setTag(this.n);
+        View.OnClickListener onClickListener = this.o;
+        if (onClickListener != null) {
+            onClickListener.onClick(view2);
         }
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    public void t(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void b() {
-        FrsTopItemInfoView frsTopItemInfoView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (frsTopItemInfoView = this.b) != null) {
-            frsTopItemInfoView.e();
+        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
+            this.o = onClickListener;
         }
     }
 
-    public void c(ItemInfo itemInfo) {
-        FrsTopItemInfoView frsTopItemInfoView;
+    @Override // com.baidu.tieba.z26
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) && (frsTopItemInfoView = this.b) != null) {
-            frsTopItemInfoView.setData(itemInfo);
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.m == i) {
+            return;
         }
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(k(), R.drawable.square_search_item_bg);
+        this.m = i;
+    }
+
+    public SpannableStringBuilder s(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                String trim = str2.trim();
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                int indexOf = str.indexOf(trim);
+                if (indexOf != -1) {
+                    spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, trim.length() + indexOf, 33);
+                }
+                return spannableStringBuilder;
+            }
+            return null;
+        }
+        return (SpannableStringBuilder) invokeLL.objValue;
     }
 }

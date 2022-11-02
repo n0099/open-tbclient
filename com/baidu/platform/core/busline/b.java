@@ -31,6 +31,16 @@ public class b extends e {
         a(busLineSearchOption);
     }
 
+    @Override // com.baidu.platform.base.e
+    public String a(com.baidu.platform.domain.c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            return cVar.m();
+        }
+        return (String) invokeL.objValue;
+    }
+
     private void a(BusLineSearchOption busLineSearchOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, busLineSearchOption) == null) {
@@ -43,12 +53,5 @@ public class b extends e {
             com.baidu.platform.util.a aVar = this.a;
             aVar.a("t", System.currentTimeMillis() + "");
         }
-    }
-
-    @Override // com.baidu.platform.base.e
-    public String a(com.baidu.platform.domain.c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.m() : (String) invokeL.objValue;
     }
 }

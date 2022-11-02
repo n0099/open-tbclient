@@ -1,76 +1,120 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class pd5 extends ud5 {
+public class pd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public od5 b;
-    public boolean c;
-    public boolean d;
+    public String a;
+    public String b;
+    public final ArrayList<String> c;
 
-    public pd5() {
+    public pd5(BdUniqueId bdUniqueId, String str, String str2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, str, str2, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList<>();
+        this.a = str;
+        this.b = str2;
+        g(intent);
     }
 
-    public int b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            od5 od5Var = this.b;
-            if (od5Var != null) {
-                return od5Var.b();
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return TbPageExtraHelper.buildNextPageSourceKeyList(this.c, this.a);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (String) ListUtils.getItem(this.c, ListUtils.getCount(this.c) - 1);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
+                return true;
             }
-            return -1;
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public void c() {
-        od5 od5Var;
-        zd5 zd5Var;
+    public void g(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (od5Var = this.b) != null && od5Var.b() >= 0 && (zd5Var = (zd5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
-            zd5Var.e(this);
-            this.d = true;
-        }
-    }
-
-    public void e() {
-        od5 od5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (od5Var = this.b) != null) {
-            od5Var.d();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            this.c = true;
-            if (Build.VERSION.SDK_INT >= 16) {
-                if (this.b == null) {
-                    this.b = new od5();
+        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+            this.c.clear();
+            if (intent != null) {
+                ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
+                if (!ListUtils.isEmpty(stringArrayListExtra)) {
+                    this.c.addAll(stringArrayListExtra);
                 }
-                this.b.c();
             }
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 }

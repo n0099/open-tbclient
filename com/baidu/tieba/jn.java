@@ -1,148 +1,393 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.adp.titan.TitanDownloadService;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.titan.sdk.internal.util.Files;
-import com.baidu.titan.sdk.loader.LoaderHead;
-import com.baidu.titan.sdk.loader.LoaderManager;
-import com.baidu.titan.sdk.pm.PatchInstallInfo;
-import com.baidu.titan.sdk.pm.PatchManager;
-import com.baidu.titan.sdk.pm.PatchMetaInfo;
-import com.baidu.titan.sdk.pm.TitanPaths;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes4.dex */
-public class jn {
+public abstract class jn<T, V extends TypeAdapter.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public bo<wn> mAdapter;
+    public go mAdapterItemClickListener;
+    public ho mAdapterItemLongClickListener;
+    public Context mContext;
+    public en mImagePreloadSizeData;
+    public BdUniqueId mPageId;
+    public BdUniqueId mType;
+    public V viewholder;
 
-    /* loaded from: classes4.dex */
-    public final class a implements PatchManager.PatchInstallObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fn a;
-        public final /* synthetic */ PackageInfo b;
-        public final /* synthetic */ boolean c;
-
-        public a(fn fnVar, PackageInfo packageInfo, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fnVar, packageInfo, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fnVar;
-            this.b = packageInfo;
-            this.c = z;
+    public BdUniqueId getBottomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
+        return (BdUniqueId) invokeV.objValue;
+    }
 
-        @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
-        public void onPatchInstalled(int i, Bundle bundle) {
-            int i2;
-            LoaderHead createFromJson;
-            PatchMetaInfo createFromPatch;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) {
-                if (i != 0 && i != 1) {
-                    i2 = -1;
-                } else {
-                    i2 = 0;
-                }
-                String str = "install-resut:" + i;
-                fn fnVar = this.a;
-                if (fnVar != null) {
-                    fnVar.onResult(this.b.packageName, i2, str);
-                }
-                Log.d(TitanDownloadService.TAG, "patch install result code = " + i2);
-                if (i2 == 0) {
-                    jn.c(this.b);
-                }
-                if (!this.c) {
-                    int loadState = LoaderManager.getInstance().getLoadState();
-                    if (loadState == -4 || loadState == -1) {
-                        File headFile = TitanPaths.getHeadFile();
-                        if (headFile.exists() && (createFromJson = LoaderHead.createFromJson(Files.getFileStringContent(headFile))) != null && (createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile())) != null && createFromPatch.loadPolicy == 1) {
-                            LoaderManager.getInstance().loadInTime();
-                        }
-                    }
-                }
-            }
+    public BdUniqueId getContentId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public BdUniqueId getExtendId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public BdUniqueId getHeaderId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public V onCreateBottomViewHolder(ViewGroup viewGroup, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, viewGroup, t)) == null) {
+            return null;
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public V onCreateContentViewHolder(ViewGroup viewGroup, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, viewGroup, t)) == null) {
+            return null;
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public V onCreateExtendViewHolder(ViewGroup viewGroup, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, viewGroup, t)) == null) {
+            return null;
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public V onCreateHeaderViewHolder(ViewGroup viewGroup, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, viewGroup, t)) == null) {
+            return null;
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public abstract V onCreateViewHolder(ViewGroup viewGroup);
+
+    public abstract View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v);
+
+    public void setMulDel(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308457, "Lcom/baidu/tieba/jn;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448308457, "Lcom/baidu/tieba/jn;");
+    public jn(Context context, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = zm.a;
+        this.mContext = context;
+        this.mType = bdUniqueId;
+        this.mImagePreloadSizeData = new en();
     }
 
-    public static void b(Context context, fn fnVar, PackageInfo packageInfo, boolean z) {
+    public jn(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, fnVar, packageInfo, Boolean.valueOf(z)}) == null) {
-            if (a) {
-                Log.d(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(fnVar, packageInfo, z));
+        }
+        this.mContext = context;
+        this.mType = bdUniqueId;
+        this.mPageId = bdUniqueId2;
+        this.mImagePreloadSizeData = new en();
+    }
+
+    private boolean needCreateNewHolder(View view2) {
+        InterceptResult invokeL;
+        V v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
+            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == null || !v.getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(this.viewholder.getClass())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            if (viewGroup instanceof ListView) {
+                return new AbsListView.LayoutParams(-1, -2);
+            }
+            if (viewGroup instanceof RecyclerView) {
+                return new RecyclerView.LayoutParams(-1, -2);
+            }
+            return new ViewGroup.LayoutParams(-1, -2);
+        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
+    }
+
+    public wn getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            bo<wn> boVar = this.mAdapter;
+            if (boVar != null) {
+                return boVar.getItem(i);
+            }
+            return null;
+        }
+        return (wn) invokeI.objValue;
+    }
+
+    public int getPositionByType(int i) {
+        InterceptResult invokeI;
+        BdUniqueId bdUniqueId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            bo<wn> boVar = this.mAdapter;
+            if (boVar != null && (bdUniqueId = this.mType) != null) {
+                return boVar.b(i, bdUniqueId.getId());
+            }
+            return -1;
+        }
+        return invokeI.intValue;
+    }
+
+    public gn getPreloadSize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return this.mImagePreloadSizeData.a(i);
+        }
+        return (gn) invokeI.objValue;
+    }
+
+    public boolean isPreloadSizeReady(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            return this.mImagePreloadSizeData.b(i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void setAdapter(bo<wn> boVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, boVar) == null) {
+            this.mAdapter = boVar;
         }
     }
 
-    public static void c(PackageInfo packageInfo) {
+    public void setOnAdapterItemClickListener(go goVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, packageInfo) == null) {
-            hn d = hn.d();
-            if (packageInfo != null) {
-                long j = packageInfo.updateVersion;
-                if (j != 0) {
-                    d.j(j);
-                    Context appContext = AppRuntime.getAppContext();
-                    if (appContext != null) {
-                        try {
-                            android.content.pm.PackageInfo packageInfo2 = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-                            if (packageInfo2 != null) {
-                                d.h(packageInfo2.versionCode);
-                            }
-                        } catch (PackageManager.NameNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                int i = packageInfo.errNo;
-                if (i == 0 || i == -2) {
-                    d.i(System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeL(1048605, this, goVar) == null) {
+            this.mAdapterItemClickListener = goVar;
+        }
+    }
+
+    public void setOnAdapterItemLongClickListener(ho hoVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, hoVar) == null) {
+            this.mAdapterItemLongClickListener = hoVar;
+        }
+    }
+
+    public void setPageId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, bdUniqueId) == null) {
+            this.mPageId = bdUniqueId;
+        }
+    }
+
+    public void setType(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, bdUniqueId) == null) {
+            this.mType = bdUniqueId;
+        }
+    }
+
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            bo<wn> boVar = this.mAdapter;
+            if (boVar != null) {
+                return boVar.getCount();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public go getOnAdapterItemClickListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mAdapterItemClickListener;
+        }
+        return (go) invokeV.objValue;
+    }
+
+    public ho getOnAdapterItemLongClickListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mAdapterItemLongClickListener;
+        }
+        return (ho) invokeV.objValue;
+    }
+
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mType;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void notifyDataSetChanged() {
+        bo<wn> boVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (boVar = this.mAdapter) != null) {
+            boVar.notifyDataSetChanged();
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.baidu.tieba.jn<T, V extends com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public View getView(int i, View view2, ViewGroup viewGroup, T t) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t})) == null) {
+            if (needCreateNewHolder(view2)) {
+                V v = (V) onCreateViewHolder(viewGroup, t);
+                this.viewholder = v;
+                view2 = v.getView();
+                if (BdBaseApplication.getInst().isDebugMode()) {
+                    BdLog.i("convertView is creating" + this.viewholder.getClass().getName());
                 }
             }
-            d.l();
+            View view3 = view2;
+            return onFillViewHolder(i, view3, viewGroup, t, (TypeAdapter.ViewHolder) view3.getTag());
         }
+        return (View) invokeCommon.objValue;
+    }
+
+    public V onCreateViewHolder(ViewGroup viewGroup, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, viewGroup, t)) == null) {
+            return onCreateViewHolder(viewGroup);
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public View onFillBottomViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return onFillViewHolder(i, view2, viewGroup, t, v);
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public View onFillContentViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return onFillViewHolder(i, view2, viewGroup, t, v);
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public View onFillExtendViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return onFillViewHolder(i, view2, viewGroup, t, v);
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public View onFillHeaderViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return onFillViewHolder(i, view2, viewGroup, t, v);
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), viewGroup, v, t}) == null) {
+            onFillViewHolder(i, v.getView(), viewGroup, t, v);
+        }
+    }
+
+    public boolean setPreloadSize(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048608, this, i, i2, i3)) == null) {
+            return this.mImagePreloadSizeData.c(i, i2, i3);
+        }
+        return invokeIII.booleanValue;
     }
 }

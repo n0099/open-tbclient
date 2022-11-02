@@ -5,6 +5,8 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.util.Log;
 import android.util.TypedValue;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -25,9 +27,10 @@ public class AssetHelper {
     public static final String DEFAULT_MIME_TYPE = "text/plain";
     public static final String TAG = "AssetHelper";
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public Context mContext;
 
-    public AssetHelper(Context context) {
+    public AssetHelper(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +48,8 @@ public class AssetHelper {
         this.mContext = context;
     }
 
-    public static String getCanonicalPath(File file) throws IOException {
+    @NonNull
+    public static String getCanonicalPath(@NonNull File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
@@ -58,7 +62,8 @@ public class AssetHelper {
         return (String) invokeL.objValue;
     }
 
-    public static File getDataDir(Context context) {
+    @NonNull
+    public static File getDataDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -81,7 +86,8 @@ public class AssetHelper {
         return invokeI.intValue;
     }
 
-    public static String guessMimeType(String str) {
+    @NonNull
+    public static String guessMimeType(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
@@ -94,7 +100,8 @@ public class AssetHelper {
         return (String) invokeL.objValue;
     }
 
-    public static String removeLeadingSlash(String str) {
+    @NonNull
+    public static String removeLeadingSlash(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
@@ -106,7 +113,7 @@ public class AssetHelper {
         return (String) invokeL.objValue;
     }
 
-    private int getFieldId(String str, String str2) {
+    private int getFieldId(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) {
@@ -115,7 +122,8 @@ public class AssetHelper {
         return invokeLL.intValue;
     }
 
-    public static InputStream handleSvgzStream(String str, InputStream inputStream) {
+    @Nullable
+    public static InputStream handleSvgzStream(@NonNull String str, @Nullable InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, inputStream)) == null) {
@@ -132,7 +140,7 @@ public class AssetHelper {
         return (InputStream) invokeLL.objValue;
     }
 
-    public static boolean isCanonicalChildOf(File file, File file2) {
+    public static boolean isCanonicalChildOf(@NonNull File file, @NonNull File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, file2)) == null) {
@@ -151,7 +159,8 @@ public class AssetHelper {
         return invokeLL.booleanValue;
     }
 
-    public static InputStream openFile(File file) {
+    @Nullable
+    public static InputStream openFile(@NonNull File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, file)) == null) {
@@ -165,7 +174,8 @@ public class AssetHelper {
         return (InputStream) invokeL.objValue;
     }
 
-    public InputStream openAsset(String str) {
+    @Nullable
+    public InputStream openAsset(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -180,7 +190,8 @@ public class AssetHelper {
         return (InputStream) invokeL.objValue;
     }
 
-    public InputStream openResource(String str) {
+    @Nullable
+    public InputStream openResource(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {

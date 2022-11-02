@@ -1,11 +1,14 @@
 package com.baidu.searchbox.aideviceperformanceboxproxy.stickiness;
 
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aideviceperformance.stickiness.IUserStickinessBusinessDataProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class UserStickinessRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -25,6 +28,7 @@ public class UserStickinessRuntime {
         }
     }
 
+    @Inject(force = false)
     public static IUserStickinessBusinessDataProvider getDefaultHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

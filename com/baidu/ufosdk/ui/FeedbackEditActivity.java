@@ -1,5 +1,6 @@
 package com.baidu.ufosdk.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -77,6 +78,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
+@SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes6.dex */
 public class FeedbackEditActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -84,6 +86,7 @@ public class FeedbackEditActivity extends Activity {
     public int A;
     public int B;
     public IFeedbackMethodCallback C;
+    @SuppressLint({"HandlerLeak"})
     public Handler D;
     public ScrollView E;
     public String F;
@@ -120,8 +123,8 @@ public class FeedbackEditActivity extends Activity {
     public TextView p;
     public TextView q;
     public LinearLayout r;
-    public List s;
-    public HashMap t;
+    public List<byte[]> s;
+    public HashMap<String, String> t;
     public Boolean u;
     public String v;
     public View w;
@@ -130,6 +133,7 @@ public class FeedbackEditActivity extends Activity {
     public boolean z;
 
     @Override // android.app.Activity
+    @SuppressLint({"ObsoleteSdkInt"})
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
@@ -180,7 +184,7 @@ public class FeedbackEditActivity extends Activity {
             this.a.putBoolean("ADD_PIC_FLAG", true);
             this.a.commit();
             this.s = new ArrayList();
-            this.t = new HashMap();
+            this.t = new HashMap<>();
             this.E = new ScrollView(this);
             RelativeLayout relativeLayout = new RelativeLayout(this);
             this.g = relativeLayout;
@@ -668,7 +672,7 @@ public class FeedbackEditActivity extends Activity {
                 }
                 feedbackEditActivity.A = ((Integer) view2.getTag()).intValue();
                 FeedbackEditActivity feedbackEditActivity2 = this.a;
-                byte[] bArr = (byte[]) feedbackEditActivity2.s.get(feedbackEditActivity2.A);
+                byte[] bArr = feedbackEditActivity2.s.get(feedbackEditActivity2.A);
                 int i = this.a.A;
                 if (feedbackEditActivity2 != null) {
                     Intent intent = new Intent(feedbackEditActivity2, ScreenCapEditActivity.class);
@@ -1266,7 +1270,7 @@ public class FeedbackEditActivity extends Activity {
                 relativeLayout.addView(e1Var, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f)));
                 try {
                     if (this.s.get(i) != null) {
-                        bitmap = BitmapFactory.decodeByteArray((byte[]) this.s.get(i), 0, ((byte[]) this.s.get(i)).length);
+                        bitmap = BitmapFactory.decodeByteArray(this.s.get(i), 0, this.s.get(i).length);
                         if (bitmap == null) {
                             return;
                         }
@@ -1311,7 +1315,7 @@ public class FeedbackEditActivity extends Activity {
                 imageView.setMinimumWidth(p1.a(getApplicationContext(), 77.0f));
                 relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f)));
                 try {
-                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray((byte[]) this.s.get(i), 0, ((byte[]) this.s.get(i)).length);
+                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray(this.s.get(i), 0, this.s.get(i).length);
                     if (decodeByteArray != null && a(decodeByteArray, p1.a(getApplicationContext(), 45.0f)) != null) {
                         imageView.setImageBitmap(decodeByteArray);
                         imageView.setOnClickListener(new e(this));

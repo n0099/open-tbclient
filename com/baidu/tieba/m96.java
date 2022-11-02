@@ -1,86 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.ForumGuide.LikeForum;
+import tbclient.ApkDetail;
 /* loaded from: classes5.dex */
 public class m96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<k96> a;
 
-    public m96() {
+    public static void a(b96 b96Var) {
+        ItemData itemData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, b96Var) == null) && b96Var != null && (itemData = b96Var.a) != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
+            httpMessage.addParam("item_id", itemData.itemId);
+            httpMessage.addParam("app_name", itemData.mTitle);
+            httpMessage.addParam("source_type", b96Var.b);
+            httpMessage.addParam("icon_url", itemData.mIconUrl);
+            httpMessage.addParam("score", Double.valueOf(itemData.mScore));
+            httpMessage.addParam("tags", itemData.mTags);
+            httpMessage.addParam("apk_name", itemData.pkgName);
+            ApkDetail apkDetail = itemData.apkDetail;
+            if (apkDetail != null) {
+                httpMessage.addParam("developer", apkDetail.developer);
+                httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
+                httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
+                httpMessage.addParam("version", itemData.apkDetail.version);
+                httpMessage.addParam("version_code", itemData.apkDetail.version_code);
             }
-        }
-        this.a = new ArrayList<>();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<k96> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().L(0);
-            }
-        }
-    }
-
-    public ArrayList<k96> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void c(List<?> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
-            return;
-        }
-        d(list, null);
-    }
-
-    public void d(List<?> list, Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
-            return;
-        }
-        try {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (!(list.get(i) instanceof LikeForum)) {
-                    return;
-                }
-                k96 k96Var = new k96();
-                k96Var.I((LikeForum) list.get(i));
-                if (!TextUtils.isEmpty(k96Var.r())) {
-                    this.a.add(k96Var);
-                }
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
+            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
         }
     }
 }

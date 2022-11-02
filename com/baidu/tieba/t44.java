@@ -1,28 +1,48 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class t44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public String k;
+    public String l;
+    public int m;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public t44() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            return String.format("%s failed,key:%s,%s", str, str2, str3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return String.format("%s ok", str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "{ clipMaxDuration=" + this.a + " , clipMinDuration=" + this.b + " , topicSource=" + this.c + " , publishURL=" + this.e + " , publishType=" + this.k + " , publishTitle=" + this.d + " , atURL=" + this.g + " , topicURL=" + this.h + " , musicURL=" + this.f + " , sourceFrom=" + this.j + " , sourceType=" + this.i + ",target=" + this.l + ",showToast=" + this.m + " }";
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

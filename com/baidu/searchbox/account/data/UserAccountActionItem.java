@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<UserAccountActionItem> CREATOR;
     public static final String KEY_ACTION = "action";
     public static final String KEY_SRC = "src";
     public static final String KEY_SUB_SRC = "subSrc";
@@ -43,7 +43,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class UserAccountAction {
+    public static final class UserAccountAction {
         public static final /* synthetic */ UserAccountAction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UserAccountAction BIND;
@@ -123,7 +123,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class UserAccountType {
+    public static final class UserAccountType {
         public static final /* synthetic */ UserAccountType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UserAccountType GUEST;
@@ -218,7 +218,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
+        CREATOR = new Parcelable.Creator<UserAccountActionItem>() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -237,6 +237,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserAccountActionItem createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -248,6 +249,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserAccountActionItem[] newArray(int i) {
                 InterceptResult invokeI;

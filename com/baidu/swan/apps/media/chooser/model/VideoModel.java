@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoModel extends MediaModel {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MediaModel> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long duration;
     public int height;
@@ -24,8 +24,8 @@ public class VideoModel extends MediaModel {
     public String uri;
     public int width;
 
-    /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<MediaModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

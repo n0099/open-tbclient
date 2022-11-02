@@ -7,6 +7,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.annotation.CallSuper;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.sdk.utils.aa;
 import java.util.Arrays;
@@ -20,7 +24,7 @@ public class KSRelativeLayout extends RelativeLayout implements i {
     public i aqI;
     public float aqJ;
 
-    public KSRelativeLayout(Context context) {
+    public KSRelativeLayout(@NonNull Context context) {
         super(context);
         this.Kt = new AtomicBoolean(true);
         this.aqJ = 0.0f;
@@ -28,7 +32,7 @@ public class KSRelativeLayout extends RelativeLayout implements i {
         b(context, null);
     }
 
-    public KSRelativeLayout(Context context, AttributeSet attributeSet) {
+    public KSRelativeLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.Kt = new AtomicBoolean(true);
         this.aqJ = 0.0f;
@@ -36,7 +40,7 @@ public class KSRelativeLayout extends RelativeLayout implements i {
         b(context, attributeSet);
     }
 
-    public KSRelativeLayout(Context context, AttributeSet attributeSet, int i) {
+    public KSRelativeLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.Kt = new AtomicBoolean(true);
         this.aqJ = 0.0f;
@@ -44,15 +48,17 @@ public class KSRelativeLayout extends RelativeLayout implements i {
         b(context, attributeSet);
     }
 
+    @CallSuper
     private void am() {
         this.aqH.onAttachedToWindow();
     }
 
+    @CallSuper
     private void an() {
         this.aqH.onDetachedFromWindow();
     }
 
-    private void b(Context context, AttributeSet attributeSet) {
+    private void b(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
             int[] iArr = {R.attr.obfuscated_res_0x7f0403b5};
             Arrays.sort(iArr);
@@ -109,6 +115,7 @@ public class KSRelativeLayout extends RelativeLayout implements i {
         this.Pq.e(canvas);
     }
 
+    @MainThread
     public aa.a getTouchCoords() {
         return this.afd;
     }
@@ -118,6 +125,7 @@ public class KSRelativeLayout extends RelativeLayout implements i {
     }
 
     @Override // com.kwad.sdk.widget.i
+    @CallSuper
     public final void k(View view2) {
         i iVar = this.aqI;
         if (iVar != null) {

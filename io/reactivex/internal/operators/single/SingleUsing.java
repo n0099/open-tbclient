@@ -21,32 +21,32 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleUsing extends Single {
+public final class SingleUsing<T, U> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer disposer;
+    public final Consumer<? super U> disposer;
     public final boolean eager;
-    public final Callable resourceSupplier;
-    public final Function singleFunction;
+    public final Callable<U> resourceSupplier;
+    public final Function<? super U, ? extends SingleSource<? extends T>> singleFunction;
 
     /* loaded from: classes8.dex */
-    public final class UsingSingleObserver extends AtomicReference implements SingleObserver, Disposable {
+    public static final class UsingSingleObserver<T, U> extends AtomicReference<Object> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5331524057054083935L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
         public Disposable d;
-        public final Consumer disposer;
+        public final Consumer<? super U> disposer;
         public final boolean eager;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public UsingSingleObserver(SingleObserver singleObserver, Object obj, boolean z, Consumer consumer) {
-            super(obj);
+        public UsingSingleObserver(SingleObserver<? super T> singleObserver, U u, boolean z, Consumer<? super U> consumer) {
+            super(u);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, obj, Boolean.valueOf(z), consumer};
+                Object[] objArr = {singleObserver, u, Boolean.valueOf(z), consumer};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -121,9 +121,9 @@ public final class SingleUsing extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 this.d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
@@ -139,7 +139,7 @@ public final class SingleUsing extends Single {
                         return;
                     }
                 }
-                this.actual.onSuccess(obj);
+                this.actual.onSuccess(t);
                 if (!this.eager) {
                     disposeAfter();
                 }
@@ -156,7 +156,7 @@ public final class SingleUsing extends Single {
         }
     }
 
-    public SingleUsing(Callable callable, Function function, Consumer consumer, boolean z) {
+    public SingleUsing(Callable<U> callable, Function<? super U, ? extends SingleSource<? extends T>> function, Consumer<? super U> consumer, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,11 +178,11 @@ public final class SingleUsing extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             try {
-                Object call = this.resourceSupplier.call();
+                U call = this.resourceSupplier.call();
                 try {
                     ((SingleSource) ObjectHelper.requireNonNull(this.singleFunction.apply(call), "The singleFunction returned a null SingleSource")).subscribe(new UsingSingleObserver(singleObserver, call, this.eager, this.disposer));
                 } catch (Throwable th) {

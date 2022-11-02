@@ -9,6 +9,8 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
 import androidx.core.util.Preconditions;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,13 +28,14 @@ public final class CalendarItemStyle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ColorStateList backgroundColor;
+    @NonNull
     public final Rect insets;
     public final ShapeAppearanceModel itemShape;
     public final ColorStateList strokeColor;
     public final int strokeWidth;
     public final ColorStateList textColor;
 
-    public CalendarItemStyle(ColorStateList colorStateList, ColorStateList colorStateList2, ColorStateList colorStateList3, int i, ShapeAppearanceModel shapeAppearanceModel, Rect rect) {
+    public CalendarItemStyle(ColorStateList colorStateList, ColorStateList colorStateList2, ColorStateList colorStateList3, int i, ShapeAppearanceModel shapeAppearanceModel, @NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +62,8 @@ public final class CalendarItemStyle {
         this.itemShape = shapeAppearanceModel;
     }
 
-    public static CalendarItemStyle create(Context context, int i) {
+    @NonNull
+    public static CalendarItemStyle create(@NonNull Context context, @StyleRes int i) {
         InterceptResult invokeLI;
         boolean z;
         Interceptable interceptable = $ic;
@@ -119,7 +123,7 @@ public final class CalendarItemStyle {
         return invokeV.intValue;
     }
 
-    public void styleItem(TextView textView) {
+    public void styleItem(@NonNull TextView textView) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, textView) == null) {

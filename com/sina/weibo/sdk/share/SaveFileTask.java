@@ -16,11 +16,11 @@ import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public class SaveFileTask extends AsyncTask {
+public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TransResourceCallback mCallback;
-    public WeakReference mReference;
+    public WeakReference<Context> mReference;
 
     public SaveFileTask(Context context, TransResourceCallback transResourceCallback) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class SaveFileTask extends AsyncTask {
                 return;
             }
         }
-        this.mReference = new WeakReference(context);
+        this.mReference = new WeakReference<>(context);
         this.mCallback = transResourceCallback;
     }
 
@@ -71,7 +71,7 @@ public class SaveFileTask extends AsyncTask {
             }
             Uri imageUri = storyMessage.getImageUri();
             Uri videoUri = storyMessage.getVideoUri();
-            Context context = (Context) this.mReference.get();
+            Context context = this.mReference.get();
             if (context == null) {
                 return null;
             }

@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.TargetApi;
 import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;
@@ -20,7 +21,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes8.dex */
+@TargetApi(18)
+/* loaded from: classes9.dex */
 public class EglBase14 implements EglBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CURRENT_SDK_VERSION;
@@ -33,8 +35,8 @@ public class EglBase14 implements EglBase {
     public EGLDisplay eglDisplay;
     public EGLSurface eglSurface;
 
-    /* loaded from: classes8.dex */
-    public class Context implements EglBase.Context {
+    /* loaded from: classes9.dex */
+    public static class Context implements EglBase.Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final EGLContext egl14Context;
@@ -58,6 +60,7 @@ public class EglBase14 implements EglBase {
         }
 
         @Override // org.webrtc.EglBase.Context
+        @TargetApi(21)
         public long getNativeEglContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

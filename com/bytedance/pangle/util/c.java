@@ -1,5 +1,6 @@
 package com.bytedance.pangle.util;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,11 +9,11 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Object[] objArr) {
+    public static <T> boolean a(@Nullable T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, objArr)) == null) {
-            if (objArr != null && objArr.length != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tArr)) == null) {
+            if (tArr != null && tArr.length != 0) {
                 return false;
             }
             return true;
@@ -20,15 +21,15 @@ public final class c {
         return invokeL.booleanValue;
     }
 
-    public static boolean a(Object[] objArr, Object obj) {
+    public static <T> boolean a(@Nullable T[] tArr, T t) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, objArr, obj)) == null) {
-            if (objArr != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tArr, t)) == null) {
+            if (tArr != null) {
                 i = 0;
-                while (i < objArr.length) {
-                    if (objArr[i] == obj || (objArr[i] != null && objArr[i].equals(obj))) {
+                while (i < tArr.length) {
+                    if (tArr[i] == t || (tArr[i] != null && tArr[i].equals(t))) {
                         break;
                     }
                     i++;
@@ -43,15 +44,15 @@ public final class c {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(Object[] objArr, Object[] objArr2) {
+    public static <T> boolean a(@Nullable T[] tArr, T[] tArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
-            if (objArr2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tArr, tArr2)) == null) {
+            if (tArr2 == null) {
                 return true;
             }
-            for (Object obj : objArr2) {
-                if (!a(objArr, obj)) {
+            for (T t : tArr2) {
+                if (!a(tArr, t)) {
                     return false;
                 }
             }

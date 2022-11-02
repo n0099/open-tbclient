@@ -21,7 +21,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/searchbox/live/widget/PagerLayoutManager;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class RecyleController$layoutManger$2 extends Lambda implements Function0 {
+public final class RecyleController$layoutManger$2 extends Lambda implements Function0<PagerLayoutManager> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ RecyleController this$0;
@@ -48,6 +48,7 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final PagerLayoutManager invoke() {
         InterceptResult invokeV;
@@ -135,7 +136,7 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                         int i2 = this.lastSelectedPos;
                         if (i2 >= 0 && this.lastSelectView != null && i2 != i) {
                             if (i2 < this.this$0.this$0.getListController().getItemData().size()) {
-                                liveItemModel = (LiveContainer.LiveItemModel) this.this$0.this$0.getListController().getItemData().get(this.lastSelectedPos);
+                                liveItemModel = this.this$0.this$0.getListController().getItemData().get(this.lastSelectedPos);
                             } else {
                                 liveItemModel = null;
                             }
@@ -148,7 +149,7 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                                 liveContainer.onDeselected(this.lastSelectedPos, liveItemModel);
                             }
                         }
-                        Set handleClosedLiveRoom = this.this$0.this$0.handleClosedLiveRoom();
+                        Set<Integer> handleClosedLiveRoom = this.this$0.this$0.handleClosedLiveRoom();
                         if (!handleClosedLiveRoom.isEmpty()) {
                             if (handleClosedLiveRoom.size() == 1) {
                                 MiniUiThreadUtil.INSTANCE.runOnUiThread(new Runnable(this, handleClosedLiveRoom) { // from class: com.baidu.searchbox.live.list.controller.RecyleController$layoutManger$2$$special$$inlined$apply$lambda$1.1
@@ -237,14 +238,14 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                             this.this$0.this$0.getListController().setCurrentPosition(i);
                             this.lastSelectedPos = i;
                             this.lastSelectView = view2;
-                            this.this$0.this$0.getListController().setCurRoomModel((LiveContainer.LiveItemModel) this.this$0.this$0.getListController().getItemData().get(i));
+                            this.this$0.this$0.getListController().setCurRoomModel(this.this$0.this$0.getListController().getItemData().get(i));
                             this.this$0.this$0.getListController().onBeforeSelect(i);
                             if (!(view2 instanceof LiveContainer)) {
                                 view2 = null;
                             }
                             LiveContainer liveContainer2 = (LiveContainer) view2;
                             if (liveContainer2 != null) {
-                                liveContainer2.onSelected(i, (LiveContainer.LiveItemModel) this.this$0.this$0.getListController().getItemData().get(i), !this.this$0.this$0.getListController().isFromForward());
+                                liveContainer2.onSelected(i, this.this$0.this$0.getListController().getItemData().get(i), !this.this$0.this$0.getListController().isFromForward());
                             }
                             this.this$0.this$0.getListController().onAfterSelect(i);
                         }

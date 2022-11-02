@@ -2,6 +2,7 @@ package com.google.android.gms.common;
 
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -59,7 +60,7 @@ public abstract class zzi extends com.google.android.gms.common.internal.zzy {
         this.zza = Arrays.hashCode(bArr);
     }
 
-    public final boolean equals(Object obj) {
+    public final boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         IObjectWrapper zzd;
         Interceptable interceptable = $ic;

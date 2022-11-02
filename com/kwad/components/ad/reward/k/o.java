@@ -3,6 +3,7 @@ package com.kwad.components.ad.reward.k;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +18,11 @@ public final class o extends d implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
     public KsStyledTextButton vU;
     public View vV;
+    @Nullable
     public com.kwad.components.ad.reward.g.b vW;
     public ViewGroup vl;
 
-    public o(LayoutInflater layoutInflater, ViewGroup viewGroup) {
+    public o(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,21 +37,21 @@ public final class o extends d implements View.OnClickListener {
                 return;
             }
         }
-        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0443, viewGroup, false);
+        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d044e, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091103);
-            this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f091104);
+            this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f09113d);
+            this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f09113e);
             this.vU.setOnClickListener(this);
             this.vV.setOnClickListener(this);
         }
     }
 
-    public final void b(com.kwad.components.ad.reward.g.b bVar) {
+    public final void b(@Nullable com.kwad.components.ad.reward.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.vW = bVar;

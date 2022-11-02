@@ -60,7 +60,7 @@ public class ActivityPendingTransitionFactory {
         }
     }
 
-    public static void closeAnimation(TbPageContext tbPageContext, int i) {
+    public static void closeAnimation(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(65538, null, tbPageContext, i) != null) || tbPageContext == null) {
             return;
@@ -93,7 +93,7 @@ public class ActivityPendingTransitionFactory {
         pageActivity.overridePendingTransition(0, 0);
     }
 
-    public static void enterExitAnimation(TbPageContext tbPageContext, int i) {
+    public static void enterExitAnimation(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(65539, null, tbPageContext, i) != null) || tbPageContext == null) {
             return;

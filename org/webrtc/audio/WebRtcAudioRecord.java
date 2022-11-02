@@ -1,5 +1,6 @@
 package org.webrtc.audio;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.AudioRecord;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
@@ -147,6 +149,7 @@ public class WebRtcAudioRecord {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @CalledByNative
     public WebRtcAudioRecord(Context context, AudioManager audioManager) {
         this(context, audioManager, 7, false, null, null, WebRtcAudioEffects.isAcousticEchoCancelerSupported(), WebRtcAudioEffects.isNoiseSuppressorSupported());
         Interceptable interceptable = $ic;
@@ -261,6 +264,7 @@ public class WebRtcAudioRecord {
         }
     }
 
+    @CalledByNative
     public void setNativeAudioRecord(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
@@ -268,6 +272,7 @@ public class WebRtcAudioRecord {
         }
     }
 
+    @CalledByNative
     private boolean enableBuiltInAEC(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -282,6 +287,7 @@ public class WebRtcAudioRecord {
         return invokeZ.booleanValue;
     }
 
+    @CalledByNative
     private boolean enableBuiltInNS(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -335,6 +341,7 @@ public class WebRtcAudioRecord {
         return invokeV.intValue;
     }
 
+    @TargetApi(23)
     private void logMainParametersExtended() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65555, this) == null) && WebRtcAudioUtils.runningOnMarshmallowOrHigher()) {
@@ -363,6 +370,7 @@ public class WebRtcAudioRecord {
         return (JavaAudioDeviceModule.ExternalSamplesReadyCallback) invokeV.objValue;
     }
 
+    @CalledByNative
     public boolean isAcousticEchoCancelerSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -372,6 +380,7 @@ public class WebRtcAudioRecord {
         return invokeV.booleanValue;
     }
 
+    @CalledByNative
     public boolean isNoiseSuppressorSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -381,6 +390,7 @@ public class WebRtcAudioRecord {
         return invokeV.booleanValue;
     }
 
+    @CalledByNative
     private int initRecording(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -441,6 +451,7 @@ public class WebRtcAudioRecord {
         }
     }
 
+    @CalledByNative
     private boolean stopRecording() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -480,6 +491,7 @@ public class WebRtcAudioRecord {
         }
     }
 
+    @CalledByNative
     private boolean startRecording() {
         InterceptResult invokeV;
         boolean z;

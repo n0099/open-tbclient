@@ -7,26 +7,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Metrics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Metrics";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map map;
+    public final Map<String, HistogramInfo> map;
 
     public static native void nativeEnable();
 
     public static native Metrics nativeGetAndReset();
 
-    /* loaded from: classes8.dex */
-    public class HistogramInfo {
+    /* loaded from: classes9.dex */
+    public static class HistogramInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bucketCount;
         public final int max;
         public final int min;
-        public final Map samples;
+        public final Map<Integer, Integer> samples;
 
+        @CalledByNative("HistogramInfo")
         public HistogramInfo(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -48,6 +49,7 @@ public class Metrics {
             this.bucketCount = i3;
         }
 
+        @CalledByNative("HistogramInfo")
         public void addSample(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -56,6 +58,7 @@ public class Metrics {
         }
     }
 
+    @CalledByNative
     public Metrics() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -88,6 +91,7 @@ public class Metrics {
         return (Metrics) invokeV.objValue;
     }
 
+    @CalledByNative
     private void add(String str, HistogramInfo histogramInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, str, histogramInfo) == null) {

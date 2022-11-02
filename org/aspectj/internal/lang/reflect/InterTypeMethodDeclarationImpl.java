@@ -15,21 +15,21 @@ import java.lang.reflect.TypeVariable;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeMethodDeclaration;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeMethodDeclaration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Method baseMethod;
-    public AjType[] exceptionTypes;
+    public AjType<?>[] exceptionTypes;
     public Type[] genericParameterTypes;
     public Type genericReturnType;
     public String name;
     public int parameterAdjustmentFactor;
-    public AjType[] parameterTypes;
-    public AjType returnType;
+    public AjType<?>[] parameterTypes;
+    public AjType<?> returnType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeMethodDeclarationImpl(AjType ajType, String str, int i, String str2, Method method) {
+    public InterTypeMethodDeclarationImpl(AjType<?> ajType, String str, int i, String str2, Method method) {
         super(ajType, str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,7 +53,7 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeMethodDeclarationImpl(AjType ajType, AjType ajType2, Method method, int i) {
+    public InterTypeMethodDeclarationImpl(AjType<?> ajType, AjType<?> ajType2, Method method, int i) {
         super(ajType, ajType2, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,12 +78,12 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeMethodDeclaration
-    public AjType[] getExceptionTypes() {
+    public AjType<?>[] getExceptionTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Class<?>[] exceptionTypes = this.baseMethod.getExceptionTypes();
-            AjType[] ajTypeArr = new AjType[exceptionTypes.length];
+            AjType<?>[] ajTypeArr = new AjType[exceptionTypes.length];
             for (int i = 0; i < exceptionTypes.length; i++) {
                 ajTypeArr[i] = AjTypeSystem.getAjType(exceptionTypes[i]);
             }
@@ -117,14 +117,14 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeMethodDeclaration
-    public AjType[] getParameterTypes() {
+    public AjType<?>[] getParameterTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Class<?>[] parameterTypes = this.baseMethod.getParameterTypes();
             int length = parameterTypes.length;
             int i = this.parameterAdjustmentFactor;
-            AjType[] ajTypeArr = new AjType[length - i];
+            AjType<?>[] ajTypeArr = new AjType[length - i];
             while (i < parameterTypes.length) {
                 ajTypeArr[i - this.parameterAdjustmentFactor] = AjTypeSystem.getAjType(parameterTypes[i]);
                 i++;
@@ -135,7 +135,7 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeMethodDeclaration
-    public AjType getReturnType() {
+    public AjType<?> getReturnType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -145,7 +145,7 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeMethodDeclaration
-    public TypeVariable[] getTypeParameters() {
+    public TypeVariable<Method>[] getTypeParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -191,7 +191,7 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
             stringBuffer.append(".");
             stringBuffer.append(getName());
             stringBuffer.append("(");
-            AjType[] parameterTypes = getParameterTypes();
+            AjType<?>[] parameterTypes = getParameterTypes();
             for (int i = 0; i < parameterTypes.length - 1; i++) {
                 stringBuffer.append(parameterTypes[i].toString());
                 stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);

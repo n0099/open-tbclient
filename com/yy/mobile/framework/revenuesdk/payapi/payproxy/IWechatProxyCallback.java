@@ -5,5 +5,5 @@ import java.util.Map;
 public interface IWechatProxyCallback {
     void onFail(String str);
 
-    void onSuccess(Map map);
+    void onSuccess(Map<String, String> map);
 }

@@ -1,53 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ComponentInfo;
-import android.content.pm.ResolveInfo;
-import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes4.dex */
 public class kc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Intent a(Context context) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
-        List<ResolveInfo> queryIntentActivities;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (hexString.length() == 1) {
+                    sb.append('0');
+                }
+                sb.append(hexString);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return String.valueOf(str.hashCode());
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
             try {
-                queryIntentActivities = context.getPackageManager().queryIntentActivities(new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER"), 32);
-            } catch (Throwable th) {
-                lc1.d(th);
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
             }
-            if (queryIntentActivities != null && queryIntentActivities.size() != 0) {
-                for (ResolveInfo resolveInfo : queryIntentActivities) {
-                    String str = resolveInfo.activityInfo.permission;
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    Intent intent = new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER");
-                    intent.setClassName(((ComponentInfo) activityInfo).packageName, ((ComponentInfo) activityInfo).name);
-                    if (Build.VERSION.SDK_INT > 11) {
-                        intent.addFlags(32);
-                    }
-                    if (TextUtils.isEmpty(str) || context.checkCallingOrSelfPermission(str) == 0) {
-                        if (intent.getComponent() != null && context.getPackageName().equals(intent.getComponent().getPackageName())) {
-                            return intent;
-                        }
-                    }
-                }
-                return null;
-            }
-            return null;
         }
-        return (Intent) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

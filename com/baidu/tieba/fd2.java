@@ -1,30 +1,23 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.gd2;
+import androidx.collection.ArraySet;
+import com.baidu.tieba.an2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fd2 implements gd2.a {
+public class fd2 implements dd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public JSONObject b;
+    public String[] a;
 
-    public fd2(String str, boolean z) {
+    public fd2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,71 +27,24 @@ public class fd2 implements gd2.a {
                 return;
             }
         }
-        JSONObject jSONObject = new JSONObject();
-        this.b = jSONObject;
-        this.a = str;
-        try {
-            jSONObject.put(IntentConfig.PKG_ID, str);
-            if (z) {
-                update();
-            }
-        } catch (JSONException e) {
-            if (gd2.m0) {
-                e.printStackTrace();
-            }
-        }
+        this.a = new String[]{an2.i(), an2.l(), an2.r(), an2.b.f(), x12.f(), x12.d(), i12.c(), an2.f.f(), an2.f.d(), wh2.d};
     }
 
-    public static fd2 query(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new fd2(str, true);
-        }
-        return (fd2) invokeL.objValue;
-    }
-
-    private void update() throws JSONException {
-        PMSAppInfo u;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = jb4.i().u(this.a)) != null) {
-            this.b.put("app_name", u.appName);
-            this.b.put("pkg_vername", u.versionName);
-            this.b.put("pkg_vercode", u.versionCode);
-            this.b.put("create_time", u.createTime);
-            this.b.put("last_launch_time", u.getLastLaunchTime());
-            this.b.put("launch_count", u.getLaunchCount());
-            this.b.put("install_src", u.getInstallSrc());
-        }
-    }
-
-    @Override // com.baidu.tieba.gd2.a
-    public String a() {
+    @Override // com.baidu.tieba.dd2
+    public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = ik4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            e12.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gd2.a
-    public JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gd2.a
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
+        return (ArraySet) invokeV.objValue;
     }
 }

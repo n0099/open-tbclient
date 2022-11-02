@@ -1,18 +1,23 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.android.msasdk.FreemeIdsSupplier;
 import com.android.msasdk.IConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public class l extends m implements IConnect {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public Context n;
+    @Keep
     public String o;
+    @Keep
     public FreemeIdsSupplier p;
 
     public l(Context context) {
@@ -34,11 +39,14 @@ public class l extends m implements IConnect {
     }
 
     @Override // com.android.msasdk.IConnect
+    @Keep
     public native void connectSuccess(boolean z);
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
     public native void doStart();
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
     public native void shutDown();
 }

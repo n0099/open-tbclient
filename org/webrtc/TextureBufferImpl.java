@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
 import javax.annotation.Nullable;
 import org.webrtc.TextureBufferImpl;
 import org.webrtc.VideoFrame;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TextureBufferImpl implements VideoFrame.TextureBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
             Matrix matrix2 = new Matrix(this.transformMatrix);
             matrix2.preConcat(matrix);
             retain();
-            return new TextureBufferImpl(i, i2, i3, i4, this.type, this.id, matrix2, this.toI420Handler, this.yuvConverter, new Runnable() { // from class: com.baidu.tieba.iw9
+            return new TextureBufferImpl(i, i2, i3, i4, this.type, this.id, matrix2, this.toI420Handler, this.yuvConverter, new Runnable() { // from class: com.baidu.tieba.rx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -198,7 +198,7 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return (VideoFrame.I420Buffer) ThreadUtils.invokeAtFrontUninterruptibly(this.toI420Handler, new Callable() { // from class: com.baidu.tieba.ex9
+            return (VideoFrame.I420Buffer) ThreadUtils.invokeAtFrontUninterruptibly(this.toI420Handler, new Callable() { // from class: com.baidu.tieba.ny9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

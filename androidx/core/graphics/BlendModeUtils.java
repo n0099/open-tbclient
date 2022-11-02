@@ -2,6 +2,9 @@ package androidx.core.graphics;
 
 import android.graphics.BlendMode;
 import android.graphics.PorterDuff;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -169,7 +172,9 @@ public class BlendModeUtils {
         }
     }
 
-    public static BlendMode obtainBlendModeFromCompat(BlendModeCompat blendModeCompat) {
+    @Nullable
+    @RequiresApi(29)
+    public static BlendMode obtainBlendModeFromCompat(@NonNull BlendModeCompat blendModeCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, blendModeCompat)) == null) {
@@ -239,7 +244,8 @@ public class BlendModeUtils {
         return (BlendMode) invokeL.objValue;
     }
 
-    public static PorterDuff.Mode obtainPorterDuffFromCompat(BlendModeCompat blendModeCompat) {
+    @Nullable
+    public static PorterDuff.Mode obtainPorterDuffFromCompat(@Nullable BlendModeCompat blendModeCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, blendModeCompat)) == null) {

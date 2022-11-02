@@ -3,7 +3,6 @@ package com.baidu.minivideo.plugin.capture.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class VideoPlayData implements Jsonable, Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<VideoPlayData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int end;
     public int height;
@@ -57,7 +56,7 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.minivideo.plugin.capture.bean.VideoPlayData.1
+        CREATOR = new Parcelable.Creator<VideoPlayData>() { // from class: com.baidu.minivideo.plugin.capture.bean.VideoPlayData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,6 +75,7 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public VideoPlayData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -87,6 +87,7 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public VideoPlayData[] newArray(int i) {
                 InterceptResult invokeI;
@@ -169,7 +170,7 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
                 }
                 this.isOriginal = jSONObject.optBoolean("isOriginal");
                 this.insertIndex = jSONObject.optInt("insertIndex");
-                this.rotation = jSONObject.optInt(Key.ROTATION);
+                this.rotation = jSONObject.optInt("rotation");
                 this.width = jSONObject.optInt("width");
                 this.height = jSONObject.optInt("height");
                 this.mMaterialId = jSONObject.optString("mMaterialId");
@@ -252,7 +253,7 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
                 jSONObject.put(UnitedSchemeConstants.UNITED_SCHEME_NEXT, this.next.toJson().toString());
                 jSONObject.put("isOriginal", this.isOriginal);
                 jSONObject.put("insertIndex", this.insertIndex);
-                jSONObject.put(Key.ROTATION, this.rotation);
+                jSONObject.put("rotation", this.rotation);
                 jSONObject.put("width", this.width);
                 jSONObject.put("height", this.height);
                 jSONObject.put("mMaterialId", this.mMaterialId);

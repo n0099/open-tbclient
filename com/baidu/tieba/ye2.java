@@ -1,39 +1,42 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.an2;
+import com.baidu.tieba.j93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ye2 extends xd2 {
+public class ye2 extends b63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList b;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements xi3<h93<j93.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ye2 a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ ye2 d;
 
-        public a(ye2 ye2Var) {
+        public a(ye2 ye2Var, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ye2Var};
+                Object[] objArr = {ye2Var, callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,38 +46,48 @@ public abstract class ye2 extends xd2 {
                     return;
                 }
             }
-            this.a = ye2Var;
+            this.d = ye2Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xi3
+        /* renamed from: b */
+        public void a(h93<j93.e> h93Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m02.k("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
-                xe2 b = xe2.b(this.a.a);
-                se2 se2Var = new se2();
-                se2Var.a = b.a;
-                se2Var.b = b.b;
-                se2Var.c = this.a.a.a();
-                ye2 ye2Var = this.a;
-                ye2Var.l(ye2Var.g(se2Var));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h93Var) == null) {
+                if (c93.h(h93Var)) {
+                    this.d.k(this.c, this.b, this.a);
+                } else {
+                    c93.q(h93Var, this.a, this.b);
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public class b implements an2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fi3 a;
-        public final /* synthetic */ Exception b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ String c;
 
-        public b(ye2 ye2Var, fi3 fi3Var, Exception exc) {
+        @Override // com.baidu.tieba.an2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public b(ye2 ye2Var, CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ye2Var, fi3Var, exc};
+                Object[] objArr = {ye2Var, callbackHandler, jSONObject, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,227 +97,119 @@ public abstract class ye2 extends xd2 {
                     return;
                 }
             }
-            this.a = fi3Var;
-            this.b = exc;
+            this.a = callbackHandler;
+            this.b = jSONObject;
+            this.c = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.an2.c
+        public void onFailed() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (this.a == null) {
+                    e12.o("ExtCore-DebugDownload", "handler is null");
+                    return;
+                }
+                try {
+                    e12.c("ExtCore-DebugDownload", "download failed");
+                    w33.f(ln2.c(), R.string.obfuscated_res_0x7f0f012c).G();
+                    this.b.put("status", -1);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
             }
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327203, "Lcom/baidu/tieba/ye2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        @Override // com.baidu.tieba.an2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a == null) {
+                    e12.o("ExtCore-DebugDownload", "handler is null");
+                    return;
+                }
+                try {
+                    File c = ve2.c();
+                    File b = ve2.b();
+                    if (c.exists() && ik4.U(c.getPath(), b.getPath())) {
+                        e12.c("ExtCore-DebugDownload", "download success");
+                        w33.f(ln2.c(), R.string.obfuscated_res_0x7f0f012d).G();
+                        this.b.put("status", 0);
+                        this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 0).toString());
+                    } else {
+                        e12.c("ExtCore-DebugDownload", "download failed");
+                        w33.f(ln2.c(), R.string.obfuscated_res_0x7f0f012c).G();
+                        this.b.put("status", -1);
+                        this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
+                    }
+                } catch (JSONException e) {
+                    e12.d("ExtCore-DebugDownload", "build result with exception", e);
+                    e.printStackTrace();
+                    this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948327203, "Lcom/baidu/tieba/ye2;");
-                return;
-            }
         }
-        c = wj1.a;
-    }
-
-    @Override // com.baidu.tieba.xd2
-    public File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new File(super.a(), "preset");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            o("0");
-            n(0L);
-        }
-    }
-
-    public ExtensionCore h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            long i = i();
-            extensionCore.extensionCoreVersionCode = i;
-            extensionCore.extensionCoreVersionName = j();
-            extensionCore.extensionCorePath = b(i).getPath();
-            extensionCore.extensionCoreType = 0;
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return ac3.a().getLong(this.a.b(), 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ac3.a().getString(this.a.e(), "");
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ye2(ve2 ve2Var) {
-        super(ve2Var);
+    public ye2(b53 b53Var) {
+        super(b53Var, "/swanAPI/debug/downloadExtension");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ve2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ve2) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new CopyOnWriteArrayList();
     }
 
-    public void p(fi3 fi3Var) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, fi3Var) == null) {
-            m02.k("ExtCore-PresetControl", "tryUpdateAsync: start");
-            if (!k()) {
-                m02.k("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
-                m(fi3Var, null);
-                return;
-            }
-            if (this.b.isEmpty()) {
-                new Thread(new a(this), "updateExtensionCoreAsync").start();
-            }
-            if (fi3Var != null) {
-                this.b.add(fi3Var);
-            }
-        }
-    }
-
-    public final void l(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            Iterator it = this.b.iterator();
-            while (it.hasNext()) {
-                m((fi3) it.next(), exc);
-            }
-            this.b.clear();
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            ac3.a().putLong(this.a.b(), j);
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            ac3.a().putString(this.a.e(), str);
-        }
-    }
-
-    public final void m(fi3 fi3Var, Exception exc) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fi3Var, exc) == null) && fi3Var != null) {
-            gh3.e0(new b(this, fi3Var, exc));
-        }
-    }
-
-    public Exception g(se2 se2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, se2Var)) == null) {
-            if (c) {
-                Log.d("ExtCore-PresetControl", "doUpdate: preset");
-            }
-            if (TextUtils.isEmpty(se2Var.c)) {
-                if (c) {
-                    Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
-                }
-                return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
-            }
-            long j = se2Var.b;
-            if (qj4.V(se2Var.c, b(j).getPath())) {
-                df2.b(a(), j);
-                n(j);
-                o(se2Var.a);
-                df2.i(this.a.c(), false);
-                return null;
-            }
-            Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + se2Var.c);
-            if (c) {
-                Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(exc));
-            }
-            return exc;
-        }
-        return (Exception) invokeL.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!h().isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate: true, getCurExtensionCore not available.");
-                }
-                return true;
-            } else if (!df2.h(this.a.c())) {
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
-                }
-                return false;
-            } else {
-                xe2 b2 = xe2.b(this.a);
-                long i = i();
-                long j = b2.b;
-                if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + i + " newVer: " + j);
-                }
-                if (i < j) {
-                    return true;
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            JSONObject a2 = b63.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                e12.c("ExtCore-DebugDownload", "params is null");
+                w33.f(context, R.string.obfuscated_res_0x7f0f0149).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
+            String optString = a2.optString("url");
+            if (TextUtils.isEmpty(optString)) {
+                e12.c("ExtCore-DebugDownload", "url is null");
+                w33.f(context, R.string.obfuscated_res_0x7f0f011e).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            String optString2 = a2.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
+                e12.c("ExtCore-DebugDownload", "cb is null");
+                w33.f(context, R.string.obfuscated_res_0x7f0f012b).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
+                return false;
+            }
+            e43Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public void q() {
+    public final void k(String str, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !k()) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, callbackHandler) == null) {
+            an2.I(str, new b(this, callbackHandler, new JSONObject(), str2));
         }
-        xe2 b2 = xe2.b(this.a);
-        se2 se2Var = new se2();
-        se2Var.a = b2.a;
-        se2Var.b = b2.b;
-        se2Var.c = this.a.a();
-        l(g(se2Var));
     }
 }

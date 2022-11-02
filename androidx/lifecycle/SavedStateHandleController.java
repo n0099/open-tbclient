@@ -1,6 +1,7 @@
 package androidx.lifecycle;
 
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryOwner;
@@ -39,7 +40,7 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
         }
 
         @Override // androidx.savedstate.SavedStateRegistry.AutoRecreated
-        public void onRecreated(SavedStateRegistryOwner savedStateRegistryOwner) {
+        public void onRecreated(@NonNull SavedStateRegistryOwner savedStateRegistryOwner) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, savedStateRegistryOwner) == null) {
                 if (savedStateRegistryOwner instanceof ViewModelStoreOwner) {
@@ -131,7 +132,7 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
                     }
 
                     @Override // androidx.lifecycle.LifecycleEventObserver
-                    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_START) {
                             this.val$lifecycle.removeObserver(this);
@@ -159,7 +160,7 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
     }
 
     @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_DESTROY) {
             this.mIsAttached = false;

@@ -1,5 +1,7 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,6 +16,7 @@ import java.util.Map;
 public abstract class ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final Map<String, Object> mBagOfTags;
     public volatile boolean mCleared;
 
@@ -68,6 +71,7 @@ public abstract class ViewModel {
         return (T) invokeL.objValue;
     }
 
+    @MainThread
     public final void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

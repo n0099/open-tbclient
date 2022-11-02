@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
+@Keep
 /* loaded from: classes8.dex */
 public class PayOrderResult {
     public static /* synthetic */ Interceptable $ic;

@@ -1,6 +1,7 @@
 package kotlinx.coroutines.android;
 
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlinx.coroutines.Delay;
@@ -20,7 +21,7 @@ public abstract class HandlerDispatcher extends MainCoroutineDispatcher implemen
     }
 
     @Override // kotlinx.coroutines.Delay
-    public Object delay(long j, Continuation continuation) {
+    public Object delay(long j, Continuation<? super Unit> continuation) {
         return Delay.DefaultImpls.delay(this, j, continuation);
     }
 

@@ -16,6 +16,11 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -56,6 +61,7 @@ public class AppCompatTextViewAutoSizeHelper {
     public final Impl mImpl;
     public boolean mNeedsAutoSizeText;
     public TextPaint mTempTextPaint;
+    @NonNull
     public final TextView mTextView;
 
     /* loaded from: classes.dex */
@@ -93,6 +99,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
+    @RequiresApi(23)
     /* loaded from: classes.dex */
     public static class Impl23 extends Impl {
         public static /* synthetic */ Interceptable $ic;
@@ -121,6 +128,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
+    @RequiresApi(29)
     /* loaded from: classes.dex */
     public static class Impl29 extends Impl23 {
         public static /* synthetic */ Interceptable $ic;
@@ -201,7 +209,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeV.booleanValue;
     }
 
-    public AppCompatTextViewAutoSizeHelper(TextView textView) {
+    public AppCompatTextViewAutoSizeHelper(@NonNull TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -265,7 +273,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
-    public static <T> T accessAndReturnWithDefault(Object obj, String str, T t) {
+    public static <T> T accessAndReturnWithDefault(@NonNull Object obj, @NonNull String str, @NonNull T t) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, t)) == null) {
@@ -283,7 +291,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return (T) invokeLLL.objValue;
     }
 
-    public static <T> T invokeAndReturnWithDefault(Object obj, String str, T t) {
+    public static <T> T invokeAndReturnWithDefault(@NonNull Object obj, @NonNull String str, @NonNull T t) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, t)) == null) {
@@ -325,7 +333,8 @@ public class AppCompatTextViewAutoSizeHelper {
         return (int[]) invokeL.objValue;
     }
 
-    public static Field getTextViewField(String str) {
+    @Nullable
+    public static Field getTextViewField(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
@@ -344,7 +353,8 @@ public class AppCompatTextViewAutoSizeHelper {
         return (Field) invokeL.objValue;
     }
 
-    public static Method getTextViewMethod(String str) {
+    @Nullable
+    public static Method getTextViewMethod(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
@@ -363,6 +373,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return (Method) invokeL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAutoSizeTextTypeWithDefaults(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && supportsAutoSizeText()) {
@@ -403,6 +414,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeMaxTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -412,6 +424,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeV.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeMinTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -421,6 +434,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeV.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeStepGranularity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -430,6 +444,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeV.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int[] getAutoSizeTextAvailableSizes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -439,6 +454,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return (int[]) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeTextType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -448,6 +464,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeV.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isAutoSizeEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -460,6 +477,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeV.booleanValue;
     }
 
+    @RequiresApi(23)
     private StaticLayout createStaticLayoutForMeasuring(CharSequence charSequence, Layout.Alignment alignment, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
@@ -489,6 +507,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return (StaticLayout) invokeLLI.objValue;
     }
 
+    @RequiresApi(16)
     private StaticLayout createStaticLayoutForMeasuringPre23(CharSequence charSequence, Layout.Alignment alignment, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -562,6 +581,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
+    @VisibleForTesting
     public void initTempTextPaint(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -602,7 +622,8 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeIL.booleanValue;
     }
 
-    public void setAutoSizeTextTypeUniformWithPresetSizes(int[] iArr, int i) throws IllegalArgumentException {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048587, this, iArr, i) == null) && supportsAutoSizeText()) {
             int length = iArr.length;
@@ -650,6 +671,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void autoSizeText() {
         int measuredWidth;
         Interceptable interceptable = $ic;
@@ -684,6 +706,7 @@ public class AppCompatTextViewAutoSizeHelper {
         this.mNeedsAutoSizeText = true;
     }
 
+    @VisibleForTesting
     public StaticLayout createLayout(CharSequence charSequence, Layout.Alignment alignment, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
@@ -700,7 +723,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return (StaticLayout) invokeLLII.objValue;
     }
 
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         float f;
         float f2;
         float f3;
@@ -758,6 +781,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIII(1048586, this, i, i2, i3, i4) == null) && supportsAutoSizeText()) {
@@ -769,6 +793,7 @@ public class AppCompatTextViewAutoSizeHelper {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setTextSizeInternal(int i, float f) {
         Resources resources;
         Interceptable interceptable = $ic;

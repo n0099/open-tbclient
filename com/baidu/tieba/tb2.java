@@ -1,212 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public abstract class tb2 implements vb2 {
+/* loaded from: classes6.dex */
+public final class tb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public class a extends ResponseCallback {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a(tb2 tb2Var) {
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public tb2 a;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tb2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = new tb2(null);
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        public tb2 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && tb2.a) {
-                Log.e("AbsDefaultPurger", "onFail: " + exc);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
             }
+            return (tb2) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
+        public b b(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) && tb2.a) {
-                Log.e("AbsDefaultPurger", "onSuccess: ");
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a.b = str;
+                return this;
             }
+            return (b) invokeL.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
+        public b c(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (tb2.a) {
-                    Log.d("AbsDefaultPurger", "parseResponse");
-                }
-                if (response == null || response.body() == null) {
-                    return null;
-                }
-                String string = response.body().string();
-                if (TextUtils.isEmpty(string)) {
-                    return null;
-                }
-                return new JSONObject(string);
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.a.a = i;
+                return this;
             }
-            return (JSONObject) invokeLI.objValue;
+            return (b) invokeI.objValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948175365, "Lcom/baidu/tieba/tb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948175365, "Lcom/baidu/tieba/tb2;");
-                return;
-            }
-        }
-        a = wj1.a;
     }
 
     public tb2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final ResponseCallback c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            return this.b;
         }
-        return (ResponseCallback) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void d(String str) {
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            jb4.i().c(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            jb4.i().h(str);
-            jb4.i().e(lc4.class, str);
-        }
+    public /* synthetic */ tb2(a aVar) {
+        this();
     }
 
-    public void e(List list) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
-            if (a) {
-                Log.d("AbsDefaultPurger", "clearData");
-            }
-            Set d = xb2.d(list);
-            HashSet<String> hashSet = new HashSet(list);
-            if (d != null) {
-                hashSet.removeAll(d);
-            }
-            ec3.j().g("aiapp_setting_", hashSet, false);
-            ec3.j().g("aiapp_", hashSet, false);
-            for (String str : hashSet) {
-                if (a) {
-                    Log.d("AbsDefaultPurger", "clear storage files: " + str);
-                }
-                String v = ua3.v(str);
-                if (!TextUtils.isEmpty(v)) {
-                    qj4.M(v);
-                }
-                String x = ua3.x(str);
-                if (!TextUtils.isEmpty(x)) {
-                    qj4.M(x);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "V8EngineModel{mType=" + this.a + ", mID='" + this.b + "', mViewMode=" + this.c + '}';
         }
-    }
-
-    public void g(List list) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && !list.isEmpty()) {
-            if (a) {
-                Log.d("AbsDefaultPurger", "resetAccredit");
-            }
-            ArrayMap arrayMap = new ArrayMap();
-            arrayMap.put("ma_ids", list);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                o83 a2 = tm2.q().a();
-                jSONObject.put("accredit", new JSONObject(arrayMap));
-                String v = tm2.o().v();
-                da4 b = ea4.b();
-                if (b == null) {
-                    if (!a) {
-                        m02.c("AbsDefaultPurger", "get network obj failed on resetAccredit");
-                    } else {
-                        throw new RuntimeException("SwanNetworkRuntime.getSwanNetwork return null , check inject");
-                    }
-                }
-                qa4 g = qa4.g();
-                if (!g.c()) {
-                    b = null;
-                }
-                PostFormRequest.PostFormRequestBuilder postFormRequestBuilder = (PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) g.postFormRequest().url(v)).addParam("data", jSONObject.toString());
-                if (b != null) {
-                    str = b.getUserAgent();
-                } else {
-                    str = "";
-                }
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) postFormRequestBuilder.userAgent(str)).cookieManager(a2)).build().executeAsyncOnUIBack(c());
-            } catch (JSONException e) {
-                e.printStackTrace();
-                if (a) {
-                    Log.d("AbsDefaultPurger", "resetAccredit with JSONException: ", e);
-                }
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

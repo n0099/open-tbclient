@@ -31,7 +31,7 @@ public class CookieHandler {
         if ((interceptable != null && interceptable.invokeLLL(65537, null, cookieJar, request, headers) != null) || cookieJar == CookieJar.NO_COOKIES) {
             return;
         }
-        List parseAll = Cookie.parseAll(request.url(), headers);
+        List<Cookie> parseAll = Cookie.parseAll(request.url(), headers);
         if (parseAll.isEmpty()) {
             return;
         }

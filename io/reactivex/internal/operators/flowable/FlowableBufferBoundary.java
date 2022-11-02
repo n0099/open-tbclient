@@ -30,41 +30,41 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
+public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function bufferClose;
-    public final Publisher bufferOpen;
-    public final Callable bufferSupplier;
+    public final Function<? super Open, ? extends Publisher<? extends Close>> bufferClose;
+    public final Publisher<? extends Open> bufferOpen;
+    public final Callable<U> bufferSupplier;
 
     /* loaded from: classes8.dex */
-    public final class BufferBoundarySubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class BufferBoundarySubscriber<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8466418554264089604L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final Function bufferClose;
-        public final Publisher bufferOpen;
-        public final Callable bufferSupplier;
-        public Map buffers;
+        public final Subscriber<? super C> actual;
+        public final Function<? super Open, ? extends Publisher<? extends Close>> bufferClose;
+        public final Publisher<? extends Open> bufferOpen;
+        public final Callable<C> bufferSupplier;
+        public Map<Long, C> buffers;
         public volatile boolean cancelled;
         public volatile boolean done;
         public long emitted;
         public final AtomicThrowable errors;
         public long index;
-        public final SpscLinkedArrayQueue queue;
+        public final SpscLinkedArrayQueue<C> queue;
         public final AtomicLong requested;
         public final CompositeDisposable subscribers;
-        public final AtomicReference upstream;
+        public final AtomicReference<Subscription> upstream;
 
         /* loaded from: classes8.dex */
-        public final class BufferOpenSubscriber extends AtomicReference implements FlowableSubscriber, Disposable {
+        public static final class BufferOpenSubscriber<Open> extends AtomicReference<Subscription> implements FlowableSubscriber<Open>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8498650778633225126L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final BufferBoundarySubscriber parent;
+            public final BufferBoundarySubscriber<?, ?, Open, ?> parent;
 
-            public BufferOpenSubscriber(BufferBoundarySubscriber bufferBoundarySubscriber) {
+            public BufferOpenSubscriber(BufferBoundarySubscriber<?, ?, Open, ?> bufferBoundarySubscriber) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,10 +92,10 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
             }
 
             @Override // org.reactivestreams.Subscriber
-            public void onNext(Object obj) {
+            public void onNext(Open open) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                    this.parent.open(obj);
+                if (interceptable == null || interceptable.invokeL(1048580, this, open) == null) {
+                    this.parent.open(open);
                 }
             }
 
@@ -138,7 +138,7 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
             }
         }
 
-        public BufferBoundarySubscriber(Subscriber subscriber, Publisher publisher, Function function, Callable callable) {
+        public BufferBoundarySubscriber(Subscriber<? super C> subscriber, Publisher<? extends Open> publisher, Function<? super Open, ? extends Publisher<? extends Close>> function, Callable<C> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -157,10 +157,10 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
             this.bufferSupplier = callable;
             this.bufferOpen = publisher;
             this.bufferClose = function;
-            this.queue = new SpscLinkedArrayQueue(Flowable.bufferSize());
+            this.queue = new SpscLinkedArrayQueue<>(Flowable.bufferSize());
             this.subscribers = new CompositeDisposable();
             this.requested = new AtomicLong();
-            this.upstream = new AtomicReference();
+            this.upstream = new AtomicReference<>();
             this.buffers = new LinkedHashMap();
             this.errors = new AtomicThrowable();
         }
@@ -195,12 +195,12 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.subscribers.dispose();
                 synchronized (this) {
-                    Map map = this.buffers;
+                    Map<Long, C> map = this.buffers;
                     if (map == null) {
                         return;
                     }
-                    for (Collection collection : map.values()) {
-                        this.queue.offer(collection);
+                    for (C c : map.values()) {
+                        this.queue.offer(c);
                     }
                     this.buffers = null;
                     this.done = true;
@@ -209,7 +209,7 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
             }
         }
 
-        public void close(BufferCloseSubscriber bufferCloseSubscriber, long j) {
+        public void close(BufferCloseSubscriber<T, C> bufferCloseSubscriber, long j) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, bufferCloseSubscriber, j) == null) {
@@ -281,8 +281,8 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
                 return;
             }
             long j = this.emitted;
-            Subscriber subscriber = this.actual;
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            Subscriber<? super C> subscriber = this.actual;
+            SpscLinkedArrayQueue<C> spscLinkedArrayQueue = this.queue;
             int i = 1;
             do {
                 long j2 = this.requested.get();
@@ -300,8 +300,8 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
                             subscriber.onError(this.errors.terminate());
                             return;
                         }
-                        Collection collection = (Collection) spscLinkedArrayQueue.poll();
-                        if (collection == null) {
+                        C poll = spscLinkedArrayQueue.poll();
+                        if (poll == null) {
                             z = true;
                         } else {
                             z = false;
@@ -312,7 +312,7 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
                         } else if (z) {
                             break;
                         } else {
-                            subscriber.onNext(collection);
+                            subscriber.onNext(poll);
                             j++;
                         }
                     }
@@ -348,7 +348,7 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
             }
         }
 
-        public void openComplete(BufferOpenSubscriber bufferOpenSubscriber) {
+        public void openComplete(BufferOpenSubscriber<Open> bufferOpenSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, bufferOpenSubscriber) == null) {
                 this.subscribers.delete(bufferOpenSubscriber);
@@ -370,32 +370,34 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
                 synchronized (this) {
-                    Map map = this.buffers;
+                    Map<Long, C> map = this.buffers;
                     if (map == null) {
                         return;
                     }
-                    for (Collection collection : map.values()) {
-                        collection.add(obj);
+                    for (C c : map.values()) {
+                        c.add(t);
                     }
                 }
             }
         }
 
-        public void open(Object obj) {
+        /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.util.Map<java.lang.Long, C extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void open(Open open) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, open) == null) {
                 try {
                     Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
-                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.bufferClose.apply(obj), "The bufferClose returned a null Publisher");
+                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.bufferClose.apply(open), "The bufferClose returned a null Publisher");
                     long j = this.index;
                     this.index = 1 + j;
                     synchronized (this) {
-                        Map map = this.buffers;
-                        if (map == null) {
+                        Map<Long, C> map = this.buffers;
+                        if (map == 0) {
                             return;
                         }
                         map.put(Long.valueOf(j), collection);
@@ -413,14 +415,14 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class BufferCloseSubscriber extends AtomicReference implements FlowableSubscriber, Disposable {
+    public static final class BufferCloseSubscriber<T, C extends Collection<? super T>> extends AtomicReference<Subscription> implements FlowableSubscriber<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8498650778633225126L;
         public transient /* synthetic */ FieldHolder $fh;
         public final long index;
-        public final BufferBoundarySubscriber parent;
+        public final BufferBoundarySubscriber<T, C, ?, ?> parent;
 
-        public BufferCloseSubscriber(BufferBoundarySubscriber bufferBoundarySubscriber, long j) {
+        public BufferCloseSubscriber(BufferBoundarySubscriber<T, C, ?, ?> bufferBoundarySubscriber, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -464,9 +466,9 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Object obj = get();
+                Subscription subscription = get();
                 SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-                if (obj != subscriptionHelper) {
+                if (subscription != subscriptionHelper) {
                     lazySet(subscriptionHelper);
                     this.parent.close(this, this.index);
                 }
@@ -477,9 +479,9 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                Object obj = get();
+                Subscription subscription = get();
                 SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-                if (obj != subscriptionHelper) {
+                if (subscription != subscriptionHelper) {
                     lazySet(subscriptionHelper);
                     this.parent.boundaryError(this, th);
                     return;
@@ -493,7 +495,7 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
             Subscription subscription;
             SubscriptionHelper subscriptionHelper;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (subscription = (Subscription) get()) != (subscriptionHelper = SubscriptionHelper.CANCELLED)) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (subscription = get()) != (subscriptionHelper = SubscriptionHelper.CANCELLED)) {
                 lazySet(subscriptionHelper);
                 subscription.cancel();
                 this.parent.close(this, this.index);
@@ -510,7 +512,7 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableBufferBoundary(Flowable flowable, Publisher publisher, Function function, Callable callable) {
+    public FlowableBufferBoundary(Flowable<T> flowable, Publisher<? extends Open> publisher, Function<? super Open, ? extends Publisher<? extends Close>> function, Callable<U> callable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -533,7 +535,7 @@ public final class FlowableBufferBoundary extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super U> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(subscriber, this.bufferOpen, this.bufferClose, this.bufferSupplier);

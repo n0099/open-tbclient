@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.ga0;
-import com.baidu.tieba.gc0;
+import com.baidu.tieba.fa0;
+import com.baidu.tieba.fc0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedWrapData implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LiveFeedWrapData> CREATOR;
     public static final String LIVE_FEED_PAGE_FEED_CACHE_KEY = "live_feed_page_feed_cache_key";
     public static final String LIVE_FEED_PAGE_FEED_CACHE_TIME = "live_feed_page_feed_cache_time";
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class LiveFeedWrapData implements Parcelable {
     public int refreshIndex;
     public int refreshType;
     public String resource;
-    public List roomInfoList;
+    public List<LiveRoomEntity> roomInfoList;
     public String sessionId;
     public String subTab;
     public String tab;
@@ -62,7 +62,7 @@ public class LiveFeedWrapData implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveFeedWrapData.1
+        CREATOR = new Parcelable.Creator<LiveFeedWrapData>() { // from class: com.baidu.live.business.model.data.LiveFeedWrapData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,6 +81,7 @@ public class LiveFeedWrapData implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedWrapData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -92,6 +93,7 @@ public class LiveFeedWrapData implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedWrapData[] newArray(int i) {
                 InterceptResult invokeI;
@@ -200,11 +202,11 @@ public class LiveFeedWrapData implements Parcelable {
                 }
             }
         }
-        this.hasMore = (this.errCode == 0 && gc0.c(this.roomInfoList)) ? true : true;
+        this.hasMore = (this.errCode == 0 && fc0.c(this.roomInfoList)) ? true : true;
     }
 
     public void parserJson(JSONObject jSONObject, int i, boolean z) {
-        List list;
+        List<LiveRoomEntity> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{jSONObject, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             parseJsonByResponseOnly(jSONObject);
@@ -214,7 +216,7 @@ public class LiveFeedWrapData implements Parcelable {
                 } catch (JSONException e) {
                     LiveFeedPageSdk.liveLog("Feed 缓存记录时间失败 " + e.getMessage());
                 }
-                ga0.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
+                fa0.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
             }
         }
     }

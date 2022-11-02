@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Message;
@@ -79,19 +80,19 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, flVar)) == null) {
-            Collection m637a = bg.a().m637a(Integer.toString(flVar.a()));
+            Collection<bg.b> m637a = bg.a().m637a(Integer.toString(flVar.a()));
             if (m637a.isEmpty()) {
                 return null;
             }
-            Iterator it = m637a.iterator();
+            Iterator<bg.b> it = m637a.iterator();
             if (m637a.size() == 1) {
-                return (bg.b) it.next();
+                return it.next();
             }
             String g = flVar.g();
             while (it.hasNext()) {
-                bg.b bVar = (bg.b) it.next();
-                if (TextUtils.equals(g, bVar.f937b)) {
-                    return bVar;
+                bg.b next = it.next();
+                if (TextUtils.equals(g, next.f937b)) {
+                    return next;
                 }
             }
             return null;
@@ -107,20 +108,20 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnVar)) == null) {
-            Collection m637a = bg.a().m637a(gnVar.k());
+            Collection<bg.b> m637a = bg.a().m637a(gnVar.k());
             if (m637a.isEmpty()) {
                 return null;
             }
-            Iterator it = m637a.iterator();
+            Iterator<bg.b> it = m637a.iterator();
             if (m637a.size() == 1) {
-                return (bg.b) it.next();
+                return it.next();
             }
             String m = gnVar.m();
             String l = gnVar.l();
             while (it.hasNext()) {
-                bg.b bVar = (bg.b) it.next();
-                if (TextUtils.equals(m, bVar.f937b) || TextUtils.equals(l, bVar.f937b)) {
-                    return bVar;
+                bg.b next = it.next();
+                if (TextUtils.equals(m, next.f937b) || TextUtils.equals(l, next.f937b)) {
+                    return next;
                 }
                 while (it.hasNext()) {
                 }
@@ -130,6 +131,7 @@ public class j {
         return (bg.b) invokeL.objValue;
     }
 
+    @SuppressLint({"WrongConstant"})
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
@@ -143,6 +145,7 @@ public class j {
         }
     }
 
+    @SuppressLint({"DefaultLocale"})
     public void a(Context context, bg.b bVar, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLI(1048579, this, context, bVar, i) == null) || "5".equalsIgnoreCase(bVar.g)) {
@@ -194,6 +197,7 @@ public class j {
         }
     }
 
+    @SuppressLint({"DefaultLocale"})
     public void a(Context context, bg.b bVar, boolean z, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, bVar, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {

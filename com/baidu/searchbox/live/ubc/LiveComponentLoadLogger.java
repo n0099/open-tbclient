@@ -54,8 +54,8 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
     public final Lazy abService$delegate;
     public String externalSource;
     public YYStatInfo externalYYStatInfo;
-    public Map flowExtContent;
-    public Map flowMaps;
+    public Map<String, JSONObject> flowExtContent;
+    public Map<String, Flow> flowMaps;
     public String mCurrentRoomId;
     public long mStartTime;
     public final UBCManager ubc;
@@ -80,7 +80,7 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\r\u0010\u000eR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u001d\u0010\f\u001a\u00020\u00078F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\b\u0010\t\u001a\u0004\b\n\u0010\u000b¨\u0006\u000f"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger$Companion;", "", "MEDIA_COMMPONENT_TAG", "Ljava/lang/String;", "UBC_ID_ROOM_COMPONENT_LOAD_FINISH_FLOW", "UBC_LIVE_EVENT_COMP_LOADED", "UBC_LIVE_EVENT_ENTER", "Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger;", "instance$delegate", "Lkotlin/Lazy;", "getInstance", "()Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger;", Transition.MATCH_INSTANCE_STR, "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static final /* synthetic */ KProperty[] $$delegatedProperties;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +179,7 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            return (Flow) this.flowMaps.get(str);
+            return this.flowMaps.get(str);
         }
         return (Flow) invokeL.objValue;
     }
@@ -233,7 +233,7 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                     str2 = str4;
                 }
                 this.externalSource = str2;
-                Map map = this.flowMaps;
+                Map<String, Flow> map = this.flowMaps;
                 if (map != null) {
                     bool = Boolean.valueOf(map.containsKey(str));
                 }
@@ -242,15 +242,15 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                 }
                 YYStatInfo yYStatInfo = this.externalYYStatInfo;
                 if (yYStatInfo != null && (obj3 = yYStatInfo.flowObj) != null) {
-                    Map map2 = this.flowMaps;
+                    Map<String, Flow> map2 = this.flowMaps;
                     if (obj3 != null) {
-                        Flow flow = (Flow) map2.put(str, (Flow) obj3);
+                        map2.put(str, (Flow) obj3);
                     } else {
                         throw new TypeCastException("null cannot be cast to non-null type com.baidu.ubc.Flow");
                     }
                 }
                 YYStatInfo yYStatInfo2 = this.externalYYStatInfo;
-                if (yYStatInfo2 != null && ((JSONObject) this.flowExtContent.get(str)) == null) {
+                if (yYStatInfo2 != null && this.flowExtContent.get(str) == null) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
                     jSONObject.put("setup_type", yYStatInfo2.loadType);
@@ -305,13 +305,13 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
         if ((interceptable == null || interceptable.invokeLLZ(1048580, this, str, str2, z) == null) && z && str != null) {
             LiveComponentStatusHelper.Companion.getInstance().clean();
             this.mCurrentRoomId = str;
-            if (((Flow) this.flowMaps.get(str)) == null) {
+            if (this.flowMaps.get(str) == null) {
                 Flow flow = this.ubc.beginFlow(UBC_ID_ROOM_COMPONENT_LOAD_FINISH_FLOW);
                 this.ubc.flowAddEvent(flow, UBC_LIVE_EVENT_ENTER);
-                Map map = this.flowMaps;
+                Map<String, Flow> map = this.flowMaps;
                 Intrinsics.checkExpressionValueIsNotNull(flow, "flow");
                 map.put(str, flow);
-                if (((JSONObject) this.flowExtContent.get(str)) == null) {
+                if (this.flowExtContent.get(str) == null) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
                     jSONObject.put("setup_type", "launch");
@@ -366,7 +366,7 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
             logDebug("cancelCurrentComponentFlow" + str);
             this.ubc.flowCancel(currentFlowRoomId);
             this.flowMaps.remove(str);
-            JSONObject jSONObject = (JSONObject) this.flowExtContent.remove(str);
+            this.flowExtContent.remove(str);
         }
     }
 
@@ -375,7 +375,7 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
         String str2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (currentFlowRoomId = getCurrentFlowRoomId(str)) != null) {
-            JSONObject jSONObject = (JSONObject) this.flowExtContent.get(str);
+            JSONObject jSONObject = this.flowExtContent.get(str);
             if (jSONObject != null) {
                 PluginInvokeService pluginInvokeService = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService();
                 if (pluginInvokeService != null && pluginInvokeService.isPluginLoaded("com.baidu.live.media.business")) {
@@ -385,11 +385,11 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                 }
                 jSONObject.put("media_business_plugin_loaded", str2);
             }
-            logDebug("endCurrentComponentFlow" + str + contentItem((JSONObject) this.flowExtContent.get(str)).toString());
-            this.ubc.flowSetValueWithDuration(currentFlowRoomId, contentItem((JSONObject) this.flowExtContent.get(str)).toString());
+            logDebug("endCurrentComponentFlow" + str + contentItem(this.flowExtContent.get(str)).toString());
+            this.ubc.flowSetValueWithDuration(currentFlowRoomId, contentItem(this.flowExtContent.get(str)).toString());
             this.ubc.flowEnd(currentFlowRoomId);
             this.flowMaps.remove(str);
-            JSONObject jSONObject2 = (JSONObject) this.flowExtContent.remove(str);
+            this.flowExtContent.remove(str);
         }
     }
 

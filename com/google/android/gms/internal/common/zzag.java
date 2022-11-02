@@ -16,14 +16,14 @@ import java.util.ListIterator;
 import java.util.RandomAccess;
 import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
-public abstract class zzag extends zzac implements List, RandomAccess {
+public abstract class zzag<E> extends zzac<E> implements List<E>, RandomAccess {
     public static /* synthetic */ Interceptable $ic;
-    public static final zzak zza;
+    public static final zzak<Object> zza;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.google.android.gms.internal.common.zzac
     @Deprecated
-    public final zzag zzd() {
+    public final zzag<E> zzd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this : (zzag) invokeV.objValue;
@@ -59,11 +59,11 @@ public abstract class zzag extends zzac implements List, RandomAccess {
         }
     }
 
-    public static zzag zzl() {
+    public static <E> zzag<E> zzl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return zzai.zza;
+            return (zzag<E>) zzai.zza;
         }
         return (zzag) invokeV.objValue;
     }
@@ -94,7 +94,7 @@ public abstract class zzag extends zzac implements List, RandomAccess {
     }
 
     @Override // com.google.android.gms.internal.common.zzac
-    public final zzaj zze() {
+    public final zzaj<E> zze() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -103,23 +103,23 @@ public abstract class zzag extends zzac implements List, RandomAccess {
         return (zzaj) invokeV.objValue;
     }
 
-    public static zzag zzi(Object[] objArr, int i) {
+    public static <E> zzag<E> zzi(Object[] objArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, objArr, i)) == null) {
             if (i == 0) {
-                return zzai.zza;
+                return (zzag<E>) zzai.zza;
             }
             return new zzai(objArr, i);
         }
         return (zzag) invokeLI.objValue;
     }
 
-    public static zzag zzn(Object obj, Object obj2) {
+    public static <E> zzag<E> zzn(E e, E e2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, obj, obj2)) == null) {
-            Object[] objArr = {obj, obj2};
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, e, e2)) == null) {
+            Object[] objArr = {e, e2};
             zzah.zza(objArr, 2);
             return zzi(objArr, 2);
         }
@@ -128,16 +128,16 @@ public abstract class zzag extends zzac implements List, RandomAccess {
 
     @Override // java.util.List
     @Deprecated
-    public final void add(int i, Object obj) {
+    public final void add(int i, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, e) == null) {
             throw new UnsupportedOperationException();
         }
     }
 
     @Override // java.util.List
     @Deprecated
-    public final boolean addAll(int i, Collection collection) {
+    public final boolean addAll(int i, Collection<? extends E> collection) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, collection)) == null) {
@@ -148,13 +148,13 @@ public abstract class zzag extends zzac implements List, RandomAccess {
 
     @Override // java.util.List
     @Deprecated
-    public final Object set(int i, Object obj) {
+    public final E set(int i, E e) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, e)) == null) {
             throw new UnsupportedOperationException();
         }
-        return invokeIL.objValue;
+        return (E) invokeIL.objValue;
     }
 
     @Override // com.google.android.gms.internal.common.zzac
@@ -174,7 +174,7 @@ public abstract class zzag extends zzac implements List, RandomAccess {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.List
     /* renamed from: zzh */
-    public zzag subList(int i, int i2) {
+    public zzag<E> subList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048592, this, i, i2)) == null) {
@@ -184,14 +184,14 @@ public abstract class zzag extends zzac implements List, RandomAccess {
                 return this;
             }
             if (i3 == 0) {
-                return zzai.zza;
+                return (zzag<E>) zzai.zza;
             }
             return new zzaf(this, i, i3);
         }
         return (zzag) invokeII.objValue;
     }
 
-    public static zzag zzj(Iterable iterable) {
+    public static <E> zzag<E> zzj(Iterable<? extends E> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) {
@@ -199,16 +199,16 @@ public abstract class zzag extends zzac implements List, RandomAccess {
                 if (iterable instanceof Collection) {
                     return zzk((Collection) iterable);
                 }
-                Iterator it = iterable.iterator();
+                Iterator<? extends E> it = iterable.iterator();
                 if (!it.hasNext()) {
-                    return zzai.zza;
+                    return (zzag<E>) zzai.zza;
                 }
-                Object next = it.next();
+                E next = it.next();
                 if (!it.hasNext()) {
                     return zzm(next);
                 }
                 zzad zzadVar = new zzad(4);
-                zzadVar.zzb(next);
+                zzadVar.zzb((zzad) next);
                 zzadVar.zzc(it);
                 zzadVar.zzc = true;
                 return zzi(zzadVar.zza, zzadVar.zzb);
@@ -218,12 +218,12 @@ public abstract class zzag extends zzac implements List, RandomAccess {
         return (zzag) invokeL.objValue;
     }
 
-    public static zzag zzk(Collection collection) {
+    public static <E> zzag<E> zzk(Collection<? extends E> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
             if (collection instanceof zzac) {
-                zzag zzd = ((zzac) collection).zzd();
+                zzag<E> zzd = ((zzac) collection).zzd();
                 if (zzd.zzf()) {
                     Object[] array = zzd.toArray();
                     return zzi(array, array.length);
@@ -238,11 +238,11 @@ public abstract class zzag extends zzac implements List, RandomAccess {
         return (zzag) invokeL.objValue;
     }
 
-    public static zzag zzm(Object obj) {
+    public static <E> zzag<E> zzm(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
-            Object[] objArr = {obj};
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, e)) == null) {
+            Object[] objArr = {e};
             zzah.zza(objArr, 1);
             return zzi(objArr, 1);
         }
@@ -301,25 +301,25 @@ public abstract class zzag extends zzac implements List, RandomAccess {
 
     @Override // java.util.List
     @Deprecated
-    public final Object remove(int i) {
+    public final E remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             throw new UnsupportedOperationException();
         }
-        return invokeI.objValue;
+        return (E) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.List
     /* renamed from: zzo */
-    public final zzak listIterator(int i) {
+    public final zzak<E> listIterator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
             zzs.zzb(i, size(), "index");
             if (isEmpty()) {
-                return zza;
+                return (zzak<E>) zza;
             }
             return new zzae(this, i);
         }
@@ -345,8 +345,8 @@ public abstract class zzag extends zzac implements List, RandomAccess {
                         }
                         return true;
                     }
-                    Iterator it = iterator();
-                    Iterator it2 = list.iterator();
+                    Iterator<E> it = iterator();
+                    Iterator<E> it2 = list.iterator();
                     while (true) {
                         if (it.hasNext()) {
                             if (it2.hasNext()) {

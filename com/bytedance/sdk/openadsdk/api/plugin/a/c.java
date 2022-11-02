@@ -20,7 +20,7 @@ import javax.net.ssl.X509TrustManager;
 public class c {
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static final class a {
         public static final c a = new c();
     }
 

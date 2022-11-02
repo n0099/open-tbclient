@@ -1,6 +1,7 @@
 package com.baidu.searchbox.network.outback.request;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.FormBody;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
@@ -17,13 +18,13 @@ public class PostFormRequest extends Request {
 
     /* renamed from: com.baidu.searchbox.network.outback.request.PostFormRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class PostFormRequestBuilder extends Request.Builder {
+    public static class PostFormRequestBuilder extends Request.Builder<PostFormRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public FormBody.Builder bodyBuilder;
@@ -49,13 +50,13 @@ public class PostFormRequest extends Request {
             this.bodyBuilder = new FormBody.Builder();
         }
 
-        public PostFormRequestBuilder params(Map map) {
+        public PostFormRequestBuilder params(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
                 this.bodyBuilder = new FormBody.Builder();
                 for (String str : map.keySet()) {
-                    this.bodyBuilder.add(str, (String) map.get(str));
+                    this.bodyBuilder.add(str, map.get(str));
                 }
                 return this;
             }
@@ -63,7 +64,7 @@ public class PostFormRequest extends Request {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PostFormRequestBuilder(Map map) {
+        public PostFormRequestBuilder(Map<String, CallFactory> map) {
             super(map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,12 +94,12 @@ public class PostFormRequest extends Request {
             return (PostFormRequestBuilder) invokeLL.objValue;
         }
 
-        public PostFormRequestBuilder addParams(Map map) {
+        public PostFormRequestBuilder addParams(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
                 for (String str : map.keySet()) {
-                    addParam(str, (String) map.get(str));
+                    addParam(str, map.get(str));
                 }
                 return this;
             }
@@ -118,7 +119,7 @@ public class PostFormRequest extends Request {
                         this.bodyBuilder.addEncoded(((FormBody) this.body).name(i), ((FormBody) this.body).value(i));
                     }
                 }
-                return new PostFormRequest((PostFormRequestBuilder) post(this.bodyBuilder.build()), null);
+                return new PostFormRequest(post(this.bodyBuilder.build()), null);
             }
             return (PostFormRequest) invokeV.objValue;
         }

@@ -1,6 +1,7 @@
 package com.baidu.ar.plugin;
 
 import android.content.Context;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.InstrumentationInfo;
@@ -36,15 +37,15 @@ public class PackageParserAPI22 extends PackageParser {
     public Object mDefaultPackageUserState;
     public Object mPackage;
     public int mUserId;
-    public Class sActivityClass;
-    public Class sArraySetClass;
-    public Class sInstrumentationClass;
-    public Class sPackageParserClass;
-    public Class sPackageUserStateClass;
-    public Class sPermissionClass;
-    public Class sPermissionGroupClass;
-    public Class sProviderClass;
-    public Class sServiceClass;
+    public Class<?> sActivityClass;
+    public Class<?> sArraySetClass;
+    public Class<?> sInstrumentationClass;
+    public Class<?> sPackageParserClass;
+    public Class<?> sPackageUserStateClass;
+    public Class<?> sPermissionClass;
+    public Class<?> sPermissionGroupClass;
+    public Class<?> sProviderClass;
+    public Class<?> sServiceClass;
 
     static {
         InterceptResult invokeClinit;
@@ -226,7 +227,7 @@ public class PackageParserAPI22 extends PackageParser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            Class cls = this.sPackageParserClass;
+            Class<?> cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
             return (ApplicationInfo) MethodUtils.getAccessibleMethod(cls, "generateApplicationInfo", this.mPackage.getClass(), cls2, this.sPackageUserStateClass, cls2).invoke(null, this.mPackage, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
@@ -238,7 +239,7 @@ public class PackageParserAPI22 extends PackageParser {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i)) == null) {
-            Class cls = this.sPackageParserClass;
+            Class<?> cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
             return (ActivityInfo) MethodUtils.getAccessibleMethod(cls, "generateActivityInfo", this.sActivityClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
@@ -250,7 +251,7 @@ public class PackageParserAPI22 extends PackageParser {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, obj, i)) == null) {
-            Class cls = this.sPackageParserClass;
+            Class<?> cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
             return (ProviderInfo) MethodUtils.getAccessibleMethod(cls, "generateProviderInfo", this.sProviderClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
@@ -262,7 +263,7 @@ public class PackageParserAPI22 extends PackageParser {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, obj, i)) == null) {
-            Class cls = this.sPackageParserClass;
+            Class<?> cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
             return (ServiceInfo) MethodUtils.getAccessibleMethod(cls, "generateServiceInfo", this.sServiceClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
@@ -301,13 +302,13 @@ public class PackageParserAPI22 extends PackageParser {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:9:0x0054 */
     @Override // com.baidu.ar.plugin.PackageParser
-    public PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet hashSet) {
+    public PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet<String> hashSet) {
         InterceptResult invokeCommon;
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{iArr, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), hashSet})) == null) {
             Class<?> cls = Class.forName("java.util.Set");
-            Class cls2 = this.sPackageParserClass;
+            Class<?> cls2 = this.sPackageParserClass;
             Class cls3 = Long.TYPE;
             Method accessibleMethod = MethodUtils.getAccessibleMethod(cls2, "generatePackageInfo", this.mPackage.getClass(), int[].class, Integer.TYPE, cls3, cls3, cls, this.sPackageUserStateClass);
             try {
@@ -340,7 +341,7 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List readIntentFilterFromComponent(Object obj) {
+    public List<IntentFilter> readIntentFilterFromComponent(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, obj)) == null) {

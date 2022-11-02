@@ -3,8 +3,9 @@ package com.baidu.tbadk.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj5;
+import com.baidu.tieba.ck5;
 import com.baidu.tieba.view.AdapterLinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import java.util.List;
 public class SelectRuleRowItem extends AdapterLinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dj5 c;
+    public ck5 c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleRowItem(Context context) {
@@ -39,7 +40,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SelectRuleRowItem(Context context, AttributeSet attributeSet) {
+    public SelectRuleRowItem(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,7 +61,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectRuleRowItem(Context context, AttributeSet attributeSet, int i) {
+    public SelectRuleRowItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,20 +88,20 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
             setOrientation(0);
             setGravity(16);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            dj5 dj5Var = new dj5(getContext());
-            this.c = dj5Var;
-            setAdapter(dj5Var);
+            ck5 ck5Var = new ck5(getContext());
+            this.c = ck5Var;
+            setAdapter(ck5Var);
         }
     }
 
-    public void setData(List list, List list2) {
+    public void setData(List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
             this.c.c(list, list2);
         }
     }
 
-    public void setData(List list, List list2, List list3) {
+    public void setData(List<String> list, List<String> list2, List<String> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, list, list2, list3) == null) {
             this.c.d(list, list2, list3);

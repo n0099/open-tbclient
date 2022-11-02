@@ -9,21 +9,21 @@ import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public volatile e aeD;
     public final b aeF;
     public final c aey;
     public final String url;
     public final AtomicInteger aeC = new AtomicInteger(0);
-    public final List aeE = new CopyOnWriteArrayList();
+    public final List<b> aeE = new CopyOnWriteArrayList();
 
-    /* loaded from: classes7.dex */
-    public final class a extends Handler implements b {
-        public final List aeE;
+    /* loaded from: classes8.dex */
+    public static final class a extends Handler implements b {
+        public final List<b> aeE;
         public final String url;
 
-        public a(String str, List list) {
+        public a(String str, List<b> list) {
             super(Looper.getMainLooper());
             this.url = str;
             this.aeE = list;

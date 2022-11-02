@@ -1,9 +1,11 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.fb6;
-import com.baidu.tieba.rb5;
+import com.baidu.tieba.nc5;
+import com.baidu.tieba.pc6;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,11 +15,11 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes3.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements rb5 {
+/* loaded from: classes4.dex */
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements nc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fb6 enterForumTabFeedData;
+    public pc6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -46,7 +48,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
         return invokeV.objValue;
     }
 
-    public ArrayList getThreadList() {
+    public ArrayList<wn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -56,6 +58,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         String str;
@@ -77,9 +80,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
             if (tabfeedlistResIdl.data == null) {
                 return tabfeedlistResIdl;
             }
-            fb6 fb6Var = new fb6();
-            this.enterForumTabFeedData = fb6Var;
-            fb6Var.g(tabfeedlistResIdl.data);
+            pc6 pc6Var = new pc6();
+            this.enterForumTabFeedData = pc6Var;
+            pc6Var.g(tabfeedlistResIdl.data);
             return tabfeedlistResIdl;
         }
         return invokeIL.objValue;

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l29;
+import com.baidu.tieba.u39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l29 a;
+    public u39 a;
     public View b;
     public boolean c;
 
@@ -68,9 +68,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             if (view2 != null) {
                 view2.setBackgroundDrawable(null);
             }
-            l29 l29Var = this.a;
-            if (l29Var != null) {
-                l29Var.onDestroy();
+            u39 u39Var = this.a;
+            if (u39Var != null) {
+                u39Var.onDestroy();
             }
         }
     }
@@ -79,9 +79,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            l29 l29Var = this.a;
-            if (l29Var != null) {
-                l29Var.F();
+            u39 u39Var = this.a;
+            if (u39Var != null) {
+                u39Var.F();
             }
             super.onPause();
         }
@@ -92,9 +92,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            l29 l29Var = this.a;
-            if (l29Var != null) {
-                l29Var.onResume();
+            u39 u39Var = this.a;
+            if (u39Var != null) {
+                u39Var.onResume();
             }
         }
     }
@@ -104,9 +104,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onStart();
-            l29 l29Var = this.a;
-            if (l29Var != null) {
-                l29Var.I();
+            u39 u39Var = this.a;
+            if (u39Var != null) {
+                u39Var.I();
             }
         }
     }
@@ -116,14 +116,14 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStop();
-            l29 l29Var = this.a;
-            if (l29Var != null) {
-                l29Var.K();
+            u39 u39Var = this.a;
+            if (u39Var != null) {
+                u39Var.K();
             }
         }
     }
 
-    public final void L0() {
+    public final void M0() {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (view2 = this.b) == null) {
@@ -133,13 +133,13 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
             this.b.setLayoutParams(layoutParams);
-            M0(true);
+            N0(true);
             return;
         }
-        M0(false);
+        N0(false);
     }
 
-    public final void M0(boolean z) {
+    public final void N0(boolean z) {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (view2 = this.b) == null) {
@@ -158,11 +158,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0114);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091f7f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0116);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091fcb);
             this.c = UtilHelper.canUseStyleImmersiveSticky();
-            L0();
-            this.a = new l29(this, bundle, R.id.obfuscated_res_0x7f090ad5, R.id.obfuscated_res_0x7f090ad5);
+            M0();
+            this.a = new u39(this, bundle, R.id.obfuscated_res_0x7f090ae8, R.id.obfuscated_res_0x7f090ae8);
         }
     }
 
@@ -182,19 +182,19 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201, i);
-            l29 l29Var = this.a;
-            if (l29Var != null) {
-                l29Var.n(i);
+            u39 u39Var = this.a;
+            if (u39Var != null) {
+                u39Var.n(i);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        l29 l29Var;
+        u39 u39Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && (l29Var = this.a) != null) {
-            l29Var.onClick(view2);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && (u39Var = this.a) != null) {
+            u39Var.onClick(view2);
         }
     }
 
@@ -203,9 +203,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            l29 l29Var = this.a;
-            if (l29Var != null) {
-                l29Var.H(bundle);
+            u39 u39Var = this.a;
+            if (u39Var != null) {
+                u39Var.H(bundle);
             }
         }
     }

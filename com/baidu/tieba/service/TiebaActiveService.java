@@ -8,13 +8,14 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDLocation;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.hj;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +80,7 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask {
+    public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -132,9 +133,9 @@ public class TiebaActiveService extends BdBaseService {
                     this.a = netWork;
                     netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
                     this.a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                    this.a.addPostData("model", hj.g());
+                    this.a.addPostData("model", zi.g());
                     this.a.addPostData("edition", TbConfig.getVersion());
-                    this.a.addPostData("system", Build.VERSION.SDK);
+                    this.a.addPostData(BDLocation.BDLOCATION_GNSS_PROVIDER_FROM_SYSTEM, Build.VERSION.SDK);
                     this.a.getNetContext().getRequest().mIsBaiduServer = false;
                     String postNetData = this.a.postNetData();
                     if (this.a.isNetSuccess()) {
@@ -142,7 +143,7 @@ public class TiebaActiveService extends BdBaseService {
                     }
                     return null;
                 } catch (Exception e) {
-                    ux4.k().w("active", 1);
+                    ky4.k().w("active", 1);
                     BdLog.e(e.getMessage());
                     return null;
                 }
@@ -163,11 +164,11 @@ public class TiebaActiveService extends BdBaseService {
                         this.b.mHandler.removeCallbacks(this.b.mRunnable);
                         this.b.mHandler.postDelayed(this.b.mRunnable, 60000L);
                     } else {
-                        ux4.k().w("active", 1);
+                        ky4.k().w("active", 1);
                         this.b.stopSelf();
                     }
                 }
-                ux4.k().w("active", 2);
+                ky4.k().w("active", 2);
                 this.b.stopSelf();
             }
         }
@@ -250,7 +251,7 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToShare(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && str != null && str.length() > 0) {
-            ux4.k().y("channel_id", str);
+            ky4.k().y("channel_id", str);
         }
     }
 
@@ -259,7 +260,7 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
             super.onStart(intent, i);
-            if (isActived() && ux4.k().l("active", 2) != 1) {
+            if (isActived() && ky4.k().l("active", 2) != 1) {
                 stopSelf();
             } else {
                 sendActive();
@@ -271,7 +272,7 @@ public class TiebaActiveService extends BdBaseService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            return ux4.k().q("channel_id", null);
+            return ky4.k().q("channel_id", null);
         }
         return (String) invokeV.objValue;
     }

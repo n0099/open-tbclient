@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +67,7 @@ public class PollingReqMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.data_type = this.dataType;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                yh5.a(builder, true);
+                vi5.a(builder, true);
             }
             LoopReqIdl.Builder builder2 = new LoopReqIdl.Builder();
             builder2.data = builder.build(false);

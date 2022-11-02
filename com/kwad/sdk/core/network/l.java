@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.network;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface l {
     void a(double d, j jVar);
 

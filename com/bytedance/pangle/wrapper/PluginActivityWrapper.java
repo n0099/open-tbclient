@@ -1,6 +1,8 @@
 package com.bytedance.pangle.wrapper;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,6 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.PluginContext;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.util.FieldUtils;
+@Keep
+@SuppressLint({"NewApi"})
 /* loaded from: classes7.dex */
 public class PluginActivityWrapper extends GenerateActivityWrapper {
     public static /* synthetic */ Interceptable $ic;

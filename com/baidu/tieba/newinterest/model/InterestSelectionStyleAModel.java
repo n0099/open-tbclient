@@ -11,9 +11,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gu7;
 import com.baidu.tieba.newinterest.model.msg.GetInterestClassListResponseMessage;
-import com.baidu.tieba.ot7;
-import com.baidu.tieba.xs7;
+import com.baidu.tieba.pu7;
+import com.baidu.tieba.xu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +26,9 @@ import java.util.List;
 public class InterestSelectionStyleAModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xs7 a;
-    public List b;
-    public ot7 c;
+    public gu7 a;
+    public List<pu7> b;
+    public xu7 c;
     public HttpMessageListener d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -93,7 +94,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                             this.a.c.a(this.a.b);
                         }
                     } else if (this.a.c != null) {
-                        this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c68));
+                        this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c7f));
                     }
                 } else if (this.a.c != null) {
                     this.a.c.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
@@ -102,12 +103,12 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
     }
 
-    public InterestSelectionStyleAModel(xs7 xs7Var, ot7 ot7Var) {
+    public InterestSelectionStyleAModel(gu7 gu7Var, xu7 xu7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xs7Var, ot7Var};
+            Object[] objArr = {gu7Var, xu7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -119,8 +120,8 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
         this.b = new ArrayList();
         this.d = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
-        this.c = ot7Var;
-        this.a = xs7Var;
+        this.c = xu7Var;
+        this.a = gu7Var;
         D();
         registerListener();
         E();

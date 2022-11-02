@@ -6,15 +6,16 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.y03;
+import com.baidu.tieba.q13;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CircleIndicator extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +33,7 @@ public class CircleIndicator extends View {
     public int l;
     public final ViewPager.OnPageChangeListener m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +61,7 @@ public class CircleIndicator extends View {
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                y03.g(this.a.getContext().getApplicationContext()).k();
+                q13.g(this.a.getContext().getApplicationContext()).k();
             }
         }
 
@@ -127,7 +128,7 @@ public class CircleIndicator extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, AttributeSet attributeSet) {
+    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -148,7 +149,7 @@ public class CircleIndicator extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, AttributeSet attributeSet, int i) {
+    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -223,8 +224,8 @@ public class CircleIndicator extends View {
             Paint paint = new Paint();
             this.h = paint;
             paint.setAntiAlias(true);
-            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060aa7);
-            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060aa8);
+            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060ab9);
+            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060aba);
             this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070106);
         }
     }

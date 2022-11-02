@@ -31,10 +31,10 @@ public class p7 {
     public boolean e;
     public boolean f;
     public d g;
-    public final x7 h;
-    public final x7 i;
-    public final x7 j;
-    public final x7 k;
+    public final x7<Class, z7<String, a>> h;
+    public final x7<String, Class> i;
+    public final x7<Class, String> j;
+    public final x7<Class, d> k;
     public final Object[] l;
     public final Object[] m;
 
@@ -44,8 +44,8 @@ public class p7 {
     }
 
     /* loaded from: classes5.dex */
-    public interface d {
-        Object a(p7 p7Var, JsonValue jsonValue, Class cls);
+    public interface d<T> {
+        T a(p7 p7Var, JsonValue jsonValue, Class cls);
     }
 
     public boolean g(Class cls, String str) {
@@ -64,7 +64,7 @@ public class p7 {
     }
 
     /* loaded from: classes5.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final w8 a;
@@ -99,7 +99,7 @@ public class p7 {
     }
 
     /* loaded from: classes5.dex */
-    public abstract class b implements d {
+    public static abstract class b<T> implements d<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -133,10 +133,10 @@ public class p7 {
         }
         this.a = DealIntentService.KEY_CLASS;
         this.e = true;
-        this.h = new x7();
-        this.i = new x7();
-        this.j = new x7();
-        this.k = new x7();
+        this.h = new x7<>();
+        this.i = new x7<>();
+        this.j = new x7<>();
+        this.k = new x7<>();
         new x7();
         this.l = new Object[]{null};
         this.m = new Object[]{null};
@@ -151,16 +151,16 @@ public class p7 {
         }
     }
 
-    public Object j(Class cls, JsonValue jsonValue) {
+    public <T> T j(Class<T> cls, JsonValue jsonValue) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, cls, jsonValue)) == null) {
-            return k(cls, null, jsonValue);
+            return (T) k(cls, null, jsonValue);
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public void o(Class cls, d dVar) {
+    public <T> void o(Class<T> cls, d<T> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, cls, dVar) == null) {
             this.k.i(cls, dVar);
@@ -183,7 +183,7 @@ public class p7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return (Class) this.i.c(str);
+            return this.i.c(str);
         }
         return (Class) invokeL.objValue;
     }
@@ -198,45 +198,45 @@ public class p7 {
     public void c(Object obj, Object obj2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, obj2) == null) {
-            z7 f = f(obj2.getClass());
-            x7.a it = f(obj.getClass()).iterator();
+            z7<String, a> f = f(obj2.getClass());
+            x7.a<String, a> it = f(obj.getClass()).iterator();
             while (it.hasNext()) {
-                x7.b bVar = (x7.b) it.next();
-                a aVar = (a) f.c(bVar.a);
-                w8 w8Var = ((a) bVar.b).a;
-                if (aVar != null) {
+                x7.b next = it.next();
+                a c2 = f.c(next.a);
+                w8 w8Var = ((a) next.b).a;
+                if (c2 != null) {
                     try {
-                        aVar.a.j(obj2, w8Var.a(obj));
+                        c2.a.j(obj2, w8Var.a(obj));
                     } catch (ReflectionException e) {
                         throw new SerializationException("Error copying field: " + w8Var.d(), e);
                     }
                 } else {
-                    throw new SerializationException("To object is missing field: " + ((String) bVar.a));
+                    throw new SerializationException("To object is missing field: " + ((String) next.a));
                 }
             }
         }
     }
 
-    public Object d(Class cls, k3 k3Var) {
+    public <T> T d(Class<T> cls, k3 k3Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, k3Var)) == null) {
             try {
-                return k(cls, null, new q7().a(k3Var));
+                return (T) k(cls, null, new q7().a(k3Var));
             } catch (Exception e) {
                 throw new SerializationException("Error reading file: " + k3Var, e);
             }
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public final z7 f(Class cls) {
+    public final z7<String, a> f(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
-            z7 z7Var = (z7) this.h.c(cls);
-            if (z7Var != null) {
-                return z7Var;
+            z7<String, a> c2 = this.h.c(cls);
+            if (c2 != null) {
+                return c2;
             }
             b7 b7Var = new b7();
             for (Class cls2 = cls; cls2 != Object.class; cls2 = cls2.getSuperclass()) {
@@ -246,7 +246,7 @@ public class p7 {
             for (int i = b7Var.b - 1; i >= 0; i--) {
                 Collections.addAll(arrayList, u8.d((Class) b7Var.get(i)));
             }
-            z7 z7Var2 = new z7(arrayList.size());
+            z7<String, a> z7Var = new z7<>(arrayList.size());
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
                 w8 w8Var = (w8) arrayList.get(i2);
@@ -257,14 +257,14 @@ public class p7 {
                         } catch (AccessControlException unused) {
                         }
                     }
-                    z7Var2.i(w8Var.d(), new a(w8Var));
+                    z7Var.i(w8Var.d(), new a(w8Var));
                 }
             }
             if (this.f) {
-                z7Var2.o.m();
+                z7Var.o.m();
             }
-            this.h.i(cls, z7Var2);
-            return z7Var2;
+            this.h.i(cls, z7Var);
+            return z7Var;
         }
         return (z7) invokeL.objValue;
     }
@@ -310,19 +310,19 @@ public class p7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, jsonValue) == null) {
             Class<?> cls = obj.getClass();
-            z7 f = f(cls);
+            z7<String, a> f = f(cls);
             for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
-                a aVar = (a) f.c(jsonValue2.G().replace(" ", "_"));
-                if (aVar == null) {
+                a c2 = f.c(jsonValue2.G().replace(" ", "_"));
+                if (c2 == null) {
                     if (!jsonValue2.e.equals(this.a) && !this.b && !g(cls, jsonValue2.e)) {
                         SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.e + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
                         serializationException.addTrace(jsonValue2.Q());
                         throw serializationException;
                     }
-                } else if (!this.c || this.d || !aVar.c) {
-                    w8 w8Var = aVar.a;
+                } else if (!this.c || this.d || !c2.c) {
+                    w8 w8Var = c2.a;
                     try {
-                        w8Var.j(obj, k(w8Var.getType(), aVar.b, jsonValue2));
+                        w8Var.j(obj, k(w8Var.getType(), c2.b, jsonValue2));
                     } catch (SerializationException e) {
                         e.addTrace(w8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
                         throw e;
@@ -339,27 +339,55 @@ public class p7 {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r13v3. Raw type applied. Possible types: java.lang.Class<com.baidu.tieba.b7> */
+    /* JADX WARN: Code restructure failed: missing block: B:134:0x0208, code lost:
+        if (r13 == java.lang.Object.class) goto L89;
+     */
     /* JADX WARN: Code restructure failed: missing block: B:225:0x0354, code lost:
         if (r13 == r0) goto L138;
      */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:235:0x0378  */
     /* JADX WARN: Removed duplicated region for block: B:302:0x0431 A[RETURN] */
+    /* JADX WARN: Type inference failed for: r0v68, types: [com.baidu.tieba.p7$c] */
+    /* JADX WARN: Type inference failed for: r0v71, types: [com.baidu.tieba.p7$d] */
+    /* JADX WARN: Type inference failed for: r12v14, types: [com.baidu.tieba.p7$d] */
+    /* JADX WARN: Type inference failed for: r12v3, types: [T, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r21v0, types: [java.lang.Object, com.baidu.tieba.p7] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.badlogic.gdx.utils.JsonValue, T] */
+    /* JADX WARN: Type inference failed for: r2v45, types: [com.badlogic.gdx.utils.JsonValue, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r3v24, types: [T, java.util.Map] */
+    /* JADX WARN: Type inference failed for: r3v25, types: [T, com.baidu.tieba.c7] */
+    /* JADX WARN: Type inference failed for: r3v26, types: [T, com.baidu.tieba.o7] */
+    /* JADX WARN: Type inference failed for: r3v27, types: [T, com.baidu.tieba.t7] */
+    /* JADX WARN: Type inference failed for: r3v28, types: [com.baidu.tieba.n7, T] */
+    /* JADX WARN: Type inference failed for: r3v29, types: [T, com.baidu.tieba.y7] */
+    /* JADX WARN: Type inference failed for: r3v30, types: [T, com.baidu.tieba.v7] */
+    /* JADX WARN: Type inference failed for: r3v31, types: [T, com.baidu.tieba.w7] */
+    /* JADX WARN: Type inference failed for: r3v32, types: [T, com.baidu.tieba.x7] */
+    /* JADX WARN: Type inference failed for: r3v33, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r3v41, types: [com.baidu.tieba.d8] */
+    /* JADX WARN: Type inference failed for: r3v45, types: [com.baidu.tieba.b7] */
+    /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Enum, T] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Object k(Class cls, Class cls2, JsonValue jsonValue) {
+    public <T> T k(Class<T> cls, Class cls2, JsonValue jsonValue) {
         InterceptResult invokeLLL;
         Class cls3;
+        JsonValue jsonValue2;
         Class cls4;
-        Collection collection;
-        d8 d8Var;
-        b7 b7Var;
+        JsonValue jsonValue3;
+        T t;
+        T t2;
+        T t3;
         String r;
+        Class cls5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, cls, cls2, jsonValue)) == null) {
-            Class<?> cls5 = cls2;
-            JsonValue jsonValue2 = jsonValue;
-            if (jsonValue2 == null) {
+            Class cls6 = cls2;
+            ?? r2 = (T) jsonValue;
+            if (r2 == 0) {
                 return null;
             }
             if (jsonValue.C()) {
@@ -367,198 +395,205 @@ public class p7 {
                 if (str == null) {
                     r = null;
                 } else {
-                    r = jsonValue2.r(str, null);
+                    r = r2.r(str, null);
                 }
                 if (r != null) {
                     Class e = e(r);
                     if (e == null) {
                         try {
-                            cls3 = u8.a(r);
+                            cls5 = u8.a(r);
                         } catch (ReflectionException e2) {
                             throw new SerializationException(e2);
                         }
                     } else {
-                        cls3 = e;
+                        cls5 = e;
                     }
                 } else {
-                    cls3 = cls;
+                    cls5 = cls;
                 }
-                if (cls3 == null) {
-                    d dVar = this.g;
-                    if (dVar != null) {
-                        return dVar.a(this, jsonValue2, cls3);
+                if (cls5 == null) {
+                    ?? r0 = this.g;
+                    if (r0 != 0) {
+                        return (T) r0.a(this, r2, cls5);
                     }
-                    return jsonValue2;
-                } else if (this.a != null && u8.f(Collection.class, cls3)) {
-                    jsonValue2 = jsonValue2.l("items");
-                    if (jsonValue2 == null) {
-                        throw new SerializationException("Unable to convert object to collection: " + jsonValue2 + " (" + cls3.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                    return r2;
+                } else if (this.a != null && u8.f(Collection.class, cls5)) {
+                    ?? r22 = (T) r2.l("items");
+                    jsonValue2 = r22;
+                    cls3 = cls5;
+                    if (r22 == 0) {
+                        throw new SerializationException("Unable to convert object to collection: " + r22 + " (" + cls5.getName() + SmallTailInfo.EMOTION_SUFFIX);
                     }
                 } else {
-                    d dVar2 = (d) this.k.c(cls3);
-                    if (dVar2 != null) {
-                        return dVar2.a(this, jsonValue2, cls3);
+                    d c2 = this.k.c(cls5);
+                    if (c2 != 0) {
+                        return (T) c2.a(this, r2, cls5);
                     }
-                    if (cls3 != String.class && cls3 != Integer.class && cls3 != Boolean.class && cls3 != Float.class && cls3 != Long.class && cls3 != Double.class && cls3 != Short.class && cls3 != Byte.class && cls3 != Character.class && !u8.f(Enum.class, cls3)) {
-                        Object h = h(cls3);
-                        if (h instanceof c) {
-                            ((c) h).a(this, jsonValue2);
-                            return h;
-                        } else if (h instanceof x7) {
-                            x7 x7Var = (x7) h;
-                            for (JsonValue jsonValue3 = jsonValue2.f; jsonValue3 != null; jsonValue3 = jsonValue3.h) {
-                                x7Var.i(jsonValue3.e, k(cls5, null, jsonValue3));
+                    if (cls5 != String.class && cls5 != Integer.class && cls5 != Boolean.class && cls5 != Float.class && cls5 != Long.class && cls5 != Double.class && cls5 != Short.class && cls5 != Byte.class && cls5 != Character.class && !u8.f(Enum.class, cls5)) {
+                        T t4 = (T) h(cls5);
+                        if (t4 instanceof c) {
+                            ((c) t4).a(this, r2);
+                            return t4;
+                        } else if (t4 instanceof x7) {
+                            ?? r3 = (T) ((x7) t4);
+                            for (JsonValue jsonValue4 = r2.f; jsonValue4 != null; jsonValue4 = jsonValue4.h) {
+                                r3.i(jsonValue4.e, k(cls6, null, jsonValue4));
                             }
-                            return x7Var;
-                        } else if (h instanceof w7) {
-                            w7 w7Var = (w7) h;
-                            for (JsonValue jsonValue4 = jsonValue2.f; jsonValue4 != null; jsonValue4 = jsonValue4.h) {
-                                w7Var.h(jsonValue4.e, ((Integer) k(Integer.class, null, jsonValue4)).intValue());
+                            return r3;
+                        } else if (t4 instanceof w7) {
+                            ?? r32 = (T) ((w7) t4);
+                            for (JsonValue jsonValue5 = r2.f; jsonValue5 != null; jsonValue5 = jsonValue5.h) {
+                                r32.h(jsonValue5.e, ((Integer) k(Integer.class, null, jsonValue5)).intValue());
                             }
-                            return w7Var;
-                        } else if (h instanceof v7) {
-                            v7 v7Var = (v7) h;
-                            for (JsonValue jsonValue5 = jsonValue2.f; jsonValue5 != null; jsonValue5 = jsonValue5.h) {
-                                v7Var.g(jsonValue5.e, ((Float) k(Float.class, null, jsonValue5)).floatValue());
+                            return r32;
+                        } else if (t4 instanceof v7) {
+                            ?? r33 = (T) ((v7) t4);
+                            for (JsonValue jsonValue6 = r2.f; jsonValue6 != null; jsonValue6 = jsonValue6.h) {
+                                r33.g(jsonValue6.e, ((Float) k(Float.class, null, jsonValue6)).floatValue());
                             }
-                            return v7Var;
-                        } else if (h instanceof y7) {
-                            y7 y7Var = (y7) h;
-                            for (JsonValue m = jsonValue2.m(SavedStateHandle.VALUES); m != null; m = m.h) {
-                                y7Var.add(k(cls5, null, m));
+                            return r33;
+                        } else if (t4 instanceof y7) {
+                            ?? r34 = (T) ((y7) t4);
+                            for (JsonValue m = r2.m(SavedStateHandle.VALUES); m != null; m = m.h) {
+                                r34.add(k(cls6, null, m));
                             }
-                            return y7Var;
-                        } else if (h instanceof n7) {
-                            n7 n7Var = (n7) h;
-                            for (JsonValue jsonValue6 = jsonValue2.f; jsonValue6 != null; jsonValue6 = jsonValue6.h) {
-                                n7Var.e(Integer.parseInt(jsonValue6.e), k(cls5, null, jsonValue6));
+                            return r34;
+                        } else if (t4 instanceof n7) {
+                            ?? r35 = (T) ((n7) t4);
+                            for (JsonValue jsonValue7 = r2.f; jsonValue7 != null; jsonValue7 = jsonValue7.h) {
+                                r35.e(Integer.parseInt(jsonValue7.e), k(cls6, null, jsonValue7));
                             }
-                            return n7Var;
-                        } else if (h instanceof t7) {
-                            t7 t7Var = (t7) h;
-                            for (JsonValue jsonValue7 = jsonValue2.f; jsonValue7 != null; jsonValue7 = jsonValue7.h) {
-                                t7Var.f(Long.parseLong(jsonValue7.e), k(cls5, null, jsonValue7));
+                            return r35;
+                        } else if (t4 instanceof t7) {
+                            ?? r36 = (T) ((t7) t4);
+                            for (JsonValue jsonValue8 = r2.f; jsonValue8 != null; jsonValue8 = jsonValue8.h) {
+                                r36.f(Long.parseLong(jsonValue8.e), k(cls6, null, jsonValue8));
                             }
-                            return t7Var;
-                        } else if (h instanceof o7) {
-                            o7 o7Var = (o7) h;
-                            for (JsonValue m2 = jsonValue2.m(SavedStateHandle.VALUES); m2 != null; m2 = m2.h) {
-                                o7Var.a(m2.f());
+                            return r36;
+                        } else if (t4 instanceof o7) {
+                            ?? r37 = (T) ((o7) t4);
+                            for (JsonValue m2 = r2.m(SavedStateHandle.VALUES); m2 != null; m2 = m2.h) {
+                                r37.a(m2.f());
                             }
-                            return o7Var;
-                        } else if (h instanceof c7) {
-                            c7 c7Var = (c7) h;
-                            for (JsonValue jsonValue8 = jsonValue2.f; jsonValue8 != null; jsonValue8 = jsonValue8.h) {
-                                c7Var.e(jsonValue8.e, k(cls5, null, jsonValue8));
+                            return r37;
+                        } else if (t4 instanceof c7) {
+                            ?? r38 = (T) ((c7) t4);
+                            for (JsonValue jsonValue9 = r2.f; jsonValue9 != null; jsonValue9 = jsonValue9.h) {
+                                r38.e(jsonValue9.e, k(cls6, null, jsonValue9));
                             }
-                            return c7Var;
-                        } else if (h instanceof Map) {
-                            Map map = (Map) h;
-                            for (JsonValue jsonValue9 = jsonValue2.f; jsonValue9 != null; jsonValue9 = jsonValue9.h) {
-                                if (!jsonValue9.e.equals(this.a)) {
-                                    map.put(jsonValue9.e, k(cls5, null, jsonValue9));
+                            return r38;
+                        } else if (t4 instanceof Map) {
+                            ?? r39 = (T) ((Map) t4);
+                            for (JsonValue jsonValue10 = r2.f; jsonValue10 != null; jsonValue10 = jsonValue10.h) {
+                                if (!jsonValue10.e.equals(this.a)) {
+                                    r39.put(jsonValue10.e, k(cls6, null, jsonValue10));
                                 }
                             }
-                            return map;
+                            return r39;
                         } else {
-                            i(h, jsonValue2);
-                            return h;
+                            i(t4, r2);
+                            return t4;
                         }
                     }
-                    return l("value", cls3, jsonValue2);
+                    return (T) l("value", cls5, r2);
                 }
             } else {
                 cls3 = cls;
+                jsonValue2 = r2;
             }
             if (cls3 != null) {
-                d dVar3 = (d) this.k.c(cls3);
-                if (dVar3 != null) {
-                    return dVar3.a(this, jsonValue2, cls3);
+                d c3 = this.k.c(cls3);
+                if (c3 != null) {
+                    return (T) c3.a(this, jsonValue2, cls3);
                 }
                 if (u8.f(c.class, cls3)) {
-                    Object h2 = h(cls3);
-                    ((c) h2).a(this, jsonValue2);
-                    return h2;
+                    T t5 = (T) h(cls3);
+                    ((c) t5).a(this, jsonValue2);
+                    return t5;
                 }
             }
             int i = 0;
             if (jsonValue2.u()) {
-                cls3 = (cls3 == null || cls3 == Object.class) ? b7.class : b7.class;
-                if (u8.f(b7.class, cls3)) {
-                    if (cls3 == b7.class) {
-                        b7Var = new b7();
+                Class cls7 = cls3 != null ? cls3 : b7.class;
+                if (u8.f(b7.class, cls7)) {
+                    if (cls7 == b7.class) {
+                        t3 = (T) new b7();
                     } else {
-                        b7Var = (b7) h(cls3);
-                    }
-                    for (JsonValue jsonValue10 = jsonValue2.f; jsonValue10 != null; jsonValue10 = jsonValue10.h) {
-                        b7Var.a(k(cls5, null, jsonValue10));
-                    }
-                    return b7Var;
-                } else if (u8.f(d8.class, cls3)) {
-                    if (cls3 == d8.class) {
-                        d8Var = new d8();
-                    } else {
-                        d8Var = (d8) h(cls3);
+                        t3 = (T) ((b7) h(cls7));
                     }
                     for (JsonValue jsonValue11 = jsonValue2.f; jsonValue11 != null; jsonValue11 = jsonValue11.h) {
-                        d8Var.addLast(k(cls5, null, jsonValue11));
+                        ((b7) t3).a(k(cls6, null, jsonValue11));
                     }
-                    return d8Var;
-                } else if (u8.f(Collection.class, cls3)) {
-                    if (cls3.isInterface()) {
-                        collection = new ArrayList();
+                    return t3;
+                } else if (u8.f(d8.class, cls7)) {
+                    if (cls7 == d8.class) {
+                        t2 = (T) new d8();
                     } else {
-                        collection = (Collection) h(cls3);
+                        t2 = (T) ((d8) h(cls7));
                     }
                     for (JsonValue jsonValue12 = jsonValue2.f; jsonValue12 != null; jsonValue12 = jsonValue12.h) {
-                        collection.add(k(cls5, null, jsonValue12));
+                        ((d8) t2).addLast(k(cls6, null, jsonValue12));
                     }
-                    return collection;
-                } else if (cls3.isArray()) {
-                    Class<?> componentType = cls3.getComponentType();
-                    if (cls5 == null) {
-                        cls5 = componentType;
+                    return t2;
+                } else if (u8.f(Collection.class, cls7)) {
+                    if (cls7.isInterface()) {
+                        t = (T) new ArrayList();
+                    } else {
+                        t = (T) ((Collection) h(cls7));
                     }
-                    Object a2 = t8.a(componentType, jsonValue2.j);
-                    JsonValue jsonValue13 = jsonValue2.f;
-                    while (jsonValue13 != null) {
-                        t8.b(a2, i, k(cls5, null, jsonValue13));
-                        jsonValue13 = jsonValue13.h;
+                    for (JsonValue jsonValue13 = jsonValue2.f; jsonValue13 != null; jsonValue13 = jsonValue13.h) {
+                        ((Collection) t).add(k(cls6, null, jsonValue13));
+                    }
+                    return t;
+                } else if (cls7.isArray()) {
+                    Class<?> componentType = cls7.getComponentType();
+                    Class<?> cls8 = cls6;
+                    if (cls6 == null) {
+                        cls8 = componentType;
+                    }
+                    T t6 = (T) t8.a(componentType, jsonValue2.j);
+                    JsonValue jsonValue14 = jsonValue2.f;
+                    while (jsonValue14 != null) {
+                        t8.b(t6, i, k(cls8, null, jsonValue14));
+                        jsonValue14 = jsonValue14.h;
                         i++;
                     }
-                    return a2;
+                    return t6;
                 } else {
-                    throw new SerializationException("Unable to convert value to required type: " + jsonValue2 + " (" + cls3.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                    throw new SerializationException("Unable to convert value to required type: " + jsonValue2 + " (" + cls7.getName() + SmallTailInfo.EMOTION_SUFFIX);
                 }
             }
-            if (jsonValue2.A()) {
+            boolean A = jsonValue2.A();
+            JsonValue jsonValue15 = jsonValue2;
+            if (A) {
                 if (cls3 != null) {
                     if (cls3 != Float.TYPE && cls3 != Float.class) {
                         if (cls3 != Integer.TYPE && cls3 != Integer.class) {
                             if (cls3 != Long.TYPE && cls3 != Long.class) {
                                 if (cls3 != Double.TYPE && cls3 != Double.class) {
                                     if (cls3 == String.class) {
-                                        return jsonValue2.j();
+                                        return (T) jsonValue2.j();
                                     }
                                     if (cls3 != Short.TYPE && cls3 != Short.class) {
                                         if (cls3 == Byte.TYPE || cls3 == Byte.class) {
-                                            return Byte.valueOf(jsonValue2.b());
+                                            return (T) Byte.valueOf(jsonValue2.b());
                                         }
-                                        jsonValue2 = new JsonValue(jsonValue2.j());
+                                        jsonValue15 = new JsonValue(jsonValue2.j());
                                     }
-                                    return Short.valueOf(jsonValue2.h());
+                                    return (T) Short.valueOf(jsonValue2.h());
                                 }
-                                return Double.valueOf(jsonValue2.c());
+                                return (T) Double.valueOf(jsonValue2.c());
                             }
-                            return Long.valueOf(jsonValue2.g());
+                            return (T) Long.valueOf(jsonValue2.g());
                         }
-                        return Integer.valueOf(jsonValue2.f());
+                        return (T) Integer.valueOf(jsonValue2.f());
                     }
                 }
-                return Float.valueOf(jsonValue2.d());
+                return (T) Float.valueOf(jsonValue2.d());
             }
-            if (!jsonValue2.v()) {
+            if (!jsonValue15.v()) {
                 cls4 = Boolean.class;
+                jsonValue3 = jsonValue15;
             } else {
                 if (cls3 != null) {
                     try {
@@ -571,15 +606,15 @@ public class p7 {
                 }
                 cls4 = Boolean.class;
                 try {
-                    return Boolean.valueOf(jsonValue2.a());
+                    return (T) Boolean.valueOf(jsonValue15.a());
                 } catch (NumberFormatException unused2) {
-                    jsonValue2 = new JsonValue(jsonValue2.j());
-                    if (!jsonValue2.D()) {
+                    jsonValue3 = new JsonValue(jsonValue15.j());
+                    if (!jsonValue3.D()) {
                     }
                 }
             }
-            if (!jsonValue2.D()) {
-                String j = jsonValue2.j();
+            if (!jsonValue3.D()) {
+                ?? r12 = (T) jsonValue3.j();
                 if (cls3 != null && cls3 != String.class) {
                     if (cls3 != Integer.TYPE && cls3 != Integer.class) {
                         if (cls3 != Float.TYPE && cls3 != Float.class) {
@@ -587,7 +622,7 @@ public class p7 {
                                 if (cls3 != Double.TYPE && cls3 != Double.class) {
                                     if (cls3 != Short.TYPE && cls3 != Short.class) {
                                         if (cls3 == Byte.TYPE || cls3 == Byte.class) {
-                                            return Byte.valueOf(j);
+                                            return (T) Byte.valueOf((String) r12);
                                         }
                                         if (cls3 != Boolean.TYPE && cls3 != cls4) {
                                             if (cls3 != Character.TYPE && cls3 != Character.class) {
@@ -595,67 +630,67 @@ public class p7 {
                                                     Enum[] enumArr = (Enum[]) cls3.getEnumConstants();
                                                     int length = enumArr.length;
                                                     while (i < length) {
-                                                        Enum r5 = enumArr[i];
-                                                        if (j.equals(b(r5))) {
+                                                        ?? r5 = (T) enumArr[i];
+                                                        if (r12.equals(b(r5))) {
                                                             return r5;
                                                         }
                                                         i++;
                                                     }
                                                 }
                                                 if (cls3 == CharSequence.class) {
-                                                    return j;
+                                                    return r12;
                                                 }
-                                                throw new SerializationException("Unable to convert value to required type: " + jsonValue2 + " (" + cls3.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                                                throw new SerializationException("Unable to convert value to required type: " + jsonValue3 + " (" + cls3.getName() + SmallTailInfo.EMOTION_SUFFIX);
                                             }
-                                            return Character.valueOf(j.charAt(0));
+                                            return (T) Character.valueOf(r12.charAt(0));
                                         }
-                                        return Boolean.valueOf(j);
+                                        return (T) Boolean.valueOf((String) r12);
                                     }
-                                    return Short.valueOf(j);
+                                    return (T) Short.valueOf((String) r12);
                                 }
-                                return Double.valueOf(j);
+                                return (T) Double.valueOf((String) r12);
                             }
-                            return Long.valueOf(j);
+                            return (T) Long.valueOf((String) r12);
                         }
-                        return Float.valueOf(j);
+                        return (T) Float.valueOf((String) r12);
                     }
-                    return Integer.valueOf(j);
+                    return (T) Integer.valueOf((String) r12);
                 }
-                return j;
+                return r12;
             }
             return null;
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
-    public Object l(String str, Class cls, JsonValue jsonValue) {
+    public <T> T l(String str, Class<T> cls, JsonValue jsonValue) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, cls, jsonValue)) == null) {
-            return k(cls, null, jsonValue.l(str));
+            return (T) k(cls, null, jsonValue.l(str));
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
-    public Object m(String str, Class cls, Class cls2, JsonValue jsonValue) {
+    public <T> T m(String str, Class<T> cls, Class cls2, JsonValue jsonValue) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, cls, cls2, jsonValue)) == null) {
-            return k(cls, cls2, jsonValue.l(str));
+            return (T) k(cls, cls2, jsonValue.l(str));
         }
-        return invokeLLLL.objValue;
+        return (T) invokeLLLL.objValue;
     }
 
-    public Object n(String str, Class cls, Object obj, JsonValue jsonValue) {
+    public <T> T n(String str, Class<T> cls, T t, JsonValue jsonValue) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, str, cls, obj, jsonValue)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, str, cls, t, jsonValue)) == null) {
             JsonValue l = jsonValue.l(str);
             if (l == null) {
-                return obj;
+                return t;
             }
-            return k(cls, null, l);
+            return (T) k(cls, null, l);
         }
-        return invokeLLLL.objValue;
+        return (T) invokeLLLL.objValue;
     }
 }

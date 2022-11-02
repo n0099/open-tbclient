@@ -3,6 +3,8 @@ package com.bumptech.glide.load.resource.drawable;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.content.ContextCompat;
@@ -50,7 +52,7 @@ public final class DrawableDecoderCompat {
         }
     }
 
-    public static Drawable getDrawable(Context context, int i, Resources.Theme theme) {
+    public static Drawable getDrawable(Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, context, i, theme)) == null) {
@@ -59,7 +61,7 @@ public final class DrawableDecoderCompat {
         return (Drawable) invokeLIL.objValue;
     }
 
-    public static Drawable loadDrawableV4(Context context, int i, Resources.Theme theme) {
+    public static Drawable loadDrawableV4(Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, context, i, theme)) == null) {
@@ -68,7 +70,7 @@ public final class DrawableDecoderCompat {
         return (Drawable) invokeLIL.objValue;
     }
 
-    public static Drawable loadDrawableV7(Context context, int i, Resources.Theme theme) {
+    public static Drawable loadDrawableV7(Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, context, i, theme)) == null) {
@@ -80,7 +82,7 @@ public final class DrawableDecoderCompat {
         return (Drawable) invokeLIL.objValue;
     }
 
-    public static Drawable getDrawable(Context context, Context context2, int i) {
+    public static Drawable getDrawable(Context context, Context context2, @DrawableRes int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, context2, i)) == null) {
@@ -89,7 +91,7 @@ public final class DrawableDecoderCompat {
         return (Drawable) invokeLLI.objValue;
     }
 
-    public static Drawable getDrawable(Context context, Context context2, int i, Resources.Theme theme) {
+    public static Drawable getDrawable(Context context, Context context2, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, context2, i, theme)) == null) {

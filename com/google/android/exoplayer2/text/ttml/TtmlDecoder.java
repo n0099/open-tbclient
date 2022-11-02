@@ -47,7 +47,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
     public final XmlPullParserFactory xmlParserFactory;
 
     /* loaded from: classes7.dex */
-    public final class FrameAndTickRate {
+    public static final class FrameAndTickRate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float effectiveFrameRate;
@@ -237,7 +237,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
         }
     }
 
-    private Map parseHeader(XmlPullParser xmlPullParser, Map map, Map map2) throws IOException, XmlPullParserException {
+    private Map<String, TtmlStyle> parseHeader(XmlPullParser xmlPullParser, Map<String, TtmlStyle> map, Map<String, TtmlRegion> map2) throws IOException, XmlPullParserException {
         TtmlRegion parseRegionAttributes;
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -249,7 +249,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
                     TtmlStyle parseStyleAttributes = parseStyleAttributes(xmlPullParser, new TtmlStyle());
                     if (attributeValue != null) {
                         for (String str : parseStyleIds(attributeValue)) {
-                            parseStyleAttributes.chain((TtmlStyle) map.get(str));
+                            parseStyleAttributes.chain(map.get(str));
                         }
                     }
                     if (parseStyleAttributes.getId() != null) {
@@ -265,7 +265,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private TtmlNode parseNode(XmlPullParser xmlPullParser, TtmlNode ttmlNode, Map map, FrameAndTickRate frameAndTickRate) throws SubtitleDecoderException {
+    private TtmlNode parseNode(XmlPullParser xmlPullParser, TtmlNode ttmlNode, Map<String, TtmlRegion> map, FrameAndTickRate frameAndTickRate) throws SubtitleDecoderException {
         InterceptResult invokeLLLL;
         long j;
         long j2;

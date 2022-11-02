@@ -5,7 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.json.annotation.KsJson;
 import org.json.JSONObject;
+@KsJson
 /* loaded from: classes7.dex */
 public final class b extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;

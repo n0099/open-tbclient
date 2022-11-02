@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaFormat;
@@ -14,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class MediaCodecWrapperImpl implements MediaCodecWrapper {
+    /* loaded from: classes9.dex */
+    public static class MediaCodecWrapperImpl implements MediaCodecWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaCodec mediaCodec;
@@ -61,6 +62,7 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
+        @TargetApi(19)
         public void setParameters(Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
@@ -77,6 +79,7 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
+        @TargetApi(18)
         public Surface createInputSurface() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

@@ -24,13 +24,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
-public class BasicContainer implements Container, Iterator {
+public class BasicContainer implements Container, Iterator<Box> {
     public static /* synthetic */ Interceptable $ic;
     public static final Box EOF;
     public static Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
     public BoxParser boxParser;
-    public List boxes;
+    public List<Box> boxes;
     public DataSource dataSource;
     public long endPosition;
     public Box lookahead;
@@ -102,7 +102,7 @@ public class BasicContainer implements Container, Iterator {
     }
 
     @Override // com.coremedia.iso.boxes.Container
-    public List getBoxes() {
+    public List<Box> getBoxes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -120,7 +120,7 @@ public class BasicContainer implements Container, Iterator {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             long j = 0;
             for (int i = 0; i < getBoxes().size(); i++) {
-                j += ((Box) this.boxes.get(i)).getSize();
+                j += this.boxes.get(i).getSize();
             }
             return j;
         }
@@ -188,7 +188,7 @@ public class BasicContainer implements Container, Iterator {
     }
 
     @Override // com.coremedia.iso.boxes.Container
-    public List getBoxes(Class cls) {
+    public <T extends Box> List<T> getBoxes(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
@@ -198,7 +198,7 @@ public class BasicContainer implements Container, Iterator {
     }
 
     @Override // com.coremedia.iso.boxes.Container
-    public void setBoxes(List list) {
+    public void setBoxes(List<Box> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.boxes = new ArrayList(list);
@@ -218,7 +218,7 @@ public class BasicContainer implements Container, Iterator {
     }
 
     @Override // com.coremedia.iso.boxes.Container
-    public List getBoxes(Class cls, boolean z) {
+    public <T extends Box> List<T> getBoxes(Class<T> cls, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, cls, z)) == null) {
@@ -251,6 +251,7 @@ public class BasicContainer implements Container, Iterator {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
     public Box next() {
         InterceptResult invokeV;
@@ -308,7 +309,7 @@ public class BasicContainer implements Container, Iterator {
                 if (i > 0) {
                     sb.append(ParamableElem.DIVIDE_PARAM);
                 }
-                sb.append(((Box) this.boxes.get(i)).toString());
+                sb.append(this.boxes.get(i).toString());
             }
             sb.append(PreferencesUtil.RIGHT_MOUNT);
             return sb.toString();

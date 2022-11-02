@@ -1,54 +1,131 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.faceshop.EmotionData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ad6 extends d65 {
+public class ad6 implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public ArrayList i;
+    public b a;
+    public int b;
+    public c c;
 
-    @Override // com.baidu.tieba.d65
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.d65
-    public pn n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return null;
-        }
-        return (pn) invokeL.objValue;
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(AbsListView absListView, int i, int i2);
     }
 
-    public ad6(EmotionGroupData emotionGroupData) {
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<d> a;
+
+        public b(ad6 ad6Var, AbsListView absListView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ad6Var, absListView, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new ArrayList();
+            int childCount = absListView.getChildCount();
+            for (int i4 = 0; i4 < childCount; i4++) {
+                View childAt = absListView.getChildAt(i4);
+                if (childAt != null) {
+                    this.a.add(new d(ad6Var, childAt, i + i4, null));
+                }
+            }
+        }
+
+        public /* synthetic */ b(ad6 ad6Var, AbsListView absListView, int i, a aVar) {
+            this(ad6Var, absListView, i);
+        }
+
+        public final int b(b bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
+                if (bVar == null) {
+                    return 0;
+                }
+                for (d dVar : this.a) {
+                    for (d dVar2 : bVar.a) {
+                        if (dVar.a == dVar2.a) {
+                            return dVar.b - dVar2.b;
+                        }
+                    }
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+
+        public d(ad6 ad6Var, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ad6Var, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = view2.getTop();
+        }
+
+        public /* synthetic */ d(ad6 ad6Var, View view2, int i, a aVar) {
+            this(ad6Var, view2, i);
+        }
+    }
+
+    public ad6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {emotionGroupData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,150 +135,53 @@ public class ad6 extends d65 {
                 return;
             }
         }
-        this.i = new ArrayList();
-        this.e = emotionGroupData.getGroupId();
-        this.f = emotionGroupData.getGroupName();
-        this.g = emotionGroupData.getWidth();
-        this.h = emotionGroupData.getHeight();
-        u();
+        this.b = 0;
     }
 
-    @Override // com.baidu.tieba.d65
-    public String b(int i) {
-        InterceptResult invokeI;
+    public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= this.i.size()) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        View childAt;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i, i2, i3) != null) || absListView == null || i < 0 || absListView.getChildCount() <= 0 || (childAt = absListView.getChildAt(0)) == null) {
+            return;
+        }
+        if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
+            int i4 = this.b;
+            if (i4 != 0 && (cVar = this.c) != null) {
+                cVar.a(absListView, 0, -i4);
             }
-            return (String) this.i.get(i);
+            this.b = 0;
+            this.a = null;
+            return;
         }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.d65
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            return this.i.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.d65
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.d65
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d65
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d65
-    public EmotionGroupType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return EmotionGroupType.BIG_EMOTION;
-        }
-        return (EmotionGroupType) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d65
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.d65
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.d65
-    public pn o(String str) {
-        InterceptResult invokeL;
-        String b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (v(str)) {
-                b = zc6.c(str, true, false);
-            } else {
-                b = zc6.b(str, false);
+        b bVar = new b(this, absListView, i, null);
+        b bVar2 = this.a;
+        if (bVar2 != null) {
+            int b2 = bVar2.b(bVar);
+            this.a = bVar;
+            int i5 = this.b + b2;
+            this.b = i5;
+            c cVar2 = this.c;
+            if (cVar2 != null) {
+                cVar2.a(absListView, i5, b2);
+                return;
             }
-            Bitmap f = zc6.f(this.e, b);
-            if (f == null) {
-                return null;
-            }
-            return new pn(f, false, str);
+            return;
         }
-        return (pn) invokeL.objValue;
-    }
-
-    public boolean v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-                String substring = replace.substring(0, replace.indexOf(","));
-                if (substring.contains("_") && !substring.contains("collect_")) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            t(2);
-            q(4);
-            Bitmap f = zc6.f(this.e, "panel.png");
-            Bitmap f2 = zc6.f(this.e, "panel_momo.png");
-            if (f != null) {
-                r(new pn(f, false));
-            }
-            if (f2 != null) {
-                s(new pn(f2, false));
-            }
-            this.i.clear();
-            for (EmotionData emotionData : gd6.o().p(this.e)) {
-                this.i.add(emotionData.getSharpText());
-            }
+        this.a = bVar;
+        int paddingTop = absListView.getPaddingTop() - childAt.getTop();
+        this.b = paddingTop;
+        c cVar3 = this.c;
+        if (cVar3 != null) {
+            cVar3.a(absListView, paddingTop, 0);
         }
     }
 }

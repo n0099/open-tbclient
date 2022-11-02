@@ -19,7 +19,7 @@ public class ConcernForumCardUbsABTest extends AbsGroupUbsABTest {
     public static final String CONCERN_FORUM_SID_A = "11_10_user_like_tab_a";
     public static final String CONCERN_FORUM_SID_B = "11_10_user_like_tab_b";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -39,7 +39,7 @@ public class ConcernForumCardUbsABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -81,7 +81,7 @@ public class ConcernForumCardUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(3);
+        ArrayList<String> arrayList = new ArrayList<>(3);
         this.mABTestList = arrayList;
         arrayList.add(CONCERN_FORUM_SID);
         this.mABTestList.add(CONCERN_FORUM_SID_A);

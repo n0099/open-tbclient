@@ -5,6 +5,11 @@ import android.os.Build;
 import android.util.Log;
 import android.view.DisplayCutout;
 import android.view.WindowInsets;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.Insets;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.util.Preconditions;
@@ -22,6 +27,7 @@ import java.util.Objects;
 /* loaded from: classes.dex */
 public class WindowInsetsCompat {
     public static /* synthetic */ Interceptable $ic = null;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final WindowInsetsCompat CONSUMED;
     public static final String TAG = "WindowInsetsCompat";
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +62,7 @@ public class WindowInsetsCompat {
             }
         }
 
-        public Builder(WindowInsetsCompat windowInsetsCompat) {
+        public Builder(@NonNull WindowInsetsCompat windowInsetsCompat) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,6 +87,7 @@ public class WindowInsetsCompat {
             }
         }
 
+        @NonNull
         public WindowInsetsCompat build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -90,7 +97,8 @@ public class WindowInsetsCompat {
             return (WindowInsetsCompat) invokeV.objValue;
         }
 
-        public Builder setDisplayCutout(DisplayCutoutCompat displayCutoutCompat) {
+        @NonNull
+        public Builder setDisplayCutout(@Nullable DisplayCutoutCompat displayCutoutCompat) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, displayCutoutCompat)) == null) {
@@ -100,7 +108,8 @@ public class WindowInsetsCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setMandatorySystemGestureInsets(Insets insets) {
+        @NonNull
+        public Builder setMandatorySystemGestureInsets(@NonNull Insets insets) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, insets)) == null) {
@@ -110,7 +119,8 @@ public class WindowInsetsCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setStableInsets(Insets insets) {
+        @NonNull
+        public Builder setStableInsets(@NonNull Insets insets) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, insets)) == null) {
@@ -120,7 +130,8 @@ public class WindowInsetsCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setSystemGestureInsets(Insets insets) {
+        @NonNull
+        public Builder setSystemGestureInsets(@NonNull Insets insets) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, insets)) == null) {
@@ -130,7 +141,8 @@ public class WindowInsetsCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setSystemWindowInsets(Insets insets) {
+        @NonNull
+        public Builder setSystemWindowInsets(@NonNull Insets insets) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, insets)) == null) {
@@ -140,7 +152,8 @@ public class WindowInsetsCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTappableElementInsets(Insets insets) {
+        @NonNull
+        public Builder setTappableElementInsets(@NonNull Insets insets) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, insets)) == null) {
@@ -157,37 +170,37 @@ public class WindowInsetsCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public final WindowInsetsCompat mInsets;
 
-        public void setDisplayCutout(DisplayCutoutCompat displayCutoutCompat) {
+        public void setDisplayCutout(@Nullable DisplayCutoutCompat displayCutoutCompat) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, displayCutoutCompat) == null) {
             }
         }
 
-        public void setMandatorySystemGestureInsets(Insets insets) {
+        public void setMandatorySystemGestureInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, insets) == null) {
             }
         }
 
-        public void setStableInsets(Insets insets) {
+        public void setStableInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, insets) == null) {
             }
         }
 
-        public void setSystemGestureInsets(Insets insets) {
+        public void setSystemGestureInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, insets) == null) {
             }
         }
 
-        public void setSystemWindowInsets(Insets insets) {
+        public void setSystemWindowInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, insets) == null) {
             }
         }
 
-        public void setTappableElementInsets(Insets insets) {
+        public void setTappableElementInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, insets) == null) {
             }
@@ -211,6 +224,7 @@ public class WindowInsetsCompat {
             }
         }
 
+        @NonNull
         public WindowInsetsCompat build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -220,7 +234,7 @@ public class WindowInsetsCompat {
             return (WindowInsetsCompat) invokeV.objValue;
         }
 
-        public BuilderImpl(WindowInsetsCompat windowInsetsCompat) {
+        public BuilderImpl(@NonNull WindowInsetsCompat windowInsetsCompat) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,6 +253,7 @@ public class WindowInsetsCompat {
         }
     }
 
+    @RequiresApi(api = 20)
     /* loaded from: classes.dex */
     public static class BuilderImpl20 extends BuilderImpl {
         public static /* synthetic */ Interceptable $ic;
@@ -281,6 +296,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
+        @NonNull
         public WindowInsetsCompat build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -290,7 +306,7 @@ public class WindowInsetsCompat {
             return (WindowInsetsCompat) invokeV.objValue;
         }
 
-        public BuilderImpl20(WindowInsetsCompat windowInsetsCompat) {
+        public BuilderImpl20(@NonNull WindowInsetsCompat windowInsetsCompat) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,6 +324,7 @@ public class WindowInsetsCompat {
             this.mInsets = windowInsetsCompat.toWindowInsets();
         }
 
+        @Nullable
         public static WindowInsets createWindowInsetsInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -353,7 +370,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
-        public void setSystemWindowInsets(Insets insets) {
+        public void setSystemWindowInsets(@NonNull Insets insets) {
             WindowInsets windowInsets;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, insets) == null) && (windowInsets = this.mInsets) != null) {
@@ -362,6 +379,7 @@ public class WindowInsetsCompat {
         }
     }
 
+    @RequiresApi(api = 29)
     /* loaded from: classes.dex */
     public static class BuilderImpl29 extends BuilderImpl {
         public static /* synthetic */ Interceptable $ic;
@@ -385,6 +403,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
+        @NonNull
         public WindowInsetsCompat build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -394,7 +413,7 @@ public class WindowInsetsCompat {
             return (WindowInsetsCompat) invokeV.objValue;
         }
 
-        public BuilderImpl29(WindowInsetsCompat windowInsetsCompat) {
+        public BuilderImpl29(@NonNull WindowInsetsCompat windowInsetsCompat) {
             WindowInsets.Builder builder;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -420,7 +439,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
-        public void setDisplayCutout(DisplayCutoutCompat displayCutoutCompat) {
+        public void setDisplayCutout(@Nullable DisplayCutoutCompat displayCutoutCompat) {
             DisplayCutout displayCutout;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, displayCutoutCompat) == null) {
@@ -435,7 +454,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
-        public void setMandatorySystemGestureInsets(Insets insets) {
+        public void setMandatorySystemGestureInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, insets) == null) {
                 this.mPlatBuilder.setMandatorySystemGestureInsets(insets.toPlatformInsets());
@@ -443,7 +462,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
-        public void setStableInsets(Insets insets) {
+        public void setStableInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, insets) == null) {
                 this.mPlatBuilder.setStableInsets(insets.toPlatformInsets());
@@ -451,7 +470,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
-        public void setSystemGestureInsets(Insets insets) {
+        public void setSystemGestureInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, insets) == null) {
                 this.mPlatBuilder.setSystemGestureInsets(insets.toPlatformInsets());
@@ -459,7 +478,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
-        public void setSystemWindowInsets(Insets insets) {
+        public void setSystemWindowInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, insets) == null) {
                 this.mPlatBuilder.setSystemWindowInsets(insets.toPlatformInsets());
@@ -467,7 +486,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.BuilderImpl
-        public void setTappableElementInsets(Insets insets) {
+        public void setTappableElementInsets(@NonNull Insets insets) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, insets) == null) {
                 this.mPlatBuilder.setTappableElementInsets(insets.toPlatformInsets());
@@ -481,6 +500,7 @@ public class WindowInsetsCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public final WindowInsetsCompat mHost;
 
+        @Nullable
         public DisplayCutoutCompat getDisplayCutout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -508,7 +528,7 @@ public class WindowInsetsCompat {
             return invokeV.booleanValue;
         }
 
-        public Impl(WindowInsetsCompat windowInsetsCompat) {
+        public Impl(@NonNull WindowInsetsCompat windowInsetsCompat) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -526,6 +546,7 @@ public class WindowInsetsCompat {
             this.mHost = windowInsetsCompat;
         }
 
+        @NonNull
         public WindowInsetsCompat consumeDisplayCutout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -535,6 +556,7 @@ public class WindowInsetsCompat {
             return (WindowInsetsCompat) invokeV.objValue;
         }
 
+        @NonNull
         public WindowInsetsCompat consumeStableInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -544,6 +566,7 @@ public class WindowInsetsCompat {
             return (WindowInsetsCompat) invokeV.objValue;
         }
 
+        @NonNull
         public WindowInsetsCompat consumeSystemWindowInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -553,6 +576,7 @@ public class WindowInsetsCompat {
             return (WindowInsetsCompat) invokeV.objValue;
         }
 
+        @NonNull
         public Insets getMandatorySystemGestureInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -562,6 +586,7 @@ public class WindowInsetsCompat {
             return (Insets) invokeV.objValue;
         }
 
+        @NonNull
         public Insets getStableInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -571,6 +596,7 @@ public class WindowInsetsCompat {
             return (Insets) invokeV.objValue;
         }
 
+        @NonNull
         public Insets getSystemGestureInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -580,6 +606,7 @@ public class WindowInsetsCompat {
             return (Insets) invokeV.objValue;
         }
 
+        @NonNull
         public Insets getSystemWindowInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -589,6 +616,7 @@ public class WindowInsetsCompat {
             return (Insets) invokeV.objValue;
         }
 
+        @NonNull
         public Insets getTappableElementInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -626,6 +654,7 @@ public class WindowInsetsCompat {
             return invokeV.intValue;
         }
 
+        @NonNull
         public WindowInsetsCompat inset(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
@@ -636,15 +665,17 @@ public class WindowInsetsCompat {
         }
     }
 
+    @RequiresApi(20)
     /* loaded from: classes.dex */
     public static class Impl20 extends Impl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final WindowInsets mPlatformInsets;
         public Insets mSystemWindowInsets;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Impl20(WindowInsetsCompat windowInsetsCompat, WindowInsets windowInsets) {
+        public Impl20(@NonNull WindowInsetsCompat windowInsetsCompat, @NonNull WindowInsets windowInsets) {
             super(windowInsetsCompat);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -666,7 +697,7 @@ public class WindowInsetsCompat {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Impl20(WindowInsetsCompat windowInsetsCompat, Impl20 impl20) {
+        public Impl20(@NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Impl20 impl20) {
             this(windowInsetsCompat, new WindowInsets(impl20.mPlatformInsets));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -687,6 +718,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public final Insets getSystemWindowInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -700,6 +732,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public WindowInsetsCompat inset(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
@@ -723,6 +756,7 @@ public class WindowInsetsCompat {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes.dex */
     public static class Impl21 extends Impl20 {
         public static /* synthetic */ Interceptable $ic;
@@ -730,7 +764,7 @@ public class WindowInsetsCompat {
         public Insets mStableInsets;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Impl21(WindowInsetsCompat windowInsetsCompat, WindowInsets windowInsets) {
+        public Impl21(@NonNull WindowInsetsCompat windowInsetsCompat, @NonNull WindowInsets windowInsets) {
             super(windowInsetsCompat, windowInsets);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -752,7 +786,7 @@ public class WindowInsetsCompat {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Impl21(WindowInsetsCompat windowInsetsCompat, Impl21 impl21) {
+        public Impl21(@NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Impl21 impl21) {
             super(windowInsetsCompat, impl21);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -774,6 +808,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public WindowInsetsCompat consumeStableInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -784,6 +819,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public WindowInsetsCompat consumeSystemWindowInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -804,6 +840,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public final Insets getStableInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -817,13 +854,14 @@ public class WindowInsetsCompat {
         }
     }
 
+    @RequiresApi(28)
     /* loaded from: classes.dex */
     public static class Impl28 extends Impl21 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Impl28(WindowInsetsCompat windowInsetsCompat, WindowInsets windowInsets) {
+        public Impl28(@NonNull WindowInsetsCompat windowInsetsCompat, @NonNull WindowInsets windowInsets) {
             super(windowInsetsCompat, windowInsets);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -844,7 +882,7 @@ public class WindowInsetsCompat {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Impl28(WindowInsetsCompat windowInsetsCompat, Impl28 impl28) {
+        public Impl28(@NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Impl28 impl28) {
             super(windowInsetsCompat, impl28);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -865,6 +903,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public WindowInsetsCompat consumeDisplayCutout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -875,6 +914,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @Nullable
         public DisplayCutoutCompat getDisplayCutout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -911,6 +951,7 @@ public class WindowInsetsCompat {
         }
     }
 
+    @RequiresApi(29)
     /* loaded from: classes.dex */
     public static class Impl29 extends Impl28 {
         public static /* synthetic */ Interceptable $ic;
@@ -920,7 +961,7 @@ public class WindowInsetsCompat {
         public Insets mTappableElementInsets;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Impl29(WindowInsetsCompat windowInsetsCompat, WindowInsets windowInsets) {
+        public Impl29(@NonNull WindowInsetsCompat windowInsetsCompat, @NonNull WindowInsets windowInsets) {
             super(windowInsetsCompat, windowInsets);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -944,7 +985,7 @@ public class WindowInsetsCompat {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Impl29(WindowInsetsCompat windowInsetsCompat, Impl29 impl29) {
+        public Impl29(@NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Impl29 impl29) {
             super(windowInsetsCompat, impl29);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -968,6 +1009,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public Insets getMandatorySystemGestureInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -981,6 +1023,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public Insets getSystemGestureInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -994,6 +1037,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public Insets getTappableElementInsets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1007,6 +1051,7 @@ public class WindowInsetsCompat {
         }
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl20, androidx.core.view.WindowInsetsCompat.Impl
+        @NonNull
         public WindowInsetsCompat inset(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
@@ -1033,7 +1078,8 @@ public class WindowInsetsCompat {
         CONSUMED = new Builder().build().consumeDisplayCutout().consumeStableInsets().consumeSystemWindowInsets();
     }
 
-    public WindowInsetsCompat(WindowInsets windowInsets) {
+    @RequiresApi(20)
+    public WindowInsetsCompat(@NonNull WindowInsets windowInsets) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1062,7 +1108,7 @@ public class WindowInsetsCompat {
         }
     }
 
-    public WindowInsetsCompat(WindowInsetsCompat windowInsetsCompat) {
+    public WindowInsetsCompat(@Nullable WindowInsetsCompat windowInsetsCompat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1115,7 +1161,9 @@ public class WindowInsetsCompat {
         return (Insets) invokeCommon.objValue;
     }
 
-    public static WindowInsetsCompat toWindowInsetsCompat(WindowInsets windowInsets) {
+    @NonNull
+    @RequiresApi(20)
+    public static WindowInsetsCompat toWindowInsetsCompat(@NonNull WindowInsets windowInsets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, windowInsets)) == null) {
@@ -1139,7 +1187,8 @@ public class WindowInsetsCompat {
         return invokeL.booleanValue;
     }
 
-    public WindowInsetsCompat inset(Insets insets) {
+    @NonNull
+    public WindowInsetsCompat inset(@NonNull Insets insets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, insets)) == null) {
@@ -1148,8 +1197,9 @@ public class WindowInsetsCompat {
         return (WindowInsetsCompat) invokeL.objValue;
     }
 
+    @NonNull
     @Deprecated
-    public WindowInsetsCompat replaceSystemWindowInsets(Rect rect) {
+    public WindowInsetsCompat replaceSystemWindowInsets(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, rect)) == null) {
@@ -1158,6 +1208,7 @@ public class WindowInsetsCompat {
         return (WindowInsetsCompat) invokeL.objValue;
     }
 
+    @NonNull
     public WindowInsetsCompat consumeDisplayCutout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1167,6 +1218,7 @@ public class WindowInsetsCompat {
         return (WindowInsetsCompat) invokeV.objValue;
     }
 
+    @NonNull
     public WindowInsetsCompat consumeStableInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1176,6 +1228,7 @@ public class WindowInsetsCompat {
         return (WindowInsetsCompat) invokeV.objValue;
     }
 
+    @NonNull
     public WindowInsetsCompat consumeSystemWindowInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1185,6 +1238,7 @@ public class WindowInsetsCompat {
         return (WindowInsetsCompat) invokeV.objValue;
     }
 
+    @Nullable
     public DisplayCutoutCompat getDisplayCutout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1194,6 +1248,7 @@ public class WindowInsetsCompat {
         return (DisplayCutoutCompat) invokeV.objValue;
     }
 
+    @NonNull
     public Insets getMandatorySystemGestureInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1239,6 +1294,7 @@ public class WindowInsetsCompat {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Insets getStableInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1248,6 +1304,7 @@ public class WindowInsetsCompat {
         return (Insets) invokeV.objValue;
     }
 
+    @NonNull
     public Insets getSystemGestureInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1293,6 +1350,7 @@ public class WindowInsetsCompat {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Insets getSystemWindowInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1302,6 +1360,7 @@ public class WindowInsetsCompat {
         return (Insets) invokeV.objValue;
     }
 
+    @NonNull
     public Insets getTappableElementInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1360,6 +1419,8 @@ public class WindowInsetsCompat {
         return invokeV.booleanValue;
     }
 
+    @Nullable
+    @RequiresApi(20)
     public WindowInsets toWindowInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1385,7 +1446,8 @@ public class WindowInsetsCompat {
         return invokeV.booleanValue;
     }
 
-    public WindowInsetsCompat inset(int i, int i2, int i3, int i4) {
+    @NonNull
+    public WindowInsetsCompat inset(@IntRange(from = 0) int i, @IntRange(from = 0) int i2, @IntRange(from = 0) int i3, @IntRange(from = 0) int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048598, this, i, i2, i3, i4)) == null) {
@@ -1394,6 +1456,7 @@ public class WindowInsetsCompat {
         return (WindowInsetsCompat) invokeIIII.objValue;
     }
 
+    @NonNull
     @Deprecated
     public WindowInsetsCompat replaceSystemWindowInsets(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;

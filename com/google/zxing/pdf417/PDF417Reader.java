@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Reader;
@@ -49,7 +50,7 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
         }
     }
 
-    public static Result[] decode(BinaryBitmap binaryBitmap, Map map, boolean z) throws NotFoundException, FormatException, ChecksumException {
+    public static Result[] decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map, boolean z) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, binaryBitmap, map, z)) == null) {
@@ -113,7 +114,7 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     }
 
     @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, FormatException, ChecksumException {
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
@@ -127,7 +128,7 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     }
 
     @Override // com.google.zxing.multi.MultipleBarcodeReader
-    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
+    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, binaryBitmap, map)) == null) {

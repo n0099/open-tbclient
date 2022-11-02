@@ -1,11 +1,14 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,10 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class GhostViewPort extends ViewGroup implements GhostView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Matrix mMatrix;
     public final ViewTreeObserver.OnPreDrawListener mOnPreDrawListener;
     public int mReferences;
@@ -159,10 +164,10 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         }
     }
 
-    public static void setGhostView(View view2, GhostViewPort ghostViewPort) {
+    public static void setGhostView(@NonNull View view2, @Nullable GhostViewPort ghostViewPort) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, view2, ghostViewPort) == null) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ca6, ghostViewPort);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc5, ghostViewPort);
         }
     }
 
@@ -179,7 +184,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
-            return (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090ca6);
+            return (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090cc5);
         }
         return (GhostViewPort) invokeL.objValue;
     }
@@ -196,7 +201,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         }
     }
 
-    public void setMatrix(Matrix matrix) {
+    public void setMatrix(@NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, matrix) == null) {
             this.mMatrix = matrix;

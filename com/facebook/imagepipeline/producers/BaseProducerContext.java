@@ -17,28 +17,33 @@ import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class BaseProducerContext implements ProducerContext {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Set INITIAL_KEYS;
+    public static final Set<String> INITIAL_KEYS;
     public static final String ORIGIN_SUBCATEGORY_DEFAULT = "default";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mCallbacks;
+    @GuardedBy("this")
+    public final List<ProducerContextCallbacks> mCallbacks;
     public final Object mCallerContext;
     public EncodedImageOrigin mEncodedImageOrigin;
-    public final Map mExtras;
+    public final Map<String, Object> mExtras;
     public final String mId;
     public final ImagePipelineConfig mImagePipelineConfig;
     public final ImageRequest mImageRequest;
+    @GuardedBy("this")
     public boolean mIsCancelled;
+    @GuardedBy("this")
     public boolean mIsIntermediateResultExpected;
+    @GuardedBy("this")
     public boolean mIsPrefetch;
     public final ImageRequest.RequestLevel mLowestPermittedRequestLevel;
+    @GuardedBy("this")
     public Priority mPriority;
     public final ProducerListener2 mProducerListener;
     @Nullable
@@ -68,7 +73,7 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     @Nullable
-    public synchronized List cancelNoCallbacks() {
+    public synchronized List<ProducerContextCallbacks> cancelNoCallbacks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -104,7 +109,7 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
-    public Map getExtras() {
+    public Map<String, Object> getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -272,7 +277,7 @@ public class BaseProducerContext implements ProducerContext {
         HashMap hashMap = new HashMap();
         this.mExtras = hashMap;
         hashMap.put("id", this.mId);
-        Map map = this.mExtras;
+        Map<String, Object> map = this.mExtras;
         if (imageRequest == null) {
             sourceUri = "null-request";
         } else {
@@ -291,47 +296,43 @@ public class BaseProducerContext implements ProducerContext {
         this.mImagePipelineConfig = imagePipelineConfig;
     }
 
-    public static void callOnCancellationRequested(@Nullable List list) {
+    public static void callOnCancellationRequested(@Nullable List<ProducerContextCallbacks> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, null, list) != null) || list == null) {
             return;
         }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            ((ProducerContextCallbacks) it.next()).onCancellationRequested();
+        for (ProducerContextCallbacks producerContextCallbacks : list) {
+            producerContextCallbacks.onCancellationRequested();
         }
     }
 
-    public static void callOnIsIntermediateResultExpectedChanged(@Nullable List list) {
+    public static void callOnIsIntermediateResultExpectedChanged(@Nullable List<ProducerContextCallbacks> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) != null) || list == null) {
             return;
         }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            ((ProducerContextCallbacks) it.next()).onIsIntermediateResultExpectedChanged();
+        for (ProducerContextCallbacks producerContextCallbacks : list) {
+            producerContextCallbacks.onIsIntermediateResultExpectedChanged();
         }
     }
 
-    public static void callOnIsPrefetchChanged(@Nullable List list) {
+    public static void callOnIsPrefetchChanged(@Nullable List<ProducerContextCallbacks> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65541, null, list) != null) || list == null) {
             return;
         }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            ((ProducerContextCallbacks) it.next()).onIsPrefetchChanged();
+        for (ProducerContextCallbacks producerContextCallbacks : list) {
+            producerContextCallbacks.onIsPrefetchChanged();
         }
     }
 
-    public static void callOnPriorityChanged(@Nullable List list) {
+    public static void callOnPriorityChanged(@Nullable List<ProducerContextCallbacks> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65542, null, list) != null) || list == null) {
             return;
         }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            ((ProducerContextCallbacks) it.next()).onPriorityChanged();
+        for (ProducerContextCallbacks producerContextCallbacks : list) {
+            producerContextCallbacks.onPriorityChanged();
         }
     }
 
@@ -352,13 +353,13 @@ public class BaseProducerContext implements ProducerContext {
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     @Nullable
-    public Object getExtra(String str) {
+    public <T> T getExtra(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.mExtras.get(str);
+            return (T) this.mExtras.get(str);
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
@@ -378,7 +379,7 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     @Nullable
-    public synchronized List setIsIntermediateResultExpectedNoCallbacks(boolean z) {
+    public synchronized List<ProducerContextCallbacks> setIsIntermediateResultExpectedNoCallbacks(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
@@ -394,7 +395,7 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     @Nullable
-    public synchronized List setIsPrefetchNoCallbacks(boolean z) {
+    public synchronized List<ProducerContextCallbacks> setIsPrefetchNoCallbacks(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
@@ -410,7 +411,7 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     @Nullable
-    public synchronized List setPriorityNoCallbacks(Priority priority) {
+    public synchronized List<ProducerContextCallbacks> setPriorityNoCallbacks(Priority priority) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, priority)) == null) {
@@ -427,17 +428,17 @@ public class BaseProducerContext implements ProducerContext {
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
     @Nullable
-    public Object getExtra(String str, Object obj) {
+    public <E> E getExtra(String str, E e) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, obj)) == null) {
-            Object obj2 = this.mExtras.get(str);
-            if (obj2 == null) {
-                return obj;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, e)) == null) {
+            E e2 = (E) this.mExtras.get(str);
+            if (e2 == null) {
+                return e;
             }
-            return obj2;
+            return e2;
         }
-        return invokeLL.objValue;
+        return (E) invokeLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
@@ -459,13 +460,13 @@ public class BaseProducerContext implements ProducerContext {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerContext
-    public void putExtras(@Nullable Map map) {
+    public void putExtras(@Nullable Map<String, ?> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048594, this, map) != null) || map == null) {
             return;
         }
-        for (Map.Entry entry : map.entrySet()) {
-            setExtra((String) entry.getKey(), entry.getValue());
+        for (Map.Entry<String, ?> entry : map.entrySet()) {
+            setExtra(entry.getKey(), entry.getValue());
         }
     }
 }

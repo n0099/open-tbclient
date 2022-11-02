@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,14 +19,14 @@ import com.bumptech.glide.util.MarkEnforcingInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class StreamBitmapDecoder implements ResourceDecoder {
+public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool byteArrayPool;
     public final Downsampler downsampler;
 
     /* loaded from: classes7.dex */
-    public class UntrustedCallbacks implements Downsampler.DecodeCallbacks {
+    public static class UntrustedCallbacks implements Downsampler.DecodeCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RecyclableBufferedInputStream bufferedStream;
@@ -92,7 +93,7 @@ public class StreamBitmapDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource decode(InputStream inputStream, int i, int i2, Options options) throws IOException {
+    public Resource<Bitmap> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         RecyclableBufferedInputStream recyclableBufferedInputStream;
         boolean z;
@@ -120,7 +121,7 @@ public class StreamBitmapDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(InputStream inputStream, Options options) {
+    public boolean handles(@NonNull InputStream inputStream, @NonNull Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, inputStream, options)) == null) {

@@ -17,13 +17,14 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements LBSAuthManagerListener {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static a b;
+    public static Object b;
+    public static a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int c;
-    public Context d;
-    public long e;
-    public String f;
+    public int a;
+    public int d;
+    public Context e;
+    public long f;
+    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +39,7 @@ public class a implements LBSAuthManagerListener {
                 return;
             }
         }
-        a = new Object();
+        b = new Object();
     }
 
     public a() {
@@ -54,10 +55,11 @@ public class a implements LBSAuthManagerListener {
                 return;
             }
         }
-        this.c = 0;
-        this.d = null;
-        this.e = 0L;
-        this.f = null;
+        this.d = 0;
+        this.e = null;
+        this.f = 0L;
+        this.g = null;
+        this.a = 0;
     }
 
     public static a a() {
@@ -65,11 +67,11 @@ public class a implements LBSAuthManagerListener {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (a) {
-                if (b == null) {
-                    b = new a();
+            synchronized (b) {
+                if (c == null) {
+                    c = new a();
                 }
-                aVar = b;
+                aVar = c;
             }
             return aVar;
         }
@@ -107,23 +109,30 @@ public class a implements LBSAuthManagerListener {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.d = context;
+            this.e = context;
             LBSAuthManager.getInstance(context).authenticate(false, "lbs_locsdk", null, this);
-            this.e = System.currentTimeMillis();
+            this.f = System.currentTimeMillis();
+        }
+    }
+
+    public void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
+            LBSAuthManager.getInstance(context).setKey(str);
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.d;
             boolean z = i == 0 || i == 602 || i == 601 || i == -10 || i == -11;
-            if (this.d != null) {
-                long currentTimeMillis = System.currentTimeMillis() - this.e;
+            if (this.e != null) {
+                long currentTimeMillis = System.currentTimeMillis() - this.f;
                 if (!z ? currentTimeMillis < 0 || currentTimeMillis > 10000 : currentTimeMillis > 86400000) {
-                    LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", null, this);
-                    this.e = System.currentTimeMillis();
+                    LBSAuthManager.getInstance(this.e).authenticate(false, "lbs_locsdk", null, this);
+                    this.f = System.currentTimeMillis();
                 }
             }
             return z;
@@ -133,21 +142,27 @@ public class a implements LBSAuthManagerListener {
 
     @Override // com.baidu.lbsapi.auth.LBSAuthManagerListener
     public void onAuthResult(int i, String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            this.d = i;
             if (i == 0) {
-                Log.i(com.baidu.location.e.a.a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+                str2 = "LocationAuthManager Authentication AUTHENTICATE_SUCC";
             } else {
-                String str2 = com.baidu.location.e.a.a;
-                Log.i(str2, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
+                str2 = "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str;
             }
+            Log.i("baidu_location_service", str2);
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    if (jSONObject.getString("token") != null) {
-                        this.f = jSONObject.getString("token");
+                    if (jSONObject.has("token") && jSONObject.getString("token") != null) {
+                        this.g = jSONObject.getString("token");
                     }
+                    if (!jSONObject.has("ak_permission") || jSONObject.getInt("ak_permission") == 0) {
+                        return;
+                    }
+                    this.a = jSONObject.getInt("ak_permission");
+                    Log.i("baidu_location_service", "LocationAuthManager ak_permission = " + this.a);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

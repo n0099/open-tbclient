@@ -32,12 +32,12 @@ import java.util.WeakHashMap;
 /* loaded from: classes.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic;
-    public static Map sPluginClassLoaderCache;
-    public static Map sPluginLoadedApkCache;
+    public static Map<String, ClassLoader> sPluginClassLoaderCache;
+    public static Map<String, Object> sPluginLoadedApkCache;
     public static PluginManager sPluginManager;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public Map mPluginCache;
+    public Map<String, PluginPackageParser> mPluginCache;
 
     static {
         InterceptResult invokeClinit;

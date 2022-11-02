@@ -139,7 +139,7 @@ public final class DataMatrixReader implements Reader {
     }
 
     @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeLL;
         ResultPoint[] points;
         DecoderResult decoderResult;
@@ -155,7 +155,7 @@ public final class DataMatrixReader implements Reader {
                 decoderResult = decode;
             }
             Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points, BarcodeFormat.DATA_MATRIX);
-            List byteSegments = decoderResult.getByteSegments();
+            List<byte[]> byteSegments = decoderResult.getByteSegments();
             if (byteSegments != null) {
                 result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);
             }

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z94;
+import com.baidu.tieba.ra4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class PagerAdapterImpl extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z94 a;
-    public SparseArray b;
+    public ra4<View> a;
+    public SparseArray<View> b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -58,8 +58,8 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 return;
             }
         }
-        this.a = new z94(5);
-        this.b = new SparseArray();
+        this.a = new ra4<>(5);
+        this.b = new SparseArray<>();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -81,14 +81,14 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View view2 = (View) this.a.a();
-            if (view2 == null) {
-                view2 = c(viewGroup, i);
+            View a2 = this.a.a();
+            if (a2 == null) {
+                a2 = c(viewGroup, i);
             }
-            this.b.put(i, view2);
-            viewGroup.addView(view2);
-            b(view2, i);
-            return view2;
+            this.b.put(i, a2);
+            viewGroup.addView(a2);
+            b(a2, i);
+            return a2;
         }
         return invokeLI.objValue;
     }

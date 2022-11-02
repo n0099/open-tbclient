@@ -22,6 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
 import kotlin.Metadata;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\u0018\u0000 \u00032\u00020\u0001:\u0001\u0003B\u0005¢\u0006\u0002\u0010\u0002¨\u0006\u0004"}, d2 = {"Lcom/baidu/tbadk/core/atomData/WorkPublishOpenHelper;", "", "()V", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
@@ -29,11 +30,17 @@ import kotlin.jvm.internal.Intrinsics;
 public final class WorkPublishOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
+    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_FRS_VIDEO = 4;
+    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_FRS_WRITE = 3;
+    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_HOME_VIDEO = 2;
+    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_HOME_WRITE = 1;
+    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_HOTLIST = 5;
+    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_PERSON = 6;
     public static final int draftTypeNodraft = 0;
     public static final int draftTypeNodraftCleandraft = 1;
@@ -58,7 +65,7 @@ public final class WorkPublishOpenHelper {
     }
 
     /* loaded from: classes3.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -188,7 +195,7 @@ public final class WorkPublishOpenHelper {
                 PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
                 permissionJudgePolicy.clearRequestPermissionList();
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                permissionJudgePolicy.setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.rq4
+                permissionJudgePolicy.setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.ir4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

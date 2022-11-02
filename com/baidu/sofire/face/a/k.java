@@ -115,7 +115,7 @@ public class k implements Runnable {
     public void run() {
         m mVar;
         int i;
-        Pair callSync;
+        Pair<Integer, Object> callSync;
         char c;
         m mVar2;
         int i2;

@@ -16,7 +16,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableThrottleFirstTimed extends AbstractObservableWithUpstream {
+public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
@@ -24,11 +24,11 @@ public final class ObservableThrottleFirstTimed extends AbstractObservableWithUp
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class DebounceTimedObserver extends AtomicReference implements Observer, Disposable, Runnable {
+    public static final class DebounceTimedObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 786994795061867455L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public boolean done;
         public volatile boolean gate;
         public Disposable s;
@@ -36,7 +36,7 @@ public final class ObservableThrottleFirstTimed extends AbstractObservableWithUp
         public final TimeUnit unit;
         public final Scheduler.Worker worker;
 
-        public DebounceTimedObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public DebounceTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,12 +118,12 @@ public final class ObservableThrottleFirstTimed extends AbstractObservableWithUp
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !this.gate && !this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && !this.gate && !this.done) {
                 this.gate = true;
-                this.actual.onNext(obj);
-                Disposable disposable = (Disposable) get();
+                this.actual.onNext(t);
+                Disposable disposable = get();
                 if (disposable != null) {
                     disposable.dispose();
                 }
@@ -133,7 +133,7 @@ public final class ObservableThrottleFirstTimed extends AbstractObservableWithUp
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableThrottleFirstTimed(ObservableSource observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableThrottleFirstTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -156,7 +156,7 @@ public final class ObservableThrottleFirstTimed extends AbstractObservableWithUp
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DebounceTimedObserver(new SerializedObserver(observer), this.timeout, this.unit, this.scheduler.createWorker()));

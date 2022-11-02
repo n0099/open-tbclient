@@ -237,7 +237,7 @@ public final class MatroskaExtractor implements Extractor {
     public boolean sentSeekMap;
     public final ParsableByteArray subtitleSample;
     public long timecodeScale;
-    public final SparseArray tracks;
+    public final SparseArray<Track> tracks;
     public final VarintReader varintReader;
     public final ParsableByteArray vorbisNumPageSamples;
 
@@ -448,7 +448,7 @@ public final class MatroskaExtractor implements Extractor {
     }
 
     /* loaded from: classes7.dex */
-    public final class Track {
+    public static final class Track {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_MAX_CLL = 1000;
         public static final int DEFAULT_MAX_FALL = 200;
@@ -570,7 +570,7 @@ public final class MatroskaExtractor implements Extractor {
             return (byte[]) invokeV.objValue;
         }
 
-        public static List parseFourCcVc1Private(ParsableByteArray parsableByteArray) throws ParserException {
+        public static List<byte[]> parseFourCcVc1Private(ParsableByteArray parsableByteArray) throws ParserException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
@@ -593,7 +593,7 @@ public final class MatroskaExtractor implements Extractor {
             return (List) invokeL.objValue;
         }
 
-        public static List parseVorbisCodecPrivate(byte[] bArr) throws ParserException {
+        public static List<byte[]> parseVorbisCodecPrivate(byte[] bArr) throws ParserException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
@@ -672,9 +672,9 @@ public final class MatroskaExtractor implements Extractor {
         public void initializeOutput(ExtractorOutput extractorOutput, int i) throws ParserException {
             char c;
             String str;
-            List singletonList;
+            List<byte[]> singletonList;
             String str2;
-            List list;
+            List<byte[]> list;
             int i2;
             int i3;
             String str3;
@@ -982,7 +982,7 @@ public final class MatroskaExtractor implements Extractor {
                         i3 = 8192;
                         break;
                     case 11:
-                        singletonList = new ArrayList(3);
+                        singletonList = new ArrayList<>(3);
                         singletonList.add(this.codecPrivate);
                         singletonList.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong(this.codecDelayNs).array());
                         singletonList.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong(this.seekPreRollNs).array());
@@ -1344,7 +1344,7 @@ public final class MatroskaExtractor implements Extractor {
         ebmlReader.init(new InnerEbmlReaderOutput());
         this.seekForCuesEnabled = (i & 1) == 0;
         this.varintReader = new VarintReader();
-        this.tracks = new SparseArray();
+        this.tracks = new SparseArray<>();
         this.scratch = new ParsableByteArray(4);
         this.vorbisNumPageSamples = new ParsableByteArray(ByteBuffer.allocate(4).putInt(-1).array());
         this.seekEntryIdBytes = new ParsableByteArray(4);
@@ -1531,7 +1531,7 @@ public final class MatroskaExtractor implements Extractor {
                 if (isCodecSupported(this.currentTrack.codecId)) {
                     Track track3 = this.currentTrack;
                     track3.initializeOutput(this.extractorOutput, track3.number);
-                    SparseArray sparseArray = this.tracks;
+                    SparseArray<Track> sparseArray = this.tracks;
                     Track track4 = this.currentTrack;
                     sparseArray.put(track4.number, track4);
                 }
@@ -1541,7 +1541,7 @@ public final class MatroskaExtractor implements Extractor {
                 if (!this.sampleSeenReferenceBlock) {
                     this.blockFlags |= 1;
                 }
-                commitSampleToOutput((Track) this.tracks.get(this.blockTrackNumber), this.blockTimeUs);
+                commitSampleToOutput(this.tracks.get(this.blockTrackNumber), this.blockTimeUs);
                 this.blockState = 0;
             }
         }
@@ -1853,7 +1853,7 @@ public final class MatroskaExtractor implements Extractor {
                 this.blockState = 1;
                 this.scratch.reset();
             }
-            Track track = (Track) this.tracks.get(this.blockTrackNumber);
+            Track track = this.tracks.get(this.blockTrackNumber);
             if (track == null) {
                 extractorInput.skipFully(i2 - this.blockTrackNumberLength);
                 this.blockState = 0;

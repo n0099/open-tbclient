@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class MsgAdapterScanMessage extends CustomResponsedMessage {
+public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbPageContext a;
-        public List b;
+        public TbPageContext<MsglistActivity<?>> a;
+        public List<MsgCommonItemAdapter> b;
 
         public a() {
             Interceptable interceptable = $ic;

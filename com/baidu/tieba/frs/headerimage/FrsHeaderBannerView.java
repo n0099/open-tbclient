@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -134,20 +134,20 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0314, (ViewGroup) this, true);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b60);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b55);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b5f);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b61);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b6c);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0316, (ViewGroup) this, true);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b73);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b68);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b72);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b74);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b7f);
             this.a.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
             this.a.setDefaultResource(0);
-            this.a.setRadius(fj.f(getContext(), R.dimen.tbds20));
+            this.a.setRadius(xi.g(getContext(), R.dimen.tbds20));
             this.a.setConrers(15);
             this.a.setPlaceHolder(2);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f072d));
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0730));
             this.g = getTbPageContext();
         }
     }
@@ -156,7 +156,7 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            TbPageContext tbPageContext = getTbPageContext();
+            TbPageContext<?> tbPageContext = getTbPageContext();
             if (!TextUtils.isEmpty(this.f) && tbPageContext != null) {
                 UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f}, true);
             }

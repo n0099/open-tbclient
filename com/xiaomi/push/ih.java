@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ih implements iu, Serializable, Cloneable {
+public class ih implements iu<ih, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -24,7 +24,7 @@ public class ih implements iu, Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f638a;
+    public List<hs> f638a;
 
     static {
         InterceptResult invokeClinit;
@@ -80,7 +80,7 @@ public class ih implements iu, Serializable, Cloneable {
         return invokeL.intValue;
     }
 
-    public List a() {
+    public List<hs> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f638a : (List) invokeV.objValue;
@@ -197,7 +197,7 @@ public class ih implements iu, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionNormalConfig(");
             sb.append("normalConfigs:");
-            List list = this.f638a;
+            List<hs> list = this.f638a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

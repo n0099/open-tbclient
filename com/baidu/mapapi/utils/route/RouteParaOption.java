@@ -23,7 +23,7 @@ public class RouteParaOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class EBusStrategyType {
+    public static final class EBusStrategyType {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ EBusStrategyType[] a;
         public static final EBusStrategyType bus_no_subway;
@@ -77,13 +77,19 @@ public class RouteParaOption {
         public static EBusStrategyType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EBusStrategyType) Enum.valueOf(EBusStrategyType.class, str) : (EBusStrategyType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (EBusStrategyType) Enum.valueOf(EBusStrategyType.class, str);
+            }
+            return (EBusStrategyType) invokeL.objValue;
         }
 
         public static EBusStrategyType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EBusStrategyType[]) a.clone() : (EBusStrategyType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (EBusStrategyType[]) a.clone();
+            }
+            return (EBusStrategyType[]) invokeV.objValue;
         }
     }
 
@@ -101,6 +107,60 @@ public class RouteParaOption {
             }
         }
         this.f = EBusStrategyType.bus_recommend_way;
+    }
+
+    public EBusStrategyType getBusStrategyType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (EBusStrategyType) invokeV.objValue;
+    }
+
+    public String getCityName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getEndName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public LatLng getEndPoint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public String getStartName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public LatLng getStartPoint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return (LatLng) invokeV.objValue;
     }
 
     public RouteParaOption busStrategyType(EBusStrategyType eBusStrategyType) {
@@ -141,42 +201,6 @@ public class RouteParaOption {
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
-    }
-
-    public EBusStrategyType getBusStrategyType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (EBusStrategyType) invokeV.objValue;
-    }
-
-    public String getCityName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String getEndName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public LatLng getEndPoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (LatLng) invokeV.objValue;
-    }
-
-    public String getStartName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public LatLng getStartPoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : (LatLng) invokeV.objValue;
     }
 
     public RouteParaOption startName(String str) {

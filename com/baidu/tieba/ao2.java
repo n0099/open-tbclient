@@ -1,62 +1,211 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ao2 {
+public abstract class ao2 implements oo1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bo2[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621829, "Lcom/baidu/tieba/ao2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947621829, "Lcom/baidu/tieba/ao2;");
-                return;
-            }
-        }
-        a = new bo2[]{new yn2(), new zn2()};
-    }
-
-    public static String a() {
+    @Override // com.baidu.tieba.oo1
+    public String H() {
         InterceptResult invokeV;
-        bo2[] bo2VarArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (bo2 bo2Var : a) {
-                sb.append(bo2Var.b());
-                sb.append(bo2Var.enable() ? 1 : 0);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public static List b() {
+    @Override // com.baidu.tieba.oo1
+    public boolean J() {
         InterceptResult invokeV;
-        bo2[] bo2VarArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (bo2 bo2Var : a) {
-                if (bo2Var.enable()) {
-                    arrayList.add(bo2Var);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public void x(Message message, er2 er2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, message, er2Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String z(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public ao2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return String.format("%s/ma/landingpage?t=service_agreement_m", "https://ossapi.baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a12.w(String.format("%s/ma/navigate", a12.a), true);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return a12.v(String.format("%s/ma/customer/checknewmess", a12.a));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return String.format("%s/pms", "https://ossapi.baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return String.format("%s", "https://ossapi.baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return a12.v(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

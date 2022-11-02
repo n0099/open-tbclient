@@ -32,13 +32,13 @@ public class RequestService implements IRequestService {
 
     @Override // com.sina.weibo.sdk.network.IRequestService
     @Deprecated
-    public Object request(IRequestParam iRequestParam, Class cls) throws RequestException {
+    public <T> T request(IRequestParam iRequestParam, Class<T> cls) throws RequestException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, iRequestParam, cls)) == null) {
             return null;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public RequestService() {
@@ -71,7 +71,7 @@ public class RequestService implements IRequestService {
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestService
-    public RequestCancelable asyncRequest(IRequestParam iRequestParam, Target target) {
+    public <T> RequestCancelable asyncRequest(IRequestParam iRequestParam, Target<T> target) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, iRequestParam, target)) == null) {
@@ -94,18 +94,18 @@ public class RequestService implements IRequestService {
             if (iRequestParam.needIntercept()) {
                 try {
                     Bundle bundle = new Bundle();
-                    HashMap globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
+                    HashMap<String, IRequestIntercept> globalIntercept = GlobalInterceptHelper.init().getGlobalIntercept();
                     for (String str : globalIntercept.keySet()) {
-                        IRequestIntercept iRequestIntercept = (IRequestIntercept) globalIntercept.get(str);
+                        IRequestIntercept iRequestIntercept = globalIntercept.get(str);
                         if (iRequestIntercept != null && iRequestIntercept.needIntercept(iRequestParam, bundle)) {
                             iRequestIntercept.doIntercept(iRequestParam, bundle);
                         }
                     }
-                    Iterator it = iRequestParam.getIntercept().iterator();
+                    Iterator<IRequestIntercept> it = iRequestParam.getIntercept().iterator();
                     while (it.hasNext()) {
-                        IRequestIntercept iRequestIntercept2 = (IRequestIntercept) it.next();
-                        if (iRequestIntercept2.needIntercept(iRequestParam, bundle)) {
-                            iRequestIntercept2.doIntercept(iRequestParam, bundle);
+                        IRequestIntercept next = it.next();
+                        if (next.needIntercept(iRequestParam, bundle)) {
+                            next.doIntercept(iRequestParam, bundle);
                         }
                     }
                     iRequestParam.getPostBundle().putAll(bundle);

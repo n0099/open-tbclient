@@ -33,16 +33,16 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableJoin extends AbstractFlowableWithUpstream {
+public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AbstractFlowableWithUpstream<TLeft, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function leftEnd;
-    public final Publisher other;
-    public final BiFunction resultSelector;
-    public final Function rightEnd;
+    public final Function<? super TLeft, ? extends Publisher<TLeftEnd>> leftEnd;
+    public final Publisher<? extends TRight> other;
+    public final BiFunction<? super TLeft, ? super TRight, ? extends R> resultSelector;
+    public final Function<? super TRight, ? extends Publisher<TRightEnd>> rightEnd;
 
     /* loaded from: classes8.dex */
-    public final class JoinSubscription extends AtomicInteger implements Subscription, FlowableGroupJoin.JoinSupport {
+    public static final class JoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements Subscription, FlowableGroupJoin.JoinSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Integer LEFT_CLOSE;
         public static final Integer LEFT_VALUE;
@@ -51,19 +51,19 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
         public static final long serialVersionUID = -6071216598687999801L;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger active;
-        public final Subscriber actual;
+        public final Subscriber<? super R> actual;
         public volatile boolean cancelled;
         public final CompositeDisposable disposables;
-        public final AtomicReference error;
-        public final Function leftEnd;
+        public final AtomicReference<Throwable> error;
+        public final Function<? super TLeft, ? extends Publisher<TLeftEnd>> leftEnd;
         public int leftIndex;
-        public final Map lefts;
-        public final SpscLinkedArrayQueue queue;
+        public final Map<Integer, TLeft> lefts;
+        public final SpscLinkedArrayQueue<Object> queue;
         public final AtomicLong requested;
-        public final BiFunction resultSelector;
-        public final Function rightEnd;
+        public final BiFunction<? super TLeft, ? super TRight, ? extends R> resultSelector;
+        public final Function<? super TRight, ? extends Publisher<TRightEnd>> rightEnd;
         public int rightIndex;
-        public final Map rights;
+        public final Map<Integer, TRight> rights;
 
         static {
             InterceptResult invokeClinit;
@@ -84,7 +84,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
             RIGHT_CLOSE = 4;
         }
 
-        public JoinSubscription(Subscriber subscriber, Function function, Function function2, BiFunction biFunction) {
+        public JoinSubscription(Subscriber<? super R> subscriber, Function<? super TLeft, ? extends Publisher<TLeftEnd>> function, Function<? super TRight, ? extends Publisher<TRightEnd>> function2, BiFunction<? super TLeft, ? super TRight, ? extends R> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,10 +102,10 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
             this.actual = subscriber;
             this.requested = new AtomicLong();
             this.disposables = new CompositeDisposable();
-            this.queue = new SpscLinkedArrayQueue(Flowable.bufferSize());
+            this.queue = new SpscLinkedArrayQueue<>(Flowable.bufferSize());
             this.lefts = new LinkedHashMap();
             this.rights = new LinkedHashMap();
-            this.error = new AtomicReference();
+            this.error = new AtomicReference<>();
             this.leftEnd = function;
             this.rightEnd = function2;
             this.resultSelector = biFunction;
@@ -132,6 +132,9 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: java.util.Map<java.lang.Integer, TRight> */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v9, resolved type: java.util.Map<java.lang.Integer, TLeft> */
+        /* JADX WARN: Multi-variable type inference failed */
         public void drain() {
             boolean z;
             boolean z2;
@@ -139,12 +142,12 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
-            Subscriber subscriber = this.actual;
+            SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
+            Subscriber<? super R> subscriber = this.actual;
             boolean z3 = true;
             int i = 1;
             while (!this.cancelled) {
-                if (((Throwable) this.error.get()) != null) {
+                if (this.error.get() != null) {
                     spscLinkedArrayQueue.clear();
                     cancelAll();
                     errorAll(subscriber);
@@ -183,7 +186,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
                             FlowableGroupJoin.LeftRightEndSubscriber leftRightEndSubscriber = new FlowableGroupJoin.LeftRightEndSubscriber(this, z3, i2);
                             this.disposables.add(leftRightEndSubscriber);
                             publisher.subscribe(leftRightEndSubscriber);
-                            if (((Throwable) this.error.get()) != null) {
+                            if (this.error.get() != null) {
                                 spscLinkedArrayQueue.clear();
                                 cancelAll();
                                 errorAll(subscriber);
@@ -191,11 +194,11 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
                             }
                             long j = this.requested.get();
                             long j2 = 0;
-                            for (Object obj : this.rights.values()) {
+                            for (TRight tright : this.rights.values()) {
                                 try {
-                                    Object requireNonNull = ObjectHelper.requireNonNull(this.resultSelector.apply(poll, obj), "The resultSelector returned a null value");
+                                    Object obj = (Object) ObjectHelper.requireNonNull(this.resultSelector.apply(poll, tright), "The resultSelector returned a null value");
                                     if (j2 != j) {
-                                        subscriber.onNext(requireNonNull);
+                                        subscriber.onNext(obj);
                                         j2++;
                                     } else {
                                         ExceptionHelper.addThrowable(this.error, new MissingBackpressureException("Could not emit value due to lack of requests"));
@@ -225,7 +228,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
                             FlowableGroupJoin.LeftRightEndSubscriber leftRightEndSubscriber2 = new FlowableGroupJoin.LeftRightEndSubscriber(this, false, i3);
                             this.disposables.add(leftRightEndSubscriber2);
                             publisher2.subscribe(leftRightEndSubscriber2);
-                            if (((Throwable) this.error.get()) != null) {
+                            if (this.error.get() != null) {
                                 spscLinkedArrayQueue.clear();
                                 cancelAll();
                                 errorAll(subscriber);
@@ -233,11 +236,11 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
                             }
                             long j3 = this.requested.get();
                             long j4 = 0;
-                            for (Object obj2 : this.lefts.values()) {
+                            for (TLeft tleft : this.lefts.values()) {
                                 try {
-                                    Object requireNonNull2 = ObjectHelper.requireNonNull(this.resultSelector.apply(obj2, poll), "The resultSelector returned a null value");
+                                    Object obj2 = (Object) ObjectHelper.requireNonNull(this.resultSelector.apply(tleft, poll), "The resultSelector returned a null value");
                                     if (j4 != j3) {
-                                        subscriber.onNext(requireNonNull2);
+                                        subscriber.onNext(obj2);
                                         j4++;
                                     } else {
                                         ExceptionHelper.addThrowable(this.error, new MissingBackpressureException("Could not emit value due to lack of requests"));
@@ -273,7 +276,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
             spscLinkedArrayQueue.clear();
         }
 
-        public void errorAll(Subscriber subscriber) {
+        public void errorAll(Subscriber<?> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, subscriber) == null) {
                 Throwable terminate = ExceptionHelper.terminate(this.error);
@@ -326,7 +329,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
             }
         }
 
-        public void fail(Throwable th, Subscriber subscriber, SimpleQueue simpleQueue) {
+        public void fail(Throwable th, Subscriber<?> subscriber, SimpleQueue<?> simpleQueue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, th, subscriber, simpleQueue) == null) {
                 Exceptions.throwIfFatal(th);
@@ -343,7 +346,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048581, this, z, leftRightEndSubscriber) == null) {
                 synchronized (this) {
-                    SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                    SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                     if (z) {
                         num = LEFT_CLOSE;
                     } else {
@@ -361,7 +364,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048585, this, z, obj) == null) {
                 synchronized (this) {
-                    SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                    SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                     if (z) {
                         num = LEFT_VALUE;
                     } else {
@@ -375,7 +378,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableJoin(Flowable flowable, Publisher publisher, Function function, Function function2, BiFunction biFunction) {
+    public FlowableJoin(Flowable<TLeft> flowable, Publisher<? extends TRight> publisher, Function<? super TLeft, ? extends Publisher<TLeftEnd>> function, Function<? super TRight, ? extends Publisher<TRightEnd>> function2, BiFunction<? super TLeft, ? super TRight, ? extends R> biFunction) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -399,7 +402,7 @@ public final class FlowableJoin extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             JoinSubscription joinSubscription = new JoinSubscription(subscriber, this.leftEnd, this.rightEnd, this.resultSelector);

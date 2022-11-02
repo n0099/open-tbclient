@@ -21,32 +21,32 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeUsing extends Maybe {
+public final class MaybeUsing<T, D> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean eager;
-    public final Consumer resourceDisposer;
-    public final Callable resourceSupplier;
-    public final Function sourceSupplier;
+    public final Consumer<? super D> resourceDisposer;
+    public final Callable<? extends D> resourceSupplier;
+    public final Function<? super D, ? extends MaybeSource<? extends T>> sourceSupplier;
 
     /* loaded from: classes8.dex */
-    public final class UsingObserver extends AtomicReference implements MaybeObserver, Disposable {
+    public static final class UsingObserver<T, D> extends AtomicReference<Object> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -674404550052917487L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public Disposable d;
-        public final Consumer disposer;
+        public final Consumer<? super D> disposer;
         public final boolean eager;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public UsingObserver(MaybeObserver maybeObserver, Object obj, Consumer consumer, boolean z) {
-            super(obj);
+        public UsingObserver(MaybeObserver<? super T> maybeObserver, D d, Consumer<? super D> consumer, boolean z) {
+            super(d);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {maybeObserver, obj, consumer, Boolean.valueOf(z)};
+                Object[] objArr = {maybeObserver, d, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -147,9 +147,9 @@ public final class MaybeUsing extends Maybe {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
                 this.d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
@@ -165,7 +165,7 @@ public final class MaybeUsing extends Maybe {
                         return;
                     }
                 }
-                this.actual.onSuccess(obj);
+                this.actual.onSuccess(t);
                 if (!this.eager) {
                     disposeResourceAfter();
                 }
@@ -182,7 +182,7 @@ public final class MaybeUsing extends Maybe {
         }
     }
 
-    public MaybeUsing(Callable callable, Function function, Consumer consumer, boolean z) {
+    public MaybeUsing(Callable<? extends D> callable, Function<? super D, ? extends MaybeSource<? extends T>> function, Consumer<? super D> consumer, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,11 +204,11 @@ public final class MaybeUsing extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             try {
-                Object call = this.resourceSupplier.call();
+                D call = this.resourceSupplier.call();
                 try {
                     ((MaybeSource) ObjectHelper.requireNonNull(this.sourceSupplier.apply(call), "The sourceSupplier returned a null MaybeSource")).subscribe(new UsingObserver(maybeObserver, call, this.resourceDisposer, this.eager));
                 } catch (Throwable th) {

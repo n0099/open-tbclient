@@ -3,6 +3,8 @@ package com.bytedance.pangle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+@Keep
 /* loaded from: classes7.dex */
 public abstract class ZeusPluginStateListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -61,7 +64,7 @@ public abstract class ZeusPluginStateListener {
         }
     }
 
-    public static void postStateChange(String str, int i, Object... objArr) {
+    public static void postStateChange(@Nullable String str, int i, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65538, null, str, i, objArr) == null) {
             mHandler.post(new Runnable(str, i, objArr) { // from class: com.bytedance.pangle.ZeusPluginStateListener.1

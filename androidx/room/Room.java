@@ -1,6 +1,7 @@
 package androidx.room;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.room.RoomDatabase;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,8 @@ public class Room {
         }
     }
 
-    public static <T extends RoomDatabase> RoomDatabase.Builder<T> databaseBuilder(Context context, Class<T> cls, String str) {
+    @NonNull
+    public static <T extends RoomDatabase> RoomDatabase.Builder<T> databaseBuilder(@NonNull Context context, @NonNull Class<T> cls, @NonNull String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, cls, str)) == null) {
@@ -43,6 +45,7 @@ public class Room {
         return (RoomDatabase.Builder) invokeLLL.objValue;
     }
 
+    @NonNull
     public static <T, C> T getGeneratedImplementation(Class<C> cls, String str) {
         InterceptResult invokeLL;
         String str2;
@@ -72,7 +75,8 @@ public class Room {
         return (T) invokeLL.objValue;
     }
 
-    public static <T extends RoomDatabase> RoomDatabase.Builder<T> inMemoryDatabaseBuilder(Context context, Class<T> cls) {
+    @NonNull
+    public static <T extends RoomDatabase> RoomDatabase.Builder<T> inMemoryDatabaseBuilder(@NonNull Context context, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {

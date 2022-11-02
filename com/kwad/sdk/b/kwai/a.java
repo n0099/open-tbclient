@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.kwad.sdk.api.core.ResContext;
@@ -60,7 +64,7 @@ public final class a {
         return (window.getAttributes().flags & 1024) == 1024;
     }
 
-    public static int aH(Context context) {
+    public static int aH(@Nullable Context context) {
         int i = SK;
         if (i <= 0 && context != null) {
             int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
@@ -81,7 +85,7 @@ public final class a {
         return i;
     }
 
-    public static float aI(Context context) {
+    public static float aI(@NonNull Context context) {
         return context.getResources().getDisplayMetrics().density;
     }
 
@@ -97,11 +101,11 @@ public final class a {
         return (int) (context == null ? f / 2.0f : (f / context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
-    public static View b(Activity activity) {
+    public static View b(@NonNull Activity activity) {
         return b(activity.getWindow());
     }
 
-    public static View b(Window window) {
+    public static View b(@NonNull Window window) {
         return window.getDecorView().findViewById(16908290);
     }
 
@@ -131,11 +135,11 @@ public final class a {
         return false;
     }
 
-    public static int c(Activity activity) {
+    public static int c(@NonNull Activity activity) {
         return b(activity).getWidth();
     }
 
-    public static int d(Activity activity) {
+    public static int d(@NonNull Activity activity) {
         return b(activity).getHeight();
     }
 
@@ -214,12 +218,13 @@ public final class a {
         return view2 != null && b(view2, i, true) && view2.hasWindowFocus() && aJ(view2.getContext());
     }
 
-    public static int getColor(Context context, int i) {
+    @ColorInt
+    public static int getColor(Context context, @ColorRes int i) {
         return context.getResources().getColor(i);
     }
 
     @Deprecated
-    public static int getScreenHeight(Context context) {
+    public static int getScreenHeight(@Nullable Context context) {
         if (context == null) {
             return 0;
         }
@@ -229,7 +234,7 @@ public final class a {
     }
 
     @Deprecated
-    public static int getScreenWidth(Context context) {
+    public static int getScreenWidth(@Nullable Context context) {
         if (context == null) {
             return 0;
         }
@@ -264,7 +269,8 @@ public final class a {
         return i < 0;
     }
 
-    public static Context x(View view2) {
+    @NonNull
+    public static Context x(@NonNull View view2) {
         Activity y = y(view2);
         if (y == null && (view2.getParent() instanceof View)) {
             y = y((View) view2.getParent());
@@ -272,6 +278,7 @@ public final class a {
         return y == null ? view2.getContext() : y;
     }
 
+    @Nullable
     public static Activity y(View view2) {
         Context context = view2.getContext();
         HashSet hashSet = new HashSet();
@@ -288,6 +295,7 @@ public final class a {
         return null;
     }
 
+    @Nullable
     public static int[] z(View view2) {
         if (view2 == null) {
             return null;

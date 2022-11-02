@@ -1,261 +1,99 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import androidx.annotation.AnyThread;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes3.dex */
-public final class dy2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile dy2 d;
+public class dy2 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap a;
-    public HashMap b;
-    public HashMap c;
 
-    public dy2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947720812, "Lcom/baidu/tieba/dy2;")) == null) {
+            return;
         }
-        c();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947720812, "Lcom/baidu/tieba/dy2;");
+        }
     }
 
-    public static dy2 b() {
+    /* loaded from: classes3.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            e43 b0;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b0 = e43.b0()) == null) {
+                return;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("appKey", b0.getAppId());
+            contentValues.put("launch_type", Integer.valueOf(wa3.c()));
+            contentValues.put("source", b0.W().T());
+            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
+            ContentResolver contentResolver = ln2.c().getContentResolver();
+            if (contentResolver != null) {
+                contentResolver.insert(fb2.b(), contentValues);
+            }
+        }
+    }
+
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (dy2.class) {
-                    if (d == null) {
-                        d = new dy2();
-                    }
-                }
+            int i = a;
+            if (i != -1) {
+                return i;
             }
-            return d;
+            ln2.g0().getSwitch("swan_backstage_policy", 0);
+            a = 300;
+            if (300 < 60) {
+                a = 60;
+            } else if (300 > 3600) {
+                a = 3600;
+            }
+            return a;
         }
-        return (dy2) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static synchronized void f() {
+    @AnyThread
+    public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (dy2.class) {
-                if (d != null) {
-                    d.e();
-                    d = null;
-                }
-            }
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new HashMap();
-            }
-            if (this.b == null) {
-                this.b = new HashMap();
-            }
-            if (this.c == null) {
-                this.c = new HashMap();
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap hashMap = this.a;
-            if (hashMap != null) {
-                hashMap.clear();
-            }
-            HashMap hashMap2 = this.b;
-            if (hashMap2 != null) {
-                hashMap2.clear();
-            }
-            HashMap hashMap3 = this.c;
-            if (hashMap3 != null) {
-                hashMap3.clear();
-            }
-        }
-    }
-
-    public final void a(String str, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(1048576, this, str, j) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != 767526192) {
-            if (hashCode != 1331686101) {
-                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
-                    c = 2;
-                }
-            } else if (str.equals("PageInitRender")) {
-                c = 1;
-            }
-        } else if (str.equals("PageSwitchCost")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                if (c == 2) {
-                    if3.f.update(Long.valueOf(j));
-                    return;
-                }
-                return;
-            }
-            if3.e.update(Long.valueOf(j));
-            return;
-        }
-        if3.d.update(Long.valueOf(j));
-    }
-
-    public void d(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            c();
-            char c = 65535;
-            switch (str2.hashCode()) {
-                case -1880922749:
-                    if (str2.equals("pageUpdateEnd")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -964566145:
-                    if (str2.equals("pageSwitchStart")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -410083667:
-                    if (str2.equals("pageInitRenderStart")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 4028902:
-                    if (str2.equals("pageInitRenderEnd")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 627578634:
-                    if (str2.equals("pageUpdateStart")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 1719651128:
-                    if (str2.equals("pageSwitchEnd")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0 && c != 1 && c != 2) {
-                if (c == 3 || c == 4 || c == 5) {
-                    g(str, str2, j);
-                    return;
-                }
-                return;
-            }
-            h(str, str2, j);
-        }
-    }
-
-    public final void g(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            ey2 ey2Var = null;
-            char c = 65535;
-            int hashCode = str2.hashCode();
-            if (hashCode != -1880922749) {
-                if (hashCode != 4028902) {
-                    if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
-                        c = 0;
-                    }
-                } else if (str2.equals("pageInitRenderEnd")) {
-                    c = 1;
-                }
-            } else if (str2.equals("pageUpdateEnd")) {
-                c = 2;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        ey2Var = (ey2) this.c.remove(str);
-                    }
-                } else {
-                    ey2Var = (ey2) this.b.remove(str);
-                }
-            } else {
-                ey2Var = (ey2) this.a.remove(str);
-            }
-            if (ey2Var == null) {
-                return;
-            }
-            ey2Var.b(j);
-            a(ey2Var.getType(), ey2Var.a());
-        }
-    }
-
-    public final void h(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            ey2 ey2Var = null;
-            char c = 65535;
-            int hashCode = str2.hashCode();
-            if (hashCode != -964566145) {
-                if (hashCode != -410083667) {
-                    if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
-                        c = 2;
-                    }
-                } else if (str2.equals("pageInitRenderStart")) {
-                    c = 1;
-                }
-            } else if (str2.equals("pageSwitchStart")) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2 && (ey2Var = (ey2) this.c.get(str)) == null) {
-                        ey2Var = new cy2();
-                        this.c.put(str, ey2Var);
-                    }
-                } else {
-                    ey2Var = (ey2) this.b.get(str);
-                    if (ey2Var == null) {
-                        ey2Var = new ay2();
-                        this.b.put(str, ey2Var);
-                    }
-                }
-            } else {
-                ey2Var = (ey2) this.a.get(str);
-                if (ey2Var == null) {
-                    ey2Var = new by2();
-                    this.a.put(str, ey2Var);
-                }
-            }
-            if (ey2Var != null) {
-                ey2Var.c(j);
-            }
+            yg3.k(new a(), "SwanLaunchBehavior");
         }
     }
 }

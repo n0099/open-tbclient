@@ -1,13 +1,15 @@
 package com.baidu.tbadk.widget.tiejia;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ci5;
-import com.baidu.tieba.ei5;
-import com.baidu.tieba.wn4;
+import com.baidu.tieba.bj5;
+import com.baidu.tieba.oo4;
+import com.baidu.tieba.zi5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,8 +23,8 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final ei5 a;
-    public static final ei5 b;
+    public static final bj5<Integer> a;
+    public static final bj5<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -191,6 +193,7 @@ public final class TiePlusStat {
             return (LandingType) invokeL.objValue;
         }
 
+        @NonNull
         public static LandingType create(int i) {
             InterceptResult invokeI;
             LandingType landingType;
@@ -222,7 +225,7 @@ public final class TiePlusStat {
                         landingType = null;
                         break;
                 }
-                ci5.b(landingType);
+                zi5.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -436,8 +439,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, wn4.h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, wn4.i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, oo4.h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, oo4.i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -447,7 +450,7 @@ public final class TiePlusStat {
             $VALUES = new StatType[]{EXPOSE, CLICK, DIALOG_EXPOSE, DIALOG_CLICK, DOWNLOAD_FINISHED, WECHAT_DIALOG_EXPOSE, statType};
         }
 
-        public StatType(String str, int i, String str2, int i2) {
+        public StatType(@NonNull String str, int i, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -541,7 +544,7 @@ public final class TiePlusStat {
             this.statValue = i2;
         }
 
-        public static ThreadType create(ThreadData threadData) {
+        public static ThreadType create(@NonNull ThreadData threadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadData)) == null) {
@@ -577,7 +580,7 @@ public final class TiePlusStat {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class WechatDialogType {
+    public static final class WechatDialogType {
         public static final /* synthetic */ WechatDialogType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final WechatDialogType COPY;
@@ -658,11 +661,11 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new ei5(3000, TimeUnit.MILLISECONDS);
-        b = new ei5(3000, TimeUnit.MILLISECONDS);
+        a = new bj5<>(3000, TimeUnit.MILLISECONDS);
+        b = new bj5<>(3000, TimeUnit.MILLISECONDS);
     }
 
-    public static int a(TiebaPlusInfo tiebaPlusInfo, Object obj) {
+    public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tiebaPlusInfo, obj)) == null) {
@@ -689,7 +692,7 @@ public final class TiePlusStat {
         return invokeLL.intValue;
     }
 
-    public static void b(int i, StatType statType, Locate locate, ThreadType threadType, RichTextType richTextType, int i2, LandingType landingType, String str, String str2, String str3, String str4, CardBtnType cardBtnType) {
+    public static void b(int i, @NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, int i2, @NonNull LandingType landingType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @Nullable CardBtnType cardBtnType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), statType, locate, threadType, richTextType, Integer.valueOf(i2), landingType, str, str2, str3, str4, cardBtnType}) == null) {
             if (statType == StatType.EXPOSE && !a.a(Integer.valueOf(i))) {
@@ -703,24 +706,24 @@ public final class TiePlusStat {
         }
     }
 
-    public static void c(int i, StatType statType, Locate locate, String str, String str2, String str3, int i2) {
+    public static void c(int i, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), statType, locate, str, str2, str3, Integer.valueOf(i2)}) == null) {
             if (statType == StatType.EXPOSE && !b.a(Integer.valueOf(i))) {
                 return;
             }
-            wn4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
+            oo4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
         }
     }
 
-    public static void d(StatType statType, Locate locate, ThreadType threadType, RichTextType richTextType, String str, String str2, String str3, String str4) {
+    public static void d(@NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{statType, locate, threadType, richTextType, str, str2, str3, str4}) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4));
         }
     }
 
-    public static void e(StatType statType, RichTextType richTextType, String str, String str2) {
+    public static void e(@NonNull StatType statType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65541, null, statType, richTextType, str, str2) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam("order_id", str2));

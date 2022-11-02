@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.imageloader.core.assist;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageSize {
     public static final String SEPARATOR = "x";
     public static final int TO_STRING_MAX_LENGHT = 9;

@@ -1,106 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class gz2 extends hz2 implements Cloneable {
+public class gz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final z33 k;
-    public static final a43 l;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
-    public long h;
-    public long i;
-    public int j;
-
-    /* loaded from: classes4.dex */
-    public final class a extends z33 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z33
-        /* renamed from: b */
-        public gz2 a(rm2 rm2Var) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rm2Var)) == null) {
-                gz2 gz2Var = new gz2();
-                gz2Var.a = rm2Var.g();
-                gz2Var.b = rm2Var.g();
-                gz2Var.c = rm2Var.readLong();
-                gz2Var.d = rm2Var.readInt();
-                gz2Var.e = rm2Var.g();
-                gz2Var.f = rm2Var.g();
-                gz2Var.g = rm2Var.readBoolean();
-                gz2Var.h = rm2Var.readLong();
-                gz2Var.i = rm2Var.readLong();
-                gz2Var.j = rm2Var.readInt();
-                return gz2Var;
-            }
-            return (gz2) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public final class b extends a43 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.a43
-        /* renamed from: b */
-        public void a(gz2 gz2Var, sm2 sm2Var) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gz2Var, sm2Var) == null) {
-                sm2Var.f(gz2Var.a);
-                sm2Var.f(gz2Var.b);
-                sm2Var.writeLong(gz2Var.c);
-                sm2Var.writeInt(gz2Var.d);
-                sm2Var.f(gz2Var.e);
-                sm2Var.f(gz2Var.f);
-                sm2Var.writeBoolean(gz2Var.g);
-                sm2Var.writeLong(gz2Var.h);
-                sm2Var.writeLong(gz2Var.i);
-                sm2Var.writeInt(gz2Var.j);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -115,74 +30,123 @@ public class gz2 extends hz2 implements Cloneable {
                 return;
             }
         }
-        k = new a();
-        l = new b();
+        a = ok1.a;
     }
 
-    public gz2() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean a(Context context, @NonNull hz2 hz2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, hz2Var)) == null) {
+            if (context instanceof SwanAppBaseActivity) {
+                return true;
             }
-        }
-        this.g = false;
-        this.j = 1;
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.clone();
-        }
-        return invokeV.objValue;
-    }
-
-    public gz2(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            hz2Var.b(2, "method should be called after setActivityRef");
+            if (!a) {
+                return false;
             }
+            throw new IllegalStateException("this method should be called after setActivityRef");
         }
-        this.g = false;
-        this.j = 1;
-        if (jSONObject == null) {
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(ArrayList<String> arrayList, @NonNull hz2 hz2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, hz2Var)) == null) {
+            if (arrayList != null && !arrayList.isEmpty()) {
+                return false;
+            }
+            hz2Var.a("permission has already granted");
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @NonNull
+    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (String str : strArr) {
+                if (!al4.a(context, str)) {
+                    arrayList.add(str);
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull hz2 hz2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, hz2Var)) == null) {
+            if (al4.a(context, str)) {
+                hz2Var.a("permission has already granted");
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull hz2 hz2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, hz2Var}) != null) || !a(context, hz2Var) || b(context, str, hz2Var)) {
             return;
         }
-        this.a = str;
-        this.d = 6;
-        this.b = jSONObject.optString("version");
-        this.c = jSONObject.optLong("version_code", -1L);
-        this.e = jSONObject.optString("path");
-        this.g = jSONObject.optBoolean("inline", false);
-        this.h = jSONObject.optLong("min_version_code");
-        this.i = jSONObject.optLong("max_version_code");
-        this.f = jSONObject.optString("config");
-        this.j = jSONObject.optInt("require_type");
+        g(context, strArr, i, hz2Var);
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Deprecated
+    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull hz2 hz2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanDependentModel{inline=" + this.g + ", minVersionCode=" + this.h + ", maxVersionCode=" + this.i + ", requireType=" + this.j + ", libName='" + this.a + "', versionName='" + this.b + "', versionCode=" + this.c + ", category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
+        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, hz2Var) != null) || !a(context, hz2Var)) {
+            return;
         }
-        return (String) invokeV.objValue;
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, hz2Var)) {
+            return;
+        }
+        ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new cz2(i, hz2Var));
+    }
+
+    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull hz2 hz2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLIL(65543, null, context, strArr, i, hz2Var) != null) || !a(context, hz2Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, hz2Var)) {
+            return;
+        }
+        ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new dz2(context, i, hz2Var));
+    }
+
+    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull hz2 hz2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65544, null, strArr, i, context, hz2Var) != null) || !a(context, hz2Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, hz2Var)) {
+            return;
+        }
+        g(context, (String[]) d.toArray(new String[0]), i, hz2Var);
+    }
+
+    @Deprecated
+    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull hz2 hz2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65545, null, strArr, i, context, hz2Var) != null) || !a(context, hz2Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, hz2Var)) {
+            return;
+        }
+        f(context, (String[]) d.toArray(new String[0]), i, hz2Var);
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.data;
 
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,11 +32,12 @@ public class LightEmotionData implements Serializable {
         }
     }
 
-    public HashMap encode() {
+    @Keep
+    public HashMap<String, String> encode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("id", this.id);
             hashMap.put("name", this.name);
             hashMap.put("url", this.url);

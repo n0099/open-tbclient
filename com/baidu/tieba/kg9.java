@@ -1,23 +1,32 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
-import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
-import com.faceunity.gles.GeneratedTexture;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes4.dex */
-public class kg9 extends MediaBaseRenderer implements zg9 {
+public class kg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int[] b;
-    public int c;
-    public float d;
+    public long b;
+    public long c;
+    public int d;
+    public boolean e;
+    public DownloadException f;
+    public ig9 g;
+    public String h;
+    public boolean i;
+
+    public void s(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+        }
+    }
 
     public kg9() {
         Interceptable interceptable = $ic;
@@ -29,83 +38,151 @@ public class kg9 extends MediaBaseRenderer implements zg9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new int[1];
-    }
-
-    @Override // com.baidu.tieba.zg9
-    public void a(tg9 tg9Var, SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tg9Var, surfaceTexture) == null) {
-            int i = this.mSurfaceViewHeight;
-            int i2 = this.mSurfaceViewWidth;
-            float f = this.mRatio;
-            int i3 = i - ((int) (i2 * f));
-            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
-                b();
-                GLES20.glBindFramebuffer(36160, this.c);
-                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                GLES20.glClear(16640);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
-                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                GLES20.glBindFramebuffer(36160, 0);
-                tg9Var.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
-            } else if (this.mTextureMode == 1) {
-                tg9Var.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
-            } else {
-                tg9Var.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
-            }
-            tg9Var.f(surfaceTexture);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d != this.mRatio) {
-                c();
-            }
-            if (this.a == 0) {
-                this.a = this.mFullScreen2D.createTexture2DObject();
-                int i = this.mSurfaceViewWidth;
-                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
-                GLES20.glBindTexture(3553, 0);
-                GLES20.glGenFramebuffers(1, this.b, 0);
-                this.c = this.b[0];
-                this.d = this.mRatio;
             }
         }
     }
 
-    public final void c() {
+    public ig9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        GLES20.glDeleteFramebuffers(1, this.b, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
-        this.a = 0;
+        return (ig9) invokeV.objValue;
     }
 
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onDestroyInGlThread() {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroyInGlThread();
-            c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Exception c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (Exception) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e = z;
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onPauseInGlThread() {
+    public void k(ig9 ig9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPauseInGlThread();
-            c();
+        if (interceptable == null || interceptable.invokeL(1048586, this, ig9Var) == null) {
+            this.g = ig9Var;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void m(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, downloadException) == null) {
+            this.f = downloadException;
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void o(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.a = i;
         }
     }
 }

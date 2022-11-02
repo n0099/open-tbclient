@@ -9,6 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
@@ -27,35 +29,37 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCombineLatest extends Flowable {
+public final class FlowableCombineLatest<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher[] array;
+    @Nullable
+    public final Publisher<? extends T>[] array;
     public final int bufferSize;
-    public final Function combiner;
+    public final Function<? super Object[], ? extends R> combiner;
     public final boolean delayErrors;
-    public final Iterable iterable;
+    @Nullable
+    public final Iterable<? extends Publisher<? extends T>> iterable;
 
     /* loaded from: classes8.dex */
-    public final class CombineLatestCoordinator extends BasicIntQueueSubscription {
+    public static final class CombineLatestCoordinator<T, R> extends BasicIntQueueSubscription<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5082275438355852221L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super R> actual;
         public volatile boolean cancelled;
-        public final Function combiner;
+        public final Function<? super Object[], ? extends R> combiner;
         public int completedSources;
         public final boolean delayErrors;
         public volatile boolean done;
-        public final AtomicReference error;
+        public final AtomicReference<Throwable> error;
         public final Object[] latest;
         public int nonEmptySources;
         public boolean outputFused;
-        public final SpscLinkedArrayQueue queue;
+        public final SpscLinkedArrayQueue<Object> queue;
         public final AtomicLong requested;
-        public final CombineLatestInnerSubscriber[] subscribers;
+        public final CombineLatestInnerSubscriber<T>[] subscribers;
 
-        public CombineLatestCoordinator(Subscriber subscriber, Function function, int i, int i2, boolean z) {
+        public CombineLatestCoordinator(Subscriber<? super R> subscriber, Function<? super Object[], ? extends R> function, int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,15 +76,15 @@ public final class FlowableCombineLatest extends Flowable {
             }
             this.actual = subscriber;
             this.combiner = function;
-            CombineLatestInnerSubscriber[] combineLatestInnerSubscriberArr = new CombineLatestInnerSubscriber[i];
+            CombineLatestInnerSubscriber<T>[] combineLatestInnerSubscriberArr = new CombineLatestInnerSubscriber[i];
             for (int i5 = 0; i5 < i; i5++) {
-                combineLatestInnerSubscriberArr[i5] = new CombineLatestInnerSubscriber(this, i5, i2);
+                combineLatestInnerSubscriberArr[i5] = new CombineLatestInnerSubscriber<>(this, i5, i2);
             }
             this.subscribers = combineLatestInnerSubscriberArr;
             this.latest = new Object[i];
-            this.queue = new SpscLinkedArrayQueue(i2);
+            this.queue = new SpscLinkedArrayQueue<>(i2);
             this.requested = new AtomicLong();
-            this.error = new AtomicReference();
+            this.error = new AtomicReference<>();
             this.delayErrors = z;
         }
 
@@ -96,7 +100,7 @@ public final class FlowableCombineLatest extends Flowable {
         public void cancelAll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (CombineLatestInnerSubscriber combineLatestInnerSubscriber : this.subscribers) {
+                for (CombineLatestInnerSubscriber<T> combineLatestInnerSubscriber : this.subscribers) {
                     combineLatestInnerSubscriber.cancel();
                 }
             }
@@ -132,7 +136,7 @@ public final class FlowableCombineLatest extends Flowable {
             return invokeV.booleanValue;
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber, SpscLinkedArrayQueue spscLinkedArrayQueue) {
+        public boolean checkTerminated(boolean z, boolean z2, Subscriber<?> subscriber, SpscLinkedArrayQueue<?> spscLinkedArrayQueue) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, spscLinkedArrayQueue})) == null) {
@@ -179,8 +183,8 @@ public final class FlowableCombineLatest extends Flowable {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                Subscriber subscriber = this.actual;
-                SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                Subscriber<? super R> subscriber = this.actual;
+                SpscLinkedArrayQueue<?> spscLinkedArrayQueue = this.queue;
                 int i2 = 1;
                 do {
                     long j = this.requested.get();
@@ -204,7 +208,7 @@ public final class FlowableCombineLatest extends Flowable {
                             break;
                         }
                         try {
-                            subscriber.onNext(ObjectHelper.requireNonNull(this.combiner.apply((Object[]) spscLinkedArrayQueue.poll()), "The combiner returned a null value"));
+                            subscriber.onNext((Object) ObjectHelper.requireNonNull(this.combiner.apply((Object[]) spscLinkedArrayQueue.poll()), "The combiner returned a null value"));
                             ((CombineLatestInnerSubscriber) poll).requestOne();
                             j2++;
                         } catch (Throwable th) {
@@ -229,11 +233,11 @@ public final class FlowableCombineLatest extends Flowable {
         public void drainOutput() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                Subscriber subscriber = this.actual;
-                SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                Subscriber<? super R> subscriber = this.actual;
+                SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                 int i = 1;
                 while (!this.cancelled) {
-                    Throwable th = (Throwable) this.error.get();
+                    Throwable th = this.error.get();
                     if (th != null) {
                         spscLinkedArrayQueue.clear();
                         subscriber.onError(th);
@@ -323,20 +327,20 @@ public final class FlowableCombineLatest extends Flowable {
             }
         }
 
-        public void subscribe(Publisher[] publisherArr, int i) {
+        public void subscribe(Publisher<? extends T>[] publisherArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048590, this, publisherArr, i) == null) {
-                CombineLatestInnerSubscriber[] combineLatestInnerSubscriberArr = this.subscribers;
+                CombineLatestInnerSubscriber<T>[] combineLatestInnerSubscriberArr = this.subscribers;
                 for (int i2 = 0; i2 < i && !this.done && !this.cancelled; i2++) {
                     publisherArr[i2].subscribe(combineLatestInnerSubscriberArr[i2]);
                 }
             }
         }
 
-        public void innerValue(int i, Object obj) {
+        public void innerValue(int i, T t) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048585, this, i, obj) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048585, this, i, t) == null) {
                 synchronized (this) {
                     Object[] objArr = this.latest;
                     int i2 = this.nonEmptySources;
@@ -344,7 +348,7 @@ public final class FlowableCombineLatest extends Flowable {
                         i2++;
                         this.nonEmptySources = i2;
                     }
-                    objArr[i] = obj;
+                    objArr[i] = t;
                     if (objArr.length == i2) {
                         this.queue.offer(this.subscribers[i], objArr.clone());
                         z = false;
@@ -361,7 +365,8 @@ public final class FlowableCombineLatest extends Flowable {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public R poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -369,26 +374,26 @@ public final class FlowableCombineLatest extends Flowable {
                 if (poll == null) {
                     return null;
                 }
-                Object requireNonNull = ObjectHelper.requireNonNull(this.combiner.apply((Object[]) this.queue.poll()), "The combiner returned a null value");
+                R r = (R) ObjectHelper.requireNonNull(this.combiner.apply((Object[]) this.queue.poll()), "The combiner returned a null value");
                 ((CombineLatestInnerSubscriber) poll).requestOne();
-                return requireNonNull;
+                return r;
             }
-            return invokeV.objValue;
+            return (R) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class CombineLatestInnerSubscriber extends AtomicReference implements FlowableSubscriber {
+    public static final class CombineLatestInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8730235182291002949L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int index;
         public final int limit;
-        public final CombineLatestCoordinator parent;
+        public final CombineLatestCoordinator<T, ?> parent;
         public final int prefetch;
         public int produced;
 
-        public CombineLatestInnerSubscriber(CombineLatestCoordinator combineLatestCoordinator, int i, int i2) {
+        public CombineLatestInnerSubscriber(CombineLatestCoordinator<T, ?> combineLatestCoordinator, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -430,7 +435,7 @@ public final class FlowableCombineLatest extends Flowable {
                 int i = this.produced + 1;
                 if (i == this.limit) {
                     this.produced = 0;
-                    ((Subscription) get()).request(i);
+                    get().request(i);
                     return;
                 }
                 this.produced = i;
@@ -446,10 +451,10 @@ public final class FlowableCombineLatest extends Flowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.parent.innerValue(this.index, obj);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.parent.innerValue(this.index, t);
             }
         }
 
@@ -463,7 +468,7 @@ public final class FlowableCombineLatest extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class SingletonArrayFunc implements Function {
+    public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FlowableCombineLatest this$0;
@@ -486,18 +491,19 @@ public final class FlowableCombineLatest extends Flowable {
             this.this$0 = flowableCombineLatest;
         }
 
+        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.functions.Function
-        public Object apply(Object obj) throws Exception {
+        public R apply(T t) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return this.this$0.combiner.apply(new Object[]{obj});
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+                return this.this$0.combiner.apply(new Object[]{t});
             }
-            return invokeL.objValue;
+            return (R) invokeL.objValue;
         }
     }
 
-    public FlowableCombineLatest(Iterable iterable, Function function, int i, boolean z) {
+    public FlowableCombineLatest(@NonNull Iterable<? extends Publisher<? extends T>> iterable, @NonNull Function<? super Object[], ? extends R> function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -519,7 +525,7 @@ public final class FlowableCombineLatest extends Flowable {
         this.delayErrors = z;
     }
 
-    public FlowableCombineLatest(Publisher[] publisherArr, Function function, int i, boolean z) {
+    public FlowableCombineLatest(@NonNull Publisher<? extends T>[] publisherArr, @NonNull Function<? super Object[], ? extends R> function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -542,11 +548,11 @@ public final class FlowableCombineLatest extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            Publisher[] publisherArr = this.array;
+            Publisher<? extends T>[] publisherArr = this.array;
             if (publisherArr == null) {
                 publisherArr = new Publisher[8];
                 try {
@@ -555,9 +561,9 @@ public final class FlowableCombineLatest extends Flowable {
                     while (it.hasNext()) {
                         try {
                             try {
-                                Publisher publisher = (Publisher) ObjectHelper.requireNonNull(it.next(), "The publisher returned by the iterator is null");
+                                Publisher<? extends T> publisher = (Publisher) ObjectHelper.requireNonNull(it.next(), "The publisher returned by the iterator is null");
                                 if (length == publisherArr.length) {
-                                    Publisher[] publisherArr2 = new Publisher[(length >> 2) + length];
+                                    Publisher<? extends T>[] publisherArr2 = new Publisher[(length >> 2) + length];
                                     System.arraycopy(publisherArr, 0, publisherArr2, 0, length);
                                     publisherArr = publisherArr2;
                                 }

@@ -2,6 +2,7 @@ package androidx.transition;
 
 import android.animation.Animator;
 import android.animation.TimeInterpolator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -47,6 +50,7 @@ public class Slide extends Visibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface GravityFlag {
     }
@@ -364,6 +368,7 @@ public class Slide extends Visibility {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"RestrictedApi"})
     public Slide(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -400,7 +405,7 @@ public class Slide extends Visibility {
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             super.captureEndValues(transitionValues);
@@ -409,7 +414,7 @@ public class Slide extends Visibility {
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             super.captureStartValues(transitionValues);

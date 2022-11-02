@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ConsultCouponMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ConsultCouponMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCouponStatus;
     public String mDesc;
@@ -40,7 +40,7 @@ public class ConsultCouponMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConsultCouponMsg.1
+        CREATOR = new Parcelable.Creator<ConsultCouponMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConsultCouponMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,6 +59,7 @@ public class ConsultCouponMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ConsultCouponMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -70,6 +71,7 @@ public class ConsultCouponMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ConsultCouponMsg[] newArray(int i) {
                 InterceptResult invokeI;

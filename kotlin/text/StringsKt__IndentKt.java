@@ -86,7 +86,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
 
     public static final String reindent$StringsKt__IndentKt(List<String> list, int i, Function1<? super String, String> function1, Function1<? super String, String> function12) {
         String str;
-        String str2;
+        String invoke;
         int lastIndex = CollectionsKt__CollectionsKt.getLastIndex(list);
         ArrayList arrayList = new ArrayList();
         int i2 = 0;
@@ -99,15 +99,15 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            String str3 = (String) obj;
-            if ((i2 == 0 || i2 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str3)) {
+            String str2 = (String) obj;
+            if ((i2 == 0 || i2 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str2)) {
                 str = null;
             } else {
-                String str4 = (String) function12.invoke(str3);
-                if (str4 != null && (str2 = (String) function1.invoke(str4)) != null) {
-                    str3 = str2;
+                String invoke2 = function12.invoke(str2);
+                if (invoke2 != null && (invoke = function1.invoke(invoke2)) != null) {
+                    str2 = invoke;
                 }
-                str = str3;
+                str = str2;
             }
             if (str != null) {
                 arrayList.add(str);
@@ -122,7 +122,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
     public static final String replaceIndent(String replaceIndent, String newIndent) {
         int i;
         String str;
-        String str2;
+        String invoke;
         Intrinsics.checkNotNullParameter(replaceIndent, "$this$replaceIndent");
         Intrinsics.checkNotNullParameter(newIndent, "newIndent");
         List<String> lines = StringsKt__StringsKt.lines(replaceIndent);
@@ -133,8 +133,8 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             }
         }
         ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(arrayList, 10));
-        for (String str3 : arrayList) {
-            arrayList2.add(Integer.valueOf(indentWidth$StringsKt__IndentKt(str3)));
+        for (String str2 : arrayList) {
+            arrayList2.add(Integer.valueOf(indentWidth$StringsKt__IndentKt(str2)));
         }
         Integer num = (Integer) CollectionsKt___CollectionsKt.minOrNull((Iterable<? extends Comparable>) arrayList2);
         int i2 = 0;
@@ -152,15 +152,15 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             if (i2 < 0) {
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            String str4 = (String) obj2;
-            if ((i2 == 0 || i2 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str4)) {
+            String str3 = (String) obj2;
+            if ((i2 == 0 || i2 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str3)) {
                 str = null;
             } else {
-                String drop = StringsKt___StringsKt.drop(str4, i);
-                if (drop != null && (str2 = (String) indentFunction$StringsKt__IndentKt.invoke(drop)) != null) {
-                    str4 = str2;
+                String drop = StringsKt___StringsKt.drop(str3, i);
+                if (drop != null && (invoke = indentFunction$StringsKt__IndentKt.invoke(drop)) != null) {
+                    str3 = invoke;
                 }
-                str = str4;
+                str = str3;
             }
             if (str != null) {
                 arrayList3.add(str);
@@ -174,7 +174,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
 
     public static final String replaceIndentByMargin(String replaceIndentByMargin, String newIndent, String marginPrefix) {
         int i;
-        String str;
+        String invoke;
         Intrinsics.checkNotNullParameter(replaceIndentByMargin, "$this$replaceIndentByMargin");
         Intrinsics.checkNotNullParameter(newIndent, "newIndent");
         Intrinsics.checkNotNullParameter(marginPrefix, "marginPrefix");
@@ -190,14 +190,14 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
                 if (i2 < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                String str2 = (String) obj;
-                String str3 = null;
-                if ((i2 != 0 && i2 != lastIndex) || !StringsKt__StringsJVMKt.isBlank(str2)) {
-                    int length2 = str2.length();
+                String str = (String) obj;
+                String str2 = null;
+                if ((i2 != 0 && i2 != lastIndex) || !StringsKt__StringsJVMKt.isBlank(str)) {
+                    int length2 = str.length();
                     int i4 = 0;
                     while (true) {
                         if (i4 < length2) {
-                            if (!CharsKt__CharJVMKt.isWhitespace(str2.charAt(i4))) {
+                            if (!CharsKt__CharJVMKt.isWhitespace(str.charAt(i4))) {
                                 i = i4;
                                 break;
                             }
@@ -209,23 +209,23 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
                     }
                     if (i != -1) {
                         int i5 = i;
-                        if (StringsKt__StringsJVMKt.startsWith$default(str2, marginPrefix, i, false, 4, null)) {
+                        if (StringsKt__StringsJVMKt.startsWith$default(str, marginPrefix, i, false, 4, null)) {
                             int length3 = i5 + marginPrefix.length();
-                            if (str2 != null) {
-                                str3 = str2.substring(length3);
-                                Intrinsics.checkNotNullExpressionValue(str3, "(this as java.lang.String).substring(startIndex)");
+                            if (str != null) {
+                                str2 = str.substring(length3);
+                                Intrinsics.checkNotNullExpressionValue(str2, "(this as java.lang.String).substring(startIndex)");
                             } else {
                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                             }
                         }
                     }
-                    if (str3 != null && (str = (String) indentFunction$StringsKt__IndentKt.invoke(str3)) != null) {
-                        str2 = str;
+                    if (str2 != null && (invoke = indentFunction$StringsKt__IndentKt.invoke(str2)) != null) {
+                        str = invoke;
                     }
-                    str3 = str2;
+                    str2 = str;
                 }
-                if (str3 != null) {
-                    arrayList.add(str3);
+                if (str2 != null) {
+                    arrayList.add(str2);
                 }
                 i2 = i3;
             }

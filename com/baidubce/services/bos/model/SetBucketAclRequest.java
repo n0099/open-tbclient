@@ -12,7 +12,7 @@ import java.util.List;
 public class SetBucketAclRequest extends GenericBucketRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List accessControlList;
+    public List<Grant> accessControlList;
     public CannedAccessControlList cannedAcl;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -37,7 +37,7 @@ public class SetBucketAclRequest extends GenericBucketRequest {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SetBucketAclRequest(String str, List list) {
+    public SetBucketAclRequest(String str, List<Grant> list) {
         super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,7 +57,7 @@ public class SetBucketAclRequest extends GenericBucketRequest {
         setAccessControlList(list);
     }
 
-    public List getAccessControlList() {
+    public List<Grant> getAccessControlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -75,7 +75,7 @@ public class SetBucketAclRequest extends GenericBucketRequest {
         return (CannedAccessControlList) invokeV.objValue;
     }
 
-    public void setAccessControlList(List list) {
+    public void setAccessControlList(List<Grant> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.accessControlList = list;
@@ -89,7 +89,7 @@ public class SetBucketAclRequest extends GenericBucketRequest {
         }
     }
 
-    public SetBucketAclRequest withAccessControlList(List list) {
+    public SetBucketAclRequest withAccessControlList(List<Grant> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {

@@ -1,5 +1,6 @@
 package com.kwad.components.ad.reward.h;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,11 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0541a tJ;
+    public InterfaceC0552a tJ;
 
     /* renamed from: com.kwad.components.ad.reward.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0541a {
+    public interface InterfaceC0552a {
     }
 
     public a() {
@@ -32,7 +33,7 @@ public class a implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             ie();
@@ -40,6 +41,7 @@ public class a implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -6,17 +6,19 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.StrictMode;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.z89;
+import com.baidu.tieba.ia9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 /* loaded from: classes6.dex */
 public class BuildInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @CalledByNative
     public static String getGMSVersionCode(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -37,6 +39,7 @@ public class BuildInfo {
         }
     }
 
+    @CalledByNative
     public static String getAndroidBuildFingerprint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,6 +50,7 @@ public class BuildInfo {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public static String getAndroidBuildId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,6 +60,7 @@ public class BuildInfo {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public static String getBrand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,6 +70,7 @@ public class BuildInfo {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public static String getBuildType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,6 +80,7 @@ public class BuildInfo {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public static String getDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,6 +90,7 @@ public class BuildInfo {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public static String getDeviceManufacturer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,6 +100,7 @@ public class BuildInfo {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public static String getDeviceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,6 +110,7 @@ public class BuildInfo {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public static int getSdkInt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,6 +120,7 @@ public class BuildInfo {
         return invokeV.intValue;
     }
 
+    @CalledByNative
     public static String getPackageLabel(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -132,6 +143,7 @@ public class BuildInfo {
         return (String) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getPackageVersionCode(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -143,13 +155,14 @@ public class BuildInfo {
                 }
                 return Integer.toString(packageInfo.versionCode);
             } catch (PackageManager.NameNotFoundException unused) {
-                z89.a("BuildInfo", "versionCode not available.");
+                ia9.a("BuildInfo", "versionCode not available.");
                 return "versionCode not available.";
             }
         }
         return (String) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getPackageVersionName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -161,13 +174,14 @@ public class BuildInfo {
                 }
                 return packageInfo.versionName;
             } catch (PackageManager.NameNotFoundException unused) {
-                z89.a("BuildInfo", "versionName not available");
+                ia9.a("BuildInfo", "versionName not available");
                 return "versionName not available";
             }
         }
         return (String) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getPackageName(Context context) {
         InterceptResult invokeL;
         String str;

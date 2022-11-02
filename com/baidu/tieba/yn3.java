@@ -1,68 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public class yn3 implements xn3 {
+public class yn3 extends ok4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zn3 a;
-    public boolean b;
 
-    public yn3(Context context) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final yn3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-254976499, "Lcom/baidu/tieba/yn3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-254976499, "Lcom/baidu/tieba/yn3$b;");
+                    return;
+                }
+            }
+            a = new yn3(null);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yn3() {
+        super(QuickPersistConfig.SP_FILE_STARTUP);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        c(context);
     }
 
-    @Override // com.baidu.tieba.xn3
-    public void a() {
-        zn3 zn3Var;
+    public static yn3 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (zn3Var = this.a) != null && zn3Var.b()) {
-            this.b = false;
-            this.a.c(6, "", new int[0]);
-            this.a.c(3, "", new int[0]);
-            this.a.c(12, "", new int[0]);
-            this.a.c(9, "", new int[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
+        return (yn3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xn3
-    public void b(int i) {
-        zn3 zn3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (zn3Var = this.a) != null && zn3Var.b() && this.a.c(12, "", new int[0]) == 0) {
-            this.b = true;
-            this.a.c(5, "", new int[0]);
-            this.a.c(2, "", new int[0]);
-            this.a.c(11, "", new int[0]);
-            this.a.c(8, "", new int[0]);
-            this.a.c(39, "", new int[0]);
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = zn3.a(context);
-        }
+    public /* synthetic */ yn3(a aVar) {
+        this();
     }
 }

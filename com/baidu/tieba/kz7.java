@@ -1,31 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kz7 extends ly7 {
-    public static /* synthetic */ Interceptable $ic;
+public class kz7 extends im5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static double L = 0.5d;
     public transient /* synthetic */ FieldHolder $fh;
-    public uv7 g;
-    public PbPageNewsInfoHolder.b h;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947930465, "Lcom/baidu/tieba/kz7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947930465, "Lcom/baidu/tieba/kz7;");
+        }
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements PbPageNewsInfoHolder.b {
+    public class a implements TbImageView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kz7 a;
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void a(TbImageView tbImageView, Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            }
+        }
 
         public a(kz7 kz7Var) {
             Interceptable interceptable = $ic;
@@ -45,76 +66,107 @@ public class kz7 extends ly7 {
             this.a = kz7Var;
         }
 
-        @Override // com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder.b
-        public void a(iz7 iz7Var) {
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void b(TbImageView tbImageView, Canvas canvas) {
+            int i;
+            int i2;
+            float f;
+            float f2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, iz7Var) == null) && iz7Var != null) {
-                u28.a(this.a.g, iz7Var, iz7Var.c0, 5);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                Matrix imageMatrix = tbImageView.getImageMatrix();
+                if (this.a.s) {
+                    i = 17;
+                } else {
+                    i = 18;
+                }
+                hn m = e95.k().m(sg.h().g(tbImageView.getUrl(), i));
+                int i3 = 0;
+                if (m != null) {
+                    i3 = m.r();
+                    i2 = m.m();
+                } else {
+                    i2 = 0;
+                }
+                if (i3 != 0 && i2 != 0) {
+                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+                    if (i3 * height > width * i2) {
+                        f = height;
+                        f2 = i2;
+                    } else {
+                        f = width;
+                        f2 = i3;
+                    }
+                    float f3 = f / f2;
+                    imageMatrix.setScale(f3, f3);
+                    imageMatrix.postTranslate(0.0f, 0.0f);
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kz7(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    public kz7(im5 im5Var) {
+        super(im5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {im5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((e38) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((im5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
+        k(true);
+        t();
+        o(TbConfig.getPostLineSpace(), 1.0f);
+        y(0);
+        l(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        m(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        i(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        r(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        j(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.H = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.I = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.J = new a(this);
     }
 
-    public void r(uv7 uv7Var) {
+    @Override // com.baidu.tieba.im5
+    public int[] e(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uv7Var) == null) {
-            this.g = uv7Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: v */
-    public PbPageNewsInfoHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new PbPageNewsInfoHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06dd, viewGroup, false), this.h);
-        }
-        return (PbPageNewsInfoHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ly7, com.baidu.tieba.rn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        w(i, view2, viewGroup, (iz7) obj, (PbPageNewsInfoHolder) viewHolder);
-        return view2;
-    }
-
-    public View w(int i, View view2, ViewGroup viewGroup, iz7 iz7Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iz7Var, pbPageNewsInfoHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, iz7Var, pbPageNewsInfoHolder);
-            if (iz7Var == null) {
-                return view2;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            if (i2 > 0 && i > 0 && i3 > 0 && i4 > 0) {
+                if (this.t) {
+                    float f = im5.K;
+                    if (f > 1.0f) {
+                        float f2 = i;
+                        if (f2 * f <= i3 * L) {
+                            i3 = (int) (f2 * f);
+                        }
+                        i2 = (i2 * i3) / i;
+                        if (i2 > 4096) {
+                            this.q = ImageView.ScaleType.MATRIX;
+                            i = i3;
+                            i2 = 4096;
+                        } else {
+                            this.q = ImageView.ScaleType.CENTER_CROP;
+                            i = i3;
+                        }
+                    }
+                }
+                return new int[]{i, i2};
             }
-            iz7Var.c0 = i + 1;
-            u28.d(this.b.getUniqueId(), this.g, iz7Var, iz7Var.c0, 5);
-            pbPageNewsInfoHolder.g(iz7Var);
-            pbPageNewsInfoHolder.h(TbadkCoreApplication.getInst().getSkinType());
-            return view2;
+            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (int[]) invokeIIII.objValue;
     }
 }

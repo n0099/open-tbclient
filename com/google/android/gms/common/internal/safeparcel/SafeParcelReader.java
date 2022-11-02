@@ -9,6 +9,7 @@ import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
 import android.util.SparseLongArray;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +47,7 @@ public class SafeParcelReader {
     }
 
     /* loaded from: classes7.dex */
-    public class ParseException extends RuntimeException {
+    public static class ParseException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +55,7 @@ public class SafeParcelReader {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public ParseException(String str, Parcel parcel) {
+        public ParseException(@NonNull String str, @NonNull Parcel parcel) {
             super(r2.toString());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -82,7 +83,8 @@ public class SafeParcelReader {
         }
     }
 
-    public static BigDecimal createBigDecimal(Parcel parcel, int i) {
+    @NonNull
+    public static BigDecimal createBigDecimal(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, parcel, i)) == null) {
@@ -99,7 +101,8 @@ public class SafeParcelReader {
         return (BigDecimal) invokeLI.objValue;
     }
 
-    public static BigDecimal[] createBigDecimalArray(Parcel parcel, int i) {
+    @NonNull
+    public static BigDecimal[] createBigDecimalArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, parcel, i)) == null) {
@@ -119,7 +122,8 @@ public class SafeParcelReader {
         return (BigDecimal[]) invokeLI.objValue;
     }
 
-    public static BigInteger[] createBigIntegerArray(Parcel parcel, int i) {
+    @NonNull
+    public static BigInteger[] createBigIntegerArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, i)) == null) {
@@ -139,7 +143,8 @@ public class SafeParcelReader {
         return (BigInteger[]) invokeLI.objValue;
     }
 
-    public static ArrayList createBooleanList(Parcel parcel, int i) {
+    @NonNull
+    public static ArrayList<Boolean> createBooleanList(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         boolean z;
         Interceptable interceptable = $ic;
@@ -149,7 +154,7 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Boolean> arrayList = new ArrayList<>();
             int readInt = parcel.readInt();
             for (int i2 = 0; i2 < readInt; i2++) {
                 if (parcel.readInt() != 0) {
@@ -165,7 +170,8 @@ public class SafeParcelReader {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static byte[][] createByteArrayArray(Parcel parcel, int i) {
+    @NonNull
+    public static byte[][] createByteArrayArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, parcel, i)) == null) {
@@ -185,7 +191,8 @@ public class SafeParcelReader {
         return (byte[][]) invokeLI.objValue;
     }
 
-    public static SparseArray createByteArraySparseArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseArray<byte[]> createByteArraySparseArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parcel, i)) == null) {
@@ -195,7 +202,7 @@ public class SafeParcelReader {
                 return null;
             }
             int readInt = parcel.readInt();
-            SparseArray sparseArray = new SparseArray(readInt);
+            SparseArray<byte[]> sparseArray = new SparseArray<>(readInt);
             for (int i2 = 0; i2 < readInt; i2++) {
                 sparseArray.append(parcel.readInt(), parcel.createByteArray());
             }
@@ -205,7 +212,8 @@ public class SafeParcelReader {
         return (SparseArray) invokeLI.objValue;
     }
 
-    public static ArrayList createDoubleList(Parcel parcel, int i) {
+    @NonNull
+    public static ArrayList<Double> createDoubleList(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, parcel, i)) == null) {
@@ -214,7 +222,7 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Double> arrayList = new ArrayList<>();
             int readInt = parcel.readInt();
             for (int i2 = 0; i2 < readInt; i2++) {
                 arrayList.add(Double.valueOf(parcel.readDouble()));
@@ -225,7 +233,8 @@ public class SafeParcelReader {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static SparseArray createDoubleSparseArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseArray<Double> createDoubleSparseArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, parcel, i)) == null) {
@@ -234,7 +243,7 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            SparseArray sparseArray = new SparseArray();
+            SparseArray<Double> sparseArray = new SparseArray<>();
             int readInt = parcel.readInt();
             for (int i2 = 0; i2 < readInt; i2++) {
                 sparseArray.append(parcel.readInt(), Double.valueOf(parcel.readDouble()));
@@ -245,7 +254,8 @@ public class SafeParcelReader {
         return (SparseArray) invokeLI.objValue;
     }
 
-    public static ArrayList createFloatList(Parcel parcel, int i) {
+    @NonNull
+    public static ArrayList<Float> createFloatList(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, parcel, i)) == null) {
@@ -254,7 +264,7 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Float> arrayList = new ArrayList<>();
             int readInt = parcel.readInt();
             for (int i2 = 0; i2 < readInt; i2++) {
                 arrayList.add(Float.valueOf(parcel.readFloat()));
@@ -265,7 +275,8 @@ public class SafeParcelReader {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static SparseArray createFloatSparseArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseArray<Float> createFloatSparseArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, parcel, i)) == null) {
@@ -274,7 +285,7 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            SparseArray sparseArray = new SparseArray();
+            SparseArray<Float> sparseArray = new SparseArray<>();
             int readInt = parcel.readInt();
             for (int i2 = 0; i2 < readInt; i2++) {
                 sparseArray.append(parcel.readInt(), Float.valueOf(parcel.readFloat()));
@@ -285,7 +296,8 @@ public class SafeParcelReader {
         return (SparseArray) invokeLI.objValue;
     }
 
-    public static SparseArray createIBinderSparseArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseArray<IBinder> createIBinderSparseArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, parcel, i)) == null) {
@@ -295,7 +307,7 @@ public class SafeParcelReader {
                 return null;
             }
             int readInt = parcel.readInt();
-            SparseArray sparseArray = new SparseArray(readInt);
+            SparseArray<IBinder> sparseArray = new SparseArray<>(readInt);
             for (int i2 = 0; i2 < readInt; i2++) {
                 sparseArray.append(parcel.readInt(), parcel.readStrongBinder());
             }
@@ -305,7 +317,8 @@ public class SafeParcelReader {
         return (SparseArray) invokeLI.objValue;
     }
 
-    public static ArrayList createIntegerList(Parcel parcel, int i) {
+    @NonNull
+    public static ArrayList<Integer> createIntegerList(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, parcel, i)) == null) {
@@ -314,7 +327,7 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Integer> arrayList = new ArrayList<>();
             int readInt = parcel.readInt();
             for (int i2 = 0; i2 < readInt; i2++) {
                 arrayList.add(Integer.valueOf(parcel.readInt()));
@@ -325,7 +338,8 @@ public class SafeParcelReader {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static ArrayList createLongList(Parcel parcel, int i) {
+    @NonNull
+    public static ArrayList<Long> createLongList(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65560, null, parcel, i)) == null) {
@@ -334,7 +348,7 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Long> arrayList = new ArrayList<>();
             int readInt = parcel.readInt();
             for (int i2 = 0; i2 < readInt; i2++) {
                 arrayList.add(Long.valueOf(parcel.readLong()));
@@ -345,7 +359,8 @@ public class SafeParcelReader {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static SparseIntArray createSparseIntArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseIntArray createSparseIntArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65567, null, parcel, i)) == null) {
@@ -365,7 +380,8 @@ public class SafeParcelReader {
         return (SparseIntArray) invokeLI.objValue;
     }
 
-    public static SparseLongArray createSparseLongArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseLongArray createSparseLongArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65568, null, parcel, i)) == null) {
@@ -385,7 +401,8 @@ public class SafeParcelReader {
         return (SparseLongArray) invokeLI.objValue;
     }
 
-    public static SparseArray createStringSparseArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseArray<String> createStringSparseArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65572, null, parcel, i)) == null) {
@@ -394,7 +411,7 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            SparseArray sparseArray = new SparseArray();
+            SparseArray<String> sparseArray = new SparseArray<>();
             int readInt = parcel.readInt();
             for (int i2 = 0; i2 < readInt; i2++) {
                 sparseArray.append(parcel.readInt(), parcel.readString());
@@ -405,7 +422,8 @@ public class SafeParcelReader {
         return (SparseArray) invokeLI.objValue;
     }
 
-    public static BigInteger createBigInteger(Parcel parcel, int i) {
+    @NonNull
+    public static BigInteger createBigInteger(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, parcel, i)) == null) {
@@ -421,7 +439,8 @@ public class SafeParcelReader {
         return (BigInteger) invokeLI.objValue;
     }
 
-    public static boolean[] createBooleanArray(Parcel parcel, int i) {
+    @NonNull
+    public static boolean[] createBooleanArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, parcel, i)) == null) {
@@ -437,7 +456,8 @@ public class SafeParcelReader {
         return (boolean[]) invokeLI.objValue;
     }
 
-    public static Bundle createBundle(Parcel parcel, int i) {
+    @NonNull
+    public static Bundle createBundle(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, parcel, i)) == null) {
@@ -453,7 +473,8 @@ public class SafeParcelReader {
         return (Bundle) invokeLI.objValue;
     }
 
-    public static byte[] createByteArray(Parcel parcel, int i) {
+    @NonNull
+    public static byte[] createByteArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, parcel, i)) == null) {
@@ -469,7 +490,8 @@ public class SafeParcelReader {
         return (byte[]) invokeLI.objValue;
     }
 
-    public static char[] createCharArray(Parcel parcel, int i) {
+    @NonNull
+    public static char[] createCharArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, parcel, i)) == null) {
@@ -485,7 +507,8 @@ public class SafeParcelReader {
         return (char[]) invokeLI.objValue;
     }
 
-    public static double[] createDoubleArray(Parcel parcel, int i) {
+    @NonNull
+    public static double[] createDoubleArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, parcel, i)) == null) {
@@ -501,7 +524,8 @@ public class SafeParcelReader {
         return (double[]) invokeLI.objValue;
     }
 
-    public static float[] createFloatArray(Parcel parcel, int i) {
+    @NonNull
+    public static float[] createFloatArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, parcel, i)) == null) {
@@ -517,7 +541,8 @@ public class SafeParcelReader {
         return (float[]) invokeLI.objValue;
     }
 
-    public static IBinder[] createIBinderArray(Parcel parcel, int i) {
+    @NonNull
+    public static IBinder[] createIBinderArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, parcel, i)) == null) {
@@ -533,7 +558,8 @@ public class SafeParcelReader {
         return (IBinder[]) invokeLI.objValue;
     }
 
-    public static ArrayList createIBinderList(Parcel parcel, int i) {
+    @NonNull
+    public static ArrayList<IBinder> createIBinderList(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65555, null, parcel, i)) == null) {
@@ -549,7 +575,8 @@ public class SafeParcelReader {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static int[] createIntArray(Parcel parcel, int i) {
+    @NonNull
+    public static int[] createIntArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, parcel, i)) == null) {
@@ -565,7 +592,8 @@ public class SafeParcelReader {
         return (int[]) invokeLI.objValue;
     }
 
-    public static long[] createLongArray(Parcel parcel, int i) {
+    @NonNull
+    public static long[] createLongArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65559, null, parcel, i)) == null) {
@@ -581,7 +609,8 @@ public class SafeParcelReader {
         return (long[]) invokeLI.objValue;
     }
 
-    public static Parcel createParcel(Parcel parcel, int i) {
+    @NonNull
+    public static Parcel createParcel(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, parcel, i)) == null) {
@@ -598,7 +627,8 @@ public class SafeParcelReader {
         return (Parcel) invokeLI.objValue;
     }
 
-    public static SparseBooleanArray createSparseBooleanArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseBooleanArray createSparseBooleanArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65566, null, parcel, i)) == null) {
@@ -614,7 +644,8 @@ public class SafeParcelReader {
         return (SparseBooleanArray) invokeLI.objValue;
     }
 
-    public static String createString(Parcel parcel, int i) {
+    @NonNull
+    public static String createString(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65569, null, parcel, i)) == null) {
@@ -630,7 +661,8 @@ public class SafeParcelReader {
         return (String) invokeLI.objValue;
     }
 
-    public static String[] createStringArray(Parcel parcel, int i) {
+    @NonNull
+    public static String[] createStringArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65570, null, parcel, i)) == null) {
@@ -646,7 +678,8 @@ public class SafeParcelReader {
         return (String[]) invokeLI.objValue;
     }
 
-    public static ArrayList createStringList(Parcel parcel, int i) {
+    @NonNull
+    public static ArrayList<String> createStringList(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65571, null, parcel, i)) == null) {
@@ -662,7 +695,7 @@ public class SafeParcelReader {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static void ensureAtEnd(Parcel parcel, int i) {
+    public static void ensureAtEnd(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(65576, null, parcel, i) != null) || parcel.dataPosition() == i) {
             return;
@@ -673,7 +706,7 @@ public class SafeParcelReader {
         throw new ParseException(sb.toString(), parcel);
     }
 
-    public static boolean readBoolean(Parcel parcel, int i) {
+    public static boolean readBoolean(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65578, null, parcel, i)) == null) {
@@ -686,7 +719,8 @@ public class SafeParcelReader {
         return invokeLI.booleanValue;
     }
 
-    public static Boolean readBooleanObject(Parcel parcel, int i) {
+    @NonNull
+    public static Boolean readBooleanObject(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         boolean z;
         Interceptable interceptable = $ic;
@@ -706,7 +740,7 @@ public class SafeParcelReader {
         return (Boolean) invokeLI.objValue;
     }
 
-    public static byte readByte(Parcel parcel, int i) {
+    public static byte readByte(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65580, null, parcel, i)) == null) {
@@ -716,7 +750,7 @@ public class SafeParcelReader {
         return invokeLI.byteValue;
     }
 
-    public static char readChar(Parcel parcel, int i) {
+    public static char readChar(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65581, null, parcel, i)) == null) {
@@ -726,7 +760,7 @@ public class SafeParcelReader {
         return invokeLI.charValue;
     }
 
-    public static double readDouble(Parcel parcel, int i) {
+    public static double readDouble(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, parcel, i)) == null) {
@@ -736,7 +770,8 @@ public class SafeParcelReader {
         return invokeLI.doubleValue;
     }
 
-    public static Double readDoubleObject(Parcel parcel, int i) {
+    @NonNull
+    public static Double readDoubleObject(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65583, null, parcel, i)) == null) {
@@ -750,7 +785,7 @@ public class SafeParcelReader {
         return (Double) invokeLI.objValue;
     }
 
-    public static float readFloat(Parcel parcel, int i) {
+    public static float readFloat(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65584, null, parcel, i)) == null) {
@@ -760,7 +795,8 @@ public class SafeParcelReader {
         return invokeLI.floatValue;
     }
 
-    public static Float readFloatObject(Parcel parcel, int i) {
+    @NonNull
+    public static Float readFloatObject(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65585, null, parcel, i)) == null) {
@@ -774,7 +810,8 @@ public class SafeParcelReader {
         return (Float) invokeLI.objValue;
     }
 
-    public static IBinder readIBinder(Parcel parcel, int i) {
+    @NonNull
+    public static IBinder readIBinder(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65587, null, parcel, i)) == null) {
@@ -790,7 +827,7 @@ public class SafeParcelReader {
         return (IBinder) invokeLI.objValue;
     }
 
-    public static int readInt(Parcel parcel, int i) {
+    public static int readInt(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65588, null, parcel, i)) == null) {
@@ -800,7 +837,8 @@ public class SafeParcelReader {
         return invokeLI.intValue;
     }
 
-    public static Integer readIntegerObject(Parcel parcel, int i) {
+    @NonNull
+    public static Integer readIntegerObject(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65589, null, parcel, i)) == null) {
@@ -814,7 +852,7 @@ public class SafeParcelReader {
         return (Integer) invokeLI.objValue;
     }
 
-    public static long readLong(Parcel parcel, int i) {
+    public static long readLong(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65591, null, parcel, i)) == null) {
@@ -824,7 +862,8 @@ public class SafeParcelReader {
         return invokeLI.longValue;
     }
 
-    public static Long readLongObject(Parcel parcel, int i) {
+    @NonNull
+    public static Long readLongObject(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65592, null, parcel, i)) == null) {
@@ -838,7 +877,8 @@ public class SafeParcelReader {
         return (Long) invokeLI.objValue;
     }
 
-    public static PendingIntent readPendingIntent(Parcel parcel, int i) {
+    @NonNull
+    public static PendingIntent readPendingIntent(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65593, null, parcel, i)) == null) {
@@ -854,7 +894,7 @@ public class SafeParcelReader {
         return (PendingIntent) invokeLI.objValue;
     }
 
-    public static short readShort(Parcel parcel, int i) {
+    public static short readShort(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65594, null, parcel, i)) == null) {
@@ -864,7 +904,7 @@ public class SafeParcelReader {
         return invokeLI.shortValue;
     }
 
-    public static int readSize(Parcel parcel, int i) {
+    public static int readSize(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65595, null, parcel, i)) == null) {
@@ -876,14 +916,15 @@ public class SafeParcelReader {
         return invokeLI.intValue;
     }
 
-    public static void skipUnknownField(Parcel parcel, int i) {
+    public static void skipUnknownField(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65596, null, parcel, i) == null) {
             parcel.setDataPosition(parcel.dataPosition() + readSize(parcel, i));
         }
     }
 
-    public static Parcel[] createParcelArray(Parcel parcel, int i) {
+    @NonNull
+    public static Parcel[] createParcelArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, parcel, i)) == null) {
@@ -912,7 +953,8 @@ public class SafeParcelReader {
         return (Parcel[]) invokeLI.objValue;
     }
 
-    public static ArrayList createParcelList(Parcel parcel, int i) {
+    @NonNull
+    public static ArrayList<Parcel> createParcelList(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, parcel, i)) == null) {
@@ -922,7 +964,7 @@ public class SafeParcelReader {
                 return null;
             }
             int readInt = parcel.readInt();
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Parcel> arrayList = new ArrayList<>();
             for (int i2 = 0; i2 < readInt; i2++) {
                 int readInt2 = parcel.readInt();
                 if (readInt2 != 0) {
@@ -941,7 +983,8 @@ public class SafeParcelReader {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static SparseArray createParcelSparseArray(Parcel parcel, int i) {
+    @NonNull
+    public static SparseArray<Parcel> createParcelSparseArray(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, null, parcel, i)) == null) {
@@ -951,7 +994,7 @@ public class SafeParcelReader {
                 return null;
             }
             int readInt = parcel.readInt();
-            SparseArray sparseArray = new SparseArray();
+            SparseArray<Parcel> sparseArray = new SparseArray<>();
             for (int i2 = 0; i2 < readInt; i2++) {
                 int readInt2 = parcel.readInt();
                 int readInt3 = parcel.readInt();
@@ -971,7 +1014,8 @@ public class SafeParcelReader {
         return (SparseArray) invokeLI.objValue;
     }
 
-    public static Parcelable createParcelable(Parcel parcel, int i, Parcelable.Creator creator) {
+    @NonNull
+    public static <T extends Parcelable> T createParcelable(@NonNull Parcel parcel, int i, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65565, null, parcel, i, creator)) == null) {
@@ -980,14 +1024,15 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            Parcelable parcelable = (Parcelable) creator.createFromParcel(parcel);
+            T createFromParcel = creator.createFromParcel(parcel);
             parcel.setDataPosition(dataPosition + readSize);
-            return parcelable;
+            return createFromParcel;
         }
-        return (Parcelable) invokeLIL.objValue;
+        return (T) invokeLIL.objValue;
     }
 
-    public static Object[] createTypedArray(Parcel parcel, int i, Parcelable.Creator creator) {
+    @NonNull
+    public static <T> T[] createTypedArray(@NonNull Parcel parcel, int i, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65573, null, parcel, i, creator)) == null) {
@@ -996,14 +1041,15 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            Object[] createTypedArray = parcel.createTypedArray(creator);
+            T[] tArr = (T[]) parcel.createTypedArray(creator);
             parcel.setDataPosition(dataPosition + readSize);
-            return createTypedArray;
+            return tArr;
         }
-        return (Object[]) invokeLIL.objValue;
+        return (T[]) ((Object[]) invokeLIL.objValue);
     }
 
-    public static ArrayList createTypedList(Parcel parcel, int i, Parcelable.Creator creator) {
+    @NonNull
+    public static <T> ArrayList<T> createTypedList(@NonNull Parcel parcel, int i, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65574, null, parcel, i, creator)) == null) {
@@ -1012,16 +1058,17 @@ public class SafeParcelReader {
             if (readSize == 0) {
                 return null;
             }
-            ArrayList createTypedArrayList = parcel.createTypedArrayList(creator);
+            ArrayList<T> createTypedArrayList = parcel.createTypedArrayList(creator);
             parcel.setDataPosition(dataPosition + readSize);
             return createTypedArrayList;
         }
         return (ArrayList) invokeLIL.objValue;
     }
 
-    public static SparseArray createTypedSparseArray(Parcel parcel, int i, Parcelable.Creator creator) {
+    @NonNull
+    public static <T> SparseArray<T> createTypedSparseArray(@NonNull Parcel parcel, int i, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLIL;
-        Object obj;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65575, null, parcel, i, creator)) == null) {
             int readSize = readSize(parcel, i);
@@ -1030,15 +1077,15 @@ public class SafeParcelReader {
                 return null;
             }
             int readInt = parcel.readInt();
-            SparseArray sparseArray = new SparseArray();
+            SparseArray<T> sparseArray = new SparseArray<>();
             for (int i2 = 0; i2 < readInt; i2++) {
                 int readInt2 = parcel.readInt();
                 if (parcel.readInt() != 0) {
-                    obj = creator.createFromParcel(parcel);
+                    t = creator.createFromParcel(parcel);
                 } else {
-                    obj = null;
+                    t = null;
                 }
-                sparseArray.append(readInt2, obj);
+                sparseArray.append(readInt2, t);
             }
             parcel.setDataPosition(dataPosition + readSize);
             return sparseArray;
@@ -1064,7 +1111,7 @@ public class SafeParcelReader {
         throw new ParseException(sb.toString(), parcel);
     }
 
-    public static int readHeader(Parcel parcel) {
+    public static int readHeader(@NonNull Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, parcel)) == null) {
@@ -1073,7 +1120,7 @@ public class SafeParcelReader {
         return invokeL.intValue;
     }
 
-    public static void readList(Parcel parcel, int i, List list, ClassLoader classLoader) {
+    public static void readList(@NonNull Parcel parcel, int i, @NonNull List list, @NonNull ClassLoader classLoader) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65590, null, parcel, i, list, classLoader) == null) {
             int readSize = readSize(parcel, i);
@@ -1086,7 +1133,7 @@ public class SafeParcelReader {
         }
     }
 
-    public static int validateObjectHeader(Parcel parcel) {
+    public static int validateObjectHeader(@NonNull Parcel parcel) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;

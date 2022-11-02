@@ -98,7 +98,7 @@ public class PushClient {
     public void delTopic(String str, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iPushActionListener) == null) {
-            ArrayList arrayList = new ArrayList(1);
+            ArrayList<String> arrayList = new ArrayList<>(1);
             arrayList.add(str);
             e.a().b(arrayList, iPushActionListener);
         }
@@ -107,7 +107,7 @@ public class PushClient {
     public void setTopic(String str, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, iPushActionListener) == null) {
-            ArrayList arrayList = new ArrayList(1);
+            ArrayList<String> arrayList = new ArrayList<>(1);
             arrayList.add(str);
             e.a().a(arrayList, iPushActionListener);
         }
@@ -146,7 +146,7 @@ public class PushClient {
         return (String) invokeV.objValue;
     }
 
-    public List getTopics() {
+    public List<String> getTopics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

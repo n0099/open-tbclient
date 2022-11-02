@@ -9,22 +9,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
+@Experimental
 /* loaded from: classes8.dex */
-public final class SingleDetach extends Single {
+public final class SingleDetach<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource source;
+    public final SingleSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class DetachSingleObserver implements SingleObserver, Disposable {
+    public static final class DetachSingleObserver<T> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public SingleObserver actual;
+        public SingleObserver<? super T> actual;
         public Disposable d;
 
-        public DetachSingleObserver(SingleObserver singleObserver) {
+        public DetachSingleObserver(SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +49,7 @@ public final class SingleDetach extends Single {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                SingleObserver singleObserver = this.actual;
+                SingleObserver<? super T> singleObserver = this.actual;
                 if (singleObserver != null) {
                     this.actual = null;
                     singleObserver.onError(th);
@@ -65,14 +67,14 @@ public final class SingleDetach extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                SingleObserver singleObserver = this.actual;
+                SingleObserver<? super T> singleObserver = this.actual;
                 if (singleObserver != null) {
                     this.actual = null;
-                    singleObserver.onSuccess(obj);
+                    singleObserver.onSuccess(t);
                 }
             }
         }
@@ -98,7 +100,7 @@ public final class SingleDetach extends Single {
         }
     }
 
-    public SingleDetach(SingleSource singleSource) {
+    public SingleDetach(SingleSource<T> singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +119,7 @@ public final class SingleDetach extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DetachSingleObserver(singleObserver));

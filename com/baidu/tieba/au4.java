@@ -1,18 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class au4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public View a;
+    public View b;
+    public View c;
+    public View d;
+    public View e;
+    public View f;
+    public View g;
+    public View h;
+    public View i;
+    public View j;
+    public View k;
+    public View l;
+    public View m;
+    public View n;
+    public View o;
+    public View p;
+    public View q;
+    public View r;
+    public View s;
 
     public au4() {
         Interceptable interceptable = $ic;
@@ -24,59 +39,31 @@ public class au4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
+            this.f = null;
+            this.g = null;
+            this.h = null;
+            this.i = null;
+            this.k = null;
+            this.l = null;
+            this.m = null;
+            this.n = null;
+            this.o = null;
+            this.p = null;
+            this.q = null;
+            this.r = null;
+            this.s = null;
         }
     }
 }

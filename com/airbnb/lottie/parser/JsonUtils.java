@@ -2,6 +2,7 @@ package com.airbnb.lottie.parser;
 
 import android.graphics.Color;
 import android.graphics.PointF;
+import androidx.annotation.ColorInt;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class JsonUtils {
 
     /* renamed from: com.airbnb.lottie.parser.JsonUtils$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token;
 
         static {
@@ -53,7 +54,7 @@ public class JsonUtils {
         return new PointF(nextDouble * f, nextDouble2 * f);
     }
 
-    public static List jsonToPoints(JsonReader jsonReader, float f) throws IOException {
+    public static List<PointF> jsonToPoints(JsonReader jsonReader, float f) throws IOException {
         ArrayList arrayList = new ArrayList();
         jsonReader.beginArray();
         while (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
@@ -100,6 +101,7 @@ public class JsonUtils {
         return jsonNumbersToPoint(jsonReader, f);
     }
 
+    @ColorInt
     public static int jsonToColor(JsonReader jsonReader) throws IOException {
         jsonReader.beginArray();
         int nextDouble = (int) (jsonReader.nextDouble() * 255.0d);

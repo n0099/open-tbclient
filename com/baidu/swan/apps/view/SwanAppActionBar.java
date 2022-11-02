@@ -12,12 +12,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.ColorInt;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.nk1;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -219,7 +220,7 @@ public class SwanAppActionBar extends RelativeLayout {
             }
             this.r.setVisibility(8);
             this.q.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.n.getLayoutParams()).setMargins(0, 0, dh3.f(getContext(), 4.6f), 0);
+            ((RelativeLayout.LayoutParams) this.n.getLayoutParams()).setMargins(0, 0, vh3.f(getContext(), 4.6f), 0);
         }
     }
 
@@ -246,7 +247,7 @@ public class SwanAppActionBar extends RelativeLayout {
         d();
     }
 
-    public boolean f(int i, boolean z) {
+    public boolean f(@ColorInt int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
@@ -501,7 +502,7 @@ public class SwanAppActionBar extends RelativeLayout {
         }
     }
 
-    public void setTitleColor(int i) {
+    public void setTitleColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
             this.h.setTextColor(i);
@@ -524,9 +525,9 @@ public class SwanAppActionBar extends RelativeLayout {
             }
             setRightMenuImageSrc(i);
             setRightExitImageSrc(R.drawable.obfuscated_res_0x7f08010c);
-            setRightLineSrc(R.color.obfuscated_res_0x7f06038f);
+            setRightLineSrc(R.color.obfuscated_res_0x7f060390);
             if (z) {
-                i2 = R.color.obfuscated_res_0x7f0603fc;
+                i2 = R.color.obfuscated_res_0x7f0603fd;
             } else {
                 i2 = R.drawable.obfuscated_res_0x7f08011f;
             }
@@ -550,9 +551,9 @@ public class SwanAppActionBar extends RelativeLayout {
             }
             setRightMenuImageSrc(i);
             setRightExitImageSrc(R.drawable.obfuscated_res_0x7f08010f);
-            setRightLineSrc(R.color.obfuscated_res_0x7f060390);
+            setRightLineSrc(R.color.obfuscated_res_0x7f060391);
             if (z) {
-                i2 = R.color.obfuscated_res_0x7f0603fc;
+                i2 = R.color.obfuscated_res_0x7f0603fd;
             } else {
                 i2 = R.drawable.obfuscated_res_0x7f080120;
             }
@@ -563,18 +564,18 @@ public class SwanAppActionBar extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0090, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f09223f);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0912c2);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0091, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f092292);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fe);
             this.b = textView;
             textView.setCompoundDrawables(c(R.drawable.obfuscated_res_0x7f080102), null, null, null);
-            this.b.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a50));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0912cb);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09223d);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912c3);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09223a);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0901a4);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09222f);
+            this.b.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a62));
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091307);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092290);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ff);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09228d);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0901ac);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092282);
             float f = this.k;
             if (f != -1.0f) {
                 float f2 = this.l;
@@ -585,11 +586,11 @@ public class SwanAppActionBar extends RelativeLayout {
                     }
                 }
             }
-            this.n = findViewById(R.id.obfuscated_res_0x7f092247);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f092249);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f09224b);
-            this.q = findViewById(R.id.obfuscated_res_0x7f09224a);
-            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f092248);
+            this.n = findViewById(R.id.obfuscated_res_0x7f09229a);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f09229c);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f09229e);
+            this.q = findViewById(R.id.obfuscated_res_0x7f09229d);
+            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f09229b);
             setTitle(this.i);
             setTitleColor(-16777216);
             setRightMenuImageSrc(R.drawable.obfuscated_res_0x7f08011b);
@@ -602,7 +603,7 @@ public class SwanAppActionBar extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, vj1.SwanAppActionBar, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, nk1.SwanAppActionBar, 0, 0);
         try {
             this.i = obtainStyledAttributes.getString(0);
             this.j = obtainStyledAttributes.getColor(1, -16777216);
@@ -653,7 +654,7 @@ public class SwanAppActionBar extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             setRightMenuImageSrc(R.drawable.obfuscated_res_0x7f08011e);
             setRightExitImageSrc(R.drawable.obfuscated_res_0x7f08010f);
-            setRightLineSrc(R.color.obfuscated_res_0x7f060390);
+            setRightLineSrc(R.color.obfuscated_res_0x7f060391);
             setRightZoneBgSrc(R.drawable.obfuscated_res_0x7f080120);
         }
     }

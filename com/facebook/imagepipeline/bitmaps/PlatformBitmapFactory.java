@@ -25,11 +25,11 @@ public abstract class PlatformBitmapFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract CloseableReference createBitmapInternal(int i, int i2, Bitmap.Config config);
+    public abstract CloseableReference<Bitmap> createBitmapInternal(int i, int i2, Bitmap.Config config);
 
     /* renamed from: com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public abstract class PlatformBitmapFactory {
         }
     }
 
-    public CloseableReference createBitmap(Bitmap bitmap, int i, int i2, int i3, int i4) {
+    public CloseableReference<Bitmap> createBitmap(Bitmap bitmap, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
@@ -109,7 +109,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createScaledBitmap(Bitmap bitmap, int i, int i2, boolean z, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createScaledBitmap(Bitmap bitmap, int i, int i2, boolean z, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), obj})) == null) {
@@ -159,7 +159,7 @@ public abstract class PlatformBitmapFactory {
         }
     }
 
-    public CloseableReference createBitmap(int i, int i2) {
+    public CloseableReference<Bitmap> createBitmap(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
@@ -168,7 +168,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeII.objValue;
     }
 
-    private CloseableReference createBitmap(int i, int i2, Bitmap.Config config, boolean z) {
+    private CloseableReference<Bitmap> createBitmap(int i, int i2, Bitmap.Config config, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), config, Boolean.valueOf(z)})) == null) {
@@ -177,7 +177,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createScaledBitmap(Bitmap bitmap, int i, int i2, boolean z) {
+    public CloseableReference<Bitmap> createScaledBitmap(Bitmap bitmap, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
@@ -186,7 +186,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    private CloseableReference createBitmap(int i, int i2, Bitmap.Config config, boolean z, @Nullable Object obj) {
+    private CloseableReference<Bitmap> createBitmap(int i, int i2, Bitmap.Config config, boolean z, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), config, Boolean.valueOf(z), obj})) == null) {
@@ -195,7 +195,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    private CloseableReference createBitmap(DisplayMetrics displayMetrics, int i, int i2, Bitmap.Config config, boolean z) {
+    private CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int i, int i2, Bitmap.Config config, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{displayMetrics, Integer.valueOf(i), Integer.valueOf(i2), config, Boolean.valueOf(z)})) == null) {
@@ -204,13 +204,13 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    private CloseableReference createBitmap(DisplayMetrics displayMetrics, int i, int i2, Bitmap.Config config, boolean z, @Nullable Object obj) {
+    private CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int i, int i2, Bitmap.Config config, boolean z, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{displayMetrics, Integer.valueOf(i), Integer.valueOf(i2), config, Boolean.valueOf(z), obj})) == null) {
             checkWidthHeight(i, i2);
-            CloseableReference createBitmapInternal = createBitmapInternal(i, i2, config);
-            Bitmap bitmap = (Bitmap) createBitmapInternal.get();
+            CloseableReference<Bitmap> createBitmapInternal = createBitmapInternal(i, i2, config);
+            Bitmap bitmap = createBitmapInternal.get();
             if (displayMetrics != null) {
                 bitmap.setDensity(displayMetrics.densityDpi);
             }
@@ -259,7 +259,7 @@ public abstract class PlatformBitmapFactory {
         }
     }
 
-    public CloseableReference createBitmap(int i, int i2, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmap(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, config)) == null) {
@@ -268,7 +268,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeIIL.objValue;
     }
 
-    public CloseableReference createBitmap(int i, int i2, Bitmap.Config config, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(int i, int i2, Bitmap.Config config, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), config, obj})) == null) {
@@ -277,7 +277,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(int i, int i2, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(int i, int i2, @Nullable Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, obj)) == null) {
@@ -286,7 +286,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeIIL.objValue;
     }
 
-    public CloseableReference createBitmap(Bitmap bitmap) {
+    public CloseableReference<Bitmap> createBitmap(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bitmap)) == null) {
@@ -295,7 +295,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeL.objValue;
     }
 
-    public CloseableReference createBitmap(Bitmap bitmap, int i, int i2, int i3, int i4, @Nullable Matrix matrix, boolean z) {
+    public CloseableReference<Bitmap> createBitmap(Bitmap bitmap, int i, int i2, int i3, int i4, @Nullable Matrix matrix, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), matrix, Boolean.valueOf(z)})) == null) {
@@ -304,9 +304,9 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(Bitmap bitmap, int i, int i2, int i3, int i4, @Nullable Matrix matrix, boolean z, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(Bitmap bitmap, int i, int i2, int i3, int i4, @Nullable Matrix matrix, boolean z, @Nullable Object obj) {
         InterceptResult invokeCommon;
-        CloseableReference createBitmap;
+        CloseableReference<Bitmap> createBitmap;
         Canvas canvas;
         Paint paint;
         boolean z2;
@@ -335,8 +335,8 @@ public abstract class PlatformBitmapFactory {
                     z2 = true;
                 }
                 createBitmap = createBitmap(round, round2, config, z2, obj);
-                setPropertyFromSourceBitmap(bitmap, (Bitmap) createBitmap.get());
-                canvas = new Canvas((Bitmap) createBitmap.get());
+                setPropertyFromSourceBitmap(bitmap, createBitmap.get());
+                canvas = new Canvas(createBitmap.get());
                 canvas.translate(-rectF2.left, -rectF2.top);
                 canvas.concat(matrix);
                 paint = new Paint();
@@ -346,8 +346,8 @@ public abstract class PlatformBitmapFactory {
                 }
             } else {
                 createBitmap = createBitmap(i3, i4, suitableBitmapConfig, bitmap.hasAlpha(), obj);
-                setPropertyFromSourceBitmap(bitmap, (Bitmap) createBitmap.get());
-                canvas = new Canvas((Bitmap) createBitmap.get());
+                setPropertyFromSourceBitmap(bitmap, createBitmap.get());
+                canvas = new Canvas(createBitmap.get());
                 paint = null;
             }
             canvas.drawBitmap(bitmap, rect, rectF, paint);
@@ -357,7 +357,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(Bitmap bitmap, int i, int i2, int i3, int i4, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(Bitmap bitmap, int i, int i2, int i3, int i4, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), obj})) == null) {
@@ -366,7 +366,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(Bitmap bitmap, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(Bitmap bitmap, @Nullable Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, bitmap, obj)) == null) {
@@ -375,7 +375,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeLL.objValue;
     }
 
-    public CloseableReference createBitmap(DisplayMetrics displayMetrics, int i, int i2, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int i, int i2, Bitmap.Config config) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{displayMetrics, Integer.valueOf(i), Integer.valueOf(i2), config})) == null) {
@@ -384,7 +384,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(DisplayMetrics displayMetrics, int i, int i2, Bitmap.Config config, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int i, int i2, Bitmap.Config config, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{displayMetrics, Integer.valueOf(i), Integer.valueOf(i2), config, obj})) == null) {
@@ -393,7 +393,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(DisplayMetrics displayMetrics, int[] iArr, int i, int i2, int i3, int i4, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int[] iArr, int i, int i2, int i3, int i4, Bitmap.Config config) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{displayMetrics, iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), config})) == null) {
@@ -402,18 +402,18 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(DisplayMetrics displayMetrics, int[] iArr, int i, int i2, int i3, int i4, Bitmap.Config config, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int[] iArr, int i, int i2, int i3, int i4, Bitmap.Config config, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{displayMetrics, iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), config, obj})) == null) {
-            CloseableReference createBitmap = createBitmap(displayMetrics, i3, i4, config, obj);
-            ((Bitmap) createBitmap.get()).setPixels(iArr, i, i2, 0, 0, i3, i4);
+            CloseableReference<Bitmap> createBitmap = createBitmap(displayMetrics, i3, i4, config, obj);
+            createBitmap.get().setPixels(iArr, i, i2, 0, 0, i3, i4);
             return createBitmap;
         }
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(DisplayMetrics displayMetrics, int[] iArr, int i, int i2, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int[] iArr, int i, int i2, Bitmap.Config config) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{displayMetrics, iArr, Integer.valueOf(i), Integer.valueOf(i2), config})) == null) {
@@ -422,7 +422,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(DisplayMetrics displayMetrics, int[] iArr, int i, int i2, Bitmap.Config config, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int[] iArr, int i, int i2, Bitmap.Config config, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{displayMetrics, iArr, Integer.valueOf(i), Integer.valueOf(i2), config, obj})) == null) {
@@ -431,7 +431,7 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(int[] iArr, int i, int i2, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmap(int[] iArr, int i, int i2, Bitmap.Config config) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), config})) == null) {
@@ -440,12 +440,12 @@ public abstract class PlatformBitmapFactory {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public CloseableReference createBitmap(int[] iArr, int i, int i2, Bitmap.Config config, @Nullable Object obj) {
+    public CloseableReference<Bitmap> createBitmap(int[] iArr, int i, int i2, Bitmap.Config config, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), config, obj})) == null) {
-            CloseableReference createBitmapInternal = createBitmapInternal(i, i2, config);
-            ((Bitmap) createBitmapInternal.get()).setPixels(iArr, 0, i, 0, 0, i, i2);
+            CloseableReference<Bitmap> createBitmapInternal = createBitmapInternal(i, i2, config);
+            createBitmapInternal.get().setPixels(iArr, 0, i, 0, 0, i, i2);
             return createBitmapInternal;
         }
         return (CloseableReference) invokeCommon.objValue;

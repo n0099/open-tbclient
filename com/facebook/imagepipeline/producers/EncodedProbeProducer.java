@@ -15,15 +15,15 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 /* loaded from: classes7.dex */
-public class EncodedProbeProducer implements Producer {
+public class EncodedProbeProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "EncodedProbeProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
     public final BufferedDiskCache mDefaultBufferedDiskCache;
-    public final BoundedLinkedHashSet mDiskCacheHistory;
-    public final BoundedLinkedHashSet mEncodedMemoryCacheHistory;
-    public final Producer mInputProducer;
+    public final BoundedLinkedHashSet<CacheKey> mDiskCacheHistory;
+    public final BoundedLinkedHashSet<CacheKey> mEncodedMemoryCacheHistory;
+    public final Producer<EncodedImage> mInputProducer;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
     public String getProducerName() {
@@ -33,18 +33,18 @@ public class EncodedProbeProducer implements Producer {
     }
 
     /* loaded from: classes7.dex */
-    public class ProbeConsumer extends DelegatingConsumer {
+    public static class ProbeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CacheKeyFactory mCacheKeyFactory;
         public final BufferedDiskCache mDefaultBufferedDiskCache;
-        public final BoundedLinkedHashSet mDiskCacheHistory;
-        public final BoundedLinkedHashSet mEncodedMemoryCacheHistory;
+        public final BoundedLinkedHashSet<CacheKey> mDiskCacheHistory;
+        public final BoundedLinkedHashSet<CacheKey> mEncodedMemoryCacheHistory;
         public final ProducerContext mProducerContext;
         public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ProbeConsumer(Consumer consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet boundedLinkedHashSet, BoundedLinkedHashSet boundedLinkedHashSet2) {
+        public ProbeConsumer(Consumer<EncodedImage> consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet<CacheKey> boundedLinkedHashSet, BoundedLinkedHashSet<CacheKey> boundedLinkedHashSet2) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -123,7 +123,7 @@ public class EncodedProbeProducer implements Producer {
         }
     }
 
-    public EncodedProbeProducer(BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet boundedLinkedHashSet, BoundedLinkedHashSet boundedLinkedHashSet2, Producer producer) {
+    public EncodedProbeProducer(BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet boundedLinkedHashSet, BoundedLinkedHashSet boundedLinkedHashSet2, Producer<EncodedImage> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public class EncodedProbeProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
             try {

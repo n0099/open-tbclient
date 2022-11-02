@@ -193,7 +193,7 @@ public final class ITFReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map map) throws FormatException, NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws FormatException, NotFoundException {
         InterceptResult invokeILL;
         int[] iArr;
         boolean z;

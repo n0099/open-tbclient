@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DnsUtil {
@@ -111,15 +110,14 @@ public class DnsUtil {
         }
     }
 
-    public static List parseInetAddressList(List list) {
+    public static List<InetAddress> parseInetAddressList(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             if (list != null && list.size() > 0) {
                 ArrayList arrayList = new ArrayList(list.size());
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    arrayList.add(InetAddress.getByName((String) it.next()));
+                for (String str : list) {
+                    arrayList.add(InetAddress.getByName(str));
                 }
                 return arrayList;
             }
@@ -128,15 +126,14 @@ public class DnsUtil {
         return (List) invokeL.objValue;
     }
 
-    public static List parseRawAddressList(List list) {
+    public static List<String> parseRawAddressList(List<InetAddress> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             if (list != null && list.size() > 0) {
                 ArrayList arrayList = new ArrayList(list.size());
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    arrayList.add(((InetAddress) it.next()).getHostAddress());
+                for (InetAddress inetAddress : list) {
+                    arrayList.add(inetAddress.getHostAddress());
                 }
                 return arrayList;
             }

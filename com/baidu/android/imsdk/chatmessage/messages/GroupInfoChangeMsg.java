@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GroupInfoChangeMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String groupname;
     public long mInfoVersion;
@@ -44,7 +44,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupInfoChangeMsg.1
+        CREATOR = new Parcelable.Creator<GroupInfoChangeMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupInfoChangeMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,6 +63,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupInfoChangeMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -74,6 +75,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupInfoChangeMsg[] newArray(int i) {
                 InterceptResult invokeI;

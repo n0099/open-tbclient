@@ -1,100 +1,144 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qg6 {
+public class qg6 extends jn<rg6, ComplaintBarlordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public final View b;
-    public final RelativeLayout c;
-    public final EditText d;
-    public final ImageView e;
-    public final TextView f;
-    public final BdTypeListView g;
-    public final ImageView h;
-    public int i;
+    public int a;
+    public View.OnClickListener b;
 
-    public qg6(TbPageContext tbPageContext) {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qg6 a;
+
+        public a(qg6 qg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qg6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qg6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
+                String str = (String) view2.getTag();
+                if (this.a.a == 1 || this.a.a == 4) {
+                    str = str + "?isNightModel=1";
+                }
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f042f), str, true));
+                customMessage.setTag(this.a.mPageId);
+                MessageManager.getInstance().sendMessage(customMessage);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qg6(r9 r9Var) {
+        super(r9Var.getPageActivity(), rg6.c, r9Var.getUniqueId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 3;
-        this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02c8, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091dda);
-        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ddd);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d97);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d87);
-        this.d.setHint(R.string.obfuscated_res_0x7f0f10ea);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d86);
-        this.f = textView;
-        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0375));
-        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091dde);
-        a();
-        b(TbadkCoreApplication.getInst().getSkinType());
+        this.b = new a(this);
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: y */
+    public ComplaintBarlordViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.height = fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
-            int f = fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070302);
-            layoutParams.rightMargin = f;
-            layoutParams.leftMargin = f;
-            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
-            if (immersiveStickyBarHeight > 0) {
-                layoutParams.topMargin = immersiveStickyBarHeight;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03f3, viewGroup, false));
+        }
+        return (ComplaintBarlordViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rg6 rg6Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        z(i, view2, viewGroup, rg6Var, complaintBarlordViewHolder);
+        return view2;
+    }
+
+    public final void w(ComplaintBarlordViewHolder complaintBarlordViewHolder, rg6 rg6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, complaintBarlordViewHolder, rg6Var) == null) {
+            complaintBarlordViewHolder.d.setText(rg6Var.a);
+            complaintBarlordViewHolder.b.setTag(rg6Var.b);
+            complaintBarlordViewHolder.b.setOnClickListener(this.b);
+        }
+    }
+
+    public final void x(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, complaintBarlordViewHolder) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            this.a = skinType;
+            if (complaintBarlordViewHolder.a == skinType) {
+                return;
             }
-            this.c.setLayoutParams(layoutParams);
+            complaintBarlordViewHolder.a = skinType;
+            SkinManager.setBackgroundResource(complaintBarlordViewHolder.b, R.drawable.frs_member_manito_bg);
+            SkinManager.setBackgroundColor(complaintBarlordViewHolder.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(complaintBarlordViewHolder.d, R.color.CAM_X0105, 1);
+            SkinManager.setImageResource(complaintBarlordViewHolder.e, R.drawable.icon_arrow12_gray66_right);
         }
     }
 
-    public void b(int i) {
+    public View z(int i, View view2, ViewGroup viewGroup, rg6 rg6Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.i == i) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rg6Var, complaintBarlordViewHolder})) == null) {
+            if (rg6Var != null && complaintBarlordViewHolder != null) {
+                x(complaintBarlordViewHolder);
+                w(complaintBarlordViewHolder, rg6Var);
+            }
+            return view2;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809e0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        if (i == 2) {
-            this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
-        } else {
-            this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        }
-        SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        this.i = i;
+        return (View) invokeCommon.objValue;
     }
 }

@@ -2,6 +2,7 @@ package androidx.core.graphics;
 
 import android.graphics.Bitmap;
 import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +27,7 @@ public final class BitmapCompat {
         }
     }
 
-    public static int getAllocationByteCount(Bitmap bitmap) {
+    public static int getAllocationByteCount(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bitmap)) == null) {
@@ -38,7 +39,7 @@ public final class BitmapCompat {
         return invokeL.intValue;
     }
 
-    public static boolean hasMipMap(Bitmap bitmap) {
+    public static boolean hasMipMap(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
@@ -50,7 +51,7 @@ public final class BitmapCompat {
         return invokeL.booleanValue;
     }
 
-    public static void setHasMipMap(Bitmap bitmap, boolean z) {
+    public static void setHasMipMap(@NonNull Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65539, null, bitmap, z) == null) && Build.VERSION.SDK_INT >= 18) {
             bitmap.setHasMipMap(z);

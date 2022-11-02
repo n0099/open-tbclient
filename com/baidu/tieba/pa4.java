@@ -1,129 +1,53 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.menu.viewpager.PointPageIndicator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 /* loaded from: classes5.dex */
-public class pa4 {
+public class pa4 extends PointPageIndicator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public Map c;
-    public RequestBody d;
-    public ResponseCallback e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public Object i;
-    public int j;
-    public int k;
-    public a l;
 
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-    }
-
-    public pa4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pa4(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "GET";
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.j = 6;
-        this.k = 0;
     }
 
-    public a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
-        }
-        return (a) invokeV.objValue;
+    @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
+    public /* bridge */ /* synthetic */ PointPageIndicator d(Drawable drawable, Drawable drawable2) {
+        g(drawable, drawable2);
+        return this;
     }
 
-    public pa4(String str, ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, responseCallback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = "GET";
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.j = 6;
-        this.k = 0;
-        this.a = str;
-        this.e = responseCallback;
-    }
-
-    public pa4(String str, RequestBody requestBody, ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, requestBody, responseCallback};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = "GET";
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.j = 6;
-        this.k = 0;
-        this.a = str;
-        this.d = requestBody;
-        this.e = responseCallback;
-    }
-
-    public pa4 a(MediaType mediaType, String str) {
+    public pa4 g(Drawable drawable, Drawable drawable2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
-            if (mediaType != null && str != null) {
-                this.d = RequestBody.create(mediaType, str);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, drawable2)) == null) {
+            this.a = drawable;
+            this.b = drawable2;
+            this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
             return this;
         }
         return (pa4) invokeLL.objValue;

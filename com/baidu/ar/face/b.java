@@ -103,29 +103,29 @@ public class b {
         }
     }
 
-    public a.C0058a a(a.b bVar) {
+    public a.C0059a a(a.b bVar) {
         InterceptResult invokeL;
-        a.C0058a c0058a;
+        a.C0059a c0059a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
             int i = bVar.qg;
             if (i == 0) {
                 this.nL = 1;
-                c0058a = bVar.qd;
+                c0059a = bVar.qd;
             } else if (i == 1) {
                 this.nL = 1;
-                c0058a = bVar.qe;
+                c0059a = bVar.qe;
             } else if (i != 2) {
                 com.baidu.ar.h.b.b(TAG, "createFaceParams() device not support!!!");
-                c0058a = null;
+                c0059a = null;
             } else {
                 this.nL = 4;
-                c0058a = bVar.qf;
+                c0059a = bVar.qf;
             }
             this.nM = this.nL;
-            return c0058a;
+            return c0059a;
         }
-        return (a.C0058a) invokeL.objValue;
+        return (a.C0059a) invokeL.objValue;
     }
 
     public void b(String str, int i) {

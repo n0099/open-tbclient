@@ -10,6 +10,10 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -74,7 +78,7 @@ public class CardView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CardView(Context context) {
+    public CardView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,7 +99,7 @@ public class CardView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CardView(Context context, AttributeSet attributeSet) {
+    public CardView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040131);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,7 +120,7 @@ public class CardView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardView(Context context, AttributeSet attributeSet, int i) {
+    public CardView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         int color;
         ColorStateList valueOf;
@@ -249,9 +253,9 @@ public class CardView extends FrameLayout {
             float[] fArr = new float[3];
             Color.colorToHSV(color2, fArr);
             if (fArr[2] > 0.5f) {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f06044d);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f06044e);
             } else {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f06044c);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f06044d);
             }
             valueOf = ColorStateList.valueOf(color);
         }
@@ -277,6 +281,7 @@ public class CardView extends FrameLayout {
         IMPL.initialize(this.mCardViewDelegate, context, colorStateList, dimension, dimension2, f);
     }
 
+    @NonNull
     public ColorStateList getCardBackgroundColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -295,6 +300,7 @@ public class CardView extends FrameLayout {
         return invokeV.floatValue;
     }
 
+    @Px
     public int getContentPaddingBottom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -304,6 +310,7 @@ public class CardView extends FrameLayout {
         return invokeV.intValue;
     }
 
+    @Px
     public int getContentPaddingLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -313,6 +320,7 @@ public class CardView extends FrameLayout {
         return invokeV.intValue;
     }
 
+    @Px
     public int getContentPaddingRight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -322,6 +330,7 @@ public class CardView extends FrameLayout {
         return invokeV.intValue;
     }
 
+    @Px
     public int getContentPaddingTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -387,7 +396,7 @@ public class CardView extends FrameLayout {
         }
     }
 
-    public void setCardBackgroundColor(int i) {
+    public void setCardBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             IMPL.setBackgroundColor(this.mCardViewDelegate, ColorStateList.valueOf(i));
@@ -449,14 +458,14 @@ public class CardView extends FrameLayout {
         }
     }
 
-    public void setCardBackgroundColor(ColorStateList colorStateList) {
+    public void setCardBackgroundColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) {
             IMPL.setBackgroundColor(this.mCardViewDelegate, colorStateList);
         }
     }
 
-    public void setContentPadding(int i, int i2, int i3, int i4) {
+    public void setContentPadding(@Px int i, @Px int i2, @Px int i3, @Px int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
             this.mContentPadding.set(i, i2, i3, i4);

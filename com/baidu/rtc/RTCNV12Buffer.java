@@ -1,5 +1,6 @@
 package com.baidu.rtc;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +13,7 @@ public class RTCNV12Buffer extends NV12Buffer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RTCNV12Buffer(int i, int i2, int i3, int i4, ByteBuffer byteBuffer, Runnable runnable) {
+    public RTCNV12Buffer(int i, int i2, int i3, int i4, ByteBuffer byteBuffer, @Nullable Runnable runnable) {
         super(i, i2, i3, i4, byteBuffer, runnable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

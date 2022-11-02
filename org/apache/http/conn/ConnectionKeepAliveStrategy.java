@@ -3,7 +3,7 @@ package org.apache.http.conn;
 import org.apache.http.HttpResponse;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ConnectionKeepAliveStrategy {
     long getKeepAliveDuration(HttpResponse httpResponse, HttpContext httpContext);
 }

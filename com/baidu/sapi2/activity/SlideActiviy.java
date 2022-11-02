@@ -45,7 +45,7 @@ public class SlideActiviy extends BaseActivity {
     public SlideInterceptor w;
     public SlidingPaneLayout.PanelSlideListener x;
     public boolean y;
-    public WeakReference z;
+    public WeakReference<Activity> z;
 
     public void loadSlideWebview(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -382,11 +382,11 @@ public class SlideActiviy extends BaseActivity {
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             try {
                 if (this.z == null || this.z.get() == null) {
-                    this.z = new WeakReference(ActivityStackManager.getInstance().getPenultimateActivity());
+                    this.z = new WeakReference<>(ActivityStackManager.getInstance().getPenultimateActivity());
                 }
                 if (this.z.get() != null) {
                     Activity realTopActivity = ActivityStackManager.getInstance().getRealTopActivity();
-                    Activity activity = (Activity) this.z.get();
+                    Activity activity = this.z.get();
                     if (realTopActivity != null && activity != null && realTopActivity.getLocalClassName().equals(activity.getLocalClassName())) {
                         a(activity, 0.0f);
                     } else {

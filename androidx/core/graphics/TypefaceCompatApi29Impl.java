@@ -9,6 +9,10 @@ import android.graphics.fonts.FontFamily;
 import android.graphics.fonts.FontStyle;
 import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +23,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
+@RequiresApi(29)
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
     public static /* synthetic */ Interceptable $ic;
@@ -39,6 +45,7 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
+    @Nullable
     public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
         int i2;
@@ -87,7 +94,8 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    @Nullable
+    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         int i2;
         ParcelFileDescriptor openFileDescriptor;
@@ -167,6 +175,7 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
+    @Nullable
     public Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

@@ -1,5 +1,6 @@
 package com.google.android.material.imageview;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -15,6 +16,11 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
@@ -48,6 +54,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     public final MaterialShapeDrawable shadowDrawable;
     public ShapeAppearanceModel shapeAppearanceModel;
     public ColorStateList strokeColor;
+    @Dimension
     public float strokeWidth;
 
     static {
@@ -65,6 +72,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         }
     }
 
+    @TargetApi(21)
     /* loaded from: classes7.dex */
     public class OutlineProvider extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
@@ -125,7 +133,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ShapeableImageView(Context context, AttributeSet attributeSet) {
+    public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -158,7 +166,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShapeableImageView(Context context, AttributeSet attributeSet, int i) {
+    public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -212,7 +220,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     }
 
     @Override // com.google.android.material.shape.Shapeable
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, shapeAppearanceModel) == null) {
             this.shapeAppearanceModel = shapeAppearanceModel;
@@ -222,7 +230,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         }
     }
 
-    public void setStrokeColor(ColorStateList colorStateList) {
+    public void setStrokeColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorStateList) == null) {
             this.strokeColor = colorStateList;
@@ -230,14 +238,14 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         }
     }
 
-    public void setStrokeColorResource(int i) {
+    public void setStrokeColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             setStrokeColor(AppCompatResources.getColorStateList(getContext(), i));
         }
     }
 
-    public void setStrokeWidth(float f) {
+    public void setStrokeWidth(@Dimension float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeF(1048586, this, f) == null) && this.strokeWidth != f) {
             this.strokeWidth = f;
@@ -245,7 +253,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         }
     }
 
-    public void setStrokeWidthResource(int i) {
+    public void setStrokeWidthResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             setStrokeWidth(getResources().getDimensionPixelSize(i));
@@ -266,6 +274,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     }
 
     @Override // com.google.android.material.shape.Shapeable
+    @NonNull
     public ShapeAppearanceModel getShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -275,6 +284,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         return (ShapeAppearanceModel) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getStrokeColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,6 +294,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Dimension
     public float getStrokeWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

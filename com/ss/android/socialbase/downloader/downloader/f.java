@@ -10,6 +10,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
+import com.ss.android.socialbase.downloader.depend.IDownloadListener;
 import com.ss.android.socialbase.downloader.depend.ai;
 import com.ss.android.socialbase.downloader.depend.x;
 import com.ss.android.socialbase.downloader.exception.BaseException;
@@ -27,9 +28,9 @@ public class f {
     public final j d;
     public final Handler e;
     public DownloadTask f;
-    public SparseArray g;
-    public SparseArray h;
-    public SparseArray i;
+    public SparseArray<IDownloadListener> g;
+    public SparseArray<IDownloadListener> h;
+    public SparseArray<IDownloadListener> i;
     public boolean j = false;
     public volatile long k = 0;
     public final AtomicLong l = new AtomicLong();
@@ -90,8 +91,8 @@ public class f {
     }
 
     private void a(int i, BaseException baseException, boolean z) {
-        SparseArray sparseArray;
-        SparseArray sparseArray2;
+        SparseArray<IDownloadListener> sparseArray;
+        SparseArray<IDownloadListener> sparseArray2;
         int status = this.c.getStatus();
         if (status == -3 && i == 4) {
             return;

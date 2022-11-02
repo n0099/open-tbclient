@@ -2,18 +2,19 @@ package com.baidu.pass.ecommerce.common.mvp;
 
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.common.mvp.IPresenter;
 import com.baidu.sapi2.activity.BaseOptionActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class BaseMvpActivity extends BaseOptionActivity implements IBaseView {
+public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionActivity implements IBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IPresenter presenter;
+    public P presenter;
 
-    public abstract IPresenter createPresenter();
+    public abstract P createPresenter();
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
     public void showLoading(int i) {
@@ -40,9 +41,9 @@ public abstract class BaseMvpActivity extends BaseOptionActivity implements IBas
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            IPresenter iPresenter = this.presenter;
-            if (iPresenter != null) {
-                iPresenter.destroy();
+            P p = this.presenter;
+            if (p != null) {
+                p.destroy();
             }
             super.onDestroy();
         }
@@ -85,7 +86,7 @@ public abstract class BaseMvpActivity extends BaseOptionActivity implements IBas
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            IPresenter createPresenter = createPresenter();
+            P createPresenter = createPresenter();
             this.presenter = createPresenter;
             createPresenter.attachView(this);
         }

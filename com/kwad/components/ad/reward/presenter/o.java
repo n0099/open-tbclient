@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
@@ -21,6 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.i.b;
 import com.kwad.components.ad.reward.e;
+import com.kwad.components.ad.reward.presenter.RewardPreEndCardPresenter;
 import com.kwad.components.core.video.DetailVideoView;
 import com.kwad.components.core.webview.jshandler.e;
 import com.kwad.components.core.widget.KsLogoView;
@@ -36,6 +38,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
     public KsLogoView ln;
     public AdTemplate mAdTemplate;
     public com.kwad.components.core.video.g mVideoPlayStateListener;
+    @Nullable
     public com.kwad.components.ad.reward.h mp;
     public ImageView px;
     public View qA;
@@ -47,12 +50,13 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
     public Animator qG;
     public Animator qH;
     public AdTemplate qI;
-    public List qJ;
+    public List<com.kwad.components.ad.reward.c.b> qJ;
     public float qK;
     public float qL;
     public float qM;
     public long qN;
     public long qO;
+    @RewardPreEndCardPresenter.PreEndPageStatus
     public int qz;
 
     public o() {
@@ -352,7 +356,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         return (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f)) == null) ? (int) (f + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d0) + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d1)) : invokeF.intValue;
     }
 
-    private void g(List list) {
+    private void g(List<AdTemplate> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, list) == null) {
             com.kwad.components.ad.reward.h hVar = new com.kwad.components.ad.reward.h(list, this.nM.mReportExtData, this);
@@ -365,7 +369,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
             com.kwad.components.ad.reward.k kVar = this.nM;
             hVar2.a(frameLayout, kVar.mRootContainer, this.mAdTemplate, kVar.mApkDownloadHelper, kVar.mScreenOrientation);
             com.kwad.sdk.core.e.b.d("RewardPreEndCardPresenter", "startPreloadWebView");
-            this.mp.a(new b.InterfaceC0528b(this) { // from class: com.kwad.components.ad.reward.presenter.o.2
+            this.mp.a(new b.InterfaceC0539b(this) { // from class: com.kwad.components.ad.reward.presenter.o.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ o qT;
@@ -388,7 +392,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
                     this.qT = this;
                 }
 
-                @Override // com.kwad.components.ad.i.b.InterfaceC0528b
+                @Override // com.kwad.components.ad.i.b.InterfaceC0539b
                 public final void hk() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -507,14 +511,14 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
     }
 
     @Override // com.kwad.components.ad.reward.e.a
-    public final void e(List list) {
+    public final void e(@Nullable List<com.kwad.components.ad.reward.c.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             com.kwad.sdk.core.e.b.d("RewardPreEndCardPresenter", "onInnerAdLoad: " + list);
             if (list == null || list.size() == 0) {
                 return;
             }
-            AdTemplate adTemplate = ((com.kwad.components.ad.reward.c.b) list.get(0)).getAdTemplate();
+            AdTemplate adTemplate = list.get(0).getAdTemplate();
             this.qI = adTemplate;
             if (com.kwad.sdk.core.response.a.b.aX(adTemplate)) {
                 this.qJ = list;
@@ -532,12 +536,12 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onCreate();
-            this.qA = findViewById(R.id.obfuscated_res_0x7f0910f8);
-            this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091220);
-            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911ed);
-            this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f091066);
-            this.qD = findViewById(R.id.obfuscated_res_0x7f091118);
-            this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910f9);
+            this.qA = findViewById(R.id.obfuscated_res_0x7f091132);
+            this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125a);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091227);
+            this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a0);
+            this.qD = findViewById(R.id.obfuscated_res_0x7f091152);
+            this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091133);
         }
     }
 

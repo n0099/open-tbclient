@@ -1,6 +1,7 @@
 package androidx.media2.session;
 
 import android.app.PendingIntent;
+import androidx.annotation.RestrictTo;
 import androidx.media2.common.MediaItem;
 import androidx.media2.common.ParcelImplListSlice;
 import androidx.media2.common.SessionPlayer;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class ConnectionResultParcelizer {
     public static /* synthetic */ Interceptable $ic;

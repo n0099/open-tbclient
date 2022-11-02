@@ -9,7 +9,7 @@ import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,16 +110,16 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = fj.k(TbadkCoreApplication.getInst());
-            int i = fj.i(TbadkCoreApplication.getInst());
-            float h = fj.h(TbadkCoreApplication.getInst());
+            int l = xi.l(TbadkCoreApplication.getInst());
+            int j = xi.j(TbadkCoreApplication.getInst());
+            float i = xi.i(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam("pn", this.pn);
             addParam("ps", this.ps);
-            addParam("scr_w", k);
-            addParam("scr_h", i);
+            addParam("scr_w", l);
+            addParam("scr_h", j);
             addParam("q_type", 0);
-            addParam("scr_dip", String.valueOf(h));
+            addParam("scr_dip", String.valueOf(i));
             addParam("label_name", this.lableName);
             addParam("sort_type", this.sortType);
             addParam(SuggestAddrField.KEY_LAT, this.lat);
@@ -137,7 +137,7 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
                 }
             }
             addParam("network", str);
-            addParam("ua_str", k + "_" + i + "_android_" + TbConfig.getVersion());
+            addParam("ua_str", l + "_" + j + "_android_" + TbConfig.getVersion());
             addParam(TiebaStatic.Params.TAB_ID, this.tabId);
             addParam("refresh_type", this.refreshType);
             addParam("session_id", this.sessionId);

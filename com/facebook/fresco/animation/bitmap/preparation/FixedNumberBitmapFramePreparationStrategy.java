@@ -14,7 +14,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePreparationStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAMES_TO_PREPARE = 3;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final int mFramesToPrepare;
 

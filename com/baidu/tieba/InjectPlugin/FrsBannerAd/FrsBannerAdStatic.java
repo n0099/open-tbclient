@@ -6,16 +6,16 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.go;
-import com.baidu.tieba.in5;
-import com.baidu.tieba.nn5;
-import com.baidu.tieba.on5;
-import com.baidu.tieba.pn5;
-import com.baidu.tieba.qn5;
-import com.baidu.tieba.rn5;
-import com.baidu.tieba.sn5;
-import com.baidu.tieba.vn5;
-import com.baidu.tieba.wn5;
+import com.baidu.tieba.ho5;
+import com.baidu.tieba.mo5;
+import com.baidu.tieba.no5;
+import com.baidu.tieba.oo5;
+import com.baidu.tieba.po5;
+import com.baidu.tieba.qo5;
+import com.baidu.tieba.ro5;
+import com.baidu.tieba.uo5;
+import com.baidu.tieba.vo5;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,11 +35,11 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0194a implements in5.a {
+        public class C0203a implements ho5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0194a(a aVar) {
+            public C0203a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,27 +55,27 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.in5.a
-            public void a(qn5 qn5Var, View view2) {
-                pn5 a;
+            @Override // com.baidu.tieba.ho5.a
+            public void a(po5 po5Var, View view2) {
+                oo5 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, qn5Var, view2) == null) && (a = vn5.a(qn5Var)) != null) {
-                    nn5 nn5Var = new nn5();
-                    nn5Var.a = 2;
-                    nn5Var.b(view2);
-                    a.M(nn5Var);
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, po5Var, view2) == null) && (a = uo5.a(po5Var)) != null) {
+                    mo5 mo5Var = new mo5();
+                    mo5Var.a = 2;
+                    mo5Var.b(view2);
+                    a.M(mo5Var);
                 }
             }
 
-            @Override // com.baidu.tieba.in5.a
-            public void b(qn5 qn5Var, View view2) {
-                pn5 a;
+            @Override // com.baidu.tieba.ho5.a
+            public void b(po5 po5Var, View view2) {
+                oo5 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qn5Var, view2) == null) && (a = vn5.a(qn5Var)) != null) {
-                    nn5 nn5Var = new nn5();
-                    nn5Var.a = 3;
-                    nn5Var.b(view2);
-                    a.M(nn5Var);
+                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, po5Var, view2) == null) && (a = uo5.a(po5Var)) != null) {
+                    mo5 mo5Var = new mo5();
+                    mo5Var.a = 3;
+                    mo5Var.b(view2);
+                    a.M(mo5Var);
                 }
             }
         }
@@ -101,44 +101,44 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            wn5 wn5Var;
+            vo5 vo5Var;
             TbPageContext b;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof wn5) || (b = (wn5Var = (wn5) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof pn5)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof vo5) || (b = (vo5Var = (vo5) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof oo5)) {
                 return;
             }
-            pn5 pn5Var = (pn5) b.getPageActivity();
-            on5 P0 = pn5Var.P0(2);
+            oo5 oo5Var = (oo5) b.getPageActivity();
+            no5 P0 = oo5Var.P0(2);
             if (P0 == null) {
-                rn5 a = sn5.b().a(2);
+                qo5 a = ro5.b().a(2);
                 if (a == null) {
                     return;
                 }
                 P0 = a.a();
-                pn5Var.o0(2, P0);
-                P0.f(new qn5(b), null);
-                if (!(P0 instanceof in5)) {
+                oo5Var.o0(2, P0);
+                P0.f(new po5(b), null);
+                if (!(P0 instanceof ho5)) {
                     return;
                 }
-                ((in5) P0).h(new C0194a(this));
+                ((ho5) P0).h(new C0203a(this));
             }
-            if (!(P0 instanceof in5)) {
+            if (!(P0 instanceof ho5)) {
                 return;
             }
-            in5 in5Var = (in5) P0;
-            if (wn5Var.a() == 1) {
-                in5Var.b(wn5Var.g());
-                in5Var.c(wn5Var.d());
-                in5Var.j();
-            } else if (wn5Var.a() == 2) {
-                in5Var.l(wn5Var.f());
-            } else if (wn5Var.a() == 3) {
-                go e = wn5Var.e();
-                if (e != null && in5Var.getView() != null) {
-                    e.removeHeaderView(in5Var.getView());
+            ho5 ho5Var = (ho5) P0;
+            if (vo5Var.a() == 1) {
+                ho5Var.b(vo5Var.g());
+                ho5Var.c(vo5Var.d());
+                ho5Var.j();
+            } else if (vo5Var.a() == 2) {
+                ho5Var.l(vo5Var.f());
+            } else if (vo5Var.a() == 3) {
+                yn e = vo5Var.e();
+                if (e != null && ho5Var.getView() != null) {
+                    e.removeHeaderView(ho5Var.getView());
                 }
-            } else if (wn5Var.a() == 4) {
-                in5Var.a(wn5Var.h());
+            } else if (vo5Var.a() == 4) {
+                ho5Var.a(vo5Var.h());
             }
         }
     }

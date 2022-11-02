@@ -46,7 +46,7 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
     }
 
     /* loaded from: classes7.dex */
-    public final class Factory implements TrackSelection.Factory {
+    public static final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float bandwidthFraction;
@@ -230,7 +230,7 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
     }
 
     @Override // com.google.android.exoplayer2.trackselection.BaseTrackSelection, com.google.android.exoplayer2.trackselection.TrackSelection
-    public int evaluateQueueSize(long j, List list) {
+    public int evaluateQueueSize(long j, List<? extends MediaChunk> list) {
         InterceptResult invokeJL;
         int i;
         int i2;
@@ -240,12 +240,12 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
                 return 0;
             }
             int size = list.size();
-            if (((MediaChunk) list.get(size - 1)).endTimeUs - j < this.minDurationToRetainAfterDiscardUs) {
+            if (list.get(size - 1).endTimeUs - j < this.minDurationToRetainAfterDiscardUs) {
                 return size;
             }
             Format format = getFormat(determineIdealSelectedIndex(SystemClock.elapsedRealtime()));
             for (int i3 = 0; i3 < size; i3++) {
-                MediaChunk mediaChunk = (MediaChunk) list.get(i3);
+                MediaChunk mediaChunk = list.get(i3);
                 Format format2 = mediaChunk.trackFormat;
                 if (mediaChunk.startTimeUs - j >= this.minDurationToRetainAfterDiscardUs && format2.bitrate < format.bitrate && (i = format2.height) != -1 && i < 720 && (i2 = format2.width) != -1 && i2 < 1280 && i < format.height) {
                     return i3;

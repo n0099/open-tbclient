@@ -43,7 +43,7 @@ public final class IMSDK {
     public Runnable mConnectRunnable;
     public IMConnection mConnection;
     public Context mContext;
-    public ArrayList mHeartBeatListener;
+    public ArrayList<IHeartBeat> mHeartBeatListener;
     public Heartbeat mHeartbeatOperator;
     public Runnable mHeartbeatRunnable;
     public Boolean mIsAlive;
@@ -88,7 +88,7 @@ public final class IMSDK {
         this.mConnection = null;
         this.mUk = 0L;
         this.mHeartbeatOperator = null;
-        this.mHeartBeatListener = new ArrayList();
+        this.mHeartBeatListener = new ArrayList<>();
         this.mHeartbeatRunnable = new Runnable(this) { // from class: com.baidu.android.imsdk.internal.IMSDK.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

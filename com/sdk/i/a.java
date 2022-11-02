@@ -50,7 +50,7 @@ public class a {
         }
     }
 
-    public static Object invokeOnSubscriptionManager(Context context, String str, Boolean bool, Class[] clsArr, Object[] objArr) {
+    public static Object invokeOnSubscriptionManager(Context context, String str, Boolean bool, Class<?>[] clsArr, Object[] objArr) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, context, str, bool, clsArr, objArr)) == null) {
@@ -70,7 +70,7 @@ public class a {
         return invokeLLLLL.objValue;
     }
 
-    public static Object invokeOnTelephonyManager(Context context, String str, Boolean bool, Class[] clsArr, Object[] objArr) {
+    public static Object invokeOnTelephonyManager(Context context, String str, Boolean bool, Class<?>[] clsArr, Object[] objArr) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, context, str, bool, clsArr, objArr)) == null) {

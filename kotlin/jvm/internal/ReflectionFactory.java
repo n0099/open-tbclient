@@ -1,6 +1,7 @@
 package kotlin.jvm.internal;
 
 import java.util.List;
+import kotlin.SinceKotlin;
 import kotlin.reflect.KClass;
 import kotlin.reflect.KClassifier;
 import kotlin.reflect.KDeclarationContainer;
@@ -55,6 +56,7 @@ public class ReflectionFactory {
         return new ClassReference(cls);
     }
 
+    @SinceKotlin(version = "1.3")
     public String renderLambdaToString(FunctionBase functionBase) {
         String obj = functionBase.getClass().getGenericInterfaces()[0].toString();
         if (obj.startsWith(KOTLIN_JVM_FUNCTIONS)) {
@@ -75,18 +77,22 @@ public class ReflectionFactory {
         return new PackageReference(cls, str);
     }
 
+    @SinceKotlin(version = "1.4")
     public void setUpperBounds(KTypeParameter kTypeParameter, List<KType> list) {
         ((TypeParameterReference) kTypeParameter).setUpperBounds(list);
     }
 
+    @SinceKotlin(version = "1.1")
     public String renderLambdaToString(Lambda lambda) {
         return renderLambdaToString((FunctionBase) lambda);
     }
 
+    @SinceKotlin(version = "1.4")
     public KType typeOf(KClassifier kClassifier, List<KTypeProjection> list, boolean z) {
         return new TypeReference(kClassifier, list, z);
     }
 
+    @SinceKotlin(version = "1.4")
     public KTypeParameter typeParameter(Object obj, String str, KVariance kVariance, boolean z) {
         return new TypeParameterReference(obj, str, kVariance, z);
     }

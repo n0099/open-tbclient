@@ -20,7 +20,7 @@ public class AccountActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,12 +39,12 @@ public class AccountActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((IntentConfig) customMessage.getData()).startActivity(AccountActivity.class);
+                    customMessage.getData().startActivity(AccountActivity.class);
                 }
                 return null;
             }

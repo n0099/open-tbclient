@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,12 +19,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ForumRecommend.DataReq;
 import tbclient.ForumRecommend.ForumRecommendReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class forumRecommendRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Integer like_forum;
-    public LinkedList mForumData;
+    public LinkedList<VisitedForumData> mForumData;
     public Integer recommend;
     public Integer sortType;
     public Integer topic;
@@ -62,18 +62,18 @@ public class forumRecommendRequestMessage extends NetMessage {
                 builder.sort_type = get_sortType();
                 JSONArray jSONArray = new JSONArray();
                 if (this.mForumData != null) {
-                    Iterator it = this.mForumData.iterator();
+                    Iterator<VisitedForumData> it = this.mForumData.iterator();
                     while (it.hasNext()) {
-                        VisitedForumData visitedForumData = (VisitedForumData) it.next();
+                        VisitedForumData next = it.next();
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("forum_id", eh.g(visitedForumData.getForumId(), 0L));
-                        jSONObject.put("visit_time", visitedForumData.getVisitedTime());
+                        jSONObject.put("forum_id", wg.g(next.getForumId(), 0L));
+                        jSONObject.put("visit_time", next.getVisitedTime());
                         jSONArray.put(jSONObject);
                     }
                 }
                 builder.visit_history = jSONArray.toString();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    yh5.a(builder, true);
+                    vi5.a(builder, true);
                 }
                 ForumRecommendReqIdl.Builder builder2 = new ForumRecommendReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -130,7 +130,7 @@ public class forumRecommendRequestMessage extends NetMessage {
         return (String) invokeV.objValue;
     }
 
-    public void setForumData(LinkedList linkedList) {
+    public void setForumData(LinkedList<VisitedForumData> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, linkedList) == null) {
             this.mForumData = linkedList;

@@ -13,6 +13,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import androidx.annotation.CallSuper;
+import androidx.annotation.ContentView;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
@@ -41,21 +48,23 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         }
     }
 
-    public void onPrepareSupportNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
+    public void onPrepareSupportNavigateUpTaskStack(@NonNull TaskStackBuilder taskStackBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, taskStackBuilder) == null) {
         }
     }
 
     @Override // androidx.appcompat.app.AppCompatCallback
-    public void onSupportActionModeFinished(ActionMode actionMode) {
+    @CallSuper
+    public void onSupportActionModeFinished(@NonNull ActionMode actionMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, actionMode) == null) {
         }
     }
 
     @Override // androidx.appcompat.app.AppCompatCallback
-    public void onSupportActionModeStarted(ActionMode actionMode) {
+    @CallSuper
+    public void onSupportActionModeStarted(@NonNull ActionMode actionMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, actionMode) == null) {
         }
@@ -69,7 +78,8 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // androidx.appcompat.app.AppCompatCallback
-    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+    @Nullable
+    public ActionMode onWindowStartingSupportActionMode(@NonNull ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, callback)) == null) {
@@ -133,6 +143,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         }
     }
 
+    @NonNull
     public AppCompatDelegate getDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -146,6 +157,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // androidx.appcompat.app.ActionBarDrawerToggle.DelegateProvider
+    @Nullable
     public ActionBarDrawerToggle.Delegate getDrawerToggleDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -156,6 +168,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
+    @NonNull
     public MenuInflater getMenuInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,6 +195,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         return (Resources) invokeV.objValue;
     }
 
+    @Nullable
     public ActionBar getSupportActionBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,6 +206,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // androidx.core.app.TaskStackBuilder.SupportParentable
+    @Nullable
     public Intent getSupportParentActivityIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -275,7 +290,8 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatActivity(int i) {
+    @ContentView
+    public AppCompatActivity(@LayoutRes int i) {
         super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -339,7 +355,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i, Menu menu) {
+    public void onPanelClosed(int i, @NonNull Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048597, this, i, menu) == null) {
             super.onPanelClosed(i, menu);
@@ -387,7 +403,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
-    public <T extends View> T findViewById(int i) {
+    public <T extends View> T findViewById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
@@ -397,7 +413,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
+    public void onConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
@@ -409,7 +425,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             AppCompatDelegate delegate = getDelegate();
@@ -419,7 +435,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         }
     }
 
-    public void onCreateSupportNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
+    public void onCreateSupportNavigateUpTaskStack(@NonNull TaskStackBuilder taskStackBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, taskStackBuilder) == null) {
             taskStackBuilder.addParentStack(this);
@@ -427,7 +443,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
-    public void onPostCreate(Bundle bundle) {
+    public void onPostCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
             super.onPostCreate(bundle);
@@ -436,7 +452,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
@@ -445,14 +461,14 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
-    public void setContentView(int i) {
+    public void setContentView(@LayoutRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             getDelegate().setContentView(i);
         }
     }
 
-    public void setSupportActionBar(Toolbar toolbar) {
+    public void setSupportActionBar(@Nullable Toolbar toolbar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, toolbar) == null) {
             getDelegate().setSupportActionBar(toolbar);
@@ -460,7 +476,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i) {
+    public void setTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
             super.setTheme(i);
@@ -468,7 +484,8 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         }
     }
 
-    public ActionMode startSupportActionMode(ActionMode.Callback callback) {
+    @Nullable
+    public ActionMode startSupportActionMode(@NonNull ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, callback)) == null) {
@@ -477,7 +494,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         return (ActionMode) invokeL.objValue;
     }
 
-    public void supportNavigateUpTo(Intent intent) {
+    public void supportNavigateUpTo(@NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, intent) == null) {
             NavUtils.navigateUpTo(this, intent);
@@ -493,7 +510,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         return invokeI.booleanValue;
     }
 
-    public boolean supportShouldUpRecreateTask(Intent intent) {
+    public boolean supportShouldUpRecreateTask(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, intent)) == null) {
@@ -503,7 +520,7 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public final boolean onMenuItemSelected(int i, MenuItem menuItem) {
+    public final boolean onMenuItemSelected(int i, @NonNull MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i, menuItem)) == null) {

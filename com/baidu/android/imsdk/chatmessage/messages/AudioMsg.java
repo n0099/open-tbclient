@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AudioMsg extends RichMediaMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<AudioMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
     public int mDuration;
@@ -46,7 +46,7 @@ public class AudioMsg extends RichMediaMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.AudioMsg.1
+        CREATOR = new Parcelable.Creator<AudioMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AudioMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,6 +65,7 @@ public class AudioMsg extends RichMediaMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AudioMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -76,6 +77,7 @@ public class AudioMsg extends RichMediaMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AudioMsg[] newArray(int i) {
                 InterceptResult invokeI;

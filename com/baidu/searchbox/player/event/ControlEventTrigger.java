@@ -2,6 +2,7 @@ package com.baidu.searchbox.player.event;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,6 +26,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void prepare() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -32,6 +34,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -39,6 +42,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void resumeContinuePlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -48,6 +52,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void showGaplessPlayTip() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -57,6 +62,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void showNetTip() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -64,6 +70,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -71,6 +78,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -78,6 +86,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void stopContinuePlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -87,6 +96,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void pause(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -101,6 +111,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void showNextVideoTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -110,6 +121,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void switchMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
@@ -119,6 +131,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void pause(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -128,6 +141,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void seekToMs(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
@@ -138,6 +152,7 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void syncPos(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048589, this, i, i2, i3) == null) {

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.CompoundButtonCompat;
@@ -26,6 +28,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
     public static final int DEF_STYLE_RES = 2131755875;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public ColorStateList materialThemeColorsTintList;
     public boolean useMaterialThemeColors;
 
@@ -46,7 +49,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialRadioButton(Context context) {
+    public MaterialRadioButton(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,7 +70,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialRadioButton(Context context, AttributeSet attributeSet) {
+    public MaterialRadioButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f04059f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -88,7 +91,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialRadioButton(Context context, AttributeSet attributeSet, int i) {
+    public MaterialRadioButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

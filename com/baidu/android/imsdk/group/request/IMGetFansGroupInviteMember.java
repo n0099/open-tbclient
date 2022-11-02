@@ -82,7 +82,7 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure result = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {

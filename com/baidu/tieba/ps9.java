@@ -1,77 +1,47 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
 /* loaded from: classes5.dex */
-public class ps9 {
+public class ps9 implements FunSplashAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
 
-    public ps9(InstallActivity installActivity) {
+    public ps9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = installActivity;
-        this.a = false;
-    }
-
-    public void b(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                this.a = true;
-                InstallActivity.e(this.b, com.google.ar.core.p.b);
-                boolean z = exc instanceof UnavailableException;
-                InstallActivity.a(this.b, exc);
             }
         }
     }
 
-    public void a(com.google.ar.core.p pVar) {
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public void removeMiniWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                InstallActivity.e(this.b, pVar);
-                int ordinal = pVar.ordinal();
-                if (ordinal != 0) {
-                    if (ordinal != 1) {
-                        if (ordinal == 2) {
-                            if (!InstallActivity.f(this.b)) {
-                                InstallActivity.g(this.b);
-                            }
-                            InstallActivity.a(this.b, null);
-                        }
-                    } else {
-                        InstallActivity.a(this.b, new UnavailableUserDeclinedInstallationException());
-                    }
-                    this.a = true;
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
+    }
+
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

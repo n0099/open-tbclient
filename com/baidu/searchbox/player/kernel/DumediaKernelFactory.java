@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.kernel;
 
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +27,9 @@ public class DumediaKernelFactory implements IKernelFactory {
     }
 
     @Override // com.baidu.searchbox.player.kernel.IKernelFactory
-    public AbsVideoKernel create(String str) {
+    @NonNull
+    @PublicMethod
+    public AbsVideoKernel create(@NonNull String str) {
         InterceptResult invokeL;
         char c;
         Interceptable interceptable = $ic;

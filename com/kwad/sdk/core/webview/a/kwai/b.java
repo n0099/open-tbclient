@@ -1,5 +1,8 @@
 package com.kwad.sdk.core.webview.a.kwai;
-/* loaded from: classes7.dex */
+
+import androidx.annotation.MainThread;
+/* loaded from: classes8.dex */
 public interface b {
+    @MainThread
     void onClose();
 }

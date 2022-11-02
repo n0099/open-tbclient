@@ -11,18 +11,18 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableHide extends AbstractFlowableWithUpstream {
+public final class FlowableHide<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class HideSubscriber implements FlowableSubscriber, Subscription {
+    public static final class HideSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public Subscription s;
 
-        public HideSubscriber(Subscriber subscriber) {
+        public HideSubscriber(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,10 +49,10 @@ public final class FlowableHide extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -91,7 +91,7 @@ public final class FlowableHide extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableHide(Flowable flowable) {
+    public FlowableHide(Flowable<T> flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,7 +111,7 @@ public final class FlowableHide extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new HideSubscriber(subscriber));

@@ -1,74 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class hw7 implements eo {
+public class hw7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
-    public static final BdUniqueId j;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public List g;
-    public boolean h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838209, "Lcom/baidu/tieba/hw7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static SpannableString a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            if (i <= 0) {
+                i = R.color.CAM_X0101;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947838209, "Lcom/baidu/tieba/hw7;");
-                return;
-            }
+            spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(i)), 0, str.length(), 17);
+            return spannableString;
         }
-        i = BdUniqueId.gen();
-        j = BdUniqueId.gen();
+        return (SpannableString) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).i();
     }
 
-    public hw7(BdUniqueId bdUniqueId) {
+    public static void c(String str, int i, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).i();
+    }
+
+    public static void d(String str, int i, String str2, int i2, String str3, int i3, String str4, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, Integer.valueOf(i3), str4, Integer.valueOf(i4)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            spannableStringBuilder.append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) a(str3, i3));
+            if (!TextUtils.isEmpty(str4)) {
+                spannableStringBuilder.append((CharSequence) a(str4, i4));
             }
         }
-        this.b = j;
-        this.c = 0;
-        this.d = false;
-        this.b = bdUniqueId;
+        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).i();
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b(str, R.color.CAM_X0101);
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(str, R.color.CAM_X0101, str2, R.color.CAM_X0305);
+        }
+    }
+
+    public static void g(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
+            d(str, R.color.CAM_X0101, str2, R.color.CAM_X0305, str3, R.color.CAM_X0109, str4, R.color.CAM_X0305);
+        }
     }
 }

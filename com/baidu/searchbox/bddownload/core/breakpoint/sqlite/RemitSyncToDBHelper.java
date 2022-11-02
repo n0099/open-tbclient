@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.RemitSyncExecutor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ public class RemitSyncToDBHelper {
     public final RemitSyncExecutor executor;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RemitSyncToDBHelper(RemitSyncExecutor.RemitAgent remitAgent) {
+    public RemitSyncToDBHelper(@NonNull RemitSyncExecutor.RemitAgent remitAgent) {
         this(new RemitSyncExecutor(remitAgent));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,7 +50,7 @@ public class RemitSyncToDBHelper {
         }
     }
 
-    public RemitSyncToDBHelper(RemitSyncExecutor remitSyncExecutor) {
+    public RemitSyncToDBHelper(@NonNull RemitSyncExecutor remitSyncExecutor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

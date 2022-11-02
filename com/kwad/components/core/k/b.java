@@ -1,5 +1,7 @@
 package com.kwad.components.core.k;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +26,9 @@ public abstract class b extends f {
         }
     }
 
+    @WorkerThread
     public abstract void a(int i, String str, boolean z);
 
-    public abstract void a(AdResultData adResultData, boolean z);
+    @WorkerThread
+    public abstract void a(@NonNull AdResultData adResultData, boolean z);
 }

@@ -34,20 +34,20 @@ public final class DataRes extends Message {
     public final List<GroupInfo> groups;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List commonGroups;
+        public List<GroupInfo> commonGroups;
         public Integer commongroupnum;
         public GroupPermission groupPerm;
         public Integer groupnum;
-        public List groups;
+        public List<GroupInfo> groups;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -141,14 +141,14 @@ public final class DataRes extends Message {
             }
         }
         if (z) {
-            List list = builder.groups;
+            List<GroupInfo> list = builder.groups;
             if (list == null) {
                 this.groups = DEFAULT_GROUPS;
             } else {
                 this.groups = Message.immutableCopyOf(list);
             }
             this.groupPerm = builder.groupPerm;
-            List list2 = builder.commonGroups;
+            List<GroupInfo> list2 = builder.commonGroups;
             if (list2 == null) {
                 this.commonGroups = DEFAULT_COMMONGROUPS;
             } else {

@@ -29,7 +29,7 @@ public class SVProgressHUD {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DISMISSDELAYED = 1000;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference contextWeak;
+    public WeakReference<Context> contextWeak;
     public ViewGroup decorView;
     public int gravity;
     public Animation inAnim;
@@ -47,7 +47,7 @@ public class SVProgressHUD {
 
     /* renamed from: com.bigkoo.svprogresshud.SVProgressHUD$4  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass4 {
+    public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$bigkoo$svprogresshud$SVProgressHUD$SVProgressHUDMaskType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class SVProgressHUD {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class SVProgressHUDMaskType {
+    public static final class SVProgressHUDMaskType {
         public static final /* synthetic */ SVProgressHUDMaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SVProgressHUDMaskType Black;
@@ -305,7 +305,7 @@ public class SVProgressHUD {
                 }
             }
         };
-        this.contextWeak = new WeakReference(context);
+        this.contextWeak = new WeakReference<>(context);
         this.gravity = 17;
         initViews();
         initDefaultView();
@@ -465,7 +465,7 @@ public class SVProgressHUD {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context context = (Context) this.contextWeak.get();
+            Context context = this.contextWeak.get();
             if (context == null) {
                 return null;
             }
@@ -487,7 +487,7 @@ public class SVProgressHUD {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Context context = (Context) this.contextWeak.get();
+            Context context = this.contextWeak.get();
             if (context == null) {
                 return null;
             }
@@ -520,7 +520,7 @@ public class SVProgressHUD {
     public void initDefaultView() {
         Context context;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (context = (Context) this.contextWeak.get()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (context = this.contextWeak.get()) == null) {
             return;
         }
         SVProgressDefaultView sVProgressDefaultView = new SVProgressDefaultView(context);
@@ -635,7 +635,7 @@ public class SVProgressHUD {
     public void initViews() {
         Context context;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (context = (Context) this.contextWeak.get()) == null) {
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (context = this.contextWeak.get()) == null) {
             return;
         }
         LayoutInflater from = LayoutInflater.from(context);

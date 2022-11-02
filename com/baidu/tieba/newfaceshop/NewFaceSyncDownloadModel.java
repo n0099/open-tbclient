@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.gt7;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
-import com.baidu.tieba.xr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,15 +62,15 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                xr7 xr7Var = null;
+                gt7 gt7Var = null;
                 if (httpResponsedMessage.getOrginalMessage() != null) {
                     Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof xr7) {
-                        xr7Var = (xr7) extra;
+                    if (extra instanceof gt7) {
+                        gt7Var = (gt7) extra;
                     }
                 }
-                if (xr7Var != null) {
-                    xr7Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
+                if (gt7Var != null) {
+                    gt7Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
                 }
             }
         }
@@ -117,11 +117,11 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         }
     }
 
-    public void z(xr7 xr7Var) {
+    public void z(gt7 gt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xr7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, gt7Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
-            httpMessage.setExtra(xr7Var);
+            httpMessage.setExtra(gt7Var);
             sendMessage(httpMessage);
         }
     }

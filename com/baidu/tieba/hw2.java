@@ -1,68 +1,201 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public class hw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
+    public static final hw2 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<jw2> a;
+    public final Map<String, jw2> b;
+    public boolean c;
+    public gw2 d;
 
-    public static boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, callbackHandler, unitedSchemeEntity)) == null) {
-            String b = b(unitedSchemeEntity);
-            if (TextUtils.isEmpty(b)) {
-                m02.i("WxWebViewPayment", "wxPay: url is empty");
-                m02.k("WxWebViewPayment", "param check error - src" + b);
-                fa3.H(false, "wechatH5Action", fa3.m(b, "param check error - src"));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (!ca1.a().b(context)) {
-                e33.g(context, context.getText(R.string.obfuscated_res_0x7f0f01ea)).G();
-                m02.k("WxWebViewPayment", "Error: wechat not install. " + b);
-                fa3.H(false, "wechatH5Action", fa3.m(b, "Error: wechat not install. "));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
-                return false;
-            } else {
-                mt2 d = mt2.d(b, b);
-                m02.k("WxWebViewPayment", "Info: open wechat pay webview, pageParam =" + d);
-                if (!a32.d3("wxPay", d)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    m02.k("WxWebViewPayment", "Error: webview fragment not opened.");
-                    return false;
-                }
-                m02.k("WxWebViewPayment", "Success:open wxPay page success");
-                m02.k("WxWebViewPayment", "Info: end WeChat H5 redirect " + b);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(aw2.c(b), 0));
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838054, "Lcom/baidu/tieba/hw2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838054, "Lcom/baidu/tieba/hw2;");
+                return;
             }
         }
-        return invokeLLL.booleanValue;
+        e = ok1.a;
+        f = new hw2();
     }
 
-    public static String b(UnitedSchemeEntity unitedSchemeEntity) {
+    public static hw2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
+        }
+        return (hw2) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = true;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "done");
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = false;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "reset");
+            }
+        }
+    }
+
+    public hw2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.b = new HashMap();
+        this.c = false;
+    }
+
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hybridUbcFlow) != null) || hybridUbcFlow == null) {
+            return;
+        }
+        JSONArray e2 = e();
+        if (e2 != null && e2.length() > 0) {
+            hybridUbcFlow.D("ma_update_recorder", e2.toString());
+        }
+        c();
+    }
+
+    public void h(gw2 gw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, gw2Var) == null) {
+            this.d = gw2Var;
+        }
+    }
+
+    public String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeEntity)) == null) {
-            String str = (String) unitedSchemeEntity.getParams().get("params");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.c) {
+                return null;
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
+            }
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            try {
-                return new JSONObject(str).optString("src");
-            } catch (JSONException unused) {
-                return null;
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
+            jw2 jw2Var = new jw2(str);
+            jw2Var.a(currentTimeMillis);
+            synchronized (this.a) {
+                this.b.put(str2, jw2Var);
             }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
+                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
+            }
+            return str2;
         }
         return (String) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.c) {
+            return;
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        synchronized (this.a) {
+            jw2 jw2Var = this.b.get(str);
+            if (jw2Var != null) {
+                jw2Var.c(currentTimeMillis);
+                this.a.add(jw2Var);
+                this.b.remove(str);
+            }
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
+        }
+    }
+
+    public final JSONArray e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (jw2 jw2Var : this.a) {
+                        if (jw2Var != null && (this.d == null || this.d.a(jw2Var))) {
+                            jSONArray.put(jw2Var.d());
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (e) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", jSONArray.toString());
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
     }
 }

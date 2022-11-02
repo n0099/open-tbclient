@@ -2,9 +2,9 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,52 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class s92 {
+public class s92 implements p92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppSlaveManager a;
-    public volatile boolean b;
-    public volatile boolean c;
-    public volatile boolean d;
-    public mt2 e;
-    public volatile boolean f;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s92 a;
-
-        public a(s92 s92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s92Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
+    public final LruCache<String, Long> a;
 
     static {
         InterceptResult invokeClinit;
@@ -72,139 +32,60 @@ public class s92 {
                 return;
             }
         }
-        g = wj1.a;
+        b = ok1.a;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gg3.c(new a(this), "delayDownloadGuideRes", 3L, TimeUnit.SECONDS);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c || this.f) {
-            return;
-        }
-        this.f = true;
-        tm2.l0().c(l33.K().getAppId());
-    }
-
-    public void c() {
-        dq1 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c) {
-            SwanAppSlaveManager swanAppSlaveManager = this.a;
-            SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.y;
-            if (swanAppWebViewWidget == null) {
-                M = swanAppSlaveManager.H;
-            } else {
-                M = swanAppWebViewWidget.M();
-            }
-            aa3.d(this.e, "realsuccess", M);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            if (!(this.a instanceof SwanAppWebViewWidget)) {
-                g();
-            }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!(this.a instanceof SwanAppWebViewWidget)) {
-                f();
-            }
-            this.b = false;
-            if (this.c) {
-                aa3.d(this.e, "success", null);
-            }
-        }
-    }
-
-    public s92(SwanAppSlaveManager swanAppSlaveManager) {
+    public s92(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {swanAppSlaveManager};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.f = false;
-        this.a = swanAppSlaveManager;
+        i = i <= 0 ? 10 : i;
+        this.a = new LruCache<>(i);
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
+        }
     }
 
-    public final void f() {
+    @Override // com.baidu.tieba.p92
+    public q92 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = false;
-            boolean b = aa3.b();
-            boolean a2 = aa3.a();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             if (b) {
-                this.c = false;
-            } else if (this.b) {
-                this.c = true;
-                if (!a2) {
-                    this.e.f = UUID.randomUUID().toString();
-                    mt2 mt2Var = this.e;
-                    mt2Var.e = "6";
-                    aa3.h(mt2Var);
-                    if (g) {
-                        Log.d("SwanAppSlavePresenter", "mCurPageParams = " + this.e);
-                    }
-                }
-            } else {
-                this.c = !TextUtils.isEmpty(this.a.j0());
+                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
             }
+            Long l = this.a.get(str2);
+            if (l == null) {
+                return null;
+            }
+            q92 q92Var = new q92();
+            q92Var.a = ProcessUtils.getCurProcessName();
+            q92Var.b = l.longValue();
+            return q92Var;
         }
+        return (q92) invokeLL.objValue;
     }
 
-    public void g() {
-        dq1 M;
+    @Override // com.baidu.tieba.p92
+    public void b(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (g) {
-                Log.d("SwanAppSlavePresenter", "mCurPageParams = " + this.e);
-            }
-            if (this.c && !this.d) {
-                this.d = true;
-                SwanAppSlaveManager swanAppSlaveManager = this.a;
-                SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.y;
-                if (swanAppWebViewWidget == null) {
-                    M = swanAppSlaveManager.H;
-                } else {
-                    M = swanAppWebViewWidget.M();
-                }
-                if (M != null && M.c > 0) {
-                    aa3.d(this.e, "arrivesuccess", M);
-                } else {
-                    aa3.d(this.e, "arrivecancel", M);
-                }
-            }
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
+            return;
         }
-    }
-
-    public void h(mt2 mt2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mt2Var) == null) {
-            this.e = mt2Var;
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
         }
+        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
     }
 }

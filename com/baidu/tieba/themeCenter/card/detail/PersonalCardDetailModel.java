@@ -6,25 +6,25 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.xs8;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.gu8;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.pb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class PersonalCardDetailModel extends BdBaseModel {
+public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xs8 a;
+    public gu8 a;
     public b b;
-    public qb c;
+    public pb c;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, xs8 xs8Var);
+        void a(int i, String str, gu8 gu8Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -48,7 +48,7 @@ public class PersonalCardDetailModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardDetailModel a;
@@ -75,8 +75,8 @@ public class PersonalCardDetailModel extends BdBaseModel {
             this.a = personalCardDetailModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -110,8 +110,8 @@ public class PersonalCardDetailModel extends BdBaseModel {
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        zm8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        zm8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        io8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        io8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
         registerListener(this.c);
     }
 

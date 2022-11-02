@@ -13,7 +13,7 @@ public final class dx {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class a extends com.xiaomi.push.e {
+    public static final class a extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -523,7 +523,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class b extends com.xiaomi.push.e {
+    public static final class b extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -749,7 +749,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class c extends com.xiaomi.push.e {
+    public static final class c extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -1046,7 +1046,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class d extends com.xiaomi.push.e {
+    public static final class d extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -1272,7 +1272,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class e extends com.xiaomi.push.e {
+    public static final class e extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -1737,7 +1737,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class f extends com.xiaomi.push.e {
+    public static final class f extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -1934,7 +1934,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class g extends com.xiaomi.push.e {
+    public static final class g extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -2126,7 +2126,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class h extends com.xiaomi.push.e {
+    public static final class h extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -2280,7 +2280,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class i extends com.xiaomi.push.e {
+    public static final class i extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -2395,7 +2395,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class j extends com.xiaomi.push.e {
+    public static final class j extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -2555,7 +2555,7 @@ public final class dx {
     }
 
     /* loaded from: classes8.dex */
-    public final class k extends com.xiaomi.push.e {
+    public static final class k extends com.xiaomi.push.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

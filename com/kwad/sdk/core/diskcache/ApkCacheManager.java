@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.diskcache;
 
+import androidx.annotation.NonNull;
 import com.baidu.nps.utils.Constant;
 import com.kwad.sdk.core.threads.b;
 import com.kwad.sdk.service.ServiceProvider;
@@ -14,14 +15,14 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ApkCacheManager {
     public Future VO;
     public File VP;
     public final ExecutorService VQ;
-    public final Callable VR;
+    public final Callable<Void> VR;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum Holder {
         INSTANCE;
         
@@ -37,7 +38,7 @@ public class ApkCacheManager {
 
     public ApkCacheManager() {
         this.VQ = b.vq();
-        this.VR = new Callable() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
+        this.VR = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // java.util.concurrent.Callable
@@ -110,7 +111,7 @@ public class ApkCacheManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List j(File file) {
+    public List<File> j(@NonNull File file) {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
@@ -121,8 +122,8 @@ public class ApkCacheManager {
         return arrayList;
     }
 
-    private void n(List list) {
-        Collections.sort(list, new Comparator() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.2
+    private void n(List<File> list) {
+        Collections.sort(list, new Comparator<File>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.2
             public static int a(File file, File file2) {
                 if (file.lastModified() >= file2.lastModified()) {
                     return file.lastModified() == file2.lastModified() ? 0 : 1;
@@ -130,9 +131,10 @@ public class ApkCacheManager {
                 return -1;
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
             @Override // java.util.Comparator
-            public final /* synthetic */ int compare(Object obj, Object obj2) {
-                return a((File) obj, (File) obj2);
+            public final /* synthetic */ int compare(File file, File file2) {
+                return a(file, file2);
             }
         });
     }

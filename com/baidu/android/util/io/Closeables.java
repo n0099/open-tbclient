@@ -2,6 +2,7 @@ package com.baidu.android.util.io;
 
 import android.database.Cursor;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,7 +29,7 @@ public final class Closeables {
         }
     }
 
-    public static void close(Closeable closeable, boolean z) throws IOException {
+    public static void close(@Nullable Closeable closeable, boolean z) throws IOException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(65537, null, closeable, z) != null) || closeable == null) {
             return;
@@ -57,7 +58,7 @@ public final class Closeables {
         }
     }
 
-    public static void closeSafely(Closeable closeable) {
+    public static void closeSafely(@Nullable Closeable closeable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, closeable) == null) && closeable != null) {
             try {

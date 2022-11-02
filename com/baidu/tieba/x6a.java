@@ -1,346 +1,67 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.NativeOperationParams;
-import tv.athena.revenue.payui.webview.UrlPageParams;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import tv.athena.revenue.RevenueManager;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes6.dex */
 public class x6a {
     public static /* synthetic */ Interceptable $ic;
-    public static Gson c;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public Handler b;
 
-    /* loaded from: classes6.dex */
-    public interface f {
-        void a(NativeOperationParams nativeOperationParams);
-
-        void b(UrlPageParams urlPageParams);
-
-        void c(UrlPageParams urlPageParams);
-
-        String getToken();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ UrlPageParams b;
-        public final /* synthetic */ x6a c;
-
-        public a(x6a x6aVar, int i, UrlPageParams urlPageParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x6aVar, Integer.valueOf(i), urlPageParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = x6aVar;
-            this.a = i;
-            this.b = urlPageParams;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.a != null) {
-                if (this.a == 1) {
-                    this.c.a.c(this.b);
-                }
-                if (this.a == 3) {
-                    this.c.a.b(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ x6a b;
-
-        public b(x6a x6aVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x6aVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x6aVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.a(new NativeOperationParams(5, this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ x6a b;
-
-        public c(x6a x6aVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x6aVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x6aVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.a(new NativeOperationParams(4, this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ x6a b;
-
-        public d(x6a x6aVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x6aVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x6aVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.a(new NativeOperationParams(6, this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ x6a b;
-
-        public e(x6a x6aVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x6aVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x6aVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.a(new NativeOperationParams(7, this.a));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253702, "Lcom/baidu/tieba/x6a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948253702, "Lcom/baidu/tieba/x6a;");
-                return;
-            }
-        }
-        c = new Gson();
-    }
-
-    @JavascriptInterface
-    public String getToken() {
-        InterceptResult invokeV;
+    public static n6a a(int i, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeIL;
+        MiddleRevenueConfig middleRevenueConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f fVar = this.a;
-            if (fVar != null) {
-                return fVar.getToken();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
+            ProductInfo productInfo = new ProductInfo();
+            productInfo.cid = 0;
+            productInfo.productId = "";
+            productInfo.srcCurrencySymbol = "";
+            productInfo.srcAmount = i / 100.0d;
+            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
+                productInfo.destAmount = i;
+                return new n6a(productInfo, 4);
             }
-            RLog.error("YYPaySdkJsInterface", "getToken() mOnJsCallInterface null", new Object[0]);
-            return "";
+            productInfo.destAmount = i;
+            return new n6a(productInfo);
         }
-        return (String) invokeV.objValue;
+        return (n6a) invokeIL.objValue;
     }
 
-    public x6a(f fVar) {
+    public static IAppPayService b(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error("CommonUtils", "getAppPayService null iRevenue", new Object[0]);
+                return null;
             }
+            return revenue.getAppPayService();
         }
-        this.b = new Handler(Looper.getMainLooper());
-        this.a = fVar;
+        return (IAppPayService) invokeII.objValue;
     }
 
-    public final void b(Runnable runnable) {
+    public static IMiddlePayService c(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                runnable.run();
-            } else {
-                this.b.post(runnable);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(i, i2);
+            if (middleRevenue == null) {
+                RLog.error("CommonUtils", "getMiddlePayService null iRevenue", new Object[0]);
+                return null;
             }
+            return middleRevenue.getMiddlePayService();
         }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00a0  */
-    /* JADX WARN: Removed duplicated region for block: B:59:? A[RETURN, SYNTHETIC] */
-    @JavascriptInterface
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void callAndroid(int i, String str) {
-        String str2;
-        UrlPageParams urlPageParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            RLog.info("YYPaySdkJsInterface", "callAndroid: code=" + i);
-            if (i != 1 && i != 3) {
-                if (i != 4) {
-                    if (i != 5) {
-                        if (i != 6) {
-                            if (i == 7 && this.a != null) {
-                                b(new e(this, str));
-                                return;
-                            }
-                            return;
-                        } else if (this.a != null) {
-                            b(new d(this, str));
-                            return;
-                        } else {
-                            return;
-                        }
-                    } else if (this.a != null) {
-                        b(new b(this, str));
-                        return;
-                    } else {
-                        return;
-                    }
-                } else if (this.a != null) {
-                    b(new c(this, str));
-                    return;
-                } else {
-                    return;
-                }
-            }
-            if (i == 1) {
-                str2 = "CODE_OPEN_URL_PAGE";
-            } else {
-                str2 = "CODE_UPFATE_TOP_INFO";
-            }
-            UrlPageParams urlPageParams2 = null;
-            try {
-                urlPageParams = (UrlPageParams) c.fromJson(str, (Class<Object>) UrlPageParams.class);
-                try {
-                    RLog.info("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
-                } catch (Throwable th) {
-                    th = th;
-                    urlPageParams2 = urlPageParams;
-                    RLog.error("YYPaySdkJsInterface", str2 + " error,", th);
-                    urlPageParams = urlPageParams2;
-                    if (this.a == null) {
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            if (this.a == null) {
-                b(new a(this, i, urlPageParams));
-            }
-        }
+        return (IMiddlePayService) invokeII.objValue;
     }
 }

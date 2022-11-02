@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.Dispatcher;
@@ -207,7 +208,7 @@ public abstract class SyncStrategy {
                     }
 
                     @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-                    public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j4, long j5, long j6, int i3, int i4, long j7, ArrayList arrayList) {
+                    public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j4, long j5, long j6, int i3, int i4, long j7, ArrayList<ChatMsg> arrayList) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j7), arrayList}) == null) {
                             String str3 = SyncStrategy.TAG;
@@ -220,7 +221,7 @@ public abstract class SyncStrategy {
         }
     }
 
-    public void deal(int i, int i2, int i3, long j, String str, ArrayList arrayList, int i4, long j2) {
+    public void deal(int i, int i2, int i3, long j, String str, ArrayList<ChatMsg> arrayList, int i4, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, arrayList, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
             String str2 = TAG;
@@ -328,7 +329,7 @@ public abstract class SyncStrategy {
         }
     }
 
-    public boolean syncNotifyMessageStopCondition(int i, int i2, int i3, ArrayList arrayList) {
+    public boolean syncNotifyMessageStopCondition(int i, int i2, int i3, ArrayList<ChatMsg> arrayList) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), arrayList})) == null) {

@@ -7,11 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.cache.common.CacheKey;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.ProducerContext;
+import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes7.dex */
-public class EncodedCacheKeyMultiplexProducer extends MultiplexProducer {
+public class EncodedCacheKeyMultiplexProducer extends MultiplexProducer<Pair<CacheKey, ImageRequest.RequestLevel>, EncodedImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
@@ -50,8 +52,9 @@ public class EncodedCacheKeyMultiplexProducer extends MultiplexProducer {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.producers.MultiplexProducer
-    public Pair getKey(ProducerContext producerContext) {
+    public Pair<CacheKey, ImageRequest.RequestLevel> getKey(ProducerContext producerContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, producerContext)) == null) {

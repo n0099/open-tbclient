@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import com.facebook.imageformat.DefaultImageFormats;
 import com.facebook.imagepipeline.common.ResizeOptions;
@@ -20,6 +21,7 @@ public class DownsampleUtil {
     public static final float INTERVAL_ROUNDING = 0.33333334f;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @VisibleForTesting
     public static int ratioToSampleSizeJPEG(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
@@ -40,6 +42,7 @@ public class DownsampleUtil {
         }
     }
 
+    @VisibleForTesting
     public static int roundToPowerOfTwo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -67,6 +70,7 @@ public class DownsampleUtil {
         }
     }
 
+    @VisibleForTesting
     public static float determineDownsampleRatio(RotationOptions rotationOptions, @Nullable ResizeOptions resizeOptions, EncodedImage encodedImage) {
         InterceptResult invokeLLL;
         boolean z;
@@ -164,6 +168,7 @@ public class DownsampleUtil {
         return invokeLL.intValue;
     }
 
+    @VisibleForTesting
     public static int ratioToSampleSize(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;

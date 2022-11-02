@@ -8,12 +8,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import org.reactivestreams.Processor;
 /* loaded from: classes8.dex */
-public abstract class FlowableProcessor extends Flowable implements Processor, FlowableSubscriber {
+public abstract class FlowableProcessor<T> extends Flowable<T> implements Processor<T, T>, FlowableSubscriber<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Nullable
     public abstract Throwable getThrowable();
 
     public abstract boolean hasComplete();
@@ -37,7 +40,8 @@ public abstract class FlowableProcessor extends Flowable implements Processor, F
     }
 
     @CheckReturnValue
-    public final FlowableProcessor toSerialized() {
+    @NonNull
+    public final FlowableProcessor<T> toSerialized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

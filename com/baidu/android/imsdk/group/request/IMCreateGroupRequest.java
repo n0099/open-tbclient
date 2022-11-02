@@ -38,7 +38,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMCreateGroupRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mAddingList;
+    public ArrayList<String> mAddingList;
     public long mAppid;
     public String mKey;
     public String mName;
@@ -175,7 +175,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMCreateGroupRequest(Context context, String str, long j, int i, String str2, ArrayList arrayList) {
+    public IMCreateGroupRequest(Context context, String str, long j, int i, String str2, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -233,7 +233,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, new CreateResultInfo());

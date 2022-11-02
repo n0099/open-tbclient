@@ -67,14 +67,14 @@ public class e {
                 }
 
                 @Override // com.baidu.ar.lua.LuaMsgListener
-                public List getMsgKeyListened() {
+                public List<String> getMsgKeyListened() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Arrays.asList("id", "event_name") : (List) invokeV.objValue;
                 }
 
                 @Override // com.baidu.ar.lua.LuaMsgListener
-                public void onLuaMessage(HashMap hashMap) {
+                public void onLuaMessage(HashMap<String, Object> hashMap) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) || this.sY.sX == null || this.sY.j(hashMap)) {
                         return;
@@ -115,7 +115,7 @@ public class e {
                 }
 
                 @Override // com.baidu.ar.lua.c
-                public void a(int i, int i2, HashMap hashMap) {
+                public void a(int i, int i2, HashMap<String, Object> hashMap) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) && i == 1301 && this.sY.sX != null) {
                         int intValue = ((Integer) hashMap.get("type")).intValue();
@@ -124,7 +124,7 @@ public class e {
                 }
 
                 @Override // com.baidu.ar.lua.c
-                public List n() {
+                public List<Integer> n() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Arrays.asList(1301) : (List) invokeV.objValue;
@@ -136,7 +136,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean j(HashMap hashMap) {
+    public boolean j(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, hashMap)) == null) {
@@ -159,7 +159,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean k(HashMap hashMap) {
+    public boolean k(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, hashMap)) == null) {

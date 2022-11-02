@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.SearchGroup.DataReq;
 import protobuf.SearchGroup.SearchGroupReqIdl;
 /* loaded from: classes4.dex */
-public class RequestSearchGroupsLocalMessage extends CustomMessage {
+public class RequestSearchGroupsLocalMessage extends CustomMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long groupId;

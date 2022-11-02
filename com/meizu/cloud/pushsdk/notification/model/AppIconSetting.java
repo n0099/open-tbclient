@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class AppIconSetting implements Parcelable {
     public static final String APP_ICON_SETTING = "is";
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.meizu.cloud.pushsdk.notification.model.AppIconSetting.1
+    public static final Parcelable.Creator<AppIconSetting> CREATOR = new Parcelable.Creator<AppIconSetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.AppIconSetting.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */

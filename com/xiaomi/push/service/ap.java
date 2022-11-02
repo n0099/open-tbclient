@@ -99,7 +99,7 @@ public class ap {
         }
     }
 
-    public static void a(List list, boolean z) {
+    public static void a(List<String> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, list, z) == null) {
             f905a.execute(new aq(list, z));

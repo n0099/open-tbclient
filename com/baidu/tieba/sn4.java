@@ -1,89 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class sn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static sn4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-426721614, "Lcom/baidu/tieba/sn4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-426721614, "Lcom/baidu/tieba/sn4$b;");
-                    return;
-                }
-            }
-            a = new sn4(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157168, "Lcom/baidu/tieba/sn4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948157168, "Lcom/baidu/tieba/sn4;");
-                return;
-            }
-        }
-        a = new AtomicReference(null);
-        a();
-    }
+    public final tn4 a;
 
     public sn4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new tn4();
     }
 
-    public static sn4 a() {
-        InterceptResult invokeV;
+    public rn4 a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str3 = null;
+            if (wi.isEmpty(str)) {
+                return null;
+            }
+            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
+            if (!matcher.find()) {
+                return null;
+            }
+            String group = matcher.group();
+            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
+            if (matcher2.find()) {
+                str2 = vn4.d(matcher2.group());
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && str2.startsWith("Y")) {
+                un4.a(str2);
+                str3 = b(group);
+            }
+            return new rn4(group, str3, str2);
         }
-        return (sn4) invokeV.objValue;
+        return (rn4) invokeL.objValue;
     }
 
-    public /* synthetic */ sn4(a aVar) {
-        this();
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            return this.a.a(vn4.f(str.replaceAll("\\$", "")));
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.MD5Utils;
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class RippedAd {
     public static /* synthetic */ Interceptable $ic;
@@ -34,12 +34,12 @@ public class RippedAd {
     public final String videoUrl;
 
     /* loaded from: classes7.dex */
-    public interface Acceptor {
-        String accept(Object obj);
+    public interface Acceptor<T> {
+        String accept(T t);
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -239,7 +239,7 @@ public class RippedAd {
         this.uniqueId = MD5Utils.getMD5String(UUID.randomUUID().toString());
     }
 
-    public static String combineStrWithComma(List list) {
+    public static String combineStrWithComma(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
@@ -248,9 +248,7 @@ public class RippedAd {
             }
             StringBuilder sb = new StringBuilder();
             boolean z = true;
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String str = (String) it.next();
+            for (String str : list) {
                 if (!TextUtils.isEmpty(str)) {
                     if (z) {
                         z = false;
@@ -265,7 +263,7 @@ public class RippedAd {
         return (String) invokeL.objValue;
     }
 
-    public static String combineStrWithComma(JSONArray jSONArray, Acceptor acceptor) {
+    public static String combineStrWithComma(JSONArray jSONArray, Acceptor<JSONObject> acceptor) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONArray, acceptor)) == null) {

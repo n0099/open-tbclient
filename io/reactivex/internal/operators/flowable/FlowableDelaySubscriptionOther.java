@@ -13,17 +13,17 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableDelaySubscriptionOther extends Flowable {
+public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher main;
-    public final Publisher other;
+    public final Publisher<? extends T> main;
+    public final Publisher<U> other;
 
     /* loaded from: classes8.dex */
-    public final class DelaySubscriber implements FlowableSubscriber {
+    public final class DelaySubscriber implements FlowableSubscriber<U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber child;
+        public final Subscriber<? super T> child;
         public boolean done;
         public final SubscriptionArbiter serial;
         public final /* synthetic */ FlowableDelaySubscriptionOther this$0;
@@ -71,7 +71,7 @@ public final class FlowableDelaySubscriptionOther extends Flowable {
         }
 
         /* loaded from: classes8.dex */
-        public final class OnCompleteSubscriber implements FlowableSubscriber {
+        public final class OnCompleteSubscriber implements FlowableSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DelaySubscriber this$1;
@@ -103,10 +103,10 @@ public final class FlowableDelaySubscriptionOther extends Flowable {
             }
 
             @Override // org.reactivestreams.Subscriber
-            public void onNext(Object obj) {
+            public void onNext(T t) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    this.this$1.child.onNext(obj);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                    this.this$1.child.onNext(t);
                 }
             }
 
@@ -127,7 +127,7 @@ public final class FlowableDelaySubscriptionOther extends Flowable {
             }
         }
 
-        public DelaySubscriber(FlowableDelaySubscriptionOther flowableDelaySubscriptionOther, SubscriptionArbiter subscriptionArbiter, Subscriber subscriber) {
+        public DelaySubscriber(FlowableDelaySubscriptionOther flowableDelaySubscriptionOther, SubscriptionArbiter subscriptionArbiter, Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,9 +171,9 @@ public final class FlowableDelaySubscriptionOther extends Flowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(U u) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u) == null) {
                 onComplete();
             }
         }
@@ -188,7 +188,7 @@ public final class FlowableDelaySubscriptionOther extends Flowable {
         }
     }
 
-    public FlowableDelaySubscriptionOther(Publisher publisher, Publisher publisher2) {
+    public FlowableDelaySubscriptionOther(Publisher<? extends T> publisher, Publisher<U> publisher2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public final class FlowableDelaySubscriptionOther extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();

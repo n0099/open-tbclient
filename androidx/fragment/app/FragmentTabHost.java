@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -178,6 +181,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             }
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -201,12 +205,15 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     public static final class TabInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final Bundle args;
+        @NonNull
         public final Class<?> clss;
         public Fragment fragment;
+        @NonNull
         public final String tag;
 
-        public TabInfo(String str, Class<?> cls, Bundle bundle) {
+        public TabInfo(@NonNull String str, @NonNull Class<?> cls, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -229,7 +236,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public FragmentTabHost(Context context) {
+    public FragmentTabHost(@NonNull Context context) {
         super(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -253,7 +260,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public FragmentTabHost(Context context, AttributeSet attributeSet) {
+    public FragmentTabHost(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -275,7 +282,8 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         initFragmentTabHost(context, attributeSet);
     }
 
-    private FragmentTransaction doTabChanged(String str, FragmentTransaction fragmentTransaction) {
+    @Nullable
+    private FragmentTransaction doTabChanged(@Nullable String str, @Nullable FragmentTransaction fragmentTransaction) {
         InterceptResult invokeLL;
         Fragment fragment;
         Interceptable interceptable = $ic;
@@ -338,6 +346,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         }
     }
 
+    @Nullable
     private TabInfo getTabInfoForTag(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -356,7 +365,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     @Override // android.view.View
     @Deprecated
-    public void onRestoreInstanceState(Parcelable parcelable) {
+    public void onRestoreInstanceState(@SuppressLint({"UnknownNullness"}) Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, parcelable) == null) {
             if (!(parcelable instanceof SavedState)) {
@@ -371,7 +380,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     @Override // android.widget.TabHost.OnTabChangeListener
     @Deprecated
-    public void onTabChanged(String str) {
+    public void onTabChanged(@Nullable String str) {
         FragmentTransaction doTabChanged;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -387,7 +396,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     @Override // android.widget.TabHost
     @Deprecated
-    public void setOnTabChangedListener(TabHost.OnTabChangeListener onTabChangeListener) {
+    public void setOnTabChangedListener(@Nullable TabHost.OnTabChangeListener onTabChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onTabChangeListener) == null) {
             this.mOnTabChangeListener = onTabChangeListener;
@@ -405,7 +414,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     @Deprecated
-    public void setup(Context context, FragmentManager fragmentManager) {
+    public void setup(@NonNull Context context, @NonNull FragmentManager fragmentManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, fragmentManager) == null) {
             ensureHierarchy(context);
@@ -417,7 +426,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     @Deprecated
-    public void addTab(TabHost.TabSpec tabSpec, Class<?> cls, Bundle bundle) {
+    public void addTab(@NonNull TabHost.TabSpec tabSpec, @NonNull Class<?> cls, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, tabSpec, cls, bundle) == null) {
             tabSpec.setContent(new DummyTabFactory(this.mContext));
@@ -481,6 +490,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     @Override // android.view.View
+    @NonNull
     @Deprecated
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
@@ -503,7 +513,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     @Deprecated
-    public void setup(Context context, FragmentManager fragmentManager, int i) {
+    public void setup(@NonNull Context context, @NonNull FragmentManager fragmentManager, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048585, this, context, fragmentManager, i) == null) {
             ensureHierarchy(context);

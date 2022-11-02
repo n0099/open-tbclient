@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -167,7 +168,7 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
         this.mContentResolver = context.getContentResolver();
     }
 
-    public boolean isEnabledNotificationListener(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
+    public boolean isEnabledNotificationListener(@NonNull MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteUserInfoImpl)) == null) {
@@ -204,7 +205,7 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
     }
 
     @Override // androidx.media.MediaSessionManager.MediaSessionManagerImpl
-    public boolean isTrustedForMediaControl(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
+    public boolean isTrustedForMediaControl(@NonNull MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, remoteUserInfoImpl)) == null) {

@@ -1,6 +1,8 @@
 package com.baidu.searchbox.bddownload.core.download;
 
 import android.net.ConnectivityManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.utils.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -59,7 +61,7 @@ public class DownloadStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public class FilenameHolder {
+    public static class FilenameHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile String filename;
@@ -81,6 +83,7 @@ public class DownloadStrategy {
             this.filenameProvidedByConstruct = false;
         }
 
+        @Nullable
         public String get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -111,7 +114,7 @@ public class DownloadStrategy {
             return invokeV.booleanValue;
         }
 
-        public FilenameHolder(String str) {
+        public FilenameHolder(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,7 +154,7 @@ public class DownloadStrategy {
             return invokeL.booleanValue;
         }
 
-        public void set(String str) {
+        public void set(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 this.filename = str;
@@ -160,14 +163,16 @@ public class DownloadStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public class ResumeAvailableResponseCheck {
+    public static class ResumeAvailableResponseCheck {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int blockIndex;
+        @NonNull
         public DownloadConnection.Connected connected;
+        @NonNull
         public BreakpointInfo info;
 
-        public ResumeAvailableResponseCheck(DownloadConnection.Connected connected, int i, BreakpointInfo breakpointInfo) {
+        public ResumeAvailableResponseCheck(@NonNull DownloadConnection.Connected connected, int i, @NonNull BreakpointInfo breakpointInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -250,7 +255,7 @@ public class DownloadStrategy {
         this.manager = null;
     }
 
-    public int determineBlockCount(DownloadTask downloadTask, long j) {
+    public int determineBlockCount(@NonNull DownloadTask downloadTask, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, downloadTask, j)) == null) {
@@ -271,7 +276,7 @@ public class DownloadStrategy {
         return invokeLJ.intValue;
     }
 
-    public String determineFilename(String str, DownloadTask downloadTask) throws IOException {
+    public String determineFilename(@Nullable String str, @NonNull DownloadTask downloadTask) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, downloadTask)) == null) {
@@ -295,7 +300,8 @@ public class DownloadStrategy {
         return (String) invokeLL.objValue;
     }
 
-    public ResumeFailedCause getPreconditionFailedCause(int i, boolean z, BreakpointInfo breakpointInfo, String str) {
+    @Nullable
+    public ResumeFailedCause getPreconditionFailedCause(int i, boolean z, @NonNull BreakpointInfo breakpointInfo, @Nullable String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), breakpointInfo, str})) == null) {
@@ -317,7 +323,7 @@ public class DownloadStrategy {
         return (ResumeFailedCause) invokeCommon.objValue;
     }
 
-    public boolean inspectAnotherSameInfo(DownloadTask downloadTask, BreakpointInfo breakpointInfo, long j) {
+    public boolean inspectAnotherSameInfo(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j) {
         InterceptResult invokeCommon;
         BreakpointStore breakpointStore;
         BreakpointInfo findAnotherInfoFromCompare;
@@ -340,7 +346,7 @@ public class DownloadStrategy {
         return invokeCommon.booleanValue;
     }
 
-    public void inspectFilenameFromResume(String str, DownloadTask downloadTask) {
+    public void inspectFilenameFromResume(@NonNull String str, @NonNull DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, str, downloadTask) == null) && Util.isEmpty(downloadTask.getFilename())) {
             downloadTask.getFilenameHolder().set(str);
@@ -366,7 +372,7 @@ public class DownloadStrategy {
         }
     }
 
-    public void inspectNetworkOnWifi(DownloadTask downloadTask) throws IOException {
+    public void inspectNetworkOnWifi(@NonNull DownloadTask downloadTask) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, downloadTask) == null) {
             if (this.isHasAccessNetworkStatePermission == null) {
@@ -400,7 +406,7 @@ public class DownloadStrategy {
         return invokeZ.booleanValue;
     }
 
-    public boolean validFilenameFromStore(DownloadTask downloadTask) {
+    public boolean validFilenameFromStore(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, downloadTask)) == null) {
@@ -423,7 +429,7 @@ public class DownloadStrategy {
         return (ResumeAvailableResponseCheck) invokeLIL.objValue;
     }
 
-    public synchronized void validFilenameFromResponse(String str, DownloadTask downloadTask, BreakpointInfo breakpointInfo) throws IOException {
+    public synchronized void validFilenameFromResponse(@Nullable String str, @NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, str, downloadTask, breakpointInfo) == null) {
             synchronized (this) {
@@ -438,7 +444,7 @@ public class DownloadStrategy {
         }
     }
 
-    public void validInfoOnCompleted(DownloadTask downloadTask, DownloadStore downloadStore) {
+    public void validInfoOnCompleted(@NonNull DownloadTask downloadTask, @NonNull DownloadStore downloadStore) {
         long length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, downloadTask, downloadStore) == null) {

@@ -1,5 +1,6 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
+import android.annotation.TargetApi;
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;
 import android.opengl.EGLContext;
@@ -8,7 +9,7 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih9;
+import com.baidu.tieba.ri9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
+@TargetApi(18)
 /* loaded from: classes6.dex */
 public class InputSurface {
     public static /* synthetic */ Interceptable $ic = null;
@@ -61,7 +63,7 @@ public class InputSurface {
                 if (eglGetError == 12288) {
                     break;
                 }
-                ih9.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+                ri9.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
                 z = true;
             }
             if (!z) {

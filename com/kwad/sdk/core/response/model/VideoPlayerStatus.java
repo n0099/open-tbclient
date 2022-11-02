@@ -1,7 +1,9 @@
 package com.kwad.sdk.core.response.model;
 
+import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class VideoPlayerStatus extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -9021213312245598171L;
     public int mVideoPlayerBehavior = 1;

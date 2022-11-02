@@ -1,81 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class tp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public JSONObject c;
+    public String d;
 
-    public static void a(NetWork netWork, WriteData writeData) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
-            netWork.addPostData("is_location", "2");
-            Address j = ag.n().j(false);
-            if (j != null) {
-                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
-            }
-            LocationData b = oo8.a().b();
-            if (b != null) {
-                netWork.addPostData("name", b.getFormatted_address());
-                netWork.addPostData("sn", b.getSn());
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
+
+    public tp8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(Context context, String str, String str2, String str3) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074e, (ViewGroup) null);
-            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(fj.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09096c);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb0);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a5f);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09067e);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091faf);
-            if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080a03, R.color.CAM_X0101, null));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (wi.isEmpty(this.b)) {
+                return this.a;
             }
-            if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f1143);
-            }
-            textView.setText(str);
-            if (str2 != null || str3 != null) {
-                findViewById.setVisibility(0);
-                textView2.setText(str2);
-                textView3.setText(str3);
-            }
-            c(context, inflate);
+            return this.b + "/" + this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public static void c(Context context, View view2) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
-            Toast toast = new Toast(context);
-            toast.setView(view2);
-            toast.setGravity(17, 0, 0);
-            toast.setDuration(3000);
-            toast.show();
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void j(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.c = jSONObject;
         }
     }
 }

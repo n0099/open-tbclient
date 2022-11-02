@@ -1,6 +1,6 @@
 package com.baidu.swan.webcompat.impl;
 
-import com.baidu.tieba.l33;
+import com.baidu.tieba.d43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class WebCompatImpl$externalFilePathInfo$2 extends Lambda implements Function0 {
+public final class WebCompatImpl$externalFilePathInfo$2 extends Lambda implements Function0<FilePathInfo> {
     public static /* synthetic */ Interceptable $ic;
     public static final WebCompatImpl$externalFilePathInfo$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,12 +55,13 @@ public final class WebCompatImpl$externalFilePathInfo$2 extends Lambda implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final FilePathInfo invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            File it = l33.K().getExternalFilesDir(null);
+            File it = d43.K().getExternalFilesDir(null);
             if (it == null) {
                 return null;
             }

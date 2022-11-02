@@ -5,8 +5,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ob7;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.yc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,12 +45,12 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends BdAsyncTask {
+    public class a extends BdAsyncTask<Object, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public ChatMessage b;
-        public ob7 c;
+        public yc7 c;
         public final /* synthetic */ VoiceSendModel d;
 
         public a(VoiceSendModel voiceSendModel, String str, ChatMessage chatMessage) {
@@ -71,7 +71,7 @@ public class VoiceSendModel extends BdBaseModel {
             this.d = voiceSendModel;
             this.a = str;
             this.b = chatMessage;
-            this.c = new ob7();
+            this.c = new yc7();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,7 +104,7 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VoiceSendModel(TbPageContext tbPageContext) {
+    public VoiceSendModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

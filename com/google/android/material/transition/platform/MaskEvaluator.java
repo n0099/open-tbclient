@@ -5,6 +5,7 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.os.Build;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,6 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.transition.platform.MaterialContainerTransform;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
 public class MaskEvaluator {
     public static /* synthetic */ Interceptable $ic;

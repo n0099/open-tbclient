@@ -1,11 +1,9 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes6.dex */
 public interface w98 {
-    boolean T0();
+    zb8 c();
 
-    List getListData();
+    void e();
 
-    y98 getMainView();
+    void f(String str);
 }

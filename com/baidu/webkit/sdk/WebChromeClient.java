@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -32,7 +33,7 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WebChromeClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -55,13 +56,13 @@ public class WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
     public WebView mWebView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes6.dex */
-    public abstract class FileChooserParams {
+    /* loaded from: classes7.dex */
+    public static abstract class FileChooserParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MODE_OPEN = 0;
         public static final int MODE_OPEN_FOLDER = 2;
@@ -253,6 +254,7 @@ public class WebChromeClient {
     /* JADX WARN: Removed duplicated region for block: B:65:0x016b A[Catch: InvocationTargetException -> 0x0173, IllegalAccessException -> 0x0182, IllegalArgumentException -> 0x018e, NoSuchMethodException -> 0x01b9, TryCatch #2 {IllegalAccessException -> 0x0182, IllegalArgumentException -> 0x018e, NoSuchMethodException -> 0x01b9, InvocationTargetException -> 0x0173, blocks: (B:35:0x00c7, B:37:0x00cd, B:39:0x00d8, B:41:0x00e2, B:43:0x00e6, B:46:0x00f0, B:47:0x0109, B:50:0x010f, B:53:0x0141, B:61:0x0156, B:63:0x015a, B:65:0x016b, B:66:0x016f, B:60:0x0152, B:51:0x013b), top: B:102:0x00c7 }] */
     /* JADX WARN: Removed duplicated region for block: B:83:0x019c  */
     /* JADX WARN: Removed duplicated region for block: B:84:0x01b5  */
+    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -451,7 +453,7 @@ public class WebChromeClient {
         return (View) invokeV.objValue;
     }
 
-    public void getVisitedHistory(ValueCallback valueCallback) {
+    public void getVisitedHistory(ValueCallback<String[]> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, valueCallback) == null) {
         }
@@ -788,7 +790,7 @@ public class WebChromeClient {
         }
     }
 
-    public boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, FileChooserParams fileChooserParams) {
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, FileChooserParams fileChooserParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048618, this, webView, valueCallback, fileChooserParams)) == null) {
@@ -798,7 +800,7 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void openFileChooser(ValueCallback valueCallback) {
+    public void openFileChooser(ValueCallback<Uri> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, valueCallback) == null) {
             openFileChooser(valueCallback, null, null);
@@ -806,7 +808,7 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void openFileChooser(ValueCallback valueCallback, String str) {
+    public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048620, this, valueCallback, str) == null) {
             openFileChooser(valueCallback, str, null);
@@ -814,7 +816,7 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void openFileChooser(ValueCallback valueCallback, String str, String str2) {
+    public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048621, this, valueCallback, str, str2) == null) {
             valueCallback.onReceiveValue(null);

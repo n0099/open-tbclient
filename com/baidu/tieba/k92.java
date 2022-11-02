@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.an2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.channels.Channels;
 /* loaded from: classes4.dex */
-public class k92 extends h92 {
+public class k92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public File b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,104 +29,58 @@ public class k92 extends h92 {
                 return;
             }
         }
-        c = wj1.a;
+        a = ok1.a;
     }
 
-    public k92() {
+    public static j92 a(PMSAppInfo pMSAppInfo, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = o();
-    }
-
-    @Override // com.baidu.tieba.h92
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.b.exists()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
+            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
                 return null;
             }
-            File file = new File(this.b, "preset_list.json");
-            if (!file.exists()) {
+            File i = an2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
+            if (!i.exists()) {
+                if (a) {
+                    Log.w("PrefetchUtils", "aiapp dir not exist ");
+                }
                 return null;
             }
-            return qj4.E(file);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h92
-    public boolean e(i92 i92Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i92Var)) == null) {
-            if (i92Var == null || !this.b.exists()) {
-                return false;
-            }
-            File file = this.b;
-            File file2 = new File(file, i92Var.g + File.separator + i92Var.q);
-            if (!file2.exists()) {
-                return false;
-            }
-            try {
-                if (!d(Channels.newChannel(new FileInputStream(file2)), i92Var.m)) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "校验签名失败");
+            j92 j92Var = new j92();
+            if (new File(i, "app.json").exists()) {
+                if (a) {
+                    Log.d("PrefetchUtils", "find main pkg's app config file");
+                }
+                j92Var.a = i;
+                return j92Var;
+            } else if (TextUtils.isEmpty(str)) {
+                return null;
+            } else {
+                String g = wh3.g(str);
+                int lastIndexOf = g.lastIndexOf(File.separator);
+                if (lastIndexOf >= 0) {
+                    g = g.substring(0, lastIndexOf);
+                }
+                if (!new File(i, g).exists()) {
+                    return null;
+                }
+                int lastIndexOf2 = g.lastIndexOf(File.separator);
+                while (lastIndexOf2 >= 0) {
+                    g = g.substring(0, lastIndexOf2);
+                    if (new File(i, g + File.separator + "app.json").exists()) {
+                        if (a) {
+                            Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
+                        }
+                        j92Var.b = true;
+                        j92Var.c = g;
+                        j92Var.a = new File(i, g);
+                        return j92Var;
                     }
-                    return false;
+                    lastIndexOf2 = g.lastIndexOf(File.separator);
                 }
-                File j = j(i92Var.h, i92Var.g, i92Var.i);
-                if (j == null) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(new FileInputStream(file2)), j);
-            } catch (IOException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h92
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!this.b.exists()) {
                 return null;
             }
-            File file = this.b;
-            File file2 = new File(file, str + File.separator + "app_info.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            return qj4.E(file2);
         }
-        return (String) invokeL.objValue;
+        return (j92) invokeLL.objValue;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier {
+public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCacheParams> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_ENTRIES = 256;
     public static final int MAX_CACHE_ENTRY_SIZE = Integer.MAX_VALUE;
@@ -40,6 +40,7 @@ public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.internal.Supplier
     public MemoryCacheParams get() {
         InterceptResult invokeV;

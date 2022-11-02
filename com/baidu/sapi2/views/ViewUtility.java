@@ -33,7 +33,7 @@ public class ViewUtility implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class a implements View.OnTouchListener {
+    public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ float a;
@@ -174,9 +174,9 @@ public class ViewUtility implements NoProguard {
                 z = false;
                 if (z && -1 == i) {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609e2);
+                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609f4);
                     } else {
-                        i = activity.getColor(R.color.obfuscated_res_0x7f0609e2);
+                        i = activity.getColor(R.color.obfuscated_res_0x7f0609f4);
                     }
                 }
                 if (!b(activity, true)) {

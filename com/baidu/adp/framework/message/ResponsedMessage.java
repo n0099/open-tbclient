@@ -1,10 +1,11 @@
 package com.baidu.adp.framework.message;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tieba.ua;
-import com.baidu.tieba.xb;
+import com.baidu.tieba.ta;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,6 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class ResponsedMessage<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Object decodeData;
     public final int mCmd;
     public long mCostTime;
@@ -23,7 +25,7 @@ public abstract class ResponsedMessage<T> {
     public Message<?> mOrginalMessage;
     public long mProcessTime;
     public long mStartTime;
-    public xb performanceData;
+    public wb performanceData;
 
     public void afterDispatchInBackGround(int i, T t) {
         Interceptable interceptable = $ic;
@@ -62,7 +64,7 @@ public abstract class ResponsedMessage<T> {
         this.mProcessTime = 0L;
         this.mDownSize = 0;
         this.mCostTime = 0L;
-        this.performanceData = new xb();
+        this.performanceData = new wb();
         this.mCmd = i;
     }
 
@@ -84,6 +86,7 @@ public abstract class ResponsedMessage<T> {
         return invokeV.longValue;
     }
 
+    @Nullable
     public Object getDecodeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,7 +161,7 @@ public abstract class ResponsedMessage<T> {
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == ua.c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == ta.c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

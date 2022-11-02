@@ -20,7 +20,8 @@ import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.ky4;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
@@ -32,8 +33,7 @@ import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity;
 import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class ThemeStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public final class a implements UrlManager.UrlDealListener {
+    public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,7 +66,7 @@ public class ThemeStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -78,7 +78,7 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), eh.g(substring.substring(0, indexOf), 0L))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), wg.g(substring.substring(0, indexOf), 0L))));
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(tbPageContext.getPageActivity())));
@@ -91,7 +91,7 @@ public class ThemeStatic {
     }
 
     /* loaded from: classes6.dex */
-    public final class b implements UrlManager.UrlDealListener {
+    public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +110,7 @@ public class ThemeStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             int i;
             Interceptable interceptable = $ic;
@@ -123,8 +123,8 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        int e = eh.e(substring.substring(0, indexOf), 0);
-                        ux4 k = ux4.k();
+                        int e = wg.e(substring.substring(0, indexOf), 0);
+                        ky4 k = ky4.k();
                         if (e == k.l("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), 0)) {
                             i = 1;
                         } else {
@@ -143,7 +143,7 @@ public class ThemeStatic {
     }
 
     /* loaded from: classes6.dex */
-    public final class c implements UrlManager.UrlDealListener {
+    public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -162,7 +162,7 @@ public class ThemeStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -177,7 +177,7 @@ public class ThemeStatic {
     }
 
     /* loaded from: classes6.dex */
-    public final class d implements UrlManager.UrlDealListener {
+    public static class d implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -196,7 +196,7 @@ public class ThemeStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -217,7 +217,7 @@ public class ThemeStatic {
     }
 
     /* loaded from: classes6.dex */
-    public final class e implements UrlManager.UrlDealListener {
+    public static class e implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,7 +236,7 @@ public class ThemeStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -277,8 +277,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        zm8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        zm8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        io8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        io8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

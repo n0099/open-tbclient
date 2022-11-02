@@ -1,5 +1,6 @@
 package com.baidu.down.retry;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,12 +32,12 @@ public class HttpRetryStrategyHandler {
     public static final String TAG = "HttpRetryStrategyHandler";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public ConcurrentHashMap mDownDetail;
+    public ConcurrentHashMap<Integer, String> mDownDetail;
     public boolean mHostIsMatch;
     public HttpDNSCacheInfo mHttpDNSCacheInfo;
-    public List mOnFetchDataRequestListener;
+    public List<OnFetchDataResultListener> mOnFetchDataRequestListener;
     public Exception mRetryException;
-    public List mRetryRequestInfoList;
+    public List<RetryRequestInfo> mRetryRequestInfoList;
     public int mRetryType;
     public AbstractTask mtask;
     public boolean requestRetryStrategyData;
@@ -63,26 +64,28 @@ public class HttpRetryStrategyHandler {
         }
         this.mtask = null;
         this.requestRetryStrategyData = false;
-        this.mDownDetail = new ConcurrentHashMap();
+        this.mDownDetail = new ConcurrentHashMap<>();
         this.mRetryType = 0;
         this.mContext = context;
         this.mtask = abstractTask;
         this.mHostIsMatch = URLRegUtils.matchRetryHostReg(abstractTask.mUri);
     }
 
+    @SuppressLint({"LongLogTag"})
     public void appendDownDetail(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             if (this.mDownDetail.containsKey(Integer.valueOf(i))) {
-                ConcurrentHashMap concurrentHashMap = this.mDownDetail;
+                ConcurrentHashMap<Integer, String> concurrentHashMap = this.mDownDetail;
                 Integer valueOf = Integer.valueOf(i);
-                concurrentHashMap.put(valueOf, ((String) this.mDownDetail.get(Integer.valueOf(i))) + str);
+                concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i)) + str);
                 return;
             }
             this.mDownDetail.put(Integer.valueOf(i), str);
         }
     }
 
+    @SuppressLint({"LongLogTag"})
     public void retryStrategy(Exception exc, OnFetchDataResultListener onFetchDataResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, exc, onFetchDataResultListener) == null) {
@@ -206,7 +209,7 @@ public class HttpRetryStrategyHandler {
         return invokeV.booleanValue;
     }
 
-    public ConcurrentHashMap getDownDetail() {
+    public ConcurrentHashMap<Integer, String> getDownDetail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -276,7 +279,7 @@ public class HttpRetryStrategyHandler {
         return (String) invokeV.objValue;
     }
 
-    public List getRetryRequestInfoList() {
+    public List<RetryRequestInfo> getRetryRequestInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {

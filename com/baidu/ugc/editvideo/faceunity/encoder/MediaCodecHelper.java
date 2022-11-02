@@ -6,6 +6,7 @@ import android.media.MediaCrypto;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
+@RequiresApi(api = 16)
 /* loaded from: classes6.dex */
 public class MediaCodecHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -100,6 +102,7 @@ public class MediaCodecHelper {
         return (MediaCodec) invokeLL.objValue;
     }
 
+    @RequiresApi(api = 18)
     public static MediaCodec createVideoEncoder(MediaCodecInfo mediaCodecInfo, MediaFormat mediaFormat, AtomicReference<Surface> atomicReference) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;

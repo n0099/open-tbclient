@@ -1,5 +1,6 @@
 package com.kwad.components.ad.interstitial.b.kwai;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,7 +131,7 @@ public abstract class a extends com.kwad.components.ad.interstitial.b.b implemen
             }
 
             @Override // com.kwad.sdk.core.webview.a.kwai.a
-            public final void a(com.kwad.sdk.core.webview.a.a.a aVar) {
+            public final void a(@Nullable com.kwad.sdk.core.webview.a.a.a aVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
                     this.hO.gh.gl = true;

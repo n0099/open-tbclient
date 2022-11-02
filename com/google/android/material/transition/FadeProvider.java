@@ -4,6 +4,9 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +44,7 @@ public final class FadeProvider implements VisibilityAnimatorProvider {
         return invokeV.floatValue;
     }
 
-    public static Animator createFadeAnimator(View view2, float f, float f2, float f3, float f4) {
+    public static Animator createFadeAnimator(View view2, float f, float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3, @FloatRange(from = 0.0d, to = 1.0d) float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
@@ -91,7 +94,8 @@ public final class FadeProvider implements VisibilityAnimatorProvider {
     }
 
     @Override // com.google.android.material.transition.VisibilityAnimatorProvider
-    public Animator createAppear(ViewGroup viewGroup, View view2) {
+    @Nullable
+    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) {
@@ -101,7 +105,8 @@ public final class FadeProvider implements VisibilityAnimatorProvider {
     }
 
     @Override // com.google.android.material.transition.VisibilityAnimatorProvider
-    public Animator createDisappear(ViewGroup viewGroup, View view2) {
+    @Nullable
+    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2)) == null) {

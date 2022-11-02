@@ -1,136 +1,111 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 /* loaded from: classes3.dex */
 public class b45 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
 
-    public b45() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947595014, "Lcom/baidu/tieba/b45;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = false;
-        this.b = 0;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947595014, "Lcom/baidu/tieba/b45;");
+        }
     }
 
-    public int b() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (wi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                return 3;
+            }
+            return ky4.k().l("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
         }
         return invokeV.intValue;
     }
 
-    public final int c() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType != 1) {
-                if (netType != 2) {
-                    return 5000;
-                }
-                return 10000;
-            }
-            return 3000;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str) {
-        int lastIndexOf;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a = false;
-            this.b = 0;
-            if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(":")) < 5) {
-                return;
-            }
-            String str3 = null;
-            try {
-                str2 = str.substring(5, lastIndexOf);
-            } catch (Exception e) {
-                e = e;
-                str2 = null;
-            }
-            try {
-                str3 = str.substring(lastIndexOf + 1);
-            } catch (Exception e2) {
-                e = e2;
-                BdLog.e(e.getMessage());
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return;
-            }
-            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                int i = 0;
-                int i2 = 0;
-                for (int i3 = 0; i3 < 3; i3++) {
-                    Socket socket = new Socket();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    try {
-                        try {
-                            socket.connect(new InetSocketAddress(str2, eh.e(String.valueOf(str3), 8000)), c());
-                            if (socket.isConnected()) {
-                                i++;
-                                i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
-                                this.a = true;
-                            }
-                            try {
-                                socket.close();
-                            } catch (Exception e3) {
-                                BdLog.e(e3.getMessage());
-                            }
-                        } catch (Throwable th) {
-                            try {
-                                socket.close();
-                            } catch (Exception e4) {
-                                BdLog.e(e4.getMessage());
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e5) {
-                        BdLog.e(e5.getMessage());
-                        socket.close();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
+                int a2 = a();
+                if (a2 != 2) {
+                    if (a2 == 3) {
+                        return R.drawable.obfuscated_res_0x7f08083e;
                     }
+                    if (a2 != 4) {
+                        if (a2 != 6) {
+                            if (a2 != 8) {
+                                return R.drawable.obfuscated_res_0x7f08083e;
+                            }
+                            return R.drawable.obfuscated_res_0x7f08083b;
+                        }
+                        return R.drawable.obfuscated_res_0x7f08083f;
+                    }
+                    return R.drawable.obfuscated_res_0x7f08083c;
                 }
-                if (this.a && i > 0) {
-                    this.b = i2 / i;
-                }
+                return R.drawable.obfuscated_res_0x7f08083a;
             }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
+            }
+            if (!wi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                a = ky4.k().m("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            }
+            return a;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !wi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            ky4.k().w("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+            ky4.k().D("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
+            a = 0L;
+        }
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !wi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            ky4.k().x("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
+            a = j;
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            a = -1L;
         }
     }
 }

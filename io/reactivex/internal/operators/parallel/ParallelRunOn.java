@@ -21,15 +21,15 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelRunOn extends ParallelFlowable {
+public final class ParallelRunOn<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int prefetch;
     public final Scheduler scheduler;
-    public final ParallelFlowable source;
+    public final ParallelFlowable<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public abstract class BaseRunOnSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription, Runnable {
+    public static abstract class BaseRunOnSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9222303586456402150L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,12 +39,12 @@ public final class ParallelRunOn extends ParallelFlowable {
         public Throwable error;
         public final int limit;
         public final int prefetch;
-        public final SpscArrayQueue queue;
+        public final SpscArrayQueue<T> queue;
         public final AtomicLong requested;
         public Subscription s;
         public final Scheduler.Worker worker;
 
-        public BaseRunOnSubscriber(int i, SpscArrayQueue spscArrayQueue, Scheduler.Worker worker) {
+        public BaseRunOnSubscriber(int i, SpscArrayQueue<T> spscArrayQueue, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,12 +111,12 @@ public final class ParallelRunOn extends ParallelFlowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public final void onNext(Object obj) {
+        public final void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.done) {
                 return;
             }
-            if (!this.queue.offer(obj)) {
+            if (!this.queue.offer(t)) {
                 this.s.cancel();
                 onError(new MissingBackpressureException("Queue is full?!"));
                 return;
@@ -138,11 +138,11 @@ public final class ParallelRunOn extends ParallelFlowable {
     public final class MultiWorkerCallback implements SchedulerMultiWorkerSupport.WorkerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber[] parents;
-        public final Subscriber[] subscribers;
+        public final Subscriber<T>[] parents;
+        public final Subscriber<? super T>[] subscribers;
         public final /* synthetic */ ParallelRunOn this$0;
 
-        public MultiWorkerCallback(ParallelRunOn parallelRunOn, Subscriber[] subscriberArr, Subscriber[] subscriberArr2) {
+        public MultiWorkerCallback(ParallelRunOn parallelRunOn, Subscriber<? super T>[] subscriberArr, Subscriber<T>[] subscriberArr2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,14 +172,14 @@ public final class ParallelRunOn extends ParallelFlowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class RunOnConditionalSubscriber extends BaseRunOnSubscriber {
+    public static final class RunOnConditionalSubscriber<T> extends BaseRunOnSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1075119423897941642L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber actual;
+        public final ConditionalSubscriber<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RunOnConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, int i, SpscArrayQueue spscArrayQueue, Scheduler.Worker worker) {
+        public RunOnConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, int i, SpscArrayQueue<T> spscArrayQueue, Scheduler.Worker worker) {
             super(i, spscArrayQueue, worker);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -287,8 +287,8 @@ public final class ParallelRunOn extends ParallelFlowable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 int i = this.consumed;
-                SpscArrayQueue spscArrayQueue = this.queue;
-                ConditionalSubscriber conditionalSubscriber = this.actual;
+                SpscArrayQueue<T> spscArrayQueue = this.queue;
+                ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
                 int i2 = this.limit;
                 int i3 = 1;
                 while (true) {
@@ -309,7 +309,7 @@ public final class ParallelRunOn extends ParallelFlowable {
                                 this.worker.dispose();
                                 return;
                             }
-                            Object poll = spscArrayQueue.poll();
+                            T poll = spscArrayQueue.poll();
                             if (poll == null) {
                                 z = true;
                             } else {
@@ -339,14 +339,14 @@ public final class ParallelRunOn extends ParallelFlowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class RunOnSubscriber extends BaseRunOnSubscriber {
+    public static final class RunOnSubscriber<T> extends BaseRunOnSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1075119423897941642L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RunOnSubscriber(Subscriber subscriber, int i, SpscArrayQueue spscArrayQueue, Scheduler.Worker worker) {
+        public RunOnSubscriber(Subscriber<? super T> subscriber, int i, SpscArrayQueue<T> spscArrayQueue, Scheduler.Worker worker) {
             super(i, spscArrayQueue, worker);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -454,8 +454,8 @@ public final class ParallelRunOn extends ParallelFlowable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 int i = this.consumed;
-                SpscArrayQueue spscArrayQueue = this.queue;
-                Subscriber subscriber = this.actual;
+                SpscArrayQueue<T> spscArrayQueue = this.queue;
+                Subscriber<? super T> subscriber = this.actual;
                 int i2 = this.limit;
                 int i3 = 1;
                 while (true) {
@@ -476,7 +476,7 @@ public final class ParallelRunOn extends ParallelFlowable {
                                 this.worker.dispose();
                                 return;
                             }
-                            Object poll = spscArrayQueue.poll();
+                            T poll = spscArrayQueue.poll();
                             if (poll == null) {
                                 z = true;
                             } else {
@@ -504,7 +504,7 @@ public final class ParallelRunOn extends ParallelFlowable {
         }
     }
 
-    public ParallelRunOn(ParallelFlowable parallelFlowable, Scheduler scheduler, int i) {
+    public ParallelRunOn(ParallelFlowable<? extends T> parallelFlowable, Scheduler scheduler, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -524,10 +524,10 @@ public final class ParallelRunOn extends ParallelFlowable {
         this.prefetch = i;
     }
 
-    public void createSubscriber(int i, Subscriber[] subscriberArr, Subscriber[] subscriberArr2, Scheduler.Worker worker) {
+    public void createSubscriber(int i, Subscriber<? super T>[] subscriberArr, Subscriber<T>[] subscriberArr2, Scheduler.Worker worker) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), subscriberArr, subscriberArr2, worker}) == null) {
-            Subscriber subscriber = subscriberArr[i];
+            Subscriber<? super T> subscriber = subscriberArr[i];
             SpscArrayQueue spscArrayQueue = new SpscArrayQueue(this.prefetch);
             if (subscriber instanceof ConditionalSubscriber) {
                 subscriberArr2[i] = new RunOnConditionalSubscriber((ConditionalSubscriber) subscriber, this.prefetch, spscArrayQueue, worker);
@@ -548,13 +548,13 @@ public final class ParallelRunOn extends ParallelFlowable {
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber[] subscriberArr) {
+    public void subscribe(Subscriber<? super T>[] subscriberArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subscriberArr) != null) || !validate(subscriberArr)) {
             return;
         }
         int length = subscriberArr.length;
-        Subscriber[] subscriberArr2 = new Subscriber[length];
+        Subscriber<T>[] subscriberArr2 = new Subscriber[length];
         Scheduler scheduler = this.scheduler;
         if (scheduler instanceof SchedulerMultiWorkerSupport) {
             ((SchedulerMultiWorkerSupport) scheduler).createWorkers(length, new MultiWorkerCallback(this, subscriberArr, subscriberArr2));

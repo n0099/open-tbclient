@@ -4,29 +4,41 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public interface IDeviceidInterface extends IInterface {
 
+    @Keep
     /* loaded from: classes8.dex */
-    public abstract class Stub extends Binder implements IDeviceidInterface {
+    public static abstract class Stub extends Binder implements IDeviceidInterface {
         public static /* synthetic */ Interceptable $ic = null;
+        @Keep
         public static final String DESCRIPTOR = "com.zui.deviceidservice.IDeviceidInterface";
+        @Keep
         public static final int TRANSACTION_createAAIDForPackageName = 6;
+        @Keep
         public static final int TRANSACTION_getAAID = 5;
+        @Keep
         public static final int TRANSACTION_getOAID = 1;
+        @Keep
         public static final int TRANSACTION_getUDID = 2;
+        @Keep
         public static final int TRANSACTION_getVAID = 4;
+        @Keep
         public static final int TRANSACTION_isSupport = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Keep
         /* loaded from: classes8.dex */
-        public class Proxy implements IDeviceidInterface {
+        public static class Proxy implements IDeviceidInterface {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            @Keep
             public IBinder mRemote;
 
             public Proxy(IBinder iBinder) {
@@ -48,26 +60,34 @@ public interface IDeviceidInterface extends IInterface {
             }
 
             @Override // android.os.IInterface
+            @Keep
             public native IBinder asBinder();
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
+            @Keep
             public native boolean createAAIDForPackageName(String str);
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
+            @Keep
             public native String getAAID(String str);
 
+            @Keep
             public native String getInterfaceDescriptor();
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
+            @Keep
             public native String getOAID();
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
+            @Keep
             public native String getUDID();
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
+            @Keep
             public native String getVAID(String str);
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
+            @Keep
             public native boolean isSupport();
         }
 
@@ -87,24 +107,33 @@ public interface IDeviceidInterface extends IInterface {
             attachInterface(this, DESCRIPTOR);
         }
 
+        @Keep
         public static native IDeviceidInterface asInterface(IBinder iBinder);
 
         @Override // android.os.IInterface
+        @Keep
         public native IBinder asBinder();
 
         @Override // android.os.Binder
+        @Keep
         public native boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2);
     }
 
+    @Keep
     boolean createAAIDForPackageName(String str);
 
+    @Keep
     String getAAID(String str);
 
+    @Keep
     String getOAID();
 
+    @Keep
     String getUDID();
 
+    @Keep
     String getVAID(String str);
 
+    @Keep
     boolean isSupport();
 }

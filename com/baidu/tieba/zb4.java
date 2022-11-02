@@ -1,30 +1,195 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.tieba.ye4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zb4 implements ub4 {
+public abstract class zb4 implements wb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public String c() {
+    public vb4<ed4> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pkg_sub" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (vb4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ub4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public Map<String, String> B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
+        return (Map) invokeV.objValue;
+    }
+
+    public void C(yc4 yc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yc4Var) == null) {
+        }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void G(mh4 mh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mh4Var) == null) {
+        }
+    }
+
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+        }
+    }
+
+    public void I(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.wb4
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.wb4
+    public void n(@Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+        }
+    }
+
+    public yb4 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return null;
+        }
+        return (yb4) invokeV.objValue;
+    }
+
+    public vb4<fd4> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return null;
+        }
+        return (vb4) invokeV.objValue;
+    }
+
+    public vb4<zc4> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (vb4) invokeV.objValue;
+    }
+
+    public vb4<bd4> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (vb4) invokeV.objValue;
+    }
+
+    public Map<String, String> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public vb4<dd4> u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (vb4) invokeV.objValue;
+    }
+
+    public rb4<ye4.a> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return null;
+        }
+        return (rb4) invokeV.objValue;
+    }
+
+    public yg4 w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            return null;
+        }
+        return (yg4) invokeL.objValue;
+    }
+
+    public vb4<fd4> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
+        }
+        return (vb4) invokeV.objValue;
+    }
+
+    public Map<String, String> y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public vb4<gd4> z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return null;
+        }
+        return (vb4) invokeV.objValue;
     }
 
     public zb4() {
@@ -41,20 +206,19 @@ public class zb4 implements ub4 {
         }
     }
 
-    @Override // com.baidu.tieba.ub4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.tieba.xb4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (set.contains("event_performance_ubc")) {
+                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                set.remove("event_performance_ubc");
+            }
+            return bundle2;
         }
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL,independent INT DEFAULT 0,sub_pkg_name TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0, UNIQUE (app_id,sub_pkg_name));";
-        }
-        return (String) invokeV.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

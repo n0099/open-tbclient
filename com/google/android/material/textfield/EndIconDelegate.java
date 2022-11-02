@@ -1,6 +1,7 @@
 package com.google.android.material.textfield;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,7 +43,7 @@ public abstract class EndIconDelegate {
         return invokeV.booleanValue;
     }
 
-    public EndIconDelegate(TextInputLayout textInputLayout) {
+    public EndIconDelegate(@NonNull TextInputLayout textInputLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -7,13 +7,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.io8;
 import com.baidu.tieba.model.message.AddPollPostHttpResponseMessage;
 import com.baidu.tieba.model.message.AddPollPostRequestNetMessage;
 import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class AddPollPostModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public long b;
-    public qb c;
+    public pb c;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -53,7 +53,7 @@ public class AddPollPostModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AddPollPostModel a;
@@ -80,8 +80,8 @@ public class AddPollPostModel extends BdBaseModel {
             this.a = addPollPostModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             AddPollPostHttpResponseMessage addPollPostHttpResponseMessage;
             String str;
             Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class AddPollPostModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             AddPollPostRequestNetMessage addPollPostRequestNetMessage = new AddPollPostRequestNetMessage();
-            addPollPostRequestNetMessage.setThreadId(eh.g(str, 0L));
+            addPollPostRequestNetMessage.setThreadId(wg.g(str, 0L));
             addPollPostRequestNetMessage.setOptions(str2);
             addPollPostRequestNetMessage.setForumId(j);
             sendMessage(addPollPostRequestNetMessage);
@@ -170,8 +170,8 @@ public class AddPollPostModel extends BdBaseModel {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zm8.h(309006, AddPollPostSocketResponseMessage.class, false, false);
-            zm8.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+            io8.h(309006, AddPollPostSocketResponseMessage.class, false, false);
+            io8.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
         }
     }
 

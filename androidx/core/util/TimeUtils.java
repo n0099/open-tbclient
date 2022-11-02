@@ -1,5 +1,6 @@
 package androidx.core.util;
 
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,9 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.PrintWriter;
 import org.aspectj.runtime.reflect.SignatureImpl;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class TimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
     public static final int SECONDS_PER_DAY = 86400;
     public static final int SECONDS_PER_HOUR = 3600;
@@ -71,6 +74,7 @@ public final class TimeUtils {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static void formatDuration(long j, long j2, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), printWriter}) == null) {
@@ -82,6 +86,7 @@ public final class TimeUtils {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static void formatDuration(long j, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, printWriter) == null) {
@@ -89,6 +94,7 @@ public final class TimeUtils {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static void formatDuration(long j, PrintWriter printWriter, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), printWriter, Integer.valueOf(i)}) == null) {
@@ -98,6 +104,7 @@ public final class TimeUtils {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static void formatDuration(long j, StringBuilder sb) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(65542, null, j, sb) == null) {

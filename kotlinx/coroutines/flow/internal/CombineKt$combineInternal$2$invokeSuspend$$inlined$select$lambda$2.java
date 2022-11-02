@@ -13,7 +13,7 @@ import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.channels.ReceiveChannel;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005¨\u0006\u0007"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/internal/CombineKt$onReceive$1", "kotlinx/coroutines/flow/internal/CombineKt$combineInternal$2$$special$$inlined$onReceive$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2 extends SuspendLambda implements Function2 {
+public final class CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2 extends SuspendLambda implements Function2<Object, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel[] $channels$inlined;
     public final /* synthetic */ int $i$inlined;
     public final /* synthetic */ Boolean[] $isClosed$inlined;
@@ -42,15 +42,16 @@ public final class CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lam
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2 combineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2 = new CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2(this.$onReceive, continuation, this.$i$inlined, this.this$0, this.$size$inlined, this.$isClosed$inlined, this.$channels$inlined, this.$latestValues$inlined, this.$remainingNulls$inlined, this.$nonClosed$inlined);
         combineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2.p$0 = obj;
         return combineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return ((CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

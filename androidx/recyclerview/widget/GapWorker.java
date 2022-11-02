@@ -1,5 +1,7 @@
 package androidx.recyclerview.widget;
 
+import android.annotation.SuppressLint;
+import androidx.annotation.Nullable;
 import androidx.core.os.TraceCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +29,7 @@ public final class GapWorker implements Runnable {
     public ArrayList<RecyclerView> mRecyclerViews;
     public ArrayList<Task> mTasks;
 
+    @SuppressLint({"VisibleForTests"})
     /* loaded from: classes.dex */
     public static class LayoutPrefetchRegistryImpl implements RecyclerView.LayoutManager.LayoutPrefetchRegistry {
         public static /* synthetic */ Interceptable $ic;
@@ -392,7 +395,7 @@ public final class GapWorker implements Runnable {
         }
     }
 
-    private void prefetchInnerRecyclerViewWithDeadline(RecyclerView recyclerView, long j) {
+    private void prefetchInnerRecyclerViewWithDeadline(@Nullable RecyclerView recyclerView, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLJ(65542, this, recyclerView, j) != null) || recyclerView == null) {
             return;

@@ -5,7 +5,7 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ox9;
+import com.baidu.tieba.xy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class CameraCapturer implements CameraVideoCapturer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
@@ -59,7 +59,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
     public /* synthetic */ void addMediaRecorderToCamera(MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        ox9.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
+        xy9.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
     }
 
     public abstract void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3);
@@ -77,12 +77,12 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
     public /* synthetic */ void removeMediaRecorderFromCamera(CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        ox9.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
+        xy9.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class SwitchState {
+    /* loaded from: classes9.dex */
+    public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchState IDLE;

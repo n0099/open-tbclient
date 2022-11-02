@@ -15,55 +15,67 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.DataChannel;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.RtpTransceiver;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PeerConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List localStreams;
+    public final List<MediaStream> localStreams;
     public final long nativePeerConnection;
-    public List receivers;
-    public List senders;
-    public List transceivers;
+    public List<RtpReceiver> receivers;
+    public List<RtpSender> senders;
+    public List<RtpTransceiver> transceivers;
 
     /* renamed from: org.webrtc.PeerConnection$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Observer {
+        @CalledByNative("Observer")
         void onAddStream(MediaStream mediaStream);
 
+        @CalledByNative("Observer")
         void onAddTrack(RtpReceiver rtpReceiver, MediaStream[] mediaStreamArr);
 
+        @CalledByNative("Observer")
         void onConnectionChange(PeerConnectionState peerConnectionState);
 
+        @CalledByNative("Observer")
         void onDataChannel(DataChannel dataChannel);
 
+        @CalledByNative("Observer")
         void onIceCandidate(IceCandidate iceCandidate);
 
+        @CalledByNative("Observer")
         void onIceCandidatesRemoved(IceCandidate[] iceCandidateArr);
 
+        @CalledByNative("Observer")
         void onIceConnectionChange(IceConnectionState iceConnectionState);
 
+        @CalledByNative("Observer")
         void onIceConnectionReceivingChange(boolean z);
 
+        @CalledByNative("Observer")
         void onIceGatheringChange(IceGatheringState iceGatheringState);
 
+        @CalledByNative("Observer")
         void onRemoveStream(MediaStream mediaStream);
 
+        @CalledByNative("Observer")
         void onRenegotiationNeeded();
 
+        @CalledByNative("Observer")
         void onSignalingChange(SignalingState signalingState);
 
+        @CalledByNative("Observer")
         void onTrack(RtpTransceiver rtpTransceiver);
     }
 
@@ -71,7 +83,7 @@ public class PeerConnection {
 
     private native boolean nativeAddLocalStream(long j);
 
-    private native RtpSender nativeAddTrack(long j, List list);
+    private native RtpSender nativeAddTrack(long j, List<String> list);
 
     private native RtpTransceiver nativeAddTransceiverOfType(MediaStreamTrack.MediaType mediaType, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
 
@@ -99,13 +111,13 @@ public class PeerConnection {
 
     private native long nativeGetNativePeerConnection();
 
-    private native List nativeGetReceivers();
+    private native List<RtpReceiver> nativeGetReceivers();
 
     private native SessionDescription nativeGetRemoteDescription();
 
-    private native List nativeGetSenders();
+    private native List<RtpSender> nativeGetSenders();
 
-    private native List nativeGetTransceivers();
+    private native List<RtpTransceiver> nativeGetTransceivers();
 
     private native IceConnectionState nativeIceConnectionState();
 
@@ -139,34 +151,34 @@ public class PeerConnection {
 
     private native void nativeStopRtcEventLog();
 
-    /* loaded from: classes8.dex */
-    public class IceServer {
+    /* loaded from: classes9.dex */
+    public static class IceServer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String hostname;
         public final String password;
-        public final List tlsAlpnProtocols;
+        public final List<String> tlsAlpnProtocols;
         public final TlsCertPolicy tlsCertPolicy;
-        public final List tlsEllipticCurves;
+        public final List<String> tlsEllipticCurves;
         @Deprecated
         public final String uri;
-        public final List urls;
+        public final List<String> urls;
         public final String username;
 
-        /* loaded from: classes8.dex */
-        public class Builder {
+        /* loaded from: classes9.dex */
+        public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String hostname;
             public String password;
-            public List tlsAlpnProtocols;
+            public List<String> tlsAlpnProtocols;
             public TlsCertPolicy tlsCertPolicy;
-            public List tlsEllipticCurves;
+            public List<String> tlsEllipticCurves;
             @Nullable
-            public final List urls;
+            public final List<String> urls;
             public String username;
 
-            public Builder(List list) {
+            public Builder(List<String> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -200,7 +212,7 @@ public class PeerConnection {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return new IceServer((String) this.urls.get(0), this.urls, this.username, this.password, this.tlsCertPolicy, this.hostname, this.tlsAlpnProtocols, this.tlsEllipticCurves, null);
+                    return new IceServer(this.urls.get(0), this.urls, this.username, this.password, this.tlsCertPolicy, this.hostname, this.tlsAlpnProtocols, this.tlsEllipticCurves, null);
                 }
                 return (IceServer) invokeV.objValue;
             }
@@ -225,7 +237,7 @@ public class PeerConnection {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTlsAlpnProtocols(List list) {
+            public Builder setTlsAlpnProtocols(List<String> list) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
@@ -245,7 +257,7 @@ public class PeerConnection {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTlsEllipticCurves(List list) {
+            public Builder setTlsEllipticCurves(List<String> list) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
@@ -354,7 +366,7 @@ public class PeerConnection {
             }
         }
 
-        public IceServer(String str, List list, String str2, String str3, TlsCertPolicy tlsCertPolicy, String str4, List list2, List list3) {
+        public IceServer(String str, List<String> list, String str2, String str3, TlsCertPolicy tlsCertPolicy, String str4, List<String> list2, List<String> list3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -370,9 +382,8 @@ public class PeerConnection {
                 }
             }
             if (str != null && list != null && !list.isEmpty()) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    if (((String) it.next()) == null) {
+                for (String str5 : list) {
+                    if (str5 == null) {
                         throw new IllegalArgumentException("urls element is null: " + list);
                     }
                 }
@@ -411,7 +422,7 @@ public class PeerConnection {
             return (Builder) invokeL.objValue;
         }
 
-        public static Builder builder(List list) {
+        public static Builder builder(List<String> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
@@ -421,6 +432,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("IceServer")
         public String getHostname() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -431,6 +443,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("IceServer")
         public String getPassword() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -440,7 +453,8 @@ public class PeerConnection {
             return (String) invokeV.objValue;
         }
 
-        public List getTlsAlpnProtocols() {
+        @CalledByNative("IceServer")
+        public List<String> getTlsAlpnProtocols() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -449,6 +463,7 @@ public class PeerConnection {
             return (List) invokeV.objValue;
         }
 
+        @CalledByNative("IceServer")
         public TlsCertPolicy getTlsCertPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -458,7 +473,8 @@ public class PeerConnection {
             return (TlsCertPolicy) invokeV.objValue;
         }
 
-        public List getTlsEllipticCurves() {
+        @CalledByNative("IceServer")
+        public List<String> getTlsEllipticCurves() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -468,7 +484,8 @@ public class PeerConnection {
         }
 
         @Nullable
-        public List getUrls() {
+        @CalledByNative("IceServer")
+        public List<String> getUrls() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -478,6 +495,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("IceServer")
         public String getUsername() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -498,8 +516,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class AdapterType {
+    /* loaded from: classes9.dex */
+    public static final class AdapterType {
         public static final /* synthetic */ AdapterType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AdapterType CELLULAR;
@@ -572,8 +590,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class BundlePolicy {
+    /* loaded from: classes9.dex */
+    public static final class BundlePolicy {
         public static final /* synthetic */ BundlePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BundlePolicy BALANCED;
@@ -640,8 +658,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class CandidateNetworkPolicy {
+    /* loaded from: classes9.dex */
+    public static final class CandidateNetworkPolicy {
         public static final /* synthetic */ CandidateNetworkPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CandidateNetworkPolicy ALL;
@@ -706,8 +724,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class ContinualGatheringPolicy {
+    /* loaded from: classes9.dex */
+    public static final class ContinualGatheringPolicy {
         public static final /* synthetic */ ContinualGatheringPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ContinualGatheringPolicy GATHER_CONTINUALLY;
@@ -772,8 +790,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class IceConnectionState {
+    /* loaded from: classes9.dex */
+    public static final class IceConnectionState {
         public static final /* synthetic */ IceConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final IceConnectionState CHECKING;
@@ -828,6 +846,7 @@ public class PeerConnection {
             }
         }
 
+        @CalledByNative("IceConnectionState")
         public static IceConnectionState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -857,8 +876,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class IceGatheringState {
+    /* loaded from: classes9.dex */
+    public static final class IceGatheringState {
         public static final /* synthetic */ IceGatheringState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final IceGatheringState COMPLETE;
@@ -905,6 +924,7 @@ public class PeerConnection {
             }
         }
 
+        @CalledByNative("IceGatheringState")
         public static IceGatheringState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -934,8 +954,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class IceTransportsType {
+    /* loaded from: classes9.dex */
+    public static final class IceTransportsType {
         public static final /* synthetic */ IceTransportsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final IceTransportsType ALL;
@@ -1003,8 +1023,8 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class IntervalRange {
+    /* loaded from: classes9.dex */
+    public static class IntervalRange {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int max;
@@ -1029,6 +1049,7 @@ public class PeerConnection {
             this.max = i2;
         }
 
+        @CalledByNative("IntervalRange")
         public int getMax() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1038,6 +1059,7 @@ public class PeerConnection {
             return invokeV.intValue;
         }
 
+        @CalledByNative("IntervalRange")
         public int getMin() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1049,8 +1071,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class KeyType {
+    /* loaded from: classes9.dex */
+    public static final class KeyType {
         public static final /* synthetic */ KeyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final KeyType ECDSA;
@@ -1115,8 +1137,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class PeerConnectionState {
+    /* loaded from: classes9.dex */
+    public static final class PeerConnectionState {
         public static final /* synthetic */ PeerConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PeerConnectionState CLOSED;
@@ -1169,6 +1191,7 @@ public class PeerConnection {
             }
         }
 
+        @CalledByNative("PeerConnectionState")
         public static PeerConnectionState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -1197,8 +1220,8 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class RTCConfiguration {
+    /* loaded from: classes9.dex */
+    public static class RTCConfiguration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean activeResetSrtpParams;
@@ -1231,7 +1254,7 @@ public class PeerConnection {
         public int iceConnectionReceivingTimeout;
         @Nullable
         public IntervalRange iceRegatherIntervalRange;
-        public List iceServers;
+        public List<IceServer> iceServers;
         public IceTransportsType iceTransportsType;
         @Nullable
         public Integer iceUnwritableMinChecks;
@@ -1255,7 +1278,7 @@ public class PeerConnection {
         public boolean useMediaTransport;
         public boolean useMediaTransportForDataChannels;
 
-        public RTCConfiguration(List list) {
+        public RTCConfiguration(List<IceServer> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1310,6 +1333,7 @@ public class PeerConnection {
             this.cryptoOptions = null;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getActiveResetSrtpParams() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1319,6 +1343,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getAudioJitterBufferFastAccelerate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1328,6 +1353,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public int getAudioJitterBufferMaxPackets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1337,6 +1363,7 @@ public class PeerConnection {
             return invokeV.intValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public BundlePolicy getBundlePolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1346,6 +1373,7 @@ public class PeerConnection {
             return (BundlePolicy) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public CandidateNetworkPolicy getCandidateNetworkPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1356,6 +1384,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public RtcCertificatePem getCertificate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1366,6 +1395,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Boolean getCombinedAudioVideoBwe() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1375,6 +1405,7 @@ public class PeerConnection {
             return (Boolean) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public ContinualGatheringPolicy getContinualGatheringPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1385,6 +1416,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public CryptoOptions getCryptoOptions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1394,6 +1426,7 @@ public class PeerConnection {
             return (CryptoOptions) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getDisableIPv6OnWifi() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1403,6 +1436,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getDisableIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1412,6 +1446,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getEnableCpuOveruseDetection() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1421,6 +1456,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getEnableDscp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1431,6 +1467,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Boolean getEnableDtlsSrtp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1440,6 +1477,7 @@ public class PeerConnection {
             return (Boolean) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getEnableRtpDataChannel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1449,6 +1487,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public int getIceBackupCandidatePairPingInterval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1458,6 +1497,7 @@ public class PeerConnection {
             return invokeV.intValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public int getIceCandidatePoolSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1468,6 +1508,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Integer getIceCheckIntervalStrongConnectivity() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1478,6 +1519,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Integer getIceCheckIntervalWeakConnectivity() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1488,6 +1530,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Integer getIceCheckMinInterval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1497,6 +1540,7 @@ public class PeerConnection {
             return (Integer) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public int getIceConnectionReceivingTimeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1507,6 +1551,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public IntervalRange getIceRegatherIntervalRange() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1516,7 +1561,8 @@ public class PeerConnection {
             return (IntervalRange) invokeV.objValue;
         }
 
-        public List getIceServers() {
+        @CalledByNative("RTCConfiguration")
+        public List<IceServer> getIceServers() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
@@ -1525,6 +1571,7 @@ public class PeerConnection {
             return (List) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public IceTransportsType getIceTransportsType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1535,6 +1582,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Integer getIceUnwritableMinChecks() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1545,6 +1593,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Integer getIceUnwritableTimeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1554,6 +1603,7 @@ public class PeerConnection {
             return (Integer) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public KeyType getKeyType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1563,6 +1613,7 @@ public class PeerConnection {
             return (KeyType) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public int getMaxIPv6Networks() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1572,6 +1623,7 @@ public class PeerConnection {
             return invokeV.intValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public AdapterType getNetworkPreference() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1581,6 +1633,7 @@ public class PeerConnection {
             return (AdapterType) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getPresumeWritableWhenFullyRelayed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1590,6 +1643,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getPruneTurnPorts() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1599,6 +1653,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public RtcpMuxPolicy getRtcpMuxPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1609,6 +1664,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Integer getScreencastMinBitrate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1618,6 +1674,7 @@ public class PeerConnection {
             return (Integer) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public SdpSemantics getSdpSemantics() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1628,6 +1685,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public Integer getStunCandidateKeepaliveInterval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1637,6 +1695,7 @@ public class PeerConnection {
             return (Integer) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getSuspendBelowMinBitrate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1646,6 +1705,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public TcpCandidatePolicy getTcpCandidatePolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1656,6 +1716,7 @@ public class PeerConnection {
         }
 
         @Nullable
+        @CalledByNative("RTCConfiguration")
         public TurnCustomizer getTurnCustomizer() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1665,6 +1726,7 @@ public class PeerConnection {
             return (TurnCustomizer) invokeV.objValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getUseMediaTransport() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1674,6 +1736,7 @@ public class PeerConnection {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("RTCConfiguration")
         public boolean getUseMediaTransportForDataChannels() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1685,8 +1748,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class RtcpMuxPolicy {
+    /* loaded from: classes9.dex */
+    public static final class RtcpMuxPolicy {
         public static final /* synthetic */ RtcpMuxPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcpMuxPolicy NEGOTIATE;
@@ -1751,8 +1814,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class SdpSemantics {
+    /* loaded from: classes9.dex */
+    public static final class SdpSemantics {
         public static final /* synthetic */ SdpSemantics[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SdpSemantics PLAN_B;
@@ -1817,8 +1880,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class SignalingState {
+    /* loaded from: classes9.dex */
+    public static final class SignalingState {
         public static final /* synthetic */ SignalingState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SignalingState CLOSED;
@@ -1871,6 +1934,7 @@ public class PeerConnection {
             }
         }
 
+        @CalledByNative("SignalingState")
         public static SignalingState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -1900,8 +1964,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class TcpCandidatePolicy {
+    /* loaded from: classes9.dex */
+    public static final class TcpCandidatePolicy {
         public static final /* synthetic */ TcpCandidatePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TcpCandidatePolicy DISABLED;
@@ -1966,8 +2030,8 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class TlsCertPolicy {
+    /* loaded from: classes9.dex */
+    public static final class TlsCertPolicy {
         public static final /* synthetic */ TlsCertPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TlsCertPolicy TLS_CERT_POLICY_INSECURE_NO_CHECK;
@@ -2181,7 +2245,7 @@ public class PeerConnection {
         return invokeL.booleanValue;
     }
 
-    public RtpSender addTrack(MediaStreamTrack mediaStreamTrack, List list) {
+    public RtpSender addTrack(MediaStreamTrack mediaStreamTrack, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, mediaStreamTrack, list)) == null) {
@@ -2281,6 +2345,7 @@ public class PeerConnection {
         return (SessionDescription) invokeV.objValue;
     }
 
+    @CalledByNative
     public long getNativeOwnedPeerConnection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2442,42 +2507,42 @@ public class PeerConnection {
         }
     }
 
-    public List getReceivers() {
+    public List<RtpReceiver> getReceivers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             for (RtpReceiver rtpReceiver : this.receivers) {
                 rtpReceiver.dispose();
             }
-            List nativeGetReceivers = nativeGetReceivers();
+            List<RtpReceiver> nativeGetReceivers = nativeGetReceivers();
             this.receivers = nativeGetReceivers;
             return Collections.unmodifiableList(nativeGetReceivers);
         }
         return (List) invokeV.objValue;
     }
 
-    public List getSenders() {
+    public List<RtpSender> getSenders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             for (RtpSender rtpSender : this.senders) {
                 rtpSender.dispose();
             }
-            List nativeGetSenders = nativeGetSenders();
+            List<RtpSender> nativeGetSenders = nativeGetSenders();
             this.senders = nativeGetSenders;
             return Collections.unmodifiableList(nativeGetSenders);
         }
         return (List) invokeV.objValue;
     }
 
-    public List getTransceivers() {
+    public List<RtpTransceiver> getTransceivers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             for (RtpTransceiver rtpTransceiver : this.transceivers) {
                 rtpTransceiver.dispose();
             }
-            List nativeGetTransceivers = nativeGetTransceivers();
+            List<RtpTransceiver> nativeGetTransceivers = nativeGetTransceivers();
             this.transceivers = nativeGetTransceivers;
             return Collections.unmodifiableList(nativeGetTransceivers);
         }

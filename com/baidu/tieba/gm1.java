@@ -2,11 +2,13 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes4.dex */
-public class gm1 implements ro1 {
+public class gm1 implements jo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,11 +26,13 @@ public class gm1 implements ro1 {
         }
     }
 
-    @Override // com.baidu.tieba.ro1
-    public void b(m33 m33Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.jo1
+    public InputStream a(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, m33Var, jSONObject) == null) {
-            vv2.e().b(m33Var, jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
+            return new zv9(inputStream);
         }
+        return (InputStream) invokeL.objValue;
     }
 }

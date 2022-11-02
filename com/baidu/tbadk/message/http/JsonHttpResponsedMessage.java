@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ig;
+import com.baidu.tieba.ag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,10 +107,10 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, ig igVar) {
+    public void logStatInBackground(int i, ag agVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, igVar) == null) {
-            super.logStatInBackground(i, igVar);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, agVar) == null) {
+            super.logStatInBackground(i, agVar);
         }
     }
 

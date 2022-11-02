@@ -1,61 +1,79 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public interface fh7 {
-    a getParallelCharge();
+public class fh7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public ArrayList c;
-        public ArrayList d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public fh7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            this.c = new ArrayList();
-            this.d = new ArrayList();
         }
+    }
 
-        public void a(JSONObject jSONObject) {
-            JSONArray optJSONArray;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("ad_monitor_url")) != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("show_url");
-                        if (!TextUtils.isEmpty(optString)) {
-                            this.c.add(optString);
-                        }
-                        String optString2 = optJSONObject.optString("click_url");
-                        if (!TextUtils.isEmpty(optString2)) {
-                            this.d.add(optString2);
-                        }
-                    }
-                }
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public static fh7 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            int optInt = jSONObject.optInt("day");
+            int optInt2 = jSONObject.optInt("forum_num");
+            fh7 fh7Var = new fh7();
+            fh7Var.d(optInt);
+            fh7Var.e(optInt2);
+            return fh7Var;
+        }
+        return (fh7) invokeL.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
         }
     }
 }

@@ -3,7 +3,7 @@ package com.fun.ad.sdk.internal.api;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-import com.baidu.tieba.fl9;
+import com.baidu.tieba.om9;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.FunNativeAd2;
@@ -11,7 +11,7 @@ import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes7.dex */
 public interface PidLoader {
-    void addListener(fl9 fl9Var);
+    void addListener(om9 om9Var);
 
     void destroy();
 
@@ -31,7 +31,7 @@ public interface PidLoader {
 
     boolean load(Context context, FunAdSlot funAdSlot, SidSessionMeta sidSessionMeta);
 
-    void removeListener(fl9 fl9Var);
+    void removeListener(om9 om9Var);
 
     void setBiddingResult(double d, double d2, int i);
 

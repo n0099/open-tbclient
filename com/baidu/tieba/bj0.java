@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.WebSettings;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,47 +13,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class bj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List a;
+    public static final Long a;
+    public static Long b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bj0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-917230429, "Lcom/baidu/tieba/bj0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-917230429, "Lcom/baidu/tieba/bj0$b;");
+                    return;
                 }
             }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (en0 en0Var : bj0.a) {
-                    en0Var.b();
-                }
-            }
+            a = new bj0(null);
         }
     }
 
     static {
         InterceptResult invokeClinit;
-        List list;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947646753, "Lcom/baidu/tieba/bj0;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -60,28 +62,124 @@ public class bj0 {
                 return;
             }
         }
-        a = new ArrayList();
-        ue1 ue1Var = new gn0().a;
-        if (ue1Var != null && (list = ue1Var.getList()) != null) {
-            a.addAll(list);
-        }
+        a = 30000L;
+        b = null;
     }
 
-    public static void c() {
+    public bj0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            j11.c(new a(), "nad_core_init_on_create", 0);
-        }
-    }
-
-    public static void b(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
-            aj0.a = application;
-            tp0.a(application);
-            for (en0 en0Var : a) {
-                en0Var.a(application);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        b = Long.valueOf(System.currentTimeMillis());
+    }
+
+    @NonNull
+    public static bj0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (bj0) invokeV.objValue;
+    }
+
+    @NonNull
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "uad_sys_useragent" + zi0.a().v();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ bj0(a aVar) {
+        this();
+    }
+
+    public void e(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            String f = f();
+            SharedPreferences.Editor edit = zi0.b().getSharedPreferences("uad_useragent", 0).edit();
+            edit.putString(f, str);
+            edit.apply();
+        }
+    }
+
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int length = property.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = property.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String d = d();
+            if (!TextUtils.isEmpty(d)) {
+                return d;
+            }
+            try {
+                if (Build.VERSION.SDK_INT < 19) {
+                    a2 = a();
+                } else if (s31.e() && System.currentTimeMillis() - b.longValue() < a.longValue()) {
+                    return a() + " " + zi0.a().y().toLowerCase() + "/" + zi0.a().v() + " (Baidu; P1 " + zi0.a().b() + ") nadcorevendor/5.10.0.18";
+                } else {
+                    a2 = WebSettings.getDefaultUserAgent(zi0.b());
+                }
+            } catch (Throwable unused) {
+                a2 = a();
+            }
+            String str = a2 + " " + zi0.a().y().toLowerCase() + "/" + zi0.a().v() + " (Baidu; P1 " + zi0.a().b() + ") nadcorevendor/5.10.0.18";
+            e(str);
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            SharedPreferences sharedPreferences = zi0.b().getSharedPreferences("uad_useragent", 0);
+            String string = sharedPreferences.getString(f(), null);
+            if (TextUtils.isEmpty(string) && sharedPreferences.getAll().size() > 0) {
+                sharedPreferences.edit().clear().apply();
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
     }
 }

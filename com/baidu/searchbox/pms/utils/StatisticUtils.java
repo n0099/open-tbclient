@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,17 +34,17 @@ public class StatisticUtils {
         }
     }
 
-    public static void sendBulkDownload(List list, List list2, List list3, int i) {
+    public static void sendBulkDownload(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3, int i) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65537, null, list, list2, list3, i) == null) {
             String format = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_BULK_DOWNLOADED, Integer.valueOf(list.size()), Integer.valueOf(list2.size()), Integer.valueOf(list3.size()));
             if (list.size() > 0) {
-                str = ((PackageInfo) list.get(0)).channelId;
+                str = list.get(0).channelId;
             } else if (list2.size() > 0) {
-                str = ((PackageInfo) list2.get(0)).channelId;
+                str = list2.get(0).channelId;
             } else if (list3.size() > 0) {
-                str = ((PackageInfo) list3.get(0)).channelId;
+                str = list3.get(0).channelId;
             } else {
                 str = "";
             }
@@ -53,14 +52,13 @@ public class StatisticUtils {
         }
     }
 
-    public static void sendCloudCtrl(String str, List list) {
+    public static void sendCloudCtrl(String str, List<RequestParams.Channel> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
             StringBuilder sb = new StringBuilder();
             if (list != null) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    sb.append((RequestParams.Channel) it.next());
+                for (RequestParams.Channel channel : list) {
+                    sb.append(channel);
                     sb.append(",");
                 }
             }
@@ -68,7 +66,7 @@ public class StatisticUtils {
         }
     }
 
-    public static void sendDegradeData(List list) {
+    public static void sendDegradeData(List<DegradeData> list) {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, null, list) != null) || list == null) {
@@ -76,9 +74,7 @@ public class StatisticUtils {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                DegradeData degradeData = (DegradeData) it.next();
+            for (DegradeData degradeData : list) {
                 if (degradeData != null) {
                     if (degradeData.isAllDegrade) {
                         jSONArray = new JSONArray();

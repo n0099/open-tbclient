@@ -1,101 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.Log;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IResourcesFetcher;
-import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.tieba.cq0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class t81 {
+/* loaded from: classes6.dex */
+public class t81 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static t81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public te1 a;
+    @NonNull
+    public final b a;
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            re1 b2 = re1.b();
-            this.a = b2;
-            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134972, "Lcom/baidu/tieba/t81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t81 a;
+
+        public a(t81 t81Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948134972, "Lcom/baidu/tieba/t81;");
-                return;
+            this.a = t81Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.a.a(false);
             }
         }
-        b = new t81();
     }
 
-    public t81() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t81(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adBaseModel, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        e();
+        c(adBaseModel);
+        this.a = bVar;
     }
 
-    public static t81 c() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (t81) invokeV.objValue;
-    }
-
-    public Resources b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((IResourcesFetcher) this.a.get()).getGlobalResources();
-        }
-        return (Resources) invokeV.objValue;
-    }
-
-    public Resources[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ((IResourcesFetcher) this.a.get()).getWrapperResources();
-        }
-        return (Resources[]) invokeV.objValue;
-    }
-
-    public Resources a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (r91.a()) {
-                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091643) {
+                this.a.a(false);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091641) {
+                this.a.a(true);
             }
-            return ((IResourcesFetcher) this.a.get()).getBaseContextResources();
         }
-        return (Resources) invokeV.objValue;
+    }
+
+    public final void b(AdBaseModel adBaseModel) {
+        cq0.b bVar;
+        String string;
+        String string2;
+        String string3;
+        cq0 cq0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            if (adBaseModel != null && (cq0Var = adBaseModel.p) != null) {
+                bVar = cq0Var.f;
+            } else {
+                bVar = null;
+            }
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0621, (ViewGroup) null);
+            if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
+                string = bVar.a;
+            } else {
+                string = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+            }
+            if (bVar != null && !TextUtils.isEmpty(bVar.b)) {
+                string2 = bVar.b;
+            } else {
+                string2 = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c14);
+            }
+            if (bVar != null && !TextUtils.isEmpty(bVar.c)) {
+                string3 = bVar.c;
+            } else {
+                string3 = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c13);
+            }
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091642)).setText(string);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091643);
+            textView.setText(string2);
+            textView.setOnClickListener(this);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091641);
+            textView2.setText(string3);
+            textView2.setOnClickListener(this);
+            setContentView(inflate);
+            setOnDismissListener(new a(this));
+        }
+    }
+
+    public final void c(@NonNull AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
+            Window window = getWindow();
+            window.requestFeature(1);
+            b(adBaseModel);
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            attributes.height = -2;
+            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003c3;
+            attributes.gravity = 17;
+            window.setAttributes(attributes);
+            window.setBackgroundDrawableResource(17170445);
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                super.show();
+                return;
+            }
+            window.setFlags(8, 8);
+            super.show();
+            d41.a(window);
+            window.clearFlags(8);
+        }
     }
 }

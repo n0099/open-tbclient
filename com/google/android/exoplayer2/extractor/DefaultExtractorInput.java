@@ -319,10 +319,10 @@ public final class DefaultExtractorInput implements ExtractorInput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public void setRetryPosition(long j, Throwable th) throws Throwable {
+    public <E extends Throwable> void setRetryPosition(long j, E e) throws Throwable {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048587, this, j, th) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048587, this, j, e) == null) {
             if (j >= 0) {
                 z = true;
             } else {
@@ -330,7 +330,7 @@ public final class DefaultExtractorInput implements ExtractorInput {
             }
             Assertions.checkArgument(z);
             this.position = j;
-            throw th;
+            throw e;
         }
     }
 }

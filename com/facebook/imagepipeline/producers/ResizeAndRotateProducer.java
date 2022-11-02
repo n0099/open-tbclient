@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteBufferOutputStream;
 import com.facebook.common.references.CloseableReference;
@@ -29,9 +30,10 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class ResizeAndRotateProducer implements Producer {
+public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INPUT_IMAGE_FORMAT = "Image format";
+    @VisibleForTesting
     public static final int MIN_TRANSFORM_INTERVAL_MS = 100;
     public static final String ORIGINAL_SIZE_KEY = "Original size";
     public static final String PRODUCER_NAME = "ResizeAndRotateProducer";
@@ -41,12 +43,12 @@ public class ResizeAndRotateProducer implements Producer {
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
     public final ImageTranscoderFactory mImageTranscoderFactory;
-    public final Producer mInputProducer;
+    public final Producer<EncodedImage> mInputProducer;
     public final boolean mIsResizingEnabled;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
     /* loaded from: classes7.dex */
-    public class TransformingConsumer extends DelegatingConsumer {
+    public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ImageTranscoderFactory mImageTranscoderFactory;
@@ -57,7 +59,7 @@ public class ResizeAndRotateProducer implements Producer {
         public final /* synthetic */ ResizeAndRotateProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public TransformingConsumer(ResizeAndRotateProducer resizeAndRotateProducer, Consumer consumer, ProducerContext producerContext, boolean z, ImageTranscoderFactory imageTranscoderFactory) {
+        public TransformingConsumer(ResizeAndRotateProducer resizeAndRotateProducer, Consumer<EncodedImage> consumer, ProducerContext producerContext, boolean z, ImageTranscoderFactory imageTranscoderFactory) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -199,7 +201,7 @@ public class ResizeAndRotateProducer implements Producer {
                 try {
                     ImageTranscodeResult transcode = imageTranscoder.transcode(encodedImage, newOutputStream, imageRequest.getRotationOptions(), imageRequest.getResizeOptions(), null, 85);
                     if (transcode.getTranscodeStatus() != 2) {
-                        Map extraMap = getExtraMap(encodedImage, imageRequest.getResizeOptions(), transcode, imageTranscoder.getIdentifier());
+                        Map<String, String> extraMap = getExtraMap(encodedImage, imageRequest.getResizeOptions(), transcode, imageTranscoder.getIdentifier());
                         CloseableReference of = CloseableReference.of(newOutputStream.toByteBuffer());
                         try {
                             EncodedImage encodedImage2 = new EncodedImage(of);
@@ -242,7 +244,7 @@ public class ResizeAndRotateProducer implements Producer {
         }
 
         @Nullable
-        private Map getExtraMap(EncodedImage encodedImage, @Nullable ResizeOptions resizeOptions, @Nullable ImageTranscodeResult imageTranscodeResult, @Nullable String str) {
+        private Map<String, String> getExtraMap(EncodedImage encodedImage, @Nullable ResizeOptions resizeOptions, @Nullable ImageTranscodeResult imageTranscodeResult, @Nullable String str) {
             InterceptResult invokeLLLL;
             String str2;
             Interceptable interceptable = $ic;
@@ -312,7 +314,7 @@ public class ResizeAndRotateProducer implements Producer {
         }
     }
 
-    public ResizeAndRotateProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Producer producer, boolean z, ImageTranscoderFactory imageTranscoderFactory) {
+    public ResizeAndRotateProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Producer<EncodedImage> producer, boolean z, ImageTranscoderFactory imageTranscoderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -347,7 +349,7 @@ public class ResizeAndRotateProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             this.mInputProducer.produceResults(new TransformingConsumer(this, consumer, producerContext, this.mIsResizingEnabled, this.mImageTranscoderFactory), producerContext);

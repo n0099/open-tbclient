@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -85,7 +86,7 @@ public class CircleIndicator extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, AttributeSet attributeSet) {
+    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,7 +107,7 @@ public class CircleIndicator extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, AttributeSet attributeSet, int i) {
+    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

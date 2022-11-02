@@ -37,7 +37,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     }
 
     /* loaded from: classes7.dex */
-    public class BoxRecord {
+    public static class BoxRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int bottom;
@@ -139,7 +139,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     }
 
     /* loaded from: classes7.dex */
-    public class StyleRecord {
+    public static class StyleRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int endChar;

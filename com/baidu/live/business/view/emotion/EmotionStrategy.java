@@ -49,7 +49,7 @@ public class EmotionStrategy {
     public int videoBarPlaceHolderRes;
 
     /* loaded from: classes2.dex */
-    public class Holder {
+    public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final EmotionStrategy INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;

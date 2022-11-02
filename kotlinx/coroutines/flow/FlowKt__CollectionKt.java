@@ -19,7 +19,7 @@ public final /* synthetic */ class FlowKt__CollectionKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object toCollection(Flow flow, final Collection collection, Continuation continuation) {
+    public static final <T, C extends Collection<? super T>> Object toCollection(Flow<? extends T> flow, final C c, Continuation<? super C> continuation) {
         FlowKt__CollectionKt$toCollection$1 flowKt__CollectionKt$toCollection$1;
         int i;
         if (continuation instanceof FlowKt__CollectionKt$toCollection$1) {
@@ -33,29 +33,29 @@ public final /* synthetic */ class FlowKt__CollectionKt {
                 if (i == 0) {
                     if (i == 1) {
                         Flow flow2 = (Flow) flowKt__CollectionKt$toCollection$1.L$2;
-                        Collection collection2 = (Collection) flowKt__CollectionKt$toCollection$1.L$1;
+                        Collection collection = (Collection) flowKt__CollectionKt$toCollection$1.L$1;
                         Flow flow3 = (Flow) flowKt__CollectionKt$toCollection$1.L$0;
                         ResultKt.throwOnFailure(obj);
-                        return collection2;
+                        return collection;
                     }
                     throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                 }
                 ResultKt.throwOnFailure(obj);
-                FlowCollector flowCollector = new FlowCollector() { // from class: kotlinx.coroutines.flow.FlowKt__CollectionKt$toCollection$$inlined$collect$1
+                FlowCollector<T> flowCollector = new FlowCollector<T>() { // from class: kotlinx.coroutines.flow.FlowKt__CollectionKt$toCollection$$inlined$collect$1
                     @Override // kotlinx.coroutines.flow.FlowCollector
                     public Object emit(Object obj2, Continuation continuation2) {
-                        collection.add(obj2);
+                        c.add(obj2);
                         return Unit.INSTANCE;
                     }
                 };
                 flowKt__CollectionKt$toCollection$1.L$0 = flow;
-                flowKt__CollectionKt$toCollection$1.L$1 = collection;
+                flowKt__CollectionKt$toCollection$1.L$1 = c;
                 flowKt__CollectionKt$toCollection$1.L$2 = flow;
                 flowKt__CollectionKt$toCollection$1.label = 1;
                 if (flow.collect(flowCollector, flowKt__CollectionKt$toCollection$1) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-                return collection;
+                return c;
             }
         }
         flowKt__CollectionKt$toCollection$1 = new FlowKt__CollectionKt$toCollection$1(continuation);
@@ -66,11 +66,11 @@ public final /* synthetic */ class FlowKt__CollectionKt {
         }
     }
 
-    public static final Object toList(Flow flow, List list, Continuation continuation) {
+    public static final <T> Object toList(Flow<? extends T> flow, List<T> list, Continuation<? super List<? extends T>> continuation) {
         return FlowKt.toCollection(flow, list, continuation);
     }
 
-    public static final Object toSet(Flow flow, Set set, Continuation continuation) {
+    public static final <T> Object toSet(Flow<? extends T> flow, Set<T> set, Continuation<? super Set<? extends T>> continuation) {
         return FlowKt.toCollection(flow, set, continuation);
     }
 

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
     public static final int LIST = 1;
     public static final int VIEW = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public List msgRecords;
+    public List<MsgRecord> msgRecords;
     public int type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,7 +46,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestAddMsgRecordMessage(List list) {
+    public RequestAddMsgRecordMessage(List<MsgRecord> list) {
         super(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,7 +67,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
         this.type = 1;
         this.msgRecords = list;
         if (list != null && list.size() > 0) {
-            this.type = ((MsgRecord) list.get(0)).type.intValue();
+            this.type = list.get(0).type.intValue();
         }
     }
 
@@ -79,7 +79,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.records = this.msgRecords;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                yh5.a(builder, true);
+                vi5.a(builder, true);
             }
             AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
             builder2.data = builder.build(false);

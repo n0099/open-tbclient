@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class VideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATA_ID_ATTRIBUTE_ID = 8;
@@ -56,7 +56,7 @@ public abstract class VideoPlayer {
     public Context mContext;
     public VideoPlayerListener mListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface VideoPlayerListener {
         void onEnded(int i);
 
@@ -137,7 +137,7 @@ public abstract class VideoPlayer {
 
     public abstract void seekTo(int i);
 
-    public abstract void setDataSource(HashMap hashMap);
+    public abstract void setDataSource(HashMap<Integer, String> hashMap);
 
     public void setListener(VideoPlayerListener videoPlayerListener) {
         Interceptable interceptable = $ic;

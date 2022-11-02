@@ -4,6 +4,8 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -37,6 +39,7 @@ public class DownloadContext {
     public static final Executor SERIAL_EXECUTOR;
     public static final String TAG = "DownloadContext";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final DownloadContextListener contextListener;
     public final QueueSet set;
     public volatile boolean started;
@@ -44,7 +47,7 @@ public class DownloadContext {
     public Handler uiHandler;
 
     /* loaded from: classes2.dex */
-    public class AlterContext {
+    public static class AlterContext {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DownloadContext context;
@@ -84,10 +87,10 @@ public class DownloadContext {
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ArrayList boundTaskList;
+        public final ArrayList<DownloadTask> boundTaskList;
         public DownloadContextListener listener;
         public final QueueSet set;
 
@@ -150,7 +153,7 @@ public class DownloadContext {
             }
         }
 
-        public Builder(QueueSet queueSet, ArrayList arrayList) {
+        public Builder(QueueSet queueSet, ArrayList<DownloadTask> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,7 +172,7 @@ public class DownloadContext {
             this.boundTaskList = arrayList;
         }
 
-        public DownloadTask bind(String str, PriorityStrategy.Priority priority) throws IllegalArgumentException {
+        public DownloadTask bind(@NonNull String str, PriorityStrategy.Priority priority) throws IllegalArgumentException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, priority)) == null) {
@@ -181,7 +184,7 @@ public class DownloadContext {
             return (DownloadTask) invokeLL.objValue;
         }
 
-        public DownloadTask bind(DownloadTask.Builder builder, PriorityStrategy.Priority priority) {
+        public DownloadTask bind(@NonNull DownloadTask.Builder builder, PriorityStrategy.Priority priority) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, builder, priority)) == null) {
@@ -225,7 +228,7 @@ public class DownloadContext {
             return (DownloadTask) invokeLL.objValue;
         }
 
-        public Builder bindSetTask(DownloadTask downloadTask) {
+        public Builder bindSetTask(@NonNull DownloadTask downloadTask) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask)) == null) {
@@ -250,7 +253,7 @@ public class DownloadContext {
             return (Builder) invokeL.objValue;
         }
 
-        public void unbind(DownloadTask downloadTask) {
+        public void unbind(@NonNull DownloadTask downloadTask) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, downloadTask) == null) {
                 this.boundTaskList.remove(downloadTask);
@@ -259,21 +262,23 @@ public class DownloadContext {
     }
 
     /* loaded from: classes2.dex */
-    public class QueueAttachTaskStartEndListener extends DownloadTaskStartEndListener {
+    public static class QueueAttachTaskStartEndListener extends DownloadTaskStartEndListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final DownloadContextListener contextListener;
+        @NonNull
         public final DownloadContext hostContext;
         public final AtomicInteger remainCount;
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void taskStart(DownloadTask downloadTask) {
+        public void taskStart(@NonNull DownloadTask downloadTask) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask) == null) {
             }
         }
 
-        public QueueAttachTaskStartEndListener(DownloadContext downloadContext, DownloadContextListener downloadContextListener, int i) {
+        public QueueAttachTaskStartEndListener(@NonNull DownloadContext downloadContext, @NonNull DownloadContextListener downloadContextListener, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -294,7 +299,7 @@ public class DownloadContext {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc) {
+        public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, downloadTask, endCause, exc) == null) {
                 int decrementAndGet = this.remainCount.decrementAndGet();
@@ -308,12 +313,12 @@ public class DownloadContext {
     }
 
     /* loaded from: classes2.dex */
-    public class QueueSet {
+    public static class QueueSet {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Boolean autoCallbackToUIThread;
         public Integer flushBufferSize;
-        public Map headerMapFields;
+        public Map<String, List<String>> headerMapFields;
         public Integer minIntervalMillisCallbackProcess;
         public Boolean passIfAlreadyCompleted;
         public Integer readBufferSize;
@@ -368,7 +373,7 @@ public class DownloadContext {
             return invokeV.intValue;
         }
 
-        public Map getHeaderMapFields() {
+        public Map<String, List<String>> getHeaderMapFields() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -497,7 +502,7 @@ public class DownloadContext {
             return (QueueSet) invokeI.objValue;
         }
 
-        public void setHeaderMapFields(Map map) {
+        public void setHeaderMapFields(Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, map) == null) {
                 this.headerMapFields = map;
@@ -514,7 +519,7 @@ public class DownloadContext {
             return (QueueSet) invokeL.objValue;
         }
 
-        public QueueSet setParentPath(String str) {
+        public QueueSet setParentPath(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
@@ -523,7 +528,7 @@ public class DownloadContext {
             return (QueueSet) invokeL.objValue;
         }
 
-        public QueueSet setParentPathFile(File file) {
+        public QueueSet setParentPathFile(@NonNull File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, file)) == null) {
@@ -536,7 +541,7 @@ public class DownloadContext {
             return (QueueSet) invokeL.objValue;
         }
 
-        public QueueSet setParentPathUri(Uri uri) {
+        public QueueSet setParentPathUri(@NonNull Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
@@ -623,7 +628,7 @@ public class DownloadContext {
         SERIAL_EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload Serial", false));
     }
 
-    public DownloadContext(DownloadTask[] downloadTaskArr, DownloadContextListener downloadContextListener, QueueSet queueSet) {
+    public DownloadContext(@NonNull DownloadTask[] downloadTaskArr, @Nullable DownloadContextListener downloadContextListener, @NonNull QueueSet queueSet) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -645,7 +650,7 @@ public class DownloadContext {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DownloadContext(DownloadTask[] downloadTaskArr, DownloadContextListener downloadContextListener, QueueSet queueSet, Handler handler) {
+    public DownloadContext(@NonNull DownloadTask[] downloadTaskArr, @Nullable DownloadContextListener downloadContextListener, @NonNull QueueSet queueSet, @NonNull Handler handler) {
         this(downloadTaskArr, downloadContextListener, queueSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -789,7 +794,7 @@ public class DownloadContext {
         return (Builder) invokeV.objValue;
     }
 
-    public void start(DownloadListener downloadListener, boolean z) {
+    public void start(@Nullable DownloadListener downloadListener, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, downloadListener, z) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();

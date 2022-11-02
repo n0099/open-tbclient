@@ -282,7 +282,7 @@ public final class AdtsReader implements ElementaryStreamReader {
                 int readBits2 = this.adtsScratch.readBits(4);
                 this.adtsScratch.skipBits(1);
                 byte[] buildAacAudioSpecificConfig = CodecSpecificDataUtil.buildAacAudioSpecificConfig(readBits, readBits2, this.adtsScratch.readBits(3));
-                Pair parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(buildAacAudioSpecificConfig);
+                Pair<Integer, Integer> parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(buildAacAudioSpecificConfig);
                 Format createAudioSampleFormat = Format.createAudioSampleFormat(this.formatId, "audio/mp4a-latm", null, -1, -1, ((Integer) parseAacAudioSpecificConfig.second).intValue(), ((Integer) parseAacAudioSpecificConfig.first).intValue(), Collections.singletonList(buildAacAudioSpecificConfig), null, 0, this.language);
                 this.sampleDurationUs = 1024000000 / createAudioSampleFormat.sampleRate;
                 this.output.format(createAudioSampleFormat);

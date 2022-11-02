@@ -1,6 +1,7 @@
 package com.kwad.sdk.crash.model.message;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.crash.utils.h;
@@ -8,7 +9,7 @@ import com.kwad.sdk.crash.utils.i;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ExceptionMessage implements b, Serializable {
     public static final long serialVersionUID = -5338556142957298914L;
     public long mCurrentTimeStamp;
@@ -75,7 +76,7 @@ public abstract class ExceptionMessage implements b, Serializable {
     }
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(JSONObject jSONObject) {
+    public void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }

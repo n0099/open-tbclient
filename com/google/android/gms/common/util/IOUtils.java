@@ -1,19 +1,24 @@
 package com.google.android.gms.common.util;
 
 import android.os.ParcelFileDescriptor;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
+@ShowFirstParty
+@KeepForSdk
 @Deprecated
 /* loaded from: classes7.dex */
 public final class IOUtils {
@@ -34,6 +39,7 @@ public final class IOUtils {
         }
     }
 
+    @KeepForSdk
     public static void closeQuietly(@Nullable ParcelFileDescriptor parcelFileDescriptor) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, parcelFileDescriptor) == null) && parcelFileDescriptor != null) {
@@ -44,7 +50,8 @@ public final class IOUtils {
         }
     }
 
-    public static boolean isGzipByteBuffer(byte[] bArr) {
+    @KeepForSdk
+    public static boolean isGzipByteBuffer(@NonNull byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
@@ -58,8 +65,10 @@ public final class IOUtils {
         return invokeL.booleanValue;
     }
 
+    @NonNull
+    @KeepForSdk
     @Deprecated
-    public static byte[] readInputStreamFully(InputStream inputStream) throws IOException {
+    public static byte[] readInputStreamFully(@NonNull InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) {
@@ -68,6 +77,7 @@ public final class IOUtils {
         return (byte[]) invokeL.objValue;
     }
 
+    @KeepForSdk
     public static void closeQuietly(@Nullable Closeable closeable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
@@ -78,8 +88,9 @@ public final class IOUtils {
         }
     }
 
+    @KeepForSdk
     @Deprecated
-    public static long copyStream(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static long copyStream(@NonNull InputStream inputStream, @NonNull OutputStream outputStream) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, outputStream)) == null) {
@@ -88,8 +99,10 @@ public final class IOUtils {
         return invokeLL.longValue;
     }
 
+    @NonNull
+    @KeepForSdk
     @Deprecated
-    public static byte[] readInputStreamFully(InputStream inputStream, boolean z) throws IOException {
+    public static byte[] readInputStreamFully(@NonNull InputStream inputStream, boolean z) throws IOException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, inputStream, z)) == null) {
@@ -100,8 +113,9 @@ public final class IOUtils {
         return (byte[]) invokeLZ.objValue;
     }
 
+    @KeepForSdk
     @Deprecated
-    public static long copyStream(InputStream inputStream, OutputStream outputStream, boolean z, int i) throws IOException {
+    public static long copyStream(@NonNull InputStream inputStream, @NonNull OutputStream outputStream, boolean z, int i) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, outputStream, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
@@ -132,8 +146,10 @@ public final class IOUtils {
         return invokeCommon.longValue;
     }
 
+    @NonNull
+    @KeepForSdk
     @Deprecated
-    public static byte[] toByteArray(InputStream inputStream) throws IOException {
+    public static byte[] toByteArray(@NonNull InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, inputStream)) == null) {

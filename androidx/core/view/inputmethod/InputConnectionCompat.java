@@ -10,6 +10,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import android.view.inputmethod.InputContentInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +57,7 @@ public final class InputConnectionCompat {
         }
     }
 
-    public static boolean commitContent(InputConnection inputConnection, EditorInfo editorInfo, InputContentInfoCompat inputContentInfoCompat, int i, Bundle bundle) {
+    public static boolean commitContent(@NonNull InputConnection inputConnection, @NonNull EditorInfo editorInfo, @NonNull InputContentInfoCompat inputContentInfoCompat, int i, @Nullable Bundle bundle) {
         InterceptResult invokeCommon;
         boolean z;
         String str;
@@ -138,7 +140,8 @@ public final class InputConnectionCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static InputConnection createWrapper(InputConnection inputConnection, EditorInfo editorInfo, OnCommitContentListener onCommitContentListener) {
+    @NonNull
+    public static InputConnection createWrapper(@NonNull InputConnection inputConnection, @NonNull EditorInfo editorInfo, @NonNull OnCommitContentListener onCommitContentListener) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, inputConnection, editorInfo, onCommitContentListener)) == null) {
@@ -246,10 +249,10 @@ public final class InputConnectionCompat {
     /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: android.os.ResultReceiver */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v5, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r0v8 */
-    public static boolean handlePerformPrivateCommand(String str, Bundle bundle, OnCommitContentListener onCommitContentListener) {
+    public static boolean handlePerformPrivateCommand(@Nullable String str, @NonNull Bundle bundle, @NonNull OnCommitContentListener onCommitContentListener) {
         InterceptResult invokeLLL;
         boolean z;
         String str2;

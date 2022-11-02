@@ -6,6 +6,8 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Process;
 import android.telephony.TelephonyManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,7 +22,7 @@ import java.util.List;
 public class e {
     public static Boolean a;
 
-    public static String a(String str) {
+    public static String a(@NonNull String str) {
         return f.a(str);
     }
 
@@ -55,6 +57,7 @@ public class e {
         }
     }
 
+    @WorkerThread
     public static boolean e(Context context) {
         if (!f() && !f(context)) {
             return false;
@@ -62,7 +65,8 @@ public class e {
         return true;
     }
 
-    public static synchronized void a(Context context) {
+    @WorkerThread
+    public static synchronized void a(@NonNull Context context) {
         boolean z;
         synchronized (e.class) {
             if (a == null) {
@@ -91,6 +95,7 @@ public class e {
         return e();
     }
 
+    @WorkerThread
     public static boolean c() {
         try {
             InetAddress.getByName(a("3132372e302e302e31"));

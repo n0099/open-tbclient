@@ -9,18 +9,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class a {
-    public ConcurrentHashMap Tf;
-    public ConcurrentHashMap Tg;
+    public ConcurrentHashMap<String, DownloadParams> Tf;
+    public ConcurrentHashMap<String, AdTemplate> Tg;
 
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0596a {
+    public static final class C0607a {
         public static final a Th = new a((byte) 0);
     }
 
     public a() {
-        this.Tf = new ConcurrentHashMap();
-        this.Tg = new ConcurrentHashMap();
+        this.Tf = new ConcurrentHashMap<>();
+        this.Tg = new ConcurrentHashMap<>();
     }
 
     public /* synthetic */ a(byte b) {
@@ -28,7 +28,7 @@ public final class a {
     }
 
     public static a rD() {
-        return C0596a.Th;
+        return C0607a.Th;
     }
 
     public final void a(String str, DownloadParams downloadParams) {
@@ -51,7 +51,7 @@ public final class a {
         if (((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext() == null) {
             return null;
         }
-        DownloadParams downloadParams = (DownloadParams) this.Tf.get(str);
+        DownloadParams downloadParams = this.Tf.get(str);
         if (downloadParams != null) {
             return downloadParams;
         }
@@ -80,7 +80,7 @@ public final class a {
         if (((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext() == null) {
             return null;
         }
-        AdTemplate adTemplate = (AdTemplate) this.Tg.get(str);
+        AdTemplate adTemplate = this.Tg.get(str);
         if (adTemplate != null) {
             return adTemplate;
         }

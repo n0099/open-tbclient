@@ -1,95 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public class zj4 implements ak4 {
+public class zj4 extends ok4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public zj4(Context context) {
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zj4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-230011672, "Lcom/baidu/tieba/zj4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-230011672, "Lcom/baidu/tieba/zj4$a;");
+                    return;
+                }
+            }
+            a = new zj4();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zj4() {
+        super("com.baidu.searchbox_aiapp_openstat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
     }
 
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !TextUtils.equals("mounted", Environment.getExternalStorageState()) || !ik4.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            return;
-        }
-        gk4.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
-    }
-
-    @Override // com.baidu.tieba.ak4
-    public boolean a() {
+    public static zj4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !ik4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                return true;
-            }
-            return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ak4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !ik4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                return null;
-            }
-            File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
-            if (!file.exists()) {
-                return null;
-            }
-            return gk4.c(file);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ak4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
+        return (zj4) invokeV.objValue;
     }
 }

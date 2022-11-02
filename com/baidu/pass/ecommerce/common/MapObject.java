@@ -18,9 +18,9 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class MapObject implements NoProguard, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MapObject> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap nameValuePairs;
+    public HashMap<String, Object> nameValuePairs;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -45,7 +45,7 @@ public class MapObject implements NoProguard, Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.pass.ecommerce.common.MapObject.1
+        CREATOR = new Parcelable.Creator<MapObject>() { // from class: com.baidu.pass.ecommerce.common.MapObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,6 +64,7 @@ public class MapObject implements NoProguard, Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MapObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -75,6 +76,7 @@ public class MapObject implements NoProguard, Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MapObject[] newArray(int i) {
                 InterceptResult invokeI;
@@ -103,7 +105,7 @@ public class MapObject implements NoProguard, Parcelable {
         this.nameValuePairs = new LinkedHashMap();
     }
 
-    public Iterator keyIterator() {
+    public Iterator<String> keyIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

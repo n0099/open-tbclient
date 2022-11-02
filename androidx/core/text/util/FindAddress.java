@@ -1,5 +1,7 @@
 package androidx.core.text.util;
 
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,6 +14,7 @@ import java.util.Locale;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FindAddress {
     public static /* synthetic */ Interceptable $ic = null;
@@ -285,6 +288,7 @@ public class FindAddress {
         return (String) invokeL.objValue;
     }
 
+    @VisibleForTesting
     public static boolean isValidLocationName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -294,6 +298,7 @@ public class FindAddress {
         return invokeL.booleanValue;
     }
 
+    @VisibleForTesting
     public static boolean isValidZipCode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -303,6 +308,7 @@ public class FindAddress {
         return invokeL.booleanValue;
     }
 
+    @VisibleForTesting
     public static boolean isValidZipCode(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -339,6 +345,7 @@ public class FindAddress {
         return invokeLL.booleanValue;
     }
 
+    @VisibleForTesting
     public static MatchResult matchState(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -355,6 +362,7 @@ public class FindAddress {
         return (MatchResult) invokeLI.objValue;
     }
 
+    @VisibleForTesting
     public static MatchResult matchHouseNumber(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

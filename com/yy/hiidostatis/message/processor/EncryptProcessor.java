@@ -46,7 +46,7 @@ public class EncryptProcessor implements MessageProcessor {
             byte[] encrypt = new AesCipher(randStringEx.getBytes()).encrypt(message.getContent());
             String encryptTlogAesKey = getRsaCipher().encryptTlogAesKey(randStringEx.getBytes());
             if (message.isSingle()) {
-                Map parseParams = Util.parseParams(message.getUrlParams());
+                Map<String, String> parseParams = Util.parseParams(message.getUrlParams());
                 message.setUrlParams(String.format(Locale.CHINA, "act=mbsdkdata&smkdata=%s&EC=%s&appkey=%s&item=%s&enc=b64&hiido_time=%.3f", URLEncoder.encode(encryptTlogAesKey, "UTF-8"), parseParams.get("EC"), parseParams.get("appkey"), parseParams.get("item"), Double.valueOf(System.currentTimeMillis() / 1000.0d)));
             } else {
                 message.setUrlParams(String.format(Locale.CHINA, "smkdata=%s&enc=b64", URLEncoder.encode(encryptTlogAesKey, "UTF-8")));

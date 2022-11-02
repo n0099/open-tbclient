@@ -57,6 +57,8 @@ public class CommonStatisticKey {
     public static final String KEY_DOWNLOAD_MANAGER_INSTALLED_CLICK = "c14373";
     public static final String KEY_DOWNLOAD_MANAGER_ORDERED_CLICK = "c14360";
     public static final String KEY_DOWNLOAD_MANAGER_SHOW = "c14359";
+    public static final String KEY_DRESS_UP_BUNDLE_CLICK = "c15002";
+    public static final String KEY_DRESS_UP_BUNDLE_SHOW = "c15001";
     public static final String KEY_ENTRANCE_CLICKED = "c12611";
     public static final String KEY_FORUM_INSIDE_LIVE_CLICK = "c14137";
     public static final String KEY_FORUM_INSIDE_LIVE_SHOW = "c14136";
@@ -133,6 +135,7 @@ public class CommonStatisticKey {
     public static final String KEY_LOGIN_DIALOG_SUCCESS = "c14060";
     public static final String KEY_MINE_PAGE_LOGIN_DIALOG_SUCCESS = "c14468";
     public static final String KEY_MULTI_DEL_BUTTON_CLICK = "c13122";
+    public static final String KEY_MY_TAB_GENERAL_DRESS_CLICK = "c15003";
     public static final String KEY_NAMEPLATE_OF_USER_LEVEL_STATIC = "c14927";
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
     public static final String KEY_ONE_KEY_READ = "c14662";
@@ -198,6 +201,7 @@ public class CommonStatisticKey {
     public static final String KEY_TIE_PLUS_WECHAT_DIALOG_EXPOSE = "c14480";
     public static final String KEY_TOAST_DOWNLOAD_MANAGER_CLICK = "c14362";
     public static final String KEY_UEG_POST_CLICKED = "c14048";
+    public static final String KEY_URL_NULL_REPORT = "c12619";
     public static final String KEY_VIDEO_AD_PLAY_SWITCH = "c14625";
     public static final String KEY_VIDEO_EASTER_EGG_REPLAY = "c13044";
     public static final String KEY_VIDEO_EASTER_EGG_SHARE = "c13045";
@@ -218,6 +222,7 @@ public class CommonStatisticKey {
     public static final String KEY_WORK_VIDEO_TOPIC_SUGGESTION_CLICK = "c14418";
     public static final String KEY_WORK_VIDEO_TOPIC_TAB_SHOW = "c14416";
     public static final String KEY_WRITE_VOTE_VIEW_SHOW = "c13800";
+    public static final String KEY_XIUXIU_THREAD_SHOW = "c15061";
     public static final String KEY_YY_ENTRANCE_BIGPIC_RECOMMON_CLICK = "c14846";
     public static final String KEY_YY_ENTRANCE_BIGPIC_RECOMMON_SHOW = "c14845";
     public static final String KEY_YY_ENTRANCE_HOMEPAGE_RECOMMON_CLICK = "c14844";
@@ -247,7 +252,30 @@ public class CommonStatisticKey {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class TbMemberOfficialStatic {
+    public static final class Page {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String FRS = "frs";
+        public static final String INDEX = "index";
+        public static final String PB = "pb";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Page() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class TbMemberOfficialStatic {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MEMBER_MSG_CENTER_NOTIFY_CLICK = "c14939";
         public static final String MEMBER_MSG_CENTER_NOTIFY_SHOW = "c14938";
@@ -273,7 +301,7 @@ public class CommonStatisticKey {
     }
 
     /* loaded from: classes3.dex */
-    public final class Transmitthread {
+    public static final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";
         public static final String OBJ_TYPE_SOURCE_PB = "3";

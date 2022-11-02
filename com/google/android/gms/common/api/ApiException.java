@@ -1,5 +1,7 @@
 package com.google.android.gms.common.api;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,9 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ApiException extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     @Deprecated
     public final Status mStatus;
 
+    @NonNull
     public Status getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -23,7 +27,7 @@ public class ApiException extends Exception {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ApiException(Status status) {
+    public ApiException(@NonNull Status status) {
         super(r3.toString());
         String str;
         Interceptable interceptable = $ic;
@@ -63,6 +67,7 @@ public class ApiException extends Exception {
         return invokeV.intValue;
     }
 
+    @Nullable
     @Deprecated
     public String getStatusMessage() {
         InterceptResult invokeV;

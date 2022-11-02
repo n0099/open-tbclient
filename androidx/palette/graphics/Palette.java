@@ -6,6 +6,10 @@ import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
 import androidx.collection.ArrayMap;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -33,6 +37,7 @@ public final class Palette {
     public static final float MIN_CONTRAST_BODY_TEXT = 4.5f;
     public static final float MIN_CONTRAST_TITLE_TEXT = 3.0f;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final Swatch mDominantSwatch;
     public final Map<Target, Swatch> mSelectedSwatches;
     public final List<Swatch> mSwatches;
@@ -41,28 +46,31 @@ public final class Palette {
 
     /* loaded from: classes.dex */
     public interface Filter {
-        boolean isAllowed(int i, float[] fArr);
+        boolean isAllowed(@ColorInt int i, @NonNull float[] fArr);
     }
 
     /* loaded from: classes.dex */
     public interface PaletteAsyncListener {
-        void onGenerated(Palette palette);
+        void onGenerated(@Nullable Palette palette);
     }
 
     /* loaded from: classes.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final Bitmap mBitmap;
         public final List<Filter> mFilters;
         public int mMaxColors;
+        @Nullable
         public Rect mRegion;
         public int mResizeArea;
         public int mResizeMaxDimension;
+        @Nullable
         public final List<Swatch> mSwatches;
         public final List<Target> mTargets;
 
-        public Builder(Bitmap bitmap) {
+        public Builder(@NonNull Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +129,7 @@ public final class Palette {
             return (Bitmap) invokeL.objValue;
         }
 
-        public Builder(List<Swatch> list) {
+        public Builder(@NonNull List<Swatch> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,6 +182,7 @@ public final class Palette {
             return (int[]) invokeL.objValue;
         }
 
+        @NonNull
         public Builder addFilter(Filter filter) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -186,7 +195,8 @@ public final class Palette {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder addTarget(Target target) {
+        @NonNull
+        public Builder addTarget(@NonNull Target target) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, target)) == null) {
@@ -198,7 +208,8 @@ public final class Palette {
             return (Builder) invokeL.objValue;
         }
 
-        public AsyncTask<Bitmap, Void, Palette> generate(PaletteAsyncListener paletteAsyncListener) {
+        @NonNull
+        public AsyncTask<Bitmap, Void, Palette> generate(@NonNull PaletteAsyncListener paletteAsyncListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, paletteAsyncListener)) == null) {
@@ -230,6 +241,7 @@ public final class Palette {
 
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.os.AsyncTask
+                        @Nullable
                         public Palette doInBackground(Bitmap... bitmapArr) {
                             InterceptResult invokeL2;
                             Interceptable interceptable2 = $ic;
@@ -246,7 +258,7 @@ public final class Palette {
 
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.os.AsyncTask
-                        public void onPostExecute(Palette palette) {
+                        public void onPostExecute(@Nullable Palette palette) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, palette) == null) {
                                 this.val$listener.onGenerated(palette);
@@ -259,6 +271,7 @@ public final class Palette {
             return (AsyncTask) invokeL.objValue;
         }
 
+        @NonNull
         public Builder maximumColorCount(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -269,6 +282,7 @@ public final class Palette {
             return (Builder) invokeI.objValue;
         }
 
+        @NonNull
         public Builder resizeBitmapArea(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -280,6 +294,7 @@ public final class Palette {
             return (Builder) invokeI.objValue;
         }
 
+        @NonNull
         @Deprecated
         public Builder resizeBitmapSize(int i) {
             InterceptResult invokeI;
@@ -292,6 +307,7 @@ public final class Palette {
             return (Builder) invokeI.objValue;
         }
 
+        @NonNull
         public Builder clearFilters() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -302,6 +318,7 @@ public final class Palette {
             return (Builder) invokeV.objValue;
         }
 
+        @NonNull
         public Builder clearRegion() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -312,6 +329,7 @@ public final class Palette {
             return (Builder) invokeV.objValue;
         }
 
+        @NonNull
         public Builder clearTargets() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -325,6 +343,7 @@ public final class Palette {
             return (Builder) invokeV.objValue;
         }
 
+        @NonNull
         public Palette generate() {
             InterceptResult invokeV;
             List<Swatch> list;
@@ -368,7 +387,8 @@ public final class Palette {
             return (Palette) invokeV.objValue;
         }
 
-        public Builder setRegion(int i, int i2, int i3, int i4) {
+        @NonNull
+        public Builder setRegion(@Px int i, @Px int i2, @Px int i3, @Px int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048586, this, i, i2, i3, i4)) == null) {
@@ -395,13 +415,14 @@ public final class Palette {
         public int mBodyTextColor;
         public boolean mGeneratedTextColors;
         public final int mGreen;
+        @Nullable
         public float[] mHsl;
         public final int mPopulation;
         public final int mRed;
         public final int mRgb;
         public int mTitleTextColor;
 
-        public Swatch(int i, int i2) {
+        public Swatch(@ColorInt int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -532,6 +553,7 @@ public final class Palette {
             return invokeL.booleanValue;
         }
 
+        @ColorInt
         public int getBodyTextColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -542,6 +564,7 @@ public final class Palette {
             return invokeV.intValue;
         }
 
+        @NonNull
         public float[] getHsl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -564,6 +587,7 @@ public final class Palette {
             return invokeV.intValue;
         }
 
+        @ColorInt
         public int getRgb() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -573,6 +597,7 @@ public final class Palette {
             return invokeV.intValue;
         }
 
+        @ColorInt
         public int getTitleTextColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -677,6 +702,7 @@ public final class Palette {
         };
     }
 
+    @Nullable
     public Swatch getDarkMutedSwatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -686,6 +712,7 @@ public final class Palette {
         return (Swatch) invokeV.objValue;
     }
 
+    @Nullable
     public Swatch getDarkVibrantSwatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -695,6 +722,7 @@ public final class Palette {
         return (Swatch) invokeV.objValue;
     }
 
+    @Nullable
     public Swatch getDominantSwatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -704,6 +732,7 @@ public final class Palette {
         return (Swatch) invokeV.objValue;
     }
 
+    @Nullable
     public Swatch getLightMutedSwatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -713,6 +742,7 @@ public final class Palette {
         return (Swatch) invokeV.objValue;
     }
 
+    @Nullable
     public Swatch getLightVibrantSwatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -722,6 +752,7 @@ public final class Palette {
         return (Swatch) invokeV.objValue;
     }
 
+    @Nullable
     public Swatch getMutedSwatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -731,6 +762,7 @@ public final class Palette {
         return (Swatch) invokeV.objValue;
     }
 
+    @NonNull
     public List<Swatch> getSwatches() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -740,6 +772,7 @@ public final class Palette {
         return (List) invokeV.objValue;
     }
 
+    @NonNull
     public List<Target> getTargets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -749,6 +782,7 @@ public final class Palette {
         return (List) invokeV.objValue;
     }
 
+    @Nullable
     public Swatch getVibrantSwatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -793,6 +827,7 @@ public final class Palette {
         return invokeLL.booleanValue;
     }
 
+    @Nullable
     private Swatch findDominantSwatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -825,7 +860,8 @@ public final class Palette {
         }
     }
 
-    public static Builder from(Bitmap bitmap) {
+    @NonNull
+    public static Builder from(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bitmap)) == null) {
@@ -844,6 +880,7 @@ public final class Palette {
         return (Palette) invokeL.objValue;
     }
 
+    @Nullable
     private Swatch generateScoredTarget(Target target) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -857,7 +894,8 @@ public final class Palette {
         return (Swatch) invokeL.objValue;
     }
 
-    public int getDarkMutedColor(int i) {
+    @ColorInt
+    public int getDarkMutedColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -866,7 +904,8 @@ public final class Palette {
         return invokeI.intValue;
     }
 
-    public int getDarkVibrantColor(int i) {
+    @ColorInt
+    public int getDarkVibrantColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
@@ -875,7 +914,8 @@ public final class Palette {
         return invokeI.intValue;
     }
 
-    public int getDominantColor(int i) {
+    @ColorInt
+    public int getDominantColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -888,7 +928,8 @@ public final class Palette {
         return invokeI.intValue;
     }
 
-    public int getLightMutedColor(int i) {
+    @ColorInt
+    public int getLightMutedColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
@@ -897,7 +938,8 @@ public final class Palette {
         return invokeI.intValue;
     }
 
-    public int getLightVibrantColor(int i) {
+    @ColorInt
+    public int getLightVibrantColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
@@ -906,7 +948,8 @@ public final class Palette {
         return invokeI.intValue;
     }
 
-    public int getMutedColor(int i) {
+    @ColorInt
+    public int getMutedColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
@@ -915,7 +958,8 @@ public final class Palette {
         return invokeI.intValue;
     }
 
-    public Swatch getSwatchForTarget(Target target) {
+    @Nullable
+    public Swatch getSwatchForTarget(@NonNull Target target) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, target)) == null) {
@@ -924,7 +968,8 @@ public final class Palette {
         return (Swatch) invokeL.objValue;
     }
 
-    public int getVibrantColor(int i) {
+    @ColorInt
+    public int getVibrantColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
@@ -933,7 +978,8 @@ public final class Palette {
         return invokeI.intValue;
     }
 
-    public static Palette from(List<Swatch> list) {
+    @NonNull
+    public static Palette from(@NonNull List<Swatch> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
@@ -962,7 +1008,8 @@ public final class Palette {
         return (AsyncTask) invokeLL.objValue;
     }
 
-    public int getColorForTarget(Target target, int i) {
+    @ColorInt
+    public int getColorForTarget(@NonNull Target target, @ColorInt int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, target, i)) == null) {
@@ -1018,6 +1065,7 @@ public final class Palette {
         return invokeLL.floatValue;
     }
 
+    @Nullable
     private Swatch getMaxScoredSwatchForTarget(Target target) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -1,180 +1,100 @@
 package com.baidu.tieba;
 
-import android.media.AudioRecord;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.mg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import java.nio.ByteBuffer;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class vg9 {
+public class vg9 extends sg9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] b;
-    public static int c;
-    public static int d;
-    public static int e;
-    public static vg9 f;
-    public static byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioRecord a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948239969, "Lcom/baidu/tieba/vg9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948239969, "Lcom/baidu/tieba/vg9;");
-                return;
-            }
-        }
-        b = new int[]{1, 0, 5, 7, 6};
-        c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
-        d = 2048;
-        e = 24;
-        g = new byte[0];
-    }
-
-    public vg9(int i) {
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        int minBufferSize = AudioRecord.getMinBufferSize(c, 16, 2);
-        int i4 = d;
-        int i5 = e * i4;
-        i5 = i5 < minBufferSize ? ((minBufferSize / i4) + 1) * i4 * 2 : i5;
-        if (i != -100) {
-            try {
-                AudioRecord audioRecord = new AudioRecord(i, c, 16, 2, i5);
-                this.a = audioRecord;
-                if (audioRecord.getState() != 1) {
-                    this.a = null;
-                }
-            } catch (Exception unused) {
-                this.a = null;
-            }
-            if (this.a != null) {
-                ih9.d("audio_source:(if) ---> " + i);
-            }
-        }
-        if (this.a == null) {
-            for (int i6 : b) {
-                try {
-                    AudioRecord audioRecord2 = new AudioRecord(i6, c, 16, 2, i5);
-                    this.a = audioRecord2;
-                    if (audioRecord2.getState() != 1) {
-                        this.a = null;
-                    }
-                } catch (Exception unused2) {
-                    this.a = null;
-                }
-                if (this.a != null) {
-                    ih9.d("audio_source:(for) ---> " + i6);
-                    return;
-                }
-            }
-        }
-    }
-
-    public int a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, byteBuffer, i)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord == null) {
-                return 0;
-            }
-            return audioRecord.read(byteBuffer, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (g) {
-            g();
-            if (f == this) {
-                f = null;
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (g) {
-                if (f == this) {
-                    return;
-                }
-                if (f != null) {
-                    f.g();
-                    f = null;
-                }
-                f();
-                f = this;
-            }
-        }
-    }
-
-    public AudioRecord d() {
+    @Override // com.baidu.tieba.sg9
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (AudioRecord) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord != null) {
-                return audioRecord.getRecordingState();
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 206;
         }
         return invokeV.intValue;
     }
 
-    public final void f() {
-        AudioRecord audioRecord;
+    @Override // com.baidu.tieba.sg9
+    public void j(xg9 xg9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (audioRecord = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xg9Var) == null) {
         }
-        audioRecord.startRecording();
     }
 
-    public final void g() {
-        AudioRecord audioRecord;
+    @Override // com.baidu.tieba.sg9
+    public void n(xg9 xg9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xg9Var) == null) {
         }
-        this.a = null;
-        audioRecord.stop();
-        audioRecord.release();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vg9(pg9 pg9Var, xg9 xg9Var, mg9.a aVar) {
+        super(pg9Var, xg9Var, aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pg9Var, xg9Var, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((pg9) objArr2[0], (xg9) objArr2[1], (mg9.a) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sg9
+    public RandomAccessFile e(File file, String str, long j) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
+            randomAccessFile.seek(j);
+            return randomAccessFile;
+        }
+        return (RandomAccessFile) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.sg9
+    public Map<String, String> f(xg9 xg9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xg9Var)) == null) {
+            HashMap hashMap = new HashMap();
+            long c = xg9Var.c() + xg9Var.b();
+            long a = xg9Var.a();
+            hashMap.put("Range", "bytes=" + c + "-" + a);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sg9
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return vg9.class.getSimpleName();
+        }
+        return (String) invokeV.objValue;
     }
 }

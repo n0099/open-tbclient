@@ -12,7 +12,7 @@ import java.util.Iterator;
 public class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mB;
+    public ArrayList<b> mB;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class c extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Iterator it = this.mB.iterator();
+            Iterator<b> it = this.mB.iterator();
             while (it.hasNext()) {
-                if (((b) it.next()).dc().equals(str)) {
+                if (it.next().dc().equals(str)) {
                     return true;
                 }
             }
@@ -49,13 +49,13 @@ public class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             if (this.mB == null) {
-                this.mB = new ArrayList();
+                this.mB = new ArrayList<>();
             }
             this.mB.add(bVar);
         }
     }
 
-    public ArrayList df() {
+    public ArrayList<b> df() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mB : (ArrayList) invokeV.objValue;

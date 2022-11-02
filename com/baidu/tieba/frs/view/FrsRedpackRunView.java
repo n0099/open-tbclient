@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
@@ -144,14 +145,14 @@ public class FrsRedpackRunView extends RelativeLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0334, this);
-            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f0923e6);
-            this.b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090c16);
+            this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0336, this);
+            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f09243b);
+            this.b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090c29);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsRedpackRunView(Context context, AttributeSet attributeSet) {
+    public FrsRedpackRunView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -200,7 +201,7 @@ public class FrsRedpackRunView extends RelativeLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f11004e);
+            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f110050);
             this.b.setImageAssetsFolder("lottie_redpack_runscoll");
             this.b.addAnimatorUpdateListener(new a(this));
             this.b.addAnimatorListener(new b(this));

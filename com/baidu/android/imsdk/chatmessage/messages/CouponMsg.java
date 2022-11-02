@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class CouponMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<CouponMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
     public String mBgcolor;
@@ -61,7 +61,7 @@ public class CouponMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.CouponMsg.1
+        CREATOR = new Parcelable.Creator<CouponMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.CouponMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,6 +80,7 @@ public class CouponMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CouponMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -91,6 +92,7 @@ public class CouponMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CouponMsg[] newArray(int i) {
                 InterceptResult invokeI;

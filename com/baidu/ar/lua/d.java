@@ -16,7 +16,7 @@ import java.util.List;
 public class d implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List sW;
+    public List<LuaMsgListener> sW;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -35,17 +35,17 @@ public class d implements c {
     }
 
     @Override // com.baidu.ar.lua.c
-    public synchronized void a(int i, int i2, HashMap hashMap) {
-        List msgKeyListened;
+    public synchronized void a(int i, int i2, HashMap<String, Object> hashMap) {
+        List<String> msgKeyListened;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, hashMap) == null) {
             synchronized (this) {
                 if (this.sW != null && hashMap != null) {
                     for (int i3 = 0; i3 < this.sW.size(); i3++) {
-                        LuaMsgListener luaMsgListener = (LuaMsgListener) this.sW.get(i3);
+                        LuaMsgListener luaMsgListener = this.sW.get(i3);
                         if (luaMsgListener != null && (msgKeyListened = luaMsgListener.getMsgKeyListened()) != null) {
                             for (int i4 = 0; i4 < msgKeyListened.size(); i4++) {
-                                String str = (String) msgKeyListened.get(i4);
+                                String str = msgKeyListened.get(i4);
                                 if (!TextUtils.isEmpty(str) && hashMap.get(str) != null) {
                                     luaMsgListener.onLuaMessage(hashMap);
                                 }
@@ -90,7 +90,7 @@ public class d implements c {
     }
 
     @Override // com.baidu.ar.lua.c
-    public List n() {
+    public List<Integer> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.asList(1901) : (List) invokeV.objValue;

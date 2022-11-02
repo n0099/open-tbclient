@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppDeleteInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SwanAppDeleteInfo> CREATOR;
     public static final int HIS_FAVOR_CHECK = 0;
     public static final int HIS_FAVOR_IGNORE = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<SwanAppDeleteInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

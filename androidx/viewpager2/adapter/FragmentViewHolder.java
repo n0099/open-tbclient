@@ -3,6 +3,7 @@ package androidx.viewpager2.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ public final class FragmentViewHolder extends RecyclerView.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FragmentViewHolder(FrameLayout frameLayout) {
+    public FragmentViewHolder(@NonNull FrameLayout frameLayout) {
         super(frameLayout);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,7 +36,8 @@ public final class FragmentViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    public static FragmentViewHolder create(ViewGroup viewGroup) {
+    @NonNull
+    public static FragmentViewHolder create(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) {
@@ -48,6 +50,7 @@ public final class FragmentViewHolder extends RecyclerView.ViewHolder {
         return (FragmentViewHolder) invokeL.objValue;
     }
 
+    @NonNull
     public FrameLayout getContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

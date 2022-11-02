@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function4;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u0007H\u008a@¢\u0006\u0004\b\b\u0010\t"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/flow/FlowCollector;", "cause", "", "attempt", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ErrorsKt$retry$3", f = "Errors.kt", i = {0, 0, 0}, l = {126}, m = "invokeSuspend", n = {"$this$retryWhen", "cause", "attempt"}, s = {"L$0", "L$1", "J$0"})
 /* loaded from: classes8.dex */
-public final class FlowKt__ErrorsKt$retry$3 extends SuspendLambda implements Function4 {
+public final class FlowKt__ErrorsKt$retry$3 extends SuspendLambda implements Function4<FlowCollector<? super T>, Throwable, Long, Continuation<? super Boolean>, Object> {
     public final /* synthetic */ Function2 $predicate;
     public final /* synthetic */ long $retries;
     public long J$0;
@@ -32,7 +32,7 @@ public final class FlowKt__ErrorsKt$retry$3 extends SuspendLambda implements Fun
         this.$predicate = function2;
     }
 
-    public final Continuation create(FlowCollector flowCollector, Throwable th, long j, Continuation continuation) {
+    public final Continuation<Unit> create(FlowCollector<? super T> flowCollector, Throwable th, long j, Continuation<? super Boolean> continuation) {
         FlowKt__ErrorsKt$retry$3 flowKt__ErrorsKt$retry$3 = new FlowKt__ErrorsKt$retry$3(this.$retries, this.$predicate, continuation);
         flowKt__ErrorsKt$retry$3.p$ = flowCollector;
         flowKt__ErrorsKt$retry$3.p$0 = th;
@@ -40,9 +40,10 @@ public final class FlowKt__ErrorsKt$retry$3 extends SuspendLambda implements Fun
         return flowKt__ErrorsKt$retry$3;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function4
-    public final Object invoke(Object obj, Object obj2, Object obj3, Object obj4) {
-        return ((FlowKt__ErrorsKt$retry$3) create((FlowCollector) obj, (Throwable) obj2, ((Number) obj3).longValue(), (Continuation) obj4)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Throwable th, Long l, Continuation<? super Boolean> continuation) {
+        return ((FlowKt__ErrorsKt$retry$3) create((FlowCollector) obj, th, l.longValue(), continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0045, code lost:

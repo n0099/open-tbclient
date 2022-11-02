@@ -1,6 +1,8 @@
 package com.baidu.tieba.personPolymeric.mode;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
@@ -12,6 +14,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -24,15 +27,15 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.e98;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.f98;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.oa8;
+import com.baidu.tieba.pa8;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sb;
+import com.baidu.tieba.rb;
+import com.baidu.tieba.wn;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +57,7 @@ import tbclient.UserPost.DataRes;
 import tbclient.UserPost.UserPostResIdl;
 import tbclient.Voice;
 /* loaded from: classes5.dex */
-public class PersonPostModel extends BdBaseModel implements Serializable {
+public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
@@ -63,20 +66,21 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     public static int mRecommentPn = 1;
     public static int mThreadPn;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map dataResMap;
+    @Nullable
+    public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public e98 mCardNullPolymericData;
+    public oa8 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
     public int mLastChooseStyle;
     public d mOnResult;
-    public ResponsedMessage mResponsedMessage;
+    public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
-    public sb pageSocketListener;
-    public final ArrayList postList;
-    public final ArrayList threadList;
+    public rb pageSocketListener;
+    public final ArrayList<wn> postList;
+    public final ArrayList<wn> threadList;
     public int view_card_num;
 
     /* loaded from: classes5.dex */
@@ -139,7 +143,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class Abs extends OrmObject implements Serializable {
+    public static class Abs extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String link;
@@ -182,7 +186,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class AnchorInfo extends OrmObject implements Serializable {
+    public static class AnchorInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long author_id;
@@ -249,7 +253,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class LabelInfo extends OrmObject implements Serializable {
+    public static class LabelInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String LabelId;
@@ -286,7 +290,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class LbsInfo implements Serializable {
+    public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String lat;
@@ -323,7 +327,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class Media extends OrmObject implements Serializable {
+    public static class Media extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String big_pic;
@@ -363,7 +367,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class PostInfoContent extends OrmObject implements Serializable {
+    public static class PostInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long create_time;
@@ -414,7 +418,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, eo {
+    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, wn {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -464,7 +468,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
             POST_INFO = BdUniqueId.gen();
         }
 
-        @Override // com.baidu.tieba.eo
+        @Override // com.baidu.tieba.wn
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -513,12 +517,12 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         }
 
         @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-        public ArrayList getImages() {
+        public ArrayList<PreLoadImageInfo> getImages() {
             InterceptResult invokeV;
             Media[] mediaArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList arrayList = new ArrayList();
+                ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
                 for (Media media : this.media) {
                     if (media.big_pic != null) {
                         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
@@ -611,7 +615,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class Quote extends OrmObject implements Serializable {
+    public static class Quote extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -654,7 +658,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class UserInfo extends OrmObject implements Serializable {
+    public static class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long id;
@@ -691,7 +695,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class Zan extends OrmObject implements Serializable {
+    public static class Zan extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int num;
@@ -722,7 +726,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class ZhiBoInfoTW extends OrmObject implements Serializable {
+    public static class ZhiBoInfoTW extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -735,7 +739,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         public String livecover_src_bsize;
         public int post_num;
         public int reply_num;
-        public ArrayList showExpressionViewIndex;
+        public ArrayList<Integer> showExpressionViewIndex;
         public int showStyle;
         public long thread_id;
         public String title;
@@ -770,7 +774,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
             this.labelList = new LabelInfo[0];
             this.showStyle = -1;
             this.isHeadLive = false;
-            this.showExpressionViewIndex = new ArrayList();
+            this.showExpressionViewIndex = new ArrayList<>();
         }
 
         public void parseProtobuf(tbclient.ZhiBoInfoTW zhiBoInfoTW, int i) {
@@ -815,7 +819,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends sb {
+    public class a extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonPostModel a;
@@ -917,7 +921,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPostModel(TbPageContext tbPageContext, BdUniqueId bdUniqueId, d dVar, boolean z, int i) {
+    public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId, d dVar, boolean z, int i) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -935,8 +939,8 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
             }
         }
         this.mFrom = -1;
-        this.threadList = new ArrayList();
-        this.postList = new ArrayList();
+        this.threadList = new ArrayList<>();
+        this.postList = new ArrayList<>();
         this.hide_post = 0;
         this.mIsReset = false;
         this.mLastChooseStyle = -1;
@@ -949,7 +953,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPostModel(TbPageContext tbPageContext, d dVar, boolean z, int i) {
+    public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, d dVar, boolean z, int i) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -967,8 +971,8 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
             }
         }
         this.mFrom = -1;
-        this.threadList = new ArrayList();
-        this.postList = new ArrayList();
+        this.threadList = new ArrayList<>();
+        this.postList = new ArrayList<>();
         this.hide_post = 0;
         this.mIsReset = false;
         this.mLastChooseStyle = -1;
@@ -987,7 +991,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         }
     }
 
-    public void setResponsedMessage(ResponsedMessage responsedMessage) {
+    public void setResponsedMessage(ResponsedMessage<?> responsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, responsedMessage) == null) {
             this.mResponsedMessage = responsedMessage;
@@ -1019,18 +1023,18 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         return invokeII.intValue;
     }
 
-    public static ArrayList mergeDynamicThreadByTime(ArrayList arrayList) {
+    public static ArrayList<wn> mergeDynamicThreadByTime(ArrayList<wn> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, arrayList)) == null) {
             String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-            Iterator it = arrayList.iterator();
+            Iterator<wn> it = arrayList.iterator();
             String str = "";
             String str2 = "";
             while (it.hasNext()) {
-                eo eoVar = (eo) it.next();
-                if (eoVar instanceof CardPersonDynamicThreadData) {
-                    CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) eoVar;
+                wn next = it.next();
+                if (next instanceof CardPersonDynamicThreadData) {
+                    CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.D = true;
                     cardPersonDynamicThreadData.C = true;
                     long j = cardPersonDynamicThreadData.g * 1000;
@@ -1054,7 +1058,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         return (ArrayList) invokeL.objValue;
     }
 
-    private void parseProtobufInternal(DataRes dataRes, int i, User user, MetaData metaData) {
+    private void parseProtobufInternal(DataRes dataRes, int i, User user, @Nullable MetaData metaData) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLILL(65544, this, dataRes, i, user, metaData) != null) || dataRes == null) {
@@ -1063,15 +1067,15 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new f98());
+            this.postList.add(new pa8());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            e98 e98Var = new e98();
-            this.mCardNullPolymericData = e98Var;
-            this.postList.add(e98Var);
+            oa8 oa8Var = new oa8();
+            this.mCardNullPolymericData = oa8Var;
+            this.postList.add(oa8Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {
@@ -1101,7 +1105,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         }
     }
 
-    public static void setShowExpressionViewIndexList(LabelInfo[] labelInfoArr, ArrayList arrayList) {
+    public static void setShowExpressionViewIndexList(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65545, null, labelInfoArr, arrayList) != null) || labelInfoArr == null) {
             return;
@@ -1126,14 +1130,14 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         }
     }
 
-    public void fetchPost(TbPageContext tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user) {
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), user}) == null) {
             fetchPost(tbPageContext, cVar, z, str, z2, i, z3, z4, user, null, null, null, null, null, null);
         }
     }
 
-    public void fetchPost(TbPageContext tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user, MetaData metaData, Integer num, Integer num2, Integer num3, Long l, String str2) {
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, @Nullable User user, @Nullable MetaData metaData, @Nullable Integer num, @Nullable Integer num2, @Nullable Integer num3, @Nullable Long l, @Nullable String str2) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), user, metaData, num, num2, num3, l, str2}) == null) {
@@ -1173,16 +1177,16 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(z);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = fj.k(TbadkCoreApplication.getInst().getApp());
-            int i3 = fj.i(TbadkCoreApplication.getInst().getApp());
+            int l2 = xi.l(TbadkCoreApplication.getInst().getApp());
+            int j = xi.j(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i2 = 2;
             } else {
                 i2 = 1;
             }
-            userPostPageRequestMessage.set_scr_w(k);
-            userPostPageRequestMessage.set_scr_h(i3);
+            userPostPageRequestMessage.set_scr_w(l2);
+            userPostPageRequestMessage.set_scr_h(j);
             userPostPageRequestMessage.set_scr_dip(f);
             userPostPageRequestMessage.set_q_type(i2);
             userPostPageRequestMessage.setCallback(cVar);
@@ -1201,21 +1205,21 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         }
     }
 
-    public void fetchPost(TbPageContext tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user, String str2) {
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), user, str2}) == null) {
             fetchPost(tbPageContext, cVar, z, str, z2, i, z3, z4, user, null, null, null, null, null, str2);
         }
     }
 
-    public void fetchPost(TbPageContext tbPageContext, c cVar, boolean z, String str, boolean z2, boolean z3, boolean z4, User user) {
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, boolean z3, boolean z4, User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), user}) == null) {
             fetchPost(tbPageContext, cVar, z, str, z2, 0, z3, z4, user, null, null, null, null, null, null);
         }
     }
 
-    public void fetchPostByBeginThreadId(String str, c cVar, MetaData metaData, Integer num, Integer num2, Integer num3, Integer num4, Long l, Integer num5) {
+    public void fetchPostByBeginThreadId(@NonNull String str, @NonNull c cVar, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, cVar, metaData, num, num2, num3, num4, l, num5}) == null) {
             UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
@@ -1229,14 +1233,14 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(false);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = fj.k(TbadkCoreApplication.getInst().getApp());
-            int i2 = fj.i(TbadkCoreApplication.getInst().getApp());
+            int l2 = xi.l(TbadkCoreApplication.getInst().getApp());
+            int j = xi.j(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             }
-            userPostPageRequestMessage.set_scr_w(k);
-            userPostPageRequestMessage.set_scr_h(i2);
+            userPostPageRequestMessage.set_scr_w(l2);
+            userPostPageRequestMessage.set_scr_h(j);
             userPostPageRequestMessage.set_scr_dip(f);
             userPostPageRequestMessage.set_q_type(i);
             userPostPageRequestMessage.setCallback(cVar);
@@ -1250,7 +1254,8 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         }
     }
 
-    public Map getDataResMap() {
+    @Nullable
+    public Map<String, Object> getDataResMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -1259,7 +1264,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         return (Map) invokeV.objValue;
     }
 
-    public ResponsedMessage getResponsedMessage() {
+    public ResponsedMessage<?> getResponsedMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -1275,7 +1280,7 @@ public class PersonPostModel extends BdBaseModel implements Serializable {
         }
     }
 
-    public UserPostResIdl parseProtobuf(byte[] bArr, int i, User user, MetaData metaData) {
+    public UserPostResIdl parseProtobuf(byte[] bArr, int i, User user, @Nullable MetaData metaData) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048585, this, bArr, i, user, metaData)) == null) {

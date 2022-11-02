@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.internal;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -22,7 +23,7 @@ public class MessageFactory {
     public static final String TAG = "MessageFactory";
     public static MessageFactory mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map classMap;
+    public Map<Integer, Class<?>> classMap;
 
     static {
         InterceptResult invokeClinit;
@@ -39,6 +40,7 @@ public class MessageFactory {
         }
     }
 
+    @SuppressLint({"UseSparseArrays"})
     public MessageFactory() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +70,9 @@ public class MessageFactory {
         return (MessageFactory) invokeV.objValue;
     }
 
-    private Message invokeMethod(Context context, String str, int i, Class[] clsArr, Object[] objArr, Intent intent) {
+    /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: java.lang.reflect.Method */
+    /* JADX WARN: Multi-variable type inference failed */
+    private Message invokeMethod(Context context, String str, int i, Class<?>[] clsArr, Object[] objArr, Intent intent) {
         InterceptResult invokeCommon;
         Message message;
         Interceptable interceptable = $ic;
@@ -78,14 +82,14 @@ public class MessageFactory {
                 if (this.classMap.isEmpty()) {
                     return null;
                 }
-                Class cls = (Class) this.classMap.get(Integer.valueOf(i));
+                Class<?> cls = this.classMap.get(Integer.valueOf(i));
                 if (cls == null) {
                     LogUtils.d(TAG, ": don't hava class ,type=" + i);
                     return null;
                 }
                 try {
                     Method method = cls.getMethod(str, clsArr);
-                    if (method != null) {
+                    if (method != 0) {
                         try {
                             message2 = (Message) method.invoke(cls, objArr);
                         } catch (Exception e) {
@@ -112,7 +116,7 @@ public class MessageFactory {
         return (Message) invokeCommon.objValue;
     }
 
-    public void addType(int i, Class cls) {
+    public void addType(int i, Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, cls) == null) {
             synchronized (mInstance) {

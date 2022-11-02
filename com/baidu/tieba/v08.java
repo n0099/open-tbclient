@@ -3,52 +3,25 @@ package com.baidu.tieba;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.face.view.EmotionView;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class v08 extends BaseAdapter {
+public class v08 extends uz7<wt4, PbRecommendNovelHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public b b;
-    public EmotionView.c c;
+    public dx7 g;
+    public PbRecommendNovelHolder.b h;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void f(EmotionImageData emotionImageData);
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a implements PbRecommendNovelHolder.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v08 a;
@@ -71,110 +44,75 @@ public class v08 extends BaseAdapter {
             this.a = v08Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(wt4 wt4Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && (view2 instanceof EmotionView)) {
-                this.a.b.f(((EmotionView) view2).getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, wt4Var) == null) && wt4Var != null) {
+                e48.a(this.a.g, wt4Var, wt4Var.c0, 6);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public EmotionView a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public v08() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v08(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((o48) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.h = new a(this);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void r(dx7 dx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!ListUtils.isEmpty(this.a)) {
-                return this.a.size();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dx7Var) == null) {
+            this.g = dx7Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: v */
+    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06f6, viewGroup, false), this.h);
+        }
+        return (PbRecommendNovelHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.uz7, com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        w(i, view2, viewGroup, (wt4) obj, (PbRecommendNovelHolder) viewHolder);
+        return view2;
+    }
+
+    public View w(int i, View view2, ViewGroup viewGroup, wt4 wt4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wt4Var, pbRecommendNovelHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, wt4Var, pbRecommendNovelHolder);
+            if (wt4Var == null) {
+                return view2;
             }
-            return 0;
+            wt4Var.c0 = i + 1;
+            e48.d(this.b.getUniqueId(), this.g, wt4Var, wt4Var.c0, 6);
+            pbRecommendNovelHolder.d(wt4Var);
+            return view2;
         }
-        return invokeV.intValue;
-    }
-
-    public void b(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    public void c(EmotionView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                cVar = new c();
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d052d, (ViewGroup) null);
-                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.obfuscated_res_0x7f0908e3);
-                cVar.a = emotionView;
-                emotionView.l0();
-                cVar.a.setController(this.c);
-                cVar.a.setOnClickListener(new a(this));
-                view3.setTag(cVar);
-            } else {
-                view3 = view2;
-                cVar = (c) view2.getTag();
-            }
-            List list = this.a;
-            if (list != null && i >= 0 && i < list.size()) {
-                cVar.a.n0((EmotionImageData) this.a.get(i));
-            }
-            return view3;
-        }
-        return (View) invokeILL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

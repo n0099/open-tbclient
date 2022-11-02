@@ -3,6 +3,7 @@ package com.baidu.live.business.view.viewpager;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     public boolean a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NestedNoScrollViewPager(Context context) {
+    public NestedNoScrollViewPager(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,7 +39,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NestedNoScrollViewPager(Context context, AttributeSet attributeSet) {
+    public NestedNoScrollViewPager(@NonNull Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

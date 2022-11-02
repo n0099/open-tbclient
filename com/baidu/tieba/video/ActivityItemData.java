@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class ActivityItemData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ActivityItemData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String activity_describe;
     public String activity_id;
@@ -24,7 +24,7 @@ public class ActivityItemData implements Serializable, Parcelable {
     public String link_url;
     public String play_count;
     public String topic_id;
-    public ArrayList user_list;
+    public ArrayList<UserItemData> user_list;
     public String video_num;
 
     @Override // android.os.Parcelable
@@ -38,7 +38,7 @@ public class ActivityItemData implements Serializable, Parcelable {
     }
 
     /* loaded from: classes6.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<ActivityItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

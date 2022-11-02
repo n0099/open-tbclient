@@ -9,6 +9,10 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.Log;
 import android.util.Property;
+import androidx.annotation.AnimatorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleableRes;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,8 +28,8 @@ public class MotionSpec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MotionSpec";
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleArrayMap propertyValues;
-    public final SimpleArrayMap timings;
+    public final SimpleArrayMap<String, PropertyValuesHolder[]> propertyValues;
+    public final SimpleArrayMap<String, MotionTiming> timings;
 
     public MotionSpec() {
         Interceptable interceptable = $ic;
@@ -40,8 +44,8 @@ public class MotionSpec {
                 return;
             }
         }
-        this.timings = new SimpleArrayMap();
-        this.propertyValues = new SimpleArrayMap();
+        this.timings = new SimpleArrayMap<>();
+        this.propertyValues = new SimpleArrayMap<>();
     }
 
     public int hashCode() {
@@ -53,7 +57,7 @@ public class MotionSpec {
         return invokeV.intValue;
     }
 
-    public static void addInfoFromAnimator(MotionSpec motionSpec, Animator animator) {
+    public static void addInfoFromAnimator(@NonNull MotionSpec motionSpec, Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, motionSpec, animator) == null) {
             if (animator instanceof ObjectAnimator) {
@@ -66,7 +70,8 @@ public class MotionSpec {
         }
     }
 
-    private PropertyValuesHolder[] clonePropertyValuesHolder(PropertyValuesHolder[] propertyValuesHolderArr) {
+    @NonNull
+    private PropertyValuesHolder[] clonePropertyValuesHolder(@NonNull PropertyValuesHolder[] propertyValuesHolderArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, propertyValuesHolderArr)) == null) {
@@ -79,14 +84,15 @@ public class MotionSpec {
         return (PropertyValuesHolder[]) invokeL.objValue;
     }
 
-    public static MotionSpec createSpecFromAnimators(List list) {
+    @NonNull
+    public static MotionSpec createSpecFromAnimators(@NonNull List<Animator> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             MotionSpec motionSpec = new MotionSpec();
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                addInfoFromAnimator(motionSpec, (Animator) list.get(i));
+                addInfoFromAnimator(motionSpec, list.get(i));
             }
             return motionSpec;
         }
@@ -108,12 +114,13 @@ public class MotionSpec {
         return invokeL.booleanValue;
     }
 
+    @NonNull
     public PropertyValuesHolder[] getPropertyValues(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (hasPropertyValues(str)) {
-                return clonePropertyValuesHolder((PropertyValuesHolder[]) this.propertyValues.get(str));
+                return clonePropertyValuesHolder(this.propertyValues.get(str));
             }
             throw new IllegalArgumentException();
         }
@@ -125,7 +132,7 @@ public class MotionSpec {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (hasTiming(str)) {
-                return (MotionTiming) this.timings.get(str);
+                return this.timings.get(str);
             }
             throw new IllegalArgumentException();
         }
@@ -156,7 +163,8 @@ public class MotionSpec {
         return invokeL.booleanValue;
     }
 
-    public static MotionSpec createFromAttribute(Context context, TypedArray typedArray, int i) {
+    @Nullable
+    public static MotionSpec createFromAttribute(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i) {
         InterceptResult invokeLLI;
         int resourceId;
         Interceptable interceptable = $ic;
@@ -169,11 +177,12 @@ public class MotionSpec {
         return (MotionSpec) invokeLLI.objValue;
     }
 
-    public ObjectAnimator getAnimator(String str, Object obj, Property property) {
+    @NonNull
+    public <T> ObjectAnimator getAnimator(@NonNull String str, @NonNull T t, @NonNull Property<T, ?> property) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj, property)) == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(obj, getPropertyValues(str));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, t, property)) == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(t, getPropertyValues(str));
             ofPropertyValuesHolder.setProperty(property);
             getTiming(str).apply(ofPropertyValuesHolder);
             return ofPropertyValuesHolder;
@@ -181,7 +190,8 @@ public class MotionSpec {
         return (ObjectAnimator) invokeLLL.objValue;
     }
 
-    public static MotionSpec createFromResource(Context context, int i) {
+    @Nullable
+    public static MotionSpec createFromResource(@NonNull Context context, @AnimatorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
@@ -211,8 +221,8 @@ public class MotionSpec {
             int size = this.timings.size();
             long j = 0;
             for (int i = 0; i < size; i++) {
-                MotionTiming motionTiming = (MotionTiming) this.timings.valueAt(i);
-                j = Math.max(j, motionTiming.getDelay() + motionTiming.getDuration());
+                MotionTiming valueAt = this.timings.valueAt(i);
+                j = Math.max(j, valueAt.getDelay() + valueAt.getDuration());
             }
             return j;
         }
@@ -226,13 +236,14 @@ public class MotionSpec {
         }
     }
 
-    public void setTiming(String str, MotionTiming motionTiming) {
+    public void setTiming(String str, @Nullable MotionTiming motionTiming) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, motionTiming) == null) {
             this.timings.put(str, motionTiming);
         }
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

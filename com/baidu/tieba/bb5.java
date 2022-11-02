@@ -1,44 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class bb5 implements la5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bb5 {
 
-    public bb5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a();
+
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.la5
-    /* renamed from: a */
-    public boolean onEvent(HistoryEvent historyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
-            if (historyEvent != null && !TextUtils.isEmpty(historyEvent.tid)) {
-                a26.a(historyEvent.tid);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void a(@Nullable a aVar);
+
+    void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5);
 }

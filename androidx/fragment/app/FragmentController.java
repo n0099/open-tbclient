@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Parcelable;
@@ -8,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -65,7 +68,7 @@ public class FragmentController {
     }
 
     @Deprecated
-    public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public void dumpLoaders(@NonNull String str, @Nullable FileDescriptor fileDescriptor, @NonNull PrintWriter printWriter, @Nullable String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048599, this, str, fileDescriptor, printWriter, strArr) == null) {
         }
@@ -79,12 +82,13 @@ public class FragmentController {
     }
 
     @Deprecated
-    public void restoreLoaderNonConfig(SimpleArrayMap<String, LoaderManager> simpleArrayMap) {
+    public void restoreLoaderNonConfig(@SuppressLint({"UnknownNullness"}) SimpleArrayMap<String, LoaderManager> simpleArrayMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, simpleArrayMap) == null) {
         }
     }
 
+    @Nullable
     @Deprecated
     public SimpleArrayMap<String, LoaderManager> retainLoaderNonConfig() {
         InterceptResult invokeV;
@@ -113,7 +117,8 @@ public class FragmentController {
         this.mHost = fragmentHostCallback;
     }
 
-    public static FragmentController createController(FragmentHostCallback<?> fragmentHostCallback) {
+    @NonNull
+    public static FragmentController createController(@NonNull FragmentHostCallback<?> fragmentHostCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragmentHostCallback)) == null) {
@@ -122,7 +127,7 @@ public class FragmentController {
         return (FragmentController) invokeL.objValue;
     }
 
-    public void attachHost(Fragment fragment) {
+    public void attachHost(@Nullable Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fragment) == null) {
             FragmentHostCallback<?> fragmentHostCallback = this.mHost;
@@ -130,14 +135,14 @@ public class FragmentController {
         }
     }
 
-    public void dispatchConfigurationChanged(Configuration configuration) {
+    public void dispatchConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             this.mHost.mFragmentManager.dispatchConfigurationChanged(configuration);
         }
     }
 
-    public boolean dispatchContextItemSelected(MenuItem menuItem) {
+    public boolean dispatchContextItemSelected(@NonNull MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, menuItem)) == null) {
@@ -153,7 +158,7 @@ public class FragmentController {
         }
     }
 
-    public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
+    public boolean dispatchOptionsItemSelected(@NonNull MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, menuItem)) == null) {
@@ -162,7 +167,7 @@ public class FragmentController {
         return invokeL.booleanValue;
     }
 
-    public void dispatchOptionsMenuClosed(Menu menu) {
+    public void dispatchOptionsMenuClosed(@NonNull Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, menu) == null) {
             this.mHost.mFragmentManager.dispatchOptionsMenuClosed(menu);
@@ -176,7 +181,7 @@ public class FragmentController {
         }
     }
 
-    public boolean dispatchPrepareOptionsMenu(Menu menu) {
+    public boolean dispatchPrepareOptionsMenu(@NonNull Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, menu)) == null) {
@@ -185,7 +190,8 @@ public class FragmentController {
         return invokeL.booleanValue;
     }
 
-    public Fragment findFragmentByWho(String str) {
+    @Nullable
+    public Fragment findFragmentByWho(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
@@ -194,7 +200,8 @@ public class FragmentController {
         return (Fragment) invokeL.objValue;
     }
 
-    public List<Fragment> getActiveFragments(List<Fragment> list) {
+    @NonNull
+    public List<Fragment> getActiveFragments(@SuppressLint({"UnknownNullness"}) List<Fragment> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, list)) == null) {
@@ -203,7 +210,7 @@ public class FragmentController {
         return (List) invokeL.objValue;
     }
 
-    public void restoreSaveState(Parcelable parcelable) {
+    public void restoreSaveState(@Nullable Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, parcelable) == null) {
             FragmentHostCallback<?> fragmentHostCallback = this.mHost;
@@ -296,6 +303,7 @@ public class FragmentController {
         return invokeV.intValue;
     }
 
+    @NonNull
     public FragmentManager getSupportFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -305,6 +313,7 @@ public class FragmentController {
         return (FragmentManager) invokeV.objValue;
     }
 
+    @SuppressLint({"UnknownNullness"})
     @Deprecated
     public LoaderManager getSupportLoaderManager() {
         InterceptResult invokeV;
@@ -322,6 +331,7 @@ public class FragmentController {
         }
     }
 
+    @Nullable
     @Deprecated
     public FragmentManagerNonConfig retainNestedNonConfig() {
         InterceptResult invokeV;
@@ -332,6 +342,7 @@ public class FragmentController {
         return (FragmentManagerNonConfig) invokeV.objValue;
     }
 
+    @Nullable
     @Deprecated
     public List<Fragment> retainNonConfig() {
         InterceptResult invokeV;
@@ -346,6 +357,7 @@ public class FragmentController {
         return (List) invokeV.objValue;
     }
 
+    @Nullable
     public Parcelable saveAllState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -355,7 +367,7 @@ public class FragmentController {
         return (Parcelable) invokeV.objValue;
     }
 
-    public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+    public boolean dispatchCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, menu, menuInflater)) == null) {
@@ -365,14 +377,15 @@ public class FragmentController {
     }
 
     @Deprecated
-    public void restoreAllState(Parcelable parcelable, FragmentManagerNonConfig fragmentManagerNonConfig) {
+    public void restoreAllState(@Nullable Parcelable parcelable, @Nullable FragmentManagerNonConfig fragmentManagerNonConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048609, this, parcelable, fragmentManagerNonConfig) == null) {
             this.mHost.mFragmentManager.restoreAllState(parcelable, fragmentManagerNonConfig);
         }
     }
 
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+    @Nullable
+    public View onCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048607, this, view2, str, context, attributeSet)) == null) {
@@ -382,7 +395,7 @@ public class FragmentController {
     }
 
     @Deprecated
-    public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
+    public void restoreAllState(@Nullable Parcelable parcelable, @Nullable List<Fragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048610, this, parcelable, list) == null) {
             this.mHost.mFragmentManager.restoreAllState(parcelable, new FragmentManagerNonConfig(list, null, null));

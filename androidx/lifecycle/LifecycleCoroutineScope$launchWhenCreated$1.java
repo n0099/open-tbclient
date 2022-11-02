@@ -62,11 +62,12 @@ public final class LifecycleCoroutineScope$launchWhenCreated$1 extends SuspendLa
         return (Continuation) invokeLL.objValue;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
+    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, obj2)) == null) ? ((LifecycleCoroutineScope$launchWhenCreated$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coroutineScope, continuation)) == null) ? ((LifecycleCoroutineScope$launchWhenCreated$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

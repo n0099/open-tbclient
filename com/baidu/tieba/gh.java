@@ -1,137 +1,69 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class gh implements Animation.AnimationListener {
+public class gh extends jf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void a(Animation animation) {
+    @Override // com.baidu.tieba.jf
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    public void b(Animation animation) {
+    @Override // com.baidu.tieba.jf
+    public String[] getCrashKeys() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
+        return (String[]) invokeV.objValue;
     }
 
-    public void c(Animation animation) {
+    @Override // com.baidu.tieba.jf
+    public int getDefaultType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ gh b;
-
-        public a(gh ghVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ghVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ghVar;
-            this.a = animation;
+    @Override // com.baidu.tieba.jf
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c(this.a);
-            }
-        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ gh b;
-
-        public b(gh ghVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ghVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ghVar;
-            this.a = animation;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a(this.a);
-            }
-        }
+    @Override // com.baidu.tieba.jf
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "android_should_open_ubc_log" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ gh b;
-
-        public c(gh ghVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ghVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ghVar;
-            this.a = animation;
+    @Override // com.baidu.tieba.jf
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b(this.a);
-            }
-        }
+        return invokeV.intValue;
     }
 
     public gh() {
@@ -148,27 +80,15 @@ public abstract class gh implements Animation.AnimationListener {
         }
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    public static boolean isOn() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animation) == null) {
-            hh.a().post(new b(this, animation));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (SwitchManager.getInstance().findType("android_should_open_ubc_log") == 1) {
+                return true;
+            }
+            return false;
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, animation) == null) {
-            hh.a().post(new c(this, animation));
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, animation) == null) {
-            hh.a().post(new a(this, animation));
-        }
+        return invokeV.booleanValue;
     }
 }

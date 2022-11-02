@@ -1,65 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class lz7 extends CustomMessageListener {
+/* loaded from: classes5.dex */
+public class lz7 extends kz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PbActivity a;
-    public n18 b;
-    public o18 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz7(PbActivity pbActivity) {
-        super(2921728);
+    public lz7(im5 im5Var) {
+        super(im5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbActivity};
+            Object[] objArr = {im5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                super((im5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = pbActivity;
-        this.b = new n18(pbActivity);
-        o18 o18Var = new o18(pbActivity);
-        this.c = o18Var;
-        PriorityOrganizer.s(this.b, o18Var);
-        setPriority(1);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
-            }
-            if (getTag() == bdUniqueId && !this.b.v(true)) {
-                this.b.E(true);
-                this.a.d0().v(this.b);
-            }
-        }
+        o(TbConfig.getContentLineSpace(), 1.0f);
+        i(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        y(0);
+        l(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        m(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        r(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32), xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44));
+        f(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
+        s(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
+        u(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds38));
+        j(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+        h(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
     }
 }

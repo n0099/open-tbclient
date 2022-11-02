@@ -20,7 +20,7 @@ public class InternalProducerListener implements ProducerListener2 {
     public final ProducerListener2 mProducerListener2;
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map map) {
+    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, encodedImage, th, map) == null) {
         }
@@ -80,7 +80,7 @@ public class InternalProducerListener implements ProducerListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithCancellation(ProducerContext producerContext, String str, @Nullable Map map) {
+    public void onProducerFinishWithCancellation(ProducerContext producerContext, String str, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, producerContext, str, map) == null) {
             ProducerListener producerListener = this.mProducerListener;
@@ -95,7 +95,7 @@ public class InternalProducerListener implements ProducerListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithSuccess(ProducerContext producerContext, String str, @Nullable Map map) {
+    public void onProducerFinishWithSuccess(ProducerContext producerContext, String str, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, producerContext, str, map) == null) {
             ProducerListener producerListener = this.mProducerListener;
@@ -125,7 +125,7 @@ public class InternalProducerListener implements ProducerListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithFailure(ProducerContext producerContext, String str, Throwable th, @Nullable Map map) {
+    public void onProducerFinishWithFailure(ProducerContext producerContext, String str, Throwable th, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, producerContext, str, th, map) == null) {
             ProducerListener producerListener = this.mProducerListener;

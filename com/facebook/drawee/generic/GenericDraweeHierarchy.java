@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.drawable.DrawableParent;
 import com.facebook.drawee.drawable.FadeDrawable;
 import com.facebook.drawee.drawable.ForwardingDrawable;
@@ -479,6 +480,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         return invokeV.booleanValue;
     }
 
+    @VisibleForTesting
     public boolean hasImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

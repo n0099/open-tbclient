@@ -1,7 +1,7 @@
 package com.baidu.swan.bdtls.impl.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qm3;
+import com.baidu.tieba.in3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import java.io.ObjectStreamException;
 /* loaded from: classes3.dex */
 public final class Bdtls$ApplicationData extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
-    public static Parser PARSER = null;
+    public static Parser<Bdtls$ApplicationData> PARSER = null;
     public static final int SKR_FIELD_NUMBER = 1;
     public static final Bdtls$ApplicationData defaultInstance;
     public static final long serialVersionUID = 0;
@@ -37,7 +37,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     public ByteString sKR_;
 
     /* loaded from: classes3.dex */
-    public final class a extends AbstractParser {
+    public static class a extends AbstractParser<Bdtls$ApplicationData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,7 +69,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     }
 
     /* loaded from: classes3.dex */
-    public final class b extends GeneratedMessageLite.Builder implements MessageLiteOrBuilder {
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$ApplicationData, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -149,7 +149,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (qm3) null);
+                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (in3) null);
                 int i = 1;
                 if ((this.a & 1) != 1) {
                     i = 0;
@@ -223,9 +223,11 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             return this;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
+        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder mergeFrom(GeneratedMessageLite generatedMessageLite) {
-            t((Bdtls$ApplicationData) generatedMessageLite);
+        public /* bridge */ /* synthetic */ b mergeFrom(Bdtls$ApplicationData bdtls$ApplicationData) {
+            t(bdtls$ApplicationData);
             return this;
         }
 
@@ -275,18 +277,18 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
                 Bdtls$ApplicationData bdtls$ApplicationData = null;
                 try {
                     try {
-                        Bdtls$ApplicationData bdtls$ApplicationData2 = (Bdtls$ApplicationData) Bdtls$ApplicationData.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                        if (bdtls$ApplicationData2 != null) {
-                            t(bdtls$ApplicationData2);
+                        Bdtls$ApplicationData parsePartialFrom = Bdtls$ApplicationData.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (parsePartialFrom != null) {
+                            t(parsePartialFrom);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
-                        Bdtls$ApplicationData bdtls$ApplicationData3 = (Bdtls$ApplicationData) e.getUnfinishedMessage();
+                        Bdtls$ApplicationData bdtls$ApplicationData2 = (Bdtls$ApplicationData) e.getUnfinishedMessage();
                         try {
                             throw e;
                         } catch (Throwable th) {
                             th = th;
-                            bdtls$ApplicationData = bdtls$ApplicationData3;
+                            bdtls$ApplicationData = bdtls$ApplicationData2;
                             if (bdtls$ApplicationData != null) {
                             }
                             throw th;
@@ -360,7 +362,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-    public Parser getParserForType() {
+    public Parser<Bdtls$ApplicationData> getParserForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -509,7 +511,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, qm3 qm3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, in3 in3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -535,7 +537,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, qm3 qm3Var) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, in3 in3Var) {
         this(builder);
     }
 
@@ -543,7 +545,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, inputStream, extensionRegistryLite)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
         }
         return (Bdtls$ApplicationData) invokeLL.objValue;
     }
@@ -552,7 +554,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, byteString, extensionRegistryLite)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseFrom(byteString, extensionRegistryLite);
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
         }
         return (Bdtls$ApplicationData) invokeLL.objValue;
     }
@@ -591,7 +593,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, inputStream)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseDelimitedFrom(inputStream);
+            return PARSER.parseDelimitedFrom(inputStream);
         }
         return (Bdtls$ApplicationData) invokeL.objValue;
     }
@@ -600,7 +602,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteString)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseFrom(byteString);
+            return PARSER.parseFrom(byteString);
         }
         return (Bdtls$ApplicationData) invokeL.objValue;
     }
@@ -620,7 +622,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, codedInputStream)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseFrom(codedInputStream);
+            return PARSER.parseFrom(codedInputStream);
         }
         return (Bdtls$ApplicationData) invokeL.objValue;
     }
@@ -629,7 +631,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, codedInputStream, extensionRegistryLite)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
         return (Bdtls$ApplicationData) invokeLL.objValue;
     }
@@ -638,7 +640,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, inputStream)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseFrom(inputStream);
+            return PARSER.parseFrom(inputStream);
         }
         return (Bdtls$ApplicationData) invokeL.objValue;
     }
@@ -647,7 +649,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, inputStream, extensionRegistryLite)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
         }
         return (Bdtls$ApplicationData) invokeLL.objValue;
     }
@@ -656,7 +658,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, bArr)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseFrom(bArr);
+            return PARSER.parseFrom(bArr);
         }
         return (Bdtls$ApplicationData) invokeL.objValue;
     }
@@ -665,7 +667,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, bArr, extensionRegistryLite)) == null) {
-            return (Bdtls$ApplicationData) PARSER.parseFrom(bArr, extensionRegistryLite);
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
         }
         return (Bdtls$ApplicationData) invokeLL.objValue;
     }

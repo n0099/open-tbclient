@@ -33,7 +33,7 @@ public class bl extends bv.a implements cv.a {
     public XMPushService f943a;
 
     /* loaded from: classes8.dex */
-    public class a implements cv.b {
+    public static class a implements cv.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class bl extends bv.a implements cv.a {
     }
 
     /* loaded from: classes8.dex */
-    public class b extends cv {
+    public static class b extends cv {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public class bl extends bv.a implements cv.a {
         }
 
         @Override // com.xiaomi.push.cv
-        public String a(ArrayList arrayList, String str, String str2, boolean z) {
+        public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{arrayList, str, str2, Boolean.valueOf(z)})) == null) {
@@ -183,13 +183,13 @@ public class bl extends bv.a implements cv.a {
             if (m589a == null || (b2 = a2.b(m589a.m353a().c())) == null) {
                 return;
             }
-            ArrayList m242a = b2.m242a();
+            ArrayList<String> m242a = b2.m242a();
             boolean z = true;
-            Iterator it = m242a.iterator();
+            Iterator<String> it = m242a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (((String) it.next()).equals(m589a.m354a())) {
+                } else if (it.next().equals(m589a.m354a())) {
                     z = false;
                     break;
                 }

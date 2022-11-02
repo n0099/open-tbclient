@@ -15,7 +15,6 @@ import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.extractor.mp4.FragmentedMp4Extractor;
 import com.google.android.exoplayer2.source.chunk.ChunkExtractorWrapper;
 import com.google.android.exoplayer2.source.chunk.InitializationChunk;
-import com.google.android.exoplayer2.source.dash.manifest.AdaptationSet;
 import com.google.android.exoplayer2.source.dash.manifest.DashManifest;
 import com.google.android.exoplayer2.source.dash.manifest.DashManifestParser;
 import com.google.android.exoplayer2.source.dash.manifest.Period;
@@ -54,11 +53,11 @@ public final class DashUtil {
             if (adaptationSetIndex == -1) {
                 return null;
             }
-            List list = ((AdaptationSet) period.adaptationSets.get(adaptationSetIndex)).representations;
+            List<Representation> list = period.adaptationSets.get(adaptationSetIndex).representations;
             if (list.isEmpty()) {
                 return null;
             }
-            return (Representation) list.get(0);
+            return list.get(0);
         }
         return (Representation) invokeLI.objValue;
     }

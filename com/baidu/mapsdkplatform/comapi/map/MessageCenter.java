@@ -1,6 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Handler;
+import com.baidu.platform.comjni.engine.MessageProxy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,14 +28,14 @@ public class MessageCenter {
     public static void registMessage(int i, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65537, null, i, handler) == null) {
-            com.baidu.mapsdkplatform.comjni.engine.a.a(i, handler);
+            MessageProxy.registerMessageHandler(i, handler);
         }
     }
 
     public static void unregistMessage(int i, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, handler) == null) {
-            com.baidu.mapsdkplatform.comjni.engine.a.b(i, handler);
+            MessageProxy.unRegisterMessageHandler(i, handler);
         }
     }
 }

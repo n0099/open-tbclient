@@ -1,5 +1,6 @@
 package com.ss.android.downloadlib.f;
 
+import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.activity.TTDelegateActivity;
 import com.ss.android.downloadlib.addownload.b.f;
 import com.ss.android.downloadlib.b.i;
@@ -8,7 +9,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
 public class a implements j {
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(DownloadInfo downloadInfo, final com.ss.android.downloadlib.guide.install.a aVar) {
+    public void b(DownloadInfo downloadInfo, @NonNull final com.ss.android.downloadlib.guide.install.a aVar) {
         com.ss.android.downloadad.api.a.b a = f.a().a(downloadInfo);
         boolean a2 = com.ss.android.downloadlib.b.f.a(a);
         boolean b = com.ss.android.downloadlib.b.f.b(a);
@@ -24,7 +25,7 @@ public class a implements j {
         }
     }
 
-    public void a(final DownloadInfo downloadInfo, final com.ss.android.downloadlib.guide.install.a aVar) {
+    public void a(final DownloadInfo downloadInfo, @NonNull final com.ss.android.downloadlib.guide.install.a aVar) {
         com.ss.android.downloadad.api.a.b a = f.a().a(downloadInfo);
         if (a != null && i.a(a)) {
             TTDelegateActivity.a(a, new com.ss.android.downloadlib.guide.install.a() { // from class: com.ss.android.downloadlib.f.a.2

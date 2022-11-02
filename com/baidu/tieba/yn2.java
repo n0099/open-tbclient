@@ -1,29 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.p43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import okhttp3.Interceptor;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class yn2 extends xn2 {
+public class yn2 implements va4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.bo2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RequestDescInterceptor" : (String) invokeV.objValue;
-    }
 
     public yn2() {
         Interceptable interceptable = $ic;
@@ -39,55 +44,162 @@ public class yn2 extends xn2 {
         }
     }
 
-    @Override // com.baidu.tieba.bo2
-    public boolean enable() {
+    @Override // com.baidu.tieba.va4
+    public CookieManager f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ln2.q().a();
+        }
+        return (CookieManager) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return p43.a.c(a());
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ws1.h();
+            return AppRuntime.getAppContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public int getReadTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return p43.a.c(a());
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String g = SwanAppNetworkUtils.g();
+            if (TextUtils.isEmpty(g) && ib4.g().c()) {
+                return dg3.a();
+            }
+            return g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ln2.g0().getSwitch("bbasm_framework_request_with_ua", true);
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bo2
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.va4
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (SchemeCollecter.CLASSIFY_SWAN_V8.equals(str) && "request".equals(str2)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName()) && fy2.c()) {
                 return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bo2
-    public JSONObject c(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.va4
+    public boolean isDebug() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            try {
-                jSONObject.put("invoke", "swan.method.v8BindingObject");
-                jSONObject.put("method", "_naSwan.naRequest");
-                JSONArray optJSONArray = jSONObject.optJSONArray("args");
-                if (optJSONArray != null) {
-                    List asList = Arrays.asList("cb", "ping", "__requestDataType__");
-                    for (int length = optJSONArray.length() - 1; length >= 0; length--) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(length);
-                        if (optJSONObject != null && asList.contains(optJSONObject.optString("name"))) {
-                            optJSONArray.remove(length);
-                        }
-                    }
-                    optJSONArray.put(d("success", "function="));
-                    optJSONArray.put(d(com.baidu.pass.biometrics.face.liveness.b.a.g0, "function="));
-                    optJSONArray.put(d(TaskProcessData.keyComplete, "function="));
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ok1.a;
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (cy2.a() == 2) {
+                return 128;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public List<Interceptor> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new wv2());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return p43.a.c(a());
+        }
+        return invokeV.intValue;
+    }
+
+    public final p43.a a() {
+        InterceptResult invokeV;
+        p43.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            e43 b0 = e43.b0();
+            if (b0 == null) {
+                if (ok1.a) {
+                    Log.e("SwanNetworkImpl", "swanapp is null");
+                }
+                return null;
+            }
+            SwanAppConfigData Q = b0.Q();
+            if (Q != null && (aVar = Q.h) != null) {
+                return aVar;
+            }
+            if (ok1.a) {
+                Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
+            }
+            return null;
+        }
+        return (p43.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.va4
+    public void j(String str, HttpRequestBuilder httpRequestBuilder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, httpRequestBuilder) == null) && a12.u(str)) {
+            httpRequestBuilder.setHeader("x-u-id", qk4.b(AppRuntime.getAppContext()).a());
+            try {
+                httpRequestBuilder.setHeader("x-c2-id", ln2.h0().i(AppRuntime.getAppContext()));
+            } catch (IllegalArgumentException unused) {
+            }
+        }
     }
 }

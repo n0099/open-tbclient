@@ -1,11 +1,14 @@
 package com.google.android.gms.common.providers;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import java.util.concurrent.ScheduledExecutorService;
+@KeepForSdk
 @Deprecated
 /* loaded from: classes7.dex */
 public class PooledExecutorsProvider {
@@ -15,6 +18,8 @@ public class PooledExecutorsProvider {
 
     /* loaded from: classes7.dex */
     public interface PooledExecutorFactory {
+        @NonNull
+        @KeepForSdk
         @Deprecated
         ScheduledExecutorService newSingleThreadScheduledExecutor();
     }
@@ -33,6 +38,8 @@ public class PooledExecutorsProvider {
         }
     }
 
+    @NonNull
+    @KeepForSdk
     @Deprecated
     public static synchronized PooledExecutorFactory getInstance() {
         InterceptResult invokeV;

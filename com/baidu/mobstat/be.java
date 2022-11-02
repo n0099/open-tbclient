@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Handler;
@@ -27,7 +28,7 @@ public class be {
     public static volatile int a;
     public static final be k;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference b;
+    public WeakReference<Activity> b;
     public int c;
     public boolean d;
     public JSONObject e;
@@ -38,17 +39,17 @@ public class be {
     public bd j;
 
     /* loaded from: classes2.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener, Runnable {
+    public static class a implements ViewTreeObserver.OnGlobalLayoutListener, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean a;
         public boolean b;
-        public final WeakReference c;
+        public final WeakReference<View> c;
         public final bj d;
         public final Handler e;
         public final Handler f;
         public JSONObject g;
-        public WeakReference h;
+        public WeakReference<Activity> h;
         public boolean i;
         public boolean j;
         public boolean k;
@@ -70,10 +71,10 @@ public class be {
                 }
             }
             this.l = null;
-            this.h = new WeakReference(activity);
+            this.h = new WeakReference<>(activity);
             this.g = jSONObject;
             this.d = bjVar;
-            this.c = new WeakReference(view2);
+            this.c = new WeakReference<>(view2);
             this.e = handler;
             this.f = handler2;
             this.b = true;
@@ -128,7 +129,7 @@ public class be {
             }, 500L);
         }
 
-        private void a(WeakReference weakReference, JSONObject jSONObject, bj bjVar, Handler handler, boolean z) {
+        private void a(WeakReference<Activity> weakReference, JSONObject jSONObject, bj bjVar, Handler handler, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(65538, this, new Object[]{weakReference, jSONObject, bjVar, handler, Boolean.valueOf(z)}) != null) || bjVar == null || handler == null) {
                 return;
@@ -197,11 +198,12 @@ public class be {
             handler.postDelayed(runnable, 500L);
         }
 
+        @SuppressLint({"NewApi"})
         private void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
                 if (this.b) {
-                    View view2 = (View) this.c.get();
+                    View view2 = this.c.get();
                     if (view2 != null) {
                         ViewTreeObserver viewTreeObserver = view2.getViewTreeObserver();
                         if (viewTreeObserver.isAlive()) {
@@ -244,7 +246,7 @@ public class be {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.b) {
                 return;
             }
-            if (((View) this.c.get()) != null && !this.a) {
+            if (this.c.get() != null && !this.a) {
                 if (bc.c().b() && this.k) {
                     bc.c().a("onGlobalLayout");
                 }
@@ -253,7 +255,7 @@ public class be {
                 }
                 if (ad.b()) {
                     if (ay.c()) {
-                        Activity activity = (Activity) this.h.get();
+                        Activity activity = this.h.get();
                         if (activity != null) {
                             be.b(activity, this.i, this.k);
                             a(this.h, this.g, this.d, this.f, this.j);
@@ -369,8 +371,8 @@ public class be {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, activity, i)) == null) {
-            WeakReference weakReference = this.b;
-            if (weakReference != null && ((Activity) weakReference.get()) == activity && this.c == i) {
+            WeakReference<Activity> weakReference = this.b;
+            if (weakReference != null && weakReference.get() == activity && this.c == i) {
                 return true;
             }
             return false;
@@ -392,7 +394,7 @@ public class be {
             if (a(activity, 2)) {
                 return;
             }
-            this.b = new WeakReference(activity);
+            this.b = new WeakReference<>(activity);
             this.c = 2;
             a aVar = this.i;
             if (aVar != null) {
@@ -419,7 +421,7 @@ public class be {
             if (this.b != null && (aVar = this.i) != null) {
                 aVar.a();
             }
-            WeakReference weakReference = new WeakReference(activity);
+            WeakReference<Activity> weakReference = new WeakReference<>(activity);
             this.b = weakReference;
             this.c = 1;
             this.i = new a(activity, bi.a(activity), new bj.a(1, weakReference, this.j), this.g, this.h, this.e, this.d, true, this.f);

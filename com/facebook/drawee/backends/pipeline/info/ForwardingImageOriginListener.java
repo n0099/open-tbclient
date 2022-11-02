@@ -15,9 +15,9 @@ public class ForwardingImageOriginListener implements ImageOriginListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingImageOriginListener";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mImageOriginListeners;
+    public final List<ImageOriginListener> mImageOriginListeners;
 
-    public ForwardingImageOriginListener(Set set) {
+    public ForwardingImageOriginListener(Set<ImageOriginListener> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +80,7 @@ public class ForwardingImageOriginListener implements ImageOriginListener {
             synchronized (this) {
                 int size = this.mImageOriginListeners.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    ImageOriginListener imageOriginListener = (ImageOriginListener) this.mImageOriginListeners.get(i2);
+                    ImageOriginListener imageOriginListener = this.mImageOriginListeners.get(i2);
                     if (imageOriginListener != null) {
                         try {
                             imageOriginListener.onImageLoaded(str, i, z, str2);

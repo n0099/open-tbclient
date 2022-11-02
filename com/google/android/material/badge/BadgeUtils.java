@@ -6,6 +6,9 @@ import android.os.Build;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,6 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes7.dex */
 public class BadgeUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -58,7 +62,7 @@ public class BadgeUtils {
         }
     }
 
-    public static void attachBadgeDrawable(BadgeDrawable badgeDrawable, View view2, FrameLayout frameLayout) {
+    public static void attachBadgeDrawable(@NonNull BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, badgeDrawable, view2, frameLayout) == null) {
             setBadgeDrawableBounds(badgeDrawable, view2, frameLayout);
@@ -70,7 +74,7 @@ public class BadgeUtils {
         }
     }
 
-    public static void detachBadgeDrawable(BadgeDrawable badgeDrawable, View view2, FrameLayout frameLayout) {
+    public static void detachBadgeDrawable(@Nullable BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65541, null, badgeDrawable, view2, frameLayout) != null) || badgeDrawable == null) {
             return;
@@ -82,7 +86,7 @@ public class BadgeUtils {
         }
     }
 
-    public static void setBadgeDrawableBounds(BadgeDrawable badgeDrawable, View view2, FrameLayout frameLayout) {
+    public static void setBadgeDrawableBounds(@NonNull BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
         FrameLayout frameLayout2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, badgeDrawable, view2, frameLayout) == null) {
@@ -98,11 +102,12 @@ public class BadgeUtils {
         }
     }
 
-    public static SparseArray createBadgeDrawablesFromSavedStates(Context context, ParcelableSparseArray parcelableSparseArray) {
+    @NonNull
+    public static SparseArray<BadgeDrawable> createBadgeDrawablesFromSavedStates(Context context, @NonNull ParcelableSparseArray parcelableSparseArray) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, parcelableSparseArray)) == null) {
-            SparseArray sparseArray = new SparseArray(parcelableSparseArray.size());
+            SparseArray<BadgeDrawable> sparseArray = new SparseArray<>(parcelableSparseArray.size());
             for (int i = 0; i < parcelableSparseArray.size(); i++) {
                 int keyAt = parcelableSparseArray.keyAt(i);
                 BadgeDrawable.SavedState savedState = (BadgeDrawable.SavedState) parcelableSparseArray.valueAt(i);
@@ -117,16 +122,17 @@ public class BadgeUtils {
         return (SparseArray) invokeLL.objValue;
     }
 
-    public static ParcelableSparseArray createParcelableBadgeStates(SparseArray sparseArray) {
+    @NonNull
+    public static ParcelableSparseArray createParcelableBadgeStates(@NonNull SparseArray<BadgeDrawable> sparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseArray)) == null) {
             ParcelableSparseArray parcelableSparseArray = new ParcelableSparseArray();
             for (int i = 0; i < sparseArray.size(); i++) {
                 int keyAt = sparseArray.keyAt(i);
-                BadgeDrawable badgeDrawable = (BadgeDrawable) sparseArray.valueAt(i);
-                if (badgeDrawable != null) {
-                    parcelableSparseArray.put(keyAt, badgeDrawable.getSavedState());
+                BadgeDrawable valueAt = sparseArray.valueAt(i);
+                if (valueAt != null) {
+                    parcelableSparseArray.put(keyAt, valueAt.getSavedState());
                 } else {
                     throw new IllegalArgumentException("badgeDrawable cannot be null");
                 }
@@ -136,7 +142,7 @@ public class BadgeUtils {
         return (ParcelableSparseArray) invokeL.objValue;
     }
 
-    public static void updateBadgeBounds(Rect rect, float f, float f2, float f3, float f4) {
+    public static void updateBadgeBounds(@NonNull Rect rect, float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{rect, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             rect.set((int) (f - f3), (int) (f2 - f4), (int) (f + f3), (int) (f2 + f4));

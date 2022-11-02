@@ -1,20 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.YulePostActivity;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RewardCard;
 /* loaded from: classes5.dex */
 public class nu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public List<ou4> g;
+    public String h;
+    public List<String> i;
+    public String j;
+    public String k;
 
     public nu4() {
         Interceptable interceptable = $ic;
@@ -34,7 +44,7 @@ public class nu4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.k;
         }
         return (String) invokeV.objValue;
     }
@@ -43,44 +53,120 @@ public class nu4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.i;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<ou4> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
         }
-        try {
-            jSONObject.optLong("start_time");
-            jSONObject.optLong("end_time");
-            this.a = jSONObject.optString("activity_banner");
-            jSONObject.optString("activity_url");
-            jSONObject.optString("activity_desc");
-            this.b = jSONObject.optString("activity_button");
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+        return (String) invokeV.objValue;
     }
 
-    public void d(YulePostActivity yulePostActivity) {
+    public static nu4 l(RewardCard rewardCard) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, yulePostActivity) != null) || yulePostActivity == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardCard)) == null) {
+            if (rewardCard == null) {
+                return null;
+            }
+            nu4 nu4Var = new nu4();
+            nu4Var.a = rewardCard.icon;
+            nu4Var.b = rewardCard.title;
+            String str = rewardCard.start_text;
+            String str2 = rewardCard.end_text;
+            nu4Var.c = rewardCard.end_time;
+            nu4Var.d = rewardCard.button_text;
+            nu4Var.e = rewardCard.jump_url;
+            nu4Var.f = rewardCard.join_num;
+            nu4Var.g = new ArrayList();
+            for (int i = 0; i < rewardCard.reward_material.size(); i++) {
+                nu4Var.g.add(ou4.e(rewardCard.reward_material.get(i)));
+            }
+            nu4Var.h = rewardCard.total_num;
+            ArrayList arrayList = new ArrayList();
+            nu4Var.i = arrayList;
+            arrayList.addAll(rewardCard.head_imgs);
+            nu4Var.j = rewardCard.join_succ_text;
+            nu4Var.k = rewardCard.banner_jump_url;
+            return nu4Var;
         }
-        Long l = yulePostActivity.start_time;
-        if (l != null) {
-            l.longValue();
-        }
-        Long l2 = yulePostActivity.end_time;
-        if (l2 != null) {
-            l2.longValue();
-        }
-        this.a = yulePostActivity.activity_banner;
-        String str = yulePostActivity.activity_url;
-        String str2 = yulePostActivity.activity_desc;
-        this.b = yulePostActivity.activity_button;
+        return (nu4) invokeL.objValue;
     }
 }

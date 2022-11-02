@@ -4,6 +4,7 @@ import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import kotlin.Metadata;
+import kotlin.PublishedApi;
 import kotlin.Result;
 import kotlin.ResultKt;
 import kotlin.TypeCastException;
@@ -22,12 +23,15 @@ public final class DispatchedTaskKt {
     public static final int MODE_CANCELLABLE = 1;
     public static final int MODE_UNDISPATCHED = 2;
 
+    @PublishedApi
     public static /* synthetic */ void MODE_ATOMIC_DEFAULT$annotations() {
     }
 
+    @PublishedApi
     public static /* synthetic */ void MODE_CANCELLABLE$annotations() {
     }
 
+    @PublishedApi
     public static /* synthetic */ void MODE_UNDISPATCHED$annotations() {
     }
 
@@ -39,8 +43,8 @@ public final class DispatchedTaskKt {
         return i == 0 || i == 1;
     }
 
-    public static final void dispatch(DispatchedTask dispatchedTask, int i) {
-        Continuation delegate$kotlinx_coroutines_core = dispatchedTask.getDelegate$kotlinx_coroutines_core();
+    public static final <T> void dispatch(DispatchedTask<? super T> dispatchedTask, int i) {
+        Continuation<? super T> delegate$kotlinx_coroutines_core = dispatchedTask.getDelegate$kotlinx_coroutines_core();
         if (isDispatchedMode(i) && (delegate$kotlinx_coroutines_core instanceof DispatchedContinuation) && isCancellableMode(i) == isCancellableMode(dispatchedTask.resumeMode)) {
             CoroutineDispatcher coroutineDispatcher = ((DispatchedContinuation) delegate$kotlinx_coroutines_core).dispatcher;
             CoroutineContext context = delegate$kotlinx_coroutines_core.getContext();
@@ -55,7 +59,7 @@ public final class DispatchedTaskKt {
         resume(dispatchedTask, delegate$kotlinx_coroutines_core, i);
     }
 
-    public static final void resume(DispatchedTask dispatchedTask, Continuation continuation, int i) {
+    public static final <T> void resume(DispatchedTask<? super T> dispatchedTask, Continuation<? super T> continuation, int i) {
         Object m698constructorimpl;
         Object takeState$kotlinx_coroutines_core = dispatchedTask.takeState$kotlinx_coroutines_core();
         Throwable exceptionalResult$kotlinx_coroutines_core = dispatchedTask.getExceptionalResult$kotlinx_coroutines_core(takeState$kotlinx_coroutines_core);
@@ -98,7 +102,7 @@ public final class DispatchedTaskKt {
         continuation.resumeWith(m698constructorimpl);
     }
 
-    public static final void resumeUnconfined(DispatchedTask dispatchedTask) {
+    public static final void resumeUnconfined(DispatchedTask<?> dispatchedTask) {
         EventLoop eventLoop$kotlinx_coroutines_core = ThreadLocalEventLoop.INSTANCE.getEventLoop$kotlinx_coroutines_core();
         if (eventLoop$kotlinx_coroutines_core.isUnconfinedLoopActive()) {
             eventLoop$kotlinx_coroutines_core.dispatchUnconfined(dispatchedTask);
@@ -116,7 +120,7 @@ public final class DispatchedTaskKt {
         }
     }
 
-    public static final void resumeWithStackTrace(Continuation continuation, Throwable th) {
+    public static final void resumeWithStackTrace(Continuation<?> continuation, Throwable th) {
         Result.Companion companion = Result.Companion;
         if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
             th = StackTraceRecoveryKt.recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
@@ -124,7 +128,7 @@ public final class DispatchedTaskKt {
         continuation.resumeWith(Result.m698constructorimpl(ResultKt.createFailure(th)));
     }
 
-    public static final void runUnconfinedEventLoop(DispatchedTask dispatchedTask, EventLoop eventLoop, Function0 function0) {
+    public static final void runUnconfinedEventLoop(DispatchedTask<?> dispatchedTask, EventLoop eventLoop, Function0<Unit> function0) {
         eventLoop.incrementUseCount(true);
         try {
             function0.invoke();

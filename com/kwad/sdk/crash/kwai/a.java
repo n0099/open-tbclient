@@ -4,8 +4,10 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static Context ab;
     public static String ahh;
@@ -25,7 +27,7 @@ public final class a {
         return dataDir;
     }
 
-    public static void init(Context context, String str) {
+    public static void init(@NonNull Context context, @Nullable String str) {
         ab = context;
         ahh = str;
     }

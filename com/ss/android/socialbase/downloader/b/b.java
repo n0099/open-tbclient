@@ -11,7 +11,7 @@ public interface b extends IInterface {
     void a(Map map, Map map2) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class a extends Binder implements b {
+    public static abstract class a extends Binder implements b {
         @Override // android.os.IInterface
         public IBinder asBinder() {
             return this;
@@ -19,11 +19,11 @@ public interface b extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0667a implements b {
+        public static class C0678a implements b {
             public static b a;
             public IBinder b;
 
-            public C0667a(IBinder iBinder) {
+            public C0678a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -57,7 +57,7 @@ public interface b extends IInterface {
         }
 
         public static b a() {
-            return C0667a.a;
+            return C0678a.a;
         }
 
         public static b a(IBinder iBinder) {
@@ -68,7 +68,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C0667a(iBinder);
+            return new C0678a(iBinder);
         }
 
         @Override // android.os.Binder

@@ -13,7 +13,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.CookieSpec;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BestMatchSpec implements CookieSpec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class BestMatchSpec implements CookieSpec {
     }
 
     @Override // org.apache.http.cookie.CookieSpec
-    public List formatCookies(List list) {
+    public List<Header> formatCookies(List<Cookie> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
@@ -93,7 +93,7 @@ public class BestMatchSpec implements CookieSpec {
     }
 
     @Override // org.apache.http.cookie.CookieSpec
-    public List parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
+    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, header, cookieOrigin)) == null) {

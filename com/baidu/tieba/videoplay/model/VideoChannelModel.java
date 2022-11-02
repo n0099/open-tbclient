@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,9 +44,9 @@ public class VideoChannelModel extends BdBaseModel {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(List list, boolean z);
+        void a(List<VideoItemData> list, boolean z);
 
-        void b(List list);
+        void b(List<VideoItemData> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -114,13 +114,13 @@ public class VideoChannelModel extends BdBaseModel {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.a.e)));
                 }
                 if (httpResponsedMessage != null && httpResponsedMessage.getError() == 0) {
-                    List arrayList = new ArrayList();
+                    List<VideoItemData> arrayList = new ArrayList<>();
                     if (httpResponsedMessage instanceof VideoChannelHttpResponseMessage) {
                         arrayList = ((VideoChannelHttpResponseMessage) httpResponsedMessage).getVideoItemDatas();
                         while (i < arrayList.size()) {
-                            ((VideoItemData) arrayList.get(i)).setChannelMidRequestNum(this.a.c);
+                            arrayList.get(i).setChannelMidRequestNum(this.a.c);
                             i++;
-                            ((VideoItemData) arrayList.get(i)).setChannelMidRequestVideoNum(i);
+                            arrayList.get(i).setChannelMidRequestVideoNum(i);
                         }
                     }
                     TbSingleton.getInstance().clearVideoRecord();
@@ -167,13 +167,13 @@ public class VideoChannelModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                fj.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c68));
+                xi.M(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c7f));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -242,9 +242,9 @@ public class VideoChannelModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED);
-            httpMessage.addParam("scr_w", fj.k(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_h", fj.i(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_dip", Float.valueOf(fj.h(TbadkCoreApplication.getInst())));
+            httpMessage.addParam("scr_w", xi.l(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_h", xi.j(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_dip", Float.valueOf(xi.i(TbadkCoreApplication.getInst())));
             httpMessage.addParam("new_net_type", BdNetTypeUtil.netType());
             httpMessage.addParam("load_type", i);
             return httpMessage;

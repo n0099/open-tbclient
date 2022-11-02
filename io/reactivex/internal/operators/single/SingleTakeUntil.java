@@ -19,21 +19,21 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SingleTakeUntil extends Single {
+public final class SingleTakeUntil<T, U> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher other;
-    public final SingleSource source;
+    public final Publisher<U> other;
+    public final SingleSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class TakeUntilMainObserver extends AtomicReference implements SingleObserver, Disposable {
+    public static final class TakeUntilMainObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -622603812305745221L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
         public final TakeUntilOtherSubscriber other;
 
-        public TakeUntilMainObserver(SingleObserver singleObserver) {
+        public TakeUntilMainObserver(SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public final class SingleTakeUntil extends Single {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -75,9 +75,9 @@ public final class SingleTakeUntil extends Single {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 this.other.dispose();
-                Disposable disposable = (Disposable) get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (disposable != disposableHelper && ((Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                if (disposable != disposableHelper && getAndSet(disposableHelper) != DisposableHelper.DISPOSED) {
                     this.actual.onError(th);
                 } else {
                     RxJavaPlugins.onError(th);
@@ -94,25 +94,25 @@ public final class SingleTakeUntil extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 this.other.dispose();
-                if (((Disposable) getAndSet(DisposableHelper.DISPOSED)) != DisposableHelper.DISPOSED) {
-                    this.actual.onSuccess(obj);
+                if (getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
+                    this.actual.onSuccess(t);
                 }
             }
         }
 
         public void otherError(Throwable th) {
-            Disposable disposable;
+            Disposable andSet;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                Disposable disposable2 = (Disposable) get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (disposable2 != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
-                    if (disposable != null) {
-                        disposable.dispose();
+                if (disposable != disposableHelper && (andSet = getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                    if (andSet != null) {
+                        andSet.dispose();
                     }
                     this.actual.onError(th);
                     return;
@@ -123,13 +123,13 @@ public final class SingleTakeUntil extends Single {
     }
 
     /* loaded from: classes8.dex */
-    public final class TakeUntilOtherSubscriber extends AtomicReference implements FlowableSubscriber {
+    public static final class TakeUntilOtherSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5170026210238877381L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final TakeUntilMainObserver parent;
+        public final TakeUntilMainObserver<?> parent;
 
-        public TakeUntilOtherSubscriber(TakeUntilMainObserver takeUntilMainObserver) {
+        public TakeUntilOtherSubscriber(TakeUntilMainObserver<?> takeUntilMainObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,9 +182,9 @@ public final class SingleTakeUntil extends Single {
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Object obj = get();
+                Subscription subscription = get();
                 SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-                if (obj != subscriptionHelper) {
+                if (subscription != subscriptionHelper) {
                     lazySet(subscriptionHelper);
                     this.parent.otherError(new CancellationException());
                 }
@@ -192,7 +192,7 @@ public final class SingleTakeUntil extends Single {
         }
     }
 
-    public SingleTakeUntil(SingleSource singleSource, Publisher publisher) {
+    public SingleTakeUntil(SingleSource<T> singleSource, Publisher<U> publisher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -212,7 +212,7 @@ public final class SingleTakeUntil extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(singleObserver);

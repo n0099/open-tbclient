@@ -6,6 +6,7 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +79,8 @@ public final class DrawableToBitmapConverter {
         }
     }
 
-    public static Resource convert(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
+    @Nullable
+    public static Resource<Bitmap> convert(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
         InterceptResult invokeLLII;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
@@ -101,6 +103,7 @@ public final class DrawableToBitmapConverter {
         return (Resource) invokeLLII.objValue;
     }
 
+    @Nullable
     public static Bitmap drawToBitmap(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;

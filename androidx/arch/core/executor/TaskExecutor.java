@@ -1,20 +1,23 @@
 package androidx.arch.core.executor;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class TaskExecutor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void executeOnDiskIO(Runnable runnable);
+    public abstract void executeOnDiskIO(@NonNull Runnable runnable);
 
     public abstract boolean isMainThread();
 
-    public abstract void postToMainThread(Runnable runnable);
+    public abstract void postToMainThread(@NonNull Runnable runnable);
 
     public TaskExecutor() {
         Interceptable interceptable = $ic;
@@ -30,7 +33,7 @@ public abstract class TaskExecutor {
         }
     }
 
-    public void executeOnMainThread(Runnable runnable) {
+    public void executeOnMainThread(@NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
             if (isMainThread()) {

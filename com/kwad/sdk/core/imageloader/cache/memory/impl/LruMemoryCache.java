@@ -7,9 +7,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LruMemoryCache implements MemoryCache {
-    public final LinkedHashMap map;
+    public final LinkedHashMap<String, DecodedResult> map;
     public final int maxSize;
     public int size;
 
@@ -18,7 +18,7 @@ public class LruMemoryCache implements MemoryCache {
             throw new IllegalArgumentException("maxSize <= 0");
         }
         this.maxSize = i;
-        this.map = new LinkedHashMap(0, 0.75f, true);
+        this.map = new LinkedHashMap<>(0, 0.75f, true);
     }
 
     private int sizeOf(String str, DecodedResult decodedResult) {
@@ -38,13 +38,13 @@ public class LruMemoryCache implements MemoryCache {
                     if (this.size <= i || this.map.isEmpty()) {
                         break;
                     }
-                    Map.Entry entry = (Map.Entry) this.map.entrySet().iterator().next();
-                    if (entry == null) {
+                    Map.Entry<String, DecodedResult> next = this.map.entrySet().iterator().next();
+                    if (next == null) {
                         return;
                     }
-                    String str = (String) entry.getKey();
-                    this.map.remove(str);
-                    this.size -= sizeOf(str, (DecodedResult) entry.getValue());
+                    String key = next.getKey();
+                    this.map.remove(key);
+                    this.size -= sizeOf(key, next.getValue());
                 } else {
                     break;
                 }
@@ -62,13 +62,13 @@ public class LruMemoryCache implements MemoryCache {
         DecodedResult decodedResult;
         am.T(str, "key");
         synchronized (this) {
-            decodedResult = (DecodedResult) this.map.get(str);
+            decodedResult = this.map.get(str);
         }
         return decodedResult;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public Collection keys() {
+    public Collection<String> keys() {
         HashSet hashSet;
         synchronized (this) {
             hashSet = new HashSet(this.map.keySet());
@@ -82,9 +82,9 @@ public class LruMemoryCache implements MemoryCache {
         am.e(decodedResult, "value");
         synchronized (this) {
             this.size += sizeOf(str, decodedResult);
-            DecodedResult decodedResult2 = (DecodedResult) this.map.put(str, decodedResult);
-            if (decodedResult2 != null) {
-                this.size -= sizeOf(str, decodedResult2);
+            DecodedResult put = this.map.put(str, decodedResult);
+            if (put != null) {
+                this.size -= sizeOf(str, put);
             }
         }
         trimToSize(this.maxSize);
@@ -93,15 +93,15 @@ public class LruMemoryCache implements MemoryCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public final DecodedResult remove(String str) {
-        DecodedResult decodedResult;
+        DecodedResult remove;
         am.T(str, "key");
         synchronized (this) {
-            decodedResult = (DecodedResult) this.map.remove(str);
-            if (decodedResult != null) {
-                this.size -= sizeOf(str, decodedResult);
+            remove = this.map.remove(str);
+            if (remove != null) {
+                this.size -= sizeOf(str, remove);
             }
         }
-        return decodedResult;
+        return remove;
     }
 
     public final synchronized String toString() {

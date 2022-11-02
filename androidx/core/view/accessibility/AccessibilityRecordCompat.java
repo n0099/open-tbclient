@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Parcelable;
 import android.view.View;
 import android.view.accessibility.AccessibilityRecord;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -540,7 +541,7 @@ public class AccessibilityRecordCompat {
         }
     }
 
-    public static void setSource(AccessibilityRecord accessibilityRecord, View view2, int i) {
+    public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLI(65543, null, accessibilityRecord, view2, i) == null) && Build.VERSION.SDK_INT >= 16) {
             accessibilityRecord.setSource(view2, i);

@@ -1,16 +1,16 @@
 package rx.internal.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.jy9;
-import com.baidu.tieba.zx9;
+import com.baidu.tieba.iz9;
+import com.baidu.tieba.mz9;
+import com.baidu.tieba.sz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class SingleDelayedProducer extends AtomicInteger implements zx9 {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements iz9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
@@ -18,15 +18,15 @@ public final class SingleDelayedProducer extends AtomicInteger implements zx9 {
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dy9 child;
-    public Object value;
+    public final mz9<? super T> child;
+    public T value;
 
-    public SingleDelayedProducer(dy9 dy9Var) {
+    public SingleDelayedProducer(mz9<? super T> mz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dy9Var};
+            Object[] objArr = {mz9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,18 +36,18 @@ public final class SingleDelayedProducer extends AtomicInteger implements zx9 {
                 return;
             }
         }
-        this.child = dy9Var;
+        this.child = mz9Var;
     }
 
-    public void setValue(Object obj) {
+    public void setValue(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             do {
                 int i = get();
                 if (i == 0) {
-                    this.value = obj;
+                    this.value = t;
                 } else if (i == 2 && compareAndSet(2, 3)) {
-                    emit(this.child, obj);
+                    emit(this.child, t);
                     return;
                 } else {
                     return;
@@ -56,23 +56,25 @@ public final class SingleDelayedProducer extends AtomicInteger implements zx9 {
         }
     }
 
-    public static void emit(dy9 dy9Var, Object obj) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> void emit(mz9<? super T> mz9Var, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, dy9Var, obj) != null) || dy9Var.isUnsubscribed()) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, mz9Var, t) != null) || mz9Var.isUnsubscribed()) {
             return;
         }
         try {
-            dy9Var.onNext(obj);
-            if (dy9Var.isUnsubscribed()) {
+            mz9Var.onNext(t);
+            if (mz9Var.isUnsubscribed()) {
                 return;
             }
-            dy9Var.onCompleted();
+            mz9Var.onCompleted();
         } catch (Throwable th) {
-            jy9.g(th, dy9Var, obj);
+            sz9.g(th, mz9Var, t);
         }
     }
 
-    @Override // com.baidu.tieba.zx9
+    @Override // com.baidu.tieba.iz9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

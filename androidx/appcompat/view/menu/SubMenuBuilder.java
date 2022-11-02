@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     public static /* synthetic */ Interceptable $ic;
@@ -137,7 +140,7 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
-    public boolean dispatchMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+    public boolean dispatchMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder, menuItem)) == null) {

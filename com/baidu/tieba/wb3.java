@@ -1,63 +1,98 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class wb3 extends ProviderDelegation {
+public class wb3 extends b63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract Bundle c(vb3 vb3Var);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948264769, "Lcom/baidu/tieba/wb3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948264769, "Lcom/baidu/tieba/wb3;");
-                return;
-            }
-        }
-        a = wj1.a;
-    }
-
-    public wb3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wb3(b53 b53Var) {
+        super(b53Var, "/swanAPI/file/removeSavedFile");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public final Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            if (bundle.isEmpty()) {
-                return Bundle.EMPTY;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (context != null && callbackHandler != null && e43Var != null && e43Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    e12.c("removeSavedFile", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String M = mb3.M(optParamsAsJo.optString("filePath"), e43.g0());
+                if (b63.b) {
+                    Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
+                    Log.d("SaveFileAction", "——> handle: filePath " + M);
+                }
+                if (b63.b) {
+                    Log.d("RemoveSavedFileAction", "——> handle: filePath " + M);
+                }
+                if (TextUtils.isEmpty(M)) {
+                    e12.c("removeSavedFile", "file path is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                int a = e43Var.f0().a(M);
+                if (b63.b) {
+                    Log.d("RemoveSavedFileAction", "——> handle: statusCode " + a);
+                }
+                if (a > 2000) {
+                    e12.c("removeSavedFile", "file path status code : " + a);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, y43.a(a)));
+                    return false;
+                } else if (ik4.k(M)) {
+                    e12.i("removeSavedFile", "file delete success");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    if (b63.b) {
+                        Log.d("RemoveSavedFileAction", "——> handle:  delete OK ");
+                        return true;
+                    }
+                    return true;
+                } else {
+                    e12.c("removeSavedFile", "file delete fail");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, y43.a(2004)));
+                    if (b63.b) {
+                        Log.d("RemoveSavedFileAction", "——> handle:  delete fail ");
+                    }
+                    return false;
+                }
             }
-            return c(vb3.b(bundle));
+            e12.c("removeSavedFile", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

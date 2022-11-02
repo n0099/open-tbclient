@@ -3,6 +3,8 @@ package androidx.core.view.accessibility;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.os.Build;
 import android.view.accessibility.AccessibilityManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +57,7 @@ public final class AccessibilityManagerCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public AccessibilityStateChangeListener mListener;
 
-        public AccessibilityStateChangeListenerWrapper(AccessibilityStateChangeListener accessibilityStateChangeListener) {
+        public AccessibilityStateChangeListenerWrapper(@NonNull AccessibilityStateChangeListener accessibilityStateChangeListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,13 +108,14 @@ public final class AccessibilityManagerCompat {
         }
     }
 
+    @RequiresApi(19)
     /* loaded from: classes.dex */
     public static final class TouchExplorationStateChangeListenerWrapper implements AccessibilityManager.TouchExplorationStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TouchExplorationStateChangeListener mListener;
 
-        public TouchExplorationStateChangeListenerWrapper(TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
+        public TouchExplorationStateChangeListenerWrapper(@NonNull TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

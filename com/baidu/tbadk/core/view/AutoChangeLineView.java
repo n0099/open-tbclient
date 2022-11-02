@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -16,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.gr8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,10 +33,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int obfuscated = 2131304535;
+    public static final int obfuscated = 2131304610;
 
     /* renamed from: E */
-    public static final int obfuscated = 2131304536;
+    public static final int obfuscated = 2131304611;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;
@@ -61,15 +62,15 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public boolean s;
     public boolean t;
     public boolean u;
-    public ArrayList v;
-    public ArrayList w;
-    public ArrayList x;
+    public ArrayList<Object> v;
+    public ArrayList<Integer> w;
+    public ArrayList<Integer> x;
     public int y;
     public c z;
 
     /* loaded from: classes3.dex */
-    public interface b {
-        CharSequence a(TextView textView, int i, Object obj);
+    public interface b<T> {
+        CharSequence a(TextView textView, int i, T t);
     }
 
     /* loaded from: classes3.dex */
@@ -109,7 +110,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class SelectType {
+    public static final class SelectType {
         public static final /* synthetic */ SelectType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SelectType MULTI;
@@ -202,7 +203,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     }
 
     /* loaded from: classes3.dex */
-    public class a implements b {
+    public class a implements b<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoChangeLineView a;
@@ -261,9 +262,9 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         this.g = 0;
         this.s = false;
         this.t = false;
-        this.v = new ArrayList();
-        this.w = new ArrayList();
-        this.x = new ArrayList();
+        this.v = new ArrayList<>();
+        this.w = new ArrayList<>();
+        this.x = new ArrayList<>();
         this.a = context;
     }
 
@@ -345,9 +346,9 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         this.g = 0;
         this.s = false;
         this.t = false;
-        this.v = new ArrayList();
-        this.w = new ArrayList();
-        this.x = new ArrayList();
+        this.v = new ArrayList<>();
+        this.w = new ArrayList<>();
+        this.x = new ArrayList<>();
         this.a = context;
         d(context, attributeSet);
     }
@@ -376,29 +377,29 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         this.g = 0;
         this.s = false;
         this.t = false;
-        this.v = new ArrayList();
-        this.w = new ArrayList();
-        this.x = new ArrayList();
+        this.v = new ArrayList<>();
+        this.w = new ArrayList<>();
+        this.x = new ArrayList<>();
         this.a = context;
         d(context, attributeSet);
     }
 
-    public final void a(Object obj, int i, b bVar) {
+    public final <T> void a(T t, int i, b<T> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, obj, i, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, t, i, bVar) == null) {
             EMTextView eMTextView = new EMTextView(this.a);
             eMTextView.setPadding(this.h, this.i, this.j, this.k);
             eMTextView.setTextSize(0, this.c);
             eMTextView.setGravity(this.g);
             eMTextView.setTextColor(this.b);
             eMTextView.setBackgroundDrawable(this.d.getConstantState().newDrawable());
-            eMTextView.setTag(obfuscated, obj);
+            eMTextView.setTag(obfuscated, t);
             eMTextView.setTag(obfuscated, Integer.valueOf(i));
             eMTextView.setOnClickListener(this);
             eMTextView.setOnLongClickListener(this);
             eMTextView.getPaint().setFakeBoldText(this.t);
             addView(eMTextView, this.e, this.f);
-            eMTextView.setText(bVar.a(eMTextView, i, obj));
+            eMTextView.setText(bVar.a(eMTextView, i, t));
         }
     }
 
@@ -420,7 +421,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         return invokeF.intValue;
     }
 
-    public void setCompulsorys(List list) {
+    public void setCompulsorys(List<Integer> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048612, this, list) == null) && this.n == SelectType.MULTI && list != null) {
             this.x.clear();
@@ -491,7 +492,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         }
     }
 
-    public void setLabels(List list) {
+    public void setLabels(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, list) == null) {
             setLabels(list, new a(this));
@@ -569,13 +570,13 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         }
     }
 
-    public void setSelects(List list) {
+    public void setSelects(List<Integer> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048636, this, list) == null) && list != null) {
             int size = list.size();
             int[] iArr = new int[size];
             for (int i = 0; i < size; i++) {
-                iArr[i] = ((Integer) list.get(i)).intValue();
+                iArr[i] = list.get(i).intValue();
             }
             setSelects(iArr);
         }
@@ -627,14 +628,14 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         }
     }
 
-    public List getSelectLabelDatas() {
+    public <T> List<T> getSelectLabelDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             ArrayList arrayList = new ArrayList();
             int size = this.w.size();
             for (int i = 0; i < size; i++) {
-                Object tag = getChildAt(((Integer) this.w.get(i)).intValue()).getTag(obfuscated);
+                Object tag = getChildAt(this.w.get(i).intValue()).getTag(obfuscated);
                 if (tag != null) {
                     arrayList.add(tag);
                 }
@@ -644,10 +645,11 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         return (List) invokeV.objValue;
     }
 
+    @SuppressLint({"UseCompatLoadingForDrawables"})
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.AutoChangeLineView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.AutoChangeLineView);
             this.n = SelectType.get(obtainStyledAttributes.getInt(18, 1));
             this.o = obtainStyledAttributes.getInteger(16, 0);
             this.p = obtainStyledAttributes.getInteger(17, 0);
@@ -704,7 +706,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         }
     }
 
-    public List getCompulsorys() {
+    public List<Integer> getCompulsorys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -740,7 +742,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         return invokeV.floatValue;
     }
 
-    public List getLabels() {
+    public <T> List<T> getLabels() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -803,7 +805,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         return invokeV.intValue;
     }
 
-    public List getSelectLabels() {
+    public List<Integer> getSelectLabels() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
@@ -987,7 +989,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         return invokeII.intValue;
     }
 
-    public void setLabels(List list, b bVar) {
+    public <T> void setLabels(List<T> list, b<T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048624, this, list, bVar) == null) {
             e();

@@ -20,7 +20,7 @@ public class FrescoSystrace {
 
     /* renamed from: com.facebook.imagepipeline.systrace.FrescoSystrace$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -50,7 +50,7 @@ public class FrescoSystrace {
     }
 
     /* loaded from: classes7.dex */
-    public final class NoOpArgsBuilder implements ArgsBuilder {
+    public static final class NoOpArgsBuilder implements ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

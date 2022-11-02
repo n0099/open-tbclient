@@ -77,10 +77,10 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends Handler {
+    public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<AdGallery> a;
 
         public b(AdGallery adGallery) {
             Interceptable interceptable = $ic;
@@ -97,14 +97,14 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
                     return;
                 }
             }
-            this.a = new WeakReference(adGallery);
+            this.a = new WeakReference<>(adGallery);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             AdGallery adGallery;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (adGallery = (AdGallery) this.a.get()) != null && message.what == 1 && adGallery.d) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (adGallery = this.a.get()) != null && message.what == 1 && adGallery.d) {
                 if (adGallery.getSelectedItemPosition() >= adGallery.getCount() - 1) {
                     adGallery.setSelection(0, true);
                     adGallery.onKeyDown(21, null);

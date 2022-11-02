@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.engine;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,21 +15,21 @@ import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback {
+public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public File cacheFile;
-    public final List cacheKeys;
+    public final List<Key> cacheKeys;
     public final DataFetcherGenerator.FetcherReadyCallback cb;
-    public final DecodeHelper helper;
-    public volatile ModelLoader.LoadData loadData;
+    public final DecodeHelper<?> helper;
+    public volatile ModelLoader.LoadData<?> loadData;
     public int modelLoaderIndex;
-    public List modelLoaders;
+    public List<ModelLoader<File, ?>> modelLoaders;
     public int sourceIdIndex;
     public Key sourceKey;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DataCacheGenerator(DecodeHelper decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
+    public DataCacheGenerator(DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
         this(decodeHelper.getCacheKeys(), decodeHelper, fetcherReadyCallback);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +49,7 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
         }
     }
 
-    public DataCacheGenerator(List list, DecodeHelper decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
+    public DataCacheGenerator(List<Key> list, DecodeHelper<?> decodeHelper, DataFetcherGenerator.FetcherReadyCallback fetcherReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +84,7 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
 
     @Override // com.bumptech.glide.load.engine.DataFetcherGenerator
     public void cancel() {
-        ModelLoader.LoadData loadData;
+        ModelLoader.LoadData<?> loadData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (loadData = this.loadData) != null) {
             loadData.fetcher.cancel();
@@ -99,7 +100,7 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
-    public void onLoadFailed(Exception exc) {
+    public void onLoadFailed(@NonNull Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
             this.cb.onDataFetcherFailed(this.sourceKey, exc, this.loadData.fetcher, DataSource.DATA_DISK_CACHE);
@@ -118,10 +119,10 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
             if (this.modelLoaders != null && hasNextModelLoader()) {
                 this.loadData = null;
                 while (!z && hasNextModelLoader()) {
-                    List list = this.modelLoaders;
+                    List<ModelLoader<File, ?>> list = this.modelLoaders;
                     int i = this.modelLoaderIndex;
                     this.modelLoaderIndex = i + 1;
-                    this.loadData = ((ModelLoader) list.get(i)).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
+                    this.loadData = list.get(i).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
                     if (this.loadData != null && this.helper.hasLoadPath(this.loadData.fetcher.getDataClass())) {
                         this.loadData.fetcher.loadData(this.helper.getPriority(), this);
                         z = true;
@@ -134,7 +135,7 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
             if (i2 >= this.cacheKeys.size()) {
                 return false;
             }
-            Key key = (Key) this.cacheKeys.get(this.sourceIdIndex);
+            Key key = this.cacheKeys.get(this.sourceIdIndex);
             File file = this.helper.getDiskCache().get(new DataCacheKey(key, this.helper.getSignature()));
             this.cacheFile = file;
             if (file != null) {

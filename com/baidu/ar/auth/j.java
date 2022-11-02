@@ -6,9 +6,9 @@ import com.baidu.ar.callback.ICallbackWith;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface j {
-    List checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback);
+    List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback);
 
-    List checkAuth(Context context, byte[] bArr, ICallbackWith iCallbackWith, ICallbackWith iCallbackWith2);
+    List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2);
 
     boolean checkFeatureAuth(int i);
 

@@ -1,59 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.SevenZipUtils;
 /* loaded from: classes6.dex */
-public abstract class vw8 {
+public class vw8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
+    public static final String e;
+    public static final String f;
+    public static final String g;
+    public static final String h;
+    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
 
-    public abstract void b(String str);
-
-    public vw8(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255314, "Lcom/baidu/tieba/vw8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948255314, "Lcom/baidu/tieba/vw8;");
                 return;
             }
         }
-        this.a = str;
-    }
-
-    public static vw8 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new sw8(str);
-        }
-        return (vw8) invokeL.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
+        a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
+        StringBuilder sb = new StringBuilder();
+        sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
+        sb.append("/");
+        sb.append("tieba");
+        sb.append("/videoCover.jpg");
+        b = sb.toString();
+        c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
+        f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
+        sb2.append("/");
+        sb2.append("DCIM/tieba/");
+        g = sb2.toString();
+        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
+        i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
     }
 }

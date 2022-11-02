@@ -2,6 +2,7 @@ package androidx.viewpager2.widget;
 
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,12 +30,15 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     public boolean mDispatchSelected;
     public int mDragStartPosition;
     public boolean mFakeDragging;
+    @NonNull
     public final LinearLayoutManager mLayoutManager;
+    @NonNull
     public final RecyclerView mRecyclerView;
     public boolean mScrollHappened;
     public int mScrollState;
     public ScrollEventValues mScrollValues;
     public int mTarget;
+    @NonNull
     public final ViewPager2 mViewPager;
 
     /* loaded from: classes.dex */
@@ -69,7 +73,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         }
     }
 
-    public ScrollEventAdapter(ViewPager2 viewPager2) {
+    public ScrollEventAdapter(@NonNull ViewPager2 viewPager2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -365,7 +369,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-    public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, recyclerView, i) == null) {
             boolean z = true;
@@ -430,7 +434,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+    public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
         boolean z;
         int i3;
         boolean z2;

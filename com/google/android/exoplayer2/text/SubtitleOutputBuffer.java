@@ -52,7 +52,7 @@ public abstract class SubtitleOutputBuffer extends OutputBuffer implements Subti
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List getCues(long j) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {

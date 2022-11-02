@@ -14,9 +14,9 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class MimeTypeMapWrapper {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map sExtensionToMimeTypeMap;
+    public static final Map<String, String> sExtensionToMimeTypeMap;
     public static final MimeTypeMap sMimeTypeMap;
-    public static final Map sMimeTypeToExtensionMap;
+    public static final Map<String, String> sMimeTypeToExtensionMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class MimeTypeMapWrapper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String str2 = (String) sMimeTypeToExtensionMap.get(str);
+            String str2 = sMimeTypeToExtensionMap.get(str);
             if (str2 != null) {
                 return str2;
             }
@@ -68,7 +68,7 @@ public class MimeTypeMapWrapper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String str2 = (String) sExtensionToMimeTypeMap.get(str);
+            String str2 = sExtensionToMimeTypeMap.get(str);
             if (str2 != null) {
                 return str2;
             }

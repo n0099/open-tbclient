@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,10 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
     public String cardImageUrlAndroid;
     public String cardImageUrlIos;
     public String coordinate;
+    public String dynamicUrl;
+    public String exclusiveNo;
     public int freeLevel;
+    public String jumpUrl;
 
     public ThemeCardInUserData() {
         Interceptable interceptable = $ic;
@@ -73,30 +76,60 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public int getFreeLevel() {
+    public String getDynamicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.dynamicUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getExclusiveNo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.exclusiveNo;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getFreeLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.freeLevel;
         }
         return invokeV.intValue;
     }
 
+    public String getJumpUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.jumpUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void parser(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.cardId = jSONObject.optLong("props_id");
         this.cardImageUrlAndroid = jSONObject.optString("img_android");
         this.cardImageUrlIos = jSONObject.optString("img_ios");
-        this.freeLevel = jSONObject.optInt(PollingModel.LEVEL, 0);
+        this.freeLevel = jSONObject.optInt("level", 0);
         this.coordinate = jSONObject.optString("coordinate");
+        this.dynamicUrl = jSONObject.optString("dynamic_url");
+        this.exclusiveNo = jSONObject.optString("exclusive_no");
+        this.jumpUrl = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
     }
 
     public void parser(ThemeCardInUser themeCardInUser) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, themeCardInUser) != null) || themeCardInUser == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, themeCardInUser) != null) || themeCardInUser == null) {
             return;
         }
         this.cardId = themeCardInUser.props_id.longValue();
@@ -104,40 +137,64 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         this.cardImageUrlIos = themeCardInUser.img_ios;
         this.freeLevel = themeCardInUser.level.intValue();
         this.coordinate = themeCardInUser.coordinate;
+        this.dynamicUrl = themeCardInUser.dynamic_url;
+        this.exclusiveNo = themeCardInUser.exclusive_no;
+        this.jumpUrl = themeCardInUser.jump_url;
     }
 
     public void setCardId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
             this.cardId = j;
         }
     }
 
     public void setCardImageUrlAndroid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.cardImageUrlAndroid = str;
         }
     }
 
     public void setCardImageUrlIos(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.cardImageUrlIos = str;
         }
     }
 
     public void setCoordinate(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.coordinate = str;
+        }
+    }
+
+    public void setDynamicUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.dynamicUrl = str;
+        }
+    }
+
+    public void setExclusiveNo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.exclusiveNo = str;
         }
     }
 
     public void setFreeLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.freeLevel = i;
+        }
+    }
+
+    public void setJumpUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.jumpUrl = str;
         }
     }
 }

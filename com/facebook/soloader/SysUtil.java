@@ -1,5 +1,7 @@
 package com.facebook.soloader;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -32,8 +34,10 @@ public final class SysUtil {
     public static final String TAG = "SysUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @DoNotOptimize
+    @TargetApi(21)
     /* loaded from: classes7.dex */
-    public final class LollipopSysdeps {
+    public static final class LollipopSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,6 +55,7 @@ public final class SysUtil {
             }
         }
 
+        @DoNotOptimize
         public static boolean is64Bit() throws ErrnoException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -60,6 +65,7 @@ public final class SysUtil {
             return invokeV.booleanValue;
         }
 
+        @DoNotOptimize
         public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j) == null) {
@@ -74,6 +80,7 @@ public final class SysUtil {
             }
         }
 
+        @DoNotOptimize
         public static String[] getSupportedAbis() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -104,8 +111,10 @@ public final class SysUtil {
         }
     }
 
+    @DoNotOptimize
+    @TargetApi(23)
     /* loaded from: classes7.dex */
-    public final class MarshmallowSysdeps {
+    public static final class MarshmallowSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,6 +132,7 @@ public final class SysUtil {
             }
         }
 
+        @DoNotOptimize
         public static boolean is64Bit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -132,6 +142,7 @@ public final class SysUtil {
             return invokeV.booleanValue;
         }
 
+        @DoNotOptimize
         public static String[] getSupportedAbis() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -300,6 +311,7 @@ public final class SysUtil {
         return (String[]) invokeV.objValue;
     }
 
+    @SuppressLint({"CatchGeneralException"})
     public static boolean is64Bit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

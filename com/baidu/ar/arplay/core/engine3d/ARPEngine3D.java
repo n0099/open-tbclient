@@ -171,15 +171,15 @@ public class ARPEngine3D extends AbstractARPEngine3D {
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPEngine3D
-    public void updateNodeUniform(String str, HashMap hashMap) {
+    public void updateNodeUniform(String str, HashMap<String, Object> hashMap) {
         IARPScene currentScene;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) || (currentScene = getCurrentScene()) == null || TextUtils.isEmpty(str) || hashMap == null) {
             return;
         }
         IARPNode nodeByName = currentScene.getNodeByName(str);
-        for (Map.Entry entry : hashMap.entrySet()) {
-            nodeByName.updateUniform((String) entry.getKey(), entry.getValue());
+        for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
+            nodeByName.updateUniform(entry.getKey(), entry.getValue());
         }
     }
 }

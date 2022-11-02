@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -747,7 +746,7 @@ public class DBAccessMgr {
         return invokeL.intValue;
     }
 
-    public synchronized List getHostByHost(String str) {
+    public synchronized List<HostTB> getHostByHost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
@@ -778,7 +777,7 @@ public class DBAccessMgr {
         return (List) invokeL.objValue;
     }
 
-    public synchronized List getServerByIsp(int i) {
+    public synchronized List<ServerTB> getServerByIsp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
@@ -810,7 +809,7 @@ public class DBAccessMgr {
         return (List) invokeI.objValue;
     }
 
-    public synchronized List getServerV6ByIsp(int i) {
+    public synchronized List<ServerV6TB> getServerV6ByIsp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
@@ -878,12 +877,12 @@ public class DBAccessMgr {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, resultTB, z)) == null) {
             synchronized (this) {
                 if (!noNeedDB && !this.openDBFailed) {
-                    List resultByNetworkHost = getResultByNetworkHost(resultTB.getNetwork(), resultTB.getHost());
+                    List<ResultTB> resultByNetworkHost = getResultByNetworkHost(resultTB.getNetwork(), resultTB.getHost());
                     if (resultByNetworkHost.isEmpty()) {
                         return addResult(resultTB);
                     }
                     if (z) {
-                        resultTB.setId(((ResultTB) resultByNetworkHost.get(0)).getId());
+                        resultTB.setId(resultByNetworkHost.get(0).getId());
                         updateResult(resultTB);
                     }
                     return 0L;
@@ -900,12 +899,12 @@ public class DBAccessMgr {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, resultTB, z)) == null) {
             synchronized (this) {
                 if (!noNeedDB && !this.openDBFailed) {
-                    List resultV6ByNetworkHost = getResultV6ByNetworkHost(resultTB.getNetwork(), resultTB.getHost());
+                    List<ResultTB> resultV6ByNetworkHost = getResultV6ByNetworkHost(resultTB.getNetwork(), resultTB.getHost());
                     if (resultV6ByNetworkHost.isEmpty()) {
                         return addResultV6(resultTB);
                     }
                     if (z) {
-                        resultTB.setId(((ResultTB) resultV6ByNetworkHost.get(0)).getId());
+                        resultTB.setId(resultV6ByNetworkHost.get(0).getId());
                         updateResultV6(resultTB);
                     }
                     return 0L;
@@ -978,37 +977,35 @@ public class DBAccessMgr {
         return (Long) invokeL.objValue;
     }
 
-    public synchronized void delSomeServer(List list) {
+    public synchronized void delSomeServer(List<ServerTB> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             synchronized (this) {
                 if (list == null) {
                     return;
                 }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    delServer((ServerTB) it.next());
+                for (ServerTB serverTB : list) {
+                    delServer(serverTB);
                 }
             }
         }
     }
 
-    public synchronized void delSomeServerV6(List list) {
+    public synchronized void delSomeServerV6(List<ServerV6TB> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
             synchronized (this) {
                 if (list == null) {
                     return;
                 }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    delServerV6((ServerV6TB) it.next());
+                for (ServerV6TB serverV6TB : list) {
+                    delServerV6(serverV6TB);
                 }
             }
         }
     }
 
-    public synchronized List getAllHijack() {
+    public synchronized List<HijackTB> getAllHijack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
@@ -1041,7 +1038,7 @@ public class DBAccessMgr {
         return (List) invokeV.objValue;
     }
 
-    public synchronized List getAllHost() {
+    public synchronized List<HostTB> getAllHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
@@ -1072,7 +1069,7 @@ public class DBAccessMgr {
         return (List) invokeV.objValue;
     }
 
-    public synchronized List getAllServer() {
+    public synchronized List<ServerTB> getAllServer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
@@ -1103,7 +1100,7 @@ public class DBAccessMgr {
         return (List) invokeV.objValue;
     }
 
-    public synchronized List getAllServerV6() {
+    public synchronized List<ServerV6TB> getAllServerV6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
@@ -1149,7 +1146,7 @@ public class DBAccessMgr {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized List getResultByNetworkHost(String str, String str2) {
+    public synchronized List<ResultTB> getResultByNetworkHost(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, str2)) == null) {
@@ -1188,7 +1185,7 @@ public class DBAccessMgr {
         }
     }
 
-    public synchronized List getResultV6ByNetworkHost(String str, String str2) {
+    public synchronized List<ResultTB> getResultV6ByNetworkHost(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, str2)) == null) {

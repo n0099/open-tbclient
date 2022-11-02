@@ -94,7 +94,7 @@ public final class BdZeusUtil implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "unKnown" : (String) invokeV.objValue;
     }
 
-    public static String dealWithEmulatorResult(float f, List list) {
+    public static String dealWithEmulatorResult(float f, List<Integer> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), list})) == null) {

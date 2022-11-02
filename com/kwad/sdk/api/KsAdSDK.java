@@ -1,6 +1,10 @@
 package com.kwad.sdk.api;
 
 import android.content.Context;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Keep;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.KsAdSdkApi;
@@ -13,13 +17,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.concurrent.atomic.AtomicBoolean;
 @KsAdSdkApi
+@Keep
 /* loaded from: classes7.dex */
 public class KsAdSDK {
     public static Context mOriginalAppContext;
     public static String sAppTag;
     public static final AtomicBoolean sInited = new AtomicBoolean(false);
+    @Keep
     public static IKsAdSDK sSdk;
 
+    @Keep
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
     public @interface KsThemeModeType {
@@ -27,6 +34,7 @@ public class KsAdSDK {
         public static final int NORMAL = 0;
     }
 
+    @Keep
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
     public @interface SdkType {
@@ -38,6 +46,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static void deleteCache() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -46,6 +55,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static String getAppId() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -55,6 +65,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static String getAppName() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -68,12 +79,15 @@ public class KsAdSDK {
         return (context == null || (applicationContext = context.getApplicationContext()) == null) ? context : applicationContext;
     }
 
+    @Nullable
     @KsAdSdkApi
+    @Keep
     public static Context getContext() {
         return mOriginalAppContext;
     }
 
     @KsAdSdkApi
+    @Keep
     public static String getDid() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -82,7 +96,9 @@ public class KsAdSDK {
         return null;
     }
 
+    @Nullable
     @KsAdSdkApi
+    @Keep
     public static synchronized KsLoadManager getLoadManager() {
         synchronized (KsAdSDK.class) {
             if (sSdk != null) {
@@ -93,21 +109,25 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static int getSDKType() {
         return 1;
     }
 
     @KsAdSdkApi
+    @Keep
     public static String getSDKVersion() {
         return BuildConfig.VERSION_NAME;
     }
 
     @KsAdSdkApi
+    @Keep
     public static String getSDKVersion(int i) {
         return i != 1 ? "" : BuildConfig.VERSION_NAME;
     }
 
     @KsAdSdkApi
+    @Keep
     public static synchronized boolean init(Context context, SdkConfig sdkConfig) {
         boolean z;
         synchronized (KsAdSDK.class) {
@@ -154,6 +174,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static boolean isDebugLogEnable() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -163,6 +184,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static void pauseCurrentPlayer() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -178,6 +200,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static void resumeCurrentPlayer() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -186,6 +209,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static void setAdxEnable(boolean z) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -194,6 +218,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static void setAppTag(String str) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -203,14 +228,14 @@ public class KsAdSDK {
         }
     }
 
-    public static void setLoadingLottieAnimation(boolean z, int i) {
+    public static void setLoadingLottieAnimation(boolean z, @RawRes int i) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
             iKsAdSDK.setLoadingLottieAnimation(z, i);
         }
     }
 
-    public static void setLoadingLottieAnimationColor(boolean z, int i) {
+    public static void setLoadingLottieAnimationColor(boolean z, @ColorInt int i) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
             iKsAdSDK.setLoadingLottieAnimationColor(z, i);
@@ -218,6 +243,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static void setPersonalRecommend(boolean z) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -226,6 +252,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static void setProgrammaticRecommend(boolean z) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
@@ -241,6 +268,7 @@ public class KsAdSDK {
     }
 
     @KsAdSdkApi
+    @Keep
     public static void unInit() {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {

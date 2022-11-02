@@ -1,69 +1,134 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes3.dex */
-public final class dd9 {
+public class dd9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            d().edit().putBoolean(str, true).apply();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700848, "Lcom/baidu/tieba/dd9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947700848, "Lcom/baidu/tieba/dd9;");
+                return;
+            }
         }
+        a = yb9.m();
     }
 
-    public static boolean b(String str) {
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                try {
+                    i = inputStream.read(bArr, 0, 1024);
+                } catch (IOException e) {
+                    if (a) {
+                        Log.e("StringUtil", e.toString());
+                    }
+                    i = 0;
+                }
+                if (i == -1) {
+                    break;
+                }
+                byteArrayOutputStream.write(bArr, 0, i);
+            }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e2) {
+                if (a) {
+                    Log.e("StringUtil", e2.toString());
+                }
+            }
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return d().getBoolean(str, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                try {
+                    byte[] a2 = a(inputStream);
+                    if (a2 != null) {
+                        String str = new String(a2);
+                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                            str = str.substring(1);
+                        }
+                        return str;
+                    } else if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                            return null;
+                        } catch (Exception e) {
+                            e = e;
+                            if (!a) {
+                                return null;
+                            }
+                            Log.e("StringUtil", e.toString());
+                            return null;
+                        }
+                    } else {
+                        return null;
+                    }
+                } finally {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e2) {
+                            if (a) {
+                                Log.e("StringUtil", e2.toString());
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e3) {
+                if (a) {
+                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                        return null;
+                    } catch (Exception e4) {
+                        e = e4;
+                        if (!a) {
+                            return null;
+                        }
+                        Log.e("StringUtil", e.toString());
+                        return null;
+                    }
+                }
+                return null;
+            }
         }
-        return invokeL.booleanValue;
-    }
-
-    public static long c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return d().getLong(str, 0L);
-        }
-        return invokeL.longValue;
-    }
-
-    public static SharedPreferences d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return zb9.h().getContext().getSharedPreferences("baidu_ab_general_config", 0);
-        }
-        return (SharedPreferences) invokeV.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            return d().getString(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            d().edit().putString(str, str2).apply();
-        }
-    }
-
-    public static void g(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
-            d().edit().putLong(str, j).apply();
-        }
+        return (String) invokeL.objValue;
     }
 }

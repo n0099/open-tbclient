@@ -58,7 +58,7 @@ public class IntentUtils {
         }
     }
 
-    public static List getIntentHandlers(Context context, Intent intent) {
+    public static List<ComponentName> getIntentHandlers(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
@@ -124,12 +124,12 @@ public class IntentUtils {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static Parcelable safeGetParcelableExtra(Intent intent, String str) {
+    public static <T extends Parcelable> T safeGetParcelableExtra(Intent intent, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, intent, str)) == null) {
             try {
-                return intent.getParcelableExtra(str);
+                return (T) intent.getParcelableExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
                     Log.e(TAG, "getByteArrayExtra failed on intent " + intent);
@@ -138,7 +138,7 @@ public class IntentUtils {
                 return null;
             }
         }
-        return (Parcelable) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static String safeGetString(Bundle bundle, String str) {
@@ -158,7 +158,7 @@ public class IntentUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static ArrayList safeGetStringArrayListExtra(Intent intent, String str) {
+    public static ArrayList<String> safeGetStringArrayListExtra(Intent intent, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, intent, str)) == null) {

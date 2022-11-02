@@ -78,7 +78,7 @@ public final class FpsDecorator extends FrameRateListener {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005R\u0018\u0010\u0006\u001a\u0004\u0018\u00010\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\u0016\u0010\t\u001a\u00020\b8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\nR\u0016\u0010\f\u001a\u00020\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\f\u0010\r¨\u0006\u0010"}, d2 = {"Lcom/baidu/searchbox/fluency/view/FpsDecorator$Companion;", "Landroid/content/Context;", "context", "Lcom/baidu/searchbox/fluency/view/FpsDecorator;", "getInstance", "(Landroid/content/Context;)Lcom/baidu/searchbox/fluency/view/FpsDecorator;", "INSTANCE", "Lcom/baidu/searchbox/fluency/view/FpsDecorator;", "", "TAG", "Ljava/lang/String;", "", "lock", "Ljava/lang/Object;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,6 +132,7 @@ public final class FpsDecorator extends FrameRateListener {
         public float downY;
         public final /* synthetic */ FpsDecorator this$0;
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public FloatOnTouchListener(FpsDecorator fpsDecorator) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -492,11 +493,11 @@ public final class FpsDecorator extends FrameRateListener {
         this.displayMetrics = new DisplayMetrics();
         this.isEnable = true;
         this.mainHandler = FpsHandlerThread.INSTANCE.getDefaultMainHandler();
-        this.bestColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060799);
-        this.normalColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079d);
-        this.middleColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079c);
-        this.highColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079b);
-        this.frozenColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079a);
+        this.bestColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079a);
+        this.normalColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079e);
+        this.middleColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079d);
+        this.highColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079c);
+        this.frozenColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06079b);
         this.belongColor = this.bestColor;
         this.dropLevel = new int[DropLevel.values().length];
         this.lastTopPage = "default";

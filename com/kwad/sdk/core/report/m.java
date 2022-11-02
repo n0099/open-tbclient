@@ -1,6 +1,9 @@
 package com.kwad.sdk.core.report;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PageInfo;
@@ -11,7 +14,8 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class m extends c {
     public long HD;
     public long HE;
@@ -85,6 +89,7 @@ public class m extends c {
     public String errorMsg;
     public String failUrl;
     public long llsid;
+    @Nullable
     public transient AdTemplate mAdTemplate;
     public int pageType;
     public long photoId;
@@ -104,8 +109,9 @@ public class m extends c {
     public int aaQ = -1;
     public int abj = 0;
 
-    /* loaded from: classes7.dex */
-    public final class a extends com.kwad.sdk.core.response.kwai.a {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public int abo;
         public int abp;
 
@@ -117,8 +123,8 @@ public class m extends c {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public final class b {
+    /* loaded from: classes8.dex */
+    public static class b {
         public static int abo;
         public static int abp;
     }
@@ -127,12 +133,12 @@ public class m extends c {
         this.aai = j;
     }
 
-    public m(long j, AdTemplate adTemplate) {
+    public m(long j, @NonNull AdTemplate adTemplate) {
         this.aai = j;
         this.mAdTemplate = adTemplate;
     }
 
-    public m(long j, AdTemplate adTemplate, String str) {
+    public m(long j, @NonNull AdTemplate adTemplate, String str) {
         this.aai = j;
         this.mAdTemplate = adTemplate;
         this.Mn = str;
@@ -156,7 +162,7 @@ public class m extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void aI(AdTemplate adTemplate) {
+    private void aI(@Nullable AdTemplate adTemplate) {
         SceneImpl sceneImpl;
         this.aaA = 3;
         r rVar = (r) ServiceProvider.get(r.class);
@@ -243,7 +249,7 @@ public class m extends c {
     }
 
     @Override // com.kwad.sdk.core.report.c, com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(JSONObject jSONObject) {
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject == null) {
             return;

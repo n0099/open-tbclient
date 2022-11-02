@@ -42,7 +42,7 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long APPROXIMATE_START_TIME;
@@ -62,8 +62,8 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public final Thread.UncaughtExceptionHandler mPreviousHandler;
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
-    /* loaded from: classes6.dex */
-    public /* synthetic */ class AnonymousClass5 {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,14 +134,14 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
-    public final class ExtraInfo {
+    /* loaded from: classes7.dex */
+    public static final class ExtraInfo {
         public static final /* synthetic */ ExtraInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ExtraInfo ANDROID_BASEBAND;
@@ -231,8 +231,8 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public final class ZeusCrashHandlerClient {
+    /* loaded from: classes7.dex */
+    public static final class ZeusCrashHandlerClient {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "CrashHandlerClientImpl";
         public transient /* synthetic */ FieldHolder $fh;

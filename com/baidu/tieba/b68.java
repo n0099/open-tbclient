@@ -1,76 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.DuxiaomanEntry;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.UcCard;
+import tbclient.UcCardInfo;
 /* loaded from: classes3.dex */
-public class b68 extends BaseCardInfo implements eo {
+public class b68 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public DuxiaomanEntry a;
+    public List<a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947597029, "Lcom/baidu/tieba/b68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public long b;
+        public boolean c;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947597029, "Lcom/baidu/tieba/b68;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        b = BdUniqueId.gen();
+
+        public void a(UcCardInfo ucCardInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, ucCardInfo) != null) || ucCardInfo == null) {
+                return;
+            }
+            this.a = ucCardInfo.title;
+            String str = ucCardInfo.pic;
+            String str2 = ucCardInfo.jmp;
+            String str3 = ucCardInfo.tip;
+            this.b = ucCardInfo.st.intValue();
+        }
     }
 
     public b68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public DuxiaomanEntry c() {
-        InterceptResult invokeV;
+    public void a(UcCard ucCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ucCard) != null) || ucCard == null) {
+            return;
         }
-        return (DuxiaomanEntry) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(DuxiaomanEntry duxiaomanEntry) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, duxiaomanEntry) == null) {
-            this.a = duxiaomanEntry;
+        String str = ucCard.name;
+        String str2 = ucCard.icon;
+        String str3 = ucCard.doc;
+        String str4 = ucCard.jmp;
+        this.a = new ArrayList();
+        List<UcCardInfo> list = ucCard.uc_cards;
+        if (list != null) {
+            for (UcCardInfo ucCardInfo : list) {
+                if (ucCardInfo != null) {
+                    a aVar = new a();
+                    aVar.a(ucCardInfo);
+                    this.a.add(aVar);
+                }
+            }
         }
     }
 }

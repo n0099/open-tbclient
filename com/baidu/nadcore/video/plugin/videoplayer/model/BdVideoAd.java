@@ -29,13 +29,13 @@ public class BdVideoAd implements Serializable {
     public Object userInfoData;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;

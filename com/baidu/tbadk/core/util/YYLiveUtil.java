@@ -10,6 +10,7 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.tbadk.mutiprocess.urlmanager.UrlDealEvent;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,6 +25,7 @@ public class YYLiveUtil {
     public static final String SOURCE_BAIDU_LIVE_FOLLOW_HEAD = "baidu_live_zhibo_guanzhu_head";
     public static final String SOURCE_BAIDU_LIVE_RECOMMEND_BANNER = "baidu_live_recommend_banner";
     public static final String SOURCE_BAIDU_LIVE_TOP_PLAY = "baidu_live_top_play";
+    public static final String SOURCE_BIG_PIC_SECOND_FLOOR = "pb_datu_follow_livehead";
     public static final String SOURCE_CHANNEL_BANNER = "home_page_channel_banner";
     public static final String SOURCE_FORUM_USER_LIVE_PAGE = "frs_service_area_list";
     public static final String SOURCE_FRS_ALA_LIST_SECOND_FLOOR = "frs_service_area_card_livehead";
@@ -153,7 +155,7 @@ public class YYLiveUtil {
     public static String urlEncoded(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }
@@ -221,6 +223,13 @@ public class YYLiveUtil {
     public static void jumpToYYLiveRoom(TbPageContext tbPageContext, String str, String str2, String str3, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{tbPageContext, str, str2, str3, str4, str5, str6}) == null) {
+            jumpToYYLiveRoom(tbPageContext, str, str2, str3, str4, str5, str6, false);
+        }
+    }
+
+    public static void jumpToYYLiveRoom(TbPageContext tbPageContext, String str, String str2, String str3, String str4, String str5, String str6, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{tbPageContext, str, str2, str3, str4, str5, str6, Boolean.valueOf(z)}) == null) {
             StringBuilder sb = new StringBuilder(UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX);
             sb.append("sid=");
             sb.append(str);
@@ -236,13 +245,17 @@ public class YYLiveUtil {
                 sb.append("&streamInfo=");
                 sb.append(urlEncoded(str5));
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
+            if (z) {
+                UrlDealEvent.mainProcessDeal(sb.toString());
+            } else {
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
+            }
         }
     }
 
     public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+        if ((interceptable == null || interceptable.invokeLL(65548, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
             YyExtData yyExtData = alaInfoData.mYyExtData;
             String str = yyExtData.mSid;
             String str2 = yyExtData.mSsid;
@@ -253,7 +266,7 @@ public class YYLiveUtil {
 
     public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65548, null, tbPageContext, alaInfoData, str) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+        if ((interceptable == null || interceptable.invokeLLL(65549, null, tbPageContext, alaInfoData, str) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
             YyExtData yyExtData = alaInfoData.mYyExtData;
             String str2 = yyExtData.mSid;
             String str3 = yyExtData.mSsid;
@@ -265,7 +278,7 @@ public class YYLiveUtil {
     public static String makeJumpToYYLiveRoomUrl(String str, String str2, String str3, String str4, String str5, String str6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
             StringBuilder sb = new StringBuilder(UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX);
             sb.append("sid=");
             sb.append(str);

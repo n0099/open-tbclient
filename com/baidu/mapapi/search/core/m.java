@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class m implements Parcelable.Creator {
+public final class m implements Parcelable.Creator<RouteStep> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,18 +30,24 @@ public final class m implements Parcelable.Creator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public TaxiInfo createFromParcel(Parcel parcel) {
+    public RouteStep createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new TaxiInfo(parcel) : (TaxiInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+            return new RouteStep(parcel);
+        }
+        return (RouteStep) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public TaxiInfo[] newArray(int i) {
+    public RouteStep[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new TaxiInfo[i] : (TaxiInfo[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new RouteStep[i];
+        }
+        return (RouteStep[]) invokeI.objValue;
     }
 }

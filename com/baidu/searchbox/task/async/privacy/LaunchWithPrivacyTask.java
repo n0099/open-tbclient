@@ -18,7 +18,7 @@ public class LaunchWithPrivacyTask extends LaunchTask {
 
     /* renamed from: com.baidu.searchbox.task.async.privacy.LaunchWithPrivacyTask$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }

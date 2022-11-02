@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BonusMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BonusMsg> CREATOR;
     public static final String TAG = "BonusMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String mDescription;
@@ -53,7 +53,7 @@ public class BonusMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.BonusMsg.1
+        CREATOR = new Parcelable.Creator<BonusMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.BonusMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,6 +72,7 @@ public class BonusMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BonusMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -83,6 +84,7 @@ public class BonusMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BonusMsg[] newArray(int i) {
                 InterceptResult invokeI;

@@ -2,6 +2,7 @@ package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -25,8 +26,8 @@ public class STSManager {
     public static final String STS_FILE = ".sts";
     public static final String STS_FILE_PATH = "stsfile";
     public static final String TAG = "STSManager";
-    public static final HashMap infoMap;
-    public static HashMap retryTime;
+    public static final HashMap<String, STSInfo> infoMap;
+    public static HashMap<String, Long> retryTime;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +43,8 @@ public class STSManager {
                 return;
             }
         }
-        infoMap = new HashMap();
-        retryTime = new HashMap();
+        infoMap = new HashMap<>();
+        retryTime = new HashMap<>();
         RETRY_TIME_LIMIT_HOUR = TimeUnit.MINUTES.toMillis(20L);
     }
 
@@ -61,13 +62,13 @@ public class STSManager {
         }
     }
 
-    public static boolean checkRetry(String str) {
+    public static boolean checkRetry(@NonNull String str) {
         InterceptResult invokeL;
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (retryTime.containsKey(str)) {
-                j = ((Long) retryTime.get(str)).longValue();
+                j = retryTime.get(str).longValue();
             } else {
                 j = 0;
             }
@@ -81,11 +82,11 @@ public class STSManager {
         return invokeL.booleanValue;
     }
 
-    public static STSInfo getCurrentStsInfo(String str) {
+    public static STSInfo getCurrentStsInfo(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            STSInfo sTSInfo = (STSInfo) infoMap.get(str);
+            STSInfo sTSInfo = infoMap.get(str);
             if (sTSInfo == null && (sTSInfo = loadStsFromFile(str)) != null) {
                 synchronized (infoMap) {
                     infoMap.put(str, sTSInfo);

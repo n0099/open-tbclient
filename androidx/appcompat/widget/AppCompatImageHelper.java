@@ -7,6 +7,8 @@ import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
@@ -18,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AppCompatImageHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -25,9 +28,10 @@ public class AppCompatImageHelper {
     public TintInfo mImageTint;
     public TintInfo mInternalImageTint;
     public TintInfo mTmpInfo;
+    @NonNull
     public final ImageView mView;
 
-    public AppCompatImageHelper(ImageView imageView) {
+    public AppCompatImageHelper(@NonNull ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +108,7 @@ public class AppCompatImageHelper {
         }
     }
 
-    private boolean applyFrameworkTintUsingColorFilter(Drawable drawable) {
+    private boolean applyFrameworkTintUsingColorFilter(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, drawable)) == null) {

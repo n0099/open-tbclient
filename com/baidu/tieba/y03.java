@@ -1,271 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class y03 {
     public static /* synthetic */ Interceptable $ic;
-    public static y03 d;
-    public static Context e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText a;
-    public boolean b;
-    public Runnable c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y03 a;
-
-        public a(y03 y03Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948276301, "Lcom/baidu/tieba/y03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = y03Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                this.a.a.postDelayed(this.a.c, 60L);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y03 a;
-
-        public b(y03 y03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y03Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                Adapter adapter = adapterView.getAdapter();
-                if (adapter instanceof EmojiBagLayout.b) {
-                    EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
-                    if (this.a.a == null) {
-                        return;
-                    }
-                    if (i == bVar.getCount() - 1) {
-                        if (this.a.b) {
-                            this.a.a.removeCallbacks(this.a.c);
-                            this.a.b = false;
-                            return;
-                        }
-                        this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                        return;
-                    }
-                    String item = bVar.getItem(i);
-                    if (!TextUtils.isEmpty(item)) {
-                        this.a.a.getEditableText().insert(this.a.a.getSelectionStart(), z03.c().g(y03.e, item, this.a.a));
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements AdapterView.OnItemLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y03 a;
-
-        public c(y03 y03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y03Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView adapterView, View view2, int i, long j) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                Adapter adapter = adapterView.getAdapter();
-                if (!(adapter instanceof EmojiBagLayout.b) || i != ((EmojiBagLayout.b) adapter).getCount() - 1) {
-                    return false;
-                }
-                this.a.b = true;
-                if (this.a.a != null) {
-                    this.a.a.post(this.a.c);
-                    return false;
-                }
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y03 a;
-
-        public d(y03 y03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y03Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    this.a.k();
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public y03() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948276301, "Lcom/baidu/tieba/y03;");
                 return;
             }
         }
-        this.c = new a(this);
+        a = ok1.a;
     }
 
-    public AdapterView.OnItemClickListener h() {
-        InterceptResult invokeV;
+    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends e03> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new b(this);
-        }
-        return (AdapterView.OnItemClickListener) invokeV.objValue;
-    }
-
-    public AdapterView.OnItemLongClickListener i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new c(this);
-        }
-        return (AdapterView.OnItemLongClickListener) invokeV.objValue;
-    }
-
-    public View.OnTouchListener j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new d(this);
-        }
-        return (View.OnTouchListener) invokeV.objValue;
-    }
-
-    public void k() {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (editText = this.a) != null) {
-            editText.removeCallbacks(this.c);
-        }
-    }
-
-    public void f(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
-            this.a = editText;
-        }
-    }
-
-    public static y03 g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            e = context.getApplicationContext();
-            if (d == null) {
-                synchronized (y03.class) {
-                    if (d == null) {
-                        d = new y03();
-                    }
+        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
+            Iterator<d13> it = f13.k().q().iterator();
+            while (it.hasNext()) {
+                d13 next = it.next();
+                if (next != null && next.T()) {
+                    b(next.b, bundle, cls, null);
                 }
             }
-            return d;
         }
-        return (y03) invokeL.objValue;
+    }
+
+    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends e03> cls, @Nullable l03 l03Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, l03Var) == null) {
+            if (a) {
+                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
+            }
+            Message obtain = Message.obtain((Handler) null, 125);
+            obtain.replyTo = f13.k().d;
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("ai_apps_delegation_name", cls.getName());
+            if (l03Var != null) {
+                bundle2.putString("ai_apps_observer_id", l03Var.b());
+                i03.b().e(l03Var);
+            }
+            if (bundle != null) {
+                bundle2.putBundle("ai_apps_data", bundle);
+            }
+            obtain.obj = bundle2;
+            u03 e = u03.e();
+            w03 w03Var = new w03(obtain);
+            w03Var.b(swanAppProcessInfo);
+            e.h(w03Var);
+        }
+    }
+
+    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends e03> cls, @Nullable l03 l03Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, l03Var) == null) {
+            z03.Q().X(bundle, cls, l03Var);
+        }
     }
 }

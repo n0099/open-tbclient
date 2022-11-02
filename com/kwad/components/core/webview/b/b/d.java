@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -43,7 +45,7 @@ public class d extends e {
     }
 
     /* loaded from: classes7.dex */
-    public final class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean Oe;
@@ -178,13 +180,13 @@ public class d extends e {
     }
 
     @Override // com.kwad.components.core.i.e
-    public final View a(LayoutInflater layoutInflater, ViewGroup viewGroup) {
+    public final View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutInflater, viewGroup)) == null) {
             getDialog().requestWindowFeature(1);
             if (this.Om == null) {
-                this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0483, viewGroup, false);
+                this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d048e, viewGroup, false);
             }
             return this.Om;
         }
@@ -226,7 +228,7 @@ public class d extends e {
     }
 
     @Override // android.app.DialogFragment, android.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
+    public void onActivityCreated(@Nullable Bundle bundle) {
         Window window;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
@@ -365,7 +367,7 @@ public class d extends e {
     }
 
     @Override // android.app.Fragment
-    public void onViewCreated(View view2, Bundle bundle) {
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);

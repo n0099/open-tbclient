@@ -13,6 +13,7 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
@@ -62,7 +63,7 @@ public final class WebvttCueParser {
     public final StringBuilder textBuilder;
 
     /* loaded from: classes7.dex */
-    public final class StartTag {
+    public static final class StartTag {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] NO_CLASSES;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +150,7 @@ public final class WebvttCueParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class StyleMatch implements Comparable {
+    public static final class StyleMatch implements Comparable<StyleMatch> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int score;
@@ -176,7 +177,7 @@ public final class WebvttCueParser {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(StyleMatch styleMatch) {
+        public int compareTo(@NonNull StyleMatch styleMatch) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, styleMatch)) == null) {
@@ -269,7 +270,7 @@ public final class WebvttCueParser {
         }
     }
 
-    public static void applySpansForTag(String str, StartTag startTag, SpannableStringBuilder spannableStringBuilder, List list, List list2) {
+    public static void applySpansForTag(String str, StartTag startTag, SpannableStringBuilder spannableStringBuilder, List<WebvttCssStyle> list, List<StyleMatch> list2) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, startTag, spannableStringBuilder, list, list2) == null) {
@@ -345,7 +346,7 @@ public final class WebvttCueParser {
             getApplicableStyles(list, str, startTag, list2);
             int size = list2.size();
             for (int i2 = 0; i2 < size; i2++) {
-                applyStyleToText(spannableStringBuilder, ((StyleMatch) list2.get(i2)).style, i, length);
+                applyStyleToText(spannableStringBuilder, list2.get(i2).style, i, length);
             }
         }
     }
@@ -404,12 +405,12 @@ public final class WebvttCueParser {
         return invokeLI.intValue;
     }
 
-    public static void getApplicableStyles(List list, String str, StartTag startTag, List list2) {
+    public static void getApplicableStyles(List<WebvttCssStyle> list, String str, StartTag startTag, List<StyleMatch> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, null, list, str, startTag, list2) == null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                WebvttCssStyle webvttCssStyle = (WebvttCssStyle) list.get(i);
+                WebvttCssStyle webvttCssStyle = list.get(i);
                 int specificityScore = webvttCssStyle.getSpecificityScore(str, startTag.name, startTag.classes, startTag.voice);
                 if (specificityScore > 0) {
                     list2.add(new StyleMatch(specificityScore, webvttCssStyle));
@@ -539,7 +540,7 @@ public final class WebvttCueParser {
         return invokeL.intValue;
     }
 
-    public static boolean parseCue(String str, Matcher matcher, ParsableByteArray parsableByteArray, WebvttCue.Builder builder, StringBuilder sb, List list) {
+    public static boolean parseCue(String str, Matcher matcher, ParsableByteArray parsableByteArray, WebvttCue.Builder builder, StringBuilder sb, List<WebvttCssStyle> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{str, matcher, parsableByteArray, builder, sb, list})) == null) {
@@ -594,7 +595,7 @@ public final class WebvttCueParser {
         }
     }
 
-    public static void parseCueText(String str, String str2, WebvttCue.Builder builder, List list) {
+    public static void parseCueText(String str, String str2, WebvttCue.Builder builder, List<WebvttCssStyle> list) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -782,7 +783,7 @@ public final class WebvttCueParser {
         return (Layout.Alignment) invokeL.objValue;
     }
 
-    public boolean parseCue(ParsableByteArray parsableByteArray, WebvttCue.Builder builder, List list) {
+    public boolean parseCue(ParsableByteArray parsableByteArray, WebvttCue.Builder builder, List<WebvttCssStyle> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, parsableByteArray, builder, list)) == null) {

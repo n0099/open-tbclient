@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -128,7 +130,7 @@ public class LoadRecyclerView extends RecyclerView {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
@@ -168,7 +170,7 @@ public class LoadRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoadRecyclerView(Context context, AttributeSet attributeSet) {
+    public LoadRecyclerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

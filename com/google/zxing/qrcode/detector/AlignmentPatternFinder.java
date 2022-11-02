@@ -19,7 +19,7 @@ public final class AlignmentPatternFinder {
     public final int height;
     public final BitMatrix image;
     public final float moduleSize;
-    public final List possibleCenters;
+    public final List<AlignmentPattern> possibleCenters;
     public final ResultPointCallback resultPointCallback;
     public final int startX;
     public final int startY;
@@ -231,7 +231,7 @@ public final class AlignmentPatternFinder {
                 }
             }
             if (!this.possibleCenters.isEmpty()) {
-                return (AlignmentPattern) this.possibleCenters.get(0);
+                return this.possibleCenters.get(0);
             }
             throw NotFoundException.getNotFoundInstance();
         }

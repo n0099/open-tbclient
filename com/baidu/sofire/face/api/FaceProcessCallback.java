@@ -6,6 +6,7 @@ import android.hardware.Camera;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
 import com.baidu.pass.face.platform.LivenessTypeEnum;
 import com.baidu.pass.face.platform.model.FaceExtInfo;
+import com.baidu.pass.face.platform.model.ImageInfo;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public interface FaceProcessCallback {
@@ -17,7 +18,7 @@ public interface FaceProcessCallback {
 
     void onBeginCollectFaceInfo();
 
-    void onCollectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap hashMap, HashMap hashMap2, int i);
+    void onCollectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2, int i);
 
     void onConfigCamera(Camera camera, Rect rect, Rect rect2, Degree degree);
 

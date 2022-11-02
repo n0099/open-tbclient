@@ -16,22 +16,22 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableConcatWithCompletable extends AbstractFlowableWithUpstream {
+public final class FlowableConcatWithCompletable<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource other;
 
     /* loaded from: classes8.dex */
-    public final class ConcatWithSubscriber extends AtomicReference implements FlowableSubscriber, CompletableObserver, Subscription {
+    public static final class ConcatWithSubscriber<T> extends AtomicReference<Disposable> implements FlowableSubscriber<T>, CompletableObserver, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7346385463600070225L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public boolean inCompletable;
         public CompletableSource other;
         public Subscription upstream;
 
-        public ConcatWithSubscriber(Subscriber subscriber, CompletableSource completableSource) {
+        public ConcatWithSubscriber(Subscriber<? super T> subscriber, CompletableSource completableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,10 +84,10 @@ public final class FlowableConcatWithCompletable extends AbstractFlowableWithUps
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -118,7 +118,7 @@ public final class FlowableConcatWithCompletable extends AbstractFlowableWithUps
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableConcatWithCompletable(Flowable flowable, CompletableSource completableSource) {
+    public FlowableConcatWithCompletable(Flowable<T> flowable, CompletableSource completableSource) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -139,7 +139,7 @@ public final class FlowableConcatWithCompletable extends AbstractFlowableWithUps
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new ConcatWithSubscriber(subscriber, this.other));

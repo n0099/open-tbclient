@@ -1,7 +1,24 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface pm5 {
-    int a();
 
-    Object getItem(int i);
+import android.graphics.drawable.Drawable;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public class pm5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static Drawable a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                return SkinManager.getDrawable(R.drawable.icon_xiangqing_n);
+            }
+            return SkinManager.getDrawable(R.drawable.icon_xiangqing_n);
+        }
+        return (Drawable) invokeI.objValue;
+    }
 }

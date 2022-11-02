@@ -20,13 +20,13 @@ public abstract class b {
     public transient /* synthetic */ FieldHolder $fh;
     public int Z;
     public int aa;
-    public final Queue ab;
-    public final Queue ac;
+    public final Queue<a> ab;
+    public final Queue<a> ac;
     public ExecutorService ad;
 
-    public abstract Queue G();
+    public abstract Queue<a> G();
 
-    public abstract Queue H();
+    public abstract Queue<a> H();
 
     public String I() {
         InterceptResult invokeV;
@@ -79,13 +79,13 @@ public abstract class b {
                 if (this.ab.isEmpty()) {
                     return;
                 }
-                Iterator it = this.ab.iterator();
+                Iterator<a> it = this.ab.iterator();
                 while (it.hasNext()) {
-                    a aVar = (a) it.next();
-                    if (c(aVar) < this.aa) {
+                    a next = it.next();
+                    if (c(next) < this.aa) {
                         it.remove();
-                        this.ac.add(aVar);
-                        J().execute(aVar);
+                        this.ac.add(next);
+                        J().execute(next);
                     }
                     if (this.ac.size() >= this.Z) {
                         return;

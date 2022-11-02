@@ -29,7 +29,7 @@ public class Config {
     public boolean mPerfUploadSwitchOpen;
 
     /* loaded from: classes8.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mAESKey;

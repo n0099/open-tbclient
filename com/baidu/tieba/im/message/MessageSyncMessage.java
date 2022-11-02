@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.message;
 
+import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.hb7;
+import com.baidu.tieba.rc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +25,7 @@ public class MessageSyncMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int height;
-    public LongSparseArray mMids;
+    public LongSparseArray<Long> mMids;
     public NewpushRepair newpushRepire;
     public long notifyMsgId;
     public int smallHeight;
@@ -51,7 +52,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         this.mMids = null;
     }
 
-    public static String groupLastIdToString(GroupLastId groupLastId) {
+    public static String groupLastIdToString(@Nullable GroupLastId groupLastId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, groupLastId)) == null) {
@@ -63,21 +64,21 @@ public class MessageSyncMessage extends TbSocketMessage {
         return (String) invokeL.objValue;
     }
 
-    public static String groupMidsToString(List list) {
+    public static String groupMidsToString(@Nullable List<GroupLastId> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             if (list == null) {
                 return "[null]";
             }
-            Iterator it = list.iterator();
+            Iterator<GroupLastId> it = list.iterator();
             if (!it.hasNext()) {
                 return "[]";
             }
             StringBuilder sb = new StringBuilder();
             sb.append('[');
             while (true) {
-                sb.append(groupLastIdToString((GroupLastId) it.next()));
+                sb.append(groupLastIdToString(it.next()));
                 if (!it.hasNext()) {
                     sb.append(']');
                     return sb.toString();
@@ -90,7 +91,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         }
     }
 
-    public static String newpushRepairToString(NewpushRepair newpushRepair) {
+    public static String newpushRepairToString(@Nullable NewpushRepair newpushRepair) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, newpushRepair)) == null) {
@@ -117,27 +118,27 @@ public class MessageSyncMessage extends TbSocketMessage {
             if (builder.groupMids == null) {
                 builder.groupMids = new ArrayList();
             }
-            long d = hb7.e().d();
+            long d = rc7.e().d();
             boolean z = false;
             for (int i = 0; i < this.mMids.size(); i++) {
                 long keyAt = this.mMids.keyAt(i);
-                Long l = (Long) this.mMids.valueAt(i);
-                if (l != null) {
+                Long valueAt = this.mMids.valueAt(i);
+                if (valueAt != null) {
                     GroupLastId.Builder builder2 = new GroupLastId.Builder();
                     builder2.groupId = Long.valueOf(keyAt);
-                    builder2.lastMsgId = l;
+                    builder2.lastMsgId = valueAt;
                     if (d == keyAt) {
-                        builder2.excludeMid = hb7.e().g();
+                        builder2.excludeMid = rc7.e().g();
                         z = true;
                     }
                     builder.groupMids.add(builder2.build(false));
                 }
             }
-            if (!z && hb7.e().i()) {
+            if (!z && rc7.e().i()) {
                 GroupLastId.Builder builder3 = new GroupLastId.Builder();
                 builder3.groupId = Long.valueOf(d);
-                builder3.lastMsgId = hb7.e().f();
-                builder3.excludeMid = hb7.e().g();
+                builder3.lastMsgId = rc7.e().f();
+                builder3.excludeMid = rc7.e().g();
                 builder.groupMids.add(builder3.build(false));
             }
             builder.newpushRepire = getNewpushRepire();
@@ -149,7 +150,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         return invokeV.objValue;
     }
 
-    public LongSparseArray getGroupMids() {
+    public LongSparseArray<Long> getGroupMids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -212,7 +213,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         return invokeV.intValue;
     }
 
-    public void setGroupMids(LongSparseArray longSparseArray) {
+    public void setGroupMids(LongSparseArray<Long> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, longSparseArray) == null) {
             this.mMids = longSparseArray;

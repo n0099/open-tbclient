@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import java.lang.reflect.InvocationTargetException;
@@ -43,7 +44,7 @@ public class ProxyChangeListener {
     }
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -207,7 +208,7 @@ public class ProxyChangeListener {
     }
 
     /* loaded from: classes6.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -257,6 +258,7 @@ public class ProxyChangeListener {
         this.b = new Handler(this.a);
     }
 
+    @CalledByNative
     public static ProxyChangeListener create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -266,6 +268,7 @@ public class ProxyChangeListener {
         return (ProxyChangeListener) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getProperty(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -286,6 +289,7 @@ public class ProxyChangeListener {
         }
     }
 
+    @CalledByNative
     public void start(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
@@ -336,6 +340,7 @@ public class ProxyChangeListener {
         return invokeV.booleanValue;
     }
 
+    @CalledByNative
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

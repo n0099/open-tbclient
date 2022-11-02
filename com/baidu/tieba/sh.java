@@ -1,91 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class sh {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static String b;
-    public static String c;
-    public static String d;
+    public static sh b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return c;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448316920, "Lcom/baidu/tieba/sh;")) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448316920, "Lcom/baidu/tieba/sh;");
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public sh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.a = 0L;
     }
 
-    public static String c() {
+    public static sh b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d(vh vhVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, vhVar)) == null) {
-            if (!(vhVar instanceof ki) && !(vhVar instanceof ji) && !(vhVar instanceof ii)) {
-                return false;
+            if (b == null) {
+                synchronized (sh.class) {
+                    if (b == null) {
+                        b = new sh();
+                    }
+                }
             }
-            return true;
+            return b;
         }
-        return invokeL.booleanValue;
+        return (sh) invokeV.objValue;
     }
 
-    public static void f(String str) {
+    public synchronized long a() {
+        InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            c = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a > 0) {
+                    this.a++;
+                } else {
+                    this.a = System.currentTimeMillis();
+                }
+                j = this.a;
+            }
+            return j;
         }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            b = str;
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            d = str;
-        }
+        return invokeV.longValue;
     }
 }

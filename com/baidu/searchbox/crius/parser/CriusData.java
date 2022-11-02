@@ -1,5 +1,6 @@
 package com.baidu.searchbox.crius.parser;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -7,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -91,7 +93,7 @@ public class CriusData {
     public double bottom;
     public BusinessConverter businessConverter;
     public String chargeType;
-    public List children;
+    public List<CriusData> children;
     public String color;
     public String colorActive;
     public String colorNight;
@@ -127,7 +129,7 @@ public class CriusData {
     public String id;
     public boolean ignoreTextPadding;
     public int imageScaleType;
-    public Set imageUrls;
+    public Set<String> imageUrls;
     public IndicatorAttrs indicatorAttrs;
     public String justifyContent;
     public double left;
@@ -180,7 +182,7 @@ public class CriusData {
     public int shareNum;
     public String shareTitle;
     public String src;
-    public Map srcSet;
+    public Map<String, String> srcSet;
     public String stat;
     public String strokeColor;
     public String strokeNightColor;
@@ -360,6 +362,7 @@ public class CriusData {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public CriusData getPrefixLabel() {
         InterceptResult invokeV;
         PrefixLabelAttrs prefixLabelAttrs;
@@ -395,7 +398,7 @@ public class CriusData {
         }
     }
 
-    public CriusData(Context context, JSONObject jSONObject, boolean z, String str, Set set, BusinessConverter businessConverter) {
+    public CriusData(Context context, JSONObject jSONObject, boolean z, String str, Set<String> set, BusinessConverter businessConverter) {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -479,7 +482,7 @@ public class CriusData {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CriusData(Context context, JSONObject jSONObject, boolean z, Set set, BusinessConverter businessConverter) {
+    public CriusData(Context context, JSONObject jSONObject, boolean z, Set<String> set, BusinessConverter businessConverter) {
         this(context, jSONObject, z, null, set, businessConverter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -499,6 +502,7 @@ public class CriusData {
         }
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     private float dealTextHeightWithAndroidVersion(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
@@ -511,7 +515,7 @@ public class CriusData {
         return invokeF.floatValue;
     }
 
-    private void initSyncAttr(JSONObject jSONObject) {
+    private void initSyncAttr(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65577, this, jSONObject) == null) {
             if (jSONObject == null) {
@@ -541,8 +545,8 @@ public class CriusData {
         }
     }
 
-    private void putImageUrls(Collection collection) {
-        Set set;
+    private void putImageUrls(Collection<String> collection) {
+        Set<String> set;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65587, this, collection) == null) && (set = this.imageUrls) != null && collection != null) {
             set.addAll(collection);
@@ -576,7 +580,7 @@ public class CriusData {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            return (CriusData) this.children.get(i);
+            return this.children.get(i);
         }
         return (CriusData) invokeI.objValue;
     }
@@ -597,14 +601,14 @@ public class CriusData {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) {
-            List list = this.children;
+            List<CriusData> list = this.children;
             if (list == null) {
                 return null;
             }
-            CriusData criusData = (CriusData) list.remove(i);
-            criusData.criusNode.removeChildAt(i);
-            criusData.parent = null;
-            return criusData;
+            CriusData remove = list.remove(i);
+            remove.criusNode.removeChildAt(i);
+            remove.parent = null;
+            return remove;
         }
         return (CriusData) invokeI.objValue;
     }
@@ -616,6 +620,7 @@ public class CriusData {
         }
     }
 
+    @Nullable
     private CriusData getLabelTextData(CriusData criusData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -623,10 +628,10 @@ public class CriusData {
             CriusData criusData2 = null;
             if (criusData != null) {
                 if (!TextUtils.equals("text", criusData.type)) {
-                    List list = criusData.children;
+                    List<CriusData> list = criusData.children;
                     if (list != null) {
-                        Iterator it = list.iterator();
-                        while (it.hasNext() && (criusData2 = getLabelTextData((CriusData) it.next())) == null) {
+                        Iterator<CriusData> it = list.iterator();
+                        while (it.hasNext() && (criusData2 = getLabelTextData(it.next())) == null) {
                         }
                     }
                 } else {
@@ -733,6 +738,7 @@ public class CriusData {
         }
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     public float dealTextWidthWithAndroidVersion(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
@@ -1154,7 +1160,7 @@ public class CriusData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            List list = this.children;
+            List<CriusData> list = this.children;
             if (list == null) {
                 return 0;
             }
@@ -1172,7 +1178,7 @@ public class CriusData {
         return (String) invokeV.objValue;
     }
 
-    public Set getImageUrls() {
+    public Set<String> getImageUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
@@ -1316,7 +1322,7 @@ public class CriusData {
             initSyncAttr(jSONObject.optJSONObject(NativeConstants.SYNC_INFO));
             putImageUrl(this.src);
             putImageUrl(this.poster);
-            Map map = this.srcSet;
+            Map<String, String> map = this.srcSet;
             if (map != null && !map.isEmpty()) {
                 putImageUrls(this.srcSet.values());
             }
@@ -1476,7 +1482,7 @@ public class CriusData {
             if (str.equalsIgnoreCase(this.component)) {
                 return this;
             }
-            List list = this.children;
+            List<CriusData> list = this.children;
             if (list != null && list.size() > 0) {
                 for (CriusData criusData : this.children) {
                     CriusData dataByComponent = criusData.getDataByComponent(str);
@@ -1500,7 +1506,7 @@ public class CriusData {
             if (str.equalsIgnoreCase(this.id)) {
                 return this;
             }
-            List list = this.children;
+            List<CriusData> list = this.children;
             if (list != null && list.size() > 0) {
                 for (CriusData criusData : this.children) {
                     CriusData dataById = criusData.getDataById(str);
@@ -1600,7 +1606,7 @@ public class CriusData {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            Map map = this.srcSet;
+            Map<String, String> map = this.srcSet;
             if (map != null && !map.isEmpty()) {
                 String str = "src";
                 if (z) {
@@ -1609,13 +1615,13 @@ public class CriusData {
                 if (z2) {
                     str = str + "-v";
                 }
-                String str2 = (String) this.srcSet.get(str);
+                String str2 = this.srcSet.get(str);
                 if (TextUtils.isEmpty(str2) && str.contains("-v")) {
                     str = str.replace("-v", "");
-                    str2 = (String) this.srcSet.get(str);
+                    str2 = this.srcSet.get(str);
                 }
                 if (TextUtils.isEmpty(str2) && str.contains("-n")) {
-                    str2 = (String) this.srcSet.get(str.replace("-n", ""));
+                    str2 = this.srcSet.get(str.replace("-n", ""));
                 }
                 if (TextUtils.isEmpty(str2)) {
                     return this.src;

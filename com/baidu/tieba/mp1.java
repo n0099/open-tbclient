@@ -1,26 +1,21 @@
 package com.baidu.tieba;
 
-import java.util.Map;
-import org.json.JSONObject;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public interface mp1 {
-    void a(Object obj, String str, String str2);
+    String a();
 
-    void b(Object obj);
+    @AnyThread
+    void b(@NonNull String str, @NonNull Set<String> set, @NonNull SubscribeHelper.i iVar);
 
-    Object beginFlow(String str);
+    void c(@NonNull String str, yg2 yg2Var);
 
-    void c(Object obj);
+    void d(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, yg2 yg2Var);
 
-    void d(String str, Map map);
-
-    boolean e();
-
-    void f(String str, JSONObject jSONObject);
-
-    void g(Object obj, String str, String str2, long j);
-
-    void h(Object obj, String str);
-
-    void i(String str, String str2);
+    void e(String str, ax2 ax2Var);
 }

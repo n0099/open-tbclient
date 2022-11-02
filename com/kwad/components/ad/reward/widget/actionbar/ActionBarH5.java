@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +56,7 @@ public class ActionBarH5 extends FrameLayout implements c {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionBarH5(Context context, AttributeSet attributeSet) {
+    public ActionBarH5(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +78,7 @@ public class ActionBarH5 extends FrameLayout implements c {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionBarH5(Context context, AttributeSet attributeSet, int i) {
+    public ActionBarH5(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,17 +102,17 @@ public class ActionBarH5 extends FrameLayout implements c {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0475, this);
-            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ab);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910af);
-            this.wS = findViewById(R.id.obfuscated_res_0x7f09108d);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0480, this);
+            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0910e8);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ec);
+            this.wS = findViewById(R.id.obfuscated_res_0x7f0910c7);
         }
     }
 
     private void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0566a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
+            com.kwad.components.core.c.a.a.a(new a.C0577a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;
@@ -147,7 +149,7 @@ public class ActionBarH5 extends FrameLayout implements c {
         }
     }
 
-    public final void a(AdTemplate adTemplate, a aVar) {
+    public final void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
             this.mAdTemplate = adTemplate;

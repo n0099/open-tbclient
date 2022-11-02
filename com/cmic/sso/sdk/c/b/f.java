@@ -28,7 +28,7 @@ public class f extends g {
     }
 
     /* loaded from: classes7.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject a;
@@ -65,7 +65,7 @@ public class f extends g {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends g {
+    public static class b extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;

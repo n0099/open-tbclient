@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,35 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import com.baidu.webkit.sdk.CookieSyncManager;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class y12 extends o83 {
+public class y12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public JSONArray g;
 
     static {
         InterceptResult invokeClinit;
@@ -53,14 +42,7 @@ public class y12 extends o83 {
                 return;
             }
         }
-        a = wj1.a;
-        try {
-            CookieSyncManager.createInstance(AppRuntime.getAppContext());
-        } catch (Exception e) {
-            if (a) {
-                Log.w("RealCookieManager", "static createInstance err=" + e + " trace=" + Log.getStackTraceString(e));
-            }
-        }
+        h = ok1.a;
     }
 
     public y12() {
@@ -77,86 +59,74 @@ public class y12 extends o83 {
         }
     }
 
-    public void a() {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (tf3.f()) {
-                if (a) {
-                    Log.i("RealCookieManager", "syncCookie: hasLollipop flush");
-                }
-                CookieManager.getInstance().flush();
-                android.webkit.CookieManager.getInstance().flush();
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return false;
             }
-            if (a) {
-                Log.i("RealCookieManager", "syncCookie: noLollipop sync");
-            }
-            CookieSyncManager.getInstance().sync();
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o83, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
+    public static y12 e(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (a) {
-                Log.i("RealCookieManager", "getCookie: httpUrl=" + str);
-            }
-            String str2 = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            y12 y12Var = new y12();
             try {
-                str2 = CookieManager.getInstance().getCookie(str);
-                if (a) {
-                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
+                y12Var.a = jSONObject.getString("appKey");
+                y12Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + jd3.h(0) + "&appVersion=" + yh3.D();
+                y12Var.c = jSONObject.getString("wsUrl");
+                y12Var.d = jSONObject.optString("notInHistory", "1");
+                y12Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
+                y12Var.f = jSONObject.optString("slavePreload");
+                y12Var.g = jSONObject.optJSONArray("hosts");
+                return y12Var;
+            } catch (JSONException unused) {
+                if (h) {
+                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
                 }
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("RealCookieManager", "getCookie: err=" + e + " trace=" + Log.getStackTraceString(e));
-                }
+                return null;
             }
-            if (a) {
-                Log.i("RealCookieManager", "getCookie: ret cookie=" + str2 + " for httpUrl=" + str);
-            }
-            return str2;
         }
-        return (String) invokeL.objValue;
+        return (y12) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List list) {
-        int size;
+    public String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (a) {
-                Log.d("RealCookieManager", "storeCookie: httpUrl= " + str);
-                StringBuilder sb = new StringBuilder();
-                sb.append("storeCookie: cookies=");
-                if (list == null) {
-                    size = -1;
-                } else {
-                    size = list.size();
-                }
-                sb.append(size);
-                Log.i("RealCookieManager", sb.toString());
-            }
-            if (list != null && list.size() > 0) {
-                try {
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        String str2 = (String) it.next();
-                        if (a) {
-                            Log.i("RealCookieManager", "storeCookie: cookies item=" + str2);
-                        }
-                        CookieManager.getInstance().setCookie(str, str2);
-                        android.webkit.CookieManager.getInstance().setCookie(str, str2);
-                    }
-                    a();
-                } catch (Exception e) {
-                    if (a) {
-                        Log.e("RealCookieManager", "storeCookie: err=" + e + " trace=" + Log.getStackTraceString(e));
-                    }
-                }
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return b(i, this.b);
         }
+        return (String) invokeI.objValue;
+    }
+
+    public String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return b(i, this.c);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
+                Uri parse = Uri.parse(str);
+                String optString = this.g.optString(i);
+                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
+                    return str.replace(parse.getHost(), optString);
+                }
+            }
+            return str;
+        }
+        return (String) invokeIL.objValue;
     }
 }

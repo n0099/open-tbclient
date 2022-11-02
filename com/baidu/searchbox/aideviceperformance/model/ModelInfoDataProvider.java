@@ -17,7 +17,7 @@ public class ModelInfoDataProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULTMODELNAME_AMENDEDSTATICSCORE = "amended_static_score.mlmodel";
     public static final long DEFAULTMODELVERSION_AMENDEDSTATICSCORE = 1;
-    public static HashMap DefaultModelInfoMap = null;
+    public static HashMap<DevicePerformanceModelInfoType, DevicePerformanceModelInfo> DefaultModelInfoMap = null;
     public static String DefaultModelInfoMapKeyModelName = null;
     public static String DefaultModelInfoMapKeyModelVersion = null;
     public static String defaultModelAssertDir = "ai_device_performance_models";
@@ -34,7 +34,7 @@ public class ModelInfoDataProvider {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class DevicePerformanceModelInfoType {
+    public static final class DevicePerformanceModelInfoType {
         public static final /* synthetic */ DevicePerformanceModelInfoType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DevicePerformanceModelInfoType AmendedDeviceScore;
@@ -148,22 +148,22 @@ public class ModelInfoDataProvider {
         }
     }
 
-    private void setModelInfoToMap(String str, Long l, DevicePerformanceModelInfoType devicePerformanceModelInfoType, HashMap hashMap) {
+    private void setModelInfoToMap(String str, Long l, DevicePerformanceModelInfoType devicePerformanceModelInfoType, HashMap<DevicePerformanceModelInfoType, DevicePerformanceModelInfo> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, this, str, l, devicePerformanceModelInfoType, hashMap) == null) {
             hashMap.put(devicePerformanceModelInfoType, new DevicePerformanceModelInfo(defaultModelFilePath + str, l.longValue()));
         }
     }
 
-    public HashMap getDefaultModelInfoMap() {
+    public HashMap<DevicePerformanceModelInfoType, DevicePerformanceModelInfo> getDefaultModelInfoMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = DefaultModelInfoMap;
+            HashMap<DevicePerformanceModelInfoType, DevicePerformanceModelInfo> hashMap = DefaultModelInfoMap;
             if (hashMap != null) {
                 return hashMap;
             }
-            HashMap hashMap2 = new HashMap();
+            HashMap<DevicePerformanceModelInfoType, DevicePerformanceModelInfo> hashMap2 = new HashMap<>();
             setModelInfoToMap(defaultModelName_GbdtDeviceScore, Long.valueOf(defaultModelVersion_GbdtDeviceScore), DevicePerformanceModelInfoType.DeviceInfoGBDT, hashMap2);
             setModelInfoToMap(defaultModelName_LrDeviceScore, Long.valueOf(defaultModelVersion_LrDeviceScore), DevicePerformanceModelInfoType.DeviceInfoLR, hashMap2);
             setModelInfoToMap(defaultModelName_StaticScoreMapper, Long.valueOf(defaultModelVersion_StaticScoreMapper), DevicePerformanceModelInfoType.DeviceInfoMapper, hashMap2);

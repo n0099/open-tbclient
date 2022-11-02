@@ -11,12 +11,12 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableError extends Observable {
+public final class ObservableError<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable errorSupplier;
+    public final Callable<? extends Throwable> errorSupplier;
 
-    public ObservableError(Callable callable) {
+    public ObservableError(Callable<? extends Throwable> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,7 +35,7 @@ public final class ObservableError extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {

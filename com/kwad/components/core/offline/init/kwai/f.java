@@ -37,14 +37,14 @@ public final class f implements INet {
     }
 
     @Override // com.kwad.components.offline.api.core.api.INet
-    public final String getCurrHost(String str, String str2) {
+    public final String getCurrHost(@INet.HostType String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? com.kwad.sdk.core.network.idc.a.tH().F(str, str2) : (String) invokeLL.objValue;
     }
 
     @Override // com.kwad.components.offline.api.core.api.INet
-    public final void handleSwitchHost(String str, String str2, int i, Throwable th) {
+    public final void handleSwitchHost(String str, @INet.HostType String str2, int i, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, str, str2, i, th) == null) {
             com.kwad.sdk.core.network.idc.a.tH().a(str, str2, new DomainException(i, th));

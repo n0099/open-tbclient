@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeDelay extends AbstractMaybeWithUpstream {
+public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -22,18 +22,18 @@ public final class MaybeDelay extends AbstractMaybeWithUpstream {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class DelayMaybeObserver extends AtomicReference implements MaybeObserver, Disposable, Runnable {
+    public static final class DelayMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5566860102500855068L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public final long delay;
         public Throwable error;
         public final Scheduler scheduler;
         public final TimeUnit unit;
-        public Object value;
+        public T value;
 
-        public DelayMaybeObserver(MaybeObserver maybeObserver, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public DelayMaybeObserver(MaybeObserver<? super T> maybeObserver, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public final class MaybeDelay extends AbstractMaybeWithUpstream {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -89,9 +89,9 @@ public final class MaybeDelay extends AbstractMaybeWithUpstream {
                     this.actual.onError(th);
                     return;
                 }
-                Object obj = this.value;
-                if (obj != null) {
-                    this.actual.onSuccess(obj);
+                T t = this.value;
+                if (t != null) {
+                    this.actual.onSuccess(t);
                 } else {
                     this.actual.onComplete();
                 }
@@ -123,17 +123,17 @@ public final class MaybeDelay extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.value = obj;
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.value = t;
                 schedule();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDelay(MaybeSource maybeSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public MaybeDelay(MaybeSource<T> maybeSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -156,7 +156,7 @@ public final class MaybeDelay extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new DelayMaybeObserver(maybeObserver, this.delay, this.unit, this.scheduler));

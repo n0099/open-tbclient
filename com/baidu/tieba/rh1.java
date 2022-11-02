@@ -1,16 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.cmic.sso.sdk.auth.TokenListener;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public abstract class rh1 implements TokenListener {
+public class rh1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rh1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public ThreadPoolExecutor a;
+    public ScheduledThreadPoolExecutor b;
 
     public rh1() {
         Interceptable interceptable = $ic;
@@ -25,15 +30,52 @@ public abstract class rh1 implements TokenListener {
                 return;
             }
         }
-        this.a = System.currentTimeMillis();
+        b();
     }
 
-    public long a() {
+    public static rh1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (rh1.class) {
+                    if (c == null) {
+                        c = new rh1();
+                    }
+                }
+            }
+            return c;
         }
-        return invokeV.longValue;
+        return (rh1) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = sh1.g(5, 15);
+            this.b = sh1.f(3);
+        }
+    }
+
+    public void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) && runnable != null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public void d(qh1 qh1Var, long j, long j2, TimeUnit timeUnit) {
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{qh1Var, Long.valueOf(j), Long.valueOf(j2), timeUnit}) == null) && qh1Var != null && (scheduledThreadPoolExecutor = this.b) != null && !scheduledThreadPoolExecutor.isShutdown()) {
+            try {
+                qh1Var.i(System.currentTimeMillis());
+                qh1Var.h(this.b.scheduleAtFixedRate(qh1Var, j, j2, timeUnit));
+            } catch (Throwable unused) {
+            }
+        }
     }
 }

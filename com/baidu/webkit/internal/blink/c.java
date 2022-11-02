@@ -30,7 +30,7 @@ public final class c {
     public WebViewFactory.WebKitUnzipCallback d;
 
     /* loaded from: classes6.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -99,7 +99,7 @@ public final class c {
     }
 
     /* loaded from: classes6.dex */
-    public final class b extends Thread {
+    public class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;

@@ -1,5 +1,6 @@
 package com.baidu.android.util;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -13,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
@@ -71,7 +71,7 @@ public class UniKV implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Map getAll() {
+    public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -188,12 +188,11 @@ public class UniKV implements SharedPreferences {
         }
     }
 
-    private void verifyAllLength(String str, Set set) {
+    private void verifyAllLength(String str, Set<String> set) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, this, str, set) == null) && set != null) {
-            Iterator it = set.iterator();
-            while (it.hasNext()) {
-                verifyLength(str, (String) it.next());
+            for (String str2 : set) {
+                verifyLength(str, str2);
             }
         }
     }
@@ -269,7 +268,7 @@ public class UniKV implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Set getStringSet(String str, Set set) {
+    public Set<String> getStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) {
@@ -327,7 +326,7 @@ public class UniKV implements SharedPreferences {
         this.mInstance.edit().putString(str, str2).apply();
     }
 
-    public void putStringSet(String str, Set set) {
+    public void putStringSet(String str, Set<String> set) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048590, this, str, set) != null) || this.mInstance == null) {
             return;
@@ -336,6 +335,7 @@ public class UniKV implements SharedPreferences {
         this.mInstance.edit().putStringSet(str, set).apply();
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void verifyLength(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, this, str, str2) == null) && str2 != null && str2.length() > 256 && DEBUG) {

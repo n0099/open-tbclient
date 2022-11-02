@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class DownloadMessage extends CustomResponsedMessage {
+public class DownloadMessage extends CustomResponsedMessage<List<DownloadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadMessage(List list) {
+    public DownloadMessage(List<DownloadData> list) {
         super(2001118, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

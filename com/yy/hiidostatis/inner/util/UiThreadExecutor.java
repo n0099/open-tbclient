@@ -18,11 +18,11 @@ import java.util.Map;
 public class UiThreadExecutor {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler HANDLER;
-    public static final Map TOKENS;
+    public static final Map<String, Token> TOKENS;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class Token {
+    public static final class Token {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String id;
@@ -117,31 +117,29 @@ public class UiThreadExecutor {
     }
 
     public static void cancelAll(String str) {
-        Token token;
+        Token remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             synchronized (TOKENS) {
-                token = (Token) TOKENS.remove(str);
+                remove = TOKENS.remove(str);
             }
-            if (token == null) {
+            if (remove == null) {
                 return;
             }
-            HANDLER.removeCallbacksAndMessages(token);
+            HANDLER.removeCallbacksAndMessages(remove);
         }
     }
 
     public static void decrementToken(Token token) {
+        String str;
+        Token remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, token) == null) {
             synchronized (TOKENS) {
                 int i = token.runnablesCount - 1;
                 token.runnablesCount = i;
-                if (i == 0) {
-                    String str = token.id;
-                    Token token2 = (Token) TOKENS.remove(str);
-                    if (token2 != token) {
-                        TOKENS.put(str, token2);
-                    }
+                if (i == 0 && (remove = TOKENS.remove((str = token.id))) != token) {
+                    TOKENS.put(str, remove);
                 }
             }
         }
@@ -160,7 +158,7 @@ public class UiThreadExecutor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             synchronized (TOKENS) {
-                token = (Token) TOKENS.get(str);
+                token = TOKENS.get(str);
                 if (token == null) {
                     token = new Token(str);
                     TOKENS.put(str, token);

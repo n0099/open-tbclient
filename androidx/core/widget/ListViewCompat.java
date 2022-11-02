@@ -3,6 +3,7 @@ package androidx.core.widget;
 import android.os.Build;
 import android.view.View;
 import android.widget.ListView;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +28,7 @@ public final class ListViewCompat {
         }
     }
 
-    public static boolean canScrollList(ListView listView, int i) {
+    public static boolean canScrollList(@NonNull ListView listView, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, listView, i)) == null) {
@@ -55,7 +56,7 @@ public final class ListViewCompat {
         return invokeLI.booleanValue;
     }
 
-    public static void scrollListBy(ListView listView, int i) {
+    public static void scrollListBy(@NonNull ListView listView, int i) {
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, listView, i) == null) {

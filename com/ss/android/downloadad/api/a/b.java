@@ -5,6 +5,7 @@ import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.model.DeepLink;
+import com.ss.android.downloadad.api.constant.AdBaseConstants;
 import com.ss.android.downloadad.api.download.AdDownloadController;
 import com.ss.android.downloadad.api.download.AdDownloadEventConfig;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
@@ -30,6 +31,7 @@ public class b implements a {
     public boolean N;
     public boolean O;
     public int P;
+    @AdBaseConstants.FunnelType
     public int Q;
     public long R;
     public long S;
@@ -79,7 +81,7 @@ public class b implements a {
     }
 
     @Override // com.ss.android.downloadad.api.a.a
-    public List n() {
+    public List<String> n() {
         return null;
     }
 

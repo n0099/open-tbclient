@@ -1,17 +1,19 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ef9 {
+    int availableBytes();
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(String str, ef9 ef9Var);
-    }
+    void close();
 
-    void cancel();
+    void flush();
 
-    boolean isRunning();
+    byte[] getOutPutBytes();
 
-    void pause();
+    void init(int i, int i2);
 
-    void start();
+    boolean putBytes(byte[] bArr, int i);
+
+    int receiveBytes(byte[] bArr, int i);
+
+    void setSpeed(float f);
 }

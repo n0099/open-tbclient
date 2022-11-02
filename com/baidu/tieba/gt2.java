@@ -1,7 +1,16 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,55 +18,86 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gt2 {
+public abstract class gt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
-    public gt2() {
+    public abstract boolean a(ws2 ws2Var, ys2 ys2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805380, "Lcom/baidu/tieba/gt2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947805380, "Lcom/baidu/tieba/gt2;");
+                return;
+            }
+        }
+        a = ok1.a;
+    }
+
+    public gt2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static gt2 a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        JSONObject optJSONObject;
+    @Nullable
+    public ws2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        cr2 f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3) || (f = dr2.f(str, str2, str3)) == null || !(f.i() instanceof ws2)) {
                 return null;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-            String optString = jSONObject.optString("error");
-            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
-                return null;
-            }
-            gt2 gt2Var = new gt2();
-            gt2Var.a = optJSONObject2.optString(ContentUtil.RESULT_KEY_AK);
-            gt2Var.b = optJSONObject2.optString("sk");
-            gt2Var.c = optJSONObject2.optString("token");
-            gt2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
-            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
-                gt2Var.f = optJSONObject.optString("bosobject");
-                gt2Var.e = optJSONObject.optString("bosurl");
-            }
-            return gt2Var;
+            return (ws2) f.i();
         }
-        return (gt2) invokeLL.objValue;
+        return (ws2) invokeLLLLL.objValue;
+    }
+
+    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (a) {
+                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                e12.c("video", "param is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            ws2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("componentId"), optParamsAsJo.optString("componentId"), optParamsAsJo);
+            if (b != null && context != null) {
+                ys2 h = ys2.h(optParamsAsJo, b.g());
+                if (!h.isValid()) {
+                    e12.c("video", "param is invalid");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                return a(b, h, context, unitedSchemeEntity, callbackHandler, e43Var);
+            }
+            e12.c("video", "player id is invalid or context is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

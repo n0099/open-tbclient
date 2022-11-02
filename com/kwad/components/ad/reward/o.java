@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,13 +47,13 @@ public final class o extends com.kwad.components.core.i.e {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements a {
+    public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o ny;
         public a nz;
 
-        public b(o oVar, a aVar) {
+        public b(@Nullable o oVar, @Nullable a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +139,7 @@ public final class o extends com.kwad.components.core.i.e {
     }
 
     /* loaded from: classes7.dex */
-    public final class c extends e implements View.OnClickListener {
+    public static class c extends e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View kP;
@@ -166,7 +168,7 @@ public final class o extends com.kwad.components.core.i.e {
                     return;
                 }
             }
-            this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d043c, viewGroup, false);
+            this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0447, viewGroup, false);
             initView();
         }
 
@@ -178,7 +180,7 @@ public final class o extends com.kwad.components.core.i.e {
                 String gE = aVar.gE();
                 if (!TextUtils.isEmpty(gE)) {
                     String format = String.format("当前已经有%s预约", gE);
-                    int color = this.nL.getResources().getColor(R.color.obfuscated_res_0x7f060783);
+                    int color = this.nL.getResources().getColor(R.color.obfuscated_res_0x7f060784);
                     int indexOf = format.indexOf(gE);
                     SpannableString spannableString = new SpannableString(format);
                     spannableString.setSpan(new ForegroundColorSpan(color), indexOf, gE.length() + indexOf, 17);
@@ -186,7 +188,7 @@ public final class o extends com.kwad.components.core.i.e {
                 }
                 this.nA.setText(aVar.gF());
                 this.nB.setText(aVar.gG());
-                KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c29));
+                KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c43));
             }
         }
 
@@ -196,13 +198,13 @@ public final class o extends com.kwad.components.core.i.e {
             if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (viewGroup = this.nL) == null) {
                 return;
             }
-            this.kP = viewGroup.findViewById(R.id.obfuscated_res_0x7f0910ec);
-            this.nA = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910ed);
-            this.nB = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910ee);
-            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910ef);
-            this.nD = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910f1);
-            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910f3);
-            this.nE = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910f2);
+            this.kP = viewGroup.findViewById(R.id.obfuscated_res_0x7f091126);
+            this.nA = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091127);
+            this.nB = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091128);
+            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f091129);
+            this.nD = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09112b);
+            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09112d);
+            this.nE = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09112c);
             this.kP.setOnClickListener(this);
             this.nB.setOnClickListener(this);
             this.nA.setOnClickListener(this);
@@ -259,7 +261,7 @@ public final class o extends com.kwad.components.core.i.e {
     }
 
     /* loaded from: classes7.dex */
-    public final class d extends e implements View.OnClickListener {
+    public static class d extends e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ViewGroup es;
@@ -306,13 +308,13 @@ public final class o extends com.kwad.components.core.i.e {
         private void initView() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f09119c);
-                this.eQ = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0911a0);
-                this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09119e);
-                this.nH = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09119d);
-                this.nI = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f09119f);
-                this.nJ = (KsStyledTextButton) this.es.findViewById(R.id.obfuscated_res_0x7f091199);
-                this.nK = this.es.findViewById(R.id.obfuscated_res_0x7f09119a);
+                this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f0911d6);
+                this.eQ = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0911da);
+                this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0911d8);
+                this.nH = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0911d7);
+                this.nI = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f0911d9);
+                this.nJ = (KsStyledTextButton) this.es.findViewById(R.id.obfuscated_res_0x7f0911d3);
+                this.nK = this.es.findViewById(R.id.obfuscated_res_0x7f0911d4);
                 this.nJ.setOnClickListener(this);
                 this.nK.setOnClickListener(this);
                 this.nH.setOnClickListener(this);
@@ -354,7 +356,7 @@ public final class o extends com.kwad.components.core.i.e {
     }
 
     /* loaded from: classes7.dex */
-    public abstract class e extends com.kwad.components.ad.reward.k.d {
+    public static abstract class e extends com.kwad.components.ad.reward.k.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView eQ;
@@ -446,7 +448,8 @@ public final class o extends com.kwad.components.core.i.e {
     }
 
     @Override // com.kwad.components.core.i.e
-    public final View a(LayoutInflater layoutInflater, ViewGroup viewGroup) {
+    @Nullable
+    public final View a(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         InterceptResult invokeLL;
         com.kwad.components.core.widget.f fVar;
         View fR;
@@ -462,7 +465,7 @@ public final class o extends com.kwad.components.core.i.e {
                 com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             }
             if (r(this.mAdTemplate) != 2) {
-                fR = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d045c, viewGroup, false);
+                fR = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0467, viewGroup, false);
                 d dVar = new d((ViewGroup) fR);
                 dVar.a(new b(this, this.nv));
                 this.nw = dVar;
@@ -512,7 +515,7 @@ public final class o extends com.kwad.components.core.i.e {
     }
 
     @Override // android.app.DialogFragment, android.app.Fragment
-    public final void onActivityCreated(Bundle bundle) {
+    public final void onActivityCreated(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onActivityCreated(bundle);

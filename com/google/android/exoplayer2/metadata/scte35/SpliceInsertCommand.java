@@ -20,13 +20,13 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class SpliceInsertCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SpliceInsertCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean autoReturn;
     public final int availNum;
     public final int availsExpected;
     public final long breakDurationUs;
-    public final List componentSpliceList;
+    public final List<ComponentSplice> componentSpliceList;
     public final boolean outOfNetworkIndicator;
     public final boolean programSpliceFlag;
     public final long programSplicePlaybackPositionUs;
@@ -37,7 +37,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
     public final int uniqueProgramId;
 
     /* loaded from: classes7.dex */
-    public final class ComponentSplice {
+    public static final class ComponentSplice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long componentSplicePlaybackPositionUs;
@@ -96,7 +96,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceInsertCommand.1
+        CREATOR = new Parcelable.Creator<SpliceInsertCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceInsertCommand.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,6 +115,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SpliceInsertCommand createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -126,6 +127,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SpliceInsertCommand[] newArray(int i) {
                 InterceptResult invokeI;
@@ -138,7 +140,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
         };
     }
 
-    public SpliceInsertCommand(long j, boolean z, boolean z2, boolean z3, boolean z4, long j2, long j3, List list, boolean z5, long j4, int i, int i2, int i3) {
+    public SpliceInsertCommand(long j, boolean z, boolean z2, boolean z3, boolean z4, long j2, long j3, List<ComponentSplice> list, boolean z5, long j4, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -354,7 +356,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
             int size = this.componentSpliceList.size();
             parcel.writeInt(size);
             for (int i2 = 0; i2 < size; i2++) {
-                ((ComponentSplice) this.componentSpliceList.get(i2)).writeToParcel(parcel);
+                this.componentSpliceList.get(i2).writeToParcel(parcel);
             }
             parcel.writeByte(this.autoReturn ? (byte) 1 : (byte) 0);
             parcel.writeLong(this.breakDurationUs);

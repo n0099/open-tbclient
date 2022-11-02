@@ -1,13 +1,17 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import androidx.annotation.Nullable;
 /* loaded from: classes8.dex */
 public final class au {
     public static String TAG = "plugin.signature";
 
+    @Nullable
+    @SuppressLint({"PackageManagerGetSignatures"})
     public static Signature[] di(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);

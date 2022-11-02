@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +22,7 @@ public class CriusSwiperView extends ViewPager {
     public Runnable runnable;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CriusSwiperView(Context context) {
+    public CriusSwiperView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,7 +43,7 @@ public class CriusSwiperView extends ViewPager {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CriusSwiperView(Context context, AttributeSet attributeSet) {
+    public CriusSwiperView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

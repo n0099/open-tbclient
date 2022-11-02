@@ -6,16 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.bitmap_recycle.Poolable;
 import com.bumptech.glide.util.Util;
 import java.util.Queue;
 /* loaded from: classes7.dex */
-public abstract class BaseKeyPool {
+public abstract class BaseKeyPool<T extends Poolable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIZE = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue keyPool;
+    public final Queue<T> keyPool;
 
-    public abstract Poolable create();
+    public abstract T create();
 
     public BaseKeyPool() {
         Interceptable interceptable = $ic;
@@ -33,23 +34,23 @@ public abstract class BaseKeyPool {
         this.keyPool = Util.createQueue(20);
     }
 
-    public Poolable get() {
+    public T get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Poolable poolable = (Poolable) this.keyPool.poll();
-            if (poolable == null) {
+            T poll = this.keyPool.poll();
+            if (poll == null) {
                 return create();
             }
-            return poolable;
+            return poll;
         }
-        return (Poolable) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public void offer(Poolable poolable) {
+    public void offer(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, poolable) == null) && this.keyPool.size() < 20) {
-            this.keyPool.offer(poolable);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) && this.keyPool.size() < 20) {
+            this.keyPool.offer(t);
         }
     }
 }

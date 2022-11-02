@@ -1,6 +1,7 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodProfileData;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,23 +28,23 @@ public class VmTraceData {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mDataFileOverflow;
     public final long mElapsedTimeUs;
-    public final Map mMethods;
+    public final Map<Long, MethodInfo> mMethods;
     public final long mStartTimeUs;
-    public final Map mThreadInfo;
-    public final Map mTraceProperties;
+    public final Map<String, ThreadInfo> mThreadInfo;
+    public final Map<String, String> mTraceProperties;
     public final int mVersion;
     public final String mVm;
     public final VmClockType mVmClockType;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceData$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public class Builder implements VmTraceHandler {
+    public static class Builder implements VmTraceHandler {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = false;
@@ -54,12 +55,12 @@ public class VmTraceData {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mDataFileOverflow;
         public long mElapsedTimeUs;
-        public final Map mMethods;
-        public final Map mProperties;
-        public final SparseArray mStackReconstructors;
+        public final Map<Long, MethodInfo> mMethods;
+        public final Map<String, String> mProperties;
+        public final SparseArray<CallStackReconstructor> mStackReconstructors;
         public long mStartTimeUs;
-        public final SparseArray mThreads;
-        public final SparseArray mTopLevelCalls;
+        public final SparseArray<String> mThreads;
+        public final SparseArray<Call> mTopLevelCalls;
         public int mVersion;
         public String mVm;
         public VmClockType mVmClockType;
@@ -95,10 +96,10 @@ public class VmTraceData {
             this.mVmClockType = VmClockType.THREAD_CPU;
             this.mVm = "";
             this.mProperties = new HashMap(10);
-            this.mThreads = new SparseArray(10);
+            this.mThreads = new SparseArray<>(10);
             this.mMethods = new HashMap(100);
-            this.mStackReconstructors = new SparseArray(10);
-            this.mTopLevelCalls = new SparseArray(10);
+            this.mStackReconstructors = new SparseArray<>(10);
+            this.mTopLevelCalls = new SparseArray<>(10);
         }
 
         @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
@@ -138,7 +139,7 @@ public class VmTraceData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
                 long j = Long.MAX_VALUE - i;
-                this.mMethods.put(Long.valueOf(j), new MethodInfo(j, (String) this.mThreads.get(i), "", "", "", 0));
+                this.mMethods.put(Long.valueOf(j), new MethodInfo(j, this.mThreads.get(i), "", "", "", 0));
                 return j;
             }
             return invokeI.longValue;
@@ -171,7 +172,7 @@ public class VmTraceData {
                 if (this.mMethods.get(Long.valueOf(j)) == null) {
                     this.mMethods.put(Long.valueOf(j), new MethodInfo(j, "unknown", "unknown", "unknown", "unknown", -1));
                 }
-                CallStackReconstructor callStackReconstructor2 = (CallStackReconstructor) this.mStackReconstructors.get(i);
+                CallStackReconstructor callStackReconstructor2 = this.mStackReconstructors.get(i);
                 if (callStackReconstructor2 == null) {
                     CallStackReconstructor callStackReconstructor3 = new CallStackReconstructor(createUniqueMethodIdForThread(i));
                     this.mStackReconstructors.put(i, callStackReconstructor3);
@@ -188,7 +189,7 @@ public class VmTraceData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 for (int i = 0; i < this.mStackReconstructors.size(); i++) {
-                    this.mTopLevelCalls.put(this.mStackReconstructors.keyAt(i), ((CallStackReconstructor) this.mStackReconstructors.valueAt(i)).getTopLevel());
+                    this.mTopLevelCalls.put(this.mStackReconstructors.keyAt(i), this.mStackReconstructors.valueAt(i).getTopLevel());
                 }
                 VmTraceData vmTraceData = new VmTraceData(this, null);
                 computeTimingStatistics(vmTraceData);
@@ -223,10 +224,10 @@ public class VmTraceData {
     }
 
     /* loaded from: classes.dex */
-    public class ProfileDataBuilder {
+    public static class ProfileDataBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map mBuilderMap;
+        public final Map<Long, MethodProfileData.Builder> mBuilderMap;
 
         public ProfileDataBuilder() {
             Interceptable interceptable = $ic;
@@ -244,7 +245,7 @@ public class VmTraceData {
             this.mBuilderMap = new HashMap();
         }
 
-        public Set getMethodsWithProfileData() {
+        public Set<Long> getMethodsWithProfileData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -257,11 +258,12 @@ public class VmTraceData {
             this();
         }
 
+        @NonNull
         private MethodProfileData.Builder getProfileDataBuilder(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
-                MethodProfileData.Builder builder = (MethodProfileData.Builder) this.mBuilderMap.get(Long.valueOf(j));
+                MethodProfileData.Builder builder = this.mBuilderMap.get(Long.valueOf(j));
                 if (builder == null) {
                     MethodProfileData.Builder builder2 = new MethodProfileData.Builder();
                     this.mBuilderMap.put(Long.valueOf(j), builder2);
@@ -276,7 +278,7 @@ public class VmTraceData {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
-                return ((MethodProfileData.Builder) this.mBuilderMap.get(l)).build();
+                return this.mBuilderMap.get(l).build();
             }
             return (MethodProfileData) invokeL.objValue;
         }
@@ -324,7 +326,7 @@ public class VmTraceData {
         for (int i3 = 0; i3 < builder.mThreads.size(); i3++) {
             int keyAt = builder.mThreads.keyAt(i3);
             String str = (String) builder.mThreads.valueAt(i3);
-            if (((ThreadInfo) this.mThreadInfo.get(str)) != null) {
+            if (this.mThreadInfo.get(str) != null) {
                 str = String.format("%1$s-%2$d", str, Integer.valueOf(keyAt));
             }
             this.mThreadInfo.put(str, new ThreadInfo(keyAt, str, (Call) builder.mTopLevelCalls.get(keyAt)));
@@ -353,7 +355,7 @@ public class VmTraceData {
         return invokeV.longValue;
     }
 
-    public Map getMethods() {
+    public Map<Long, MethodInfo> getMethods() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -371,7 +373,7 @@ public class VmTraceData {
         return invokeV.longValue;
     }
 
-    public Collection getThreads() {
+    public Collection<ThreadInfo> getThreads() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -380,7 +382,7 @@ public class VmTraceData {
         return (Collection) invokeV.objValue;
     }
 
-    public Map getTraceProperties() {
+    public Map<String, String> getTraceProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -451,7 +453,7 @@ public class VmTraceData {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            return (MethodInfo) this.mMethods.get(Long.valueOf(j));
+            return this.mMethods.get(Long.valueOf(j));
         }
         return (MethodInfo) invokeJ.objValue;
     }
@@ -460,12 +462,12 @@ public class VmTraceData {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return (ThreadInfo) this.mThreadInfo.get(str);
+            return this.mThreadInfo.get(str);
         }
         return (ThreadInfo) invokeL.objValue;
     }
 
-    public List getThreads(boolean z) {
+    public List<ThreadInfo> getThreads(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
@@ -500,11 +502,11 @@ public class VmTraceData {
                     hashSet.add(methodInfo);
                 }
             }
-            Iterator callHierarchyIterator = topLevelCall.getCallHierarchyIterator();
+            Iterator<Call> callHierarchyIterator = topLevelCall.getCallHierarchyIterator();
             while (callHierarchyIterator.hasNext()) {
-                Call call = (Call) callHierarchyIterator.next();
-                if (hashSet.contains(getMethod(call.getMethodId()))) {
-                    hashSet2.add(call);
+                Call next = callHierarchyIterator.next();
+                if (hashSet.contains(getMethod(next.getMethodId()))) {
+                    hashSet2.add(next);
                 }
             }
             return new SearchResult(hashSet, hashSet2);

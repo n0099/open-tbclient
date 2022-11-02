@@ -1,106 +1,145 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
+import okio.Source;
 /* loaded from: classes5.dex */
-public final class nv2 {
+public class nv2 extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ResponseBody a;
+    public final kv2 b;
+    public BufferedSource c;
 
     /* loaded from: classes5.dex */
-    public final class a implements jv2 {
+    public class a extends ForwardingSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
-        public final /* synthetic */ String b;
+        public long a;
+        public final /* synthetic */ nv2 b;
 
-        public a(Function1 function1, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nv2 nv2Var, Source source) {
+            super(source);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {function1, str};
+                Object[] objArr = {nv2Var, source};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Source) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = function1;
-            this.b = str;
+            this.b = nv2Var;
+            this.a = 0L;
         }
 
-        @Override // com.baidu.tieba.jv2
-        public final void a() {
+        @Override // okio.ForwardingSource, okio.Source
+        public long read(Buffer buffer, long j) throws IOException {
+            InterceptResult invokeLJ;
+            long j2;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONArray c = nv2.c();
-                if (c != null && c.length() != 0) {
-                    int length = c.length();
-                    for (int i = 0; i < length; i++) {
-                        if (Intrinsics.areEqual(this.b, c.get(i))) {
-                            Function1 function1 = this.a;
-                            if (function1 != null) {
-                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    Function1 function12 = this.a;
-                    if (function12 != null) {
-                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
-                        return;
-                    }
-                    return;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, buffer, j)) == null) {
+                long read = super.read(buffer, j);
+                long j3 = this.a;
+                int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
+                if (i != 0) {
+                    j2 = read;
+                } else {
+                    j2 = 0;
                 }
-                Function1 function13 = this.a;
-                if (function13 != null) {
-                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
+                this.a = j3 + j2;
+                kv2 kv2Var = this.b.b;
+                long j4 = this.a;
+                long contentLength = this.b.a.contentLength();
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
                 }
+                kv2Var.a(j4, contentLength, z);
+                return read;
+            }
+            return invokeLJ.longValue;
+        }
+    }
+
+    public nv2(ResponseBody responseBody, kv2 kv2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {responseBody, kv2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = responseBody;
+        this.b = kv2Var;
     }
 
-    public static final void b(String str, Function1 function1) {
+    public final Source c(Source source) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
-            iv2.g().z(new a(function1, str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, source)) == null) {
+            return new a(this, source);
         }
+        return (Source) invokeL.objValue;
     }
 
-    public static final JSONArray c() {
+    @Override // okhttp3.ResponseBody
+    public long contentLength() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            m33 b0 = m33.b0();
-            if (b0 == null) {
-                return null;
-            }
-            String q = b0.e0().q("note_data_pay_check_list", "");
-            if (q != null && !StringsKt__StringsJVMKt.isBlank(q)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            return new JSONObject(q).optJSONArray("pay_keys");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.contentLength();
         }
-        return (JSONArray) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.contentType();
+        }
+        return (MediaType) invokeV.objValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public BufferedSource source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c == null) {
+                this.c = Okio.buffer(c(this.a.source()));
+            }
+            return this.c;
+        }
+        return (BufferedSource) invokeV.objValue;
     }
 }

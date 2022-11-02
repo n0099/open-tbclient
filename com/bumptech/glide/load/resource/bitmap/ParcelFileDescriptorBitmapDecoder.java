@@ -1,6 +1,10 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.graphics.Bitmap;
 import android.os.ParcelFileDescriptor;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,8 +15,9 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import java.io.IOException;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
-public final class ParcelFileDescriptorBitmapDecoder implements ResourceDecoder {
+public final class ParcelFileDescriptorBitmapDecoder implements ResourceDecoder<ParcelFileDescriptor, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Downsampler downsampler;
@@ -37,7 +42,8 @@ public final class ParcelFileDescriptorBitmapDecoder implements ResourceDecoder 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource decode(ParcelFileDescriptor parcelFileDescriptor, int i, int i2, Options options) throws IOException {
+    @Nullable
+    public Resource<Bitmap> decode(@NonNull ParcelFileDescriptor parcelFileDescriptor, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{parcelFileDescriptor, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
@@ -48,7 +54,7 @@ public final class ParcelFileDescriptorBitmapDecoder implements ResourceDecoder 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(ParcelFileDescriptor parcelFileDescriptor, Options options) {
+    public boolean handles(@NonNull ParcelFileDescriptor parcelFileDescriptor, @NonNull Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, parcelFileDescriptor, options)) == null) {

@@ -104,7 +104,7 @@ public abstract class BasePostprocessor implements Postprocessor {
     }
 
     @Override // com.facebook.imagepipeline.request.Postprocessor
-    public CloseableReference process(Bitmap bitmap, PlatformBitmapFactory platformBitmapFactory) {
+    public CloseableReference<Bitmap> process(Bitmap bitmap, PlatformBitmapFactory platformBitmapFactory) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, platformBitmapFactory)) == null) {
@@ -114,9 +114,9 @@ public abstract class BasePostprocessor implements Postprocessor {
             if (config == null) {
                 config = FALLBACK_BITMAP_CONFIGURATION;
             }
-            CloseableReference createBitmapInternal = platformBitmapFactory.createBitmapInternal(width, height, config);
+            CloseableReference<Bitmap> createBitmapInternal = platformBitmapFactory.createBitmapInternal(width, height, config);
             try {
-                process((Bitmap) createBitmapInternal.get(), bitmap);
+                process(createBitmapInternal.get(), bitmap);
                 return CloseableReference.cloneOrNull(createBitmapInternal);
             } finally {
                 CloseableReference.closeSafely(createBitmapInternal);

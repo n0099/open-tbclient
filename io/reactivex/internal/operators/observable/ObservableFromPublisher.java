@@ -14,19 +14,19 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ObservableFromPublisher extends Observable {
+public final class ObservableFromPublisher<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher source;
+    public final Publisher<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class PublisherSubscriber implements FlowableSubscriber, Disposable {
+    public static final class PublisherSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public Subscription s;
 
-        public PublisherSubscriber(Observer observer) {
+        public PublisherSubscriber(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,10 +53,10 @@ public final class ObservableFromPublisher extends Observable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -101,7 +101,7 @@ public final class ObservableFromPublisher extends Observable {
         }
     }
 
-    public ObservableFromPublisher(Publisher publisher) {
+    public ObservableFromPublisher(Publisher<? extends T> publisher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public final class ObservableFromPublisher extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new PublisherSubscriber(observer));

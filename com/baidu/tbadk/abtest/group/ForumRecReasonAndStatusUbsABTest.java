@@ -20,7 +20,7 @@ public class ForumRecReasonAndStatusUbsABTest extends AbsGroupUbsABTest {
     public static final String FORUM_REC_TEST_SID_B = "12_19_follow_rec_b";
     public static final String FORUM_REC_TEST_SID_C = "12_19_follow_rec_c";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mUsbAbTestSwitch;
 
     static {
@@ -40,7 +40,7 @@ public class ForumRecReasonAndStatusUbsABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -82,7 +82,7 @@ public class ForumRecReasonAndStatusUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(4);
+        ArrayList<String> arrayList = new ArrayList<>(4);
         this.mABTestList = arrayList;
         arrayList.add(FORUM_REC_TEST_SID);
         this.mABTestList.add(FORUM_REC_TEST_SID_A);

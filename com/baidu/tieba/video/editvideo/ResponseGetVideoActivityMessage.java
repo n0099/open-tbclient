@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mAllVideoTitleList;
+    public List<VideoTitleData> mAllVideoTitleList;
     public VideoTitleData mVideoTitleData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,7 +39,7 @@ public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getAllVideoTitleList() {
+    public List<VideoTitleData> getAllVideoTitleList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

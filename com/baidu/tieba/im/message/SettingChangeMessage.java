@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class SettingChangeMessage extends CustomResponsedMessage {
+public class SettingChangeMessage extends CustomResponsedMessage<Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_GROUP = 1;
     public static final int TYPE_OFFICIAL = 2;

@@ -19,7 +19,7 @@ public class TransitRoutePlanOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class TransitPolicy {
+    public static final class TransitPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final TransitPolicy EBUS_NO_SUBWAY;
         public static final TransitPolicy EBUS_TIME_FIRST;
@@ -75,19 +75,28 @@ public class TransitRoutePlanOption {
         public static TransitPolicy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TransitPolicy) Enum.valueOf(TransitPolicy.class, str) : (TransitPolicy) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TransitPolicy) Enum.valueOf(TransitPolicy.class, str);
+            }
+            return (TransitPolicy) invokeL.objValue;
         }
 
         public static TransitPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitPolicy[]) b.clone() : (TransitPolicy[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TransitPolicy[]) b.clone();
+            }
+            return (TransitPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
     }
 

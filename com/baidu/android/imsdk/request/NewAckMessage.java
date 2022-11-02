@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
@@ -25,10 +24,10 @@ public class NewAckMessage extends Message {
     public Context mContext;
     public JSONArray mJsonArray;
     public long mTriggerId;
-    public List tripules;
+    public List<Tripule> tripules;
 
     /* loaded from: classes.dex */
-    public class Tripule {
+    public static class Tripule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String accountType;
@@ -228,7 +227,7 @@ public class NewAckMessage extends Message {
         return (NewAckMessage) invokeLLLL.objValue;
     }
 
-    public boolean addTriples(List list) {
+    public boolean addTriples(List<Tripule> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
@@ -296,7 +295,7 @@ public class NewAckMessage extends Message {
         }
     }
 
-    public boolean toJsonArray(List list) {
+    public boolean toJsonArray(List<Tripule> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
@@ -304,9 +303,8 @@ public class NewAckMessage extends Message {
                 return false;
             }
             JSONArray jSONArray = new JSONArray();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                JSONObject jsonObject = ((Tripule) it.next()).toJsonObject();
+            for (Tripule tripule : list) {
+                JSONObject jsonObject = tripule.toJsonObject();
                 if (jsonObject != null) {
                     jSONArray.put(jsonObject);
                 }

@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class yo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
+    public String a;
     public String b;
-    public String c;
-    public String d;
-    public int e;
+    public boolean c;
+    public boolean d;
+    public String e;
+    public Object f;
+    public AgreeData g;
+    public int h;
+    public int i;
 
     public yo8() {
         Interceptable interceptable = $ic;
@@ -29,30 +32,156 @@ public class yo8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = false;
+        this.d = false;
+        this.e = "";
+        this.i = 0;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public AgreeData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (AgreeData) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Object e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.h = i;
         }
     }
 
-    public void a(String str) {
+    public void k(AgreeData agreeData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048586, this, agreeData) == null) {
+            this.g = agreeData;
         }
-        try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-            if (optJSONObject != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    this.a = new ArrayList();
-                    for (int i = 0; i < length; i++) {
-                        this.a.add(Integer.valueOf(optJSONArray.getInt(i)));
-                    }
-                }
-                this.b = optJSONObject.optString("upload_id");
-                this.c = optJSONObject.optString("video_url");
-            }
-        } catch (JSONException unused) {
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void o(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, obj) == null) {
+            this.f = obj;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.a = str;
         }
     }
 }

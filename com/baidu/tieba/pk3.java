@@ -1,46 +1,53 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.tieba.fm3;
-import com.baidu.tieba.qk3;
-import com.baidu.tieba.uk3;
-import com.baidu.tieba.yj3;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface pk3 {
-    String a(Context context);
+public class pk3 extends ActivityDelegation implements qk1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(Context context);
+    public pk3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(Context context, Bundle bundle, yj1 yj1Var);
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.mParams.getBoolean("key_login_force", false) && fk3.E(getAgent())) {
+                this.mResult.putInt("result_code", 0);
+                finish();
+                return true;
+            }
+            fk3.L(getAgent(), this.mParams.getBundle("key_login_params"), this);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    nk3 d(Context context);
-
-    void e(Activity activity, String str, String str2, ok3 ok3Var);
-
-    void f(Context context, fm3.d dVar);
-
-    boolean g(Context context);
-
-    String getBduss(Context context);
-
-    void h(ak1 ak1Var);
-
-    void i(Context context, qk3.d dVar);
-
-    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
-
-    String k(Context context);
-
-    void l(Activity activity, String str, String str2, ok3 ok3Var);
-
-    void m(Activity activity, String str, ul3 ul3Var);
-
-    void n(String str, ArrayList arrayList, uk3.c cVar);
-
-    void o(yj3.a aVar, String str, List list);
+    @Override // com.baidu.tieba.qk1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mResult.putInt("result_code", i);
+            finish();
+        }
+    }
 }

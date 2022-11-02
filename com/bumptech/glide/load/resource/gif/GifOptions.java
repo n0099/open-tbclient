@@ -12,8 +12,8 @@ import com.bumptech.glide.load.Option;
 /* loaded from: classes7.dex */
 public final class GifOptions {
     public static /* synthetic */ Interceptable $ic;
-    public static final Option DECODE_FORMAT;
-    public static final Option DISABLE_ANIMATION;
+    public static final Option<DecodeFormat> DECODE_FORMAT;
+    public static final Option<Boolean> DISABLE_ANIMATION;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

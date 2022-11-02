@@ -5,6 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,10 +13,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface IAccountAccessor extends IInterface {
+    @NonNull
     Account zzb() throws RemoteException;
 
     /* loaded from: classes7.dex */
-    public abstract class Stub extends com.google.android.gms.internal.common.zzb implements IAccountAccessor {
+    public static abstract class Stub extends com.google.android.gms.internal.common.zzb implements IAccountAccessor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +39,8 @@ public interface IAccountAccessor extends IInterface {
             }
         }
 
-        public static IAccountAccessor asInterface(IBinder iBinder) {
+        @NonNull
+        public static IAccountAccessor asInterface(@NonNull IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -54,7 +57,7 @@ public interface IAccountAccessor extends IInterface {
         }
 
         @Override // com.google.android.gms.internal.common.zzb
-        public final boolean zza(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        public final boolean zza(int i, @NonNull Parcel parcel, @NonNull Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {

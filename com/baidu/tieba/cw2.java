@@ -1,37 +1,89 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import android.util.Log;
+import android.util.LruCache;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import java.util.Iterator;
 import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cw2 extends a32 {
+public class cw2 extends dw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static LruCache<String, ArrayMap<String, e93>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.dw2
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "accredit" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public class a extends x42 {
+    public static class a implements bw2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cw2 c;
+        public final /* synthetic */ xi3 a;
 
-        public a(cw2 cw2Var) {
+        /* renamed from: com.baidu.tieba.cw2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0233a implements bw2 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0233a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.bw2
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (cw2.a) {
+                        Log.d("SwanAppUpdateManager", "has scope set");
+                    }
+                    this.a.a.a(cw2.g(true));
+                }
+            }
+        }
+
+        public a(xi3 xi3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cw2Var};
+                Object[] objArr = {xi3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,87 +93,308 @@ public class cw2 extends a32 {
                     return;
                 }
             }
-            this.c = cw2Var;
+            this.a = xi3Var;
         }
 
-        @Override // com.baidu.tieba.x42, com.baidu.tieba.a52
-        public boolean b(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.bw2
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
-                    Map t = eh3.t(eh3.o(str));
-                    if (t != null && t.get("statusCode") != null) {
-                        try {
-                            ew2.a().onPayResult(Integer.valueOf((String) t.get("statusCode")).intValue(), URLDecoder.decode((String) t.get(TiebaStatic.LogFields.RESULT), "UTF-8"));
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                            ew2.a().onPayResult(Integer.valueOf((String) t.get("statusCode")).intValue(), null);
-                        }
-                    } else {
-                        ew2.a().onPayResult(6, null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Map<String, e93> g = cw2.g(true);
+                if (g.size() > 0) {
+                    this.a.a(g);
+                    if (cw2.a) {
+                        Log.d("SwanAppUpdateManager", "callback scope set");
+                        return;
                     }
-                    a32.Y2();
-                    return true;
+                    return;
                 }
-                return super.b(str);
+                e12.k("SwanAppUpdateManager", "has not scope set，required request from server");
+                aw2.g().update(new C0233a(this));
             }
-            return invokeL.booleanValue;
         }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements bw2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ xi3 b;
+        public final /* synthetic */ String c;
+
+        public b(String str, xi3 xi3Var, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, xi3Var, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = xi3Var;
+            this.c = str2;
+        }
+
+        @Override // com.baidu.tieba.bw2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hw2.f().d(this.a);
+                this.b.a(cw2.g(true).get(this.c));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689099, "Lcom/baidu/tieba/cw2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947689099, "Lcom/baidu/tieba/cw2;");
+                return;
+            }
+        }
+        a = ok1.a;
+        b = new LruCache<>(6);
     }
 
     public cw2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.a32
-    public a52 Z2() {
+    public static ArrayMap<String, e93> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
-        }
-        return (a52) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a32
-    public vp1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ga2.U().f0().i(getContext());
-        }
-        return (vp1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a32, com.baidu.swan.support.v4.app.Fragment
-    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f090182).setVisibility(8);
-            vp1 k = k();
-            this.F0 = k;
-            k.Y(Z2());
-            this.G0 = this.F0.r();
-            this.F0.loadUrl(this.H0);
-            this.F0.j((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ad), this.G0.covertToView());
-            if (T1()) {
-                inflate = W1(inflate);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            e43 b0 = e43.b0();
+            if (b0 != null && !TextUtils.isEmpty(b0.b)) {
+                return b.get(b0.b);
             }
-            return D1(inflate, this);
+            return null;
         }
-        return (View) invokeLLL.objValue;
+        return (ArrayMap) invokeV.objValue;
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            e12.k("SwanAppUpdateManager", "resetCache");
+            b.evictAll();
+        }
+    }
+
+    @Override // com.baidu.tieba.dw2
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            e12.k("SwanAppUpdateManager", "onFail");
+        }
+    }
+
+    @Override // com.baidu.tieba.dw2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e12.k("SwanAppUpdateManager", "onFiltered");
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            e12.k("SwanAppUpdateManager", "cleanAccreditListData");
+            e43 M = e43.M();
+            if (M == null) {
+                e12.k("SwanAppUpdateManager", "swanApp is null");
+                return;
+            }
+            e12.k("SwanAppUpdateManager", "prefName: " + M.e0().p() + ", cleanAccredit");
+            aw2.g().w(new cw2());
+            M.e0().B("node_data_accredit_list", "");
+            o();
+            aw2.g().update();
+        }
+    }
+
+    @NonNull
+    public static Map<String, e93> g(boolean z) {
+        InterceptResult invokeZ;
+        long j;
+        int size;
+        ArrayMap<String, e93> l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z)) == null) {
+            if (z && (l = l()) != null) {
+                return l;
+            }
+            if (a) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
+            }
+            ArrayMap arrayMap = new ArrayMap();
+            e43 M = e43.M();
+            if (M == null) {
+                e12.k("SwanAppUpdateManager", "#getAccreditListData swanApp=null");
+                return arrayMap;
+            }
+            String appId = M.getAppId();
+            String q = M.e0().q("node_data_accredit_list", "");
+            String q2 = M.e0().q("cur_request_id", "");
+            e12.k("SwanAppUpdateManager", "#getAccreditListData prefName=" + M.e0().p() + " requestId=" + q2 + " accreditList=" + q);
+            if (TextUtils.isEmpty(q)) {
+                return arrayMap;
+            }
+            try {
+                ArrayMap<String, e93> m = m(new JSONObject(q), appId);
+                if (a) {
+                    long nanoTime = System.nanoTime();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("#getAccreditListData cost=");
+                    sb.append((nanoTime - j) / 1000000.0d);
+                    sb.append(" size=");
+                    LruCache<String, ArrayMap<String, e93>> lruCache = b;
+                    if (lruCache == null) {
+                        size = 0;
+                    } else {
+                        size = lruCache.size();
+                    }
+                    sb.append(size);
+                    Log.d("SwanAppUpdateManager", sb.toString());
+                }
+                e12.k("SwanAppUpdateManager", "getAccreditListData - from json");
+                return m;
+            } catch (JSONException e) {
+                e12.l("SwanAppUpdateManager", "#getAccreditListData - parse accreditList fail", e);
+                return arrayMap;
+            }
+        }
+        return (Map) invokeZ.objValue;
+    }
+
+    public static void h(@NonNull xi3<Map<String, e93>> xi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, xi3Var) == null) {
+            if (a) {
+                Log.d("SwanAppUpdateManager", "API get scope set");
+            }
+            aw2.g().z(new a(xi3Var));
+        }
+    }
+
+    @Nullable
+    public static e93 k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return g(true).get(str);
+        }
+        return (e93) invokeL.objValue;
+    }
+
+    public static void i(String str, @NonNull xi3<e93> xi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, xi3Var) == null) {
+            j(str, xi3Var, hw2.f().b(str));
+        }
+    }
+
+    public static void j(String str, @NonNull xi3<e93> xi3Var, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, xi3Var, str2) == null) {
+            e93 e93Var = g(true).get(str);
+            if (e93Var != null) {
+                hw2.f().d(str2);
+                xi3Var.a(e93Var);
+                if (a) {
+                    Log.d("SwanAppUpdateManager", "callback scope node");
+                    return;
+                }
+                return;
+            }
+            e12.k("SwanAppUpdateManager", "has not scope node，required request from server");
+            aw2.g().update(new b(str2, xi3Var, str));
+        }
+    }
+
+    public static ArrayMap<String, e93> m(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, jSONObject, str)) == null) {
+            ArrayMap<String, e93> arrayMap = new ArrayMap<>();
+            if (jSONObject == null) {
+                return arrayMap;
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("list");
+            if (optJSONObject2 == null) {
+                e12.k("SwanAppUpdateManager", "getAccreditListData - joAccreditList is null");
+                return arrayMap;
+            }
+            Iterator<String> keys = optJSONObject2.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next) && (optJSONObject = optJSONObject2.optJSONObject(next)) != null) {
+                    arrayMap.put(next, e93.f(next, optJSONObject));
+                }
+            }
+            n(arrayMap, str);
+            return arrayMap;
+        }
+        return (ArrayMap) invokeLL.objValue;
+    }
+
+    public static void n(ArrayMap<String, e93> arrayMap, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65547, null, arrayMap, str) != null) || arrayMap == null || arrayMap.size() <= 0 || TextUtils.isEmpty(str)) {
+            return;
+        }
+        e12.k("SwanAppUpdateManager", "putScopeInfo to cache: appId=" + str + ",getAppId=" + d43.K().getAppId());
+        b.put(str, arrayMap);
+    }
+
+    @Override // com.baidu.tieba.dw2
+    public void d(String str, JSONObject jSONObject, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
+            e12.k("SwanAppUpdateManager", "onUpdate ");
+            if (jSONObject == null) {
+                e12.k("SwanAppUpdateManager", ADConfigError.REASON_NULL_DATA);
+                return;
+            }
+            e43 M = e43.M();
+            if (M == null) {
+                e12.k("SwanAppUpdateManager", "swanApp is null");
+                return;
+            }
+            String jSONObject2 = jSONObject.toString();
+            e12.k("SwanAppUpdateManager", "request appId: " + str + ",prefName: " + M.e0().p() + ", putAccredit = " + jSONObject2);
+            M.e0().B("node_data_accredit_list", jSONObject2);
+            n83 e0 = M.e0();
+            e0.B("cur_request_id", "update:" + str2 + "_" + str + "_" + System.currentTimeMillis());
+            o();
+        }
     }
 }

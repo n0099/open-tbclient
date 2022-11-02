@@ -1,5 +1,6 @@
 package com.baidu.tbadk.mutiprocess.live;
 
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +33,7 @@ public class ImageViewLiveEvent extends SerializableEvent {
         setType(3);
     }
 
-    public void initData(String str, String str2, String str3, String str4, String str5, String str6) {
+    public void initData(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5, @NonNull String str6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             this.sid = str;

@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class HtmlMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<HtmlMsg> CREATOR;
     public static final String TAG = "HtmlMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String mDesc;
@@ -37,7 +37,7 @@ public class HtmlMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.HtmlMsg.1
+        CREATOR = new Parcelable.Creator<HtmlMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.HtmlMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,6 +56,7 @@ public class HtmlMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public HtmlMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -67,6 +68,7 @@ public class HtmlMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public HtmlMsg[] newArray(int i) {
                 InterceptResult invokeI;

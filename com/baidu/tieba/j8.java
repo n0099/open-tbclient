@@ -34,7 +34,7 @@ public final class j8 {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends ByteArrayOutputStream {
+    public static class a extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

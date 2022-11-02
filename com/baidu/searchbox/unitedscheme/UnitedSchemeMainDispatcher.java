@@ -34,14 +34,14 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static final String UBC_INSIDE_INVOKE_TO_TAYGET_ID = "1327";
     public static final String UBC_OUTER_INVOKE_TO_TAYGET_ID = "138";
     public static final String UBC_SCHEME_USAGE_TAYGET_ID = "1631";
-    public static List injectDispatcherList;
-    public static List injectInterceptorList;
-    public static HashMap redirectSchemes;
+    public static List<UnitedSchemeBaseDispatcher> injectDispatcherList;
+    public static List<UnitedSchemeBaseInterceptor> injectInterceptorList;
+    public static HashMap<String, String> redirectSchemes;
     public static UnitedSchemeInterceptChain sInterceptChain;
-    public static Queue sLastInvokeSchemeQueue;
-    public static HashMap sSubDispatchers;
+    public static Queue<InvokeSchemeInfo> sLastInvokeSchemeQueue;
+    public static HashMap<String, Class<? extends UnitedSchemeBaseDispatcher>> sSubDispatchers;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mDynamicDispatchers;
+    public HashMap<String, UnitedSchemeBaseDispatcher> mDynamicDispatchers;
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public String getDispatcherName() {
@@ -66,14 +66,16 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         DEBUG = UnitedSchemeConstants.DEBUG;
         TAG = UnitedSchemeMainDispatcher.class.getSimpleName();
         sInterceptChain = new UnitedSchemeInterceptChain();
-        sSubDispatchers = new HashMap();
-        redirectSchemes = new HashMap();
+        sSubDispatchers = new HashMap<>();
+        redirectSchemes = new HashMap<>();
         sLastInvokeSchemeQueue = new ConcurrentLinkedQueue();
         UnitedSchemeRuntime unitedSchemeRuntime = new UnitedSchemeRuntime();
         injectDispatcherList = unitedSchemeRuntime.sSubDispatchersList.getList();
         injectInterceptorList = unitedSchemeRuntime.sInterceptChainList.getList();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v4, resolved type: java.util.HashMap<java.lang.String, java.lang.Class<? extends com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher>> */
+    /* JADX WARN: Multi-variable type inference failed */
     public UnitedSchemeMainDispatcher() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,7 +89,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 return;
             }
         }
-        this.mDynamicDispatchers = new HashMap();
+        this.mDynamicDispatchers = new HashMap<>();
         synchronized (UnitedSchemeMainDispatcher.class) {
             if (injectDispatcherList != null && sSubDispatchers.isEmpty()) {
                 for (UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher : injectDispatcherList) {
@@ -236,8 +238,8 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            InvokeSchemeInfo invokeSchemeInfo = (InvokeSchemeInfo) sLastInvokeSchemeQueue.peek();
-            if (invokeSchemeInfo == null || Math.abs(System.currentTimeMillis() - invokeSchemeInfo.invokeTime) <= 600000) {
+            InvokeSchemeInfo peek = sLastInvokeSchemeQueue.peek();
+            if (peek == null || Math.abs(System.currentTimeMillis() - peek.invokeTime) <= 600000) {
                 return false;
             }
             return true;
@@ -290,7 +292,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             }
             String allPath = unitedSchemeEntity.getAllPath();
             if (redirectSchemes.get(allPath) != null) {
-                unitedSchemeEntity.replaceAllPath(allPath, (String) redirectSchemes.get(allPath));
+                unitedSchemeEntity.replaceAllPath(allPath, redirectSchemes.get(allPath));
             }
             int i = 0;
             if (sInterceptChain.shouldInterceptDispatch(context, unitedSchemeEntity, callbackHandler)) {
@@ -305,7 +307,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             }
             UnitedSchemeEntity m39clone = unitedSchemeEntity.m39clone();
             String path = m39clone.getPath(true);
-            if (!TextUtils.isEmpty(path) && (unitedSchemeBaseDispatcher = (UnitedSchemeBaseDispatcher) this.mDynamicDispatchers.get(path)) != null) {
+            if (!TextUtils.isEmpty(path) && (unitedSchemeBaseDispatcher = this.mDynamicDispatchers.get(path)) != null) {
                 boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m39clone, callbackHandler);
                 JSONObject jSONObject2 = m39clone.result;
                 if (jSONObject2 != null) {
@@ -365,11 +367,11 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public Class getSubDispatcher(String str) {
+    public Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return (Class) sSubDispatchers.get(str);
+            return sSubDispatchers.get(str);
         }
         return (Class) invokeL.objValue;
     }

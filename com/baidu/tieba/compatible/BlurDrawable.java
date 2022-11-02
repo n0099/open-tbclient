@@ -1,5 +1,6 @@
 package com.baidu.tieba.compatible;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -84,6 +85,7 @@ public class BlurDrawable {
         initializeRenderScript(context);
     }
 
+    @TargetApi(17)
     private void initializeRenderScript(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
@@ -100,6 +102,7 @@ public class BlurDrawable {
         }
     }
 
+    @TargetApi(17)
     public void blur(Bitmap bitmap, Bitmap bitmap2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048576, this, bitmap, bitmap2) != null) || !enabled) {
@@ -111,6 +114,7 @@ public class BlurDrawable {
         this.mBlurOutput.copyTo(bitmap2);
     }
 
+    @TargetApi(17)
     public boolean drawBlur() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -146,6 +150,7 @@ public class BlurDrawable {
         return invokeV.booleanValue;
     }
 
+    @TargetApi(17)
     public void init(int i, int i2, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, bitmap) == null) && enabled && i > 0 && i2 > 0 && bitmap != null) {
@@ -161,6 +166,7 @@ public class BlurDrawable {
         }
     }
 
+    @TargetApi(17)
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !enabled) {

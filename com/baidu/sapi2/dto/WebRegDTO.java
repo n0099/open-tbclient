@@ -13,7 +13,7 @@ public class WebRegDTO extends SapiWebDTO {
     public static final String EXTRA_REGISTER_FAST = "extra_fast_reg";
     public static final String EXTRA_REGISTER_MOBILE = "extra_mobile_reg";
     public transient /* synthetic */ FieldHolder $fh;
-    public List extraParams;
+    public List<PassNameValuePair> extraParams;
     public boolean finishActivityAfterSuc;
     public String regType;
 

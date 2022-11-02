@@ -1,5 +1,6 @@
 package com.baidu.sapi2.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.pass.common.SecurityUtil;
@@ -47,6 +48,7 @@ public class Security {
         return (String) invokeLI.objValue;
     }
 
+    @TargetApi(8)
     public String encryptSsoHash(Long l, String str, String str2) {
         InterceptResult invokeLLL;
         String str3;

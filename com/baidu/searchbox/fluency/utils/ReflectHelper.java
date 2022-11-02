@@ -53,19 +53,19 @@ public final class ReflectHelper {
         }
     }
 
-    public final Object get(Class cls, String str, Object obj) {
+    public final <T> T get(Class<?> cls, String str, Object obj) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cls, str, obj)) == null) {
-            return new ReflectField(cls, str).get(obj);
+            return (T) new ReflectField(cls, str).get(obj);
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
-    public final Object reflectField(Object obj, String name, Object obj2, boolean z) {
+    public final <T> T reflectField(Object obj, String name, T t, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{obj, name, obj2, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{obj, name, t, Boolean.valueOf(z)})) == null) {
             Intrinsics.checkNotNullParameter(name, "name");
             if (obj == null) {
                 return null;
@@ -76,7 +76,7 @@ public final class ReflectHelper {
                     if (invoke != null) {
                         Field field = (Field) invoke;
                         field.setAccessible(true);
-                        return field.get(obj);
+                        return (T) field.get(obj);
                     }
                     throw new NullPointerException("null cannot be cast to non-null type java.lang.reflect.Field");
                 } catch (Exception e) {
@@ -88,18 +88,18 @@ public final class ReflectHelper {
                     Field field2 = obj.getClass().getDeclaredField(name);
                     Intrinsics.checkNotNullExpressionValue(field2, "field");
                     field2.setAccessible(true);
-                    return field2.get(obj);
+                    return (T) field2.get(obj);
                 } catch (Exception e2) {
                     Logcat logcat2 = Logcat.INSTANCE;
                     logcat2.e(ReflectHelperKt.TAG, "[reflectField] " + e2);
                 }
             }
-            return obj2;
+            return t;
         }
-        return invokeCommon.objValue;
+        return (T) invokeCommon.objValue;
     }
 
-    public final Method reflectMethod(Object obj, String name, Class... argTypes) {
+    public final Method reflectMethod(Object obj, String name, Class<?>... argTypes) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, name, argTypes)) == null) {

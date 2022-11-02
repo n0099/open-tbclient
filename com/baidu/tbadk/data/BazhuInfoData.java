@@ -16,12 +16,12 @@ import java.util.ArrayList;
 public class BazhuInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList bazhu_info;
+    public ArrayList<BaInfo> bazhu_info;
 
     /* loaded from: classes3.dex */
-    public class BaInfo extends OrmObject implements Parcelable {
+    public static class BaInfo extends OrmObject implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<BaInfo> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String forum_Avatar;
         public int forum_id;
@@ -39,7 +39,7 @@ public class BazhuInfoData extends OrmObject {
         }
 
         /* loaded from: classes3.dex */
-        public final class a implements Parcelable.Creator {
+        public static class a implements Parcelable.Creator<BaInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

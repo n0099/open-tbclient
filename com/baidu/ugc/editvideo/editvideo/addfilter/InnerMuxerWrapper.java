@@ -1,11 +1,12 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
+import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih9;
+import com.baidu.tieba.ri9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+@TargetApi(18)
 /* loaded from: classes6.dex */
 public class InnerMuxerWrapper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -50,7 +52,7 @@ public class InnerMuxerWrapper {
     public static void log(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && !TextUtils.isEmpty(str2)) {
-            ih9.i(str2);
+            ri9.i(str2);
         }
     }
 

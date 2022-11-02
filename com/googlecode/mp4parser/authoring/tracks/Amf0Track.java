@@ -8,10 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
+import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.NullMediaHeaderBox;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
+import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.SampleImpl;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import com.googlecode.mp4parser.boxes.adobe.ActionMessageFormat0SampleEntryBox;
@@ -27,11 +30,11 @@ import java.util.TreeMap;
 public class Amf0Track extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SortedMap rawSamples;
+    public SortedMap<Long, byte[]> rawSamples;
     public TrackMetaData trackMetaData;
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -48,7 +51,7 @@ public class Amf0Track extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -77,7 +80,7 @@ public class Amf0Track extends AbstractTrack {
         return (long[]) invokeV.objValue;
     }
 
-    public Amf0Track(Map map) {
+    public Amf0Track(Map<Long, byte[]> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +95,7 @@ public class Amf0Track extends AbstractTrack {
                 return;
             }
         }
-        this.rawSamples = new TreeMap(this) { // from class: com.googlecode.mp4parser.authoring.tracks.Amf0Track.1
+        this.rawSamples = new TreeMap<Long, byte[]>(this) { // from class: com.googlecode.mp4parser.authoring.tracks.Amf0Track.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Amf0Track this$0;
@@ -174,7 +177,7 @@ public class Amf0Track extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

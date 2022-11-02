@@ -168,7 +168,7 @@ public class IpVersionController {
         return invokeV.booleanValue;
     }
 
-    public static Map filterIpVer(List list) {
+    public static Map<Integer, List<String>> filterIpVer(List<String> list) {
         InterceptResult invokeL;
         LinkedList linkedList;
         Interceptable interceptable = $ic;
@@ -177,7 +177,7 @@ public class IpVersionController {
             LinkedList linkedList3 = new LinkedList();
             if (!list.isEmpty()) {
                 for (int i = 0; i < list.size(); i++) {
-                    String str = (String) list.get(i);
+                    String str = list.get(i);
                     int tellIpVer = tellIpVer(str);
                     if (tellIpVer == 6) {
                         linkedList = linkedList3;
@@ -203,7 +203,7 @@ public class IpVersionController {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List getCurrentIp() {
+    public static List<String> getCurrentIp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
@@ -249,11 +249,11 @@ public class IpVersionController {
     public void judgeIpVersion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            List currentIp = getCurrentIp();
+            List<String> currentIp = getCurrentIp();
             LogTools.printDebug(TAG, String.format(Locale.US, "judgeIpVersion listIp: %s", currentIp.toString()));
             this.mCurrIpVer = 0;
             for (int i = 0; i < currentIp.size(); i++) {
-                int tellIpVer = tellIpVer((String) currentIp.get(i));
+                int tellIpVer = tellIpVer(currentIp.get(i));
                 if (tellIpVer == 4) {
                     this.mCurrIpVer |= 1;
                 } else if (tellIpVer == 6) {
@@ -358,9 +358,9 @@ public class IpVersionController {
         }
     }
 
-    public ConcurrentHashMap getAllLocalDNSFromCache() {
+    public ConcurrentHashMap<String, DnsInfo> getAllLocalDNSFromCache() {
         InterceptResult invokeV;
-        ConcurrentHashMap concurrentHashMap;
+        ConcurrentHashMap<String, DnsInfo> concurrentHashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (NetworkStatus.getInstanceClone().canV6()) {
@@ -376,15 +376,15 @@ public class IpVersionController {
         return (ConcurrentHashMap) invokeV.objValue;
     }
 
-    public ArrayList getBestServerIPCache(NetworkStatus networkStatus) {
+    public ArrayList<String> getBestServerIPCache(NetworkStatus networkStatus) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, networkStatus)) == null) {
             LogTools.printDebug(TAG, String.format(Locale.US, "getBestServerIPCache NetworkStatus: %s", networkStatus.toString()));
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             if (networkStatus.canV6()) {
-                LinkedList bestServerIPCache = ServerIPV6Mgr.getInstance().getBestServerIPCache();
+                LinkedList<ServerIPInfo> bestServerIPCache = ServerIPV6Mgr.getInstance().getBestServerIPCache();
                 if (!bestServerIPCache.isEmpty()) {
                     if (networkStatus.canV4()) {
                         i = 1;
@@ -392,7 +392,7 @@ public class IpVersionController {
                         i = 2;
                     }
                     for (int i2 = 0; i2 < bestServerIPCache.size() && i2 < i; i2++) {
-                        String ip = ((ServerIPInfo) bestServerIPCache.get(i2)).getIp();
+                        String ip = bestServerIPCache.get(i2).getIp();
                         if (ip != null && ip.trim().length() >= 1) {
                             arrayList.add(ip);
                         }
@@ -400,10 +400,10 @@ public class IpVersionController {
                 }
             }
             if (networkStatus.canV4()) {
-                LinkedList bestServerIPCache2 = ServerIPMgr.getInstance().getBestServerIPCache();
+                LinkedList<ServerIPInfo> bestServerIPCache2 = ServerIPMgr.getInstance().getBestServerIPCache();
                 if (!bestServerIPCache2.isEmpty()) {
                     for (int i3 = 0; i3 < bestServerIPCache2.size() && i3 < 2; i3++) {
-                        String ip2 = ((ServerIPInfo) bestServerIPCache2.get(i3)).getIp();
+                        String ip2 = bestServerIPCache2.get(i3).getIp();
                         if (ip2 != null && ip2.trim().length() >= 1) {
                             arrayList.add(ip2);
                         }
@@ -484,7 +484,7 @@ public class IpVersionController {
         return (String) invokeLIL.objValue;
     }
 
-    public List getResultByNetworkHost(String str, String str2, int i) {
+    public List<ResultTB> getResultByNetworkHost(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048588, this, str, str2, i)) == null) {
@@ -499,9 +499,9 @@ public class IpVersionController {
         return (List) invokeLLI.objValue;
     }
 
-    public List getResultByNetworkHost(String str, String str2, NetworkStatus networkStatus) {
+    public List<ResultTB> getResultByNetworkHost(String str, String str2, NetworkStatus networkStatus) {
         InterceptResult invokeLLL;
-        List list;
+        List<ResultTB> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, str, str2, networkStatus)) == null) {
             if (networkStatus.canV6()) {
@@ -517,11 +517,11 @@ public class IpVersionController {
         return (List) invokeLLL.objValue;
     }
 
-    public ArrayList getServerIPByKnownISP(Context context, int i, NetworkStatus networkStatus) {
+    public ArrayList<String> getServerIPByKnownISP(Context context, int i, NetworkStatus networkStatus) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048590, this, context, i, networkStatus)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             if (networkStatus.canV6()) {
                 arrayList.addAll(ServerIPV6Mgr.getInstance().getServerIPByKnownISP(context, i));
             }
@@ -533,11 +533,11 @@ public class IpVersionController {
         return (ArrayList) invokeLIL.objValue;
     }
 
-    public ArrayList getServerIPByUnKnownISP(Context context, NetworkStatus networkStatus) {
+    public ArrayList<String> getServerIPByUnKnownISP(Context context, NetworkStatus networkStatus) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, context, networkStatus)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             if (networkStatus.canV6()) {
                 arrayList.addAll(ServerIPV6Mgr.getInstance().getServerIPByUnKnownISP(context));
             }
@@ -557,28 +557,28 @@ public class IpVersionController {
             if (resInfo == null) {
                 return 2;
             }
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            LinkedHashMap linkedHashMap2 = new LinkedHashMap();
-            LinkedHashMap dns = resInfo.getDns();
-            Iterator it = dns.keySet().iterator();
+            LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
+            LinkedHashMap<String, DnsInfo> linkedHashMap2 = new LinkedHashMap<>();
+            LinkedHashMap<String, DnsInfo> dns = resInfo.getDns();
+            Iterator<String> it = dns.keySet().iterator();
             while (true) {
                 boolean z2 = false;
                 if (it.hasNext()) {
-                    String str = (String) it.next();
-                    DnsInfo dnsInfo = (DnsInfo) dns.get(str);
-                    LinkedList ips = dnsInfo.getIps();
+                    String next = it.next();
+                    DnsInfo dnsInfo = dns.get(next);
+                    LinkedList<String> ips = dnsInfo.getIps();
                     if (ips != null && !ips.isEmpty()) {
-                        LinkedList linkedList = new LinkedList();
-                        LinkedList linkedList2 = new LinkedList();
-                        Iterator it2 = ips.iterator();
+                        LinkedList<String> linkedList = new LinkedList<>();
+                        LinkedList<String> linkedList2 = new LinkedList<>();
+                        Iterator<String> it2 = ips.iterator();
                         while (it2.hasNext()) {
-                            String str2 = (String) it2.next();
-                            if (!TextUtils.isEmpty(str2)) {
-                                int tellIpVer = tellIpVer(str2);
+                            String next2 = it2.next();
+                            if (!TextUtils.isEmpty(next2)) {
+                                int tellIpVer = tellIpVer(next2);
                                 if (tellIpVer == 4) {
-                                    linkedList.add(str2);
+                                    linkedList.add(next2);
                                 } else if (tellIpVer == 6) {
-                                    linkedList2.add(str2);
+                                    linkedList2.add(next2);
                                 }
                             }
                         }
@@ -594,17 +594,17 @@ public class IpVersionController {
                             DnsInfo dnsInfo2 = new DnsInfo();
                             dnsInfo2.cloneDnsInfo(dnsInfo);
                             dnsInfo2.setIps(linkedList);
-                            linkedHashMap.put(str, dnsInfo2);
+                            linkedHashMap.put(next, dnsInfo2);
                         }
                         if (!z) {
                             DnsInfo dnsInfo3 = new DnsInfo();
                             dnsInfo3.cloneDnsInfo(dnsInfo);
                             dnsInfo3.setIps(linkedList2);
-                            linkedHashMap2.put(str, dnsInfo3);
+                            linkedHashMap2.put(next, dnsInfo3);
                         }
                     } else if (dnsInfo.getStatus() == 6) {
-                        linkedHashMap.put(str, dnsInfo);
-                        linkedHashMap2.put(str, dnsInfo);
+                        linkedHashMap.put(next, dnsInfo);
+                        linkedHashMap2.put(next, dnsInfo);
                     }
                 } else {
                     ResInfo resInfo2 = new ResInfo();
@@ -626,7 +626,7 @@ public class IpVersionController {
     public void putLocalDNSIntoCache(DnsInfo dnsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, dnsInfo) == null) {
-            String str = (String) dnsInfo.getIps().get(0);
+            String str = dnsInfo.getIps().get(0);
             int tellIpVer = tellIpVer(str);
             if (tellIpVer == 6) {
                 DataV6CacheMgr.INSTANCE.putLocalDNSIntoCache(dnsInfo);

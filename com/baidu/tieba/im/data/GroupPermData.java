@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eo;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
-public class GroupPermData implements eo, Serializable {
+public class GroupPermData implements wn, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MANAGER = 1;
     public static final int NORMAL = 1;
@@ -154,7 +154,7 @@ public class GroupPermData implements eo, Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.eo
+    @Override // com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

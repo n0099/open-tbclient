@@ -1,23 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public class ln4 extends fn4 {
+import tbclient.BackUser.DataRes;
+/* loaded from: classes5.dex */
+public class ln4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.en4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "o" : (String) invokeV.objValue;
-    }
+    public boolean a;
 
     public ln4() {
         Interceptable interceptable = $ic;
@@ -29,25 +21,21 @@ public class ln4 extends fn4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
     }
 
-    @Override // com.baidu.tieba.en4
-    public String a(String[] strArr, Map map) {
-        InterceptResult invokeLL;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                String substring = strArr[0].substring(1);
-                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/topicdetail");
-                sb.append("?topic_id=");
-                sb.append(substring);
-                c(strArr, sb, map, 1);
-                return sb.toString();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        boolean z = true;
+        if (dataRes.is_back_user.intValue() != 1) {
+            z = false;
+        }
+        this.a = z;
     }
 }

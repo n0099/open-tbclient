@@ -11,7 +11,7 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.security.ProviderInstaller;
 /* loaded from: classes7.dex */
-public final class zza extends AsyncTask {
+public final class zza extends AsyncTask<Void, Void, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context zza;
@@ -36,9 +36,10 @@ public final class zza extends AsyncTask {
         this.zzb = providerInstallListener;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.AsyncTask
-    public final /* bridge */ /* synthetic */ Object doInBackground(Object[] objArr) {
-        Void[] voidArr = (Void[]) objArr;
+    public final /* bridge */ /* synthetic */ Integer doInBackground(Void[] voidArr) {
         try {
             ProviderInstaller.installIfNeeded(this.zza);
             return 0;
@@ -49,15 +50,16 @@ public final class zza extends AsyncTask {
         }
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // android.os.AsyncTask
-    public final /* bridge */ /* synthetic */ void onPostExecute(Object obj) {
+    public final /* bridge */ /* synthetic */ void onPostExecute(Integer num) {
         GoogleApiAvailabilityLight googleApiAvailabilityLight;
-        Integer num = (Integer) obj;
-        if (num.intValue() == 0) {
+        Integer num2 = num;
+        if (num2.intValue() == 0) {
             this.zzb.onProviderInstalled();
             return;
         }
         googleApiAvailabilityLight = ProviderInstaller.zza;
-        this.zzb.onProviderInstallFailed(num.intValue(), googleApiAvailabilityLight.getErrorResolutionIntent(this.zza, num.intValue(), "pi"));
+        this.zzb.onProviderInstallFailed(num2.intValue(), googleApiAvailabilityLight.getErrorResolutionIntent(this.zza, num2.intValue(), "pi"));
     }
 }

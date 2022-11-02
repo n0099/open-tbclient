@@ -3,6 +3,7 @@ package com.baidu.tieba.homepage.tabfeed.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -13,22 +14,23 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.w37;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.g57;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.sx;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PostAnimateFloatView extends FrameLayout implements yx {
+public class PostAnimateFloatView extends FrameLayout implements sx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -102,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                w37.g();
+                g57.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -282,7 +284,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
                 return;
             }
             this.a.e = false;
-            hh.a().postDelayed(this.a.i, 5000L);
+            zg.a().postDelayed(this.a.i, 5000L);
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -317,7 +319,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PostAnimateFloatView(Context context, AttributeSet attributeSet) {
+    public PostAnimateFloatView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -338,7 +340,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PostAnimateFloatView(Context context, AttributeSet attributeSet, int i) {
+    public PostAnimateFloatView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -360,6 +362,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
         i(context);
     }
 
+    @SuppressLint({"NewApi"})
     public void f() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e || !this.d) {
@@ -373,6 +376,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
         this.g.start();
     }
 
+    @SuppressLint({"NewApi"})
     public void g() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.e || this.d) {
@@ -386,6 +390,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
         this.h.start();
     }
 
+    @SuppressLint({"NewApi"})
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -399,24 +404,25 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
                 valueAnimator2.removeAllUpdateListeners();
                 this.g.removeAllListeners();
             }
-            hh.a().removeCallbacks(this.i);
+            zg.a().removeCallbacks(this.i);
         }
     }
 
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04c2, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c69);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a41);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a59);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04d2, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cb1);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a85);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a9d);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0f0f));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0f27));
             j();
             this.a.setOnClickListener(new b(this));
         }
     }
 
+    @SuppressLint({"NewApi"})
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -433,6 +439,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -453,13 +460,13 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
         }
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080984, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -467,7 +474,7 @@ public class PostAnimateFloatView extends FrameLayout implements yx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                nv4 d2 = nv4.d(linearLayout);
+                kw4 d2 = kw4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

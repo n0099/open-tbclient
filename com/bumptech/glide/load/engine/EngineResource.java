@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.engine;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
-public class EngineResource implements Resource {
+public class EngineResource<Z> implements Resource<Z> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int acquired;
@@ -19,14 +20,14 @@ public class EngineResource implements Resource {
     public boolean isRecycled;
     public final Key key;
     public final ResourceListener listener;
-    public final Resource resource;
+    public final Resource<Z> resource;
 
     /* loaded from: classes7.dex */
     public interface ResourceListener {
-        void onResourceReleased(Key key, EngineResource engineResource);
+        void onResourceReleased(Key key, EngineResource<?> engineResource);
     }
 
-    public EngineResource(Resource resource, boolean z, boolean z2, Key key, ResourceListener resourceListener) {
+    public EngineResource(Resource<Z> resource, boolean z, boolean z2, Key key, ResourceListener resourceListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,16 +63,17 @@ public class EngineResource implements Resource {
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public Object get() {
+    @NonNull
+    public Z get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.resource.get();
         }
-        return invokeV.objValue;
+        return (Z) invokeV.objValue;
     }
 
-    public Resource getResource() {
+    public Resource<Z> getResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -81,7 +83,8 @@ public class EngineResource implements Resource {
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public Class getResourceClass() {
+    @NonNull
+    public Class<Z> getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

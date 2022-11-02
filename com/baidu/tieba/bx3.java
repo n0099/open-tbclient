@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bx3 {
+public class bx3 extends gb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public String k;
 
     public bx3() {
         Interceptable interceptable = $ic;
@@ -23,28 +24,32 @@ public class bx3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = "";
     }
 
-    public static bx3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            bx3 bx3Var = new bx3();
-            bx3Var.a = jSONObject.optInt("state");
-            bx3Var.b = jSONObject.optString("msg");
-            return bx3Var;
-        }
-        return (bx3) invokeL.objValue;
-    }
-
-    public String toString() {
+    @Override // com.baidu.tieba.gb3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("error_code", this.k);
+            } catch (JSONException e) {
+                if (gb3.j) {
+                    e.printStackTrace();
+                }
+            }
+            if (gb3.j) {
+                Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+            }
+            return super.f();
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

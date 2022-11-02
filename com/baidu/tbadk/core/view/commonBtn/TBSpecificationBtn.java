@@ -8,6 +8,8 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.DimenRes;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.ty4;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -160,7 +162,7 @@ public class TBSpecificationBtn extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TBSpecificationBtn(Context context, AttributeSet attributeSet) {
+    public TBSpecificationBtn(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -191,7 +193,7 @@ public class TBSpecificationBtn extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TBSpecificationBtn(Context context, AttributeSet attributeSet, int i) {
+    public TBSpecificationBtn(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -373,12 +375,12 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.l = TbadkCoreApplication.getInst().getSkinType();
-            ty4 ty4Var = new ty4();
-            this.b = ty4Var;
-            ty4Var.t = this.n;
+            jz4 jz4Var = new jz4();
+            this.b = jz4Var;
+            jz4Var.t = this.n;
             Paint paint = new Paint();
             this.d = paint;
-            paint.setTextSize(fj.f(getContext(), R.dimen.T_X08));
+            paint.setTextSize(xi.g(getContext(), R.dimen.T_X08));
             this.d.setAntiAlias(true);
         }
     }
@@ -482,10 +484,10 @@ public class TBSpecificationBtn extends View {
         }
     }
 
-    public void setTextSize(int i) {
+    public void setTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d.setTextSize(fj.f(getContext(), i));
+            this.d.setTextSize(xi.g(getContext(), i));
             Paint paint = this.d;
             String str = this.e;
             paint.getTextBounds(str, 0, str.length(), this.h);

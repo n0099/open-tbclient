@@ -5,10 +5,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import com.baidu.mapapi.model.inner.Point;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.mapsdkplatform.comjni.tools.JNITools;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.platform.comapi.basestruct.Point;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double a;
@@ -88,10 +88,10 @@ public class b {
             if (str == null) {
                 return null;
             }
-            if (str.equals("") || str.equals("bd09ll")) {
-                return new LatLng(f, f2);
-            }
-            if (str.equals("bd09ll") || str.equals(CoordinateType.BD09MC) || str.equals("gcj02") || str.equals(CoordinateType.WGS84)) {
+            if (!str.equals("") && !str.equals("bd09ll")) {
+                if (!str.equals("bd09ll") && !str.equals("bd09mc") && !str.equals("gcj02") && !str.equals("wgs84")) {
+                    return null;
+                }
                 Bundle bundle = new Bundle();
                 JNITools.CoordinateEncryptEx(f, f2, str, bundle);
                 if (bundle.isEmpty()) {
@@ -99,90 +99,60 @@ public class b {
                 }
                 return new LatLng(bundle.getDouble("y"), bundle.getDouble("x"));
             }
-            return null;
+            return new LatLng(f, f2);
         }
         return (LatLng) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0068  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x006b  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0079  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x008f A[EDGE_INSN: B:41:0x008f->B:34:0x008f ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static LatLng a(GeoPoint geoPoint) {
         InterceptResult invokeL;
-        double d2;
-        double d3;
-        double d4;
-        double d5;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, geoPoint)) == null) {
+            if (geoPoint == null) {
+                return null;
+            }
             a aVar = new a();
             aVar.a = geoPoint.getLongitudeE6();
             aVar.b = geoPoint.getLatitudeE6();
             a aVar2 = new a();
-            double d6 = aVar.a;
-            aVar2.a = d6;
-            if (d6 <= 2.0037508342E7d) {
-                if (d6 < -2.0037508342E7d) {
-                    d2 = 2.0037508342E7d - ((-2.0037508342E7d) - d6);
-                }
-                d3 = aVar.b;
-                aVar2.b = d3;
-                if (d3 < 1.0E-6d || d3 < 0.0d) {
-                    d4 = aVar2.b;
-                    if (d4 < 0.0d || d4 <= -1.0E-6d) {
-                        d5 = aVar2.b;
-                        if (d5 <= 2.0037508342E7d) {
-                            aVar2.b = 2.0037508342E7d;
-                        } else if (d5 < -2.0037508342E7d) {
-                            aVar2.b = -2.0037508342E7d;
-                        }
-                    } else {
-                        aVar2.b = -1.0E-6d;
-                    }
-                } else {
-                    aVar2.b = 1.0E-6d;
-                }
-                double[] dArr = new double[10];
-                i = 0;
-                while (true) {
-                    if (i >= 6) {
-                        break;
-                    } else if (Math.abs(aVar2.b) > a[i]) {
-                        dArr = c[i];
-                        break;
-                    } else {
-                        i++;
-                    }
-                }
-                a a2 = a(aVar2, dArr);
-                return new LatLng(a2.b, a2.a);
-            }
-            d2 = (d6 - 2.0037508342E7d) - 2.0037508342E7d;
+            double d2 = aVar.a;
             aVar2.a = d2;
-            d3 = aVar.b;
+            if (d2 > 2.0037508342E7d) {
+                aVar2.a = (d2 - 2.0037508342E7d) - 2.0037508342E7d;
+            } else if (d2 < -2.0037508342E7d) {
+                aVar2.a = 2.0037508342E7d - ((-2.0037508342E7d) - d2);
+            }
+            double d3 = aVar.b;
             aVar2.b = d3;
-            if (d3 < 1.0E-6d) {
+            if (d3 < 1.0E-6d && d3 >= 0.0d) {
+                aVar2.b = 1.0E-6d;
+            } else {
+                double d4 = aVar2.b;
+                if (d4 < 0.0d && d4 > -1.0E-6d) {
+                    aVar2.b = -1.0E-6d;
+                } else {
+                    double d5 = aVar2.b;
+                    if (d5 > 2.0037508342E7d) {
+                        aVar2.b = 2.0037508342E7d;
+                    } else if (d5 < -2.0037508342E7d) {
+                        aVar2.b = -2.0037508342E7d;
+                    }
+                }
             }
-            d4 = aVar2.b;
-            if (d4 < 0.0d) {
-            }
-            d5 = aVar2.b;
-            if (d5 <= 2.0037508342E7d) {
-            }
-            double[] dArr2 = new double[10];
-            i = 0;
+            double[] dArr = new double[10];
+            int i = 0;
             while (true) {
                 if (i >= 6) {
+                    break;
+                } else if (Math.abs(aVar2.b) > a[i]) {
+                    dArr = c[i];
+                    break;
+                } else {
+                    i++;
                 }
-                i++;
             }
-            a a22 = a(aVar2, dArr2);
-            return new LatLng(a22.b, a22.a);
+            a a2 = a(aVar2, dArr);
+            return new LatLng(a2.b, a2.a);
         }
         return (LatLng) invokeL.objValue;
     }
@@ -191,24 +161,51 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null || str.length() <= 0) {
-                return null;
+            if (str != null && str.length() > 0) {
+                Bundle bundle = new Bundle();
+                bundle.putString("strkey", str);
+                JNITools.TransGeoStr2Pt(bundle);
+                GeoPoint geoPoint = new GeoPoint(0, 0);
+                geoPoint.setLongitudeE6(bundle.getInt(MapBundleKey.MapObjKey.OBJ_SL_PTX));
+                geoPoint.setLatitudeE6(bundle.getInt(MapBundleKey.MapObjKey.OBJ_SL_PTY));
+                return a(geoPoint);
             }
-            Bundle bundle = new Bundle();
-            bundle.putString("strkey", str);
-            JNITools.TransGeoStr2Pt(bundle);
-            GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
-            geoPoint.setLongitudeE6(bundle.getInt("ptx"));
-            geoPoint.setLatitudeE6(bundle.getInt("pty"));
-            return a(geoPoint);
+            return null;
         }
         return (LatLng) invokeL.objValue;
+    }
+
+    public static a a(a aVar, double[] dArr) {
+        InterceptResult invokeLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, aVar, dArr)) == null) {
+            a aVar2 = new a();
+            int i2 = 1;
+            aVar2.a = dArr[0] + (dArr[1] * Math.abs(aVar.a));
+            double abs = Math.abs(aVar.b) / dArr[9];
+            aVar2.b = dArr[2] + (dArr[3] * abs) + (dArr[4] * abs * abs) + (dArr[5] * abs * abs * abs) + (dArr[6] * abs * abs * abs * abs) + (dArr[7] * abs * abs * abs * abs * abs) + (dArr[8] * abs * abs * abs * abs * abs * abs);
+            double d2 = aVar2.a;
+            if (aVar.a < 0.0d) {
+                i = -1;
+            } else {
+                i = 1;
+            }
+            aVar2.a = d2 * i;
+            double d3 = aVar2.b;
+            if (aVar.b < 0.0d) {
+                i2 = -1;
+            }
+            aVar2.b = d3 * i2;
+            return aVar2;
+        }
+        return (a) invokeLL.objValue;
     }
 
     public static GeoPoint a(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, latLng)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, latLng)) == null) {
             a aVar = new a();
             double[] dArr = new double[10];
             double abs = Math.abs(latLng.latitude * 1000000.0d);
@@ -236,32 +233,17 @@ public class b {
         return (GeoPoint) invokeL.objValue;
     }
 
-    public static a a(a aVar, double[] dArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, aVar, dArr)) == null) {
-            a aVar2 = new a();
-            aVar2.a = dArr[0] + (dArr[1] * Math.abs(aVar.a));
-            double abs = Math.abs(aVar.b) / dArr[9];
-            aVar2.b = dArr[2] + (dArr[3] * abs) + (dArr[4] * abs * abs) + (dArr[5] * abs * abs * abs) + (dArr[6] * abs * abs * abs * abs) + (dArr[7] * abs * abs * abs * abs * abs) + (dArr[8] * abs * abs * abs * abs * abs * abs);
-            aVar2.a *= aVar.a < 0.0d ? -1 : 1;
-            aVar2.b *= aVar.b < 0.0d ? -1 : 1;
-            return aVar2;
-        }
-        return (a) invokeLL.objValue;
-    }
-
     public static LatLng b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (str == null || str.length() <= 0) {
-                return null;
+            if (str != null && str.length() > 0) {
+                Bundle bundle = new Bundle();
+                bundle.putString("strkey", str);
+                JNITools.TransNodeStr2Pt(bundle);
+                return a(new GeoPoint(bundle.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY), bundle.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX)));
             }
-            Bundle bundle = new Bundle();
-            bundle.putString("strkey", str);
-            JNITools.TransNodeStr2Pt(bundle);
-            return a(new GeoPoint(bundle.getDouble("pty"), bundle.getDouble("ptx")));
+            return null;
         }
         return (LatLng) invokeL.objValue;
     }
@@ -276,56 +258,64 @@ public class b {
             Bundle bundle = new Bundle();
             JNITools.CoordinateEncryptMc((float) latLng.longitude, (float) latLng.latitude, bundle);
             Point point = new Point(0, 0);
-            point.setmPtx((int) bundle.getDouble("x"));
-            point.setmPty((int) bundle.getDouble("y"));
+            point.setIntX((int) bundle.getDouble("x"));
+            point.setIntY((int) bundle.getDouble("y"));
             return point;
         }
         return (Point) invokeL.objValue;
     }
 
-    public static List c(String str) {
+    public static List<LatLng> c(String str) {
         InterceptResult invokeL;
-        ArrayList arrayList;
+        ArrayList<ArrayList<Point>> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            com.baidu.mapapi.model.inner.a a2 = com.baidu.mapsdkplatform.comjni.tools.a.a(str);
+            com.baidu.platform.comapi.basestruct.a a2 = com.baidu.mapsdkplatform.comjni.tools.a.a(str);
             ArrayList arrayList2 = new ArrayList();
-            if (a2 == null || (arrayList = a2.d) == null) {
-                return null;
-            }
-            if (arrayList.size() > 0) {
-                ArrayList arrayList3 = (ArrayList) arrayList.get(0);
-                for (int i = 0; i < arrayList3.size(); i++) {
-                    Point point = (Point) arrayList3.get(i);
-                    arrayList2.add(SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(a(new GeoPoint(point.y / 100, point.x / 100))) : a(new GeoPoint(point.y / 100, point.x / 100)));
+            if (a2 != null && (arrayList = a2.d) != null) {
+                if (arrayList.size() > 0) {
+                    ArrayList<Point> arrayList3 = arrayList.get(0);
+                    for (int i = 0; i < arrayList3.size(); i++) {
+                        Point point = arrayList3.get(i);
+                        if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                            arrayList2.add(CoordTrans.baiduToGcj(a(new GeoPoint(point.getDoubleY() / 100.0d, point.getDoubleX() / 100.0d))));
+                        } else {
+                            arrayList2.add(a(new GeoPoint(point.getDoubleY() / 100.0d, point.getDoubleX() / 100.0d)));
+                        }
+                    }
                 }
+                return arrayList2;
             }
-            return arrayList2;
+            return null;
         }
         return (List) invokeL.objValue;
     }
 
-    public static List d(String str) {
+    public static List<List<LatLng>> d(String str) {
         InterceptResult invokeL;
-        ArrayList arrayList;
+        ArrayList<ArrayList<Point>> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            com.baidu.mapapi.model.inner.a a2 = com.baidu.mapsdkplatform.comjni.tools.a.a(str);
-            if (a2 == null || (arrayList = a2.d) == null) {
-                return null;
-            }
-            ArrayList arrayList2 = new ArrayList();
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                ArrayList arrayList3 = new ArrayList();
-                Iterator it2 = ((ArrayList) it.next()).iterator();
-                while (it2.hasNext()) {
-                    Point point = (Point) it2.next();
-                    arrayList3.add(SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(a(new GeoPoint(point.y / 100, point.x / 100))) : a(new GeoPoint(point.y / 100, point.x / 100)));
+            com.baidu.platform.comapi.basestruct.a a2 = com.baidu.mapsdkplatform.comjni.tools.a.a(str);
+            if (a2 != null && (arrayList = a2.d) != null) {
+                ArrayList arrayList2 = new ArrayList();
+                Iterator<ArrayList<Point>> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    ArrayList arrayList3 = new ArrayList();
+                    Iterator<Point> it2 = it.next().iterator();
+                    while (it2.hasNext()) {
+                        Point next = it2.next();
+                        if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                            arrayList3.add(CoordTrans.baiduToGcj(a(new GeoPoint(next.getDoubleY() / 100.0d, next.getDoubleX() / 100.0d))));
+                        } else {
+                            arrayList3.add(a(new GeoPoint(next.getDoubleY() / 100.0d, next.getDoubleX() / 100.0d)));
+                        }
+                    }
+                    arrayList2.add(arrayList3);
                 }
-                arrayList2.add(arrayList3);
+                return arrayList2;
             }
-            return arrayList2;
+            return null;
         }
         return (List) invokeL.objValue;
     }

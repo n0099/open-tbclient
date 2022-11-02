@@ -1,5 +1,6 @@
 package androidx.collection;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +18,11 @@ import java.util.Set;
 public abstract class MapCollections<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public MapCollections<K, V>.EntrySet mEntrySet;
+    @Nullable
     public MapCollections<K, V>.KeySet mKeySet;
+    @Nullable
     public MapCollections<K, V>.ValuesCollection mValues;
 
     public abstract void colClear();

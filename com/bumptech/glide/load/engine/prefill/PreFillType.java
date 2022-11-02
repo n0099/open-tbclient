@@ -1,6 +1,8 @@
 package com.bumptech.glide.load.engine.prefill;
 
 import android.graphics.Bitmap;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,6 +15,7 @@ import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
 public final class PreFillType {
     public static /* synthetic */ Interceptable $ic;
+    @VisibleForTesting
     public static final Bitmap.Config DEFAULT_CONFIG;
     public transient /* synthetic */ FieldHolder $fh;
     public final Bitmap.Config config;
@@ -21,7 +24,7 @@ public final class PreFillType {
     public final int width;
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap.Config config;
@@ -95,7 +98,7 @@ public final class PreFillType {
             return (Bitmap.Config) invokeV.objValue;
         }
 
-        public Builder setConfig(Bitmap.Config config) {
+        public Builder setConfig(@Nullable Bitmap.Config config) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, config)) == null) {

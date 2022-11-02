@@ -22,7 +22,7 @@ public class af {
     public Context f49a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f50a;
+    public List<x> f50a;
 
     static {
         InterceptResult invokeClinit;
@@ -158,14 +158,14 @@ public class af {
                 x xVar = new x();
                 xVar.f89a = str;
                 if (this.f50a.contains(xVar)) {
-                    Iterator it = this.f50a.iterator();
+                    Iterator<x> it = this.f50a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
-                        x xVar2 = (x) it.next();
-                        if (xVar.equals(xVar2)) {
-                            xVar = xVar2;
+                        x next = it.next();
+                        if (xVar.equals(next)) {
+                            xVar = next;
                             break;
                         }
                     }

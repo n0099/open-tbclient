@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
-public class w36 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w36 {
+    String from();
 
-    public abstract String a();
+    void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 
-    public abstract String b();
+    void setFrom(String str);
 }

@@ -1,5 +1,6 @@
 package com.baidu.live.arch.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -36,7 +37,7 @@ public class MixNetWorkUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class NetType {
+    public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType NONE;
@@ -127,6 +128,7 @@ public class MixNetWorkUtils {
         }
     }
 
+    @SuppressLint({"MissingPermission"})
     public static NetworkInfo getActiveNetworkInfo() {
         InterceptResult invokeV;
         ConnectivityManager connectivityManager;
@@ -215,6 +217,7 @@ public class MixNetWorkUtils {
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"MissingPermission"})
     public static WifiInfo getWifiManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

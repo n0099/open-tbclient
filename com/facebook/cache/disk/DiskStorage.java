@@ -41,7 +41,7 @@ public interface DiskStorage {
 
     DiskDumpInfo getDumpInfo() throws IOException;
 
-    Collection getEntries() throws IOException;
+    Collection<Entry> getEntries() throws IOException;
 
     BinaryResource getResource(String str, Object obj) throws IOException;
 
@@ -62,11 +62,11 @@ public interface DiskStorage {
     boolean touch(String str, Object obj) throws IOException;
 
     /* loaded from: classes7.dex */
-    public class DiskDumpInfo {
+    public static class DiskDumpInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List entries;
-        public Map typeCounts;
+        public List<DiskDumpInfoEntry> entries;
+        public Map<String, Integer> typeCounts;
 
         public DiskDumpInfo() {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public interface DiskStorage {
     }
 
     /* loaded from: classes7.dex */
-    public class DiskDumpInfoEntry {
+    public static class DiskDumpInfoEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String firstBits;

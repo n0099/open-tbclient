@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,165 +13,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public final class sp2 {
+public class sp2 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final Set g;
+    public static final boolean c;
+    public static volatile sp2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final Object e;
+    public boolean a;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public int c;
-        public String d;
-        public Object e;
-        public RuntimeException f;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
         }
+    }
 
-        public Exception d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f;
-            }
-            return (Exception) invokeV.objValue;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
         }
+    }
 
-        public sp2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f != null) {
-                    if (!sp2.f) {
-                        return null;
-                    }
-                    throw this.f;
-                } else if (this.a == null) {
-                    this.f = new IllegalStateException("sid == null");
-                    if (!sp2.f) {
-                        return null;
-                    }
-                    throw this.f;
-                } else {
-                    synchronized (a.class) {
-                        if (sp2.g.contains(this.a)) {
-                            this.f = new IllegalStateException("sid has been occupied");
-                            if (!sp2.f) {
-                                return null;
-                            }
-                            throw this.f;
-                        } else if (this.e == null) {
-                            this.f = new IllegalStateException("switchValue == null");
-                            if (!sp2.f) {
-                                return null;
-                            }
-                            throw this.f;
-                        } else {
-                            sp2.g.add(this.a);
-                            return new sp2(this);
-                        }
-                    }
-                }
-            }
-            return (sp2) invokeV.objValue;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
         }
+    }
 
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                this.e = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.b = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public a c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i >= 0 && i <= 100) {
-                    this.c = i;
-                    return this;
-                }
-                this.f = new IllegalArgumentException("flow must in [0, 100]");
-                if (!sp2.f) {
-                    this.c = 0;
-                    return this;
-                }
-                throw this.f;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public a e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.f = new IllegalArgumentException("sid must not be empty");
-                    if (!sp2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else if (str.contains("-")) {
-                    this.f = new IllegalArgumentException("sid must not contain '-'");
-                    if (!sp2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
         }
     }
 
@@ -184,43 +63,13 @@ public final class sp2 {
                 return;
             }
         }
-        f = wj1.a;
-        g = new HashSet();
+        c = ok1.a;
     }
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Object e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.objValue;
-    }
-
-    public sp2(a aVar) {
+    public sp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -230,22 +79,106 @@ public final class sp2 {
                 return;
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
+        this.a = false;
     }
 
-    public String toString() {
+    public static sp2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f) {
-                return "SwanLocalABTestBranch{mGroupType=" + this.b + ", mFlow=" + this.c + ", mBranchDescription='" + this.d + "', mSwitchValue=" + this.e + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (sp2.class) {
+                    if (d == null) {
+                        d = new sp2();
+                    }
+                }
             }
-            return super.toString();
+            return d;
         }
-        return (String) invokeV.objValue;
+        return (sp2) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
+            }
+            ln2.c().registerActivityLifecycleCallbacks(this);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
+            }
+            ln2.c().unregisterActivityLifecycleCallbacks(this);
+        }
+    }
+
+    public void d(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (z2 = this.a) != z) {
+            if (z2) {
+                this.a = false;
+                gq2.a().e(null);
+                return;
+            }
+            this.a = true;
+            gq2.a().d(null);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && !this.a) {
+            this.a = true;
+            gq2.a().d(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            int i = this.b + 1;
+            this.b = i;
+            if (i == 1 && !this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onBackgroundToForeground");
+                }
+                this.a = true;
+                gq2.a().d(activity);
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
+            int i = this.b - 1;
+            this.b = i;
+            if (i == 0 && this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
+                }
+                this.a = false;
+                gq2.a().e(activity);
+            }
+        }
     }
 }

@@ -1,25 +1,64 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.view.MotionEvent;
-import android.widget.ListAdapter;
-/* loaded from: classes4.dex */
-public interface lj5 {
-    void a();
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class lj5<T> {
+    public static /* synthetic */ Interceptable $ic;
+    @Nullable
+    public static Object a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Canvas canvas);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947944818, "Lcom/baidu/tieba/lj5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947944818, "Lcom/baidu/tieba/lj5;");
+        }
+    }
 
-    void onDraw(Canvas canvas);
+    public lj5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    boolean onInterceptTouchEvent(MotionEvent motionEvent);
+    @Nullable
+    public T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (T) a;
+        }
+        return (T) invokeV.objValue;
+    }
 
-    void onMeasure(int i, int i2);
-
-    void onSizeChanged(int i, int i2, int i3, int i4);
-
-    boolean onTouchEvent(MotionEvent motionEvent);
-
-    void requestLayout();
-
-    void setAdapter(ListAdapter listAdapter);
+    public void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            a = t;
+        }
+    }
 }

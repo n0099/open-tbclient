@@ -94,12 +94,12 @@ public final class MiniPluginUtils {
 
     public final int getComponentInstalledVersion(String str) {
         InterceptResult invokeL;
-        SparseArray pluginBundleInfo;
+        SparseArray<YYPluginBundleInfo> pluginBundleInfo;
         YYPluginBundleInfo yYPluginBundleInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             YYPluginManageService pluginService = getPluginService();
-            if (pluginService != null && (pluginBundleInfo = pluginService.getPluginBundleInfo(str)) != null && (yYPluginBundleInfo = (YYPluginBundleInfo) pluginBundleInfo.get(3)) != null) {
+            if (pluginService != null && (pluginBundleInfo = pluginService.getPluginBundleInfo(str)) != null && (yYPluginBundleInfo = pluginBundleInfo.get(3)) != null) {
                 return yYPluginBundleInfo.getVersionCode();
             }
             return 0;

@@ -5,6 +5,8 @@ import android.hardware.display.DisplayManager;
 import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -57,7 +59,8 @@ public final class DisplayManagerCompat {
         this.mContext = context;
     }
 
-    public static DisplayManagerCompat getInstance(Context context) {
+    @NonNull
+    public static DisplayManagerCompat getInstance(@NonNull Context context) {
         InterceptResult invokeL;
         DisplayManagerCompat displayManagerCompat;
         Interceptable interceptable = $ic;
@@ -74,6 +77,7 @@ public final class DisplayManagerCompat {
         return (DisplayManagerCompat) invokeL.objValue;
     }
 
+    @Nullable
     public Display getDisplay(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -90,7 +94,8 @@ public final class DisplayManagerCompat {
         return (Display) invokeI.objValue;
     }
 
-    public Display[] getDisplays(String str) {
+    @NonNull
+    public Display[] getDisplays(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -102,6 +107,7 @@ public final class DisplayManagerCompat {
         return (Display[]) invokeL.objValue;
     }
 
+    @NonNull
     public Display[] getDisplays() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

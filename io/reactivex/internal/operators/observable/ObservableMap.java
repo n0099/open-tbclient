@@ -8,23 +8,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicFuseableObserver;
 /* loaded from: classes8.dex */
-public final class ObservableMap extends AbstractObservableWithUpstream {
+public final class ObservableMap<T, U> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function function;
+    public final Function<? super T, ? extends U> function;
 
     /* loaded from: classes8.dex */
-    public final class MapObserver extends BasicFuseableObserver {
+    public static final class MapObserver<T, U> extends BasicFuseableObserver<T, U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function mapper;
+        public final Function<? super T, ? extends U> mapper;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MapObserver(Observer observer, Function function) {
+        public MapObserver(Observer<? super U> observer, Function<? super T, ? extends U> function) {
             super(observer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -45,9 +46,9 @@ public final class ObservableMap extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, t) != null) || this.done) {
                 return;
             }
             if (this.sourceMode != 0) {
@@ -55,24 +56,25 @@ public final class ObservableMap extends AbstractObservableWithUpstream {
                 return;
             }
             try {
-                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper function returned a null value."));
+                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
                 fail(th);
             }
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public U poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Object poll = this.qs.poll();
+                T poll = this.qs.poll();
                 if (poll != null) {
-                    return ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper function returned a null value.");
+                    return (U) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper function returned a null value.");
                 }
                 return null;
             }
-            return invokeV.objValue;
+            return (U) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -87,7 +89,7 @@ public final class ObservableMap extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableMap(ObservableSource observableSource, Function function) {
+    public ObservableMap(ObservableSource<T> observableSource, Function<? super T, ? extends U> function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -108,7 +110,7 @@ public final class ObservableMap extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super U> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new MapObserver(observer, this.function));

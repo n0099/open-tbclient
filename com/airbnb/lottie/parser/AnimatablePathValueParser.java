@@ -1,5 +1,6 @@
 package com.airbnb.lottie.parser;
 
+import android.graphics.PointF;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatablePathValue;
@@ -29,7 +30,7 @@ public class AnimatablePathValueParser {
         return new AnimatablePathValue(arrayList);
     }
 
-    public static AnimatableValue parseSplitPath(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
+    public static AnimatableValue<PointF, PointF> parseSplitPath(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         jsonReader.beginObject();
         AnimatablePathValue animatablePathValue = null;
         AnimatableFloatValue animatableFloatValue = null;

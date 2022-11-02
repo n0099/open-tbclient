@@ -2,36 +2,36 @@ package com.baidu.searchbox.http.statistics;
 
 import okhttp3.Headers;
 /* loaded from: classes2.dex */
-public interface NetworkStat {
-    void onConnect(Object obj, long j, String str);
+public interface NetworkStat<T> {
+    void onConnect(T t, long j, String str);
 
-    void onException(Object obj, Exception exc);
+    void onException(T t, Exception exc);
 
-    void onFinish(Object obj, long j);
+    void onFinish(T t, long j);
 
-    void onFinishReadContent(Object obj, long j);
+    void onFinishReadContent(T t, long j);
 
-    void onReceiveHeader(Object obj, long j, Headers headers);
+    void onReceiveHeader(T t, long j, Headers headers);
 
-    void onReceiveLocalIp(Object obj, String str);
+    void onReceiveLocalIp(T t, String str);
 
-    void onReceiveRemoteIp(Object obj, String str);
+    void onReceiveRemoteIp(T t, String str);
 
-    void onRedirect(Object obj, String str);
+    void onRedirect(T t, String str);
 
-    void onRequestBodyLength(Object obj, long j);
+    void onRequestBodyLength(T t, long j);
 
-    void onResponse(Object obj, long j);
+    void onResponse(T t, long j);
 
-    void onResponseBodyLength(Object obj, long j);
+    void onResponseBodyLength(T t, long j);
 
-    void onSendHeader(Object obj, long j);
+    void onSendHeader(T t, long j);
 
-    void onServerErrorHeader(Object obj, String str);
+    void onServerErrorHeader(T t, String str);
 
-    void onStartExecute(Object obj, long j);
+    void onStartExecute(T t, long j);
 
-    void onStatusCode(Object obj, int i);
+    void onStatusCode(T t, int i);
 
-    void setNetEngine(Object obj, int i);
+    void setNetEngine(T t, int i);
 }

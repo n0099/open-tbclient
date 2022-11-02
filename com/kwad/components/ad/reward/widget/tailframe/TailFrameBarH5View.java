@@ -5,6 +5,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
@@ -47,7 +49,7 @@ public class TailFrameBarH5View extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TailFrameBarH5View(Context context, AttributeSet attributeSet) {
+    public TailFrameBarH5View(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +70,7 @@ public class TailFrameBarH5View extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TailFrameBarH5View(Context context, AttributeSet attributeSet, int i) {
+    public TailFrameBarH5View(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,8 +94,8 @@ public class TailFrameBarH5View extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, context, i) == null) {
             LinearLayout.inflate(context, i, this);
-            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fb);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fc);
+            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091235);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091236);
         }
     }
 
@@ -146,7 +148,7 @@ public class TailFrameBarH5View extends LinearLayout {
         }
     }
 
-    public final void c(AdTemplate adTemplate) {
+    public final void c(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
             AdInfo bQ = d.bQ(adTemplate);
@@ -159,7 +161,7 @@ public class TailFrameBarH5View extends LinearLayout {
     public final void e(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d047e : R.layout.obfuscated_res_0x7f0d047d : R.layout.obfuscated_res_0x7f0d047c);
+            c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d0489 : R.layout.obfuscated_res_0x7f0d0488 : R.layout.obfuscated_res_0x7f0d0487);
         }
     }
 

@@ -19,7 +19,7 @@ public final class a implements HostnameVerifier {
     public static final a a = new a();
     public static final Pattern b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
-    public static List a(X509Certificate x509Certificate, int i) {
+    public static List<String> a(X509Certificate x509Certificate, int i) {
         Integer num;
         String str;
         ArrayList arrayList = new ArrayList();
@@ -79,10 +79,10 @@ public final class a implements HostnameVerifier {
     }
 
     private boolean b(String str, X509Certificate x509Certificate) {
-        List a2 = a(x509Certificate, 7);
+        List<String> a2 = a(x509Certificate, 7);
         int size = a2.size();
         for (int i = 0; i < size; i++) {
-            if (str.equalsIgnoreCase((String) a2.get(i))) {
+            if (str.equalsIgnoreCase(a2.get(i))) {
                 return true;
             }
         }
@@ -101,12 +101,12 @@ public final class a implements HostnameVerifier {
     private boolean c(String str, X509Certificate x509Certificate) {
         String a2;
         String lowerCase = str.toLowerCase(Locale.US);
-        List a3 = a(x509Certificate, 2);
+        List<String> a3 = a(x509Certificate, 2);
         int size = a3.size();
         int i = 0;
         boolean z = false;
         while (i < size) {
-            if (a(lowerCase, (String) a3.get(i))) {
+            if (a(lowerCase, a3.get(i))) {
                 return true;
             }
             i++;

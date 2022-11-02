@@ -1,6 +1,8 @@
 package com.kwai.sodler.lib.a;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwai.sodler.lib.a.a;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class f {
+public abstract class f<P extends a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String aix;
@@ -26,11 +29,11 @@ public abstract class f {
     public String aye;
     public String ayf;
     public boolean ayg;
-    public a ayh;
+    public P ayh;
     public com.kwai.sodler.lib.ext.b ayi;
     public Throwable ayj;
     public long ayk;
-    public List ayl;
+    public List<com.kwai.sodler.lib.c.a> ayl;
     public com.kwai.sodler.lib.c.b aym;
     public String mDownloadUrl;
     public int mState;
@@ -78,7 +81,7 @@ public abstract class f {
         this.mVersion = bVar.version;
     }
 
-    private List ak(String str, String str2) {
+    private List<com.kwai.sodler.lib.c.a> ak(String str, String str2) {
         InterceptResult invokeLL;
         String[] list;
         Interceptable interceptable = $ic;
@@ -118,6 +121,7 @@ public abstract class f {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.ayd.toString() : (String) invokeV.objValue;
     }
 
+    @Nullable
     public final Throwable Fm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,18 +153,21 @@ public abstract class f {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.ayb : invokeV.intValue;
     }
 
+    @Nullable
     public final String Fq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.aye) ? this.aye : this.ayf : (String) invokeV.objValue;
     }
 
-    public final a Fr() {
+    @Nullable
+    public final P Fr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.ayh : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.ayh : (P) invokeV.objValue;
     }
 
+    @Nullable
     public final com.kwai.sodler.lib.ext.b Fs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -173,12 +180,14 @@ public abstract class f {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.aix : (String) invokeV.objValue;
     }
 
-    public final List Fu() {
+    @Nullable
+    public final List<com.kwai.sodler.lib.c.a> Fu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.ayl : (List) invokeV.objValue;
     }
 
+    @Nullable
     public final com.kwai.sodler.lib.c.b Fv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -235,10 +244,10 @@ public abstract class f {
         }
     }
 
-    public final void c(a aVar) {
+    public final void c(P p) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
-            this.ayh = aVar;
+        if (interceptable == null || interceptable.invokeL(1048594, this, p) == null) {
+            this.ayh = p;
         }
     }
 
@@ -320,14 +329,16 @@ public abstract class f {
         }
     }
 
-    public abstract a fb(String str);
+    public abstract P fb(String str);
 
+    @Nullable
     public final String getDownloadUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mDownloadUrl : (String) invokeV.objValue;
     }
 
+    @Nullable
     public final String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -359,7 +370,7 @@ public abstract class f {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mState == -7 : invokeV.booleanValue;
     }
 
-    public final f q(Throwable th) {
+    public final f q(@NonNull Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, th)) == null) {

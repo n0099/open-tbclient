@@ -7,34 +7,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.render.CriusRender;
-import com.baidu.tieba.r71;
+import com.baidu.tieba.j81;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public abstract class AdCriusBaseView extends RelativeLayout {
+public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
     public LinearLayout b;
     public ViewGroup c;
+    @NonNull
     public CriusRender d;
 
     public abstract int d();
 
-    public void e(CriusData criusData) {
+    public void e(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, criusData) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
         }
     }
 
-    public abstract void f(View view2, String str, Map map);
+    public abstract void f(View view2, String str, Map<String, String> map);
 
     public abstract int h();
 
@@ -65,7 +67,7 @@ public abstract class AdCriusBaseView extends RelativeLayout {
         }
 
         @Override // com.baidu.searchbox.crius.render.CriusRender.IHrefClick
-        public void onClick(View view2, String str, Map map) {
+        public void onClick(View view2, String str, Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, str, map) == null) {
                 this.a.f(view2, str, map);
@@ -124,20 +126,20 @@ public abstract class AdCriusBaseView extends RelativeLayout {
         }
     }
 
-    public void i(CriusData criusData, boolean z) {
+    public void i(T t, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048581, this, criusData, z) != null) || this.d == null) {
+        if ((interceptable != null && interceptable.invokeLZ(1048581, this, t, z) != null) || this.d == null) {
             return;
         }
         this.b.removeAllViews();
-        r71 r71Var = (r71) ServiceManager.getService(r71.a);
-        if (r71Var != null) {
-            this.c = this.d.initCriusView(getContext(), criusData, r71Var.b(), z, r71Var.a());
+        j81 j81Var = (j81) ServiceManager.getService(j81.a);
+        if (j81Var != null) {
+            this.c = this.d.initCriusView(getContext(), t, j81Var.b(), z, j81Var.a());
         } else {
-            this.c = this.d.initCriusView(getContext(), criusData, false, z, -1);
+            this.c = this.d.initCriusView(getContext(), t, false, z, -1);
         }
         this.b.addView(this.c);
-        e(criusData);
+        e(t);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -165,11 +167,11 @@ public abstract class AdCriusBaseView extends RelativeLayout {
         criusRender.setHrefClick(new a(this));
     }
 
-    public void k(CriusData criusData, boolean z) {
+    public void k(T t, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, criusData, z) == null) {
-            if (criusData != null) {
-                i(criusData, z);
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, t, z) == null) {
+            if (t != null) {
+                i(t, z);
             } else {
                 setVisibility(8);
             }

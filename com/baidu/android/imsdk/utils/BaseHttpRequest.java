@@ -35,7 +35,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public abstract Map getHeaders();
+    public abstract Map<String, String> getHeaders();
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public abstract String getHost();
@@ -172,7 +172,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         return (String) invokeV.objValue;
     }
 
-    public Pair transErrorCode(int i, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
         InterceptResult invokeILL;
         String str;
         Interceptable interceptable = $ic;
@@ -186,7 +186,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
                 str = "http response is error! response code:" + i;
                 i = 1011;
             }
-            return new Pair(Integer.valueOf(i), str);
+            return new Pair<>(Integer.valueOf(i), str);
         }
         return (Pair) invokeILL.objValue;
     }

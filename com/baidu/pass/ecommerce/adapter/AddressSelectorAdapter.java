@@ -1,5 +1,6 @@
 package com.baidu.pass.ecommerce.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class AddressSelectorAdapter extends RecyclerView.Adapter {
+public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelectorHolder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VALUE_NOT_SELECTED_ID = "-1";
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +48,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
     }
 
     /* loaded from: classes2.dex */
-    public class AddressSelectorHolder extends RecyclerView.ViewHolder {
+    public static class AddressSelectorHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View mItemView;
@@ -59,7 +61,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
         public TextView mTvCityCategory;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AddressSelectorHolder(View view2, boolean z) {
+        public AddressSelectorHolder(@NonNull View view2, boolean z) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -123,7 +125,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
             if (elementNode == null || (addressEntity = elementNode.addressEntity) == null) {
                 return null;
             }
-            List list = addressEntity.list;
+            List<AddressBean> list = addressEntity.list;
             if (list != null && list.size() != 0) {
                 optNotSelectedItem(list);
                 optHotListItem(elementNode, list);
@@ -154,7 +156,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
         }
     }
 
-    private void createHotViewByData(LinearLayout linearLayout, List list) {
+    private void createHotViewByData(LinearLayout linearLayout, List<AddressBean> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, linearLayout, list) == null) {
             linearLayout.removeAllViews();
@@ -167,7 +169,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
                 linearLayout2.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
                 linearLayout2.setPadding((int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_top_padding), 0, (int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_top_padding), 0);
                 for (int i2 = 0; i2 < 4; i2++) {
-                    AddressBean addressBean = (AddressBean) list.get((i * 4) + i2);
+                    AddressBean addressBean = list.get((i * 4) + i2);
                     if (addressBean != null) {
                         TextView textView = new TextView(this.mContext);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_text_width), (int) this.mContext.getResources().getDimension(R.dimen.sapi_sdk_address_dialog_item_hot_group_text_height));
@@ -242,17 +244,17 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(AddressSelectorHolder addressSelectorHolder, int i) {
+    public void onBindViewHolder(@NonNull AddressSelectorHolder addressSelectorHolder, @SuppressLint({"RecyclerView"}) int i) {
         ElementNode.AddressEntity addressEntity;
-        List list;
+        List<AddressBean> list;
         AddressBean addressBean;
         String upperCase;
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, addressSelectorHolder, i) != null) || (addressEntity = this.mEntity) == null || (list = addressEntity.list) == null || list.size() == 0 || (addressBean = (AddressBean) list.get(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, addressSelectorHolder, i) != null) || (addressEntity = this.mEntity) == null || (list = addressEntity.list) == null || list.size() == 0 || (addressBean = list.get(i)) == null) {
             return;
         }
-        List list2 = addressBean.hotlists;
+        List<AddressBean> list2 = addressBean.hotlists;
         int i3 = 0;
         if (list2 != null && !list2.isEmpty()) {
             addressSelectorHolder.mLlAddressItem.setVisibility(8);
@@ -398,11 +400,11 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
         }
     }
 
-    private void optHotListItem(ElementNode elementNode, List list) {
+    private void optHotListItem(ElementNode elementNode, List<AddressBean> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, elementNode, list) == null) {
-            List list2 = elementNode.addressEntity.hotlists;
-            AddressBean addressBean = (AddressBean) list.get(0);
+            List<AddressBean> list2 = elementNode.addressEntity.hotlists;
+            AddressBean addressBean = list.get(0);
             if (list2 != null && !list2.isEmpty()) {
                 if (addressBean.hotlists != null) {
                     findHotSelected(elementNode, addressBean);
@@ -418,11 +420,11 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
         }
     }
 
-    private void optNotSelectedItem(List list) {
+    private void optNotSelectedItem(List<AddressBean> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, list) == null) {
             try {
-                AddressBean addressBean = (AddressBean) list.get(list.size() - 1);
+                AddressBean addressBean = list.get(list.size() - 1);
                 if (addressBean != null && !addressBean.hasLeaf && !addressBean.isNotSelected) {
                     AddressBean addressBean2 = new AddressBean();
                     addressBean2.id = "-1";
@@ -439,7 +441,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
-        List list;
+        List<AddressBean> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ElementNode.AddressEntity addressEntity = this.mEntity;
@@ -453,7 +455,8 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public AddressSelectorHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    @NonNull
+    public AddressSelectorHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {

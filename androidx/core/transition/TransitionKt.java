@@ -1,6 +1,7 @@
 package androidx.core.transition;
 
 import android.transition.Transition;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +20,7 @@ public final class TransitionKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(19)
     public static final Transition.TransitionListener addListener(Transition transition, Function1<? super Transition, Unit> function1, Function1<? super Transition, Unit> function12, Function1<? super Transition, Unit> function13, Function1<? super Transition, Unit> function14, Function1<? super Transition, Unit> function15) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -53,6 +55,7 @@ public final class TransitionKt {
         return transitionKt$addListener$listener$1;
     }
 
+    @RequiresApi(19)
     public static final Transition.TransitionListener doOnCancel(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -122,6 +125,7 @@ public final class TransitionKt {
         return (Transition.TransitionListener) invokeLL.objValue;
     }
 
+    @RequiresApi(19)
     public static final Transition.TransitionListener doOnEnd(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -191,6 +195,7 @@ public final class TransitionKt {
         return (Transition.TransitionListener) invokeLL.objValue;
     }
 
+    @RequiresApi(19)
     public static final Transition.TransitionListener doOnPause(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -260,6 +265,7 @@ public final class TransitionKt {
         return (Transition.TransitionListener) invokeLL.objValue;
     }
 
+    @RequiresApi(19)
     public static final Transition.TransitionListener doOnResume(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -329,6 +335,7 @@ public final class TransitionKt {
         return (Transition.TransitionListener) invokeLL.objValue;
     }
 
+    @RequiresApi(19)
     public static final Transition.TransitionListener doOnStart(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

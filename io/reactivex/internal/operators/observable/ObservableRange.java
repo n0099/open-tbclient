@@ -8,25 +8,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 /* loaded from: classes8.dex */
-public final class ObservableRange extends Observable {
+public final class ObservableRange extends Observable<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long end;
     public final int start;
 
     /* loaded from: classes8.dex */
-    public final class RangeDisposable extends BasicIntQueueDisposable {
+    public static final class RangeDisposable extends BasicIntQueueDisposable<Integer> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 396518478098735504L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super Integer> actual;
         public final long end;
         public boolean fused;
         public long index;
 
-        public RangeDisposable(Observer observer, long j, long j2) {
+        public RangeDisposable(Observer<? super Integer> observer, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,6 +92,7 @@ public final class ObservableRange extends Observable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.internal.fuseable.SimpleQueue
+        @Nullable
         public Integer poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -125,7 +127,7 @@ public final class ObservableRange extends Observable {
             if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.fused) {
                 return;
             }
-            Observer observer = this.actual;
+            Observer<? super Integer> observer = this.actual;
             long j = this.end;
             for (long j2 = this.index; j2 != j && get() == 0; j2++) {
                 observer.onNext(Integer.valueOf((int) j2));
@@ -157,7 +159,7 @@ public final class ObservableRange extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Integer> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             RangeDisposable rangeDisposable = new RangeDisposable(observer, this.start, this.end);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.common.NameValuePair;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public OnWebRequestListener mOnWebRequestListener;
-    public List mParams;
+    public List<NameValuePair> mParams;
     public String mRequestType;
     public int mTryCount;
     public String mUrl;
@@ -67,7 +68,7 @@ public class HttpURLExecutorRunnable implements Runnable {
         }
     }
 
-    public HttpURLExecutorRunnable(Context context, boolean z, String str, List list, OnWebRequestListener onWebRequestListener) {
+    public HttpURLExecutorRunnable(Context context, boolean z, String str, List<NameValuePair> list, OnWebRequestListener onWebRequestListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +94,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpURLExecutorRunnable(Context context, boolean z, String str, List list, OnWebRequestListener onWebRequestListener, int i) {
+    public HttpURLExecutorRunnable(Context context, boolean z, String str, List<NameValuePair> list, OnWebRequestListener onWebRequestListener, int i) {
         this(context, z, str, list, onWebRequestListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

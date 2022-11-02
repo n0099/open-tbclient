@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PayVcodeModel extends BdBaseModel {
+public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
+    public r9<?> a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -40,7 +40,7 @@ public class PayVcodeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public PayVcodeModel(r9 r9Var) {
+    public PayVcodeModel(r9<?> r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

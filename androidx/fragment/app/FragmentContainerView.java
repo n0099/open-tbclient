@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.R;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,7 +32,7 @@ public final class FragmentContainerView extends FrameLayout {
     public ArrayList<View> mTransitioningFragmentViews;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FragmentContainerView(Context context) {
+    public FragmentContainerView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +53,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (this.mDrawDisappearingViewsFirst && this.mDisappearingFragmentChildren != null) {
@@ -63,7 +66,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FragmentContainerView(Context context, AttributeSet attributeSet) {
+    public FragmentContainerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,7 +87,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FragmentContainerView(Context context, AttributeSet attributeSet, int i) {
+    public FragmentContainerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,7 +113,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FragmentContainerView(Context context, AttributeSet attributeSet, FragmentManager fragmentManager) {
+    public FragmentContainerView(@NonNull Context context, @NonNull AttributeSet attributeSet, @NonNull FragmentManager fragmentManager) {
         super(context, attributeSet);
         String str;
         Interceptable interceptable = $ic;
@@ -152,7 +155,7 @@ public final class FragmentContainerView extends FrameLayout {
         }
     }
 
-    private void addDisappearingFragmentView(View view2) {
+    private void addDisappearingFragmentView(@NonNull View view2) {
         ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2) == null) {
@@ -166,7 +169,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void endViewTransition(View view2) {
+    public void endViewTransition(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             ArrayList<View> arrayList = this.mTransitioningFragmentViews;
@@ -182,7 +185,9 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.View
-    public WindowInsets onApplyWindowInsets(WindowInsets windowInsets) {
+    @NonNull
+    @RequiresApi(20)
+    public WindowInsets onApplyWindowInsets(@NonNull WindowInsets windowInsets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, windowInsets)) == null) {
@@ -195,7 +200,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
-    public void removeView(View view2) {
+    public void removeView(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             addDisappearingFragmentView(view2);
@@ -213,7 +218,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewInLayout(View view2) {
+    public void removeViewInLayout(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
             addDisappearingFragmentView(view2);
@@ -229,7 +234,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void setLayoutTransition(LayoutTransition layoutTransition) {
+    public void setLayoutTransition(@Nullable LayoutTransition layoutTransition) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, layoutTransition) == null) {
             if (Build.VERSION.SDK_INT < 18) {
@@ -241,7 +246,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void startViewTransition(View view2) {
+    public void startViewTransition(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
             if (view2.getParent() == this) {
@@ -255,7 +260,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(@NonNull View view2, int i, @Nullable ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, layoutParams) == null) {
             if (FragmentManager.getViewFragment(view2) != null) {
@@ -267,7 +272,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view2, long j) {
+    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view2, long j) {
         InterceptResult invokeCommon;
         ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
@@ -281,7 +286,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean addViewInLayout(View view2, int i, ViewGroup.LayoutParams layoutParams, boolean z) {
+    public boolean addViewInLayout(@NonNull View view2, int i, @Nullable ViewGroup.LayoutParams layoutParams, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), layoutParams, Boolean.valueOf(z)})) == null) {
@@ -305,7 +310,7 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeDetachedView(View view2, boolean z) {
+    public void removeDetachedView(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, view2, z) == null) {
             if (z) {

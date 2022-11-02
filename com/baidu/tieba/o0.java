@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w0 a;
-    public final w0 b;
+    public final w0<p0> a;
+    public final w0<p0> b;
     public v0 c;
     public EntityManager d;
     public ComponentOperationHandler e;
@@ -26,13 +26,13 @@ public class o0 {
     public boolean g;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public class b implements w0 {
+    public class b implements w0<p0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o0 a;
@@ -62,7 +62,7 @@ public class o0 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.w0
         /* renamed from: b */
-        public void a(x0 x0Var, p0 p0Var) {
+        public void a(x0<p0> x0Var, p0 p0Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x0Var, p0Var) == null) {
                 this.a.f.f(p0Var);
@@ -224,7 +224,7 @@ public class o0 {
         return (p0) invokeV.objValue;
     }
 
-    public z0 l() {
+    public z0<r0> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -284,20 +284,20 @@ public class o0 {
         }
     }
 
-    public m0 h(Class cls) {
+    public <T extends m0> T h(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
             try {
-                return (m0) u8.i(cls);
+                return (T) u8.i(cls);
             } catch (ReflectionException unused) {
                 return null;
             }
         }
-        return (m0) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public z0 j(s0 s0Var) {
+    public z0<p0> j(s0 s0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, s0Var)) == null) {
@@ -306,13 +306,13 @@ public class o0 {
         return (z0) invokeL.objValue;
     }
 
-    public r0 k(Class cls) {
+    public <T extends r0> T k(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
-            return this.c.b(cls);
+            return (T) this.c.b(cls);
         }
-        return (r0) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public void m(p0 p0Var) {
@@ -371,10 +371,10 @@ public class o0 {
         if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
             if (!this.g) {
                 this.g = true;
-                z0 c2 = this.c.c();
+                z0<r0> c2 = this.c.c();
                 for (int i = 0; i < c2.size(); i++) {
                     try {
-                        r0 r0Var = (r0) c2.get(i);
+                        r0 r0Var = c2.get(i);
                         if (r0Var.e()) {
                             r0Var.update(f);
                         }

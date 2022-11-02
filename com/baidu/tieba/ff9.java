@@ -1,27 +1,23 @@
 package com.baidu.tieba;
-
-import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes4.dex */
-public interface ff9 extends Runnable {
+public interface ff9 {
+    boolean available();
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void b(DownloadException downloadException);
+    int availableBytes();
 
-        void onConnectCanceled();
+    void clearQueues();
 
-        void onConnectPaused();
+    void close();
 
-        void onConnected(long j, long j2, boolean z);
+    void flush();
 
-        void onConnecting();
-    }
+    int getBytes(byte[] bArr, int i);
 
-    void cancel();
+    void initVoiceChanger(int i, int i2, int i3, int i4);
 
-    boolean isCanceled();
+    boolean putBytes(byte[] bArr, int i);
 
-    boolean isPaused();
+    void setVoiceChangeType(int[] iArr);
 
-    void pause();
+    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
 }

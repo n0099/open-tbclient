@@ -25,26 +25,26 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableBuffer extends AbstractFlowableWithUpstream {
+public final class FlowableBuffer<T, C extends Collection<? super T>> extends AbstractFlowableWithUpstream<T, C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable bufferSupplier;
+    public final Callable<C> bufferSupplier;
     public final int size;
     public final int skip;
 
     /* loaded from: classes8.dex */
-    public final class PublisherBufferExactSubscriber implements FlowableSubscriber, Subscription {
+    public static final class PublisherBufferExactSubscriber<T, C extends Collection<? super T>> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public Collection buffer;
-        public final Callable bufferSupplier;
+        public final Subscriber<? super C> actual;
+        public C buffer;
+        public final Callable<C> bufferSupplier;
         public boolean done;
         public int index;
         public Subscription s;
         public final int size;
 
-        public PublisherBufferExactSubscriber(Subscriber subscriber, int i, Callable callable) {
+        public PublisherBufferExactSubscriber(Subscriber<? super C> subscriber, int i, Callable<C> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,9 +79,9 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
                 return;
             }
             this.done = true;
-            Collection collection = this.buffer;
-            if (collection != null && !collection.isEmpty()) {
-                this.actual.onNext(collection);
+            C c = this.buffer;
+            if (c != null && !c.isEmpty()) {
+                this.actual.onNext(c);
             }
             this.actual.onComplete();
         }
@@ -117,16 +117,16 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.done) {
                 return;
             }
-            Collection collection = this.buffer;
-            if (collection == null) {
+            C c = this.buffer;
+            if (c == null) {
                 try {
-                    collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
-                    this.buffer = collection;
+                    c = (C) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
+                    this.buffer = c;
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     cancel();
@@ -134,12 +134,12 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
                     return;
                 }
             }
-            collection.add(obj);
+            c.add(t);
             int i = this.index + 1;
             if (i == this.size) {
                 this.index = 0;
                 this.buffer = null;
-                this.actual.onNext(collection);
+                this.actual.onNext(c);
                 return;
             }
             this.index = i;
@@ -147,13 +147,13 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class PublisherBufferOverlappingSubscriber extends AtomicLong implements FlowableSubscriber, Subscription, BooleanSupplier {
+    public static final class PublisherBufferOverlappingSubscriber<T, C extends Collection<? super T>> extends AtomicLong implements FlowableSubscriber<T>, Subscription, BooleanSupplier {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7370244972039324525L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final Callable bufferSupplier;
-        public final ArrayDeque buffers;
+        public final Subscriber<? super C> actual;
+        public final Callable<C> bufferSupplier;
+        public final ArrayDeque<C> buffers;
         public volatile boolean cancelled;
         public boolean done;
         public int index;
@@ -163,7 +163,7 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
         public final int size;
         public final int skip;
 
-        public PublisherBufferOverlappingSubscriber(Subscriber subscriber, int i, int i2, Callable callable) {
+        public PublisherBufferOverlappingSubscriber(Subscriber<? super C> subscriber, int i, int i2, Callable<C> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,7 +183,7 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
             this.skip = i2;
             this.bufferSupplier = callable;
             this.once = new AtomicBoolean();
-            this.buffers = new ArrayDeque();
+            this.buffers = new ArrayDeque<>();
         }
 
         @Override // org.reactivestreams.Subscription
@@ -242,13 +242,15 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.ArrayDeque<C extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
-            ArrayDeque arrayDeque = this.buffers;
+            ArrayDeque<C> arrayDeque = this.buffers;
             int i = this.index;
             int i2 = i + 1;
             if (i == 0) {
@@ -264,13 +266,13 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
             Collection collection = (Collection) arrayDeque.peek();
             if (collection != null && collection.size() + 1 == this.size) {
                 arrayDeque.poll();
-                collection.add(obj);
+                collection.add(t);
                 this.produced++;
                 this.actual.onNext(collection);
             }
             Iterator it = arrayDeque.iterator();
             while (it.hasNext()) {
-                ((Collection) it.next()).add(obj);
+                ((Collection) it.next()).add(t);
             }
             if (i2 == this.skip) {
                 i2 = 0;
@@ -293,20 +295,20 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class PublisherBufferSkipSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class PublisherBufferSkipSubscriber<T, C extends Collection<? super T>> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5616169793639412593L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public Collection buffer;
-        public final Callable bufferSupplier;
+        public final Subscriber<? super C> actual;
+        public C buffer;
+        public final Callable<C> bufferSupplier;
         public boolean done;
         public int index;
         public Subscription s;
         public final int size;
         public final int skip;
 
-        public PublisherBufferSkipSubscriber(Subscriber subscriber, int i, int i2, Callable callable) {
+        public PublisherBufferSkipSubscriber(Subscriber<? super C> subscriber, int i, int i2, Callable<C> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -342,10 +344,10 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
                 return;
             }
             this.done = true;
-            Collection collection = this.buffer;
+            C c = this.buffer;
             this.buffer = null;
-            if (collection != null) {
-                this.actual.onNext(collection);
+            if (c != null) {
+                this.actual.onNext(c);
             }
             this.actual.onComplete();
         }
@@ -374,18 +376,18 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.done) {
                 return;
             }
-            Collection collection = this.buffer;
+            C c = this.buffer;
             int i = this.index;
             int i2 = i + 1;
             if (i == 0) {
                 try {
-                    collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
-                    this.buffer = collection;
+                    c = (C) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
+                    this.buffer = c;
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     cancel();
@@ -393,11 +395,11 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
                     return;
                 }
             }
-            if (collection != null) {
-                collection.add(obj);
-                if (collection.size() == this.size) {
+            if (c != null) {
+                c.add(t);
+                if (c.size() == this.size) {
                     this.buffer = null;
-                    this.actual.onNext(collection);
+                    this.actual.onNext(c);
                 }
             }
             if (i2 == this.skip) {
@@ -420,7 +422,7 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableBuffer(Flowable flowable, int i, int i2, Callable callable) {
+    public FlowableBuffer(Flowable<T> flowable, int i, int i2, Callable<C> callable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -443,7 +445,7 @@ public final class FlowableBuffer extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super C> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             int i = this.size;

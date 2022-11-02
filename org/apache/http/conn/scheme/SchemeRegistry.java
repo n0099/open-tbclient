@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SchemeRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class SchemeRegistry {
         throw new RuntimeException("Stub!");
     }
 
-    public final synchronized List getSchemeNames() {
+    public final synchronized List<String> getSchemeNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -75,7 +75,7 @@ public final class SchemeRegistry {
         return (Scheme) invokeL.objValue;
     }
 
-    public synchronized void setItems(Map map) {
+    public synchronized void setItems(Map<String, Scheme> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
             synchronized (this) {

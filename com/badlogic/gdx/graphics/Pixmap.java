@@ -25,7 +25,7 @@ public class Pixmap implements i7 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class Blending {
+    public static final class Blending {
         public static final /* synthetic */ Blending[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Blending None;
@@ -91,7 +91,7 @@ public class Pixmap implements i7 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class Filter {
+    public static final class Filter {
         public static final /* synthetic */ Filter[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Filter BiLinear;
@@ -157,7 +157,7 @@ public class Pixmap implements i7 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class Format {
+    public static final class Format {
         public static final /* synthetic */ Format[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Format Alpha;

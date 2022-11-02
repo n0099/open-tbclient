@@ -7,18 +7,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.observers.DisposableLambdaObserver;
 /* loaded from: classes8.dex */
-public final class ObservableDoOnLifecycle extends AbstractObservableWithUpstream {
+public final class ObservableDoOnLifecycle<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onDispose;
-    public final Consumer onSubscribe;
+    public final Consumer<? super Disposable> onSubscribe;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDoOnLifecycle(Observable observable, Consumer consumer, Action action) {
+    public ObservableDoOnLifecycle(Observable<T> observable, Consumer<? super Disposable> consumer, Action action) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,7 +41,7 @@ public final class ObservableDoOnLifecycle extends AbstractObservableWithUpstrea
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DisposableLambdaObserver(observer, this.onSubscribe, this.onDispose));

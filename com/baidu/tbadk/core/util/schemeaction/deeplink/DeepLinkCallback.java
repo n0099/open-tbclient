@@ -18,7 +18,7 @@ public interface DeepLinkCallback {
     void onSuccess(String str, DeepLinkResponse deepLinkResponse);
 
     /* loaded from: classes3.dex */
-    public class DeepLinkResponse {
+    public static class DeepLinkResponse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mAppResultCode;

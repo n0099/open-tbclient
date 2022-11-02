@@ -29,7 +29,7 @@ public class HiidoReport {
     }
 
     /* loaded from: classes8.dex */
-    public final class CReportParam {
+    public static final class CReportParam {
         public static /* synthetic */ Interceptable $ic = null;
         public static int REVENUE_SCODE = 50552;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class HiidoReport {
     }
 
     /* loaded from: classes8.dex */
-    public final class CReportResponse {
+    public static final class CReportResponse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mCmd;

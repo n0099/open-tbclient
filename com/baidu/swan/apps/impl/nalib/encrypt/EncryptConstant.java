@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.impl.nalib.encrypt;
 
+import androidx.annotation.Keep;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,7 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+@Keep
+/* loaded from: classes3.dex */
 public class EncryptConstant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package com.baidu.android.util.db;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.database.DatabaseErrorHandler;
@@ -37,6 +38,7 @@ public final class NoLocalModeContextWrapper extends ContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @SuppressLint({"InlinedApi"})
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -47,6 +49,7 @@ public final class NoLocalModeContextWrapper extends ContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @SuppressLint({"InlinedApi"})
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;

@@ -22,7 +22,7 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public long mCursor;
     public boolean mHasMore;
-    public List mThreadDataList;
+    public List<ThreadData> mThreadDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterDynamicTabHttpResMessage() {

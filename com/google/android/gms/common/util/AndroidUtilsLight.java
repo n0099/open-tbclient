@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,9 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.common.wrappers.Wrappers;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+@ShowFirstParty
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class AndroidUtilsLight {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,8 +55,10 @@ public class AndroidUtilsLight {
         }
     }
 
+    @Nullable
+    @KeepForSdk
     @Deprecated
-    public static byte[] getPackageCertificateHashBytes(Context context, String str) throws PackageManager.NameNotFoundException {
+    public static byte[] getPackageCertificateHashBytes(@NonNull Context context, @NonNull String str) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLL;
         MessageDigest zza2;
         Interceptable interceptable = $ic;
@@ -65,7 +73,8 @@ public class AndroidUtilsLight {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static MessageDigest zza(String str) {
+    @Nullable
+    public static MessageDigest zza(@NonNull String str) {
         InterceptResult invokeL;
         MessageDigest messageDigest;
         Interceptable interceptable = $ic;

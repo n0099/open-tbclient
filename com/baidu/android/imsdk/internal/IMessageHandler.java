@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.chatmessage.sync.Generator;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
@@ -51,7 +52,7 @@ public abstract class IMessageHandler {
     public static final String TAG = "IMessageHandler";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public LinkedList mSendQueque;
+    public LinkedList<Message> mSendQueque;
     public String mSocketIp;
 
     public abstract Message readMessage() throws EOFException, IOException;
@@ -79,7 +80,7 @@ public abstract class IMessageHandler {
                 return;
             }
         }
-        this.mSendQueque = new LinkedList();
+        this.mSendQueque = new LinkedList<>();
         this.mSocketIp = "";
         this.mContext = context;
     }
@@ -97,8 +98,9 @@ public abstract class IMessageHandler {
         }
     }
 
+    /* JADX WARN: Type inference failed for: r3v4, types: [T, java.lang.Long] */
     private void handleConfigMessage(JSONObject jSONObject) throws JSONException {
-        ArrayList arrayList;
+        ArrayList<ChatMsg> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) {
             LogUtils.i(TAG, "handleMessage Config:" + jSONObject.toString());
@@ -276,7 +278,7 @@ public abstract class IMessageHandler {
         }
     }
 
-    public LinkedList getMessageQueue() {
+    public LinkedList<Message> getMessageQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

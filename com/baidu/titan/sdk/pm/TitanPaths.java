@@ -2,7 +2,9 @@ package com.baidu.titan.sdk.pm;
 
 import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
 import com.baidu.titan.sdk.initer.TitanIniter;
+import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
 import java.io.File;
+@DisableIntercept
 /* loaded from: classes6.dex */
 public class TitanPaths {
     public static final String TITAN_SANDBOX_PROCESS_NAME_SUFFIX = ":titanSandbox";

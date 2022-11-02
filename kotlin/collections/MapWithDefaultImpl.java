@@ -73,7 +73,7 @@ public final class MapWithDefaultImpl<K, V> implements MapWithDefault<K, V> {
         Map<K, V> map = getMap();
         V v = map.get(k);
         if (v == null && !map.containsKey(k)) {
-            return (V) this.f1022default.invoke(k);
+            return this.f1022default.invoke(k);
         }
         return v;
     }

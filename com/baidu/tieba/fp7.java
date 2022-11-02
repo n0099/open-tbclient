@@ -1,110 +1,125 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.widget.EditText;
-import android.widget.Toast;
-import com.baidu.adp.base.BdBaseActivity;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class fp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NoNetworkView a;
+    public NavigationBar b;
+    public BdListView c;
+    public View d;
+    public dp7 e;
+    public View f;
+    public TbImageView g;
+    public TextView h;
+    public MemberTaskCenterActivity i;
 
-    /* loaded from: classes4.dex */
-    public class a extends zg {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditText a;
-        public final /* synthetic */ SpannableStringBuilder b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ EmotionGroupType d;
-        public final /* synthetic */ fp7 e;
-
-        public a(fp7 fp7Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp7Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = fp7Var;
-            this.a = editText;
-            this.b = spannableStringBuilder;
-            this.c = i;
-            this.d = emotionGroupType;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zg
-        public void onLoaded(pn pnVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, pnVar, str, i) == null) {
-                super.onLoaded((a) pnVar, str, i);
-                if (pnVar != null) {
-                    this.e.c(this.a, this.b, this.c, pnVar, this.d);
-                }
-            }
-        }
-    }
-
-    public fp7() {
+    public fp7(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {memberTaskCenterActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void b(BdBaseActivity bdBaseActivity, EditText editText, j15 j15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, j15Var) == null) {
-            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
-                Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1470, 0).show();
                 return;
             }
-            String d = j15Var.d();
-            EmotionGroupType type = j15Var.getType();
-            if (d != null) {
-                ah.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
-            }
+        }
+        this.i = memberTaskCenterActivity;
+        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0592);
+        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091cc8);
+        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f092606);
+        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f092604);
+        this.b = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0af6);
+        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09152f);
+        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0593, (ViewGroup) null);
+        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
+        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090152);
+        this.g = tbImageView;
+        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09075e);
+        this.g.setOnClickListener(onClickListener);
+        dp7 dp7Var = new dp7(memberTaskCenterActivity);
+        this.e = dp7Var;
+        dp7Var.d(onClickListener);
+        this.c.addHeaderView(this.f);
+        this.c.setAdapter((ListAdapter) this.e);
+    }
+
+    public final SpannableString a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            SpannableString spannableString = new SpannableString(str + str2);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, str.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), str.length(), spannableString.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeLL.objValue;
+    }
+
+    public BdListView b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (BdListView) invokeV.objValue;
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b.onChangeSkinType(this.i.getPageContext(), i);
+            this.a.d(this.i.getPageContext(), i);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0205);
         }
     }
 
-    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, pn pnVar, EmotionGroupType emotionGroupType) {
+    public void e(String str, List<ap7> list, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), pnVar, emotionGroupType}) == null) {
-            Bitmap p = pnVar.p();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-            int width = p.getWidth();
-            if (emotionGroupType == EmotionGroupType.LOCAL) {
-                width = (int) (width * 0.5d);
-            }
-            bitmapDrawable.setBounds(0, 0, width, width);
-            bitmapDrawable.setGravity(119);
-            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
-            editText.getText().insert(i, spannableStringBuilder);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
+            this.g.K(str, 10, false);
+            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f048e), String.valueOf(j)));
+            this.e.c(list);
+            this.e.notifyDataSetChanged();
         }
     }
 }

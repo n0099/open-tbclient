@@ -23,7 +23,7 @@ public final class AudioCapabilitiesReceiver {
 
     /* renamed from: com.google.android.exoplayer2.audio.AudioCapabilitiesReceiver$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }

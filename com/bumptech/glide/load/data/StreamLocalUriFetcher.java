@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.UriMatcher;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class StreamLocalUriFetcher extends LocalUriFetcher {
+public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_CONTACTS_CONTACT = 3;
     public static final int ID_CONTACTS_LOOKUP = 1;
@@ -103,6 +104,7 @@ public class StreamLocalUriFetcher extends LocalUriFetcher {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public InputStream loadResource(Uri uri, ContentResolver contentResolver) throws FileNotFoundException {
         InterceptResult invokeLL;
@@ -127,7 +129,8 @@ public class StreamLocalUriFetcher extends LocalUriFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public Class getDataClass() {
+    @NonNull
+    public Class<InputStream> getDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

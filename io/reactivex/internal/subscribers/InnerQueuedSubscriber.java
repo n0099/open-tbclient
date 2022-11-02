@@ -15,19 +15,19 @@ import io.reactivex.internal.util.QueueDrainHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class InnerQueuedSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
+public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 22876611072430776L;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean done;
     public int fusionMode;
     public final int limit;
-    public final InnerQueuedSubscriberSupport parent;
+    public final InnerQueuedSubscriberSupport<T> parent;
     public final int prefetch;
     public long produced;
-    public volatile SimpleQueue queue;
+    public volatile SimpleQueue<T> queue;
 
-    public InnerQueuedSubscriber(InnerQueuedSubscriberSupport innerQueuedSubscriberSupport, int i) {
+    public InnerQueuedSubscriber(InnerQueuedSubscriberSupport<T> innerQueuedSubscriberSupport, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public final class InnerQueuedSubscriber extends AtomicReference implements Flow
         }
     }
 
-    public SimpleQueue queue() {
+    public SimpleQueue<T> queue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -87,7 +87,7 @@ public final class InnerQueuedSubscriber extends AtomicReference implements Flow
             long j = this.produced + 1;
             if (j == this.limit) {
                 this.produced = 0L;
-                ((Subscription) get()).request(j);
+                get().request(j);
                 return;
             }
             this.produced = j;
@@ -110,11 +110,11 @@ public final class InnerQueuedSubscriber extends AtomicReference implements Flow
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             if (this.fusionMode == 0) {
-                this.parent.innerNext(this, obj);
+                this.parent.innerNext(this, t);
             } else {
                 this.parent.drain();
             }
@@ -128,7 +128,7 @@ public final class InnerQueuedSubscriber extends AtomicReference implements Flow
             long j2 = this.produced + j;
             if (j2 >= this.limit) {
                 this.produced = 0L;
-                ((Subscription) get()).request(j2);
+                get().request(j2);
                 return;
             }
             this.produced = j2;

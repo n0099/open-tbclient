@@ -23,7 +23,7 @@ public class f implements TTInitializer {
     public static ScheduledExecutorService a = Executors.newSingleThreadScheduledExecutor(new a());
 
     /* loaded from: classes7.dex */
-    public class a implements ThreadFactory {
+    public static class a implements ThreadFactory {
         public final ThreadGroup a;
         public final AtomicInteger b;
         public final String c;

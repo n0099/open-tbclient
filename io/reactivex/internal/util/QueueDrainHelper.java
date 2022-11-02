@@ -42,7 +42,7 @@ public final class QueueDrainHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static boolean checkTerminated(boolean z, boolean z2, Observer observer, boolean z3, SimpleQueue simpleQueue, Disposable disposable, ObservableQueueDrain observableQueueDrain) {
+    public static <T, U> boolean checkTerminated(boolean z, boolean z2, Observer<?> observer, boolean z3, SimpleQueue<?> simpleQueue, Disposable disposable, ObservableQueueDrain<T, U> observableQueueDrain) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), observer, Boolean.valueOf(z3), simpleQueue, disposable, observableQueueDrain})) == null) {
@@ -90,7 +90,7 @@ public final class QueueDrainHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber, boolean z3, SimpleQueue simpleQueue, QueueDrain queueDrain) {
+    public static <T, U> boolean checkTerminated(boolean z, boolean z2, Subscriber<?> subscriber, boolean z3, SimpleQueue<?> simpleQueue, QueueDrain<T, U> queueDrain) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, Boolean.valueOf(z3), simpleQueue, queueDrain})) == null) {
@@ -128,7 +128,7 @@ public final class QueueDrainHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static SimpleQueue createQueue(int i) {
+    public static <T> SimpleQueue<T> createQueue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
@@ -154,7 +154,7 @@ public final class QueueDrainHelper {
         return invokeL.booleanValue;
     }
 
-    public static void drainLoop(SimplePlainQueue simplePlainQueue, Observer observer, boolean z, Disposable disposable, ObservableQueueDrain observableQueueDrain) {
+    public static <T, U> void drainLoop(SimplePlainQueue<T> simplePlainQueue, Observer<? super U> observer, boolean z, Disposable disposable, ObservableQueueDrain<T, U> observableQueueDrain) {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{simplePlainQueue, observer, Boolean.valueOf(z), disposable, observableQueueDrain}) == null) {
@@ -162,7 +162,7 @@ public final class QueueDrainHelper {
             while (!checkTerminated(observableQueueDrain.done(), simplePlainQueue.isEmpty(), observer, z, simplePlainQueue, disposable, observableQueueDrain)) {
                 while (true) {
                     boolean done = observableQueueDrain.done();
-                    Object poll = simplePlainQueue.poll();
+                    T poll = simplePlainQueue.poll();
                     if (poll == null) {
                         z2 = true;
                     } else {
@@ -184,14 +184,14 @@ public final class QueueDrainHelper {
         }
     }
 
-    public static void drainMaxLoop(SimplePlainQueue simplePlainQueue, Subscriber subscriber, boolean z, Disposable disposable, QueueDrain queueDrain) {
+    public static <T, U> void drainMaxLoop(SimplePlainQueue<T> simplePlainQueue, Subscriber<? super U> subscriber, boolean z, Disposable disposable, QueueDrain<T, U> queueDrain) {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{simplePlainQueue, subscriber, Boolean.valueOf(z), disposable, queueDrain}) == null) {
             int i = 1;
             while (true) {
                 boolean done = queueDrain.done();
-                Object poll = simplePlainQueue.poll();
+                T poll = simplePlainQueue.poll();
                 if (poll == null) {
                     z2 = true;
                 } else {
@@ -227,7 +227,7 @@ public final class QueueDrainHelper {
         }
     }
 
-    public static boolean postCompleteDrain(long j, Subscriber subscriber, Queue queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+    public static <T> boolean postCompleteDrain(long j, Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), subscriber, queue, atomicLong, booleanSupplier})) == null) {
@@ -237,12 +237,12 @@ public final class QueueDrainHelper {
                     if (isCancelled(booleanSupplier)) {
                         return true;
                     }
-                    Object poll = queue.poll();
-                    if (poll == null) {
+                    Object obj = (T) queue.poll();
+                    if (obj == null) {
                         subscriber.onComplete();
                         return true;
                     }
-                    subscriber.onNext(poll);
+                    subscriber.onNext(obj);
                     j2++;
                 } else if (isCancelled(booleanSupplier)) {
                     return true;
@@ -269,7 +269,7 @@ public final class QueueDrainHelper {
         }
     }
 
-    public static void postComplete(Subscriber subscriber, Queue queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+    public static <T> void postComplete(Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
         long j;
         long j2;
         Interceptable interceptable = $ic;
@@ -292,7 +292,7 @@ public final class QueueDrainHelper {
         }
     }
 
-    public static boolean postCompleteRequest(long j, Subscriber subscriber, Queue queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+    public static <T> boolean postCompleteRequest(long j, Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
         InterceptResult invokeCommon;
         long j2;
         Interceptable interceptable = $ic;

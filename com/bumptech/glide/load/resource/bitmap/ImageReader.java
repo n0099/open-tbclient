@@ -3,6 +3,8 @@ package com.bumptech.glide.load.resource.bitmap;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.ParcelFileDescriptor;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,6 +22,7 @@ import java.io.InputStream;
 import java.util.List;
 /* loaded from: classes7.dex */
 public interface ImageReader {
+    @Nullable
     Bitmap decodeBitmap(BitmapFactory.Options options) throws IOException;
 
     int getImageOrientation() throws IOException;
@@ -29,14 +32,14 @@ public interface ImageReader {
     void stopGrowingBuffers();
 
     /* loaded from: classes7.dex */
-    public final class InputStreamImageReader implements ImageReader {
+    public static final class InputStreamImageReader implements ImageReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ArrayPool byteArrayPool;
         public final InputStreamRewinder dataRewinder;
-        public final List parsers;
+        public final List<ImageHeaderParser> parsers;
 
-        public InputStreamImageReader(InputStream inputStream, List list, ArrayPool arrayPool) {
+        public InputStreamImageReader(InputStream inputStream, List<ImageHeaderParser> list, ArrayPool arrayPool) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,6 +60,7 @@ public interface ImageReader {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.ImageReader
+        @Nullable
         public Bitmap decodeBitmap(BitmapFactory.Options options) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -95,13 +99,14 @@ public interface ImageReader {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes7.dex */
-    public final class ParcelFileDescriptorImageReader implements ImageReader {
+    public static final class ParcelFileDescriptorImageReader implements ImageReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ArrayPool byteArrayPool;
         public final ParcelFileDescriptorRewinder dataRewinder;
-        public final List parsers;
+        public final List<ImageHeaderParser> parsers;
 
         @Override // com.bumptech.glide.load.resource.bitmap.ImageReader
         public void stopGrowingBuffers() {
@@ -110,7 +115,7 @@ public interface ImageReader {
             }
         }
 
-        public ParcelFileDescriptorImageReader(ParcelFileDescriptor parcelFileDescriptor, List list, ArrayPool arrayPool) {
+        public ParcelFileDescriptorImageReader(ParcelFileDescriptor parcelFileDescriptor, List<ImageHeaderParser> list, ArrayPool arrayPool) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,6 +136,7 @@ public interface ImageReader {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.ImageReader
+        @Nullable
         public Bitmap decodeBitmap(BitmapFactory.Options options) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

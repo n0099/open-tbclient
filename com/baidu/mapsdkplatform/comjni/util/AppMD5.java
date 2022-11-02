@@ -24,21 +24,30 @@ public class AppMD5 {
         }
     }
 
+    public static String getUrlNeedInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return JNIMD5.getUrlNeedInfo();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String encodeUrlParamsValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? JNIMD5.encodeUrlParamsValue(str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return JNIMD5.encodeUrlParamsValue(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getSignMD5String(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? JNIMD5.getSignMD5String(str) : (String) invokeL.objValue;
-    }
-
-    public static String getUrlNeedInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? JNIMD5.getUrlNeedInfo() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return JNIMD5.getSignMD5String(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

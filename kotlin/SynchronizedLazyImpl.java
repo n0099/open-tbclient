@@ -39,7 +39,7 @@ public final class SynchronizedLazyImpl<T> implements Lazy<T>, Serializable {
             if (t == UNINITIALIZED_VALUE.INSTANCE) {
                 Function0<? extends T> function0 = this.initializer;
                 Intrinsics.checkNotNull(function0);
-                t = (T) function0.invoke();
+                t = function0.invoke();
                 this._value = t;
                 this.initializer = null;
             }

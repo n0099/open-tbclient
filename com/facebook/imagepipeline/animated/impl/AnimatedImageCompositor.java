@@ -28,14 +28,14 @@ public class AnimatedImageCompositor {
 
     /* loaded from: classes7.dex */
     public interface Callback {
-        CloseableReference getCachedBitmap(int i);
+        CloseableReference<Bitmap> getCachedBitmap(int i);
 
         void onIntermediateResult(int i, Bitmap bitmap);
     }
 
     /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class AnimatedImageCompositor {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class FrameNeededResult {
+    public static final class FrameNeededResult {
         public static final /* synthetic */ FrameNeededResult[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FrameNeededResult ABORT;
@@ -184,10 +184,10 @@ public class AnimatedImageCompositor {
                     }
                 } else {
                     AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
-                    CloseableReference cachedBitmap = this.mCallback.getCachedBitmap(i);
+                    CloseableReference<Bitmap> cachedBitmap = this.mCallback.getCachedBitmap(i);
                     if (cachedBitmap != null) {
                         try {
-                            canvas.drawBitmap((Bitmap) cachedBitmap.get(), 0.0f, 0.0f, (Paint) null);
+                            canvas.drawBitmap(cachedBitmap.get(), 0.0f, 0.0f, (Paint) null);
                             if (frameInfo.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
                                 disposeToBackground(canvas, frameInfo);
                             }

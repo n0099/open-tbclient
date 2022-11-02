@@ -1,5 +1,6 @@
 package androidx.webkit;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ public class WebMessageCompat {
     public String mData;
     public WebMessagePortCompat[] mPorts;
 
-    public WebMessageCompat(String str) {
+    public WebMessageCompat(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,7 +32,7 @@ public class WebMessageCompat {
         this.mData = str;
     }
 
-    public WebMessageCompat(String str, WebMessagePortCompat[] webMessagePortCompatArr) {
+    public WebMessageCompat(@Nullable String str, @Nullable WebMessagePortCompat[] webMessagePortCompatArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,6 +51,7 @@ public class WebMessageCompat {
         this.mPorts = webMessagePortCompatArr;
     }
 
+    @Nullable
     public String getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,6 +61,7 @@ public class WebMessageCompat {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public WebMessagePortCompat[] getPorts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

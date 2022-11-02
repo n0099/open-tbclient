@@ -31,10 +31,10 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
+public final class FlowableBufferTimed<T, U extends Collection<? super T>> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable bufferSupplier;
+    public final Callable<U> bufferSupplier;
     public final int maxSize;
     public final boolean restartTimerOnMaxSize;
     public final Scheduler scheduler;
@@ -43,11 +43,11 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class BufferSkipBoundedSubscriber extends QueueDrainSubscriber implements Subscription, Runnable {
+    public static final class BufferSkipBoundedSubscriber<T, U extends Collection<? super T>> extends QueueDrainSubscriber<T, U, U> implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Callable bufferSupplier;
-        public final List buffers;
+        public final Callable<U> bufferSupplier;
+        public final List<U> buffers;
         public Subscription s;
         public final long timeskip;
         public final long timespan;
@@ -58,15 +58,15 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
         public final class RemoveFromBuffer implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final Collection buffer;
+            public final U buffer;
             public final /* synthetic */ BufferSkipBoundedSubscriber this$0;
 
-            public RemoveFromBuffer(BufferSkipBoundedSubscriber bufferSkipBoundedSubscriber, Collection collection) {
+            public RemoveFromBuffer(BufferSkipBoundedSubscriber bufferSkipBoundedSubscriber, U u) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bufferSkipBoundedSubscriber, collection};
+                    Object[] objArr = {bufferSkipBoundedSubscriber, u};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -77,7 +77,7 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
                     }
                 }
                 this.this$0 = bufferSkipBoundedSubscriber;
-                this.buffer = collection;
+                this.buffer = u;
             }
 
             @Override // java.lang.Runnable
@@ -94,7 +94,7 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferSkipBoundedSubscriber(Subscriber subscriber, Callable callable, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public BufferSkipBoundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -120,13 +120,18 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             this.buffers = new LinkedList();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: io.reactivex.internal.operators.flowable.FlowableBufferTimed$BufferSkipBoundedSubscriber<T, U extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.internal.subscribers.QueueDrainSubscriber, io.reactivex.internal.util.QueueDrain
-        public boolean accept(Subscriber subscriber, Collection collection) {
+        public /* bridge */ /* synthetic */ boolean accept(Subscriber subscriber, Object obj) {
+            return accept((Subscriber<? super Subscriber>) subscriber, (Subscriber) ((Collection) obj));
+        }
+
+        public boolean accept(Subscriber<? super U> subscriber, U u) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber, collection)) == null) {
-                subscriber.onNext(collection);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber, u)) == null) {
+                subscriber.onNext(u);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -171,6 +176,8 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.List<U extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
@@ -205,12 +212,12 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
                 synchronized (this) {
-                    for (Collection collection : this.buffers) {
-                        collection.add(obj);
+                    for (U u : this.buffers) {
+                        u.add(t);
                     }
                 }
             }
@@ -224,6 +231,8 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.List<U extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
@@ -250,11 +259,11 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class BufferExactBoundedSubscriber extends QueueDrainSubscriber implements Subscription, Runnable, Disposable {
+    public static final class BufferExactBoundedSubscriber<T, U extends Collection<? super T>> extends QueueDrainSubscriber<T, U, U> implements Subscription, Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Collection buffer;
-        public final Callable bufferSupplier;
+        public U buffer;
+        public final Callable<U> bufferSupplier;
         public long consumerIndex;
         public final int maxSize;
         public long producerIndex;
@@ -266,7 +275,7 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
         public final Scheduler.Worker w;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferExactBoundedSubscriber(Subscriber subscriber, Callable callable, long j, TimeUnit timeUnit, int i, boolean z, Scheduler.Worker worker) {
+        public BufferExactBoundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j, TimeUnit timeUnit, int i, boolean z, Scheduler.Worker worker) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -292,13 +301,18 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             this.w = worker;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: io.reactivex.internal.operators.flowable.FlowableBufferTimed$BufferExactBoundedSubscriber<T, U extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.internal.subscribers.QueueDrainSubscriber, io.reactivex.internal.util.QueueDrain
-        public boolean accept(Subscriber subscriber, Collection collection) {
+        public /* bridge */ /* synthetic */ boolean accept(Subscriber subscriber, Object obj) {
+            return accept((Subscriber<? super Subscriber>) subscriber, (Subscriber) ((Collection) obj));
+        }
+
+        public boolean accept(Subscriber<? super U> subscriber, U u) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber, collection)) == null) {
-                subscriber.onNext(collection);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber, u)) == null) {
+                subscriber.onNext(u);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -337,14 +351,14 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
-            Collection collection;
+            U u;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 synchronized (this) {
-                    collection = this.buffer;
+                    u = this.buffer;
                     this.buffer = null;
                 }
-                this.queue.offer(collection);
+                this.queue.offer(u);
                 this.done = true;
                 if (enter()) {
                     QueueDrainHelper.drainMaxLoop(this.queue, this.actual, false, this, this);
@@ -358,12 +372,12 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 try {
-                    Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
+                    U u = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
                     synchronized (this) {
-                        Collection collection2 = this.buffer;
-                        if (collection2 != null && this.producerIndex == this.consumerIndex) {
-                            this.buffer = collection;
-                            fastPathOrderedEmitMax(collection2, false, this);
+                        U u2 = this.buffer;
+                        if (u2 != null && this.producerIndex == this.consumerIndex) {
+                            this.buffer = u;
+                            fastPathOrderedEmitMax(u2, false, this);
                         }
                     }
                 } catch (Throwable th) {
@@ -395,16 +409,16 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
                 synchronized (this) {
-                    Collection collection = this.buffer;
-                    if (collection == null) {
+                    U u = this.buffer;
+                    if (u == null) {
                         return;
                     }
-                    collection.add(obj);
-                    if (collection.size() < this.maxSize) {
+                    u.add(t);
+                    if (u.size() < this.maxSize) {
                         return;
                     }
                     this.buffer = null;
@@ -412,11 +426,11 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
                     if (this.restartTimerOnMaxSize) {
                         this.timer.dispose();
                     }
-                    fastPathOrderedEmitMax(collection, false, this);
+                    fastPathOrderedEmitMax(u, false, this);
                     try {
-                        Collection collection2 = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
+                        U u2 = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
                         synchronized (this) {
-                            this.buffer = collection2;
+                            this.buffer = u2;
                             this.consumerIndex++;
                         }
                         if (this.restartTimerOnMaxSize) {
@@ -441,7 +455,7 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             }
             this.s = subscription;
             try {
-                this.buffer = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
+                this.buffer = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
                 this.actual.onSubscribe(this);
                 Scheduler.Worker worker = this.w;
                 long j = this.timespan;
@@ -457,19 +471,19 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class BufferExactUnboundedSubscriber extends QueueDrainSubscriber implements Subscription, Runnable, Disposable {
+    public static final class BufferExactUnboundedSubscriber<T, U extends Collection<? super T>> extends QueueDrainSubscriber<T, U, U> implements Subscription, Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Collection buffer;
-        public final Callable bufferSupplier;
+        public U buffer;
+        public final Callable<U> bufferSupplier;
         public Subscription s;
         public final Scheduler scheduler;
-        public final AtomicReference timer;
+        public final AtomicReference<Disposable> timer;
         public final long timespan;
         public final TimeUnit unit;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferExactUnboundedSubscriber(Subscriber subscriber, Callable callable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public BufferExactUnboundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j, TimeUnit timeUnit, Scheduler scheduler) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -487,20 +501,25 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
                     return;
                 }
             }
-            this.timer = new AtomicReference();
+            this.timer = new AtomicReference<>();
             this.bufferSupplier = callable;
             this.timespan = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: io.reactivex.internal.operators.flowable.FlowableBufferTimed$BufferExactUnboundedSubscriber<T, U extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.internal.subscribers.QueueDrainSubscriber, io.reactivex.internal.util.QueueDrain
-        public boolean accept(Subscriber subscriber, Collection collection) {
+        public /* bridge */ /* synthetic */ boolean accept(Subscriber subscriber, Object obj) {
+            return accept((Subscriber<? super Subscriber>) subscriber, (Subscriber) ((Collection) obj));
+        }
+
+        public boolean accept(Subscriber<? super U> subscriber, U u) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber, collection)) == null) {
-                this.actual.onNext(collection);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber, u)) == null) {
+                this.actual.onNext(u);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -543,12 +562,12 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 DisposableHelper.dispose(this.timer);
                 synchronized (this) {
-                    Collection collection = this.buffer;
-                    if (collection == null) {
+                    U u = this.buffer;
+                    if (u == null) {
                         return;
                     }
                     this.buffer = null;
-                    this.queue.offer(collection);
+                    this.queue.offer(u);
                     this.done = true;
                     if (enter()) {
                         QueueDrainHelper.drainMaxLoop(this.queue, this.actual, false, null, this);
@@ -562,14 +581,14 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 try {
-                    Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
+                    U u = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
                     synchronized (this) {
-                        Collection collection2 = this.buffer;
-                        if (collection2 == null) {
+                        U u2 = this.buffer;
+                        if (u2 == null) {
                             return;
                         }
-                        this.buffer = collection;
-                        fastPathEmitMax(collection2, false, this);
+                        this.buffer = u;
+                        fastPathEmitMax(u2, false, this);
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -592,13 +611,13 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
                 synchronized (this) {
-                    Collection collection = this.buffer;
-                    if (collection != null) {
-                        collection.add(obj);
+                    U u = this.buffer;
+                    if (u != null) {
+                        u.add(t);
                     }
                 }
             }
@@ -618,7 +637,7 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
             if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 try {
-                    this.buffer = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
+                    this.buffer = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
                     this.actual.onSubscribe(this);
                     if (!this.cancelled) {
                         subscription.request(Long.MAX_VALUE);
@@ -639,7 +658,7 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableBufferTimed(Flowable flowable, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, Callable callable, int i, boolean z) {
+    public FlowableBufferTimed(Flowable<T> flowable, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, Callable<U> callable, int i, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -666,7 +685,7 @@ public final class FlowableBufferTimed extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super U> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             if (this.timespan == this.timeskip && this.maxSize == Integer.MAX_VALUE) {

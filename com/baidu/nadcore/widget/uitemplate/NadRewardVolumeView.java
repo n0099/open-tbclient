@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
@@ -61,7 +63,7 @@ public class NadRewardVolumeView extends AdImageView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadRewardVolumeView(Context context) {
+    public NadRewardVolumeView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,7 +84,7 @@ public class NadRewardVolumeView extends AdImageView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadRewardVolumeView(Context context, AttributeSet attributeSet) {
+    public NadRewardVolumeView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,7 +105,7 @@ public class NadRewardVolumeView extends AdImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadRewardVolumeView(Context context, AttributeSet attributeSet, int i) {
+    public NadRewardVolumeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,9 +140,9 @@ public class NadRewardVolumeView extends AdImageView {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.d = z;
             if (z) {
-                i = R.drawable.obfuscated_res_0x7f080e03;
+                i = R.drawable.obfuscated_res_0x7f080e1d;
             } else {
-                i = R.drawable.obfuscated_res_0x7f080e02;
+                i = R.drawable.obfuscated_res_0x7f080e1c;
             }
             setImageDrawable(getContext().getResources().getDrawable(i));
             invalidate();

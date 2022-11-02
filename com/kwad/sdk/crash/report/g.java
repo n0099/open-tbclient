@@ -1,6 +1,7 @@
 package com.kwad.sdk.crash.report;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.NativeExceptionMessage;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g extends d {
     public static final Pattern ahF = Pattern.compile("(.*)\\s\\(tid=(\\d+), index=(\\d+)*");
     public static final Pattern ahG = Pattern.compile("\\sd+\\spc");
@@ -189,7 +190,7 @@ public final class g extends d {
     }
 
     @Override // com.kwad.sdk.crash.report.d
-    public final ExceptionMessage a(File file, File file2, File file3, String str) {
+    public final ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
         File file4 = new File(str + ".jtrace");
         NativeExceptionMessage A = A(file2);
         try {

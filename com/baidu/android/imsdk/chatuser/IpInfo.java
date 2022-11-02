@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class IpInfo implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<IpInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String mCity;
     public String mCountry;
@@ -48,7 +48,7 @@ public class IpInfo implements Parcelable, NoProGuard {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatuser.IpInfo.1
+        CREATOR = new Parcelable.Creator<IpInfo>() { // from class: com.baidu.android.imsdk.chatuser.IpInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,6 +67,7 @@ public class IpInfo implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public IpInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -78,6 +79,7 @@ public class IpInfo implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public IpInfo[] newArray(int i) {
                 InterceptResult invokeI;

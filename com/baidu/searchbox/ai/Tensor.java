@@ -184,15 +184,15 @@ public final class Tensor implements AutoCloseable {
         return invokeL.intValue;
     }
 
-    public Object read(Object obj) {
+    public <T> T read(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            assertArgIsArray(obj);
-            readArray(this.nativeHandle, this.datatype.value(), obj);
-            return obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
+            assertArgIsArray(t);
+            readArray(this.nativeHandle, this.datatype.value(), t);
+            return t;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public static Tensor createInstance(Object obj) {

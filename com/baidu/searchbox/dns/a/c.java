@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class c implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap q;
+    public HashMap<String, String> q;
     public final Object r;
 
     public c() {
@@ -27,7 +27,7 @@ public class c implements b {
                 return;
             }
         }
-        this.q = new HashMap();
+        this.q = new HashMap<>();
         this.r = new Object();
     }
 
@@ -46,7 +46,7 @@ public class c implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = this.q;
+            HashMap<String, String> hashMap = this.q;
             if (hashMap == null || hashMap.size() < 1) {
                 return true;
             }
@@ -62,7 +62,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this.r) {
-                str2 = (String) this.q.get(str);
+                str2 = this.q.get(str);
             }
             return str2;
         }

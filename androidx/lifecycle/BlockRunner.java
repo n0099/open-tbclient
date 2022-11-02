@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
@@ -52,6 +53,7 @@ public final class BlockRunner<T> {
         this.onDone = function0;
     }
 
+    @MainThread
     public final void cancel() {
         Job launch$default;
         Interceptable interceptable = $ic;
@@ -65,6 +67,7 @@ public final class BlockRunner<T> {
         }
     }
 
+    @MainThread
     public final void maybeRun() {
         Job launch$default;
         Interceptable interceptable = $ic;

@@ -1,11 +1,9 @@
 package com.baidu.tieba;
-
-import android.widget.ImageView;
 /* loaded from: classes5.dex */
-public interface o61 extends sn0 {
-    void a(String str, ImageView imageView, boolean z);
+public interface o61 {
+    void a(String str, String str2);
 
-    void b(String str, ImageView imageView, int i, int i2);
+    void cancel();
 
-    void e(String str, rn0 rn0Var);
+    void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4);
 }

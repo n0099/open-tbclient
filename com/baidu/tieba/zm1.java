@@ -1,20 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.pc4;
-import okhttp3.Callback;
-import org.json.JSONObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface zm1 {
-    void d(byte[] bArr);
+public class zm1 implements yp1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void e(String str, String str2, ResponseCallback responseCallback);
+    @Override // com.baidu.tieba.yp1
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void f(String str, String str2, pc4.c cVar);
+    @Override // com.baidu.tieba.yp1
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "-1" : (String) invokeV.objValue;
+    }
 
-    boolean g(String str);
-
-    boolean h();
-
-    boolean i(m33 m33Var, JSONObject jSONObject, String str, String str2, Callback callback, fi3 fi3Var);
+    public zm1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

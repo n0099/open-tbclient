@@ -1,5 +1,6 @@
 package com.baidu.swan.game.ad.downloader.model;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +25,7 @@ public class DownloadParams {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class SwanAppDownloadType {
+    public static final class SwanAppDownloadType {
         public static final /* synthetic */ SwanAppDownloadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SwanAppDownloadType TYPE_CANCEL_DOWNLOAD;
@@ -84,7 +85,7 @@ public class DownloadParams {
             this.typeName = str2;
         }
 
-        public static SwanAppDownloadType find(String str) {
+        public static SwanAppDownloadType find(@Nullable String str) {
             InterceptResult invokeL;
             SwanAppDownloadType[] values;
             Interceptable interceptable = $ic;

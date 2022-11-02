@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -75,7 +76,7 @@ public abstract class a implements c {
             if (d.p(this.mAdTemplate)) {
                 this.nM.a(this.wU.getContext(), z ? 1 : 153, view2 == this.xa ? 1 : 2);
             } else if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
-                com.kwad.components.core.c.a.a.a(new a.C0566a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wZ).ae(r1).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.tailframe.a.2
+                com.kwad.components.core.c.a.a.a(new a.C0577a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wZ).ae(r1).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.tailframe.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ boolean rl;
@@ -110,7 +111,7 @@ public abstract class a implements c {
                     }
                 }));
             } else {
-                com.kwad.components.core.c.a.a.a(new a.C0566a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wZ).ae(r1).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.tailframe.a.2
+                com.kwad.components.core.c.a.a.a(new a.C0577a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wZ).ae(r1).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.tailframe.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ boolean rl;
@@ -272,14 +273,14 @@ public abstract class a implements c {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(this.xb, (ViewGroup) null, false);
             this.wU = inflate;
-            this.wV = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09122a);
-            this.bq = (KsLogoView) this.wU.findViewById(R.id.obfuscated_res_0x7f091227);
-            this.wW = (com.kwad.components.ad.widget.tailframe.appbar.a) this.wU.findViewById(R.id.obfuscated_res_0x7f091204);
-            this.wX = (TailFrameBarH5View) this.wU.findViewById(R.id.obfuscated_res_0x7f09121a);
+            this.wV = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091264);
+            this.bq = (KsLogoView) this.wU.findViewById(R.id.obfuscated_res_0x7f091261);
+            this.wW = (com.kwad.components.ad.widget.tailframe.appbar.a) this.wU.findViewById(R.id.obfuscated_res_0x7f09123e);
+            this.wX = (TailFrameBarH5View) this.wU.findViewById(R.id.obfuscated_res_0x7f091254);
         }
     }
 
-    public void a(AdTemplate adTemplate, JSONObject jSONObject, b bVar) {
+    public void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, jSONObject, bVar) == null) {
             this.mAdTemplate = adTemplate;

@@ -1,18 +1,16 @@
 package com.kwad.sdk.core.report;
 
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d extends com.kwad.sdk.core.network.d {
-    public d(List list) {
+    public d(List<m> list) {
         if (list == null || list.size() <= 0) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            com.kwad.sdk.utils.r.putValue(jSONArray, ((m) it.next()).ut());
+        for (m mVar : list) {
+            com.kwad.sdk.utils.r.putValue(jSONArray, mVar.ut());
         }
         putBody("actionList", jSONArray);
     }

@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class k extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList d;
+    public ArrayList<String> d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(i iVar, Context context) {
@@ -42,7 +42,7 @@ public class k extends c {
                 return;
             }
         }
-        this.d = new ArrayList();
+        this.d = new ArrayList<>();
     }
 
     @Override // com.baidu.android.pushservice.httpapi.a
@@ -90,7 +90,7 @@ public class k extends c {
     }
 
     @Override // com.baidu.android.pushservice.httpapi.a
-    public void b(HashMap hashMap) {
+    public void b(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.b(hashMap);

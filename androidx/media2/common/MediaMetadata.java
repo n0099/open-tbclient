@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.CustomVersionedParcelable;
@@ -61,7 +64,9 @@ public final class MediaMetadata extends CustomVersionedParcelable {
     public static final String METADATA_KEY_MEDIA_URI = "android.media.metadata.MEDIA_URI";
     public static final String METADATA_KEY_NUM_TRACKS = "android.media.metadata.NUM_TRACKS";
     public static final String METADATA_KEY_PLAYABLE = "androidx.media2.metadata.PLAYABLE";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String METADATA_KEY_RADIO_FREQUENCY = "androidx.media2.metadata.RADIO_FREQUENCY";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String METADATA_KEY_RADIO_PROGRAM_NAME = "androidx.media2.metadata.RADIO_PROGRAM_NAME";
     public static final String METADATA_KEY_RATING = "android.media.metadata.RATING";
     public static final String METADATA_KEY_TITLE = "android.media.metadata.TITLE";
@@ -85,31 +90,37 @@ public final class MediaMetadata extends CustomVersionedParcelable {
     public Bundle mParcelableWithoutBitmapBundle;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface BitmapKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface BundleKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface FloatKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface LongKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface RatingKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface TextKey {
     }
@@ -154,7 +165,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             return (String) invokeV.objValue;
         }
 
-        public BitmapEntry(String str, Bitmap bitmap) {
+        public BitmapEntry(@NonNull String str, @NonNull Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -218,6 +229,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             this.mBundle = new Bundle();
         }
 
+        @NonNull
         public MediaMetadata build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -245,7 +257,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             this.mBundle = new Bundle(bundle);
         }
 
-        public Builder(MediaMetadata mediaMetadata) {
+        public Builder(@NonNull MediaMetadata mediaMetadata) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -263,7 +275,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             this.mBundle = new Bundle(mediaMetadata.mBundle);
         }
 
-        public Builder putBitmap(String str, Bitmap bitmap) {
+        @NonNull
+        public Builder putBitmap(@NonNull String str, @Nullable Bitmap bitmap) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
@@ -279,7 +292,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder putFloat(String str, float f) {
+        @NonNull
+        public Builder putFloat(@NonNull String str, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) {
@@ -295,7 +309,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             return (Builder) invokeLF.objValue;
         }
 
-        public Builder putLong(String str, long j) {
+        @NonNull
+        public Builder putLong(@NonNull String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
@@ -311,7 +326,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             return (Builder) invokeLJ.objValue;
         }
 
-        public Builder putRating(String str, Rating rating) {
+        @NonNull
+        public Builder putRating(@NonNull String str, @Nullable Rating rating) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, rating)) == null) {
@@ -327,7 +343,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder putString(String str, String str2) {
+        @NonNull
+        public Builder putString(@NonNull String str, @Nullable String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
@@ -343,7 +360,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder putText(String str, CharSequence charSequence) {
+        @NonNull
+        public Builder putText(@NonNull String str, @Nullable CharSequence charSequence) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, charSequence)) == null) {
@@ -359,7 +377,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder setExtras(Bundle bundle) {
+        @NonNull
+        public Builder setExtras(@Nullable Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
@@ -436,6 +455,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         }
     }
 
+    @Nullable
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -450,6 +470,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return (Bundle) invokeV.objValue;
     }
 
+    @Nullable
     public String getMediaId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -459,6 +480,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public Set<String> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -506,7 +528,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         bundle2.setClassLoader(MediaMetadata.class.getClassLoader());
     }
 
-    public boolean containsKey(String str) {
+    public boolean containsKey(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -518,7 +540,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return invokeL.booleanValue;
     }
 
-    public Bitmap getBitmap(String str) {
+    @Nullable
+    public Bitmap getBitmap(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -535,7 +558,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return (Bitmap) invokeL.objValue;
     }
 
-    public float getFloat(String str) {
+    public float getFloat(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -547,7 +570,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return invokeL.floatValue;
     }
 
-    public long getLong(String str) {
+    public long getLong(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -559,7 +582,9 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return invokeL.longValue;
     }
 
-    public Object getObject(String str) {
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public Object getObject(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
@@ -571,7 +596,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return invokeL.objValue;
     }
 
-    public Rating getRating(String str) {
+    @Nullable
+    public Rating getRating(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -588,7 +614,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return (Rating) invokeL.objValue;
     }
 
-    public String getString(String str) {
+    @Nullable
+    public String getString(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
@@ -604,7 +631,8 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return (String) invokeL.objValue;
     }
 
-    public CharSequence getText(String str) {
+    @Nullable
+    public CharSequence getText(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -617,6 +645,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onPostParceling() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -636,6 +665,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onPreParceling(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {

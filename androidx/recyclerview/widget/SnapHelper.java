@@ -5,6 +5,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,8 +24,10 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     public RecyclerView mRecyclerView;
     public final RecyclerView.OnScrollListener mScrollListener;
 
-    public abstract int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View view2);
+    @Nullable
+    public abstract int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2);
 
+    @Nullable
     public abstract View findSnapView(RecyclerView.LayoutManager layoutManager);
 
     public abstract int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2);
@@ -110,7 +114,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         }
     }
 
-    private boolean snapFromFling(RecyclerView.LayoutManager layoutManager, int i, int i2) {
+    private boolean snapFromFling(@NonNull RecyclerView.LayoutManager layoutManager, int i, int i2) {
         InterceptResult invokeLII;
         RecyclerView.SmoothScroller createScroller;
         int findTargetSnapPosition;
@@ -126,7 +130,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         return invokeLII.booleanValue;
     }
 
-    public void attachToRecyclerView(RecyclerView recyclerView) throws IllegalStateException {
+    public void attachToRecyclerView(@Nullable RecyclerView recyclerView) throws IllegalStateException {
         RecyclerView recyclerView2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, recyclerView) != null) || (recyclerView2 = this.mRecyclerView) == recyclerView) {
@@ -171,6 +175,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         return invokeII.booleanValue;
     }
 
+    @Nullable
     public RecyclerView.SmoothScroller createScroller(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -180,6 +185,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         return (RecyclerView.SmoothScroller) invokeL.objValue;
     }
 
+    @Nullable
     @Deprecated
     public LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;

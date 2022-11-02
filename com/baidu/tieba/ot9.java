@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class ot9 {
+public final class ot9 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public final float b;
+    public final Context a;
+    public final yt9 b;
+    public volatile boolean c;
 
-    public ot9(float f, float f2, float f3) {
+    public ot9(Context context, yt9 yt9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {context, yt9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,25 +29,31 @@ public final class ot9 {
                 return;
             }
         }
-        this.a = f;
-        this.b = f2;
+        this.a = context;
+        this.b = yt9Var;
     }
 
-    public final float a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = true;
         }
-        return invokeV.floatValue;
     }
 
-    public final float b() {
-        InterceptResult invokeV;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.c) {
+                if (rt9.d().h(this.a)) {
+                    this.b.a(com.google.ar.core.p.c);
+                    return;
+                }
+                try {
+                    Thread.sleep(200L);
+                } catch (InterruptedException unused) {
+                }
+            }
         }
-        return invokeV.floatValue;
     }
 }

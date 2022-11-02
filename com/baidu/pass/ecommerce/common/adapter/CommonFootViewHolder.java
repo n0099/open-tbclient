@@ -2,6 +2,7 @@ package com.baidu.pass.ecommerce.common.adapter;
 
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.pass.ecommerce.view.RotateYAnimation;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CommonFootViewHolder extends BaseRecyclerViewHolder {
+public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
@@ -17,7 +18,7 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder {
     public View mFooterIc;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommonFootViewHolder(View view2, boolean z) {
+    public CommonFootViewHolder(@NonNull View view2, boolean z) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +49,7 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder {
     public void bindData2View(int i, Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, bool) == null) {
-            super.bindData2View(i, (Object) bool);
+            super.bindData2View(i, (int) bool);
             if (bool.booleanValue()) {
                 this.mFooterIc.setVisibility(0);
                 this.mFootTv.setText("正在加载...");

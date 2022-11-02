@@ -28,7 +28,7 @@ public class LightEstimate {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class State {
+    public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State NOT_VALID;

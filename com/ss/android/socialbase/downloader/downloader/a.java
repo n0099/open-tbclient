@@ -18,8 +18,8 @@ import java.util.List;
 public abstract class a implements o {
     public static final String e = "a";
     public volatile boolean c;
-    public WeakReference f;
-    public final SparseArray a = new SparseArray();
+    public WeakReference<Service> f;
+    public final SparseArray<List<DownloadTask>> a = new SparseArray<>();
     public volatile boolean b = false;
     public volatile boolean d = false;
     public Handler g = new Handler(Looper.getMainLooper());
@@ -100,12 +100,12 @@ public abstract class a implements o {
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
     public void a(int i, Notification notification) {
-        WeakReference weakReference = this.f;
+        WeakReference<Service> weakReference = this.f;
         if (weakReference != null && weakReference.get() != null) {
             String str = e;
             com.ss.android.socialbase.downloader.c.a.c(str, "startForeground  id = " + i + ", service = " + this.f.get() + ",  isServiceAlive = " + this.b);
             try {
-                ((Service) this.f.get()).startForeground(i, notification);
+                this.f.get().startForeground(i, notification);
                 this.c = true;
                 return;
             } catch (Exception e2) {
@@ -124,9 +124,9 @@ public abstract class a implements o {
         synchronized (this.a) {
             String str = e;
             com.ss.android.socialbase.downloader.c.a.b(str, "pendDownloadTask pendingTasks.size:" + this.a.size() + " downloadId:" + downloadId);
-            List list = (List) this.a.get(downloadId);
+            List<DownloadTask> list = this.a.get(downloadId);
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
                 this.a.put(downloadId, list);
             }
             String str2 = e;
@@ -181,13 +181,13 @@ public abstract class a implements o {
 
     @Override // com.ss.android.socialbase.downloader.downloader.o
     public void a(boolean z) {
-        WeakReference weakReference = this.f;
+        WeakReference<Service> weakReference = this.f;
         if (weakReference != null && weakReference.get() != null) {
             String str = e;
             com.ss.android.socialbase.downloader.c.a.c(str, "stopForeground  service = " + this.f.get() + ",  isServiceAlive = " + this.b);
             try {
                 this.c = false;
-                ((Service) this.f.get()).stopForeground(z);
+                this.f.get().stopForeground(z);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -195,7 +195,7 @@ public abstract class a implements o {
     }
 
     public void e() {
-        SparseArray clone;
+        SparseArray<List<DownloadTask>> clone;
         synchronized (this.a) {
             String str = e;
             com.ss.android.socialbase.downloader.c.a.b(str, "resumePendingTask pendingTasks.size:" + this.a.size());
@@ -205,7 +205,7 @@ public abstract class a implements o {
         com.ss.android.socialbase.downloader.impls.a C = c.C();
         if (C != null) {
             for (int i = 0; i < clone.size(); i++) {
-                List<DownloadTask> list = (List) clone.get(clone.keyAt(i));
+                List<DownloadTask> list = clone.get(clone.keyAt(i));
                 if (list != null) {
                     for (DownloadTask downloadTask : list) {
                         String str2 = e;

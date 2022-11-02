@@ -1,293 +1,195 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.ArrayMap;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
-import com.baidu.swan.facade.requred.openstat.imupload.log.model.Bimlog$LogRequest;
-import com.baidu.swan.facade.requred.openstat.imupload.log.model.Bimlog$LogResponse;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.ByteString;
-import com.google.protobuf.InvalidProtocolBufferException;
-import java.io.IOException;
-import java.net.SocketException;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.ConnectionPool;
-import okhttp3.Headers;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Protocol;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okio.BufferedSink;
-import okio.GzipSink;
-import okio.Okio;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class dq3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static dq3 b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String b = "dq3";
+    public static final boolean c;
+    public static SharedPreferences d;
     public transient /* synthetic */ FieldHolder $fh;
-    public OkHttpClient a;
+    public Context a;
 
-    /* loaded from: classes3.dex */
-    public class a implements Interceptor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.dq3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0217a extends RequestBody {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ RequestBody a;
-
-            @Override // okhttp3.RequestBody
-            public long contentLength() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return -1L;
-                }
-                return invokeV.longValue;
-            }
-
-            public C0217a(a aVar, RequestBody requestBody) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, requestBody};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = requestBody;
-            }
-
-            @Override // okhttp3.RequestBody
-            public MediaType contentType() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return this.a.contentType();
-                }
-                return (MediaType) invokeV.objValue;
-            }
-
-            @Override // okhttp3.RequestBody
-            public void writeTo(BufferedSink bufferedSink) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                    BufferedSink buffer = Okio.buffer(new GzipSink(bufferedSink));
-                    try {
-                        this.a.writeTo(buffer);
-                        buffer.close();
-                    } catch (IOException unused) {
-                    }
-                }
-            }
-        }
-
-        public a(dq3 dq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final RequestBody a(RequestBody requestBody) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
-                return new C0217a(this, requestBody);
-            }
-            return (RequestBody) invokeL.objValue;
-        }
-
-        @Override // okhttp3.Interceptor
-        public Response intercept(Interceptor.Chain chain) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-                Request request = chain.request();
-                if (request.body() != null && request.header("Content-Encoding") == null) {
-                    return chain.proceed(request.newBuilder().header("Content-Encoding", "gzip").method(request.method(), a(request.body())).build());
-                }
-                return chain.proceed(request);
-            }
-            return (Response) invokeL.objValue;
+    public final void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
         }
     }
 
-    public dq3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713155, "Lcom/baidu/tieba/dq3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947713155, "Lcom/baidu/tieba/dq3;");
+                return;
+            }
+        }
+        c = ok1.a;
+        d = null;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && c) {
+            String str = b;
+            Log.d(str, "新旧版本一样:" + b(this.a));
+        }
+    }
+
+    public dq3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = c();
+        this.a = null;
+        this.a = context;
     }
 
-    public static dq3 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new dq3();
-            }
-            return b;
-        }
-        return (dq3) invokeV.objValue;
-    }
-
-    public final RequestBody a(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, str)) == null) {
-            return RequestBody.create(MediaType.parse("application/proto"), b(bArr, str));
-        }
-        return (RequestBody) invokeLL.objValue;
-    }
-
-    public final byte[] b(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, str)) == null) {
-            Bimlog$LogRequest.AuthInfo.b newBuilder = Bimlog$LogRequest.AuthInfo.newBuilder();
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            newBuilder.u(str);
-            Bimlog$LogRequest.AuthInfo build = newBuilder.build();
-            long currentTimeMillis = System.currentTimeMillis();
-            Bimlog$LogRequest.b newBuilder2 = Bimlog$LogRequest.newBuilder();
-            newBuilder2.A(1L);
-            newBuilder2.y("smart_app");
-            newBuilder2.v(build);
-            newBuilder2.x(currentTimeMillis);
-            newBuilder2.z(cq3.b("smart_app", currentTimeMillis));
-            newBuilder2.w(ByteString.copyFrom(bArr));
-            return newBuilder2.build().toByteArray();
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public final OkHttpClient c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new OkHttpClient.Builder().protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1)).pingInterval(1000L, TimeUnit.MILLISECONDS).addInterceptor(new a(this)).connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).connectionPool(new ConnectionPool()).build();
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public final Request e(Map map, byte[] bArr, String str, String str2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, map, bArr, str, str2)) == null) {
-            ArrayMap arrayMap = new ArrayMap();
-            for (Map.Entry entry : map.entrySet()) {
-                arrayMap.put("ls-" + ((String) entry.getKey()), h((String) entry.getValue()));
-            }
-            arrayMap.put(IMPushUploadConstants.BIM_LOG_ID, h(str2));
-            return new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").headers(Headers.of(arrayMap)).url("https://pimlog.baidu.com/LogService/Log").post(a(bArr, str)).build();
-        }
-        return (Request) invokeLLLL.objValue;
-    }
-
-    public final String[] f(byte[] bArr) {
+    public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                Bimlog$LogResponse parseFrom = Bimlog$LogResponse.parseFrom(bArr);
-                if (this.a.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
-                    this.a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
-                    this.a = this.a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (PackageManager.NameNotFoundException e) {
+                if (c) {
+                    String str = b;
+                    Log.e(str, "error:" + e.getMessage());
+                    return -1;
                 }
-                return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
-            } catch (InvalidProtocolBufferException unused) {
-                return new String[]{String.valueOf(-1), "parseResponse exception"};
+                return -1;
             }
         }
-        return (String[]) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public void g(Map map, byte[] bArr, String str, eq3 eq3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048581, this, map, bArr, str, eq3Var) != null) || eq3Var == null) {
-            return;
-        }
-        Request e = e(map, bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 10000.0d)));
-        if (this.a == null) {
-            this.a = c();
-        }
-        try {
-            Response execute = this.a.newCall(e).execute();
-            try {
-                if (execute.body() != null) {
-                    String[] f = f(execute.body().bytes());
-                    eq3Var.a = Integer.valueOf(f[0]).intValue();
-                    eq3Var.b = f[1];
-                }
-            } catch (IOException unused) {
-            }
-        } catch (IOException e2) {
-            String str2 = "Request error :" + e2.toString();
-            if (e2 instanceof SocketException) {
-                str2 = "Request SocketException :" + e2.toString();
-            }
-            eq3Var.a = -1;
-            eq3Var.b = str2;
-        }
-    }
-
-    public final String h(String str) {
+    public final int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            int i = c(context).getInt("old_versioncode_key", 0);
+            if (c) {
+                String str = b;
+                Log.d(str, "get old versioncode:" + i);
             }
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < str.length(); i++) {
-                char charAt = str.charAt(i);
-                if ((charAt > 31 || charAt == '\t') && charAt < 127) {
-                    sb.append(charAt);
-                }
-            }
-            return sb.toString();
+            return i;
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (d == null) {
+                d = context.getSharedPreferences("downgradefile", 0);
+            }
+            return d;
+        }
+        return (SharedPreferences) invokeL.objValue;
+    }
+
+    public static dq3 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return new dq3(context);
+        }
+        return (dq3) invokeL.objValue;
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            fg3.d(0, i);
+        }
+    }
+
+    public static void j(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) {
+            if (c) {
+                String str = b;
+                Log.d(str, "set last version code:" + i);
+            }
+            SharedPreferences.Editor edit = c(context).edit();
+            edit.putInt("last_versioncode_key", i);
+            edit.apply();
+        }
+    }
+
+    public final void k(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
+            if (c) {
+                String str = b;
+                Log.d(str, "set new versioncode:" + i);
+            }
+            SharedPreferences.Editor edit = c(context).edit();
+            edit.putInt("old_versioncode_key", i);
+            edit.apply();
+        }
+    }
+
+    public final void h(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            fg3.d(i2, i);
+            td2.d.u();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            int a = a(this.a);
+            int b2 = b(this.a);
+            if (c) {
+                String str = b;
+                Log.d(str, "处理升级逻辑：newVersionCode=" + a + " /oldVersionCode=" + b2);
+            }
+            if (b2 == 0) {
+                f(a);
+                k(this.a, a);
+                j(this.a, b2);
+            } else if (a > b2) {
+                h(a, b2);
+                k(this.a, a);
+                j(this.a, b2);
+            } else if (a < b2) {
+                e(a, b2);
+                k(this.a, a);
+                j(this.a, b2);
+            } else {
+                g();
+            }
+        }
     }
 }

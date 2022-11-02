@@ -51,14 +51,14 @@ public final class u extends z {
         }
     }
 
-    public static Intent b(Intent intent, Map map) {
+    public static Intent b(Intent intent, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, intent, map)) == null) {
             if (map != null && map.entrySet() != null) {
-                for (Map.Entry entry : map.entrySet()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
                     if (entry != null && entry.getKey() != null) {
-                        intent.putExtra((String) entry.getKey(), (String) entry.getValue());
+                        intent.putExtra(entry.getKey(), entry.getValue());
                     }
                 }
             }
@@ -87,7 +87,7 @@ public final class u extends z {
             }
             if (equals) {
                 com.vivo.push.b.x xVar = new com.vivo.push.b.x(1030L);
-                HashMap hashMap = new HashMap();
+                HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("type", "2");
                 hashMap.put("messageID", String.valueOf(pVar.e()));
                 hashMap.put(Constants.PARAM_PLATFORM, this.a.getPackageName());

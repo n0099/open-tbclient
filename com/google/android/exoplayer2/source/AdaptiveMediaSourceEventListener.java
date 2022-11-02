@@ -28,7 +28,7 @@ public interface AdaptiveMediaSourceEventListener {
     void onUpstreamDiscarded(int i, long j, long j2);
 
     /* loaded from: classes7.dex */
-    public final class EventDispatcher {
+    public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Handler handler;

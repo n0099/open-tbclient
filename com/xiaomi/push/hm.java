@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class hm implements iu, Serializable, Cloneable {
+public class hm implements iu<hm, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -23,7 +23,7 @@ public class hm implements iu, Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f475a;
+    public List<hn> f475a;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +60,7 @@ public class hm implements iu, Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List list = this.f475a;
+            List<hn> list = this.f475a;
             if (list == null) {
                 return 0;
             }
@@ -213,7 +213,7 @@ public class hm implements iu, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             StringBuilder sb = new StringBuilder("ClientUploadData(");
             sb.append("uploadDataItems:");
-            List list = this.f475a;
+            List<hn> list = this.f475a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

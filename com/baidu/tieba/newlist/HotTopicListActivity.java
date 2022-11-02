@@ -12,7 +12,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tt7;
+import com.baidu.tieba.cv7;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,14 +21,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class HotTopicListActivity extends BaseActivity implements tt7 {
+public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements cv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicListModel a;
     public HotTopicListView b;
-    public List c;
+    public List<wn> c;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.zc5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.vd5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +58,7 @@ public class HotTopicListActivity extends BaseActivity implements tt7 {
         }
     }
 
-    @Override // com.baidu.tieba.tt7
+    @Override // com.baidu.tieba.cv7
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -77,8 +78,8 @@ public class HotTopicListActivity extends BaseActivity implements tt7 {
         }
     }
 
-    @Override // com.baidu.tieba.tt7
-    public void j(int i, List list) {
+    @Override // com.baidu.tieba.cv7
+    public void j(int i, List<wn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
             this.b.m();
@@ -104,7 +105,7 @@ public class HotTopicListActivity extends BaseActivity implements tt7 {
         }
     }
 
-    public final void y1(Bundle bundle) {
+    public final void x1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             Intent intent = getIntent();
@@ -121,7 +122,7 @@ public class HotTopicListActivity extends BaseActivity implements tt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            y1(bundle);
+            x1(bundle);
             this.a = new HotTopicListModel(getPageContext(), this);
             HotTopicListView hotTopicListView = new HotTopicListView(getPageContext(), this, bundle);
             this.b = hotTopicListView;

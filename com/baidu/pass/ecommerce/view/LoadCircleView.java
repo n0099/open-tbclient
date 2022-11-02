@@ -56,10 +56,10 @@ public class LoadCircleView extends View {
     public int mWidth;
 
     /* loaded from: classes2.dex */
-    public class MainThreadHandler extends Handler {
+    public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference mWeakLoadCircleView;
+        public WeakReference<LoadCircleView> mWeakLoadCircleView;
 
         public MainThreadHandler(LoadCircleView loadCircleView) {
             Interceptable interceptable = $ic;
@@ -76,14 +76,14 @@ public class LoadCircleView extends View {
                     return;
                 }
             }
-            this.mWeakLoadCircleView = new WeakReference(loadCircleView);
+            this.mWeakLoadCircleView = new WeakReference<>(loadCircleView);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             LoadCircleView loadCircleView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 4097 && (loadCircleView = (LoadCircleView) this.mWeakLoadCircleView.get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 4097 && (loadCircleView = this.mWeakLoadCircleView.get()) != null) {
                 loadCircleView.invalidate();
             }
         }

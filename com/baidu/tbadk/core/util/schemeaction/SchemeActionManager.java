@@ -16,11 +16,11 @@ public class SchemeActionManager {
     public static /* synthetic */ Interceptable $ic;
     public static SchemeActionManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap mHandlers;
+    public final ConcurrentHashMap<String, SchemeActionHandler> mHandlers;
 
     /* loaded from: classes3.dex */
     public interface SchemeActionHandler {
-        void deal(TbPageContext tbPageContext, UriBuilder uriBuilder, Bundle bundle);
+        void deal(TbPageContext<?> tbPageContext, UriBuilder uriBuilder, Bundle bundle);
     }
 
     public SchemeActionManager() {
@@ -36,7 +36,7 @@ public class SchemeActionManager {
                 return;
             }
         }
-        this.mHandlers = new ConcurrentHashMap();
+        this.mHandlers = new ConcurrentHashMap<>();
     }
 
     public static SchemeActionManager getInstance() {
@@ -55,7 +55,7 @@ public class SchemeActionManager {
         return (SchemeActionManager) invokeV.objValue;
     }
 
-    public boolean doSchemeAction(TbPageContext tbPageContext, String str) {
+    public boolean doSchemeAction(TbPageContext<?> tbPageContext, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, str)) == null) {
@@ -71,7 +71,7 @@ public class SchemeActionManager {
         }
     }
 
-    public boolean doSchemeAction(TbPageContext tbPageContext, String str, Bundle bundle) {
+    public boolean doSchemeAction(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
         InterceptResult invokeLLL;
         SchemeActionHandler schemeActionHandler;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class SchemeActionManager {
             SchemeActionHelper.printLog("doSchemeAction -->" + str);
             if (str != null && str.length() != 0) {
                 String parserSchemeAction = SchemeActionHelper.parserSchemeAction(str);
-                if (!TextUtils.isEmpty(parserSchemeAction) && (schemeActionHandler = (SchemeActionHandler) this.mHandlers.get(parserSchemeAction)) != null) {
+                if (!TextUtils.isEmpty(parserSchemeAction) && (schemeActionHandler = this.mHandlers.get(parserSchemeAction)) != null) {
                     schemeActionHandler.deal(tbPageContext, new UriBuilder(str), bundle);
                     return true;
                 }

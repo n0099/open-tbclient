@@ -12,7 +12,7 @@ public class GetBucketAclResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SUPPORTED_ACL_VERSION = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List accessControlList;
+    public List<Grant> accessControlList;
     public Grantee owner;
     public int version;
 
@@ -32,7 +32,7 @@ public class GetBucketAclResponse extends BosResponse {
         this.version = 1;
     }
 
-    public List getAccessControlList() {
+    public List<Grant> getAccessControlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -59,7 +59,7 @@ public class GetBucketAclResponse extends BosResponse {
         return invokeV.intValue;
     }
 
-    public void setAccessControlList(List list) {
+    public void setAccessControlList(List<Grant> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.accessControlList = list;

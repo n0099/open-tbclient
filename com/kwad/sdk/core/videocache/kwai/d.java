@@ -9,11 +9,11 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
 
-    /* loaded from: classes7.dex */
-    public final class a implements Comparator {
+    /* loaded from: classes8.dex */
+    public static final class a implements Comparator<File> {
         public a() {
         }
 
@@ -49,11 +49,11 @@ public final class d {
         }
     }
 
-    public static List s(File file) {
+    public static List<File> s(File file) {
         LinkedList linkedList = new LinkedList();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
-            List asList = Arrays.asList(listFiles);
+            List<File> asList = Arrays.asList(listFiles);
             Collections.sort(asList, new a((byte) 0));
             return asList;
         }

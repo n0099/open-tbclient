@@ -1,25 +1,96 @@
 package com.baidu.tieba;
 
-import android.view.KeyEvent;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mh2;
+import com.baidu.tieba.i33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kh2 extends hh2 {
+public class kh2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile kh2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mh2.f h;
+    public String a;
 
     /* loaded from: classes4.dex */
-    public class a implements mh2.f {
+    public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kh2 a;
+        public final /* synthetic */ q52 a;
 
-        public a(kh2 kh2Var) {
+        public a(kh2 kh2Var, q52 q52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh2Var, q52Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q52Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                xa3.e("cancel");
+                this.a.a(Boolean.FALSE);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q52 a;
+
+        public b(kh2 kh2Var, q52 q52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh2Var, q52Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q52Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                xa3.e("confirm");
+                this.a.a(Boolean.TRUE);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements DialogInterface.OnShowListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(kh2 kh2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,70 +102,98 @@ public class kh2 extends hh2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = kh2Var;
         }
 
-        @Override // com.baidu.tieba.mh2.f
-        public void b(int i) {
+        @Override // android.content.DialogInterface.OnShowListener
+        public void onShow(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onCustomKeyboardShow", Integer.valueOf(i));
-            }
-        }
-
-        @Override // com.baidu.tieba.mh2.f
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "committext", str);
-            }
-        }
-
-        @Override // com.baidu.tieba.mh2.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onCustomKeyboardHide", null);
-            }
-        }
-
-        @Override // com.baidu.tieba.mh2.f
-        public void d() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "deletebutton", new KeyEvent(0, 67));
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                xa3.e("show");
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kh2(mh2 mh2Var) {
-        super(mh2Var);
+    public kh2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mh2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jh2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        mh2Var.D0(aVar);
-        this.a.a(new rh2());
-        this.a.a(new nh2());
-        this.a.a(new qh2());
-        this.a.a(new ph2());
-        this.a.a(new oh2());
+    }
+
+    public static kh2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (kh2.class) {
+                    if (b == null) {
+                        b = new kh2();
+                    }
+                }
+            }
+            return b;
+        }
+        return (kh2) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || b == null) {
+            return;
+        }
+        if (b.a != null) {
+            b.a = null;
+        }
+        b = null;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(Activity activity, q52<Boolean> q52Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, activity, q52Var) == null) && activity != null && q52Var != null) {
+            i33.a aVar = new i33.a(activity);
+            aVar.U(R.string.obfuscated_res_0x7f0f011b);
+            aVar.x(b().a());
+            aVar.n(new mj3());
+            aVar.m(true);
+            aVar.Q(R.color.obfuscated_res_0x7f0603de);
+            aVar.O(R.string.obfuscated_res_0x7f0f0112, new a(this, q52Var));
+            aVar.B(R.string.obfuscated_res_0x7f0f011a, new b(this, q52Var));
+            aVar.N(new c(this));
+            aVar.X();
+        }
     }
 }

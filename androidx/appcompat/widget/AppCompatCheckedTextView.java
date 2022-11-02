@@ -6,6 +6,9 @@ import android.view.ActionMode;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.CheckedTextView;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.widget.TextViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -52,7 +55,7 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckedTextView(Context context) {
+    public AppCompatCheckedTextView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,7 +76,7 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet) {
+    public AppCompatCheckedTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 16843720);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -94,7 +97,7 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatCheckedTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +136,7 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     }
 
     @Override // android.widget.CheckedTextView
-    public void setCheckMarkDrawable(int i) {
+    public void setCheckMarkDrawable(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             setCheckMarkDrawable(AppCompatResources.getDrawable(getContext(), i));

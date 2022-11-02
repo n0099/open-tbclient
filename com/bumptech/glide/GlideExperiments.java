@@ -1,5 +1,6 @@
 package com.bumptech.glide;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,17 +14,17 @@ import java.util.Map;
 public class GlideExperiments {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map experiments;
+    public final Map<Class<?>, Experiment> experiments;
 
     /* loaded from: classes7.dex */
     public interface Experiment {
     }
 
     /* loaded from: classes7.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map experiments;
+        public final Map<Class<?>, Experiment> experiments;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -93,16 +94,17 @@ public class GlideExperiments {
         this.experiments = Collections.unmodifiableMap(new HashMap(builder.experiments));
     }
 
-    public Experiment get(Class cls) {
+    @Nullable
+    public <T extends Experiment> T get(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            return (Experiment) this.experiments.get(cls);
+            return (T) this.experiments.get(cls);
         }
-        return (Experiment) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public boolean isEnabled(Class cls) {
+    public boolean isEnabled(Class<? extends Experiment> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {

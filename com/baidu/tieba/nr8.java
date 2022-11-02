@@ -1,49 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.interest.InterestPanelShowManager;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class nr8 extends CustomMessageListener {
+public class nr8 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nr8(MainTabActivity mainTabActivity, eq8 eq8Var) {
-        super(2921673);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, eq8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948012181, "Lcom/baidu/tieba/nr8;")) == null) {
+            return;
         }
-        this.a = mainTabActivity;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948012181, "Lcom/baidu/tieba/nr8;");
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage customResponsedMessage) {
+    public static void a(MainTabActivity mainTabActivity, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            InterestPanelShowManager.a().e(this.a, true);
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
+        if ((interceptable != null && interceptable.invokeLL(65537, null, mainTabActivity, intent) != null) || a || mainTabActivity == null || !mainTabActivity.isTaskRoot() || intent == null) {
+            return;
+        }
+        String action = intent.getAction();
+        Set<String> categories = intent.getCategories();
+        if (action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
+            a = true;
         }
     }
 }

@@ -18,6 +18,7 @@ import com.google.android.exoplayer2.source.MediaPeriod;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.SinglePeriodTimeline;
 import com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker;
 import com.google.android.exoplayer2.upstream.Allocator;
@@ -36,7 +37,7 @@ public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.Pri
     public final HlsExtractorFactory extractorFactory;
     public final Uri manifestUri;
     public final int minLoadableRetryCount;
-    public final ParsingLoadable.Parser playlistParser;
+    public final ParsingLoadable.Parser<HlsPlaylist> playlistParser;
     public HlsPlaylistTracker playlistTracker;
     public MediaSource.Listener sourceListener;
 
@@ -77,7 +78,7 @@ public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.Pri
         }
     }
 
-    public HlsMediaSource(Uri uri, HlsDataSourceFactory hlsDataSourceFactory, HlsExtractorFactory hlsExtractorFactory, int i, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener, ParsingLoadable.Parser parser) {
+    public HlsMediaSource(Uri uri, HlsDataSourceFactory hlsDataSourceFactory, HlsExtractorFactory hlsExtractorFactory, int i, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener, ParsingLoadable.Parser<HlsPlaylist> parser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,12 +188,12 @@ public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.Pri
                 } else {
                     j4 = -9223372036854775807L;
                 }
-                List list = hlsMediaPlaylist.segments;
+                List<HlsMediaPlaylist.Segment> list = hlsMediaPlaylist.segments;
                 if (j7 == C.TIME_UNSET) {
                     if (list.isEmpty()) {
                         j6 = 0;
                     } else {
-                        j6 = ((HlsMediaPlaylist.Segment) list.get(Math.max(0, list.size() - 3))).relativeStartTimeUs;
+                        j6 = list.get(Math.max(0, list.size() - 3)).relativeStartTimeUs;
                     }
                     j5 = j6;
                 } else {

@@ -12,6 +12,10 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -90,6 +94,7 @@ public class AccessibilityNodeInfoCompat {
     public static int sClickableSpanId;
     public transient /* synthetic */ FieldHolder $fh;
     public final AccessibilityNodeInfo mInfo;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int mParentVirtualDescendantId;
     public int mVirtualDescendantId;
 
@@ -220,9 +225,13 @@ public class AccessibilityNodeInfoCompat {
         public static final AccessibilityActionCompat ACTION_MOVE_WINDOW;
         public static final AccessibilityActionCompat ACTION_NEXT_AT_MOVEMENT_GRANULARITY;
         public static final AccessibilityActionCompat ACTION_NEXT_HTML_ELEMENT;
+        @NonNull
         public static final AccessibilityActionCompat ACTION_PAGE_DOWN;
+        @NonNull
         public static final AccessibilityActionCompat ACTION_PAGE_LEFT;
+        @NonNull
         public static final AccessibilityActionCompat ACTION_PAGE_RIGHT;
+        @NonNull
         public static final AccessibilityActionCompat ACTION_PAGE_UP;
         public static final AccessibilityActionCompat ACTION_PASTE;
         public static final AccessibilityActionCompat ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY;
@@ -243,6 +252,7 @@ public class AccessibilityNodeInfoCompat {
         public static final String TAG = "A11yActionCompat";
         public transient /* synthetic */ FieldHolder $fh;
         public final Object mAction;
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public final AccessibilityViewCommand mCommand;
         public final int mId;
         public final Class<? extends AccessibilityViewCommand.CommandArguments> mViewCommandArgumentClass;
@@ -408,6 +418,7 @@ public class AccessibilityNodeInfoCompat {
             }
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public boolean perform(View view2, Bundle bundle) {
             InterceptResult invokeLL;
             String name;
@@ -447,6 +458,7 @@ public class AccessibilityNodeInfoCompat {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public AccessibilityActionCompat(int i, CharSequence charSequence, AccessibilityViewCommand accessibilityViewCommand) {
             this(null, i, charSequence, accessibilityViewCommand, null);
             Interceptable interceptable = $ic;
@@ -534,6 +546,7 @@ public class AccessibilityNodeInfoCompat {
             this.mViewCommandArgumentClass = cls;
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public AccessibilityActionCompat createReplacementAction(CharSequence charSequence, AccessibilityViewCommand accessibilityViewCommand) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -543,7 +556,7 @@ public class AccessibilityNodeInfoCompat {
             return (AccessibilityActionCompat) invokeLL.objValue;
         }
 
-        public boolean equals(Object obj) {
+        public boolean equals(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -928,7 +941,7 @@ public class AccessibilityNodeInfoCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public final AccessibilityNodeInfo.TouchDelegateInfo mInfo;
 
-        public TouchDelegateInfoCompat(AccessibilityNodeInfo.TouchDelegateInfo touchDelegateInfo) {
+        public TouchDelegateInfoCompat(@NonNull AccessibilityNodeInfo.TouchDelegateInfo touchDelegateInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -946,7 +959,8 @@ public class AccessibilityNodeInfoCompat {
             this.mInfo = touchDelegateInfo;
         }
 
-        public Region getRegionAt(int i) {
+        @Nullable
+        public Region getRegionAt(@IntRange(from = 0) int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -958,7 +972,8 @@ public class AccessibilityNodeInfoCompat {
             return (Region) invokeI.objValue;
         }
 
-        public AccessibilityNodeInfoCompat getTargetForRegion(Region region) {
+        @Nullable
+        public AccessibilityNodeInfoCompat getTargetForRegion(@NonNull Region region) {
             InterceptResult invokeL;
             AccessibilityNodeInfo targetForRegion;
             Interceptable interceptable = $ic;
@@ -971,7 +986,7 @@ public class AccessibilityNodeInfoCompat {
             return (AccessibilityNodeInfoCompat) invokeL.objValue;
         }
 
-        public TouchDelegateInfoCompat(Map<Region, View> map) {
+        public TouchDelegateInfoCompat(@NonNull Map<Region, View> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -993,6 +1008,7 @@ public class AccessibilityNodeInfoCompat {
             }
         }
 
+        @IntRange(from = 0)
         public int getRegionCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1167,6 +1183,7 @@ public class AccessibilityNodeInfoCompat {
         return (List) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getHintText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1183,6 +1200,7 @@ public class AccessibilityNodeInfoCompat {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getPaneTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1199,6 +1217,7 @@ public class AccessibilityNodeInfoCompat {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getTooltipText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1247,6 +1266,7 @@ public class AccessibilityNodeInfoCompat {
         return invokeI.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static ClickableSpan[] getClickableSpans(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1266,7 +1286,7 @@ public class AccessibilityNodeInfoCompat {
             SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view2);
             if (spansFromViewTags == null) {
                 SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-                view2.setTag(R.id.obfuscated_res_0x7f092035, sparseArray);
+                view2.setTag(R.id.obfuscated_res_0x7f092080, sparseArray);
                 return sparseArray;
             }
             return spansFromViewTags;
@@ -1278,7 +1298,7 @@ public class AccessibilityNodeInfoCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) {
-            return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092035);
+            return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092080);
         }
         return (SparseArray) invokeL.objValue;
     }
@@ -1292,7 +1312,7 @@ public class AccessibilityNodeInfoCompat {
         return (AccessibilityNodeInfoCompat) invokeL.objValue;
     }
 
-    public static AccessibilityNodeInfoCompat wrap(AccessibilityNodeInfo accessibilityNodeInfo) {
+    public static AccessibilityNodeInfoCompat wrap(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, accessibilityNodeInfo)) == null) {
@@ -1574,7 +1594,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    public void setHintText(CharSequence charSequence) {
+    public void setHintText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048674, this, charSequence) == null) {
             int i = Build.VERSION.SDK_INT;
@@ -1656,7 +1676,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    public void setPaneTitle(CharSequence charSequence) {
+    public void setPaneTitle(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048687, this, charSequence) == null) {
             int i = Build.VERSION.SDK_INT;
@@ -1690,7 +1710,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    public void setRoleDescription(CharSequence charSequence) {
+    public void setRoleDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048692, this, charSequence) == null) && Build.VERSION.SDK_INT >= 19) {
             this.mInfo.getExtras().putCharSequence(ROLE_DESCRIPTION_KEY, charSequence);
@@ -1759,7 +1779,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    public void setTooltipText(CharSequence charSequence) {
+    public void setTooltipText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048702, this, charSequence) == null) {
             int i = Build.VERSION.SDK_INT;
@@ -1771,7 +1791,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    public void setTouchDelegateInfo(TouchDelegateInfoCompat touchDelegateInfoCompat) {
+    public void setTouchDelegateInfo(@NonNull TouchDelegateInfoCompat touchDelegateInfoCompat) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048703, this, touchDelegateInfoCompat) == null) && Build.VERSION.SDK_INT >= 29) {
             this.mInfo.setTouchDelegateInfo(touchDelegateInfoCompat.mInfo);
@@ -2047,6 +2067,7 @@ public class AccessibilityNodeInfoCompat {
         return (RangeInfoCompat) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getRoleDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2083,6 +2104,7 @@ public class AccessibilityNodeInfoCompat {
         return invokeV.intValue;
     }
 
+    @Nullable
     public TouchDelegateInfoCompat getTouchDelegateInfo() {
         InterceptResult invokeV;
         AccessibilityNodeInfo.TouchDelegateInfo touchDelegateInfo;
@@ -2576,6 +2598,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void addSpansToExtras(CharSequence charSequence, View view2) {
         int i;
         Interceptable interceptable = $ic;
@@ -2615,6 +2638,7 @@ public class AccessibilityNodeInfoCompat {
         return (CharSequence) invokeV.objValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

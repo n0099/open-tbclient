@@ -40,6 +40,7 @@ public class a {
         return (AInfo) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;)Ljava/util/ArrayList<Lcom/sdk/base/framework/bean/KInfo;>; */
     public static ArrayList a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

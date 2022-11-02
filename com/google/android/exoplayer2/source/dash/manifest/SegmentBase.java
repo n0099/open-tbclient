@@ -19,11 +19,11 @@ public abstract class SegmentBase {
     public final long timescale;
 
     /* loaded from: classes7.dex */
-    public abstract class MultiSegmentBase extends SegmentBase {
+    public static abstract class MultiSegmentBase extends SegmentBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long duration;
-        public final List segmentTimeline;
+        public final List<SegmentTimelineElement> segmentTimeline;
         public final int startNumber;
 
         public abstract int getSegmentCount(long j);
@@ -31,7 +31,7 @@ public abstract class SegmentBase {
         public abstract RangedUri getSegmentUrl(Representation representation, int i);
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MultiSegmentBase(RangedUri rangedUri, long j, long j2, int i, long j3, List list) {
+        public MultiSegmentBase(RangedUri rangedUri, long j, long j2, int i, long j3, List<SegmentTimelineElement> list) {
             super(rangedUri, j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -79,9 +79,9 @@ public abstract class SegmentBase {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                List list = this.segmentTimeline;
+                List<SegmentTimelineElement> list = this.segmentTimeline;
                 if (list != null) {
-                    return (((SegmentTimelineElement) list.get(i - this.startNumber)).duration * 1000000) / this.timescale;
+                    return (list.get(i - this.startNumber).duration * 1000000) / this.timescale;
                 }
                 int segmentCount = getSegmentCount(j);
                 if (segmentCount != -1 && i == (getFirstSegmentNum() + segmentCount) - 1) {
@@ -137,9 +137,9 @@ public abstract class SegmentBase {
             long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                List list = this.segmentTimeline;
+                List<SegmentTimelineElement> list = this.segmentTimeline;
                 if (list != null) {
-                    j = ((SegmentTimelineElement) list.get(i - this.startNumber)).startTime - this.presentationTimeOffset;
+                    j = list.get(i - this.startNumber).startTime - this.presentationTimeOffset;
                 } else {
                     j = (i - this.startNumber) * this.duration;
                 }
@@ -150,10 +150,10 @@ public abstract class SegmentBase {
     }
 
     /* loaded from: classes7.dex */
-    public class SegmentList extends MultiSegmentBase {
+    public static class SegmentList extends MultiSegmentBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List mediaSegments;
+        public final List<RangedUri> mediaSegments;
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.SegmentBase.MultiSegmentBase
         public boolean isExplicit() {
@@ -166,7 +166,7 @@ public abstract class SegmentBase {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SegmentList(RangedUri rangedUri, long j, long j2, int i, long j3, List list, List list2) {
+        public SegmentList(RangedUri rangedUri, long j, long j2, int i, long j3, List<SegmentTimelineElement> list, List<RangedUri> list2) {
             super(rangedUri, j, j2, i, j3, list);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -202,21 +202,21 @@ public abstract class SegmentBase {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, representation, i)) == null) {
-                return (RangedUri) this.mediaSegments.get(i - this.startNumber);
+                return this.mediaSegments.get(i - this.startNumber);
             }
             return (RangedUri) invokeLI.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class SegmentTemplate extends MultiSegmentBase {
+    public static class SegmentTemplate extends MultiSegmentBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final UrlTemplate initializationTemplate;
         public final UrlTemplate mediaTemplate;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SegmentTemplate(RangedUri rangedUri, long j, long j2, int i, long j3, List list, UrlTemplate urlTemplate, UrlTemplate urlTemplate2) {
+        public SegmentTemplate(RangedUri rangedUri, long j, long j2, int i, long j3, List<SegmentTimelineElement> list, UrlTemplate urlTemplate, UrlTemplate urlTemplate2) {
             super(rangedUri, j, j2, i, j3, list);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -258,7 +258,7 @@ public abstract class SegmentBase {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                List list = this.segmentTimeline;
+                List<SegmentTimelineElement> list = this.segmentTimeline;
                 if (list != null) {
                     return list.size();
                 }
@@ -276,9 +276,9 @@ public abstract class SegmentBase {
             long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, representation, i)) == null) {
-                List list = this.segmentTimeline;
+                List<SegmentTimelineElement> list = this.segmentTimeline;
                 if (list != null) {
-                    j = ((SegmentTimelineElement) list.get(i - this.startNumber)).startTime;
+                    j = list.get(i - this.startNumber).startTime;
                 } else {
                     j = (i - this.startNumber) * this.duration;
                 }
@@ -292,7 +292,7 @@ public abstract class SegmentBase {
     }
 
     /* loaded from: classes7.dex */
-    public class SegmentTimelineElement {
+    public static class SegmentTimelineElement {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long duration;
@@ -319,7 +319,7 @@ public abstract class SegmentBase {
     }
 
     /* loaded from: classes7.dex */
-    public class SingleSegmentBase extends SegmentBase {
+    public static class SingleSegmentBase extends SegmentBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long indexLength;

@@ -2,6 +2,9 @@ package com.bumptech.glide.gifdecoder;
 
 import android.graphics.Bitmap;
 import android.util.Log;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,6 +26,7 @@ import java.util.Iterator;
 public class StandardGifDecoder implements GifDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES_PER_INTEGER = 4;
+    @ColorInt
     public static final int COLOR_TRANSPARENT_BLACK = 0;
     public static final int INITIAL_FRAME_POINTER = -1;
     public static final int MASK_INT_LOWEST_BYTE = 255;
@@ -30,7 +34,9 @@ public class StandardGifDecoder implements GifDecoder {
     public static final int NULL_CODE = -1;
     public static final String TAG = "StandardGifDecoder";
     public transient /* synthetic */ FieldHolder $fh;
+    @ColorInt
     public int[] act;
+    @NonNull
     public Bitmap.Config bitmapConfig;
     public final GifDecoder.BitmapProvider bitmapProvider;
     public byte[] block;
@@ -38,10 +44,13 @@ public class StandardGifDecoder implements GifDecoder {
     public int downsampledWidth;
     public int framePointer;
     public GifHeader header;
+    @Nullable
     public Boolean isFirstFrameTransparent;
     public byte[] mainPixels;
+    @ColorInt
     public int[] mainScratch;
     public GifHeaderParser parser;
+    @ColorInt
     public final int[] pct;
     public byte[] pixelStack;
     public short[] prefix;
@@ -67,7 +76,7 @@ public class StandardGifDecoder implements GifDecoder {
         }
     }
 
-    public StandardGifDecoder(GifDecoder.BitmapProvider bitmapProvider) {
+    public StandardGifDecoder(@NonNull GifDecoder.BitmapProvider bitmapProvider) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +98,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder
-    public void setDefaultBitmapConfig(Bitmap.Config config) {
+    public void setDefaultBitmapConfig(@NonNull Bitmap.Config config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, config) == null) {
             if (config != Bitmap.Config.ARGB_8888 && config != Bitmap.Config.RGB_565) {
@@ -100,7 +109,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public StandardGifDecoder(GifDecoder.BitmapProvider bitmapProvider, GifHeader gifHeader, ByteBuffer byteBuffer) {
+    public StandardGifDecoder(@NonNull GifDecoder.BitmapProvider bitmapProvider, GifHeader gifHeader, ByteBuffer byteBuffer) {
         this(bitmapProvider, gifHeader, byteBuffer, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -121,7 +130,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public StandardGifDecoder(GifDecoder.BitmapProvider bitmapProvider, GifHeader gifHeader, ByteBuffer byteBuffer, int i) {
+    public StandardGifDecoder(@NonNull GifDecoder.BitmapProvider bitmapProvider, GifHeader gifHeader, ByteBuffer byteBuffer, int i) {
         this(bitmapProvider);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -141,6 +150,7 @@ public class StandardGifDecoder implements GifDecoder {
         setData(gifHeader, byteBuffer, i);
     }
 
+    @ColorInt
     private int averageColorsNear(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
@@ -188,7 +198,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder
-    public synchronized void setData(GifHeader gifHeader, ByteBuffer byteBuffer, int i) {
+    public synchronized void setData(@NonNull GifHeader gifHeader, @NonNull ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, gifHeader, byteBuffer, i) == null) {
             synchronized (this) {
@@ -202,11 +212,11 @@ public class StandardGifDecoder implements GifDecoder {
                     asReadOnlyBuffer.position(0);
                     this.rawData.order(ByteOrder.LITTLE_ENDIAN);
                     this.savePrevious = false;
-                    Iterator it = gifHeader.frames.iterator();
+                    Iterator<GifFrame> it = gifHeader.frames.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
-                        } else if (((GifFrame) it.next()).dispose == 3) {
+                        } else if (it.next().dispose == 3) {
                             this.savePrevious = true;
                             break;
                         }
@@ -597,6 +607,7 @@ public class StandardGifDecoder implements GifDecoder {
         }
     }
 
+    @NonNull
     private GifHeaderParser getHeaderParser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -680,6 +691,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder
+    @NonNull
     public ByteBuffer getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -900,7 +912,7 @@ public class StandardGifDecoder implements GifDecoder {
             if (i >= 0) {
                 GifHeader gifHeader = this.header;
                 if (i < gifHeader.frameCount) {
-                    return ((GifFrame) gifHeader.frames.get(i)).delay;
+                    return gifHeader.frames.get(i).delay;
                 }
             }
             return -1;
@@ -909,7 +921,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder
-    public synchronized int read(byte[] bArr) {
+    public synchronized int read(@Nullable byte[] bArr) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
@@ -928,6 +940,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder
+    @Nullable
     public synchronized Bitmap getNextFrame() {
         InterceptResult invokeV;
         GifFrame gifFrame;
@@ -946,10 +959,10 @@ public class StandardGifDecoder implements GifDecoder {
                     if (this.block == null) {
                         this.block = this.bitmapProvider.obtainByteArray(255);
                     }
-                    GifFrame gifFrame2 = (GifFrame) this.header.frames.get(this.framePointer);
+                    GifFrame gifFrame2 = this.header.frames.get(this.framePointer);
                     int i = this.framePointer - 1;
                     if (i >= 0) {
-                        gifFrame = (GifFrame) this.header.frames.get(i);
+                        gifFrame = this.header.frames.get(i);
                     } else {
                         gifFrame = null;
                     }
@@ -987,7 +1000,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder
-    public int read(InputStream inputStream, int i) {
+    public int read(@Nullable InputStream inputStream, int i) {
         InterceptResult invokeLI;
         int i2;
         Interceptable interceptable = $ic;
@@ -1029,7 +1042,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder
-    public synchronized void setData(GifHeader gifHeader, ByteBuffer byteBuffer) {
+    public synchronized void setData(@NonNull GifHeader gifHeader, @NonNull ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, gifHeader, byteBuffer) == null) {
             synchronized (this) {
@@ -1039,7 +1052,7 @@ public class StandardGifDecoder implements GifDecoder {
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder
-    public synchronized void setData(GifHeader gifHeader, byte[] bArr) {
+    public synchronized void setData(@NonNull GifHeader gifHeader, @NonNull byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, gifHeader, bArr) == null) {
             synchronized (this) {

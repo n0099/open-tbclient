@@ -1,30 +1,95 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import java.util.List;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class q5a {
+public class q5a implements IYYPayAmountView.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public Dialog c;
+    public IYYPayAmountView.ViewParams d;
+    public Activity e;
+    public IPayCallback<CurrencyChargeMessage> f;
+    public e5a g;
 
-    public static void a(Context context, View view2) {
+    public q5a(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, e5a e5aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, context, view2) == null) && context != null && view2 != null) {
-            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, e5aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = dialog;
+        this.d = viewParams;
+        this.e = activity;
+        this.f = iPayCallback;
+        this.g = e5aVar;
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onRefreshViewFail(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            PayFinishInfo a = e7a.a(PayDialogType.PAY_AMOUNT_DIALOG, i, str);
+            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str + " message:" + a, new Object[0]);
+            this.g.g(a);
+            d7a.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
         }
     }
 
-    public static void b(Activity activity, View view2) {
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view2) == null) {
-            if (view2 == null && (view2 = activity.getCurrentFocus()) == null) {
-                return;
-            }
-            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view2, 1);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "showInputNumberDialog bubbleActMsg:" + str);
+            d7a.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.i(activity, list, str, this.d, this.f);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toPayWayDialog(n6a n6aVar, List<PayWayInfo> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, n6aVar, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "toPayWayDialog bubbleActMsg:" + str);
+            d7a.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.n(this.e, n6aVar, list, str, this.d, this.f);
+            u6a.b(this.a, this.b, PayUIEventType.purchasegotopay);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toHelpCenterPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g.o(this.e);
         }
     }
 }

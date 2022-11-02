@@ -1,15 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.baidu.tieba.f32;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes4.dex */
 public interface ho1 {
-    xj2 a(ZeusPluginFactory.Invoker invoker, String str);
+    int a();
 
-    xl2 b(ZeusPluginFactory.Invoker invoker, String str);
+    VideoPlayerFactory b();
 
-    xl2 c(ZeusPluginFactory.Invoker invoker, String str);
+    int c();
 
-    wj2 d(ZeusPluginFactory.Invoker invoker, String str);
+    void d(boolean z);
 
-    uh2 e(ZeusPluginFactory.Invoker invoker, String str);
+    boolean e();
+
+    boolean f();
+
+    void g(int i);
+
+    void h(f32.c cVar);
 }

@@ -17,8 +17,8 @@ public class Internal {
     }
 
     /* loaded from: classes7.dex */
-    public interface EnumLiteMap {
-        EnumLite findValueByNumber(int i);
+    public interface EnumLiteMap<T extends EnumLite> {
+        T findValueByNumber(int i);
     }
 
     public Internal() {

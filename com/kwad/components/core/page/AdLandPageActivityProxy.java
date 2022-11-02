@@ -1,5 +1,6 @@
 package com.kwad.components.core.page;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -41,6 +44,7 @@ import com.kwad.sdk.utils.ae;
 import java.util.List;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
+@Keep
 @Deprecated
 /* loaded from: classes7.dex */
 public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
@@ -112,6 +116,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
         return (u.b) invokeV.objValue;
     }
 
+    @NonNull
     private KsAdWebView.c getOnWebViewScrollChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,6 +153,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
         } : (KsAdWebView.c) invokeV.objValue;
     }
 
+    @NonNull
     private KsAdWebView.d getWebErrorListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -217,9 +223,9 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
     private void initTipBarView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091238);
-            this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091239);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09123a);
+            this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091272);
+            this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091273);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091274);
             this.mWebTipBarCloseBtn = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.AdLandPageActivityProxy.6
                 public static /* synthetic */ Interceptable $ic;
@@ -270,15 +276,15 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
         String ar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09122f);
+            KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091269);
             this.mAdWebView = ksAdWebView2;
             this.mAdWebView.setClientConfig(ksAdWebView2.getClientConfig().R(this.mAdTemplate).b(getClientParams()).a(getOnWebViewScrollChangeListener()).b(getWebErrorListener()));
             this.mAdWebView.pp();
-            findViewById(R.id.obfuscated_res_0x7f0910dc);
-            findViewById(R.id.obfuscated_res_0x7f0910dd);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910de);
-            this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910e2);
-            List list = this.mAdTemplate.adInfoList;
+            findViewById(R.id.obfuscated_res_0x7f091116);
+            findViewById(R.id.obfuscated_res_0x7f091117);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091118);
+            this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09111c);
+            List<AdInfo> list = this.mAdTemplate.adInfoList;
             String bl = (list == null || list.size() <= 0 || this.mAdTemplate.adInfoList.get(0) == null) ? "详情页面" : com.kwad.sdk.core.response.a.a.bl(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate));
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.AdLandPageActivityProxy.2
                 public static /* synthetic */ Interceptable $ic;
@@ -313,7 +319,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
             });
             com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.mWebContainer);
             this.mTitleBarHelper = aVar;
-            aVar.a(new a.InterfaceC0572a(this) { // from class: com.kwad.components.core.page.AdLandPageActivityProxy.3
+            aVar.a(new a.InterfaceC0583a(this) { // from class: com.kwad.components.core.page.AdLandPageActivityProxy.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdLandPageActivityProxy Ft;
@@ -336,7 +342,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
                     this.Ft = this;
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0572a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0583a
                 public final void r(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
@@ -344,7 +350,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
                     }
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0572a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0583a
                 public final void s(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
@@ -359,7 +365,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
                 com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(this.mAdTemplate);
                 setupJsBridge(this.mAdWebView, cVar);
                 if (com.kwad.sdk.core.config.d.rT() && ae.isWifiConnected(getActivity())) {
-                    cVar.m(new a.C0566a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
+                    cVar.m(new a.C0577a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
                 }
                 ksAdWebView = this.mAdWebView;
                 ar = this.mDialogUrl;
@@ -441,6 +447,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
         }
     }
 
+    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void setupJsBridge(KsAdWebView ksAdWebView, com.kwad.components.core.c.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, this, ksAdWebView, cVar) == null) {
@@ -477,7 +484,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d03fe);
+            setContentView(R.layout.obfuscated_res_0x7f0d0409);
             String stringExtra = getIntent().getStringExtra("key_template_json");
             this.mDialogUrl = getIntent().getStringExtra(KEY_DIALOG_URL);
             try {

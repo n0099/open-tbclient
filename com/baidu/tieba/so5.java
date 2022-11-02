@@ -1,100 +1,78 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.TbadkCore;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class so5 extends gf1 {
+public class so5<ViewGroup, Object> extends jn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext mPageContext;
 
-    /* loaded from: classes5.dex */
-    public class a implements TbadkCore {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(so5 so5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {so5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.jn
+    public View getView(int i, View view2, ViewGroup viewGroup, Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj})) == null) {
+            return null;
         }
-
-        @Override // com.baidu.adp.TbadkCore
-        public boolean permissionUtilCheckReadPhoneState(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return PermissionUtil.checkReadPhoneState(context);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.adp.TbadkCore
-        public boolean permissionUtilIsAgreePrivacyPolicy() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return PermissionUtil.isAgreePrivacyPolicy();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.adp.TbadkCore
-        public String tbConfigGetVersion() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String version = TbConfig.getVersion();
-                if (version == null) {
-                    return "";
-                }
-                return version;
-            }
-            return (String) invokeV.objValue;
-        }
+        return (View) invokeCommon.objValue;
     }
 
-    public so5() {
+    @Override // com.baidu.tieba.jn
+    public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            return null;
+        }
+        return (TypeAdapter.ViewHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jn
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj, viewHolder})) == null) {
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public so5(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gf1
-    /* renamed from: a */
-    public TbadkCore createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
+            this.mPageContext = tbPageContext;
         }
-        return (TbadkCore) invokeV.objValue;
     }
 }

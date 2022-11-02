@@ -858,7 +858,7 @@ public class MotionController {
             if (hashMap3 == null) {
                 splineSet3 = null;
             } else {
-                splineSet3 = hashMap3.get(Key.ROTATION);
+                splineSet3 = hashMap3.get("rotation");
             }
             HashMap<String, SplineSet> hashMap4 = this.mAttributesMap;
             if (hashMap4 == null) {
@@ -888,7 +888,7 @@ public class MotionController {
             if (hashMap8 == null) {
                 keyCycleOscillator3 = null;
             } else {
-                keyCycleOscillator3 = hashMap8.get(Key.ROTATION);
+                keyCycleOscillator3 = hashMap8.get("rotation");
             }
             HashMap<String, KeyCycleOscillator> hashMap9 = this.mCycleMap;
             if (hashMap9 == null) {

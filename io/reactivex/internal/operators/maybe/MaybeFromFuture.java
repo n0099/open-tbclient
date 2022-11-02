@@ -13,14 +13,14 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class MaybeFromFuture extends Maybe {
+public final class MaybeFromFuture<T> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Future future;
+    public final Future<? extends T> future;
     public final long timeout;
     public final TimeUnit unit;
 
-    public MaybeFromFuture(Future future, long j, TimeUnit timeUnit) {
+    public MaybeFromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,8 +40,9 @@ public final class MaybeFromFuture extends Maybe {
         this.unit = timeUnit;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v11. Raw type applied. Possible types: T, ? super T */
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
@@ -50,9 +51,9 @@ public final class MaybeFromFuture extends Maybe {
             if (!empty.isDisposed()) {
                 try {
                     if (this.timeout <= 0) {
-                        obj = this.future.get();
+                        obj = (T) this.future.get();
                     } else {
-                        obj = this.future.get(this.timeout, this.unit);
+                        obj = (T) this.future.get(this.timeout, this.unit);
                     }
                     if (!empty.isDisposed()) {
                         if (obj == null) {

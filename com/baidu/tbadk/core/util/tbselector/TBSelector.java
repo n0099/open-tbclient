@@ -2,6 +2,8 @@ package com.baidu.tbadk.core.util.tbselector;
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.selector.ColorSelector;
@@ -98,7 +100,7 @@ public class TBSelector {
         return (ColorSelector) invokeV.objValue;
     }
 
-    public static DrawableSelector selectorBackgroundColor(int i, int i2, int i3) {
+    public static DrawableSelector selectorBackgroundColor(@ColorRes int i, @ColorRes int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(65543, null, i, i2, i3)) == null) {
@@ -124,7 +126,7 @@ public class TBSelector {
         return (DrawableSelector) invokeLLI.objValue;
     }
 
-    public static DrawableSelector selectorBackgroundDrawable(int i, int i2) {
+    public static DrawableSelector selectorBackgroundDrawable(@DrawableRes int i, @DrawableRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65545, null, i, i2)) == null) {
@@ -133,7 +135,7 @@ public class TBSelector {
         return (DrawableSelector) invokeII.objValue;
     }
 
-    public static DrawableSelector selectorImageDrawable(int i, int i2) {
+    public static DrawableSelector selectorImageDrawable(@DrawableRes int i, @DrawableRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i, i2)) == null) {
@@ -142,7 +144,7 @@ public class TBSelector {
         return (DrawableSelector) invokeII.objValue;
     }
 
-    public static ColorSelector selectorTextColor(int i, int i2) {
+    public static ColorSelector selectorTextColor(@ColorRes int i, @ColorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i, i2)) == null) {
@@ -151,7 +153,7 @@ public class TBSelector {
         return (ColorSelector) invokeII.objValue;
     }
 
-    public static ColorSelector selectorTextHintColor(int i, int i2) {
+    public static ColorSelector selectorTextHintColor(@ColorRes int i, @ColorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i, i2)) == null) {
@@ -187,7 +189,7 @@ public class TBSelector {
         return (ColorSelector) invokeLL.objValue;
     }
 
-    public static void setViewBackgroundColorWithDisabledState(View view2, int i) {
+    public static void setViewBackgroundColorWithDisabledState(View view2, @ColorRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(65552, null, view2, i) != null) || view2 == null) {
             return;
@@ -196,7 +198,7 @@ public class TBSelector {
         DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).disabledDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_DISABLE)).into(view2);
     }
 
-    public static void setViewBackgroundColorWithPressedState(View view2, int i) {
+    public static void setViewBackgroundColorWithPressedState(View view2, @ColorRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(65553, null, view2, i) != null) || view2 == null) {
             return;

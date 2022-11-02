@@ -25,7 +25,6 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd7;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
@@ -33,8 +32,9 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.PvCacheModel;
-import com.baidu.tieba.sb;
-import com.baidu.tieba.zc7;
+import com.baidu.tieba.je7;
+import com.baidu.tieba.le7;
+import com.baidu.tieba.rb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,14 +44,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class CommonGroupChatActiviy extends MsglistActivity {
+public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sb v;
+    public rb v;
     public CustomMessageListener w;
 
     /* loaded from: classes4.dex */
-    public class a extends sb {
+    public class a extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonGroupChatActiviy a;
@@ -140,7 +140,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             GroupNewsPojo p;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
@@ -164,13 +164,13 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                         }
                         this.a.b.refresh();
                         if (cmd.equals("kick_out")) {
-                            this.a.I1(p);
-                            return;
-                        } else if (cmd.equals("group_name_change")) {
                             this.a.J1(p);
                             return;
+                        } else if (cmd.equals("group_name_change")) {
+                            this.a.K1(p);
+                            return;
                         } else if (cmd.equals("dismiss_group")) {
-                            this.a.H1(p);
+                            this.a.I1(p);
                             return;
                         } else {
                             return;
@@ -200,7 +200,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         this.w = new b(this, 0);
     }
 
-    public boolean C1() {
+    public boolean D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -213,7 +213,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         return invokeV.booleanValue;
     }
 
-    public void D1() {
+    public void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Intent intent = getIntent();
@@ -223,37 +223,37 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                 return;
             }
             msglistModel.setIsAcceptNotify(booleanExtra);
-            F1(intent);
+            G1(intent);
         }
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void v1() {
+    public void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.v1();
+            super.x1();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void y1() {
+    public void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.y1();
+            super.z1();
             MessageManager.getInstance().unRegisterListener(this.v);
             MessageManager.getInstance().unRegisterListener(this.w);
         }
     }
 
-    public void E1(Bundle bundle) throws Exception {
+    public void F1(Bundle bundle) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             this.c.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-            G1(bundle);
+            H1(bundle);
         }
     }
 
-    public void G1(Bundle bundle) {
+    public void H1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             String string = bundle.getString("group");
@@ -263,14 +263,14 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         }
     }
 
-    public void F1(Intent intent) {
+    public void G1(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
             GroupData groupData = (GroupData) intent.getSerializableExtra("group");
             String stringExtra = intent.getStringExtra(GroupChatActivityConfig.GROUP_OBJ_TP);
             String valueOf = String.valueOf(groupData.getGroupId());
             if (!PvCacheModel.getInstance().isSameDay(valueOf)) {
-                new zc7(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
+                new je7(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
                 TiebaStatic.eventStat(TbadkApplication.getInst().getApp(), TbConfig.ST_TYPE_IM, "", 1, "obj_tp", stringExtra, "group_id", valueOf);
                 PvCacheModel.getInstance().addCacheData(valueOf, Long.valueOf(System.currentTimeMillis()));
             }
@@ -278,7 +278,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         }
     }
 
-    public final void H1(GroupNewsPojo groupNewsPojo) {
+    public final void I1(GroupNewsPojo groupNewsPojo) {
         MsglistModel msglistModel;
         GroupData group;
         Interceptable interceptable = $ic;
@@ -289,7 +289,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0823), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082a), false);
                 finish();
             }
         } catch (JSONException e) {
@@ -297,7 +297,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         }
     }
 
-    public final void I1(GroupNewsPojo groupNewsPojo) {
+    public final void J1(GroupNewsPojo groupNewsPojo) {
         MsglistModel msglistModel;
         GroupData group;
         Interceptable interceptable = $ic;
@@ -308,7 +308,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0824), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082b), false);
                 finish();
             }
         } catch (JSONException e) {
@@ -316,7 +316,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         }
     }
 
-    public final void J1(GroupNewsPojo groupNewsPojo) {
+    public final void K1(GroupNewsPojo groupNewsPojo) {
         MsglistModel msglistModel;
         GroupData group;
         Interceptable interceptable = $ic;
@@ -355,7 +355,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0032, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.yf
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.qf
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -369,7 +369,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
             super.q(view2, i, i2, j);
             if (i != 2) {
                 if (i != 4) {
-                    if (i != 7 || !c1() || (msglistModel = this.c) == null || (msg2 = msglistModel.getMsg(i2)) == null || !bd7.w(msg2) || content == null) {
+                    if (i != 7 || !f1() || (msglistModel = this.c) == null || (msg2 = msglistModel.getMsg(i2)) == null || !le7.w(msg2) || content == null) {
                         return;
                     }
                     JSONObject jSONObject = null;
@@ -390,11 +390,11 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                         return;
                     }
                     return;
-                } else if (!c1() || (msg = this.c.getMsg(i2)) == null || !bd7.y(msg)) {
+                } else if (!f1() || (msg = this.c.getMsg(i2)) == null || !le7.y(msg)) {
                     return;
                 } else {
-                    String i3 = bd7.i(msg.getContent(), true);
-                    String i4 = bd7.i(msg.getContent(), false);
+                    String i3 = le7.i(msg.getContent(), true);
+                    String i4 = le7.i(msg.getContent(), false);
                     if (i3 == null) {
                         return;
                     }
@@ -414,11 +414,19 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void w1() {
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.rf
+    public void y(View view2, int i, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.w1();
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.y(view2, i, i2, j);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.MsglistActivity
+    public void y1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.y1();
             registerListener(103110, this.v);
             registerListener(103101, this.v);
             registerListener(103112, this.v);
@@ -431,14 +439,6 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
             registerListener(2001130, this.w);
             registerListener(2001133, this.w);
             registerListener(2001137, this.w);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.zf
-    public void y(View view2, int i, int i2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.y(view2, i, i2, j);
         }
     }
 }

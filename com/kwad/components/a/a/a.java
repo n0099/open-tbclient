@@ -1,6 +1,7 @@
 package com.kwad.components.a.a;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0516a {
+    public interface InterfaceC0527a {
         void c(com.kwad.sdk.e.kwai.b bVar);
 
         void d(com.kwad.sdk.e.kwai.b bVar);
@@ -23,27 +24,27 @@ public final class a {
         void e(com.kwad.sdk.e.kwai.b bVar);
     }
 
-    public static void a(Context context, com.kwad.sdk.e.kwai.b bVar, InterfaceC0516a interfaceC0516a) {
+    public static void a(Context context, com.kwad.sdk.e.kwai.b bVar, @NonNull InterfaceC0527a interfaceC0527a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, bVar, interfaceC0516a) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, bVar, interfaceC0527a) == null) {
             com.kwad.sdk.core.e.b.d("HybridDownloader", "reportHybrid: download+++url " + bVar.packageUrl);
-            interfaceC0516a.c(bVar);
+            interfaceC0527a.c(bVar);
             bVar.N(System.currentTimeMillis());
             com.kwad.components.a.b.b.a(bVar, 1);
             r.dD(context);
             r.CZ();
-            r.eq(bVar.packageUrl).g(bVar).en(bVar.aiv).bz(true).a(new m(interfaceC0516a, bVar) { // from class: com.kwad.components.a.a.a.1
+            r.eq(bVar.packageUrl).g(bVar).en(bVar.aiv).bz(true).a(new m(interfaceC0527a, bVar) { // from class: com.kwad.components.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.sdk.e.kwai.b PP;
-                public final /* synthetic */ InterfaceC0516a Qa;
+                public final /* synthetic */ InterfaceC0527a Qa;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {interfaceC0516a, bVar};
+                        Object[] objArr = {interfaceC0527a, bVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -53,7 +54,7 @@ public final class a {
                             return;
                         }
                     }
-                    this.Qa = interfaceC0516a;
+                    this.Qa = interfaceC0527a;
                     this.PP = bVar;
                 }
 

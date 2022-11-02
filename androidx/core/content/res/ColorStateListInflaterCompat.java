@@ -8,6 +8,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.StateSet;
 import android.util.Xml;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.XmlRes;
 import androidx.core.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,6 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ColorStateListInflaterCompat {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +44,8 @@ public final class ColorStateListInflaterCompat {
         }
     }
 
-    public static ColorStateList createFromXml(Resources resources, XmlPullParser xmlPullParser, Resources.Theme theme) throws XmlPullParserException, IOException {
+    @NonNull
+    public static ColorStateList createFromXml(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         int next;
         Interceptable interceptable = $ic;
@@ -57,7 +65,8 @@ public final class ColorStateListInflaterCompat {
         return (ColorStateList) invokeLLL.objValue;
     }
 
-    public static ColorStateList createFromXmlInner(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
+    @NonNull
+    public static ColorStateList createFromXmlInner(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, resources, xmlPullParser, attributeSet, theme)) == null) {
@@ -70,7 +79,8 @@ public final class ColorStateListInflaterCompat {
         return (ColorStateList) invokeLLLL.objValue;
     }
 
-    public static ColorStateList inflate(Resources resources, int i, Resources.Theme theme) {
+    @Nullable
+    public static ColorStateList inflate(@NonNull Resources resources, @XmlRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i, theme)) == null) {
@@ -84,7 +94,7 @@ public final class ColorStateListInflaterCompat {
         return (ColorStateList) invokeLIL.objValue;
     }
 
-    public static ColorStateList inflate(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
+    public static ColorStateList inflate(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLL;
         int depth;
         Interceptable interceptable = $ic;
@@ -139,7 +149,8 @@ public final class ColorStateListInflaterCompat {
         return (ColorStateList) invokeLLLL.objValue;
     }
 
-    public static int modulateColorAlpha(int i, float f) {
+    @ColorInt
+    public static int modulateColorAlpha(@ColorInt int i, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {

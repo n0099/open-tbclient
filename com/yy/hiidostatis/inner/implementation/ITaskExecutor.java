@@ -24,7 +24,7 @@ public interface ITaskExecutor {
     void submit(Runnable runnable, int i);
 
     /* loaded from: classes8.dex */
-    public abstract class ExecutorTask implements Runnable {
+    public static abstract class ExecutorTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;

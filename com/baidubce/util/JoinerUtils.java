@@ -35,14 +35,14 @@ public class JoinerUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static String on(String str, List list) {
+    public static String on(String str, List<String> list) {
         InterceptResult invokeLL;
-        Iterator it;
+        Iterator<String> it;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
             String str2 = "";
             while (list.iterator().hasNext()) {
-                str2 = str2 + ((String) it.next()) + str;
+                str2 = str2 + it.next() + str;
             }
             return str2.substring(0, str2.length() - 1);
         }

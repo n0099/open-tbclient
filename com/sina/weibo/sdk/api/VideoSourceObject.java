@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class VideoSourceObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<VideoSourceObject> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Uri coverPath;
     public long during;
@@ -73,7 +73,7 @@ public class VideoSourceObject extends BaseMediaObject {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.api.VideoSourceObject.1
+        CREATOR = new Parcelable.Creator<VideoSourceObject>() { // from class: com.sina.weibo.sdk.api.VideoSourceObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,6 +92,7 @@ public class VideoSourceObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public VideoSourceObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -103,6 +104,7 @@ public class VideoSourceObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public VideoSourceObject[] newArray(int i) {
                 InterceptResult invokeI;

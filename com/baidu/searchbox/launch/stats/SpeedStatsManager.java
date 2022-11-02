@@ -259,7 +259,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsMap(String str, Map map) {
+    public void addStatsMap(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048576, this, str, map) != null) || !this.mIsMainProcess) {
             return;

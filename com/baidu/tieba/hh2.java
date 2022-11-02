@@ -1,38 +1,120 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jh2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class hh2 implements ZeusPlugin {
+public class hh2 extends hs1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ih2 a;
-    public ZeusPlugin.Callback b;
-    public jh2 c;
-    public boolean d;
-    public final List e;
-    public jh2.a f;
 
     /* loaded from: classes4.dex */
-    public class a implements jh2.a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hh2 a;
+    }
 
-        public a(hh2 hh2Var) {
+    @Override // com.baidu.tieba.hs1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GameCenter" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hs1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GameCenterApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements ih2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public final /* synthetic */ hh2 b;
+
+        public b(hh2 hh2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hh2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hh2Var;
+            this.a = str;
+        }
+
+        public /* synthetic */ b(hh2 hh2Var, String str, a aVar) {
+            this(hh2Var, str);
+        }
+
+        @Override // com.baidu.tieba.ih2
+        public void a(@Nullable JSONObject jSONObject) {
+            ew1 ew1Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    ew1Var = new ew1(0);
+                } else {
+                    ew1Var = new ew1(0, jSONObject);
+                }
+                this.b.d(this.a, ew1Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.ih2
+        public void onFail(int i, @Nullable String str) {
+            ew1 ew1Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                if (str == null) {
+                    ew1Var = new ew1(i);
+                } else {
+                    ew1Var = new ew1(i, str);
+                }
+                this.b.d(this.a, ew1Var);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements ih2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ih2
+        public void a(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.ih2
+        public void onFail(int i, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            }
+        }
+
+        public c(hh2 hh2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,125 +126,90 @@ public abstract class hh2 implements ZeusPlugin {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hh2Var;
-        }
-
-        @Override // com.baidu.tieba.jh2.a
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                synchronized (this.a) {
-                    if (hh2.g) {
-                        Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
-                    }
-                    this.a.d();
-                    this.a.d = true;
-                    if (hh2.g) {
-                        Log.i("BaseInlineController", "指令flush完成=========================");
-                    }
                 }
             }
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947823639, "Lcom/baidu/tieba/hh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947823639, "Lcom/baidu/tieba/hh2;");
-                return;
-            }
+        public /* synthetic */ c(hh2 hh2Var, a aVar) {
+            this(hh2Var);
         }
-        g = wj1.a;
     }
 
-    public hh2(jh2 jh2Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hh2(@NonNull fs1 fs1Var) {
+        super(fs1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jh2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {fs1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.e = new ArrayList();
-        this.f = new a(this);
-        this.a = new ih2();
-        this.c = jh2Var;
-        if (g) {
-            Log.i("BaseInlineController", "开始初始化组件");
-        }
-        this.c.A(this.f);
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void setCallback(ZeusPlugin.Callback callback) {
+    public ew1 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
-            this.b = callback;
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e.size() == 0) {
-            return;
-        }
-        Iterator it = this.e.iterator();
-        while (it.hasNext()) {
-            ZeusPlugin.Command command = (ZeusPlugin.Command) it.next();
-            if (g) {
-                Log.i("BaseInlineController", "flush-尝试分发Command: + " + command.what);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Pair<ew1, JSONObject> s = s(str);
+            ew1 ew1Var = (ew1) s.first;
+            if (!ew1Var.isSuccess()) {
+                e12.c("GameCenterApi", "parse fail");
+                return ew1Var;
             }
-            this.a.b(command, this.c);
-            it.remove();
+            return z((JSONObject) s.second, new c(this, null));
         }
+        return (ew1) invokeL.objValue;
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void sendCommand(ZeusPlugin.Command command) {
+    public ew1 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
-            synchronized (this) {
-                if (command == null) {
-                    return;
-                }
-                if (this.d) {
-                    if (g) {
-                        Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
-                    }
-                    this.a.b(command, this.c);
-                } else {
-                    ZeusPlugin.Command command2 = new ZeusPlugin.Command();
-                    command2.what = command.what;
-                    command2.arg1 = command.arg1;
-                    command2.arg2 = command.arg2;
-                    command2.arg3 = command.arg3;
-                    command2.arg4 = command.arg4;
-                    command2.arg5 = command.arg5;
-                    command2.obj = command.obj;
-                    this.e.add(command2);
-                    if (g) {
-                        Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
-                    }
-                    this.a.c(command);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#postGameCenterMessage", false);
+            Pair<ew1, JSONObject> s = s(str);
+            ew1 ew1Var = (ew1) s.first;
+            if (!ew1Var.isSuccess()) {
+                e12.c("GameCenterApi", "parse fail");
+                return ew1Var;
             }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                e12.c("GameCenterApi", "empty cb");
+                return new ew1(202, "empty cb");
+            }
+            return z(jSONObject, new b(this, optString, null));
         }
+        return (ew1) invokeL.objValue;
+    }
+
+    public final ew1 z(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, jSONObject, ih2Var)) == null) {
+            String optString = jSONObject.optString("api");
+            if (TextUtils.isEmpty(optString)) {
+                return new ew1(202, "empty api name");
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("params");
+            if (optJSONObject == null) {
+                optJSONObject = new JSONObject();
+            }
+            ew1 a2 = ln2.v0().a(optString, optJSONObject, ih2Var);
+            if (a2 == null) {
+                return new ew1(0);
+            }
+            return a2;
+        }
+        return (ew1) invokeLL.objValue;
     }
 }

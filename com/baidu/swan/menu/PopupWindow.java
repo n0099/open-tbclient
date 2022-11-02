@@ -1,5 +1,6 @@
 package com.baidu.swan.menu;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
@@ -17,7 +18,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s94;
+import com.baidu.tieba.ka4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,6 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
+@SuppressLint({"ClickableViewAccessibility", "BDThrowableCheck", "SyntheticAccessor"})
 /* loaded from: classes3.dex */
 public class PopupWindow {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +44,7 @@ public class PopupWindow {
     public b I;
     public boolean J;
     public int K;
-    public WeakReference L;
+    public WeakReference<View> L;
     public ViewTreeObserver.OnScrollChangedListener M;
     public int N;
     public int O;
@@ -258,9 +260,9 @@ public class PopupWindow {
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            WeakReference weakReference = this.L;
+            WeakReference<View> weakReference = this.L;
             if (weakReference != null) {
-                view2 = (View) weakReference.get();
+                view2 = weakReference.get();
             } else {
                 view2 = null;
             }
@@ -500,7 +502,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, s94.PopupWindow, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ka4.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;
@@ -665,7 +667,7 @@ public class PopupWindow {
             int i5 = i3;
             int i6 = i4;
             if (x() && this.e != null) {
-                WeakReference weakReference = this.L;
+                WeakReference<View> weakReference = this.L;
                 boolean z4 = false;
                 if (z && (this.N != i || this.O != i2)) {
                     z3 = true;
@@ -711,7 +713,7 @@ public class PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, view2, i, i2) == null) {
             P();
-            this.L = new WeakReference(view2);
+            this.L = new WeakReference<>(view2);
             ViewTreeObserver viewTreeObserver = view2.getViewTreeObserver();
             if (viewTreeObserver != null) {
                 viewTreeObserver.addOnScrollChangedListener(this.M);

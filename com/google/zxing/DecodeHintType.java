@@ -25,7 +25,7 @@ public final class DecodeHintType {
     public static final DecodeHintType RETURN_CODABAR_START_END;
     public static final DecodeHintType TRY_HARDER;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class valueType;
+    public final Class<?> valueType;
 
     static {
         InterceptResult invokeClinit;
@@ -94,7 +94,7 @@ public final class DecodeHintType {
         return (DecodeHintType[]) invokeV.objValue;
     }
 
-    public Class getValueType() {
+    public Class<?> getValueType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -1,10 +1,14 @@
 package com.bumptech.glide.load.resource;
 
+import android.annotation.SuppressLint;
 import android.graphics.ColorSpace;
 import android.graphics.ImageDecoder;
 import android.os.Build;
 import android.util.Log;
 import android.util.Size;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,18 +24,19 @@ import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.Downsampler;
 import com.bumptech.glide.load.resource.bitmap.HardwareConfigState;
 import java.io.IOException;
+@RequiresApi(api = 28)
 /* loaded from: classes7.dex */
-public abstract class ImageDecoderResourceDecoder implements ResourceDecoder {
+public abstract class ImageDecoderResourceDecoder<T> implements ResourceDecoder<ImageDecoder.Source, T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ImageDecoder";
     public transient /* synthetic */ FieldHolder $fh;
     public final HardwareConfigState hardwareConfigState;
 
-    public abstract Resource decode(ImageDecoder.Source source, int i, int i2, ImageDecoder.OnHeaderDecodedListener onHeaderDecodedListener) throws IOException;
+    public abstract Resource<T> decode(ImageDecoder.Source source, int i, int i2, ImageDecoder.OnHeaderDecodedListener onHeaderDecodedListener) throws IOException;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public final boolean handles(ImageDecoder.Source source, Options options) {
+    public final boolean handles(@NonNull ImageDecoder.Source source, @NonNull Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, source, options)) == null) {
@@ -58,7 +63,8 @@ public abstract class ImageDecoderResourceDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public final Resource decode(ImageDecoder.Source source, int i, int i2, Options options) throws IOException {
+    @Nullable
+    public final Resource<T> decode(@NonNull ImageDecoder.Source source, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
@@ -106,6 +112,7 @@ public abstract class ImageDecoderResourceDecoder implements ResourceDecoder {
                 }
 
                 @Override // android.graphics.ImageDecoder.OnHeaderDecodedListener
+                @SuppressLint({"Override"})
                 public void onHeaderDecoded(ImageDecoder imageDecoder, ImageDecoder.ImageInfo imageInfo, ImageDecoder.Source source2) {
                     ColorSpace.Named named;
                     Interceptable interceptable2 = $ic;
@@ -125,7 +132,7 @@ public abstract class ImageDecoderResourceDecoder implements ResourceDecoder {
                             public final /* synthetic */ AnonymousClass1 this$1;
 
                             @Override // android.graphics.ImageDecoder.OnPartialImageListener
-                            public boolean onPartialImage(ImageDecoder.DecodeException decodeException) {
+                            public boolean onPartialImage(@NonNull ImageDecoder.DecodeException decodeException) {
                                 InterceptResult invokeL;
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || (invokeL = interceptable3.invokeL(1048576, this, decodeException)) == null) {

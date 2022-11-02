@@ -1,5 +1,6 @@
 package com.airbnb.lottie.parser;
 
+import android.graphics.PointF;
 import androidx.appcompat.widget.SearchView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
@@ -16,7 +17,7 @@ public class PolystarShapeParser {
         String str = null;
         PolystarShape.Type type = null;
         AnimatableFloatValue animatableFloatValue = null;
-        AnimatableValue animatableValue = null;
+        AnimatableValue<PointF, PointF> animatableValue = null;
         AnimatableFloatValue animatableFloatValue2 = null;
         AnimatableFloatValue animatableFloatValue3 = null;
         AnimatableFloatValue animatableFloatValue4 = null;

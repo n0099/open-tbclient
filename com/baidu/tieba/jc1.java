@@ -1,118 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.FileDescriptor;
 /* loaded from: classes4.dex */
 public class jc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable... closeableArr) {
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeableArr) == null) && closeableArr != null) {
-            for (Closeable closeable : closeableArr) {
-                if (closeable != null) {
-                    try {
-                        closeable.close();
-                    } catch (IOException unused) {
-                    }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 >= i2 && i7 / i5 >= i) {
+                    i5 *= 2;
                 }
             }
+            return i5;
         }
+        return invokeLII.intValue;
     }
 
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
+    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            if (file == null) {
-                return null;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+            int a = a(options, i, i2);
+            options.inSampleSize = a;
+            options.inJustDecodeBounds = false;
+            if (a <= 1) {
+                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
             }
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    a(fileInputStream);
-                    return c;
-                } catch (Exception unused) {
-                    a(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    a(fileInputStream2);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeL.objValue;
+            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
         }
-    }
-
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder sb = new StringBuilder();
-            while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    sb.append(readLine);
-                } else {
-                    return sb.toString();
-                }
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static void d(String str, File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, file) == null) && !TextUtils.isEmpty(str) && file != null) {
-            FileOutputStream fileOutputStream = null;
-            try {
-                if (!file.getParentFile().exists()) {
-                    file.getParentFile().mkdirs();
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                try {
-                    fileOutputStream2.write(str.getBytes());
-                    fileOutputStream2.flush();
-                    a(fileOutputStream2);
-                } catch (Exception unused) {
-                    fileOutputStream = fileOutputStream2;
-                    a(fileOutputStream);
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    a(fileOutputStream);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

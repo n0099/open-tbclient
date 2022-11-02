@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface tn1 {
-    void a(Activity activity, Bundle bundle, ir2 ir2Var);
+    void a(Context context, int i);
+
+    int b(Context context);
 }

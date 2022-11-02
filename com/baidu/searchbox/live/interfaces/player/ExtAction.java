@@ -17,7 +17,7 @@ public final class ExtAction {
     public transient /* synthetic */ FieldHolder $fh;
     public final String action;
     public final StringBuilder desc;
-    public SparseArray eventBundle;
+    public SparseArray<Object> eventBundle;
     public int logLevel;
     public int priority;
     public int targetType;
@@ -58,7 +58,7 @@ public final class ExtAction {
             }
         }
         this.action = str;
-        this.eventBundle = new SparseArray(3);
+        this.eventBundle = new SparseArray<>(3);
         this.type = -1;
         this.targetType = -1;
         this.priority = 0;
@@ -69,31 +69,31 @@ public final class ExtAction {
         this((i & 1) != 0 ? null : str);
     }
 
-    public final Object get(int i, Object obj) {
+    public final <T> T get(int i, T t) {
         InterceptResult invokeIL;
-        Object obj2;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, obj)) == null) {
-            SparseArray sparseArray = this.eventBundle;
-            Object obj3 = null;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, t)) == null) {
+            SparseArray<Object> sparseArray = this.eventBundle;
+            Object obj2 = null;
             if (sparseArray != null) {
-                obj2 = sparseArray.get(i);
+                obj = sparseArray.get(i);
             } else {
-                obj2 = null;
+                obj = null;
             }
-            if (obj2 instanceof Object) {
-                obj3 = obj2;
+            if (obj instanceof Object) {
+                obj2 = obj;
             }
-            if (obj3 != null) {
-                return obj3;
+            if (obj2 != null) {
+                return (T) obj2;
             }
-            return obj;
+            return t;
         }
-        return invokeIL.objValue;
+        return (T) invokeIL.objValue;
     }
 
     public final void put(int i, Object obj) {
-        SparseArray sparseArray;
+        SparseArray<Object> sparseArray;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, obj) == null) && (sparseArray = this.eventBundle) != null) {
             sparseArray.put(i, obj);

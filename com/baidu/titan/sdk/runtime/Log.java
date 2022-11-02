@@ -1,6 +1,8 @@
 package com.baidu.titan.sdk.runtime;
 
+import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
 import java.util.logging.Level;
+@DisableIntercept
 /* loaded from: classes6.dex */
 public class Log {
     public static Logging logging;

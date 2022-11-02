@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -35,17 +36,17 @@ public final class IoScheduler extends Scheduler {
     public static final RxThreadFactory WORKER_THREAD_FACTORY;
     public static final String WORKER_THREAD_NAME_PREFIX = "RxCachedThreadScheduler";
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference pool;
+    public final AtomicReference<CachedWorkerPool> pool;
     public final ThreadFactory threadFactory;
 
     /* loaded from: classes8.dex */
-    public final class CachedWorkerPool implements Runnable {
+    public static final class CachedWorkerPool implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompositeDisposable allWorkers;
         public final ScheduledExecutorService evictorService;
-        public final Future evictorTask;
-        public final ConcurrentLinkedQueue expiringWorkerQueue;
+        public final Future<?> evictorTask;
+        public final ConcurrentLinkedQueue<ThreadWorker> expiringWorkerQueue;
         public final long keepAliveTime;
         public final ThreadFactory threadFactory;
 
@@ -72,7 +73,7 @@ public final class IoScheduler extends Scheduler {
                 j2 = 0;
             }
             this.keepAliveTime = j2;
-            this.expiringWorkerQueue = new ConcurrentLinkedQueue();
+            this.expiringWorkerQueue = new ConcurrentLinkedQueue<>();
             this.allWorkers = new CompositeDisposable();
             this.threadFactory = threadFactory;
             ScheduledExecutorService scheduledExecutorService = null;
@@ -91,12 +92,12 @@ public final class IoScheduler extends Scheduler {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.expiringWorkerQueue.isEmpty()) {
                 long now = now();
-                Iterator it = this.expiringWorkerQueue.iterator();
+                Iterator<ThreadWorker> it = this.expiringWorkerQueue.iterator();
                 while (it.hasNext()) {
-                    ThreadWorker threadWorker = (ThreadWorker) it.next();
-                    if (threadWorker.getExpirationTime() <= now) {
-                        if (this.expiringWorkerQueue.remove(threadWorker)) {
-                            this.allWorkers.remove(threadWorker);
+                    ThreadWorker next = it.next();
+                    if (next.getExpirationTime() <= now) {
+                        if (this.expiringWorkerQueue.remove(next)) {
+                            this.allWorkers.remove(next);
                         }
                     } else {
                         return;
@@ -113,14 +114,14 @@ public final class IoScheduler extends Scheduler {
                     return IoScheduler.SHUTDOWN_THREAD_WORKER;
                 }
                 while (!this.expiringWorkerQueue.isEmpty()) {
-                    ThreadWorker threadWorker = (ThreadWorker) this.expiringWorkerQueue.poll();
-                    if (threadWorker != null) {
-                        return threadWorker;
+                    ThreadWorker poll = this.expiringWorkerQueue.poll();
+                    if (poll != null) {
+                        return poll;
                     }
                 }
-                ThreadWorker threadWorker2 = new ThreadWorker(this.threadFactory);
-                this.allWorkers.add(threadWorker2);
-                return threadWorker2;
+                ThreadWorker threadWorker = new ThreadWorker(this.threadFactory);
+                this.allWorkers.add(threadWorker);
+                return threadWorker;
             }
             return (ThreadWorker) invokeV.objValue;
         }
@@ -146,7 +147,7 @@ public final class IoScheduler extends Scheduler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 this.allWorkers.dispose();
-                Future future = this.evictorTask;
+                Future<?> future = this.evictorTask;
                 if (future != null) {
                     future.cancel(true);
                 }
@@ -167,7 +168,7 @@ public final class IoScheduler extends Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public final class EventLoopWorker extends Scheduler.Worker {
+    public static final class EventLoopWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicBoolean once;
@@ -216,7 +217,8 @@ public final class IoScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -230,7 +232,7 @@ public final class IoScheduler extends Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public final class ThreadWorker extends NewThreadWorker {
+    public static final class ThreadWorker extends NewThreadWorker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long expirationTime;
@@ -317,11 +319,12 @@ public final class IoScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
+    @NonNull
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new EventLoopWorker((CachedWorkerPool) this.pool.get());
+            return new EventLoopWorker(this.pool.get());
         }
         return (Scheduler.Worker) invokeV.objValue;
     }
@@ -333,7 +336,7 @@ public final class IoScheduler extends Scheduler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             do {
-                cachedWorkerPool = (CachedWorkerPool) this.pool.get();
+                cachedWorkerPool = this.pool.get();
                 cachedWorkerPool2 = NONE;
                 if (cachedWorkerPool == cachedWorkerPool2) {
                     return;
@@ -347,7 +350,7 @@ public final class IoScheduler extends Scheduler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ((CachedWorkerPool) this.pool.get()).allWorkers.size();
+            return this.pool.get().allWorkers.size();
         }
         return invokeV.intValue;
     }
@@ -379,7 +382,7 @@ public final class IoScheduler extends Scheduler {
             }
         }
         this.threadFactory = threadFactory;
-        this.pool = new AtomicReference(NONE);
+        this.pool = new AtomicReference<>(NONE);
         start();
     }
 }

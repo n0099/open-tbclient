@@ -15,21 +15,21 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelFilter extends ParallelFlowable {
+public final class ParallelFilter<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
-    public final ParallelFlowable source;
+    public final Predicate<? super T> predicate;
+    public final ParallelFlowable<T> source;
 
     /* loaded from: classes8.dex */
-    public abstract class BaseFilterSubscriber implements ConditionalSubscriber, Subscription {
+    public static abstract class BaseFilterSubscriber<T> implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean done;
-        public final Predicate predicate;
+        public final Predicate<? super T> predicate;
         public Subscription s;
 
-        public BaseFilterSubscriber(Predicate predicate) {
+        public BaseFilterSubscriber(Predicate<? super T> predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,9 +48,9 @@ public final class ParallelFilter extends ParallelFlowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public final void onNext(Object obj) {
+        public final void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && !tryOnNext(obj) && !this.done) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && !tryOnNext(t) && !this.done) {
                 this.s.request(1L);
             }
         }
@@ -73,13 +73,13 @@ public final class ParallelFilter extends ParallelFlowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class ParallelFilterConditionalSubscriber extends BaseFilterSubscriber {
+    public static final class ParallelFilterConditionalSubscriber<T> extends BaseFilterSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber actual;
+        public final ConditionalSubscriber<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ParallelFilterConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Predicate predicate) {
+        public ParallelFilterConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, Predicate<? super T> predicate) {
             super(predicate);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -131,14 +131,14 @@ public final class ParallelFilter extends ParallelFlowable {
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (!this.done) {
                     try {
-                        if (this.predicate.test(obj)) {
-                            return this.actual.tryOnNext(obj);
+                        if (this.predicate.test(t)) {
+                            return this.actual.tryOnNext(t);
                         }
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -153,13 +153,13 @@ public final class ParallelFilter extends ParallelFlowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class ParallelFilterSubscriber extends BaseFilterSubscriber {
+    public static final class ParallelFilterSubscriber<T> extends BaseFilterSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ParallelFilterSubscriber(Subscriber subscriber, Predicate predicate) {
+        public ParallelFilterSubscriber(Subscriber<? super T> subscriber, Predicate<? super T> predicate) {
             super(predicate);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -211,14 +211,14 @@ public final class ParallelFilter extends ParallelFlowable {
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (!this.done) {
                     try {
-                        if (this.predicate.test(obj)) {
-                            this.actual.onNext(obj);
+                        if (this.predicate.test(t)) {
+                            this.actual.onNext(t);
                             return true;
                         }
                     } catch (Throwable th) {
@@ -233,7 +233,7 @@ public final class ParallelFilter extends ParallelFlowable {
         }
     }
 
-    public ParallelFilter(ParallelFlowable parallelFlowable, Predicate predicate) {
+    public ParallelFilter(ParallelFlowable<T> parallelFlowable, Predicate<? super T> predicate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -263,15 +263,15 @@ public final class ParallelFilter extends ParallelFlowable {
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber[] subscriberArr) {
+    public void subscribe(Subscriber<? super T>[] subscriberArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) != null) || !validate(subscriberArr)) {
             return;
         }
         int length = subscriberArr.length;
-        Subscriber[] subscriberArr2 = new Subscriber[length];
+        Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
         for (int i = 0; i < length; i++) {
-            Subscriber subscriber = subscriberArr[i];
+            Subscriber<? super T> subscriber = subscriberArr[i];
             if (subscriber instanceof ConditionalSubscriber) {
                 subscriberArr2[i] = new ParallelFilterConditionalSubscriber((ConditionalSubscriber) subscriber, this.predicate);
             } else {

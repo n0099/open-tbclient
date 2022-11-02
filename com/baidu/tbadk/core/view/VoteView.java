@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,17 +20,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PollData;
 import com.baidu.tbadk.core.data.PollOptionData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.dv4;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.kw4;
 import com.baidu.tieba.model.AddPollPostModel;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,14 +49,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 /* loaded from: classes3.dex */
 public class VoteView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int A;
-    public static final float[] B;
+    public static final int B;
     public static final float[] C;
     public static final float[] D;
-    public static final int y;
+    public static final float[] E;
     public static final int z;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -62,8 +71,8 @@ public class VoteView extends LinearLayout {
     public String i;
     public long j;
     public PollData k;
-    public List l;
-    public List m;
+    public List<PollOptionData> l;
+    public List<Integer> m;
     public View.OnClickListener n;
     public boolean o;
     public boolean p;
@@ -71,13 +80,14 @@ public class VoteView extends LinearLayout {
     public boolean r;
     public int s;
     public boolean t;
-    public AddPollPostModel u;
-    public AddPollPostModel.b v;
-    public View.OnClickListener w;
-    public RecyclerView.Adapter x;
+    public dv4 u;
+    public AddPollPostModel v;
+    public AddPollPostModel.b w;
+    public View.OnClickListener x;
+    public RecyclerView.Adapter<e> y;
 
     /* loaded from: classes3.dex */
-    public class c extends RecyclerView.Adapter {
+    public class c extends RecyclerView.Adapter<e> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoteView a;
@@ -115,23 +125,23 @@ public class VoteView extends LinearLayout {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     VoteView voteView = this.c.a;
-                    voteView.D(this.a, !voteView.m.contains(Integer.valueOf(((PollOptionData) this.c.a.l.get(this.b)).getId())));
+                    voteView.F(this.a, !voteView.m.contains(Integer.valueOf(((PollOptionData) this.c.a.l.get(this.b)).getId())));
                     if (!this.c.a.m.contains(Integer.valueOf(((PollOptionData) this.c.a.l.get(this.b)).getId()))) {
                         this.c.a.m.add(Integer.valueOf(((PollOptionData) this.c.a.l.get(this.b)).getId()));
                         PollData pollData = this.c.a.k;
                         VoteView voteView2 = this.c.a;
-                        pollData.setPolledValue(voteView2.z(voteView2.m));
+                        pollData.setPolledValue(voteView2.A(voteView2.m));
                         ((PollOptionData) this.c.a.l.get(this.b)).setNum(((PollOptionData) this.c.a.l.get(this.b)).getNum() + 1);
                         this.c.a.k.getOptions().get(this.b).setNum(((PollOptionData) this.c.a.l.get(this.b)).getNum());
                     } else {
                         this.c.a.m.remove(Integer.valueOf(((PollOptionData) this.c.a.l.get(this.b)).getId()));
                         PollData pollData2 = this.c.a.k;
                         VoteView voteView3 = this.c.a;
-                        pollData2.setPolledValue(voteView3.z(voteView3.m));
+                        pollData2.setPolledValue(voteView3.A(voteView3.m));
                         ((PollOptionData) this.c.a.l.get(this.b)).setNum(((PollOptionData) this.c.a.l.get(this.b)).getNum() - 1);
                         this.c.a.k.getOptions().get(this.b).setNum(((PollOptionData) this.c.a.l.get(this.b)).getNum());
                     }
-                    this.c.a.H();
+                    this.c.a.K();
                 }
             }
         }
@@ -171,11 +181,11 @@ public class VoteView extends LinearLayout {
                     this.c.a.m.add(Integer.valueOf(((PollOptionData) this.c.a.l.get(this.a)).getId()));
                     PollData pollData = this.c.a.k;
                     VoteView voteView = this.c.a;
-                    pollData.setPolledValue(voteView.z(voteView.m));
+                    pollData.setPolledValue(voteView.A(voteView.m));
                     ((PollOptionData) this.c.a.l.get(this.a)).setNum(((PollOptionData) this.c.a.l.get(this.a)).getNum() + 1);
                     this.c.a.k.getOptions().get(this.a).setNum(((PollOptionData) this.c.a.l.get(this.a)).getNum());
-                    if (this.c.a.w != null) {
-                        this.c.a.w.onClick(this.b.a);
+                    if (this.c.a.x != null) {
+                        this.c.a.x.onClick(this.b.b);
                     }
                 }
             }
@@ -202,70 +212,81 @@ public class VoteView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: d */
-        public void onBindViewHolder(e eVar, int i) {
+        public void onBindViewHolder(@NonNull e eVar, int i) {
             boolean z;
+            boolean z2;
+            boolean z3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, eVar, i) == null) {
                 if (this.a.k != null && this.a.k.getOptions() != null && this.a.l != null) {
                     PollOptionData pollOptionData = (PollOptionData) this.a.l.get(i);
-                    long num = pollOptionData.getNum();
-                    boolean z2 = true;
-                    if (num == 0) {
+                    boolean z4 = true;
+                    if (eVar.a == pollOptionData) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    if (this.a.k.getTotalPoll() != num) {
+                    eVar.a = pollOptionData;
+                    long num = pollOptionData.getNum();
+                    if (num == 0) {
+                        z2 = true;
+                    } else {
                         z2 = false;
+                    }
+                    if (this.a.k.getTotalPoll() == num) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
                     }
                     boolean contains = this.a.m.contains(Integer.valueOf(pollOptionData.getId()));
                     if (!this.a.o && !this.a.p) {
                         if (this.a.q) {
                             if (!this.a.r) {
-                                this.a.D(eVar, false);
+                                this.a.F(eVar, (z && contains) ? false : false);
                             } else {
                                 this.a.setSingleUnCheckItemView(eVar);
                             }
                             if ((!this.a.t && this.a.l.size() > 3) || this.a.r) {
-                                eVar.a.setOnClickListener(this.a.n);
+                                eVar.b.setOnClickListener(this.a.n);
                             } else {
-                                eVar.a.setOnClickListener(new a(this, eVar, i));
+                                eVar.b.setOnClickListener(new a(this, eVar, i));
                             }
                         } else {
                             this.a.setSingleUnCheckItemView(eVar);
                             if ((!this.a.t && this.a.l.size() > 3) || this.a.r) {
-                                eVar.a.setOnClickListener(this.a.n);
+                                eVar.b.setOnClickListener(this.a.n);
                             } else {
-                                eVar.a.setOnClickListener(new b(this, i, eVar));
+                                eVar.b.setOnClickListener(new b(this, i, eVar));
                             }
                         }
                     } else {
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, (float) num);
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1, (float) (this.a.k.getTotalPoll() - num));
-                        eVar.c.setLayoutParams(layoutParams);
-                        eVar.b.setLayoutParams(layoutParams2);
-                        this.a.E(eVar, contains, z2, z);
-                        eVar.f.setText(StringHelper.numberUniformFormatExtraWithRoundVote(num) + this.a.a.getString(R.string.obfuscated_res_0x7f0f162e));
-                        eVar.a.setOnClickListener(this.a.n);
+                        eVar.d.setLayoutParams(layoutParams);
+                        eVar.c.setLayoutParams(layoutParams2);
+                        this.a.G(eVar, contains, z3, z2);
+                        eVar.g.setText(StringHelper.numberUniformFormatExtraWithRoundVote(num) + this.a.a.getString(R.string.obfuscated_res_0x7f0f164d));
+                        eVar.b.setOnClickListener(this.a.n);
                     }
                 } else {
                     this.a.setSingleUnCheckItemView(eVar);
                     if (this.a.n != null) {
-                        eVar.a.setOnClickListener(this.a.n);
+                        eVar.b.setOnClickListener(this.a.n);
                     }
                 }
-                eVar.a.setText(((PollOptionData) this.a.l.get(i)).getText());
+                eVar.b.setText(((PollOptionData) this.a.l.get(i)).getText());
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        @NonNull
         /* renamed from: e */
-        public e onCreateViewHolder(ViewGroup viewGroup, int i) {
+        public e onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                return new e(this.a, LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d0900, viewGroup, false));
+                return new e(this.a, LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d0914, viewGroup, false));
             }
             return (e) invokeLI.objValue;
         }
@@ -319,10 +340,14 @@ public class VoteView extends LinearLayout {
                     }
                     return;
                 }
-                this.a.h.setText(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e35));
+                if (this.a.u != null) {
+                    this.a.h.setText(this.a.u.b);
+                } else {
+                    this.a.h.setText(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e4c));
+                }
                 PollData pollData = this.a.k;
                 VoteView voteView = this.a;
-                pollData.setPolledValue(voteView.z(voteView.m));
+                pollData.setPolledValue(voteView.A(voteView.m));
                 boolean z = true;
                 this.a.k.setIsPolled(1);
                 VoteView voteView2 = this.a;
@@ -334,10 +359,10 @@ public class VoteView extends LinearLayout {
                 VoteView voteView3 = this.a;
                 voteView3.setVoteSubContent(voteView3.getSubContent());
                 this.a.k.setTotalPoll(this.a.k.getTotalPoll() + this.a.m.size());
-                if (this.a.x != null) {
-                    this.a.x.notifyDataSetChanged();
+                if (this.a.y != null) {
+                    this.a.y.notifyDataSetChanged();
                 }
-                this.a.H();
+                this.a.K();
             }
         }
     }
@@ -368,15 +393,32 @@ public class VoteView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                VoteView voteView = this.a;
-                String z = voteView.z(voteView.m);
-                if (this.a.b != null && this.a.u != null && !StringUtils.isNull(this.a.i) && this.a.v != null && !StringUtils.isNull(z) && this.a.k != null) {
-                    this.a.u.E(eh.g(this.a.i, -1L));
-                    this.a.u.D(this.a.v);
-                    this.a.u.B(this.a.i, z, this.a.j);
+                if (this.a.u != null) {
+                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_LIVE_POST_CARD_VOTE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.a.i).param("fid", this.a.j);
+                    if (this.a.t) {
+                        i = 2;
+                    } else {
+                        i = 1;
+                    }
+                    TiebaStatic.log(param.param("obj_locate", i));
+                    if (this.a.q && ((!this.a.t && this.a.l.size() > 3) || this.a.r)) {
+                        if (this.a.n != null) {
+                            this.a.n.onClick(view2);
+                            return;
+                        }
+                        return;
+                    } else if (this.a.o) {
+                        UrlManager.getInstance().dealOneLink(this.a.b, new String[]{this.a.u.c});
+                        return;
+                    } else {
+                        this.a.z();
+                        return;
+                    }
                 }
+                this.a.z();
             }
         }
     }
@@ -424,13 +466,14 @@ public class VoteView extends LinearLayout {
     public class e extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public View b;
+        public PollOptionData a;
+        public TextView b;
         public View c;
-        public LinearLayout d;
-        public ImageView e;
-        public TextView f;
-        public final /* synthetic */ VoteView g;
+        public View d;
+        public LinearLayout e;
+        public ImageView f;
+        public TextView g;
+        public final /* synthetic */ VoteView h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(VoteView voteView, View view2) {
@@ -450,13 +493,13 @@ public class VoteView extends LinearLayout {
                     return;
                 }
             }
-            this.g = voteView;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092614);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f092615);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f092616);
-            this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092617);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09260e);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09261e);
+            this.h = voteView;
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09266b);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f09266c);
+            this.d = view2.findViewById(R.id.obfuscated_res_0x7f09266d);
+            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09266e);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092665);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092675);
         }
     }
 
@@ -473,14 +516,14 @@ public class VoteView extends LinearLayout {
                 return;
             }
         }
-        y = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
-        z = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds45);
-        A = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds469);
-        int i = y;
-        B = new float[]{i, i, 0.0f, 0.0f, 0.0f, 0.0f, i, i};
-        C = new float[]{0.0f, 0.0f, i, i, i, i, 0.0f, 0.0f};
-        int i2 = z;
-        D = new float[]{i2, i2, i2, i2, i2, i2, i2, i2};
+        z = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
+        A = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds45);
+        B = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds469);
+        int i = z;
+        C = new float[]{i, i, 0.0f, 0.0f, 0.0f, 0.0f, i, i};
+        D = new float[]{0.0f, 0.0f, i, i, i, i, 0.0f, 0.0f};
+        int i2 = A;
+        E = new float[]{i2, i2, i2, i2, i2, i2, i2, i2};
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -493,10 +536,10 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             if (this.k.getIsMulti() == 1) {
                 context = this.a;
-                i = R.string.obfuscated_res_0x7f0f15c7;
+                i = R.string.obfuscated_res_0x7f0f15e5;
             } else {
                 context = this.a;
-                i = R.string.obfuscated_res_0x7f0f15c8;
+                i = R.string.obfuscated_res_0x7f0f15e6;
             }
             String string = context.getString(i);
             long endTime = this.k.getEndTime();
@@ -504,7 +547,7 @@ public class VoteView extends LinearLayout {
                 Date date = new Date(endTime * 1000);
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date);
-                str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f162a), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
+                str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1649), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
             } else {
                 str = "";
             }
@@ -513,7 +556,7 @@ public class VoteView extends LinearLayout {
             }
             String numberUniformFormatExtraWithRoundVote = StringHelper.numberUniformFormatExtraWithRoundVote(this.k.getTotalNum());
             if (!StringUtils.isNull(numberUniformFormatExtraWithRoundVote)) {
-                return string + " · " + numberUniformFormatExtraWithRoundVote + this.a.getString(R.string.obfuscated_res_0x7f0f1632);
+                return string + " · " + numberUniformFormatExtraWithRoundVote + this.a.getString(R.string.obfuscated_res_0x7f0f1651);
             }
             return string;
         }
@@ -541,10 +584,10 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    public final String z(List list) {
+    public final String A(List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             if (list == null) {
                 return "";
             }
@@ -591,20 +634,20 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    public final void D(e eVar, boolean z2) {
+    public final void F(e eVar, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, eVar, z2) == null) {
-            eVar.e.setVisibility(0);
-            eVar.f.setVisibility(8);
-            eVar.a.setGravity(19);
-            G(eVar, R.color.CAM_X0207, z2);
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, eVar, z2) == null) {
+            eVar.f.setVisibility(0);
+            eVar.g.setVisibility(8);
+            eVar.b.setGravity(19);
+            I(eVar, R.color.CAM_X0207, z2);
             if (z2) {
-                SkinManager.setViewTextColor(eVar.a, (int) R.color.CAM_X0302);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(eVar.e, R.drawable.obfuscated_res_0x7f080627, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+                SkinManager.setViewTextColor(eVar.b, (int) R.color.CAM_X0302);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(eVar.f, R.drawable.obfuscated_res_0x7f08062c, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
                 return;
             }
-            SkinManager.setViewTextColor(eVar.a, (int) R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(eVar.e, R.drawable.obfuscated_res_0x7f08061b, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(eVar.b, (int) R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(eVar.f, R.drawable.obfuscated_res_0x7f080620, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -628,21 +671,21 @@ public class VoteView extends LinearLayout {
             }
         }
         this.s = R.color.CAM_X0206;
-        this.v = new a(this);
-        this.w = new b(this);
-        this.x = new c(this);
+        this.w = new a(this);
+        this.x = new b(this);
+        this.y = new c(this);
         this.a = context;
         this.l = new ArrayList();
         this.m = new ArrayList();
-        A();
+        B();
     }
 
-    public final void G(e eVar, int i, boolean z2) {
+    public final void I(e eVar, int i, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eVar, Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
-            eVar.d.setVisibility(8);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{eVar, Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
+            eVar.e.setVisibility(8);
             if (z2) {
-                nv4 d2 = nv4.d(eVar.a);
+                kw4 d2 = kw4.d(eVar.b);
                 d2.e(R.string.A_X07);
                 d2.n(R.string.J_X04);
                 d2.l(R.dimen.L_X01);
@@ -650,7 +693,7 @@ public class VoteView extends LinearLayout {
                 d2.f(i);
                 return;
             }
-            nv4 d3 = nv4.d(eVar.a);
+            kw4 d3 = kw4.d(eVar.b);
             d3.n(R.string.J_X04);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0902);
@@ -660,22 +703,20 @@ public class VoteView extends LinearLayout {
 
     public void setData(PollData pollData, String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{pollData, str, Long.valueOf(j)}) != null) || pollData == null) {
-            return;
-        }
-        B(pollData, str, j);
-        List<PollOptionData> options = this.k.getOptions();
-        if (!ListUtils.isEmpty(options)) {
-            if (options.size() > 3) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, A);
-                layoutParams.bottomMargin = 0;
-                this.f.setLayoutParams(layoutParams);
-                this.g.setVisibility(0);
-                this.h.setVisibility(8);
-                setData(options.subList(0, 4));
-                return;
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{pollData, str, Long.valueOf(j)}) == null) && pollData != null && C(pollData, str, j)) {
+            List<PollOptionData> options = this.k.getOptions();
+            if (!ListUtils.isEmpty(options)) {
+                if (options.size() > 3) {
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, B);
+                    layoutParams.bottomMargin = 0;
+                    this.f.setLayoutParams(layoutParams);
+                    this.g.setVisibility(0);
+                    this.h.setVisibility(8);
+                    setData(options.subList(0, 4));
+                    return;
+                }
+                setViewWithAllData(options);
             }
-            setViewWithAllData(options);
         }
     }
 
@@ -683,27 +724,27 @@ public class VoteView extends LinearLayout {
     public void setSingleUnCheckItemView(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, this, eVar) == null) {
-            eVar.e.setVisibility(8);
             eVar.f.setVisibility(8);
-            eVar.a.setGravity(17);
-            SkinManager.setViewTextColor(eVar.a, (int) R.color.CAM_X0105);
-            G(eVar, R.color.CAM_X0207, false);
+            eVar.g.setVisibility(8);
+            eVar.b.setGravity(17);
+            SkinManager.setViewTextColor(eVar.b, (int) R.color.CAM_X0105);
+            I(eVar, R.color.CAM_X0207, false);
         }
     }
 
     public void setBgColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.s = i;
         }
     }
 
-    public void setData(List list) {
+    public void setData(List<PollOptionData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             this.l.clear();
             this.l.addAll(list);
-            RecyclerView.Adapter adapter = this.x;
+            RecyclerView.Adapter<e> adapter = this.y;
             if (adapter != null) {
                 adapter.notifyDataSetChanged();
             }
@@ -713,21 +754,21 @@ public class VoteView extends LinearLayout {
     public void setDeleteOnClickListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, onClickListener) == null) && (imageView = this.e) != null && onClickListener != null) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) && (imageView = this.e) != null && onClickListener != null) {
             imageView.setOnClickListener(onClickListener);
         }
     }
 
     public void setIsTransmit(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z2) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z2) == null) {
             this.r = z2;
         }
     }
 
     public void setMarginTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             ((ViewGroup.MarginLayoutParams) getLayoutParams()).topMargin = i;
             requestLayout();
         }
@@ -735,29 +776,38 @@ public class VoteView extends LinearLayout {
 
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, onClickListener) == null) {
             this.n = onClickListener;
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, tbPageContext) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, tbPageContext) == null) {
             this.b = tbPageContext;
-            this.u = new AddPollPostModel(tbPageContext);
+            this.v = new AddPollPostModel(tbPageContext);
         }
+    }
+
+    public void setThreadData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048598, this, threadData) != null) || threadData == null) {
+            return;
+        }
+        setData(threadData.getPollData(), threadData.getTid(), threadData.getFid());
+        setupLiveThreadVoteInfo(threadData);
     }
 
     public void setVoteSubContent(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && !StringUtils.isNull(str)) {
+        if ((interceptable == null || interceptable.invokeL(1048599, this, str) == null) && !StringUtils.isNull(str)) {
             this.d.setText(str);
         }
     }
 
     public void setVoteTitle(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && !StringUtils.isNull(str)) {
+        if ((interceptable == null || interceptable.invokeL(1048600, this, str) == null) && !StringUtils.isNull(str)) {
             this.c.setText(str);
         }
     }
@@ -765,34 +815,36 @@ public class VoteView extends LinearLayout {
     public void setVoteViewDeleteVisibility(int i) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && (imageView = this.e) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048601, this, i) == null) && (imageView = this.e) != null) {
             imageView.setVisibility(i);
         }
     }
 
     public void setDataForPb(PollData pollData, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048589, this, pollData, str, str2) != null) || pollData == null) {
+        if ((interceptable != null && interceptable.invokeLLL(1048592, this, pollData, str, str2) != null) || pollData == null) {
             return;
         }
         this.t = true;
-        B(pollData, str, eh.g(str2, 0L));
-        List<PollOptionData> options = this.k.getOptions();
-        if (!ListUtils.isEmpty(options)) {
-            setViewWithAllData(options);
+        if (C(pollData, str, wg.g(str2, 0L))) {
+            List<PollOptionData> options = this.k.getOptions();
+            if (!ListUtils.isEmpty(options)) {
+                setViewWithAllData(options);
+            }
         }
     }
 
-    private void setViewWithAllData(List list) {
+    private void setViewWithAllData(List<PollOptionData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, list) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = fj.f(this.a, R.dimen.tbds25);
+            layoutParams.bottomMargin = xi.g(this.a, R.dimen.tbds25);
             this.f.setLayoutParams(layoutParams);
             this.g.setVisibility(8);
             if (this.q && !this.p && !this.o && !this.r) {
                 this.h.setVisibility(0);
-                this.h.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e33));
+                this.h.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e4a));
+                E();
             } else {
                 this.h.setVisibility(8);
             }
@@ -800,10 +852,10 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    public void C(int i) {
+    public void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            nv4 d2 = nv4.d(this);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            kw4 d2 = kw4.d(this);
             d2.n(R.string.J_X05);
             d2.f(this.s);
             if (this.s == R.color.CAM_X0207) {
@@ -813,59 +865,93 @@ public class VoteView extends LinearLayout {
             }
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            H();
-            RecyclerView.Adapter adapter = this.x;
+            K();
+            RecyclerView.Adapter<e> adapter = this.y;
             if (adapter != null) {
                 adapter.notifyDataSetChanged();
             }
         }
     }
 
-    public final void A() {
+    public void setupLiveThreadVoteInfo(@NonNull ThreadData threadData) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08ff, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09262a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092623);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092635);
-            this.f = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092618);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09261c);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092634);
-            this.e.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080821, WebPManager.ResourceStateType.NORMAL));
-            this.h.setOnClickListener(this.w);
-            this.f.setLayoutManager(new d(this, this.a, 1, false));
-            this.f.setNestedScrollingEnabled(false);
-            this.f.setAdapter(this.x);
-            this.x.notifyDataSetChanged();
-        }
-    }
-
-    public final void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadii(D);
-            gradientDrawable.setColor(vl8.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
-            this.h.setBackgroundDrawable(gradientDrawable);
-            if (!this.o && !ListUtils.isEmpty(this.m) && this.m.size() > 0) {
-                SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
-                this.h.setEnabled(true);
+        if (interceptable == null || interceptable.invokeL(1048602, this, threadData) == null) {
+            this.u = null;
+            tu4 taskInfoData = threadData.getTaskInfoData();
+            if (taskInfoData == null) {
                 return;
             }
-            this.h.setTextColor(vl8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
-            this.h.setEnabled(false);
+            dv4 m = taskInfoData.m();
+            this.u = m;
+            if (m != null && this.h != null) {
+                J();
+                K();
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_LIVE_POST_CARD_VOTE_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.i).param("fid", this.j);
+                if (this.t) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                TiebaStatic.log(param.param("obj_locate", i));
+            }
         }
     }
 
-    public final void B(PollData pollData, String str, long j) {
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0913, (ViewGroup) this, true);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092681);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09267a);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09268c);
+            this.f = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09266f);
+            this.g = findViewById(R.id.obfuscated_res_0x7f092673);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09268b);
+            this.e.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08082c, WebPManager.ResourceStateType.NORMAL));
+            this.h.setOnClickListener(this.x);
+            this.f.setLayoutManager(new d(this, this.a, 1, false));
+            this.f.setNestedScrollingEnabled(false);
+            this.f.setAdapter(this.y);
+            this.y.notifyDataSetChanged();
+        }
+    }
+
+    public final void J() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || getContext() == null) {
+            return;
+        }
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.h.getLayoutParams();
+        Context context = getContext();
+        if (!this.t && this.l.size() > 3) {
+            i = R.dimen.M_H_X007;
+        } else {
+            i = R.dimen.tbds0;
+        }
+        int g = xi.g(context, i);
+        int g2 = xi.g(getContext(), R.dimen.M_H_X007);
+        int g3 = xi.g(getContext(), R.dimen.M_W_X006);
+        marginLayoutParams.width = -1;
+        marginLayoutParams.height = xi.g(getContext(), R.dimen.tbds104);
+        marginLayoutParams.setMargins(g3, g, g3, g2);
+        this.h.setLayoutParams(marginLayoutParams);
+    }
+
+    public final boolean C(PollData pollData, String str, long j) {
+        InterceptResult invokeCommon;
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{pollData, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pollData, str, Long.valueOf(j)})) == null) {
+            boolean z4 = false;
+            if (this.k == pollData && Objects.equals(this.i, str) && this.j == j) {
+                return false;
+            }
             this.i = str;
             this.j = j;
             this.k = pollData;
-            boolean z4 = false;
             if (pollData.getIsPolled() == 1) {
                 z2 = true;
             } else {
@@ -892,55 +978,83 @@ public class VoteView extends LinearLayout {
                 this.c.setText(this.k.getTitle());
             }
             setVoteSubContent(getSubContent());
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || getContext() == null) {
+            return;
+        }
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.h.getLayoutParams();
+        int g = xi.g(getContext(), R.dimen.tbds16);
+        int g2 = xi.g(getContext(), R.dimen.tbds54);
+        marginLayoutParams.width = xi.g(getContext(), R.dimen.tbds298);
+        marginLayoutParams.height = xi.g(getContext(), R.dimen.tbds94);
+        marginLayoutParams.setMargins(0, g, 0, g2);
+        this.h.setLayoutParams(marginLayoutParams);
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            String A2 = A(this.m);
+            if (this.b != null && this.v != null && !StringUtils.isNull(this.i) && this.w != null && !StringUtils.isNull(A2) && this.k != null) {
+                this.v.E(wg.g(this.i, -1L));
+                this.v.D(this.w);
+                this.v.B(this.i, A2, this.j);
+            }
         }
     }
 
-    public final void E(e eVar, boolean z2, boolean z3, boolean z4) {
+    public final void G(e eVar, boolean z2, boolean z3, boolean z4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{eVar, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
-            eVar.e.setVisibility(8);
-            eVar.f.setVisibility(0);
-            eVar.a.setGravity(19);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eVar, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
+            eVar.f.setVisibility(8);
+            eVar.g.setVisibility(0);
+            eVar.b.setGravity(19);
             int i = R.color.CAM_X0209;
             if (z2) {
-                SkinManager.setViewTextColor(eVar.a, (int) R.color.CAM_X0302);
-                SkinManager.setViewTextColor(eVar.f, (int) R.color.CAM_X0302);
+                SkinManager.setViewTextColor(eVar.b, (int) R.color.CAM_X0302);
+                SkinManager.setViewTextColor(eVar.g, (int) R.color.CAM_X0302);
                 if (z3) {
-                    G(eVar, R.color.CAM_X0905, z2);
+                    I(eVar, R.color.CAM_X0905, z2);
                     return;
                 }
             } else {
-                SkinManager.setViewTextColor(eVar.a, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(eVar.f, (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor(eVar.b, (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor(eVar.g, (int) R.color.CAM_X0105);
                 if (z4) {
-                    G(eVar, R.color.CAM_X0207, z2);
+                    I(eVar, R.color.CAM_X0207, z2);
                     return;
                 } else if (z3) {
-                    G(eVar, R.color.CAM_X0209, z2);
+                    I(eVar, R.color.CAM_X0209, z2);
                     return;
                 }
             }
             if (z2) {
                 i = R.color.CAM_X0905;
             }
-            F(eVar, i, R.color.CAM_X0207, z2);
+            H(eVar, i, R.color.CAM_X0207, z2);
         }
     }
 
-    public final void F(e eVar, int i, int i2, boolean z2) {
+    public final void H(e eVar, int i, int i2, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{eVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            eVar.d.setVisibility(0);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+            eVar.e.setVisibility(0);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadii(B);
+            gradientDrawable.setCornerRadii(C);
             gradientDrawable.setColor(SkinManager.getColor(i));
-            eVar.c.setBackgroundDrawable(gradientDrawable);
+            eVar.d.setBackgroundDrawable(gradientDrawable);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
-            gradientDrawable2.setCornerRadii(C);
+            gradientDrawable2.setCornerRadii(D);
             gradientDrawable2.setColor(SkinManager.getColor(i2));
-            eVar.b.setBackgroundDrawable(gradientDrawable2);
+            eVar.c.setBackgroundDrawable(gradientDrawable2);
             if (z2) {
-                nv4 d2 = nv4.d(eVar.a);
+                kw4 d2 = kw4.d(eVar.b);
                 d2.e(R.string.A_X07);
                 d2.n(R.string.J_X04);
                 d2.l(R.dimen.L_X01);
@@ -948,7 +1062,7 @@ public class VoteView extends LinearLayout {
                 d2.f(i2);
                 return;
             }
-            nv4 d3 = nv4.d(eVar.a);
+            kw4 d3 = kw4.d(eVar.b);
             d3.n(R.string.J_X04);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0902);
@@ -956,12 +1070,55 @@ public class VoteView extends LinearLayout {
         }
     }
 
+    public final void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            boolean z2 = true;
+            if (this.u != null) {
+                kw4 d2 = kw4.d(this.h);
+                d2.n(R.string.J_X01);
+                d2.h(R.color.CAM_X0302);
+                SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
+                if (!this.o && !ListUtils.isEmpty(this.m) && this.m.size() > 0) {
+                    this.h.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e4a));
+                    this.h.setEnabled(true);
+                    this.h.setClickable(true);
+                } else if (this.o) {
+                    this.h.setText(this.u.b);
+                    this.h.setEnabled(true);
+                    this.h.setClickable(true);
+                } else {
+                    this.h.setText(this.u.a);
+                    this.h.setEnabled(false);
+                    TextView textView = this.h;
+                    if (!this.q || ((this.t || this.l.size() <= 3) && !this.r)) {
+                        z2 = false;
+                    }
+                    textView.setClickable(z2);
+                }
+                this.h.setVisibility(0);
+                return;
+            }
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadii(E);
+            gradientDrawable.setColor(fn8.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
+            this.h.setBackgroundDrawable(gradientDrawable);
+            if (!this.o && !ListUtils.isEmpty(this.m) && this.m.size() > 0) {
+                SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
+                this.h.setEnabled(true);
+                return;
+            }
+            this.h.setTextColor(fn8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.h.setEnabled(false);
+        }
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onAttachedToWindow();
-            AddPollPostModel addPollPostModel = this.u;
+            AddPollPostModel addPollPostModel = this.v;
             if (addPollPostModel != null && !this.o && !this.p && !this.r) {
                 addPollPostModel.registerListener();
             }
@@ -971,9 +1128,9 @@ public class VoteView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            AddPollPostModel addPollPostModel = this.u;
+            AddPollPostModel addPollPostModel = this.v;
             if (addPollPostModel != null) {
                 addPollPostModel.unRegisterListener();
             }

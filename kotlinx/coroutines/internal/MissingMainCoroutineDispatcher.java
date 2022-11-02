@@ -4,6 +4,7 @@ import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHel
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.yy.gslbsdk.db.DelayTB;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -28,7 +29,7 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
     }
 
     @Override // kotlinx.coroutines.Delay
-    public Object delay(long j, Continuation continuation) {
+    public Object delay(long j, Continuation<? super Unit> continuation) {
         missing();
         throw null;
     }
@@ -46,9 +47,8 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
         throw null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlinx.coroutines.Delay
-    public Void scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
+    public Void scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
         missing();
         throw null;
     }
@@ -78,6 +78,11 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
         }
         MainDispatchersKt.throwMissingMainDispatcherException();
         throw null;
+    }
+
+    @Override // kotlinx.coroutines.Delay
+    public /* bridge */ /* synthetic */ void scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
+        scheduleResumeAfterDelay(j, (CancellableContinuation<? super Unit>) cancellableContinuation);
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher

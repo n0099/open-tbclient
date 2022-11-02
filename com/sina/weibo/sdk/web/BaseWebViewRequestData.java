@@ -16,7 +16,7 @@ import java.io.Serializable;
 /* loaded from: classes8.dex */
 public class BaseWebViewRequestData implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BaseWebViewRequestData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public AuthInfo authInfo;
     public String callback;
@@ -48,7 +48,7 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.web.BaseWebViewRequestData.1
+        CREATOR = new Parcelable.Creator<BaseWebViewRequestData>() { // from class: com.sina.weibo.sdk.web.BaseWebViewRequestData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,6 +67,7 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BaseWebViewRequestData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -78,6 +79,7 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BaseWebViewRequestData[] newArray(int i) {
                 InterceptResult invokeI;

@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class HashMapSupplier implements Callable {
+public final class HashMapSupplier implements Callable<Map<Object, Object>> {
     public static final /* synthetic */ HashMapSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final HashMapSupplier INSTANCE;
@@ -38,7 +38,7 @@ public final class HashMapSupplier implements Callable {
         $VALUES = new HashMapSupplier[]{hashMapSupplier};
     }
 
-    public static Callable asCallable() {
+    public static <K, V> Callable<Map<K, V>> asCallable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -86,7 +86,7 @@ public final class HashMapSupplier implements Callable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Callable
-    public Map call() throws Exception {
+    public Map<Object, Object> call() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.rb5;
+import com.baidu.tieba.nc5;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,9 +16,10 @@ import java.util.List;
 import tbclient.GameInfo;
 import tbclient.GetGameCenter.RecommendGame;
 import tbclient.GetGameDetailNew.CodeInfo;
+import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
 /* loaded from: classes3.dex */
-public class GameInfoData implements Serializable, rb5 {
+public class GameInfoData implements Serializable, nc5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;
@@ -46,10 +47,10 @@ public class GameInfoData implements Serializable, rb5 {
     public String game_id;
     public String game_link;
     public String game_name;
-    public List game_pic;
+    public List<String> game_pic;
     public int game_status;
     public int game_type;
-    public List giftPackages;
+    public List<GiftPkgInfo> giftPackages;
     public String icon_pic1;
     public String icon_pic2;
     public String icon_pic3;
@@ -76,7 +77,7 @@ public class GameInfoData implements Serializable, rb5 {
     public int star;
     public String superscript_color;
     public int upStatus;
-    public List userRecommendList;
+    public List<GameInfoData> userRecommendList;
     public String version;
 
     public GameInfoData() {
@@ -233,7 +234,7 @@ public class GameInfoData implements Serializable, rb5 {
         return (String) invokeV.objValue;
     }
 
-    public List getGamePic() {
+    public List<String> getGamePic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -260,7 +261,7 @@ public class GameInfoData implements Serializable, rb5 {
         return invokeV.intValue;
     }
 
-    public List getGiftPackages() {
+    public List<GiftPkgInfo> getGiftPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -494,7 +495,7 @@ public class GameInfoData implements Serializable, rb5 {
         return invokeV.intValue;
     }
 
-    public List getUserRecommendList() {
+    public List<GameInfoData> getUserRecommendList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
@@ -525,7 +526,7 @@ public class GameInfoData implements Serializable, rb5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            return String.format("%.1f", Float.valueOf(eh.d(str, 0.0f)));
+            return String.format("%.1f", Float.valueOf(wg.d(str, 0.0f)));
         }
         return (String) invokeL.objValue;
     }
@@ -642,7 +643,7 @@ public class GameInfoData implements Serializable, rb5 {
         }
     }
 
-    public void setGamePic(List list) {
+    public void setGamePic(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048639, this, list) == null) {
             this.game_pic = list;
@@ -663,7 +664,7 @@ public class GameInfoData implements Serializable, rb5 {
         }
     }
 
-    public void setGiftPackages(List list) {
+    public void setGiftPackages(List<GiftPkgInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048642, this, list) == null) {
             this.giftPackages = list;
@@ -845,7 +846,7 @@ public class GameInfoData implements Serializable, rb5 {
         }
     }
 
-    public void setUserRecommendList(List list) {
+    public void setUserRecommendList(List<GameInfoData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048668, this, list) == null) {
             this.userRecommendList = list;

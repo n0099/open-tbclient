@@ -18,7 +18,7 @@ public class FrsNewAreaTabSortUbsABTest extends AbsGroupUbsABTest {
     public static final String FRS_NEW_AREA_TAB_SORT_SID_A = "12_2_frs_default_sort_a";
     public static final String FRS_NEW_AREA_TAB_SORT__SID_B = "12_2_frs_default_sort_b";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -38,7 +38,7 @@ public class FrsNewAreaTabSortUbsABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -80,7 +80,7 @@ public class FrsNewAreaTabSortUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(2);
+        ArrayList<String> arrayList = new ArrayList<>(2);
         this.mABTestList = arrayList;
         arrayList.add(FRS_NEW_AREA_TAB_SORT_SID_A);
         this.mABTestList.add(FRS_NEW_AREA_TAB_SORT__SID_B);

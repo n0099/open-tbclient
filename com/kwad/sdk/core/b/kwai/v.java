@@ -2,9 +2,10 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class v implements com.kwad.sdk.core.d {
-    public static void a(AdInfo.AdPreloadInfo adPreloadInfo, JSONObject jSONObject) {
+/* loaded from: classes8.dex */
+public final class v implements com.kwad.sdk.core.d<AdInfo.AdPreloadInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.AdPreloadInfo adPreloadInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -17,7 +18,8 @@ public final class v implements com.kwad.sdk.core.d {
         adPreloadInfo.validityPeriod = jSONObject.optInt("validityPeriod", new Integer("604800").intValue());
     }
 
-    public static JSONObject b(AdInfo.AdPreloadInfo adPreloadInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.AdPreloadInfo adPreloadInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -34,13 +36,15 @@ public final class v implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((AdInfo.AdPreloadInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(AdInfo.AdPreloadInfo adPreloadInfo, JSONObject jSONObject) {
+        a2(adPreloadInfo, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((AdInfo.AdPreloadInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdPreloadInfo adPreloadInfo, JSONObject jSONObject) {
+        return b2(adPreloadInfo, jSONObject);
     }
 }

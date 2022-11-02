@@ -24,7 +24,7 @@ public final class BuildParams {
     public static final String K_RTC_STREAM_TIMEOUT_MS = "rtc_stream_timeout_ms";
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
-    public final HashMap options;
+    public final HashMap<String, Object> options;
     public int playerType;
     public String roomId;
 
@@ -46,7 +46,7 @@ public final class BuildParams {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/player/BuildParams$Companion;", "", "K_CUID", "Ljava/lang/String;", "K_DEBUG_LEVEL", "K_RTC_ENCRYPT", "K_RTC_STREAM_TIMEOUT_MS", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,7 +85,7 @@ public final class BuildParams {
             }
         }
         this.roomId = str;
-        this.options = new HashMap();
+        this.options = new HashMap<>();
     }
 
     public final String getCacheKey() {
@@ -97,7 +97,7 @@ public final class BuildParams {
         return (String) invokeV.objValue;
     }
 
-    public final HashMap getOptions() {
+    public final HashMap<String, Object> getOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -129,7 +129,7 @@ public final class BuildParams {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
-            HashMap hashMap = this.options;
+            HashMap<String, Object> hashMap = this.options;
             if (hashMap != null && !hashMap.isEmpty()) {
                 z = false;
             } else {

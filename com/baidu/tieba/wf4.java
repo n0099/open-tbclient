@@ -1,109 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wf4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+public class wf4 extends mf4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948268644, "Lcom/baidu/tieba/wf4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public wf4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948268644, "Lcom/baidu/tieba/wf4;");
-        }
-    }
-
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int i = 5;
-            if (c() <= 0) {
-                return 5;
-            }
-            String string = xa4.b().i().getString("expire_time", "");
-            if (TextUtils.isEmpty(string)) {
-                return 5;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(string);
-                i = jSONObject.optInt("time", 5);
-                JSONObject optJSONObject = jSONObject.optJSONObject("appkeys");
-                if (optJSONObject == null) {
-                    return i;
-                }
-                int optInt = optJSONObject.optInt(str, -1);
-                if (optInt >= 0) {
-                    return optInt;
-                }
-                return i;
-            } catch (JSONException unused) {
-                return i;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeL.intValue;
     }
 
-    public static void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    @Override // com.baidu.tieba.mf4, com.baidu.tieba.pf4
+    public void b(JSONObject jSONObject, zb4 zb4Var, @Nullable zb4 zb4Var2, @Nullable zb4 zb4Var3) {
+        tf4 d;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, jSONObject) != null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, zb4Var, zb4Var2, zb4Var3) == null) && jSONObject != null && (d = uf4.c().d(jSONObject)) != null) {
+            pb4.b().D(d);
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
-        }
-        xa4.b().i().putString("expire_time_version", optString);
-        xa4.b().i().putString("expire_time", optJSONObject.toString());
-    }
-
-    public static long b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return TimeUnit.HOURS.toMillis(a(str));
-        }
-        return invokeL.longValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a < 0) {
-                xa4.b().F("swan_update_expired_time", 0);
-                a = 0;
-            }
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return xa4.b().i().getString("expire_time_version", "0");
-        }
-        return (String) invokeV.objValue;
     }
 }

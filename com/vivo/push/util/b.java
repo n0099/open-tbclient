@@ -23,10 +23,10 @@ public class b {
     public Context a;
     public String b;
     public volatile SharedPreferences c;
-    public HashMap d;
-    public HashMap e;
-    public HashMap f;
-    public HashMap g;
+    public HashMap<String, String> d;
+    public HashMap<String, Long> e;
+    public HashMap<String, Integer> f;
+    public HashMap<String, Boolean> g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public class b {
                 return;
             }
         }
-        this.d = new HashMap();
-        this.e = new HashMap();
-        this.f = new HashMap();
-        this.g = new HashMap();
+        this.d = new HashMap<>();
+        this.e = new HashMap<>();
+        this.f = new HashMap<>();
+        this.g = new HashMap<>();
     }
 
     public final void a() {
@@ -75,14 +75,14 @@ public class b {
         }
     }
 
-    private void a(Map map) {
+    private void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, this, map) == null) && map.size() > 0) {
             b();
             if (this.c != null) {
                 SharedPreferences.Editor edit = this.c.edit();
                 for (String str : map.keySet()) {
-                    String str2 = (String) map.get(str);
+                    String str2 = map.get(str);
                     this.d.put(str, str2);
                     edit.putString(str, str2);
                 }
@@ -103,7 +103,7 @@ public class b {
         }
     }
 
-    private List c(String str) {
+    private List<String> c(String str) {
         InterceptResult invokeL;
         Object a;
         String[] split;
@@ -141,7 +141,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Integer num = (Integer) this.f.get(str);
+            Integer num = this.f.get(str);
             if (num != null) {
                 return num.intValue();
             }
@@ -182,7 +182,7 @@ public class b {
                 this.b = str;
                 this.c = context.getSharedPreferences(str, 0);
                 this.a = context;
-                List c = c("local_iv");
+                List<String> c = c("local_iv");
                 if (c != null && c.size() >= 4) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("com.vivo.push.secure_sub_iv", c.get(1));
@@ -242,7 +242,7 @@ public class b {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
-            Long l = (Long) this.e.get(str);
+            Long l = this.e.get(str);
             if (l != null) {
                 return l.longValue();
             }
@@ -262,7 +262,7 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            String str3 = (String) this.d.get(str);
+            String str3 = this.d.get(str);
             if (str3 != null) {
                 return str3;
             }

@@ -29,7 +29,7 @@ public interface IMediaControllerCallback extends IInterface {
 
     void onPlaybackStateChanged(PlaybackStateCompat playbackStateCompat) throws RemoteException;
 
-    void onQueueChanged(List list) throws RemoteException;
+    void onQueueChanged(List<MediaSessionCompat.QueueItem> list) throws RemoteException;
 
     void onQueueTitleChanged(CharSequence charSequence) throws RemoteException;
 
@@ -46,7 +46,7 @@ public interface IMediaControllerCallback extends IInterface {
     void onVolumeInfoChanged(ParcelableVolumeInfo parcelableVolumeInfo) throws RemoteException;
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IMediaControllerCallback {
+    public static abstract class Stub extends Binder implements IMediaControllerCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "android.support.v4.media.session.IMediaControllerCallback";
         public static final int TRANSACTION_onCaptioningEnabledChanged = 11;
@@ -72,7 +72,7 @@ public interface IMediaControllerCallback extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        public class Proxy implements IMediaControllerCallback {
+        public static class Proxy implements IMediaControllerCallback {
             public static /* synthetic */ Interceptable $ic;
             public static IMediaControllerCallback sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public interface IMediaControllerCallback extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
-            public void onQueueChanged(List list) throws RemoteException {
+            public void onQueueChanged(List<MediaSessionCompat.QueueItem> list) throws RemoteException {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -458,14 +458,14 @@ public interface IMediaControllerCallback extends IInterface {
                         case 3:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                playbackStateCompat = (PlaybackStateCompat) PlaybackStateCompat.CREATOR.createFromParcel(parcel);
+                                playbackStateCompat = PlaybackStateCompat.CREATOR.createFromParcel(parcel);
                             }
                             onPlaybackStateChanged(playbackStateCompat);
                             return true;
                         case 4:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                mediaMetadataCompat = (MediaMetadataCompat) MediaMetadataCompat.CREATOR.createFromParcel(parcel);
+                                mediaMetadataCompat = MediaMetadataCompat.CREATOR.createFromParcel(parcel);
                             }
                             onMetadataChanged(mediaMetadataCompat);
                             return true;
@@ -490,7 +490,7 @@ public interface IMediaControllerCallback extends IInterface {
                         case 8:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                parcelableVolumeInfo = (ParcelableVolumeInfo) ParcelableVolumeInfo.CREATOR.createFromParcel(parcel);
+                                parcelableVolumeInfo = ParcelableVolumeInfo.CREATOR.createFromParcel(parcel);
                             }
                             onVolumeInfoChanged(parcelableVolumeInfo);
                             return true;
@@ -532,7 +532,7 @@ public interface IMediaControllerCallback extends IInterface {
     }
 
     /* loaded from: classes.dex */
-    public class Default implements IMediaControllerCallback {
+    public static class Default implements IMediaControllerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -582,7 +582,7 @@ public interface IMediaControllerCallback extends IInterface {
         }
 
         @Override // android.support.v4.media.session.IMediaControllerCallback
-        public void onQueueChanged(List list) throws RemoteException {
+        public void onQueueChanged(List<MediaSessionCompat.QueueItem> list) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             }

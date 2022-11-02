@@ -11,7 +11,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(long j, HashMap hashMap) {
+    public static boolean a(long j, HashMap<String, String> hashMap) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65536, null, j, hashMap)) == null) {
@@ -30,7 +30,7 @@ public final class e {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             p.d("ClientReportUtil", "report message: " + j + ", reportType: " + j2);
             com.vivo.push.b.x xVar = new com.vivo.push.b.x(j2);
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("messageID", String.valueOf(j));
             String b = z.b(context, context.getPackageName());
             if (!TextUtils.isEmpty(b)) {

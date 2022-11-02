@@ -1,5 +1,7 @@
 package androidx.collection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -219,6 +221,7 @@ public class SparseArrayCompat<E> implements Cloneable {
         }
     }
 
+    @Nullable
     public E get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -269,7 +272,7 @@ public class SparseArrayCompat<E> implements Cloneable {
         return invokeI.intValue;
     }
 
-    public void putAll(SparseArrayCompat<? extends E> sparseArrayCompat) {
+    public void putAll(@NonNull SparseArrayCompat<? extends E> sparseArrayCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, sparseArrayCompat) == null) {
             int size = sparseArrayCompat.size();
@@ -334,6 +337,7 @@ public class SparseArrayCompat<E> implements Cloneable {
         return (E) invokeIL.objValue;
     }
 
+    @Nullable
     public E putIfAbsent(int i, E e) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -376,6 +380,7 @@ public class SparseArrayCompat<E> implements Cloneable {
         }
     }
 
+    @Nullable
     public E replace(int i, E e) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

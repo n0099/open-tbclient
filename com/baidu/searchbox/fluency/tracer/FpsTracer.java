@@ -67,9 +67,9 @@ public final class FpsTracer extends Tracer {
     public final BdTracesConfig config;
     public int droppedSum;
     public long durationSum;
-    public final HashMap fpsCollectorCache;
+    public final HashMap<String, FpsCollector> fpsCollectorCache;
     public final long frameIntervalNs;
-    public final HashSet listeners;
+    public final HashSet<FrameRateListener> listeners;
     public int timeSliceMs;
 
     static {
@@ -90,7 +90,7 @@ public final class FpsTracer extends Tracer {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/fluency/tracer/FpsTracer$Companion;", "", "CSV_PATH_DEFAULT", "Ljava/lang/String;", "TAG", "UBC_KEY_EXT", "UBC_KEY_FLUENCY", "UBC_KEY_FROM", "UBC_KEY_NET_TYPE", "UBC_KEY_PAGE", "UBC_KEY_TOP_VIEW", "UBC_KEY_TYPE", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -118,7 +118,7 @@ public final class FpsTracer extends Tracer {
     public final class FpsCollector extends FrameRateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final HashMap collectMap;
+        public final HashMap<String, FrameCollectItem> collectMap;
         public final Executor fpsExecutor;
         public final Handler frameHandler;
         public String from;
@@ -137,6 +137,7 @@ public final class FpsTracer extends Tracer {
             return invokeV.intValue;
         }
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public FpsCollector(FpsTracer fpsTracer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -157,7 +158,7 @@ public final class FpsTracer extends Tracer {
             this.page = "";
             this.type = "";
             this.scene = "";
-            this.collectMap = new HashMap();
+            this.collectMap = new HashMap<>();
             this.frameHandler = new Handler(FpsHandlerThread.INSTANCE.getDefaultHandlerThread().getLooper());
             this.fpsExecutor = new Executor(this) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$FpsCollector$fpsExecutor$1
                 public static /* synthetic */ Interceptable $ic;
@@ -196,14 +197,12 @@ public final class FpsTracer extends Tracer {
         }
 
         @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
-        public void doReplay(List frameList) {
+        public void doReplay(List<FrameRateListener.FrameReplay> frameList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, frameList) == null) {
                 Intrinsics.checkNotNullParameter(frameList, "frameList");
                 super.doReplay(frameList);
-                Iterator it = frameList.iterator();
-                while (it.hasNext()) {
-                    FrameRateListener.FrameReplay frameReplay = (FrameRateListener.FrameReplay) it.next();
+                for (FrameRateListener.FrameReplay frameReplay : frameList) {
                     doReplayInner(frameReplay.getTopPage(), frameReplay.getStartNs(), frameReplay.getEndNs(), frameReplay.getDropFrame(), frameReplay.isVsyncFrame(), frameReplay.getInputCostNs(), frameReplay.getAnimationCostNs(), frameReplay.getTraversalCostNs());
                 }
             }
@@ -217,12 +216,12 @@ public final class FpsTracer extends Tracer {
                 return;
             }
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
-            ?? r8 = (FrameCollectItem) this.collectMap.get(this.scene);
-            objectRef.element = r8;
-            if (((FrameCollectItem) r8) == null) {
-                ?? frameCollectItem = new FrameCollectItem(this.this$0, this.from, this.page, this.type, this.scene, str);
-                objectRef.element = frameCollectItem;
-                this.collectMap.put(this.scene, (FrameCollectItem) frameCollectItem);
+            FrameCollectItem frameCollectItem = this.collectMap.get(this.scene);
+            objectRef.element = frameCollectItem;
+            if (frameCollectItem == null) {
+                ?? frameCollectItem2 = new FrameCollectItem(this.this$0, this.from, this.page, this.type, this.scene, str);
+                objectRef.element = frameCollectItem2;
+                this.collectMap.put(this.scene, (FrameCollectItem) frameCollectItem2);
             }
             ((FrameCollectItem) objectRef.element).collect(i);
             if (((FrameCollectItem) objectRef.element).getSumFrameCost() >= this.this$0.timeSliceMs) {
@@ -307,7 +306,7 @@ public final class FpsTracer extends Tracer {
             this.frameIntervalCost = 16.666668f;
         }
 
-        public final Object saveCsv(Continuation continuation) {
+        public final Object saveCsv(Continuation<? super Unit> continuation) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, continuation)) == null) {
@@ -503,13 +502,13 @@ public final class FpsTracer extends Tracer {
         }
         Intrinsics.checkNotNullParameter(config, "config");
         this.config = config;
-        this.listeners = new HashSet();
+        this.listeners = new HashSet<>();
         this.frameIntervalNs = FpsConstants.DEFAULT_FRAME_DURATION;
         this.timeSliceMs = this.config.getTimeSliceMs();
         if (AppConfig.isDebug()) {
             deleteCsvFileIfExist();
         }
-        this.fpsCollectorCache = new HashMap();
+        this.fpsCollectorCache = new HashMap<>();
     }
 
     public final void addListener(FrameRateListener listener) {
@@ -534,7 +533,7 @@ public final class FpsTracer extends Tracer {
             Logcat.INSTANCE.d(TAG, "[endFpsCollect] FPS disable!");
             return;
         }
-        FpsCollector fpsCollector = (FpsCollector) this.fpsCollectorCache.get(obj);
+        FpsCollector fpsCollector = this.fpsCollectorCache.get(obj);
         if (fpsCollector != null) {
             removeListener(fpsCollector);
         }
@@ -602,8 +601,8 @@ public final class FpsTracer extends Tracer {
     private final void notifyListener(final String str, final long j, final long j2, final boolean z, final long j3, final long j4, final long j5) {
         FpsTracer fpsTracer;
         long currentTimeMillis;
-        HashSet hashSet;
-        Iterator it;
+        HashSet<FrameRateListener> hashSet;
+        Iterator<FrameRateListener> it;
         final int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
@@ -614,19 +613,19 @@ public final class FpsTracer extends Tracer {
                 int i2 = (int) (j6 / fpsTracer2.frameIntervalNs);
                 fpsTracer2.droppedSum += i2;
                 fpsTracer2.durationSum += Math.max(j6, fpsTracer2.frameIntervalNs);
-                HashSet hashSet2 = fpsTracer2.listeners;
+                HashSet<FrameRateListener> hashSet2 = fpsTracer2.listeners;
                 synchronized (hashSet2) {
                     try {
-                        Iterator it2 = fpsTracer2.listeners.iterator();
+                        Iterator<FrameRateListener> it2 = fpsTracer2.listeners.iterator();
                         while (it2.hasNext()) {
                             try {
-                                final FrameRateListener frameRateListener = (FrameRateListener) it2.next();
-                                if (frameRateListener.getExecutor() != null) {
-                                    if (frameRateListener.getIntervalFrameReplay() > 0) {
+                                final FrameRateListener next = it2.next();
+                                if (next.getExecutor() != null) {
+                                    if (next.getIntervalFrameReplay() > 0) {
                                         i = i2;
                                         hashSet = hashSet2;
                                         try {
-                                            frameRateListener.collect(str, j, j2, i2, z, j3, j4, j5);
+                                            next.collect(str, j, j2, i2, z, j3, j4, j5);
                                             it = it2;
                                         } catch (Throwable th) {
                                             th = th;
@@ -646,10 +645,10 @@ public final class FpsTracer extends Tracer {
                                         i = i2;
                                         hashSet = hashSet2;
                                         try {
-                                            Executor executor = frameRateListener.getExecutor();
+                                            Executor executor = next.getExecutor();
                                             Intrinsics.checkNotNull(executor);
                                             it = it2;
-                                            executor.execute(new Runnable(frameRateListener, this, str, j, j2, i, z, j3, j4, j5) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$notifyListener$$inlined$synchronized$lambda$1
+                                            executor.execute(new Runnable(next, this, str, j, j2, i, z, j3, j4, j5) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$notifyListener$$inlined$synchronized$lambda$1
                                                 public static /* synthetic */ Interceptable $ic;
                                                 public final /* synthetic */ long $animationCostNs$inlined;
                                                 public final /* synthetic */ int $dropFrame$inlined;
@@ -668,7 +667,7 @@ public final class FpsTracer extends Tracer {
                                                     if (interceptable2 != null) {
                                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                                         newInitContext.initArgs = r4;
-                                                        Object[] objArr = {frameRateListener, this, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
+                                                        Object[] objArr = {next, this, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
                                                         interceptable2.invokeUnInit(65536, newInitContext);
                                                         int i3 = newInitContext.flag;
                                                         if ((i3 & 1) != 0) {
@@ -678,7 +677,7 @@ public final class FpsTracer extends Tracer {
                                                             return;
                                                         }
                                                     }
-                                                    this.$listener = frameRateListener;
+                                                    this.$listener = next;
                                                     this.this$0 = this;
                                                     this.$scene$inlined = str;
                                                     this.$startNs$inlined = j;
@@ -708,7 +707,7 @@ public final class FpsTracer extends Tracer {
                                     it = it2;
                                     i = i2;
                                     hashSet = hashSet2;
-                                    frameRateListener.doFrameSync(str, j, j2, i, z, j3, j4, j5);
+                                    next.doFrameSync(str, j, j2, i, z, j3, j4, j5);
                                 }
                                 fpsTracer2 = this;
                                 i2 = i;
@@ -761,7 +760,7 @@ public final class FpsTracer extends Tracer {
                 Logcat.INSTANCE.d(TAG, "[beginFpsCollect] FPS disable!");
                 return generateCollectorKey;
             }
-            FpsCollector fpsCollector = (FpsCollector) this.fpsCollectorCache.get(generateCollectorKey);
+            FpsCollector fpsCollector = this.fpsCollectorCache.get(generateCollectorKey);
             if (fpsCollector == null) {
                 fpsCollector = new FpsCollector(this);
                 fpsCollector.setStatParams(from, page, type);

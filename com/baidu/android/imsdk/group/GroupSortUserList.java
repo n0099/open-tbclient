@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.group;
 
+import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,9 +13,9 @@ public class GroupSortUserList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mSort;
-    public List mUsers;
+    public List<ChatUser> mUsers;
 
-    public GroupSortUserList(List list, int i) {
+    public GroupSortUserList(List<ChatUser> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +44,7 @@ public class GroupSortUserList {
         return invokeV.intValue;
     }
 
-    public List getUsers() {
+    public List<ChatUser> getUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

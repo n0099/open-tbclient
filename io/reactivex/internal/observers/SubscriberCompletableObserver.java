@@ -11,11 +11,11 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SubscriberCompletableObserver implements CompletableObserver, Subscription {
+public final class SubscriberCompletableObserver<T> implements CompletableObserver, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Disposable d;
-    public final Subscriber subscriber;
+    public final Subscriber<? super T> subscriber;
 
     @Override // org.reactivestreams.Subscription
     public void request(long j) {
@@ -24,7 +24,7 @@ public final class SubscriberCompletableObserver implements CompletableObserver,
         }
     }
 
-    public SubscriberCompletableObserver(Subscriber subscriber) {
+    public SubscriberCompletableObserver(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -13,6 +13,10 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.TooltipCompat;
@@ -35,26 +39,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.badge.BadgeUtils;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class BottomNavigationItemView extends FrameLayout implements MenuView.ItemView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKED_STATE_SET;
     public static final int INVALID_ITEM_POSITION = -1;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public BadgeDrawable badgeDrawable;
     public final int defaultMargin;
     public ImageView icon;
+    @Nullable
     public ColorStateList iconTint;
     public boolean isShifting;
+    @Nullable
     public MenuItemImpl itemData;
     public int itemPosition;
     public int labelVisibilityMode;
     public final TextView largeLabel;
+    @Nullable
     public Drawable originalIconDrawable;
     public float scaleDownFactor;
     public float scaleUpFactor;
     public float shiftAmount;
     public final TextView smallLabel;
+    @Nullable
     public Drawable wrappedIconDrawable;
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
@@ -112,6 +122,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         return invokeV.booleanValue;
     }
 
+    @Nullable
     public BadgeDrawable getBadge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,7 +159,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BottomNavigationItemView(Context context) {
+    public BottomNavigationItemView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -185,7 +196,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setIcon(Drawable drawable) {
+    public void setIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048588, this, drawable) != null) || drawable == this.originalIconDrawable) {
             return;
@@ -225,7 +236,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BottomNavigationItemView(Context context, AttributeSet attributeSet) {
+    public BottomNavigationItemView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -246,7 +257,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomNavigationItemView(Context context, AttributeSet attributeSet, int i) {
+    public BottomNavigationItemView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -266,12 +277,12 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
         this.itemPosition = -1;
         Resources resources = getResources();
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0213, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0215, (ViewGroup) this, true);
         setBackgroundResource(R.drawable.obfuscated_res_0x7f08048b);
         this.defaultMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb);
-        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e14);
-        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091f06);
-        this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f09124a);
+        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e43);
+        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091f51);
+        this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091285);
         ViewCompat.setImportantForAccessibility(this.smallLabel, 2);
         ViewCompat.setImportantForAccessibility(this.largeLabel, 2);
         setFocusable(true);
@@ -313,6 +324,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
     }
 
+    @Nullable
     private FrameLayout getCustomParentForBadge(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -326,7 +338,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         return (FrameLayout) invokeL.objValue;
     }
 
-    private void tryAttachBadgeToAnchor(View view2) {
+    private void tryAttachBadgeToAnchor(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, this, view2) == null) && hasBadge() && view2 != null) {
             setClipChildren(false);
@@ -335,7 +347,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
     }
 
-    private void tryRemoveBadgeFromAnchor(View view2) {
+    private void tryRemoveBadgeFromAnchor(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65548, this, view2) != null) || !hasBadge()) {
             return;
@@ -372,7 +384,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         return (int[]) invokeI.objValue;
     }
 
-    public void setBadge(BadgeDrawable badgeDrawable) {
+    public void setBadge(@NonNull BadgeDrawable badgeDrawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, badgeDrawable) == null) {
             this.badgeDrawable = badgeDrawable;
@@ -465,7 +477,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
     }
 
-    public void setTextAppearanceActive(int i) {
+    public void setTextAppearanceActive(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             TextViewCompat.setTextAppearance(this.largeLabel, i);
@@ -473,7 +485,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
     }
 
-    public void setTextAppearanceInactive(int i) {
+    public void setTextAppearanceInactive(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             TextViewCompat.setTextAppearance(this.smallLabel, i);
@@ -481,7 +493,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
     }
 
-    public void setTextColor(ColorStateList colorStateList) {
+    public void setTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048599, this, colorStateList) == null) && colorStateList != null) {
             this.smallLabel.setTextColor(colorStateList);
@@ -498,7 +510,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
     }
 
-    private void setViewLayoutParams(View view2, int i, int i2) {
+    private void setViewLayoutParams(@NonNull View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65545, this, view2, i, i2) == null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
@@ -508,7 +520,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
     }
 
-    private void setViewValues(View view2, float f, float f2, int i) {
+    private void setViewValues(@NonNull View view2, float f, float f2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i)}) == null) {
             view2.setScaleX(f);
@@ -518,7 +530,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void initialize(MenuItemImpl menuItemImpl, int i) {
+    public void initialize(@NonNull MenuItemImpl menuItemImpl, int i) {
         CharSequence title;
         int i2;
         Interceptable interceptable = $ic;
@@ -549,7 +561,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
     }
 
     @Override // android.view.View
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+    public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accessibilityNodeInfo) == null) {
             super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
@@ -567,7 +579,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
                 wrap.setClickable(false);
                 wrap.removeAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
             }
-            wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f09bc));
+            wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f09c8));
         }
     }
 
@@ -642,7 +654,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         }
     }
 
-    public void setItemBackground(Drawable drawable) {
+    public void setItemBackground(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, drawable) == null) {
             if (drawable != null && drawable.getConstantState() != null) {

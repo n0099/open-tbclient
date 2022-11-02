@@ -43,7 +43,7 @@ public class b {
         a.a().a(com.ss.android.socialbase.downloader.g.a.c().a("preconnect_max_cache_size", 3));
     }
 
-    public static List b(long j, DownloadInfo downloadInfo, List list) {
+    public static List<com.ss.android.socialbase.downloader.model.c> b(long j, DownloadInfo downloadInfo, List<com.ss.android.socialbase.downloader.model.c> list) {
         String str;
         if (downloadInfo == null) {
             str = null;
@@ -61,7 +61,7 @@ public class b {
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         try {
-                            List b2 = b.b(0L, null, null);
+                            List<com.ss.android.socialbase.downloader.model.c> b2 = b.b(0L, null, null);
                             if (a.a().a(str)) {
                                 cVar = a.a().a(str, b2);
                             }
@@ -88,7 +88,7 @@ public class b {
                                     throw th;
                                 }
                             }
-                            Map i = cVar.i();
+                            Map<String, String> i = cVar.i();
                             if (jVar != null) {
                                 jVar.a(i);
                             }

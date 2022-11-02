@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.impl;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
@@ -21,7 +20,6 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
@@ -40,10 +38,10 @@ public class H5PayManager {
     public static final String TAG = "H5PayManager";
     public static H5PayManager instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference mAct;
+    public WeakReference<Activity> mAct;
     public IH5PayActivityVisit mH5PayActivityVisit;
     public Handler mHandler;
-    public Map mOrderVerifyTaskMap;
+    public Map<String, H5PayVerifyTask> mOrderVerifyTaskMap;
     public Class mPayWebViewActivityClass;
     public String mReadyVerifyOrderId;
 
@@ -123,7 +121,7 @@ public class H5PayManager {
         if (interceptable == null || interceptable.invokeLLL(65539, this, activity, str, h5PayParams) == null) {
             synchronized (this) {
                 setReadyOrderId(str, h5PayParams);
-                WeakReference weakReference = new WeakReference(activity);
+                WeakReference<Activity> weakReference = new WeakReference<>(activity);
                 this.mAct = weakReference;
                 if (weakReference != null && weakReference.get() != null) {
                     if (this.mPayWebViewActivityClass == null) {
@@ -132,7 +130,7 @@ public class H5PayManager {
                         return;
                     }
                     try {
-                        Intent intent = new Intent((Context) this.mAct.get(), this.mPayWebViewActivityClass);
+                        Intent intent = new Intent(this.mAct.get(), this.mPayWebViewActivityClass);
                         if (h5PayParams.payType != null) {
                             payType = h5PayParams.payType;
                         } else {
@@ -159,7 +157,7 @@ public class H5PayManager {
                             if (this.mH5PayActivityVisit != null) {
                                 this.mH5PayActivityVisit.notifyPayFlowActivityVisit("H5Pay:" + str, h5PayParams.appId, h5PayParams.usedChannel, h5PayParams.payFlowTypeId);
                             }
-                            ((Activity) this.mAct.get()).startActivity(intent);
+                            this.mAct.get().startActivity(intent);
                         } else {
                             removeOrderVerifyTask(str);
                             RLog.error(TAG, "dopay error mAct.get() null", new Object[0]);
@@ -223,7 +221,7 @@ public class H5PayManager {
                 currencyChargeMessage.cid = h5PayParams.cid;
                 currencyChargeMessage.appClientExpand = h5PayParams.appClientExpand;
                 if (getChargeOrderStatusResult.giftbags != null && getChargeOrderStatusResult.giftbags.size() > 0) {
-                    currencyChargeMessage.giftBagsInfo = (GiftBagsInfo) getChargeOrderStatusResult.giftbags.get(0);
+                    currencyChargeMessage.giftBagsInfo = getChargeOrderStatusResult.giftbags.get(0);
                 }
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     h5PayParams.payServiceCallback.onCurrencyChargeMessage(currencyChargeMessage);
@@ -331,7 +329,7 @@ public class H5PayManager {
     public void verifyOrder(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
-            H5PayVerifyTask h5PayVerifyTask = (H5PayVerifyTask) this.mOrderVerifyTaskMap.get(str);
+            H5PayVerifyTask h5PayVerifyTask = this.mOrderVerifyTaskMap.get(str);
             H5PayParams h5PayParams = h5PayVerifyTask.h5PayParams;
             if (h5PayParams == null) {
                 RLog.error(TAG, "verifyOrder error payParams null orderId:" + str, new Object[0]);
@@ -345,7 +343,7 @@ public class H5PayManager {
             getChargeOrderStatusReqParams.setOrderId(str);
             getChargeOrderStatusReqParams.setToken(h5PayParams.token);
             getChargeOrderStatusReqParams.setTokenCallback(h5PayParams.tokenCallback);
-            h5PayParams.appPayService.queryChargeOrderStatus(getChargeOrderStatusReqParams, new IResult(this, str, h5PayVerifyTask) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.3
+            h5PayParams.appPayService.queryChargeOrderStatus(getChargeOrderStatusReqParams, new IResult<GetChargeOrderStatusResult>(this, str, h5PayVerifyTask) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ H5PayManager this$0;

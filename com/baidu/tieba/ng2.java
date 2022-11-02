@@ -1,30 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ng2 {
+public class ng2 extends ec3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static lg2 a(SwanAppActivity swanAppActivity, m33 m33Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ic3
+    public long getMaxSize() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, m33Var)) == null) {
-            if (m33Var == null || !m33Var.I()) {
-                return null;
-            }
-            int k = m33Var.k();
-            if (k != 0) {
-                if (k != 1) {
-                    return null;
-                }
-                return um2.i().n(swanAppActivity, m33Var.b);
-            }
-            return new og2(swanAppActivity, m33Var.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 52428800L;
         }
-        return (lg2) invokeLL.objValue;
+        return invokeV.longValue;
+    }
+
+    public ng2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ec3
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return og2.p();
+        }
+        return (String) invokeV.objValue;
     }
 }

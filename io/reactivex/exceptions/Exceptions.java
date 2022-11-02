@@ -5,6 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.util.ExceptionHelper;
 /* loaded from: classes8.dex */
 public final class Exceptions {
@@ -27,7 +28,8 @@ public final class Exceptions {
         throw new IllegalStateException("No instances!");
     }
 
-    public static RuntimeException propagate(Throwable th) {
+    @NonNull
+    public static RuntimeException propagate(@NonNull Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
@@ -36,7 +38,7 @@ public final class Exceptions {
         return (RuntimeException) invokeL.objValue;
     }
 
-    public static void throwIfFatal(Throwable th) {
+    public static void throwIfFatal(@NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
             if (!(th instanceof VirtualMachineError)) {

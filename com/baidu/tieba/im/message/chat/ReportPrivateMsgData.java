@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ReportPrivateMsgData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ReportPrivateMsgData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String content;
     public String msgId;
@@ -30,7 +30,7 @@ public class ReportPrivateMsgData implements Parcelable {
     }
 
     /* loaded from: classes4.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<ReportPrivateMsgData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

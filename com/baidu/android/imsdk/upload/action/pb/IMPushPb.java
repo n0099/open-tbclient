@@ -18,7 +18,6 @@ import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.Internal;
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
 import java.io.IOException;
@@ -34,7 +33,7 @@ public final class IMPushPb {
 
     /* renamed from: com.baidu.android.imsdk.upload.action.pb.IMPushPb$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -462,7 +461,7 @@ public final class IMPushPb {
 
         int getActionsCount();
 
-        List getActionsList();
+        List<Action> getActionsList();
 
         Common getCommon();
 
@@ -616,11 +615,11 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class Ack extends GeneratedMessageLite implements AckOrBuilder {
+    public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 5;
         public static final int EXT_FIELD_NUMBER = 4;
-        public static Parser PARSER = null;
+        public static Parser<Ack> PARSER = null;
         public static final int TIMESTAMP_FIELD_NUMBER = 3;
         public static final int TYPE_FIELD_NUMBER = 1;
         public static final int VALUE_FIELD_NUMBER = 2;
@@ -637,7 +636,7 @@ public final class IMPushPb {
         public Object value_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements AckOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long aliasId_;
@@ -1070,18 +1069,18 @@ public final class IMPushPb {
                     Ack ack = null;
                     try {
                         try {
-                            Ack ack2 = (Ack) Ack.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (ack2 != null) {
-                                mergeFrom(ack2);
+                            Ack parsePartialFrom = Ack.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Ack ack3 = (Ack) e.getUnfinishedMessage();
+                            Ack ack2 = (Ack) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                ack = ack3;
+                                ack = ack2;
                                 if (ack != null) {
                                 }
                                 throw th;
@@ -1218,7 +1217,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ack.1
+            PARSER = new AbstractParser<Ack>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ack.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1338,7 +1337,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Ack> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -1640,7 +1639,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) {
-                return (Ack) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Ack) invokeLL.objValue;
         }
@@ -1649,7 +1648,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, byteString, extensionRegistryLite)) == null) {
-                return (Ack) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Ack) invokeLL.objValue;
         }
@@ -1686,7 +1685,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
-                return (Ack) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Ack) invokeL.objValue;
         }
@@ -1695,7 +1694,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, byteString)) == null) {
-                return (Ack) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Ack) invokeL.objValue;
         }
@@ -1704,7 +1703,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, codedInputStream)) == null) {
-                return (Ack) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Ack) invokeL.objValue;
         }
@@ -1713,7 +1712,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Ack) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Ack) invokeLL.objValue;
         }
@@ -1722,7 +1721,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, inputStream)) == null) {
-                return (Ack) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Ack) invokeL.objValue;
         }
@@ -1731,7 +1730,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, inputStream, extensionRegistryLite)) == null) {
-                return (Ack) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Ack) invokeLL.objValue;
         }
@@ -1740,7 +1739,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) {
-                return (Ack) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Ack) invokeL.objValue;
         }
@@ -1749,7 +1748,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, bArr, extensionRegistryLite)) == null) {
-                return (Ack) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Ack) invokeLL.objValue;
         }
@@ -1810,7 +1809,7 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class Action extends GeneratedMessageLite implements ActionOrBuilder {
+    public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACK_FIELD_NUMBER = 7;
         public static final int ACTION_TYPE_FIELD_NUMBER = 1;
@@ -1819,7 +1818,7 @@ public final class IMPushPb {
         public static final int DB_FIELD_NUMBER = 4;
         public static final int MSG_FIELD_NUMBER = 8;
         public static final int NEW_CONNECTION_FIELD_NUMBER = 9;
-        public static Parser PARSER = null;
+        public static Parser<Action> PARSER = null;
         public static final int REQUEST_FIELD_NUMBER = 6;
         public static final int UI_FIELD_NUMBER = 2;
         public static final Action defaultInstance;
@@ -1839,7 +1838,7 @@ public final class IMPushPb {
         public Ui ui_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements ActionOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Ack ack_;
@@ -2501,18 +2500,18 @@ public final class IMPushPb {
                     Action action = null;
                     try {
                         try {
-                            Action action2 = (Action) Action.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (action2 != null) {
-                                mergeFrom(action2);
+                            Action parsePartialFrom = Action.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Action action3 = (Action) e.getUnfinishedMessage();
+                            Action action2 = (Action) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                action = action3;
+                                action = action2;
                                 if (action != null) {
                                 }
                                 throw th;
@@ -2757,7 +2756,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Action.1
+            PARSER = new AbstractParser<Action>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Action.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2891,7 +2890,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Action> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -3088,6 +3087,7 @@ public final class IMPushPb {
         }
 
         public Action(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            GeneratedMessageLite.Builder builder;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3123,7 +3123,7 @@ public final class IMPushPb {
                                                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                                                 }
                                                             } else {
-                                                                NewConnection.Builder builder = (this.bitField0_ & 256) == 256 ? this.newConnection_.toBuilder() : null;
+                                                                builder = (this.bitField0_ & 256) == 256 ? this.newConnection_.toBuilder() : null;
                                                                 NewConnection newConnection = (NewConnection) codedInputStream.readMessage(NewConnection.PARSER, extensionRegistryLite);
                                                                 this.newConnection_ = newConnection;
                                                                 if (builder != null) {
@@ -3133,72 +3133,72 @@ public final class IMPushPb {
                                                                 this.bitField0_ |= 256;
                                                             }
                                                         } else {
-                                                            Msg.Builder builder2 = (this.bitField0_ & 128) == 128 ? this.msg_.toBuilder() : null;
+                                                            builder = (this.bitField0_ & 128) == 128 ? this.msg_.toBuilder() : null;
                                                             Msg msg = (Msg) codedInputStream.readMessage(Msg.PARSER, extensionRegistryLite);
                                                             this.msg_ = msg;
-                                                            if (builder2 != null) {
-                                                                builder2.mergeFrom(msg);
-                                                                this.msg_ = builder2.buildPartial();
+                                                            if (builder != null) {
+                                                                builder.mergeFrom(msg);
+                                                                this.msg_ = builder.buildPartial();
                                                             }
                                                             this.bitField0_ |= 128;
                                                         }
                                                     } else {
-                                                        Ack.Builder builder3 = (this.bitField0_ & 64) == 64 ? this.ack_.toBuilder() : null;
+                                                        builder = (this.bitField0_ & 64) == 64 ? this.ack_.toBuilder() : null;
                                                         Ack ack = (Ack) codedInputStream.readMessage(Ack.PARSER, extensionRegistryLite);
                                                         this.ack_ = ack;
-                                                        if (builder3 != null) {
-                                                            builder3.mergeFrom(ack);
-                                                            this.ack_ = builder3.buildPartial();
+                                                        if (builder != null) {
+                                                            builder.mergeFrom(ack);
+                                                            this.ack_ = builder.buildPartial();
                                                         }
                                                         this.bitField0_ |= 64;
                                                     }
                                                 } else {
-                                                    Request.Builder builder4 = (this.bitField0_ & 32) == 32 ? this.request_.toBuilder() : null;
+                                                    builder = (this.bitField0_ & 32) == 32 ? this.request_.toBuilder() : null;
                                                     Request request = (Request) codedInputStream.readMessage(Request.PARSER, extensionRegistryLite);
                                                     this.request_ = request;
-                                                    if (builder4 != null) {
-                                                        builder4.mergeFrom(request);
-                                                        this.request_ = builder4.buildPartial();
+                                                    if (builder != null) {
+                                                        builder.mergeFrom(request);
+                                                        this.request_ = builder.buildPartial();
                                                     }
                                                     this.bitField0_ |= 32;
                                                 }
                                             } else {
-                                                Connection.Builder builder5 = (this.bitField0_ & 16) == 16 ? this.connection_.toBuilder() : null;
+                                                builder = (this.bitField0_ & 16) == 16 ? this.connection_.toBuilder() : null;
                                                 Connection connection = (Connection) codedInputStream.readMessage(Connection.PARSER, extensionRegistryLite);
                                                 this.connection_ = connection;
-                                                if (builder5 != null) {
-                                                    builder5.mergeFrom(connection);
-                                                    this.connection_ = builder5.buildPartial();
+                                                if (builder != null) {
+                                                    builder.mergeFrom(connection);
+                                                    this.connection_ = builder.buildPartial();
                                                 }
                                                 this.bitField0_ |= 16;
                                             }
                                         } else {
-                                            Db.Builder builder6 = (this.bitField0_ & 8) == 8 ? this.db_.toBuilder() : null;
+                                            builder = (this.bitField0_ & 8) == 8 ? this.db_.toBuilder() : null;
                                             Db db = (Db) codedInputStream.readMessage(Db.PARSER, extensionRegistryLite);
                                             this.db_ = db;
-                                            if (builder6 != null) {
-                                                builder6.mergeFrom(db);
-                                                this.db_ = builder6.buildPartial();
+                                            if (builder != null) {
+                                                builder.mergeFrom(db);
+                                                this.db_ = builder.buildPartial();
                                             }
                                             this.bitField0_ |= 8;
                                         }
                                     } else {
-                                        Crash.Builder builder7 = (this.bitField0_ & 4) == 4 ? this.crash_.toBuilder() : null;
+                                        builder = (this.bitField0_ & 4) == 4 ? this.crash_.toBuilder() : null;
                                         Crash crash = (Crash) codedInputStream.readMessage(Crash.PARSER, extensionRegistryLite);
                                         this.crash_ = crash;
-                                        if (builder7 != null) {
-                                            builder7.mergeFrom(crash);
-                                            this.crash_ = builder7.buildPartial();
+                                        if (builder != null) {
+                                            builder.mergeFrom(crash);
+                                            this.crash_ = builder.buildPartial();
                                         }
                                         this.bitField0_ |= 4;
                                     }
                                 } else {
-                                    Ui.Builder builder8 = (this.bitField0_ & 2) == 2 ? this.ui_.toBuilder() : null;
+                                    builder = (this.bitField0_ & 2) == 2 ? this.ui_.toBuilder() : null;
                                     Ui ui = (Ui) codedInputStream.readMessage(Ui.PARSER, extensionRegistryLite);
                                     this.ui_ = ui;
-                                    if (builder8 != null) {
-                                        builder8.mergeFrom(ui);
-                                        this.ui_ = builder8.buildPartial();
+                                    if (builder != null) {
+                                        builder.mergeFrom(ui);
+                                        this.ui_ = builder.buildPartial();
                                     }
                                     this.bitField0_ |= 2;
                                 }
@@ -3256,7 +3256,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, inputStream, extensionRegistryLite)) == null) {
-                return (Action) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
         }
@@ -3265,7 +3265,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, byteString, extensionRegistryLite)) == null) {
-                return (Action) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
         }
@@ -3317,7 +3317,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, inputStream)) == null) {
-                return (Action) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Action) invokeL.objValue;
         }
@@ -3326,7 +3326,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, byteString)) == null) {
-                return (Action) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Action) invokeL.objValue;
         }
@@ -3335,7 +3335,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, codedInputStream)) == null) {
-                return (Action) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Action) invokeL.objValue;
         }
@@ -3344,7 +3344,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Action) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
         }
@@ -3353,7 +3353,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, inputStream)) == null) {
-                return (Action) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Action) invokeL.objValue;
         }
@@ -3362,7 +3362,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, inputStream, extensionRegistryLite)) == null) {
-                return (Action) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
         }
@@ -3371,7 +3371,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, bArr)) == null) {
-                return (Action) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Action) invokeL.objValue;
         }
@@ -3380,7 +3380,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, bArr, extensionRegistryLite)) == null) {
-                return (Action) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Action) invokeLL.objValue;
         }
@@ -3465,12 +3465,12 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
+    public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_CHANNEL_FIELD_NUMBER = 3;
         public static final int APP_NAME_FIELD_NUMBER = 1;
         public static final int APP_VERSION_FIELD_NUMBER = 2;
-        public static Parser PARSER;
+        public static Parser<AppInfo> PARSER;
         public static final AppInfo defaultInstance;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3482,7 +3482,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements AppInfoOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Object appChannel_;
@@ -3825,18 +3825,18 @@ public final class IMPushPb {
                     AppInfo appInfo = null;
                     try {
                         try {
-                            AppInfo appInfo2 = (AppInfo) AppInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (appInfo2 != null) {
-                                mergeFrom(appInfo2);
+                            AppInfo parsePartialFrom = AppInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            AppInfo appInfo3 = (AppInfo) e.getUnfinishedMessage();
+                            AppInfo appInfo2 = (AppInfo) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                appInfo = appInfo3;
+                                appInfo = appInfo2;
                                 if (appInfo != null) {
                                 }
                                 throw th;
@@ -3951,7 +3951,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfo.1
+            PARSER = new AbstractParser<AppInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfo.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -4129,7 +4129,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<AppInfo> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -4332,7 +4332,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, inputStream, extensionRegistryLite)) == null) {
-                return (AppInfo) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (AppInfo) invokeLL.objValue;
         }
@@ -4341,7 +4341,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, byteString, extensionRegistryLite)) == null) {
-                return (AppInfo) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (AppInfo) invokeLL.objValue;
         }
@@ -4378,7 +4378,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, inputStream)) == null) {
-                return (AppInfo) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (AppInfo) invokeL.objValue;
         }
@@ -4387,7 +4387,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, byteString)) == null) {
-                return (AppInfo) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (AppInfo) invokeL.objValue;
         }
@@ -4396,7 +4396,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, codedInputStream)) == null) {
-                return (AppInfo) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (AppInfo) invokeL.objValue;
         }
@@ -4405,7 +4405,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (AppInfo) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (AppInfo) invokeLL.objValue;
         }
@@ -4414,7 +4414,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, inputStream)) == null) {
-                return (AppInfo) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (AppInfo) invokeL.objValue;
         }
@@ -4423,7 +4423,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, inputStream, extensionRegistryLite)) == null) {
-                return (AppInfo) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (AppInfo) invokeLL.objValue;
         }
@@ -4432,7 +4432,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, bArr)) == null) {
-                return (AppInfo) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (AppInfo) invokeL.objValue;
         }
@@ -4441,7 +4441,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, bArr, extensionRegistryLite)) == null) {
-                return (AppInfo) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (AppInfo) invokeLL.objValue;
         }
@@ -4473,13 +4473,13 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class Common extends GeneratedMessageLite implements CommonOrBuilder {
+    public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_INFO_FIELD_NUMBER = 21;
         public static final int DEVICE_ID_FIELD_NUMBER = 7;
         public static final int MODULE_NAME_FIELD_NUMBER = 2;
         public static final int NET_INFO_FIELD_NUMBER = 22;
-        public static Parser PARSER = null;
+        public static Parser<Common> PARSER = null;
         public static final int PRODUCT_NAME_FIELD_NUMBER = 1;
         public static final int TERMINAL_INFO_FIELD_NUMBER = 20;
         public static final int TIMESTAMP_FIELD_NUMBER = 10;
@@ -4500,7 +4500,7 @@ public final class IMPushPb {
         public long userTimestamp_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements CommonOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public AppInfo appInfo_;
@@ -5110,18 +5110,18 @@ public final class IMPushPb {
                     Common common2 = null;
                     try {
                         try {
-                            Common common3 = (Common) Common.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (common3 != null) {
-                                mergeFrom(common3);
+                            Common parsePartialFrom = Common.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Common common4 = (Common) e.getUnfinishedMessage();
+                            Common common3 = (Common) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                common2 = common4;
+                                common2 = common3;
                                 if (common2 != null) {
                                 }
                                 throw th;
@@ -5330,7 +5330,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Common.1
+            PARSER = new AbstractParser<Common>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Common.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -5459,7 +5459,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Common> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -5670,6 +5670,7 @@ public final class IMPushPb {
         }
 
         public Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            GeneratedMessageLite.Builder builder;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -5704,7 +5705,7 @@ public final class IMPushPb {
                                                             if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                                             }
                                                         } else {
-                                                            NetInfo.Builder builder = (this.bitField0_ & 128) == 128 ? this.netInfo_.toBuilder() : null;
+                                                            builder = (this.bitField0_ & 128) == 128 ? this.netInfo_.toBuilder() : null;
                                                             NetInfo netInfo = (NetInfo) codedInputStream.readMessage(NetInfo.PARSER, extensionRegistryLite);
                                                             this.netInfo_ = netInfo;
                                                             if (builder != null) {
@@ -5714,22 +5715,22 @@ public final class IMPushPb {
                                                             this.bitField0_ |= 128;
                                                         }
                                                     } else {
-                                                        AppInfo.Builder builder2 = (this.bitField0_ & 64) == 64 ? this.appInfo_.toBuilder() : null;
+                                                        builder = (this.bitField0_ & 64) == 64 ? this.appInfo_.toBuilder() : null;
                                                         AppInfo appInfo = (AppInfo) codedInputStream.readMessage(AppInfo.PARSER, extensionRegistryLite);
                                                         this.appInfo_ = appInfo;
-                                                        if (builder2 != null) {
-                                                            builder2.mergeFrom(appInfo);
-                                                            this.appInfo_ = builder2.buildPartial();
+                                                        if (builder != null) {
+                                                            builder.mergeFrom(appInfo);
+                                                            this.appInfo_ = builder.buildPartial();
                                                         }
                                                         this.bitField0_ |= 64;
                                                     }
                                                 } else {
-                                                    TerminalInfo.Builder builder3 = (this.bitField0_ & 32) == 32 ? this.terminalInfo_.toBuilder() : null;
+                                                    builder = (this.bitField0_ & 32) == 32 ? this.terminalInfo_.toBuilder() : null;
                                                     TerminalInfo terminalInfo = (TerminalInfo) codedInputStream.readMessage(TerminalInfo.PARSER, extensionRegistryLite);
                                                     this.terminalInfo_ = terminalInfo;
-                                                    if (builder3 != null) {
-                                                        builder3.mergeFrom(terminalInfo);
-                                                        this.terminalInfo_ = builder3.buildPartial();
+                                                    if (builder != null) {
+                                                        builder.mergeFrom(terminalInfo);
+                                                        this.terminalInfo_ = builder.buildPartial();
                                                     }
                                                     this.bitField0_ |= 32;
                                                 }
@@ -5742,12 +5743,12 @@ public final class IMPushPb {
                                             this.timestamp_ = codedInputStream.readInt64();
                                         }
                                     } else {
-                                        DeviceID.Builder builder4 = (this.bitField0_ & 4) == 4 ? this.deviceId_.toBuilder() : null;
+                                        builder = (this.bitField0_ & 4) == 4 ? this.deviceId_.toBuilder() : null;
                                         DeviceID deviceID = (DeviceID) codedInputStream.readMessage(DeviceID.PARSER, extensionRegistryLite);
                                         this.deviceId_ = deviceID;
-                                        if (builder4 != null) {
-                                            builder4.mergeFrom(deviceID);
-                                            this.deviceId_ = builder4.buildPartial();
+                                        if (builder != null) {
+                                            builder.mergeFrom(deviceID);
+                                            this.deviceId_ = builder.buildPartial();
                                         }
                                         this.bitField0_ |= 4;
                                     }
@@ -5806,7 +5807,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
-                return (Common) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Common) invokeLL.objValue;
         }
@@ -5815,7 +5816,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, byteString, extensionRegistryLite)) == null) {
-                return (Common) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Common) invokeLL.objValue;
         }
@@ -5852,7 +5853,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
-                return (Common) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Common) invokeL.objValue;
         }
@@ -5861,7 +5862,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, byteString)) == null) {
-                return (Common) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Common) invokeL.objValue;
         }
@@ -5909,7 +5910,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, codedInputStream)) == null) {
-                return (Common) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Common) invokeL.objValue;
         }
@@ -5918,7 +5919,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Common) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Common) invokeLL.objValue;
         }
@@ -5927,7 +5928,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, inputStream)) == null) {
-                return (Common) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Common) invokeL.objValue;
         }
@@ -5936,7 +5937,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, inputStream, extensionRegistryLite)) == null) {
-                return (Common) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Common) invokeLL.objValue;
         }
@@ -5945,7 +5946,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, bArr)) == null) {
-                return (Common) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Common) invokeL.objValue;
         }
@@ -5954,7 +5955,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, bArr, extensionRegistryLite)) == null) {
-                return (Common) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Common) invokeLL.objValue;
         }
@@ -6033,11 +6034,11 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
+    public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int EXT_FIELD_NUMBER = 6;
-        public static Parser PARSER = null;
+        public static Parser<Connection> PARSER = null;
         public static final int REASON_FIELD_NUMBER = 3;
         public static final int RETRY_COUNT_FIELD_NUMBER = 5;
         public static final int RETRY_TIME_FIELD_NUMBER = 4;
@@ -6058,7 +6059,7 @@ public final class IMPushPb {
         public long stopTime_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements ConnectionOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long aliasId_;
@@ -6557,18 +6558,18 @@ public final class IMPushPb {
                     Connection connection = null;
                     try {
                         try {
-                            Connection connection2 = (Connection) Connection.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (connection2 != null) {
-                                mergeFrom(connection2);
+                            Connection parsePartialFrom = Connection.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Connection connection3 = (Connection) e.getUnfinishedMessage();
+                            Connection connection2 = (Connection) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                connection = connection3;
+                                connection = connection2;
                                 if (connection != null) {
                                 }
                                 throw th;
@@ -6710,7 +6711,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Connection.1
+            PARSER = new AbstractParser<Connection>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Connection.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -6832,7 +6833,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Connection> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -7165,7 +7166,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, inputStream, extensionRegistryLite)) == null) {
-                return (Connection) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Connection) invokeLL.objValue;
         }
@@ -7174,7 +7175,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, byteString, extensionRegistryLite)) == null) {
-                return (Connection) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Connection) invokeLL.objValue;
         }
@@ -7211,7 +7212,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, inputStream)) == null) {
-                return (Connection) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Connection) invokeL.objValue;
         }
@@ -7220,7 +7221,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, byteString)) == null) {
-                return (Connection) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Connection) invokeL.objValue;
         }
@@ -7229,7 +7230,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, codedInputStream)) == null) {
-                return (Connection) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Connection) invokeL.objValue;
         }
@@ -7238,7 +7239,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Connection) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Connection) invokeLL.objValue;
         }
@@ -7247,7 +7248,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, inputStream)) == null) {
-                return (Connection) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Connection) invokeL.objValue;
         }
@@ -7256,7 +7257,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, inputStream, extensionRegistryLite)) == null) {
-                return (Connection) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Connection) invokeLL.objValue;
         }
@@ -7265,7 +7266,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, bArr)) == null) {
-                return (Connection) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Connection) invokeL.objValue;
         }
@@ -7274,7 +7275,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, bArr, extensionRegistryLite)) == null) {
-                return (Connection) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Connection) invokeLL.objValue;
         }
@@ -7347,12 +7348,12 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
+    public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 4;
         public static final int EXCEPTION_FIELD_NUMBER = 1;
         public static final int EXT_FIELD_NUMBER = 3;
-        public static Parser PARSER = null;
+        public static Parser<Crash> PARSER = null;
         public static final int TIMESTAMP_FIELD_NUMBER = 2;
         public static final Crash defaultInstance;
         public static final long serialVersionUID = 0;
@@ -7366,7 +7367,7 @@ public final class IMPushPb {
         public long timestamp_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements CrashOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long aliasId_;
@@ -7730,18 +7731,18 @@ public final class IMPushPb {
                     Crash crash = null;
                     try {
                         try {
-                            Crash crash2 = (Crash) Crash.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (crash2 != null) {
-                                mergeFrom(crash2);
+                            Crash parsePartialFrom = Crash.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Crash crash3 = (Crash) e.getUnfinishedMessage();
+                            Crash crash2 = (Crash) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                crash = crash3;
+                                crash = crash2;
                                 if (crash != null) {
                                 }
                                 throw th;
@@ -7850,7 +7851,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Crash.1
+            PARSER = new AbstractParser<Crash>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Crash.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -8004,7 +8005,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Crash> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -8238,7 +8239,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, inputStream, extensionRegistryLite)) == null) {
-                return (Crash) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Crash) invokeLL.objValue;
         }
@@ -8247,7 +8248,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, byteString, extensionRegistryLite)) == null) {
-                return (Crash) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Crash) invokeLL.objValue;
         }
@@ -8284,7 +8285,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, inputStream)) == null) {
-                return (Crash) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Crash) invokeL.objValue;
         }
@@ -8293,7 +8294,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, byteString)) == null) {
-                return (Crash) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Crash) invokeL.objValue;
         }
@@ -8302,7 +8303,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, codedInputStream)) == null) {
-                return (Crash) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Crash) invokeL.objValue;
         }
@@ -8311,7 +8312,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Crash) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Crash) invokeLL.objValue;
         }
@@ -8320,7 +8321,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, inputStream)) == null) {
-                return (Crash) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Crash) invokeL.objValue;
         }
@@ -8329,7 +8330,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, inputStream, extensionRegistryLite)) == null) {
-                return (Crash) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Crash) invokeLL.objValue;
         }
@@ -8338,7 +8339,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, bArr)) == null) {
-                return (Crash) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Crash) invokeL.objValue;
         }
@@ -8347,7 +8348,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, bArr, extensionRegistryLite)) == null) {
-                return (Crash) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Crash) invokeLL.objValue;
         }
@@ -8382,7 +8383,7 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class Db extends GeneratedMessageLite implements DbOrBuilder {
+    public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTION_FIELD_NUMBER = 4;
         public static final int ALIAS_ID_FIELD_NUMBER = 9;
@@ -8391,7 +8392,7 @@ public final class IMPushPb {
         public static final int END_TIME_FIELD_NUMBER = 6;
         public static final int EXT_FIELD_NUMBER = 8;
         public static final int METHOD_FIELD_NUMBER = 3;
-        public static Parser PARSER = null;
+        public static Parser<Db> PARSER = null;
         public static final int START_TIME_FIELD_NUMBER = 5;
         public static final int TABLE_FIELD_NUMBER = 1;
         public static final Db defaultInstance;
@@ -8411,7 +8412,7 @@ public final class IMPushPb {
         public Object table_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements DbOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Object action_;
@@ -9072,18 +9073,18 @@ public final class IMPushPb {
                     Db db = null;
                     try {
                         try {
-                            Db db2 = (Db) Db.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (db2 != null) {
-                                mergeFrom(db2);
+                            Db parsePartialFrom = Db.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Db db3 = (Db) e.getUnfinishedMessage();
+                            Db db2 = (Db) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                db = db3;
+                                db = db2;
                                 if (db != null) {
                                 }
                                 throw th;
@@ -9298,7 +9299,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Db.1
+            PARSER = new AbstractParser<Db>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Db.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -9547,7 +9548,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Db> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -9888,7 +9889,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, inputStream, extensionRegistryLite)) == null) {
-                return (Db) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Db) invokeLL.objValue;
         }
@@ -9897,7 +9898,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, byteString, extensionRegistryLite)) == null) {
-                return (Db) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Db) invokeLL.objValue;
         }
@@ -9934,7 +9935,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, inputStream)) == null) {
-                return (Db) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Db) invokeL.objValue;
         }
@@ -9943,7 +9944,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, byteString)) == null) {
-                return (Db) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Db) invokeL.objValue;
         }
@@ -9952,7 +9953,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, codedInputStream)) == null) {
-                return (Db) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Db) invokeL.objValue;
         }
@@ -9961,7 +9962,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Db) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Db) invokeLL.objValue;
         }
@@ -9970,7 +9971,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
-                return (Db) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Db) invokeL.objValue;
         }
@@ -9979,7 +9980,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, inputStream, extensionRegistryLite)) == null) {
-                return (Db) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Db) invokeLL.objValue;
         }
@@ -9988,7 +9989,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, bArr)) == null) {
-                return (Db) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Db) invokeL.objValue;
         }
@@ -9997,7 +9998,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, bArr, extensionRegistryLite)) == null) {
-                return (Db) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Db) invokeLL.objValue;
         }
@@ -10082,10 +10083,10 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
+    public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUID_FIELD_NUMBER = 4;
-        public static Parser PARSER;
+        public static Parser<DeviceID> PARSER;
         public static final DeviceID defaultInstance;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
@@ -10095,7 +10096,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements DeviceIDOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int bitField0_;
@@ -10330,18 +10331,18 @@ public final class IMPushPb {
                     DeviceID deviceID = null;
                     try {
                         try {
-                            DeviceID deviceID2 = (DeviceID) DeviceID.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (deviceID2 != null) {
-                                mergeFrom(deviceID2);
+                            DeviceID parsePartialFrom = DeviceID.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            DeviceID deviceID3 = (DeviceID) e.getUnfinishedMessage();
+                            DeviceID deviceID2 = (DeviceID) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                deviceID = deviceID3;
+                                deviceID = deviceID2;
                                 if (deviceID != null) {
                                 }
                                 throw th;
@@ -10372,7 +10373,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
+            PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -10478,7 +10479,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<DeviceID> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -10653,7 +10654,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, inputStream, extensionRegistryLite)) == null) {
-                return (DeviceID) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (DeviceID) invokeLL.objValue;
         }
@@ -10662,7 +10663,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, byteString, extensionRegistryLite)) == null) {
-                return (DeviceID) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (DeviceID) invokeLL.objValue;
         }
@@ -10699,7 +10700,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, inputStream)) == null) {
-                return (DeviceID) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (DeviceID) invokeL.objValue;
         }
@@ -10708,7 +10709,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, byteString)) == null) {
-                return (DeviceID) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (DeviceID) invokeL.objValue;
         }
@@ -10728,7 +10729,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, codedInputStream)) == null) {
-                return (DeviceID) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (DeviceID) invokeL.objValue;
         }
@@ -10737,7 +10738,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (DeviceID) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (DeviceID) invokeLL.objValue;
         }
@@ -10746,7 +10747,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
-                return (DeviceID) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (DeviceID) invokeL.objValue;
         }
@@ -10755,7 +10756,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) {
-                return (DeviceID) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (DeviceID) invokeLL.objValue;
         }
@@ -10764,7 +10765,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bArr)) == null) {
-                return (DeviceID) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (DeviceID) invokeL.objValue;
         }
@@ -10773,18 +10774,18 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, bArr, extensionRegistryLite)) == null) {
-                return (DeviceID) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (DeviceID) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public final class LcpNetInfo extends GeneratedMessageLite implements LcpNetInfoOrBuilder {
+    public static final class LcpNetInfo extends GeneratedMessageLite implements LcpNetInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOMAIN_FIELD_NUMBER = 4;
         public static final int IP_FIELD_NUMBER = 3;
-        public static Parser PARSER = null;
+        public static Parser<LcpNetInfo> PARSER = null;
         public static final int PORT_FIELD_NUMBER = 2;
         public static final int PROTOCOL_FIELD_NUMBER = 1;
         public static final LcpNetInfo defaultInstance;
@@ -10799,7 +10800,7 @@ public final class IMPushPb {
         public Object protocol_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements LcpNetInfoOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<LcpNetInfo, Builder> implements LcpNetInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int bitField0_;
@@ -11211,18 +11212,18 @@ public final class IMPushPb {
                     LcpNetInfo lcpNetInfo = null;
                     try {
                         try {
-                            LcpNetInfo lcpNetInfo2 = (LcpNetInfo) LcpNetInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (lcpNetInfo2 != null) {
-                                mergeFrom(lcpNetInfo2);
+                            LcpNetInfo parsePartialFrom = LcpNetInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            LcpNetInfo lcpNetInfo3 = (LcpNetInfo) e.getUnfinishedMessage();
+                            LcpNetInfo lcpNetInfo2 = (LcpNetInfo) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                lcpNetInfo = lcpNetInfo3;
+                                lcpNetInfo = lcpNetInfo2;
                                 if (lcpNetInfo != null) {
                                 }
                                 throw th;
@@ -11365,7 +11366,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfo.1
+            PARSER = new AbstractParser<LcpNetInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfo.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -11509,7 +11510,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<LcpNetInfo> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -11783,7 +11784,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) {
-                return (LcpNetInfo) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (LcpNetInfo) invokeLL.objValue;
         }
@@ -11792,7 +11793,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, byteString, extensionRegistryLite)) == null) {
-                return (LcpNetInfo) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (LcpNetInfo) invokeLL.objValue;
         }
@@ -11829,7 +11830,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
-                return (LcpNetInfo) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (LcpNetInfo) invokeL.objValue;
         }
@@ -11838,7 +11839,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, byteString)) == null) {
-                return (LcpNetInfo) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (LcpNetInfo) invokeL.objValue;
         }
@@ -11847,7 +11848,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, codedInputStream)) == null) {
-                return (LcpNetInfo) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (LcpNetInfo) invokeL.objValue;
         }
@@ -11856,7 +11857,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (LcpNetInfo) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (LcpNetInfo) invokeLL.objValue;
         }
@@ -11865,7 +11866,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, inputStream)) == null) {
-                return (LcpNetInfo) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (LcpNetInfo) invokeL.objValue;
         }
@@ -11874,7 +11875,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, inputStream, extensionRegistryLite)) == null) {
-                return (LcpNetInfo) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (LcpNetInfo) invokeLL.objValue;
         }
@@ -11883,7 +11884,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) {
-                return (LcpNetInfo) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (LcpNetInfo) invokeL.objValue;
         }
@@ -11892,7 +11893,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, bArr, extensionRegistryLite)) == null) {
-                return (LcpNetInfo) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (LcpNetInfo) invokeLL.objValue;
         }
@@ -11947,11 +11948,11 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
+    public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
         public static final int LOG_NAME_FIELD_NUMBER = 2;
-        public static Parser PARSER = null;
+        public static Parser<MetaData> PARSER = null;
         public static final int PRODUCT_NAME_FIELD_NUMBER = 3;
         public static final MetaData defaultInstance;
         public static final long serialVersionUID = 0;
@@ -11964,7 +11965,7 @@ public final class IMPushPb {
         public Object productName_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements MetaDataOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int bitField0_;
@@ -12284,18 +12285,18 @@ public final class IMPushPb {
                     MetaData metaData = null;
                     try {
                         try {
-                            MetaData metaData2 = (MetaData) MetaData.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (metaData2 != null) {
-                                mergeFrom(metaData2);
+                            MetaData parsePartialFrom = MetaData.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            MetaData metaData3 = (MetaData) e.getUnfinishedMessage();
+                            MetaData metaData2 = (MetaData) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                metaData = metaData3;
+                                metaData = metaData2;
                                 if (metaData != null) {
                                 }
                                 throw th;
@@ -12393,7 +12394,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaData.1
+            PARSER = new AbstractParser<MetaData>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaData.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -12511,7 +12512,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<MetaData> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -12749,7 +12750,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, inputStream, extensionRegistryLite)) == null) {
-                return (MetaData) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (MetaData) invokeLL.objValue;
         }
@@ -12758,7 +12759,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, byteString, extensionRegistryLite)) == null) {
-                return (MetaData) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (MetaData) invokeLL.objValue;
         }
@@ -12795,7 +12796,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, inputStream)) == null) {
-                return (MetaData) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (MetaData) invokeL.objValue;
         }
@@ -12804,7 +12805,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, byteString)) == null) {
-                return (MetaData) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (MetaData) invokeL.objValue;
         }
@@ -12813,7 +12814,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, codedInputStream)) == null) {
-                return (MetaData) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (MetaData) invokeL.objValue;
         }
@@ -12822,7 +12823,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (MetaData) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (MetaData) invokeLL.objValue;
         }
@@ -12831,7 +12832,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, inputStream)) == null) {
-                return (MetaData) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (MetaData) invokeL.objValue;
         }
@@ -12840,7 +12841,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, inputStream, extensionRegistryLite)) == null) {
-                return (MetaData) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (MetaData) invokeLL.objValue;
         }
@@ -12849,7 +12850,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, bArr)) == null) {
-                return (MetaData) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (MetaData) invokeL.objValue;
         }
@@ -12858,7 +12859,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, bArr, extensionRegistryLite)) == null) {
-                return (MetaData) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (MetaData) invokeLL.objValue;
         }
@@ -12890,14 +12891,14 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
+    public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 6;
         public static final int DURATION_FIELD_NUMBER = 3;
         public static final int END_MSGID_FIELD_NUMBER = 4;
         public static final int EXT_FIELD_NUMBER = 5;
         public static final int MSG_COUNT_FIELD_NUMBER = 1;
-        public static Parser PARSER = null;
+        public static Parser<Msg> PARSER = null;
         public static final int ROOM_ID_FIELD_NUMBER = 2;
         public static final int START_MSGID_FIELD_NUMBER = 7;
         public static final Msg defaultInstance;
@@ -12915,7 +12916,7 @@ public final class IMPushPb {
         public long startMsgid_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements MsgOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long aliasId_;
@@ -13414,18 +13415,18 @@ public final class IMPushPb {
                     Msg msg = null;
                     try {
                         try {
-                            Msg msg2 = (Msg) Msg.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (msg2 != null) {
-                                mergeFrom(msg2);
+                            Msg parsePartialFrom = Msg.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Msg msg3 = (Msg) e.getUnfinishedMessage();
+                            Msg msg2 = (Msg) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                msg = msg3;
+                                msg = msg2;
                                 if (msg != null) {
                                 }
                                 throw th;
@@ -13567,7 +13568,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Msg.1
+            PARSER = new AbstractParser<Msg>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Msg.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -13719,7 +13720,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Msg> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -14022,7 +14023,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, inputStream, extensionRegistryLite)) == null) {
-                return (Msg) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Msg) invokeLL.objValue;
         }
@@ -14031,7 +14032,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, byteString, extensionRegistryLite)) == null) {
-                return (Msg) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Msg) invokeLL.objValue;
         }
@@ -14068,7 +14069,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, inputStream)) == null) {
-                return (Msg) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Msg) invokeL.objValue;
         }
@@ -14077,7 +14078,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, byteString)) == null) {
-                return (Msg) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Msg) invokeL.objValue;
         }
@@ -14086,7 +14087,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, codedInputStream)) == null) {
-                return (Msg) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Msg) invokeL.objValue;
         }
@@ -14095,7 +14096,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Msg) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Msg) invokeLL.objValue;
         }
@@ -14104,7 +14105,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, inputStream)) == null) {
-                return (Msg) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Msg) invokeL.objValue;
         }
@@ -14113,7 +14114,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, inputStream, extensionRegistryLite)) == null) {
-                return (Msg) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Msg) invokeLL.objValue;
         }
@@ -14122,7 +14123,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, bArr)) == null) {
-                return (Msg) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Msg) invokeL.objValue;
         }
@@ -14131,7 +14132,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, bArr, extensionRegistryLite)) == null) {
-                return (Msg) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Msg) invokeLL.objValue;
         }
@@ -14204,11 +14205,11 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
+    public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NET_APN_FIELD_NUMBER = 2;
         public static final int NET_TYPE_FIELD_NUMBER = 1;
-        public static Parser PARSER;
+        public static Parser<NetInfo> PARSER;
         public static final NetInfo defaultInstance;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
@@ -14219,7 +14220,7 @@ public final class IMPushPb {
         public Object netType_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements NetInfoOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int bitField0_;
@@ -14493,18 +14494,18 @@ public final class IMPushPb {
                     NetInfo netInfo = null;
                     try {
                         try {
-                            NetInfo netInfo2 = (NetInfo) NetInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (netInfo2 != null) {
-                                mergeFrom(netInfo2);
+                            NetInfo parsePartialFrom = NetInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            NetInfo netInfo3 = (NetInfo) e.getUnfinishedMessage();
+                            NetInfo netInfo2 = (NetInfo) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                netInfo = netInfo3;
+                                netInfo = netInfo2;
                                 if (netInfo != null) {
                                 }
                                 throw th;
@@ -14591,7 +14592,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfo.1
+            PARSER = new AbstractParser<NetInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfo.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -14733,7 +14734,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<NetInfo> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -14903,7 +14904,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, inputStream, extensionRegistryLite)) == null) {
-                return (NetInfo) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (NetInfo) invokeLL.objValue;
         }
@@ -14912,7 +14913,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, byteString, extensionRegistryLite)) == null) {
-                return (NetInfo) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (NetInfo) invokeLL.objValue;
         }
@@ -14949,7 +14950,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, inputStream)) == null) {
-                return (NetInfo) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (NetInfo) invokeL.objValue;
         }
@@ -14958,7 +14959,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteString)) == null) {
-                return (NetInfo) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (NetInfo) invokeL.objValue;
         }
@@ -14981,7 +14982,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, codedInputStream)) == null) {
-                return (NetInfo) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (NetInfo) invokeL.objValue;
         }
@@ -14990,7 +14991,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (NetInfo) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (NetInfo) invokeLL.objValue;
         }
@@ -14999,7 +15000,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
-                return (NetInfo) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (NetInfo) invokeL.objValue;
         }
@@ -15008,7 +15009,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
-                return (NetInfo) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (NetInfo) invokeLL.objValue;
         }
@@ -15017,7 +15018,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, bArr)) == null) {
-                return (NetInfo) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (NetInfo) invokeL.objValue;
         }
@@ -15026,7 +15027,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, bArr, extensionRegistryLite)) == null) {
-                return (NetInfo) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (NetInfo) invokeLL.objValue;
         }
@@ -15055,7 +15056,7 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class NewConnection extends GeneratedMessageLite implements NewConnectionOrBuilder {
+    public static final class NewConnection extends GeneratedMessageLite implements NewConnectionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 16;
         public static final int CONNECT_ERROR_CODE_FIELD_NUMBER = 4;
@@ -15068,7 +15069,7 @@ public final class IMPushPb {
         public static final int LCP_LOGIN_BEGIN_FIELD_NUMBER = 11;
         public static final int LCP_LOGIN_END_FIELD_NUMBER = 12;
         public static final int NET_INFO_FIELD_NUMBER = 15;
-        public static Parser PARSER = null;
+        public static Parser<NewConnection> PARSER = null;
         public static final int RETRY_FIELD_NUMBER = 17;
         public static final int SOCKET_BEGIN_FIELD_NUMBER = 9;
         public static final int SOCKET_END_FIELD_NUMBER = 10;
@@ -15100,7 +15101,7 @@ public final class IMPushPb {
         public long tokenEnd_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements NewConnectionOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<NewConnection, Builder> implements NewConnectionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long aliasId_;
@@ -16073,18 +16074,18 @@ public final class IMPushPb {
                     NewConnection newConnection = null;
                     try {
                         try {
-                            NewConnection newConnection2 = (NewConnection) NewConnection.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (newConnection2 != null) {
-                                mergeFrom(newConnection2);
+                            NewConnection parsePartialFrom = NewConnection.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            NewConnection newConnection3 = (NewConnection) e.getUnfinishedMessage();
+                            NewConnection newConnection2 = (NewConnection) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                newConnection = newConnection3;
+                                newConnection = newConnection2;
                                 if (newConnection != null) {
                                 }
                                 throw th;
@@ -16382,7 +16383,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnection.1
+            PARSER = new AbstractParser<NewConnection>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnection.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -16631,7 +16632,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<NewConnection> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -17124,7 +17125,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, inputStream, extensionRegistryLite)) == null) {
-                return (NewConnection) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
         }
@@ -17133,7 +17134,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, byteString, extensionRegistryLite)) == null) {
-                return (NewConnection) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
         }
@@ -17170,7 +17171,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
-                return (NewConnection) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (NewConnection) invokeL.objValue;
         }
@@ -17179,7 +17180,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, byteString)) == null) {
-                return (NewConnection) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (NewConnection) invokeL.objValue;
         }
@@ -17211,7 +17212,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, codedInputStream)) == null) {
-                return (NewConnection) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (NewConnection) invokeL.objValue;
         }
@@ -17220,7 +17221,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (NewConnection) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
         }
@@ -17229,7 +17230,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, inputStream)) == null) {
-                return (NewConnection) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (NewConnection) invokeL.objValue;
         }
@@ -17238,7 +17239,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, inputStream, extensionRegistryLite)) == null) {
-                return (NewConnection) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
         }
@@ -17247,7 +17248,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, bArr)) == null) {
-                return (NewConnection) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (NewConnection) invokeL.objValue;
         }
@@ -17256,7 +17257,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, bArr, extensionRegistryLite)) == null) {
-                return (NewConnection) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (NewConnection) invokeLL.objValue;
         }
@@ -17389,18 +17390,18 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
+    public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTIONS_FIELD_NUMBER = 132;
         public static final int COMMON_FIELD_NUMBER = 41;
         public static final int METADATA_FIELD_NUMBER = 25;
-        public static Parser PARSER = null;
+        public static Parser<PushImClient> PARSER = null;
         public static final int SDK_NAME_FIELD_NUMBER = 130;
         public static final int SDK_VERSION_FIELD_NUMBER = 131;
         public static final PushImClient defaultInstance;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
-        public List actions_;
+        public List<Action> actions_;
         public int bitField0_;
         public Common common_;
         public byte memoizedIsInitialized;
@@ -17410,10 +17411,10 @@ public final class IMPushPb {
         public long sdkVersion_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements PushImClientOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public List actions_;
+            public List<Action> actions_;
             public int bitField0_;
             public Common common_;
             public MetaData metadata_;
@@ -17555,7 +17556,7 @@ public final class IMPushPb {
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
-            public List getActionsList() {
+            public List<Action> getActionsList() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -17763,7 +17764,7 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder addAllActions(Iterable iterable) {
+            public Builder addAllActions(Iterable<? extends Action> iterable) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iterable)) == null) {
@@ -17779,7 +17780,7 @@ public final class IMPushPb {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-                    return (Action) this.actions_.get(i);
+                    return this.actions_.get(i);
                 }
                 return (Action) invokeI.objValue;
             }
@@ -18037,18 +18038,18 @@ public final class IMPushPb {
                     PushImClient pushImClient = null;
                     try {
                         try {
-                            PushImClient pushImClient2 = (PushImClient) PushImClient.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (pushImClient2 != null) {
-                                mergeFrom(pushImClient2);
+                            PushImClient parsePartialFrom = PushImClient.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            PushImClient pushImClient3 = (PushImClient) e.getUnfinishedMessage();
+                            PushImClient pushImClient2 = (PushImClient) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                pushImClient = pushImClient3;
+                                pushImClient = pushImClient2;
                                 if (pushImClient != null) {
                                 }
                                 throw th;
@@ -18079,7 +18080,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClient.1
+            PARSER = new AbstractParser<PushImClient>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClient.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -18153,7 +18154,7 @@ public final class IMPushPb {
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
-        public List getActionsList() {
+        public List<Action> getActionsList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -18162,7 +18163,7 @@ public final class IMPushPb {
             return (List) invokeV.objValue;
         }
 
-        public List getActionsOrBuilderList() {
+        public List<? extends ActionOrBuilder> getActionsOrBuilderList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -18203,7 +18204,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<PushImClient> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -18341,7 +18342,10 @@ public final class IMPushPb {
             return invokeV.objValue;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: java.util.List<com.baidu.android.imsdk.upload.action.pb.IMPushPb$Action> */
+        /* JADX WARN: Multi-variable type inference failed */
         public PushImClient(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            GeneratedMessageLite.Builder builder;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -18392,7 +18396,7 @@ public final class IMPushPb {
                                         this.sdkName_ = codedInputStream.readBytes();
                                     }
                                 } else {
-                                    Common.Builder builder = (this.bitField0_ & 2) == 2 ? this.common_.toBuilder() : null;
+                                    builder = (this.bitField0_ & 2) == 2 ? this.common_.toBuilder() : null;
                                     Common common2 = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
                                     this.common_ = common2;
                                     if (builder != null) {
@@ -18402,12 +18406,12 @@ public final class IMPushPb {
                                     this.bitField0_ |= 2;
                                 }
                             } else {
-                                MetaData.Builder builder2 = (this.bitField0_ & 1) == 1 ? this.metadata_.toBuilder() : null;
+                                builder = (this.bitField0_ & 1) == 1 ? this.metadata_.toBuilder() : null;
                                 MetaData metaData = (MetaData) codedInputStream.readMessage(MetaData.PARSER, extensionRegistryLite);
                                 this.metadata_ = metaData;
-                                if (builder2 != null) {
-                                    builder2.mergeFrom(metaData);
-                                    this.metadata_ = builder2.buildPartial();
+                                if (builder != null) {
+                                    builder.mergeFrom(metaData);
+                                    this.metadata_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
                             }
@@ -18461,7 +18465,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, inputStream, extensionRegistryLite)) == null) {
-                return (PushImClient) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (PushImClient) invokeLL.objValue;
         }
@@ -18470,7 +18474,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, byteString, extensionRegistryLite)) == null) {
-                return (PushImClient) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (PushImClient) invokeLL.objValue;
         }
@@ -18507,7 +18511,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, inputStream)) == null) {
-                return (PushImClient) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (PushImClient) invokeL.objValue;
         }
@@ -18516,7 +18520,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, byteString)) == null) {
-                return (PushImClient) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (PushImClient) invokeL.objValue;
         }
@@ -18526,7 +18530,7 @@ public final class IMPushPb {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                return (Action) this.actions_.get(i);
+                return this.actions_.get(i);
             }
             return (Action) invokeI.objValue;
         }
@@ -18535,7 +18539,7 @@ public final class IMPushPb {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                return (ActionOrBuilder) this.actions_.get(i);
+                return this.actions_.get(i);
             }
             return (ActionOrBuilder) invokeI.objValue;
         }
@@ -18544,7 +18548,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, codedInputStream)) == null) {
-                return (PushImClient) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (PushImClient) invokeL.objValue;
         }
@@ -18553,7 +18557,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (PushImClient) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (PushImClient) invokeLL.objValue;
         }
@@ -18562,7 +18566,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, inputStream)) == null) {
-                return (PushImClient) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (PushImClient) invokeL.objValue;
         }
@@ -18571,7 +18575,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, inputStream, extensionRegistryLite)) == null) {
-                return (PushImClient) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (PushImClient) invokeLL.objValue;
         }
@@ -18580,7 +18584,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, bArr)) == null) {
-                return (PushImClient) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (PushImClient) invokeL.objValue;
         }
@@ -18589,7 +18593,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, bArr, extensionRegistryLite)) == null) {
-                return (PushImClient) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (PushImClient) invokeLL.objValue;
         }
@@ -18619,7 +18623,7 @@ public final class IMPushPb {
                     i += CodedOutputStream.computeInt64Size(131, this.sdkVersion_);
                 }
                 for (int i3 = 0; i3 < this.actions_.size(); i3++) {
-                    i += CodedOutputStream.computeMessageSize(132, (MessageLite) this.actions_.get(i3));
+                    i += CodedOutputStream.computeMessageSize(132, this.actions_.get(i3));
                 }
                 this.memoizedSerializedSize = i;
                 return i;
@@ -18670,20 +18674,20 @@ public final class IMPushPb {
                     codedOutputStream.writeInt64(131, this.sdkVersion_);
                 }
                 for (int i = 0; i < this.actions_.size(); i++) {
-                    codedOutputStream.writeMessage(132, (MessageLite) this.actions_.get(i));
+                    codedOutputStream.writeMessage(132, this.actions_.get(i));
                 }
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public final class Request extends GeneratedMessageLite implements RequestOrBuilder {
+    public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int ERROR_CODE_FIELD_NUMBER = 5;
         public static final int EXT_FIELD_NUMBER = 6;
         public static final int METHOD_FIELD_NUMBER = 1;
-        public static Parser PARSER = null;
+        public static Parser<Request> PARSER = null;
         public static final int REQUEST_ID_FIELD_NUMBER = 2;
         public static final int RESPONSE_TIME_FIELD_NUMBER = 4;
         public static final int TIMESTAMP_FIELD_NUMBER = 3;
@@ -18702,7 +18706,7 @@ public final class IMPushPb {
         public long timestamp_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements RequestOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long aliasId_;
@@ -19225,18 +19229,18 @@ public final class IMPushPb {
                     Request request = null;
                     try {
                         try {
-                            Request request2 = (Request) Request.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (request2 != null) {
-                                mergeFrom(request2);
+                            Request parsePartialFrom = Request.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Request request3 = (Request) e.getUnfinishedMessage();
+                            Request request2 = (Request) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                request = request3;
+                                request = request2;
                                 if (request != null) {
                                 }
                                 throw th;
@@ -19395,7 +19399,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Request.1
+            PARSER = new AbstractParser<Request>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Request.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -19562,7 +19566,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Request> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -19877,7 +19881,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
-                return (Request) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Request) invokeLL.objValue;
         }
@@ -19886,7 +19890,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, byteString, extensionRegistryLite)) == null) {
-                return (Request) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Request) invokeLL.objValue;
         }
@@ -19923,7 +19927,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
-                return (Request) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Request) invokeL.objValue;
         }
@@ -19932,7 +19936,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, byteString)) == null) {
-                return (Request) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Request) invokeL.objValue;
         }
@@ -19941,7 +19945,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, codedInputStream)) == null) {
-                return (Request) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Request) invokeL.objValue;
         }
@@ -19950,7 +19954,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Request) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Request) invokeLL.objValue;
         }
@@ -19959,7 +19963,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, inputStream)) == null) {
-                return (Request) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Request) invokeL.objValue;
         }
@@ -19968,7 +19972,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, inputStream, extensionRegistryLite)) == null) {
-                return (Request) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Request) invokeLL.objValue;
         }
@@ -19977,7 +19981,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, bArr)) == null) {
-                return (Request) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Request) invokeL.objValue;
         }
@@ -19986,7 +19990,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, bArr, extensionRegistryLite)) == null) {
-                return (Request) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Request) invokeLL.objValue;
         }
@@ -20059,12 +20063,12 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
+    public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MANUFACTURER_FIELD_NUMBER = 3;
         public static final int OS_FIELD_NUMBER = 1;
         public static final int OS_VERSION_FIELD_NUMBER = 2;
-        public static Parser PARSER = null;
+        public static Parser<TerminalInfo> PARSER = null;
         public static final int PPI_FIELD_NUMBER = 7;
         public static final int RESOLUTION_H_FIELD_NUMBER = 5;
         public static final int RESOLUTION_V_FIELD_NUMBER = 6;
@@ -20084,7 +20088,7 @@ public final class IMPushPb {
         public Object terminalType_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements TerminalInfoOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int bitField0_;
@@ -20608,18 +20612,18 @@ public final class IMPushPb {
                     TerminalInfo terminalInfo = null;
                     try {
                         try {
-                            TerminalInfo terminalInfo2 = (TerminalInfo) TerminalInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (terminalInfo2 != null) {
-                                mergeFrom(terminalInfo2);
+                            TerminalInfo parsePartialFrom = TerminalInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            TerminalInfo terminalInfo3 = (TerminalInfo) e.getUnfinishedMessage();
+                            TerminalInfo terminalInfo2 = (TerminalInfo) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                terminalInfo = terminalInfo3;
+                                terminalInfo = terminalInfo2;
                                 if (terminalInfo != null) {
                                 }
                                 throw th;
@@ -20781,7 +20785,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfo.1
+            PARSER = new AbstractParser<TerminalInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfo.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -20938,7 +20942,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<TerminalInfo> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -21264,7 +21268,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
-                return (TerminalInfo) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (TerminalInfo) invokeLL.objValue;
         }
@@ -21273,7 +21277,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, byteString, extensionRegistryLite)) == null) {
-                return (TerminalInfo) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (TerminalInfo) invokeLL.objValue;
         }
@@ -21310,7 +21314,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
-                return (TerminalInfo) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (TerminalInfo) invokeL.objValue;
         }
@@ -21319,7 +21323,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, byteString)) == null) {
-                return (TerminalInfo) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (TerminalInfo) invokeL.objValue;
         }
@@ -21328,7 +21332,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, codedInputStream)) == null) {
-                return (TerminalInfo) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (TerminalInfo) invokeL.objValue;
         }
@@ -21337,7 +21341,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (TerminalInfo) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (TerminalInfo) invokeLL.objValue;
         }
@@ -21346,7 +21350,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, inputStream)) == null) {
-                return (TerminalInfo) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (TerminalInfo) invokeL.objValue;
         }
@@ -21355,7 +21359,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, inputStream, extensionRegistryLite)) == null) {
-                return (TerminalInfo) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (TerminalInfo) invokeLL.objValue;
         }
@@ -21364,7 +21368,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, bArr)) == null) {
-                return (TerminalInfo) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (TerminalInfo) invokeL.objValue;
         }
@@ -21373,7 +21377,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, bArr, extensionRegistryLite)) == null) {
-                return (TerminalInfo) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (TerminalInfo) invokeLL.objValue;
         }
@@ -21446,7 +21450,7 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
-    public final class Ui extends GeneratedMessageLite implements UiOrBuilder {
+    public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int CATEGORY_FIELD_NUMBER = 1;
@@ -21454,7 +21458,7 @@ public final class IMPushPb {
         public static final int END_TIME_FIELD_NUMBER = 4;
         public static final int EXT_FIELD_NUMBER = 6;
         public static final int PAGE_FIELD_NUMBER = 2;
-        public static Parser PARSER = null;
+        public static Parser<Ui> PARSER = null;
         public static final int START_TIME_FIELD_NUMBER = 3;
         public static final Ui defaultInstance;
         public static final long serialVersionUID = 0;
@@ -21471,7 +21475,7 @@ public final class IMPushPb {
         public long startTime_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements UiOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long aliasId_;
@@ -21994,18 +21998,18 @@ public final class IMPushPb {
                     Ui ui = null;
                     try {
                         try {
-                            Ui ui2 = (Ui) Ui.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (ui2 != null) {
-                                mergeFrom(ui2);
+                            Ui parsePartialFrom = Ui.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            Ui ui3 = (Ui) e.getUnfinishedMessage();
+                            Ui ui2 = (Ui) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                ui = ui3;
+                                ui = ui2;
                                 if (ui != null) {
                                 }
                                 throw th;
@@ -22164,7 +22168,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ui.1
+            PARSER = new AbstractParser<Ui>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ui.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -22376,7 +22380,7 @@ public final class IMPushPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<Ui> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -22646,7 +22650,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
-                return (Ui) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (Ui) invokeLL.objValue;
         }
@@ -22655,7 +22659,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, byteString, extensionRegistryLite)) == null) {
-                return (Ui) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (Ui) invokeLL.objValue;
         }
@@ -22692,7 +22696,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
-                return (Ui) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (Ui) invokeL.objValue;
         }
@@ -22701,7 +22705,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, byteString)) == null) {
-                return (Ui) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (Ui) invokeL.objValue;
         }
@@ -22710,7 +22714,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, codedInputStream)) == null) {
-                return (Ui) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (Ui) invokeL.objValue;
         }
@@ -22719,7 +22723,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (Ui) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (Ui) invokeLL.objValue;
         }
@@ -22728,7 +22732,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, inputStream)) == null) {
-                return (Ui) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (Ui) invokeL.objValue;
         }
@@ -22737,7 +22741,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, inputStream, extensionRegistryLite)) == null) {
-                return (Ui) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (Ui) invokeLL.objValue;
         }
@@ -22746,7 +22750,7 @@ public final class IMPushPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, bArr)) == null) {
-                return (Ui) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (Ui) invokeL.objValue;
         }
@@ -22755,7 +22759,7 @@ public final class IMPushPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, bArr, extensionRegistryLite)) == null) {
-                return (Ui) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (Ui) invokeLL.objValue;
         }
@@ -22829,7 +22833,7 @@ public final class IMPushPb {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class ActionType implements Internal.EnumLite {
+    public static final class ActionType implements Internal.EnumLite {
         public static final /* synthetic */ ActionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final ActionType ACK;
@@ -22848,7 +22852,7 @@ public final class IMPushPb {
         public static final int REQUEST_VALUE = 501;
         public static final ActionType UI;
         public static final int UI_VALUE = 101;
-        public static Internal.EnumLiteMap internalValueMap;
+        public static Internal.EnumLiteMap<ActionType> internalValueMap;
         public transient /* synthetic */ FieldHolder $fh;
         public final int value;
 
@@ -22875,7 +22879,7 @@ public final class IMPushPb {
             ActionType actionType = new ActionType("NEWCONNECTION", 7, 7, 801);
             NEWCONNECTION = actionType;
             $VALUES = new ActionType[]{UI, CRASH, DB, CONNECTION, REQUEST, ACK, MSG, actionType};
-            internalValueMap = new Internal.EnumLiteMap() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionType.1
+            internalValueMap = new Internal.EnumLiteMap<ActionType>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionType.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -22894,6 +22898,7 @@ public final class IMPushPb {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.google.protobuf.Internal.EnumLiteMap
                 public ActionType findValueByNumber(int i) {
                     InterceptResult invokeI;
@@ -22927,7 +22932,7 @@ public final class IMPushPb {
             this.value = i3;
         }
 
-        public static Internal.EnumLiteMap internalGetValueMap() {
+        public static Internal.EnumLiteMap<ActionType> internalGetValueMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -23000,7 +23005,7 @@ public final class IMPushPb {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class OSType implements Internal.EnumLite {
+    public static final class OSType implements Internal.EnumLite {
         public static final /* synthetic */ OSType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final OSType ANDROID;
@@ -23011,7 +23016,7 @@ public final class IMPushPb {
         public static final int OS_TYPE_UNKNWON_VALUE = 0;
         public static final OSType WINDOWSPHONE;
         public static final int WINDOWSPHONE_VALUE = 3;
-        public static Internal.EnumLiteMap internalValueMap;
+        public static Internal.EnumLiteMap<OSType> internalValueMap;
         public transient /* synthetic */ FieldHolder $fh;
         public final int value;
 
@@ -23034,7 +23039,7 @@ public final class IMPushPb {
             OSType oSType = new OSType("WINDOWSPHONE", 3, 3, 3);
             WINDOWSPHONE = oSType;
             $VALUES = new OSType[]{OS_TYPE_UNKNWON, IOS, ANDROID, oSType};
-            internalValueMap = new Internal.EnumLiteMap() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.OSType.1
+            internalValueMap = new Internal.EnumLiteMap<OSType>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.OSType.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -23053,6 +23058,7 @@ public final class IMPushPb {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.google.protobuf.Internal.EnumLiteMap
                 public OSType findValueByNumber(int i) {
                     InterceptResult invokeI;
@@ -23086,7 +23092,7 @@ public final class IMPushPb {
             this.value = i3;
         }
 
-        public static Internal.EnumLiteMap internalGetValueMap() {
+        public static Internal.EnumLiteMap<OSType> internalGetValueMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

@@ -5,11 +5,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eu8;
+import com.baidu.tieba.nv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,14 +19,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ShareScrollableLayout extends LinearLayout implements eu8 {
+public class ShareScrollableLayout extends LinearLayout implements nv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    @NonNull
+    public List<LinearLayout> a;
     public int b;
     public int c;
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.nv8
+    @NonNull
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,7 +57,7 @@ public class ShareScrollableLayout extends LinearLayout implements eu8 {
         d();
     }
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.nv8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -112,15 +115,15 @@ public class ShareScrollableLayout extends LinearLayout implements eu8 {
         d();
     }
 
-    @Override // com.baidu.tieba.eu8
-    public void b(int i, View view2) {
+    @Override // com.baidu.tieba.nv8
+    public void b(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
             int size = this.a.size() - 1;
             for (int i2 = 0; i2 < i - size; i2++) {
                 c();
             }
-            ((LinearLayout) this.a.get(i)).addView(view2, new LinearLayout.LayoutParams(this.b, -1));
+            this.a.get(i).addView(view2, new LinearLayout.LayoutParams(this.b, -1));
         }
     }
 
@@ -143,7 +146,7 @@ public class ShareScrollableLayout extends LinearLayout implements eu8 {
         }
     }
 
-    @Override // android.view.ViewGroup, com.baidu.tieba.eu8
+    @Override // android.view.ViewGroup, com.baidu.tieba.nv8
     public void removeAllViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -152,7 +155,7 @@ public class ShareScrollableLayout extends LinearLayout implements eu8 {
         }
     }
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.nv8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {

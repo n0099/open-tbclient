@@ -8,29 +8,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public final class ObservableFromIterable extends Observable {
+public final class ObservableFromIterable<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable source;
+    public final Iterable<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class FromIterableDisposable extends BasicQueueDisposable {
+    public static final class FromIterableDisposable<T> extends BasicQueueDisposable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public boolean checkNext;
         public volatile boolean disposed;
         public boolean done;
         public boolean fusionMode;
-        public final Iterator it;
+        public final Iterator<? extends T> it;
 
-        public FromIterableDisposable(Observer observer, Iterator it) {
+        public FromIterableDisposable(Observer<? super T> observer, Iterator<? extends T> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +87,8 @@ public final class ObservableFromIterable extends Observable {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() {
+        @Nullable
+        public T poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -101,9 +103,9 @@ public final class ObservableFromIterable extends Observable {
                 } else {
                     this.checkNext = true;
                 }
-                return ObjectHelper.requireNonNull(this.it.next(), "The iterator returned a null value");
+                return (T) ObjectHelper.requireNonNull(this.it.next(), "The iterator returned a null value");
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -152,7 +154,7 @@ public final class ObservableFromIterable extends Observable {
         }
     }
 
-    public ObservableFromIterable(Iterable iterable) {
+    public ObservableFromIterable(Iterable<? extends T> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,11 +173,11 @@ public final class ObservableFromIterable extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {
-                Iterator it = this.source.iterator();
+                Iterator<? extends T> it = this.source.iterator();
                 try {
                     if (!it.hasNext()) {
                         EmptyDisposable.complete(observer);

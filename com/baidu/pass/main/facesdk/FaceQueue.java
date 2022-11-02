@@ -18,13 +18,13 @@ public class FaceQueue {
 
     /* renamed from: com.baidu.pass.main.facesdk.FaceQueue$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class HolderClass {
+    public static class HolderClass {
         public static /* synthetic */ Interceptable $ic;
         public static final FaceQueue instance;
         public transient /* synthetic */ FieldHolder $fh;

@@ -21,7 +21,7 @@ public class FSBitmapCache implements IBitmapCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mHitCountRequired;
-    public Map mMap;
+    public Map<String, Integer> mMap;
     public int mMaxNumOfPixels;
     public IBitmapCache mMemCache;
     public String mStorageDir;
@@ -134,7 +134,7 @@ public class FSBitmapCache implements IBitmapCache {
             if (decodeFile == null) {
                 return null;
             }
-            Integer num = (Integer) this.mMap.get(str);
+            Integer num = this.mMap.get(str);
             if (num == null) {
                 num = 0;
             }

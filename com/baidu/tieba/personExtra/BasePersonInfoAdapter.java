@@ -17,7 +17,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
-    public ArrayList b;
+    public ArrayList<BaseFragment> b;
 
     public abstract BaseFragment b();
 
@@ -39,7 +39,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.b = new ArrayList();
+        this.b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         BaseFragment b = b();
@@ -72,7 +72,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (i < this.a.length && i >= 0) {
-                return (Fragment) this.b.get(i);
+                return this.b.get(i);
             }
             return null;
         }

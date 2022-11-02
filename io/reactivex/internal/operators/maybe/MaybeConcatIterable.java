@@ -23,24 +23,24 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class MaybeConcatIterable extends Flowable {
+public final class MaybeConcatIterable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable sources;
+    public final Iterable<? extends MaybeSource<? extends T>> sources;
 
     /* loaded from: classes8.dex */
-    public final class ConcatMaybeObserver extends AtomicInteger implements MaybeObserver, Subscription {
+    public static final class ConcatMaybeObserver<T> extends AtomicInteger implements MaybeObserver<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3520831347801429610L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final AtomicReference current;
+        public final Subscriber<? super T> actual;
+        public final AtomicReference<Object> current;
         public final SequentialDisposable disposables;
         public long produced;
         public final AtomicLong requested;
-        public final Iterator sources;
+        public final Iterator<? extends MaybeSource<? extends T>> sources;
 
-        public ConcatMaybeObserver(Subscriber subscriber, Iterator it) {
+        public ConcatMaybeObserver(Subscriber<? super T> subscriber, Iterator<? extends MaybeSource<? extends T>> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public final class MaybeConcatIterable extends Flowable {
             this.sources = it;
             this.requested = new AtomicLong();
             this.disposables = new SequentialDisposable();
-            this.current = new AtomicReference(NotificationLite.COMPLETE);
+            this.current = new AtomicReference<>(NotificationLite.COMPLETE);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -84,8 +84,8 @@ public final class MaybeConcatIterable extends Flowable {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            AtomicReference atomicReference = this.current;
-            Subscriber subscriber = this.actual;
+            AtomicReference<Object> atomicReference = this.current;
+            Subscriber<? super T> subscriber = this.actual;
             SequentialDisposable sequentialDisposable = this.disposables;
             while (!sequentialDisposable.isDisposed()) {
                 Object obj = atomicReference.get();
@@ -147,10 +147,10 @@ public final class MaybeConcatIterable extends Flowable {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.current.lazySet(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.current.lazySet(t);
                 drain();
             }
         }
@@ -165,7 +165,7 @@ public final class MaybeConcatIterable extends Flowable {
         }
     }
 
-    public MaybeConcatIterable(Iterable iterable) {
+    public MaybeConcatIterable(Iterable<? extends MaybeSource<? extends T>> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,7 +184,7 @@ public final class MaybeConcatIterable extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

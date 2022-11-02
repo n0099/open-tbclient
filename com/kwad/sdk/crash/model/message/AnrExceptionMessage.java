@@ -1,11 +1,12 @@
 package com.kwad.sdk.crash.model.message;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.crash.offline.monitor.mem.message.OfflineMemExceptionMessage;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class AnrExceptionMessage extends ExceptionMessage {
     public static final long serialVersionUID = 2116476830162477947L;
     public String mReason = "";
@@ -24,7 +25,7 @@ public final class AnrExceptionMessage extends ExceptionMessage {
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
-    public final void parseJson(JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
             return;

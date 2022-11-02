@@ -4,10 +4,12 @@ import com.baidu.android.common.others.IStringUtil;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Arrays;
 import kotlin.KotlinNullPointerException;
+import kotlin.SinceKotlin;
 import kotlin.UninitializedPropertyAccessException;
 /* loaded from: classes8.dex */
 public class Intrinsics {
 
+    @SinceKotlin(version = "1.4")
     /* loaded from: classes8.dex */
     public static class Kotlin {
     }
@@ -43,6 +45,7 @@ public class Intrinsics {
         throw ((IllegalStateException) sanitizeStackTrace(new IllegalStateException()));
     }
 
+    @SinceKotlin(version = "1.4")
     public static void throwJavaNpe() {
         throw ((NullPointerException) sanitizeStackTrace(new NullPointerException()));
     }
@@ -55,6 +58,7 @@ public class Intrinsics {
         throwUndefinedForReified("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
+    @SinceKotlin(version = "1.1")
     public static boolean areEqual(double d, Double d2) {
         if (d2 != null && d == d2.doubleValue()) {
             return true;
@@ -138,6 +142,7 @@ public class Intrinsics {
         return str + obj;
     }
 
+    @SinceKotlin(version = "1.1")
     public static boolean areEqual(float f, Float f2) {
         if (f2 != null && f == f2.floatValue()) {
             return true;
@@ -145,6 +150,7 @@ public class Intrinsics {
         return false;
     }
 
+    @SinceKotlin(version = "1.1")
     public static boolean areEqual(Double d, double d2) {
         if (d != null && d.doubleValue() == d2) {
             return true;
@@ -152,6 +158,7 @@ public class Intrinsics {
         return false;
     }
 
+    @SinceKotlin(version = "1.1")
     public static boolean areEqual(Double d, Double d2) {
         if (d == null) {
             if (d2 == null) {
@@ -163,6 +170,7 @@ public class Intrinsics {
         return false;
     }
 
+    @SinceKotlin(version = "1.1")
     public static boolean areEqual(Float f, float f2) {
         if (f != null && f.floatValue() == f2) {
             return true;
@@ -170,6 +178,7 @@ public class Intrinsics {
         return false;
     }
 
+    @SinceKotlin(version = "1.1")
     public static boolean areEqual(Float f, Float f2) {
         if (f == null) {
             if (f2 == null) {
@@ -244,6 +253,7 @@ public class Intrinsics {
         throw ((IllegalStateException) sanitizeStackTrace(new IllegalStateException(str)));
     }
 
+    @SinceKotlin(version = "1.4")
     public static void throwJavaNpe(String str) {
         throw ((NullPointerException) sanitizeStackTrace(new NullPointerException(str)));
     }

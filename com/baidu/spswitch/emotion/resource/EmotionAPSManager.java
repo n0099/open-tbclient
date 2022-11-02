@@ -44,7 +44,7 @@ public class EmotionAPSManager {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsDebugLoadMode;
     public volatile boolean mLoaded;
-    public Map mResourceMap;
+    public Map<String, EmotionResourceInfo> mResourceMap;
 
     /* loaded from: classes2.dex */
     public interface EmotionInstallResultCb {
@@ -52,7 +52,7 @@ public class EmotionAPSManager {
     }
 
     /* loaded from: classes2.dex */
-    public final class Holder {
+    public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final EmotionAPSManager sINSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class EmotionAPSManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Map map = this.mResourceMap;
+            Map<String, EmotionResourceInfo> map = this.mResourceMap;
             if (map != null && !map.isEmpty()) {
                 return true;
             }
@@ -258,7 +258,7 @@ public class EmotionAPSManager {
         EmotionResourceInfo emotionResourceInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!hasValidProvider() || TextUtils.isEmpty(str) || (emotionResourceInfo = (EmotionResourceInfo) this.mResourceMap.get(str)) == null) {
+            if (!hasValidProvider() || TextUtils.isEmpty(str) || (emotionResourceInfo = this.mResourceMap.get(str)) == null) {
                 return null;
             }
             return emotionResourceInfo.mProvider;
@@ -631,7 +631,7 @@ public class EmotionAPSManager {
                 return;
             }
             emotionResourceInfo.mProvider = build;
-            EmotionResourceInfo emotionResourceInfo2 = (EmotionResourceInfo) this.mResourceMap.get(emotionResourceInfo.mPkgName);
+            EmotionResourceInfo emotionResourceInfo2 = this.mResourceMap.get(emotionResourceInfo.mPkgName);
             if (z) {
                 if (!TextUtils.isEmpty(emotionResourceInfo.mPkgName) && emotionResourceInfo.mPkgName.contains(EMOTION_PACKAGE_NAME_FOR_NORMAL)) {
                     build.loadResource();
@@ -708,23 +708,23 @@ public class EmotionAPSManager {
             StringBuilder sb = new StringBuilder();
             sb.append("表情APS根目录:" + getEmotionRootDir().getPath());
             sb.append("\n合法资源清单:\n");
-            Map map = this.mResourceMap;
+            Map<String, EmotionResourceInfo> map = this.mResourceMap;
             int i = 1;
             if (map != null && !map.isEmpty()) {
-                Iterator it = this.mResourceMap.entrySet().iterator();
+                Iterator<Map.Entry<String, EmotionResourceInfo>> it = this.mResourceMap.entrySet().iterator();
                 while (it != null && it.hasNext()) {
-                    EmotionResourceInfo emotionResourceInfo = (EmotionResourceInfo) ((Map.Entry) it.next()).getValue();
-                    if (emotionResourceInfo != null) {
+                    EmotionResourceInfo value = it.next().getValue();
+                    if (value != null) {
                         sb.append("\n======第" + i + "个资源包======\n");
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("包名:");
-                        sb2.append(emotionResourceInfo.mPkgName);
+                        sb2.append(value.mPkgName);
                         sb.append(sb2.toString());
-                        sb.append("\n包版本号:" + emotionResourceInfo.mVersion);
-                        sb.append("\n最小宿主版本号:" + emotionResourceInfo.mMinHostVer);
-                        sb.append("\n最大宿主版本号:" + emotionResourceInfo.mMaxHostVer);
-                        sb.append("\nAPS下载路径:" + emotionResourceInfo.mDownloadFilePath);
-                        sb.append("\n包存储路径:" + emotionResourceInfo.mEmotionResSavePath);
+                        sb.append("\n包版本号:" + value.mVersion);
+                        sb.append("\n最小宿主版本号:" + value.mMinHostVer);
+                        sb.append("\n最大宿主版本号:" + value.mMaxHostVer);
+                        sb.append("\nAPS下载路径:" + value.mDownloadFilePath);
+                        sb.append("\n包存储路径:" + value.mEmotionResSavePath);
                         i++;
                     }
                 }
@@ -771,7 +771,7 @@ public class EmotionAPSManager {
                     File file = restoreFileList[i];
                     EmotionResourceInfo restoreEmotionResourceInfo = restoreEmotionResourceInfo(file);
                     if (restoreEmotionResourceInfo != null) {
-                        EmotionResourceInfo emotionResourceInfo = (EmotionResourceInfo) this.mResourceMap.get(restoreEmotionResourceInfo.mPkgName);
+                        EmotionResourceInfo emotionResourceInfo = this.mResourceMap.get(restoreEmotionResourceInfo.mPkgName);
                         IResourceProvider build = new EmotionResourceProvider.Builder(AppRuntime.getAppContext()).setZipInputPath(restoreEmotionResourceInfo.mEmotionResSavePath).build();
                         if (build != null) {
                             build.loadResource();
@@ -855,14 +855,14 @@ public class EmotionAPSManager {
         if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !this.mLoaded) {
             return;
         }
-        Map map = this.mResourceMap;
+        Map<String, EmotionResourceInfo> map = this.mResourceMap;
         if (map != null && !map.isEmpty()) {
-            Iterator it = this.mResourceMap.entrySet().iterator();
+            Iterator<Map.Entry<String, EmotionResourceInfo>> it = this.mResourceMap.entrySet().iterator();
             while (it != null && it.hasNext()) {
-                EmotionResourceInfo emotionResourceInfo = (EmotionResourceInfo) ((Map.Entry) it.next()).getValue();
-                if (emotionResourceInfo != null) {
-                    emotionResourceInfo.mProvider.releaseResource();
-                    emotionResourceInfo.mProvider = null;
+                EmotionResourceInfo value = it.next().getValue();
+                if (value != null) {
+                    value.mProvider.releaseResource();
+                    value.mProvider = null;
                 }
             }
             this.mResourceMap.clear();

@@ -24,14 +24,14 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public class MessageHandleService extends BaseService {
     public static /* synthetic */ Interceptable $ic;
-    public static ConcurrentLinkedQueue a;
+    public static ConcurrentLinkedQueue<a> a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ExecutorService f35a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
@@ -85,7 +85,7 @@ public class MessageHandleService extends BaseService {
                 return;
             }
         }
-        a = new ConcurrentLinkedQueue();
+        a = new ConcurrentLinkedQueue<>();
         f35a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
@@ -214,7 +214,7 @@ public class MessageHandleService extends BaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
             try {
-                a(context, (a) a.poll());
+                a(context, a.poll());
             } catch (RuntimeException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
@@ -236,7 +236,7 @@ public class MessageHandleService extends BaseService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ConcurrentLinkedQueue concurrentLinkedQueue = a;
+            ConcurrentLinkedQueue<a> concurrentLinkedQueue = a;
             return concurrentLinkedQueue != null && concurrentLinkedQueue.size() > 0;
         }
         return invokeV.booleanValue;

@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class DBBase {
@@ -455,7 +454,7 @@ public class DBBase {
         return invokeLLLL.intValue;
     }
 
-    public int updateBatch(String str, List list) {
+    public int updateBatch(String str, List<UpdateArgs> list) {
         InterceptResult invokeLL;
         IMTrack.CrashBuilder crashBuilder;
         Interceptable interceptable = $ic;
@@ -472,9 +471,7 @@ public class DBBase {
             try {
                 try {
                     openDatabase.beginTransaction();
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        UpdateArgs updateArgs = (UpdateArgs) it.next();
+                    for (UpdateArgs updateArgs : list) {
                         i = openDatabase.update(str, updateArgs.values, updateArgs.query, updateArgs.args);
                         if (i < 0) {
                             break;

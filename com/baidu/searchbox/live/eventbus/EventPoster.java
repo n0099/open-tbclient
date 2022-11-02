@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EventPoster {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class eventType;
+    public Class<?> eventType;
     public IActionHandler handler;
     public EventAction mAction;
     public volatile int threadMode;
 
-    public EventPoster(int i, Class cls, EventAction eventAction, IActionHandler iActionHandler) {
+    public EventPoster(int i, Class<?> cls, EventAction eventAction, IActionHandler iActionHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

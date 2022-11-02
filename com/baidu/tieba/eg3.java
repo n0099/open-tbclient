@@ -1,32 +1,144 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import android.util.Log;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.KeyFactory;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
 public class eg3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static String f = "%s/%s";
+        public static String g = "%s-%s/%s";
+        public static String h = "(Baidu; P1 %s)";
+        public static String i = "%s/%s";
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-834024197, "Lcom/baidu/tieba/eg3$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-834024197, "Lcom/baidu/tieba/eg3$a;");
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return TextUtils.equals("baiduboxapp", this.c);
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                String format = String.format(f, this.a, this.b);
+                String format2 = String.format(g, this.a, this.c, this.d);
+                String format3 = String.format(i, this.c, this.d);
+                String format4 = String.format(h, this.e);
+                if (e()) {
+                    return String.format("%s %s %s %s", format, format2, format3, format4);
+                }
+                return String.format("%s %s %s", format, format2, format4);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.e = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a g(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,153 +153,84 @@ public class eg3 {
                 return;
             }
         }
-        a = wj1.a;
+        a = ok1.a;
     }
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return "0.0";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d("swan");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ln2.c();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a2 = ln2.n().a();
+            a aVar = new a();
+            aVar.b(str);
+            aVar.g(pk1.a());
+            aVar.c(a2);
+            aVar.d(e());
+            aVar.f(a());
+            return aVar.a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
+            }
             try {
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, new SecretKeySpec(str.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str4.getBytes(IMAudioTransRequest.CHARSET)));
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
+                String str = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+                b = str;
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
                 if (a) {
-                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
-                    return "";
+                    e.printStackTrace();
+                    return "0.8";
                 }
-                return "";
+                return "0.8";
             }
         }
-        return (String) invokeLLLL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    public static String b(String str, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) == null) {
-            ?? r0 = 0;
-            try {
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance(str);
-                    messageDigest.reset();
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        byte[] bArr = new byte[8192];
-                        while (true) {
-                            int read = fileInputStream.read(bArr);
-                            if (read > 0) {
-                                messageDigest.update(bArr, 0, read);
-                            } else {
-                                String e = e(messageDigest.digest(), "", z);
-                                qj4.d(fileInputStream);
-                                return e;
-                            }
-                        }
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        qj4.d(fileInputStream);
-                        return null;
-                    } catch (IOException e3) {
-                        e = e3;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        qj4.d(fileInputStream);
-                        return null;
-                    } catch (NoSuchAlgorithmException e4) {
-                        e = e4;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        qj4.d(fileInputStream);
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    r0 = interceptable;
-                    qj4.d(r0);
-                    throw th;
-                }
-            } catch (FileNotFoundException e5) {
-                e = e5;
-                fileInputStream = null;
-            } catch (IOException e6) {
-                e = e6;
-                fileInputStream = null;
-            } catch (NoSuchAlgorithmException e7) {
-                e = e7;
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                qj4.d(r0);
-                throw th;
-            }
-        } else {
-            return (String) invokeLLZ.objValue;
-        }
-    }
-
-    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return e(messageDigest.digest(), "", z);
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public static String d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
-            try {
-                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, generatePublic);
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String e(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
+        return (String) invokeV.objValue;
     }
 }

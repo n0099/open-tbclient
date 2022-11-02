@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IPMSDownloadInterface {
     void addPackage(String str);
 
@@ -9,7 +9,7 @@ public interface IPMSDownloadInterface {
 
     IPMSDownloadListener getListener();
 
-    List getPackages();
+    List<String> getPackages();
 
     boolean getRegistered();
 

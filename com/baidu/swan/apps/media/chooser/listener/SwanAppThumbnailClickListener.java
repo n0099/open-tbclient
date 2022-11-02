@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnItemTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureDetectorCompat a;
     public RecyclerView b;
 
-    /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -35,7 +35,7 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

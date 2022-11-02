@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class d implements Parcelable.Creator {
+public final class d implements Parcelable.Creator<CoachInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,18 +30,24 @@ public final class d implements Parcelable.Creator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PlaneInfo createFromParcel(Parcel parcel) {
+    public CoachInfo createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new PlaneInfo(parcel) : (PlaneInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+            return new CoachInfo(parcel);
+        }
+        return (CoachInfo) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PlaneInfo[] newArray(int i) {
+    public CoachInfo[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new PlaneInfo[i] : (PlaneInfo[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new CoachInfo[i];
+        }
+        return (CoachInfo[]) invokeI.objValue;
     }
 }

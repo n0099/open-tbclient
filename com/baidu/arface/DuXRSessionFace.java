@@ -9,12 +9,13 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.dumix.face.FaceListener;
 import com.baidu.ar.dumix.face.FaceSession;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.bh1;
+import com.baidu.tieba.th1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +23,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
-import java.util.Iterator;
 import java.util.List;
+@Keep
 /* loaded from: classes.dex */
 public class DuXRSessionFace {
     public static /* synthetic */ Interceptable $ic = null;
@@ -414,7 +415,7 @@ public class DuXRSessionFace {
         }
     }
 
-    private void setOptimalPreviewSize(List list, int i, int i2) {
+    private void setOptimalPreviewSize(List<Camera.Size> list, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLII(65564, this, list, i, i2) != null) || list == null) {
             return;
@@ -422,9 +423,7 @@ public class DuXRSessionFace {
         double d2 = i / i2;
         Camera.Size size = null;
         double d3 = Double.MAX_VALUE;
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            Camera.Size size2 = (Camera.Size) it.next();
+        for (Camera.Size size2 : list) {
             if (Math.abs((size2.width / size2.height) - d2) <= 0.1d && Math.abs(size2.height - i2) < d3) {
                 d3 = Math.abs(size2.height - i2);
                 size = size2;
@@ -482,7 +481,7 @@ public class DuXRSessionFace {
                 return;
             }
             this.mTextureId = i3;
-            PermissionProxy permissionProxy = bh1.o;
+            PermissionProxy permissionProxy = th1.o;
             if (permissionProxy != null) {
                 permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a(this));
             } else {

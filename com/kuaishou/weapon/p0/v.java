@@ -48,8 +48,8 @@ public class v implements Runnable {
     public int f;
     public int g;
     public boolean h;
-    public List i;
-    public Map j;
+    public List<Integer> i;
+    public Map<Integer, a> j;
 
     /* loaded from: classes7.dex */
     public class a {
@@ -124,7 +124,7 @@ public class v implements Runnable {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v10 long)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v4 long)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0136: IGET  (r8v1 int A[REMOVE]) = (r20v0 com.kuaishou.weapon.p0.t) com.kuaishou.weapon.p0.t.a int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0135: IGET  (r8v1 int A[REMOVE]) = (r20v0 com.kuaishou.weapon.p0.t) com.kuaishou.weapon.p0.t.a int)] */
     private void a(t tVar) {
         File file;
         Object obj;
@@ -387,7 +387,7 @@ public class v implements Runnable {
                                         arrayList2.add(b2);
                                     }
                                 } else {
-                                    t tVar = (t) b.get(indexOf);
+                                    t tVar = b.get(indexOf);
                                     if (n3.b(b2.d, tVar.d)) {
                                         if (b2.x != tVar.x) {
                                             this.c.c(b2.a, b2.x);

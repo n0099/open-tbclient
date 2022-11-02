@@ -1,42 +1,119 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 /* loaded from: classes5.dex */
-public final class oh1 {
+public class oh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && a) {
-            Log.d("SsoOneKey", str);
+    /* loaded from: classes5.dex */
+    public static class a implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
+    /* loaded from: classes5.dex */
+    public static class b implements TrustManager, X509TrustManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
+            }
+        }
+
+        @Override // javax.net.ssl.X509TrustManager
+        public X509Certificate[] getAcceptedIssuers() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (X509Certificate[]) invokeV.objValue;
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 
-    public static void d(String str) {
+    /* JADX DEBUG: Throwable added to exception handler: 'Exception', keep only Throwable */
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a) {
-            Log.e("SsoOneKey", str);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            try {
+                a aVar = new a();
+                b();
+                HttpsURLConnection.setDefaultHostnameVerifier(aVar);
+            } catch (Throwable unused) {
+            }
         }
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static void b() throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            TrustManager[] trustManagerArr = {new b()};
+            SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+            sSLContext.init(null, trustManagerArr, null);
+            HttpsURLConnection.setDefaultSSLSocketFactory(sSLContext.getSocketFactory());
         }
-        return invokeV.booleanValue;
     }
 }

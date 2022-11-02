@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.upstream;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -89,7 +90,7 @@ public final class DataSourceInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr) throws IOException {
+    public int read(@NonNull byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
@@ -99,7 +100,7 @@ public final class DataSourceInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {

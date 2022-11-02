@@ -1,22 +1,24 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.tb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage {
+public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List a;
-        public List b;
+        public List<tb7> a;
+        public List<ChatMessage> b;
 
         public a() {
             Interceptable interceptable = $ic;

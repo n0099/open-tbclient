@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public final class m extends s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
+    public ArrayList<String> a;
 
     @Override // com.vivo.push.b.s, com.vivo.push.o
     public final String toString() {
@@ -38,7 +38,7 @@ public final class m extends s {
         }
     }
 
-    public final ArrayList d() {
+    public final ArrayList<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

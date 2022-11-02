@@ -1,44 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
-import com.baidu.tieba.tu7;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.SendCardInfo;
 /* loaded from: classes6.dex */
 public class zw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
 
-    public static cx7 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
-        InterceptResult invokeLL;
+    public zw7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
-            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            StatisticItem statisticItem = new StatisticItem(tu7.a.a);
-            int i = 0;
-            int from = iBaseDialogData.getFrom();
-            if (from != 0) {
-                if (from != 1) {
-                    if (from == 2) {
-                        i = 4;
-                    }
-                } else {
-                    i = 3;
-                }
-            } else {
-                i = 2;
-            }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-            return new ax7(tbPageContext, (CustomDialogData) iBaseDialogData);
         }
-        return (cx7) invokeLL.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.e == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
+            this.b = jSONObject.optString("card_logo");
+            this.c = jSONObject.optString("card_name");
+            this.d = jSONObject.optString("card_pro");
+            this.e = jSONObject.optInt("card_get_status");
+            this.a = jSONObject.optLong("packet_id");
+            this.f = jSONObject.optString("card_num");
+        }
+    }
+
+    public void d(SendCardInfo sendCardInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
+            this.b = sendCardInfo.card_logo;
+            this.c = sendCardInfo.card_name;
+            this.d = sendCardInfo.card_pro;
+            this.e = sendCardInfo.card_get_status.intValue();
+            this.a = sendCardInfo.packet_id.longValue();
+        }
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PoiDetailResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PoiDetailResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String address;
     public int checkinNum;
@@ -41,6 +41,16 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
     public String telephone;
     public String type;
     public String uid;
+
+    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,6 +80,213 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public String getAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.address;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getCheckinNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.checkinNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getCommentNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.commentNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getDetailUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.detailUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDiscountNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.discountNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public double getEnvironmentRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.environmentRating;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public double getFacilityRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.facilityRating;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public int getFavoriteNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.favoriteNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getGrouponNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.grouponNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public double getHygieneRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.hygieneRating;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public int getImageNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.imageNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public LatLng getLocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.location;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public double getOverallRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.overallRating;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public double getPrice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.price;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public double getServiceRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.serviceRating;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String getShopHours() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.shopHours;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.tag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public double getTasteRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.tasteRating;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public double getTechnologyRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.technologyRating;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String getTelephone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.telephone;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.type;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.uid;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -133,154 +350,6 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.address : (String) invokeV.objValue;
-    }
-
-    public int getCheckinNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.checkinNum : invokeV.intValue;
-    }
-
-    public int getCommentNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.commentNum : invokeV.intValue;
-    }
-
-    public String getDetailUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.detailUrl : (String) invokeV.objValue;
-    }
-
-    public int getDiscountNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.discountNum : invokeV.intValue;
-    }
-
-    public double getEnvironmentRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.environmentRating : invokeV.doubleValue;
-    }
-
-    public double getFacilityRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.facilityRating : invokeV.doubleValue;
-    }
-
-    public int getFavoriteNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.favoriteNum : invokeV.intValue;
-    }
-
-    public int getGrouponNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.grouponNum : invokeV.intValue;
-    }
-
-    public double getHygieneRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.hygieneRating : invokeV.doubleValue;
-    }
-
-    public int getImageNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.imageNum : invokeV.intValue;
-    }
-
-    public LatLng getLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.location : (LatLng) invokeV.objValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public double getOverallRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.overallRating : invokeV.doubleValue;
-    }
-
-    public double getPrice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.price : invokeV.doubleValue;
-    }
-
-    public double getServiceRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.serviceRating : invokeV.doubleValue;
-    }
-
-    public String getShopHours() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.shopHours : (String) invokeV.objValue;
-    }
-
-    public String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.tag : (String) invokeV.objValue;
-    }
-
-    public double getTasteRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.tasteRating : invokeV.doubleValue;
-    }
-
-    public double getTechnologyRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.technologyRating : invokeV.doubleValue;
-    }
-
-    public String getTelephone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.telephone : (String) invokeV.objValue;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.type : (String) invokeV.objValue;
-    }
-
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.uid : (String) invokeV.objValue;
     }
 
     public void setAddress(String str) {

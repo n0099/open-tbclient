@@ -2,6 +2,7 @@ package com.kwad.components.ad.splashscreen.local;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,6 +31,7 @@ public final class b {
         }
     }
 
+    @Nullable
     public static a Q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -74,6 +76,7 @@ public final class b {
         }
     }
 
+    @Nullable
     public static a S(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -98,6 +101,7 @@ public final class b {
         return (a) invokeL.objValue;
     }
 
+    @Nullable
     public static a T(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

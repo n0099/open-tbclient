@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.vr.dynamite.client.IObjectWrapper;
 import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
-public final class ObjectWrapper extends IObjectWrapper.a {
+public final class ObjectWrapper<T> extends IObjectWrapper.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object wrappedObject;
+    public final T wrappedObject;
 
-    public ObjectWrapper(Object obj) {
+    public ObjectWrapper(T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,19 +29,19 @@ public final class ObjectWrapper extends IObjectWrapper.a {
                 return;
             }
         }
-        this.wrappedObject = obj;
+        this.wrappedObject = t;
     }
 
-    public static IObjectWrapper a(Object obj) {
+    public static <T> IObjectWrapper a(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            return new ObjectWrapper(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
+            return new ObjectWrapper(t);
         }
         return (IObjectWrapper) invokeL.objValue;
     }
 
-    public static Object unwrap(IObjectWrapper iObjectWrapper, Class cls) {
+    public static <T> T unwrap(IObjectWrapper iObjectWrapper, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iObjectWrapper, cls)) == null) {
@@ -94,6 +94,6 @@ public final class ObjectWrapper extends IObjectWrapper.a {
             }
             throw new IllegalArgumentException("The concrete class implementing IObjectWrapper must have exactly *one* declared private field for the wrapped object.  Preferably, this is an instance of the ObjectWrapper<T> class.");
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 }

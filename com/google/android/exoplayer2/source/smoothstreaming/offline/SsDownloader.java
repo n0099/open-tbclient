@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public final class SsDownloader extends SegmentDownloader {
+public final class SsDownloader extends SegmentDownloader<SsManifest, TrackKey> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +46,7 @@ public final class SsDownloader extends SegmentDownloader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
-    public List getAllSegments(DataSource dataSource, SsManifest ssManifest, boolean z) throws InterruptedException, IOException {
+    public List<SegmentDownloader.Segment> getAllSegments(DataSource dataSource, SsManifest ssManifest, boolean z) throws InterruptedException, IOException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, dataSource, ssManifest, z)) == null) {
@@ -70,6 +70,7 @@ public final class SsDownloader extends SegmentDownloader {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
     public SsManifest getManifest(DataSource dataSource, Uri uri) throws IOException {
         InterceptResult invokeLL;
@@ -84,7 +85,7 @@ public final class SsDownloader extends SegmentDownloader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
-    public List getSegments(DataSource dataSource, SsManifest ssManifest, TrackKey[] trackKeyArr, boolean z) throws InterruptedException, IOException {
+    public List<SegmentDownloader.Segment> getSegments(DataSource dataSource, SsManifest ssManifest, TrackKey[] trackKeyArr, boolean z) throws InterruptedException, IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{dataSource, ssManifest, trackKeyArr, Boolean.valueOf(z)})) == null) {

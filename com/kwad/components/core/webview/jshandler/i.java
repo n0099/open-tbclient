@@ -2,6 +2,8 @@ package com.kwad.components.core.webview.jshandler;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,11 +20,13 @@ public final class i implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.b Lk;
     public Handler Ll;
     public boolean Ln;
+    @Nullable
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
+    @Nullable
     public final com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public i(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.c.a.c cVar, com.kwad.sdk.core.webview.a.kwai.a aVar) {
+    public i(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable com.kwad.sdk.core.webview.a.kwai.a aVar) {
         this(bVar, cVar, aVar, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +46,7 @@ public final class i implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    public i(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.c.a.c cVar, com.kwad.sdk.core.webview.a.kwai.a aVar, boolean z) {
+    public i(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable com.kwad.sdk.core.webview.a.kwai.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,7 +73,7 @@ public final class i implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Handler handler;
         Runnable runnable;
         Interceptable interceptable = $ic;
@@ -198,6 +202,7 @@ public final class i implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

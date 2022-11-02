@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
@@ -13,7 +15,7 @@ import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
-import com.baidu.tieba.ve1;
+import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,7 +47,7 @@ public class LogSystemServiceUtil {
         }
     }
 
-    public static void startLogHandlerService(Context context) {
+    public static void startLogHandlerService(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             try {
@@ -61,7 +63,7 @@ public class LogSystemServiceUtil {
         }
     }
 
-    public static void startLogHandlerService(Context context, LogType logType, File file, File file2, LogExtra logExtra) {
+    public static void startLogHandlerService(@NonNull Context context, @NonNull LogType logType, @NonNull File file, @Nullable File file2, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, context, logType, file, file2, logExtra) == null) {
             try {
@@ -87,10 +89,10 @@ public class LogSystemServiceUtil {
         }
     }
 
-    public static void tranLogHandlerAction(Context context, LogType logType, String str, File file, LogExtra logExtra) {
+    public static void tranLogHandlerAction(@NonNull Context context, @NonNull LogType logType, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65543, null, context, logType, str, file, logExtra) == null) {
-            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(ve1.b());
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(nf1.b());
             if (!obtainFileDirWithProcessName.exists()) {
                 obtainFileDirWithProcessName.mkdirs();
             }
@@ -106,14 +108,14 @@ public class LogSystemServiceUtil {
         }
     }
 
-    public static void startLogHandlerService(Context context, LogType logType, String str) {
+    public static void startLogHandlerService(@NonNull Context context, @NonNull LogType logType, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, logType, str) == null) {
             startLogHandlerService(context, logType, str, (File) null, (LogExtra) null);
         }
     }
 
-    public static void startLogHandlerService(Context context, LogType logType, String str, File file, LogExtra logExtra) {
+    public static void startLogHandlerService(@NonNull Context context, @NonNull LogType logType, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65541, null, context, logType, str, file, logExtra) == null) {
             try {
@@ -145,7 +147,7 @@ public class LogSystemServiceUtil {
         }
     }
 
-    public static void startService(Context context, LogType logType, String str, File file, File file2, LogExtra logExtra) {
+    public static void startService(@NonNull Context context, @NonNull LogType logType, @Nullable String str, @Nullable File file, @Nullable File file2, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, logType, str, file, file2, logExtra}) == null) {
             if (str == null && file == null) {
@@ -153,7 +155,7 @@ public class LogSystemServiceUtil {
             }
             Intent intent = new Intent();
             intent.setClass(context, LokiService.class);
-            intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, ve1.b());
+            intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, nf1.b());
             intent.putExtra("logtype", logType);
             if (str != null) {
                 intent.putExtra(LokiService.Constant.LOG_BASIC_DATA, str);

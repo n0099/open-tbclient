@@ -34,6 +34,6 @@ public class LiveSearchNullDataViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec9);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f14);
     }
 }

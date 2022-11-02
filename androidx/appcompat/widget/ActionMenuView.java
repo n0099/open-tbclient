@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
@@ -44,6 +48,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     public ActionMenuPresenter mPresenter;
     public boolean mReserveOverflow;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface ActionMenuChildView {
         boolean needsDividerAfter();
@@ -67,6 +72,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     @Override // androidx.appcompat.view.menu.MenuView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getWindowAnimations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,14 +88,14 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
             }
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
@@ -261,7 +267,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public void onMenuModeChange(MenuBuilder menuBuilder) {
+        public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
             MenuBuilder.Callback callback;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) && (callback = this.this$0.mMenuBuilderCallback) != null) {
@@ -270,7 +276,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+        public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, menuBuilder, menuItem)) == null) {
@@ -285,7 +291,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionMenuView(Context context) {
+    public ActionMenuView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -328,6 +334,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return (LayoutParams) invokeL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean hasSupportDividerBeforeChildAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -350,7 +357,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionMenuView(Context context, AttributeSet attributeSet) {
+    public ActionMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -454,7 +461,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
 
     /* JADX WARN: Type inference failed for: r14v12 */
     /* JADX WARN: Type inference failed for: r14v8 */
-    /* JADX WARN: Type inference failed for: r14v9, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r14v9, types: [int, boolean] */
     private void onMeasureExactFormat(int i, int i2) {
         boolean z;
         int i3;
@@ -702,6 +709,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     @Override // androidx.appcompat.view.menu.MenuView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void initialize(MenuBuilder menuBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, menuBuilder) == null) {
@@ -710,6 +718,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder.ItemInvoker
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean invokeItem(MenuItemImpl menuItemImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -735,6 +744,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setExpandedActionViewsExclusive(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
@@ -749,7 +759,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
-    public void setOverflowIcon(Drawable drawable) {
+    public void setOverflowIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
             getMenu();
@@ -757,6 +767,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setOverflowReserved(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
@@ -764,7 +775,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
-    public void setPopupTheme(int i) {
+    public void setPopupTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048610, this, i) == null) && this.mPopupTheme != i) {
             this.mPopupTheme = i;
@@ -776,6 +787,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setPresenter(ActionMenuPresenter actionMenuPresenter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, actionMenuPresenter) == null) {
@@ -792,6 +804,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public LayoutParams generateOverflowButtonLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -803,6 +816,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return (LayoutParams) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getOverflowIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -835,6 +849,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isOverflowMenuShowPending() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -861,6 +876,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isOverflowReserved() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -879,6 +895,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public MenuBuilder peekMenu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1046,6 +1063,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setMenuCallbacks(MenuPresenter.Callback callback, MenuBuilder.Callback callback2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, callback, callback2) == null) {

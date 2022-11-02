@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.core.view.InputDeviceCompat;
@@ -22,6 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;

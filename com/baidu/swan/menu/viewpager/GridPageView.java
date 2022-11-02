@@ -150,7 +150,7 @@ public class GridPageView extends FrameLayout {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             GridPageView gridPageView;
             SlideableGridView.a aVar;
             Interceptable interceptable = $ic;

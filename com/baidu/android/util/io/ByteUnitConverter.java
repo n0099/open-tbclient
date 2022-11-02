@@ -22,7 +22,7 @@ public class ByteUnitConverter {
 
     /* renamed from: com.baidu.android.util.io.ByteUnitConverter$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class ByteUnitConverter {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class UNITS {
+    public static final class UNITS {
         public static final /* synthetic */ UNITS[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UNITS B;

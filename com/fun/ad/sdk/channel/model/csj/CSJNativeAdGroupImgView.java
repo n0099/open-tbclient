@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +46,7 @@ public final class CSJNativeAdGroupImgView extends g0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdGroupImgView(Context context, AttributeSet attributeSet) {
+    public CSJNativeAdGroupImgView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +67,7 @@ public final class CSJNativeAdGroupImgView extends g0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdGroupImgView(Context context, AttributeSet attributeSet, int i) {
+    public CSJNativeAdGroupImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,19 +92,19 @@ public final class CSJNativeAdGroupImgView extends g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tTNativeAd) == null) {
             super.a(tTNativeAd);
-            List imageList = tTNativeAd.getImageList();
+            List<TTImage> imageList = tTNativeAd.getImageList();
             if (imageList == null || imageList.size() < 3) {
                 return;
             }
-            TTImage tTImage = (TTImage) imageList.get(0);
+            TTImage tTImage = imageList.get(0);
             if (tTImage != null && tTImage.isValid()) {
                 GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.g);
             }
-            TTImage tTImage2 = (TTImage) imageList.get(1);
+            TTImage tTImage2 = imageList.get(1);
             if (tTImage2 != null && tTImage2.isValid()) {
                 GlideHelper.get().load(getContext(), tTImage2.getImageUrl(), this.h);
             }
-            TTImage tTImage3 = (TTImage) imageList.get(2);
+            TTImage tTImage3 = imageList.get(2);
             if (tTImage3 == null || !tTImage3.isValid()) {
                 return;
             }

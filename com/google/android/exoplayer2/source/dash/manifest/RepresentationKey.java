@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.source.dash.manifest;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class RepresentationKey implements Parcelable, Comparable {
+public final class RepresentationKey implements Parcelable, Comparable<RepresentationKey> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<RepresentationKey> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final int adaptationSetIndex;
     public final int periodIndex;
@@ -42,7 +43,7 @@ public final class RepresentationKey implements Parcelable, Comparable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.source.dash.manifest.RepresentationKey.1
+        CREATOR = new Parcelable.Creator<RepresentationKey>() { // from class: com.google.android.exoplayer2.source.dash.manifest.RepresentationKey.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,6 +62,7 @@ public final class RepresentationKey implements Parcelable, Comparable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RepresentationKey createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -72,6 +74,7 @@ public final class RepresentationKey implements Parcelable, Comparable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RepresentationKey[] newArray(int i) {
                 InterceptResult invokeI;
@@ -115,7 +118,7 @@ public final class RepresentationKey implements Parcelable, Comparable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(RepresentationKey representationKey) {
+    public int compareTo(@NonNull RepresentationKey representationKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, representationKey)) == null) {

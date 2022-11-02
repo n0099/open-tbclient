@@ -15,22 +15,22 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableScan extends AbstractFlowableWithUpstream {
+public final class FlowableScan<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction accumulator;
+    public final BiFunction<T, T, T> accumulator;
 
     /* loaded from: classes8.dex */
-    public final class ScanSubscriber implements FlowableSubscriber, Subscription {
+    public static final class ScanSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction accumulator;
-        public final Subscriber actual;
+        public final BiFunction<T, T, T> accumulator;
+        public final Subscriber<? super T> actual;
         public boolean done;
         public Subscription s;
-        public Object value;
+        public T value;
 
-        public ScanSubscriber(Subscriber subscriber, BiFunction biFunction) {
+        public ScanSubscriber(Subscriber<? super T> subscriber, BiFunction<T, T, T> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,23 +97,24 @@ public final class FlowableScan extends AbstractFlowableWithUpstream {
             }
         }
 
+        /* JADX WARN: Type inference failed for: r5v3, types: [T, java.lang.Object] */
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.done) {
                 return;
             }
-            Subscriber subscriber = this.actual;
-            Object obj2 = this.value;
-            if (obj2 == null) {
-                this.value = obj;
-                subscriber.onNext(obj);
+            Subscriber<? super T> subscriber = this.actual;
+            T t2 = this.value;
+            if (t2 == null) {
+                this.value = t;
+                subscriber.onNext(t);
                 return;
             }
             try {
-                Object requireNonNull = ObjectHelper.requireNonNull(this.accumulator.apply(obj2, obj), "The value returned by the accumulator is null");
-                this.value = requireNonNull;
-                subscriber.onNext(requireNonNull);
+                ?? r5 = (T) ObjectHelper.requireNonNull(this.accumulator.apply(t2, t), "The value returned by the accumulator is null");
+                this.value = r5;
+                subscriber.onNext(r5);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.cancel();
@@ -123,7 +124,7 @@ public final class FlowableScan extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableScan(Flowable flowable, BiFunction biFunction) {
+    public FlowableScan(Flowable<T> flowable, BiFunction<T, T, T> biFunction) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,7 +145,7 @@ public final class FlowableScan extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new ScanSubscriber(subscriber, this.accumulator));

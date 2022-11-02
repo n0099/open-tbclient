@@ -1,6 +1,7 @@
 package com.google.android.gms.common;
 
 import android.content.Intent;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ public class UserRecoverableException extends Exception {
     public final Intent zza;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserRecoverableException(String str, Intent intent) {
+    public UserRecoverableException(@NonNull String str, @NonNull Intent intent) {
         super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,6 +34,7 @@ public class UserRecoverableException extends Exception {
         this.zza = intent;
     }
 
+    @NonNull
     public Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,87 +1,234 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.spswitch.utils.ViewUtil;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.publisher.view.SPSwitchRootLinearLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes4.dex */
-public final class f23 extends TimerTask {
+public class f23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public final float b;
-    public final WheelView3d c;
 
-    public f23(WheelView3d wheelView3d, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d, Float.valueOf(f)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements hz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ zr2 d;
+        public final /* synthetic */ Context e;
+
+        public a(int i, boolean z, Activity activity, zr2 zr2Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), activity, zr2Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = z;
+            this.c = activity;
+            this.d = zr2Var;
+            this.e = context;
+        }
+
+        @Override // com.baidu.tieba.hz2
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("swanAppId", e43.g0());
+                bundle.putInt("count", this.a);
+                bundle.putBoolean("compressed", this.b);
+                bundle.putString("launchType", "Image");
+                bundle.putString("swanTmpPath", rp2.U().G().k());
+                ur2.l(this.c, bundle, this.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.hz2
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                if (f23.a) {
+                    Log.i(ViewUtil.TAG, str + "");
+                }
+                Toast.makeText(this.e, str, 1).show();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712194, "Lcom/baidu/tieba/f23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947712194, "Lcom/baidu/tieba/f23;");
                 return;
             }
         }
-        this.c = wheelView3d;
-        this.b = f;
-        this.a = 2.1474836E9f;
+        a = ok1.a;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public static View b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == 2.1474836E9f) {
-                float f = 2000.0f;
-                if (Math.abs(this.b) > 2000.0f) {
-                    if (this.b <= 0.0f) {
-                        f = -2000.0f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            View view3 = null;
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    View childAt = viewGroup.getChildAt(i);
+                    if (childAt instanceof SPSwitchRootLinearLayout) {
+                        view3 = childAt;
                     }
-                    this.a = f;
-                } else {
-                    this.a = this.b;
+                    if (view3 != null) {
+                        break;
+                    }
+                    view3 = b(childAt);
                 }
             }
-            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
-                this.c.b();
-                this.c.getHandler().sendEmptyMessage(2000);
+            return view3;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            View b = b(activity.getWindow().getDecorView());
+            if (b == null) {
+                if (a) {
+                    Log.d(ViewUtil.TAG, "#isFitsSystemWindows#, getSPSRootLayout is NULL");
+                    return false;
+                }
+                return false;
+            }
+            return b.getFitsSystemWindows();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            if ((activity.getWindow().getDecorView().getSystemUiVisibility() & 1024) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view2, i)) == null) {
+            if (view2.getHeight() == i) {
+                return false;
+            }
+            if (a) {
+                Log.d(ViewUtil.TAG, "refreshHeight, originalHeight: " + view2.getHeight() + ", aimHeight: " + i);
+            }
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, i));
+            } else {
+                layoutParams.height = i;
+                view2.requestLayout();
+            }
+            if (a) {
+                Log.d(ViewUtil.TAG, "refreshHeight, newHeight: " + view2.getHeight());
+                return true;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void h(@NonNull Context context, @StringRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65544, null, context, i) == null) {
+            w33.f(context, i).G();
+        }
+    }
+
+    public static void i(int i, zr2 zr2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, zr2Var) == null) {
+            j(i, false, zr2Var);
+        }
+    }
+
+    public static void j(int i, boolean z, zr2 zr2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), zr2Var}) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            e43 b0 = e43.b0();
+            if (b0 == null) {
                 return;
             }
-            WheelView3d wheelView3d = this.c;
-            float f2 = (int) (this.a / 100.0f);
-            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() - f2);
-            if (!this.c.i()) {
-                float itemHeight = this.c.getItemHeight();
-                float f3 = (-this.c.getInitPosition()) * itemHeight;
-                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
-                double d = itemHeight * 0.25d;
-                if (this.c.getTotalScrollY() - d < f3) {
-                    f3 = this.c.getTotalScrollY() + f2;
-                } else if (this.c.getTotalScrollY() + d > itemsCount) {
-                    itemsCount = this.c.getTotalScrollY() + f2;
-                }
-                if (this.c.getTotalScrollY() <= f3) {
-                    this.a = 40.0f;
-                    this.c.setTotalScrollY((int) f3);
-                } else if (this.c.getTotalScrollY() >= itemsCount) {
-                    this.c.setTotalScrollY((int) itemsCount);
-                    this.a = -40.0f;
-                }
-            }
-            float f4 = this.a;
-            if (f4 < 0.0f) {
-                this.a = f4 + 20.0f;
-            } else {
-                this.a = f4 - 20.0f;
-            }
-            this.c.getHandler().sendEmptyMessage(1000);
+            SwanAppActivity w = b0.w();
+            gz2.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, w, new a(i, z, w, zr2Var, appContext));
         }
     }
 }

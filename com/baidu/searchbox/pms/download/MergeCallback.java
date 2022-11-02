@@ -19,7 +19,7 @@ public class MergeCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MergeCallback";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List list;
+    public final List<MergeBean> list;
 
     /* loaded from: classes2.dex */
     public class MergeBean {

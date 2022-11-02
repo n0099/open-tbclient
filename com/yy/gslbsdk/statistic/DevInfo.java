@@ -45,7 +45,7 @@ public class DevInfo {
         this.devId = StringTools.optString(GlobalTools.APP_DEV_ID);
     }
 
-    public Map toMap() {
+    public Map<String, String> toMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

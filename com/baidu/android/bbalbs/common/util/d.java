@@ -1,151 +1,164 @@
 package com.baidu.android.bbalbs.common.util;
 
 import android.content.Context;
-import android.os.Process;
-import android.provider.Settings;
+import android.os.Environment;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.android.bbalbs.common.util.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileReader;
 /* loaded from: classes.dex */
-public final class d {
+public class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ b.C0008b a;
+    public final /* synthetic */ b b;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public d(b bVar, b.C0008b c0008b) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID) : (String) invokeL.objValue;
-    }
-
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            try {
-                return ApiReplaceUtil.getString(context.getContentResolver(), str);
-            } catch (Exception e) {
-                a(e);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, c0008b};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        this.b = bVar;
+        this.a = c0008b;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x005d, code lost:
+        if (r1 == null) goto L5;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x009c, code lost:
+        if (r2 == null) goto L10;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00d7, code lost:
+        if (r3 == null) goto L21;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0068  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00a9  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00dc  */
+    @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String a(File file) {
-        InterceptResult invokeL;
-        FileReader fileReader;
+    public void run() {
+        Context context;
+        String i;
+        String b;
+        String j;
+        boolean b2;
+        String i2;
+        boolean c;
+        boolean g;
+        String l;
+        b.C0008b h;
+        boolean b3;
+        String f;
+        b bVar;
+        String str;
+        b.C0008b e;
+        boolean b4;
+        String f2;
+        String j2;
+        boolean b5;
+        String i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
-        FileReader fileReader2 = null;
-        try {
-            fileReader = new FileReader(file);
-            try {
-                try {
-                    char[] cArr = new char[8192];
-                    CharArrayWriter charArrayWriter = new CharArrayWriter();
-                    while (true) {
-                        int read = fileReader.read(cArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        charArrayWriter.write(cArr, 0, read);
-                    }
-                    String charArrayWriter2 = charArrayWriter.toString();
-                    try {
-                        fileReader.close();
-                    } catch (Exception e) {
-                        a(e);
-                    }
-                    return charArrayWriter2;
-                } catch (Exception e2) {
-                    e = e2;
-                    a(e);
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (Exception e3) {
-                            a(e3);
-                        }
-                    }
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                fileReader2 = fileReader;
-                if (fileReader2 != null) {
-                    try {
-                        fileReader2.close();
-                    } catch (Exception e4) {
-                        a(e4);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b.C0008b c0008b = new b.C0008b(null);
+            b.C0008b c0008b2 = this.a;
+            c0008b.b = c0008b2.b;
+            c0008b.a = c0008b2.a;
+            context = this.b.b;
+            File file = new File(context.getFilesDir(), "libcuid.so");
+            i = b.i(c0008b.c());
+            if (file.exists()) {
+                b = b.b(file);
+                j = b.j(b);
+                b.C0008b b6 = b.C0008b.b(j);
+                if (b6 != null) {
+                    b2 = this.b.b(b6);
+                    if (b2) {
+                        b bVar2 = this.b;
+                        i2 = b.i(b6.c());
+                        bVar2.e(i2);
                     }
                 }
-                throw th;
+                c = this.b.c();
+                if (c) {
+                    f2 = this.b.f("com.baidu.deviceid.v2");
+                    if (!TextUtils.isEmpty(f2)) {
+                        j2 = b.j(f2);
+                        b.C0008b b7 = b.C0008b.b(j2);
+                        if (b7 != null) {
+                            b5 = this.b.b(b7);
+                            if (b5) {
+                                b bVar3 = this.b;
+                                i3 = b.i(b7.c());
+                                bVar3.b("com.baidu.deviceid.v2", i3);
+                            }
+                        }
+                    }
+                    this.b.b("com.baidu.deviceid.v2", i);
+                }
+                g = this.b.g("android.permission.WRITE_EXTERNAL_STORAGE");
+                if (g) {
+                    if (new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2").exists()) {
+                        e = this.b.e();
+                        if (e != null) {
+                            b4 = this.b.b(e);
+                            if (b4) {
+                                i = b.i(e.c());
+                            }
+                        }
+                    }
+                    b.k(i);
+                }
+                if (c) {
+                    f = this.b.f("bd_setting_i");
+                    if (b.C0008b.a(TextUtils.isEmpty(f) ? 0 : f.length())) {
+                        bVar = this.b;
+                        str = "O";
+                    } else if (b.C0008b.a(f)) {
+                        bVar = this.b;
+                        str = "0";
+                    }
+                    bVar.b("bd_setting_i", str);
+                }
+                if (g || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists()) {
+                }
+                l = this.b.l("");
+                h = this.b.h(l);
+                if (h != null) {
+                    b3 = this.b.b(h);
+                    if (b3) {
+                        b.c(h.b, h.a);
+                        return;
+                    }
+                    return;
+                }
+                return;
             }
-        } catch (Exception e5) {
-            e = e5;
-            fileReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (fileReader2 != null) {
+            this.b.e(i);
+            c = this.b.c();
+            if (c) {
             }
-            throw th;
-        }
-    }
-
-    public static void a(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
-        }
-    }
-
-    public static boolean a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
-            try {
-                return Settings.System.putString(context.getContentResolver(), str, str2);
-            } catch (Exception e) {
-                a(e);
-                return false;
+            g = this.b.g("android.permission.WRITE_EXTERNAL_STORAGE");
+            if (g) {
+            }
+            if (c) {
+            }
+            if (g) {
             }
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str) || i == 0) {
-                return false;
-            }
-            return str.matches("^[a-zA-Z0-9]{1,5}$");
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? b(context, "android.permission.WRITE_SETTINGS") : invokeL.booleanValue;
-    }
-
-    public static boolean b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) ? context != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeLL.booleanValue;
     }
 }

@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.u04;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+@Service
 /* loaded from: classes4.dex */
-public class i14 {
+public class i14 implements ml1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errMsg;
 
     public i14() {
         Interceptable interceptable = $ic;
@@ -24,5 +27,35 @@ public class i14 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ml1
+    public File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return u04.d();
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ml1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return u04.d.g().getPath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ml1
+    public File a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return u04.d.h(str, str2);
+        }
+        return (File) invokeLL.objValue;
     }
 }

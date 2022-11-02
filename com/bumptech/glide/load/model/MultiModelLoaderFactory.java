@@ -1,5 +1,8 @@
 package com.bumptech.glide.load.model;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,20 +26,21 @@ import java.util.Set;
 public class MultiModelLoaderFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Factory DEFAULT_FACTORY;
-    public static final ModelLoader EMPTY_MODEL_LOADER;
+    public static final ModelLoader<Object, Object> EMPTY_MODEL_LOADER;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set alreadyUsedEntries;
-    public final List entries;
+    public final Set<Entry<?, ?>> alreadyUsedEntries;
+    public final List<Entry<?, ?>> entries;
     public final Factory factory;
-    public final Pools.Pool throwableListPool;
+    public final Pools.Pool<List<Throwable>> throwableListPool;
 
     /* loaded from: classes7.dex */
-    public class EmptyModelLoader implements ModelLoader {
+    public static class EmptyModelLoader implements ModelLoader<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.bumptech.glide.load.model.ModelLoader
-        public ModelLoader.LoadData buildLoadData(Object obj, int i, int i2, Options options) {
+        @Nullable
+        public ModelLoader.LoadData<Object> buildLoadData(@NonNull Object obj, int i, int i2, @NonNull Options options) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
@@ -46,7 +50,7 @@ public class MultiModelLoaderFactory {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoader
-        public boolean handles(Object obj) {
+        public boolean handles(@NonNull Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -71,14 +75,14 @@ public class MultiModelLoaderFactory {
     }
 
     /* loaded from: classes7.dex */
-    public class Entry {
+    public static class Entry<Model, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Class dataClass;
-        public final ModelLoaderFactory factory;
-        public final Class modelClass;
+        public final Class<Data> dataClass;
+        public final ModelLoaderFactory<? extends Model, ? extends Data> factory;
+        public final Class<Model> modelClass;
 
-        public Entry(Class cls, Class cls2, ModelLoaderFactory modelLoaderFactory) {
+        public Entry(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +102,7 @@ public class MultiModelLoaderFactory {
             this.factory = modelLoaderFactory;
         }
 
-        public boolean handles(Class cls) {
+        public boolean handles(@NonNull Class<?> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
@@ -107,7 +111,7 @@ public class MultiModelLoaderFactory {
             return invokeL.booleanValue;
         }
 
-        public boolean handles(Class cls, Class cls2) {
+        public boolean handles(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2)) == null) {
@@ -121,7 +125,7 @@ public class MultiModelLoaderFactory {
     }
 
     /* loaded from: classes7.dex */
-    public class Factory {
+    public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,11 +143,12 @@ public class MultiModelLoaderFactory {
             }
         }
 
-        public MultiModelLoader build(List list, Pools.Pool pool) {
+        @NonNull
+        public <Model, Data> MultiModelLoader<Model, Data> build(@NonNull List<ModelLoader<Model, Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, pool)) == null) {
-                return new MultiModelLoader(list, pool);
+                return new MultiModelLoader<>(list, pool);
             }
             return (MultiModelLoader) invokeLL.objValue;
         }
@@ -166,17 +171,18 @@ public class MultiModelLoaderFactory {
         EMPTY_MODEL_LOADER = new EmptyModelLoader();
     }
 
-    public static ModelLoader emptyModelLoader() {
+    @NonNull
+    public static <Model, Data> ModelLoader<Model, Data> emptyModelLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return EMPTY_MODEL_LOADER;
+            return (ModelLoader<Model, Data>) EMPTY_MODEL_LOADER;
         }
         return (ModelLoader) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MultiModelLoaderFactory(Pools.Pool pool) {
+    public MultiModelLoaderFactory(@NonNull Pools.Pool<List<Throwable>> pool) {
         this(pool, DEFAULT_FACTORY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -196,14 +202,15 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    public synchronized List getDataClasses(Class cls) {
+    @NonNull
+    public synchronized List<Class<?>> getDataClasses(@NonNull Class<?> cls) {
         InterceptResult invokeL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (Entry entry : this.entries) {
+                for (Entry<?, ?> entry : this.entries) {
                     if (!arrayList.contains(entry.dataClass) && entry.handles(cls)) {
                         arrayList.add(entry.dataClass);
                     }
@@ -214,7 +221,8 @@ public class MultiModelLoaderFactory {
         return (List) invokeL.objValue;
     }
 
-    public MultiModelLoaderFactory(Pools.Pool pool, Factory factory) {
+    @VisibleForTesting
+    public MultiModelLoaderFactory(@NonNull Pools.Pool<List<Throwable>> pool, @NonNull Factory factory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -235,19 +243,20 @@ public class MultiModelLoaderFactory {
         this.factory = factory;
     }
 
-    public synchronized List remove(Class cls, Class cls2) {
+    @NonNull
+    public synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> remove(@NonNull Class<Model> cls, @NonNull Class<Data> cls2) {
         InterceptResult invokeLL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cls, cls2)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                Iterator it = this.entries.iterator();
+                Iterator<Entry<?, ?>> it = this.entries.iterator();
                 while (it.hasNext()) {
-                    Entry entry = (Entry) it.next();
-                    if (entry.handles(cls, cls2)) {
+                    Entry<?, ?> next = it.next();
+                    if (next.handles(cls, cls2)) {
                         it.remove();
-                        arrayList.add(getFactory(entry));
+                        arrayList.add(getFactory(next));
                     }
                 }
             }
@@ -256,12 +265,12 @@ public class MultiModelLoaderFactory {
         return (List) invokeLL.objValue;
     }
 
-    private void add(Class cls, Class cls2, ModelLoaderFactory modelLoaderFactory, boolean z) {
+    private <Model, Data> void add(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{cls, cls2, modelLoaderFactory, Boolean.valueOf(z)}) == null) {
-            Entry entry = new Entry(cls, cls2, modelLoaderFactory);
-            List list = this.entries;
+            Entry<?, ?> entry = new Entry<>(cls, cls2, modelLoaderFactory);
+            List<Entry<?, ?>> list = this.entries;
             if (z) {
                 i = list.size();
             } else {
@@ -271,7 +280,8 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    private ModelLoader build(Entry entry) {
+    @NonNull
+    private <Model, Data> ModelLoader<Model, Data> build(@NonNull Entry<?, ?> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, entry)) == null) {
@@ -280,16 +290,17 @@ public class MultiModelLoaderFactory {
         return (ModelLoader) invokeL.objValue;
     }
 
-    private ModelLoaderFactory getFactory(Entry entry) {
+    @NonNull
+    private <Model, Data> ModelLoaderFactory<Model, Data> getFactory(@NonNull Entry<?, ?> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, entry)) == null) {
-            return entry.factory;
+            return (ModelLoaderFactory<Model, Data>) entry.factory;
         }
         return (ModelLoaderFactory) invokeL.objValue;
     }
 
-    public synchronized void append(Class cls, Class cls2, ModelLoaderFactory modelLoaderFactory) {
+    public synchronized <Model, Data> void append(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, cls, cls2, modelLoaderFactory) == null) {
             synchronized (this) {
@@ -298,7 +309,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    public synchronized void prepend(Class cls, Class cls2, ModelLoaderFactory modelLoaderFactory) {
+    public synchronized <Model, Data> void prepend(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, cls, cls2, modelLoaderFactory) == null) {
             synchronized (this) {
@@ -307,9 +318,10 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    public synchronized List replace(Class cls, Class cls2, ModelLoaderFactory modelLoaderFactory) {
+    @NonNull
+    public synchronized <Model, Data> List<ModelLoaderFactory<? extends Model, ? extends Data>> replace(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
         InterceptResult invokeLLL;
-        List remove;
+        List<ModelLoaderFactory<? extends Model, ? extends Data>> remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, cls, cls2, modelLoaderFactory)) == null) {
             synchronized (this) {
@@ -322,7 +334,8 @@ public class MultiModelLoaderFactory {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public synchronized ModelLoader build(Class cls, Class cls2) {
+    @NonNull
+    public synchronized <Model, Data> ModelLoader<Model, Data> build(@NonNull Class<Model> cls, @NonNull Class<Data> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2)) == null) {
@@ -330,7 +343,7 @@ public class MultiModelLoaderFactory {
                 try {
                     ArrayList arrayList = new ArrayList();
                     boolean z = false;
-                    for (Entry entry : this.entries) {
+                    for (Entry<?, ?> entry : this.entries) {
                         if (this.alreadyUsedEntries.contains(entry)) {
                             z = true;
                         } else if (entry.handles(cls, cls2)) {
@@ -348,7 +361,7 @@ public class MultiModelLoaderFactory {
                     if (z) {
                         return emptyModelLoader();
                     }
-                    throw new Registry.NoModelLoaderAvailableException(cls, cls2);
+                    throw new Registry.NoModelLoaderAvailableException((Class<?>) cls, (Class<?>) cls2);
                 } catch (Throwable th) {
                     this.alreadyUsedEntries.clear();
                     throw th;
@@ -359,7 +372,8 @@ public class MultiModelLoaderFactory {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public synchronized List build(Class cls) {
+    @NonNull
+    public synchronized <Model> List<ModelLoader<Model, ?>> build(@NonNull Class<Model> cls) {
         InterceptResult invokeL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -367,7 +381,7 @@ public class MultiModelLoaderFactory {
             synchronized (this) {
                 try {
                     arrayList = new ArrayList();
-                    for (Entry entry : this.entries) {
+                    for (Entry<?, ?> entry : this.entries) {
                         if (!this.alreadyUsedEntries.contains(entry) && entry.handles(cls)) {
                             this.alreadyUsedEntries.add(entry);
                             arrayList.add(build(entry));

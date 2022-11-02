@@ -131,7 +131,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
         }
     }
 
-    public void loadInvoiceUrl(List list) {
+    public void loadInvoiceUrl(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.sapiWebView.loadInvoiceBuild(list);

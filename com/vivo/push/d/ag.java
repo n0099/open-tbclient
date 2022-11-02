@@ -92,7 +92,7 @@ public final class ag {
                                     case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
                                     case 2010:
                                     case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
-                                    case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
+                                    case 2012:
                                     case 2013:
                                     case 2014:
                                     case 2015:

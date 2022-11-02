@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.gq5;
-import com.baidu.tieba.ii5;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.oh5;
+import com.baidu.tieba.gj5;
+import com.baidu.tieba.kj5;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.pr5;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class RecommendFriendModel extends BdBaseModel {
+public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public static final String c;
     public static TbHttpMessageTask d;
@@ -66,12 +66,12 @@ public class RecommendFriendModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0197a extends ii5 {
+        public class C0206a extends gj5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
 
-            public C0197a(a aVar, List list) {
+            public C0206a(a aVar, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class RecommendFriendModel extends BdBaseModel {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ii5
+            @Override // com.baidu.tieba.gj5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -98,7 +98,7 @@ public class RecommendFriendModel extends BdBaseModel {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     List list = this.a;
                     if (list != null && list.size() > 0) {
-                        gq5.f().m(this.a);
+                        pr5.f().m(this.a);
                         return null;
                     }
                     return null;
@@ -108,7 +108,7 @@ public class RecommendFriendModel extends BdBaseModel {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements oh5 {
+        public class b implements li5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -134,7 +134,7 @@ public class RecommendFriendModel extends BdBaseModel {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.oh5
+            @Override // com.baidu.tieba.li5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class RecommendFriendModel extends BdBaseModel {
                     RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                     String errMsg = recommendFriendResponseMessage.getErrMsg();
                     if (recommendFriendResponseMessage.getError() == 0) {
-                        mi5.c(new C0197a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                        kj5.c(new C0206a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
                     } else if (this.a.a != null) {
                         this.a.a.h(errMsg);
                     }

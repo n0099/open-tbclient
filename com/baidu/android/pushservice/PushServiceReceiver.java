@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -22,6 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URISyntaxException;
+@SuppressLint({"NewApi"})
 /* loaded from: classes.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;

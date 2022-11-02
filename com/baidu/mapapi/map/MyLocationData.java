@@ -18,7 +18,7 @@ public class MyLocationData {
     public final float speed;
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double a;
@@ -42,6 +42,15 @@ public class MyLocationData {
             }
         }
 
+        public MyLocationData build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new MyLocationData(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+            return (MyLocationData) invokeV.objValue;
+        }
+
         public Builder accuracy(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
@@ -50,12 +59,6 @@ public class MyLocationData {
                 return this;
             }
             return (Builder) invokeF.objValue;
-        }
-
-        public MyLocationData build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new MyLocationData(this.a, this.b, this.c, this.d, this.e, this.f) : (MyLocationData) invokeV.objValue;
         }
 
         public Builder direction(float f) {

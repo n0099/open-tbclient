@@ -20,6 +20,11 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -329,7 +334,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ListPopupWindow(Context context) {
+    public ListPopupWindow(@NonNull Context context) {
         this(context, null, R.attr.obfuscated_res_0x7f04043d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -350,7 +355,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ListPopupWindow(Context context, AttributeSet attributeSet) {
+    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f04043d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -370,7 +375,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public boolean onKeyPreIme(int i, KeyEvent keyEvent) {
+    public boolean onKeyPreIme(int i, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i, keyEvent)) == null) {
@@ -402,7 +407,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ListPopupWindow(Context context, AttributeSet attributeSet, int i) {
+    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         this(context, attributeSet, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -422,7 +427,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public ListPopupWindow(Context context, AttributeSet attributeSet, int i, int i2) {
+    public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -819,6 +824,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
+    @Nullable
     public View getAnchorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -828,6 +834,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return (View) invokeV.objValue;
     }
 
+    @StyleRes
     public int getAnimationStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -837,6 +844,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return invokeV.intValue;
     }
 
+    @Nullable
     public Drawable getBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -846,6 +854,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public Rect getEpicenterBounds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -886,6 +895,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     @Override // androidx.appcompat.view.menu.ShowableListMenu
+    @Nullable
     public ListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -904,6 +914,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return invokeV.intValue;
     }
 
+    @Nullable
     public Object getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -940,6 +951,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return invokeV.intValue;
     }
 
+    @Nullable
     public View getSelectedView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -982,6 +994,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return invokeV.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isDropDownAlwaysVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1066,7 +1079,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return invokeI.booleanValue;
     }
 
-    public void setAdapter(ListAdapter listAdapter) {
+    public void setAdapter(@Nullable ListAdapter listAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, listAdapter) == null) {
             DataSetObserver dataSetObserver = this.mObserver;
@@ -1134,21 +1147,21 @@ public class ListPopupWindow implements ShowableListMenu {
         return (View.OnTouchListener) invokeL.objValue;
     }
 
-    public void setAnchorView(View view2) {
+    public void setAnchorView(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, view2) == null) {
             this.mDropDownAnchorView = view2;
         }
     }
 
-    public void setAnimationStyle(int i) {
+    public void setAnimationStyle(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             this.mPopup.setAnimationStyle(i);
         }
     }
 
-    public void setBackgroundDrawable(Drawable drawable) {
+    public void setBackgroundDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
             this.mPopup.setBackgroundDrawable(drawable);
@@ -1169,6 +1182,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setDropDownAlwaysVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
@@ -1183,7 +1197,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public void setEpicenterBounds(Rect rect) {
+    public void setEpicenterBounds(@Nullable Rect rect) {
         Rect rect2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, rect) == null) {
@@ -1196,6 +1210,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setForceIgnoreOutsideTouch(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
@@ -1249,27 +1264,28 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
+    public void setOnDismissListener(@Nullable PopupWindow.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, onDismissListener) == null) {
             this.mPopup.setOnDismissListener(onDismissListener);
         }
     }
 
-    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+    public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, onItemClickListener) == null) {
             this.mItemClickListener = onItemClickListener;
         }
     }
 
-    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
+    public void setOnItemSelectedListener(@Nullable AdapterView.OnItemSelectedListener onItemSelectedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, onItemSelectedListener) == null) {
             this.mItemSelectedListener = onItemSelectedListener;
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setOverlapAnchor(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
@@ -1285,7 +1301,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
-    public void setPromptView(View view2) {
+    public void setPromptView(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, view2) == null) {
             boolean isShowing = isShowing();
@@ -1342,6 +1358,7 @@ public class ListPopupWindow implements ShowableListMenu {
         }
     }
 
+    @NonNull
     public DropDownListView createDropDownListView(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -1351,7 +1368,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return (DropDownListView) invokeLZ.objValue;
     }
 
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeIL;
         int lookForSelectablePosition;
         int lookForSelectablePosition2;
@@ -1405,7 +1422,7 @@ public class ListPopupWindow implements ShowableListMenu {
         return invokeIL.booleanValue;
     }
 
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i, keyEvent)) == null) {

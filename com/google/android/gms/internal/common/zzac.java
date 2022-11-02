@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
-public abstract class zzac extends AbstractCollection implements Serializable {
+public abstract class zzac<E> extends AbstractCollection<E> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Object[] zza;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public abstract class zzac extends AbstractCollection implements Serializable {
         return invokeV.intValue;
     }
 
-    public zzag zzd() {
+    public zzag<E> zzd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -76,7 +76,7 @@ public abstract class zzac extends AbstractCollection implements Serializable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
     /* renamed from: zze */
-    public abstract zzaj iterator();
+    public abstract zzaj<E> iterator();
 
     public abstract boolean zzf();
 
@@ -125,10 +125,10 @@ public abstract class zzac extends AbstractCollection implements Serializable {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
-    public final boolean add(Object obj) {
+    public final boolean add(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeL.booleanValue;
@@ -136,7 +136,7 @@ public abstract class zzac extends AbstractCollection implements Serializable {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
-    public final boolean addAll(Collection collection) {
+    public final boolean addAll(Collection<? extends E> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
@@ -158,7 +158,7 @@ public abstract class zzac extends AbstractCollection implements Serializable {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
-    public final boolean removeAll(Collection collection) {
+    public final boolean removeAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
@@ -169,7 +169,7 @@ public abstract class zzac extends AbstractCollection implements Serializable {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     @Deprecated
-    public final boolean retainAll(Collection collection) {
+    public final boolean retainAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) {
@@ -179,28 +179,28 @@ public abstract class zzac extends AbstractCollection implements Serializable {
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
-    public final Object[] toArray(Object[] objArr) {
+    public final <T> T[] toArray(T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, objArr)) == null) {
-            if (objArr != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tArr)) == null) {
+            if (tArr != null) {
                 int size = size();
-                int length = objArr.length;
+                int length = tArr.length;
                 if (length < size) {
                     Object[] zzg = zzg();
                     if (zzg == null) {
-                        objArr = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), size);
+                        tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), size));
                     } else {
-                        return Arrays.copyOfRange(zzg, zzc(), zzb(), objArr.getClass());
+                        return (T[]) Arrays.copyOfRange(zzg, zzc(), zzb(), tArr.getClass());
                     }
                 } else if (length > size) {
-                    objArr[size] = null;
+                    tArr[size] = null;
                 }
-                zza(objArr, 0);
-                return objArr;
+                zza(tArr, 0);
+                return tArr;
             }
             throw null;
         }
-        return (Object[]) invokeL.objValue;
+        return (T[]) ((Object[]) invokeL.objValue);
     }
 }

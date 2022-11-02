@@ -18,7 +18,7 @@ import org.apache.http.conn.routing.HttpRoutePlanner;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
         throw new RuntimeException("Stub!");
     }
 
-    public Proxy chooseProxy(List list, HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
+    public Proxy chooseProxy(List<Proxy> list, HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, list, httpHost, httpRequest, httpContext)) == null) {

@@ -7,22 +7,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class Timed {
+public final class Timed<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long time;
     public final TimeUnit unit;
-    public final Object value;
+    public final T value;
 
-    public Timed(Object obj, long j, TimeUnit timeUnit) {
+    public Timed(@NonNull T t, long j, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, Long.valueOf(j), timeUnit};
+            Object[] objArr = {t, Long.valueOf(j), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,7 +33,7 @@ public final class Timed {
                 return;
             }
         }
-        this.value = obj;
+        this.value = t;
         this.time = j;
         this.unit = (TimeUnit) ObjectHelper.requireNonNull(timeUnit, "unit is null");
     }
@@ -58,9 +59,9 @@ public final class Timed {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Object obj = this.value;
-            if (obj != null) {
-                i = obj.hashCode();
+            T t = this.value;
+            if (t != null) {
+                i = t.hashCode();
             } else {
                 i = 0;
             }
@@ -79,6 +80,7 @@ public final class Timed {
         return invokeV.longValue;
     }
 
+    @NonNull
     public TimeUnit unit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,16 +90,17 @@ public final class Timed {
         return (TimeUnit) invokeV.objValue;
     }
 
-    public Object value() {
+    @NonNull
+    public T value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.value;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public long time(TimeUnit timeUnit) {
+    public long time(@NonNull TimeUnit timeUnit) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, timeUnit)) == null) {

@@ -1,175 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class y49 implements d59 {
+public class y49 extends w49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public f59 b;
     public View c;
-    public Object d;
-    public WriteData e;
-    public final List f;
+    public HorizontalListView d;
+    public e59 e;
 
-    @Override // com.baidu.tieba.d59
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.d59
-    public void h(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d59
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.d59
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d59
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d59
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d59
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d59
-    public void q(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d59
-    public void r(l55 l55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, l55Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d59
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public y49(TbPageContext tbPageContext, Class cls) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y49(r9 r9Var) {
+        super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cls};
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.d = sc.f(cls);
     }
 
-    @Override // com.baidu.tieba.d59
-    public void d() {
+    @Override // com.baidu.tieba.w49
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d074c, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (HorizontalListView) inflate.findViewById(R.id.obfuscated_res_0x7f090de2);
+            e59 e59Var = new e59();
+            this.e = e59Var;
+            this.d.setAdapter((ListAdapter) e59Var);
         }
     }
 
-    public Object x() {
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d59
-    public void j(f59 f59Var) {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f59Var) == null) {
-            this.b = f59Var;
-        }
-    }
-
-    public void w(a59 a59Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, a59Var) == null) && a59Var != null && !this.f.contains(a59Var)) {
-            this.f.add(a59Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.notifyDataSetChanged();
         }
     }
 
-    public void y(Object obj) {
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, obj) == null) {
-            for (a59 a59Var : this.f) {
-                a59Var.onUpdate(obj);
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+            l();
         }
     }
 
-    @Override // com.baidu.tieba.d59
-    public void m(Bundle bundle, Intent intent, WriteData writeData) {
+    public void m(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
-            this.e = writeData;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.e.c(list);
+        this.e.notifyDataSetChanged();
+    }
+
+    public void o(d59 d59Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, d59Var) == null) {
+            this.e.d(d59Var);
         }
     }
 }

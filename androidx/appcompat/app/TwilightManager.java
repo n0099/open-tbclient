@@ -1,9 +1,13 @@
 package androidx.appcompat.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.content.PermissionChecker;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +55,8 @@ public class TwilightManager {
         }
     }
 
-    public TwilightManager(Context context, LocationManager locationManager) {
+    @VisibleForTesting
+    public TwilightManager(@NonNull Context context, @NonNull LocationManager locationManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +76,7 @@ public class TwilightManager {
         this.mLocationManager = locationManager;
     }
 
-    public static TwilightManager getInstance(Context context) {
+    public static TwilightManager getInstance(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -84,6 +89,7 @@ public class TwilightManager {
         return (TwilightManager) invokeL.objValue;
     }
 
+    @RequiresPermission(anyOf = {h.h, h.g})
     private Location getLastKnownLocationForProvider(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -101,6 +107,7 @@ public class TwilightManager {
         return (Location) invokeL.objValue;
     }
 
+    @VisibleForTesting
     public static void setInstance(TwilightManager twilightManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, twilightManager) == null) {
@@ -108,6 +115,7 @@ public class TwilightManager {
         }
     }
 
+    @SuppressLint({"MissingPermission"})
     private Location getLastKnownLocation() {
         InterceptResult invokeV;
         Location location;
@@ -148,7 +156,7 @@ public class TwilightManager {
         return invokeV.booleanValue;
     }
 
-    private void updateState(Location location) {
+    private void updateState(@NonNull Location location) {
         boolean z;
         long j;
         long j2;

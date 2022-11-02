@@ -1,67 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.do9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.channel.GdtHelper;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Set;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes4.dex */
-public class ho9 implements GdtHelper.GdtNativeContainerCreator {
+public class ho9 extends FunNativeAd2Bridger<qo9, com.fun.module.csj.g0> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ho9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set a;
+    public final TTNativeAd.AdInteractionListener b;
+    public final /* synthetic */ do9 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947830583, "Lcom/baidu/tieba/ho9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947830583, "Lcom/baidu/tieba/ho9;");
-                return;
-            }
-        }
-        b = new ho9();
-    }
-
-    public ho9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ho9(do9 do9Var, ReporterPidLoader reporterPidLoader, qo9 qo9Var) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {do9Var, reporterPidLoader, qo9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet();
+        this.c = do9Var;
+        this.b = new do9.b(do9Var, qo9Var);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
-    public ViewGroup generateGdtNativeContainer(Context context) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.g0, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.csj.g0 createExpressView(qo9 qo9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
-            this.a.add(new WeakReference(nativeAdContainer));
-            return nativeAdContainer;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qo9Var)) == null) {
+            return eo9.a((TTNativeAd) qo9Var.a);
         }
-        return (ViewGroup) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, qo9 qo9Var, BaseNativeAd2<qo9, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, qo9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.c.g(activity, qo9Var, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, qo9 qo9Var, BaseNativeAd2<qo9, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, qo9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+            qo9 qo9Var2 = qo9Var;
+            do9 do9Var = this.c;
+            FunNativeAdListenerHelper<qo9, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = do9Var.f;
+            pid = do9Var.mPid;
+            funNativeAdListenerHelper.startShow(qo9Var2, str, pid, this.b, funAdInteractionListener);
+            com.fun.module.csj.g0 expressView = baseNativeAd2.getExpressView();
+            if (expressView == null) {
+                if (!FunAdSdk.isLogEnabled()) {
+                    LogPrinter.e("The image mode of ad is not support!", new Object[0]);
+                    return;
+                }
+                throw new RuntimeException("The image mode of ad is not support!");
+            }
+            this.c.f(activity, qo9Var2, expressInflater.inflate(), expressView, this.b);
+        }
     }
 }

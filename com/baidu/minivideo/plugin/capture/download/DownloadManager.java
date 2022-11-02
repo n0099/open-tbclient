@@ -2,6 +2,7 @@ package com.baidu.minivideo.plugin.capture.download;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.download.DownloadRequest;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadCallback;
@@ -29,7 +30,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadConfig mConfig;
     public DownloadStatusDelivery mDelivery;
-    public Map mDownloaderMap;
+    public Map<String, Downloader> mDownloaderMap;
     public ExecutorService mExecutorService;
     public Handler mHandler;
 
@@ -74,7 +75,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             String createKey = createKey(str);
             if (this.mDownloaderMap.containsKey(createKey)) {
-                Downloader downloader = (Downloader) this.mDownloaderMap.get(createKey);
+                Downloader downloader = this.mDownloaderMap.get(createKey);
                 if (downloader != null) {
                     downloader.cancel();
                 }
@@ -89,7 +90,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             String createKey = createKey(str);
-            if (this.mDownloaderMap.containsKey(createKey) && (downloader = (Downloader) this.mDownloaderMap.get(createKey)) != null) {
+            if (this.mDownloaderMap.containsKey(createKey) && (downloader = this.mDownloaderMap.get(createKey)) != null) {
                 return downloader.isRunning();
             }
             return false;
@@ -195,7 +196,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
         }
     }
 
-    private void init(DownloadConfig downloadConfig) {
+    private void init(@NonNull DownloadConfig downloadConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, downloadConfig) == null) {
             if (downloadConfig.getThreadNum() <= downloadConfig.getMaxThreadNum()) {
@@ -213,7 +214,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
         Downloader downloader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            if (this.mDownloaderMap.containsKey(str) && (downloader = (Downloader) this.mDownloaderMap.get(str)) != null) {
+            if (this.mDownloaderMap.containsKey(str) && (downloader = this.mDownloaderMap.get(str)) != null) {
                 if (downloader.isRunning()) {
                     LogUtils.w("DownloadInfo has been started!");
                     return true;
@@ -230,7 +231,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             String createKey = createKey(str);
             if (this.mDownloaderMap.containsKey(createKey)) {
-                Downloader downloader = (Downloader) this.mDownloaderMap.get(createKey);
+                Downloader downloader = this.mDownloaderMap.get(createKey);
                 if (downloader != null && downloader.isRunning()) {
                     downloader.pause();
                 }

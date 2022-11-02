@@ -7,6 +7,7 @@ import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
+import com.baidu.pass.main.facesdk.model.Feature;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -85,13 +86,13 @@ public class FaceFeature {
     /* JADX INFO: Access modifiers changed from: private */
     public native int nativeFeatureModelInit(long j, byte[] bArr, int i);
 
-    private native ArrayList nativeFeatureSearch(long j, byte[] bArr, int i, int i2, int i3);
+    private native ArrayList<Feature> nativeFeatureSearch(long j, byte[] bArr, int i, int i2, int i3);
 
     private native float nativeRGBDFeature(long j, int i, BDFaceImageInstance bDFaceImageInstance, BDFaceImageInstance bDFaceImageInstance2, float[] fArr, byte[] bArr);
 
     private native int nativeUninitModel(long j);
 
-    private native int nativefeaturePush(List list);
+    private native int nativefeaturePush(List<? extends Feature> list);
 
     public float feature(BDFaceSDKCommon.FeatureType featureType, BDFaceImageInstance bDFaceImageInstance, float[] fArr, byte[] bArr) {
         InterceptResult invokeLLLL;
@@ -127,7 +128,7 @@ public class FaceFeature {
         return invokeCommon.floatValue;
     }
 
-    public int featurePush(List list) {
+    public int featurePush(List<? extends Feature> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
@@ -153,7 +154,7 @@ public class FaceFeature {
         return invokeLLLLL.floatValue;
     }
 
-    public ArrayList featureSearch(byte[] bArr, BDFaceSDKCommon.FeatureType featureType, int i, boolean z) {
+    public ArrayList<Feature> featureSearch(byte[] bArr, BDFaceSDKCommon.FeatureType featureType, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bArr, featureType, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {

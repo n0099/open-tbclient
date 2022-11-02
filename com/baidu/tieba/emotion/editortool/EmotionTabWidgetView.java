@@ -12,14 +12,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d65;
-import com.baidu.tieba.l55;
+import com.baidu.tieba.e65;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionTabWidgetView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public class EmotionTabWidgetView extends LinearLayout {
     public ImageView b;
     public EditorTools c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
-                this.a.c.A(new l55(3, -1, null));
+                this.a.c.A(new e65(3, -1, null));
             }
         }
     }
@@ -90,9 +90,9 @@ public class EmotionTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0268, (ViewGroup) this, true);
-            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f09098f);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09098d);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d026a, (ViewGroup) this, true);
+            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f09099f);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09099d);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
         }
@@ -120,10 +120,10 @@ public class EmotionTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(d65 d65Var) {
+    public void b(w65 w65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d65Var) == null) {
-            this.a.k(d65Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, w65Var) == null) {
+            this.a.k(w65Var);
         }
     }
 
@@ -144,7 +144,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList arrayList) {
+    public void setDatas(ArrayList<w65> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);

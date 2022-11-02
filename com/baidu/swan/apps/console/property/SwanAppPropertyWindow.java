@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.console.property;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -15,9 +16,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.j12;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.b22;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,12 +33,12 @@ import java.util.Map;
 public class SwanAppPropertyWindow extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
-    public static Map f;
+    public static Map<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
     public b[] a;
-    public Map b;
+    public Map<String, TextView> b;
     public c c;
-    public Map d;
+    public Map<String, Object> d;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -140,6 +141,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
         }
     }
 
+    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes2.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
@@ -197,11 +199,11 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        e = wj1.a;
+        e = ok1.a;
         HashMap hashMap = new HashMap();
         f = hashMap;
-        hashMap.put(j12.q, "api_info_expend");
-        f.put(j12.r, "prelink_info_expend");
+        hashMap.put(b22.q, "api_info_expend");
+        f.put(b22.r, "prelink_info_expend");
     }
 
     public final void g() {
@@ -211,7 +213,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 Log.d("SwanAppPropertyWindow", "Start system monitor");
             }
             if (this.d == null) {
-                this.d = j12.g().h();
+                this.d = b22.g().h();
             }
             if (this.c == null) {
                 c cVar = new c(this, null);
@@ -228,7 +230,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 Log.d("SwanAppPropertyWindow", "Stop system monitor");
             }
             if (this.d != null) {
-                j12.g().i();
+                b22.g().i();
                 this.d = null;
             }
             c cVar = this.c;
@@ -257,7 +259,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, j12.m, "上屏时长：%s ms"), new b(this, j12.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, j12.l, "下载耗时：%s ms"), new b(this, j12.j, "页面切换耗时：%s ms"), new b(this, j12.n, "初次渲染耗时：%s ms"), new b(this, j12.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, j12.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, j12.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, j12.q, "%s")};
+        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, b22.m, "上屏时长：%s ms"), new b(this, b22.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, b22.l, "下载耗时：%s ms"), new b(this, b22.j, "页面切换耗时：%s ms"), new b(this, b22.n, "初次渲染耗时：%s ms"), new b(this, b22.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, b22.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, b22.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, b22.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }
@@ -281,7 +283,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, j12.m, "上屏时长：%s ms"), new b(this, j12.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, j12.l, "下载耗时：%s ms"), new b(this, j12.j, "页面切换耗时：%s ms"), new b(this, j12.n, "初次渲染耗时：%s ms"), new b(this, j12.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, j12.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, j12.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, j12.q, "%s")};
+        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, b22.m, "上屏时长：%s ms"), new b(this, b22.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, b22.l, "下载耗时：%s ms"), new b(this, b22.j, "页面切换耗时：%s ms"), new b(this, b22.n, "初次渲染耗时：%s ms"), new b(this, b22.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, b22.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, b22.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, b22.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }
@@ -305,7 +307,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, j12.m, "上屏时长：%s ms"), new b(this, j12.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, j12.l, "下载耗时：%s ms"), new b(this, j12.j, "页面切换耗时：%s ms"), new b(this, j12.n, "初次渲染耗时：%s ms"), new b(this, j12.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, j12.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, j12.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, j12.q, "%s")};
+        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, b22.m, "上屏时长：%s ms"), new b(this, b22.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, b22.l, "下载耗时：%s ms"), new b(this, b22.j, "页面切换耗时：%s ms"), new b(this, b22.n, "初次渲染耗时：%s ms"), new b(this, b22.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, b22.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, b22.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, b22.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }
@@ -314,8 +316,8 @@ public class SwanAppPropertyWindow extends FrameLayout {
         b[] bVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c3, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09017e);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c4, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090186);
             for (b bVar : this.a) {
                 TextView textView = new TextView(context);
                 if (TextUtils.equals(bVar.a, "title")) {
@@ -328,13 +330,13 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 } else {
                     textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001ab);
                     textView.setText(bVar.b);
-                    int g = dh3.g(5.0f);
+                    int g = vh3.g(5.0f);
                     textView.setPadding(0, g, 0, g);
                 }
                 linearLayout.addView(textView);
                 this.b.put(bVar.a, textView);
                 if (f.containsKey(bVar.a)) {
-                    e(linearLayout, context, (String) f.get(bVar.a), bVar.a);
+                    e(linearLayout, context, f.get(bVar.a), bVar.a);
                 }
             }
             g();
@@ -346,7 +348,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, context, str, str2) == null) {
             ScrollView scrollView = new ScrollView(context);
-            ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, dh3.g(200.0f));
+            ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, vh3.g(200.0f));
             View view2 = (TextView) this.b.get(str2);
             if (view2 != null) {
                 linearLayout.removeView(view2);
@@ -354,7 +356,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 scrollView.addView(view2);
                 scrollView.setVisibility(8);
             }
-            TextView textView = (TextView) this.b.get(str);
+            TextView textView = this.b.get(str);
             if (textView != null) {
                 String charSequence = textView.getText().toString();
                 if (scrollView.getVisibility() == 0) {
@@ -371,7 +373,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
     public final void f(String str, Object obj) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj) == null) && (textView = (TextView) this.b.get(str)) != null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj) == null) && (textView = this.b.get(str)) != null) {
             textView.setText(String.format((String) textView.getTag(), obj));
             textView.setVisibility(0);
             if (e) {

@@ -1,11 +1,14 @@
 package androidx.media2.common;
 
+import android.annotation.SuppressLint;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.versionedparcelable.ParcelImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,6 +20,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"BanParcelableUsage"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class ParcelImplListSlice implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -94,6 +99,7 @@ public class ParcelImplListSlice implements Parcelable {
         };
     }
 
+    @NonNull
     public List<ParcelImpl> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -152,7 +158,7 @@ public class ParcelImplListSlice implements Parcelable {
         }
     }
 
-    public ParcelImplListSlice(List<ParcelImpl> list) {
+    public ParcelImplListSlice(@NonNull List<ParcelImpl> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -14,12 +14,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
 /* loaded from: classes8.dex */
-public final class ImmutableList extends AbstractList implements RandomAccess, Serializable {
+public final class ImmutableList<T> extends AbstractList<T> implements RandomAccess, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList list;
+    public final ArrayList<T> list;
 
-    public ImmutableList(List list) {
+    public ImmutableList(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,7 +34,7 @@ public final class ImmutableList extends AbstractList implements RandomAccess, S
                 return;
             }
         }
-        this.list = new ArrayList(list);
+        this.list = new ArrayList<>(list);
     }
 
     private Object writeReplace() throws ObjectStreamException {
@@ -67,12 +67,12 @@ public final class ImmutableList extends AbstractList implements RandomAccess, S
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public Object get(int i) {
+    public T get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             return this.list.get(i);
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 }

@@ -9,12 +9,12 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.internal.fuseable.HasUpstreamObservableSource;
 /* loaded from: classes8.dex */
-public abstract class AbstractObservableWithUpstream extends Observable implements HasUpstreamObservableSource {
+public abstract class AbstractObservableWithUpstream<T, U> extends Observable<U> implements HasUpstreamObservableSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource source;
+    public final ObservableSource<T> source;
 
-    public AbstractObservableWithUpstream(ObservableSource observableSource) {
+    public AbstractObservableWithUpstream(ObservableSource<T> observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,7 +33,7 @@ public abstract class AbstractObservableWithUpstream extends Observable implemen
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamObservableSource
-    public final ObservableSource source() {
+    public final ObservableSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

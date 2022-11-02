@@ -1,36 +1,78 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bc8 {
+public class bc8 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final int b;
-    public final boolean c;
-    public final String d;
+    public boolean a;
+    public int b;
+    public int c;
+    public boolean d;
+    public kc8 e;
 
-    public bc8(boolean z, int i, boolean z2, String str) {
+    public bc8(kc8 kc8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2), str};
+            Object[] objArr = {kc8Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = z;
-        this.b = i;
-        this.c = z2;
-        this.d = str;
+        this.d = false;
+        this.e = kc8Var;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        kc8 kc8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (kc8Var = this.e) == null) {
+            return;
+        }
+        if (!this.d) {
+            kc8Var.m(this.b, this.c, this.a, 2);
+        } else {
+            kc8Var.m(this.b, this.c, this.a, 1);
+        }
     }
 }

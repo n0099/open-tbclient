@@ -1,94 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class u88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, List list) {
+    public static void a(View view2, rr4 rr4Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, list) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (list == null) {
-            list = new ArrayList();
-        }
-        JSONArray jSONArray = new JSONArray();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            eo eoVar = (eo) list.get(i);
-            if (eoVar instanceof z45) {
-                z45 z45Var = (z45) eoVar;
-                if (!z45Var.c()) {
-                    jSONArray.put(z45Var.a());
-                }
+        if ((interceptable == null || interceptable.invokeLLI(65536, null, view2, rr4Var, i) == null) && view2 != null && rr4Var != null && rr4Var.getThreadData() != null && !StringUtils.isNull(rr4Var.getThreadData().getTid())) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
+            statisticItem.param("obj_source", 3);
+            ThreadData threadData = rr4Var.getThreadData();
+            if (threadData.isBJHArticleThreadType()) {
+                statisticItem.param("obj_type", 1);
+            } else if (threadData.isBJHVideoThreadType()) {
+                statisticItem.param("obj_type", 2);
+            } else if (threadData.isBJHNormalThreadType()) {
+                statisticItem.param("obj_type", 3);
+            } else if (threadData.isBJHVideoDynamicThreadType()) {
+                statisticItem.param("obj_type", 4);
+            } else if (threadData.threadType == 0) {
+                statisticItem.param("obj_type", 5);
+            } else if (threadData.isVideoThreadType()) {
+                statisticItem.param("obj_type", 6);
             }
-        }
-        jSONArray.put(str);
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-        httpMessage.addParam("pic_list", jSONArray.toString());
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public static String c(TbPageContext tbPageContext, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
-            if (tbPageContext != null && !StringUtils.isNull(str)) {
-                if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
-                    return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
-                }
-                return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
+            if (rr4Var.getThreadData().getAuthor() != null) {
+                statisticItem.param("uid", rr4Var.getThreadData().getAuthor().getUserId());
             }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d(z45 z45Var, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, z45Var, bdUniqueId) != null) || z45Var == null || StringUtils.isNull(z45Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-        httpMessage.addParam("pic_url", z45Var.a());
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public static void b(z45 z45Var, List list) {
-        z45 z45Var2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, z45Var, list) == null) && z45Var != null && !ListUtils.isEmpty(list) && !StringUtils.isNull(z45Var.a())) {
-            JSONArray jSONArray = new JSONArray();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                eo eoVar = (eo) list.get(i);
-                if ((eoVar instanceof z45) && (z45Var2 = (z45) eoVar) != z45Var && !z45Var2.c()) {
-                    jSONArray.put(z45Var2.a());
-                }
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-            httpMessage.addParam("pic_list", jSONArray.toString());
-            if (jSONArray.length() <= 0) {
-                httpMessage.addParam("truncat", 1);
+            if (threadData.getBaijiahaoData() != null) {
+                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
             } else {
-                httpMessage.addParam("truncat", 0);
+                statisticItem.param("obj_id", threadData.getTid());
             }
-            MessageManager.getInstance().sendMessage(httpMessage);
+            statisticItem.param("obj_locate", i);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b(rr4 rr4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, rr4Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
+            ThreadData threadData = rr4Var.getThreadData();
+            if (threadData.isBJHArticleThreadType()) {
+                statisticItem.param("obj_type", 1);
+            } else if (threadData.isBJHVideoThreadType()) {
+                statisticItem.param("obj_type", 2);
+            } else if (threadData.isBJHNormalThreadType()) {
+                statisticItem.param("obj_type", 3);
+            } else if (threadData.isBJHVideoDynamicThreadType()) {
+                statisticItem.param("obj_type", 4);
+            } else if (threadData.threadType == 0) {
+                statisticItem.param("obj_type", 5);
+            } else if (threadData.isVideoThreadType()) {
+                statisticItem.param("obj_type", 6);
+            }
+            if (threadData.getBaijiahaoData() != null) {
+                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
+            } else {
+                statisticItem.param("obj_id", threadData.getTid());
+            }
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
         }
     }
 }

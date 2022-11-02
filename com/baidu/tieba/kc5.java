@@ -1,79 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecycleEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kc5 extends jc5 {
+public class kc5 implements gb5<ThirdPartyActivityLifecycleEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class n;
-    public final int o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kc5(TbPageContext tbPageContext, Class cls, int i, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, viewEventCenter);
+    public kc5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cls, Integer.valueOf(i), viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewEventCenter) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.o = i;
-        this.n = cls;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gb5
+    /* renamed from: a */
+    public boolean onEvent(ThirdPartyActivityLifecycleEvent thirdPartyActivityLifecycleEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.g && c()) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thirdPartyActivityLifecycleEvent)) == null) {
+            if (thirdPartyActivityLifecycleEvent == null || thirdPartyActivityLifecycleEvent.event == null || !TbadkCoreApplication.getInst().isMainProcess(false) || !UbsABTestHelper.isFixHotSplashRule()) {
+                return true;
             }
-            return super.getItemViewType(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
-            if (this.g && c()) {
-                return a();
+            if (thirdPartyActivityLifecycleEvent.event.equals(Lifecycle.Event.ON_PAUSE)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, TbadkCoreApplication.getInst()));
+            } else if (thirdPartyActivityLifecycleEvent.event.equals(Lifecycle.Event.ON_RESUME) && TbadkCoreApplication.getInst().canSendForegroundMessage()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, TbadkCoreApplication.getInst()));
             }
-            b();
-            return d(view2, i, this.n, this.o);
+            return true;
         }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.getViewTypeCount() + 1;
-        }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 }

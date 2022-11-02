@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.job;
 
+import android.annotation.TargetApi;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -15,23 +16,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(21)
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static C0043a a;
+    public static C0044a a;
     public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0043a {
+    public static class C0044a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
         public final JobScheduler b;
         public boolean c;
 
-        public C0043a(Context context) {
+        public C0044a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +100,7 @@ public class a {
             synchronized (a.class) {
                 if (a == null && Build.VERSION.SDK_INT >= 21) {
                     try {
-                        a = new C0043a(context);
+                        a = new C0044a(context);
                     } catch (Exception e) {
                         new b.c(context).a(Log.getStackTraceString(e)).a();
                     }

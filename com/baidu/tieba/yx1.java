@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Typeface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class yx1 extends sw1 {
+public class yx1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ax1 a;
+    public String a;
+    public float b;
+    public boolean c;
+    public boolean d;
 
     public yx1() {
         Interceptable interceptable = $ic;
@@ -23,30 +27,74 @@ public class yx1 extends sw1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.sw1
-    public void a(tw1 tw1Var, Canvas canvas) {
-        ax1 ax1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) && (ax1Var = this.a) != null && ax1Var.d()) {
-            if (this.a.c()) {
-                tw1Var.c.setShader(this.a.b());
                 return;
             }
-            tw1Var.m = this.a.a();
-            tw1Var.c.setColor(this.a.a());
-            tw1Var.b.setShader(null);
+        }
+        this.a = "sans-serif";
+        this.b = vh3.g(10.0f);
+        this.c = false;
+        this.d = false;
+    }
+
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) {
+            if (this.c && this.d) {
+                i = 3;
+            } else if (this.c) {
+                i = 1;
+            } else if (this.d) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            lx1Var.e.setTypeface(Typeface.create(this.a, i));
+            lx1Var.e.setTextSize(this.b);
         }
     }
 
-    @Override // com.baidu.tieba.sw1
+    @Override // com.baidu.tieba.kx1
     public void b(JSONArray jSONArray) {
+        String[] split;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new ax1(jSONArray);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    for (String str : jSONArray.optString(0).split(" ")) {
+                        if (str.contains("italic")) {
+                            this.d = true;
+                        } else if (str.contains("oblique")) {
+                            this.d = true;
+                        } else if (str.contains("bold")) {
+                            this.c = true;
+                        } else if (!str.contains("normal")) {
+                            if (Character.isDigit(str.charAt(0))) {
+                                int length = str.length();
+                                int i = 0;
+                                while (true) {
+                                    if (i >= str.length()) {
+                                        break;
+                                    } else if (!Character.isDigit(str.charAt(i))) {
+                                        length = i;
+                                        break;
+                                    } else {
+                                        i++;
+                                    }
+                                }
+                                this.b = vh3.g(Float.parseFloat(str.substring(0, length)));
+                            } else {
+                                this.a = str;
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                if (ok1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

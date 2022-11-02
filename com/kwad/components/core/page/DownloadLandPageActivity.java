@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
@@ -51,8 +53,9 @@ import com.kwad.sdk.widget.KSRelativeLayout;
 import java.io.InputStream;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
+@Keep
 /* loaded from: classes7.dex */
-public class DownloadLandPageActivity extends com.kwad.components.core.g.b {
+public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.kwad.components.core.page.kwai.d> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_NEED_CLOSE_REWARD = "key_close_reward";
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -176,6 +179,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b {
         return (g) invokeV.objValue;
     }
 
+    @NonNull
     private f.a getWebViewStateListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -316,17 +320,17 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b {
     public void initNativeLandPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f091048).setVisibility(0);
-            ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09107b);
+            findViewById(R.id.obfuscated_res_0x7f091082).setVisibility(0);
+            ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0910b5);
             complianceTextView.setVisibility(0);
             complianceTextView.setAdTemplate(this.mAdTemplate);
-            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f09103a);
-            KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f0910b3);
-            KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910e0);
-            DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091235);
+            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f091074);
+            KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f0910f0);
+            KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09111a);
+            DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09126f);
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
-            setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f09104f), bQ);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f091045)).setText(bQ.adBaseInfo.adDescription);
+            setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f091089), bQ);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f09107f)).setText(bQ.adBaseInfo.adDescription);
             roundAngleImageView.setRadius(32.0f);
             if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.bn(bQ))) {
                 KSImageLoader.loadImage(roundAngleImageView, com.kwad.sdk.core.response.a.a.bn(bQ), this.mAdTemplate);
@@ -339,15 +343,15 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.mRootContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0911ca);
-            this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091209);
-            this.mDetailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091220);
-            this.mVideoBlurBg = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091205);
-            this.mBackIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091064);
-            this.mCloseIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911c8);
-            this.mVideoCover = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091214);
+            this.mRootContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091204);
+            this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091243);
+            this.mDetailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09125a);
+            this.mVideoBlurBg = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09123f);
+            this.mBackIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09109e);
+            this.mCloseIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091202);
+            this.mVideoCover = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09124e);
             if (this.mAdTemplate.adInfoList.size() > 0) {
-                loadBlurImage(com.kwad.sdk.core.response.a.a.K((AdInfo) this.mAdTemplate.adInfoList.get(0)), this.mVideoBlurBg);
+                loadBlurImage(com.kwad.sdk.core.response.a.a.K(this.mAdTemplate.adInfoList.get(0)), this.mVideoBlurBg);
             }
             this.mBackIcon.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.1
                 public static /* synthetic */ Interceptable $ic;
@@ -390,7 +394,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b {
         }
     }
 
-    public static void launch(Context context, AdTemplate adTemplate, boolean z) {
+    public static void launch(@NonNull Context context, @NonNull AdTemplate adTemplate, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65551, null, context, adTemplate, z) == null) {
             Class cls = ag.cB(context) ? AdWebViewActivity.class : KsFullScreenLandScapeVideoActivity.class;
@@ -569,7 +573,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         com.kwad.sdk.core.report.a.r(this.FF.mAdTemplate, Cea708Decoder.COMMAND_DF0);
-                        this.FF.mApkDownloadHelper.m(new a.C0566a(this.FF.getActivity()).aj(true).ak(false).L(this.FF.mAdTemplate).am(false));
+                        this.FF.mApkDownloadHelper.m(new a.C0577a(this.FF.getActivity()).aj(true).ak(false).L(this.FF.mAdTemplate).am(false));
                         if (this.FF.mIsRewardLandPage) {
                             com.kwad.sdk.core.report.a.a(this.FF.mAdTemplate, new com.kwad.sdk.core.report.f(), (JSONObject) null);
                         }
@@ -613,7 +617,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b {
             Context wrapContextIfNeed = Wrapper.wrapContextIfNeed(getActivity());
             this.mContext = wrapContextIfNeed;
             showingAdWebViewLandPage = true;
-            setContentView(ag.cB(wrapContextIfNeed) ? R.layout.obfuscated_res_0x7f0d03fc : R.layout.obfuscated_res_0x7f0d0402);
+            setContentView(ag.cB(wrapContextIfNeed) ? R.layout.obfuscated_res_0x7f0d0407 : R.layout.obfuscated_res_0x7f0d040d);
             if (!initData()) {
                 finish();
                 return;

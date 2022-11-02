@@ -40,7 +40,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
     public BdVideoScaleGestureDetector.OnScaleGestureListener scaleGestureListener;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1040view;
+    public final View f1041view;
 
     private final BdVideoMoveGestureDetector getMoveGestureDetector() {
         InterceptResult invokeV;
@@ -85,7 +85,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
         public final /* synthetic */ BdVideoMultipleGesturesDetector this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1041view;
+        public final View f1042view;
 
         public RotateGestureDetectorListener(BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector, View view2) {
             Interceptable interceptable = $ic;
@@ -104,14 +104,14 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
             }
             Intrinsics.checkNotNullParameter(view2, "view");
             this.this$0 = bdVideoMultipleGesturesDetector;
-            this.f1041view = view2;
+            this.f1042view = view2;
         }
 
         public final View getView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f1041view;
+                return this.f1042view;
             }
             return (View) invokeV.objValue;
         }
@@ -122,17 +122,17 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, detector)) == null) {
                 Intrinsics.checkNotNullParameter(detector, "detector");
-                float rotation = this.f1041view.getRotation() + detector.getRotationDelta();
+                float rotation = this.f1042view.getRotation() + detector.getRotationDelta();
                 if (rotation >= 360.0f) {
                     rotation -= 360.0f;
                 } else if (rotation < 0) {
                     rotation += 360.0f;
                 }
-                View view2 = this.f1041view;
+                View view2 = this.f1042view;
                 view2.setPivotX(view2.getWidth() * 0.5f);
-                View view3 = this.f1041view;
+                View view3 = this.f1042view;
                 view3.setPivotY(view3.getHeight() * 0.5f);
-                this.f1041view.setRotation(rotation);
+                this.f1042view.setRotation(rotation);
                 return true;
             }
             return invokeL.booleanValue;
@@ -143,9 +143,9 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, detector) == null) {
                 Intrinsics.checkNotNullParameter(detector, "detector");
-                int abs = (int) (Math.abs(this.f1041view.getRotation() + 45) / 90);
-                BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "当前对应的旋转值: " + abs + ", 旋转的角度=" + this.f1041view.getRotation());
-                View view2 = this.f1041view;
+                int abs = (int) (Math.abs(this.f1042view.getRotation() + 45) / 90);
+                BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "当前对应的旋转值: " + abs + ", 旋转的角度=" + this.f1042view.getRotation());
+                View view2 = this.f1042view;
                 ObjectAnimator.ofFloat(view2, View.ROTATION, view2.getRotation(), (float) (abs * 90)).setDuration(300L).start();
             }
         }
@@ -167,7 +167,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
             }
         }
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1040view = view2;
+        this.f1041view = view2;
         this.gestureFlags = 7;
         this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new BdVideoMultipleGesturesDetector$scaleGestureDetector$2(this));
         this.moveGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new BdVideoMultipleGesturesDetector$moveGestureDetector$2(this));
@@ -213,7 +213,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new BdVideoMoveGestureDetector(this.f1040view, getMoveGestureListener());
+            return new BdVideoMoveGestureDetector(this.f1041view, getMoveGestureListener());
         }
         return (BdVideoMoveGestureDetector) invokeV.objValue;
     }
@@ -223,7 +223,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (getRotateGestureListener() == null) {
-                setRotateGestureListener(new RotateGestureDetectorListener(this, this.f1040view));
+                setRotateGestureListener(new RotateGestureDetectorListener(this, this.f1041view));
             }
             BdVideoRotateGestureDetector.SimpleOnRotationGestureListener rotateGestureListener = getRotateGestureListener();
             Intrinsics.checkNotNull(rotateGestureListener);
@@ -236,7 +236,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            BdVideoScaleGestureDetector bdVideoScaleGestureDetector = new BdVideoScaleGestureDetector(this.f1040view);
+            BdVideoScaleGestureDetector bdVideoScaleGestureDetector = new BdVideoScaleGestureDetector(this.f1041view);
             bdVideoScaleGestureDetector.setListener(getScaleGestureListener());
             return bdVideoScaleGestureDetector;
         }
@@ -274,7 +274,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f1040view;
+            return this.f1041view;
         }
         return (View) invokeV.objValue;
     }
@@ -282,7 +282,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
     public void switchNormal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            View view2 = this.f1040view;
+            View view2 = this.f1041view;
             view2.setScaleX(1.0f);
             view2.setScaleY(1.0f);
             view2.setRotation(0.0f);
@@ -300,7 +300,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
             if (!onAllowTouchEvent(event) || event.getPointerCount() < 2) {
                 return false;
             }
-            this.f1040view.getParent().requestDisallowInterceptTouchEvent(true);
+            this.f1041view.getParent().requestDisallowInterceptTouchEvent(true);
             if ((this.gestureFlags & 4) == 4) {
                 getRotateGestureDetector().onTouchEvent(event);
                 this.isRotateDetected = getRotateGestureDetector().isRotateDetected();
@@ -327,14 +327,14 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             AnimatorSet animatorSet = new AnimatorSet();
-            PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(View.SCALE_X, this.f1040view.getScaleX(), 1.0f);
-            PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, this.f1040view.getScaleY(), 1.0f);
-            if (this.f1040view.getRotation() >= 180) {
+            PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(View.SCALE_X, this.f1041view.getScaleX(), 1.0f);
+            PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, this.f1041view.getScaleY(), 1.0f);
+            if (this.f1041view.getRotation() >= 180) {
                 f = 360.0f;
             } else {
                 f = 0.0f;
             }
-            ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(this.f1040view, ofFloat, ofFloat2, PropertyValuesHolder.ofFloat(View.ROTATION, this.f1040view.getRotation(), f), PropertyValuesHolder.ofFloat(View.TRANSLATION_X, this.f1040view.getTranslationX(), 0.0f), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, this.f1040view.getTranslationY(), 0.0f)).setDuration(300L);
+            ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(this.f1041view, ofFloat, ofFloat2, PropertyValuesHolder.ofFloat(View.ROTATION, this.f1041view.getRotation(), f), PropertyValuesHolder.ofFloat(View.TRANSLATION_X, this.f1041view.getTranslationX(), 0.0f), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, this.f1041view.getTranslationY(), 0.0f)).setDuration(300L);
             Intrinsics.checkNotNullExpressionValue(duration, "ObjectAnimator.ofPropert…ation(ANIMATION_DURATION)");
             animatorSet.play(duration);
             animatorSet.start();

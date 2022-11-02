@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.content.Context;
+import android.os.ParcelFileDescriptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +11,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.VideoDecoder;
 @Deprecated
 /* loaded from: classes7.dex */
-public class VideoBitmapDecoder extends VideoDecoder {
+public class VideoBitmapDecoder extends VideoDecoder<ParcelFileDescriptor> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

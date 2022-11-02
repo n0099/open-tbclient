@@ -7,6 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class RealtimeSinceBootClock implements MonotonicClock {
     public static /* synthetic */ Interceptable $ic;
@@ -43,6 +45,7 @@ public class RealtimeSinceBootClock implements MonotonicClock {
         }
     }
 
+    @DoNotStrip
     public static RealtimeSinceBootClock get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

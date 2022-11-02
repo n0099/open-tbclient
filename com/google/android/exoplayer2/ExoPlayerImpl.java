@@ -1,9 +1,11 @@
 package com.google.android.exoplayer2;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -34,7 +36,7 @@ public final class ExoPlayerImpl implements ExoPlayer {
     public final Handler eventHandler;
     public final ExoPlayerImplInternal internalPlayer;
     public boolean isLoading;
-    public final CopyOnWriteArraySet listeners;
+    public final CopyOnWriteArraySet<Player.EventListener> listeners;
     public int maskingPeriodIndex;
     public int maskingWindowIndex;
     public long maskingWindowPositionMs;
@@ -54,6 +56,7 @@ public final class ExoPlayerImpl implements ExoPlayer {
     public boolean tracksSelected;
     public final Timeline.Window window;
 
+    @SuppressLint({"HandlerLeak"})
     public ExoPlayerImpl(Renderer[] rendererArr, TrackSelector trackSelector, LoadControl loadControl) {
         boolean z;
         Looper mainLooper;
@@ -84,7 +87,7 @@ public final class ExoPlayerImpl implements ExoPlayer {
         this.repeatMode = 0;
         this.shuffleModeEnabled = false;
         this.playbackState = 1;
-        this.listeners = new CopyOnWriteArraySet();
+        this.listeners = new CopyOnWriteArraySet<>();
         this.emptyTrackSelections = new TrackSelectionArray(new TrackSelection[rendererArr.length]);
         this.window = new Timeline.Window();
         this.period = new Timeline.Period();
@@ -157,22 +160,22 @@ public final class ExoPlayerImpl implements ExoPlayer {
                     this.maskingWindowPositionMs = 0L;
                 }
                 if (z2) {
-                    Iterator it = this.listeners.iterator();
+                    Iterator<Player.EventListener> it = this.listeners.iterator();
                     while (it.hasNext()) {
-                        ((Player.EventListener) it.next()).onTimelineChanged(playbackInfo.timeline, playbackInfo.manifest);
+                        it.next().onTimelineChanged(playbackInfo.timeline, playbackInfo.manifest);
                     }
                 }
                 if (z) {
-                    Iterator it2 = this.listeners.iterator();
+                    Iterator<Player.EventListener> it2 = this.listeners.iterator();
                     while (it2.hasNext()) {
-                        ((Player.EventListener) it2.next()).onPositionDiscontinuity(i3);
+                        it2.next().onPositionDiscontinuity(i3);
                     }
                 }
             }
             if (this.pendingSeekAcks == 0 && i2 > 0) {
-                Iterator it3 = this.listeners.iterator();
+                Iterator<Player.EventListener> it3 = this.listeners.iterator();
                 while (it3.hasNext()) {
-                    ((Player.EventListener) it3.next()).onSeekProcessed();
+                    it3.next().onSeekProcessed();
                 }
             }
         }
@@ -199,9 +202,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
         if ((interceptable == null || interceptable.invokeZ(1048615, this, z) == null) && this.playWhenReady != z) {
             this.playWhenReady = z;
             this.internalPlayer.setPlayWhenReady(z);
-            Iterator it = this.listeners.iterator();
+            Iterator<Player.EventListener> it = this.listeners.iterator();
             while (it.hasNext()) {
-                ((Player.EventListener) it.next()).onPlayerStateChanged(z, this.playbackState);
+                it.next().onPlayerStateChanged(z, this.playbackState);
             }
         }
     }
@@ -569,7 +572,7 @@ public final class ExoPlayerImpl implements ExoPlayer {
     }
 
     @Override // com.google.android.exoplayer2.Player
-    public void setPlaybackParameters(PlaybackParameters playbackParameters) {
+    public void setPlaybackParameters(@Nullable PlaybackParameters playbackParameters) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, playbackParameters) == null) {
             if (playbackParameters == null) {
@@ -585,9 +588,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
         if ((interceptable == null || interceptable.invokeI(1048617, this, i) == null) && this.repeatMode != i) {
             this.repeatMode = i;
             this.internalPlayer.setRepeatMode(i);
-            Iterator it = this.listeners.iterator();
+            Iterator<Player.EventListener> it = this.listeners.iterator();
             while (it.hasNext()) {
-                ((Player.EventListener) it.next()).onRepeatModeChanged(i);
+                it.next().onRepeatModeChanged(i);
             }
         }
     }
@@ -598,9 +601,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
         if ((interceptable == null || interceptable.invokeZ(1048618, this, z) == null) && this.shuffleModeEnabled != z) {
             this.shuffleModeEnabled = z;
             this.internalPlayer.setShuffleModeEnabled(z);
-            Iterator it = this.listeners.iterator();
+            Iterator<Player.EventListener> it = this.listeners.iterator();
             while (it.hasNext()) {
-                ((Player.EventListener) it.next()).onShuffleModeEnabledChanged(z);
+                it.next().onShuffleModeEnabledChanged(z);
             }
         }
     }
@@ -675,9 +678,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
             switch (message.what) {
                 case 0:
                     this.playbackState = message.arg1;
-                    Iterator it = this.listeners.iterator();
+                    Iterator<Player.EventListener> it = this.listeners.iterator();
                     while (it.hasNext()) {
-                        ((Player.EventListener) it.next()).onPlayerStateChanged(this.playWhenReady, this.playbackState);
+                        it.next().onPlayerStateChanged(this.playWhenReady, this.playbackState);
                     }
                     return;
                 case 1:
@@ -685,9 +688,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
                         z2 = true;
                     }
                     this.isLoading = z2;
-                    Iterator it2 = this.listeners.iterator();
+                    Iterator<Player.EventListener> it2 = this.listeners.iterator();
                     while (it2.hasNext()) {
-                        ((Player.EventListener) it2.next()).onLoadingChanged(this.isLoading);
+                        it2.next().onLoadingChanged(this.isLoading);
                     }
                     return;
                 case 2:
@@ -697,9 +700,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
                         this.trackGroups = trackSelectorResult.groups;
                         this.trackSelections = trackSelectorResult.selections;
                         this.trackSelector.onSelectionActivated(trackSelectorResult.info);
-                        Iterator it3 = this.listeners.iterator();
+                        Iterator<Player.EventListener> it3 = this.listeners.iterator();
                         while (it3.hasNext()) {
-                            ((Player.EventListener) it3.next()).onTracksChanged(this.trackGroups, this.trackSelections);
+                            it3.next().onTracksChanged(this.trackGroups, this.trackSelections);
                         }
                         return;
                     }
@@ -722,18 +725,18 @@ public final class ExoPlayerImpl implements ExoPlayer {
                     PlaybackParameters playbackParameters = (PlaybackParameters) message.obj;
                     if (!this.playbackParameters.equals(playbackParameters)) {
                         this.playbackParameters = playbackParameters;
-                        Iterator it4 = this.listeners.iterator();
+                        Iterator<Player.EventListener> it4 = this.listeners.iterator();
                         while (it4.hasNext()) {
-                            ((Player.EventListener) it4.next()).onPlaybackParametersChanged(playbackParameters);
+                            it4.next().onPlaybackParametersChanged(playbackParameters);
                         }
                         return;
                     }
                     return;
                 case 7:
                     ExoPlaybackException exoPlaybackException = (ExoPlaybackException) message.obj;
-                    Iterator it5 = this.listeners.iterator();
+                    Iterator<Player.EventListener> it5 = this.listeners.iterator();
                     while (it5.hasNext()) {
-                        ((Player.EventListener) it5.next()).onPlayerError(exoPlaybackException);
+                        it5.next().onPlayerError(exoPlaybackException);
                     }
                     return;
                 default:
@@ -758,10 +761,10 @@ public final class ExoPlayerImpl implements ExoPlayer {
             if (z2) {
                 if (!this.playbackInfo.timeline.isEmpty() || this.playbackInfo.manifest != null) {
                     this.playbackInfo = this.playbackInfo.copyWithTimeline(Timeline.EMPTY, null);
-                    Iterator it = this.listeners.iterator();
+                    Iterator<Player.EventListener> it = this.listeners.iterator();
                     while (it.hasNext()) {
                         PlaybackInfo playbackInfo = this.playbackInfo;
-                        ((Player.EventListener) it.next()).onTimelineChanged(playbackInfo.timeline, playbackInfo.manifest);
+                        it.next().onTimelineChanged(playbackInfo.timeline, playbackInfo.manifest);
                     }
                 }
                 if (this.tracksSelected) {
@@ -769,9 +772,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
                     this.trackGroups = TrackGroupArray.EMPTY;
                     this.trackSelections = this.emptyTrackSelections;
                     this.trackSelector.onSelectionActivated(null);
-                    Iterator it2 = this.listeners.iterator();
+                    Iterator<Player.EventListener> it2 = this.listeners.iterator();
                     while (it2.hasNext()) {
-                        ((Player.EventListener) it2.next()).onTracksChanged(this.trackGroups, this.trackSelections);
+                        it2.next().onTracksChanged(this.trackGroups, this.trackSelections);
                     }
                 }
             }
@@ -791,9 +794,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
                 if (isPlayingAd()) {
                     Log.w(TAG, "seekTo ignored because an ad is playing");
                     if (this.pendingSeekAcks == 0) {
-                        Iterator it = this.listeners.iterator();
+                        Iterator<Player.EventListener> it = this.listeners.iterator();
                         while (it.hasNext()) {
-                            ((Player.EventListener) it.next()).onSeekProcessed();
+                            it.next().onSeekProcessed();
                         }
                         return;
                     }
@@ -829,9 +832,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
                     this.maskingPeriodIndex = i2;
                 }
                 this.internalPlayer.seekTo(timeline, i, C.msToUs(j));
-                Iterator it2 = this.listeners.iterator();
+                Iterator<Player.EventListener> it2 = this.listeners.iterator();
                 while (it2.hasNext()) {
-                    ((Player.EventListener) it2.next()).onPositionDiscontinuity(1);
+                    it2.next().onPositionDiscontinuity(1);
                 }
                 return;
             }

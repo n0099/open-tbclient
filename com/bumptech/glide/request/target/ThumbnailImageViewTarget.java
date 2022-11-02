@@ -3,17 +3,18 @@ package com.bumptech.glide.request.target;
 import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ThumbnailImageViewTarget extends ImageViewTarget {
+public abstract class ThumbnailImageViewTarget<T> extends ImageViewTarget<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract Drawable getDrawable(Object obj);
+    public abstract Drawable getDrawable(T t);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThumbnailImageViewTarget(ImageView imageView) {
@@ -36,15 +37,15 @@ public abstract class ThumbnailImageViewTarget extends ImageViewTarget {
     }
 
     @Override // com.bumptech.glide.request.target.ImageViewTarget
-    public void setResource(Object obj) {
+    public void setResource(@Nullable T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            ViewGroup.LayoutParams layoutParams = ((ImageView) this.f1063view).getLayoutParams();
-            Drawable drawable = getDrawable(obj);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            ViewGroup.LayoutParams layoutParams = ((ImageView) this.f1064view).getLayoutParams();
+            Drawable drawable = getDrawable(t);
             if (layoutParams != null && layoutParams.width > 0 && layoutParams.height > 0) {
                 drawable = new FixedSizeDrawable(drawable, layoutParams.width, layoutParams.height);
             }
-            ((ImageView) this.f1063view).setImageDrawable(drawable);
+            ((ImageView) this.f1064view).setImageDrawable(drawable);
         }
     }
 

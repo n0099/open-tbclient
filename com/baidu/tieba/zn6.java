@@ -1,43 +1,52 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
+import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
+import com.baidu.tbadk.core.data.ForumRuleBaseData;
+import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
+import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailSelfVH;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ForumRule;
+import tbclient.PbContent;
 /* loaded from: classes6.dex */
-public class zn6 extends rn {
+public class zn6 extends jn<do6, ForumRuleDetailSelfVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public s16 b;
-    public p26 c;
-    public String d;
+    public ForumRulesShowActivity a;
+    public String b;
+    public boolean c;
+    public int d;
 
     /* loaded from: classes6.dex */
-    public class a extends p26 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ do6 a;
         public final /* synthetic */ zn6 b;
 
-        public a(zn6 zn6Var) {
+        public a(zn6 zn6Var, do6 do6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zn6Var};
+                Object[] objArr = {zn6Var, do6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,28 +57,30 @@ public class zn6 extends rn {
                 }
             }
             this.b = zn6Var;
+            this.a = do6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.p26
-        /* renamed from: d */
-        public void a(View view2, h76 h76Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, h76Var) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 3).param("fid", this.b.d));
-                this.b.u(view2, h76Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.b.c) {
+                    this.b.z();
+                } else {
+                    this.b.A(this.a);
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zn6(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), h76.b);
+    public zn6(ForumRulesShowActivity forumRulesShowActivity, BdUniqueId bdUniqueId) {
+        super(forumRulesShowActivity, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {forumRulesShowActivity, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,61 +92,157 @@ public class zn6 extends rn {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.d = str;
+        this.c = false;
+        this.d = 0;
+        this.a = forumRulesShowActivity;
+    }
+
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: v */
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.jn
+    /* renamed from: x */
+    public ForumRuleDetailSelfVH onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new s16(this.a);
-            return new CardViewHolder(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
+            ForumRuleDetailSelfVH forumRuleDetailSelfVH = new ForumRuleDetailSelfVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c5, viewGroup, false));
+            this.viewholder = forumRuleDetailSelfVH;
+            return forumRuleDetailSelfVH;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (ForumRuleDetailSelfVH) invokeL.objValue;
     }
 
-    public void x(p26 p26Var) {
+    public final void A(do6 do6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, p26Var) == null) {
-            this.c = p26Var;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, do6Var) == null) && this.a != null && do6Var != null) {
+            ForumRuleBaseData forumRuleBaseData = new ForumRuleBaseData();
+            forumRuleBaseData.setTitle(do6Var.n());
+            forumRuleBaseData.setPreface(do6Var.j());
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < do6Var.l().size(); i++) {
+                ForumRule forumRule = do6Var.l().get(i);
+                ForumRuleBaseData.ForumRuleItemPbData forumRuleItemPbData = new ForumRuleBaseData.ForumRuleItemPbData();
+                forumRuleItemPbData.status = forumRule.status + "";
+                forumRuleItemPbData.title = forumRule.title + "";
+                forumRuleItemPbData.mContent = new ArrayList();
+                List<PbContent> list = forumRule.content;
+                if (list != null && list.size() > 0) {
+                    for (int i2 = 0; i2 < forumRule.content.size(); i2++) {
+                        PbContent pbContent = forumRule.content.get(i2);
+                        ForumRuleBaseData.ForumRuleItemPbContentData forumRuleItemPbContentData = new ForumRuleBaseData.ForumRuleItemPbContentData();
+                        forumRuleItemPbContentData.href = pbContent.link;
+                        if (pbContent.type.intValue() == 0) {
+                            forumRuleItemPbContentData.tag = "plainText";
+                        } else if (pbContent.type.intValue() == 1) {
+                            forumRuleItemPbContentData.tag = "a";
+                        } else if (pbContent.type.intValue() == 2) {
+                            forumRuleItemPbContentData.tag = TtmlNode.TAG_BR;
+                        }
+                        forumRuleItemPbContentData.value = pbContent.text;
+                        forumRuleItemPbData.mContent.add(forumRuleItemPbContentData);
+                    }
+                }
+                arrayList.add(forumRuleItemPbData);
+            }
+            forumRuleBaseData.setPbDataList(arrayList);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRuleEditActivityConfig(this.a, do6Var.g().forum_id + "", do6Var.g().forum_name + "", ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, forumRuleBaseData, do6Var.g().avatar, do6Var.c().user_level.intValue(), 25053)));
         }
     }
 
-    public final void u(View view2, h76 h76Var) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, do6 do6Var, ForumRuleDetailSelfVH forumRuleDetailSelfVH) {
+        y(i, view2, viewGroup, do6Var, forumRuleDetailSelfVH);
+        return view2;
+    }
+
+    public final void v(ForumRuleDetailSelfVH forumRuleDetailSelfVH, do6 do6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, h76Var) == null) {
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.a.getPageActivity()).createFromThreadCfg(h76Var.getThreadData(), null, a26.g(), 18003, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(h76Var.getThreadData().getFid()));
-            createFromThreadCfg.setForumName(h76Var.getThreadData().getForum_name());
-            createFromThreadCfg.setStartFrom(0);
-            a26.a(h76Var.getThreadData().getTid());
-            this.a.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-            p26 p26Var = this.c;
-            if (p26Var != null) {
-                p26Var.a(view2, h76Var);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, forumRuleDetailSelfVH, do6Var) == null) {
+            if (do6Var.c() != null) {
+                forumRuleDetailSelfVH.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080c0d);
+                forumRuleDetailSelfVH.b.K(do6Var.c().portrait, 12, false);
+                forumRuleDetailSelfVH.c.setText(do6Var.c().name_show);
+                forumRuleDetailSelfVH.b(do6Var.c().user_level.intValue());
+                forumRuleDetailSelfVH.e.setVisibility(0);
+            }
+            forumRuleDetailSelfVH.d.setText(R.string.obfuscated_res_0x7f0f0300);
+            forumRuleDetailSelfVH.d.setVisibility(0);
+            forumRuleDetailSelfVH.g("manager");
+            if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {
+                forumRuleDetailSelfVH.f(String.valueOf(System.currentTimeMillis() / 1000));
+            } else {
+                forumRuleDetailSelfVH.g.setText(do6Var.k());
+            }
+            w(forumRuleDetailSelfVH, do6Var);
+            forumRuleDetailSelfVH.c(do6Var.j());
+        }
+    }
+
+    public final void w(ForumRuleDetailSelfVH forumRuleDetailSelfVH, do6 do6Var) {
+        String f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, forumRuleDetailSelfVH, do6Var) == null) && do6Var.h()) {
+            forumRuleDetailSelfVH.h.setOnClickListener(new a(this, do6Var));
+            if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {
+                forumRuleDetailSelfVH.h.setVisibility(8);
+            } else if (!StringUtils.isNull(do6Var.k()) && do6Var.b() == 0) {
+                long a2 = io6.a(do6Var.k());
+                if (StringUtils.isNull(do6Var.f())) {
+                    f = "0";
+                } else {
+                    f = do6Var.f();
+                }
+                int b = io6.b(Long.valueOf(f).longValue() - a2);
+                if (b < 0) {
+                    b = io6.b((System.currentTimeMillis() / 1000) - a2);
+                }
+                forumRuleDetailSelfVH.h.setVisibility(0);
+                if (b >= 7) {
+                    this.c = false;
+                    return;
+                }
+                forumRuleDetailSelfVH.h.setUseDisableState(true);
+                this.c = true;
+                this.d = 7 - b;
+            } else {
+                forumRuleDetailSelfVH.e(do6Var.b());
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: w */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h76 h76Var, CardViewHolder cardViewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, do6 do6Var, ForumRuleDetailSelfVH forumRuleDetailSelfVH) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h76Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, do6Var, forumRuleDetailSelfVH})) == null) {
+            if (do6Var == null) {
+                return view2;
             }
-            ((s16) cardViewHolder.a()).l(h76Var);
-            ((s16) cardViewHolder.a()).m(this.a, TbadkCoreApplication.getInst().getSkinType());
-            ((s16) cardViewHolder.a()).n(new a(this));
-            return ((s16) cardViewHolder.a()).k();
+            v(forumRuleDetailSelfVH, do6Var);
+            return view2;
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public final void z() {
+        ForumRulesShowActivity forumRulesShowActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (forumRulesShowActivity = this.a) == null) {
+            return;
+        }
+        String string = forumRulesShowActivity.getString(R.string.obfuscated_res_0x7f0f06d4);
+        String format = String.format(string, this.d + "");
+        if (this.a.y1() != null) {
+            BdTopToast bdTopToast = new BdTopToast(this.a);
+            bdTopToast.h(false);
+            bdTopToast.g(format);
+            bdTopToast.i(this.a.y1().q());
+        }
     }
 }

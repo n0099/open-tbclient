@@ -1,9 +1,11 @@
 package com.baidu.searchbox.track.ui;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(26)
 /* loaded from: classes2.dex */
 public class TraceFragmentNativeCallback extends BaseTraceFragmentCallback {
     public static /* synthetic */ Interceptable $ic;
@@ -85,7 +88,7 @@ public class TraceFragmentNativeCallback extends BaseTraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean register(Activity activity) {
+    public boolean register(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
@@ -105,7 +108,7 @@ public class TraceFragmentNativeCallback extends BaseTraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean unregister(Activity activity) {
+    public boolean unregister(@NonNull Activity activity) {
         InterceptResult invokeL;
         FragmentManager fragmentManager;
         Interceptable interceptable = $ic;

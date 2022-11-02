@@ -31,7 +31,7 @@ public class BdBaseApplication extends Application {
     public boolean mIsNewUser;
     public boolean mIsPluginResourceOpen;
     public boolean mIsSmallFlow;
-    public ConcurrentHashMap mResHashMap;
+    public ConcurrentHashMap<String, String> mResHashMap;
     public long mSmallFlowInterval;
     public long mStartSmallFlowTime;
 
@@ -66,7 +66,7 @@ public class BdBaseApplication extends Application {
         this.mIsDebugMode = false;
         this.mContext = null;
         this.mIsPluginResourceOpen = true;
-        this.mResHashMap = new ConcurrentHashMap();
+        this.mResHashMap = new ConcurrentHashMap<>();
         this.lastGcTime = 0L;
         sApp = this;
     }
@@ -173,7 +173,7 @@ public class BdBaseApplication extends Application {
         return invokeV.booleanValue;
     }
 
-    public ConcurrentHashMap getResHashMap() {
+    public ConcurrentHashMap<String, String> getResHashMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

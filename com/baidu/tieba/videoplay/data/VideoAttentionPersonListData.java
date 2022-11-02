@@ -1,7 +1,6 @@
 package com.baidu.tieba.videoplay.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +10,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes6.dex */
 public class VideoAttentionPersonListData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MetaData mUserData;
-    public ArrayList mVideoItemDatas;
+    public ArrayList<VideoItemData> mVideoItemDatas;
 
     public VideoAttentionPersonListData() {
         Interceptable interceptable = $ic;
@@ -37,7 +33,7 @@ public class VideoAttentionPersonListData implements Serializable {
                 return;
             }
         }
-        this.mVideoItemDatas = new ArrayList();
+        this.mVideoItemDatas = new ArrayList<>();
         this.mUserData = new MetaData();
     }
 
@@ -50,7 +46,7 @@ public class VideoAttentionPersonListData implements Serializable {
         return (MetaData) invokeV.objValue;
     }
 
-    public ArrayList getVideoItemDatas() {
+    public ArrayList<VideoItemData> getVideoItemDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -68,20 +64,6 @@ public class VideoAttentionPersonListData implements Serializable {
                 this.mVideoItemDatas.add(videoItemData);
             }
             this.mUserData.parserJson(jSONObject);
-        }
-    }
-
-    public void parseProto(List list, User user) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, list, user) == null) && list != null && user != null) {
-            for (int i = 0; i < list.size(); i++) {
-                VideoItemData videoItemData = new VideoItemData();
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf((ThreadInfo) list.get(i));
-                videoItemData.parseProto(threadData);
-                this.mVideoItemDatas.add(videoItemData);
-            }
-            this.mUserData.parserProtobuf(user);
         }
     }
 }

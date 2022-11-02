@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.imageloader.core;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
@@ -29,11 +30,11 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultConfigurationFactory {
 
-    /* loaded from: classes7.dex */
-    public class DefaultThreadFactory implements ThreadFactory {
+    /* loaded from: classes8.dex */
+    public static class DefaultThreadFactory implements ThreadFactory {
         public static final AtomicInteger poolNumber = new AtomicInteger(1);
         public final String namePrefix;
         public final int threadPriority;
@@ -115,6 +116,7 @@ public class DefaultConfigurationFactory {
         return new DefaultThreadFactory(i, str);
     }
 
+    @TargetApi(11)
     public static int getLargeMemoryClass(ActivityManager activityManager) {
         return activityManager.getLargeMemoryClass();
     }
@@ -123,6 +125,7 @@ public class DefaultConfigurationFactory {
         return Build.VERSION.SDK_INT >= 11;
     }
 
+    @TargetApi(11)
     public static boolean isLargeHeap(Context context) {
         return (context.getApplicationInfo().flags & 1048576) != 0;
     }

@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -184,7 +185,8 @@ public final class LocalBroadcastManager {
         };
     }
 
-    public static LocalBroadcastManager getInstance(Context context) {
+    @NonNull
+    public static LocalBroadcastManager getInstance(@NonNull Context context) {
         InterceptResult invokeL;
         LocalBroadcastManager localBroadcastManager;
         Interceptable interceptable = $ic;
@@ -200,7 +202,7 @@ public final class LocalBroadcastManager {
         return (LocalBroadcastManager) invokeL.objValue;
     }
 
-    public void sendBroadcastSync(Intent intent) {
+    public void sendBroadcastSync(@NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, intent) == null) && sendBroadcast(intent)) {
             executePendingBroadcasts();
@@ -237,7 +239,7 @@ public final class LocalBroadcastManager {
         }
     }
 
-    public void registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
+    public void registerReceiver(@NonNull BroadcastReceiver broadcastReceiver, @NonNull IntentFilter intentFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, broadcastReceiver, intentFilter) == null) {
             synchronized (this.mReceivers) {
@@ -261,7 +263,7 @@ public final class LocalBroadcastManager {
         }
     }
 
-    public boolean sendBroadcast(Intent intent) {
+    public boolean sendBroadcast(@NonNull Intent intent) {
         InterceptResult invokeL;
         boolean z;
         int i;
@@ -374,7 +376,7 @@ public final class LocalBroadcastManager {
         return invokeL.booleanValue;
     }
 
-    public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
+    public void unregisterReceiver(@NonNull BroadcastReceiver broadcastReceiver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, broadcastReceiver) == null) {
             synchronized (this.mReceivers) {

@@ -12,6 +12,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.collection.LongSparseArray;
 import androidx.collection.LruCache;
@@ -35,6 +40,7 @@ import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ResourceManagerInternal {
     public static /* synthetic */ Interceptable $ic = null;
@@ -56,22 +62,24 @@ public final class ResourceManagerInternal {
 
     /* loaded from: classes.dex */
     public interface InflateDelegate {
-        Drawable createFromXmlInner(Context context, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme);
+        Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme);
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface ResourceManagerHooks {
-        Drawable createDrawableFor(ResourceManagerInternal resourceManagerInternal, Context context, int i);
+        Drawable createDrawableFor(@NonNull ResourceManagerInternal resourceManagerInternal, @NonNull Context context, @DrawableRes int i);
 
-        ColorStateList getTintListForDrawableRes(Context context, int i);
+        ColorStateList getTintListForDrawableRes(@NonNull Context context, @DrawableRes int i);
 
         PorterDuff.Mode getTintModeForDrawableRes(int i);
 
-        boolean tintDrawable(Context context, int i, Drawable drawable);
+        boolean tintDrawable(@NonNull Context context, @DrawableRes int i, @NonNull Drawable drawable);
 
-        boolean tintDrawableUsingColorFilter(Context context, int i, Drawable drawable);
+        boolean tintDrawableUsingColorFilter(@NonNull Context context, @DrawableRes int i, @NonNull Drawable drawable);
     }
 
+    @RequiresApi(11)
     /* loaded from: classes.dex */
     public static class AsldcInflateDelegate implements InflateDelegate {
         public static /* synthetic */ Interceptable $ic;
@@ -92,7 +100,7 @@ public final class ResourceManagerInternal {
         }
 
         @Override // androidx.appcompat.widget.ResourceManagerInternal.InflateDelegate
-        public Drawable createFromXmlInner(Context context, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) {
+        public Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
@@ -127,7 +135,7 @@ public final class ResourceManagerInternal {
         }
 
         @Override // androidx.appcompat.widget.ResourceManagerInternal.InflateDelegate
-        public Drawable createFromXmlInner(Context context, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) {
+        public Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
@@ -215,7 +223,7 @@ public final class ResourceManagerInternal {
         }
 
         @Override // androidx.appcompat.widget.ResourceManagerInternal.InflateDelegate
-        public Drawable createFromXmlInner(Context context, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) {
+        public Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
@@ -281,7 +289,7 @@ public final class ResourceManagerInternal {
         return (ResourceManagerInternal) invokeV.objValue;
     }
 
-    private void addDelegate(String str, InflateDelegate inflateDelegate) {
+    private void addDelegate(@NonNull String str, @NonNull InflateDelegate inflateDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, inflateDelegate) == null) {
             if (this.mDelegates == null) {
@@ -308,7 +316,7 @@ public final class ResourceManagerInternal {
         return (PorterDuffColorFilter) invokeIL.objValue;
     }
 
-    private ColorStateList getTintListFromCache(Context context, int i) {
+    private ColorStateList getTintListFromCache(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         SparseArrayCompat<ColorStateList> sparseArrayCompat;
         Interceptable interceptable = $ic;
@@ -322,7 +330,7 @@ public final class ResourceManagerInternal {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public synchronized Drawable getDrawable(Context context, int i) {
+    public synchronized Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         Drawable drawable;
         Interceptable interceptable = $ic;
@@ -335,7 +343,7 @@ public final class ResourceManagerInternal {
         return (Drawable) invokeLI.objValue;
     }
 
-    public synchronized ColorStateList getTintList(Context context, int i) {
+    public synchronized ColorStateList getTintList(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         ColorStateList tintListFromCache;
         Interceptable interceptable = $ic;
@@ -358,7 +366,7 @@ public final class ResourceManagerInternal {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    private synchronized boolean addDrawableToCache(Context context, long j, Drawable drawable) {
+    private synchronized boolean addDrawableToCache(@NonNull Context context, long j, @NonNull Drawable drawable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, Long.valueOf(j), drawable})) == null) {
@@ -409,7 +417,7 @@ public final class ResourceManagerInternal {
         }
     }
 
-    public synchronized Drawable getDrawable(Context context, int i, boolean z) {
+    public synchronized Drawable getDrawable(@NonNull Context context, @DrawableRes int i, boolean z) {
         InterceptResult invokeCommon;
         Drawable loadDrawableFromDelegates;
         Interceptable interceptable = $ic;
@@ -435,7 +443,7 @@ public final class ResourceManagerInternal {
         return (Drawable) invokeCommon.objValue;
     }
 
-    private void addTintListToCache(Context context, int i, ColorStateList colorStateList) {
+    private void addTintListToCache(@NonNull Context context, @DrawableRes int i, @NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, i, colorStateList) == null) {
             if (this.mTintLists == null) {
@@ -462,7 +470,7 @@ public final class ResourceManagerInternal {
         return (PorterDuffColorFilter) invokeLLL.objValue;
     }
 
-    public synchronized Drawable onDrawableLoadedFromResources(Context context, VectorEnabledTintResources vectorEnabledTintResources, int i) {
+    public synchronized Drawable onDrawableLoadedFromResources(@NonNull Context context, @NonNull VectorEnabledTintResources vectorEnabledTintResources, @DrawableRes int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, vectorEnabledTintResources, i)) == null) {
@@ -480,7 +488,7 @@ public final class ResourceManagerInternal {
         return (Drawable) invokeLLI.objValue;
     }
 
-    public boolean tintDrawableUsingColorFilter(Context context, int i, Drawable drawable) {
+    public boolean tintDrawableUsingColorFilter(@NonNull Context context, @DrawableRes int i, @NonNull Drawable drawable) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, context, i, drawable)) == null) {
@@ -493,7 +501,7 @@ public final class ResourceManagerInternal {
         return invokeLIL.booleanValue;
     }
 
-    private void checkVectorDrawableSetup(Context context) {
+    private void checkVectorDrawableSetup(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65541, this, context) != null) || this.mHasCheckedVectorDrawableSetup) {
             return;
@@ -516,7 +524,7 @@ public final class ResourceManagerInternal {
         return invokeL.longValue;
     }
 
-    public static boolean isVectorDrawable(Drawable drawable) {
+    public static boolean isVectorDrawable(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, drawable)) == null) {
@@ -541,7 +549,7 @@ public final class ResourceManagerInternal {
         return (PorterDuff.Mode) invokeI.objValue;
     }
 
-    public synchronized void onConfigurationChanged(Context context) {
+    public synchronized void onConfigurationChanged(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             synchronized (this) {
@@ -562,7 +570,7 @@ public final class ResourceManagerInternal {
         }
     }
 
-    private Drawable createDrawableIfNeeded(Context context, int i) {
+    private Drawable createDrawableIfNeeded(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         Drawable createDrawableFor;
         Interceptable interceptable = $ic;
@@ -592,7 +600,7 @@ public final class ResourceManagerInternal {
         return (Drawable) invokeLI.objValue;
     }
 
-    private synchronized Drawable getCachedDrawable(Context context, long j) {
+    private synchronized Drawable getCachedDrawable(@NonNull Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, this, context, j)) == null) {
@@ -615,7 +623,7 @@ public final class ResourceManagerInternal {
         return (Drawable) invokeLJ.objValue;
     }
 
-    public static void installDefaultInflateDelegates(ResourceManagerInternal resourceManagerInternal) {
+    public static void installDefaultInflateDelegates(@NonNull ResourceManagerInternal resourceManagerInternal) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65549, null, resourceManagerInternal) == null) && Build.VERSION.SDK_INT < 24) {
             resourceManagerInternal.addDelegate(VectorDrawableCompat.SHAPE_VECTOR, new VdcInflateDelegate());
@@ -624,7 +632,7 @@ public final class ResourceManagerInternal {
         }
     }
 
-    private Drawable loadDrawableFromDelegates(Context context, int i) {
+    private Drawable loadDrawableFromDelegates(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         int next;
         Interceptable interceptable = $ic;
@@ -690,7 +698,7 @@ public final class ResourceManagerInternal {
         return (Drawable) invokeLI.objValue;
     }
 
-    private Drawable tintDrawable(Context context, int i, boolean z, Drawable drawable) {
+    private Drawable tintDrawable(@NonNull Context context, @DrawableRes int i, boolean z, @NonNull Drawable drawable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z), drawable})) == null) {

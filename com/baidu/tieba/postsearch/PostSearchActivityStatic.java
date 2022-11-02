@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.po8;
+import com.baidu.tieba.yp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class PostSearchActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,26 +44,26 @@ public class PostSearchActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<Void> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                String str = (String) customMessage.getData();
-                if (StringUtils.isNull(str)) {
+                String data = customMessage.getData();
+                if (StringUtils.isNull(data)) {
                     return null;
                 }
-                po8.q(str);
-                return new CustomResponsedMessage(2009003);
+                yp8.q(data);
+                return new CustomResponsedMessage<>(2009003);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public final class b implements CustomMessageTask.CustomRunnable {
+    public static class b implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,15 +82,15 @@ public class PostSearchActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<Void> run(CustomMessage<Void> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                po8.d();
-                return new CustomResponsedMessage(2009004);
+                yp8.d();
+                return new CustomResponsedMessage<>(2009004);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

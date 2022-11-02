@@ -2,9 +2,12 @@ package kotlin;
 
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import kotlin.internal.InlineOnly;
 @Metadata(d1 = {"\u0000 \n\u0000\n\u0002\u0010\b\n\u0002\u0010\u0005\n\u0000\n\u0002\u0010\t\n\u0002\u0010\n\n\u0000\n\u0002\u0010\u0006\n\u0002\u0010\u0007\n\u0000\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0002H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0001H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0004*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0005H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0002H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0004*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0005H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0001H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0005H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u0002H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u0001H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0004*\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u0005H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0002*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0002H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0001H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0004*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0005*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0005H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0007*\u00020\u00072\u0006\u0010\u0003\u001a\u00020\u0007H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0007*\u00020\u00072\u0006\u0010\u0003\u001a\u00020\bH\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0007*\u00020\b2\u0006\u0010\u0003\u001a\u00020\u0007H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\b*\u00020\b2\u0006\u0010\u0003\u001a\u00020\bH\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0002*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0002H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0004*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0005*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0005H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0002*\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0001*\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0001H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0005*\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0005H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0002*\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u0002H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0001*\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u0001H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0004*\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\b\u001a\u0015\u0010\u0006\u001a\u00020\u0005*\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u0005H\u0087\b¨\u0006\t"}, d2 = {"floorDiv", "", "", ImageViewerConfig.FROM_OTHER, "", "", SearchJsBridge.COOKIE_MOD, "", "", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/NumbersKt")
 /* loaded from: classes8.dex */
 public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(byte b, byte b2) {
         int i = b / b2;
         if ((b ^ b2) < 0 && b2 * i != b) {
@@ -13,11 +16,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final byte mod(byte b, byte b2) {
         int i = b % b2;
         return (byte) (i + (b2 & (((i ^ b2) & ((-i) | i)) >> 31)));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(byte b, int i) {
         int i2 = b / i;
         if ((b ^ i) < 0 && i * i2 != b) {
@@ -26,11 +33,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i2;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final byte mod(int i, byte b) {
         int i2 = i % b;
         return (byte) (i2 + (b & (((i2 ^ b) & ((-i2) | i2)) >> 31)));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(byte b, short s) {
         int i = b / s;
         if ((b ^ s) < 0 && s * i != b) {
@@ -39,12 +50,16 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final byte mod(long j, byte b) {
         long j2;
         long j3 = j % b;
         return (byte) (j3 + (j2 & (((j3 ^ j2) & ((-j3) | j3)) >> 63)));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(int i, byte b) {
         int i2 = i / b;
         if ((i ^ b) < 0 && b * i2 != i) {
@@ -53,11 +68,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i2;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final byte mod(short s, byte b) {
         int i = s % b;
         return (byte) (i + (b & (((i ^ b) & ((-i) | i)) >> 31)));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(int i, int i2) {
         int i3 = i / i2;
         if ((i ^ i2) < 0 && i2 * i3 != i) {
@@ -66,6 +85,8 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final double mod(double d, double d2) {
         double d3 = d % d2;
         if (d3 != 0.0d && Math.signum(d3) != Math.signum(d2)) {
@@ -74,6 +95,8 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return d3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(int i, short s) {
         int i2 = i / s;
         if ((i ^ s) < 0 && s * i2 != i) {
@@ -82,6 +105,8 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i2;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final double mod(double d, float f) {
         double d2 = f;
         double d3 = d % d2;
@@ -91,6 +116,8 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return d3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(short s, byte b) {
         int i = s / b;
         if ((s ^ b) < 0 && b * i != s) {
@@ -99,6 +126,8 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final double mod(float f, double d) {
         double d2 = f % d;
         if (d2 != 0.0d && Math.signum(d2) != Math.signum(d)) {
@@ -107,6 +136,8 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return d2;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(short s, int i) {
         int i2 = s / i;
         if ((s ^ i) < 0 && i * i2 != s) {
@@ -115,6 +146,8 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i2;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final float mod(float f, float f2) {
         float f3 = f % f2;
         if (f3 != ((float) 0.0d) && Math.signum(f3) != Math.signum(f2)) {
@@ -123,6 +156,8 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return f3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int floorDiv(short s, short s2) {
         int i = s / s2;
         if ((s ^ s2) < 0 && s2 * i != s) {
@@ -131,11 +166,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return i;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int mod(byte b, int i) {
         int i2 = b % i;
         return i2 + (i & (((i2 ^ i) & ((-i2) | i2)) >> 31));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long floorDiv(byte b, long j) {
         long j2 = b;
         long j3 = j2 / j;
@@ -145,11 +184,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return j3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int mod(int i, int i2) {
         int i3 = i % i2;
         return i3 + (i2 & (((i3 ^ i2) & ((-i3) | i3)) >> 31));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long floorDiv(int i, long j) {
         long j2 = i;
         long j3 = j2 / j;
@@ -159,12 +202,16 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return j3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int mod(long j, int i) {
         long j2 = i;
         long j3 = j % j2;
         return (int) (j3 + (j2 & (((j3 ^ j2) & ((-j3) | j3)) >> 63)));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long floorDiv(long j, byte b) {
         long j2 = b;
         long j3 = j / j2;
@@ -174,11 +221,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return j3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final int mod(short s, int i) {
         int i2 = s % i;
         return i2 + (i & (((i2 ^ i) & ((-i2) | i2)) >> 31));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long floorDiv(long j, int i) {
         long j2 = i;
         long j3 = j / j2;
@@ -188,11 +239,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return j3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long mod(byte b, long j) {
         long j2 = b % j;
         return j2 + (j & (((j2 ^ j) & ((-j2) | j2)) >> 63));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long floorDiv(long j, long j2) {
         long j3 = j / j2;
         if ((j ^ j2) < 0 && j2 * j3 != j) {
@@ -201,11 +256,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return j3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long mod(int i, long j) {
         long j2 = i % j;
         return j2 + (j & (((j2 ^ j) & ((-j2) | j2)) >> 63));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long floorDiv(long j, short s) {
         long j2 = s;
         long j3 = j / j2;
@@ -215,11 +274,15 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return j3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long mod(long j, long j2) {
         long j3 = j % j2;
         return j3 + (j2 & (((j3 ^ j2) & ((-j3) | j3)) >> 63));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long floorDiv(short s, long j) {
         long j2 = s;
         long j3 = j2 / j;
@@ -229,27 +292,37 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
         return j3;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final long mod(short s, long j) {
         long j2 = s % j;
         return j2 + (j & (((j2 ^ j) & ((-j2) | j2)) >> 63));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final short mod(byte b, short s) {
         int i = b % s;
         return (short) (i + (s & (((i ^ s) & ((-i) | i)) >> 31)));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final short mod(int i, short s) {
         int i2 = i % s;
         return (short) (i2 + (s & (((i2 ^ s) & ((-i2) | i2)) >> 31)));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final short mod(long j, short s) {
         long j2;
         long j3 = j % s;
         return (short) (j3 + (j2 & (((j3 ^ j2) & ((-j3) | j3)) >> 63)));
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final short mod(short s, short s2) {
         int i = s % s2;
         return (short) (i + (s2 & (((i ^ s2) & ((-i) | i)) >> 31)));

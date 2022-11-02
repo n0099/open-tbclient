@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.cf;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.kf;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public it4 data;
+    public zt4 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -63,8 +63,8 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
                 BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                 z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                 String str2 = new String(bArr);
-                ou4.f();
-                kf g = ou4.g("tb.my_pages");
+                hv4.f();
+                cf<String> g = hv4.g("tb.my_pages");
                 if (g != null) {
                     if (z) {
                         str = "personal_followme";
@@ -86,20 +86,20 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                it4 it4Var = new it4();
-                this.data = it4Var;
-                it4Var.c(jSONObject);
+                zt4 zt4Var = new zt4();
+                this.data = zt4Var;
+                zt4Var.c(jSONObject);
             }
         }
     }
 
-    public it4 getData() {
+    public zt4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.data;
         }
-        return (it4) invokeV.objValue;
+        return (zt4) invokeV.objValue;
     }
 
     public String getErrMsg() {

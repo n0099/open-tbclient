@@ -1,5 +1,6 @@
 package com.baidu.nadcore.player.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
@@ -17,6 +18,7 @@ public class VerticalVolumeBar extends SeekBar {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.widget.AbsSeekBar, android.view.View
+    @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

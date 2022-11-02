@@ -10,7 +10,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "", "invoke", "()Ljava/lang/Boolean;"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class BDPTask$INSTANCE$duplicateIdIsRepeatedByActionId$1 extends Lambda implements Function0 {
+public final class BDPTask$INSTANCE$duplicateIdIsRepeatedByActionId$1 extends Lambda implements Function0<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $actionId;
     public final /* synthetic */ String $duplicateId;
@@ -39,6 +39,7 @@ public final class BDPTask$INSTANCE$duplicateIdIsRepeatedByActionId$1 extends La
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final Boolean invoke() {
         InterceptResult invokeV;

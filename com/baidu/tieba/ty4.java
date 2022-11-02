@@ -1,25 +1,37 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ty4 extends TBSpecificationButtonConfig {
+public class ty4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
+    @NonNull
+    public Activity a;
+    public AlertDialog b;
+    public boolean c;
+    public boolean d;
+    public String e;
 
-    public ty4() {
+    public ty4(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,122 +41,67 @@ public class ty4 extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.b = R.color.CAM_X0302;
-        this.u = true;
+        this.c = true;
+        this.d = true;
+        this.a = activity;
     }
 
-    public void q() {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = R.color.CAM_X0101;
-            this.d = R.color.CAM_X0904;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            AlertDialog create = new AlertDialog.Builder(this.a).create();
+            this.b = create;
+            bh.i(create, this.a);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07e6, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09076c);
+            if (!TextUtils.isEmpty(this.e)) {
+                textView.setText(this.e);
+            }
+            this.b.setCancelable(this.d);
+            this.b.setCanceledOnTouchOutside(this.d);
+            Window window = this.b.getWindow();
+            window.setContentView(inflate);
+            if (!this.c) {
+                window.setDimAmount(0.0f);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    public void b() {
+        AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return v(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-            this.u = true;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.b) != null) {
+            alertDialog.dismiss();
         }
     }
 
-    public void s(int i) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-            this.u = true;
-            this.q = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.b == null) {
+                a();
             }
+            this.b.show();
         }
     }
 
-    public void t(int i) {
+    public ty4 c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0903;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.c = z;
+            return this;
         }
+        return (ty4) invokeZ.objValue;
     }
 
-    public void u(int i) {
+    public ty4 d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0211;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.e = str;
+            return this;
         }
-    }
-
-    public void p(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.d = i;
-            this.b = i2;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public final Drawable v(float f) {
-        InterceptResult invokeF;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            if (this.u) {
-                if (this.q) {
-                    i = SkinManager.getColor(this.r, this.b);
-                } else {
-                    i = this.b;
-                }
-                gradientDrawable.setColor(vl8.a(i, 0.08f));
-            } else {
-                gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
-            }
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
+        return (ty4) invokeL.objValue;
     }
 }

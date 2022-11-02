@@ -11,14 +11,15 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.jh;
+import com.baidu.tieba.bh;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,14 +47,14 @@ public class BottomMenuView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class MenuItemView extends LinearLayout implements View.OnClickListener {
+    public static class MenuItemView extends LinearLayout implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: i */
-        public static final int icon_card_morelist_n = 2131232441;
+        public static final int icon_card_morelist_n = 2131232447;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public TbPageContext b;
+        public TbPageContext<?> b;
         public ImageView c;
         public TextView d;
         public BottomMenu e;
@@ -77,7 +78,7 @@ public class BottomMenuView extends LinearLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MenuItemView(TbPageContext tbPageContext) {
+        public MenuItemView(TbPageContext<?> tbPageContext) {
             super(tbPageContext.getPageActivity());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -97,10 +98,10 @@ public class BottomMenuView extends LinearLayout {
             this.a = icon_card_morelist_n;
             setGravity(17);
             setOnClickListener(this);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015e, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0160, this);
             this.b = tbPageContext;
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa3);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fcf);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fdc);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091008);
         }
 
         private b getSubMenuGenerator() {
@@ -178,7 +179,7 @@ public class BottomMenuView extends LinearLayout {
             }
         }
 
-        public void a(TbPageContext tbPageContext, int i) {
+        public void a(TbPageContext<?> tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, tbPageContext, i) == null) {
                 setMenuIcon(this.a);
@@ -189,7 +190,7 @@ public class BottomMenuView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class SubMenuItemView extends LinearLayout {
+    public static class SubMenuItemView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -214,9 +215,9 @@ public class BottomMenuView extends LinearLayout {
                     return;
                 }
             }
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d015f, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0161, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090fcf);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091008);
             this.b = findViewById(R.id.divider_line);
         }
 
@@ -254,7 +255,7 @@ public class BottomMenuView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public a a;
@@ -290,19 +291,19 @@ public class BottomMenuView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
                 if (view2 instanceof SubMenuItemView) {
-                    jh.c(this.b);
+                    bh.c(this.b);
                     SubMenuItemView subMenuItemView = (SubMenuItemView) view2;
                     a aVar = this.a;
                     if (aVar != null) {
                         aVar.a(subMenuItemView, subMenuItemView.getSubMenuData());
                     }
                 } else if (view2 == this.c) {
-                    jh.c(this.b);
+                    bh.c(this.b);
                 }
             }
         }
 
-        public void b(MenuItemView menuItemView, List list) {
+        public void b(MenuItemView menuItemView, List<SubBottomMenu> list) {
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItemView, list) == null) && menuItemView != null && !ListUtils.isEmpty(list)) {
@@ -316,7 +317,7 @@ public class BottomMenuView extends LinearLayout {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
                     SubMenuItemView subMenuItemView = new SubMenuItemView(pageActivity);
-                    SubBottomMenu subBottomMenu = (SubBottomMenu) list.get(i);
+                    SubBottomMenu subBottomMenu = list.get(i);
                     if (i == size - 1) {
                         z = true;
                     } else {
@@ -339,7 +340,7 @@ public class BottomMenuView extends LinearLayout {
                 this.b.setClippingEnabled(false);
                 this.b.setBackgroundDrawable(new ColorDrawable());
                 this.b.setSoftInputMode(16);
-                jh.m(this.b, menuItemView, 51, 0, 0);
+                bh.m(this.b, menuItemView, 51, 0, 0);
             }
         }
     }
@@ -366,7 +367,7 @@ public class BottomMenuView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BottomMenuView(Context context, AttributeSet attributeSet) {
+    public BottomMenuView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -387,7 +388,7 @@ public class BottomMenuView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomMenuView(Context context, AttributeSet attributeSet, int i) {
+    public BottomMenuView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -436,7 +437,7 @@ public class BottomMenuView extends LinearLayout {
         }
         removeAllViews();
         this.c = new View(getContext());
-        this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, fj.f(getContext(), R.dimen.tbds16)));
+        this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, xi.g(getContext(), R.dimen.tbds16)));
         this.c.setBackgroundResource(R.drawable.bottom_view_shadow);
         addView(this.c);
         LinearLayout linearLayout = new LinearLayout(getContext());

@@ -28,7 +28,7 @@ public class SizeSpec {
 
     /* renamed from: com.baidu.searchbox.crius.util.SizeSpec$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$crius$CriusMeasureMode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

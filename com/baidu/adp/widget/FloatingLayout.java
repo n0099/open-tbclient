@@ -25,7 +25,7 @@ public class FloatingLayout extends LinearLayout {
     public int d;
 
     /* loaded from: classes.dex */
-    public class LayoutParams extends LinearLayout.LayoutParams {
+    public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

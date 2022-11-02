@@ -2,6 +2,8 @@ package androidx.core.graphics.drawable;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +14,7 @@ public final class ColorDrawableKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final ColorDrawable toDrawable(int i) {
+    public static final ColorDrawable toDrawable(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
@@ -21,6 +23,7 @@ public final class ColorDrawableKt {
         return (ColorDrawable) invokeI.objValue;
     }
 
+    @RequiresApi(26)
     public static final ColorDrawable toDrawable(Color color) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

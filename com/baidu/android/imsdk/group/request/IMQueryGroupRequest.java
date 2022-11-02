@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.CreateResultInfo;
 import com.baidu.android.imsdk.group.GroupInfo;
+import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -37,9 +38,9 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public static final String TAG = "IMQueryGroupRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isCreateGroup;
-    public ArrayList mAddMembers;
+    public ArrayList<GroupMember> mAddMembers;
     public long mAppid;
-    public ArrayList mGroupIds;
+    public ArrayList<String> mGroupIds;
     public String mKey;
     public String mRequestParam;
 
@@ -248,7 +249,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMQueryGroupRequest(Context context, String str, long j, ArrayList arrayList, boolean z, ArrayList arrayList2) {
+    public IMQueryGroupRequest(Context context, String str, long j, ArrayList<String> arrayList, boolean z, ArrayList<GroupMember> arrayList2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -295,12 +296,12 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             sb.append(this.mAppid);
             sb.append("&timestamp=");
             sb.append(currentTimeMillis);
-            ArrayList arrayList = this.mGroupIds;
+            ArrayList<String> arrayList = this.mGroupIds;
             if (arrayList != null && arrayList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = this.mGroupIds.iterator();
+                Iterator<String> it = this.mGroupIds.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put((String) it.next());
+                    jSONArray.put(it.next());
                 }
                 sb.append("&group_ids=");
                 sb.append(jSONArray.toString());
@@ -318,13 +319,13 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             uploadGroupInfoFailInfo("get_groupinfo_request_onFailure", "param = " + this.mRequestParam + "  reponse = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
                 if (this.isCreateGroup) {
                     CreateResultInfo createResultInfo = new CreateResultInfo();
-                    createResultInfo.groupid = (String) this.mGroupIds.get(0);
+                    createResultInfo.groupid = this.mGroupIds.get(0);
                     ((BIMValueCallBack) removeListener).onResult(0, (String) transErrorCode.second, createResultInfo);
                     return;
                 }

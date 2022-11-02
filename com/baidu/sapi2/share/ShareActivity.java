@@ -124,11 +124,11 @@ public class ShareActivity extends Activity {
         }
     }
 
-    private HashMap getCommonStatParams() {
+    private HashMap<String, String> getCommonStatParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, this.fromTpl);
             hashMap.put(ShareCallPacking.StatModel.KEY_CALL_TYPE, this.callType);
             return hashMap;

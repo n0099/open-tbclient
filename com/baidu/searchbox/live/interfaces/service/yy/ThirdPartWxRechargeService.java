@@ -24,13 +24,13 @@ public interface ThirdPartWxRechargeService {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\b6\u0018\u0000:\u0002\u0003\u0004B\t\b\u0002¢\u0006\u0004\b\u0001\u0010\u0002\u0082\u0001\u0002\u0005\u0006¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/yy/ThirdPartWxRechargeService$WxPayType;", "<init>", "()V", "WxPayYYLive", "WxPayYYPay", "Lcom/baidu/searchbox/live/interfaces/service/yy/ThirdPartWxRechargeService$WxPayType$WxPayYYLive;", "Lcom/baidu/searchbox/live/interfaces/service/yy/ThirdPartWxRechargeService$WxPayType$WxPayYYPay;", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public abstract class WxPayType {
+    public static abstract class WxPayType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0004\bÆ\u0002\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/yy/ThirdPartWxRechargeService$WxPayType$WxPayYYLive;", "com/baidu/searchbox/live/interfaces/service/yy/ThirdPartWxRechargeService$WxPayType", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
-        public final class WxPayYYLive extends WxPayType {
+        public static final class WxPayYYLive extends WxPayType {
             public static /* synthetic */ Interceptable $ic;
             public static final WxPayYYLive INSTANCE;
             public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public interface ThirdPartWxRechargeService {
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0004\bÆ\u0002\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/yy/ThirdPartWxRechargeService$WxPayType$WxPayYYPay;", "com/baidu/searchbox/live/interfaces/service/yy/ThirdPartWxRechargeService$WxPayType", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
-        public final class WxPayYYPay extends WxPayType {
+        public static final class WxPayYYPay extends WxPayType {
             public static /* synthetic */ Interceptable $ic;
             public static final WxPayYYPay INSTANCE;
             public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public interface ThirdPartWxRechargeService {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/yy/ThirdPartWxRechargeService$Companion;", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE;
         public static /* synthetic */ Interceptable $ic;
         public static final ServiceReference SERVICE_REFERENCE;

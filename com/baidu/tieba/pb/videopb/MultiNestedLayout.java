@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingChildHelper;
@@ -74,7 +75,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MultiNestedLayout(Context context, AttributeSet attributeSet) {
+    public MultiNestedLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,7 +112,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiNestedLayout(Context context, AttributeSet attributeSet, int i) {
+    public MultiNestedLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

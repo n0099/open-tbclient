@@ -21,15 +21,15 @@ public class RequestParam implements IRequestParam {
     public static final String KEY_PARAM_BODY_BYTE_ARRAY = "body_byte_array";
     public transient /* synthetic */ FieldHolder $fh;
     public Context appContext;
-    public Map byteArrays;
+    public Map<String, byte[]> byteArrays;
     public boolean defaultHost;
     public Bundle extraBundle;
-    public Map files;
+    public Map<String, IRequestParam.ValuePart<File>> files;
     public boolean gZip;
     public Bundle getBundle;
     public Bundle headerBundle;
-    public ArrayList interceptList;
-    public HashMap interceptResult;
+    public ArrayList<IRequestIntercept> interceptList;
+    public HashMap<String, Object> interceptResult;
     public boolean needIntercept;
     public Bundle postBundle;
     public int requestTimeout;
@@ -48,18 +48,18 @@ public class RequestParam implements IRequestParam {
     }
 
     /* loaded from: classes8.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context appContext;
-        public Map byteArrays;
+        public Map<String, byte[]> byteArrays;
         public boolean defaultHost;
         public Bundle extraBundle;
-        public Map files;
+        public Map<String, IRequestParam.ValuePart<File>> files;
         public boolean gZip;
         public Bundle getBundle;
         public Bundle headerBundle;
-        public ArrayList interceptList;
+        public ArrayList<IRequestIntercept> interceptList;
         public boolean needIntercept;
         public Bundle postBundle;
         public int requestTimeout;
@@ -88,7 +88,7 @@ public class RequestParam implements IRequestParam {
             this.type = IRequestParam.RequestType.POST;
             this.headerBundle = new Bundle();
             this.defaultHost = true;
-            this.interceptList = new ArrayList();
+            this.interceptList = new ArrayList<>();
             this.files = new HashMap();
             this.byteArrays = new HashMap();
             this.needIntercept = true;
@@ -182,11 +182,13 @@ public class RequestParam implements IRequestParam {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.io.File */
+        /* JADX WARN: Multi-variable type inference failed */
         public Builder addBodyParam(String str, File file, String str2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, file, str2)) == null) {
-                IRequestParam.ValuePart valuePart = new IRequestParam.ValuePart();
+                IRequestParam.ValuePart<File> valuePart = new IRequestParam.ValuePart<>();
                 valuePart.value = file;
                 valuePart.mimeType = str2;
                 this.files.put(str, valuePart);
@@ -306,7 +308,7 @@ public class RequestParam implements IRequestParam {
         this.extraBundle = new Bundle();
         this.files = new HashMap();
         this.byteArrays = new HashMap();
-        this.interceptList = new ArrayList();
+        this.interceptList = new ArrayList<>();
         this.gZip = false;
         this.requestTimeout = 15000;
         this.responseTimeout = 15000;
@@ -322,7 +324,7 @@ public class RequestParam implements IRequestParam {
         this.byteArrays.putAll(builder.byteArrays);
         this.needIntercept = builder.needIntercept;
         this.appContext = builder.appContext;
-        this.interceptResult = new HashMap();
+        this.interceptResult = new HashMap<>();
         this.interceptList = builder.interceptList;
         this.gZip = builder.gZip;
         this.requestTimeout = builder.requestTimeout;
@@ -338,7 +340,7 @@ public class RequestParam implements IRequestParam {
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
-    public Map byteArrays() {
+    public Map<String, byte[]> byteArrays() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -348,7 +350,7 @@ public class RequestParam implements IRequestParam {
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
-    public Map files() {
+    public Map<String, IRequestParam.ValuePart<File>> files() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -398,7 +400,7 @@ public class RequestParam implements IRequestParam {
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestParam
-    public ArrayList getIntercept() {
+    public ArrayList<IRequestIntercept> getIntercept() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {

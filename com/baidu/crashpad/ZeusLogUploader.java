@@ -72,7 +72,7 @@ public final class ZeusLogUploader {
     }
 
     /* loaded from: classes.dex */
-    public class LogFilter implements FilenameFilter {
+    public static class LogFilter implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mLogType;

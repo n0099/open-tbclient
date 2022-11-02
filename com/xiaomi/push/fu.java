@@ -132,9 +132,9 @@ public class fu implements gi {
                     }
                 }
                 if (flVar2 != null) {
-                    for (Map.Entry entry : this.a.f398a.m355a().entrySet()) {
+                    for (Map.Entry<gb, fw.a> entry : this.a.f398a.m355a().entrySet()) {
                         if (this.a.f397a != entry.getKey()) {
-                            ((fw.a) entry.getValue()).a(flVar2);
+                            entry.getValue().a(flVar2);
                         }
                     }
                 }

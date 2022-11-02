@@ -8,10 +8,12 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.wg3;
+import com.baidu.tieba.oh3;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +68,7 @@ public class GameGuideViewContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GameGuideViewContainer(Context context) {
+    public GameGuideViewContainer(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,7 +108,7 @@ public class GameGuideViewContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GameGuideViewContainer(Context context, AttributeSet attributeSet) {
+    public GameGuideViewContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +129,7 @@ public class GameGuideViewContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameGuideViewContainer(Context context, AttributeSet attributeSet, int i) {
+    public GameGuideViewContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -157,7 +159,7 @@ public class GameGuideViewContainer extends FrameLayout {
             int i5 = i4 / 2;
             if (i >= i5) {
                 i2 = (int) (((i4 - i) / i5) * 400.0f);
-                i3 = dh3.g(10.0f);
+                i3 = vh3.g(10.0f);
             } else {
                 i2 = (int) ((i / i5) * 400.0f);
                 i3 = i4 - this.a;
@@ -180,9 +182,9 @@ public class GameGuideViewContainer extends FrameLayout {
             this.d = getContext().getResources().getDisplayMetrics().widthPixels;
             this.c = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
-                this.d += wg3.c();
+                this.d += oh3.c();
             } else {
-                this.c += wg3.c();
+                this.c += oh3.c();
             }
             this.g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         }
@@ -205,8 +207,8 @@ public class GameGuideViewContainer extends FrameLayout {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i < dh3.g(10.0f)) {
-                i2 = dh3.g(10.0f);
+            if (i < vh3.g(10.0f)) {
+                i2 = vh3.g(10.0f);
             } else {
                 i2 = i;
             }

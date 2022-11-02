@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,8 +18,8 @@ import com.baidu.tbadk.core.dialog.RoundLinearLayout;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +61,7 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCreatorCenterDataView(Context context, AttributeSet attributeSet) {
+    public PersonCreatorCenterDataView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,7 +85,7 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCreatorCenterDataView(Context context, AttributeSet attributeSet, int i) {
+    public PersonCreatorCenterDataView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -141,18 +142,18 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d070c, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0721, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091917);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091919);
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09191f);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09195a);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09195c);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091962);
             this.d = roundLinearLayout;
-            roundLinearLayout.setRadius(fj.f(getContext(), R.dimen.obfuscated_res_0x7f070287));
+            roundLinearLayout.setRadius(xi.g(getContext(), R.dimen.obfuscated_res_0x7f070287));
             this.d.setRoundCount(8);
-            nv4.d(this.d).n(R.string.J_X03);
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091920);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091921);
-            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09191a);
+            kw4.d(this.d).n(R.string.J_X03);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091963);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091964);
+            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09195d);
         }
     }
 
@@ -170,22 +171,22 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             String str = (String) ((PersonCreatorCenterDataView) view2).h.getText();
-            if (getContext().getString(R.string.obfuscated_res_0x7f0f1647).equals(str)) {
+            if (getContext().getString(R.string.obfuscated_res_0x7f0f1666).equals(str)) {
                 d("3", "1", "2");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1648).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1667).equals(str)) {
                 d("3", "1", "3");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1646).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1665).equals(str)) {
                 d("3", "1", "1");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1645).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1664).equals(str)) {
                 d("3", "2", "2");
                 c(this.b);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1644).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1663).equals(str)) {
                 d("3", "2", "3");
                 c(this.b);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1643).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1662).equals(str)) {
                 d("3", "2", "1");
                 c(this.b);
             }

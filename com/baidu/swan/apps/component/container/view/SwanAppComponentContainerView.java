@@ -1,5 +1,7 @@
 package com.baidu.swan.apps.component.container.view;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Path;
@@ -8,12 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cz1;
-import com.baidu.tieba.f02;
+import com.baidu.tieba.e12;
 import com.baidu.tieba.m02;
+import com.baidu.tieba.ok1;
 import com.baidu.tieba.uz1;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.x02;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +30,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public cz1 b;
+    public uz1 b;
     public Path c;
     public ScrollView d;
 
@@ -44,7 +47,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
                 return;
             }
         }
-        e = wj1.a;
+        e = ok1.a;
     }
 
     public ScrollView getScrollView() {
@@ -57,7 +60,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppComponentContainerView(Context context) {
+    public SwanAppComponentContainerView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,24 +79,25 @@ public class SwanAppComponentContainerView extends FrameLayout {
         }
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     public final void a(Canvas canvas) {
         Path path;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && Build.VERSION.SDK_INT >= 21 && (path = this.c) != null && this.a != null) {
-            cz1 cz1Var = this.b;
-            if (cz1Var instanceof uz1) {
-                uz1 uz1Var = (uz1) cz1Var;
-                if (uz1Var.n > 0) {
+            uz1 uz1Var = this.b;
+            if (uz1Var instanceof m02) {
+                m02 m02Var = (m02) uz1Var;
+                if (m02Var.n > 0) {
                     path.reset();
                     Path path2 = this.c;
                     float left = this.a.getLeft();
                     float top = this.a.getTop();
                     float right = this.a.getRight();
                     float bottom = this.a.getBottom();
-                    int i = uz1Var.n;
+                    int i = m02Var.n;
                     path2.addRoundRect(left, top, right, bottom, i, i, Path.Direction.CW);
                     if (e) {
-                        Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + uz1Var.n);
+                        Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + m02Var.n);
                     }
                     canvas.save();
                     canvas.clipPath(this.c);
@@ -104,6 +108,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     }
 
     @Override // android.view.View
+    @TargetApi(21)
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
@@ -129,10 +134,10 @@ public class SwanAppComponentContainerView extends FrameLayout {
         }
     }
 
-    public void setModel(cz1 cz1Var) {
+    public void setModel(@NonNull uz1 uz1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cz1Var) == null) {
-            this.b = cz1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uz1Var) == null) {
+            this.b = uz1Var;
         }
     }
 
@@ -143,25 +148,25 @@ public class SwanAppComponentContainerView extends FrameLayout {
         }
     }
 
-    public void setTargetView(View view2) {
+    public void setTargetView(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             setTargetView(view2, -1);
         }
     }
 
-    public void setTargetView(View view2, int i) {
+    public void setTargetView(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
             if (this.a == view2) {
-                m02.o("Component-ContainerView", "repeat setTargetView with the same view");
+                e12.o("Component-ContainerView", "repeat setTargetView with the same view");
                 return;
             }
             if (this.c == null) {
                 this.c = new Path();
             }
             if (this.a != null) {
-                f02.a("Component-ContainerView", "repeat setTargetView with the different view");
+                x02.a("Component-ContainerView", "repeat setTargetView with the different view");
                 removeView(this.a);
             }
             this.a = view2;

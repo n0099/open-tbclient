@@ -1,14 +1,14 @@
 package com.baidu.tieba.videoplay.dispatcher;
 
 import android.content.Context;
-import android.content.Intent;
 import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.jg8;
+import com.baidu.tieba.ri5;
+import com.baidu.tieba.th8;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.videoplay.VideoPlayActivity;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements jg8 {
+public class VideoPlayDispatcher implements th8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,8 +35,9 @@ public class VideoPlayDispatcher implements jg8 {
         }
     }
 
-    @Override // com.baidu.tieba.jg8
+    @Override // com.baidu.tieba.th8
     public void dispatch(JSONObject jSONObject, Context context) {
+        boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             ArrayList arrayList = new ArrayList();
@@ -53,22 +54,20 @@ public class VideoPlayDispatcher implements jg8 {
             videoItemData.video_url = jSONObject.optString("videoUrl");
             videoItemData.video_width = jSONObject.optString("videoWidth");
             videoItemData.video_height = jSONObject.optString("videoHeight");
-            boolean z = false;
-            videoItemData.video_duration = eh.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
-            if (eh.g(jSONObject.optString("videoHeight"), 0L) > eh.g(jSONObject.optString("videoWidth"), 0L)) {
+            videoItemData.video_duration = wg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
+            if (wg.g(jSONObject.optString("videoHeight"), 0L) > wg.g(jSONObject.optString("videoWidth"), 0L)) {
                 z = true;
+            } else {
+                z = false;
             }
-            Intent intent = new Intent();
-            intent.putExtra("is_vertail", z);
             videoItemData.comment_num = jSONObject.optString("postNum");
             videoItemData.agree_num = jSONObject.optString("agreeNum");
             videoItemData.share_num = jSONObject.optString("shareNum");
             videoItemData.forum_id = jSONObject.optString(TbTitleActivityConfig.FORUM_ID);
             videoItemData.forum_name = jSONObject.optString("forumName");
+            boolean equals = "1".equals(jSONObject.optString("showComment"));
             arrayList.add(videoItemData);
-            intent.putExtra("video_list", arrayList);
-            intent.setClass(context, VideoPlayActivity.class);
-            context.startActivity(intent);
+            ri5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", equals, false, wg.g(videoItemData.forum_id, 0L));
         }
     }
 }

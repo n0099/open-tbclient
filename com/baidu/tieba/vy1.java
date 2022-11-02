@@ -1,46 +1,46 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class vy1 extends az1 {
+public class vy1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vy1(String str, String str2) {
-        super(str, str2);
+    @Override // com.baidu.tieba.kx1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
+
+    public vy1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.t = "";
     }
 
-    @Override // com.baidu.tieba.az1, com.baidu.tieba.cz1, com.baidu.tieba.lt2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) {
+            int alpha = lx1Var.c.getAlpha();
+            lx1Var.c(lx1Var.c);
+            canvas.drawPath(lx1Var.f, lx1Var.c);
+            lx1Var.c.setAlpha(alpha);
         }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("src");
     }
 }

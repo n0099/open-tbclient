@@ -2,6 +2,7 @@ package com.baidu.searchbox.retrieve.upload;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -88,7 +89,7 @@ public class ActiveUploadManager {
         }
     }
 
-    public void activeUploadReportContent(ActiveUpObj activeUpObj, IActiveUploadListener iActiveUploadListener) {
+    public void activeUploadReportContent(@NonNull ActiveUpObj activeUpObj, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activeUpObj, iActiveUploadListener) == null) {
             this.mActiveExecutor.execute(new Runnable(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.ActiveUploadManager.1
@@ -123,7 +124,7 @@ public class ActiveUploadManager {
                     JSONObject createActiveReqContent;
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (createActiveReqContent = ContentUtils.createActiveReqContent(this.val$activeObj)) != null) {
-                        UploaderProvider.getContentUploader().uploadDataRequestASync("1", createActiveReqContent.toString(), null, new ResponseCallback(this) { // from class: com.baidu.searchbox.retrieve.upload.ActiveUploadManager.1.1
+                        UploaderProvider.getContentUploader().uploadDataRequestASync("1", createActiveReqContent.toString(), null, new ResponseCallback<JSONObject>(this) { // from class: com.baidu.searchbox.retrieve.upload.ActiveUploadManager.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass1 this$1;
@@ -216,7 +217,7 @@ public class ActiveUploadManager {
         }
     }
 
-    public void activeUploadReportContent(ActiveUpObj activeUpObj) {
+    public void activeUploadReportContent(@NonNull ActiveUpObj activeUpObj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activeUpObj) == null) {
             activeUploadReportContent(activeUpObj, null);

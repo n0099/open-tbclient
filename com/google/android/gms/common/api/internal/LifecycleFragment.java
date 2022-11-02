@@ -2,17 +2,29 @@ package com.google.android.gms.common.api.internal;
 
 import android.app.Activity;
 import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public interface LifecycleFragment {
-    void addCallback(String str, LifecycleCallback lifecycleCallback);
+    @KeepForSdk
+    void addCallback(@NonNull String str, @NonNull LifecycleCallback lifecycleCallback);
 
-    LifecycleCallback getCallbackOrNull(String str, Class cls);
+    @Nullable
+    @KeepForSdk
+    <T extends LifecycleCallback> T getCallbackOrNull(@NonNull String str, @NonNull Class<T> cls);
 
+    @Nullable
+    @KeepForSdk
     Activity getLifecycleActivity();
 
+    @KeepForSdk
     boolean isCreated();
 
+    @KeepForSdk
     boolean isStarted();
 
-    void startActivityForResult(Intent intent, int i);
+    @KeepForSdk
+    void startActivityForResult(@NonNull Intent intent, int i);
 }

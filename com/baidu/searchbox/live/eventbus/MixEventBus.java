@@ -9,23 +9,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes2.dex */
 public class MixEventBus {
     public static /* synthetic */ Interceptable $ic;
     public static MixEventBus sInstance;
-    public static ConcurrentHashMap sSubscriberMap;
+    public static ConcurrentHashMap<Object, CopyOnWriteArrayList<EventPoster>> sSubscriberMap;
     public transient /* synthetic */ FieldHolder $fh;
     public MixEventBusCore eventBusCore;
 
     /* renamed from: com.baidu.searchbox.live.eventbus.MixEventBus$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class Holder {
+    public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final MixEventBus INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +75,7 @@ public class MixEventBus {
                 return;
             }
         }
-        sSubscriberMap = new ConcurrentHashMap();
+        sSubscriberMap = new ConcurrentHashMap<>();
         this.eventBusCore = new MixEventBusCore();
     }
 
@@ -109,14 +110,14 @@ public class MixEventBus {
         }
     }
 
-    public void register(Object obj, Class cls, int i, EventAction eventAction) {
+    public void register(Object obj, Class<?> cls, int i, EventAction eventAction) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i, eventAction) == null) && obj != null && cls != null && eventAction != null && ThreadMode.isValid(i)) {
             this.eventBusCore.register(sSubscriberMap, obj, cls, i, eventAction);
         }
     }
 
-    public synchronized void register(Object obj, Class cls, EventAction eventAction) {
+    public synchronized void register(Object obj, Class<?> cls, EventAction eventAction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, cls, eventAction) == null) {
             synchronized (this) {

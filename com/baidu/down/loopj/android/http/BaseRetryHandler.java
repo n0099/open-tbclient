@@ -19,8 +19,8 @@ public class BaseRetryHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "BaseRetryHandler";
-    public static HashSet exceptionBlacklist;
-    public static HashSet exceptionWhitelist;
+    public static HashSet<Class<?>> exceptionBlacklist;
+    public static HashSet<Class<?>> exceptionWhitelist;
     public transient /* synthetic */ FieldHolder $fh;
     public final long[] retryIntervals;
 
@@ -37,8 +37,8 @@ public class BaseRetryHandler {
                 return;
             }
         }
-        exceptionWhitelist = new HashSet();
-        exceptionBlacklist = new HashSet();
+        exceptionWhitelist = new HashSet<>();
+        exceptionBlacklist = new HashSet<>();
         exceptionWhitelist.add(UnknownHostException.class);
         exceptionWhitelist.add(SocketException.class);
         exceptionWhitelist.add(SocketTimeoutException.class);
@@ -64,13 +64,13 @@ public class BaseRetryHandler {
         this.retryIntervals = jArr;
     }
 
-    public boolean isInList(HashSet hashSet, Throwable th) {
+    public boolean isInList(HashSet<Class<?>> hashSet, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, hashSet, th)) == null) {
-            Iterator it = hashSet.iterator();
+            Iterator<Class<?>> it = hashSet.iterator();
             while (it.hasNext()) {
-                if (((Class) it.next()).isInstance(th)) {
+                if (it.next().isInstance(th)) {
                     return true;
                 }
             }

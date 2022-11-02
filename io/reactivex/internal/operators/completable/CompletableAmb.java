@@ -19,10 +19,10 @@ public final class CompletableAmb extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource[] sources;
-    public final Iterable sourcesIterable;
+    public final Iterable<? extends CompletableSource> sourcesIterable;
 
     /* loaded from: classes8.dex */
-    public final class Amb implements CompletableObserver {
+    public static final class Amb implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicBoolean once;
@@ -80,7 +80,7 @@ public final class CompletableAmb extends Completable {
         }
     }
 
-    public CompletableAmb(CompletableSource[] completableSourceArr, Iterable iterable) {
+    public CompletableAmb(CompletableSource[] completableSourceArr, Iterable<? extends CompletableSource> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

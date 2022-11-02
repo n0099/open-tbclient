@@ -45,7 +45,7 @@ public class Download {
     public String mRealUrl;
     public String mRedownloadReason;
     public String mRequestHeader;
-    public List mRequestHeaders;
+    public List<Pair<String, String>> mRequestHeaders;
     public String mSavedPathForUser;
     public String mSize;
     public Integer mStatus;
@@ -55,7 +55,7 @@ public class Download {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class DownloadState {
+    public static final class DownloadState {
         public static final /* synthetic */ DownloadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DownloadState CANCEL;

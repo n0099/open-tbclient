@@ -33,13 +33,18 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a87;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.fa7;
-import com.baidu.tieba.ii5;
+import com.baidu.tieba.ae7;
+import com.baidu.tieba.be7;
+import com.baidu.tieba.ce7;
+import com.baidu.tieba.de7;
+import com.baidu.tieba.ee7;
+import com.baidu.tieba.gc7;
+import com.baidu.tieba.gj5;
+import com.baidu.tieba.hc7;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.MsgActivityViewItemAdapter;
 import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
+import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.OfficialMsgImageActivity;
 import com.baidu.tieba.im.chat.officialBar.MsgMultiImageTextViewItemAdapter;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivity;
@@ -72,26 +77,22 @@ import com.baidu.tieba.im.mygroup.PersonGroupActivity;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailActivity;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailHttpResponseMessage;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailSocketResponseMessage;
-import com.baidu.tieba.lb7;
-import com.baidu.tieba.lc7;
-import com.baidu.tieba.mc7;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.nc7;
-import com.baidu.tieba.oc7;
-import com.baidu.tieba.oh5;
-import com.baidu.tieba.pc7;
-import com.baidu.tieba.qc7;
-import com.baidu.tieba.rc7;
-import com.baidu.tieba.re5;
-import com.baidu.tieba.sc7;
-import com.baidu.tieba.se5;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.k97;
+import com.baidu.tieba.kj5;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.of5;
+import com.baidu.tieba.pb7;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.tc7;
-import com.baidu.tieba.uc7;
-import com.baidu.tieba.wa7;
-import com.baidu.tieba.xa7;
-import com.baidu.tieba.yi5;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.vc7;
+import com.baidu.tieba.vd7;
+import com.baidu.tieba.wd7;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xd7;
+import com.baidu.tieba.xj5;
+import com.baidu.tieba.yd7;
+import com.baidu.tieba.zd7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,12 +109,12 @@ public class TiebaIMActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public final class f implements CustomMessageTask.CustomRunnable {
+    public static class f implements CustomMessageTask.CustomRunnable<OfficalBarChatActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes4.dex */
-        public class a extends ii5 {
+        public class a extends gj5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList a;
@@ -137,20 +138,20 @@ public class TiebaIMActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ii5
+            @Override // com.baidu.tieba.gj5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return fa7.w().a(this.a);
+                    return pb7.w().a(this.a);
                 }
                 return (Void) invokeV.objValue;
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements oh5 {
+        public class b implements li5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomMessage a;
@@ -174,7 +175,7 @@ public class TiebaIMActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.oh5
+            @Override // com.baidu.tieba.li5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -200,17 +201,17 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<OfficalBarChatActivityConfig> run(CustomMessage<OfficalBarChatActivityConfig> customMessage) {
             InterceptResult invokeL;
             UserData userData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || customMessage.getData() == null || (userData = ((OfficalBarChatActivityConfig) customMessage.getData()).getUserData()) == null) {
+                if (customMessage == null || customMessage.getData() == null || (userData = customMessage.getData().getUserData()) == null) {
                     return null;
                 }
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                mi5.c(new a(this, linkedList), new b(this, customMessage));
+                kj5.c(new a(this, linkedList), new b(this, customMessage));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -218,7 +219,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -237,18 +238,18 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<Boolean> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                String str = (String) customMessage.getData();
-                if (TextUtils.isEmpty(str)) {
+                String data = customMessage.getData();
+                if (TextUtils.isEmpty(data)) {
                     return null;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new MemoryModifyVisibilityMessage.a(str, 4, false)));
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new MemoryModifyVisibilityMessage.a(data, 4, false)));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -256,7 +257,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public final class b implements CustomMessageTask.CustomRunnable {
+    public static class b implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -275,18 +276,18 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage(2001299, new o());
+                return new CustomResponsedMessage<>(2001299, new o());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public final class c implements UrlManager.UrlDealListener {
+    public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -305,7 +306,7 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -326,7 +327,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public final class d implements CustomMessageTask.CustomRunnable {
+    public static class d implements CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -345,12 +346,12 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<OfficialBarTipActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((OfficialBarTipActivityConfig) customMessage.getData()).startActivity(OfficialBarTipActivity.class);
+                    customMessage.getData().startActivity(OfficialBarTipActivity.class);
                 }
                 return null;
             }
@@ -359,7 +360,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public final class e extends CustomMessageListener {
+    public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -385,8 +386,8 @@ public class TiebaIMActivityStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            TbPageContext tbPageContext;
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            TbPageContext<MsglistActivity<?>> tbPageContext;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                 MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
@@ -400,7 +401,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public final class g implements UrlManager.UrlDealListener {
+    public static class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -419,7 +420,7 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -427,11 +428,11 @@ public class TiebaIMActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
-                        String c = yi5.c(str, "barid=");
-                        String c2 = yi5.c(str, "barname=");
-                        String c3 = yi5.c(str, "portrait=");
+                        String c = xj5.c(str, "barid=");
+                        String c2 = xj5.c(str, "barname=");
+                        String c3 = xj5.c(str, "portrait=");
                         if (c != null && c.length() > 0) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), eh.g(c, 0L), c2, c3, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), wg.g(c, 0L), c2, c3, 0)));
                             return 1;
                         }
                         return 1;
@@ -469,7 +470,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public final class h implements CustomMessageTask.CustomRunnable {
+    public static class h implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -488,18 +489,18 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage(2001289, Integer.valueOf((int) R.drawable.icon_im_subscribe));
+                return new CustomResponsedMessage<>(2001289, Integer.valueOf((int) R.drawable.icon_im_subscribe));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public final class i implements CustomMessageTask.CustomRunnable {
+    public static class i implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -518,18 +519,18 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage(2001290, Integer.valueOf((int) R.drawable.icon_im_tie));
+                return new CustomResponsedMessage<>(2001290, Integer.valueOf((int) R.drawable.icon_im_tie));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public final class j implements CustomMessageTask.CustomRunnable {
+    public static class j implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -548,18 +549,18 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage(2001286, Integer.valueOf((int) R.drawable.icon_new_trends));
+                return new CustomResponsedMessage<>(2001286, Integer.valueOf((int) R.drawable.icon_new_trends));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public final class k implements CustomMessageTask.CustomRunnable {
+    public static class k implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -578,18 +579,18 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage(2001298, new n());
+                return new CustomResponsedMessage<>(2001298, new n());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public final class l extends CustomMessageListener {
+    public static class l extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -615,8 +616,8 @@ public class TiebaIMActivityStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            TbPageContext tbPageContext;
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            TbPageContext<MsglistActivity<?>> tbPageContext;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                 MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
@@ -634,7 +635,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public final class m implements CustomMessageTask.CustomRunnable {
+    public static class m implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -653,12 +654,12 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_KD_MREAD, (String) customMessage.getData());
+                    RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_KD_MREAD, customMessage.getData());
                 }
                 return null;
             }
@@ -667,7 +668,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public class n implements IUpdatesModel {
+    public static class n implements IUpdatesModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -697,7 +698,7 @@ public class TiebaIMActivityStatic {
     }
 
     /* loaded from: classes4.dex */
-    public class o implements IValidateModel {
+    public static class o implements IValidateModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -726,7 +727,7 @@ public class TiebaIMActivityStatic {
         }
 
         @Override // com.baidu.tieba.im.model.IValidateModel
-        public List convertToValidateItemDataList(LinkedList linkedList) {
+        public List<ValidateItemData> convertToValidateItemDataList(LinkedList<GroupNewsPojo> linkedList) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList)) == null) {
@@ -788,7 +789,7 @@ public class TiebaIMActivityStatic {
         CustomMessageTask customMessageTask7 = new CustomMessageTask(2003004, new a());
         customMessageTask7.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask7);
-        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new lb7());
+        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new vc7());
         customMessageTask8.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask8);
         CustomMessageTask customMessageTask9 = new CustomMessageTask(2001299, new b());
@@ -830,8 +831,8 @@ public class TiebaIMActivityStatic {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            MessageManager.getInstance().addResponsedMessageRule(new wa7());
-            MessageManager.getInstance().addResponsedMessageRule(new xa7());
+            MessageManager.getInstance().addResponsedMessageRule(new gc7());
+            MessageManager.getInstance().addResponsedMessageRule(new hc7());
             return true;
         }
         return invokeV.booleanValue;
@@ -841,16 +842,16 @@ public class TiebaIMActivityStatic {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            g(2001106, sc7.class);
-            g(2001206, tc7.class);
-            g(2001207, uc7.class);
-            g(2001144, lc7.class);
-            g(2001147, rc7.class);
-            g(2001154, oc7.class);
-            g(2001150, mc7.class);
-            g(2001151, nc7.class);
-            g(2001152, pc7.class);
-            g(2001177, qc7.class);
+            g(2001106, ce7.class);
+            g(2001206, de7.class);
+            g(2001207, ee7.class);
+            g(2001144, vd7.class);
+            g(2001147, be7.class);
+            g(2001154, yd7.class);
+            g(2001150, wd7.class);
+            g(2001151, xd7.class);
+            g(2001152, zd7.class);
+            g(2001177, ae7.class);
             return true;
         }
         return invokeV.booleanValue;
@@ -876,46 +877,46 @@ public class TiebaIMActivityStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, zm8.a("c/u/user/bigvip", 303025));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, io8.a("c/u/user/bigvip", 303025));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(RecommendDetailHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            zm8.f(303025, RecommendDetailSocketResponseMessage.class, false);
+            io8.f(303025, RecommendDetailSocketResponseMessage.class, false);
         }
     }
 
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, zm8.a(TbConfig.GET_FORUM_DETAIL, 303021));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, io8.a(TbConfig.GET_FORUM_DETAIL, 303021));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(ForumDetailHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            zm8.f(303021, ForumDetailSocketResponse.class, false);
+            io8.f(303021, ForumDetailSocketResponse.class, false);
         }
     }
 
-    public static re5 g(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static nf5 g(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i2, cls)) == null) {
-            return a87.a(i2, cls);
+            return k97.a(i2, cls);
         }
-        return (re5) invokeIL.objValue;
+        return (nf5) invokeIL.objValue;
     }
 
-    public static se5 i(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
+    public static of5 i(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) {
-            return a87.b(i2, cls, z);
+            return k97.b(i2, cls, z);
         }
-        return (se5) invokeCommon.objValue;
+        return (of5) invokeCommon.objValue;
     }
 }

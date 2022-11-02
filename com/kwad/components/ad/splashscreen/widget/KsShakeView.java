@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -14,6 +15,11 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
@@ -34,18 +40,23 @@ public class KsShakeView extends KSFrameLayout {
     public boolean AB;
     public int Ar;
     public float As;
+    @ColorInt
     public int At;
+    @ColorInt
     public int Au;
+    @ColorInt
     public int Av;
     public float Aw;
     public float Ax;
+    @DrawableRes
     public int Ay;
+    @Nullable
     public Animator Az;
     public Paint mPaint;
     public ImageView nC;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public KsShakeView(Context context) {
+    public KsShakeView(@NonNull Context context) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +77,7 @@ public class KsShakeView extends KSFrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public KsShakeView(Context context, AttributeSet attributeSet) {
+    public KsShakeView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,7 +98,7 @@ public class KsShakeView extends KSFrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsShakeView(Context context, AttributeSet attributeSet, int i) {
+    public KsShakeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,7 +145,8 @@ public class KsShakeView extends KSFrameLayout {
         return (Animator) invokeCommon.objValue;
     }
 
-    private void a(Context context, AttributeSet attributeSet, int i) {
+    @SuppressLint({"CustomViewStyleable"})
+    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i, 0);
@@ -144,7 +156,7 @@ public class KsShakeView extends KSFrameLayout {
             this.Ar = obtainStyledAttributes.getInteger(6, 1);
             this.Av = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
             this.Aw = obtainStyledAttributes.getDimension(2, 1.0f);
-            this.Ay = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c2e);
+            this.Ay = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c48);
             this.Ax = obtainStyledAttributes.getDimension(0, com.kwad.sdk.b.kwai.a.a(context, 10.0f));
             obtainStyledAttributes.recycle();
             this.nC = new ImageView(getContext());
@@ -219,7 +231,7 @@ public class KsShakeView extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.Ar = i;
-            setIconDrawableRes(i != 2 ? com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c2e : com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c2f);
+            setIconDrawableRes(i != 2 ? com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c48 : com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c49);
         }
     }
 
@@ -289,6 +301,7 @@ public class KsShakeView extends KSFrameLayout {
         }
     }
 
+    @MainThread
     public final void kG() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -358,7 +371,8 @@ public class KsShakeView extends KSFrameLayout {
         }
     }
 
-    public void setIconDrawableRes(int i) {
+    @MainThread
+    public void setIconDrawableRes(@DrawableRes int i) {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (imageView = this.nC) == null) {

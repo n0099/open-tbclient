@@ -1,17 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class hg8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hg8<T> {
+    void a(int i, int i2);
 
-    public abstract void a();
+    void c(int i, int i2, gg8 gg8Var, T t);
 
-    public abstract void b();
+    void d(int i, int i2, int i3, gg8 gg8Var, T t);
 
-    public abstract void c();
-
-    public abstract void d();
+    void e(int i, int i2, T t, gg8 gg8Var, T t2);
 }

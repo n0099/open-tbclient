@@ -10,6 +10,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,7 +36,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     public static final int LOOP_FOREVER = -1;
     public static final int LOOP_INTRINSIC = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public List animationCallbacks;
+    public List<Animatable2Compat.AnimationCallback> animationCallbacks;
     public boolean applyGravity;
     public Rect destRect;
     public boolean isRecycled;
@@ -57,9 +59,10 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     /* loaded from: classes7.dex */
-    public final class GifState extends Drawable.ConstantState {
+    public static final class GifState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @VisibleForTesting
         public final GifFrameLoader frameLoader;
 
         @Override // android.graphics.drawable.Drawable.ConstantState
@@ -91,6 +94,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public Drawable newDrawable(Resources resources) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -101,6 +105,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public Drawable newDrawable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -112,7 +117,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GifDrawable(Context context, GifDecoder gifDecoder, Transformation transformation, int i, int i2, Bitmap bitmap) {
+    public GifDrawable(Context context, GifDecoder gifDecoder, Transformation<Bitmap> transformation, int i, int i2, Bitmap bitmap) {
         this(new GifState(new GifFrameLoader(Glide.get(context), gifDecoder, i, i2, transformation, bitmap)));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +138,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public GifDrawable(Context context, GifDecoder gifDecoder, BitmapPool bitmapPool, Transformation transformation, int i, int i2, Bitmap bitmap) {
+    public GifDrawable(Context context, GifDecoder gifDecoder, BitmapPool bitmapPool, Transformation<Bitmap> transformation, int i, int i2, Bitmap bitmap) {
         this(context, gifDecoder, transformation, i, i2, bitmap);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -174,7 +179,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) != null) || this.isRecycled) {
             return;
@@ -206,6 +211,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @VisibleForTesting
     public GifDrawable(GifFrameLoader gifFrameLoader, Paint paint) {
         this(new GifState(gifFrameLoader));
         Interceptable interceptable = $ic;
@@ -281,12 +287,12 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     private void notifyAnimationEndToListeners() {
-        List list;
+        List<Animatable2Compat.AnimationCallback> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, this) == null) && (list = this.animationCallbacks) != null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                ((Animatable2Compat.AnimationCallback) this.animationCallbacks.get(i)).onAnimationEnd(this);
+                this.animationCallbacks.get(i).onAnimationEnd(this);
             }
         }
     }
@@ -308,7 +314,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
     public void clearAnimationCallbacks() {
-        List list;
+        List<Animatable2Compat.AnimationCallback> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.animationCallbacks) != null) {
             list.clear();
@@ -361,7 +367,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         return invokeV.intValue;
     }
 
-    public Transformation getFrameTransformation() {
+    public Transformation<Bitmap> getFrameTransformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -501,7 +507,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
-    public void registerAnimationCallback(Animatable2Compat.AnimationCallback animationCallback) {
+    public void registerAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048593, this, animationCallback) != null) || animationCallback == null) {
             return;
@@ -536,11 +542,11 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
-    public boolean unregisterAnimationCallback(Animatable2Compat.AnimationCallback animationCallback) {
+    public boolean unregisterAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, animationCallback)) == null) {
-            List list = this.animationCallbacks;
+            List<Animatable2Compat.AnimationCallback> list = this.animationCallbacks;
             if (list != null && animationCallback != null) {
                 return list.remove(animationCallback);
             }
@@ -549,7 +555,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         return invokeL.booleanValue;
     }
 
-    public void setFrameTransformation(Transformation transformation, Bitmap bitmap) {
+    public void setFrameTransformation(Transformation<Bitmap> transformation, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, transformation, bitmap) == null) {
             this.state.frameLoader.setFrameTransformation(transformation, bitmap);

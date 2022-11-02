@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -28,7 +27,7 @@ public class BundleInfoGroupManager {
         }
     }
 
-    public static Map toBundleInfoGroups(List list, long j) {
+    public static Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, list, j)) == null) {
@@ -36,9 +35,7 @@ public class BundleInfoGroupManager {
             if (list == null) {
                 return null;
             }
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                BundleInfo bundleInfo = (BundleInfo) it.next();
+            for (BundleInfo bundleInfo : list) {
                 BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
                 if (bundleInfoGroup == null) {
                     bundleInfoGroup = new BundleInfoGroup(j);

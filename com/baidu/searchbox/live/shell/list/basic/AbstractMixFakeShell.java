@@ -63,7 +63,7 @@ public abstract class AbstractMixFakeShell implements IExtLifecycle {
         $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(AbstractMixFakeShell.class), "serviceLocator", "getServiceLocator()Landroidx/collection/SimpleArrayMap;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(AbstractMixFakeShell.class), "liveContainer", "getLiveContainer()Lcom/baidu/searchbox/live/widget/LiveContainer;"))};
     }
 
-    private final SimpleArrayMap getServiceLocator() {
+    private final SimpleArrayMap<Class<? extends IService>, IService> getServiceLocator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
@@ -143,20 +143,20 @@ public abstract class AbstractMixFakeShell implements IExtLifecycle {
         return (MiniUniqueId) invokeV.objValue;
     }
 
-    public Object getService(Class cls) {
+    public <T> T getService(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
-            Object obj = getServiceLocator().get(cls);
-            if (!(obj instanceof Object)) {
+            T t = (T) getServiceLocator().get(cls);
+            if (!(t instanceof Object)) {
                 return null;
             }
-            return obj;
+            return t;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public final void unregisterServices(Class cls) {
+    public final void unregisterServices(Class<? extends IService> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, cls) == null) {
             getServiceLocator().remove(cls);
@@ -246,7 +246,7 @@ public abstract class AbstractMixFakeShell implements IExtLifecycle {
         }
     }
 
-    public final void registerServices(Class cls, IService iService) {
+    public final void registerServices(Class<? extends IService> cls, IService iService) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, cls, iService) == null) {
             getServiceLocator().put(cls, iService);

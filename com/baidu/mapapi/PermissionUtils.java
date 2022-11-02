@@ -1,6 +1,7 @@
 package com.baidu.mapapi;
 
-import com.baidu.mapsdkplatform.comapi.util.d;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapsdkplatform.comapi.util.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ public class PermissionUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final PermissionUtils a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,19 +51,34 @@ public class PermissionUtils {
         }
     }
 
-    public /* synthetic */ PermissionUtils(com.baidu.mapapi.a aVar) {
-        this();
-    }
-
     public static PermissionUtils getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (PermissionUtils) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.a;
+        }
+        return (PermissionUtils) invokeV.objValue;
     }
 
     public boolean isIndoorNaviAuthorized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.a().b() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c.a().b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isWalkARNaviAuthorized() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c.a().c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ PermissionUtils(com.baidu.mapapi.a aVar) {
+        this();
     }
 }

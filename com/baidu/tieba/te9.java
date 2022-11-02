@@ -1,11 +1,18 @@
 package com.baidu.tieba;
 
-import java.lang.reflect.Type;
+import android.util.Pair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public interface te9 {
-    String a(Object obj);
+public class te9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T> T b(String str, Class<T> cls);
-
-    <T> T c(String str, Type type);
+    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) && ue9.c().g() != null) {
+            ue9.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
+        }
+    }
 }

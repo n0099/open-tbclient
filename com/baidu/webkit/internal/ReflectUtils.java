@@ -48,7 +48,7 @@ public class ReflectUtils implements INoProGuard {
         }
     }
 
-    public static void expandPathList(File file, Class cls) {
+    public static void expandPathList(File file, Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, file, cls) == null) {
             try {
@@ -68,7 +68,7 @@ public class ReflectUtils implements INoProGuard {
         }
     }
 
-    public static void expandPathList(String str, Class cls) {
+    public static void expandPathList(String str, Class<?> cls) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65539, null, str, cls) == null) || str == null) {
             return;

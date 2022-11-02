@@ -1,6 +1,7 @@
 package com.bytedance.pangle.download;
 
 import android.content.SharedPreferences;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,13 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.util.l;
 import java.util.List;
+@Keep
 /* loaded from: classes7.dex */
 public class PluginDownloadBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mApiVersionMax;
     public int mApiVersionMin;
-    public List mBackupUrlList;
+    public List<String> mBackupUrlList;
     public int mFlag;
     public long mFollowId;
     public String mMd5;

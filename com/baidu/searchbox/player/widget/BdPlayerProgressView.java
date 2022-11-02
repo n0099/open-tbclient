@@ -1,11 +1,13 @@
 package com.baidu.searchbox.player.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.utils.BdPlayerUtils;
@@ -126,6 +128,7 @@ public class BdPlayerProgressView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"CustomViewStyleable"})
     public BdPlayerProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -226,7 +229,7 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    public void setPositionText(String str) {
+    public void setPositionText(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.mProgressMode == 1) {
             this.mPositionText = str;

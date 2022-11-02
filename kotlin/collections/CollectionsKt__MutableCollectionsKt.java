@@ -9,8 +9,12 @@ import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
+import kotlin.ExperimentalStdlibApi;
 import kotlin.Metadata;
 import kotlin.ReplaceWith;
+import kotlin.SinceKotlin;
+import kotlin.WasExperimental;
+import kotlin.internal.InlineOnly;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.TypeIntrinsics;
@@ -36,17 +40,20 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         return z;
     }
 
+    @InlineOnly
     public static final <T> void minusAssign(Collection<? super T> minusAssign, Iterable<? extends T> iterable) {
         Intrinsics.checkNotNullParameter(minusAssign, "$this$minusAssign");
         removeAll(minusAssign, iterable);
     }
 
+    @InlineOnly
     public static final <T> void plusAssign(Collection<? super T> plusAssign, Iterable<? extends T> iterable) {
         Intrinsics.checkNotNullParameter(plusAssign, "$this$plusAssign");
         addAll(plusAssign, iterable);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use removeAt(index) instead.", replaceWith = @ReplaceWith(expression = "removeAt(index)", imports = {}))
+    @InlineOnly
     public static final <T> T remove(List<T> list, int i) {
         return list.remove(i);
     }
@@ -63,19 +70,21 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         return filterInPlace$CollectionsKt__MutableCollectionsKt((Iterable) retainAll, (Function1) predicate, false);
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> boolean addAll(Collection<? super T> addAll, Sequence<? extends T> elements) {
         Intrinsics.checkNotNullParameter(addAll, "$this$addAll");
         Intrinsics.checkNotNullParameter(elements, "elements");
-        Iterator it = elements.iterator();
+        Iterator<? extends T> it = elements.iterator();
         boolean z = false;
         while (it.hasNext()) {
-            if (addAll.add((Object) it.next())) {
+            if (addAll.add((T) it.next())) {
                 z = true;
             }
         }
         return z;
     }
 
+    @InlineOnly
     public static final <T> void minusAssign(Collection<? super T> minusAssign, T t) {
         Intrinsics.checkNotNullParameter(minusAssign, "$this$minusAssign");
         minusAssign.remove(t);
@@ -83,11 +92,13 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
+    @InlineOnly
     public static final <T> void plusAssign(Collection<? super T> plusAssign, T t) {
         Intrinsics.checkNotNullParameter(plusAssign, "$this$plusAssign");
         plusAssign.add(t);
     }
 
+    @InlineOnly
     public static final <T> boolean remove(Collection<? extends T> collection, T t) {
         if (collection != null) {
             return TypeIntrinsics.asMutableCollection(collection).remove(t);
@@ -113,16 +124,19 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         return addAll.addAll(ArraysKt___ArraysJvmKt.asList(elements));
     }
 
+    @InlineOnly
     public static final <T> void minusAssign(Collection<? super T> minusAssign, Sequence<? extends T> sequence) {
         Intrinsics.checkNotNullParameter(minusAssign, "$this$minusAssign");
         removeAll(minusAssign, sequence);
     }
 
+    @InlineOnly
     public static final <T> void plusAssign(Collection<? super T> plusAssign, Sequence<? extends T> sequence) {
         Intrinsics.checkNotNullParameter(plusAssign, "$this$plusAssign");
         addAll(plusAssign, sequence);
     }
 
+    @InlineOnly
     public static final <T> boolean removeAll(Collection<? extends T> collection, Collection<? extends T> collection2) {
         if (collection != null) {
             return TypeIntrinsics.asMutableCollection(collection).removeAll(collection2);
@@ -130,6 +144,7 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.MutableCollection<T>");
     }
 
+    @InlineOnly
     public static final <T> boolean retainAll(Collection<? extends T> collection, Collection<? extends T> collection2) {
         if (collection != null) {
             return TypeIntrinsics.asMutableCollection(collection).retainAll(collection2);
@@ -137,11 +152,12 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.MutableCollection<T>");
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> boolean filterInPlace$CollectionsKt__MutableCollectionsKt(Iterable<? extends T> iterable, Function1<? super T, Boolean> function1, boolean z) {
         Iterator<? extends T> it = iterable.iterator();
         boolean z2 = false;
         while (it.hasNext()) {
-            if (((Boolean) function1.invoke(it.next())).booleanValue() == z) {
+            if (function1.invoke((T) it.next()).booleanValue() == z) {
                 it.remove();
                 z2 = true;
             }
@@ -163,7 +179,7 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
             i = 0;
             while (true) {
                 T t = list.get(i2);
-                if (((Boolean) function1.invoke(t)).booleanValue() != z) {
+                if (function1.invoke(t).booleanValue() != z) {
                     if (i != i2) {
                         list.set(i, t);
                     }
@@ -194,11 +210,13 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         }
     }
 
+    @InlineOnly
     public static final <T> void minusAssign(Collection<? super T> minusAssign, T[] tArr) {
         Intrinsics.checkNotNullParameter(minusAssign, "$this$minusAssign");
         removeAll(minusAssign, tArr);
     }
 
+    @InlineOnly
     public static final <T> void plusAssign(Collection<? super T> plusAssign, T[] tArr) {
         Intrinsics.checkNotNullParameter(plusAssign, "$this$plusAssign");
         addAll(plusAssign, tArr);
@@ -266,6 +284,8 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         return filterInPlace$CollectionsKt__MutableCollectionsKt((List) retainAll, (Function1) predicate, false);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T> T removeFirst(List<T> removeFirst) {
         Intrinsics.checkNotNullParameter(removeFirst, "$this$removeFirst");
         if (!removeFirst.isEmpty()) {
@@ -274,6 +294,8 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         throw new NoSuchElementException("List is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T> T removeFirstOrNull(List<T> removeFirstOrNull) {
         Intrinsics.checkNotNullParameter(removeFirstOrNull, "$this$removeFirstOrNull");
         if (removeFirstOrNull.isEmpty()) {
@@ -282,6 +304,8 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         return removeFirstOrNull.remove(0);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T> T removeLast(List<T> removeLast) {
         Intrinsics.checkNotNullParameter(removeLast, "$this$removeLast");
         if (!removeLast.isEmpty()) {
@@ -290,6 +314,8 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         throw new NoSuchElementException("List is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T> T removeLastOrNull(List<T> removeLastOrNull) {
         Intrinsics.checkNotNullParameter(removeLastOrNull, "$this$removeLastOrNull");
         if (removeLastOrNull.isEmpty()) {

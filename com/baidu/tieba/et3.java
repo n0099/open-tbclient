@@ -1,136 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class et3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class et3 implements vs3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public Context b;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                if (context.getPackageManager() == null) {
-                    return false;
-                }
-                context.getPackageManager().getPackageInfo(str, 0);
-                return true;
-            } catch (Exception unused) {
-                return false;
+    /* loaded from: classes4.dex */
+    public class a extends ResponseCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
             }
         }
-        return invokeLL.booleanValue;
-    }
 
-    public static boolean c(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return b(AppRuntime.getAppContext(), new File(str), z);
-            } catch (Exception unused) {
-                return false;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
             }
         }
-        return invokeLZ.booleanValue;
-    }
 
-    public static boolean b(Context context, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, file, z)) == null) {
-            if (context != null && file != null && file.isFile() && file.exists()) {
-                Intent intent = new Intent("android.intent.action.VIEW");
-                try {
-                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(1342177280);
-                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
-                    if (z) {
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                    }
-                    if (!ft3.m()) {
-                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-                    }
-                    e(context, file, intent);
-                    context.startActivity(intent);
-                } catch (Exception unused) {
-                    intent.setComponent(null);
-                    e(context, file, intent);
-                    try {
-                        context.startActivity(intent);
-                    } catch (Exception unused2) {
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static String d(Context context, String str) {
-        InterceptResult invokeLL;
-        PackageInfo packageArchiveInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 1)) != null) {
-                return packageArchiveInfo.packageName;
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean e(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        ActivityInfo activityInfo;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file, intent)) == null) {
-            if (ft3.m()) {
-                try {
-                    Uri l = es3.b().l(context, file);
-                    if (l == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(l, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
-                            context.grantUriPermission(str, l, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    return false;
+        public a(et3 et3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {et3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return true;
         }
-        return invokeLLL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    response.body().close();
+                    return "";
+                }
+                return "";
+            }
+            return (String) invokeLI.objValue;
+        }
+    }
+
+    public et3(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = context;
+    }
+
+    @Override // com.baidu.tieba.vs3
+    public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, responseCallback) == null) {
+            boolean startsWith = str.startsWith("https://");
+            this.a = startsWith;
+            if (startsWith) {
+                ((PostBodyRequest.PostBodyRequestBuilder) ib4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+            } else {
+                ((PostBodyRequest.PostBodyRequestBuilder) ib4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vs3
+    public void b(String str, JSONObject jSONObject, ResponseCallback<ns3> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, responseCallback) == null) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ib4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+        }
+    }
+
+    @Override // com.baidu.tieba.vs3
+    public void c(String str, ResponseCallback<wr3> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, responseCallback) == null) {
+            boolean startsWith = str.startsWith("https://");
+            this.a = startsWith;
+            if (startsWith) {
+                ib4.g().getRequest().url(str).build().executeAsync(responseCallback);
+            } else {
+                ib4.g().getRequest().url(str).build().executeAsync(responseCallback);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vs3
+    public void f(String str, ResponseCallback<AdResponseInfo> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, responseCallback) == null) {
+            boolean startsWith = str.startsWith("https://");
+            this.a = startsWith;
+            if (startsWith) {
+                ib4.g().getRequest().url(str).build().executeAsync(responseCallback);
+            } else {
+                ib4.g().getRequest().url(str).build().executeAsync(responseCallback);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vs3
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        hb4 hb4Var = new hb4();
+        hb4Var.b = "POST";
+        hb4Var.a = "https://pimlog.baidu.com/mapp/advlog";
+        hb4Var.d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
+        ib4.g().e(hb4Var);
+    }
+
+    @Override // com.baidu.tieba.vs3
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            a aVar = new a(this);
+            boolean startsWith = str.startsWith("https://");
+            this.a = startsWith;
+            if (startsWith) {
+                ib4.g().getRequest().url(str).build().executeAsync(aVar);
+            } else {
+                ib4.g().getRequest().url(str).build().executeAsync(aVar);
+            }
+        }
     }
 }

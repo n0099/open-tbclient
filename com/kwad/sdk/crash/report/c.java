@@ -1,15 +1,16 @@
 package com.kwad.sdk.crash.report;
 
+import androidx.annotation.Nullable;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class c implements e {
-    public ArrayList ahB = new ArrayList();
+    public ArrayList<a> ahB = new ArrayList<>();
 
-    /* loaded from: classes7.dex */
-    public final class a {
+    /* loaded from: classes8.dex */
+    public static class a {
         public ExceptionMessage ahC;
         public int ahD;
 
@@ -19,7 +20,7 @@ public abstract class c implements e {
         }
     }
 
-    public static void b(ExceptionMessage exceptionMessage, int i, CountDownLatch countDownLatch) {
+    public static void b(ExceptionMessage exceptionMessage, int i, @Nullable CountDownLatch countDownLatch) {
         if (exceptionMessage == null) {
             return;
         }
@@ -36,10 +37,10 @@ public abstract class c implements e {
             return;
         }
         try {
-            Iterator it = this.ahB.iterator();
+            Iterator<a> it = this.ahB.iterator();
             while (it.hasNext()) {
-                a aVar = (a) it.next();
-                b(aVar.ahC, aVar.ahD, null);
+                a next = it.next();
+                b(next.ahC, next.ahD, null);
                 it.remove();
             }
         } catch (Throwable th) {
@@ -47,7 +48,7 @@ public abstract class c implements e {
         }
     }
 
-    public final void a(ExceptionMessage exceptionMessage, int i, CountDownLatch countDownLatch) {
+    public final void a(ExceptionMessage exceptionMessage, int i, @Nullable CountDownLatch countDownLatch) {
         try {
             wR();
             b(exceptionMessage, i, countDownLatch);

@@ -3,10 +3,10 @@ package com.baidu.searchbox.network.outback.callback;
 import com.baidu.searchbox.network.outback.core.Response;
 import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
 /* loaded from: classes2.dex */
-public interface NetworkStatResponseCallback {
+public interface NetworkStatResponseCallback<T> {
     void onFail(Exception exc);
 
-    void onSuccess(Object obj, int i);
+    void onSuccess(T t, int i);
 
-    Object parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception;
+    T parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception;
 }

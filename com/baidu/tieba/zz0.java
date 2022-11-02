@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.nadcore.player.remote.BDRemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -10,114 +14,30 @@ public class zz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean d(Object obj) {
-        InterceptResult invokeL;
+    public static void a(@Nullable String str, boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener, @Nullable CyberPlayerManager.GetNetHandleListener getNetHandleListener) {
+        Class<BDRemotePlayerService> cls;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static void h(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, exc) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener, getNetHandleListener}) != null) || CyberPlayerManager.isCoreLoaded(i)) {
+            return;
         }
-    }
-
-    public static boolean a(Map map, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, map, obj)) == null) {
-            if (d(map)) {
-                return false;
+        Context b = rr0.b();
+        wj0.c("DumediaUtils", "initCyber, pid = " + Process.myPid());
+        try {
+            if (TextUtils.isEmpty(str)) {
+                str = zi0.a().g();
             }
-            try {
-                return map.containsKey(obj);
-            } catch (Exception e) {
-                h(e);
-                return false;
+            String str2 = str;
+            if (z) {
+                cls = BDRemotePlayerService.class;
+            } else {
+                cls = null;
             }
+            CyberPlayerManager.install(b, str2, (String) null, i, cls, map, installListener);
+            if (getNetHandleListener != null) {
+                CyberPlayerManager.setNetHandleListener(getNetHandleListener);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static Object b(Map map, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, obj)) == null) {
-            if (d(map)) {
-                return null;
-            }
-            try {
-                return map.get(obj);
-            } catch (Exception e) {
-                h(e);
-                return null;
-            }
-        }
-        return invokeLL.objValue;
-    }
-
-    public static boolean f(Map map, Map map2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, map2)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                map.putAll(map2);
-                return true;
-            } catch (Exception e) {
-                h(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Object g(Map map, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, map, obj)) == null) {
-            if (d(map)) {
-                return null;
-            }
-            try {
-                return map.remove(obj);
-            } catch (Exception e) {
-                h(e);
-                return null;
-            }
-        }
-        return invokeLL.objValue;
-    }
-
-    public static boolean c(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            if (!d(map) && !map.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(Map map, Object obj, Object obj2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, obj, obj2)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                map.put(obj, obj2);
-                return true;
-            } catch (Exception e) {
-                h(e);
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
     }
 }

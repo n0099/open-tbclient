@@ -1,99 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
+import java.net.URLDecoder;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class nc1 {
     public static /* synthetic */ Interceptable $ic;
+    public static nc1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public b b;
 
-    public static NetworkInfo a() {
-        InterceptResult invokeV;
-        ConnectivityManager connectivityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = pc1.a();
-            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
-                return null;
-            }
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return (NetworkInfo) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onResult(int i, String str);
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                return true;
+    /* loaded from: classes5.dex */
+    public class a extends lb1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pd1 a;
+
+        public a(nc1 nc1Var, pd1 pd1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nc1Var, pd1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.a = pd1Var;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.tieba.lb1
+        public void b(Throwable th, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
+                this.a.onResult(119501, "");
+                th.printStackTrace();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lb1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                int optInt = jSONObject.optInt("status", -1);
+                int optInt2 = jSONObject.optInt("signStatus", -1);
+                int optInt3 = jSONObject.optInt("payStatus", -1);
+                if (2 != optInt && 2 != optInt3) {
+                    this.a.onResult(optInt2, "");
+                } else {
+                    this.a.onResult(0, EventAlias.PayEventAlias.PAY_SUCCESS);
+                }
+            }
+        }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "1";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "2";
-                case 13:
-                case 18:
-                case 19:
-                    break;
-                default:
-                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
-                        return "unknown";
-                    }
-                    break;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947997549, "Lcom/baidu/tieba/nc1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "3";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947997549, "Lcom/baidu/tieba/nc1;");
+                return;
+            }
         }
-        return (String) invokeIL.objValue;
+        c = new nc1();
     }
 
-    public static String c() {
+    public nc1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static nc1 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                if (a.getType() == 1) {
-                    return "4";
-                }
-                if (a.getType() == 0) {
-                    return b(a.getSubtype(), a.getSubtypeName());
-                }
-                return "unknown";
-            }
-            return "0";
+            return c;
         }
-        return (String) invokeV.objValue;
+        return (nc1) invokeV.objValue;
+    }
+
+    public b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public void a(pd1 pd1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pd1Var) == null) {
+            String[] split = this.a.split("&");
+            mb1 mb1Var = new mb1();
+            for (String str : split) {
+                String[] split2 = str.split("=");
+                if (split2 != null && split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        mb1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        mb1Var.d(split2[0], split2[1]);
+                    }
+                }
+            }
+            tb1.j().g(vb1.e(), mb1Var, new a(this, pd1Var));
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void e(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.b = bVar;
+        }
     }
 }

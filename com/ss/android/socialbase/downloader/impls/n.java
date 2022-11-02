@@ -27,7 +27,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     }
 
     private void g() {
-        SparseArray clone;
+        SparseArray<List<DownloadTask>> clone;
         try {
             synchronized (this.a) {
                 clone = this.a.clone();
@@ -35,7 +35,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
             }
             if (clone != null && clone.size() > 0 && com.ss.android.socialbase.downloader.downloader.c.C() != null) {
                 for (int i = 0; i < clone.size(); i++) {
-                    List<DownloadTask> list = (List) clone.get(clone.keyAt(i));
+                    List<DownloadTask> list = clone.get(clone.keyAt(i));
                     if (list != null) {
                         for (DownloadTask downloadTask : list) {
                             try {

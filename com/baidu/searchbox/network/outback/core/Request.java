@@ -2,6 +2,7 @@ package com.baidu.searchbox.network.outback.core;
 
 import android.os.Handler;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.Cancelable;
@@ -25,7 +26,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URL;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,8 +43,9 @@ public class Request {
     public static final int REQUESTFROM_UBC = 3;
     public transient /* synthetic */ FieldHolder $fh;
     public String bdTraceId;
+    @Nullable
     public final RequestBody body;
-    public Map callFactoryMap;
+    public Map<String, CallFactory> callFactoryMap;
     public int connectionTimeout;
     public CookieManager cookieManager;
     public JSONObject extraUserLog;
@@ -59,17 +60,18 @@ public class Request {
     public final NetworkStatRecord record;
     public int requestFrom;
     public int requestSubFrom;
-    public final Map tags;
+    public final Map<Class<?>, Object> tags;
     public final UrlWrapper url;
     public int writeTimeout;
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder<R extends Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String bdTraceId;
+        @Nullable
         public RequestBody body;
-        public Map callFactoryMap;
+        public Map<String, CallFactory> callFactoryMap;
         public int connectionTimeout;
         public CookieManager cookieManager;
         public boolean enableBrotli;
@@ -84,12 +86,13 @@ public class Request {
         public NetworkStatRecord record;
         public int requestFrom;
         public int requestSubFrom;
-        public Map tags;
+        public Map<Class<?>, Object> tags;
+        @Nullable
         public UrlWrapper url;
         public int writeTimeout;
 
         public Builder(Request request) {
-            Map linkedHashMap;
+            Map<Class<?>, Object> linkedHashMap;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +122,7 @@ public class Request {
             if (request.tags.isEmpty()) {
                 linkedHashMap = Collections.emptyMap();
             } else {
-                linkedHashMap = new LinkedHashMap(request.tags);
+                linkedHashMap = new LinkedHashMap<>(request.tags);
             }
             this.tags = linkedHashMap;
             this.headers = request.headers.newBuilder();
@@ -138,7 +141,7 @@ public class Request {
             this.bdTraceId = request.getBdTraceId();
         }
 
-        public Builder url(String str) {
+        public R url(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
@@ -168,10 +171,10 @@ public class Request {
                 }
                 throw new NullPointerException("url == null");
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder(Map map) {
+        public Builder(Map<String, CallFactory> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,51 +207,51 @@ public class Request {
             throw new IllegalArgumentException("callFactory is not set");
         }
 
-        public Builder addUrlParams(Map map) {
+        public R addUrlParams(Map<String, String> map) {
             InterceptResult invokeL;
             UrlWrapper urlWrapper;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
                 if (map != null && map.size() > 0 && (urlWrapper = this.url) != null) {
                     HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    for (Map.Entry entry : map.entrySet()) {
-                        newBuilder.addQueryParameter((String) entry.getKey(), (String) entry.getValue());
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        newBuilder.addQueryParameter(entry.getKey(), entry.getValue());
                     }
                     this.url.setHttpUrl(newBuilder.build());
                 }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder setUrlParams(Map map) {
+        public R setUrlParams(Map<String, String> map) {
             InterceptResult invokeL;
             UrlWrapper urlWrapper;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, map)) == null) {
                 if (map != null && map.size() > 0 && (urlWrapper = this.url) != null) {
                     HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    for (Map.Entry entry : map.entrySet()) {
-                        newBuilder.setQueryParameter((String) entry.getKey(), (String) entry.getValue());
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        newBuilder.setQueryParameter(entry.getKey(), entry.getValue());
                     }
                     this.url.setHttpUrl(newBuilder.build());
                 }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder addHeader(String str, String str2) {
+        public R addHeader(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
                 this.headers.add(str, str2);
                 return this;
             }
-            return (Builder) invokeLL.objValue;
+            return (R) invokeLL.objValue;
         }
 
-        public Builder addUrlParam(String str, String str2) {
+        public R addUrlParam(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
@@ -260,29 +263,29 @@ public class Request {
                 }
                 return this;
             }
-            return (Builder) invokeLL.objValue;
+            return (R) invokeLL.objValue;
         }
 
-        public Builder header(String str, String str2) {
+        public R header(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
                 this.headers.set(str, str2);
                 return this;
             }
-            return (Builder) invokeLL.objValue;
+            return (R) invokeLL.objValue;
         }
 
-        public Builder setHeader(String str, String str2) {
+        public R setHeader(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, str, str2)) == null) {
                 return header(str, str2);
             }
-            return (Builder) invokeLL.objValue;
+            return (R) invokeLL.objValue;
         }
 
-        public Builder setUrlParam(String str, String str2) {
+        public R setUrlParam(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048606, this, str, str2)) == null) {
@@ -294,56 +297,55 @@ public class Request {
                 }
                 return this;
             }
-            return (Builder) invokeLL.objValue;
+            return (R) invokeLL.objValue;
         }
 
-        public Builder addHeaders(Map map) {
+        public R addHeaders(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
                 if (map != null && !map.isEmpty()) {
-                    for (Map.Entry entry : map.entrySet()) {
-                        this.headers.add((String) entry.getKey(), (String) entry.getValue());
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        this.headers.add(entry.getKey(), entry.getValue());
                     }
                 }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder headers(Map map) {
+        public R headers(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, map)) == null) {
                 if (map != null && !map.isEmpty()) {
-                    for (Map.Entry entry : map.entrySet()) {
-                        this.headers.set((String) entry.getKey(), (String) entry.getValue());
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        this.headers.set(entry.getKey(), entry.getValue());
                     }
                 }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder removeUrlParams(List list) {
+        public R removeUrlParams(List<String> list) {
             InterceptResult invokeL;
             UrlWrapper urlWrapper;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, list)) == null) {
                 if (list != null && list.size() > 0 && (urlWrapper = this.url) != null) {
                     HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        newBuilder.removeAllQueryParameters((String) it.next());
+                    for (String str : list) {
+                        newBuilder.removeAllQueryParameters(str);
                     }
                     this.url.setHttpUrl(newBuilder.build());
                 }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder url(URL url) {
+        public R url(URL url) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, url)) == null) {
@@ -359,7 +361,7 @@ public class Request {
                 }
                 throw new NullPointerException("url == null");
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
         public Request build() {
@@ -371,175 +373,174 @@ public class Request {
             return (Request) invokeV.objValue;
         }
 
-        public Builder delete() {
+        public R delete() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return delete(Util.EMPTY_REQUEST);
             }
-            return (Builder) invokeV.objValue;
+            return (R) invokeV.objValue;
         }
 
-        public Builder enableBrotli() {
+        public R enableBrotli() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 this.enableBrotli = true;
                 return this;
             }
-            return (Builder) invokeV.objValue;
+            return (R) invokeV.objValue;
         }
 
-        public Builder get() {
+        public R get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
                 return method("GET", null);
             }
-            return (Builder) invokeV.objValue;
+            return (R) invokeV.objValue;
         }
 
-        public Builder head() {
+        public R head() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
                 return method("HEAD", null);
             }
-            return (Builder) invokeV.objValue;
+            return (R) invokeV.objValue;
         }
 
-        public Builder connectionTimeout(int i) {
+        public R connectionTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
                 this.connectionTimeout = Util.checkDuration("timeout", i, TimeUnit.MILLISECONDS);
                 return this;
             }
-            return (Builder) invokeI.objValue;
+            return (R) invokeI.objValue;
         }
 
-        public Builder cookieManager(CookieManager cookieManager) {
+        public R cookieManager(CookieManager cookieManager) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cookieManager)) == null) {
                 this.cookieManager = cookieManager;
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder delete(RequestBody requestBody) {
+        public R delete(@Nullable RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, requestBody)) == null) {
                 return method(HttpDelete.METHOD_NAME, requestBody);
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder extraUserLog(JSONObject jSONObject) {
+        public R extraUserLog(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, jSONObject)) == null) {
                 this.extraUserLog = jSONObject;
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder followRedirects(boolean z) {
+        public R followRedirects(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
                 this.followRedirects = z;
                 return this;
             }
-            return (Builder) invokeZ.objValue;
+            return (R) invokeZ.objValue;
         }
 
-        public Builder followSslRedirects(boolean z) {
+        public R followSslRedirects(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
                 this.followSslRedirects = z;
                 return this;
             }
-            return (Builder) invokeZ.objValue;
+            return (R) invokeZ.objValue;
         }
 
-        public Builder headers(Headers headers) {
+        public R headers(Headers headers) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, headers)) == null) {
                 this.headers = headers.newBuilder();
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder patch(RequestBody requestBody) {
+        public R patch(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, requestBody)) == null) {
                 return method("PATCH", requestBody);
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder post(RequestBody requestBody) {
+        public R post(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, requestBody)) == null) {
                 return method("POST", requestBody);
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder put(RequestBody requestBody) {
+        public R put(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, requestBody)) == null) {
                 return method(HttpPut.METHOD_NAME, requestBody);
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder readTimeout(int i) {
+        public R readTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
                 this.readTimeout = Util.checkDuration("timeout", i, TimeUnit.MILLISECONDS);
                 return this;
             }
-            return (Builder) invokeI.objValue;
+            return (R) invokeI.objValue;
         }
 
-        public Builder removeHeader(String str) {
+        public R removeHeader(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
                 this.headers.removeAll(str);
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder removeHeaders(List list) {
+        public R removeHeaders(List<String> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
                 if (list != null && list.size() > 0) {
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        this.headers.removeAll((String) it.next());
+                    for (String str : list) {
+                        this.headers.removeAll(str);
                     }
                 }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder removeUrlParam(String str) {
+        public R removeUrlParam(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
@@ -551,39 +552,39 @@ public class Request {
                 }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder requestFrom(int i) {
+        public R requestFrom(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
                 this.requestFrom = i;
                 return this;
             }
-            return (Builder) invokeI.objValue;
+            return (R) invokeI.objValue;
         }
 
-        public Builder requestSubFrom(int i) {
+        public R requestSubFrom(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
                 this.requestSubFrom = i;
                 return this;
             }
-            return (Builder) invokeI.objValue;
+            return (R) invokeI.objValue;
         }
 
-        public Builder tag(Object obj) {
+        public R tag(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, obj)) == null) {
                 return tag(Object.class, obj);
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder url(HttpUrl httpUrl) {
+        public R url(HttpUrl httpUrl) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, httpUrl)) == null) {
@@ -593,10 +594,10 @@ public class Request {
                 }
                 throw new NullPointerException("url == null");
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder userAgent(String str) {
+        public R userAgent(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
@@ -605,30 +606,30 @@ public class Request {
                 }
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
 
-        public Builder wifiOnly(boolean z) {
+        public R wifiOnly(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048615, this, z)) == null) {
                 this.isWifiOnly = z;
                 return this;
             }
-            return (Builder) invokeZ.objValue;
+            return (R) invokeZ.objValue;
         }
 
-        public Builder writeTimeout(int i) {
+        public R writeTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i)) == null) {
                 this.writeTimeout = i;
                 return this;
             }
-            return (Builder) invokeI.objValue;
+            return (R) invokeI.objValue;
         }
 
-        public Builder method(String str, RequestBody requestBody) {
+        public R method(String str, @Nullable RequestBody requestBody) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, str, requestBody)) == null) {
@@ -648,30 +649,30 @@ public class Request {
                 }
                 throw new NullPointerException("method == null");
             }
-            return (Builder) invokeLL.objValue;
+            return (R) invokeLL.objValue;
         }
 
-        public Builder tag(Class cls, Object obj) {
+        public <T> R tag(Class<? super T> cls, @Nullable T t) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, cls, obj)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, cls, t)) == null) {
                 if (cls != null) {
-                    if (obj == null) {
+                    if (t == null) {
                         this.tags.remove(cls);
                     } else {
                         if (this.tags.isEmpty()) {
                             this.tags = new LinkedHashMap();
                         }
-                        this.tags.put(cls, cls.cast(obj));
+                        this.tags.put(cls, cls.cast(t));
                     }
                     return this;
                 }
                 throw new NullPointerException("type == null");
             }
-            return (Builder) invokeLL.objValue;
+            return (R) invokeLL.objValue;
         }
 
-        public Builder url(UrlWrapper urlWrapper) {
+        public R url(UrlWrapper urlWrapper) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, urlWrapper)) == null) {
@@ -681,7 +682,7 @@ public class Request {
                 }
                 throw new NullPointerException("url == null");
             }
-            return (Builder) invokeL.objValue;
+            return (R) invokeL.objValue;
         }
     }
 
@@ -761,6 +762,7 @@ public class Request {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public RequestBody body() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -869,7 +871,7 @@ public class Request {
         return invokeV.intValue;
     }
 
-    public Map getTags() {
+    public Map<Class<?>, Object> getTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -959,6 +961,7 @@ public class Request {
         return (Builder) invokeV.objValue;
     }
 
+    @Nullable
     public Object tag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -977,7 +980,7 @@ public class Request {
         return (UrlWrapper) invokeV.objValue;
     }
 
-    public Cancelable executeAsync(ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback)) == null) {
@@ -986,7 +989,7 @@ public class Request {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeAsyncOnUIBack(ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsyncOnUIBack(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) {
@@ -995,7 +998,7 @@ public class Request {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeStat(ResponseCallback responseCallback) {
+    public <T> Cancelable executeStat(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, responseCallback)) == null) {
@@ -1004,7 +1007,7 @@ public class Request {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeStatUIBack(ResponseCallback responseCallback) {
+    public <T> Cancelable executeStatUIBack(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, responseCallback)) == null) {
@@ -1013,6 +1016,7 @@ public class Request {
         return (Cancelable) invokeL.objValue;
     }
 
+    @Nullable
     public String header(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1022,7 +1026,7 @@ public class Request {
         return (String) invokeL.objValue;
     }
 
-    public List headers(String str) {
+    public List<String> headers(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
@@ -1051,16 +1055,17 @@ public class Request {
         }
     }
 
-    public Object tag(Class cls) {
+    @Nullable
+    public <T> T tag(Class<? extends T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, cls)) == null) {
             return cls.cast(this.tags.get(cls));
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, handler, responseCallback)) == null) {
@@ -1069,7 +1074,7 @@ public class Request {
         return (Cancelable) invokeLL.objValue;
     }
 
-    public Cancelable executeStatWithHandler(Handler handler, ResponseCallback responseCallback) {
+    public <T> Cancelable executeStatWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, handler, responseCallback)) == null) {
@@ -1104,18 +1109,18 @@ public class Request {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            Map map = this.callFactoryMap;
+            Map<String, CallFactory> map = this.callFactoryMap;
             if (map != null) {
                 Call call = null;
                 boolean z = true;
                 if (map.containsKey("CUSTOM")) {
-                    CallFactory callFactory = (CallFactory) this.callFactoryMap.get("CUSTOM");
+                    CallFactory callFactory = this.callFactoryMap.get("CUSTOM");
                     if (this.callFactoryMap.size() == 1) {
                         z = false;
                     }
                     call = callFactory.newCall(this, z);
                 } else if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
-                    CallFactory callFactory2 = (CallFactory) this.callFactoryMap.get(EngineName.DEFAULT_ENGINE);
+                    CallFactory callFactory2 = this.callFactoryMap.get(EngineName.DEFAULT_ENGINE);
                     if (this.callFactoryMap.size() == 1) {
                         z = false;
                     }
@@ -1123,10 +1128,10 @@ public class Request {
                 }
                 if (call == null) {
                     if (this.callFactoryMap.containsKey(EngineName.BACK_UP_ENGINE)) {
-                        return ((CallFactory) this.callFactoryMap.get(EngineName.BACK_UP_ENGINE)).newCall(this, false);
+                        return this.callFactoryMap.get(EngineName.BACK_UP_ENGINE).newCall(this, false);
                     }
                     if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
-                        return ((CallFactory) this.callFactoryMap.get(EngineName.DEFAULT_ENGINE)).newCall(this, false);
+                        return this.callFactoryMap.get(EngineName.DEFAULT_ENGINE).newCall(this, false);
                     }
                     return call;
                 }

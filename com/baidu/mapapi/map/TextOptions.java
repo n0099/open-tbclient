@@ -59,9 +59,9 @@ public final class TextOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Text text = new Text();
-            text.A = this.b;
-            text.z = this.a;
-            text.B = this.c;
+            text.H = this.b;
+            text.G = this.a;
+            text.I = this.c;
             text.a = this.d;
             text.b = this.e;
             text.c = this.f;
@@ -127,78 +127,6 @@ public final class TextOptions extends OverlayOptions {
         return (TextOptions) invokeI.objValue;
     }
 
-    public float getAlignX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.floatValue;
-    }
-
-    public float getAlignY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : invokeV.floatValue;
-    }
-
-    public int getBgColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public Bundle getExtraInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (Bundle) invokeV.objValue;
-    }
-
-    public int getFontColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public int getFontSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public LatLng getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : (LatLng) invokeV.objValue;
-    }
-
-    public float getRotate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.l : invokeV.floatValue;
-    }
-
-    public String getText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public Typeface getTypeface() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.i : (Typeface) invokeV.objValue;
-    }
-
-    public int getZIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean isVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
     public TextOptions position(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -226,11 +154,11 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            if (str == null || str.equals("")) {
-                throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
+            if (str != null && !str.equals("")) {
+                this.d = str;
+                return this;
             }
-            this.d = str;
-            return this;
+            throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
         }
         return (TextOptions) invokeL.objValue;
     }
@@ -263,5 +191,113 @@ public final class TextOptions extends OverlayOptions {
             return this;
         }
         return (TextOptions) invokeI.objValue;
+    }
+
+    public float getAlignX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getAlignY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.k;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getBgColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public Bundle getExtraInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public int getFontColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getFontSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public LatLng getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.e;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public float getRotate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.l;
+        }
+        return invokeV.floatValue;
+    }
+
+    public String getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Typeface getTypeface() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.i;
+        }
+        return (Typeface) invokeV.objValue;
+    }
+
+    public int getZIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isVisible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 }

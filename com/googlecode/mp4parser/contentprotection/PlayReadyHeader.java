@@ -24,10 +24,10 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
     public static UUID PROTECTION_SYSTEM_ID;
     public transient /* synthetic */ FieldHolder $fh;
     public long length;
-    public List records;
+    public List<PlayReadyRecord> records;
 
     /* loaded from: classes7.dex */
-    public abstract class PlayReadyRecord {
+    public static abstract class PlayReadyRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int type;
@@ -37,7 +37,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         public abstract void parse(ByteBuffer byteBuffer);
 
         /* loaded from: classes7.dex */
-        public class DefaulPlayReadyRecord extends PlayReadyRecord {
+        public static class DefaulPlayReadyRecord extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public ByteBuffer value;
@@ -82,7 +82,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         }
 
         /* loaded from: classes7.dex */
-        public class EmeddedLicenseStore extends PlayReadyRecord {
+        public static class EmeddedLicenseStore extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public ByteBuffer value;
@@ -135,7 +135,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         }
 
         /* loaded from: classes7.dex */
-        public class RMHeader extends PlayReadyRecord {
+        public static class RMHeader extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String header;
@@ -231,7 +231,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             this.type = i;
         }
 
-        public static List createFor(ByteBuffer byteBuffer, int i) {
+        public static List<PlayReadyRecord> createFor(ByteBuffer byteBuffer, int i) {
             InterceptResult invokeLI;
             PlayReadyRecord rMHeader;
             Interceptable interceptable = $ic;
@@ -303,7 +303,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         }
     }
 
-    public List getRecords() {
+    public List<PlayReadyRecord> getRecords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -353,7 +353,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         }
     }
 
-    public void setRecords(List list) {
+    public void setRecords(List<PlayReadyRecord> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.records = list;

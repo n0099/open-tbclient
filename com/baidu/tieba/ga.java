@@ -9,14 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ga {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ga b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray a;
+    public SparseArray<String> a;
 
     public ga() {
         Interceptable interceptable = $ic;
@@ -32,7 +31,7 @@ public class ga {
             }
         }
         this.a = null;
-        this.a = new SparseArray();
+        this.a = new SparseArray<>();
     }
 
     public static ga a() {
@@ -55,7 +54,7 @@ public class ga {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = (String) this.a.get(i);
+            String str = this.a.get(i);
             if (str != null) {
                 return str;
             }
@@ -64,12 +63,11 @@ public class ga {
         return (String) invokeI.objValue;
     }
 
-    public void c(List list) {
+    public void c(List<String> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                d((String) it.next());
+            for (String str : list) {
+                d(str);
             }
         }
     }
@@ -88,7 +86,7 @@ public class ga {
                         if (this.a.get(i) == null) {
                             this.a.put(i, name);
                         } else {
-                            throw new Error("cmd " + str + " " + name + " 和 " + ((String) this.a.get(i)) + " 重复");
+                            throw new Error("cmd " + str + " " + name + " 和 " + this.a.get(i) + " 重复");
                         }
                     }
                 }

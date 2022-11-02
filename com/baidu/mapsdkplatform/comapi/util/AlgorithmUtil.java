@@ -2,6 +2,7 @@ package com.baidu.mapsdkplatform.comapi.util;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.datacollector.growth.utils.UBCEncryptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,13 +62,37 @@ public final class AlgorithmUtil {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, bArr)) == null) {
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-                return null;
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(HTTP.ASCII), "AES");
+                Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+                cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+                return cipher.doFinal(bArr);
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(HTTP.ASCII), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+            return null;
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static byte[] c(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, bArr)) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+                Cipher cipher = Cipher.getInstance(UBCEncryptor.TRANSFORMATION);
+                cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+                return cipher.doFinal(bArr);
+            }
+            return null;
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static byte[] getDecryptInfo(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bArr)) == null) {
+            return c(str, str2, bArr);
         }
         return (byte[]) invokeLLL.objValue;
     }
@@ -75,12 +100,18 @@ public final class AlgorithmUtil {
     public static byte[] getUrlNeedInfo(String str, String str2, byte[] bArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, bArr)) == null) ? b(str, str2, bArr) : (byte[]) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, bArr)) == null) {
+            return b(str, str2, bArr);
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 
     public static byte[] setUrlNeedInfo(String str, String str2, byte[] bArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bArr)) == null) ? a(str, str2, bArr) : (byte[]) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, bArr)) == null) {
+            return a(str, str2, bArr);
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 }

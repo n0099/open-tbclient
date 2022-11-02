@@ -12,7 +12,7 @@ import java.util.jar.JarFile;
 public class ApkSignatureSchemeV1Verifier {
     public static final String TAG = "SignatureVerifierV1";
     public static Object mSync = new Object();
-    public static WeakReference sReadBuffer;
+    public static WeakReference<byte[]> sReadBuffer;
 
     /* JADX WARN: Code restructure failed: missing block: B:21:0x002d, code lost:
         if (r1 == null) goto L21;
@@ -69,7 +69,7 @@ public class ApkSignatureSchemeV1Verifier {
     }
 
     public static Certificate[] verify(File file) {
-        WeakReference weakReference;
+        WeakReference<byte[]> weakReference;
         JarFile jarFile;
         byte[] bArr;
         JarFile jarFile2;
@@ -79,13 +79,13 @@ public class ApkSignatureSchemeV1Verifier {
             jarFile = null;
             if (weakReference != null) {
                 sReadBuffer = null;
-                bArr = (byte[]) weakReference.get();
+                bArr = weakReference.get();
             } else {
                 bArr = null;
             }
             if (bArr == null) {
                 bArr = new byte[8192];
-                weakReference = new WeakReference(bArr);
+                weakReference = new WeakReference<>(bArr);
             }
         }
         try {

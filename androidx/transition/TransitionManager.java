@@ -3,6 +3,8 @@ package androidx.transition;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -114,7 +116,7 @@ public class TransitionManager {
                     }
 
                     @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                    public void onTransitionEnd(Transition transition) {
+                    public void onTransitionEnd(@NonNull Transition transition) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                             ((ArrayList) this.val$runningTransitions.get(this.this$0.mSceneRoot)).remove(transition);
@@ -204,28 +206,28 @@ public class TransitionManager {
         this.mScenePairTransitions = new ArrayMap<>();
     }
 
-    public static void beginDelayedTransition(ViewGroup viewGroup) {
+    public static void beginDelayedTransition(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, viewGroup) == null) {
             beginDelayedTransition(viewGroup, null);
         }
     }
 
-    public static void go(Scene scene) {
+    public static void go(@NonNull Scene scene) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, scene) == null) {
             changeScene(scene, sDefaultTransition);
         }
     }
 
-    public void transitionTo(Scene scene) {
+    public void transitionTo(@NonNull Scene scene) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scene) == null) {
             changeScene(scene, getTransition(scene));
         }
     }
 
-    public static void beginDelayedTransition(ViewGroup viewGroup, Transition transition) {
+    public static void beginDelayedTransition(@NonNull ViewGroup viewGroup, @Nullable Transition transition) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, viewGroup, transition) == null) && !sPendingTransitions.contains(viewGroup) && ViewCompat.isLaidOut(viewGroup)) {
             sPendingTransitions.add(viewGroup);
@@ -319,7 +321,7 @@ public class TransitionManager {
         return (Transition) invokeL.objValue;
     }
 
-    public static void go(Scene scene, Transition transition) {
+    public static void go(@NonNull Scene scene, @Nullable Transition transition) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, scene, transition) == null) {
             changeScene(scene, transition);
@@ -335,14 +337,14 @@ public class TransitionManager {
         }
     }
 
-    public void setTransition(Scene scene, Transition transition) {
+    public void setTransition(@NonNull Scene scene, @Nullable Transition transition) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scene, transition) == null) {
             this.mSceneTransitions.put(scene, transition);
         }
     }
 
-    public void setTransition(Scene scene, Scene scene2, Transition transition) {
+    public void setTransition(@NonNull Scene scene, @NonNull Scene scene2, @Nullable Transition transition) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, scene, scene2, transition) == null) {
             ArrayMap<Scene, Transition> arrayMap = this.mScenePairTransitions.get(scene2);

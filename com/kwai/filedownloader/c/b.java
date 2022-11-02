@@ -17,9 +17,9 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public final class b implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<b> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap awe;
+    public HashMap<String, List<String>> awe;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public final class b implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.kwai.filedownloader.c.b.1
+        CREATOR = new Parcelable.Creator<b>() { // from class: com.kwai.filedownloader.c.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,13 +64,15 @@ public final class b implements Parcelable {
                 return (interceptable2 == null || (invokeI = interceptable2.invokeI(65538, null, i)) == null) ? new b[i] : (b[]) invokeI.objValue;
             }
 
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ Object createFromParcel(Parcel parcel) {
+            public final /* synthetic */ b createFromParcel(Parcel parcel) {
                 return b(parcel);
             }
 
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ Object[] newArray(int i) {
+            public final /* synthetic */ b[] newArray(int i) {
                 return cv(i);
             }
         };
@@ -108,7 +110,7 @@ public final class b implements Parcelable {
         this.awe = parcel.readHashMap(String.class.getClassLoader());
     }
 
-    public final HashMap El() {
+    public final HashMap<String, List<String>> El() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.awe : (HashMap) invokeV.objValue;
@@ -120,11 +122,11 @@ public final class b implements Parcelable {
             am.dQ(str);
             am.dQ(str2);
             if (this.awe == null) {
-                this.awe = new HashMap();
+                this.awe = new HashMap<>();
             }
-            List list = (List) this.awe.get(str);
+            List<String> list = this.awe.get(str);
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
                 this.awe.put(str, list);
             }
             if (list.contains(str2)) {
@@ -145,7 +147,7 @@ public final class b implements Parcelable {
     }
 
     public final void ey(String str) {
-        HashMap hashMap;
+        HashMap<String, List<String>> hashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (hashMap = this.awe) == null) {
             return;

@@ -1,87 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Log;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class wv1 extends j53 {
+public class wv1 extends rv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wv1(j43 j43Var, String str) {
-        super(j43Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283927, "Lcom/baidu/tieba/wv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948283927, "Lcom/baidu/tieba/wv1;");
                 return;
             }
         }
+        b = ok1.a;
     }
 
-    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, HashMap hashMap, String str) {
-        HashMap params;
+    public wv1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, unitedSchemeEntity, callbackHandler, hashMap, str) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty() && hashMap != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    jSONObject.putOpt((String) entry.getKey(), entry.getValue());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sv1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (BasePendingOperation basePendingOperation : this.a) {
+                if (b) {
+                    Log.d("WorkThreadOperation", "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
                 }
-            } catch (JSONException e) {
-                if (j53.b) {
-                    e.printStackTrace();
-                }
+                yg3.j(basePendingOperation, "operation_work");
             }
-            if (TextUtils.isEmpty(str)) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-            } else {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-            }
+            this.a.clear();
         }
-    }
-
-    public void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, z) == null) {
-            if (z) {
-                i = 0;
-            } else {
-                i = -1;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, i);
-        }
-    }
-
-    public String l(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
-            return (String) unitedSchemeEntity.getParams().get("params");
-        }
-        return (String) invokeL.objValue;
     }
 }

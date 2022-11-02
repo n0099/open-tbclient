@@ -272,7 +272,7 @@ public class Config {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class AppLaunchType {
+    public static class AppLaunchType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AppCall = 1;
         public static final int DirectCall = 0;
@@ -295,7 +295,7 @@ public class Config {
     }
 
     /* loaded from: classes2.dex */
-    public class CrashChannel {
+    public static class CrashChannel {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SYS_TRACK = 0;
         public static final int USER_UPLOAD_ERROR = 12;
@@ -320,7 +320,7 @@ public class Config {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class EventViewType {
+    public static final class EventViewType {
         public static /* synthetic */ Interceptable $ic;
         public static final EventViewType BUTTON;
         public static final EventViewType EDIT;
@@ -407,7 +407,7 @@ public class Config {
     }
 
     /* loaded from: classes2.dex */
-    public class SessionInvokeCategory {
+    public static class SessionInvokeCategory {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ActivityInvoke = 1;
         public static final int ApiInvoke = 0;
@@ -431,7 +431,7 @@ public class Config {
     }
 
     /* loaded from: classes2.dex */
-    public class StartType {
+    public static class StartType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NORMAL_START = 0;
         public static final int QUICK_START = 1;
@@ -453,7 +453,7 @@ public class Config {
     }
 
     /* loaded from: classes2.dex */
-    public class TraceType {
+    public static class TraceType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTO_TRACE = 1;
         public static final int CODE_TRACE = 0;

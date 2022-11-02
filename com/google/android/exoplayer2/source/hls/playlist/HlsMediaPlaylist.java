@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.source.hls.playlist;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +30,7 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
     public final Segment initializationSegment;
     public final int mediaSequence;
     public final int playlistType;
-    public final List segments;
+    public final List<Segment> segments;
     public final long startOffsetUs;
     public final long startTimeUs;
     public final long targetDurationUs;
@@ -41,7 +42,7 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
     }
 
     /* loaded from: classes7.dex */
-    public final class Segment implements Comparable {
+    public static final class Segment implements Comparable<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long byterangeLength;
@@ -101,7 +102,7 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(Long l) {
+        public int compareTo(@NonNull Long l) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
@@ -118,7 +119,7 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HlsMediaPlaylist(int i, String str, List list, long j, long j2, boolean z, int i2, int i3, int i4, long j3, boolean z2, boolean z3, boolean z4, DrmInitData drmInitData, Segment segment, List list2) {
+    public HlsMediaPlaylist(int i, String str, List<String> list, long j, long j2, boolean z, int i2, int i3, int i4, long j3, boolean z2, boolean z3, boolean z4, DrmInitData drmInitData, Segment segment, List<Segment> list2) {
         super(str, list);
         long j4;
         Interceptable interceptable = $ic;
@@ -151,7 +152,7 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
         this.initializationSegment = segment;
         this.segments = Collections.unmodifiableList(list2);
         if (!list2.isEmpty()) {
-            Segment segment2 = (Segment) list2.get(list2.size() - 1);
+            Segment segment2 = list2.get(list2.size() - 1);
             this.durationUs = segment2.relativeStartTimeUs + segment2.durationUs;
         } else {
             this.durationUs = 0L;

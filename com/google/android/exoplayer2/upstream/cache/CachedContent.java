@@ -17,7 +17,7 @@ import java.util.TreeSet;
 public final class CachedContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TreeSet cachedSpans;
+    public final TreeSet<SimpleCacheSpan> cachedSpans;
     public final int id;
     public final String key;
     public long length;
@@ -40,7 +40,7 @@ public final class CachedContent {
         this.id = i;
         this.key = str;
         this.length = j;
-        this.cachedSpans = new TreeSet();
+        this.cachedSpans = new TreeSet<>();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -69,15 +69,15 @@ public final class CachedContent {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             SimpleCacheSpan createLookup = SimpleCacheSpan.createLookup(this.key, j);
-            SimpleCacheSpan simpleCacheSpan = (SimpleCacheSpan) this.cachedSpans.floor(createLookup);
-            if (simpleCacheSpan != null && simpleCacheSpan.position + simpleCacheSpan.length > j) {
-                return simpleCacheSpan;
+            SimpleCacheSpan floor = this.cachedSpans.floor(createLookup);
+            if (floor != null && floor.position + floor.length > j) {
+                return floor;
             }
-            SimpleCacheSpan simpleCacheSpan2 = (SimpleCacheSpan) this.cachedSpans.ceiling(createLookup);
-            if (simpleCacheSpan2 == null) {
+            SimpleCacheSpan ceiling = this.cachedSpans.ceiling(createLookup);
+            if (ceiling == null) {
                 return SimpleCacheSpan.createOpenHole(this.key, j);
             }
-            return SimpleCacheSpan.createClosedHole(this.key, j, simpleCacheSpan2.position - j);
+            return SimpleCacheSpan.createClosedHole(this.key, j, ceiling.position - j);
         }
         return (SimpleCacheSpan) invokeJ.objValue;
     }
@@ -175,7 +175,7 @@ public final class CachedContent {
         return invokeV.longValue;
     }
 
-    public TreeSet getSpans() {
+    public TreeSet<SimpleCacheSpan> getSpans() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

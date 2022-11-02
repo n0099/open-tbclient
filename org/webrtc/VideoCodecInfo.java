@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoCodecInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String H264_CONSTRAINED_BASELINE_3_1 = "42e01f";
@@ -23,12 +23,12 @@ public class VideoCodecInfo {
     public static final String H264_PROFILE_CONSTRAINED_HIGH = "640c";
     public transient /* synthetic */ FieldHolder $fh;
     public final String name;
-    public final Map params;
+    public final Map<String, String> params;
     @Deprecated
     public final int payload;
 
     @Deprecated
-    public VideoCodecInfo(int i, String str, Map map) {
+    public VideoCodecInfo(int i, String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,8 @@ public class VideoCodecInfo {
         this.params = map;
     }
 
-    public VideoCodecInfo(String str, Map map) {
+    @CalledByNative
+    public VideoCodecInfo(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,6 +91,7 @@ public class VideoCodecInfo {
         return invokeL.booleanValue;
     }
 
+    @CalledByNative
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,6 +101,7 @@ public class VideoCodecInfo {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public Map getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

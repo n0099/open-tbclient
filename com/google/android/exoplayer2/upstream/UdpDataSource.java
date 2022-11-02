@@ -21,7 +21,7 @@ public final class UdpDataSource implements DataSource {
     public static final int DEFAULT_MAX_PACKET_SIZE = 2000;
     public transient /* synthetic */ FieldHolder $fh;
     public InetAddress address;
-    public final TransferListener listener;
+    public final TransferListener<? super UdpDataSource> listener;
     public MulticastSocket multicastSocket;
     public boolean opened;
     public final DatagramPacket packet;
@@ -33,7 +33,7 @@ public final class UdpDataSource implements DataSource {
     public Uri uri;
 
     /* loaded from: classes7.dex */
-    public final class UdpDataSourceException extends IOException {
+    public static final class UdpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +59,7 @@ public final class UdpDataSource implements DataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public UdpDataSource(TransferListener transferListener) {
+    public UdpDataSource(TransferListener<? super UdpDataSource> transferListener) {
         this(transferListener, 2000);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,7 +80,7 @@ public final class UdpDataSource implements DataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public UdpDataSource(TransferListener transferListener, int i) {
+    public UdpDataSource(TransferListener<? super UdpDataSource> transferListener, int i) {
         this(transferListener, i, 8000);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,7 +100,7 @@ public final class UdpDataSource implements DataSource {
         }
     }
 
-    public UdpDataSource(TransferListener transferListener, int i, int i2) {
+    public UdpDataSource(TransferListener<? super UdpDataSource> transferListener, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public final class UdpDataSource implements DataSource {
                     this.socket.receive(this.packet);
                     int length = this.packet.getLength();
                     this.packetRemaining = length;
-                    TransferListener transferListener = this.listener;
+                    TransferListener<? super UdpDataSource> transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onBytesTransferred(this, length);
                     }
@@ -175,7 +175,7 @@ public final class UdpDataSource implements DataSource {
             this.packetRemaining = 0;
             if (this.opened) {
                 this.opened = false;
-                TransferListener transferListener = this.listener;
+                TransferListener<? super UdpDataSource> transferListener = this.listener;
                 if (transferListener != null) {
                     transferListener.onTransferEnd(this);
                 }
@@ -216,7 +216,7 @@ public final class UdpDataSource implements DataSource {
                 try {
                     this.socket.setSoTimeout(this.socketTimeoutMillis);
                     this.opened = true;
-                    TransferListener transferListener = this.listener;
+                    TransferListener<? super UdpDataSource> transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferStart(this, dataSpec);
                         return -1L;

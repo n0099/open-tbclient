@@ -1,93 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.l51;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class m51 {
+/* loaded from: classes5.dex */
+public final class m51 {
     public static /* synthetic */ Interceptable $ic;
+    public static final l51.a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public l51 b;
-    public int c;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        String a();
-    }
-
-    public m51(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923552, "Lcom/baidu/tieba/m51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947923552, "Lcom/baidu/tieba/m51;");
                 return;
             }
         }
-        this.c = 0;
-        this.c = i;
-    }
-
-    public void a(l51 l51Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, l51Var) == null) {
-            this.b = l51Var;
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void getPerformanceTiming(String str) {
-        l51 l51Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (l51Var = this.b) != null) {
-            l51Var.b(str);
-        }
-    }
-
-    @JavascriptInterface
-    public String getSysHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a aVar = this.a;
-            if (aVar == null) {
-                return "";
-            }
-            String a2 = aVar.a();
-            if (TextUtils.isEmpty(a2)) {
-                return "";
-            }
-            return a2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public int pageType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
+        a = new n51();
     }
 }

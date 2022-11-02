@@ -5,6 +5,7 @@ import android.util.Base64;
 import android.util.JsonWriter;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.logsystem.util.DebugUtil;
 import com.baidu.searchbox.logsystem.util.LLog;
@@ -59,11 +60,11 @@ public final class CrashPadUtil {
         }
     }
 
-    public static void createJsonExtraInfo(File file, JsonWriter jsonWriter) {
+    public static void createJsonExtraInfo(@NonNull File file, @NonNull JsonWriter jsonWriter) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, file, jsonWriter) == null) && file != null && file.exists() && jsonWriter != null) {
             try {
-                Pair readFile = Utility.readFile(file, 20480);
+                Pair<String, Boolean> readFile = Utility.readFile(file, 20480);
                 if (readFile != null && !TextUtils.isEmpty((CharSequence) readFile.first)) {
                     if (DEBUG) {
                         DebugUtil.saveLog("json-extra : " + ((String) readFile.first));
@@ -77,7 +78,7 @@ public final class CrashPadUtil {
         }
     }
 
-    public static void createMiniBDMPInfo(File file, JsonWriter jsonWriter) {
+    public static void createMiniBDMPInfo(@NonNull File file, @NonNull JsonWriter jsonWriter) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;

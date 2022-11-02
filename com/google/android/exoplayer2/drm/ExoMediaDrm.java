@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.drm;
 
+import android.annotation.TargetApi;
 import android.media.DeniedByServerException;
 import android.media.MediaCryptoException;
 import android.media.MediaDrmException;
@@ -10,11 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.drm.ExoMediaCrypto;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+@TargetApi(18)
 /* loaded from: classes7.dex */
-public interface ExoMediaDrm {
+public interface ExoMediaDrm<T extends ExoMediaCrypto> {
     public static final int EVENT_KEY_EXPIRED = 3;
     public static final int EVENT_KEY_REQUIRED = 2;
     public static final int EVENT_PROVISION_REQUIRED = 1;
@@ -37,13 +40,13 @@ public interface ExoMediaDrm {
     }
 
     /* loaded from: classes7.dex */
-    public interface OnEventListener {
-        void onEvent(ExoMediaDrm exoMediaDrm, byte[] bArr, int i, int i2, byte[] bArr2);
+    public interface OnEventListener<T extends ExoMediaCrypto> {
+        void onEvent(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, int i, int i2, byte[] bArr2);
     }
 
     /* loaded from: classes7.dex */
-    public interface OnKeyStatusChangeListener {
-        void onKeyStatusChange(ExoMediaDrm exoMediaDrm, byte[] bArr, List list, boolean z);
+    public interface OnKeyStatusChangeListener<T extends ExoMediaCrypto> {
+        void onKeyStatusChange(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, List<KeyStatus> list, boolean z);
     }
 
     /* loaded from: classes7.dex */
@@ -55,9 +58,9 @@ public interface ExoMediaDrm {
 
     void closeSession(byte[] bArr);
 
-    ExoMediaCrypto createMediaCrypto(byte[] bArr) throws MediaCryptoException;
+    T createMediaCrypto(byte[] bArr) throws MediaCryptoException;
 
-    KeyRequest getKeyRequest(byte[] bArr, byte[] bArr2, String str, int i, HashMap hashMap) throws NotProvisionedException;
+    KeyRequest getKeyRequest(byte[] bArr, byte[] bArr2, String str, int i, HashMap<String, String> hashMap) throws NotProvisionedException;
 
     byte[] getPropertyByteArray(String str);
 
@@ -71,22 +74,22 @@ public interface ExoMediaDrm {
 
     void provideProvisionResponse(byte[] bArr) throws DeniedByServerException;
 
-    Map queryKeyStatus(byte[] bArr);
+    Map<String, String> queryKeyStatus(byte[] bArr);
 
     void release();
 
     void restoreKeys(byte[] bArr, byte[] bArr2);
 
-    void setOnEventListener(OnEventListener onEventListener);
+    void setOnEventListener(OnEventListener<? super T> onEventListener);
 
-    void setOnKeyStatusChangeListener(OnKeyStatusChangeListener onKeyStatusChangeListener);
+    void setOnKeyStatusChangeListener(OnKeyStatusChangeListener<? super T> onKeyStatusChangeListener);
 
     void setPropertyByteArray(String str, byte[] bArr);
 
     void setPropertyString(String str, String str2);
 
     /* loaded from: classes7.dex */
-    public final class DefaultKeyRequest implements KeyRequest {
+    public static final class DefaultKeyRequest implements KeyRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] data;
@@ -133,7 +136,7 @@ public interface ExoMediaDrm {
     }
 
     /* loaded from: classes7.dex */
-    public final class DefaultKeyStatus implements KeyStatus {
+    public static final class DefaultKeyStatus implements KeyStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] keyId;
@@ -180,7 +183,7 @@ public interface ExoMediaDrm {
     }
 
     /* loaded from: classes7.dex */
-    public final class DefaultProvisionRequest implements ProvisionRequest {
+    public static final class DefaultProvisionRequest implements ProvisionRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] data;

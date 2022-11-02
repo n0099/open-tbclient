@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.Choreographer;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,7 +22,7 @@ public class WaterRippleView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Choreographer.FrameCallback a;
-    public final List b;
+    public final List<Float> b;
     public float c;
     public int d;
     public int e;
@@ -85,7 +86,7 @@ public class WaterRippleView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WaterRippleView(Context context, AttributeSet attributeSet) {
+    public WaterRippleView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,7 +107,7 @@ public class WaterRippleView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WaterRippleView(Context context, AttributeSet attributeSet, int i) {
+    public WaterRippleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -200,7 +201,7 @@ public class WaterRippleView extends View {
             if (this.g >= 0 && canvas != null) {
                 setBackgroundColor(0);
                 for (int i = 0; i < this.b.size(); i++) {
-                    float floatValue = ((Float) this.b.get(i)).floatValue();
+                    float floatValue = this.b.get(i).floatValue();
                     float f = 255.0f - ((floatValue * 255.0f) / this.g);
                     this.f.setAlpha((int) f);
                     canvas.drawCircle(this.d, this.e, floatValue, this.f);
@@ -208,8 +209,8 @@ public class WaterRippleView extends View {
                         this.b.set(i, Float.valueOf(floatValue + this.c));
                     }
                 }
-                List list = this.b;
-                if (((Float) list.get(list.size() - 1)).floatValue() > (this.g * 1.0f) / 4.0f) {
+                List<Float> list = this.b;
+                if (list.get(list.size() - 1).floatValue() > (this.g * 1.0f) / 4.0f) {
                     this.b.add(Float.valueOf(0.0f));
                 }
                 if (this.b.size() > 4) {

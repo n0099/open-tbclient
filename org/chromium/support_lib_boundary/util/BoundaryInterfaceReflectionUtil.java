@@ -1,5 +1,7 @@
 package org.chromium.support_lib_boundary.util;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +18,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.Collection;
-/* loaded from: classes8.dex */
+@SuppressLint({"BanTargetApiAnnotation"})
+/* loaded from: classes9.dex */
 public class BoundaryInterfaceReflectionUtil {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -37,8 +40,9 @@ public class BoundaryInterfaceReflectionUtil {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class InvocationHandlerWithDelegateGetter implements InvocationHandler {
+    @TargetApi(19)
+    /* loaded from: classes9.dex */
+    public static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object mDelegate;
@@ -113,13 +117,13 @@ public class BoundaryInterfaceReflectionUtil {
         return invokeV.booleanValue;
     }
 
-    public static Object castToSuppLibClass(Class cls, InvocationHandler invocationHandler) {
+    public static <T> T castToSuppLibClass(Class<T> cls, InvocationHandler invocationHandler) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, invocationHandler)) == null) {
             return cls.cast(Proxy.newProxyInstance(BoundaryInterfaceReflectionUtil.class.getClassLoader(), new Class[]{cls}, invocationHandler));
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static boolean containsFeature(String[] strArr, String str) {
@@ -153,7 +157,7 @@ public class BoundaryInterfaceReflectionUtil {
         return invokeLL.booleanValue;
     }
 
-    public static boolean containsFeature(Collection collection, String str) {
+    public static boolean containsFeature(Collection<String> collection, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, collection, str)) == null) {
@@ -169,6 +173,7 @@ public class BoundaryInterfaceReflectionUtil {
         return invokeLL.booleanValue;
     }
 
+    @TargetApi(19)
     public static InvocationHandler createInvocationHandlerFor(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -178,6 +183,7 @@ public class BoundaryInterfaceReflectionUtil {
         return (InvocationHandler) invokeL.objValue;
     }
 
+    @TargetApi(19)
     public static InvocationHandler[] createInvocationHandlersForArray(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

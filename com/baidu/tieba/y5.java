@@ -20,17 +20,17 @@ public class y5 implements i7 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String s = "";
     public static String t = "";
-    public static final x7 u;
+    public static final x7<Application, b7<y5>> u;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public boolean b;
-    public final w7 c;
-    public final w7 d;
-    public final w7 e;
+    public final w7<String> c;
+    public final w7<String> d;
+    public final w7<String> e;
     public String[] f;
-    public final w7 g;
-    public final w7 h;
-    public final w7 i;
+    public final w7<String> g;
+    public final w7<String> h;
+    public final w7<String> i;
     public String[] j;
     public int k;
     public int l;
@@ -54,7 +54,7 @@ public class y5 implements i7 {
                 return;
             }
         }
-        u = new x7();
+        u = new x7<>();
         BufferUtils.d(1);
     }
 
@@ -118,12 +118,12 @@ public class y5 implements i7 {
             }
         }
         this.a = "";
-        this.c = new w7();
-        this.d = new w7();
-        this.e = new w7();
-        this.g = new w7();
-        this.h = new w7();
-        this.i = new w7();
+        this.c = new w7<>();
+        this.d = new w7<>();
+        this.e = new w7<>();
+        this.g = new w7<>();
+        this.h = new w7<>();
+        this.i = new w7<>();
         this.q = BufferUtils.d(1);
         this.r = BufferUtils.d(1);
         if (str != null) {
@@ -166,10 +166,10 @@ public class y5 implements i7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed shaders/app: { ");
-            x7.c f = u.f();
+            x7.c<Application> f = u.f();
             f.c();
             while (f.hasNext()) {
-                sb.append(((b7) u.c((Application) f.next())).b);
+                sb.append(u.c(f.next()).b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -179,26 +179,26 @@ public class y5 implements i7 {
     }
 
     public static void n(Application application) {
-        b7 b7Var;
+        b7<y5> c;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, application) != null) || f1.f == null || (b7Var = (b7) u.c(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, application) != null) || f1.f == null || (c = u.c(application)) == null) {
             return;
         }
-        for (int i = 0; i < b7Var.b; i++) {
-            ((y5) b7Var.get(i)).p = true;
-            ((y5) b7Var.get(i)).f();
+        for (int i = 0; i < c.b; i++) {
+            c.get(i).p = true;
+            c.get(i).f();
         }
     }
 
     public final void a(Application application, y5 y5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, application, y5Var) == null) {
-            b7 b7Var = (b7) u.c(application);
-            if (b7Var == null) {
-                b7Var = new b7();
+            b7<y5> c = u.c(application);
+            if (c == null) {
+                c = new b7<>();
             }
-            b7Var.a(y5Var);
-            u.i(application, b7Var);
+            c.a(y5Var);
+            u.i(application, c);
         }
     }
 
@@ -212,7 +212,7 @@ public class y5 implements i7 {
             n3Var.K(this.m);
             n3Var.H(this.k);
             if (u.c(f1.a) != null) {
-                ((b7) u.c(f1.a)).j(this, true);
+                u.c(f1.a).j(this, true);
             }
         }
     }

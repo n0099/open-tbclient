@@ -10,15 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
+import tbclient.ForumInfo;
 import tbclient.SearchSug.DataRes;
 import tbclient.SearchSug.SearchSugResIdl;
 /* loaded from: classes5.dex */
 public class SearchListHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List forums;
+    public List<ForumInfo> forums;
     public DataRes suggestData;
-    public List suggests;
+    public List<String> suggests;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchListHttpResMessage() {

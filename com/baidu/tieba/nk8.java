@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.util.ISwanData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class nk8 {
+public class nk8 implements ISwanData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public List b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
+
+    @Override // com.baidu.searchbox.util.ISwanData
+    public String getSwanNativeVersionGroup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
 
     public nk8() {
         Interceptable interceptable = $ic;
@@ -33,47 +35,6 @@ public class nk8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-    }
-
-    public List a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void b(o96 o96Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o96Var) == null) {
-            String str = o96Var.d;
-            this.c = o96Var.c;
-            List list = o96Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    mk8 mk8Var = new mk8();
-                    mk8Var.r(recommendForumInfo);
-                    this.a.add(mk8Var);
-                }
-            }
-            Page page = this.c;
-            if (page != null) {
-                boolean z = true;
-                if (page.has_more.intValue() != 1) {
-                    z = false;
-                }
-                this.d = z;
-                this.e = this.c.current_page.intValue();
             }
         }
     }

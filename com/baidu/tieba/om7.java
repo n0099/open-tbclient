@@ -1,18 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class om7 implements ThirdPartAliRechargeService {
+public class om7 implements ExtLiveJumpPageService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService
+    public void goToLiveShowPlayBack(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, str2) == null) {
+        }
+    }
 
     public om7() {
         Interceptable interceptable = $ic;
@@ -28,21 +39,17 @@ public class om7 implements ThirdPartAliRechargeService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public String aliRecharge(Activity activity, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService
+    public void goToPersonCenter(Context context, String str) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            ao4 ao4Var = new ao4();
-            ao4Var.a = activity;
-            ao4Var.b = str;
-            ao4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, ao4Var);
-            if (runTask == null) {
-                return "";
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) && context != null && !StringUtils.isNull(str)) {
+            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str)) {
+                z = true;
+            } else {
+                z = false;
             }
-            return (String) runTask.getData();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(context).createNormalConfig(wg.g(str, 0L), z, false)));
         }
-        return (String) invokeLLZ.objValue;
     }
 }

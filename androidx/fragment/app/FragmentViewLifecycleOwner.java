@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
@@ -32,6 +33,7 @@ public class FragmentViewLifecycleOwner implements LifecycleOwner {
     }
 
     @Override // androidx.lifecycle.LifecycleOwner
+    @NonNull
     public Lifecycle getLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,14 +63,14 @@ public class FragmentViewLifecycleOwner implements LifecycleOwner {
         return invokeV.booleanValue;
     }
 
-    public void handleLifecycleEvent(Lifecycle.Event event) {
+    public void handleLifecycleEvent(@NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             this.mLifecycleRegistry.handleLifecycleEvent(event);
         }
     }
 
-    public void setCurrentState(Lifecycle.State state) {
+    public void setCurrentState(@NonNull Lifecycle.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
             this.mLifecycleRegistry.setCurrentState(state);

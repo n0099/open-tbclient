@@ -1,5 +1,6 @@
 package com.baidu.tieba.setting.officialAccountPush;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
 public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList official_list;
+    public ArrayList<OfficialAccountPushInfo> official_list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialAccountPushSocketResponseMessage() {
@@ -36,7 +37,7 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
         }
     }
 
-    public ArrayList getList() {
+    public ArrayList<OfficialAccountPushInfo> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -46,6 +47,7 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         String str;
@@ -69,7 +71,7 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
             }
             DataRes dataRes = getOfficialSwitchResIdl.data;
             if (dataRes != null && dataRes.official_list != null) {
-                this.official_list = new ArrayList();
+                this.official_list = new ArrayList<>();
                 for (int i2 = 0; i2 < getOfficialSwitchResIdl.data.official_list.size(); i2++) {
                     OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
                     officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i2));

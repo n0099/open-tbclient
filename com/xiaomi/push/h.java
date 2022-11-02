@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.app.NotificationManager;
@@ -33,7 +34,7 @@ public class h {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
@@ -213,6 +214,7 @@ public class h {
         return (a) invokeLL.objValue;
     }
 
+    @TargetApi(19)
     public static a a(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         ApplicationInfo applicationInfo;
@@ -231,13 +233,13 @@ public class h {
             if (a2 != a.a) {
                 return a2;
             }
-            Integer num = (Integer) bk.a(AppOpsManager.class, NotificationManagerCompat.OP_POST_NOTIFICATION);
+            Integer num = (Integer) bk.a((Class<? extends Object>) AppOpsManager.class, NotificationManagerCompat.OP_POST_NOTIFICATION);
             if (num == null) {
                 return a.a;
             }
             Integer num2 = (Integer) bk.a((Object) ((AppOpsManager) context.getSystemService("appops")), NotificationManagerCompat.CHECK_OP_NO_THROW, num, Integer.valueOf(applicationInfo.uid), str);
-            int i = (Integer) bk.a(AppOpsManager.class, "MODE_ALLOWED");
-            int i2 = (Integer) bk.a(AppOpsManager.class, "MODE_IGNORED");
+            int i = (Integer) bk.a((Class<? extends Object>) AppOpsManager.class, "MODE_ALLOWED");
+            int i2 = (Integer) bk.a((Class<? extends Object>) AppOpsManager.class, "MODE_IGNORED");
             com.xiaomi.channel.commonutils.logger.b.b(String.format("get app mode %s|%s|%s", num2, i, i2));
             if (i == null) {
                 i = 0;

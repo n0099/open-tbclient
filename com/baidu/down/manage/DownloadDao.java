@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class DownloadDao {
@@ -57,7 +56,7 @@ public final class DownloadDao {
         }
     }
 
-    public List loadAll() {
+    public List<Download> loadAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -175,15 +174,13 @@ public final class DownloadDao {
         return (DownloadDao) invokeL.objValue;
     }
 
-    public void insertInTx(List list) {
+    public void insertInTx(List<Download> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             try {
                 SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
                 writableDatabase.beginTransaction();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    Download download = (Download) it.next();
+                for (Download download : list) {
                     download.setId(Long.valueOf(writableDatabase.insert("downloads", null, createContentValues(download, true))));
                 }
                 writableDatabase.endTransaction();
@@ -220,7 +217,7 @@ public final class DownloadDao {
         return invokeL.booleanValue;
     }
 
-    public List queryFinshDownload() {
+    public List<Download> queryFinshDownload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -234,7 +231,7 @@ public final class DownloadDao {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List queryList(String str, String[] strArr) {
+    public List<Download> queryList(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, strArr)) == null) {

@@ -68,7 +68,7 @@ public final class FragmentedMp4Extractor implements Extractor {
     public long atomSize;
     public int atomType;
     public TrackOutput[] cea608TrackOutputs;
-    public final Stack containerAtoms;
+    public final Stack<Atom.ContainerAtom> containerAtoms;
     public TrackBundle currentTrackBundle;
     public final ParsableByteArray defaultInitializationVector;
     public long durationUs;
@@ -84,7 +84,7 @@ public final class FragmentedMp4Extractor implements Extractor {
     public final ParsableByteArray nalStartCode;
     public int parserState;
     public int pendingMetadataSampleBytes;
-    public final LinkedList pendingMetadataSampleInfos;
+    public final LinkedList<MetadataSampleInfo> pendingMetadataSampleInfos;
     public boolean processSeiNalUnitPayload;
     public int sampleBytesWritten;
     public int sampleCurrentNalBytesRemaining;
@@ -93,7 +93,7 @@ public final class FragmentedMp4Extractor implements Extractor {
     public final DrmInitData sideloadedDrmInitData;
     public final Track sideloadedTrack;
     public final TimestampAdjuster timestampAdjuster;
-    public final SparseArray trackBundles;
+    public final SparseArray<TrackBundle> trackBundles;
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
@@ -108,7 +108,7 @@ public final class FragmentedMp4Extractor implements Extractor {
     }
 
     /* loaded from: classes7.dex */
-    public final class MetadataSampleInfo {
+    public static final class MetadataSampleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long presentationTimeDeltaUs;
@@ -135,7 +135,7 @@ public final class FragmentedMp4Extractor implements Extractor {
     }
 
     /* loaded from: classes7.dex */
-    public final class TrackBundle {
+    public static final class TrackBundle {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int currentSampleInTrackRun;
@@ -289,7 +289,7 @@ public final class FragmentedMp4Extractor implements Extractor {
         }
     }
 
-    public static TrackBundle getNextFragmentRun(SparseArray sparseArray) {
+    public static TrackBundle getNextFragmentRun(SparseArray<TrackBundle> sparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, sparseArray)) == null) {
@@ -297,13 +297,13 @@ public final class FragmentedMp4Extractor implements Extractor {
             TrackBundle trackBundle = null;
             long j = Long.MAX_VALUE;
             for (int i = 0; i < size; i++) {
-                TrackBundle trackBundle2 = (TrackBundle) sparseArray.valueAt(i);
-                int i2 = trackBundle2.currentTrackRunIndex;
-                TrackFragment trackFragment = trackBundle2.fragment;
+                TrackBundle valueAt = sparseArray.valueAt(i);
+                int i2 = valueAt.currentTrackRunIndex;
+                TrackFragment trackFragment = valueAt.fragment;
                 if (i2 != trackFragment.trunCount) {
                     long j2 = trackFragment.trunDataPosition[i2];
                     if (j2 < j) {
-                        trackBundle = trackBundle2;
+                        trackBundle = valueAt;
                         j = j2;
                     }
                 }
@@ -322,7 +322,7 @@ public final class FragmentedMp4Extractor implements Extractor {
             } else if (i == Atom.TYPE_moof) {
                 onMoofContainerAtomRead(containerAtom);
             } else if (!this.containerAtoms.isEmpty()) {
-                ((Atom.ContainerAtom) this.containerAtoms.peek()).add(containerAtom);
+                this.containerAtoms.peek().add(containerAtom);
             }
         }
     }
@@ -340,13 +340,13 @@ public final class FragmentedMp4Extractor implements Extractor {
             if (drmInitDataFromAtoms != null) {
                 int size = this.trackBundles.size();
                 for (int i = 0; i < size; i++) {
-                    ((TrackBundle) this.trackBundles.valueAt(i)).updateDrmInitData(drmInitDataFromAtoms);
+                    this.trackBundles.valueAt(i).updateDrmInitData(drmInitDataFromAtoms);
                 }
             }
         }
     }
 
-    public static Pair parseTrex(ParsableByteArray parsableByteArray) {
+    public static Pair<Integer, DefaultSampleValues> parseTrex(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, parsableByteArray)) == null) {
@@ -359,8 +359,8 @@ public final class FragmentedMp4Extractor implements Extractor {
     private void processAtomEnded(long j) throws ParserException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65566, this, j) == null) {
-            while (!this.containerAtoms.isEmpty() && ((Atom.ContainerAtom) this.containerAtoms.peek()).endPosition == j) {
-                onContainerAtomRead((Atom.ContainerAtom) this.containerAtoms.pop());
+            while (!this.containerAtoms.isEmpty() && this.containerAtoms.peek().endPosition == j) {
+                onContainerAtomRead(this.containerAtoms.pop());
             }
             enterReadingAtomHeaderState();
         }
@@ -434,12 +434,12 @@ public final class FragmentedMp4Extractor implements Extractor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65548, this, leafAtom, j) == null) {
             if (!this.containerAtoms.isEmpty()) {
-                ((Atom.ContainerAtom) this.containerAtoms.peek()).add(leafAtom);
+                this.containerAtoms.peek().add(leafAtom);
                 return;
             }
             int i = leafAtom.type;
             if (i == Atom.TYPE_sidx) {
-                Pair parseSidx = parseSidx(leafAtom.data, j);
+                Pair<Long, ChunkIndex> parseSidx = parseSidx(leafAtom.data, j);
                 this.segmentIndexEarliestPresentationTimeUs = ((Long) parseSidx.first).longValue();
                 this.extractorOutput.seekMap((SeekMap) parseSidx.second);
                 this.haveOutputSeekMap = true;
@@ -480,7 +480,7 @@ public final class FragmentedMp4Extractor implements Extractor {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             int size = this.trackBundles.size();
             for (int i = 0; i < size; i++) {
-                ((TrackBundle) this.trackBundles.valueAt(i)).reset();
+                this.trackBundles.valueAt(i).reset();
             }
             this.pendingMetadataSampleInfos.clear();
             this.pendingMetadataSampleBytes = 0;
@@ -521,9 +521,9 @@ public final class FragmentedMp4Extractor implements Extractor {
         this.encryptionSignalByte = new ParsableByteArray(1);
         this.defaultInitializationVector = new ParsableByteArray();
         this.extendedTypeScratch = new byte[16];
-        this.containerAtoms = new Stack();
-        this.pendingMetadataSampleInfos = new LinkedList();
-        this.trackBundles = new SparseArray();
+        this.containerAtoms = new Stack<>();
+        this.pendingMetadataSampleInfos = new LinkedList<>();
+        this.trackBundles = new SparseArray<>();
         this.durationUs = C.TIME_UNSET;
         this.segmentIndexEarliestPresentationTimeUs = C.TIME_UNSET;
         enterReadingAtomHeaderState();
@@ -590,7 +590,7 @@ public final class FragmentedMp4Extractor implements Extractor {
         }
     }
 
-    public static void parseTraf(Atom.ContainerAtom containerAtom, SparseArray sparseArray, int i, byte[] bArr) throws ParserException {
+    public static void parseTraf(Atom.ContainerAtom containerAtom, SparseArray<TrackBundle> sparseArray, int i, byte[] bArr) throws ParserException {
         TrackBundle parseTfhd;
         String str;
         Interceptable interceptable = $ic;
@@ -631,7 +631,7 @@ public final class FragmentedMp4Extractor implements Extractor {
         }
         int size = containerAtom.leafChildren.size();
         for (int i2 = 0; i2 < size; i2++) {
-            Atom.LeafAtom leafAtom = (Atom.LeafAtom) containerAtom.leafChildren.get(i2);
+            Atom.LeafAtom leafAtom = containerAtom.leafChildren.get(i2);
             if (leafAtom.type == Atom.TYPE_uuid) {
                 parseUuid(leafAtom.data, trackFragment, bArr);
             }
@@ -696,14 +696,14 @@ public final class FragmentedMp4Extractor implements Extractor {
         return invokeI.booleanValue;
     }
 
-    public static DrmInitData getDrmInitDataFromAtoms(List list) {
+    public static DrmInitData getDrmInitDataFromAtoms(List<Atom.LeafAtom> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
             int size = list.size();
             ArrayList arrayList = null;
             for (int i = 0; i < size; i++) {
-                Atom.LeafAtom leafAtom = (Atom.LeafAtom) list.get(i);
+                Atom.LeafAtom leafAtom = list.get(i);
                 if (leafAtom.type == Atom.TYPE_pssh) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -753,11 +753,11 @@ public final class FragmentedMp4Extractor implements Extractor {
             TrackBundle trackBundle = null;
             long j = Long.MAX_VALUE;
             for (int i = 0; i < size; i++) {
-                TrackFragment trackFragment = ((TrackBundle) this.trackBundles.valueAt(i)).fragment;
+                TrackFragment trackFragment = this.trackBundles.valueAt(i).fragment;
                 if (trackFragment.sampleEncryptionDataNeedsFill) {
                     long j2 = trackFragment.auxiliaryDataPosition;
                     if (j2 < j) {
-                        trackBundle = (TrackBundle) this.trackBundles.valueAt(i);
+                        trackBundle = this.trackBundles.valueAt(i);
                         j = j2;
                     }
                 }
@@ -816,10 +816,10 @@ public final class FragmentedMp4Extractor implements Extractor {
             int size = containerAtomOfType.leafChildren.size();
             long j = -9223372036854775807L;
             for (int i4 = 0; i4 < size; i4++) {
-                Atom.LeafAtom leafAtom = (Atom.LeafAtom) containerAtomOfType.leafChildren.get(i4);
+                Atom.LeafAtom leafAtom = containerAtomOfType.leafChildren.get(i4);
                 int i5 = leafAtom.type;
                 if (i5 == Atom.TYPE_trex) {
-                    Pair parseTrex = parseTrex(leafAtom.data);
+                    Pair<Integer, DefaultSampleValues> parseTrex = parseTrex(leafAtom.data);
                     sparseArray.put(((Integer) parseTrex.first).intValue(), parseTrex.second);
                 } else if (i5 == Atom.TYPE_mehd) {
                     j = parseMehd(leafAtom.data);
@@ -829,7 +829,7 @@ public final class FragmentedMp4Extractor implements Extractor {
             int size2 = containerAtom.containerChildren.size();
             int i6 = 0;
             while (i6 < size2) {
-                Atom.ContainerAtom containerAtom2 = (Atom.ContainerAtom) containerAtom.containerChildren.get(i6);
+                Atom.ContainerAtom containerAtom2 = containerAtom.containerChildren.get(i6);
                 if (containerAtom2.type == Atom.TYPE_trak) {
                     Atom.LeafAtom leafAtomOfType = containerAtom.getLeafAtomOfType(Atom.TYPE_mvhd);
                     if ((this.flags & 32) != 0) {
@@ -871,7 +871,7 @@ public final class FragmentedMp4Extractor implements Extractor {
             Assertions.checkState(z3);
             while (i3 < size3) {
                 Track track2 = (Track) sparseArray2.valueAt(i3);
-                ((TrackBundle) this.trackBundles.get(track2.id)).init(track2, (DefaultSampleValues) sparseArray.get(track2.id));
+                this.trackBundles.get(track2.id).init(track2, (DefaultSampleValues) sparseArray.get(track2.id));
                 i3++;
             }
         }
@@ -898,7 +898,7 @@ public final class FragmentedMp4Extractor implements Extractor {
             } else if (j == 0) {
                 long length = extractorInput.getLength();
                 if (length == -1 && !this.containerAtoms.isEmpty()) {
-                    length = ((Atom.ContainerAtom) this.containerAtoms.peek()).endPosition;
+                    length = this.containerAtoms.peek().endPosition;
                 }
                 if (length != -1) {
                     this.atomSize = (length - extractorInput.getPosition()) + this.atomHeaderBytesRead;
@@ -909,7 +909,7 @@ public final class FragmentedMp4Extractor implements Extractor {
                 if (this.atomType == Atom.TYPE_moof) {
                     int size = this.trackBundles.size();
                     for (int i = 0; i < size; i++) {
-                        TrackFragment trackFragment = ((TrackBundle) this.trackBundles.valueAt(i)).fragment;
+                        TrackFragment trackFragment = this.trackBundles.valueAt(i).fragment;
                         trackFragment.atomPosition = position;
                         trackFragment.auxiliaryDataPosition = position;
                         trackFragment.dataPosition = position;
@@ -997,12 +997,12 @@ public final class FragmentedMp4Extractor implements Extractor {
         return invokeL.booleanValue;
     }
 
-    public static void parseMoof(Atom.ContainerAtom containerAtom, SparseArray sparseArray, int i, byte[] bArr) throws ParserException {
+    public static void parseMoof(Atom.ContainerAtom containerAtom, SparseArray<TrackBundle> sparseArray, int i, byte[] bArr) throws ParserException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65552, null, containerAtom, sparseArray, i, bArr) == null) {
             int size = containerAtom.containerChildren.size();
             for (int i2 = 0; i2 < size; i2++) {
-                Atom.ContainerAtom containerAtom2 = (Atom.ContainerAtom) containerAtom.containerChildren.get(i2);
+                Atom.ContainerAtom containerAtom2 = containerAtom.containerChildren.get(i2);
                 if (containerAtom2.type == Atom.TYPE_traf) {
                     parseTraf(containerAtom2, sparseArray, i, bArr);
                 }
@@ -1076,7 +1076,7 @@ public final class FragmentedMp4Extractor implements Extractor {
         }
     }
 
-    public static TrackBundle parseTfhd(ParsableByteArray parsableByteArray, SparseArray sparseArray, int i) {
+    public static TrackBundle parseTfhd(ParsableByteArray parsableByteArray, SparseArray<TrackBundle> sparseArray, int i) {
         InterceptResult invokeLLI;
         int i2;
         int i3;
@@ -1090,7 +1090,7 @@ public final class FragmentedMp4Extractor implements Extractor {
             if ((i & 16) != 0) {
                 readInt = 0;
             }
-            TrackBundle trackBundle = (TrackBundle) sparseArray.get(readInt);
+            TrackBundle trackBundle = sparseArray.get(readInt);
             if (trackBundle == null) {
                 return null;
             }
@@ -1134,7 +1134,7 @@ public final class FragmentedMp4Extractor implements Extractor {
         }
     }
 
-    public static Pair parseSidx(ParsableByteArray parsableByteArray, long j) throws ParserException {
+    public static Pair<Long, ChunkIndex> parseSidx(ParsableByteArray parsableByteArray, long j) throws ParserException {
         InterceptResult invokeLJ;
         long readUnsignedLongToLong;
         long readUnsignedLongToLong2;
@@ -1341,12 +1341,12 @@ public final class FragmentedMp4Extractor implements Extractor {
     public static void parseTruns(Atom.ContainerAtom containerAtom, TrackBundle trackBundle, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{containerAtom, trackBundle, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            List list = containerAtom.leafChildren;
+            List<Atom.LeafAtom> list = containerAtom.leafChildren;
             int size = list.size();
             int i2 = 0;
             int i3 = 0;
             for (int i4 = 0; i4 < size; i4++) {
-                Atom.LeafAtom leafAtom = (Atom.LeafAtom) list.get(i4);
+                Atom.LeafAtom leafAtom = list.get(i4);
                 if (leafAtom.type == Atom.TYPE_trun) {
                     ParsableByteArray parsableByteArray = leafAtom.data;
                     parsableByteArray.setPosition(12);
@@ -1364,7 +1364,7 @@ public final class FragmentedMp4Extractor implements Extractor {
             int i5 = 0;
             int i6 = 0;
             for (int i7 = 0; i7 < size; i7++) {
-                Atom.LeafAtom leafAtom2 = (Atom.LeafAtom) list.get(i7);
+                Atom.LeafAtom leafAtom2 = list.get(i7);
                 if (leafAtom2.type == Atom.TYPE_trun) {
                     i6 = parseTrun(trackBundle, i5, j, i, leafAtom2.data, i6);
                     i5++;
@@ -1519,12 +1519,12 @@ public final class FragmentedMp4Extractor implements Extractor {
             }
             r9.sampleMetadata(samplePresentationTime, r12, this.sampleSize, 0, cryptoData);
             while (!this.pendingMetadataSampleInfos.isEmpty()) {
-                MetadataSampleInfo metadataSampleInfo = (MetadataSampleInfo) this.pendingMetadataSampleInfos.removeFirst();
+                MetadataSampleInfo removeFirst = this.pendingMetadataSampleInfos.removeFirst();
                 int i11 = this.pendingMetadataSampleBytes;
-                int i12 = metadataSampleInfo.size;
+                int i12 = removeFirst.size;
                 int i13 = i11 - i12;
                 this.pendingMetadataSampleBytes = i13;
-                this.eventMessageTrackOutput.sampleMetadata(samplePresentationTime + metadataSampleInfo.presentationTimeDeltaUs, 1, i12, i13, null);
+                this.eventMessageTrackOutput.sampleMetadata(samplePresentationTime + removeFirst.presentationTimeDeltaUs, 1, i12, i13, null);
             }
             TrackBundle trackBundle3 = this.currentTrackBundle;
             trackBundle3.currentSampleIndex++;

@@ -28,7 +28,7 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public static final int DEFAULT_FRAME_SCHEDULING_DELAY_MS = 8;
     public static final int DEFAULT_FRAME_SCHEDULING_OFFSET_MS = 0;
     public static final AnimationListener NO_OP_LISTENER;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public AnimationBackend mAnimationBackend;

@@ -3,7 +3,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,12 +31,12 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public transient /* synthetic */ FieldHolder $fh;
     public String bubbleActMsg;
     public int cmd;
-    public List confList;
+    public List<ProductInfo> confList;
     public String currencyName;
     public int currencyType;
     public int defaultCid;
     public String expend;
-    public List payWayInfoList;
+    public List<PayWayInfo> payWayInfoList;
     public PaysSettingInfo paysSettingInfo;
     public int result;
     public String seq;
@@ -64,7 +63,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         parserResponse(str);
     }
 
-    private List optOtherCurrencies(JSONArray jSONArray) {
+    private List<CurrencyInfo> optOtherCurrencies(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
@@ -88,7 +87,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    private List optProps(JSONArray jSONArray) {
+    private List<PropsInfo> optProps(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONArray)) == null) {
@@ -112,7 +111,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List optGiftBagTagInfoList(JSONArray jSONArray) {
+    public List<GiftBagTagInfo> optGiftBagTagInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
@@ -135,7 +134,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List optPayWayInfoList(JSONArray jSONArray) {
+    public List<PayWayInfo> optPayWayInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
@@ -162,7 +161,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List optGiftBagItemInfoList(JSONArray jSONArray) {
+    public List<GiftBagItemInfo> optGiftBagItemInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
@@ -190,7 +189,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List optGiftBagsInfoList(JSONArray jSONArray) {
+    public List<GiftBagsInfo> optGiftBagsInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
@@ -219,7 +218,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List optProductList(JSONArray jSONArray) {
+    public List<ProductInfo> optProductList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONArray)) == null) {
@@ -235,7 +234,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     productInfo.cid = optJSONObject.optInt("cid");
                     productInfo.offersTips = optJSONObject.optString("offersTips");
                     productInfo.name = optJSONObject.optString("name");
-                    productInfo.level = optJSONObject.optInt(PollingModel.LEVEL);
+                    productInfo.level = optJSONObject.optInt("level");
                     productInfo.srcAmount = optJSONObject.optDouble("srcAmount");
                     productInfo.srcCurrencySymbol = optJSONObject.optString("srcCurrencySymbol");
                     productInfo.destAmount = optJSONObject.optLong("destAmount");

@@ -1,55 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.minivideo.plugin.capture.report.ReportConfig;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.AbstractMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class qd9 {
+public final class qd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SQLiteDatabase a;
 
-    public static void a(String str, ud9 ud9Var, td9 td9Var) {
+    public qd9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, ud9Var, td9Var) == null) {
-            if (ih9.a) {
-                ih9.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + td9Var.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            od9 g = ld9.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (td9Var != null) {
-                    arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", td9Var.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", td9Var.b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", td9Var.f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", td9Var.c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", td9Var.d + ""));
-                }
-                g.a("perf_record_arperf", str, ud9Var.a, ud9Var.b, ud9Var.c, ud9Var.d, ud9Var.e, null, arrayList);
+        }
+        this.a = nd9.a().c();
+    }
+
+    public final List<com.baidu.ubs.analytics.a.l> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+                lVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
+                lVar.setPath(rawQuery.getString(rawQuery.getColumnIndex("_path")));
+                lVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
+                lVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
+                lVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(lVar);
             }
+            rawQuery.close();
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_page_log where _id <= " + i);
         }
     }
 
-    public static void b(String str, String str2) {
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (ih9.a) {
-                ih9.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-            }
-            od9 g = ld9.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (str2 != null) {
-                    arrayList = new ArrayList(3);
-                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", gh9.a(ld9.c().getContext())));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(gh9.b(ld9.c().getContext()))));
-                }
-                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
         }
     }
 }

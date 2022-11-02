@@ -5,6 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +20,7 @@ import com.google.android.material.circularreveal.CircularRevealWidget;
 public class CircularRevealLinearLayout extends LinearLayout implements CircularRevealWidget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final CircularRevealHelper helper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -71,7 +75,7 @@ public class CircularRevealLinearLayout extends LinearLayout implements Circular
     }
 
     @Override // android.view.View, com.google.android.material.circularreveal.CircularRevealWidget
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             CircularRevealHelper circularRevealHelper = this.helper;
@@ -84,7 +88,7 @@ public class CircularRevealLinearLayout extends LinearLayout implements Circular
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
-    public void setCircularRevealOverlayDrawable(Drawable drawable) {
+    public void setCircularRevealOverlayDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
             this.helper.setCircularRevealOverlayDrawable(drawable);
@@ -92,7 +96,7 @@ public class CircularRevealLinearLayout extends LinearLayout implements Circular
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
-    public void setCircularRevealScrimColor(int i) {
+    public void setCircularRevealScrimColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.helper.setCircularRevealScrimColor(i);
@@ -100,7 +104,7 @@ public class CircularRevealLinearLayout extends LinearLayout implements Circular
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
-    public void setRevealInfo(CircularRevealWidget.RevealInfo revealInfo) {
+    public void setRevealInfo(@Nullable CircularRevealWidget.RevealInfo revealInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, revealInfo) == null) {
             this.helper.setRevealInfo(revealInfo);
@@ -134,6 +138,7 @@ public class CircularRevealLinearLayout extends LinearLayout implements Circular
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
+    @Nullable
     public Drawable getCircularRevealOverlayDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -154,6 +159,7 @@ public class CircularRevealLinearLayout extends LinearLayout implements Circular
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
+    @Nullable
     public CircularRevealWidget.RevealInfo getRevealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

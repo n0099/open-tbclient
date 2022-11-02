@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import java.io.File;
 /* loaded from: classes3.dex */
-public interface dp1 {
-    ExecutorService d();
+public interface dp1 extends vx2 {
+    File a();
 
-    void e(String str, int i, JSONArray jSONArray);
+    void e(String str, String str2);
 
-    void f(String str, int i);
+    void e(String str, String str2, Throwable th);
 
-    void g(String str, String str2, int i, String str3, int i2);
+    void flush(boolean z);
 
-    void i(String str, int i, String str2);
+    void i(String str, String str2);
 
-    void n(String str, String str2, int i, String str3, long j, int i2);
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

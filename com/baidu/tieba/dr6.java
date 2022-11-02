@@ -1,70 +1,112 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.ZoneRight.DataRes;
-import tbclient.ZoneRight.Toast;
-import tbclient.ZoneRight.ZoneRightResIdl;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GameCodeList;
+import tbclient.ItemGameCode;
 /* loaded from: classes3.dex */
-public class dr6 implements yb5 {
+public class dr6 extends rr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
-    public int d;
-    public String e;
+    public int a;
+    public List<GameCodeList> b;
 
-    @Override // com.baidu.tieba.yb5
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.rr4
+    public ot4 getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
+        return (ot4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rr4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947714209, "Lcom/baidu/tieba/dr6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947714209, "Lcom/baidu/tieba/dr6;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
     }
 
     public dr6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.yb5
-    public void initByProtobuf(Message message) {
+    public List<GameCodeList> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && (message instanceof ZoneRightResIdl)) {
-            ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) message;
-            Error error = zoneRightResIdl.error;
-            if (error != null) {
-                this.b = error.errorno.intValue();
-                this.c = zoneRightResIdl.error.usermsg;
-            }
-            DataRes dataRes = zoneRightResIdl.data;
-            if (dataRes != null) {
-                boolean z = true;
-                if (dataRes.has_right.intValue() != 1) {
-                    z = false;
-                }
-                this.a = z;
-                Toast toast = zoneRightResIdl.data.toast;
-                if (toast != null) {
-                    this.d = toast.type.intValue();
-                    this.e = zoneRightResIdl.data.toast.content;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(ItemGameCode itemGameCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, itemGameCode) == null) {
+            this.a = itemGameCode.unclaimed_num.intValue();
+            this.b = new ArrayList(itemGameCode.game_code_list);
         }
     }
 }

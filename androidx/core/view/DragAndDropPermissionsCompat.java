@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Build;
 import android.view.DragAndDropPermissions;
 import android.view.DragEvent;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,6 +35,8 @@ public final class DragAndDropPermissionsCompat {
         this.mDragAndDropPermissions = obj;
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static DragAndDropPermissionsCompat request(Activity activity, DragEvent dragEvent) {
         InterceptResult invokeLL;
         DragAndDropPermissions requestDragAndDropPermissions;

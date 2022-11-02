@@ -5,6 +5,7 @@ import android.text.InputFilter;
 import android.text.Spanned;
 import android.util.AttributeSet;
 import android.widget.EditText;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.NoProguard;
@@ -26,7 +27,7 @@ public class LengthLimitEditText extends EditText implements NoProguard {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LengthLimitEditText(Context context, AttributeSet attributeSet) {
+    public LengthLimitEditText(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,7 +48,7 @@ public class LengthLimitEditText extends EditText implements NoProguard {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LengthLimitEditText(Context context, AttributeSet attributeSet, int i) {
+    public LengthLimitEditText(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

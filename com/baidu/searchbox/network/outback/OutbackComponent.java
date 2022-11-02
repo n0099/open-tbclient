@@ -6,9 +6,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.CallFactoryParams;
 import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
-import com.baidu.tieba.qe1;
-import com.baidu.tieba.re1;
-import com.baidu.tieba.te1;
+import com.baidu.tieba.if1;
+import com.baidu.tieba.jf1;
+import com.baidu.tieba.lf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,8 +58,8 @@ public class OutbackComponent {
         IOutbackContext iOutbackContext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            te1 te1Var = this.componentHolder.outbackContextHolder;
-            if (te1Var == null || (iOutbackContext = (IOutbackContext) te1Var.get()) == null || iOutbackContext.getDefaultCallFactoryProducer() == null) {
+            lf1<IOutbackContext> lf1Var = this.componentHolder.outbackContextHolder;
+            if (lf1Var == null || (iOutbackContext = lf1Var.get()) == null || iOutbackContext.getDefaultCallFactoryProducer() == null) {
                 return false;
             }
             return true;
@@ -73,9 +73,9 @@ public class OutbackComponent {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, callFactoryParams)) == null) {
             if (!isRightEngine(str)) {
-                callFactoryProducer = ((IOutbackContext) this.componentHolder.outbackContextHolder.get()).getDefaultCallFactoryProducer();
+                callFactoryProducer = this.componentHolder.outbackContextHolder.get().getDefaultCallFactoryProducer();
             } else {
-                callFactoryProducer = (CallFactory.CallFactoryProducer) ((IOutbackContext) this.componentHolder.outbackContextHolder.get()).getOutbackEngines().get(str);
+                callFactoryProducer = this.componentHolder.outbackContextHolder.get().getOutbackEngines().get(str);
             }
             return callFactoryProducer.produceCallFactory(callFactoryParams);
         }
@@ -86,9 +86,9 @@ public class OutbackComponent {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            te1 te1Var = this.componentHolder.outbackContextHolder;
-            if (te1Var != null && te1Var.get() != null) {
-                return ((IOutbackContext) this.componentHolder.outbackContextHolder.get()).getIAdditionalRecord();
+            lf1<IOutbackContext> lf1Var = this.componentHolder.outbackContextHolder;
+            if (lf1Var != null && lf1Var.get() != null) {
+                return this.componentHolder.outbackContextHolder.get().getIAdditionalRecord();
             }
             throw new IllegalStateException("No Context provided!");
         }
@@ -99,9 +99,9 @@ public class OutbackComponent {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            te1 te1Var = this.componentHolder.outbackContextHolder;
-            if (te1Var != null && te1Var.get() != null) {
-                return ((IOutbackContext) this.componentHolder.outbackContextHolder.get()).getClientIPProvider();
+            lf1<IOutbackContext> lf1Var = this.componentHolder.outbackContextHolder;
+            if (lf1Var != null && lf1Var.get() != null) {
+                return this.componentHolder.outbackContextHolder.get().getClientIPProvider();
             }
             throw new IllegalStateException("No Context provided!");
         }
@@ -112,9 +112,9 @@ public class OutbackComponent {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            te1 te1Var = this.componentHolder.outbackContextHolder;
-            if (te1Var != null && te1Var.get() != null) {
-                return ((IOutbackContext) this.componentHolder.outbackContextHolder.get()).getContext();
+            lf1<IOutbackContext> lf1Var = this.componentHolder.outbackContextHolder;
+            if (lf1Var != null && lf1Var.get() != null) {
+                return this.componentHolder.outbackContextHolder.get().getContext();
             }
             throw new IllegalStateException("No Context provided!");
         }
@@ -125,7 +125,7 @@ public class OutbackComponent {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callFactoryParams)) == null) {
-            return ((IOutbackContext) this.componentHolder.outbackContextHolder.get()).getBackupCallFactoryProducer().produceCallFactory(callFactoryParams);
+            return this.componentHolder.outbackContextHolder.get().getBackupCallFactoryProducer().produceCallFactory(callFactoryParams);
         }
         return (CallFactory) invokeL.objValue;
     }
@@ -135,8 +135,8 @@ public class OutbackComponent {
         IOutbackContext iOutbackContext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            te1 te1Var = this.componentHolder.outbackContextHolder;
-            if (te1Var != null && (iOutbackContext = (IOutbackContext) te1Var.get()) != null) {
+            lf1<IOutbackContext> lf1Var = this.componentHolder.outbackContextHolder;
+            if (lf1Var != null && (iOutbackContext = lf1Var.get()) != null) {
                 return iOutbackContext.getOutbackEngines().containsKey(str);
             }
             return false;
@@ -150,9 +150,9 @@ public class OutbackComponent {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iOutbackContext)) == null) {
             OutbackComponentHolder outbackComponentHolder = this.componentHolder;
             if (outbackComponentHolder.outbackContextHolder == null) {
-                outbackComponentHolder.outbackContextHolder = new re1();
+                outbackComponentHolder.outbackContextHolder = new jf1();
             }
-            this.componentHolder.outbackContextHolder.a(new qe1(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
+            this.componentHolder.outbackContextHolder.a(new if1<IOutbackContext>(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ OutbackComponent this$0;
@@ -178,7 +178,8 @@ public class OutbackComponent {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.qe1
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // com.baidu.tieba.if1
                 public IOutbackContext get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -198,7 +199,7 @@ public class OutbackComponent {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, callFactoryParams)) == null) {
             if (isCallFactoryProducerAvailable()) {
-                return ((IOutbackContext) this.componentHolder.outbackContextHolder.get()).getDefaultCallFactoryProducer().produceCallFactory(callFactoryParams);
+                return this.componentHolder.outbackContextHolder.get().getDefaultCallFactoryProducer().produceCallFactory(callFactoryParams);
             }
             throw new IllegalStateException("No CallFactory producer available!");
         }

@@ -11,19 +11,19 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableTakeLastOne extends AbstractObservableWithUpstream {
+public final class ObservableTakeLastOne<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class TakeLastOneObserver implements Observer, Disposable {
+    public static final class TakeLastOneObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public Disposable s;
-        public Object value;
+        public T value;
 
-        public TakeLastOneObserver(Observer observer) {
+        public TakeLastOneObserver(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,10 +51,10 @@ public final class ObservableTakeLastOne extends AbstractObservableWithUpstream 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.value = obj;
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.value = t;
             }
         }
 
@@ -79,10 +79,10 @@ public final class ObservableTakeLastOne extends AbstractObservableWithUpstream 
         public void emit() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Object obj = this.value;
-                if (obj != null) {
+                T t = this.value;
+                if (t != null) {
                     this.value = null;
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                 }
                 this.actual.onComplete();
             }
@@ -108,7 +108,7 @@ public final class ObservableTakeLastOne extends AbstractObservableWithUpstream 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTakeLastOne(ObservableSource observableSource) {
+    public ObservableTakeLastOne(ObservableSource<T> observableSource) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -128,7 +128,7 @@ public final class ObservableTakeLastOne extends AbstractObservableWithUpstream 
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new TakeLastOneObserver(observer));

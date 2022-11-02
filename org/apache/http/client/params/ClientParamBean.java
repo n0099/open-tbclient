@@ -7,12 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
+import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.conn.ClientConnectionManagerFactory;
 import org.apache.http.params.HttpAbstractParamBean;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ClientParamBean extends HttpAbstractParamBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +67,7 @@ public class ClientParamBean extends HttpAbstractParamBean {
         }
     }
 
-    public void setDefaultHeaders(Collection collection) {
+    public void setDefaultHeaders(Collection<Header> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, collection) == null) {
             throw new RuntimeException("Stub!");

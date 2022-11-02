@@ -15,7 +15,7 @@ import java.util.Map;
 public class ARPContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mCaseLoadListenerList;
+    public List<a> mCaseLoadListenerList;
     public c mCaseState;
     public volatile boolean mIsEngineCreated;
     public boolean mIsFrontCamera;
@@ -31,7 +31,7 @@ public class ARPContent {
 
     /* renamed from: com.baidu.ar.arplay.core.engine.ARPContent$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] eh;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class ARPContent {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b ei;
         public static final b ej;
@@ -141,7 +141,7 @@ public class ARPContent {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c en;
         public static final c eo;
@@ -369,7 +369,7 @@ public class ARPContent {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             for (int i = 0; i < this.mCaseLoadListenerList.size(); i++) {
-                ((a) this.mCaseLoadListenerList.get(i)).onCaseLoaded(isCaseCreated());
+                this.mCaseLoadListenerList.get(i).onCaseLoaded(isCaseCreated());
             }
         }
     }

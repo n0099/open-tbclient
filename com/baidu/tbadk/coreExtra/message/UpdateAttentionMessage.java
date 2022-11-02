@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class UpdateAttentionMessage extends CustomResponsedMessage {
+public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -58,7 +58,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage {
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (!ej.isEmpty(optString) && !ej.isEmpty(this.h) && !ej.isEmpty(optString2) && !ej.isEmpty(optString3)) {
+            if (!wi.isEmpty(optString) && !wi.isEmpty(this.h) && !wi.isEmpty(optString2) && !wi.isEmpty(optString3)) {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 this.i = blockPopInfoData;
                 blockPopInfoData.block_info = optString;
@@ -116,7 +116,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (getData() != null && (getData() instanceof a)) {
-                return ((a) getData()).d;
+                return getData().d;
             }
             return false;
         }
@@ -128,7 +128,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (getData() != null && (getData() instanceof a)) {
-                return ((a) getData()).f;
+                return getData().f;
             }
             return false;
         }
@@ -140,7 +140,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (getData() != null && (getData() instanceof a)) {
-                return ((a) getData()).a;
+                return getData().a;
             }
             return false;
         }

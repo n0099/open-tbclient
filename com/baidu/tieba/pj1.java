@@ -1,83 +1,55 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes5.dex */
-public class pj1 implements gj1 {
-    public static /* synthetic */ Interceptable $ic;
+public final class pj1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public oj1 a;
-    public String b;
-    public Context c;
-    public nj1 d;
 
-    public pj1() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gj1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = this.a.a(0, null);
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gj1
-    public void a(Context context, hj1 hj1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hj1Var) == null) {
-            this.a = new oj1(context);
-            this.c = context;
-            if (b()) {
-                this.d = new nj1(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.d);
-            }
-            if (hj1Var != null) {
-                hj1Var.a();
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
-            } catch (Throwable unused) {
-                str = null;
+            } catch (Throwable th) {
+                oj1.d(th);
             }
-            if ("1".equals(str)) {
-                return true;
+            if (!TextUtils.isEmpty(a)) {
+                return a;
             }
-            return false;
+            a = ci1.f(context).J();
+            return a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                fi1 fi1Var = new fi1(context);
+                String c = fi1Var.c();
+                if (!TextUtils.isEmpty(c)) {
+                    return new String(mj1.b("30212102dicudiab".getBytes(), Base64.decode(c, 10), true), "UTF-8");
+                }
+                String a2 = fi1Var.a();
+                if (!TextUtils.isEmpty(a2)) {
+                    fi1Var.b(new String(Base64.encode(mj1.a("30212102dicudiab".getBytes(), a2.getBytes("UTF-8")), 10), "UTF-8"));
+                    return a2;
+                }
+                return "";
+            } catch (Throwable th) {
+                oj1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

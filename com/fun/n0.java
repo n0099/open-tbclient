@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Process;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +23,12 @@ import java.util.Iterator;
 public class n0 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile NetworkInfo a;
-    public static final HashSet b;
+    public static final HashSet<b> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(NetworkInfo networkInfo);
+        void a(@Nullable NetworkInfo networkInfo);
     }
 
     static {
@@ -44,7 +45,7 @@ public class n0 {
             }
         }
         a aVar = new a();
-        b = new HashSet();
+        b = new HashSet<>();
         Context appContext = FunAdSdk.getAppContext();
         a(appContext, appContext.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")));
     }
@@ -52,7 +53,7 @@ public class n0 {
     public static void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            HashSet hashSet = b;
+            HashSet<b> hashSet = b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }
@@ -61,7 +62,7 @@ public class n0 {
     }
 
     /* loaded from: classes7.dex */
-    public final class a extends BroadcastReceiver {
+    public static class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,11 +102,11 @@ public class n0 {
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 LogPrinter.d("activeNetworkInfo:" + activeNetworkInfo, new Object[0]);
                 a = activeNetworkInfo;
-                HashSet hashSet = b;
+                HashSet<b> hashSet = b;
                 synchronized (hashSet) {
-                    Iterator it = hashSet.iterator();
+                    Iterator<b> it = hashSet.iterator();
                     while (it.hasNext()) {
-                        ((b) it.next()).a(activeNetworkInfo);
+                        it.next().a(activeNetworkInfo);
                     }
                 }
                 return;

@@ -9,22 +9,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Objects;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
+import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class AnimatedFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CountingMemoryCache mBackingCache;
-    public final CountingMemoryCache.EntryStateObserver mEntryStateObserver;
-    public final LinkedHashSet mFreeItemsPool;
+    public final CountingMemoryCache<CacheKey, CloseableImage> mBackingCache;
+    public final CountingMemoryCache.EntryStateObserver<CacheKey> mEntryStateObserver;
+    @GuardedBy("this")
+    public final LinkedHashSet<CacheKey> mFreeItemsPool;
     public final CacheKey mImageCacheKey;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class FrameKey implements CacheKey {
+    public static class FrameKey implements CacheKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int mFrameIndex;
@@ -121,7 +126,7 @@ public class AnimatedFrameCache {
         }
     }
 
-    public AnimatedFrameCache(CacheKey cacheKey, CountingMemoryCache countingMemoryCache) {
+    public AnimatedFrameCache(CacheKey cacheKey, CountingMemoryCache<CacheKey, CloseableImage> countingMemoryCache) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,8 +143,8 @@ public class AnimatedFrameCache {
         }
         this.mImageCacheKey = cacheKey;
         this.mBackingCache = countingMemoryCache;
-        this.mFreeItemsPool = new LinkedHashSet();
-        this.mEntryStateObserver = new CountingMemoryCache.EntryStateObserver(this) { // from class: com.facebook.imagepipeline.animated.impl.AnimatedFrameCache.1
+        this.mFreeItemsPool = new LinkedHashSet<>();
+        this.mEntryStateObserver = new CountingMemoryCache.EntryStateObserver<CacheKey>(this) { // from class: com.facebook.imagepipeline.animated.impl.AnimatedFrameCache.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AnimatedFrameCache this$0;
@@ -186,13 +191,13 @@ public class AnimatedFrameCache {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.mBackingCache.contains(keyFor(i));
+            return this.mBackingCache.contains((CountingMemoryCache<CacheKey, CloseableImage>) keyFor(i));
         }
         return invokeI.booleanValue;
     }
 
     @Nullable
-    public CloseableReference get(int i) {
+    public CloseableReference<CloseableImage> get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -209,9 +214,9 @@ public class AnimatedFrameCache {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             synchronized (this) {
                 cacheKey = null;
-                Iterator it = this.mFreeItemsPool.iterator();
+                Iterator<CacheKey> it = this.mFreeItemsPool.iterator();
                 if (it.hasNext()) {
-                    cacheKey = (CacheKey) it.next();
+                    cacheKey = it.next();
                     it.remove();
                 }
             }
@@ -221,8 +226,8 @@ public class AnimatedFrameCache {
     }
 
     @Nullable
-    public CloseableReference getForReuse() {
-        CloseableReference reuse;
+    public CloseableReference<CloseableImage> getForReuse() {
+        CloseableReference<CloseableImage> reuse;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -239,7 +244,7 @@ public class AnimatedFrameCache {
     }
 
     @Nullable
-    public CloseableReference cache(int i, CloseableReference closeableReference) {
+    public CloseableReference<CloseableImage> cache(int i, CloseableReference<CloseableImage> closeableReference) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, closeableReference)) == null) {

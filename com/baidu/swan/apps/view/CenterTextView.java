@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.text.Layout;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class CenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;

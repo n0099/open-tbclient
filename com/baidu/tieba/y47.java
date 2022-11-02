@@ -1,84 +1,105 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class y47 {
+public class y47 extends zw<rr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List a;
+    public AlaRecommendLayout f;
+    public int g;
 
-    public y47() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y47(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.g = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof AlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
+            this.f = (AlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
+        } else {
+            this.f = new AlaRecommendLayout(tbPageContext.getPageActivity());
+        }
     }
 
-    public List b() {
+    @Override // com.baidu.tieba.zw
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.f;
         }
-        return (List) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List list = this.a;
-            if (list == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.d(i);
+                q(this.f, 3);
             }
-            return !ListUtils.isEmpty(list);
+            this.g = i;
         }
-        return invokeV.booleanValue;
     }
 
-    public x47 a(boolean z, v47 v47Var) {
-        InterceptResult invokeZL;
+    public d46 s(rr4 rr4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, v47Var)) == null) {
-            x47 x47Var = new x47();
-            x47Var.c = v47Var.i();
-            x47Var.e = v47Var.a();
-            x47Var.f = v47Var.c();
-            ArrayList h = v47Var.h();
-            if (z) {
-                if (!ListUtils.isEmpty(h)) {
-                    this.a.clear();
-                    this.a.addAll(h);
-                }
-            } else if (!ListUtils.isEmpty(h)) {
-                this.a.addAll(h);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rr4Var)) == null) {
+            if (rr4Var instanceof h47) {
+                h47 h47Var = (h47) rr4Var;
+                return new d46(h47Var.getType(), h47Var.c(), "recommend");
+            } else if (rr4Var instanceof nz6) {
+                nz6 nz6Var = (nz6) rr4Var;
+                return new d46(nz6Var.getType(), nz6Var.c(), ImageViewerConfig.FROM_CONCERN);
+            } else {
+                return new d46();
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a);
-            u37.h(true, arrayList, v47Var.e());
-            u37.h(true, arrayList, v47Var.f());
-            u37.h(true, arrayList, v47Var.d());
-            u37.h(true, arrayList, v47Var.g());
-            x47Var.a = u37.c(arrayList);
-            return x47Var;
         }
-        return (x47) invokeZL.objValue;
+        return (d46) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rx
+    /* renamed from: t */
+    public void a(rr4 rr4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rr4Var) == null) {
+            d46 s = s(rr4Var);
+            if (s != null && !ListUtils.isEmpty(s.c())) {
+                this.f.setData(s);
+                this.f.d(TbadkCoreApplication.getInst().getSkinType());
+                this.f.setVisibility(0);
+                return;
+            }
+            this.f.setVisibility(8);
+        }
     }
 }

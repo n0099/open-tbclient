@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public final class string {
+    public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static int app_name = 0x7f150001;
         public transient /* synthetic */ FieldHolder $fh;

@@ -7,6 +7,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdExtendListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -102,7 +103,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -189,13 +190,14 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "  errorCode: " + transErrorCode.first);
         }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:0x00f9  */
     /* JADX WARN: Removed duplicated region for block: B:34:0x011e  */
+    /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -203,7 +205,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     public void onSuccess(int i, byte[] bArr) {
         boolean z;
         int i2;
-        ArrayList arrayList;
+        ArrayList<ChatMsg> arrayList;
         String str;
         boolean z2;
         int i3;
@@ -217,7 +219,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
             Type type = new Type();
             type.t = 0L;
             int i5 = 0;
-            ArrayList arrayList2 = null;
+            ArrayList<ChatMsg> arrayList2 = null;
             try {
                 JSONObject jSONObject = new JSONObject(str3);
                 int i6 = jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE);

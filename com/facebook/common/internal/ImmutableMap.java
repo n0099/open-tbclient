@@ -6,16 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.infer.annotation.Nullsafe;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
-public class ImmutableMap extends HashMap {
+public class ImmutableMap<K, V> extends HashMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImmutableMap(Map map) {
+    public ImmutableMap(Map<? extends K, ? extends V> map) {
         super(map);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,16 +36,16 @@ public class ImmutableMap extends HashMap {
         }
     }
 
-    public static ImmutableMap copyOf(Map map) {
+    public static <K, V> ImmutableMap<K, V> copyOf(Map<? extends K, ? extends V> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            return new ImmutableMap(map);
+            return new ImmutableMap<>(map);
         }
         return (ImmutableMap) invokeL.objValue;
     }
 
-    public static Map of() {
+    public static <K, V> Map<K, V> of() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -52,82 +54,82 @@ public class ImmutableMap extends HashMap {
         return (Map) invokeV.objValue;
     }
 
-    public static Map of(Object obj, Object obj2) {
+    public static <K, V> Map<K, V> of(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, k, v)) == null) {
             HashMap hashMap = new HashMap(1);
-            hashMap.put(obj, obj2);
+            hashMap.put(k, v);
             return Collections.unmodifiableMap(hashMap);
         }
         return (Map) invokeLL.objValue;
     }
 
-    public static Map of(Object obj, Object obj2, Object obj3, Object obj4) {
+    public static <K, V> Map<K, V> of(K k, V v, K k2, V v2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3, obj4)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k, v, k2, v2)) == null) {
             HashMap hashMap = new HashMap(2);
-            hashMap.put(obj, obj2);
-            hashMap.put(obj3, obj4);
+            hashMap.put(k, v);
+            hashMap.put(k2, v2);
             return Collections.unmodifiableMap(hashMap);
         }
         return (Map) invokeLLLL.objValue;
     }
 
-    public static Map of(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6) {
+    public static <K, V> Map<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{k, v, k2, v2, k3, v3})) == null) {
             HashMap hashMap = new HashMap(3);
-            hashMap.put(obj, obj2);
-            hashMap.put(obj3, obj4);
-            hashMap.put(obj5, obj6);
+            hashMap.put(k, v);
+            hashMap.put(k2, v2);
+            hashMap.put(k3, v3);
             return Collections.unmodifiableMap(hashMap);
         }
         return (Map) invokeCommon.objValue;
     }
 
-    public static Map of(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8) {
+    public static <K, V> Map<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4})) == null) {
             HashMap hashMap = new HashMap(4);
-            hashMap.put(obj, obj2);
-            hashMap.put(obj3, obj4);
-            hashMap.put(obj5, obj6);
-            hashMap.put(obj7, obj8);
+            hashMap.put(k, v);
+            hashMap.put(k2, v2);
+            hashMap.put(k3, v3);
+            hashMap.put(k4, v4);
             return Collections.unmodifiableMap(hashMap);
         }
         return (Map) invokeCommon.objValue;
     }
 
-    public static Map of(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8, Object obj9, Object obj10) {
+    public static <K, V> Map<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5})) == null) {
             HashMap hashMap = new HashMap(5);
-            hashMap.put(obj, obj2);
-            hashMap.put(obj3, obj4);
-            hashMap.put(obj5, obj6);
-            hashMap.put(obj7, obj8);
-            hashMap.put(obj9, obj10);
+            hashMap.put(k, v);
+            hashMap.put(k2, v2);
+            hashMap.put(k3, v3);
+            hashMap.put(k4, v4);
+            hashMap.put(k5, v5);
             return Collections.unmodifiableMap(hashMap);
         }
         return (Map) invokeCommon.objValue;
     }
 
-    public static Map of(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8, Object obj9, Object obj10, Object obj11, Object obj12) {
+    public static <K, V> Map<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6})) == null) {
             HashMap hashMap = new HashMap(6);
-            hashMap.put(obj, obj2);
-            hashMap.put(obj3, obj4);
-            hashMap.put(obj5, obj6);
-            hashMap.put(obj7, obj8);
-            hashMap.put(obj9, obj10);
-            hashMap.put(obj11, obj12);
+            hashMap.put(k, v);
+            hashMap.put(k2, v2);
+            hashMap.put(k3, v3);
+            hashMap.put(k4, v4);
+            hashMap.put(k5, v5);
+            hashMap.put(k6, v6);
             return Collections.unmodifiableMap(hashMap);
         }
         return (Map) invokeCommon.objValue;

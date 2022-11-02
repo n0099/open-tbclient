@@ -4,6 +4,7 @@ import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
+import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,6 +76,7 @@ public final class FakeDrag {
         return invokeV.booleanValue;
     }
 
+    @UiThread
     public boolean beginFakeDrag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,6 +98,7 @@ public final class FakeDrag {
         return invokeV.booleanValue;
     }
 
+    @UiThread
     public boolean endFakeDrag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,6 +118,7 @@ public final class FakeDrag {
         return invokeV.booleanValue;
     }
 
+    @UiThread
     public boolean fakeDragBy(float f) {
         InterceptResult invokeF;
         boolean z;

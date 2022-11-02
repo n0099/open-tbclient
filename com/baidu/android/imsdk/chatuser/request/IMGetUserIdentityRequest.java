@@ -29,7 +29,7 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetUserIdentityRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mBduids;
+    public List<Long> mBduids;
     public IGetUserIdentityListener mListener;
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -76,7 +76,7 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         return invokeV.booleanValue;
     }
 
-    public IMGetUserIdentityRequest(Context context, List list, IGetUserIdentityListener iGetUserIdentityListener) {
+    public IMGetUserIdentityRequest(Context context, List<Long> list, IGetUserIdentityListener iGetUserIdentityListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

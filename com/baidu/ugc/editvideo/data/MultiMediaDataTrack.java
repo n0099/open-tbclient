@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.tieba.nh9;
+import com.baidu.tieba.wi9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,9 +17,9 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class MultiMediaDataTrack implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MultiMediaDataTrack> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public List multiMediaDataList;
+    public List<MultiMediaData> multiMediaDataList;
     public MultiMediaData multiMediaDataSuperpositionFooter;
     public MultiMediaData multiMediaDataSuperpositionHeader;
 
@@ -36,7 +36,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.ugc.editvideo.data.MultiMediaDataTrack.1
+        CREATOR = new Parcelable.Creator<MultiMediaDataTrack>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaDataTrack.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,6 +55,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MultiMediaDataTrack createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -63,6 +64,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MultiMediaDataTrack[] newArray(int i) {
                 InterceptResult invokeI;
@@ -146,11 +148,11 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (nh9.e(this.multiMediaDataList) || this.multiMediaDataList.size() < 1) {
+            if (wi9.e(this.multiMediaDataList) || this.multiMediaDataList.size() < 1) {
                 return false;
             }
-            List list = this.multiMediaDataList;
-            return MediaSegment.SEG_TYPE_INPUT_FOOTER.equals(((MultiMediaData) list.get(list.size() - 1)).inputType);
+            List<MultiMediaData> list = this.multiMediaDataList;
+            return MediaSegment.SEG_TYPE_INPUT_FOOTER.equals(list.get(list.size() - 1).inputType);
         }
         return invokeV.booleanValue;
     }
@@ -159,10 +161,10 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (nh9.e(this.multiMediaDataList) || this.multiMediaDataList.get(0) == null) {
+            if (wi9.e(this.multiMediaDataList) || this.multiMediaDataList.get(0) == null) {
                 return false;
             }
-            return MediaSegment.SEG_TYPE_INPUT_HEADER.equals(((MultiMediaData) this.multiMediaDataList.get(0)).inputType);
+            return MediaSegment.SEG_TYPE_INPUT_HEADER.equals(this.multiMediaDataList.get(0).inputType);
         }
         return invokeV.booleanValue;
     }

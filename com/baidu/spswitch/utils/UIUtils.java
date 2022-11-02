@@ -3,6 +3,7 @@ package com.baidu.spswitch.utils;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -55,7 +56,7 @@ public class UIUtils {
         }
     }
 
-    public static int dip2px(Context context, float f) {
+    public static int dip2px(@Nullable Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) {
@@ -76,7 +77,7 @@ public class UIUtils {
         return invokeLF.floatValue;
     }
 
-    public static float getDensity(Context context) {
+    public static float getDensity(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {

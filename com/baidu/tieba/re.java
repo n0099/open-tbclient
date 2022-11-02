@@ -1,212 +1,148 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class re {
+public class re extends te<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String h;
 
-    public static final Object a(ArrayList arrayList, se seVar) {
-        InterceptResult invokeLL;
-        Object a;
-        Object a2;
-        Object a3;
-        Object a4;
+    @Override // com.baidu.tieba.te
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, seVar)) == null) {
-            if (arrayList != null && seVar != null) {
-                Class a5 = seVar.a();
-                Type[] b = seVar.b();
-                int i = 0;
-                if (a5.isArray()) {
-                    Object newInstance = Array.newInstance(a5.getComponentType(), arrayList.size());
-                    Iterator it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        Object a6 = we.a(it.next()).a(new se(a5.getComponentType()));
-                        if (a6 != null) {
-                            Array.set(newInstance, i, a6);
-                        }
-                        i++;
-                    }
-                    return newInstance;
-                } else if (sc.e(a5, List.class)) {
-                    List a7 = qe.a(seVar, arrayList.size());
-                    if (a7 != null) {
-                        Iterator it2 = arrayList.iterator();
-                        while (it2.hasNext()) {
-                            ce a8 = we.a(it2.next());
-                            if (b != null && b.length >= 1 && (a4 = a8.a(new se(b[0]))) != null) {
-                                a7.add(a4);
-                            }
-                        }
-                    }
-                    return a7;
-                } else if (sc.e(a5, Queue.class)) {
-                    Queue c = qe.c(seVar, arrayList.size());
-                    if (c != null) {
-                        Iterator it3 = arrayList.iterator();
-                        while (it3.hasNext()) {
-                            ce a9 = we.a(it3.next());
-                            if (b != null && b.length >= 1 && (a3 = a9.a(new se(b[0]))) != null) {
-                                c.add(a3);
-                            }
-                        }
-                    }
-                    return c;
-                } else if (sc.e(a5, Set.class)) {
-                    Set d = qe.d(seVar, arrayList.size());
-                    if (d != null) {
-                        Iterator it4 = arrayList.iterator();
-                        while (it4.hasNext()) {
-                            ce a10 = we.a(it4.next());
-                            if (b != null && b.length >= 1 && (a2 = a10.a(new se(b[0]))) != null) {
-                                d.add(a2);
-                            }
-                        }
-                    }
-                    return d;
-                } else if (sc.e(a5, Map.class)) {
-                    Map b2 = qe.b(seVar, arrayList.size());
-                    if (b2 != null) {
-                        Iterator it5 = arrayList.iterator();
-                        while (it5.hasNext()) {
-                            ce a11 = we.a(it5.next());
-                            if (b != null && b.length >= 2) {
-                                a = a11.a(new se(b[1]));
-                            } else {
-                                a = a11.a(new se(String.class));
-                            }
-                            if (a != null) {
-                                b2.put(String.valueOf(i), a);
-                            }
-                            i++;
-                        }
-                    }
-                    return b2;
-                } else if (a5 == SparseArray.class) {
-                    SparseArray sparseArray = new SparseArray();
-                    Iterator it6 = arrayList.iterator();
-                    int i2 = 0;
-                    while (it6.hasNext()) {
-                        Object next = it6.next();
-                        ce a12 = we.a(next);
-                        if (b != null && b.length >= 1 && a12.a(new se(b[0])) != null) {
-                            sparseArray.put(i2, next);
-                        }
-                        i2++;
-                    }
-                    return sparseArray;
-                } else if (a5 == Bundle.class) {
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
         }
-        return invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    public static final Object b(Object obj, se seVar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.te
+    public void k(String str, String str2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, seVar)) == null) {
-            if (obj == null || seVar == null || !obj.getClass().isArray()) {
-                return null;
-            }
-            int length = Array.getLength(obj);
-            ArrayList arrayList = new ArrayList(length);
-            for (int i = 0; i < length; i++) {
-                Object obj2 = Array.get(obj, i);
-                if (obj2 != null) {
-                    arrayList.add(obj2);
-                }
-            }
-            return a(arrayList, seVar);
+        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
         }
-        return invokeLL.objValue;
     }
 
-    public static final Object c(List list, se seVar) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public re(y9 y9Var, String str) {
+        super(y9Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, seVar)) == null) {
-            if (list != null && seVar != null) {
-                ArrayList arrayList = new ArrayList(list.size());
-                for (Object obj : list) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, seVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {y9Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((y9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return invokeLL.objValue;
+        this.h = str;
     }
 
-    public static final Object d(Queue queue, se seVar) {
+    @Override // com.baidu.tieba.te
+    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, queue, seVar)) == null) {
-            if (queue != null && seVar != null) {
-                ArrayList arrayList = new ArrayList(queue.size());
-                for (Object obj : queue) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, seVar);
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
+            return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
         }
-        return invokeLL.objValue;
+        return (Cursor) invokeLL.objValue;
     }
 
-    public static final Object e(Set set, se seVar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.te
+    public boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, set, seVar)) == null) {
-            if (set != null && seVar != null) {
-                ArrayList arrayList = new ArrayList(set.size());
-                for (Object obj : set) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, seVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                this.a.f().delete(this.b, "m_ns = ?", new String[]{str});
+                return true;
+            } catch (Throwable th) {
+                y9 y9Var = this.a;
+                y9Var.i(th, "failed to clear from " + str);
+                return false;
             }
-            return null;
         }
-        return invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static final Object f(SparseArray sparseArray, se seVar) {
+    /* JADX WARN: Type inference failed for: r0v14, types: [T, byte[]] */
+    @Override // com.baidu.tieba.te
+    public xe<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, sparseArray, seVar)) == null) {
-            if (sparseArray != null && seVar != null) {
-                ArrayList arrayList = new ArrayList(sparseArray.size());
-                for (int i = 0; i < sparseArray.size(); i++) {
-                    Object obj = sparseArray.get(sparseArray.keyAt(i));
-                    if (obj != null) {
-                        arrayList.add(obj);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) == null) {
+            Cursor cursor = null;
+            try {
+                Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
+                try {
+                    if (rawQuery.moveToNext()) {
+                        xe<byte[]> xeVar = new xe<>();
+                        xeVar.a = rawQuery.getString(0);
+                        xeVar.c = rawQuery.getString(1);
+                        xeVar.d = rawQuery.getLong(2);
+                        xeVar.e = rawQuery.getLong(3);
+                        xeVar.f = rawQuery.getLong(4);
+                        xeVar.b = rawQuery.getBlob(5);
+                        vg.a(rawQuery);
+                        return xeVar;
                     }
+                    vg.a(rawQuery);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor = rawQuery;
+                    vg.a(cursor);
+                    throw th;
                 }
-                return a(arrayList, seVar);
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return null;
+        } else {
+            return (xe) invokeLL.objValue;
         }
-        return invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.te
+    public String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.a.d("CREATE TABLE IF NOT EXISTS " + this.h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.h + "(m_ns)");
+            return this.h;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.te
+    public ContentValues p(xe<byte[]> xeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, xeVar)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("m_key", xeVar.a);
+            contentValues.put("m_ns", xeVar.c);
+            contentValues.put("m_value", xeVar.b);
+            contentValues.put("saveTime", Long.valueOf(xeVar.d));
+            contentValues.put("lastHitTime", Long.valueOf(xeVar.e));
+            contentValues.put("timeToExpire", Long.valueOf(xeVar.f));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
     }
 }

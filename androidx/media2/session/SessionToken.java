@@ -15,6 +15,9 @@ import android.os.Message;
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
 import androidx.versionedparcelable.VersionedParcelable;
@@ -41,6 +44,7 @@ public final class SessionToken implements VersionedParcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public SessionTokenImpl mImpl;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public interface OnSessionTokenCreatedListener {
         void onSessionTokenCreated(MediaSessionCompat.Token token, SessionToken sessionToken);
@@ -50,12 +54,16 @@ public final class SessionToken implements VersionedParcelable {
     public interface SessionTokenImpl extends VersionedParcelable {
         Object getBinder();
 
+        @Nullable
         ComponentName getComponentName();
 
+        @Nullable
         Bundle getExtras();
 
+        @NonNull
         String getPackageName();
 
+        @Nullable
         String getServiceName();
 
         int getType();
@@ -66,6 +74,7 @@ public final class SessionToken implements VersionedParcelable {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface TokenType {
     }
@@ -84,6 +93,7 @@ public final class SessionToken implements VersionedParcelable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Object getBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,6 +103,7 @@ public final class SessionToken implements VersionedParcelable {
         return invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public ComponentName getComponentName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,6 +113,7 @@ public final class SessionToken implements VersionedParcelable {
         return (ComponentName) invokeV.objValue;
     }
 
+    @NonNull
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,6 +127,7 @@ public final class SessionToken implements VersionedParcelable {
         return (Bundle) invokeV.objValue;
     }
 
+    @NonNull
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,6 +137,7 @@ public final class SessionToken implements VersionedParcelable {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String getServiceName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -160,6 +174,7 @@ public final class SessionToken implements VersionedParcelable {
         return invokeV.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean isLegacySession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -178,7 +193,7 @@ public final class SessionToken implements VersionedParcelable {
         return (String) invokeV.objValue;
     }
 
-    public SessionToken(Context context, ComponentName componentName) {
+    public SessionToken(@NonNull Context context, @NonNull ComponentName componentName) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -283,7 +298,8 @@ public final class SessionToken implements VersionedParcelable {
         return invokeLL.intValue;
     }
 
-    public static void createSessionToken(Context context, MediaSessionCompat.Token token, OnSessionTokenCreatedListener onSessionTokenCreatedListener) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public static void createSessionToken(@NonNull Context context, @NonNull MediaSessionCompat.Token token, @NonNull OnSessionTokenCreatedListener onSessionTokenCreatedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, token, onSessionTokenCreatedListener) == null) {
             if (context != null) {

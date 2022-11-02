@@ -3,6 +3,8 @@ package androidx.core.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +24,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
     public long mStartTime;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ContentLoadingProgressBar(Context context) {
+    public ContentLoadingProgressBar(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +45,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContentLoadingProgressBar(Context context, AttributeSet attributeSet) {
+    public ContentLoadingProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

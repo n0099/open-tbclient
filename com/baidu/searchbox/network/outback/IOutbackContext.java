@@ -16,5 +16,5 @@ public interface IOutbackContext {
 
     IAdditionalRecord getIAdditionalRecord();
 
-    HashMap getOutbackEngines();
+    HashMap<String, CallFactory.CallFactoryProducer> getOutbackEngines();
 }

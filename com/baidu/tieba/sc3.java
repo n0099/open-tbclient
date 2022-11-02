@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class sc3 {
+public final class sc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static JSONObject b;
+    public static final Map<String, mc3> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,68 +28,49 @@ public class sc3 {
                 return;
             }
         }
-        a = wj1.a;
+        boolean z = ok1.a;
+        a = new HashMap();
     }
 
-    public static JSONObject b() {
+    public sc3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static mc3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("abTestSwitch", a());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+            return b("searchbox_webapps_sp");
         }
-        return (JSONObject) invokeV.objValue;
+        return (mc3) invokeV.objValue;
     }
 
-    public static synchronized void c() {
+    public static mc3 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (sc3.class) {
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            mc3 mc3Var = a.get(str);
+            if (mc3Var == null) {
+                synchronized (sc3.class) {
+                    mc3Var = a.get(str);
+                    if (mc3Var == null) {
+                        mc3Var = new mc3(str);
+                        a.put(str, mc3Var);
+                    }
                 }
-                b = null;
             }
+            return mc3Var;
         }
-    }
-
-    public static synchronized JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (sc3.class) {
-                if (b != null) {
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
-                    }
-                    return b;
-                }
-                JSONObject rawSwitch = tm2.g0().getRawSwitch();
-                if (rawSwitch == null) {
-                    b = new JSONObject();
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
-                    }
-                    return b;
-                }
-                Iterator<String> keys = rawSwitch.keys();
-                while (keys.hasNext()) {
-                    if (!keys.next().startsWith("swanswitch")) {
-                        keys.remove();
-                    }
-                }
-                b = rawSwitch;
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
-                }
-                return b;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
+        return (mc3) invokeL.objValue;
     }
 }

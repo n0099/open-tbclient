@@ -16,7 +16,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ARAuth {
     public static /* synthetic */ Interceptable $ic;
-    public static com.baidu.ar.h.h iW;
+    public static com.baidu.ar.h.h<j> iW;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class ARAuth {
                 return;
             }
         }
-        iW = new com.baidu.ar.h.h("com.baidu.ar.auth.ARAuthFacade");
+        iW = new com.baidu.ar.h.h<>("com.baidu.ar.auth.ARAuthFacade");
     }
 
     public ARAuth() {
@@ -49,22 +49,22 @@ public class ARAuth {
         }
     }
 
-    public static List checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
+    public static List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, bArr, iDuMixAuthCallback)) == null) {
-            j jVar = (j) iW.gA();
-            return jVar != null ? jVar.checkAuth(context, bArr, iDuMixAuthCallback) : new ArrayList();
+            j gA = iW.gA();
+            return gA != null ? gA.checkAuth(context, bArr, iDuMixAuthCallback) : new ArrayList();
         }
         return (List) invokeLLL.objValue;
     }
 
-    public static List checkAuth(Context context, byte[] bArr, ICallbackWith iCallbackWith, ICallbackWith iCallbackWith2) {
+    public static List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, bArr, iCallbackWith, iCallbackWith2)) == null) {
-            j jVar = (j) iW.gA();
-            return jVar != null ? jVar.checkAuth(context, bArr, iCallbackWith, iCallbackWith2) : new ArrayList();
+            j gA = iW.gA();
+            return gA != null ? gA.checkAuth(context, bArr, iCallbackWith, iCallbackWith2) : new ArrayList();
         }
         return (List) invokeLLLL.objValue;
     }
@@ -73,9 +73,9 @@ public class ARAuth {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            j jVar = (j) iW.gA();
-            if (jVar != null) {
-                return jVar.checkFeatureAuth(i);
+            j gA = iW.gA();
+            if (gA != null) {
+                return gA.checkFeatureAuth(i);
             }
             return true;
         }
@@ -86,9 +86,9 @@ public class ARAuth {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, bArr)) == null) {
-            j jVar = (j) iW.gA();
-            if (jVar != null) {
-                return jVar.checkOfflineLicenseAuth(context, bArr);
+            j gA = iW.gA();
+            if (gA != null) {
+                return gA.checkOfflineLicenseAuth(context, bArr);
             }
             return true;
         }
@@ -99,9 +99,9 @@ public class ARAuth {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            j jVar = (j) iW.gA();
-            if (jVar != null) {
-                return jVar.createTipBitmap(context);
+            j gA = iW.gA();
+            if (gA != null) {
+                return gA.createTipBitmap(context);
             }
             return null;
         }
@@ -112,9 +112,9 @@ public class ARAuth {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, iAuthCallback) == null) {
             AuthJni.init();
-            j jVar = (j) iW.gA();
-            if (jVar != null) {
-                jVar.doAuth(context, iAuthCallback);
+            j gA = iW.gA();
+            if (gA != null) {
+                gA.doAuth(context, iAuthCallback);
             }
         }
     }
@@ -123,9 +123,9 @@ public class ARAuth {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            j jVar = (j) iW.gA();
-            if (jVar != null) {
-                return jVar.enableFeature(i);
+            j gA = iW.gA();
+            if (gA != null) {
+                return gA.enableFeature(i);
             }
             return true;
         }
@@ -136,9 +136,9 @@ public class ARAuth {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            j jVar = (j) iW.gA();
-            if (jVar != null) {
-                return jVar.isShowAuthTip();
+            j gA = iW.gA();
+            if (gA != null) {
+                return gA.isShowAuthTip();
             }
             return true;
         }
@@ -146,29 +146,29 @@ public class ARAuth {
     }
 
     public static void loadAuthInfo(Context context) {
-        j jVar;
+        j gA;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || (jVar = (j) iW.gA()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || (gA = iW.gA()) == null) {
             return;
         }
-        jVar.loadAuthInfo(context);
+        gA.loadAuthInfo(context);
     }
 
     public static void receiveAuthFailMessage(int i) {
-        j jVar;
+        j gA;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65547, null, i) == null) || (jVar = (j) iW.gA()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65547, null, i) == null) || (gA = iW.gA()) == null) {
             return;
         }
-        jVar.receiveAuthFailMessage(i);
+        gA.receiveAuthFailMessage(i);
     }
 
     public static void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            j jVar = (j) iW.gB();
-            if (jVar != null) {
-                jVar.release();
+            j gB = iW.gB();
+            if (gB != null) {
+                gB.release();
             }
             iW.release();
             AuthJni.release();
@@ -176,11 +176,11 @@ public class ARAuth {
     }
 
     public static void setAuthLicense(byte[] bArr, String str, String str2, String str3) {
-        j jVar;
+        j gA;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65549, null, bArr, str, str2, str3) == null) || (jVar = (j) iW.gA()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65549, null, bArr, str, str2, str3) == null) || (gA = iW.gA()) == null) {
             return;
         }
-        jVar.setAuthLicense(bArr, str, str2, str3);
+        gA.setAuthLicense(bArr, str, str2, str3);
     }
 }

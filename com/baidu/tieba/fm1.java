@@ -1,24 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fm1 implements mo1 {
+public class fm1 implements do1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mo1
-    public boolean a(Message message) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.do1
+    public boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.do1
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.do1
+    public boolean c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public fm1() {

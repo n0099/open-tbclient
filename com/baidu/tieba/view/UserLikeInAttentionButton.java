@@ -3,18 +3,19 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ty4;
-import com.baidu.tieba.vz4;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.l05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4 {
+public class UserLikeInAttentionButton extends TBSpecificationBtn implements l05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -24,7 +25,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4
         void a(View view2);
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -53,7 +54,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public UserLikeInAttentionButton(Context context, AttributeSet attributeSet) {
+    public UserLikeInAttentionButton(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,7 +75,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserLikeInAttentionButton(Context context, AttributeSet attributeSet, int i) {
+    public UserLikeInAttentionButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,13 +93,13 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4
                 return;
             }
         }
-        ty4 ty4Var = new ty4();
-        ty4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-        setConfig(ty4Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
+        jz4 jz4Var = new jz4();
+        jz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+        setConfig(jz4Var);
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -107,7 +108,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4
         }
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -129,7 +130,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4
         }
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -137,7 +138,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4
         }
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -153,17 +154,17 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements vz4
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                ty4 ty4Var = new ty4();
-                ty4Var.p(R.color.CAM_X0613, R.color.CAM_X0103);
-                setConfig(ty4Var);
+                jz4 jz4Var = new jz4();
+                jz4Var.p(R.color.CAM_X0613, R.color.CAM_X0103);
+                setConfig(jz4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fef));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f100a));
             } else {
-                ty4 ty4Var2 = new ty4();
-                ty4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(ty4Var2);
+                jz4 jz4Var2 = new jz4();
+                jz4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(jz4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }

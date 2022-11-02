@@ -10,12 +10,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -162,7 +163,7 @@ public class BdTopToast extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdTopToast(Context context, AttributeSet attributeSet) {
+    public BdTopToast(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -183,7 +184,7 @@ public class BdTopToast extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdTopToast(Context context, AttributeSet attributeSet, int i) {
+    public BdTopToast(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -236,7 +237,7 @@ public class BdTopToast extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hh.a().removeCallbacks(this.g);
+            zg.a().removeCallbacks(this.g);
             clearAnimation();
         }
     }
@@ -249,10 +250,10 @@ public class BdTopToast extends LinearLayout {
                 this.a = new View(getContext());
                 addView(this.a, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0150, this);
-            this.b = (BottomShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f090364);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090365);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090363);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0152, this);
+            this.b = (BottomShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f090373);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090374);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090372);
             d();
         }
     }
@@ -273,10 +274,10 @@ public class BdTopToast extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
             if (this.i) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08061c, R.color.CAM_X0302, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080621, R.color.CAM_X0302, null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080608, R.color.CAM_X0301, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0301, null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0301);
             }
             this.b.b();
@@ -296,9 +297,9 @@ public class BdTopToast extends LinearLayout {
         e();
         startAnimation(this.e);
         if (this.h >= 0) {
-            hh.a().postDelayed(this.g, this.h);
+            zg.a().postDelayed(this.g, this.h);
         } else {
-            hh.a().postDelayed(this.g, 5000L);
+            zg.a().postDelayed(this.g, 5000L);
         }
     }
 }

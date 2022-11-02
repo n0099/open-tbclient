@@ -89,7 +89,7 @@ public class LaunchSpeedManager implements IDynamicScoreManager {
     @Override // com.baidu.searchbox.devicescore.dynamic.IDynamicScoreManager
     public boolean validMetaData(Context context, ScoreMetaData scoreMetaData) {
         InterceptResult invokeLL;
-        Map map;
+        Map<String, Object> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, scoreMetaData)) == null) {
             if (scoreMetaData != null && IDeviceScore.TYPE_LAUNCH_SPEED.equals(scoreMetaData.type) && (map = scoreMetaData.params) != null) {

@@ -77,7 +77,7 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

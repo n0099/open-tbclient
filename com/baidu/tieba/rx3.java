@@ -1,75 +1,58 @@
 package com.baidu.tieba;
 
-import android.media.MediaPlayer;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.nalib.audio.SwanAudioPlayer;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.tieba.ox3;
+import com.baidu.tieba.sx3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class rx3 implements qx3 {
+public class rx3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rx3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAudioPlayer a;
-    public String b;
-    public boolean c;
-    public float d;
+    public HandlerThread a;
+    public e b;
+    public px3 c;
+    public long d;
     public int e;
-    public MediaPlayer.OnPreparedListener f;
-    public MediaPlayer.OnCompletionListener g;
-    public MediaPlayer.OnErrorListener h;
-    public MediaPlayer.OnSeekCompleteListener i;
-    public ca4 j;
-    public Handler k;
-
-    @Override // com.baidu.tieba.qx3
-    public void g(MediaPlayer.OnInfoListener onInfoListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onInfoListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public void n(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onBufferingUpdateListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public long f;
+    public qx3 g;
+    public sx3.d h;
 
     /* loaded from: classes5.dex */
-    public class e implements Runnable {
+    public class b implements ox3.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ rx3 b;
+        public final /* synthetic */ ox3.d b;
+        public final /* synthetic */ rx3 c;
 
         /* loaded from: classes5.dex */
-        public class a implements MediaPlayer.OnPreparedListener {
+        public class a implements sx3.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
+            public final /* synthetic */ b a;
 
-            public a(e eVar) {
+            public a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
+                    Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -79,162 +62,48 @@ public class rx3 implements qx3 {
                         return;
                     }
                 }
-                this.a = eVar;
+                this.a = bVar;
             }
 
-            @Override // android.media.MediaPlayer.OnPreparedListener
-            public void onPrepared(MediaPlayer mediaPlayer) {
+            @Override // com.baidu.tieba.sx3.d
+            public void onFail(String str) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && this.a.b.f != null) {
-                    this.a.b.f.onPrepared(mediaPlayer);
+                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                    this.a.b.onFail(str);
+                }
+            }
+
+            @Override // com.baidu.tieba.sx3.d
+            public void onSuccess(Object obj) {
+                Activity activity;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                    tx3 tx3Var = (tx3) obj;
+                    if (ok1.a) {
+                        Log.d("AntiAddictionManager", tx3Var.toString());
+                    }
+                    int i = tx3Var.a;
+                    if (i == 0) {
+                        this.a.b.onSuccess();
+                    } else if (1 == i) {
+                        this.a.b.onFail(tx3Var.b);
+                    } else {
+                        this.a.b.onFail(tx3Var.b);
+                        if (TextUtils.isEmpty(tx3Var.b) || (activity = this.a.c.getActivity()) == null) {
+                            return;
+                        }
+                        this.a.c.g.f(activity, tx3Var.b, activity.getString(R.string.obfuscated_res_0x7f0f0109), true, null);
+                    }
                 }
             }
         }
 
-        /* loaded from: classes5.dex */
-        public class b implements MediaPlayer.OnCompletionListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public b(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.media.MediaPlayer.OnCompletionListener
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && this.a.b.g != null) {
-                    this.a.b.g.onCompletion(mediaPlayer);
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class c implements MediaPlayer.OnSeekCompleteListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public c(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.media.MediaPlayer.OnSeekCompleteListener
-            public void onSeekComplete(MediaPlayer mediaPlayer) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && this.a.b.i != null) {
-                    this.a.b.i.onSeekComplete(mediaPlayer);
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class d implements MediaPlayer.OnErrorListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public d(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.media.MediaPlayer.OnErrorListener
-            public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                InterceptResult invokeLII;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                    if (this.a.b.h != null) {
-                        return this.a.b.h.onError(mediaPlayer, i, i2);
-                    }
-                    return false;
-                }
-                return invokeLII.booleanValue;
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.rx3$e$e  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0397e implements ca4 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public C0397e(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // com.baidu.tieba.ca4
-            public void onPause() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.j != null) {
-                    this.a.b.j.onPause();
-                }
-            }
-        }
-
-        public e(rx3 rx3Var, String str) {
+        public b(rx3 rx3Var, String str, ox3.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rx3Var, str};
+                Object[] objArr = {rx3Var, str, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -244,32 +113,30 @@ public class rx3 implements qx3 {
                     return;
                 }
             }
-            this.b = rx3Var;
+            this.c = rx3Var;
             this.a = str;
+            this.b = dVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.ox3.d
+        public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b = this.a;
-                File file = new File(this.a);
-                if (file.exists() && !file.isDirectory()) {
-                    rx3 rx3Var = this.b;
-                    rx3Var.e = rx3Var.a.setDataSource(this.a, (int) file.length());
-                    this.b.a.setOnPreparedListener(this.b.e, new a(this));
-                    this.b.a.setOnCompletionListener(this.b.e, new b(this));
-                    this.b.a.setOnSeekCompleteListener(this.b.e, new c(this));
-                    this.b.a.setOnErrorListener(this.b.e, new d(this));
-                    this.b.a.setOnPauseListener(this.b.e, new C0397e(this));
-                    this.b.a.prepare(this.b.e);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.b.onFail(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ox3.d
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                sx3.h(this.a, new a(this));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements ox3.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rx3 a;
@@ -292,22 +159,32 @@ public class rx3 implements qx3 {
             this.a = rx3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.ox3.d
+        public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && 2 != this.a.a.getState(this.a.e)) {
-                this.a.a.play(this.a.e, this.a.d, this.a.c);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && ok1.a) {
+                Log.e("AntiAddictionManager", "handleLoginAndRealName: " + str);
             }
+        }
+
+        @Override // com.baidu.tieba.ox3.d
+        public void onSuccess() {
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (activity = this.a.getActivity()) == null) {
+                return;
+            }
+            w33.f(activity, R.string.obfuscated_res_0x7f0f010a).G();
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public class c implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rx3 a;
 
-        public b(rx3 rx3Var) {
+        public c(rx3 rx3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -325,52 +202,17 @@ public class rx3 implements qx3 {
             this.a = rx3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.pause(this.a.e);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.q();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ float a;
-        public final /* synthetic */ rx3 b;
-
-        public c(rx3 rx3Var, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx3Var, Float.valueOf(f)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rx3Var;
-            this.a = f;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.seek(this.b.e, (int) this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
+    public class d implements sx3.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rx3 a;
@@ -393,87 +235,89 @@ public class rx3 implements qx3 {
             this.a = rx3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.sx3.d
+        public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.stop(this.a.e);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && ok1.a) {
+                Log.e("AntiAddictionManager", str);
+            }
+        }
+
+        @Override // com.baidu.tieba.sx3.d
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                ux3 ux3Var = (ux3) obj;
+                if (ok1.a) {
+                    Log.d("AntiAddictionManager", ux3Var.toString());
+                }
+                this.a.d = System.currentTimeMillis();
+                if (!this.a.s(ux3Var.c)) {
+                    return;
+                }
+                this.a.r(ux3Var.d * 1000);
+                this.a.p(ux3Var.a, ux3Var.b);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements Runnable {
+    public class e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ rx3 b;
+        public final /* synthetic */ rx3 a;
 
-        public f(rx3 rx3Var, boolean z) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(rx3 rx3Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rx3Var, Boolean.valueOf(z)};
+                Object[] objArr = {rx3Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = rx3Var;
-            this.a = z;
+            this.a = rx3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (2 == this.b.a.getState(this.b.e)) {
-                    this.b.a.setLoop(this.b.e, this.a);
-                }
-                this.b.c = this.a;
+                removeCallbacksAndMessages(null);
             }
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ float a;
-        public final /* synthetic */ rx3 b;
-
-        public g(rx3 rx3Var, float f) {
+        public boolean b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx3Var, Float.valueOf(f)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return hasMessages(1);
             }
-            this.b = rx3Var;
-            this.a = f;
+            return invokeV.booleanValue;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public void c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (2 == this.b.a.getState(this.b.e)) {
-                    this.b.a.setVolume(this.b.e, this.a);
-                }
-                this.b.d = this.a;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || 1 == this.a.e) {
+                return;
+            }
+            sendEmptyMessageDelayed(1, this.a.f);
+        }
+
+        @Override // android.os.Handler
+        public void dispatchMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && message.what == 1) {
+                this.a.y(false);
+                c();
             }
         }
     }
@@ -483,140 +327,238 @@ public class rx3 implements qx3 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = SwanAudioPlayer.getInstance();
-        this.k = px3.h().e();
+        this.e = 0;
+        this.f = 300000L;
+        this.h = new d(this);
+        k();
     }
 
-    @Override // com.baidu.tieba.dx3
-    public void destroy() {
+    public final void r(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.release(this.e);
-            stop();
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (300000 < j) {
+                this.f = j;
+            } else {
+                this.f = 300000L;
+            }
         }
     }
 
-    @Override // com.baidu.tieba.dx3
-    public int getDuration() {
+    public final boolean s(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            this.e = i2;
+            if (1 != i2) {
+                return true;
+            }
+            n();
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void w(px3 px3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, px3Var) == null) {
+            this.c = px3Var;
+        }
+    }
+
+    public void j(String str, ox3.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, dVar) == null) {
+            if (TextUtils.isEmpty(str)) {
+                dVar.onFail("orderInfo is null");
+            } else if (!t()) {
+                dVar.onSuccess();
+            } else {
+                ox3.b(new b(this, str, dVar));
+            }
+        }
+    }
+
+    public final void u(int i2, String str) {
+        px3 px3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048586, this, i2, str) == null) && (px3Var = this.c) != null) {
+            try {
+                px3Var.x(i2, str);
+            } catch (JSONException e2) {
+                if (ok1.a) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.getDuration(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            e43 b0 = e43.b0();
+            if (b0 != null && b0.w() != null) {
+                return b0.w();
+            }
+            return null;
         }
-        return invokeV.intValue;
+        return (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dx3
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.k.post(new b(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.dx3
-    public void play() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.k.post(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.dx3
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.k.post(new d(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.dx3
-    public int v() {
+    public static rx3 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.a.getPosition(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (i == null) {
+                synchronized (rx3.class) {
+                    if (i == null) {
+                        i = new rx3();
+                    }
+                }
+            }
+            return i;
         }
-        return invokeV.intValue;
+        return (rx3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qx3
-    public void a(boolean z) {
+    public static synchronized void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.k.post(new f(this, z));
-        }
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public void c(String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.k.post(new e(this, str));
-        }
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public void f(ca4 ca4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ca4Var) == null) {
-            this.j = ca4Var;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            synchronized (rx3.class) {
+                if (i != null) {
+                    i.m();
+                    i = null;
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.qx3
-    public void h(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onSeekCompleteListener) == null) {
-            this.i = onSeekCompleteListener;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            l();
+            y(true);
+            x();
+            this.g = new qx3();
         }
     }
 
-    @Override // com.baidu.tieba.qx3
-    public void j(MediaPlayer.OnPreparedListener onPreparedListener) {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onPreparedListener) == null) {
-            this.f = onPreparedListener;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
+            HandlerThread handlerThread = new HandlerThread("anti_addiction_monitor");
+            this.a = handlerThread;
+            handlerThread.start();
+            this.b = new e(this, this.a.getLooper());
         }
     }
 
-    @Override // com.baidu.tieba.qx3
-    public void k(MediaPlayer.OnErrorListener onErrorListener) {
+    public final synchronized void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onErrorListener) == null) {
-            this.h = onErrorListener;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.b.a();
+                if (this.a != null) {
+                    this.a.quitSafely();
+                    this.a = null;
+                }
+                if (this.g != null) {
+                    this.g.e();
+                    this.g = null;
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.qx3
-    public void q(MediaPlayer.OnCompletionListener onCompletionListener) {
+    public synchronized void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onCompletionListener) == null) {
-            this.g = onCompletionListener;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (t()) {
+                    y(false);
+                }
+                this.b.a();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.dx3
-    public void seek(float f2) {
+    public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.k.post(new c(this, f2));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            ox3.c(new a(this));
         }
     }
 
-    @Override // com.baidu.tieba.qx3
-    public void setVolume(float f2) {
+    public final boolean t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.k.post(new g(this, f2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.e == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                if (t() && !this.b.b()) {
+                    this.d = System.currentTimeMillis();
+                    this.b.c();
+                }
+            }
+        }
+    }
+
+    public final void p(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
+            if (i2 < 0) {
+                if (ok1.a) {
+                    Log.e("AntiAddictionManager", "server AntiAddiction state error = " + i2 + " msg = " + str);
+                }
+            } else if (i2 != 0) {
+                if (i2 != 1) {
+                    u(i2, str);
+                    return;
+                }
+                Activity activity = getActivity();
+                if (activity == null) {
+                    return;
+                }
+                this.g.f(activity, activity.getString(R.string.obfuscated_res_0x7f0f0108), activity.getString(R.string.obfuscated_res_0x7f0f0107), true, new c(this));
+            }
+        }
+    }
+
+    public final void y(boolean z) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            if (!z) {
+                j = System.currentTimeMillis() - this.d;
+                if (LiveFeedPageSdk.REFRESH_TIME > j) {
+                    return;
+                }
+            } else {
+                j = 0;
+            }
+            if (ok1.a) {
+                Log.d("AntiAddictionManager", "Request upUseTime");
+            }
+            sx3.i(j, this.h);
         }
     }
 }

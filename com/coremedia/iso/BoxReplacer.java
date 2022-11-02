@@ -52,13 +52,13 @@ public class BoxReplacer {
         }
     }
 
-    public static void replace(Map map, File file) throws IOException {
+    public static void replace(Map<String, Box> map, File file) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, map, file) == null) {
             IsoFile isoFile = new IsoFile(new FileDataSourceImpl(file), new PropertyBoxParserImpl(new String[0]));
             HashMap hashMap = new HashMap();
-            for (Map.Entry entry : map.entrySet()) {
-                hashMap.put(Path.createPath(Path.getPath(isoFile, (String) entry.getKey())), (Box) entry.getValue());
+            for (Map.Entry<String, Box> entry : map.entrySet()) {
+                hashMap.put(Path.createPath(Path.getPath(isoFile, entry.getKey())), entry.getValue());
             }
             isoFile.close();
             FileChannel channel = new RandomAccessFile(file, "rw").getChannel();

@@ -1,5 +1,6 @@
 package com.baidu.nadcore.video.plugin.videoplayer.model;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
+@SuppressLint({"KotlinPropertyAccess"})
 /* loaded from: classes2.dex */
 public class BdVideo implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;

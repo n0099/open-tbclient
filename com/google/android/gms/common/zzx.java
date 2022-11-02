@@ -1,5 +1,6 @@
 package com.google.android.gms.common;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,10 +14,11 @@ import java.util.List;
 public final class zzx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public String zza;
     public long zzb;
-    public zzag zzc;
-    public zzag zzd;
+    public zzag<byte[]> zzc;
+    public zzag<byte[]> zzd;
 
     public final zzx zza(long j) {
         InterceptResult invokeJ;
@@ -57,7 +59,7 @@ public final class zzx {
         this.zzd = zzag.zzl();
     }
 
-    public final zzx zzb(List list) {
+    public final zzx zzb(List<byte[]> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
@@ -68,7 +70,7 @@ public final class zzx {
         return (zzx) invokeL.objValue;
     }
 
-    public final zzx zzc(List list) {
+    public final zzx zzc(List<byte[]> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {

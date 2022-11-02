@@ -1,66 +1,41 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes3.dex */
-public class em {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
+/* loaded from: classes4.dex */
+public class em implements IExceptionHandlerContext {
     public static /* synthetic */ Interceptable $ic;
-    public static Map a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448303621, "Lcom/baidu/tieba/em;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Override // com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext
+    public long getAppLaunchStartTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public em() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448303621, "Lcom/baidu/tieba/em;");
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("com.baidu.searchbox.livenps", new dm());
-    }
-
-    public static void a(String str, int i) {
-        hm hmVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (hmVar = (hm) a.get(str)) != null) {
-            hmVar.b(i);
-        }
-    }
-
-    public static void b(String str, int i, long j) {
-        hm hmVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (hmVar = (hm) a.get(str)) != null) {
-            hmVar.c(i, j);
-        }
-    }
-
-    public static void c(String str, int i, int i2) {
-        hm hmVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (hmVar = (hm) a.get(str)) != null) {
-            hmVar.d(i, i2);
-        }
-    }
-
-    public static void d(String str, int i, int i2) {
-        hm hmVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (hmVar = (hm) a.get(str)) != null) {
-            hmVar.e(i, i2);
         }
     }
 }

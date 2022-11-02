@@ -12,13 +12,13 @@ import io.reactivex.internal.util.BlockingHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes8.dex */
-public abstract class BlockingBaseObserver extends CountDownLatch implements Observer, Disposable {
+public abstract class BlockingBaseObserver<T> extends CountDownLatch implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
     public Disposable d;
     public Throwable error;
-    public Object value;
+    public T value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlockingBaseObserver() {
@@ -68,7 +68,7 @@ public abstract class BlockingBaseObserver extends CountDownLatch implements Obs
         }
     }
 
-    public final Object blockingGet() {
+    public final T blockingGet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -87,7 +87,7 @@ public abstract class BlockingBaseObserver extends CountDownLatch implements Obs
             }
             throw ExceptionHelper.wrapOrThrow(th);
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // io.reactivex.Observer

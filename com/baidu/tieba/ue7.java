@@ -1,101 +1,100 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import android.widget.ListView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ue7 extends rn {
+public class ue7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public p26 b;
-    public String c;
+    public final ArrayList<te7> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ue7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ListView a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ te7 c;
+        public final /* synthetic */ ChatMessage d;
+        public final /* synthetic */ ChatMessage e;
+
+        public a(ue7 ue7Var, ListView listView, List list, te7 te7Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ue7Var, listView, list, te7Var, chatMessage, chatMessage2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = listView;
+            this.b = list;
+            this.c = te7Var;
+            this.d = chatMessage;
+            this.e = chatMessage2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
+                return;
+            }
+            this.c.b(this.a, this.d, this.e);
+        }
+    }
+
+    public ue7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        ArrayList<te7> arrayList = new ArrayList<>(2);
+        this.a = arrayList;
+        arrayList.add(new se7());
+        this.a.add(new ve7());
     }
 
-    @Override // com.baidu.tieba.rn
-    public oo getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
+    public void a(MsglistModel msglistModel, ListView listView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
-        }
-        return (oo) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: s */
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ve7 ve7Var = new ve7(this.a, viewGroup);
-            p26 p26Var = this.b;
-            if (p26Var != null) {
-                ve7Var.n(p26Var);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
+            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
+            if (ListUtils.isEmpty(chatMessages)) {
+                return;
             }
-            return new CardViewHolder(ve7Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void v(p26 p26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, p26Var) == null) {
-            this.b = p26Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qe7 qe7Var, CardViewHolder cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qe7Var, cardViewHolder})) == null) {
-            if (qe7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                ((ve7) cardViewHolder.a()).x(this.c);
-                ((ve7) cardViewHolder.a()).l(qe7Var);
-                return cardViewHolder.getView();
+            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
+            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
+            Iterator<te7> it = this.a.iterator();
+            while (it.hasNext()) {
+                te7 next = it.next();
+                if (next.a(chatMessage, chatMessage2)) {
+                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
+                    return;
+                }
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 }

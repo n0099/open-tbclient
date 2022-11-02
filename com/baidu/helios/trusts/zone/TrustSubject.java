@@ -8,11 +8,11 @@ import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i50;
-import com.baidu.tieba.j60;
-import com.baidu.tieba.k60;
-import com.baidu.tieba.l50;
-import com.baidu.tieba.v40;
+import com.baidu.tieba.d50;
+import com.baidu.tieba.e60;
+import com.baidu.tieba.f60;
+import com.baidu.tieba.g50;
+import com.baidu.tieba.q40;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,18 +31,18 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TrustSubject {
     public static /* synthetic */ Interceptable $ic;
-    public static Comparator g;
-    public static Comparator h;
+    public static Comparator<TrustSubject> g;
+    public static Comparator<TrustSubject> h;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final k60 b;
-    public final j60 c;
+    public final f60 b;
+    public final e60 c;
     public Context d;
-    public l50.a e;
+    public g50.a e;
     public c f;
 
     /* loaded from: classes2.dex */
-    public class ConfigNotFoundException extends Exception {
+    public static class ConfigNotFoundException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,7 +109,7 @@ public class TrustSubject {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements Comparator {
+    public class a implements Comparator<TrustSubject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -148,7 +148,7 @@ public class TrustSubject {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements Comparator {
+    public class b implements Comparator<TrustSubject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -195,9 +195,9 @@ public class TrustSubject {
         public long c;
         public long d;
         public long e;
-        public i50 f;
+        public d50 f;
         public boolean g;
-        public Set h;
+        public Set<String> h;
         public final /* synthetic */ TrustSubject i;
 
         public c(TrustSubject trustSubject) {
@@ -216,12 +216,12 @@ public class TrustSubject {
                 }
             }
             this.i = trustSubject;
-            this.f = new i50();
+            this.f = new d50();
             this.g = true;
             this.h = new HashSet();
         }
 
-        public void n(Set set) {
+        public void n(Set<String> set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, set) == null) {
                 if (set != null && set.size() != 0) {
@@ -348,7 +348,7 @@ public class TrustSubject {
             return invokeV.longValue;
         }
 
-        public Set e() {
+        public Set<String> e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -460,7 +460,7 @@ public class TrustSubject {
     }
 
     /* loaded from: classes2.dex */
-    public class d implements FileFilter {
+    public static class d implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -557,7 +557,7 @@ public class TrustSubject {
         return invokeV.intValue;
     }
 
-    public Set j() {
+    public Set<String> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -677,7 +677,7 @@ public class TrustSubject {
         }
     }
 
-    public TrustSubject(String str, Context context, l50.a aVar) {
+    public TrustSubject(String str, Context context, g50.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -692,8 +692,8 @@ public class TrustSubject {
                 return;
             }
         }
-        this.b = new k60();
-        this.c = new j60();
+        this.b = new f60();
+        this.c = new e60();
         this.f = new c(this);
         this.d = context;
         this.a = str;
@@ -751,10 +751,10 @@ public class TrustSubject {
         return (String) invokeL.objValue;
     }
 
-    public void x(v40 v40Var) {
+    public void x(q40 q40Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, v40Var) == null) {
-            this.b.f(v40Var, true);
+        if (interceptable == null || interceptable.invokeL(1048597, this, q40Var) == null) {
+            this.b.f(q40Var, true);
             this.f.p(this.b.h());
             this.f.q(this.b.d());
             this.f.n(this.b.c());

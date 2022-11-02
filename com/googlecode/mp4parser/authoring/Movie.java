@@ -15,7 +15,7 @@ public class Movie {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Matrix matrix;
-    public List tracks;
+    public List<Track> tracks;
 
     public Movie() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class Movie {
         return (Matrix) invokeV.objValue;
     }
 
-    public List getTracks() {
+    public List<Track> getTracks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -52,7 +52,7 @@ public class Movie {
         return (List) invokeV.objValue;
     }
 
-    public Movie(List list) {
+    public Movie(List<Track> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +115,7 @@ public class Movie {
         }
     }
 
-    public void setTracks(List list) {
+    public void setTracks(List<Track> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.tracks = list;
@@ -141,7 +141,7 @@ public class Movie {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long timescale = ((Track) getTracks().iterator().next()).getTrackMetaData().getTimescale();
+            long timescale = getTracks().iterator().next().getTrackMetaData().getTimescale();
             for (Track track : getTracks()) {
                 timescale = gcd(track.getTrackMetaData().getTimescale(), timescale);
             }

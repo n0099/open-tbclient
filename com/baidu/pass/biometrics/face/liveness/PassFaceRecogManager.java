@@ -27,11 +27,13 @@ import com.baidu.pass.biometrics.face.liveness.c.e;
 import com.baidu.pass.biometrics.face.liveness.c.f;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
+import com.baidu.pass.biometrics.face.liveness.enums.HeadPose;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceSDKManager;
+import com.baidu.pass.face.platform.LivenessTypeEnum;
 import com.baidu.pass.face.platform.listener.IInitCallback;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.sofire.face.api.FaceApi;
@@ -72,7 +74,7 @@ public class PassFaceRecogManager implements PassBiometric {
     public boolean b;
     public PassFaceRecogCallback c;
     public long d;
-    public List e;
+    public List<LivenessTypeEnum> e;
 
     /* loaded from: classes2.dex */
     public class a implements IInitCallback {
@@ -196,9 +198,9 @@ public class PassFaceRecogManager implements PassBiometric {
         }
     }
 
-    private Map c() {
+    private Map<String, String> c() {
         InterceptResult invokeV;
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             PassBiometricConfiguration passBiometricConfiguration = this.a;
@@ -279,7 +281,7 @@ public class PassFaceRecogManager implements PassBiometric {
         }
     }
 
-    private Map a() {
+    private Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
@@ -297,16 +299,16 @@ public class PassFaceRecogManager implements PassBiometric {
     }
 
     private void a(Context context, PassFaceRecogDTO passFaceRecogDTO) {
-        List list;
+        List<Integer> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, passFaceRecogDTO) == null) {
-            List list2 = this.e;
+            List<LivenessTypeEnum> list2 = this.e;
             if (list2 == null) {
                 this.e = new ArrayList();
             } else {
                 list2.clear();
             }
-            List list3 = passFaceRecogDTO.poseList;
+            List<HeadPose> list3 = passFaceRecogDTO.poseList;
             if (list3 != null && !list3.isEmpty()) {
                 f.b(this.e, passFaceRecogDTO.poseList);
                 return;
@@ -414,13 +416,13 @@ public class PassFaceRecogManager implements PassBiometric {
     private void a(PassFaceRecogDTO passFaceRecogDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, passFaceRecogDTO) == null) {
-            if (TextUtils.isEmpty(passFaceRecogDTO.passProductId) && (passFaceRecogDTO.extraParamsMap.isEmpty() || TextUtils.isEmpty((CharSequence) passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID)))) {
+            if (TextUtils.isEmpty(passFaceRecogDTO.passProductId) && (passFaceRecogDTO.extraParamsMap.isEmpty() || TextUtils.isEmpty(passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID)))) {
                 throw new IllegalArgumentException("PassFaceRecogDTO.passProductId can't be empty");
             }
             if (TextUtils.isEmpty(passFaceRecogDTO.serviceType)) {
                 passFaceRecogDTO.serviceType = "1008";
             }
-            if (TextUtils.isEmpty((CharSequence) passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID))) {
+            if (TextUtils.isEmpty(passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID))) {
                 passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, passFaceRecogDTO.passProductId);
             }
             passFaceRecogDTO.processid = PassBiometricUtil.getUUID();

@@ -50,6 +50,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toolbar;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,6 +64,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
+@Keep
 /* loaded from: classes7.dex */
 public abstract class GeneratePluginActivity extends Activity implements IPluginActivity {
     public static /* synthetic */ Interceptable $ic;

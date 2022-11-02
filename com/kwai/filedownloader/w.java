@@ -7,7 +7,7 @@ public interface w {
 
     int Dg();
 
-    void E(List list);
+    void E(List<Integer> list);
 
     boolean ca(int i);
 }

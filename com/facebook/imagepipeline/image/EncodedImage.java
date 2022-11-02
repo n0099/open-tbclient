@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.memory.PooledByteBufferInputStream;
 import com.facebook.common.references.CloseableReference;
@@ -25,9 +26,12 @@ import com.facebook.imageutils.ImageMetaData;
 import com.facebook.imageutils.JfifUtil;
 import com.facebook.imageutils.WebpUtil;
 import java.io.Closeable;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
+@Immutable
 /* loaded from: classes7.dex */
 public class EncodedImage implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,15 +49,15 @@ public class EncodedImage implements Closeable {
     public int mHeight;
     public ImageFormat mImageFormat;
     @Nullable
-    public final Supplier mInputStreamSupplier;
+    public final Supplier<FileInputStream> mInputStreamSupplier;
     @Nullable
-    public final CloseableReference mPooledByteBufferRef;
+    public final CloseableReference<PooledByteBuffer> mPooledByteBufferRef;
     public int mRotationAngle;
     public int mSampleSize;
     public int mStreamSize;
     public int mWidth;
 
-    public EncodedImage(Supplier supplier) {
+    public EncodedImage(Supplier<FileInputStream> supplier) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,14 +88,14 @@ public class EncodedImage implements Closeable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            CloseableReference byteBufferRef = getByteBufferRef();
+            CloseableReference<PooledByteBuffer> byteBufferRef = getByteBufferRef();
             if (byteBufferRef == null) {
                 return "";
             }
             int min = Math.min(getSize(), i);
             byte[] bArr = new byte[min];
             try {
-                PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) byteBufferRef.get();
+                PooledByteBuffer pooledByteBuffer = byteBufferRef.get();
                 if (pooledByteBuffer == null) {
                     return "";
                 }
@@ -110,7 +114,7 @@ public class EncodedImage implements Closeable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EncodedImage(Supplier supplier, int i) {
+    public EncodedImage(Supplier<FileInputStream> supplier, int i) {
         this(supplier);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,7 +134,7 @@ public class EncodedImage implements Closeable {
         this.mStreamSize = i;
     }
 
-    public EncodedImage(CloseableReference closeableReference) {
+    public EncodedImage(CloseableReference<PooledByteBuffer> closeableReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -266,11 +270,11 @@ public class EncodedImage implements Closeable {
         }
     }
 
-    private Pair readWebPImageSize() {
+    private Pair<Integer, Integer> readWebPImageSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            Pair size = WebpUtil.getSize(getInputStream());
+            Pair<Integer, Integer> size = WebpUtil.getSize(getInputStream());
             if (size != null) {
                 this.mWidth = ((Integer) size.first).intValue();
                 this.mHeight = ((Integer) size.second).intValue();
@@ -288,7 +292,7 @@ public class EncodedImage implements Closeable {
         }
     }
 
-    public CloseableReference getByteBufferRef() {
+    public CloseableReference<PooledByteBuffer> getByteBufferRef() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -371,19 +375,20 @@ public class EncodedImage implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            CloseableReference closeableReference = this.mPooledByteBufferRef;
+            CloseableReference<PooledByteBuffer> closeableReference = this.mPooledByteBufferRef;
             if (closeableReference != null && closeableReference.get() != null) {
-                return ((PooledByteBuffer) this.mPooledByteBufferRef.get()).size();
+                return this.mPooledByteBufferRef.get().size();
             }
             return this.mStreamSize;
         }
         return invokeV.intValue;
     }
 
+    @VisibleForTesting
     @Nullable
-    public synchronized SharedReference getUnderlyingReferenceTestOnly() {
+    public synchronized SharedReference<PooledByteBuffer> getUnderlyingReferenceTestOnly() {
         InterceptResult invokeV;
-        SharedReference sharedReference;
+        SharedReference<PooledByteBuffer> sharedReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             synchronized (this) {
@@ -436,7 +441,7 @@ public class EncodedImage implements Closeable {
                 try {
                     ImageMetaData decodeDimensionsAndColorSpace = BitmapUtil.decodeDimensionsAndColorSpace(inputStream);
                     this.mColorSpace = decodeDimensionsAndColorSpace.getColorSpace();
-                    Pair dimensions = decodeDimensionsAndColorSpace.getDimensions();
+                    Pair<Integer, Integer> dimensions = decodeDimensionsAndColorSpace.getDimensions();
                     if (dimensions != null) {
                         this.mWidth = ((Integer) dimensions.first).intValue();
                         this.mHeight = ((Integer) dimensions.second).intValue();
@@ -473,7 +478,7 @@ public class EncodedImage implements Closeable {
         EncodedImage encodedImage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Supplier supplier = this.mInputStreamSupplier;
+            Supplier<FileInputStream> supplier = this.mInputStreamSupplier;
             if (supplier != null) {
                 encodedImage = new EncodedImage(supplier, this.mStreamSize);
             } else {
@@ -501,9 +506,9 @@ public class EncodedImage implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Supplier supplier = this.mInputStreamSupplier;
+            Supplier<FileInputStream> supplier = this.mInputStreamSupplier;
             if (supplier != null) {
-                return (InputStream) supplier.get();
+                return supplier.get();
             }
             CloseableReference cloneOrNull = CloseableReference.cloneOrNull(this.mPooledByteBufferRef);
             if (cloneOrNull != null) {
@@ -542,7 +547,7 @@ public class EncodedImage implements Closeable {
                 return true;
             }
             Preconditions.checkNotNull(this.mPooledByteBufferRef);
-            PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) this.mPooledByteBufferRef.get();
+            PooledByteBuffer pooledByteBuffer = this.mPooledByteBufferRef.get();
             if (pooledByteBuffer.read(i - 2) == -1 && pooledByteBuffer.read(i - 1) == -39) {
                 return true;
             }
@@ -552,7 +557,7 @@ public class EncodedImage implements Closeable {
     }
 
     public void parseMetaData() {
-        Pair dimensions;
+        Pair<Integer, Integer> dimensions;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(getInputStream());

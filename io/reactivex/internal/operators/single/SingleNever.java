@@ -11,9 +11,9 @@ import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.internal.disposables.EmptyDisposable;
 /* loaded from: classes8.dex */
-public final class SingleNever extends Single {
+public final class SingleNever extends Single<Object> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Single INSTANCE;
+    public static final Single<Object> INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public final class SingleNever extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super Object> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             singleObserver.onSubscribe(EmptyDisposable.NEVER);

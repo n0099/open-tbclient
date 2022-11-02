@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
-public abstract class zzw extends zzj {
+public abstract class zzw extends zzj<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CharSequence zzb;
@@ -45,6 +45,7 @@ public abstract class zzw extends zzj {
         this.zzb = charSequence;
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0047, code lost:
         r3 = r5.zzf;
      */
@@ -72,7 +73,7 @@ public abstract class zzw extends zzj {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final /* bridge */ /* synthetic */ Object zza() {
+    public final /* bridge */ /* synthetic */ String zza() {
         int zzc;
         int i = this.zze;
         while (true) {

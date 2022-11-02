@@ -13,18 +13,21 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public abstract class JobIntentService extends Service {
     public static final boolean DEBUG = false;
     public static final String TAG = "JobIntentService";
-    public final ArrayList mCompatQueue;
+    public final ArrayList<CompatWorkItem> mCompatQueue;
     public WorkEnqueuer mCompatWorkEnqueuer;
     public CommandProcessor mCurProcessor;
     public CompatJobEngine mJobImpl;
     public static final Object sLock = new Object();
-    public static final HashMap sClassWorkEnqueuer = new HashMap();
+    public static final HashMap<ComponentName, WorkEnqueuer> sClassWorkEnqueuer = new HashMap<>();
     public boolean mInterruptIfStopped = false;
     public boolean mStopped = false;
     public boolean mDestroyed = false;
@@ -43,14 +46,15 @@ public abstract class JobIntentService extends Service {
         Intent getIntent();
     }
 
-    public abstract void onHandleWork(Intent intent);
+    public abstract void onHandleWork(@NonNull Intent intent);
 
     public boolean onStopCurrentWork() {
         return true;
     }
 
+    @RequiresApi(26)
     /* loaded from: classes6.dex */
-    public final class JobServiceEngineImpl extends JobServiceEngine implements CompatJobEngine {
+    public static final class JobServiceEngineImpl extends JobServiceEngine implements CompatJobEngine {
         public static final boolean DEBUG = false;
         public static final String TAG = "JobServiceEngineImpl";
         public final Object mLock;
@@ -124,7 +128,7 @@ public abstract class JobIntentService extends Service {
     }
 
     /* loaded from: classes6.dex */
-    public final class CommandProcessor extends AsyncTask {
+    public final class CommandProcessor extends AsyncTask<Void, Void, Void> {
         public CommandProcessor() {
         }
 
@@ -156,7 +160,7 @@ public abstract class JobIntentService extends Service {
     }
 
     /* loaded from: classes6.dex */
-    public final class CompatWorkEnqueuer extends WorkEnqueuer {
+    public static final class CompatWorkEnqueuer extends WorkEnqueuer {
         public final Context mContext;
         public final PowerManager.WakeLock mLaunchWakeLock;
         public boolean mLaunchingService;
@@ -244,8 +248,9 @@ public abstract class JobIntentService extends Service {
         }
     }
 
+    @RequiresApi(26)
     /* loaded from: classes6.dex */
-    public final class JobWorkEnqueuer extends WorkEnqueuer {
+    public static final class JobWorkEnqueuer extends WorkEnqueuer {
         public final JobInfo mJobInfo;
         public final JobScheduler mJobScheduler;
 
@@ -263,7 +268,7 @@ public abstract class JobIntentService extends Service {
     }
 
     /* loaded from: classes6.dex */
-    public abstract class WorkEnqueuer {
+    public static abstract class WorkEnqueuer {
         public final ComponentName mComponentName;
         public boolean mHasJobId;
         public int mJobId;
@@ -298,7 +303,7 @@ public abstract class JobIntentService extends Service {
         if (Build.VERSION.SDK_INT >= 26) {
             this.mCompatQueue = null;
         } else {
-            this.mCompatQueue = new ArrayList();
+            this.mCompatQueue = new ArrayList<>();
         }
     }
 
@@ -309,7 +314,7 @@ public abstract class JobIntentService extends Service {
         }
         synchronized (this.mCompatQueue) {
             if (this.mCompatQueue.size() > 0) {
-                return (GenericWorkItem) this.mCompatQueue.remove(0);
+                return this.mCompatQueue.remove(0);
             }
             return null;
         }
@@ -343,7 +348,7 @@ public abstract class JobIntentService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        ArrayList arrayList = this.mCompatQueue;
+        ArrayList<CompatWorkItem> arrayList = this.mCompatQueue;
         if (arrayList != null) {
             synchronized (arrayList) {
                 this.mDestroyed = true;
@@ -353,7 +358,7 @@ public abstract class JobIntentService extends Service {
     }
 
     public void processorFinished() {
-        ArrayList arrayList = this.mCompatQueue;
+        ArrayList<CompatWorkItem> arrayList = this.mCompatQueue;
         if (arrayList != null) {
             synchronized (arrayList) {
                 this.mCurProcessor = null;
@@ -366,7 +371,7 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    public static void enqueueWork(Context context, ComponentName componentName, int i, Intent intent) {
+    public static void enqueueWork(@NonNull Context context, @NonNull ComponentName componentName, int i, @NonNull Intent intent) {
         if (intent != null) {
             synchronized (sLock) {
                 WorkEnqueuer workEnqueuer = getWorkEnqueuer(context, componentName, true, i);
@@ -380,7 +385,7 @@ public abstract class JobIntentService extends Service {
 
     public static WorkEnqueuer getWorkEnqueuer(Context context, ComponentName componentName, boolean z, int i) {
         WorkEnqueuer compatWorkEnqueuer;
-        WorkEnqueuer workEnqueuer = (WorkEnqueuer) sClassWorkEnqueuer.get(componentName);
+        WorkEnqueuer workEnqueuer = sClassWorkEnqueuer.get(componentName);
         if (workEnqueuer == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 if (z) {
@@ -398,7 +403,7 @@ public abstract class JobIntentService extends Service {
         return workEnqueuer;
     }
 
-    public static void enqueueWork(Context context, Class cls, int i, Intent intent) {
+    public static void enqueueWork(@NonNull Context context, @NonNull Class cls, int i, @NonNull Intent intent) {
         enqueueWork(context, new ComponentName(context, cls), i, intent);
     }
 
@@ -414,7 +419,7 @@ public abstract class JobIntentService extends Service {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(@NonNull Intent intent) {
         CompatJobEngine compatJobEngine = this.mJobImpl;
         if (compatJobEngine != null) {
             return compatJobEngine.compatGetBinder();
@@ -427,11 +432,11 @@ public abstract class JobIntentService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(@Nullable Intent intent, int i, int i2) {
         if (this.mCompatQueue != null) {
             this.mCompatWorkEnqueuer.serviceStartReceived();
             synchronized (this.mCompatQueue) {
-                ArrayList arrayList = this.mCompatQueue;
+                ArrayList<CompatWorkItem> arrayList = this.mCompatQueue;
                 if (intent == null) {
                     intent = new Intent();
                 }

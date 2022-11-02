@@ -1,109 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
 /* loaded from: classes3.dex */
 public class ac1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947610266, "Lcom/baidu/tieba/ac1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947610266, "Lcom/baidu/tieba/ac1;");
-                return;
-            }
-        }
-        if (ab1.a() != 1) {
-            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
-        }
-    }
-
-    public ac1() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        ?? r3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void a(va1 va1Var, ua1 ua1Var, ta1 ta1Var) {
-        DataOutputStream dataOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, va1Var, ua1Var, ta1Var) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
-                for (Map.Entry entry : va1Var.c().entrySet()) {
-                    httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
-                }
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setUseCaches(false);
-                httpURLConnection.setConnectTimeout(5000);
-                httpURLConnection.setReadTimeout(5000);
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry2 : ua1Var.c().entrySet()) {
-                    String encode = URLEncoder.encode((String) entry2.getValue(), IMAudioTransRequest.CHARSET);
-                    sb.append((String) entry2.getKey());
-                    sb.append("=");
-                    sb.append(encode);
-                    sb.append("&");
-                }
-                byte[] bytes = sb.toString().getBytes();
-                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
-                httpURLConnection.connect();
-                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
                 try {
-                    dataOutputStream.write(bytes);
-                    dataOutputStream.flush();
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (ta1Var != null) {
-                        if (responseCode >= 200 && responseCode <= 299) {
-                            ta1Var.c(null);
-                        } else {
-                            ta1Var.a(null, 119501, null);
-                        }
+                    try {
+                        bitmap = BitmapFactory.decodeStream(r3);
+                        bd1.a(new Closeable[]{r3});
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        bd1.a(new Closeable[]{r3});
+                        return bitmap;
                     }
-                    jc1.a(dataOutputStream);
-                } catch (Throwable unused) {
-                    if (ta1Var != null) {
-                        try {
-                            ta1Var.a(null, 119501, null);
-                        } catch (Throwable th) {
-                            jc1.a(dataOutputStream);
-                            throw th;
-                        }
-                    }
-                    jc1.a(dataOutputStream);
+                } catch (Throwable th) {
+                    th = th;
+                    bitmap = r3;
+                    bd1.a(new Closeable[]{bitmap});
+                    throw th;
                 }
-            } catch (Throwable unused2) {
-                dataOutputStream = null;
+            } catch (Exception e2) {
+                e = e2;
+                r3 = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                bd1.a(new Closeable[]{bitmap});
+                throw th;
             }
+            return bitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static boolean b(String str, OutputStream outputStream) {
+        InterceptResult invokeLL;
+        Throwable th;
+        BufferedOutputStream bufferedOutputStream;
+        IOException e;
+        BufferedInputStream bufferedInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) == null) {
+            BufferedInputStream bufferedInputStream2 = null;
+            try {
+                bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(outputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedOutputStream = null;
+                }
+            } catch (IOException e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedOutputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read != -1) {
+                        bufferedOutputStream.write(bArr, 0, read);
+                    } else {
+                        bd1.a(bufferedInputStream, bufferedOutputStream);
+                        return true;
+                    }
+                }
+            } catch (IOException e4) {
+                e = e4;
+                bufferedInputStream2 = bufferedInputStream;
+                try {
+                    e.printStackTrace();
+                    bd1.a(bufferedInputStream2, bufferedOutputStream);
+                    return false;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bd1.a(bufferedInputStream2, bufferedOutputStream);
+                    throw th;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                bufferedInputStream2 = bufferedInputStream;
+                bd1.a(bufferedInputStream2, bufferedOutputStream);
+                throw th;
+            }
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 }

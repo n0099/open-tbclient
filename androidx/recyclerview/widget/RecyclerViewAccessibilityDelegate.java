@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -31,7 +33,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         public Map<View, AccessibilityDelegateCompat> mOriginalItemDelegates;
         public final RecyclerViewAccessibilityDelegate mRecyclerViewDelegate;
 
-        public ItemDelegate(RecyclerViewAccessibilityDelegate recyclerViewAccessibilityDelegate) {
+        public ItemDelegate(@NonNull RecyclerViewAccessibilityDelegate recyclerViewAccessibilityDelegate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +53,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public boolean dispatchPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+        public boolean dispatchPopulateAccessibilityEvent(@NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, accessibilityEvent)) == null) {
@@ -65,7 +67,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+        public void onInitializeAccessibilityEvent(@NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, view2, accessibilityEvent) == null) {
                 AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
@@ -78,7 +80,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void onPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+        public void onPopulateAccessibilityEvent(@NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, view2, accessibilityEvent) == null) {
                 AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
@@ -91,7 +93,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void sendAccessibilityEvent(View view2, int i) {
+        public void sendAccessibilityEvent(@NonNull View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) {
                 AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
@@ -104,7 +106,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void sendAccessibilityEventUnchecked(View view2, AccessibilityEvent accessibilityEvent) {
+        public void sendAccessibilityEventUnchecked(@NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048586, this, view2, accessibilityEvent) == null) {
                 AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view2);
@@ -117,7 +119,8 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view2) {
+        @Nullable
+        public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
@@ -167,7 +170,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
+        public boolean onRequestSendAccessibilityEvent(@NonNull ViewGroup viewGroup, @NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, viewGroup, view2, accessibilityEvent)) == null) {
@@ -202,7 +205,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
     }
 
-    public RecyclerViewAccessibilityDelegate(RecyclerView recyclerView) {
+    public RecyclerViewAccessibilityDelegate(@NonNull RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,6 +229,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
     }
 
+    @NonNull
     public AccessibilityDelegateCompat getItemDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

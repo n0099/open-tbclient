@@ -1,124 +1,113 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.lo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
 /* loaded from: classes4.dex */
-public class jo9 implements PidLoaderCreator {
+public abstract class jo9<A extends lo9> extends ReporterPidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TTAdNative e;
 
-    public jo9() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public jo9(FunAdType funAdType, Ssp.Pid pid) {
+        this(funAdType, pid, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        char c;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public jo9(FunAdType funAdType, Ssp.Pid pid, boolean z) {
+        this(funAdType, pid, z, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -1303381232:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -942661506:
-                    if (str.equals(FunAdType.GDT_SPLASH)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -596233886:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 114133351:
-                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 125016359:
-                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 425812868:
-                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 543046357:
-                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1990506825:
-                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return new oo9(pid);
-                case 1:
-                    return new xo9(pid);
-                case 2:
-                    return new ro9(pid);
-                case 3:
-                    return new yo9(pid);
-                case 4:
-                    return new zo9(pid);
-                case 5:
-                    return new to9(pid);
-                case 6:
-                    return new wo9(pid);
-                case 7:
-                    return new no9(pid);
-                default:
-                    return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (PidLoader) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jo9(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
+        super(funAdType, pid, true, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
+    public AdReporter<A> createAdReporter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Ssp.Pid pid = this.mPid;
+            return new mo9(pid.pid, pid.type, pid.ssp.type);
+        }
+        return (AdReporter) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pid)) == null) ? new sn9(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader, com.fun.ad.sdk.internal.api.PidLoader
+    public synchronized void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                super.destroy();
+                this.e = null;
+            }
+        }
     }
 }

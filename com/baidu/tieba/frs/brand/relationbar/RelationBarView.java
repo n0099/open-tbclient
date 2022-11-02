@@ -13,12 +13,13 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -98,16 +99,16 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fe, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0300, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090b06);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090b19);
             RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
             this.c = relationBarAdapter;
             this.b.setAdapter(relationBarAdapter);
             this.b.setLayoutManager(new LinearLayoutManager(context, 0, false));
             this.b.setItemAnimator(new DefaultItemAnimator());
-            int f = fj.f(context, R.dimen.tbds44);
-            this.b.addItemDecoration(new RelationSpaceItemDecoration(f, fj.f(context, R.dimen.tbds26), f));
+            int g = xi.g(context, R.dimen.tbds44);
+            this.b.addItemDecoration(new RelationSpaceItemDecoration(g, xi.g(context, R.dimen.tbds26), g));
             b();
         }
     }
@@ -123,7 +124,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         this.c.notifyDataSetChanged();
     }
 
-    public void setData(List list) {
+    public void setData(List<OriForumInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             if (ListUtils.isEmpty(list)) {

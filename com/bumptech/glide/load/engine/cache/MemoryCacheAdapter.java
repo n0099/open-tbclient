@@ -1,5 +1,7 @@
 package com.bumptech.glide.load.engine.cache;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,7 +45,8 @@ public class MemoryCacheAdapter implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public Resource remove(Key key) {
+    @Nullable
+    public Resource<?> remove(@NonNull Key key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, key)) == null) {
@@ -81,7 +84,8 @@ public class MemoryCacheAdapter implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public Resource put(Key key, Resource resource) {
+    @Nullable
+    public Resource<?> put(@NonNull Key key, @Nullable Resource<?> resource) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, key, resource)) == null) {
@@ -95,7 +99,7 @@ public class MemoryCacheAdapter implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public void setResourceRemovedListener(MemoryCache.ResourceRemovedListener resourceRemovedListener) {
+    public void setResourceRemovedListener(@NonNull MemoryCache.ResourceRemovedListener resourceRemovedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, resourceRemovedListener) == null) {
             this.listener = resourceRemovedListener;

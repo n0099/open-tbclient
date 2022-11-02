@@ -1,6 +1,9 @@
 package androidx.room.paging;
 
 import android.database.Cursor;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.paging.PositionalDataSource;
 import androidx.room.InvalidationTracker;
 import androidx.room.RoomDatabase;
@@ -15,6 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -75,7 +79,7 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
             }
 
             @Override // androidx.room.InvalidationTracker.Observer
-            public void onInvalidated(Set<String> set) {
+            public void onInvalidated(@NonNull Set<String> set) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, set) == null) {
                     this.this$0.invalidate();
@@ -136,7 +140,7 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
         return invokeV.booleanValue;
     }
 
-    public void loadInitial(PositionalDataSource.LoadInitialParams loadInitialParams, PositionalDataSource.LoadInitialCallback<T> loadInitialCallback) {
+    public void loadInitial(@NonNull PositionalDataSource.LoadInitialParams loadInitialParams, @NonNull PositionalDataSource.LoadInitialCallback<T> loadInitialCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, loadInitialParams, loadInitialCallback) == null) {
             int countItems = countItems();
@@ -155,6 +159,7 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
         }
     }
 
+    @Nullable
     public List<T> loadRange(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -190,7 +195,7 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
         return (List) invokeII.objValue;
     }
 
-    public void loadRange(PositionalDataSource.LoadRangeParams loadRangeParams, PositionalDataSource.LoadRangeCallback<T> loadRangeCallback) {
+    public void loadRange(@NonNull PositionalDataSource.LoadRangeParams loadRangeParams, @NonNull PositionalDataSource.LoadRangeCallback<T> loadRangeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, loadRangeParams, loadRangeCallback) == null) {
             List<T> loadRange = loadRange(loadRangeParams.startPosition, loadRangeParams.loadSize);

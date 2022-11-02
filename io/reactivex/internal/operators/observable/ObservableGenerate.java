@@ -17,31 +17,31 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableGenerate extends Observable {
+public final class ObservableGenerate<T, S> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer disposeState;
-    public final BiFunction generator;
-    public final Callable stateSupplier;
+    public final Consumer<? super S> disposeState;
+    public final BiFunction<S, Emitter<T>, S> generator;
+    public final Callable<S> stateSupplier;
 
     /* loaded from: classes8.dex */
-    public final class GeneratorDisposable implements Emitter, Disposable {
+    public static final class GeneratorDisposable<T, S> implements Emitter<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public volatile boolean cancelled;
-        public final Consumer disposeState;
-        public final BiFunction generator;
+        public final Consumer<? super S> disposeState;
+        public final BiFunction<S, ? super Emitter<T>, S> generator;
         public boolean hasNext;
-        public Object state;
+        public S state;
         public boolean terminate;
 
-        public GeneratorDisposable(Observer observer, BiFunction biFunction, Consumer consumer, Object obj) {
+        public GeneratorDisposable(Observer<? super T> observer, BiFunction<S, ? super Emitter<T>, S> biFunction, Consumer<? super S> consumer, S s) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, biFunction, consumer, obj};
+                Object[] objArr = {observer, biFunction, consumer, s};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,14 +54,14 @@ public final class ObservableGenerate extends Observable {
             this.actual = observer;
             this.generator = biFunction;
             this.disposeState = consumer;
-            this.state = obj;
+            this.state = s;
         }
 
-        private void dispose(Object obj) {
+        private void dispose(S s) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65537, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(65537, this, s) == null) {
                 try {
-                    this.disposeState.accept(obj);
+                    this.disposeState.accept(s);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -113,16 +113,16 @@ public final class ObservableGenerate extends Observable {
         }
 
         @Override // io.reactivex.Emitter
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !this.terminate) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && !this.terminate) {
                 if (this.hasNext) {
                     onError(new IllegalStateException("onNext already called in this generate turn"));
-                } else if (obj == null) {
+                } else if (t == null) {
                     onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
                 } else {
                     this.hasNext = true;
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                 }
             }
         }
@@ -130,21 +130,21 @@ public final class ObservableGenerate extends Observable {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                Object obj = this.state;
+                S s = this.state;
                 if (this.cancelled) {
                     this.state = null;
-                    dispose(obj);
+                    dispose(s);
                     return;
                 }
-                BiFunction biFunction = this.generator;
+                BiFunction<S, ? super Emitter<T>, S> biFunction = this.generator;
                 while (!this.cancelled) {
                     this.hasNext = false;
                     try {
-                        obj = biFunction.apply(obj, this);
+                        s = biFunction.apply(s, this);
                         if (this.terminate) {
                             this.cancelled = true;
                             this.state = null;
-                            dispose(obj);
+                            dispose(s);
                             return;
                         }
                     } catch (Throwable th) {
@@ -152,17 +152,17 @@ public final class ObservableGenerate extends Observable {
                         this.state = null;
                         this.cancelled = true;
                         onError(th);
-                        dispose(obj);
+                        dispose(s);
                         return;
                     }
                 }
                 this.state = null;
-                dispose(obj);
+                dispose(s);
             }
         }
     }
 
-    public ObservableGenerate(Callable callable, BiFunction biFunction, Consumer consumer) {
+    public ObservableGenerate(Callable<S> callable, BiFunction<S, Emitter<T>, S> biFunction, Consumer<? super S> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,7 +183,7 @@ public final class ObservableGenerate extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {

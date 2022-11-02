@@ -26,7 +26,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public CyberPlayer a;
     public int b;
     public RemotePlayerService c;
-    public RemoteCallbackList d;
+    public RemoteCallbackList<d> d;
     public Surface e;
     public final Object f;
 
@@ -45,7 +45,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 return;
             }
         }
-        this.d = new RemoteCallbackList();
+        this.d = new RemoteCallbackList<>();
         this.f = new Object();
         this.b = i;
         this.c = remotePlayerService;
@@ -311,7 +311,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.HttpDNS
-    public List getIpList(String str) {
+    public List<String> getIpList(String str) {
         InterceptResult invokeL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -320,12 +320,12 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 int beginBroadcast = this.d.beginBroadcast();
                 arrayList = null;
                 for (int i = 0; i < beginBroadcast; i++) {
-                    d dVar = (d) this.d.getBroadcastItem(i);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i);
+                    if (broadcastItem != null) {
                         try {
                             ArrayList arrayList2 = new ArrayList();
                             arrayList2.add(str);
-                            dVar.a("onHttpDNS", arrayList2);
+                            broadcastItem.a("onHttpDNS", arrayList2);
                             if (arrayList2.size() > 0) {
                                 arrayList = arrayList2;
                             }
@@ -422,10 +422,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             synchronized (this.d) {
                 int beginBroadcast = this.d.beginBroadcast();
                 for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d dVar = (d) this.d.getBroadcastItem(i2);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i2);
+                    if (broadcastItem != null) {
                         try {
-                            dVar.a(i);
+                            broadcastItem.a(i);
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
@@ -443,10 +443,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             synchronized (this.d) {
                 int beginBroadcast = this.d.beginBroadcast();
                 for (int i = 0; i < beginBroadcast; i++) {
-                    d dVar = (d) this.d.getBroadcastItem(i);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i);
+                    if (broadcastItem != null) {
                         try {
-                            dVar.b();
+                            broadcastItem.b();
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
@@ -467,10 +467,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 int beginBroadcast = this.d.beginBroadcast();
                 z = false;
                 for (int i3 = 0; i3 < beginBroadcast; i3++) {
-                    d dVar = (d) this.d.getBroadcastItem(i3);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i3);
+                    if (broadcastItem != null) {
                         try {
-                            z = dVar.a(i, i2, obj instanceof String ? (String) obj : null);
+                            z = broadcastItem.a(i, i2, obj instanceof String ? (String) obj : null);
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
@@ -493,10 +493,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 int beginBroadcast = this.d.beginBroadcast();
                 z = false;
                 for (int i3 = 0; i3 < beginBroadcast; i3++) {
-                    d dVar = (d) this.d.getBroadcastItem(i3);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i3);
+                    if (broadcastItem != null) {
                         try {
-                            z = dVar.b(i, i2, obj instanceof String ? (String) obj : null);
+                            z = broadcastItem.b(i, i2, obj instanceof String ? (String) obj : null);
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
@@ -519,10 +519,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 int beginBroadcast = this.d.beginBroadcast();
                 z = false;
                 for (int i3 = 0; i3 < beginBroadcast; i3++) {
-                    d dVar = (d) this.d.getBroadcastItem(i3);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i3);
+                    if (broadcastItem != null) {
                         try {
-                            z = dVar.c(i, i2, obj instanceof String ? (String) obj : null);
+                            z = broadcastItem.c(i, i2, obj instanceof String ? (String) obj : null);
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
@@ -542,10 +542,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             synchronized (this.d) {
                 int beginBroadcast = this.d.beginBroadcast();
                 for (int i = 0; i < beginBroadcast; i++) {
-                    d dVar = (d) this.d.getBroadcastItem(i);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i);
+                    if (broadcastItem != null) {
                         try {
-                            dVar.a();
+                            broadcastItem.a();
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
@@ -563,10 +563,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             synchronized (this.d) {
                 int beginBroadcast = this.d.beginBroadcast();
                 for (int i = 0; i < beginBroadcast; i++) {
-                    d dVar = (d) this.d.getBroadcastItem(i);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i);
+                    if (broadcastItem != null) {
                         try {
-                            dVar.c();
+                            broadcastItem.c();
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
@@ -584,10 +584,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             synchronized (this.d) {
                 int beginBroadcast = this.d.beginBroadcast();
                 for (int i5 = 0; i5 < beginBroadcast; i5++) {
-                    d dVar = (d) this.d.getBroadcastItem(i5);
-                    if (dVar != null) {
+                    d broadcastItem = this.d.getBroadcastItem(i5);
+                    if (broadcastItem != null) {
                         try {
-                            dVar.a(i, i2, i3, i4);
+                            broadcastItem.a(i, i2, i3, i4);
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }

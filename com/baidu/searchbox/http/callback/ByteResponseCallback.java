@@ -10,7 +10,7 @@ import java.io.IOException;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 /* loaded from: classes2.dex */
-public abstract class ByteResponseCallback extends ResponseCallback {
+public abstract class ByteResponseCallback extends ResponseCallback<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -35,7 +35,7 @@ public interface IDeviceInfoService extends IInterface {
     DeviceIdBag getOsVersion(String str, String str2) throws RemoteException;
 
     /* loaded from: classes2.dex */
-    public abstract class Stub extends Binder implements IDeviceInfoService {
+    public static abstract class Stub extends Binder implements IDeviceInfoService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.searchbox.common.security.IDeviceInfoService";
         public static final int TRANSACTION_getAndroidId = 4;
@@ -58,7 +58,7 @@ public interface IDeviceInfoService extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        public class Proxy implements IDeviceInfoService {
+        public static class Proxy implements IDeviceInfoService {
             public static /* synthetic */ Interceptable $ic;
             public static IDeviceInfoService sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -145,7 +145,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -175,7 +175,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -205,7 +205,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -235,7 +235,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -265,7 +265,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -295,7 +295,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -370,7 +370,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -407,7 +407,7 @@ public interface IDeviceInfoService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            deviceIdBag = (DeviceIdBag) DeviceIdBag.CREATOR.createFromParcel(obtain2);
+                            deviceIdBag = DeviceIdBag.CREATOR.createFromParcel(obtain2);
                         } else {
                             deviceIdBag = null;
                         }
@@ -629,7 +629,7 @@ public interface IDeviceInfoService extends IInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class Default implements IDeviceInfoService {
+    public static class Default implements IDeviceInfoService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

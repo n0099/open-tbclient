@@ -1,5 +1,5 @@
 package com.google.gson.internal;
 /* loaded from: classes7.dex */
-public interface ObjectConstructor {
-    Object construct();
+public interface ObjectConstructor<T> {
+    T construct();
 }

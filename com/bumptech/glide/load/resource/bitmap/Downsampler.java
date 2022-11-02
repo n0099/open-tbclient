@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ColorSpace;
@@ -7,6 +8,8 @@ import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -45,25 +48,25 @@ import java.util.Set;
 /* loaded from: classes7.dex */
 public final class Downsampler {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Option ALLOW_HARDWARE_CONFIG;
-    public static final Option DECODE_FORMAT;
+    public static final Option<Boolean> ALLOW_HARDWARE_CONFIG;
+    public static final Option<DecodeFormat> DECODE_FORMAT;
     @Deprecated
-    public static final Option DOWNSAMPLE_STRATEGY;
+    public static final Option<DownsampleStrategy> DOWNSAMPLE_STRATEGY;
     public static final DecodeCallbacks EMPTY_CALLBACKS;
-    public static final Option FIX_BITMAP_SIZE_TO_REQUESTED_DIMENSIONS;
+    public static final Option<Boolean> FIX_BITMAP_SIZE_TO_REQUESTED_DIMENSIONS;
     public static final String ICO_MIME_TYPE = "image/x-ico";
-    public static final Set NO_DOWNSAMPLE_PRE_N_MIME_TYPES;
-    public static final Queue OPTIONS_QUEUE;
-    public static final Option PREFERRED_COLOR_SPACE;
+    public static final Set<String> NO_DOWNSAMPLE_PRE_N_MIME_TYPES;
+    public static final Queue<BitmapFactory.Options> OPTIONS_QUEUE;
+    public static final Option<PreferredColorSpace> PREFERRED_COLOR_SPACE;
     public static final String TAG = "Downsampler";
-    public static final Set TYPES_THAT_USE_POOL_PRE_KITKAT;
+    public static final Set<ImageHeaderParser.ImageType> TYPES_THAT_USE_POOL_PRE_KITKAT;
     public static final String WBMP_MIME_TYPE = "image/vnd.wap.wbmp";
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapPool bitmapPool;
     public final ArrayPool byteArrayPool;
     public final DisplayMetrics displayMetrics;
     public final HardwareConfigState hardwareConfigState;
-    public final List parsers;
+    public final List<ImageHeaderParser> parsers;
 
     /* loaded from: classes7.dex */
     public interface DecodeCallbacks {
@@ -157,7 +160,7 @@ public final class Downsampler {
         OPTIONS_QUEUE = Util.createQueue(0);
     }
 
-    public Downsampler(List list, DisplayMetrics displayMetrics, BitmapPool bitmapPool, ArrayPool arrayPool) {
+    public Downsampler(List<ImageHeaderParser> list, DisplayMetrics displayMetrics, BitmapPool bitmapPool, ArrayPool arrayPool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -358,7 +361,7 @@ public final class Downsampler {
         }
     }
 
-    private Resource decode(ImageReader imageReader, int i, int i2, Options options, DecodeCallbacks decodeCallbacks) throws IOException {
+    private Resource<Bitmap> decode(ImageReader imageReader, int i, int i2, Options options, DecodeCallbacks decodeCallbacks) throws IOException {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
@@ -548,6 +551,8 @@ public final class Downsampler {
         return (Bitmap) invokeLLLL.objValue;
     }
 
+    @Nullable
+    @TargetApi(19)
     public static String getBitmapString(Bitmap bitmap) {
         InterceptResult invokeL;
         String str;
@@ -568,19 +573,19 @@ public final class Downsampler {
 
     public static synchronized BitmapFactory.Options getDefaultOptions() {
         InterceptResult invokeV;
-        BitmapFactory.Options options;
+        BitmapFactory.Options poll;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (Downsampler.class) {
                 synchronized (OPTIONS_QUEUE) {
-                    options = (BitmapFactory.Options) OPTIONS_QUEUE.poll();
+                    poll = OPTIONS_QUEUE.poll();
                 }
-                if (options == null) {
-                    options = new BitmapFactory.Options();
-                    resetOptions(options);
+                if (poll == null) {
+                    poll = new BitmapFactory.Options();
+                    resetOptions(poll);
                 }
             }
-            return options;
+            return poll;
         }
         return (BitmapFactory.Options) invokeV.objValue;
     }
@@ -597,6 +602,7 @@ public final class Downsampler {
         return (int[]) invokeLLLL.objValue;
     }
 
+    @TargetApi(26)
     public static void setInBitmap(BitmapFactory.Options options, BitmapPool bitmapPool, int i, int i2) {
         Bitmap.Config config;
         Interceptable interceptable = $ic;
@@ -686,7 +692,8 @@ public final class Downsampler {
         return (IOException) invokeCommon.objValue;
     }
 
-    public Resource decode(ParcelFileDescriptor parcelFileDescriptor, int i, int i2, Options options) throws IOException {
+    @RequiresApi(21)
+    public Resource<Bitmap> decode(ParcelFileDescriptor parcelFileDescriptor, int i, int i2, Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{parcelFileDescriptor, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
@@ -695,7 +702,7 @@ public final class Downsampler {
         return (Resource) invokeCommon.objValue;
     }
 
-    public Resource decode(InputStream inputStream, int i, int i2, Options options) throws IOException {
+    public Resource<Bitmap> decode(InputStream inputStream, int i, int i2, Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{inputStream, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
@@ -704,7 +711,7 @@ public final class Downsampler {
         return (Resource) invokeCommon.objValue;
     }
 
-    public Resource decode(InputStream inputStream, int i, int i2, Options options, DecodeCallbacks decodeCallbacks) throws IOException {
+    public Resource<Bitmap> decode(InputStream inputStream, int i, int i2, Options options, DecodeCallbacks decodeCallbacks) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{inputStream, Integer.valueOf(i), Integer.valueOf(i2), options, decodeCallbacks})) == null) {

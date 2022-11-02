@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.task.MessageTask;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class kb extends mb {
+public abstract class kb<T extends ResponsedMessage<?>> extends lb<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract Message process(Message message, MessageTask messageTask);
+    public abstract T a(T t);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kb(int i) {
@@ -35,18 +34,18 @@ public abstract class kb extends mb {
         }
     }
 
-    public Message rule(Message message, MessageTask messageTask) {
-        InterceptResult invokeLL;
+    public T b(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, messageTask)) == null) {
-            if (message != null) {
-                if (getCmd() == 0 || getCmd() == message.getCmd()) {
-                    return process(message, messageTask);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (t != null) {
+                if (getCmd() == 0 || getCmd() == t.getCmd()) {
+                    return a(t);
                 }
-                return message;
+                return t;
             }
-            return message;
+            return t;
         }
-        return (Message) invokeLL.objValue;
+        return (T) invokeL.objValue;
     }
 }

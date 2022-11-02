@@ -8,7 +8,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kh;
+import com.baidu.tieba.ch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -137,7 +137,7 @@ public class DeleteApkTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kh.a().b(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
+            ch.a().b(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DeleteApkTask this$0;

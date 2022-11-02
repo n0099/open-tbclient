@@ -22,13 +22,13 @@ public class DashManifest {
     public final Uri location;
     public final long minBufferTime;
     public final long minUpdatePeriod;
-    public final List periods;
+    public final List<Period> periods;
     public final long suggestedPresentationDelay;
     public final long timeShiftBufferDepth;
     public final UtcTimingElement utcTiming;
 
-    public DashManifest(long j, long j2, long j3, boolean z, long j4, long j5, long j6, UtcTimingElement utcTimingElement, Uri uri, List list) {
-        List list2;
+    public DashManifest(long j, long j2, long j3, boolean z, long j4, long j5, long j6, UtcTimingElement utcTimingElement, Uri uri, List<Period> list) {
+        List<Period> list2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,34 +60,34 @@ public class DashManifest {
         this.periods = list2;
     }
 
-    public static ArrayList copyAdaptationSets(List list, LinkedList linkedList) {
+    public static ArrayList<AdaptationSet> copyAdaptationSets(List<AdaptationSet> list, LinkedList<RepresentationKey> linkedList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, linkedList)) == null) {
-            RepresentationKey representationKey = (RepresentationKey) linkedList.poll();
-            int i = representationKey.periodIndex;
-            ArrayList arrayList = new ArrayList();
+            RepresentationKey poll = linkedList.poll();
+            int i = poll.periodIndex;
+            ArrayList<AdaptationSet> arrayList = new ArrayList<>();
             do {
-                int i2 = representationKey.adaptationSetIndex;
-                AdaptationSet adaptationSet = (AdaptationSet) list.get(i2);
-                List list2 = adaptationSet.representations;
+                int i2 = poll.adaptationSetIndex;
+                AdaptationSet adaptationSet = list.get(i2);
+                List<Representation> list2 = adaptationSet.representations;
                 ArrayList arrayList2 = new ArrayList();
                 do {
-                    arrayList2.add((Representation) list2.get(representationKey.representationIndex));
-                    representationKey = (RepresentationKey) linkedList.poll();
-                    if (representationKey.periodIndex != i) {
+                    arrayList2.add(list2.get(poll.representationIndex));
+                    poll = linkedList.poll();
+                    if (poll.periodIndex != i) {
                         break;
                     }
-                } while (representationKey.adaptationSetIndex == i2);
+                } while (poll.adaptationSetIndex == i2);
                 arrayList.add(new AdaptationSet(adaptationSet.id, adaptationSet.type, arrayList2, adaptationSet.accessibilityDescriptors, adaptationSet.supplementalProperties));
-            } while (representationKey.periodIndex == i);
-            linkedList.addFirst(representationKey);
+            } while (poll.periodIndex == i);
+            linkedList.addFirst(poll);
             return arrayList;
         }
         return (ArrayList) invokeLL.objValue;
     }
 
-    public final DashManifest copy(List list) {
+    public final DashManifest copy(List<RepresentationKey> list) {
         InterceptResult invokeL;
         long j;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class DashManifest {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return (Period) this.periods.get(i);
+            return this.periods.get(i);
         }
         return (Period) invokeI.objValue;
     }
@@ -160,9 +160,9 @@ public class DashManifest {
                 if (j == C.TIME_UNSET) {
                     return C.TIME_UNSET;
                 }
-                return j - ((Period) this.periods.get(i)).startMs;
+                return j - this.periods.get(i).startMs;
             }
-            return ((Period) this.periods.get(i + 1)).startMs - ((Period) this.periods.get(i)).startMs;
+            return this.periods.get(i + 1).startMs - this.periods.get(i).startMs;
         }
         return invokeI.longValue;
     }

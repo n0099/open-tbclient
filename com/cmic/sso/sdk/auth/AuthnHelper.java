@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.auth;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -30,6 +31,7 @@ import org.json.JSONObject;
 public class AuthnHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_VERSION = "quick_login_android_9.5.2";
+    @SuppressLint({"StaticFieldLeak"})
     public static AuthnHelper c;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.cmic.sso.sdk.auth.a a;

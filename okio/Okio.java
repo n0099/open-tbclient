@@ -25,6 +25,7 @@ import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
+import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
 /* loaded from: classes8.dex */
 public final class Okio {
     public static /* synthetic */ Interceptable $ic;
@@ -498,6 +499,7 @@ public final class Okio {
         return (Source) invokeL.objValue;
     }
 
+    @IgnoreJRERequirement
     public static Sink sink(Path path, OpenOption... openOptionArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -510,6 +512,7 @@ public final class Okio {
         return (Sink) invokeLL.objValue;
     }
 
+    @IgnoreJRERequirement
     public static Source source(Path path, OpenOption... openOptionArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

@@ -2,6 +2,7 @@ package com.baidu.tieba.frs.accelerator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -54,7 +55,7 @@ public class AcceleratorActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
@@ -64,7 +65,7 @@ public class AcceleratorActivity extends BaseFragmentActivity {
                 Intent intent = getIntent();
                 AcceleratorFragment acceleratorFragment = new AcceleratorFragment();
                 acceleratorFragment.Y1(intent);
-                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f091474, acceleratorFragment).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0914b3, acceleratorFragment).commit();
                 return;
             }
             finish();

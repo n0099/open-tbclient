@@ -1,52 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wv8 extends BaseAdapter {
+public class wv8 {
     public static /* synthetic */ Interceptable $ic;
+    public static wv8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
-    public List b;
-    public int c;
-    public String d;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
 
     /* loaded from: classes6.dex */
-    public class a {
+    public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public View b;
-        public TextView c;
+        public final /* synthetic */ wv8 a;
 
         public a(wv8 wv8Var) {
             Interceptable interceptable = $ic;
@@ -60,197 +41,272 @@ public class wv8 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = wv8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                List h = wv8.h();
+                int size = h.size();
+                for (int i = 0; i < size; i++) {
+                    vv8 vv8Var = (vv8) h.get(i);
+                    this.a.j(vv8Var.a, vv8Var.b);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
         }
     }
 
-    public wv8(r9 r9Var) {
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<vv8, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wv8 a;
+
+        public b(wv8 wv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wv8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(vv8... vv8VarArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vv8VarArr)) == null) {
+                if (vv8VarArr != null && vv8VarArr.length == 1 && vv8VarArr[0] != null) {
+                    this.a.c(vv8VarArr[0]);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284144, "Lcom/baidu/tieba/wv8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948284144, "Lcom/baidu/tieba/wv8;");
+                return;
+            }
+        }
+        a = new wv8();
+    }
+
+    public wv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = r9Var;
     }
 
-    public void d(int i) {
+    public static wv8 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-            notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
         }
+        return (wv8) invokeV.objValue;
     }
 
-    public void f(List list) {
+    public static File[] g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || list == null) {
-            return;
-        }
-        this.b = list;
-        e(this.d);
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List list = this.b;
-            if (list == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            File file = new File(br7.e);
+            if (!file.exists()) {
                 return null;
             }
-            return (MusicData) list.get(i);
+            return file.listFiles();
         }
-        return invokeI.objValue;
+        return (File[]) invokeV.objValue;
     }
 
-    public void a(TextView textView, int i, String str) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048576, this, textView, i, str) != null) || i <= 0) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !si.c()) {
             return;
         }
-        float f = fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702b3);
-        TextPaint textPaint = new TextPaint();
-        textPaint.setTextSize(f);
-        while (textPaint.measureText(str) > i) {
-            f -= 1.0f;
-            textPaint.setTextSize(f);
-        }
-        textView.setTextSize(0, f);
+        new a(this).execute(new Void[0]);
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void j(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            new b(this).execute(new vv8(str, jSONObject));
         }
-        return invokeV.intValue;
     }
 
-    public List c() {
+    public static JSONObject e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (StringUtils.isNull(str) || !new File(str).exists()) {
+                return null;
+            }
+            try {
+                return new JSONObject().put("running", l(zq7.d(str)));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(zq7.e(file));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (!m(jSONObject)) {
+                return null;
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static boolean m(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
+            int optInt = jSONObject.optInt("errorTimes", -1);
+            int optInt2 = jSONObject.optInt("postSuccess", -1);
+            int optInt3 = jSONObject.optInt("posted", -1);
+            if (optInt != -1 && optInt2 != -1 && optInt3 != -1 && (optInt3 == 1 || optInt > 0)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(vv8 vv8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vv8Var) == null) {
+            try {
+                byte[] b2 = xv8.b(vv8Var.b);
+                xv8.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+                zq7.b(vv8Var.a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static List<vv8> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            File[] g = g();
+            if (g == null) {
+                return arrayList;
+            }
+            for (File file : g) {
+                String name = file.getName();
+                JSONObject f = f(file.getAbsolutePath() + br7.a + "kpi");
+                if (f == null) {
+                    zq7.b(name);
+                } else {
+                    JSONObject e = e(file.getAbsolutePath() + br7.a + "debug");
+                    if (e == null) {
+                        zq7.b(name);
+                    } else {
+                        arrayList.add(new vv8(name, i(VideoPlatformStatic.c(), f, e)));
+                    }
+                }
+            }
+            return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List list = this.b;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, jSONObject3)) == null) {
+            try {
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("kpiInfo", jSONObject2);
+                jSONObject4.put("baseInfo", jSONObject);
+                jSONObject4.put("debugInfo", jSONObject3);
+                return jSONObject4;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
-            return list.size();
         }
-        return invokeV.intValue;
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    public void e(String str) {
+    public static JSONArray l(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
-            if (!TextUtils.isEmpty(str) && this.b != null) {
-                int i = -1;
-                for (int i2 = 0; i2 < this.b.size(); i2++) {
-                    if (str.equals(((MusicData) this.b.get(i2)).id)) {
-                        i = i2;
-                    }
-                }
-                if (i == -1) {
-                    i = 1;
-                }
-                this.c = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
             }
+            int length = jSONArray.length();
+            boolean z = false;
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
+                    z = true;
+                    break;
+                }
+            }
+            if (!z) {
+                jSONArray.put(new gd8(502, "unknown", -4399, "").a());
+            }
+            return jSONArray;
         }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            boolean z = true;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04b2, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915a9);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915ad);
-                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0915aa);
-                aVar.a.setDrawerType(1);
-                aVar.a.setIsRound(true);
-                aVar.a.setDefaultBgResource(R.color.transparent);
-                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080303);
-                aVar.a.setBorderWidth(fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
-                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                aVar.a.setConrers(15);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            MusicData musicData = (MusicData) this.b.get(i);
-            if (musicData != null) {
-                int i2 = musicData.editMusicType;
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        aVar.a.L(musicData.img, 10, false);
-                    } else {
-                        aVar.a.L(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b22), 24, false);
-                    }
-                } else {
-                    aVar.a.L(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b38), 24, false);
-                }
-                aVar.b.setVisibility(4);
-                aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
-                aVar.c.setText(musicData.name);
-                a(aVar.c, fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c), musicData.name);
-                if (i == this.c) {
-                    aVar.a.setDrawBorder(true);
-                } else {
-                    aVar.a.setDrawBorder(false);
-                }
-                if (i == 0) {
-                    view2.setPadding(fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
-                } else if (i == this.b.size() - 1) {
-                    view2.setPadding(fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
-                } else {
-                    view2.setPadding(fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), fj.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
-                }
-                if (this.a.getPageActivity() instanceof BaseActivity) {
-                    zp4 layoutMode = ((BaseActivity) this.a.getPageActivity()).getLayoutMode();
-                    if (TbadkCoreApplication.getInst().getSkinType() != 1) {
-                        z = false;
-                    }
-                    layoutMode.l(z);
-                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
-                } else if (this.a.getPageActivity() instanceof BaseFragmentActivity) {
-                    zp4 layoutMode2 = ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode();
-                    if (TbadkCoreApplication.getInst().getSkinType() != 1) {
-                        z = false;
-                    }
-                    layoutMode2.l(z);
-                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (JSONArray) invokeL.objValue;
     }
 }

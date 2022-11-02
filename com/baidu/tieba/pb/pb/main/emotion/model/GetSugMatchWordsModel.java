@@ -24,7 +24,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
-    public static List c;
+    public static List<String> c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
@@ -33,7 +33,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
     public interface b {
         void onFail(int i, String str);
 
-        void onSuccess(List list);
+        void onSuccess(List<String> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -120,7 +120,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GetSugMatchWordsModel(r9 r9Var) {
+    public GetSugMatchWordsModel(r9<Object> r9Var) {
         super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

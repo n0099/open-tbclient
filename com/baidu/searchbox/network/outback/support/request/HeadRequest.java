@@ -1,6 +1,7 @@
 package com.baidu.searchbox.network.outback.support.request;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +16,13 @@ public class HeadRequest extends Request {
 
     /* renamed from: com.baidu.searchbox.network.outback.support.request.HeadRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class HeadRequestBuilder extends Request.Builder {
+    public static class HeadRequestBuilder extends Request.Builder<HeadRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +47,7 @@ public class HeadRequest extends Request {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HeadRequestBuilder(Map map) {
+        public HeadRequestBuilder(Map<String, CallFactory> map) {
             super(map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -71,7 +72,7 @@ public class HeadRequest extends Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new HeadRequest((HeadRequestBuilder) head(), null);
+                return new HeadRequest(head(), null);
             }
             return (HeadRequest) invokeV.objValue;
         }

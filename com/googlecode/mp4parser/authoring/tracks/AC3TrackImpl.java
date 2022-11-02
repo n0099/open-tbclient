@@ -10,6 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
+import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
@@ -36,7 +38,7 @@ public class AC3TrackImpl extends AbstractTrack {
     public final DataSource dataSource;
     public long[] duration;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List samples;
+    public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
     static {
@@ -285,7 +287,7 @@ public class AC3TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -302,7 +304,7 @@ public class AC3TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -387,7 +389,7 @@ public class AC3TrackImpl extends AbstractTrack {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(((Sample) this.samples.get(0)).asByteBuffer());
+            BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(this.samples.get(0).asByteBuffer());
             if (bitReaderBuffer.readBits(16) == 2935) {
                 bitReaderBuffer.readBits(16);
                 int readBits = bitReaderBuffer.readBits(2);
@@ -473,7 +475,7 @@ public class AC3TrackImpl extends AbstractTrack {
         return invokeII.intValue;
     }
 
-    private List readSamples() throws IOException {
+    private List<Sample> readSamples() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
@@ -589,7 +591,7 @@ public class AC3TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

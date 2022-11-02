@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
-    public final Map usingCounts;
+    public final Map<DecodedResult, Integer> usingCounts;
 
     public UsingFreqLimitedMemoryCache(int i) {
         super(i);
@@ -24,7 +24,7 @@ public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    public Reference createReference(DecodedResult decodedResult) {
+    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 
@@ -32,7 +32,7 @@ public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
     public DecodedResult get(String str) {
         Integer num;
         DecodedResult decodedResult = super.get(str);
-        if (decodedResult != null && (num = (Integer) this.usingCounts.get(decodedResult)) != null) {
+        if (decodedResult != null && (num = this.usingCounts.get(decodedResult)) != null) {
             this.usingCounts.put(decodedResult, Integer.valueOf(num.intValue() + 1));
         }
         return decodedResult;
@@ -64,19 +64,19 @@ public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
     public DecodedResult removeNext() {
         DecodedResult decodedResult;
-        Set<Map.Entry> entrySet = this.usingCounts.entrySet();
+        Set<Map.Entry<DecodedResult, Integer>> entrySet = this.usingCounts.entrySet();
         synchronized (this.usingCounts) {
             decodedResult = null;
             Integer num = null;
-            for (Map.Entry entry : entrySet) {
+            for (Map.Entry<DecodedResult, Integer> entry : entrySet) {
                 if (decodedResult == null) {
-                    decodedResult = (DecodedResult) entry.getKey();
-                    num = (Integer) entry.getValue();
+                    decodedResult = entry.getKey();
+                    num = entry.getValue();
                 } else {
-                    Integer num2 = (Integer) entry.getValue();
-                    if (num2.intValue() < num.intValue()) {
-                        decodedResult = (DecodedResult) entry.getKey();
-                        num = num2;
+                    Integer value = entry.getValue();
+                    if (value.intValue() < num.intValue()) {
+                        decodedResult = entry.getKey();
+                        num = value;
                     }
                 }
             }

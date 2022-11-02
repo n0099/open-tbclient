@@ -8,6 +8,9 @@ import android.os.Build;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,6 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class KeyEventDispatcher {
     public static /* synthetic */ Interceptable $ic;
@@ -141,7 +145,7 @@ public class KeyEventDispatcher {
         return invokeLL.booleanValue;
     }
 
-    public static boolean dispatchBeforeHierarchy(View view2, KeyEvent keyEvent) {
+    public static boolean dispatchBeforeHierarchy(@NonNull View view2, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, keyEvent)) == null) {
@@ -150,7 +154,7 @@ public class KeyEventDispatcher {
         return invokeLL.booleanValue;
     }
 
-    public static boolean dispatchKeyEvent(Component component, View view2, Window.Callback callback, KeyEvent keyEvent) {
+    public static boolean dispatchKeyEvent(@NonNull Component component, @Nullable View view2, @Nullable Window.Callback callback, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, component, view2, callback, keyEvent)) == null) {

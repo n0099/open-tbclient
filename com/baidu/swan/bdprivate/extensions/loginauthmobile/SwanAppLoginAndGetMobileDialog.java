@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
@@ -24,7 +26,7 @@ import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tm2;
+import com.baidu.tieba.ln2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +58,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
 
     public abstract void s1();
 
-    public abstract void t1(LayoutInflater layoutInflater, ViewGroup viewGroup);
+    public abstract void t1(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
 
     /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
@@ -98,10 +100,10 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends ClickableSpan {
+    public static class c extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<Activity> a;
         public String b;
 
         public c(String str, Activity activity) {
@@ -120,14 +122,14 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
                 }
             }
             this.b = str;
-            this.a = new WeakReference(activity);
+            this.a = new WeakReference<>(activity);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view2) {
             Activity activity;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (activity = (Activity) this.a.get()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (activity = this.a.get()) == null) {
                 return;
             }
             Intent intent = new Intent(activity, LoginServiceAgreementActivity.class);
@@ -136,7 +138,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
+        public void updateDrawState(@NonNull TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                 textPaint.setUnderlineText(false);
@@ -180,7 +182,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            boolean a2 = tm2.M().a();
+            boolean a2 = ln2.M().a();
             if (a2 != this.c) {
                 u1(a2);
             }
@@ -231,7 +233,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
@@ -250,7 +252,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         }
     }
 
-    public void w1(FragmentActivity fragmentActivity) {
+    public void x1(FragmentActivity fragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, fragmentActivity) == null) {
             this.b = fragmentActivity;
@@ -272,7 +274,8 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Nullable
+    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {

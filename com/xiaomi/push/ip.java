@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
 /* loaded from: classes8.dex */
-public class ip implements iu, Serializable, Cloneable {
+public class ip implements iu<ip, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 

@@ -215,18 +215,18 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, bArr, str)) == null) {
-            a.C0039a.C0040a.C0041a e = a.C0039a.C0040a.e();
+            a.C0040a.C0041a.C0042a e = a.C0040a.C0041a.e();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            a.C0039a.C0040a build = e.a(str).build();
+            a.C0040a.C0041a build = e.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C0039a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C0040a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
 
-    public void a(Map map, byte[] bArr, String str, c cVar) {
+    public void a(Map<String, String> map, byte[] bArr, String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, bArr, str, cVar) == null) {
             Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));

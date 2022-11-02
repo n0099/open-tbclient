@@ -20,16 +20,16 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class LambdaSubscriber extends AtomicReference implements FlowableSubscriber, Subscription, Disposable, LambdaConsumerIntrospection {
+public final class LambdaSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription, Disposable, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7251123623727029452L;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onComplete;
-    public final Consumer onError;
-    public final Consumer onNext;
-    public final Consumer onSubscribe;
+    public final Consumer<? super Throwable> onError;
+    public final Consumer<? super T> onNext;
+    public final Consumer<? super Subscription> onSubscribe;
 
-    public LambdaSubscriber(Consumer consumer, Consumer consumer2, Action action, Consumer consumer3) {
+    public LambdaSubscriber(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Consumer<? super Subscription> consumer3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,9 +96,9 @@ public final class LambdaSubscriber extends AtomicReference implements FlowableS
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Object obj = get();
+            Subscription subscription = get();
             SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-            if (obj != subscriptionHelper) {
+            if (subscription != subscriptionHelper) {
                 lazySet(subscriptionHelper);
                 try {
                     this.onComplete.run();
@@ -114,9 +114,9 @@ public final class LambdaSubscriber extends AtomicReference implements FlowableS
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-            Object obj = get();
+            Subscription subscription = get();
             SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-            if (obj != subscriptionHelper) {
+            if (subscription != subscriptionHelper) {
                 lazySet(subscriptionHelper);
                 try {
                     this.onError.accept(th);
@@ -132,14 +132,14 @@ public final class LambdaSubscriber extends AtomicReference implements FlowableS
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, obj) == null) && !isDisposed()) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, t) == null) && !isDisposed()) {
             try {
-                this.onNext.accept(obj);
+                this.onNext.accept(t);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                ((Subscription) get()).cancel();
+                get().cancel();
                 onError(th);
             }
         }
@@ -163,7 +163,7 @@ public final class LambdaSubscriber extends AtomicReference implements FlowableS
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            ((Subscription) get()).request(j);
+            get().request(j);
         }
     }
 }

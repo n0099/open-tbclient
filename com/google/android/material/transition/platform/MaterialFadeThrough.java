@@ -4,13 +4,16 @@ import android.animation.Animator;
 import android.transition.TransitionValues;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
-public final class MaterialFadeThrough extends MaterialVisibility {
+public final class MaterialFadeThrough extends MaterialVisibility<FadeThroughProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_START_SCALE = 0.92f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,6 +59,7 @@ public final class MaterialFadeThrough extends MaterialVisibility {
     }
 
     @Override // com.google.android.material.transition.platform.MaterialVisibility
+    @Nullable
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getSecondaryAnimatorProvider() {
         return super.getSecondaryAnimatorProvider();
     }
@@ -71,7 +75,7 @@ public final class MaterialFadeThrough extends MaterialVisibility {
     }
 
     @Override // com.google.android.material.transition.platform.MaterialVisibility
-    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(VisibilityAnimatorProvider visibilityAnimatorProvider) {
+    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(@Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {
         super.setSecondaryAnimatorProvider(visibilityAnimatorProvider);
     }
 }

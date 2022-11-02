@@ -5,6 +5,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
@@ -16,8 +17,8 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +51,7 @@ public class ShareItem {
     public Bundle E;
     public JSONObject E0;
     public Location F;
-    public List F0;
+    public List<Integer> F0;
     public String G;
     public String G0;
     public String H;
@@ -81,17 +82,20 @@ public class ShareItem {
     public boolean c;
     public String c0;
     public boolean d;
+    @Nullable
     public String d0;
     public boolean e;
+    @Nullable
     public String e0;
     public boolean f;
+    @Nullable
     public String f0;
     public boolean g;
     public ForumData g0;
     public boolean h;
     public int h0;
     public boolean i;
-    public WeakReference i0;
+    public WeakReference<Bitmap> i0;
     public boolean j;
     public Bundle j0;
     public boolean k;
@@ -128,7 +132,7 @@ public class ShareItem {
     public String z0;
 
     /* loaded from: classes3.dex */
-    public class ForwardInfo extends OrmObject implements Serializable {
+    public static class ForwardInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String avatar;
@@ -239,10 +243,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && postData != null && ej.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
+                    if (i == 1 && postData != null && wi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
                         forwardInfo.transmitThreadAuthorNameShow = postData.s().getName_show();
                     }
-                    if (i == 2 && ej.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && wi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {
@@ -445,7 +449,7 @@ public class ShareItem {
         }
     }
 
-    public List a() {
+    public List<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -459,8 +463,8 @@ public class ShareItem {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WeakReference weakReference = this.i0;
-            if (weakReference != null && (bitmap = (Bitmap) weakReference.get()) != null && !bitmap.isRecycled()) {
+            WeakReference<Bitmap> weakReference = this.i0;
+            if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
                 return bitmap;
             }
             return null;
@@ -504,9 +508,9 @@ public class ShareItem {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference weakReference = this.i0;
+            WeakReference<Bitmap> weakReference = this.i0;
             byte[] bArr = null;
-            if (weakReference != null && (bitmap = (Bitmap) weakReference.get()) != null && !bitmap.isRecycled()) {
+            if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 if (bitmap.compress(Bitmap.CompressFormat.PNG, 85, byteArrayOutputStream)) {
                     bArr = byteArrayOutputStream.toByteArray();
@@ -521,7 +525,7 @@ public class ShareItem {
         return (byte[]) invokeV.objValue;
     }
 
-    public void h(List list) {
+    public void h(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.F0 = list;
@@ -531,7 +535,7 @@ public class ShareItem {
     public void i(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) {
-            this.i0 = new WeakReference(bitmap);
+            this.i0 = new WeakReference<>(bitmap);
         }
     }
 

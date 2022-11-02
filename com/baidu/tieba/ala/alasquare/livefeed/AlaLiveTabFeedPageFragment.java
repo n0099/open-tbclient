@@ -14,17 +14,17 @@ import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.gb0;
-import com.baidu.tieba.mv5;
-import com.baidu.tieba.pi6;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.fb0;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.vw5;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements zj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -43,7 +43,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -51,7 +51,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -60,7 +60,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.zc5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vd5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onViewDestroy();
             }
-            s95.e().b();
+            la5.e().b();
         }
     }
 
@@ -137,7 +137,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -149,7 +149,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -186,8 +186,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             q1("onCreate");
-            mv5.a().c(TbadkCoreApplication.getInst());
-            this.a = new gb0();
+            vw5.a().c(TbadkCoreApplication.getInst());
+            this.a = new fb0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -200,7 +200,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements pi6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5038);
             q1("onCreateView");
             if (this.a == null) {
-                this.a = new gb0();
+                this.a = new fb0();
             }
             View onCreateView = this.a.onCreateView(getFragmentActivity(), this, LiveFeedPageSdk.HOST_LIVE_TAB, "tab", null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {

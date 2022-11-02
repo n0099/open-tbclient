@@ -1,161 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 /* loaded from: classes6.dex */
-public class v5a {
+public class v5a implements IPayCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public IPayCallback<CurrencyChargeMessage> c;
+    public Activity d;
+    public Dialog e;
+    public IYYPayWayView f;
+    public f5a g;
+    public q6a h;
+    public IYYPayWayView.b i;
+    public e5a j;
 
-    /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public v5a(int i, int i2, IPayCallback<CurrencyChargeMessage> iPayCallback, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, f5a f5aVar, q6a q6aVar, IYYPayWayView.b bVar, e5a e5aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), iPayCallback, activity, dialog, iYYPayWayView, f5aVar, q6aVar, bVar, e5aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        RLog.info("PayInternalCallback", "create PayInternalCallback appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = iPayCallback;
+        this.d = activity;
+        this.e = dialog;
+        this.f = iYYPayWayView;
+        this.g = f5aVar;
+        this.h = q6aVar;
+        this.i = bVar;
+        this.j = e5aVar;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-392134294, "Lcom/baidu/tieba/v5a$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-392134294, "Lcom/baidu/tieba/v5a$a;");
-                    return;
-                }
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+    public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onFail code:" + i + " failReason:" + str);
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onFail(i, str, payCallBackBean);
             }
-            int[] iArr = new int[PayDialogType.values().length];
-            a = iArr;
-            try {
-                iArr[PayDialogType.PAY_AMOUNT_DIALOG.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PayDialogType.PAY_INPUT_DIALOG.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PayDialogType.PAY_WAY_DIALOG.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            this.j.b(i, str, payCallBackBean);
+            v6a.b(this.a, this.b, i, str);
+            this.g.q(i, str, this.d, this.e, this.f, this.i);
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+    public void onPayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onPayStart");
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStart();
             }
         }
     }
 
-    public static PayFinishInfo a(PayDialogType payDialogType, int i, String str) {
-        InterceptResult invokeLIL;
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+    public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, payDialogType, i, str)) == null) {
-            return b(payDialogType, i, str, false);
-        }
-        return (PayFinishInfo) invokeLIL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00a1  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PayFinishInfo b(PayDialogType payDialogType, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{payDialogType, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            int i2 = a.a[payDialogType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3) {
-                        if (z) {
-                            payFinishInfo.step = o3a.g;
-                            if (TextUtils.isEmpty(str)) {
-                                str2 = "支付渠道选择面板(快捷)";
-                            } else {
-                                str2 = "支付渠道选择面板(快捷)," + str;
-                            }
-                        } else {
-                            payFinishInfo.step = o3a.c;
-                            if (TextUtils.isEmpty(str)) {
-                                str2 = "支付渠道选择面板";
-                            } else {
-                                str2 = "支付渠道选择面板," + str;
-                            }
-                        }
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        str = "";
-                    }
-                    payFinishInfo.message = str;
-                    payFinishInfo.code = i;
-                    return payFinishInfo;
-                }
-                payFinishInfo.step = o3a.b;
-                if (TextUtils.isEmpty(str)) {
-                    str2 = "支付金额输入面板";
-                } else {
-                    str2 = "支付金额输入面板," + str;
-                }
-            } else {
-                payFinishInfo.step = o3a.a;
-                if (TextUtils.isEmpty(str)) {
-                    str2 = "支付金额选择面板";
-                } else {
-                    str2 = "支付金额选择面板," + str;
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onPayStatus code " + purchaseStatus.getCode() + " msg: " + purchaseStatus.getMessage());
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
             }
-            str = str2;
-            if (TextUtils.isEmpty(str)) {
-            }
-            payFinishInfo.message = str;
-            payFinishInfo.code = i;
-            return payFinishInfo;
+            this.g.l(this.d, this.e, this.f, purchaseStatus);
         }
-        return (PayFinishInfo) invokeCommon.objValue;
     }
 
-    public static PayFinishInfo c(int i, String str) {
-        InterceptResult invokeIL;
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+    public void onSuccess(Object obj, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = o3a.e;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onSuccess");
+            this.g.f(this.d, this.h, this.e, this.f);
         }
-        return (PayFinishInfo) invokeIL.objValue;
-    }
-
-    public static PayFinishInfo d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = o3a.d;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
-        }
-        return (PayFinishInfo) invokeIL.objValue;
-    }
-
-    public static PayFinishInfo e(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = o3a.f;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
-        }
-        return (PayFinishInfo) invokeIL.objValue;
     }
 }

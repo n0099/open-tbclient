@@ -1,175 +1,241 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.PraiseModel;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class vr6 extends sr6 {
+public class vr6 extends xr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView i;
-    public d46 j;
-    public ImageView k;
-    public MessageRedDotView l;
-    public ImageView m;
-    public TextView n;
+    public ThreadData h;
+    public boolean i;
+    public String j;
+    public PraiseModel k;
+    public final CustomMessageListener l;
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
+    public class a implements PraiseModel.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vr6 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-337080526, "Lcom/baidu/tieba/vr6$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-337080526, "Lcom/baidu/tieba/vr6$a;");
+        public a(vr6 vr6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vr6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.SEARCH_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+            this.a = vr6Var;
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
+        public void a(int i, String str) {
+            FrsFragment frsFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (frsFragment = this.a.b) != null && frsFragment.getPageContext() != null && this.a.i && !TextUtils.isEmpty(str)) {
+                if (AntiHelper.m(i, str)) {
+                    AntiHelper.u(this.a.b.getPageContext().getPageActivity(), str);
+                } else {
+                    this.a.b.showToast(str);
+                }
             }
-            try {
-                a[LogicField.MESSAGE_ICON_CONTROLLER.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[LogicField.MESSAGE_BTN.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[LogicField.MESSAGE_RED_DOT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[LogicField.SHARE_BTN.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[LogicField.FOLD_TITLE.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
+        public void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (this.a.i) {
+                    int i = 1;
+                    if (this.a.h != null && this.a.h.getPraise().getIsLike() == 1) {
+                        i = 0;
+                    }
+                    this.a.h(i);
+                }
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
             }
         }
     }
 
-    public vr6() {
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vr6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(vr6 vr6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vr6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vr6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ThreadData)) {
+                ThreadData threadData = (ThreadData) customResponsedMessage.getData();
+                this.a.j = threadData.getId();
+                if (!TextUtils.isEmpty(this.a.j) && threadData.getPraise() != null) {
+                    this.a.h(threadData.getPraise().getIsLike());
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vr6(FrsFragment frsFragment) {
+        super(frsFragment);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        b bVar = new b(this, 2004004);
+        this.l = bVar;
+        this.b.registerListener(bVar);
+        this.k = e();
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public final PraiseModel e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.k == null) {
+                this.k = new PraiseModel(this.b.getPageContext(), new a(this));
+            }
+            return this.k;
+        }
+        return (PraiseModel) invokeV.objValue;
+    }
+
+    public void g(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, threadData, i) != null) || threadData == null) {
+            return;
+        }
+        if (i == 1) {
+            PraiseData praise = threadData.getPraise();
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                MetaData metaData = new MetaData();
+                metaData.setName_show(currentAccountObj.getAccount());
+                metaData.setPortrait(currentAccountObj.getPortrait());
+                metaData.setUserId(currentAccountObj.getID());
+                if (praise == null) {
+                    PraiseData praiseData = new PraiseData();
+                    praiseData.setIsLike(i);
+                    praiseData.setNum(1L);
+                    praiseData.getUser().add(0, metaData);
+                    threadData.setPraise(praiseData);
+                    return;
+                }
+                threadData.getPraise().getUser().add(0, metaData);
+                threadData.getPraise().setNum(threadData.getPraise().getNum() + 1);
+                threadData.getPraise().setIsLike(i);
+            }
+        } else if (threadData.getPraise() != null) {
+            threadData.getPraise().setIsLike(i);
+            threadData.getPraise().setNum(threadData.getPraise().getNum() - 1);
+            ArrayList<MetaData> user = threadData.getPraise().getUser();
+            if (user != null) {
+                Iterator<MetaData> it = user.iterator();
+                while (it.hasNext()) {
+                    MetaData next = it.next();
+                    if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
+                        threadData.getPraise().getUser().remove(next);
+                        return;
+                    }
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.sr6
-    public void k() {
+    public void h(int i) {
+        FrsViewData O0;
+        ArrayList<wn> threadList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.setContentPaddingTop(fj.f(this.c.getContext(), R.dimen.tbds24));
-            n();
-            m();
-            o();
-            l();
-        }
-    }
-
-    @Override // com.baidu.tieba.sr6, com.baidu.tieba.ur6
-    public Object a(LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            switch (a.a[logicField.ordinal()]) {
-                case 1:
-                    return this.i;
-                case 2:
-                    return this.j;
-                case 3:
-                    return this.k;
-                case 4:
-                    return this.l;
-                case 5:
-                    return this.m;
-                case 6:
-                    return this.n;
-                default:
-                    return super.a(logicField);
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (O0 = this.b.O0()) != null && this.a != null && (threadList = O0.getThreadList()) != null) {
+            Iterator<wn> it = threadList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                wn next = it.next();
+                if (next instanceof vu4) {
+                    ThreadData threadData = ((vu4) next).t;
+                    if (threadData == this.h) {
+                        g(threadData, i);
+                        this.h = null;
+                        break;
+                    } else if (threadData.getId() != null && threadData.getId().equals(this.j)) {
+                        g(threadData, i);
+                        this.j = null;
+                        break;
+                    }
+                }
             }
-        }
-        return invokeL.objValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.n = this.e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, "", null, false);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701d5);
-            layoutParams.setMargins(0, dimension, dimension, dimension);
-            this.n.setLayoutParams(layoutParams);
-            this.n.setPadding(0, 0, this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0);
-            this.n.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d46 d46Var = new d46(this.b);
-            this.j = d46Var;
-            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d46Var.c(), (View.OnClickListener) null);
-            this.k = this.j.b();
-            MessageRedDotView a2 = this.j.a();
-            this.l = a2;
-            a2.setShadowEnabled(false);
-            this.j.c().setOnClickListener(this.d);
-            this.j.f(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, true);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = (ImageView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0353, (View.OnClickListener) null);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f08062a, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.i.setOnClickListener(this.d);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.m = (ImageView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0354, (View.OnClickListener) null);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.obfuscated_res_0x7f08062b, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.m.setOnClickListener(this.d);
+            this.a.Y().g(threadList, O0);
+            this.a.Y().notifyDataSetChanged();
         }
     }
 }

@@ -1,6 +1,9 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
+@RequiresApi(19)
 /* loaded from: classes7.dex */
 public final class SizeStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIZE_MULTIPLE = 8;
     public transient /* synthetic */ FieldHolder $fh;
-    public final GroupedLinkedMap groupedMap;
+    public final GroupedLinkedMap<Key, Bitmap> groupedMap;
     public final KeyPool keyPool;
-    public final NavigableMap sortedSizes;
+    public final NavigableMap<Integer, Integer> sortedSizes;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public final class Key implements Poolable {
+    public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final KeyPool pool;
@@ -90,8 +95,9 @@ public final class SizeStrategy implements LruPoolStrategy {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class KeyPool extends BaseKeyPool {
+    public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -146,7 +152,7 @@ public final class SizeStrategy implements LruPoolStrategy {
             }
         }
         this.keyPool = new KeyPool();
-        this.groupedMap = new GroupedLinkedMap();
+        this.groupedMap = new GroupedLinkedMap<>();
         this.sortedSizes = new PrettyPrintTreeMap();
     }
 
@@ -169,7 +175,7 @@ public final class SizeStrategy implements LruPoolStrategy {
             Key key = this.keyPool.get(Util.getBitmapByteSize(bitmap));
             this.groupedMap.put(key, bitmap);
             Integer num = (Integer) this.sortedSizes.get(Integer.valueOf(key.size));
-            NavigableMap navigableMap = this.sortedSizes;
+            NavigableMap<Integer, Integer> navigableMap = this.sortedSizes;
             Integer valueOf = Integer.valueOf(key.size);
             int i = 1;
             if (num != null) {
@@ -218,21 +224,22 @@ public final class SizeStrategy implements LruPoolStrategy {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
+    @Nullable
     public Bitmap get(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
             int bitmapByteSize = Util.getBitmapByteSize(i, i2, config);
             Key key = this.keyPool.get(bitmapByteSize);
-            Integer num = (Integer) this.sortedSizes.ceilingKey(Integer.valueOf(bitmapByteSize));
-            if (num != null && num.intValue() != bitmapByteSize && num.intValue() <= bitmapByteSize * 8) {
+            Integer ceilingKey = this.sortedSizes.ceilingKey(Integer.valueOf(bitmapByteSize));
+            if (ceilingKey != null && ceilingKey.intValue() != bitmapByteSize && ceilingKey.intValue() <= bitmapByteSize * 8) {
                 this.keyPool.offer(key);
-                key = this.keyPool.get(num.intValue());
+                key = this.keyPool.get(ceilingKey.intValue());
             }
-            Bitmap bitmap = (Bitmap) this.groupedMap.get(key);
+            Bitmap bitmap = this.groupedMap.get(key);
             if (bitmap != null) {
                 bitmap.reconfigure(i, i2, config);
-                decrementBitmapOfSize(num);
+                decrementBitmapOfSize(ceilingKey);
             }
             return bitmap;
         }
@@ -250,15 +257,16 @@ public final class SizeStrategy implements LruPoolStrategy {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
+    @Nullable
     public Bitmap removeLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Bitmap bitmap = (Bitmap) this.groupedMap.removeLast();
-            if (bitmap != null) {
-                decrementBitmapOfSize(Integer.valueOf(Util.getBitmapByteSize(bitmap)));
+            Bitmap removeLast = this.groupedMap.removeLast();
+            if (removeLast != null) {
+                decrementBitmapOfSize(Integer.valueOf(Util.getBitmapByteSize(removeLast)));
             }
-            return bitmap;
+            return removeLast;
         }
         return (Bitmap) invokeV.objValue;
     }

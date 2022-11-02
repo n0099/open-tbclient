@@ -4,10 +4,12 @@ import android.graphics.Rect;
 import androidx.collection.LongSparseArray;
 import androidx.collection.SparseArrayCompat;
 import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.model.FontCharacter;
 import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
+import com.baidu.mobstat.Config;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,20 +17,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class LottieCompositionParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(Config.DEVICE_WIDTH, "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
 
     public static LottieComposition parse(JsonReader jsonReader) throws IOException {
         HashMap hashMap;
         ArrayList arrayList;
         JsonReader jsonReader2 = jsonReader;
         float dpScale = Utils.dpScale();
-        LongSparseArray longSparseArray = new LongSparseArray();
+        LongSparseArray<Layer> longSparseArray = new LongSparseArray<>();
         ArrayList arrayList2 = new ArrayList();
         HashMap hashMap2 = new HashMap();
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();
         ArrayList arrayList3 = new ArrayList();
-        SparseArrayCompat sparseArrayCompat = new SparseArrayCompat();
+        SparseArrayCompat<FontCharacter> sparseArrayCompat = new SparseArrayCompat<>();
         LottieComposition lottieComposition = new LottieComposition();
         jsonReader.beginObject();
         int i = 0;
@@ -84,7 +86,7 @@ public class LottieCompositionParser {
         return lottieComposition;
     }
 
-    public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List list, LongSparseArray longSparseArray) throws IOException {
+    public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List<Layer> list, LongSparseArray<Layer> longSparseArray) throws IOException {
         jsonReader.beginArray();
         int i = 0;
         while (jsonReader.hasNext()) {

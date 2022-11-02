@@ -52,7 +52,7 @@ public class RequestEngine {
             String url = iRequestParam.getUrl();
             if (!TextUtils.isEmpty(url) && (url.startsWith("http") || url.startsWith("https"))) {
                 String buildCompleteUri = UriUtils.buildCompleteUri(url, iRequestParam.getGetBundle());
-                Pair apn = NetStateManager.getAPN();
+                Pair<String, Integer> apn = NetStateManager.getAPN();
                 Proxy proxy = null;
                 if (apn != null) {
                     proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress((String) apn.first, ((Integer) apn.second).intValue()));

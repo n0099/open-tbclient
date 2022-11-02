@@ -49,7 +49,7 @@ public class QQEmotion extends BaseApi {
         }
     }
 
-    private String a(ArrayList arrayList) {
+    private String a(ArrayList<Uri> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, arrayList)) == null) {
@@ -65,7 +65,7 @@ public class QQEmotion extends BaseApi {
         return (String) invokeL.objValue;
     }
 
-    private boolean a(Context context, ArrayList arrayList) {
+    private boolean a(Context context, ArrayList<Uri> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, context, arrayList)) == null) {
@@ -78,7 +78,7 @@ public class QQEmotion extends BaseApi {
             }
             long j = 0;
             for (int i = 0; i < arrayList.size(); i++) {
-                String a = l.a(context, (Uri) arrayList.get(i));
+                String a = l.a(context, arrayList.get(i));
                 long j2 = l.j(a);
                 if (j2 > 1048576) {
                     SLog.i("QQEMOTION", "isLegality -->illegal, fileSize: " + j2 + "， path =" + a);
@@ -96,7 +96,7 @@ public class QQEmotion extends BaseApi {
         return invokeLL.booleanValue;
     }
 
-    public void setEmotions(Activity activity, ArrayList arrayList, IUiListener iUiListener) {
+    public void setEmotions(Activity activity, ArrayList<Uri> arrayList, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, arrayList, iUiListener) == null) {
             IUiListener iUiListener2 = this.a;

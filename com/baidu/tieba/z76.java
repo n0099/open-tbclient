@@ -6,93 +6,114 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ItemManage.DataReq;
-import tbclient.ItemManage.ItemManageReqIdl;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class z76 implements xb5 {
+public class z76 implements v76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final int b;
+    public final v76 a;
+    public final Map<Integer, v76> b;
 
-    @Override // com.baidu.tieba.wb5
-    public HashMap v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wb5
-    public HashMap x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public z76(int i, int i2) {
+    public z76(v76 defaultLayouter, Pair<Integer, ? extends v76>... layouter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {defaultLayouter, layouter};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
+        Intrinsics.checkNotNullParameter(layouter, "layouter");
+        this.a = defaultLayouter;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v76
+    public void a(h66 item, long j, h86 displayer, b66 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = 1;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            f(item).a(item, j, displayer, config);
         }
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.v76
+    public boolean d(h66 item, long j, h86 displayer, b66 config) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a++;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            return f(item).d(item, j, displayer, config);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v76
+    public void b(h66 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            f(item).b(item);
         }
     }
 
-    @Override // com.baidu.tieba.zb5
-    public Object g(boolean z) {
-        InterceptResult invokeZ;
+    public int e(h66 item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.a);
-            builder.rn = 15;
-            builder.tab_id = Integer.valueOf(this.b);
-            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
-            DataReq build = builder.build(false);
-            builder2.data = build;
-            yh5.a(build, false);
-            return builder2.build(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().j();
         }
-        return invokeZ.objValue;
+        return invokeL.intValue;
+    }
+
+    public final v76 f(h66 h66Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, h66Var)) == null) {
+            v76 v76Var = this.b.get(Integer.valueOf(e(h66Var)));
+            if (v76Var == null) {
+                return this.a;
+            }
+            return v76Var;
+        }
+        return (v76) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v76
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c(i, i2);
+            for (v76 v76Var : this.b.values()) {
+                v76Var.c(i, i2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v76
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+            for (v76 v76Var : this.b.values()) {
+                v76Var.clear();
+            }
+        }
     }
 }

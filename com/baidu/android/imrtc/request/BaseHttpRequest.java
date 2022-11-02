@@ -24,7 +24,7 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
     public String mRtcRoomId;
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public abstract Map getHeaders();
+    public abstract Map<String, String> getHeaders();
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public abstract String getHost();

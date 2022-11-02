@@ -12,7 +12,7 @@ public class DefaultPreloadContext implements IPreloadContext {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.searchbox.net.update.ioc.IPreloadContext
-    public List getCustomPreloadBlackList() {
+    public List<String> getCustomPreloadBlackList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

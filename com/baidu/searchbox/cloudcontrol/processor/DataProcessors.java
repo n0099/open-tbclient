@@ -2,19 +2,22 @@ package com.baidu.searchbox.cloudcontrol.processor;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.tieba.pi8;
+import com.baidu.tieba.zj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+@Autowired
 /* loaded from: classes2.dex */
 public class DataProcessors {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mDataProcessors;
+    public HashMap<String, ICloudControlProcessor> mDataProcessors;
 
     public DataProcessors() {
         Interceptable interceptable = $ic;
@@ -29,15 +32,16 @@ public class DataProcessors {
                 return;
             }
         }
-        this.mDataProcessors = new HashMap();
+        this.mDataProcessors = new HashMap<>();
         collectProcessors();
     }
 
+    @Inject
     private ICloudControlRegister getCloudControlRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            return pi8.a();
+            return zj8.a();
         }
         return (ICloudControlRegister) invokeV.objValue;
     }
@@ -50,7 +54,7 @@ public class DataProcessors {
         }
     }
 
-    public HashMap getProcessors() {
+    public HashMap<String, ICloudControlProcessor> getProcessors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -82,7 +86,7 @@ public class DataProcessors {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return (ICloudControlProcessor) this.mDataProcessors.get(str);
+            return this.mDataProcessors.get(str);
         }
         return (ICloudControlProcessor) invokeL.objValue;
     }

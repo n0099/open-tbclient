@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
 import androidx.media2.common.ParcelImplListSlice;
@@ -255,6 +256,7 @@ public class ConnectionResult extends CustomVersionedParcelable {
         return (Bundle) invokeV.objValue;
     }
 
+    @NonNull
     public List<SessionPlayer.TrackInfo> getTracks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

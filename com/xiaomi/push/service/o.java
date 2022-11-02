@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.NetworkInfo;
@@ -26,6 +27,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
     public static volatile o a;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +64,7 @@ public class o {
     public final boolean f991c;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -209,7 +211,7 @@ public class o {
         return (o) invokeL.objValue;
     }
 
-    private void a(String str, String str2, Map map) {
+    private void a(String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, str, str2, map) == null) {
             hn hnVar = new hn();
@@ -223,7 +225,7 @@ public class o {
             hnVar.g(this.f984a.getPackageName());
             hnVar.e("com.xiaomi.xmsf");
             if (map == null) {
-                map = new HashMap();
+                map = new HashMap<>();
             }
             String str3 = null;
             t m680a = u.m680a(this.f984a);

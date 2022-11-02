@@ -1,119 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pe7 {
+public class pe7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList b;
-    public List c;
-    public re7 d;
-    public re7 e;
-    public re7 f;
+    public int a;
+    public T b;
 
-    public pe7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public pe7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new LinkedList();
-        if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.a = bdTypeRecyclerView;
-            b(tbPageContext);
-        }
     }
 
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
-            bdTypeRecyclerView.D(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (T) invokeV.objValue;
     }
 
-    public void d(oo ooVar) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ooVar) == null) {
-            for (rn rnVar : this.c) {
-                if (rnVar != null) {
-                    rnVar.setOnAdapterItemClickListener(ooVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
+    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    public int c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (str == null) {
+                return -1;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() == 3) {
+                    jSONArray.optString(0);
+                    this.a = jSONArray.optInt(1);
+                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
+                    if (1 == this.a) {
+                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
+                        String optString2 = optJSONObject.optString("shareSourceIcon");
+                        String optString3 = optJSONObject.optString("shareSource");
+                        String optString4 = optJSONObject.optString("shareUrl");
+                        String optString5 = optJSONObject.optString("shareSourceUrl");
+                        if (TextUtils.isEmpty(optString4)) {
+                            ?? r4 = (T) new ShareFromPBMsgData();
+                            r4.setContent(optJSONObject.optString("themeContent"));
+                            r4.setForumName(optJSONObject.optString("forumName"));
+                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                            r4.setPostId(optJSONObject.optString("postID"));
+                            r4.setThreadId(optJSONObject.optString("themeID"));
+                            r4.setTitle(optJSONObject.optString("themeTitle"));
+                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
+                            r4.setThreadType(optJSONObject.optInt("threadType"));
+                            this.b = r4;
+                            return 0;
+                        }
+                        ?? r1 = (T) new ShareFromGameCenterMsgData();
+                        r1.setContent(optJSONObject.optString("themeContent"));
+                        r1.setForumName(optJSONObject.optString("forumName"));
+                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r1.setPostId(optJSONObject.optString("postID"));
+                        r1.setThreadId(optJSONObject.optString("themeID"));
+                        r1.setTitle(optJSONObject.optString("themeTitle"));
+                        r1.setButton(optString);
+                        r1.setShareSource(optString3);
+                        r1.setShareSourceIcon(optString2);
+                        r1.setShareSourceUrl(optString5);
+                        r1.setShareUrl(optString4);
+                        this.b = r1;
+                        return 1;
+                    } else if (4 == this.a) {
+                        ?? r12 = (T) new ShareFromFrsMsgData();
+                        r12.setName(optJSONObject.optString("forumName"));
+                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
+                        r12.setPostNum(optJSONObject.optInt("postNum"));
+                        this.b = r12;
+                        return 2;
+                    } else {
+                        return -1;
+                    }
                 }
+                return -1;
+            } catch (Exception unused) {
+                return -1;
             }
         }
-    }
-
-    public void e(ArrayList arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
-        }
-    }
-
-    public void f(po poVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, poVar) == null) {
-            for (rn rnVar : this.c) {
-                if (rnVar != null) {
-                    rnVar.setOnAdapterItemLongClickListener(poVar);
-                }
-            }
-        }
-    }
-
-    public void g(p26 p26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, p26Var) == null) {
-            this.f.v(p26Var);
-            this.e.v(p26Var);
-            this.d.v(p26Var);
-        }
-    }
-
-    public final void b(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            re7 re7Var = new re7(tbPageContext, qe7.F);
-            this.d = re7Var;
-            re7Var.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            re7 re7Var2 = new re7(tbPageContext, qe7.E);
-            this.e = re7Var2;
-            re7Var2.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            re7 re7Var3 = new re7(tbPageContext, qe7.D);
-            this.f = re7Var3;
-            re7Var3.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            this.c.add(this.f);
-            this.c.add(this.e);
-            this.c.add(this.d);
-            this.a.a(this.c);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
-        }
+        return invokeLL.intValue;
     }
 }

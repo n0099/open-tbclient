@@ -18,7 +18,7 @@ public class d {
     public a xW;
 
     /* loaded from: classes.dex */
-    public final class a extends Handler {
+    public static final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,64 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.sh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class tg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Nullable
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            m33 M = m33.M();
-            if (M != null) {
-                return String.format(str, M.O(), M.V());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            List<sh3.a> d = wo2.d();
+            if (d != null && d.size() > 0) {
+                File file = new File(d.get(0).a, "/debug/");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return file;
             }
-            return "";
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (File) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
-            if (wj1.a) {
-                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
-            }
-            return a;
+            return new File(wo2.d().get(0).a, "/debug/").getAbsolutePath();
         }
         return (String) invokeV.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            String b = b();
-            if (!TextUtils.isEmpty(b)) {
-                if (wj1.a) {
-                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
-                }
-                WebSettingsGlobalBlink.setRefererPattern(b, im2.i());
-            }
-        }
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

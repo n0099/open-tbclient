@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -20,8 +22,8 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +90,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WriteEvaluationHeaderView(Context context) {
+    public WriteEvaluationHeaderView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,7 +112,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
 
     public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tbRichTextEvaluateItemInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, tbRichTextEvaluateItemInfo) == null) {
             this.k = tbRichTextEvaluateItemInfo;
             if (this.l) {
                 this.g.setVisibility(0);
@@ -124,7 +126,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WriteEvaluationHeaderView(Context context, AttributeSet attributeSet) {
+    public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -145,7 +147,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WriteEvaluationHeaderView(Context context, AttributeSet attributeSet, int i) {
+    public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -180,7 +182,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             this.g.setVisibility(8);
             this.f.setVisibility(0);
             this.h.setVisibility(8);
@@ -194,14 +196,14 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
 
     public void setItemCloseListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
             this.i = cVar;
         }
     }
 
     public void setShowItemInfo(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.l = z;
             this.g.setVisibility(8);
             this.f.setVisibility(0);
@@ -211,14 +213,14 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
 
     public void setStarChangeListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             this.j = bVar;
         }
     }
 
     public void setStarCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.h.setStarCount(i);
         }
     }
@@ -255,19 +257,10 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         return (TbRichTextEvaluateItemInfo) invokeV.objValue;
     }
 
-    public ItemCardView getItemStarInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return (ItemCardView) invokeV.objValue;
-    }
-
     public int getStarCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.h.getStarCount();
         }
         return invokeV.intValue;
@@ -276,16 +269,16 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d093a, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090fbd);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090fbf);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0926aa);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbc);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090fbe);
-            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f090fc9);
-            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090fc6);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d094e, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090ff6);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090ff8);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092702);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff5);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090ff7);
+            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f091002);
+            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090fff);
             this.h = rankStarView;
-            rankStarView.setStarSpacing(fj.f(getContext(), R.dimen.tbds30));
+            rankStarView.setStarSpacing(xi.g(getContext(), R.dimen.tbds30));
             this.h.setClickable(true);
             this.h.setStarChangListener(this);
             this.g.N();
@@ -305,7 +298,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         EMTextView eMTextView = this.b;
         if (eMTextView != null) {
             SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
-            nv4 d = nv4.d(this.b);
+            kw4 d = kw4.d(this.b);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0206);
         }

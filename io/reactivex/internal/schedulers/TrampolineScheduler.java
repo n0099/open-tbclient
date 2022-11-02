@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.disposables.Disposables;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -24,12 +25,12 @@ public final class TrampolineScheduler extends Scheduler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class TrampolineWorker extends Scheduler.Worker implements Disposable {
+    public static final class TrampolineWorker extends Scheduler.Worker implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger counter;
         public volatile boolean disposed;
-        public final PriorityBlockingQueue queue;
+        public final PriorityBlockingQueue<TimedRunnable> queue;
         public final AtomicInteger wip;
 
         /* loaded from: classes8.dex */
@@ -81,7 +82,7 @@ public final class TrampolineScheduler extends Scheduler {
                     return;
                 }
             }
-            this.queue = new PriorityBlockingQueue();
+            this.queue = new PriorityBlockingQueue<>();
             this.wip = new AtomicInteger();
             this.counter = new AtomicInteger();
         }
@@ -116,14 +117,14 @@ public final class TrampolineScheduler extends Scheduler {
                 if (this.wip.getAndIncrement() == 0) {
                     int i = 1;
                     while (!this.disposed) {
-                        TimedRunnable timedRunnable2 = (TimedRunnable) this.queue.poll();
-                        if (timedRunnable2 == null) {
+                        TimedRunnable poll = this.queue.poll();
+                        if (poll == null) {
                             i = this.wip.addAndGet(-i);
                             if (i == 0) {
                                 return EmptyDisposable.INSTANCE;
                             }
-                        } else if (!timedRunnable2.disposed) {
-                            timedRunnable2.run.run();
+                        } else if (!poll.disposed) {
+                            poll.run.run();
                         }
                     }
                     this.queue.clear();
@@ -135,7 +136,8 @@ public final class TrampolineScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, runnable)) == null) {
@@ -145,7 +147,8 @@ public final class TrampolineScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -157,7 +160,7 @@ public final class TrampolineScheduler extends Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public final class SleepingRunnable implements Runnable {
+    public static final class SleepingRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long execTime;
@@ -207,7 +210,7 @@ public final class TrampolineScheduler extends Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public final class TimedRunnable implements Comparable {
+    public static final class TimedRunnable implements Comparable<TimedRunnable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int count;
@@ -291,6 +294,7 @@ public final class TrampolineScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
+    @NonNull
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -301,7 +305,8 @@ public final class TrampolineScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
-    public Disposable scheduleDirect(Runnable runnable) {
+    @NonNull
+    public Disposable scheduleDirect(@NonNull Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
@@ -312,7 +317,8 @@ public final class TrampolineScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
-    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
+    @NonNull
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {

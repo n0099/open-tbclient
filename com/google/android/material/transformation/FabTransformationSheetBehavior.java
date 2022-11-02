@@ -5,6 +5,9 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewParent;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +27,8 @@ import java.util.Map;
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map importantForAccessibilityMap;
+    @Nullable
+    public Map<View, Integer> importantForAccessibilityMap;
 
     public FabTransformationSheetBehavior() {
         Interceptable interceptable = $ic;
@@ -61,7 +65,7 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
         }
     }
 
-    private void updateImportantForAccessibility(View view2, boolean z) {
+    private void updateImportantForAccessibility(@NonNull View view2, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, this, view2, z) == null) {
@@ -83,9 +87,9 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
                 }
                 if (childAt != view2 && !z2) {
                     if (!z) {
-                        Map map = this.importantForAccessibilityMap;
+                        Map<View, Integer> map = this.importantForAccessibilityMap;
                         if (map != null && map.containsKey(childAt)) {
-                            ViewCompat.setImportantForAccessibility(childAt, ((Integer) this.importantForAccessibilityMap.get(childAt)).intValue());
+                            ViewCompat.setImportantForAccessibility(childAt, this.importantForAccessibilityMap.get(childAt).intValue());
                         }
                     } else {
                         if (Build.VERSION.SDK_INT >= 16) {
@@ -102,6 +106,7 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     }
 
     @Override // com.google.android.material.transformation.FabTransformationBehavior
+    @NonNull
     public FabTransformationBehavior.FabTransformationSpec onCreateMotionSpec(Context context, boolean z) {
         InterceptResult invokeLZ;
         int i;
@@ -121,7 +126,8 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     }
 
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior, com.google.android.material.transformation.ExpandableBehavior
-    public boolean onExpandedStateChange(View view2, View view3, boolean z, boolean z2) {
+    @CallSuper
+    public boolean onExpandedStateChange(@NonNull View view2, @NonNull View view3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {

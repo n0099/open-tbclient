@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.e.f;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class a {
@@ -35,14 +34,12 @@ public final class a {
         }
     }
 
-    public static long G(List list) {
+    public static long G(List<a> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            Iterator it = list.iterator();
             long j = 0;
-            while (it.hasNext()) {
-                a aVar = (a) it.next();
+            for (a aVar : list) {
                 j += aVar.Ei() - aVar.getStartOffset();
             }
             return j;

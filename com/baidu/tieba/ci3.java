@@ -1,18 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class ci3 implements bi3 {
+public class ci3 implements hh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue a;
-    public ai3 b;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ci3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-889435426, "Lcom/baidu/tieba/ci3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-889435426, "Lcom/baidu/tieba/ci3$b;");
+                    return;
+                }
+            }
+            a = new ci3(null);
+        }
+    }
 
     public ci3() {
         Interceptable interceptable = $ic;
@@ -24,79 +53,44 @@ public class ci3 implements bi3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayDeque();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                if (this.b != null) {
-                    return;
-                }
-                e();
             }
         }
     }
 
-    public synchronized void c() {
+    public static ci3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.b != null) {
-                    this.b.a();
-                    this.b = null;
-                }
-                this.a.clear();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
+        return (ci3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bi3
-    public void a(ai3 ai3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ai3Var) == null) {
-            synchronized (this.a) {
-                if (ai3Var == this.b) {
-                    e();
-                }
-            }
-        }
+    public /* synthetic */ ci3(a aVar) {
+        this();
     }
 
-    public void d(ai3 ai3Var) {
+    @Override // com.baidu.tieba.hh4
+    public boolean a(@NonNull String str, @NonNull int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ai3Var) == null) {
-            if (ai3Var != null) {
-                synchronized (this.a) {
-                    Queue queue = this.a;
-                    ai3Var.b(this);
-                    queue.offer(ai3Var);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return false;
                 }
+                File file = new File(mn2.g().b(), str);
+                if (!file.exists() || !file.isDirectory()) {
+                    return false;
+                }
+                return true;
             }
-            b();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.a) {
-                this.b = null;
-                if (this.a.isEmpty()) {
-                    return;
-                }
-                ai3 ai3Var = (ai3) this.a.poll();
-                this.b = ai3Var;
-                if (ai3Var == null) {
-                    e();
-                } else {
-                    gh3.a0(ai3Var);
-                }
+            File file2 = new File(an2.g(), str);
+            if (!file2.exists() || !file2.isDirectory()) {
+                return false;
             }
+            return true;
         }
+        return invokeLI.booleanValue;
     }
 }

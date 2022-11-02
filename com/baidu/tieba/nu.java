@@ -1,160 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Map;
+import kotlin.TypeCastException;
+import kotlin.Unit;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.io.CloseableKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class nu extends rr implements pu {
+public final class nu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ps d;
-    public final rs e;
-    public final vs f;
-    public final ys g;
-    public final ts h;
-    public final os i;
-    public final us j;
-    public final qu k;
-    public final yu l;
 
-    public nu(ps psVar, rs rsVar, vs vsVar, ys ysVar, ts tsVar, os osVar, us usVar, qu quVar, yu yuVar) {
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final Map<String, Object> a(byte[] bArr) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {psVar, rsVar, vsVar, ysVar, tsVar, osVar, usVar, quVar, yuVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr.length == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return MapsKt__MapsKt.emptyMap();
+            }
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            try {
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                Object readObject = objectInputStream.readObject();
+                if (readObject != null) {
+                    Map<String, Object> map = (Map) readObject;
+                    CloseableKt.closeFinally(objectInputStream, null);
+                    CloseableKt.closeFinally(byteArrayInputStream, null);
+                    return map;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.Any>");
+            } catch (Throwable th) {
+                try {
+                    throw th;
+                } catch (Throwable th2) {
+                    CloseableKt.closeFinally(byteArrayInputStream, th);
+                    throw th2;
+                }
             }
         }
-        this.d = psVar;
-        this.e = rsVar;
-        this.f = vsVar;
-        this.g = ysVar;
-        this.h = tsVar;
-        this.i = osVar;
-        this.j = usVar;
-        this.k = quVar;
-        this.l = yuVar;
+        return (Map) invokeL.objValue;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ nu(ps psVar, rs rsVar, vs vsVar, ys ysVar, ts tsVar, os osVar, us usVar, qu quVar, yu yuVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(psVar, rsVar, vsVar, ysVar, tsVar, osVar, usVar, r10, r11);
-        ru ruVar;
-        av avVar;
-        if ((i & 128) != 0) {
-            ruVar = new ru();
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final byte[] b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                objectOutputStream.writeObject(map);
+                Unit unit = Unit.INSTANCE;
+                CloseableKt.closeFinally(objectOutputStream, null);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                Intrinsics.checkExpressionValueIsNotNull(byteArray, "bytesStream.toByteArray()");
+                CloseableKt.closeFinally(byteArrayOutputStream, null);
+                Intrinsics.checkExpressionValueIsNotNull(byteArray, "ByteArrayOutputStream().…m.toByteArray()\n        }");
+                return byteArray;
+            } finally {
+            }
         } else {
-            ruVar = quVar;
+            return (byte[]) invokeL.objValue;
         }
-        if ((i & 256) != 0) {
-            avVar = new av();
-        } else {
-            avVar = yuVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.qr
-    public us a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
-        }
-        return (us) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public vs b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (vs) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public os c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return (os) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pu
-    public qu d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.k;
-        }
-        return (qu) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public ys e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (ys) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pu
-    public yu f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.l;
-        }
-        return (yu) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public rs g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (rs) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public ps h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (ps) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public ts i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (ts) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package androidx.appcompat.widget;
 
+import android.annotation.SuppressLint;
 import android.graphics.Insets;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
@@ -11,6 +12,8 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.WrappedDrawable;
@@ -23,6 +26,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
+@SuppressLint({"RestrictedAPI"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DrawableUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,7 +77,7 @@ public class DrawableUtils {
         }
     }
 
-    public static boolean canSafelyMutateDrawable(Drawable drawable) {
+    public static boolean canSafelyMutateDrawable(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, drawable)) == null) {
@@ -111,7 +116,7 @@ public class DrawableUtils {
         return invokeL.booleanValue;
     }
 
-    public static void fixDrawable(Drawable drawable) {
+    public static void fixDrawable(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, drawable) == null) && Build.VERSION.SDK_INT == 21 && "android.graphics.drawable.VectorDrawable".equals(drawable.getClass().getName())) {
             fixVectorDrawableTinting(drawable);

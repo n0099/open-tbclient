@@ -1,6 +1,9 @@
 package androidx.webkit.internal;
 
+import android.annotation.SuppressLint;
 import android.webkit.ServiceWorkerWebSettings;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.webkit.ServiceWorkerWebSettingsCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +22,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     public ServiceWorkerWebSettingsBoundaryInterface mBoundaryInterface;
     public ServiceWorkerWebSettings mFrameworksImpl;
 
-    public ServiceWorkerWebSettingsImpl(ServiceWorkerWebSettings serviceWorkerWebSettings) {
+    public ServiceWorkerWebSettingsImpl(@NonNull ServiceWorkerWebSettings serviceWorkerWebSettings) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,6 +41,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
     public void setAllowContentAccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -53,6 +57,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
     public void setAllowFileAccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -68,6 +73,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
     public void setBlockNetworkLoads(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
@@ -83,6 +89,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
     public void setCacheMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -97,7 +104,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
         }
     }
 
-    public ServiceWorkerWebSettingsImpl(InvocationHandler invocationHandler) {
+    public ServiceWorkerWebSettingsImpl(@NonNull InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,6 +134,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
         return (ServiceWorkerWebSettingsBoundaryInterface) invokeV.objValue;
     }
 
+    @RequiresApi(24)
     private ServiceWorkerWebSettings getFrameworksImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,6 +148,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
     public boolean getAllowContentAccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -157,6 +166,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
     public boolean getAllowFileAccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -174,6 +184,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
     public boolean getBlockNetworkLoads() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -191,6 +202,7 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
     }
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
+    @SuppressLint({"NewApi"})
     public int getCacheMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

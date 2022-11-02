@@ -306,7 +306,7 @@ public class HeadObject {
                     }
                     jSONObject.put(Config.CUID_SEC, obj9);
                     jSONObject.put(Config.SDK_TAG, 2);
-                    jSONObject.put("w", this.j);
+                    jSONObject.put(Config.DEVICE_WIDTH, this.j);
                     jSONObject.put("h", this.k);
                     if (this.t == null) {
                         obj10 = "";

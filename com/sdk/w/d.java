@@ -19,14 +19,14 @@ import com.sdk.base.framework.utils.app.AppUtils;
 import com.sdk.f.g;
 import com.sdk.o.f;
 /* loaded from: classes8.dex */
-public class d {
+public class d<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.w.d";
     public static Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallBack c;
+    public CallBack<T> c;
     public Context d;
-    public a e;
+    public d<T>.a e;
     public com.sdk.a.e f;
     public int g;
 
@@ -87,7 +87,7 @@ public class d {
         }
     }
 
-    public d(Context context, int i, CallBack callBack) {
+    public d(Context context, int i, CallBack<T> callBack) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class d {
         this.d = context;
         i = i <= 0 ? 30 : i;
         this.g = i;
-        a aVar = new a(this, i * 1000);
+        d<T>.a aVar = new a(this, i * 1000);
         this.e = aVar;
         aVar.a.postDelayed(aVar, aVar.b);
         com.sdk.n.b.b();
@@ -170,11 +170,11 @@ public class d {
             if (com.sdk.n.a.a(str2).booleanValue()) {
                 str2 = com.sdk.q.a.a(20);
             }
-            a aVar = this.e;
+            d<T>.a aVar = this.e;
             if (aVar != null) {
                 aVar.a.removeCallbacks(aVar);
             }
-            CallBack callBack = this.c;
+            CallBack<T> callBack = this.c;
             if (callBack != null) {
                 callBack.onFailed(i, i2, str, str2);
                 this.c = null;
@@ -183,20 +183,20 @@ public class d {
         }
     }
 
-    public final void a(int i, String str, int i2, Object obj, String str2) {
+    public final void a(int i, String str, int i2, T t, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) {
             if (com.sdk.n.a.a(str2).booleanValue()) {
                 str2 = com.sdk.q.a.a(20);
             }
             String str3 = str2;
-            a aVar = this.e;
+            d<T>.a aVar = this.e;
             if (aVar != null) {
                 aVar.a.removeCallbacks(aVar);
             }
-            CallBack callBack = this.c;
+            CallBack<T> callBack = this.c;
             if (callBack != null) {
-                callBack.onSuccess(i, str, i2, obj, str3);
+                callBack.onSuccess(i, str, i2, t, str3);
                 this.c = null;
             }
             com.sdk.t.a.a();

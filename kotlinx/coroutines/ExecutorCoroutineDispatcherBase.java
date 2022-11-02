@@ -11,6 +11,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlinx.coroutines.Delay;
@@ -45,7 +46,7 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
         return getExecutor().toString();
     }
 
-    private final ScheduledFuture scheduleBlock(Runnable runnable, long j, TimeUnit timeUnit) {
+    private final ScheduledFuture<?> scheduleBlock(Runnable runnable, long j, TimeUnit timeUnit) {
         try {
             Executor executor = getExecutor();
             if (!(executor instanceof ScheduledExecutorService)) {
@@ -62,7 +63,7 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
     }
 
     @Override // kotlinx.coroutines.Delay
-    public Object delay(long j, Continuation continuation) {
+    public Object delay(long j, Continuation<? super Unit> continuation) {
         return Delay.DefaultImpls.delay(this, j, continuation);
     }
 
@@ -87,7 +88,7 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
 
     @Override // kotlinx.coroutines.Delay
     public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
-        ScheduledFuture scheduledFuture;
+        ScheduledFuture<?> scheduledFuture;
         if (this.removesFutureOnCancellation) {
             scheduledFuture = scheduleBlock(runnable, j, TimeUnit.MILLISECONDS);
         } else {
@@ -100,8 +101,8 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
     }
 
     @Override // kotlinx.coroutines.Delay
-    public void scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
-        ScheduledFuture scheduledFuture;
+    public void scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
+        ScheduledFuture<?> scheduledFuture;
         if (this.removesFutureOnCancellation) {
             scheduledFuture = scheduleBlock(new ResumeUndispatchedRunnable(this, cancellableContinuation), j, TimeUnit.MILLISECONDS);
         } else {

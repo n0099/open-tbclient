@@ -2,6 +2,7 @@ package com.google.android.gms.common.util;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class CrashUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +49,8 @@ public final class CrashUtils {
         }
     }
 
-    public static boolean addDynamiteErrorToDropBox(Context context, Throwable th) {
+    @KeepForSdk
+    public static boolean addDynamiteErrorToDropBox(@NonNull Context context, @NonNull Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, th)) == null) {

@@ -17,7 +17,7 @@ public interface TTInteractionAd extends TTClientBidding {
 
     int getInteractionType();
 
-    Map getMediaExtraInfo();
+    Map<String, Object> getMediaExtraInfo();
 
     void setAdInteractionListener(AdInteractionListener adInteractionListener);
 

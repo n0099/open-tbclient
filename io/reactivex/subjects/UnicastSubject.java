@@ -10,6 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
@@ -20,22 +22,22 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class UnicastSubject extends Subject {
+public final class UnicastSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference actual;
+    public final AtomicReference<Observer<? super T>> actual;
     public final boolean delayError;
     public volatile boolean disposed;
     public volatile boolean done;
     public boolean enableOperatorFusion;
     public Throwable error;
-    public final AtomicReference onTerminate;
+    public final AtomicReference<Runnable> onTerminate;
     public final AtomicBoolean once;
-    public final SpscLinkedArrayQueue queue;
-    public final BasicIntQueueDisposable wip;
+    public final SpscLinkedArrayQueue<T> queue;
+    public final BasicIntQueueDisposable<T> wip;
 
     /* loaded from: classes8.dex */
-    public final class UnicastQueueDisposable extends BasicIntQueueDisposable {
+    public final class UnicastQueueDisposable extends BasicIntQueueDisposable<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7926949470189395511L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,13 +104,14 @@ public final class UnicastSubject extends Subject {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 return this.this$0.queue.poll();
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -162,10 +165,10 @@ public final class UnicastSubject extends Subject {
                 return;
             }
         }
-        this.queue = new SpscLinkedArrayQueue(ObjectHelper.verifyPositive(i, "capacityHint"));
-        this.onTerminate = new AtomicReference(ObjectHelper.requireNonNull(runnable, "onTerminate"));
+        this.queue = new SpscLinkedArrayQueue<>(ObjectHelper.verifyPositive(i, "capacityHint"));
+        this.onTerminate = new AtomicReference<>(ObjectHelper.requireNonNull(runnable, "onTerminate"));
         this.delayError = z;
-        this.actual = new AtomicReference();
+        this.actual = new AtomicReference<>();
         this.once = new AtomicBoolean();
         this.wip = new UnicastQueueDisposable(this);
     }
@@ -185,20 +188,20 @@ public final class UnicastSubject extends Subject {
                 return;
             }
         }
-        this.queue = new SpscLinkedArrayQueue(ObjectHelper.verifyPositive(i, "capacityHint"));
-        this.onTerminate = new AtomicReference();
+        this.queue = new SpscLinkedArrayQueue<>(ObjectHelper.verifyPositive(i, "capacityHint"));
+        this.onTerminate = new AtomicReference<>();
         this.delayError = z;
-        this.actual = new AtomicReference();
+        this.actual = new AtomicReference<>();
         this.once = new AtomicBoolean();
         this.wip = new UnicastQueueDisposable(this);
     }
 
     @CheckReturnValue
-    public static UnicastSubject create() {
+    public static <T> UnicastSubject<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new UnicastSubject(Observable.bufferSize(), true);
+            return new UnicastSubject<>(Observable.bufferSize(), true);
         }
         return (UnicastSubject) invokeV.objValue;
     }
@@ -206,12 +209,13 @@ public final class UnicastSubject extends Subject {
     public void doTerminate() {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (runnable = (Runnable) this.onTerminate.get()) != null && this.onTerminate.compareAndSet(runnable, null)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (runnable = this.onTerminate.get()) != null && this.onTerminate.compareAndSet(runnable, null)) {
             runnable.run();
         }
     }
 
     @Override // io.reactivex.subjects.Subject
+    @Nullable
     public Throwable getThrowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,16 +278,16 @@ public final class UnicastSubject extends Subject {
     }
 
     @CheckReturnValue
-    public static UnicastSubject create(int i) {
+    public static <T> UnicastSubject<T> create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return new UnicastSubject(i, true);
+            return new UnicastSubject<>(i, true);
         }
         return (UnicastSubject) invokeI.objValue;
     }
 
-    public void errorOrComplete(Observer observer) {
+    public void errorOrComplete(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, observer) == null) {
             this.actual.lazySet(null);
@@ -313,12 +317,12 @@ public final class UnicastSubject extends Subject {
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, obj) == null) {
-            ObjectHelper.requireNonNull(obj, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
+            ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (!this.done && !this.disposed) {
-                this.queue.offer(obj);
+                this.queue.offer(t);
                 drain();
             }
         }
@@ -335,16 +339,16 @@ public final class UnicastSubject extends Subject {
     }
 
     @CheckReturnValue
-    public static UnicastSubject create(int i, Runnable runnable) {
+    public static <T> UnicastSubject<T> create(int i, Runnable runnable) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, runnable)) == null) {
-            return new UnicastSubject(i, runnable, true);
+            return new UnicastSubject<>(i, runnable, true);
         }
         return (UnicastSubject) invokeIL.objValue;
     }
 
-    public boolean failedFast(SimpleQueue simpleQueue, Observer observer) {
+    public boolean failedFast(SimpleQueue<T> simpleQueue, Observer<? super T> observer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, simpleQueue, observer)) == null) {
@@ -361,21 +365,23 @@ public final class UnicastSubject extends Subject {
     }
 
     @CheckReturnValue
-    public static UnicastSubject create(int i, Runnable runnable, boolean z) {
+    @Experimental
+    public static <T> UnicastSubject<T> create(int i, Runnable runnable, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), runnable, Boolean.valueOf(z)})) == null) {
-            return new UnicastSubject(i, runnable, z);
+            return new UnicastSubject<>(i, runnable, z);
         }
         return (UnicastSubject) invokeCommon.objValue;
     }
 
     @CheckReturnValue
-    public static UnicastSubject create(boolean z) {
+    @Experimental
+    public static <T> UnicastSubject<T> create(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) {
-            return new UnicastSubject(Observable.bufferSize(), z);
+            return new UnicastSubject<>(Observable.bufferSize(), z);
         }
         return (UnicastSubject) invokeZ.objValue;
     }
@@ -385,14 +391,14 @@ public final class UnicastSubject extends Subject {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.wip.getAndIncrement() != 0) {
             return;
         }
-        Observer observer = (Observer) this.actual.get();
+        Observer<? super T> observer = this.actual.get();
         int i = 1;
         while (observer == null) {
             i = this.wip.addAndGet(-i);
             if (i == 0) {
                 return;
             }
-            observer = (Observer) this.actual.get();
+            observer = this.actual.get();
         }
         if (this.enableOperatorFusion) {
             drainFused(observer);
@@ -401,10 +407,10 @@ public final class UnicastSubject extends Subject {
         }
     }
 
-    public void drainFused(Observer observer) {
+    public void drainFused(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observer) == null) {
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
             int i = 1;
             boolean z = !this.delayError;
             while (!this.disposed) {
@@ -428,7 +434,7 @@ public final class UnicastSubject extends Subject {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, observer) == null) {
             if (!this.once.get() && this.once.compareAndSet(false, true)) {
@@ -446,18 +452,18 @@ public final class UnicastSubject extends Subject {
         }
     }
 
-    public void drainNormal(Observer observer) {
+    public void drainNormal(Observer<? super T> observer) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, observer) == null) {
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
             boolean z2 = !this.delayError;
             boolean z3 = true;
             int i = 1;
             while (!this.disposed) {
                 boolean z4 = this.done;
-                Object poll = this.queue.poll();
-                if (poll == null) {
+                Object obj = (T) this.queue.poll();
+                if (obj == null) {
                     z = true;
                 } else {
                     z = false;
@@ -480,7 +486,7 @@ public final class UnicastSubject extends Subject {
                         return;
                     }
                 } else {
-                    observer.onNext(poll);
+                    observer.onNext(obj);
                 }
             }
             this.actual.lazySet(null);

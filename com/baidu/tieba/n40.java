@@ -6,13 +6,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidKeyException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes5.dex */
-public abstract class n40 {
+public class n40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public s40 a;
 
     public n40() {
         Interceptable interceptable = $ic;
@@ -28,23 +30,35 @@ public abstract class n40 {
         }
     }
 
-    public int a() {
+    public static n40 b() throws NoSuchPaddingException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            n40 n40Var = new n40();
+            s40 s40Var = new s40();
+            n40Var.a = s40Var;
+            s40Var.d(2);
+            return n40Var;
+        }
+        return (n40) invokeV.objValue;
     }
 
-    public abstract com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2);
-
-    public int c() {
-        InterceptResult invokeV;
+    public final byte[] a(byte[] bArr) throws IllegalBlockSizeException, BadPaddingException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.b(bArr, 0, bArr.length);
+            }
+            throw new IllegalArgumentException("Null input buffer");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public void c(int i, q40 q40Var) throws InvalidKeyException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, q40Var) == null) {
+            this.a.c(i, q40Var);
+        }
     }
 }

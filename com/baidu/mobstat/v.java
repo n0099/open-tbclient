@@ -37,7 +37,7 @@ public class v {
     }
 
     /* loaded from: classes2.dex */
-    public class a extends Thread {
+    public static class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;

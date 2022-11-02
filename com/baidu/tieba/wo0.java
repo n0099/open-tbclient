@@ -1,53 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import android.view.MotionEvent;
+import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
 /* loaded from: classes6.dex */
-public final class wo0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
+public interface wo0 extends yi0 {
+    WebViewContainer b();
 
-    public wo0(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.optString("url");
-        jSONObject.optInt("width");
-        this.b = jSONObject.optInt("height");
-    }
+    void f(boolean z, boolean z2, boolean z3, int i);
 
-    public static wo0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new wo0(jSONObject);
-        }
-        return (wo0) invokeL.objValue;
-    }
+    boolean g();
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.isEmpty(this.a)) {
-            return;
-        }
-        qn0.a().d(this.a);
-    }
+    void i(MotionEvent motionEvent);
+
+    void j(boolean z, boolean z2, boolean z3);
 }

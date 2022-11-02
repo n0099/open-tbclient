@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gp2 implements dp2 {
+public abstract class gp2<ValueT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ua2 a;
+    public final ValueT a;
 
+    public abstract ValueT c(Bundle bundle, String str, ValueT valuet);
+
+    public abstract void e(Bundle bundle, String str, ValueT valuet);
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public gp2() {
+        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -19,44 +27,54 @@ public class gp2 implements dp2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.dp2
-    public void onPause() {
+    public gp2(ValueT valuet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
-            ua2 ua2Var = this.a;
-            if (ua2Var != null) {
-                ua2Var.suspendTimer();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {valuet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = valuet;
     }
 
-    @Override // com.baidu.tieba.dp2
-    public void onResume() {
+    public ValueT a(hp2 hp2Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-            ua2 ua2Var = this.a;
-            if (ua2Var != null) {
-                ua2Var.continueTimer();
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, hp2Var, str)) == null) {
+            return b(hp2Var, str, this.a);
         }
+        return (ValueT) invokeLL.objValue;
     }
 
-    public final void a() {
-        i52 W;
+    public ValueT b(hp2 hp2Var, String str, ValueT valuet) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ua2 ua2Var = this.a;
-            if ((ua2Var == null || ua2Var.isDestroyed()) && (W = ga2.U().W()) != null && (W.f() instanceof ua2)) {
-                this.a = (ua2) W.f();
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hp2Var, str, valuet)) == null) {
+            return c(hp2Var.C(), str, valuet);
+        }
+        return (ValueT) invokeLLL.objValue;
+    }
+
+    public void d(hp2 hp2Var, String str, ValueT valuet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, hp2Var, str, valuet) == null) {
+            e(hp2Var.C(), str, valuet);
         }
     }
 }

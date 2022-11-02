@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FlutterOpenData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public String pageName;
-    public Map params;
+    public Map<String, Object> params;
 
-    public FlutterOpenData(Context context, String str, Map map) {
+    public FlutterOpenData(Context context, String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public class FlutterOpenData {
         return (String) invokeV.objValue;
     }
 
-    public Map getParams() {
+    public Map<String, Object> getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

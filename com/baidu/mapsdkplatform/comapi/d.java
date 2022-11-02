@@ -1,51 +1,48 @@
 package com.baidu.mapsdkplatform.comapi;
 
-import com.baidu.mapsdkplatform.comapi.NativeLoader;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FilenameFilter;
 /* loaded from: classes2.dex */
-public /* synthetic */ class d {
+public class d implements FilenameFilter {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ int[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ String a;
+    public final /* synthetic */ NativeLoader b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-52719235, "Lcom/baidu/mapsdkplatform/comapi/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-52719235, "Lcom/baidu/mapsdkplatform/comapi/d;");
+    public d(NativeLoader nativeLoader, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nativeLoader, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int[] iArr = new int[NativeLoader.a.values().length];
-        a = iArr;
-        try {
-            iArr[NativeLoader.a.c.ordinal()] = 1;
-        } catch (NoSuchFieldError unused) {
+        this.b = nativeLoader;
+        this.a = str;
+    }
+
+    @Override // java.io.FilenameFilter
+    public boolean accept(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
+            if (str == null || !str.contains("libBaiduMapSDK_") || str.contains(this.a)) {
+                return false;
+            }
+            return true;
         }
-        try {
-            a[NativeLoader.a.b.ordinal()] = 2;
-        } catch (NoSuchFieldError unused2) {
-        }
-        try {
-            a[NativeLoader.a.a.ordinal()] = 3;
-        } catch (NoSuchFieldError unused3) {
-        }
-        try {
-            a[NativeLoader.a.e.ordinal()] = 4;
-        } catch (NoSuchFieldError unused4) {
-        }
-        try {
-            a[NativeLoader.a.d.ordinal()] = 5;
-        } catch (NoSuchFieldError unused5) {
-        }
+        return invokeLL.booleanValue;
     }
 }

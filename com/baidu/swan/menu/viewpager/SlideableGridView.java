@@ -1,5 +1,6 @@
 package com.baidu.swan.menu.viewpager;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -29,7 +30,7 @@ public class SlideableGridView extends LinearLayout {
     public int[] i;
 
     /* loaded from: classes3.dex */
-    public abstract class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -259,6 +260,7 @@ public class SlideableGridView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @TargetApi(11)
     public SlideableGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;

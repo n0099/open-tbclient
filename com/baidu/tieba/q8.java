@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 /* loaded from: classes5.dex */
-public class q8 {
+public class q8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Future a;
+    public final Future<T> a;
 
-    public q8(Future future) {
+    public q8(Future<T> future) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,7 +33,7 @@ public class q8 {
         this.a = future;
     }
 
-    public Object a() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -45,7 +45,7 @@ public class q8 {
                 throw new GdxRuntimeException(e.getCause());
             }
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public boolean b() {

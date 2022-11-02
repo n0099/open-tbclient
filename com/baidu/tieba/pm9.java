@@ -1,232 +1,136 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class pm9 extends an9 {
+public class pm9 extends ks9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements TTAdNative.SplashAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pm9 a;
-
-        public a(pm9 pm9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pm9Var;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJSplashAd onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
-        public void onSplashAdLoad(TTSplashAd tTSplashAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTSplashAd) == null) {
-                LogPrinter.d();
-                this.a.onAdLoaded(new tn9(tTSplashAd));
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
-        public void onTimeout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.e();
-                this.a.onError(0, "Load Timeout");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements TTSplashAd.AdInteractionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final tn9 a;
-        public final String b;
-        public boolean c;
-        public boolean d;
-        public final /* synthetic */ pm9 e;
-
-        public b(pm9 pm9Var, tn9 tn9Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm9Var, tn9Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = pm9Var;
-            this.a = tn9Var;
-            this.b = str;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdClicked(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-                LogPrinter.d();
-                this.e.onAdClicked(this.a, this.d, new String[0]);
-                this.d = true;
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdShow(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-                LogPrinter.d();
-                this.e.onAdShow(this.a, this.c, new String[0]);
-                this.c = true;
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdSkip() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.a);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdTimeOver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.a);
-            }
-        }
-    }
+    public final Set<Ssp> a;
+    public final Set<fn9> b;
+    public final Set<dn9> c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, false, true);
+    public pm9(int i, ObjectInput objectInput) {
+        super(i);
+        HashSet hashSet;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            tn9 tn9Var = (tn9) obj;
-        }
-    }
-
-    public final boolean h(ViewGroup viewGroup, tn9 tn9Var, TTSplashAd.AdInteractionListener adInteractionListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, tn9Var, adInteractionListener)) == null) {
-            View splashView = ((TTSplashAd) tn9Var.a).getSplashView();
-            if (splashView.getParent() != null) {
-                ((ViewGroup) splashView.getParent()).removeView(splashView);
+        int readInt = objectInput.readInt();
+        HashSet hashSet2 = new HashSet(readInt);
+        HashMap hashMap = new HashMap();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
+            hashSet2.add(ssp);
+            for (Ssp.Pid pid : ssp.pids) {
+                hashMap.put(Long.valueOf(pid.id), pid);
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(splashView);
-            onShowStart(tn9Var);
-            ((TTSplashAd) tn9Var.a).setSplashInteractionListener(adInteractionListener);
-            return true;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+        int readInt2 = objectInput.readInt();
+        HashSet hashSet3 = new HashSet(readInt2);
+        for (int i5 = 0; i5 < readInt2; i5++) {
+            hashSet3.add(new fn9(objectInput.readInt(), objectInput, hashMap));
+        }
+        this.a = Collections.unmodifiableSet(hashSet2);
+        this.b = Collections.unmodifiableSet(hashSet3);
+        if (i == 1) {
+            int readInt3 = objectInput.readInt();
+            hashSet = new HashSet(readInt3);
+            for (int i6 = 0; i6 < readInt3; i6++) {
+                hashSet.add(new dn9(objectInput.readInt(), objectInput, hashMap));
             }
-            int expressHeight = (int) ((funAdSlot.getExpressHeight() * context.getResources().getDisplayMetrics().density) + 0.5f);
-            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setImageAcceptedSize((int) ((funAdSlot.getExpressWidth() * context.getResources().getDisplayMetrics().density) + 0.5f), expressHeight).setExpressViewAcceptedSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()).build();
-            onLoadStart(funAdSlot);
-            this.e.loadSplashAd(build, new a(this), 5000);
+        } else {
+            hashSet = new HashSet();
         }
+        this.c = Collections.unmodifiableSet(hashSet);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm9(Set<Ssp> set, Set<fn9> set2, Set<dn9> set3) {
+        super(1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            tn9 tn9Var = (tn9) obj;
-            h(viewGroup, tn9Var, new b(this, tn9Var, str));
-            return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {set, set2, set3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeLLLL.booleanValue;
+        this.a = set;
+        this.b = set2;
+        this.c = set3;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            tn9 tn9Var = (tn9) obj;
-            zm9 zm9Var = new zm9((TTSplashAd) tn9Var.a);
-            h(viewGroup, tn9Var, new qm9(this, tn9Var, str, zm9Var));
-            return zm9Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || pm9.class != obj.getClass()) {
+                return false;
+            }
+            pm9 pm9Var = (pm9) obj;
+            return Objects.equals(this.a, pm9Var.a) && Objects.equals(this.b, pm9Var.b);
         }
-        return (FunSplashAd) invokeLLLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b) : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ks9
+    public void srzableInternal(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
+            objectOutput.writeInt(this.a.size());
+            for (Ssp ssp : this.a) {
+                ssp.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.b.size());
+            for (fn9 fn9Var : this.b) {
+                fn9Var.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.c.size());
+            for (dn9 dn9Var : this.c) {
+                dn9Var.srzable(objectOutput);
+            }
+        }
     }
 }

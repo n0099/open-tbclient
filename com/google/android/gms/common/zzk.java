@@ -12,9 +12,9 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
 public abstract class zzk extends zzi {
     public static /* synthetic */ Interceptable $ic;
-    public static final WeakReference zza;
+    public static final WeakReference<byte[]> zza;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference zzb;
+    public WeakReference<byte[]> zzb;
 
     public abstract byte[] zzb();
 
@@ -31,7 +31,7 @@ public abstract class zzk extends zzi {
                 return;
             }
         }
-        zza = new WeakReference(null);
+        zza = new WeakReference<>(null);
     }
 
     @Override // com.google.android.gms.common.zzi
@@ -41,10 +41,10 @@ public abstract class zzk extends zzi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                bArr = (byte[]) this.zzb.get();
+                bArr = this.zzb.get();
                 if (bArr == null) {
                     bArr = zzb();
-                    this.zzb = new WeakReference(bArr);
+                    this.zzb = new WeakReference<>(bArr);
                 }
             }
             return bArr;

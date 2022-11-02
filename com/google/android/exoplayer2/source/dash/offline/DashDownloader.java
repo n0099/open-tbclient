@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public final class DashDownloader extends SegmentDownloader {
+public final class DashDownloader extends SegmentDownloader<DashManifest, RepresentationKey> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +52,7 @@ public final class DashDownloader extends SegmentDownloader {
         }
     }
 
-    public static void addSegment(ArrayList arrayList, long j, String str, RangedUri rangedUri) {
+    public static void addSegment(ArrayList<SegmentDownloader.Segment> arrayList, long j, String str, RangedUri rangedUri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{arrayList, Long.valueOf(j), str, rangedUri}) == null) {
             arrayList.add(new SegmentDownloader.Segment(j, new DataSpec(rangedUri.resolveUri(str), rangedUri.start, rangedUri.length, null)));
@@ -63,8 +63,8 @@ public final class DashDownloader extends SegmentDownloader {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, dataSource, dashManifest, representationKey)) == null) {
-            AdaptationSet adaptationSet = (AdaptationSet) dashManifest.getPeriod(representationKey.periodIndex).adaptationSets.get(representationKey.adaptationSetIndex);
-            Representation representation = (Representation) adaptationSet.representations.get(representationKey.representationIndex);
+            AdaptationSet adaptationSet = dashManifest.getPeriod(representationKey.periodIndex).adaptationSets.get(representationKey.adaptationSetIndex);
+            Representation representation = adaptationSet.representations.get(representationKey.representationIndex);
             DashSegmentIndex index = representation.getIndex();
             if (index != null) {
                 return index;
@@ -80,15 +80,15 @@ public final class DashDownloader extends SegmentDownloader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
-    public List getAllSegments(DataSource dataSource, DashManifest dashManifest, boolean z) throws InterruptedException, IOException {
+    public List<SegmentDownloader.Segment> getAllSegments(DataSource dataSource, DashManifest dashManifest, boolean z) throws InterruptedException, IOException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, dataSource, dashManifest, z)) == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < dashManifest.getPeriodCount(); i++) {
-                List list = dashManifest.getPeriod(i).adaptationSets;
+                List<AdaptationSet> list = dashManifest.getPeriod(i).adaptationSets;
                 for (int i2 = 0; i2 < list.size(); i2++) {
-                    int size = ((AdaptationSet) list.get(i2)).representations.size();
+                    int size = list.get(i2).representations.size();
                     RepresentationKey[] representationKeyArr = new RepresentationKey[size];
                     for (int i3 = 0; i3 < size; i3++) {
                         representationKeyArr[i3] = new RepresentationKey(i, i2, i3);
@@ -102,6 +102,7 @@ public final class DashDownloader extends SegmentDownloader {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
     public DashManifest getManifest(DataSource dataSource, Uri uri) throws IOException {
         InterceptResult invokeLL;
@@ -114,7 +115,7 @@ public final class DashDownloader extends SegmentDownloader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
-    public List getSegments(DataSource dataSource, DashManifest dashManifest, RepresentationKey[] representationKeyArr, boolean z) throws InterruptedException, IOException {
+    public List<SegmentDownloader.Segment> getSegments(DataSource dataSource, DashManifest dashManifest, RepresentationKey[] representationKeyArr, boolean z) throws InterruptedException, IOException {
         InterceptResult invokeCommon;
         DashSegmentIndex segmentIndex;
         Interceptable interceptable = $ic;
@@ -132,7 +133,7 @@ public final class DashDownloader extends SegmentDownloader {
                     int segmentCount = segmentIndex.getSegmentCount(C.TIME_UNSET);
                     if (segmentCount != -1) {
                         Period period = dashManifest.getPeriod(representationKey.periodIndex);
-                        Representation representation = (Representation) ((AdaptationSet) period.adaptationSets.get(representationKey.adaptationSetIndex)).representations.get(representationKey.representationIndex);
+                        Representation representation = period.adaptationSets.get(representationKey.adaptationSetIndex).representations.get(representationKey.representationIndex);
                         long msToUs = C.msToUs(period.startMs);
                         String str = representation.baseUrl;
                         RangedUri initializationUri = representation.getInitializationUri();

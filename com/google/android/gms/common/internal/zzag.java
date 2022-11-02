@@ -4,17 +4,21 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.gms.common.wrappers.Wrappers;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public final class zzag {
     public static /* synthetic */ Interceptable $ic;
     public static final Object zza;
+    @GuardedBy("sLock")
     public static boolean zzb;
+    @Nullable
     public static String zzc;
     public static int zzd;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,6 +49,7 @@ public final class zzag {
         return invokeL.intValue;
     }
 
+    @Nullable
     public static String zzb(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

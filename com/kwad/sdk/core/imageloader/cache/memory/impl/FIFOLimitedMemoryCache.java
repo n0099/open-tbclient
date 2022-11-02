@@ -7,9 +7,9 @@ import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
-    public final List queue;
+    public final List<DecodedResult> queue;
 
     public FIFOLimitedMemoryCache(int i) {
         super(i);
@@ -23,7 +23,7 @@ public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    public Reference createReference(DecodedResult decodedResult) {
+    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 
@@ -52,6 +52,6 @@ public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
     public DecodedResult removeNext() {
-        return (DecodedResult) this.queue.remove(0);
+        return this.queue.remove(0);
     }
 }

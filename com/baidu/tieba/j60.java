@@ -1,450 +1,128 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.helios.trusts.zone.TrustSubject;
-import com.baidu.helios.trusts.zone.verifier.ZipSignatureSchemeV2Verifier;
-import com.baidu.tieba.l50;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.cookie.CookieManager;
+import com.baidu.searchbox.network.outback.core.internal.Util;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.cert.X509Certificate;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.List;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 /* loaded from: classes4.dex */
-public class j60 {
+public class j60 implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Context b;
-    public l50.a c;
-    public ZipFile d;
-    public PackageManager e;
+    public CookieManager a;
 
-    /* loaded from: classes4.dex */
-    public class a implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(j60 j60Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j60Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return str.endsWith(".cfgtmp");
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b a(j60 j60Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, j60Var)) == null) {
-                try {
-                    String f = j60Var.f("info");
-                    if (!TextUtils.isEmpty(f)) {
-                        JSONObject jSONObject = new JSONObject(f);
-                        b bVar = new b();
-                        bVar.a = jSONObject.getLong("version");
-                        return bVar;
-                    }
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835109, "Lcom/baidu/tieba/j60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947835109, "Lcom/baidu/tieba/j60;");
-                return;
-            }
-        }
-        f = new String[]{"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
-    }
-
-    public j60() {
+    public j60(CookieManager cookieManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cookieManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = cookieManager;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File[] listFiles = this.c.b().listFiles(new a(this));
-            int i = 0;
-            if (listFiles == null) {
-                return false;
-            }
-            int length = listFiles.length;
-            boolean z = false;
-            while (i < length) {
-                listFiles[i].delete();
-                i++;
-                z = true;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ZipFile zipFile = this.d;
-            if (zipFile != null) {
-                g50.d(zipFile);
-                this.d = null;
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return g().delete();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final File g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c.d("c.dat");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            b a2 = b.a(this);
-            if (a2 != null) {
-                return a2.a;
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.d != null) {
-                return true;
-            }
-            File g = g();
-            if (g.exists()) {
-                try {
-                    this.d = new ZipFile(g);
-                    return true;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int a() {
-        File file;
-        FileOutputStream fileOutputStream;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                AssetManager assets = this.b.createPackageContext(this.a, 0).getAssets();
-                this.c.a();
-                File g = g();
-                InputStream inputStream = null;
-                try {
-                    g.delete();
-                    file = File.createTempFile("cfg", ".cfgtmp", g.getParentFile());
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                        try {
-                            try {
-                                inputStream = assets.open("com.baidu.helios/c.dat");
-                                h50.a(inputStream, fileOutputStream, 16384);
-                                try {
-                                    X509Certificate[][] v = ZipSignatureSchemeV2Verifier.v(file);
-                                    if (v.length == 0) {
-                                        g50.b(inputStream);
-                                        g50.b(fileOutputStream);
-                                        if (file != null) {
-                                            try {
-                                                file.delete();
-                                            } catch (Exception unused) {
-                                            }
-                                        }
-                                        return 3;
-                                    }
-                                    HashSet hashSet = new HashSet();
-                                    for (X509Certificate[] x509CertificateArr : v) {
-                                        if (x509CertificateArr != null) {
-                                            for (X509Certificate x509Certificate : x509CertificateArr) {
-                                                if (x509Certificate != null) {
-                                                    hashSet.add(j50.c(x509Certificate.getSignature()));
-                                                }
-                                            }
-                                        }
-                                    }
-                                    HashSet hashSet2 = new HashSet();
-                                    Collections.addAll(hashSet2, f);
-                                    if (hashSet2.equals(hashSet)) {
-                                        file.renameTo(g);
-                                        g50.b(inputStream);
-                                        g50.b(fileOutputStream);
-                                        if (file != null) {
-                                            try {
-                                                file.delete();
-                                            } catch (Exception unused2) {
-                                            }
-                                        }
-                                        return 0;
-                                    }
-                                    g50.b(inputStream);
-                                    g50.b(fileOutputStream);
-                                    if (file != null) {
-                                        try {
-                                            file.delete();
-                                        } catch (Exception unused3) {
-                                        }
-                                    }
-                                    return 3;
-                                } catch (Exception unused4) {
-                                    g50.b(inputStream);
-                                    g50.b(fileOutputStream);
-                                    if (file != null) {
-                                        try {
-                                            file.delete();
-                                        } catch (Exception unused5) {
-                                        }
-                                    }
-                                    return 3;
-                                }
-                            } catch (Throwable th) {
-                                th = th;
-                                g50.b(inputStream);
-                                g50.b(fileOutputStream);
-                                if (file != null) {
-                                    try {
-                                        file.delete();
-                                    } catch (Exception unused6) {
-                                    }
-                                }
-                                throw th;
-                            }
-                        } catch (FileNotFoundException unused7) {
-                            g50.b(inputStream);
-                            g50.b(fileOutputStream);
-                            if (file != null) {
-                                try {
-                                    file.delete();
-                                } catch (Exception unused8) {
-                                }
-                            }
-                            return 5;
-                        } catch (IOException unused9) {
-                            g50.b(inputStream);
-                            g50.b(fileOutputStream);
-                            if (file != null) {
-                                try {
-                                    file.delete();
-                                } catch (Exception unused10) {
-                                }
-                            }
-                            return 2;
-                        } catch (Exception unused11) {
-                            g50.b(inputStream);
-                            g50.b(fileOutputStream);
-                            if (file != null) {
-                                try {
-                                    file.delete();
-                                } catch (Exception unused12) {
-                                }
-                            }
-                            return 4;
-                        }
-                    } catch (FileNotFoundException unused13) {
-                        fileOutputStream = null;
-                    } catch (IOException unused14) {
-                        fileOutputStream = null;
-                    } catch (Exception unused15) {
-                        fileOutputStream = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileOutputStream = null;
-                    }
-                } catch (FileNotFoundException unused16) {
-                    file = null;
-                    fileOutputStream = null;
-                } catch (IOException unused17) {
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Exception unused18) {
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    file = null;
-                    fileOutputStream = null;
-                }
-            } catch (Exception unused19) {
-                return 1;
-            }
-        } else {
-            return invokeV.intValue;
-        }
-    }
-
-    public void b(String str, Context context, l50.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, aVar) == null) {
-            this.a = str;
-            this.b = context;
-            this.c = aVar;
-            this.e = context.getPackageManager();
-        }
-    }
-
-    public String f(String str) throws TrustSubject.ConfigNotFoundException {
+    @Override // okhttp3.CookieJar
+    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            InputStream inputStream = null;
-            try {
-                try {
-                    inputStream = h(str);
-                    return h50.b(inputStream, "UTF-8");
-                } catch (IOException e) {
-                    throw new TrustSubject.ConfigNotFoundException(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
+            ArrayList arrayList = new ArrayList();
+            CookieManager cookieManager = this.a;
+            if (cookieManager != null) {
+                String cookie = cookieManager.getCookie(httpUrl.toString());
+                if (!Util.isTextEmpty(cookie)) {
+                    arrayList.addAll(b(httpUrl, cookie));
                 }
-            } finally {
-                g50.b(inputStream);
             }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
+            }
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public final InputStream h(String str) throws TrustSubject.ConfigNotFoundException {
-        InterceptResult invokeL;
+    public final List<Cookie> b(HttpUrl httpUrl, String str) {
+        InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            try {
-                return this.d.getInputStream(new ZipEntry(str));
-            } catch (Exception e) {
-                throw new TrustSubject.ConfigNotFoundException(e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int length = str.length();
+            int i = 0;
+            while (i < length) {
+                int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
+                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
+                String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
+                if (delimiterOffset2 < delimiterOffset) {
+                    str2 = Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset);
+                } else {
+                    str2 = "";
+                }
+                if (str2.startsWith("\"") && str2.endsWith("\"")) {
+                    str2 = str2.substring(1, str2.length() - 1);
+                }
+                String a = a(trimSubstring);
+                String a2 = a(str2);
+                if (!Util.isTextEmpty(a) && this.a.shouldSendCookie(httpUrl.toString(), a)) {
+                    arrayList.add(new Cookie.Builder().name(a).value(a2).domain(httpUrl.host()).build());
+                }
+                i = delimiterOffset + 1;
             }
+            return arrayList;
         }
-        return (InputStream) invokeL.objValue;
+        return (List) invokeLL.objValue;
     }
 
-    public long j() {
-        InterceptResult invokeV;
+    @Override // okhttp3.CookieJar
+    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            try {
-                Bundle bundle = this.e.getPackageInfo(this.a, 128).applicationInfo.metaData;
-                if (bundle != null) {
-                    String string = bundle.getString("com.baidu.helios.tc.qver");
-                    if (!TextUtils.isEmpty(string) && string.startsWith("v")) {
-                        return Long.valueOf(string.substring(1)).longValue();
-                    }
-                    return -1L;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, httpUrl, list) == null) && this.a != null) {
+            ArrayList arrayList = new ArrayList();
+            String httpUrl2 = httpUrl.toString();
+            for (Cookie cookie : list) {
+                String cookie2 = cookie.toString();
+                if (!Util.isTextEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
+                    arrayList.add(cookie2);
                 }
-                return -1L;
-            } catch (Throwable unused) {
-                return -1L;
             }
+            this.a.storeCookie(httpUrl.toString(), arrayList);
         }
-        return invokeV.longValue;
     }
 }

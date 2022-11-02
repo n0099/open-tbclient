@@ -1,5 +1,6 @@
 package androidx.appcompat.widget;
 
+import android.annotation.SuppressLint;
 import android.app.SearchableInfo;
 import android.content.ComponentName;
 import android.content.Context;
@@ -37,6 +38,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.WeakHashMap;
+@SuppressLint({"RestrictedAPI"})
 /* loaded from: classes.dex */
 public class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -102,7 +104,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             this.mText2 = (TextView) view2.findViewById(16908309);
             this.mIcon1 = (ImageView) view2.findViewById(16908295);
             this.mIcon2 = (ImageView) view2.findViewById(16908296);
-            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090889);
+            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090899);
         }
     }
 
@@ -487,7 +489,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, cursor, viewGroup)) == null) {
             View newView = super.newView(context, cursor, viewGroup);
             newView.setTag(new ChildViewCache(newView));
-            ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090889)).setImageResource(this.mCommitIconResId);
+            ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090899)).setImageResource(this.mCommitIconResId);
             return newView;
         }
         return (View) invokeLLL.objValue;

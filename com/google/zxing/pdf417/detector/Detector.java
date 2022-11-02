@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
@@ -74,12 +75,12 @@ public final class Detector {
         }
     }
 
-    public static PDF417DetectorResult detect(BinaryBitmap binaryBitmap, Map map, boolean z) throws NotFoundException {
+    public static PDF417DetectorResult detect(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map, boolean z) throws NotFoundException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, binaryBitmap, map, z)) == null) {
             BitMatrix blackMatrix = binaryBitmap.getBlackMatrix();
-            List detect = detect(z, blackMatrix);
+            List<ResultPoint[]> detect = detect(z, blackMatrix);
             if (detect.isEmpty()) {
                 blackMatrix = blackMatrix.m80clone();
                 blackMatrix.rotate180();
@@ -117,7 +118,7 @@ public final class Detector {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List detect(boolean z, BitMatrix bitMatrix) {
+    public static List<ResultPoint[]> detect(boolean z, BitMatrix bitMatrix) {
         InterceptResult invokeZL;
         int x;
         float y;

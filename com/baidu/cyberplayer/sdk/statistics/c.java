@@ -14,7 +14,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public ArrayList b;
+    public ArrayList<e> b;
 
     public c(int i) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class c {
             }
         }
         this.a = i;
-        this.b = new ArrayList();
+        this.b = new ArrayList<>();
     }
 
     public int a() {
@@ -54,7 +54,7 @@ public class c {
             }
             int size = this.b.size();
             for (int i2 = 0; i2 < size; i2++) {
-                e eVar = (e) this.b.get(i2);
+                e eVar = this.b.get(i2);
                 if (eVar != null) {
                     jSONObject.put(eVar.a(), eVar.b());
                 }
@@ -72,7 +72,7 @@ public class c {
     }
 
     public void b() {
-        ArrayList arrayList;
+        ArrayList<e> arrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.b) == null) {
             return;

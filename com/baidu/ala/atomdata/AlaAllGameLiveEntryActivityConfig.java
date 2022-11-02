@@ -1,6 +1,7 @@
 package com.baidu.ala.atomdata;
 
 import android.content.Context;
+import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ public class AlaAllGameLiveEntryActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaAllGameLiveEntryActivityConfig(Context context, int i, ArrayList arrayList) {
+    public AlaAllGameLiveEntryActivityConfig(Context context, int i, ArrayList<AlaSquareTabInfo> arrayList) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

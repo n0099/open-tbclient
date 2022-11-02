@@ -1,223 +1,114 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.swan.gamecenter.network.models.ReservationGameInfo;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.tieba.bp2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class fw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements zv3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ fw3 b;
-
-        @Override // com.baidu.tieba.zv3
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        public a(fw3 fw3Var, String[] strArr) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778503, "Lcom/baidu/tieba/fw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fw3Var, strArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = fw3Var;
-            this.a = strArr;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zv3
-        /* renamed from: a */
-        public void onSuccess(List list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947778503, "Lcom/baidu/tieba/fw3;");
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(list);
-            ArrayList arrayList2 = new ArrayList(Arrays.asList(this.a));
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                ReservationGameInfo reservationGameInfo = (ReservationGameInfo) it.next();
-                boolean z = reservationGameInfo.auto_download;
-                String str = reservationGameInfo.app_id;
-                if (z) {
-                    String str2 = reservationGameInfo.download_url;
-                    String str3 = reservationGameInfo.package_id;
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
-                        this.b.e(str2, str3, str);
-                        yv3.b().c(str);
-                        if (arrayList2.remove(str)) {
-                            this.b.f(arrayList2);
-                        }
-                    }
-                } else if (arrayList2.remove(str)) {
-                    this.b.f(arrayList2);
-                }
-            }
         }
+        a = ok1.a;
     }
 
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final fw3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-790618679, "Lcom/baidu/tieba/fw3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-790618679, "Lcom/baidu/tieba/fw3$b;");
-                    return;
-                }
-            }
-            a = new fw3();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements fv3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.fv3
-        public void a(hv3 hv3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hv3Var) == null) {
-            }
-        }
-
-        public c(fw3 fw3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fw3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public fw3() {
+    public static void a(String str, String str2, String str3, String str4, dw3 dw3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static final fw3 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (fw3) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !tm2.h0().e(tm2.c())) {
-            return;
-        }
-        String string = ac3.a().getString("reservation_apk_ids", "");
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        String[] split = string.split(",");
-        if (split.length == 0) {
-            return;
-        }
-        yv3.b().d(new a(this, split));
-    }
-
-    public final void e(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                lu3.n().H(str, str2, str3, new c(this));
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, dw3Var) == null) {
+            String l = ew3.l(str2);
+            if (TextUtils.isEmpty(l)) {
                 return;
             }
-            h03 y = l33.K().y();
-            if (y != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("url", str);
-                    jSONObject.put("packageName", str2);
-                    jSONObject.put("apkId", str3);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                Bundle bundle = new Bundle();
-                bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "startDownload");
-                bundle.putString("data", jSONObject.toString());
-                bundle.putString("ubc_params", new lv3().a());
-                y.W(bundle, zu3.class);
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
             }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            ew3 ew3Var = new ew3();
+            ew3Var.m(dw3Var);
+            ew3Var.b = l;
+            ew3Var.e = str3;
+            ew3Var.v = str;
+            ew3Var.l = yh3.D();
+            if (e43.b0() != null) {
+                bp2.a W = e43.b0().W();
+                ew3Var.a = xa3.n(W.G());
+                ew3Var.f = W.H();
+                ew3Var.c = W.T();
+            }
+            ew3Var.t = str4;
+            xa3.x("1245", ew3Var);
         }
     }
 
-    public final void f(ArrayList arrayList) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < arrayList.size(); i++) {
-                stringBuffer.append((String) arrayList.get(i));
-                if (i < arrayList.size() - 1) {
-                    stringBuffer.append(",");
-                }
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = ew3.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
             }
-            ac3.a().putString("reservation_apk_ids", stringBuffer.toString());
+            ew3 ew3Var = new ew3();
+            ew3Var.b = l;
+            ew3Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            ew3Var.a("packageName", str3);
+            xa3.x("1245", ew3Var);
+        }
+    }
+
+    public static void d(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = v04.b().d();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cuid", ln2.h0().i(ln2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", ln2.n().a());
+                jSONObject.put("version", yh3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ib4.h(ln2.c()).postRequest().cookieManager(ln2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
+            }
         }
     }
 }

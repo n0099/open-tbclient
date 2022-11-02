@@ -19,7 +19,7 @@ public class w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -124,7 +124,7 @@ public class w {
         return invokeL.booleanValue;
     }
 
-    public static boolean a(Collection collection) {
+    public static boolean a(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, collection)) == null) ? collection == null || collection.isEmpty() : invokeL.booleanValue;

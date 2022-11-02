@@ -32,7 +32,7 @@ public class IMDelGroupMemberRequest extends GroupBaseHttpRequest {
     public static final String TAG = "IMDelGroupMemberRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
-    public ArrayList mBuids;
+    public ArrayList<String> mBuids;
     public String mGroupId;
     public String mKey;
 
@@ -130,7 +130,7 @@ public class IMDelGroupMemberRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMDelGroupMemberRequest(Context context, String str, long j, String str2, ArrayList arrayList) {
+    public IMDelGroupMemberRequest(Context context, String str, long j, String str2, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,9 +166,9 @@ public class IMDelGroupMemberRequest extends GroupBaseHttpRequest {
             sb.append("&group_id=");
             sb.append(this.mGroupId);
             JSONArray jSONArray = new JSONArray();
-            Iterator it = this.mBuids.iterator();
+            Iterator<String> it = this.mBuids.iterator();
             while (it.hasNext()) {
-                jSONArray.put((String) it.next());
+                jSONArray.put(it.next());
             }
             sb.append("&members=");
             sb.append(jSONArray.toString());
@@ -185,7 +185,7 @@ public class IMDelGroupMemberRequest extends GroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, new ArrayList());

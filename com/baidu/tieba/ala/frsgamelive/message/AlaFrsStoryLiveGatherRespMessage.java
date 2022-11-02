@@ -19,8 +19,8 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List liveList;
-    public List recommandList;
+    public List<ThreadData> liveList;
+    public List<ThreadData> recommandList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaFrsStoryLiveGatherRespMessage() {
@@ -94,7 +94,7 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List getLiveList() {
+    public List<ThreadData> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -103,7 +103,7 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List getRecommandList() {
+    public List<ThreadData> getRecommandList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

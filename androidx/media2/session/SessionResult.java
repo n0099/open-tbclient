@@ -2,6 +2,8 @@ package androidx.media2.session;
 
 import android.os.Bundle;
 import android.os.SystemClock;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.concurrent.futures.ResolvableFuture;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
@@ -28,6 +30,7 @@ public class SessionResult extends CustomVersionedParcelable implements RemoteRe
     public int mResultCode;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface ResultCode {
     }
@@ -56,6 +59,7 @@ public class SessionResult extends CustomVersionedParcelable implements RemoteRe
         return invokeV.longValue;
     }
 
+    @Nullable
     public Bundle getCustomCommandResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,6 +70,7 @@ public class SessionResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     @Override // androidx.media2.common.BaseResult
+    @Nullable
     public MediaItem getMediaItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,6 +91,7 @@ public class SessionResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onPostParceling() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -115,7 +121,7 @@ public class SessionResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SessionResult(int i, Bundle bundle) {
+    public SessionResult(int i, @Nullable Bundle bundle) {
         this(i, bundle, null, SystemClock.elapsedRealtime());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -156,7 +162,7 @@ public class SessionResult extends CustomVersionedParcelable implements RemoteRe
         }
     }
 
-    public SessionResult(int i, Bundle bundle, MediaItem mediaItem, long j) {
+    public SessionResult(int i, @Nullable Bundle bundle, @Nullable MediaItem mediaItem, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,7 +194,8 @@ public class SessionResult extends CustomVersionedParcelable implements RemoteRe
         return (ListenableFuture) invokeI.objValue;
     }
 
-    public static SessionResult from(SessionPlayer.PlayerResult playerResult) {
+    @Nullable
+    public static SessionResult from(@Nullable SessionPlayer.PlayerResult playerResult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, playerResult)) == null) {
@@ -201,6 +208,7 @@ public class SessionResult extends CustomVersionedParcelable implements RemoteRe
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onPreParceling(boolean z) {
         MediaItem mediaItem;
         Interceptable interceptable = $ic;

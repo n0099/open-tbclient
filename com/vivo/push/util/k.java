@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public final class k extends AsyncTask {
+public final class k extends AsyncTask<String, Void, List<Bitmap>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -53,12 +53,13 @@ public final class k extends AsyncTask {
         this.f = aVar;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // android.os.AsyncTask
-    public final /* synthetic */ void onPostExecute(Object obj) {
-        List list = (List) obj;
-        super.onPostExecute(list);
+    public final /* synthetic */ void onPostExecute(List<Bitmap> list) {
+        List<Bitmap> list2 = list;
+        super.onPostExecute(list2);
         p.c("ImageDownTask", "onPostExecute");
-        com.vivo.push.m.c(new l(this, list));
+        com.vivo.push.m.c(new l(this, list2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +81,7 @@ public final class k extends AsyncTask {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List doInBackground(String... strArr) {
+    public List<Bitmap> doInBackground(String... strArr) {
         InterceptResult invokeL;
         InputStream inputStream;
         Bitmap bitmap;

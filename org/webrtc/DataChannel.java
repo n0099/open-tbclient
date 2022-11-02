@@ -10,19 +10,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DataChannel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeDataChannel;
     public long nativeObserver;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Observer {
+        @CalledByNative("Observer")
         void onBufferedAmountChange(long j);
 
+        @CalledByNative("Observer")
         void onMessage(Buffer buffer);
 
+        @CalledByNative("Observer")
         void onStateChange();
     }
 
@@ -42,13 +45,14 @@ public class DataChannel {
 
     private native void nativeUnregisterObserver(long j);
 
-    /* loaded from: classes8.dex */
-    public class Buffer {
+    /* loaded from: classes9.dex */
+    public static class Buffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean binary;
         public final ByteBuffer data;
 
+        @CalledByNative("Buffer")
         public Buffer(ByteBuffer byteBuffer, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -69,8 +73,8 @@ public class DataChannel {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class Init {
+    /* loaded from: classes9.dex */
+    public static class Init {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int id;
@@ -100,6 +104,7 @@ public class DataChannel {
             this.id = -1;
         }
 
+        @CalledByNative("Init")
         public int getId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -109,6 +114,7 @@ public class DataChannel {
             return invokeV.intValue;
         }
 
+        @CalledByNative("Init")
         public int getMaxRetransmitTimeMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -118,6 +124,7 @@ public class DataChannel {
             return invokeV.intValue;
         }
 
+        @CalledByNative("Init")
         public int getMaxRetransmits() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -127,6 +134,7 @@ public class DataChannel {
             return invokeV.intValue;
         }
 
+        @CalledByNative("Init")
         public boolean getNegotiated() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -136,6 +144,7 @@ public class DataChannel {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("Init")
         public boolean getOrdered() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -145,6 +154,7 @@ public class DataChannel {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("Init")
         public String getProtocol() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -156,8 +166,8 @@ public class DataChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class State {
+    /* loaded from: classes9.dex */
+    public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State CLOSED;
@@ -206,6 +216,7 @@ public class DataChannel {
             }
         }
 
+        @CalledByNative("State")
         public static State fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -234,6 +245,7 @@ public class DataChannel {
         }
     }
 
+    @CalledByNative
     public DataChannel(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -287,6 +299,7 @@ public class DataChannel {
         }
     }
 
+    @CalledByNative
     public long getNativeDataChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,105 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
-public class wv7 implements eo {
+public class wv7 extends p9<PayVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
-    public boolean e;
-    public String f;
-    public String g;
-    public boolean h;
+    public PayVcodeActivity a;
+    public ViewGroup b;
+    public View c;
+    public ViewGroup d;
+    public TextView e;
+    public BaseWebView f;
+    public TextView g;
+    public ProgressBar h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284113, "Lcom/baidu/tieba/wv7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948284113, "Lcom/baidu/tieba/wv7;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wv7(PayVcodeActivity payVcodeActivity) {
+        super(payVcodeActivity.getPageContext());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payVcodeActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i = BdUniqueId.gen();
+        this.a = payVcodeActivity;
+        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d06ca);
+        o(payVcodeActivity);
     }
 
-    @Override // com.baidu.tieba.eo
-    public BdUniqueId getType() {
+    public View j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return i;
+            return this.c;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public wv7(ForumData forumData) {
+    public TextView k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {forumData};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        this.e = false;
-        if (forumData == null) {
-            return;
-        }
-        this.a = forumData.getName();
-        this.b = forumData.getImage_url();
-        this.c = forumData.getPost_num();
-        this.d = forumData.getMember_num();
-        this.f = forumData.getId();
-        this.h = forumData.isLike() == 1;
+        return (TextView) invokeV.objValue;
     }
 
-    public wv7(zt4 zt4Var) {
+    public TextView l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zt4Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public ViewGroup m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public BaseWebView n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (BaseWebView) invokeV.objValue;
+    }
+
+    public final void o(PayVcodeActivity payVcodeActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, payVcodeActivity) == null) {
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091802);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0917fc);
+            this.e = textView;
+            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09252b);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0926a0);
+            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091800);
+            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091801);
+            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091803);
+            this.f.setHorizontalScrollBarEnabled(false);
+            this.f.setHorizontalScrollbarOverlay(false);
+            this.f.setScrollBarStyle(33554432);
+            this.f.getSettings().setJavaScriptEnabled(true);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            if5.a(this.a.getPageContext(), this.b);
+            SkinManager.setBgColor(this.g, i);
+            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+        }
+    }
+
+    public void p(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            TextView textView = this.g;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
             }
+            textView.setVisibility(i);
         }
-        this.e = false;
-        if (zt4Var == null) {
-            return;
+    }
+
+    public void q(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            ProgressBar progressBar = this.h;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            progressBar.setVisibility(i);
         }
-        this.a = zt4Var.b;
-        this.b = zt4Var.c;
-        this.c = zt4Var.g;
-        this.d = zt4Var.h;
-        this.f = zt4Var.a;
-        this.h = zt4Var.e();
     }
 }

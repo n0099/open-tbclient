@@ -1,16 +1,18 @@
 package com.kwad.sdk.core.network;
 
+import androidx.annotation.Nullable;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface g {
     JSONObject getBody();
 
-    Map getBodyMap();
+    Map<String, String> getBodyMap();
 
-    Map getHeader();
+    Map<String, String> getHeader();
 
+    @Nullable
     SceneImpl getScene();
 
     String getUrl();

@@ -1,36 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w54 implements qk1 {
+public class w54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public w54() {
+    public static void a(mb2 mb2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65536, null, mb2Var, str) == null) && mb2Var != null && mb2Var.n().hasEventListener("deviceOrientationChange")) {
+            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
+            jSEvent.data = new y54(str);
+            mb2Var.dispatchEvent(jSEvent);
         }
-    }
-
-    @Override // com.baidu.tieba.qk1
-    public Class a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return jz3.class;
-        }
-        return (Class) invokeV.objValue;
     }
 }

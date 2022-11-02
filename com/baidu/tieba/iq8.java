@@ -1,98 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.fragment.app.Fragment;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class iq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public ArrayList<Integer> a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
 
-    public iq8(TbPageContext tbPageContext) {
+    public iq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    public void a(Intent intent, eq8 eq8Var) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, intent, eq8Var) != null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
-        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f04df);
-            lt4 lt4Var = new lt4();
-            Matcher matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(intent.getStringExtra("target_scheme"));
-            int i = 1;
-            if (matcher.find()) {
-                lt4Var.c = matcher.group(1);
-            }
-            if (stringExtra.equals(string)) {
-                lt4Var.a = 1;
-            } else {
-                lt4Var.a = 2;
-                lt4Var.b = stringExtra;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, lt4Var));
-            if (stringExtra.equals(string)) {
-                intent.putExtra("sub_locate_type", 1);
-                i = 2;
-            } else {
-                intent.putExtra("sub_locate_type", stringExtra);
-            }
-            if (eq8Var != null && eq8Var.B() != null) {
-                eq8Var.B().setCurrentTabByType(i);
-                FragmentTabHost.b g = eq8Var.B().g(i);
-                if (g != null) {
-                    Fragment fragment = g.c;
-                    if (fragment instanceof dq4) {
-                        ((dq4) fragment).c1(intent);
+        try {
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    this.a = new ArrayList<>();
+                    for (int i = 0; i < length; i++) {
+                        this.a.add(Integer.valueOf(optJSONArray.getInt(i)));
                     }
                 }
+                this.b = optJSONObject.optString("upload_id");
+                this.c = optJSONObject.optString("video_url");
             }
+        } catch (JSONException unused) {
         }
-        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
-        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-    }
-
-    public boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
-            if (intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

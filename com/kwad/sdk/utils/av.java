@@ -2,6 +2,8 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import java.io.File;
 /* loaded from: classes8.dex */
 public final class av {
@@ -37,6 +39,8 @@ public final class av {
         return w.i("ksadsdk_pref", "interstitial_aggregate_transfer", false);
     }
 
+    @Nullable
+    @WorkerThread
     public static String ac(Context context, String str) {
         File file = new File(context.getFilesDir(), str);
         if (file.exists()) {

@@ -16,6 +16,7 @@ import com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener;
 import com.google.android.exoplayer2.source.SampleQueue;
 import com.google.android.exoplayer2.source.SampleStream;
 import com.google.android.exoplayer2.source.SequenceableLoader;
+import com.google.android.exoplayer2.source.chunk.ChunkSource;
 import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.Loader;
 import com.google.android.exoplayer2.util.Assertions;
@@ -24,12 +25,12 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class ChunkSampleStream implements SampleStream, SequenceableLoader, Loader.Callback, Loader.ReleaseCallback {
+public class ChunkSampleStream<T extends ChunkSource> implements SampleStream, SequenceableLoader, Loader.Callback<Chunk>, Loader.ReleaseCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ChunkSampleStream";
     public transient /* synthetic */ FieldHolder $fh;
-    public final SequenceableLoader.Callback callback;
-    public final ChunkSource chunkSource;
+    public final SequenceableLoader.Callback<ChunkSampleStream<T>> callback;
+    public final T chunkSource;
     public final SampleQueue[] embeddedSampleQueues;
     public final int[] embeddedTrackTypes;
     public final boolean[] embeddedTracksSelected;
@@ -38,21 +39,21 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
     public final Loader loader;
     public boolean loadingFinished;
     public final BaseMediaChunkOutput mediaChunkOutput;
-    public final LinkedList mediaChunks;
+    public final LinkedList<BaseMediaChunk> mediaChunks;
     public final int minLoadableRetryCount;
     public final ChunkHolder nextChunkHolder;
     public long pendingResetPositionUs;
     public Format primaryDownstreamTrackFormat;
     public final SampleQueue primarySampleQueue;
     public final int primaryTrackType;
-    public final List readOnlyMediaChunks;
+    public final List<BaseMediaChunk> readOnlyMediaChunks;
 
     /* loaded from: classes7.dex */
     public final class EmbeddedSampleStream implements SampleStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int index;
-        public final ChunkSampleStream parent;
+        public final ChunkSampleStream<T> parent;
         public final SampleQueue sampleQueue;
         public final /* synthetic */ ChunkSampleStream this$0;
 
@@ -63,7 +64,7 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
             }
         }
 
-        public EmbeddedSampleStream(ChunkSampleStream chunkSampleStream, ChunkSampleStream chunkSampleStream2, SampleQueue sampleQueue, int i) {
+        public EmbeddedSampleStream(ChunkSampleStream chunkSampleStream, ChunkSampleStream<T> chunkSampleStream2, SampleQueue sampleQueue, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,13 +140,13 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
         }
     }
 
-    public ChunkSampleStream(int i, int[] iArr, ChunkSource chunkSource, SequenceableLoader.Callback callback, Allocator allocator, long j, int i2, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher) {
+    public ChunkSampleStream(int i, int[] iArr, T t, SequenceableLoader.Callback<ChunkSampleStream<T>> callback, Allocator allocator, long j, int i2, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), iArr, chunkSource, callback, allocator, Long.valueOf(j), Integer.valueOf(i2), eventDispatcher};
+            Object[] objArr = {Integer.valueOf(i), iArr, t, callback, allocator, Long.valueOf(j), Integer.valueOf(i2), eventDispatcher};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -157,13 +158,13 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
         }
         this.primaryTrackType = i;
         this.embeddedTrackTypes = iArr;
-        this.chunkSource = chunkSource;
+        this.chunkSource = t;
         this.callback = callback;
         this.eventDispatcher = eventDispatcher;
         this.minLoadableRetryCount = i2;
         this.loader = new Loader("Loader:ChunkSampleStream");
         this.nextChunkHolder = new ChunkHolder();
-        LinkedList linkedList = new LinkedList();
+        LinkedList<BaseMediaChunk> linkedList = new LinkedList<>();
         this.mediaChunks = linkedList;
         this.readOnlyMediaChunks = Collections.unmodifiableList(linkedList);
         int i5 = 0;
@@ -229,13 +230,13 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
     private void discardDownstreamMediaChunks(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(65538, this, i) == null) && !this.mediaChunks.isEmpty()) {
-            while (this.mediaChunks.size() > 1 && ((BaseMediaChunk) this.mediaChunks.get(1)).getFirstSampleIndex(0) <= i) {
+            while (this.mediaChunks.size() > 1 && this.mediaChunks.get(1).getFirstSampleIndex(0) <= i) {
                 this.mediaChunks.removeFirst();
             }
-            BaseMediaChunk baseMediaChunk = (BaseMediaChunk) this.mediaChunks.getFirst();
-            Format format = baseMediaChunk.trackFormat;
+            BaseMediaChunk first = this.mediaChunks.getFirst();
+            Format format = first.trackFormat;
             if (!format.equals(this.primaryDownstreamTrackFormat)) {
-                this.eventDispatcher.downstreamFormatChanged(this.primaryTrackType, format, baseMediaChunk.trackSelectionReason, baseMediaChunk.trackSelectionData, baseMediaChunk.startTimeUs);
+                this.eventDispatcher.downstreamFormatChanged(this.primaryTrackType, format, first.trackSelectionReason, first.trackSelectionData, first.startTimeUs);
             }
             this.primaryDownstreamTrackFormat = format;
         }
@@ -243,26 +244,26 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
 
     private boolean discardUpstreamMediaChunks(int i) {
         InterceptResult invokeI;
-        BaseMediaChunk baseMediaChunk;
+        BaseMediaChunk removeLast;
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) {
             if (this.mediaChunks.size() <= i) {
                 return false;
             }
-            long j2 = ((BaseMediaChunk) this.mediaChunks.getLast()).endTimeUs;
+            long j2 = this.mediaChunks.getLast().endTimeUs;
             do {
-                baseMediaChunk = (BaseMediaChunk) this.mediaChunks.removeLast();
-                j = baseMediaChunk.startTimeUs;
+                removeLast = this.mediaChunks.removeLast();
+                j = removeLast.startTimeUs;
             } while (this.mediaChunks.size() > i);
-            this.primarySampleQueue.discardUpstreamSamples(baseMediaChunk.getFirstSampleIndex(0));
+            this.primarySampleQueue.discardUpstreamSamples(removeLast.getFirstSampleIndex(0));
             int i2 = 0;
             while (true) {
                 SampleQueue[] sampleQueueArr = this.embeddedSampleQueues;
                 if (i2 < sampleQueueArr.length) {
                     SampleQueue sampleQueue = sampleQueueArr[i2];
                     i2++;
-                    sampleQueue.discardUpstreamSamples(baseMediaChunk.getFirstSampleIndex(i2));
+                    sampleQueue.discardUpstreamSamples(removeLast.getFirstSampleIndex(i2));
                 } else {
                     this.loadingFinished = false;
                     this.eventDispatcher.upstreamDiscarded(this.primaryTrackType, j, j2);
@@ -279,8 +280,8 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
         int readIndex;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            BaseMediaChunk baseMediaChunk = (BaseMediaChunk) this.mediaChunks.getLast();
-            if (this.primarySampleQueue.getReadIndex() > baseMediaChunk.getFirstSampleIndex(0)) {
+            BaseMediaChunk last = this.mediaChunks.getLast();
+            if (this.primarySampleQueue.getReadIndex() > last.getFirstSampleIndex(0)) {
                 return true;
             }
             int i = 0;
@@ -291,7 +292,7 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
                 }
                 readIndex = sampleQueueArr[i].getReadIndex();
                 i++;
-            } while (readIndex <= baseMediaChunk.getFirstSampleIndex(i));
+            } while (readIndex <= last.getFirstSampleIndex(i));
             return true;
         }
         return invokeV.booleanValue;
@@ -300,7 +301,7 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
     @Override // com.google.android.exoplayer2.source.SequenceableLoader
     public boolean continueLoading(long j) {
         InterceptResult invokeJ;
-        MediaChunk mediaChunk;
+        BaseMediaChunk last;
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
@@ -308,13 +309,13 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
                 return false;
             }
             if (isPendingReset()) {
-                mediaChunk = null;
+                last = null;
                 j2 = this.pendingResetPositionUs;
             } else {
-                mediaChunk = (MediaChunk) this.mediaChunks.getLast();
-                j2 = mediaChunk.endTimeUs;
+                last = this.mediaChunks.getLast();
+                j2 = last.endTimeUs;
             }
-            this.chunkSource.getNextChunk(mediaChunk, j, j2, this.nextChunkHolder);
+            this.chunkSource.getNextChunk(last, j, j2, this.nextChunkHolder);
             ChunkHolder chunkHolder = this.nextChunkHolder;
             boolean z = chunkHolder.endOfStream;
             Chunk chunk = chunkHolder.chunk;
@@ -401,30 +402,30 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
                 return this.pendingResetPositionUs;
             }
             long j = this.lastSeekPositionUs;
-            BaseMediaChunk baseMediaChunk = (BaseMediaChunk) this.mediaChunks.getLast();
-            if (!baseMediaChunk.isLoadCompleted()) {
+            BaseMediaChunk last = this.mediaChunks.getLast();
+            if (!last.isLoadCompleted()) {
                 if (this.mediaChunks.size() > 1) {
-                    LinkedList linkedList = this.mediaChunks;
-                    baseMediaChunk = (BaseMediaChunk) linkedList.get(linkedList.size() - 2);
+                    LinkedList<BaseMediaChunk> linkedList = this.mediaChunks;
+                    last = linkedList.get(linkedList.size() - 2);
                 } else {
-                    baseMediaChunk = null;
+                    last = null;
                 }
             }
-            if (baseMediaChunk != null) {
-                j = Math.max(j, baseMediaChunk.endTimeUs);
+            if (last != null) {
+                j = Math.max(j, last.endTimeUs);
             }
             return Math.max(j, this.primarySampleQueue.getLargestQueuedTimestampUs());
         }
         return invokeV.longValue;
     }
 
-    public ChunkSource getChunkSource() {
+    public T getChunkSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.chunkSource;
         }
-        return (ChunkSource) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.source.SequenceableLoader
@@ -438,7 +439,7 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
             if (this.loadingFinished) {
                 return Long.MIN_VALUE;
             }
-            return ((BaseMediaChunk) this.mediaChunks.getLast()).endTimeUs;
+            return this.mediaChunks.getLast().endTimeUs;
         }
         return invokeV.longValue;
     }
@@ -553,14 +554,14 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
                     Log.w(TAG, "Ignoring attempt to cancel non-cancelable load.");
                 } else {
                     if (isMediaChunk) {
-                        BaseMediaChunk baseMediaChunk = (BaseMediaChunk) this.mediaChunks.removeLast();
-                        if (baseMediaChunk == chunk) {
+                        BaseMediaChunk removeLast = this.mediaChunks.removeLast();
+                        if (removeLast == chunk) {
                             z3 = true;
                         } else {
                             z3 = false;
                         }
                         Assertions.checkState(z3);
-                        this.primarySampleQueue.discardUpstreamSamples(baseMediaChunk.getFirstSampleIndex(0));
+                        this.primarySampleQueue.discardUpstreamSamples(removeLast.getFirstSampleIndex(0));
                         int i = 0;
                         while (true) {
                             SampleQueue[] sampleQueueArr = this.embeddedSampleQueues;
@@ -569,7 +570,7 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
                             }
                             SampleQueue sampleQueue = sampleQueueArr[i];
                             i++;
-                            sampleQueue.discardUpstreamSamples(baseMediaChunk.getFirstSampleIndex(i));
+                            sampleQueue.discardUpstreamSamples(removeLast.getFirstSampleIndex(i));
                         }
                         if (this.mediaChunks.isEmpty()) {
                             this.pendingResetPositionUs = this.lastSeekPositionUs;
@@ -611,7 +612,7 @@ public class ChunkSampleStream implements SampleStream, SequenceableLoader, Load
         return invokeLLZ.intValue;
     }
 
-    public EmbeddedSampleStream selectEmbeddedTrack(long j, int i) {
+    public ChunkSampleStream<T>.EmbeddedSampleStream selectEmbeddedTrack(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {

@@ -1,5 +1,7 @@
 package androidx.webkit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,11 +33,13 @@ public class TracingConfig {
     public int mTracingMode;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface PredefinedCategories {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface TracingMode {
     }
@@ -66,6 +70,7 @@ public class TracingConfig {
             this.mTracingMode = 1;
         }
 
+        @NonNull
         public TracingConfig build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -75,7 +80,8 @@ public class TracingConfig {
             return (TracingConfig) invokeV.objValue;
         }
 
-        public Builder addCategories(Collection<String> collection) {
+        @NonNull
+        public Builder addCategories(@NonNull Collection<String> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
@@ -85,6 +91,7 @@ public class TracingConfig {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setTracingMode(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -95,7 +102,8 @@ public class TracingConfig {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder addCategories(int... iArr) {
+        @NonNull
+        public Builder addCategories(@NonNull int... iArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr)) == null) {
@@ -107,7 +115,8 @@ public class TracingConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder addCategories(String... strArr) {
+        @NonNull
+        public Builder addCategories(@NonNull String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
@@ -118,6 +127,7 @@ public class TracingConfig {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public TracingConfig(int i, List<String> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -140,6 +150,7 @@ public class TracingConfig {
         this.mTracingMode = i2;
     }
 
+    @NonNull
     public List<String> getCustomIncludedCategories() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

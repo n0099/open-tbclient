@@ -34,10 +34,10 @@ public class bv {
     public dw.a f953a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f954a;
+    public List<a> f954a;
 
     /* loaded from: classes8.dex */
-    public abstract class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,127 +1,108 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.PublicKey;
 /* loaded from: classes5.dex */
-public class sp5 extends WebChromeClient {
+public class sp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdWebViewActivity a;
-    public fo8 b;
 
-    public sp5(AdWebViewActivity adWebViewActivity) {
+    public static boolean a(String str, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {adWebViewActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, file)) == null) {
+            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
+                try {
+                    PublicKey e = fj.e(pi.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+                    if (e == null) {
+                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "publicKeyCode is null").param("obj_source", file.getName()));
+                        return false;
+                    }
+                    byte[] b = b(str);
+                    if (b != null && b.length > 0) {
+                        byte[] b2 = fj.b(e, b);
+                        if (b2 != null && b2.length > 0) {
+                            String trim = new String(b2, "UTF-8").trim();
+                            String b3 = ej.b(new FileInputStream(file));
+                            if (b3 != null) {
+                                b3 = b3.trim();
+                            }
+                            if (!TextUtils.isEmpty(b3) && !TextUtils.isEmpty(trim)) {
+                                if (b3.equalsIgnoreCase(trim)) {
+                                    return true;
+                                }
+                                TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 != serverMD5").param("obj_source", file.getName()));
+                                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
+                                return false;
+                            }
+                            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 or serverMD5 is null").param("obj_source", file.getName()));
+                            return false;
+                        }
+                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "des is null").param("obj_source", file.getName()));
+                        return false;
+                    }
+                    TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "server_data is null").param("obj_source", file.getName()));
+                    return false;
+                } catch (Exception e2) {
+                    StatisticItem statisticItem = new StatisticItem("c10836");
+                    TiebaStatic.log(statisticItem.param("obj_type", "exception:" + e2.getMessage()).param("obj_source", file.getName()));
+                    BdLog.e("download MD5 RSA ERROR！Exception:" + e2.getMessage() + " ; file:" + file.getName());
+                    return false;
+                }
             }
+            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "checkRSA input args is null"));
+            return false;
         }
-        this.a = adWebViewActivity;
+        return invokeLL.booleanValue;
     }
 
-    public void a(fo8 fo8Var) {
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fo8Var) == null) {
-            this.b = fo8Var;
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public View getVideoLoadingProgressView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a.getPageContext().getPageActivity());
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.a;
-            if (adWebViewActivity != null && jh.f(adWebViewActivity.getPageContext())) {
-                return super.onJsAlert(webView, str, str2, jsResult);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null) {
+                char[] charArray = str.toCharArray();
+                int length = charArray.length / 2;
+                byte[] bArr = new byte[length];
+                if (charArray.length % 2 != 0) {
+                    return null;
+                }
+                int i = 0;
+                int i2 = 0;
+                while (true) {
+                    int i3 = i + 1;
+                    if (i3 >= charArray.length || i2 >= length) {
+                        break;
+                    }
+                    bArr[i2] = (byte) ((c(charArray[i]) << 4) | c(charArray[i3]));
+                    i2++;
+                    i = i3 + 1;
+                }
+                return bArr;
             }
-            return true;
+            throw new IllegalArgumentException("binary string is null");
         }
-        return invokeLLLL.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public static int c(char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.a;
-            if (adWebViewActivity != null && jh.f(adWebViewActivity.getPageContext())) {
-                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
+            int digit = Character.digit(c, 16);
+            if (digit != -1) {
+                return digit;
             }
-            return true;
+            throw new RuntimeException("Illegal hexadecimal character " + c);
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.a;
-            if (adWebViewActivity != null && jh.f(adWebViewActivity.getPageContext())) {
-                return super.onJsConfirm(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        AdWebViewActivity adWebViewActivity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            fo8 fo8Var = this.b;
-            if ((fo8Var != null && fo8Var.onJsPrompt(str2, jsPromptResult)) || (adWebViewActivity = this.a) == null || !jh.f(adWebViewActivity.getPageContext())) {
-                return true;
-            }
-            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
-        }
-        return invokeLLLLL.booleanValue;
+        return invokeCommon.intValue;
     }
 }

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.util.ByteArrayBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpMultipart {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteArrayBuffer CR_LF;
@@ -29,12 +29,12 @@ public class HttpMultipart {
     public final String boundary;
     public final Charset charset;
     public final HttpMultipartMode mode;
-    public final List parts;
+    public final List<FormBodyPart> parts;
     public final String subType;
 
     /* renamed from: org.apache.http.entity.mime.HttpMultipart$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$apache$http$entity$mime$HttpMultipartMode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,9 +172,9 @@ public class HttpMultipart {
                         }
                     }
                 } else {
-                    Iterator it = header.iterator();
+                    Iterator<MinimalField> it = header.iterator();
                     while (it.hasNext()) {
-                        writeField((MinimalField) it.next(), outputStream);
+                        writeField(it.next(), outputStream);
                     }
                 }
                 writeBytes(CR_LF, outputStream);
@@ -258,7 +258,7 @@ public class HttpMultipart {
         }
     }
 
-    public List getBodyParts() {
+    public List<FormBodyPart> getBodyParts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

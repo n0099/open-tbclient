@@ -1,81 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.method.LinkMovementMethod;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class jv7 extends BaseAdapter {
+public abstract class jv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public Context b;
-    public int c;
-    public int d;
+    public TbPageContext a;
+    public View b;
+    public NavigationBar c;
+    public View d;
+    public TextView e;
+    public ImageView f;
+    public TextView g;
+    public ImageView h;
+    public ImageView i;
+    public ImageView j;
+    public ImageView k;
+    public ImageView l;
+    public TextView m;
+    public TextView n;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
+    public abstract void c(kv7 kv7Var);
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public jv7(Context context) {
+    public jv7(TbPageContext tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,181 +49,113 @@ public class jv7 extends BaseAdapter {
                 return;
             }
         }
-        this.c = 0;
-        this.d = 0;
-        this.b = context;
-        this.a = new ArrayList();
-        this.c = fj.k(context) - (((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)) * 2);
-        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
+        this.a = tbPageContext;
+        this.b = view2;
+        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091688);
+        this.c = navigationBar;
+        View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d = addSystemImageButton;
+        addSystemImageButton.setId(R.id.obfuscated_res_0x7f090445);
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11f4));
+        this.e = addTextButton;
+        addTextButton.setId(R.id.obfuscated_res_0x7f090471);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922f2);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922f1);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f1a);
+        this.f = imageView;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
+        layoutParams.topMargin = xi.j(tbPageContext.getPageActivity()) / 4;
+        this.f.setLayoutParams(layoutParams);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091470);
+        this.g = textView;
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
+        layoutParams2.topMargin = (xi.j(tbPageContext.getPageActivity()) / 2) + xi.g(tbPageContext.getPageActivity(), R.dimen.tbds239);
+        this.g.setLayoutParams(layoutParams2);
+        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b64);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926ae);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926b1);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092730);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091596);
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List list = this.a;
-            if (list != null && list.size() > 0) {
-                if (i >= 0 && i < this.a.size()) {
-                    q28 q28Var = (q28) this.a.get(i);
-                    if (q28Var == null) {
-                        return super.getItemViewType(i);
-                    }
-                    if (q28Var.getType() == 0) {
-                        return 0;
-                    }
-                    if (q28Var.getType() == 3) {
-                        return 1;
-                    }
-                    return super.getItemViewType(i);
-                }
-                return super.getItemViewType(i);
-            }
-            return super.getItemViewType(i);
-        }
-        return invokeI.intValue;
-    }
-
-    public final View a(int i, View view2) {
-        InterceptResult invokeIL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, view2)) == null) {
-            if (view2 != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.c.onChangeSkinType(this.a, i);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201, i);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201, i);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
+            kw4 d = kw4.d(this.m);
+            d.v(R.color.CAM_X0105);
+            d.z(R.dimen.T_X03);
+            d.A(R.string.F_X02);
+            kw4 d2 = kw4.d(this.n);
+            d2.v(R.color.CAM_X0107);
+            d2.z(R.dimen.T_X08);
+            d2.A(R.string.F_X01);
+            if (i == 0) {
+                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f080842, null);
             } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01d6, (ViewGroup) null);
-                aVar = new a();
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917d8);
-                view2.setTag(aVar);
+                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f080843, null);
             }
-            q28 item = getItem(i);
-            if (item instanceof r28) {
-                r28 r28Var = (r28) item;
-                if (!StringUtils.isNull(r28Var.e) && !"1".equals(r28Var.e)) {
-                    aVar.a.setVisibility(0);
-                    ViewGroup.LayoutParams layoutParams = aVar.a.getLayoutParams();
-                    int i2 = this.c;
-                    int c = r28Var.c(i2);
-                    if (layoutParams == null) {
-                        layoutParams = new AbsListView.LayoutParams(i2, c);
-                    } else {
-                        layoutParams.height = c;
-                        layoutParams.width = i2;
-                    }
-                    aVar.a.setLayoutParams(layoutParams);
-                    aVar.a.L(r28Var.d(), 17, false);
-                } else {
-                    aVar.a.setVisibility(8);
-                }
-            }
-            return view2;
+            kw4 d3 = kw4.d(this.g);
+            d3.v(R.color.CAM_X0101);
+            d3.z(R.dimen.T_X05);
+            d3.A(R.string.F_X01);
+            d3.n(R.string.J_X01);
+            d3.f(R.color.CAM_X0302);
+            WebPManager.setMaskDrawable(this.h, R.drawable.icon_share_qq, null);
+            WebPManager.setMaskDrawable(this.i, R.drawable.icon_share_wechat, null);
+            WebPManager.setMaskDrawable(this.j, R.drawable.icon_share_weibo, null);
+            WebPManager.setMaskDrawable(this.k, R.drawable.icon_share_yy, null);
+            WebPManager.setMaskDrawable(this.l, R.drawable.icon_share_more, null);
         }
-        return (View) invokeIL.objValue;
     }
 
-    public final View c(int i, View view2) {
-        InterceptResult invokeIL;
-        TextView textView;
+    public void b(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, view2)) == null) {
-            if (view2 instanceof TextView) {
-                textView = (TextView) view2;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            View view2 = this.d;
+            if (z) {
+                i = 0;
             } else {
-                textView = new TextView(this.b);
-                textView.setTextSize(0, this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-                textView.setLineSpacing(0.0f, 1.2f);
-                textView.setMovementMethod(LinkMovementMethod.getInstance());
-                int i2 = this.d;
-                textView.setPadding(i2, 0, i2, 0);
+                i = 4;
             }
-            q28 item = getItem(i);
-            if (item instanceof t28) {
-                t28 t28Var = (t28) item;
-                textView.setText(t28Var.b());
-                int d = t28Var.d();
-                if (d != 1) {
-                    if (d != 2) {
-                        textView.setGravity(3);
-                    } else {
-                        textView.setGravity(5);
-                    }
-                } else {
-                    textView.setGravity(17);
-                }
-                if (!StringUtils.isNull(t28Var.e())) {
-                    if (!SkinManager.setViewTextColor(textView, t28Var.e())) {
-                        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-                    }
-                } else {
-                    SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-                }
-                if (t28Var.f() > 0) {
-                    textView.setTextSize(0, t28Var.f());
-                }
-            }
-            return textView;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public q28 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List list = this.a;
-            if (list != null && list.size() > 0) {
-                int size = this.a.size();
-                if (i >= 0 && i < size) {
-                    return (q28) this.a.get(i);
-                }
-            }
-            return null;
-        }
-        return (q28) invokeI.objValue;
-    }
-
-    public void d(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.a.clear();
-            if (list != null && list.size() > 0) {
-                this.a.addAll(list);
-            }
+            view2.setVisibility(i);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void e(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List list = this.a;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            TextView textView = this.m;
+            int i2 = 0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 4;
             }
-            return list.size();
+            textView.setVisibility(i);
+            TextView textView2 = this.n;
+            if (!z) {
+                i2 = 4;
+            }
+            textView2.setVisibility(i2);
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i);
-            if (itemViewType == 0) {
-                return c(i, view2);
-            }
-            if (itemViewType == 1) {
-                return a(i, view2);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.e.setOnClickListener(onClickListener);
+            this.g.setOnClickListener(onClickListener);
+            this.h.setOnClickListener(onClickListener);
+            this.i.setOnClickListener(onClickListener);
+            this.j.setOnClickListener(onClickListener);
+            this.k.setOnClickListener(onClickListener);
+            this.l.setOnClickListener(onClickListener);
         }
-        return (View) invokeILL.objValue;
     }
 }

@@ -10,9 +10,9 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public final class color {
+    public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int transparent = 0x7f060b1f;
+        public static final int transparent = 0x7f060b31;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -31,7 +31,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class dimen {
+    public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int dimens_1dp = 0x7f070227;
         public static final int dimens_1px = 0x7f070228;
@@ -57,7 +57,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class string {
+    public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
         public transient /* synthetic */ FieldHolder $fh;

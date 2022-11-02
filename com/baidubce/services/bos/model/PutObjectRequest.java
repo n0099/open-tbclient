@@ -204,7 +204,7 @@ public class PutObjectRequest extends GenericObjectRequest {
         }
     }
 
-    public void setProgressCallback(BosProgressCallback bosProgressCallback) {
+    public <T extends PutObjectRequest> void setProgressCallback(BosProgressCallback<T> bosProgressCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bosProgressCallback) == null) {
             this.progressCallback = bosProgressCallback;
@@ -248,7 +248,7 @@ public class PutObjectRequest extends GenericObjectRequest {
         return (PutObjectRequest) invokeL.objValue;
     }
 
-    public PutObjectRequest withProgressCallback(BosProgressCallback bosProgressCallback) {
+    public <T extends PutObjectRequest> PutObjectRequest withProgressCallback(BosProgressCallback<T> bosProgressCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, bosProgressCallback)) == null) {

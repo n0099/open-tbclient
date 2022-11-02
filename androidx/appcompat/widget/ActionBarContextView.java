@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.core.view.InputDeviceCompat;
@@ -22,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionBarContextView extends AbsActionBarView {
     public static /* synthetic */ Interceptable $ic;
@@ -49,7 +53,7 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarContextView(Context context) {
+    public ActionBarContextView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,7 +89,7 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarContextView(Context context, AttributeSet attributeSet) {
+    public ActionBarContextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040067);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,7 +110,7 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionBarContextView(Context context, AttributeSet attributeSet, int i) {
+    public ActionBarContextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

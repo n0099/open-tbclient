@@ -1,8 +1,9 @@
 package com.baidu.tbadk.BdToken.backUser;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tm4;
+import com.baidu.tieba.ln4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import tbclient.Error;
 public class BackUserSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tm4 mData;
+    public ln4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserSocketResMsg() {
@@ -35,16 +36,17 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public tm4 getData() {
+    public ln4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (tm4) invokeV.objValue;
+        return (ln4) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -57,9 +59,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
                     setErrorString(backUserResIdl.error.usermsg);
                 }
                 if (backUserResIdl.data != null) {
-                    tm4 tm4Var = new tm4();
-                    this.mData = tm4Var;
-                    tm4Var.a(backUserResIdl.data);
+                    ln4 ln4Var = new ln4();
+                    this.mData = ln4Var;
+                    ln4Var.a(backUserResIdl.data);
                 }
             }
             return backUserResIdl;

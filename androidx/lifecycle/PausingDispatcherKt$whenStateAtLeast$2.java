@@ -72,11 +72,12 @@ public final class PausingDispatcherKt$whenStateAtLeast$2 extends SuspendLambda 
         return (Continuation) invokeLL.objValue;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
+    public final Object invoke(CoroutineScope coroutineScope, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, obj2)) == null) ? ((PausingDispatcherKt$whenStateAtLeast$2) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coroutineScope, obj)) == null) ? ((PausingDispatcherKt$whenStateAtLeast$2) create(coroutineScope, (Continuation) obj)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

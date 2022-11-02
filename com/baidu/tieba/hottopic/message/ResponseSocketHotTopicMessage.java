@@ -1,8 +1,9 @@
 package com.baidu.tieba.hottopic.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e77;
+import com.baidu.tieba.o87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +15,7 @@ import tbclient.Hottopic.HottopicResIdl;
 public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e77 topicData;
+    public o87 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotTopicMessage() {
@@ -45,6 +46,7 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -61,10 +63,10 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
                 if (extra instanceof Integer) {
                     num = (Integer) extra;
                 }
-                e77 e77Var = new e77();
-                this.topicData = e77Var;
+                o87 o87Var = new o87();
+                this.topicData = o87Var;
                 if (num != null) {
-                    e77Var.p = num.intValue();
+                    o87Var.p = num.intValue();
                 }
                 this.topicData.h(hottopicResIdl.data);
             }
@@ -73,12 +75,12 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public e77 getHotTopicData() {
+    public o87 getHotTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.topicData;
         }
-        return (e77) invokeV.objValue;
+        return (o87) invokeV.objValue;
     }
 }

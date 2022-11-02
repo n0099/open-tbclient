@@ -14,22 +14,22 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleUnsubscribeOn extends Single {
+public final class SingleUnsubscribeOn<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
-    public final SingleSource source;
+    public final SingleSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class UnsubscribeOnSingleObserver extends AtomicReference implements SingleObserver, Disposable, Runnable {
+    public static final class UnsubscribeOnSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3256698449646456986L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
         public Disposable ds;
         public final Scheduler scheduler;
 
-        public UnsubscribeOnSingleObserver(SingleObserver singleObserver, Scheduler scheduler) {
+        public UnsubscribeOnSingleObserver(SingleObserver<? super T> singleObserver, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,10 +50,10 @@ public final class SingleUnsubscribeOn extends Single {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            Disposable disposable;
+            Disposable andSet;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (disposable = (Disposable) getAndSet(DisposableHelper.DISPOSED)) != DisposableHelper.DISPOSED) {
-                this.ds = disposable;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (andSet = getAndSet(DisposableHelper.DISPOSED)) != DisposableHelper.DISPOSED) {
+                this.ds = andSet;
                 this.scheduler.scheduleDirect(this);
             }
         }
@@ -63,7 +63,7 @@ public final class SingleUnsubscribeOn extends Single {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -93,15 +93,15 @@ public final class SingleUnsubscribeOn extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
     }
 
-    public SingleUnsubscribeOn(SingleSource singleSource, Scheduler scheduler) {
+    public SingleUnsubscribeOn(SingleSource<T> singleSource, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public final class SingleUnsubscribeOn extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new UnsubscribeOnSingleObserver(singleObserver, this.scheduler));

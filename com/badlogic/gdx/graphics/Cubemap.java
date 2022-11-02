@@ -25,13 +25,13 @@ import java.util.Map;
 public class Cubemap extends p3 {
     public static /* synthetic */ Interceptable $ic;
     public static n1 j;
-    public static final Map k;
+    public static final Map<Application, b7<Cubemap>> k;
     public transient /* synthetic */ FieldHolder $fh;
     public m3 i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class CubemapSide {
+    public static final class CubemapSide {
         public static final /* synthetic */ CubemapSide[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CubemapSide NegativeX;
@@ -140,7 +140,7 @@ public class Cubemap extends p3 {
     }
 
     /* loaded from: classes.dex */
-    public final class a implements l1.a {
+    public static class a implements l1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -246,9 +246,9 @@ public class Cubemap extends p3 {
     public static void s(Application application, Cubemap cubemap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, cubemap) == null) {
-            b7 b7Var = (b7) k.get(application);
+            b7<Cubemap> b7Var = k.get(application);
             if (b7Var == null) {
-                b7Var = new b7();
+                b7Var = new b7<>();
             }
             b7Var.a(cubemap);
             k.put(application, b7Var);
@@ -269,7 +269,7 @@ public class Cubemap extends p3 {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed cubemap/app: { ");
             for (Application application : k.keySet()) {
-                sb.append(((b7) k.get(application)).b);
+                sb.append(k.get(application).b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -279,40 +279,40 @@ public class Cubemap extends p3 {
     }
 
     public static void w(Application application) {
-        b7 b7Var;
+        b7<Cubemap> b7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (b7Var = (b7) k.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (b7Var = k.get(application)) == null) {
             return;
         }
         n1 n1Var = j;
         if (n1Var == null) {
             for (int i = 0; i < b7Var.b; i++) {
-                ((Cubemap) b7Var.get(i)).z();
+                b7Var.get(i).z();
             }
             return;
         }
         n1Var.h();
-        b7 b7Var2 = new b7(b7Var);
-        b7.b it = b7Var2.iterator();
+        b7<? extends Cubemap> b7Var2 = new b7<>(b7Var);
+        b7.b<? extends Cubemap> it = b7Var2.iterator();
         while (it.hasNext()) {
-            Cubemap cubemap = (Cubemap) it.next();
-            String m = j.m(cubemap);
+            Cubemap next = it.next();
+            String m = j.m(next);
             if (m == null) {
-                cubemap.z();
+                next.z();
             } else {
                 int q = j.q(m);
                 j.A(m, 0);
-                cubemap.b = 0;
+                next.b = 0;
                 r1.b bVar = new r1.b();
-                bVar.d = cubemap.u();
-                bVar.e = cubemap.h();
-                bVar.f = cubemap.f();
-                bVar.g = cubemap.j();
-                bVar.h = cubemap.k();
-                bVar.c = cubemap;
+                bVar.d = next.u();
+                bVar.e = next.h();
+                bVar.f = next.f();
+                bVar.g = next.j();
+                bVar.h = next.k();
+                bVar.c = next;
                 bVar.a = new a(q);
                 j.C(m);
-                cubemap.b = f1.e.a();
+                next.b = f1.e.a();
                 j.w(m, Cubemap.class, bVar);
             }
         }
@@ -328,7 +328,7 @@ public class Cubemap extends p3 {
         }
         delete();
         if (this.i.a() && k.get(f1.a) != null) {
-            ((b7) k.get(f1.a)).j(this, true);
+            k.get(f1.a).j(this, true);
         }
     }
 

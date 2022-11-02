@@ -74,9 +74,9 @@ public final class n implements o {
             }
             if (context.getPackageName().equals("com.vivo.pushservice")) {
                 nVar.a(true);
-                Iterator it = com.vivo.push.e.a.a().b().iterator();
+                Iterator<String> it = com.vivo.push.e.a.a().b().iterator();
                 while (it.hasNext()) {
-                    com.vivo.push.a.a.a(context, nVar, (String) it.next());
+                    com.vivo.push.a.a.a(context, nVar, it.next());
                 }
                 return;
             }

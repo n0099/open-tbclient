@@ -110,7 +110,7 @@ public class bd implements bj.b {
             }
             JSONArray a = bi.a(activity, view2);
             String f = bi.f(view2);
-            Map g = bi.g(view2);
+            Map<String, String> g = bi.g(view2);
             String a2 = bi.a(view2);
             Context applicationContext = activity.getApplicationContext();
             long currentTimeMillis = System.currentTimeMillis();
@@ -123,10 +123,10 @@ public class bd implements bj.b {
             String a4 = a(activity, view2);
             String l = bi.l(view2);
             JSONArray jSONArray2 = new JSONArray();
-            Map a5 = bi.a(bi.a(view2, activity), false);
+            Map<String, String> a5 = bi.a(bi.a(view2, activity), false);
             String str = "";
-            if (!TextUtils.isEmpty(a4) && a5 != null && a5.size() > 0 && !TextUtils.isEmpty((CharSequence) a5.get("content"))) {
-                str = (String) a5.get("content");
+            if (!TextUtils.isEmpty(a4) && a5 != null && a5.size() > 0 && !TextUtils.isEmpty(a5.get("content"))) {
+                str = a5.get("content");
             }
             av.a().a(applicationContext, "", l, str, 1, currentTimeMillis, name, a, "", jSONArray, f, g, a3, a4, jSONArray2);
         }

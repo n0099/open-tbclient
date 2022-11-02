@@ -6,17 +6,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
-import com.baidu.tieba.wy5;
+import com.baidu.tieba.g06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaPersonCenterActivity extends BaseActivity {
+public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public wy5 b;
+    public g06 b;
 
     public AlaPersonCenterActivity() {
         Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class AlaPersonCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            wy5 wy5Var = this.b;
-            if (wy5Var != null) {
-                wy5Var.p();
+            g06 g06Var = this.b;
+            if (g06Var != null) {
+                g06Var.p();
             }
         }
     }
@@ -84,11 +84,11 @@ public class AlaPersonCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            TbPageContext pageContext = getPageContext();
+            TbPageContext<AlaPersonCenterActivity> pageContext = getPageContext();
             this.a = pageContext;
-            wy5 wy5Var = new wy5(pageContext, false);
-            this.b = wy5Var;
-            setContentView(wy5Var.i());
+            g06 g06Var = new g06(pageContext, false);
+            this.b = g06Var;
+            setContentView(g06Var.i());
             Intent intent = getIntent();
             if (intent != null) {
                 this.b.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));

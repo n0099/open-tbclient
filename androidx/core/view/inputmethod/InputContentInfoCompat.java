@@ -4,6 +4,9 @@ import android.content.ClipDescription;
 import android.net.Uri;
 import android.os.Build;
 import android.view.inputmethod.InputContentInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,12 +21,16 @@ public final class InputContentInfoCompat {
 
     /* loaded from: classes.dex */
     public interface InputContentInfoCompatImpl {
+        @NonNull
         Uri getContentUri();
 
+        @NonNull
         ClipDescription getDescription();
 
+        @Nullable
         Object getInputContentInfo();
 
+        @Nullable
         Uri getLinkUri();
 
         void releasePermission();
@@ -31,13 +38,15 @@ public final class InputContentInfoCompat {
         void requestPermission();
     }
 
+    @RequiresApi(25)
     /* loaded from: classes.dex */
     public static final class InputContentInfoCompatApi25Impl implements InputContentInfoCompatImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final InputContentInfo mObject;
 
-        public InputContentInfoCompatApi25Impl(Uri uri, ClipDescription clipDescription, Uri uri2) {
+        public InputContentInfoCompatApi25Impl(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +64,7 @@ public final class InputContentInfoCompat {
             this.mObject = new InputContentInfo(uri, clipDescription, uri2);
         }
 
-        public InputContentInfoCompatApi25Impl(Object obj) {
+        public InputContentInfoCompatApi25Impl(@NonNull Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,6 +83,7 @@ public final class InputContentInfoCompat {
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @NonNull
         public Uri getContentUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -84,6 +94,7 @@ public final class InputContentInfoCompat {
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @NonNull
         public ClipDescription getDescription() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -94,6 +105,7 @@ public final class InputContentInfoCompat {
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @Nullable
         public Object getInputContentInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -104,6 +116,7 @@ public final class InputContentInfoCompat {
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @Nullable
         public Uri getLinkUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -134,11 +147,15 @@ public final class InputContentInfoCompat {
     public static final class InputContentInfoCompatBaseImpl implements InputContentInfoCompatImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final Uri mContentUri;
+        @NonNull
         public final ClipDescription mDescription;
+        @Nullable
         public final Uri mLinkUri;
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @Nullable
         public Object getInputContentInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -162,7 +179,7 @@ public final class InputContentInfoCompat {
             }
         }
 
-        public InputContentInfoCompatBaseImpl(Uri uri, ClipDescription clipDescription, Uri uri2) {
+        public InputContentInfoCompatBaseImpl(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,6 +200,7 @@ public final class InputContentInfoCompat {
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @NonNull
         public Uri getContentUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -193,6 +211,7 @@ public final class InputContentInfoCompat {
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @NonNull
         public ClipDescription getDescription() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -203,6 +222,7 @@ public final class InputContentInfoCompat {
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @Nullable
         public Uri getLinkUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -213,7 +233,7 @@ public final class InputContentInfoCompat {
         }
     }
 
-    public InputContentInfoCompat(Uri uri, ClipDescription clipDescription, Uri uri2) {
+    public InputContentInfoCompat(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -235,7 +255,7 @@ public final class InputContentInfoCompat {
         }
     }
 
-    public InputContentInfoCompat(InputContentInfoCompatImpl inputContentInfoCompatImpl) {
+    public InputContentInfoCompat(@NonNull InputContentInfoCompatImpl inputContentInfoCompatImpl) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -253,7 +273,8 @@ public final class InputContentInfoCompat {
         this.mImpl = inputContentInfoCompatImpl;
     }
 
-    public static InputContentInfoCompat wrap(Object obj) {
+    @Nullable
+    public static InputContentInfoCompat wrap(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
@@ -265,6 +286,7 @@ public final class InputContentInfoCompat {
         return (InputContentInfoCompat) invokeL.objValue;
     }
 
+    @NonNull
     public Uri getContentUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,6 +296,7 @@ public final class InputContentInfoCompat {
         return (Uri) invokeV.objValue;
     }
 
+    @NonNull
     public ClipDescription getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -283,6 +306,7 @@ public final class InputContentInfoCompat {
         return (ClipDescription) invokeV.objValue;
     }
 
+    @Nullable
     public Uri getLinkUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,6 +330,7 @@ public final class InputContentInfoCompat {
         }
     }
 
+    @Nullable
     public Object unwrap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mLaunchTaskDuration;
+    public HashMap<String, Long> mLaunchTaskDuration;
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void reset() {
@@ -38,7 +38,7 @@ public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
                 return;
             }
         }
-        this.mLaunchTaskDuration = new HashMap();
+        this.mLaunchTaskDuration = new HashMap<>();
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -61,9 +61,9 @@ public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
             HashMap hashMap = new HashMap();
             synchronized (this.mLaunchTaskDuration) {
                 long j = 0;
-                for (Map.Entry entry : this.mLaunchTaskDuration.entrySet()) {
+                for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
                     hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
-                    j += ((Long) entry.getValue()).longValue();
+                    j += entry.getValue().longValue();
                 }
                 JSONObject jsonData = SpeedStatsUtils.getJsonData(j, hashMap);
                 if (jsonData != null) {

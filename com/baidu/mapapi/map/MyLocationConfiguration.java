@@ -20,7 +20,7 @@ public class MyLocationConfiguration {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class LocationMode {
+    public static final class LocationMode {
         public static /* synthetic */ Interceptable $ic;
         public static final LocationMode COMPASS;
         public static final LocationMode FOLLOWING;
@@ -70,13 +70,19 @@ public class MyLocationConfiguration {
         public static LocationMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LocationMode) Enum.valueOf(LocationMode.class, str) : (LocationMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (LocationMode) Enum.valueOf(LocationMode.class, str);
+            }
+            return (LocationMode) invokeL.objValue;
         }
 
         public static LocationMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LocationMode[]) a.clone() : (LocationMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (LocationMode[]) a.clone();
+            }
+            return (LocationMode[]) invokeV.objValue;
         }
     }
 

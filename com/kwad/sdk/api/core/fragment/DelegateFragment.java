@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.loader.Loader;
 /* loaded from: classes7.dex */
@@ -38,7 +40,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
 
     @Override // androidx.fragment.app.Fragment
     @Deprecated
-    public void onActivityCreated(Bundle bundle) {
+    public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
         this.mBase.onActivityCreated(bundle);
     }
@@ -84,7 +86,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         if (bundle != null) {
             try {
                 KsFragment ksFragment = (KsFragment) Loader.get().getRealClassLoader().loadClass((String) bundle.get(REAL_BASE_CLASS)).newInstance();
@@ -121,7 +123,8 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     }
 
     @Override // androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Nullable
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         return this.mBase.onCreateView(layoutInflater, viewGroup, bundle);
     }
 
@@ -150,7 +153,8 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     }
 
     @Override // androidx.fragment.app.Fragment
-    public LayoutInflater onGetLayoutInflater(Bundle bundle) {
+    @NonNull
+    public LayoutInflater onGetLayoutInflater(@Nullable Bundle bundle) {
         return super.onGetLayoutInflater(bundle);
     }
 
@@ -214,7 +218,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     }
 
     @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         this.mBase.onRequestPermissionsResult(i, strArr, iArr);
     }
@@ -226,7 +230,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onSaveInstanceState(Bundle bundle) {
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
         super.onSaveInstanceState(bundle);
         this.mBase.onSaveInstanceState(bundle);
         if (bundle != null) {
@@ -247,13 +251,13 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onViewCreated(View view2, Bundle bundle) {
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         super.onViewCreated(view2, bundle);
         this.mBase.onViewCreated(view2, bundle);
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onViewStateRestored(Bundle bundle) {
+    public void onViewStateRestored(@Nullable Bundle bundle) {
         super.onViewStateRestored(bundle);
         this.mBase.onViewStateRestored(bundle);
     }

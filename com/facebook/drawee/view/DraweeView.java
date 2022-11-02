@@ -1,5 +1,6 @@
 package com.facebook.drawee.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
@@ -26,12 +27,12 @@ import com.facebook.drawee.view.AspectRatioMeasure;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class DraweeView extends ImageView {
+public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sGlobalLegacyVisibilityHandlingEnabled;
     public transient /* synthetic */ FieldHolder $fh;
     public float mAspectRatio;
-    public DraweeHolder mDraweeHolder;
+    public DraweeHolder<DH> mDraweeHolder;
     public boolean mInitialised;
     public boolean mLegacyVisibilityHandlingEnabled;
     public final AspectRatioMeasure.Spec mMeasureSpec;
@@ -129,6 +130,7 @@ public class DraweeView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @TargetApi(21)
     public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
@@ -245,13 +247,13 @@ public class DraweeView extends ImageView {
         return (DraweeController) invokeV.objValue;
     }
 
-    public DraweeHierarchy getHierarchy() {
+    public DH getHierarchy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mDraweeHolder.getHierarchy();
         }
-        return (DraweeHierarchy) invokeV.objValue;
+        return (DH) invokeV.objValue;
     }
 
     @Nullable
@@ -346,7 +348,7 @@ public class DraweeView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
-            DraweeHolder draweeHolder = this.mDraweeHolder;
+            DraweeHolder<DH> draweeHolder = this.mDraweeHolder;
             if (draweeHolder != null) {
                 str = draweeHolder.toString();
             } else {
@@ -394,10 +396,10 @@ public class DraweeView extends ImageView {
         }
     }
 
-    public void setHierarchy(DraweeHierarchy draweeHierarchy) {
+    public void setHierarchy(DH dh) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, draweeHierarchy) == null) {
-            this.mDraweeHolder.setHierarchy(draweeHierarchy);
+        if (interceptable == null || interceptable.invokeL(1048595, this, dh) == null) {
+            this.mDraweeHolder.setHierarchy(dh);
             super.setImageDrawable(this.mDraweeHolder.getTopLevelDrawable());
         }
     }

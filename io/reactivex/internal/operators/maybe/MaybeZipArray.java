@@ -19,14 +19,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeZipArray extends Maybe {
+public final class MaybeZipArray<T, R> extends Maybe<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource[] sources;
-    public final Function zipper;
+    public final MaybeSource<? extends T>[] sources;
+    public final Function<? super Object[], ? extends R> zipper;
 
     /* loaded from: classes8.dex */
-    public final class SingletonArrayFunc implements Function {
+    public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MaybeZipArray this$0;
@@ -49,29 +49,30 @@ public final class MaybeZipArray extends Maybe {
             this.this$0 = maybeZipArray;
         }
 
+        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.functions.Function
-        public Object apply(Object obj) throws Exception {
+        public R apply(T t) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return ObjectHelper.requireNonNull(this.this$0.zipper.apply(new Object[]{obj}), "The zipper returned a null value");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+                return (R) ObjectHelper.requireNonNull(this.this$0.zipper.apply(new Object[]{t}), "The zipper returned a null value");
             }
-            return invokeL.objValue;
+            return (R) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class ZipCoordinator extends AtomicInteger implements Disposable {
+    public static final class ZipCoordinator<T, R> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5556924161382950569L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
-        public final ZipMaybeObserver[] observers;
+        public final MaybeObserver<? super R> actual;
+        public final ZipMaybeObserver<T>[] observers;
         public final Object[] values;
-        public final Function zipper;
+        public final Function<? super Object[], ? extends R> zipper;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ZipCoordinator(MaybeObserver maybeObserver, int i, Function function) {
+        public ZipCoordinator(MaybeObserver<? super R> maybeObserver, int i, Function<? super Object[], ? extends R> function) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -90,9 +91,9 @@ public final class MaybeZipArray extends Maybe {
             }
             this.actual = maybeObserver;
             this.zipper = function;
-            ZipMaybeObserver[] zipMaybeObserverArr = new ZipMaybeObserver[i];
+            ZipMaybeObserver<T>[] zipMaybeObserverArr = new ZipMaybeObserver[i];
             for (int i4 = 0; i4 < i; i4++) {
-                zipMaybeObserverArr[i4] = new ZipMaybeObserver(this, i4);
+                zipMaybeObserverArr[i4] = new ZipMaybeObserver<>(this, i4);
             }
             this.observers = zipMaybeObserverArr;
             this.values = new Object[i];
@@ -103,7 +104,7 @@ public final class MaybeZipArray extends Maybe {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (getAndSet(0) > 0) {
-                    for (ZipMaybeObserver zipMaybeObserver : this.observers) {
+                    for (ZipMaybeObserver<T> zipMaybeObserver : this.observers) {
                         zipMaybeObserver.dispose();
                     }
                 }
@@ -126,7 +127,7 @@ public final class MaybeZipArray extends Maybe {
         public void disposeExcept(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                ZipMaybeObserver[] zipMaybeObserverArr = this.observers;
+                ZipMaybeObserver<T>[] zipMaybeObserverArr = this.observers;
                 int length = zipMaybeObserverArr.length;
                 for (int i2 = 0; i2 < i; i2++) {
                     zipMaybeObserverArr[i2].dispose();
@@ -162,10 +163,11 @@ public final class MaybeZipArray extends Maybe {
             }
         }
 
-        public void innerSuccess(Object obj, int i) {
+        /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: ? super java.lang.Object[] */
+        public void innerSuccess(T t, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, obj, i) == null) {
-                this.values[i] = obj;
+            if (interceptable == null || interceptable.invokeLI(1048580, this, t, i) == null) {
+                this.values[i] = t;
                 if (decrementAndGet() == 0) {
                     try {
                         this.actual.onSuccess(ObjectHelper.requireNonNull(this.zipper.apply(this.values), "The zipper returned a null value"));
@@ -179,14 +181,14 @@ public final class MaybeZipArray extends Maybe {
     }
 
     /* loaded from: classes8.dex */
-    public final class ZipMaybeObserver extends AtomicReference implements MaybeObserver {
+    public static final class ZipMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3323743579927613702L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int index;
-        public final ZipCoordinator parent;
+        public final ZipCoordinator<T, ?> parent;
 
-        public ZipMaybeObserver(ZipCoordinator zipCoordinator, int i) {
+        public ZipMaybeObserver(ZipCoordinator<T, ?> zipCoordinator, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -237,15 +239,15 @@ public final class MaybeZipArray extends Maybe {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.parent.innerSuccess(obj, this.index);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.parent.innerSuccess(t, this.index);
             }
         }
     }
 
-    public MaybeZipArray(MaybeSource[] maybeSourceArr, Function function) {
+    public MaybeZipArray(MaybeSource<? extends T>[] maybeSourceArr, Function<? super Object[], ? extends R> function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -265,10 +267,10 @@ public final class MaybeZipArray extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
-            MaybeSource[] maybeSourceArr = this.sources;
+            MaybeSource<? extends T>[] maybeSourceArr = this.sources;
             int length = maybeSourceArr.length;
             if (length == 1) {
                 maybeSourceArr[0].subscribe(new MaybeMap.MapMaybeObserver(maybeObserver, new SingletonArrayFunc(this)));
@@ -277,7 +279,7 @@ public final class MaybeZipArray extends Maybe {
             ZipCoordinator zipCoordinator = new ZipCoordinator(maybeObserver, length, this.zipper);
             maybeObserver.onSubscribe(zipCoordinator);
             for (int i = 0; i < length && !zipCoordinator.isDisposed(); i++) {
-                MaybeSource maybeSource = maybeSourceArr[i];
+                MaybeSource<? extends T> maybeSource = maybeSourceArr[i];
                 if (maybeSource == null) {
                     zipCoordinator.innerError(new NullPointerException("One of the sources is null"), i);
                     return;

@@ -8,12 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeBlurFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @DoNotStrip
     public static native void nativeIterativeBoxBlur(Bitmap bitmap, int i, int i2);
 
     static {

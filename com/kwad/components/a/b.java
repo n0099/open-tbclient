@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebResourceResponse;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,8 +33,8 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map PQ;
-    public static final Map PR;
+    public static final Map<String, com.kwad.components.a.kwai.b> PQ;
+    public static final Map<String, String> PR;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,6 +54,7 @@ public final class b {
         PR = new ConcurrentHashMap();
     }
 
+    @Nullable
     public static WebResourceResponse a(Context context, String str, com.kwad.sdk.e.kwai.b bVar, b.a aVar, boolean z) {
         InterceptResult invokeCommon;
         com.kwad.components.a.kwai.b bVar2;
@@ -198,13 +200,13 @@ public final class b {
     public static com.kwad.components.a.kwai.b aP(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (com.kwad.components.a.kwai.b) PQ.get(String.valueOf(str.hashCode())) : (com.kwad.components.a.kwai.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? PQ.get(String.valueOf(str.hashCode())) : (com.kwad.components.a.kwai.b) invokeL.objValue;
     }
 
     public static String aQ(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (String) PR.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? PR.get(str) : (String) invokeL.objValue;
     }
 
     public static void b(boolean z, String str) {

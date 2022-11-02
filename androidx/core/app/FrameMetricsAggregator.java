@@ -7,6 +7,10 @@ import android.os.HandlerThread;
 import android.util.SparseIntArray;
 import android.view.FrameMetrics;
 import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,10 +51,12 @@ public class FrameMetricsAggregator {
     public FrameMetricsBaseImpl mInstance;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface MetricType {
     }
 
+    @RequiresApi(24)
     /* loaded from: classes.dex */
     public static class FrameMetricsApi24Impl extends FrameMetricsBaseImpl {
         public static /* synthetic */ Interceptable $ic = null;
@@ -339,6 +345,7 @@ public class FrameMetricsAggregator {
         }
     }
 
+    @Nullable
     public SparseIntArray[] getMetrics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -348,6 +355,7 @@ public class FrameMetricsAggregator {
         return (SparseIntArray[]) invokeV.objValue;
     }
 
+    @Nullable
     public SparseIntArray[] reset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -357,6 +365,7 @@ public class FrameMetricsAggregator {
         return (SparseIntArray[]) invokeV.objValue;
     }
 
+    @Nullable
     public SparseIntArray[] stop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -388,14 +397,15 @@ public class FrameMetricsAggregator {
         }
     }
 
-    public void add(Activity activity) {
+    public void add(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
             this.mInstance.add(activity);
         }
     }
 
-    public SparseIntArray[] remove(Activity activity) {
+    @Nullable
+    public SparseIntArray[] remove(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {

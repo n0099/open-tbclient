@@ -35,7 +35,7 @@ public class ao {
         public final /* synthetic */ ao a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final LinkedBlockingQueue f106a;
+        public final LinkedBlockingQueue<b> f106a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ao aoVar) {
@@ -56,7 +56,7 @@ public class ao {
                 }
             }
             this.a = aoVar;
-            this.f106a = new LinkedBlockingQueue();
+            this.f106a = new LinkedBlockingQueue<>();
         }
 
         private void a(int i, b bVar) {
@@ -88,12 +88,12 @@ public class ao {
                 long j = this.a.a > 0 ? this.a.a : Long.MAX_VALUE;
                 while (!this.a.f105a) {
                     try {
-                        b bVar = (b) this.f106a.poll(j, TimeUnit.SECONDS);
-                        this.a.f104a = bVar;
-                        if (bVar != null) {
-                            a(0, bVar);
-                            bVar.b();
-                            a(1, bVar);
+                        b poll = this.f106a.poll(j, TimeUnit.SECONDS);
+                        this.a.f104a = poll;
+                        if (poll != null) {
+                            a(0, poll);
+                            poll.b();
+                            a(1, poll);
                         } else if (this.a.a > 0) {
                             this.a.a();
                         }
@@ -106,7 +106,7 @@ public class ao {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class b {
+    public static abstract class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

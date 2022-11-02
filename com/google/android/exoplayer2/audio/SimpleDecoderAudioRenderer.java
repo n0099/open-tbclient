@@ -41,12 +41,12 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     public final AudioSink audioSink;
     public boolean audioTrackNeedsConfigure;
     public long currentPositionUs;
-    public SimpleDecoder decoder;
+    public SimpleDecoder<DecoderInputBuffer, ? extends SimpleOutputBuffer, ? extends AudioDecoderException> decoder;
     public DecoderCounters decoderCounters;
     public boolean decoderReceivedBuffers;
     public int decoderReinitializationState;
-    public DrmSession drmSession;
-    public final DrmSessionManager drmSessionManager;
+    public DrmSession<ExoMediaCrypto> drmSession;
+    public final DrmSessionManager<ExoMediaCrypto> drmSessionManager;
     public int encoderDelay;
     public int encoderPadding;
     public final AudioRendererEventListener.EventDispatcher eventDispatcher;
@@ -57,18 +57,18 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     public boolean inputStreamEnded;
     public SimpleOutputBuffer outputBuffer;
     public boolean outputStreamEnded;
-    public DrmSession pendingDrmSession;
+    public DrmSession<ExoMediaCrypto> pendingDrmSession;
     public final boolean playClearSamplesWithoutKeys;
     public boolean waitingForKeys;
 
     /* renamed from: com.google.android.exoplayer2.audio.SimpleDecoderAudioRenderer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public abstract SimpleDecoder createDecoder(Format format, ExoMediaCrypto exoMediaCrypto) throws AudioDecoderException;
+    public abstract SimpleDecoder<DecoderInputBuffer, ? extends SimpleOutputBuffer, ? extends AudioDecoderException> createDecoder(Format format, ExoMediaCrypto exoMediaCrypto) throws AudioDecoderException;
 
     @Override // com.google.android.exoplayer2.BaseRenderer, com.google.android.exoplayer2.Renderer
     public MediaClock getMediaClock() {
@@ -95,7 +95,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         }
     }
 
-    public abstract int supportsFormatInternal(DrmSessionManager drmSessionManager, Format format);
+    public abstract int supportsFormatInternal(DrmSessionManager<ExoMediaCrypto> drmSessionManager, Format format);
 
     /* loaded from: classes7.dex */
     public final class AudioSinkListener implements AudioSink.Listener {
@@ -212,7 +212,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SimpleDecoderAudioRenderer(Handler handler, AudioRendererEventListener audioRendererEventListener, AudioCapabilities audioCapabilities, DrmSessionManager drmSessionManager, boolean z, AudioProcessor... audioProcessorArr) {
+    public SimpleDecoderAudioRenderer(Handler handler, AudioRendererEventListener audioRendererEventListener, AudioCapabilities audioCapabilities, DrmSessionManager<ExoMediaCrypto> drmSessionManager, boolean z, AudioProcessor... audioProcessorArr) {
         this(handler, audioRendererEventListener, drmSessionManager, z, new DefaultAudioSink(audioCapabilities, audioProcessorArr));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -233,7 +233,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleDecoderAudioRenderer(Handler handler, AudioRendererEventListener audioRendererEventListener, DrmSessionManager drmSessionManager, boolean z, AudioSink audioSink) {
+    public SimpleDecoderAudioRenderer(Handler handler, AudioRendererEventListener audioRendererEventListener, DrmSessionManager<ExoMediaCrypto> drmSessionManager, boolean z, AudioSink audioSink) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -349,12 +349,12 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             if (this.outputBuffer == null) {
-                SimpleOutputBuffer simpleOutputBuffer = (SimpleOutputBuffer) this.decoder.dequeueOutputBuffer();
-                this.outputBuffer = simpleOutputBuffer;
-                if (simpleOutputBuffer == null) {
+                SimpleOutputBuffer dequeueOutputBuffer = this.decoder.dequeueOutputBuffer();
+                this.outputBuffer = dequeueOutputBuffer;
+                if (dequeueOutputBuffer == null) {
                     return false;
                 }
-                this.decoderCounters.skippedOutputBufferCount += simpleOutputBuffer.skippedOutputBufferCount;
+                this.decoderCounters.skippedOutputBufferCount += dequeueOutputBuffer.skippedOutputBufferCount;
             }
             if (this.outputBuffer.isEndOfStream()) {
                 if (this.decoderReinitializationState == 2) {
@@ -374,8 +374,8 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
                 this.audioTrackNeedsConfigure = false;
             }
             AudioSink audioSink = this.audioSink;
-            SimpleOutputBuffer simpleOutputBuffer2 = this.outputBuffer;
-            if (!audioSink.handleBuffer(simpleOutputBuffer2.data, simpleOutputBuffer2.timeUs)) {
+            SimpleOutputBuffer simpleOutputBuffer = this.outputBuffer;
+            if (!audioSink.handleBuffer(simpleOutputBuffer.data, simpleOutputBuffer.timeUs)) {
                 return false;
             }
             this.decoderCounters.renderedOutputBufferCount++;
@@ -391,7 +391,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         if ((interceptable != null && interceptable.invokeV(65546, this) != null) || this.decoder != null) {
             return;
         }
-        DrmSession drmSession = this.pendingDrmSession;
+        DrmSession<ExoMediaCrypto> drmSession = this.pendingDrmSession;
         this.drmSession = drmSession;
         ExoMediaCrypto exoMediaCrypto = null;
         if (drmSession != null && (exoMediaCrypto = drmSession.getMediaCrypto()) == null) {
@@ -419,7 +419,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         int readSource;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            SimpleDecoder simpleDecoder = this.decoder;
+            SimpleDecoder<DecoderInputBuffer, ? extends SimpleOutputBuffer, ? extends AudioDecoderException> simpleDecoder = this.decoder;
             if (simpleDecoder == null || this.decoderReinitializationState == 2 || this.inputStreamEnded) {
                 return false;
             }
@@ -432,7 +432,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
             }
             if (this.decoderReinitializationState == 1) {
                 this.inputBuffer.setFlags(4);
-                this.decoder.queueInputBuffer(this.inputBuffer);
+                this.decoder.queueInputBuffer((SimpleDecoder<DecoderInputBuffer, ? extends SimpleOutputBuffer, ? extends AudioDecoderException>) this.inputBuffer);
                 this.inputBuffer = null;
                 this.decoderReinitializationState = 2;
                 return false;
@@ -450,7 +450,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
                 return true;
             } else if (this.inputBuffer.isEndOfStream()) {
                 this.inputStreamEnded = true;
-                this.decoder.queueInputBuffer(this.inputBuffer);
+                this.decoder.queueInputBuffer((SimpleDecoder<DecoderInputBuffer, ? extends SimpleOutputBuffer, ? extends AudioDecoderException>) this.inputBuffer);
                 this.inputBuffer = null;
                 return false;
             } else {
@@ -460,7 +460,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
                     return false;
                 }
                 this.inputBuffer.flip();
-                this.decoder.queueInputBuffer(this.inputBuffer);
+                this.decoder.queueInputBuffer((SimpleDecoder<DecoderInputBuffer, ? extends SimpleOutputBuffer, ? extends AudioDecoderException>) this.inputBuffer);
                 this.decoderReceivedBuffers = true;
                 this.decoderCounters.inputBufferCount++;
                 this.inputBuffer = null;
@@ -503,7 +503,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     }
 
     private void releaseDecoder() {
-        SimpleDecoder simpleDecoder;
+        SimpleDecoder<DecoderInputBuffer, ? extends SimpleOutputBuffer, ? extends AudioDecoderException> simpleDecoder;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(65549, this) != null) || (simpleDecoder = this.decoder) == null) {
             return;
@@ -593,9 +593,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
             }
             if (!Util.areEqual(drmInitData2, drmInitData)) {
                 if (this.inputFormat.drmInitData != null) {
-                    DrmSessionManager drmSessionManager = this.drmSessionManager;
+                    DrmSessionManager<ExoMediaCrypto> drmSessionManager = this.drmSessionManager;
                     if (drmSessionManager != null) {
-                        DrmSession acquireSession = drmSessionManager.acquireSession(Looper.myLooper(), this.inputFormat.drmInitData);
+                        DrmSession<ExoMediaCrypto> acquireSession = drmSessionManager.acquireSession(Looper.myLooper(), this.inputFormat.drmInitData);
                         this.pendingDrmSession = acquireSession;
                         if (acquireSession == this.drmSession) {
                             this.drmSessionManager.releaseSession(acquireSession);

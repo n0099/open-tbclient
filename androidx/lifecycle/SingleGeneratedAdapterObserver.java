@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +31,7 @@ public class SingleGeneratedAdapterObserver implements LifecycleEventObserver {
     }
 
     @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, lifecycleOwner, event) == null) {
             this.mGeneratedAdapter.callMethods(lifecycleOwner, event, false, null);

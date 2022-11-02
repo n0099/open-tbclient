@@ -19,8 +19,8 @@ import org.json.JSONObject;
 public class GetUserAccountResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map accountList;
-    public Map accountPeriodList;
+    public Map<Integer, MyBalanceInfo.Account> accountList;
+    public Map<Integer, MyBalanceInfo.AccountPeriod> accountPeriodList;
     public long imid;
     public String message;
     public long minAmountLimit;

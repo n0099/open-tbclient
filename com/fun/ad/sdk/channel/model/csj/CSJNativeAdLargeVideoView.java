@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +43,7 @@ public final class CSJNativeAdLargeVideoView extends g0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdLargeVideoView(Context context, AttributeSet attributeSet) {
+    public CSJNativeAdLargeVideoView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,7 +64,7 @@ public final class CSJNativeAdLargeVideoView extends g0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdLargeVideoView(Context context, AttributeSet attributeSet, int i) {
+    public CSJNativeAdLargeVideoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,7 +115,7 @@ public final class CSJNativeAdLargeVideoView extends g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090105);
         }
     }
 

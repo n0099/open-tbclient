@@ -1,104 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
-import com.baidu.tieba.recapp.view.AdVideoFlowView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fg8 implements ze8 {
+public class fg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public op5 a;
-    public TbPageContext b;
-    public Map c;
 
-    public fg8(IAdBaseAsyncController.a aVar) {
+    public static int a(int i, eg8 eg8Var) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, eg8Var)) == null) {
+            if (i <= 0) {
+                return eg8Var.a();
             }
+            if (eg8Var.c()) {
+                return i + eg8Var.b();
+            }
+            return i + eg8Var.b() + 1;
         }
-        op5 op5Var = new op5(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
-        this.a = op5Var;
-        op5Var.e(false);
-        this.c = new HashMap();
+        return invokeIL.intValue;
     }
 
-    @Override // com.baidu.tieba.ze8
-    public ae8 i(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
+    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull eg8 eg8Var, int i2, @Nullable T t, @Nullable gg8 gg8Var, @Nullable hg8 hg8Var) {
+        InterceptResult invokeCommon;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
-            if (this.b == null) {
-                return null;
-            }
-            AdVideoFlowView adVideoFlowView = (AdVideoFlowView) this.c.get(advertAppInfo);
-            if (adVideoFlowView == null) {
-                adVideoFlowView = new AdVideoFlowView(this.b.getPageActivity());
-                this.c.put(advertAppInfo, adVideoFlowView);
-            }
-            adVideoFlowView.setPageContext(this.b);
-            adVideoFlowView.setData(advertAppInfo);
-            return adVideoFlowView;
-        }
-        return (ae8) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ze8
-    public void a(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.b = tbPageContext;
-        }
-    }
-
-    @Override // com.baidu.tieba.ze8
-    public void m(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
-            this.c.remove(advertAppInfo);
-        }
-    }
-
-    @Override // com.baidu.tieba.ze8
-    public void c(AdvertAppInfo advertAppInfo, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
-            AdVideoFlowView adVideoFlowView = (AdVideoFlowView) this.c.get(advertAppInfo);
-            if (adVideoFlowView != null) {
-                adVideoFlowView.onPageSelected(z);
-            }
-            for (AdVideoFlowView adVideoFlowView2 : this.c.values()) {
-                if (adVideoFlowView2 != adVideoFlowView) {
-                    adVideoFlowView2.onPageSelected(false);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), eg8Var, Integer.valueOf(i2), t, gg8Var, hg8Var})) == null) {
+            if (eg8Var.a() != -1 && eg8Var.b() != -1) {
+                int a = a(i2, eg8Var);
+                if (gg8Var != null && t != null) {
+                    if (i <= i2) {
+                        if (hg8Var != 0) {
+                            hg8Var.a(i, a);
+                        }
+                        return false;
+                    }
+                    int i4 = i + 1;
+                    if (i4 < a) {
+                        if (hg8Var != 0) {
+                            hg8Var.a(i, a);
+                        }
+                        return false;
+                    }
+                    if (i > a) {
+                        i3 = i4;
+                    } else {
+                        i3 = a;
+                    }
+                    int i5 = vi7.i(list);
+                    if (i3 >= i5 && (gg8Var.b() || i3 > i5)) {
+                        if (hg8Var != 0) {
+                            hg8Var.d(i, i3, i5, gg8Var, t);
+                        }
+                        return false;
+                    }
+                    gg8Var.a(i3);
+                    if (!gg8Var.b()) {
+                        vi7.b(list, t, i3);
+                        if (hg8Var != 0) {
+                            hg8Var.c(i, i3, gg8Var, t);
+                            return true;
+                        }
+                        return true;
+                    } else if (hg8Var != 0) {
+                        hg8Var.e(i, i3, vi7.d(list, i3), gg8Var, t);
+                        return true;
+                    } else {
+                        return true;
+                    }
+                } else if (hg8Var != 0) {
+                    hg8Var.a(i, a);
                 }
             }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.ze8
-    public void loadAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.d(1, null);
-        }
+        return invokeCommon.booleanValue;
     }
 }

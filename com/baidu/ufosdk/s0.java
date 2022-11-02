@@ -46,7 +46,7 @@ public class s0 implements Runnable {
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < this.a.s.size() - 1; i++) {
-                jSONArray.put(Base64.encodeToString((byte[]) this.a.s.get(i), 0));
+                jSONArray.put(Base64.encodeToString(this.a.s.get(i), 0));
             }
             if (jSONArray.toString().length() < 2097152) {
                 FeedbackEditActivity feedbackEditActivity3 = this.a;

@@ -14,10 +14,10 @@ import java.util.Set;
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set IT;
+    public Set<b> IT;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static d IU;
         public transient /* synthetic */ FieldHolder $fh;

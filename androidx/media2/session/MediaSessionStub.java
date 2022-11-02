@@ -11,6 +11,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Surface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaSessionManager;
@@ -54,18 +56,18 @@ public class MediaSessionStub extends IMediaSession.Stub {
     public final androidx.media.MediaSessionManager mSessionManager;
 
     /* loaded from: classes.dex */
-    public interface LibrarySessionCallbackTask extends SessionTask {
-        Object run(MediaSession.ControllerInfo controllerInfo) throws RemoteException;
+    public interface LibrarySessionCallbackTask<T> extends SessionTask {
+        T run(MediaSession.ControllerInfo controllerInfo) throws RemoteException;
     }
 
     /* loaded from: classes.dex */
-    public interface SessionCallbackTask extends SessionTask {
-        Object run(MediaSession.ControllerInfo controllerInfo) throws RemoteException;
+    public interface SessionCallbackTask<T> extends SessionTask {
+        T run(MediaSession.ControllerInfo controllerInfo) throws RemoteException;
     }
 
     /* loaded from: classes.dex */
     public interface SessionPlayerTask extends SessionTask {
-        ListenableFuture run(MediaSession.ControllerInfo controllerInfo) throws RemoteException;
+        ListenableFuture<SessionPlayer.PlayerResult> run(MediaSession.ControllerInfo controllerInfo) throws RemoteException;
     }
 
     /* loaded from: classes.dex */
@@ -79,7 +81,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         public final IMediaController mIControllerCallback;
         public final /* synthetic */ MediaSessionStub this$0;
 
-        public Controller2Cb(MediaSessionStub mediaSessionStub, IMediaController iMediaController) {
+        public Controller2Cb(@NonNull MediaSessionStub mediaSessionStub, IMediaController iMediaController) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,6 +131,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
         }
 
+        @NonNull
         public IBinder getCallbackBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -148,7 +151,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onAllowedCommandsChanged(int i, SessionCommandGroup sessionCommandGroup) throws RemoteException {
+        public void onAllowedCommandsChanged(int i, @NonNull SessionCommandGroup sessionCommandGroup) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048579, this, i, sessionCommandGroup) == null) {
                 this.mIControllerCallback.onAllowedCommandsChanged(i, MediaParcelUtils.toParcelable(sessionCommandGroup));
@@ -167,7 +170,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onPlaybackInfoChanged(int i, MediaController.PlaybackInfo playbackInfo) throws RemoteException {
+        public void onPlaybackInfoChanged(int i, @NonNull MediaController.PlaybackInfo playbackInfo) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048586, this, i, playbackInfo) == null) {
                 this.mIControllerCallback.onPlaybackInfoChanged(i, MediaParcelUtils.toParcelable(playbackInfo));
@@ -175,7 +178,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onPlayerResult(int i, SessionPlayer.PlayerResult playerResult) throws RemoteException {
+        public void onPlayerResult(int i, @Nullable SessionPlayer.PlayerResult playerResult) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048588, this, i, playerResult) == null) {
                 onSessionResult(i, SessionResult.from(playerResult));
@@ -193,7 +196,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onSessionResult(int i, SessionResult sessionResult) throws RemoteException {
+        public void onSessionResult(int i, @Nullable SessionResult sessionResult) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048595, this, i, sessionResult) == null) {
                 if (sessionResult == null) {
@@ -220,7 +223,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onVideoSizeChanged(int i, VideoSize videoSize) throws RemoteException {
+        public void onVideoSizeChanged(int i, @NonNull VideoSize videoSize) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048601, this, i, videoSize) == null) {
                 this.mIControllerCallback.onVideoSizeChanged(i, MediaParcelUtils.toParcelable(new MediaItem.Builder().build()), MediaParcelUtils.toParcelable(videoSize));
@@ -228,7 +231,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void setCustomLayout(int i, List<MediaSession.CommandButton> list) throws RemoteException {
+        public void setCustomLayout(int i, @NonNull List<MediaSession.CommandButton> list) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048603, this, i, list) == null) {
                 this.mIControllerCallback.onSetCustomLayout(i, MediaUtils.convertCommandButtonListToParcelImplList(list));
@@ -236,7 +239,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onBufferingStateChanged(int i, MediaItem mediaItem, int i2, long j, long j2, long j3) throws RemoteException {
+        public void onBufferingStateChanged(int i, @NonNull MediaItem mediaItem, int i2, long j, long j2, long j3) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), mediaItem, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                 this.mIControllerCallback.onBufferingStateChanged(i, MediaParcelUtils.toParcelable(mediaItem), i2, j, j2, j3);
@@ -252,7 +255,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onChildrenChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onChildrenChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
                 this.mIControllerCallback.onChildrenChanged(i, str, i2, MediaParcelUtils.toParcelable(libraryParams));
@@ -276,7 +279,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onSearchResultChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onSearchResultChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
                 this.mIControllerCallback.onSearchResultChanged(i, str, i2, MediaParcelUtils.toParcelable(libraryParams));
@@ -292,7 +295,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onSubtitleData(int i, MediaItem mediaItem, SessionPlayer.TrackInfo trackInfo, SubtitleData subtitleData) throws RemoteException {
+        public void onSubtitleData(int i, @NonNull MediaItem mediaItem, @NonNull SessionPlayer.TrackInfo trackInfo, @NonNull SubtitleData subtitleData) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), mediaItem, trackInfo, subtitleData}) == null) {
                 this.mIControllerCallback.onSubtitleData(i, MediaParcelUtils.toParcelable(mediaItem), MediaParcelUtils.toParcelable(trackInfo), MediaParcelUtils.toParcelable(subtitleData));
@@ -324,7 +327,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onPlaylistChanged(int i, List<MediaItem> list, MediaMetadata mediaMetadata, int i2, int i3, int i4) throws RemoteException {
+        public void onPlaylistChanged(int i, @NonNull List<MediaItem> list, MediaMetadata mediaMetadata, int i2, int i3, int i4) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), list, mediaMetadata, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
                 MediaSession.ControllerInfo controller = this.this$0.mConnectedControllersManager.getController(getCallbackBinder());
@@ -337,7 +340,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void sendCustomCommand(int i, SessionCommand sessionCommand, Bundle bundle) throws RemoteException {
+        public void sendCustomCommand(int i, @NonNull SessionCommand sessionCommand, Bundle bundle) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048602, this, i, sessionCommand, bundle) == null) {
                 this.mIControllerCallback.onCustomCommand(i, MediaParcelUtils.toParcelable(sessionCommand), bundle);
@@ -388,7 +391,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         this.mConnectedControllersManager = new ConnectedControllersManager<>(mediaSessionImpl);
     }
 
-    private void dispatchLibrarySessionTask(IMediaController iMediaController, int i, int i2, LibrarySessionCallbackTask<?> librarySessionCallbackTask) {
+    private void dispatchLibrarySessionTask(@NonNull IMediaController iMediaController, int i, int i2, @NonNull LibrarySessionCallbackTask<?> librarySessionCallbackTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{iMediaController, Integer.valueOf(i), Integer.valueOf(i2), librarySessionCallbackTask}) == null) {
             if (this.mSessionImpl instanceof MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl) {
@@ -399,7 +402,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
     }
 
-    private void dispatchSessionTask(IMediaController iMediaController, int i, int i2, SessionTask sessionTask) {
+    private void dispatchSessionTask(@NonNull IMediaController iMediaController, int i, int i2, @NonNull SessionTask sessionTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{iMediaController, Integer.valueOf(i), Integer.valueOf(i2), sessionTask}) == null) {
             dispatchSessionTaskInternal(iMediaController, i, null, i2, sessionTask);
@@ -512,7 +515,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         });
     }
 
-    private void dispatchSessionTask(IMediaController iMediaController, int i, SessionCommand sessionCommand, SessionTask sessionTask) {
+    private void dispatchSessionTask(@NonNull IMediaController iMediaController, int i, @NonNull SessionCommand sessionCommand, @NonNull SessionTask sessionTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, this, iMediaController, i, sessionCommand, sessionTask) == null) {
             dispatchSessionTaskInternal(iMediaController, i, sessionCommand, 0, sessionTask);
@@ -553,6 +556,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
             public Integer run(MediaSession.ControllerInfo controllerInfo) {
                 InterceptResult invokeL;
@@ -647,6 +651,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
                 public SessionResult run(MediaSession.ControllerInfo controllerInfo) {
                     InterceptResult invokeL;
@@ -696,6 +701,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask
                 public Integer run(MediaSession.ControllerInfo controllerInfo) {
                     InterceptResult invokeL;
@@ -747,6 +753,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
             public Integer run(MediaSession.ControllerInfo controllerInfo) {
                 InterceptResult invokeL;
@@ -850,6 +857,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
                 public Integer run(MediaSession.ControllerInfo controllerInfo) {
                     InterceptResult invokeL;
@@ -905,6 +913,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
             public Integer run(MediaSession.ControllerInfo controllerInfo) {
                 InterceptResult invokeL;
@@ -953,6 +962,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask
                 public Integer run(MediaSession.ControllerInfo controllerInfo) {
                     InterceptResult invokeL;
@@ -970,7 +980,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
     }
 
-    private void dispatchSessionTaskInternal(IMediaController iMediaController, int i, SessionCommand sessionCommand, int i2, SessionTask sessionTask) {
+    private void dispatchSessionTaskInternal(@NonNull IMediaController iMediaController, int i, @Nullable SessionCommand sessionCommand, int i2, @NonNull SessionTask sessionTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{iMediaController, Integer.valueOf(i), sessionCommand, Integer.valueOf(i2), sessionTask}) == null) {
             long clearCallingIdentity = Binder.clearCallingIdentity();
@@ -1054,7 +1064,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                                 }
                             }
                             if (this.val$task instanceof SessionPlayerTask) {
-                                ListenableFuture run = ((SessionPlayerTask) this.val$task).run(this.val$controller);
+                                ListenableFuture<SessionPlayer.PlayerResult> run = ((SessionPlayerTask) this.val$task).run(this.val$controller);
                                 if (run != null) {
                                     run.addListener(new Runnable(this, run) { // from class: androidx.media2.session.MediaSessionStub.1.1
                                         public static /* synthetic */ Interceptable $ic;
@@ -1142,14 +1152,14 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
     }
 
-    public static void sendLibraryResult(MediaSession.ControllerInfo controllerInfo, int i, int i2) {
+    public static void sendLibraryResult(@NonNull MediaSession.ControllerInfo controllerInfo, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65542, null, controllerInfo, i, i2) == null) {
             sendLibraryResult(controllerInfo, i, new LibraryResult(i2));
         }
     }
 
-    public static void sendSessionResult(MediaSession.ControllerInfo controllerInfo, int i, int i2) {
+    public static void sendSessionResult(@NonNull MediaSession.ControllerInfo controllerInfo, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65545, null, controllerInfo, i, i2) == null) {
             sendSessionResult(controllerInfo, i, new SessionResult(i2));
@@ -1232,6 +1242,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask
                 public LibraryResult run(MediaSession.ControllerInfo controllerInfo) {
                     InterceptResult invokeL;
@@ -1279,6 +1290,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask
                 public LibraryResult run(MediaSession.ControllerInfo controllerInfo) {
                     InterceptResult invokeL;
@@ -1641,6 +1653,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask
             public Integer run(MediaSession.ControllerInfo controllerInfo) {
                 InterceptResult invokeL;
@@ -1700,7 +1713,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         });
     }
 
-    public static void sendLibraryResult(MediaSession.ControllerInfo controllerInfo, int i, LibraryResult libraryResult) {
+    public static void sendLibraryResult(@NonNull MediaSession.ControllerInfo controllerInfo, int i, @NonNull LibraryResult libraryResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, controllerInfo, i, libraryResult) == null) {
             try {
@@ -1711,7 +1724,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
     }
 
-    public static void sendPlayerResult(MediaSession.ControllerInfo controllerInfo, int i, SessionPlayer.PlayerResult playerResult) {
+    public static void sendPlayerResult(@NonNull MediaSession.ControllerInfo controllerInfo, int i, @NonNull SessionPlayer.PlayerResult playerResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65544, null, controllerInfo, i, playerResult) == null) {
             try {
@@ -1722,7 +1735,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
     }
 
-    public static void sendSessionResult(MediaSession.ControllerInfo controllerInfo, int i, SessionResult sessionResult) {
+    public static void sendSessionResult(@NonNull MediaSession.ControllerInfo controllerInfo, int i, @NonNull SessionResult sessionResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65546, null, controllerInfo, i, sessionResult) == null) {
             try {
@@ -1855,7 +1868,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
     }
 
-    public void connect(IMediaController iMediaController, int i, String str, int i2, int i3, Bundle bundle) {
+    public void connect(IMediaController iMediaController, int i, String str, int i2, int i3, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{iMediaController, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
             MediaSessionManager.RemoteUserInfo remoteUserInfo = new MediaSessionManager.RemoteUserInfo(str, i2, i3);
@@ -1975,6 +1988,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask
                 public LibraryResult run(MediaSession.ControllerInfo controllerInfo) {
                     InterceptResult invokeL;
@@ -2035,6 +2049,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionStub.LibrarySessionCallbackTask
                 public LibraryResult run(MediaSession.ControllerInfo controllerInfo) {
                     InterceptResult invokeL;
@@ -2059,6 +2074,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         }
     }
 
+    @Nullable
     public MediaItem convertMediaItemOnExecutor(MediaSession.ControllerInfo controllerInfo, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -2107,6 +2123,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
             public Integer run(MediaSession.ControllerInfo controllerInfo) {
                 InterceptResult invokeL;
@@ -2286,6 +2303,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
             public Integer run(MediaSession.ControllerInfo controllerInfo) {
                 InterceptResult invokeL;
@@ -2328,6 +2346,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
             public Integer run(MediaSession.ControllerInfo controllerInfo) {
                 InterceptResult invokeL;
@@ -2370,6 +2389,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
             public Integer run(MediaSession.ControllerInfo controllerInfo) {
                 InterceptResult invokeL;

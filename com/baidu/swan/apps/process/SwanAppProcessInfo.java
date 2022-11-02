@@ -1,6 +1,7 @@
 package com.baidu.swan.apps.process;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
@@ -24,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SwanAppProcessInfo {
     public static final /* synthetic */ SwanAppProcessInfo[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -39,14 +40,15 @@ public final class SwanAppProcessInfo {
     public static final SwanAppProcessInfo SERVICE;
     public static final String SWAN_APP_PROCESS_SUFFIX = ":swan";
     public static final SwanAppProcessInfo UNKNOWN;
+    @NonNull
     public static SwanAppProcessInfo sCurrent;
     public static SwanAppProcessInfo[] sIndices;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class activity;
+    public final Class<? extends SwanAppActivity> activity;
     public final int index;
     public final boolean isSwanClient;
     public final boolean isSwanService;
-    public final Class service;
+    public final Class<? extends SwanAppLocalService> service;
 
     public static boolean checkProcessId(int i) {
         InterceptResult invokeI;
@@ -106,6 +108,7 @@ public final class SwanAppProcessInfo {
         this.isSwanClient = z2;
     }
 
+    @NonNull
     public static SwanAppProcessInfo current() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -154,6 +157,7 @@ public final class SwanAppProcessInfo {
         return (SwanAppProcessInfo) invokeI.objValue;
     }
 
+    @NonNull
     public static SwanAppProcessInfo init(SwanAppProcessInfo swanAppProcessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

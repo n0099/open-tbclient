@@ -1,85 +1,81 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.util.SparseArray;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class ne implements ce {
+public class ne {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Short a;
 
-    public ne(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Short.valueOf(s)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = Short.valueOf(s);
-    }
-
-    @Override // com.baidu.tieba.ce
-    public Object a(se seVar) {
+    public static final bd a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, seVar)) == null) {
-            Class a = seVar.a();
-            if (a != Byte.class && a != Byte.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        boolean z = false;
-                                        if (a != Boolean.class && a != Boolean.TYPE) {
-                                            if (a == String.class) {
-                                                return String.valueOf(this.a);
-                                            }
-                                            if (a == char[].class) {
-                                                return String.valueOf(this.a).toCharArray();
-                                            }
-                                            if (a == byte[].class) {
-                                                try {
-                                                    return xi.e(String.valueOf(this.a), 0);
-                                                } catch (IOException e) {
-                                                    e.printStackTrace();
-                                                    return null;
-                                                }
-                                            }
-                                            return null;
-                                        }
-                                        if (this.a.byteValue() == 0) {
-                                            z = true;
-                                        }
-                                        return Boolean.valueOf(z);
-                                    }
-                                    return Character.valueOf((char) this.a.intValue());
-                                }
-                                return Double.valueOf(this.a.doubleValue());
-                            }
-                            return Float.valueOf(this.a.floatValue());
-                        }
-                        return Long.valueOf(this.a.longValue());
-                    }
-                    return Integer.valueOf(this.a.intValue());
-                }
-                return Short.valueOf(this.a.shortValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-            return Byte.valueOf(this.a.byteValue());
+            Class<?> cls = obj.getClass();
+            if (cls != Boolean.TYPE && cls != Boolean.class) {
+                if (cls == Bundle.class) {
+                    return new wc((Bundle) obj);
+                }
+                if (cls != Byte.TYPE && cls != Byte.class) {
+                    if (cls != Character.TYPE && cls != Character.class) {
+                        if (cls != Double.TYPE && cls != Double.class) {
+                            if (cls != Float.TYPE && cls != Float.class) {
+                                if (cls != Integer.TYPE && cls != Integer.class) {
+                                    if (cls != Long.TYPE && cls != Long.class) {
+                                        if (cls != Short.TYPE && cls != Short.class) {
+                                            if (cls == String.class) {
+                                                return new ld((String) obj);
+                                            }
+                                            if (cls.isArray()) {
+                                                return new uc(obj);
+                                            }
+                                            if (cls == SparseArray.class) {
+                                                return new kd((SparseArray) obj);
+                                            }
+                                            if (obj instanceof List) {
+                                                return new dd((List) obj);
+                                            }
+                                            if (obj instanceof Queue) {
+                                                return new hd((Queue) obj);
+                                            }
+                                            if (obj instanceof Map) {
+                                                return new fd((Map) obj);
+                                            }
+                                            if (obj instanceof Set) {
+                                                return new id((Set) obj);
+                                            }
+                                            if (!rc.e(cls, OrmObject.class)) {
+                                                return null;
+                                            }
+                                            return new gd((OrmObject) obj);
+                                        }
+                                        return new jd(((Short) obj).shortValue());
+                                    }
+                                    return new ed(((Long) obj).longValue());
+                                }
+                                return new cd(((Integer) obj).intValue());
+                            }
+                            return new ad(((Float) obj).floatValue());
+                        }
+                        return new zc(((Double) obj).doubleValue());
+                    }
+                    return new yc(((Character) obj).charValue());
+                }
+                return new xc(((Byte) obj).byteValue());
+            }
+            return new vc(((Boolean) obj).booleanValue());
         }
-        return invokeL.objValue;
+        return (bd) invokeL.objValue;
     }
 }

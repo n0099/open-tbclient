@@ -1,5 +1,6 @@
 package com.baidu.searchbox.logsystem.util;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -14,6 +15,8 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
@@ -72,6 +75,7 @@ public class Utility {
         }
     }
 
+    @TargetApi(24)
     public static long getProcessStartElapsedRealTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,7 +85,7 @@ public class Utility {
         return invokeV.longValue;
     }
 
-    public static final boolean createNewEmptyFile(File file) {
+    public static final boolean createNewEmptyFile(@NonNull File file) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -105,7 +109,7 @@ public class Utility {
         return invokeL.booleanValue;
     }
 
-    public static final void obtainProcessMaps(File file) {
+    public static final void obtainProcessMaps(@NonNull File file) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65550, null, file) == null) && file.exists() && file.isFile()) {
             int myPid = Process.myPid();
@@ -116,7 +120,7 @@ public class Utility {
         }
     }
 
-    public static final void obtainProcessStatus(File file) {
+    public static final void obtainProcessStatus(@NonNull File file) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65553, null, file) == null) && file.exists() && file.isFile()) {
             int myPid = Process.myPid();
@@ -150,7 +154,8 @@ public class Utility {
         return (String) invokeJ.objValue;
     }
 
-    public static String getMemoryStats(Debug.MemoryInfo memoryInfo) {
+    @TargetApi(23)
+    public static String getMemoryStats(@NonNull Debug.MemoryInfo memoryInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, memoryInfo)) == null) {
@@ -191,7 +196,7 @@ public class Utility {
     /* JADX WARN: Type inference failed for: r1v7, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v8, types: [java.io.FileOutputStream] */
     /* JADX WARN: Type inference failed for: r1v9 */
-    public static final void obtainLogcatFile(File file) {
+    public static final void obtainLogcatFile(@NonNull File file) {
         ?? r1;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -250,7 +255,7 @@ public class Utility {
         }
     }
 
-    public static final void obtainProcessFdInfo(File file) {
+    public static final void obtainProcessFdInfo(@NonNull File file) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65549, null, file) == null) && file.exists() && file.isFile()) {
             InputStream inputStream = null;
@@ -268,7 +273,7 @@ public class Utility {
         }
     }
 
-    public static final boolean isNetWorkEnabled(Context context) {
+    public static final boolean isNetWorkEnabled(@NonNull Context context) {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
@@ -282,7 +287,7 @@ public class Utility {
         return invokeL.booleanValue;
     }
 
-    public static final void obtainProcessSmaps(File file) {
+    public static final void obtainProcessSmaps(@NonNull File file) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65552, null, file) == null) && file.exists() && file.isFile()) {
             File file2 = new File("/proc/self/smaps");
@@ -292,7 +297,7 @@ public class Utility {
         }
     }
 
-    public static final boolean isWifiConnected(Context context) {
+    public static final boolean isWifiConnected(@NonNull Context context) {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
@@ -306,7 +311,7 @@ public class Utility {
         return invokeL.booleanValue;
     }
 
-    public static void obtainDBInfo(Context context, File file) {
+    public static void obtainDBInfo(@NonNull Context context, @NonNull File file) {
         FileWriter fileWriter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65544, null, context, file) == null) && file.exists() && file.isFile()) {
@@ -342,7 +347,7 @@ public class Utility {
         }
     }
 
-    public static final void obtainDeviceInfo(Context context, File file) {
+    public static final void obtainDeviceInfo(@NonNull Context context, @NonNull File file) {
         String replace;
         String replace2;
         Interceptable interceptable = $ic;
@@ -396,7 +401,7 @@ public class Utility {
         }
     }
 
-    public static final void obtainInstalledSoInfo(Context context, File file) {
+    public static final void obtainInstalledSoInfo(@NonNull Context context, @NonNull File file) {
         FileWriter fileWriter;
         File parentFile;
         File parentFile2;
@@ -475,7 +480,7 @@ public class Utility {
         }
     }
 
-    public static final void obtainMemoryInfo(Context context, File file) {
+    public static final void obtainMemoryInfo(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65548, null, context, file) == null) && file.exists() && file.isFile()) {
             FileWriter fileWriter = null;
@@ -541,7 +546,7 @@ public class Utility {
         }
     }
 
-    public static final void obtainProcessRunningStatus(Context context, File file, String str, LogExtra logExtra) {
+    public static final void obtainProcessRunningStatus(@Nullable Context context, @NonNull File file, @NonNull String str, @NonNull LogExtra logExtra) {
         long j;
         FileWriter fileWriter;
         Interceptable interceptable = $ic;
@@ -613,7 +618,7 @@ public class Utility {
         }
     }
 
-    public static final void obtainProcessThreadsInfo(File file) {
+    public static final void obtainProcessThreadsInfo(@NonNull File file) {
         Map<Thread, StackTraceElement[]> allStackTraces;
         Set<Thread> keySet;
         FileWriter fileWriter;
@@ -670,7 +675,7 @@ public class Utility {
         }
     }
 
-    public static final void printFilePathInfo(FileWriter fileWriter, File file, String str) {
+    public static final void printFilePathInfo(@NonNull FileWriter fileWriter, @NonNull File file, @NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65555, null, fileWriter, file, str) != null) || !file.exists()) {
             return;
@@ -703,7 +708,7 @@ public class Utility {
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v13 */
     /* JADX WARN: Type inference failed for: r8v4, types: [java.io.Closeable] */
-    public static final Pair readFile(File file, int i) {
+    public static final Pair<String, Boolean> readFile(@NonNull File file, int i) {
         InterceptResult invokeLI;
         ?? r8;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -757,7 +762,7 @@ public class Utility {
                             break;
                         }
                     }
-                    Pair pair = new Pair(byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET), bool);
+                    Pair<String, Boolean> pair = new Pair<>(byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET), bool);
                     Closeables.closeSafely(fileInputStream);
                     Closeables.closeSafely(byteArrayOutputStream);
                     return pair;
@@ -794,7 +799,7 @@ public class Utility {
         }
     }
 
-    public static void writeDBInfo(FileWriter fileWriter, File file) {
+    public static void writeDBInfo(@NonNull FileWriter fileWriter, @NonNull File file) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65557, null, fileWriter, file) == null) && file.exists()) {
             if (file.isDirectory()) {
@@ -820,14 +825,14 @@ public class Utility {
         }
     }
 
-    public static final void writeStringToFile(File file, String str) {
+    public static final void writeStringToFile(@NonNull File file, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65558, null, file, str) == null) {
             writeStringToFile(file, str, true);
         }
     }
 
-    public static final void writeStringToFile(File file, String str, boolean z) {
+    public static final void writeStringToFile(@NonNull File file, @NonNull String str, boolean z) {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(65559, null, file, str, z) == null) && file.exists() && file.isFile() && !TextUtils.isEmpty(str)) {

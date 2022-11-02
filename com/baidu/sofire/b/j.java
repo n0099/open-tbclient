@@ -33,11 +33,11 @@ public class j extends DexClassLoader {
         }
     }
 
-    public Class a(String str) throws ClassNotFoundException {
+    public Class<?> a(String str) throws ClassNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Class findLoadedClass = findLoadedClass(str);
+            Class<?> findLoadedClass = findLoadedClass(str);
             if (findLoadedClass == null) {
                 try {
                     return findClass(str);
@@ -52,7 +52,7 @@ public class j extends DexClassLoader {
     }
 
     @Override // java.lang.ClassLoader
-    public Class loadClass(String str, boolean z) throws ClassNotFoundException {
+    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {

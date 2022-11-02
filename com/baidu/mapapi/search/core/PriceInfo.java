@@ -13,10 +13,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PriceInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PriceInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public double b;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +41,7 @@ public class PriceInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new i();
+        CREATOR = new j();
     }
 
     public PriceInfo() {
@@ -46,6 +56,24 @@ public class PriceInfo implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public double getTicketPrice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public int getTicketType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
     public PriceInfo(Parcel parcel) {
@@ -65,28 +93,6 @@ public class PriceInfo implements Parcelable {
         }
         this.a = parcel.readInt();
         this.b = parcel.readDouble();
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public double getTicketPrice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.doubleValue;
-    }
-
-    public int getTicketType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public void setTicketPrice(double d) {

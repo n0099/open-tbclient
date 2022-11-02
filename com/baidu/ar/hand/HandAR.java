@@ -106,7 +106,7 @@ public class HandAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap hashMap) {
+    public void setup(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.setup(hashMap);

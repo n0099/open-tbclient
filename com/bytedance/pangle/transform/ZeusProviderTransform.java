@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CancellationSignal;
+import androidx.annotation.Keep;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.provider.ContentProviderManager;
 import com.bytedance.pangle.util.MethodUtils;
+@Keep
 /* loaded from: classes7.dex */
 public class ZeusProviderTransform {
     public static /* synthetic */ Interceptable $ic;
@@ -50,6 +53,7 @@ public class ZeusProviderTransform {
         return (Bundle) invokeCommon.objValue;
     }
 
+    @RequiresApi(api = 26)
     public static Cursor query(Object obj, Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

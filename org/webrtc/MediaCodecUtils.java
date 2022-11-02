@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
@@ -32,8 +32,8 @@ public class MediaCodecUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.MediaCodecUtils$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class MediaCodecUtils {
         return invokeLL.booleanValue;
     }
 
-    public static Map getCodecProperties(VideoCodecType videoCodecType, boolean z) {
+    public static Map<String, String> getCodecProperties(VideoCodecType videoCodecType, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, videoCodecType, z)) == null) {

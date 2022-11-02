@@ -38,7 +38,7 @@ public class Number3D {
 
     /* renamed from: com.baidu.ar.arplay.representation.Number3D$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$representation$Number3D$Axis;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class Number3D {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class Axis {
+    public static final class Axis {
         public static final /* synthetic */ Axis[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Axis X;

@@ -1,18 +1,12 @@
 package com.baidu.platform.core.e;
 
-import com.baidu.mapapi.search.share.LocationShareURLOption;
-import com.baidu.mapapi.search.share.OnGetShareUrlResultListener;
-import com.baidu.mapapi.search.share.PoiDetailShareURLOption;
-import com.baidu.mapapi.search.share.RouteShareURLOption;
+import com.baidu.mapapi.search.recommendstop.OnGetRecommendStopResultListener;
+import com.baidu.mapapi.search.recommendstop.RecommendStopSearchOption;
 /* loaded from: classes2.dex */
 public interface a {
     void a();
 
-    void a(OnGetShareUrlResultListener onGetShareUrlResultListener);
+    void a(OnGetRecommendStopResultListener onGetRecommendStopResultListener);
 
-    boolean a(LocationShareURLOption locationShareURLOption);
-
-    boolean a(PoiDetailShareURLOption poiDetailShareURLOption);
-
-    boolean a(RouteShareURLOption routeShareURLOption);
+    boolean a(RecommendStopSearchOption recommendStopSearchOption);
 }

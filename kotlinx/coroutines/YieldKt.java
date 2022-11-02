@@ -17,7 +17,7 @@ public final class YieldKt {
         }
     }
 
-    public static final Object yield(Continuation continuation) {
+    public static final Object yield(Continuation<? super Unit> continuation) {
         Object obj;
         CoroutineContext context = continuation.getContext();
         checkCompletion(context);

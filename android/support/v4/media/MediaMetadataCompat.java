@@ -1,5 +1,6 @@
 package android.support.v4.media;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.media.MediaMetadata;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,11 +24,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class MediaMetadataCompat implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
-    public static final ArrayMap METADATA_KEYS_TYPE;
+    public static final Parcelable.Creator<MediaMetadataCompat> CREATOR;
+    public static final ArrayMap<String, Integer> METADATA_KEYS_TYPE;
     public static final String METADATA_KEY_ADVERTISEMENT = "android.media.metadata.ADVERTISEMENT";
     public static final String METADATA_KEY_ALBUM = "android.media.metadata.ALBUM";
     public static final String METADATA_KEY_ALBUM_ART = "android.media.metadata.ALBUM_ART";
@@ -82,7 +85,7 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Bundle mBundle;
@@ -133,6 +136,7 @@ public final class MediaMetadataCompat implements Parcelable {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public Builder(MediaMetadataCompat mediaMetadataCompat, int i) {
             this(mediaMetadataCompat);
             Interceptable interceptable = $ic;
@@ -176,7 +180,7 @@ public final class MediaMetadataCompat implements Parcelable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
-                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && ((Integer) MediaMetadataCompat.METADATA_KEYS_TYPE.get(str)).intValue() != 2) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 2) {
                     throw new IllegalArgumentException("The " + str + " key cannot be used to put a Bitmap");
                 }
                 this.mBundle.putParcelable(str, bitmap);
@@ -189,7 +193,7 @@ public final class MediaMetadataCompat implements Parcelable {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
-                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && ((Integer) MediaMetadataCompat.METADATA_KEYS_TYPE.get(str)).intValue() != 0) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
                     throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
                 }
                 this.mBundle.putLong(str, j);
@@ -202,7 +206,7 @@ public final class MediaMetadataCompat implements Parcelable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, ratingCompat)) == null) {
-                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && ((Integer) MediaMetadataCompat.METADATA_KEYS_TYPE.get(str)).intValue() != 3) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 3) {
                     throw new IllegalArgumentException("The " + str + " key cannot be used to put a Rating");
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
@@ -219,7 +223,7 @@ public final class MediaMetadataCompat implements Parcelable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && ((Integer) MediaMetadataCompat.METADATA_KEYS_TYPE.get(str)).intValue() != 1) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
                     throw new IllegalArgumentException("The " + str + " key cannot be used to put a String");
                 }
                 this.mBundle.putCharSequence(str, str2);
@@ -232,7 +236,7 @@ public final class MediaMetadataCompat implements Parcelable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, charSequence)) == null) {
-                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && ((Integer) MediaMetadataCompat.METADATA_KEYS_TYPE.get(str)).intValue() != 1) {
+                if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
                     throw new IllegalArgumentException("The " + str + " key cannot be used to put a CharSequence");
                 }
                 this.mBundle.putCharSequence(str, charSequence);
@@ -255,7 +259,7 @@ public final class MediaMetadataCompat implements Parcelable {
                 return;
             }
         }
-        ArrayMap arrayMap = new ArrayMap();
+        ArrayMap<String, Integer> arrayMap = new ArrayMap<>();
         METADATA_KEYS_TYPE = arrayMap;
         arrayMap.put("android.media.metadata.TITLE", 1);
         METADATA_KEYS_TYPE.put("android.media.metadata.ARTIST", 1);
@@ -291,7 +295,7 @@ public final class MediaMetadataCompat implements Parcelable {
         PREFERRED_DESCRIPTION_ORDER = new String[]{"android.media.metadata.TITLE", "android.media.metadata.ARTIST", "android.media.metadata.ALBUM", "android.media.metadata.ALBUM_ARTIST", "android.media.metadata.WRITER", "android.media.metadata.AUTHOR", "android.media.metadata.COMPOSER"};
         PREFERRED_BITMAP_ORDER = new String[]{"android.media.metadata.DISPLAY_ICON", "android.media.metadata.ART", "android.media.metadata.ALBUM_ART"};
         PREFERRED_URI_ORDER = new String[]{"android.media.metadata.DISPLAY_ICON_URI", "android.media.metadata.ART_URI", "android.media.metadata.ALBUM_ART_URI"};
-        CREATOR = new Parcelable.Creator() { // from class: android.support.v4.media.MediaMetadataCompat.1
+        CREATOR = new Parcelable.Creator<MediaMetadataCompat>() { // from class: android.support.v4.media.MediaMetadataCompat.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -310,6 +314,7 @@ public final class MediaMetadataCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MediaMetadataCompat createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -321,6 +326,7 @@ public final class MediaMetadataCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MediaMetadataCompat[] newArray(int i) {
                 InterceptResult invokeI;
@@ -362,10 +368,10 @@ public final class MediaMetadataCompat implements Parcelable {
                 MediaMetadata mediaMetadata = (MediaMetadata) obj;
                 mediaMetadata.writeToParcel(obtain, 0);
                 obtain.setDataPosition(0);
-                MediaMetadataCompat mediaMetadataCompat = (MediaMetadataCompat) CREATOR.createFromParcel(obtain);
+                MediaMetadataCompat createFromParcel = CREATOR.createFromParcel(obtain);
                 obtain.recycle();
-                mediaMetadataCompat.mMetadataFwk = mediaMetadata;
-                return mediaMetadataCompat;
+                createFromParcel.mMetadataFwk = mediaMetadata;
+                return createFromParcel;
             }
             return null;
         }
@@ -470,7 +476,7 @@ public final class MediaMetadataCompat implements Parcelable {
         return (Bundle) invokeV.objValue;
     }
 
-    public Set keySet() {
+    public Set<String> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {

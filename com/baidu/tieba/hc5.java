@@ -1,103 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hc5 extends ec5 {
+public class hc5 extends yf1<fm> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hc5(int i, String str, Class cls) {
-        super(i, str, cls);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b implements fm {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.fm
+        public void a(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                SoLoaderEvent soLoaderEvent = new SoLoaderEvent();
+                soLoaderEvent.name = str;
+                mb5.i(soLoaderEvent);
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage run(CustomMessage customMessage) {
-        InterceptResult invokeL;
+    public hc5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof WriteCacheMessage)) {
-                WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
-                WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                tb5 tb5Var = (tb5) a();
-                if (tb5Var != null) {
-                    if (tb5Var instanceof sb5) {
-                        ou4.f();
-                        kf e = ou4.e(this.b, currentAccount);
-                        if (writeCacheMessage.isClear()) {
-                            tb5 tb5Var2 = (tb5) writeCacheMessage.getData();
-                            if (tb5Var2 == null) {
-                                BdCacheService.k().j(e);
-                            } else {
-                                e.remove(tb5Var2.getCacheKey());
-                            }
-                            writeCacheRespMsg.setSuccess(true);
-                        } else {
-                            tb5 tb5Var3 = (tb5) writeCacheMessage.getData();
-                            if (tb5Var3 == null) {
-                                return writeCacheRespMsg;
-                            }
-                            e.g(tb5Var3.getCacheKey(), ((sb5) tb5Var3).toCacheByteArray());
-                            writeCacheRespMsg.setSuccess(true);
-                        }
-                    } else if (tb5Var instanceof vb5) {
-                        ou4.f();
-                        kf h = ou4.h(this.b, currentAccount);
-                        if (writeCacheMessage.isClear()) {
-                            tb5 tb5Var4 = (tb5) writeCacheMessage.getData();
-                            if (tb5Var4 == null) {
-                                BdCacheService.k().j(h);
-                            } else {
-                                h.remove(tb5Var4.getCacheKey());
-                            }
-                            writeCacheRespMsg.setSuccess(true);
-                        } else {
-                            tb5 tb5Var5 = (tb5) writeCacheMessage.getData();
-                            if (tb5Var5 == null) {
-                                return writeCacheRespMsg;
-                            }
-                            String k = ((vb5) tb5Var5).k();
-                            if (k != null) {
-                                h.g(tb5Var5.getCacheKey(), k);
-                                writeCacheRespMsg.setSuccess(true);
-                            }
-                        }
-                    }
-                }
-                return writeCacheRespMsg;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf1
+    /* renamed from: a */
+    public fm createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
+        }
+        return (fm) invokeV.objValue;
     }
 }

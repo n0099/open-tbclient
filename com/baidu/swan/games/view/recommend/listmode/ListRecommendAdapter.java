@@ -4,11 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b74;
+import com.baidu.tieba.t74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,19 +17,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class ListRecommendAdapter extends RecyclerView.Adapter implements View.OnClickListener {
+public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater a;
     public a b;
-    public b74 c;
+    public t74 c;
 
     /* loaded from: classes3.dex */
     public interface a {
         void a(int i);
     }
 
-    public ListRecommendAdapter(Context context) {
+    public ListRecommendAdapter(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +53,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter implements View.O
     public void onBindViewHolder(ListRecommendViewHolder listRecommendViewHolder, int i) {
         RecommendItemModel recommendItemModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, listRecommendViewHolder, i) == null) && (recommendItemModel = (RecommendItemModel) this.c.b.get(i)) != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, listRecommendViewHolder, i) == null) && (recommendItemModel = this.c.b.get(i)) != null) {
             listRecommendViewHolder.a.setImageURI(recommendItemModel.iconUrl);
             listRecommendViewHolder.b.setText(recommendItemModel.appName);
             listRecommendViewHolder.c.setText(recommendItemModel.desc);
@@ -71,7 +72,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter implements View.O
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0841, viewGroup, false));
+            return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0856, viewGroup, false));
         }
         return (ListRecommendViewHolder) invokeLI.objValue;
     }
@@ -83,10 +84,10 @@ public class ListRecommendAdapter extends RecyclerView.Adapter implements View.O
         }
     }
 
-    public void g(b74 b74Var) {
+    public void g(t74 t74Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, b74Var) == null) {
-            this.c = b74Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t74Var) == null) {
+            this.c = t74Var;
             notifyDataSetChanged();
         }
     }
@@ -102,11 +103,11 @@ public class ListRecommendAdapter extends RecyclerView.Adapter implements View.O
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
-        List list;
+        List<RecommendItemModel> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            b74 b74Var = this.c;
-            if (b74Var != null && (list = b74Var.b) != null) {
+            t74 t74Var = this.c;
+            if (t74Var != null && (list = t74Var.b) != null) {
                 return list.size();
             }
             return 0;

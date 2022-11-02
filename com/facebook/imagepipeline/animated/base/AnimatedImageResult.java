@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.animated.base;
 
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,11 +19,11 @@ public class AnimatedImageResult {
     @Nullable
     public BitmapTransformation mBitmapTransformation;
     @Nullable
-    public List mDecodedFrames;
+    public List<CloseableReference<Bitmap>> mDecodedFrames;
     public final int mFrameForPreview;
     public final AnimatedImage mImage;
     @Nullable
-    public CloseableReference mPreviewBitmap;
+    public CloseableReference<Bitmap> mPreviewBitmap;
 
     public AnimatedImageResult(AnimatedImage animatedImage) {
         Interceptable interceptable = $ic;
@@ -84,13 +85,13 @@ public class AnimatedImageResult {
     }
 
     @Nullable
-    public synchronized CloseableReference getDecodedFrame(int i) {
+    public synchronized CloseableReference<Bitmap> getDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             synchronized (this) {
                 if (this.mDecodedFrames != null) {
-                    return CloseableReference.cloneOrNull((CloseableReference) this.mDecodedFrames.get(i));
+                    return CloseableReference.cloneOrNull(this.mDecodedFrames.get(i));
                 }
                 return null;
             }
@@ -156,9 +157,9 @@ public class AnimatedImageResult {
         return (AnimatedImage) invokeV.objValue;
     }
 
-    public synchronized CloseableReference getPreviewBitmap() {
+    public synchronized CloseableReference<Bitmap> getPreviewBitmap() {
         InterceptResult invokeV;
-        CloseableReference cloneOrNull;
+        CloseableReference<Bitmap> cloneOrNull;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {

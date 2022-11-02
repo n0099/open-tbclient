@@ -2,6 +2,7 @@ package com.bytedance.pangle.f;
 
 import android.content.pm.Signature;
 import android.util.ArraySet;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,10 +21,14 @@ public final class o {
     public static /* synthetic */ Interceptable $ic;
     public static final o a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final Signature[] b;
     public final int c;
-    public final ArraySet d;
+    @Nullable
+    public final ArraySet<PublicKey> d;
+    @Nullable
     public final Signature[] e;
+    @Nullable
     public final int[] f;
 
     static {
@@ -63,11 +68,11 @@ public final class o {
         }
     }
 
-    public static ArraySet a(Signature[] signatureArr) {
+    public static ArraySet<PublicKey> a(Signature[] signatureArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, signatureArr)) == null) {
-            ArraySet arraySet = new ArraySet(signatureArr.length);
+            ArraySet<PublicKey> arraySet = new ArraySet<>(signatureArr.length);
             for (Signature signature : signatureArr) {
                 Method a2 = com.bytedance.pangle.a.a.a.a(Signature.class, "getPublicKey", new Class[0]);
                 if (a2 != null && a2.isAccessible()) {
@@ -101,7 +106,7 @@ public final class o {
             if (this.c != oVar.c || !a(this.b, oVar.b)) {
                 return false;
             }
-            ArraySet arraySet = this.d;
+            ArraySet<PublicKey> arraySet = this.d;
             if (arraySet != null) {
                 if (!arraySet.equals(oVar.d)) {
                     return false;
@@ -117,7 +122,7 @@ public final class o {
         return invokeL.booleanValue;
     }
 
-    public o(Signature[] signatureArr, int i, ArraySet arraySet, Signature[] signatureArr2, int[] iArr) {
+    public o(Signature[] signatureArr, int i, ArraySet<PublicKey> arraySet, Signature[] signatureArr2, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +200,7 @@ public final class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int hashCode = ((Arrays.hashCode(this.b) * 31) + this.c) * 31;
-            ArraySet arraySet = this.d;
+            ArraySet<PublicKey> arraySet = this.d;
             if (arraySet != null) {
                 i = arraySet.hashCode();
             } else {

@@ -1,332 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Process;
+import androidx.multidex.MultiDex;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.turbonet.base.BuildConfig;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes4.dex */
 public class ka9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public JSONObject c;
-    public JSONObject d;
-    public JSONObject e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public List m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947906502, "Lcom/baidu/tieba/ka9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947906502, "Lcom/baidu/tieba/ka9;");
-                return;
-            }
-        }
-        n = pa9.m();
-    }
-
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public List b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public ka9(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.m = new ArrayList();
-        this.c = jSONObject;
-    }
-
-    public ka9(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.m = new ArrayList();
-        if (list != null && list.size() > 0) {
-            this.m.addAll(list);
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        JSONObject optJSONObject;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        boolean z6;
-        boolean z7;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                if (this.c != null && this.c.length() != 0) {
-                    JSONObject jSONObject = this.c;
-                    this.d = jSONObject.optJSONObject("set");
-                    this.a = jSONObject.optInt("threshold", 10000);
-                    this.b = jSONObject.optInt("timeup", 604800000);
-                    this.f = jSONObject.optString(ShaderParams.VALUE_TYPE_STEP);
-                    jSONObject.optString(StickerDataChangeType.REPLACE);
-                    this.e = jSONObject.optJSONObject("del");
-                    this.g = jSONObject.optInt("all_size", 614400);
-                    this.h = jSONObject.optInt("single_size", 153600);
-                    this.i = jSONObject.optInt("real_size", 614400);
-                    this.j = jSONObject.optInt("non_real_size", 614400);
-                    this.k = jSONObject.optInt("trigger_number", 100);
-                    this.l = jSONObject.optInt("trigger_interval", 180);
-                    int i = 1;
-                    if (this.d != null) {
-                        Iterator<String> keys = this.d.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
-                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-                                String optString = optJSONObject.optString("version");
-                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
-                                    if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, i) != 0) {
-                                        z = true;
-                                    } else {
-                                        z = false;
-                                    }
-                                    if (optJSONObject2.optInt(Constant.IS_REAL, 0) == 1) {
-                                        z2 = true;
-                                    } else {
-                                        z2 = false;
-                                    }
-                                    if (optJSONObject2.optInt("isAbtest", 0) == 1) {
-                                        z3 = true;
-                                    } else {
-                                        z3 = false;
-                                    }
-                                    Iterator<String> it = keys;
-                                    x99 x99Var = new x99(next, z, z2, optJSONObject2.optInt("timeout", 60), optJSONObject2.optInt("type", 0), z3);
-                                    if (aa9.a(next)) {
-                                        if (optJSONObject2.optInt("isSend", 1) == 1) {
-                                            z7 = true;
-                                        } else {
-                                            z7 = false;
-                                        }
-                                        x99Var.y(z7);
-                                    }
-                                    if (optJSONObject2.has("rate")) {
-                                        x99Var.D(optJSONObject2.getInt("rate"));
-                                    }
-                                    if (optJSONObject2.has("c")) {
-                                        x99Var.u(optJSONObject2.getString("c"));
-                                    }
-                                    if (optJSONObject2.has("limitUnit")) {
-                                        x99Var.A(optJSONObject2.getInt("limitUnit"));
-                                    }
-                                    if (optJSONObject2.has("limitCnt")) {
-                                        x99Var.z(optJSONObject2.getInt("limitCnt"));
-                                    }
-                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
-                                        x99Var.w(optJSONObject2.getInt(Constant.ID_TYPE));
-                                    }
-                                    if (optJSONObject2.optInt("ch", 0) == 1) {
-                                        z4 = true;
-                                    } else {
-                                        z4 = false;
-                                    }
-                                    x99Var.C(z4);
-                                    if (optJSONObject2.has("dfc")) {
-                                        if (optJSONObject2.getInt("dfc") == 1) {
-                                            z6 = true;
-                                        } else {
-                                            z6 = false;
-                                        }
-                                        x99Var.x(z6);
-                                    }
-                                    if (optJSONObject2.has("reallog")) {
-                                        if (optJSONObject2.getInt("reallog") == 1) {
-                                            z5 = true;
-                                        } else {
-                                            z5 = false;
-                                        }
-                                        x99Var.E(z5);
-                                    }
-                                    if (optJSONObject2.has("gflow")) {
-                                        x99Var.v(optJSONObject2.getInt("gflow"));
-                                    }
-                                    if (optJSONObject2.has("uploadType")) {
-                                        x99Var.F(optJSONObject2.optInt("uploadType", -1));
-                                    }
-                                    int optInt = optJSONObject2.optInt("lcache", 2);
-                                    if (optInt == 1 || optInt == 0) {
-                                        x99Var.B(optInt);
-                                    }
-                                    x99Var.G(optString);
-                                    this.m.add(x99Var);
-                                    keys = it;
-                                    i = 1;
-                                }
-                            }
-                        }
-                        return true;
+                int myPid = Process.myPid();
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
                     }
-                    return true;
                 }
-                return false;
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
-                return false;
+                return null;
+            } catch (SecurityException unused) {
+                return null;
             }
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void m(List list) {
+    public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.m = list;
+        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || !BuildConfig.isMultidexEnabled()) {
+            return;
         }
+        if (Build.VERSION.SDK_INT < 21 && !c(context)) {
+            ia9.h("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
+            return;
+        }
+        MultiDex.install(context);
+        ia9.h("base_multidex", "Completed multidex installation.", new Object[0]);
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
+                if (invoke != null && (invoke instanceof Boolean)) {
+                    if (((Boolean) invoke).booleanValue()) {
+                        return false;
+                    }
+                }
+            } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException unused) {
+            }
+            String a = a(context);
+            if (a == null) {
+                return true;
+            }
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null && applicationInfo.metaData != null) {
+                    Bundle bundle = applicationInfo.metaData;
+                    return !bundle.getBoolean(a + ".ignore_multidex", false);
+                }
+            } catch (PackageManager.NameNotFoundException unused2) {
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

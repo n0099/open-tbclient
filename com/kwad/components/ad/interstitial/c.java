@@ -1,6 +1,8 @@
 package com.kwad.components.ad.interstitial;
 
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,11 +28,11 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean fq;
-    public m fr;
+    public m<com.kwad.components.core.k.a, AdResultData> fr;
 
     /* renamed from: com.kwad.components.ad.interstitial.c$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public final class AnonymousClass1 extends f {
+    public class AnonymousClass1 extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SceneImpl fs;
@@ -60,7 +62,7 @@ public final class c {
         }
 
         @Override // com.kwad.components.core.k.g
-        public final void a(AdResultData adResultData) {
+        public final void a(@NonNull AdResultData adResultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, adResultData) == null) {
                 bd.runOnUiThread(new Runnable(this, adResultData) { // from class: com.kwad.components.ad.interstitial.c.1.2
@@ -188,7 +190,7 @@ public final class c {
     }
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static c fA;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +214,7 @@ public final class c {
 
     /* loaded from: classes7.dex */
     public interface b {
-        void onInterstitialAdLoad(List list);
+        void onInterstitialAdLoad(@Nullable List<AdTemplate> list);
     }
 
     public c() {
@@ -235,12 +237,12 @@ public final class c {
         this();
     }
 
-    private void a(com.kwad.components.core.k.kwai.b bVar, f fVar) {
+    private void a(com.kwad.components.core.k.kwai.b bVar, @NonNull f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, bVar, fVar) == null) {
             com.kwad.components.core.h.a aVar = new com.kwad.components.core.h.a(bVar);
             this.fr = aVar;
-            aVar.request(new n(this, fVar) { // from class: com.kwad.components.ad.interstitial.c.2
+            aVar.request(new n<com.kwad.components.core.k.a, AdResultData>(this, fVar) { // from class: com.kwad.components.ad.interstitial.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c fv;
@@ -265,7 +267,7 @@ public final class c {
                     this.fz = fVar;
                 }
 
-                private void b(AdResultData adResultData) {
+                private void b(@NonNull AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65537, this, adResultData) == null) {
                         this.fv.fq = false;
@@ -288,12 +290,12 @@ public final class c {
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onError(g gVar, int i, String str) {
+                public final /* synthetic */ void onError(@NonNull g gVar, int i, String str) {
                     c(i, str);
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onSuccess(g gVar, BaseResultData baseResultData) {
+                public final /* synthetic */ void onSuccess(@NonNull g gVar, @NonNull BaseResultData baseResultData) {
                     b((AdResultData) baseResultData);
                 }
             });
@@ -305,7 +307,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, adResultData, j) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (adResultData.getAdTemplateList().size() <= 0 || (adTemplate = (AdTemplate) adResultData.getAdTemplateList().get(0)) == null) {
+            if (adResultData.getAdTemplateList().size() <= 0 || (adTemplate = adResultData.getAdTemplateList().get(0)) == null) {
                 return;
             }
             com.kwad.components.core.j.a.og().c(adTemplate, elapsedRealtime - j);
@@ -318,7 +320,7 @@ public final class c {
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a.fA : (c) invokeV.objValue;
     }
 
-    public final void a(int i, int i2, SceneImpl sceneImpl, b bVar) {
+    public final void a(int i, int i2, @NonNull SceneImpl sceneImpl, b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), sceneImpl, bVar}) == null) || this.fq) {
             return;
@@ -331,7 +333,7 @@ public final class c {
     }
 
     public final void release() {
-        m mVar;
+        m<com.kwad.components.core.k.a, AdResultData> mVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mVar = this.fr) == null) {
             return;

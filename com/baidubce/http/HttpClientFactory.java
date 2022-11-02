@@ -32,7 +32,7 @@ public class HttpClientFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class NTLMAuthenticator implements Authenticator {
+    public static class NTLMAuthenticator implements Authenticator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String domain;

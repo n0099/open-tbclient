@@ -1,5 +1,7 @@
 package androidx.constraintlayout.widget;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -12,6 +14,8 @@ import android.util.SparseArray;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.solver.Metrics;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
@@ -1084,6 +1088,7 @@ public class ConstraintLayout extends ViewGroup {
         /* JADX WARN: Removed duplicated region for block: B:41:0x008e  */
         /* JADX WARN: Removed duplicated region for block: B:47:0x00a4  */
         @Override // android.view.ViewGroup.MarginLayoutParams, android.view.ViewGroup.LayoutParams
+        @TargetApi(17)
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -1455,6 +1460,7 @@ public class ConstraintLayout extends ViewGroup {
         }
 
         @Override // androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure.Measurer
+        @SuppressLint({"WrongCall"})
         public final void measure(ConstraintWidget constraintWidget, BasicMeasure.Measure measure) {
             int makeMeasureSpec;
             int makeMeasureSpec2;
@@ -1710,7 +1716,7 @@ public class ConstraintLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintLayout(Context context) {
+    public ConstraintLayout(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1782,7 +1788,7 @@ public class ConstraintLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintLayout(Context context, AttributeSet attributeSet) {
+    public ConstraintLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1827,7 +1833,7 @@ public class ConstraintLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintLayout(Context context, AttributeSet attributeSet, int i) {
+    public ConstraintLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1921,7 +1927,8 @@ public class ConstraintLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintLayout(Context context, AttributeSet attributeSet, int i, int i2) {
+    @TargetApi(21)
+    public ConstraintLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

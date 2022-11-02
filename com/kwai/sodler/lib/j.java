@@ -1,5 +1,6 @@
 package com.kwai.sodler.lib;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,19 +22,19 @@ public class j implements com.kwai.sodler.lib.a.e {
     public final com.kwai.sodler.lib.ext.a axw;
 
     /* loaded from: classes8.dex */
-    public abstract class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final com.kwai.sodler.lib.a.e axx;
 
         /* renamed from: com.kwai.sodler.lib.j$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public final class C0631a extends a {
+        public static class C0642a extends a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0631a(com.kwai.sodler.lib.a.e eVar) {
+            public C0642a(com.kwai.sodler.lib.a.e eVar) {
                 super(eVar);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -62,7 +63,7 @@ public class j implements com.kwai.sodler.lib.a.e {
         }
 
         /* loaded from: classes8.dex */
-        public final class b extends a {
+        public static class b extends a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,7 +97,7 @@ public class j implements com.kwai.sodler.lib.a.e {
         }
 
         /* loaded from: classes8.dex */
-        public final class c extends a {
+        public static class c extends a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,7 +151,7 @@ public class j implements com.kwai.sodler.lib.a.e {
         public static a a(com.kwai.sodler.lib.a.e eVar, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, eVar, i)) == null) ? i != 1 ? i != 256 ? new b(eVar) : new C0631a(eVar) : new c(eVar) : (a) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, eVar, i)) == null) ? i != 1 ? i != 256 ? new b(eVar) : new C0642a(eVar) : new c(eVar) : (a) invokeLI.objValue;
         }
 
         public abstract void m(com.kwai.sodler.lib.a.f fVar);
@@ -227,7 +228,7 @@ public class j implements com.kwai.sodler.lib.a.e {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.axw : (com.kwai.sodler.lib.ext.a) invokeV.objValue;
     }
 
-    public com.kwai.sodler.lib.a.f a(com.kwai.sodler.lib.a.f fVar, a aVar) {
+    public com.kwai.sodler.lib.a.f a(@NonNull com.kwai.sodler.lib.a.f fVar, @NonNull a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, fVar, aVar)) == null) {

@@ -27,7 +27,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public static final String DISPATCHER_NOT_FIRST_LEVEL = "dispatcher_not_first_level";
     public static final String TAG;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map schemeActionMap;
+    public final Map<String, UnitedSchemeBaseAction> schemeActionMap;
 
     /* loaded from: classes2.dex */
     public interface ConfirmDialogCallback {
@@ -45,7 +45,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
         return invokeLLL.booleanValue;
     }
 
-    public void addRedirectScheme(HashMap hashMap) {
+    public void addRedirectScheme(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
         }
@@ -53,7 +53,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
 
     public abstract String getDispatcherName();
 
-    public abstract Class getSubDispatcher(String str);
+    public abstract Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str);
 
     public abstract boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
@@ -160,10 +160,10 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, context, unitedSchemeEntity, callbackHandler)) == null) {
             String path = unitedSchemeEntity.getPath(true);
             if (!TextUtils.isEmpty(path)) {
-                Class subDispatcher = getSubDispatcher(path);
+                Class<? extends UnitedSchemeAbsDispatcher> subDispatcher = getSubDispatcher(path);
                 if (subDispatcher != null) {
                     try {
-                        return ((UnitedSchemeAbsDispatcher) subDispatcher.newInstance()).dispatch(context, unitedSchemeEntity, callbackHandler);
+                        return subDispatcher.newInstance().dispatch(context, unitedSchemeEntity, callbackHandler);
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InstantiationException e2) {

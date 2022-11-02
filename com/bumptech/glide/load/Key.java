@@ -1,5 +1,6 @@
 package com.bumptech.glide.load;
 
+import androidx.annotation.NonNull;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
@@ -11,5 +12,5 @@ public interface Key {
 
     int hashCode();
 
-    void updateDiskCacheKey(MessageDigest messageDigest);
+    void updateDiskCacheKey(@NonNull MessageDigest messageDigest);
 }

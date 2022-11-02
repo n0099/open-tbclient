@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IceCandidate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,6 +36,7 @@ public class IceCandidate {
         this.serverUrl = "";
     }
 
+    @CalledByNative
     public IceCandidate(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,6 +58,7 @@ public class IceCandidate {
         this.serverUrl = str3;
     }
 
+    @CalledByNative
     public String getSdp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,6 +68,7 @@ public class IceCandidate {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public String getSdpMid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

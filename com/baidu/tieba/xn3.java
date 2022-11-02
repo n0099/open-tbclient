@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface xn3 {
-    void a();
+    String b();
 
-    void b(int i);
+    String c();
+
+    String e();
+
+    String g();
+
+    String h();
+
+    boolean isDebug();
 }

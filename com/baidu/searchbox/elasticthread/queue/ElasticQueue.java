@@ -19,7 +19,7 @@ public class ElasticQueue implements Recordable {
     public static final boolean DEBUG = false;
     public static final String TAG = "ElasticQueue";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mElasticTasks;
+    public List<ElasticTask> mElasticTasks;
     public Recordable.RecordStatus mRecordStatus;
     public long outputTaskNumInRecordLifeCycle;
     public long waitingTimeInRecordLifeCycle;
@@ -63,7 +63,7 @@ public class ElasticQueue implements Recordable {
             if (this.mElasticTasks.isEmpty()) {
                 return null;
             }
-            return (ElasticTask) this.mElasticTasks.get(0);
+            return this.mElasticTasks.get(0);
         }
         return (ElasticTask) invokeV.objValue;
     }

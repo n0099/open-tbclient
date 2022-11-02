@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public interface CacheErrorLogger {
-    void logError(CacheErrorCategory cacheErrorCategory, Class cls, String str, @Nullable Throwable th);
+    void logError(CacheErrorCategory cacheErrorCategory, Class<?> cls, String str, @Nullable Throwable th);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class CacheErrorCategory {
+    public static final class CacheErrorCategory {
         public static final /* synthetic */ CacheErrorCategory[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CacheErrorCategory DELETE_FILE;

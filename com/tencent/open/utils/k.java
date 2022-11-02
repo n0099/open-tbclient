@@ -1,5 +1,6 @@
 package com.tencent.open.utils;
 
+import android.annotation.TargetApi;
 import android.net.SSLCertificateSocketFactory;
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,6 +22,7 @@ import javax.net.ssl.SSLSocket;
 import org.apache.http.conn.scheme.LayeredSocketFactory;
 import org.apache.http.conn.ssl.StrictHostnameVerifier;
 import org.apache.http.params.HttpParams;
+@TargetApi(17)
 /* loaded from: classes8.dex */
 public class k implements LayeredSocketFactory {
     public static /* synthetic */ Interceptable $ic;

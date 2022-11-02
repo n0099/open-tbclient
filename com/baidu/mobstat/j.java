@@ -20,7 +20,7 @@ public abstract class j implements Closeable {
 
     public abstract long a(String str, String str2);
 
-    public abstract ArrayList a(int i, int i2);
+    public abstract ArrayList<i> a(int i, int i2);
 
     public abstract boolean b(long j);
 

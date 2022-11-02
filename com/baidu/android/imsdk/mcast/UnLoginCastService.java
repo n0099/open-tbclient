@@ -49,7 +49,7 @@ public class UnLoginCastService {
     public String mRoomUrl;
     public Timer mTimer;
     public int mTryTimes;
-    public ConcurrentLinkedQueue mTss;
+    public ConcurrentLinkedQueue<ParseM3u8.TS> mTss;
     public int mType;
     public Object mawakeLock;
     public Thread requestTsTask;
@@ -199,7 +199,7 @@ public class UnLoginCastService {
             }
         }
         this.mawakeLock = new Object();
-        this.mTss = new ConcurrentLinkedQueue();
+        this.mTss = new ConcurrentLinkedQueue<>();
         this.mLastpm = null;
         this.mInterval = 3000;
         this.isActive = false;
@@ -367,7 +367,7 @@ public class UnLoginCastService {
                 ParseM3u8 parseM3u8 = new ParseM3u8();
                 try {
                     parseM3u8.readByte(bArr);
-                    List arrayList = new ArrayList();
+                    List<ParseM3u8.TS> arrayList = new ArrayList<>();
                     if (this.mLastpm == null) {
                         this.mLastpm = parseM3u8;
                         if (this.mType == 0) {
@@ -379,7 +379,7 @@ public class UnLoginCastService {
                             String str2 = TAG;
                             LogUtils.d(str2, "FXF ts list 2 size" + arrayList.size());
                             this.startSeekTime = System.currentTimeMillis() / 1000;
-                            this.startSeekTsTime = ((ParseM3u8.TS) arrayList.get(0)).relativetime;
+                            this.startSeekTsTime = arrayList.get(0).relativetime;
                         }
                         LogUtils.d(TAG, "FXF first get 1 m3u8");
                     } else {
@@ -492,7 +492,7 @@ public class UnLoginCastService {
             this.mTryTimes = 0;
             if (i == 1 && this.mType == 1) {
                 if (this.mTss.size() > 0) {
-                    this.mPausePosition = (int) ((ParseM3u8.TS) this.mTss.peek()).relativetime;
+                    this.mPausePosition = (int) this.mTss.peek().relativetime;
                 } else {
                     this.mPausePosition = 0;
                 }
@@ -545,14 +545,14 @@ public class UnLoginCastService {
                         break;
                     }
                     for (int i = 0; i < size && this.isActive && !this.isSeek; i++) {
-                        ParseM3u8.TS ts = (ParseM3u8.TS) this.mTss.peek();
-                        if (proofreadTimeAxis(ts.relativetime)) {
+                        ParseM3u8.TS peek = this.mTss.peek();
+                        if (proofreadTimeAxis(peek.relativetime)) {
                             break;
                         }
                         this.mTss.poll();
-                        getTstask(ts.tsfile);
+                        getTstask(peek.tsfile);
                         String str = TAG;
-                        LogUtils.d(str, "FXF request ts " + i + " " + ts.tsfile + " " + ts.relativetime);
+                        LogUtils.d(str, "FXF request ts " + i + " " + peek.tsfile + " " + peek.relativetime);
                     }
                 }
             }
@@ -687,7 +687,7 @@ public class UnLoginCastService {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        List arrayList = new ArrayList();
+                        List<ParseM3u8.TS> arrayList = new ArrayList<>();
                         UnLoginCastService unLoginCastService = this.this$0;
                         ParseM3u8 parseM3u8 = unLoginCastService.mLastpm;
                         if (parseM3u8 != null) {
@@ -697,7 +697,7 @@ public class UnLoginCastService {
                         }
                         if (arrayList.size() > 0) {
                             this.this$0.startSeekTime = System.currentTimeMillis() / 1000;
-                            this.this$0.startSeekTsTime = ((ParseM3u8.TS) arrayList.get(0)).relativetime;
+                            this.this$0.startSeekTsTime = arrayList.get(0).relativetime;
                             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                                 this.this$0.mTss.add(arrayList.get(i2));
                             }
@@ -814,7 +814,7 @@ public class UnLoginCastService {
                             unLoginCastService.isSeek = false;
                             unLoginCastService.mTss.clear();
                             UpMessageManager.getInstance(UnLoginCastService.mContext).clear();
-                            List arrayList = new ArrayList();
+                            List<ParseM3u8.TS> arrayList = new ArrayList<>();
                             UnLoginCastService unLoginCastService2 = this.this$0;
                             ParseM3u8 parseM3u8 = unLoginCastService2.mLastpm;
                             if (parseM3u8 != null) {
@@ -824,7 +824,7 @@ public class UnLoginCastService {
                             }
                             if (arrayList.size() > 0) {
                                 this.this$0.startSeekTime = System.currentTimeMillis() / 1000;
-                                this.this$0.startSeekTsTime = ((ParseM3u8.TS) arrayList.get(0)).relativetime;
+                                this.this$0.startSeekTsTime = arrayList.get(0).relativetime;
                                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
                                     this.this$0.mTss.add(arrayList.get(i2));
                                 }

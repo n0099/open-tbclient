@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ShieldMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ShieldMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String text;
 
@@ -36,7 +36,7 @@ public class ShieldMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.ShieldMsg.1
+        CREATOR = new Parcelable.Creator<ShieldMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ShieldMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,6 +55,7 @@ public class ShieldMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ShieldMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -66,6 +67,7 @@ public class ShieldMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ShieldMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -91,7 +93,7 @@ public class ShieldMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(IMConstants.IM_MSG_TYPE_SHIELD_ME);
+        setMsgType(2012);
         this.text = "";
         setText("");
     }
@@ -182,7 +184,7 @@ public class ShieldMsg extends NormalMsg {
             }
         }
         if (z) {
-            i = IMConstants.IM_MSG_TYPE_SHIELD_ME;
+            i = 2012;
         } else {
             i = IMConstants.IM_MSG_TYPE_SHIELD;
         }

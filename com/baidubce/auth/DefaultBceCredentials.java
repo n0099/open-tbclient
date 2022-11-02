@@ -1,5 +1,6 @@
 package com.baidubce.auth;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.util.CheckUtils;
+@SuppressLint({"NewApi"})
 /* loaded from: classes7.dex */
 public class DefaultBceCredentials implements BceCredentials {
     public static /* synthetic */ Interceptable $ic;

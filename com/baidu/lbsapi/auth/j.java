@@ -79,11 +79,11 @@ public class j implements Runnable {
             a.a("authenticate sendAuthRequest");
             context = LBSAuthManager.a;
             String[] b3 = b.b(context);
-            a.a("authStrings.length:" + b3.length);
             if (b3 == null || b3.length <= 1) {
                 this.f.a(this.b, this.d, this.e, this.c);
                 return;
             }
+            a.a("authStrings.length:" + b3.length);
             a.a("more sha1 auth");
             this.f.a(this.b, this.d, this.e, b3, this.c);
         }

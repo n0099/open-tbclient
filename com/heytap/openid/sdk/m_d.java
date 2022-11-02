@@ -3,6 +3,7 @@ package com.heytap.openid.sdk;
 import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,14 +12,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+@Keep
 /* loaded from: classes7.dex */
 public class m_d {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static boolean m_a;
+    @Keep
     public static boolean m_b;
+    @Keep
     public static boolean m_c;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     public static native Context m_a(Context context);
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x0084  */
@@ -26,7 +32,7 @@ public class m_d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HashMap m_a(Context context, int i) {
+    public static HashMap<String, String> m_a(Context context, int i) {
         InterceptResult invokeLI;
         String str;
         String str2;
@@ -66,7 +72,7 @@ public class m_d {
                 str = DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_IS_LIVE;
             }
             if (z) {
-                HashMap hashMap = new HashMap();
+                HashMap<String, String> hashMap = new HashMap<>();
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     String str3 = (String) it.next();
@@ -85,7 +91,7 @@ public class m_d {
             while (it2.hasNext()) {
                 String str4 = (String) it2.next();
                 if (m_a3.m_a.containsKey(str4)) {
-                    m_f m_fVar = (m_f) m_a3.m_a.get(str4);
+                    m_f m_fVar = m_a3.m_a.get(str4);
                     if (!m_fVar.m_a(str4)) {
                         ArrayList arrayList3 = new ArrayList();
                         arrayList3.add(str4);
@@ -102,13 +108,13 @@ public class m_d {
             }
             if (!arrayList2.isEmpty()) {
                 m_h.m_a("1026");
-                m_a3.m_a(m_a4, (List) arrayList2, false);
+                m_a3.m_a(m_a4, (List<String>) arrayList2, false);
             }
-            HashMap hashMap2 = new HashMap();
+            HashMap<String, String> hashMap2 = new HashMap<>();
             Iterator it3 = arrayList.iterator();
             while (it3.hasNext()) {
                 String str5 = (String) it3.next();
-                m_f m_fVar2 = (m_f) m_a3.m_a.get(str5);
+                m_f m_fVar2 = m_a3.m_a.get(str5);
                 hashMap2.put(str5, m_fVar2 == null ? str5 == "OUID_STATUS" ? "FALSE" : "" : m_fVar2.m_a);
             }
             m_h.m_a("2025");

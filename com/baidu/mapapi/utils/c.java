@@ -47,7 +47,7 @@ public final class c extends b.a {
             }
             IComOpenClient unused2 = b.e = IComOpenClient.a.a(iBinder);
             b.a(this.a);
-            boolean unused3 = b.t = true;
+            boolean unused3 = b.v = true;
         }
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p95;
-import com.baidu.tieba.q95;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.v95;
+import com.baidu.tieba.ia5;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.ka5;
+import com.baidu.tieba.oa5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class WriteThreadDelegateStatic extends p95 {
+public class WriteThreadDelegateStatic extends ia5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.p95
+    @Override // com.baidu.tieba.ia5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class WriteThreadDelegateStatic extends p95 {
     }
 
     /* loaded from: classes6.dex */
-    public final class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,12 +64,12 @@ public class WriteThreadDelegateStatic extends p95 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((r95) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
+            ((ka5) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
         }
     }
 
@@ -91,20 +91,20 @@ public class WriteThreadDelegateStatic extends p95 {
         MessageManager.getInstance().registerListener(aVar);
     }
 
-    @Override // com.baidu.tieba.p95
-    public q95 a() {
+    @Override // com.baidu.tieba.ia5
+    public ja5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q95 q95Var = new q95();
-            q95Var.a = new WriteThreadFragment();
-            q95Var.e = 9;
-            q95Var.d = R.drawable.obfuscated_res_0x7f0807fa;
-            q95Var.h = v95.d().c(AlbumActivityConfig.FROM_WRITE);
-            q95Var.i = q95.j;
-            return q95Var;
+            ja5 ja5Var = new ja5();
+            ja5Var.a = new WriteThreadFragment();
+            ja5Var.e = 9;
+            ja5Var.d = R.drawable.obfuscated_res_0x7f080802;
+            ja5Var.h = oa5.d().c(AlbumActivityConfig.FROM_WRITE);
+            ja5Var.i = ja5.j;
+            return ja5Var;
         }
-        return (q95) invokeV.objValue;
+        return (ja5) invokeV.objValue;
     }
 
     public WriteThreadDelegateStatic() {
@@ -121,7 +121,7 @@ public class WriteThreadDelegateStatic extends p95 {
         }
     }
 
-    @Override // com.baidu.tieba.p95
+    @Override // com.baidu.tieba.ia5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

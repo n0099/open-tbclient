@@ -27,10 +27,10 @@ public final class CompletableMerge extends Completable {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final int maxConcurrency;
-    public final Publisher source;
+    public final Publisher<? extends CompletableSource> source;
 
     /* loaded from: classes8.dex */
-    public final class CompletableMergeSubscriber extends AtomicInteger implements FlowableSubscriber, Disposable {
+    public static final class CompletableMergeSubscriber extends AtomicInteger implements FlowableSubscriber<CompletableSource>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2108443387387077490L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class CompletableMerge extends Completable {
         public final CompositeDisposable set;
 
         /* loaded from: classes8.dex */
-        public final class MergeInnerObserver extends AtomicReference implements CompletableObserver, Disposable {
+        public final class MergeInnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 251330541679988317L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public final class CompletableMerge extends Completable {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return DisposableHelper.isDisposed((Disposable) get());
+                    return DisposableHelper.isDisposed(get());
                 }
                 return invokeV.booleanValue;
             }
@@ -155,7 +155,7 @@ public final class CompletableMerge extends Completable {
         public void onComplete() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && decrementAndGet() == 0) {
-                if (((Throwable) this.error.get()) != null) {
+                if (this.error.get() != null) {
                     this.actual.onError(this.error.terminate());
                 } else {
                     this.actual.onComplete();
@@ -168,7 +168,7 @@ public final class CompletableMerge extends Completable {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mergeInnerObserver) == null) {
                 this.set.delete(mergeInnerObserver);
                 if (decrementAndGet() == 0) {
-                    Throwable th = (Throwable) this.error.get();
+                    Throwable th = this.error.get();
                     if (th != null) {
                         this.actual.onError(th);
                     } else {
@@ -259,7 +259,7 @@ public final class CompletableMerge extends Completable {
         }
     }
 
-    public CompletableMerge(Publisher publisher, int i, boolean z) {
+    public CompletableMerge(Publisher<? extends CompletableSource> publisher, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

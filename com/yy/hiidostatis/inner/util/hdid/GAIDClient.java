@@ -29,7 +29,7 @@ public class GAIDClient {
 
     /* renamed from: com.yy.hiidostatis.inner.util.hdid.GAIDClient$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -50,7 +50,7 @@ public class GAIDClient {
     }
 
     /* loaded from: classes8.dex */
-    public final class AdInfo {
+    public static final class AdInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String advertisingId;
@@ -95,10 +95,10 @@ public class GAIDClient {
     }
 
     /* loaded from: classes8.dex */
-    public final class AdvertisingConnection implements ServiceConnection {
+    public static final class AdvertisingConnection implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final LinkedBlockingQueue queue;
+        public final LinkedBlockingQueue<IBinder> queue;
         public boolean retrieved;
 
         @Override // android.content.ServiceConnection
@@ -122,7 +122,7 @@ public class GAIDClient {
                 }
             }
             this.retrieved = false;
-            this.queue = new LinkedBlockingQueue(1);
+            this.queue = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder getBinder() throws InterruptedException {
@@ -131,7 +131,7 @@ public class GAIDClient {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (!this.retrieved) {
                     this.retrieved = true;
-                    return (IBinder) this.queue.take();
+                    return this.queue.take();
                 }
                 throw new IllegalStateException();
             }
@@ -156,7 +156,7 @@ public class GAIDClient {
     }
 
     /* loaded from: classes8.dex */
-    public final class AdvertisingInterface implements IInterface {
+    public static final class AdvertisingInterface implements IInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IBinder binder;

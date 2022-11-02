@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +61,7 @@ public class KsSplashSlidePathView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsSplashSlidePathView(Context context, AttributeSet attributeSet) {
+    public KsSplashSlidePathView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

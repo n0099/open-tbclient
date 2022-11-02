@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class LiveBannerWrapData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List bannerList;
+    public List<LiveBannerEntity> bannerList;
     public int count;
     public int errCode;
     public String errMsg;

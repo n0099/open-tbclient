@@ -30,7 +30,7 @@ public interface Headers {
         }
 
         @Override // com.bumptech.glide.load.model.Headers
-        public Map getHeaders() {
+        public Map<String, String> getHeaders() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -41,5 +41,5 @@ public interface Headers {
     };
     public static final Headers DEFAULT = new LazyHeaders.Builder().build();
 
-    Map getHeaders();
+    Map<String, String> getHeaders();
 }

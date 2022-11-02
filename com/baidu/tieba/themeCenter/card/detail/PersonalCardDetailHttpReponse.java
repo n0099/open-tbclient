@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.xs8;
+import com.baidu.tieba.gu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xs8 cardData;
+    public gu8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailHttpReponse(int i) {
@@ -57,10 +57,10 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
             personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
         }
-        xs8 xs8Var = new xs8();
-        this.cardData = xs8Var;
+        gu8 gu8Var = new gu8();
+        this.cardData = gu8Var;
         if (personalCardDetailRequest != null) {
-            xs8Var.m(personalCardDetailRequest.getCardId());
+            gu8Var.m(personalCardDetailRequest.getCardId());
         }
         this.cardData.v(getCardResIdl.data.title);
         this.cardData.p(getCardResIdl.data.description);
@@ -74,12 +74,12 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         this.cardData.o(getCardResIdl.data.daily_privilege_status.intValue());
     }
 
-    public xs8 getCardData() {
+    public gu8 getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.cardData;
         }
-        return (xs8) invokeV.objValue;
+        return (gu8) invokeV.objValue;
     }
 }

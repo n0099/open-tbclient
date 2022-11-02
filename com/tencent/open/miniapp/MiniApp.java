@@ -38,7 +38,7 @@ public class MiniApp extends BaseApi {
     public static final String MINIAPP_VERSION_RELEASE = "release";
     public static final String MINIAPP_VERSION_TRIAL = "trial";
     public static final int MINIAPP_VERSION_WRONG = -7;
-    public static final List OPEN_CONNECT_DEMO_MINI_APP_VERSIONS;
+    public static final List<String> OPEN_CONNECT_DEMO_MINI_APP_VERSIONS;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

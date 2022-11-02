@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public final class LiveSearchHotWordListData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List hotWordList;
+    public List<String> hotWordList;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveSearchHotWordListData() {
@@ -43,6 +43,8 @@ public final class LiveSearchHotWordListData {
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.live.feed.search.model.data.LiveSearchHotWordListData */
+    /* JADX WARN: Multi-variable type inference failed */
     public static /* synthetic */ LiveSearchHotWordListData copy$default(LiveSearchHotWordListData liveSearchHotWordListData, List list, int i, Object obj) {
         if ((i & 1) != 0) {
             list = liveSearchHotWordListData.hotWordList;
@@ -50,13 +52,13 @@ public final class LiveSearchHotWordListData {
         return liveSearchHotWordListData.copy(list);
     }
 
-    public final List component1() {
+    public final List<String> component1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.hotWordList : (List) invokeV.objValue;
     }
 
-    public final LiveSearchHotWordListData copy(List list) {
+    public final LiveSearchHotWordListData copy(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) ? new LiveSearchHotWordListData(list) : (LiveSearchHotWordListData) invokeL.objValue;
@@ -78,7 +80,7 @@ public final class LiveSearchHotWordListData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List list = this.hotWordList;
+            List<String> list = this.hotWordList;
             if (list != null) {
                 return list.hashCode();
             }
@@ -96,7 +98,7 @@ public final class LiveSearchHotWordListData {
         return (String) invokeV.objValue;
     }
 
-    public LiveSearchHotWordListData(List list) {
+    public LiveSearchHotWordListData(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +116,7 @@ public final class LiveSearchHotWordListData {
         this.hotWordList = list;
     }
 
-    public final void setHotWordList(List list) {
+    public final void setHotWordList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.hotWordList = list;
@@ -125,7 +127,7 @@ public final class LiveSearchHotWordListData {
         this((i & 1) != 0 ? null : list);
     }
 
-    public final List getHotWordList() {
+    public final List<String> getHotWordList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -146,7 +148,7 @@ public final class LiveSearchHotWordListData {
                     }
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
-                        List list = this.hotWordList;
+                        List<String> list = this.hotWordList;
                         if (list != null) {
                             String optString = optJSONArray.optString(i);
                             Intrinsics.checkExpressionValueIsNotNull(optString, "this.optString(i)");

@@ -1,7 +1,8 @@
 package com.baidu.swan.apps.core.launchtips.scene;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k32;
+import com.baidu.tieba.c42;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SceneType {
     public static final /* synthetic */ SceneType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -43,15 +44,15 @@ public final class SceneType {
         SCENE_DOWNLOAD_PKG_TIMEOUT = new SceneType("SCENE_DOWNLOAD_PKG_TIMEOUT", 1, "pms_downloadPkg", "包下载进度更新间隔超2秒；");
         SCENE_SKELETON_TIMEOUT = new SceneType("SCENE_SKELETON_TIMEOUT", 2, "skeleton", "5秒内未触发骨架屏移除；");
         SCENE_WHITE_SCREEN_L1 = new SceneType("SCENE_WHITE_SCREEN_L1", 3, "whiteScreen_L1", "检测到纯白屏；");
-        SCENE_WHITE_SCREEN_L2 = new SceneType("SCENE_WHITE_SCREEN_L2", 4, "whiteScreen_L2", k32.a);
-        SCENE_WHITE_SCREEN_L3 = new SceneType("SCENE_WHITE_SCREEN_L3", 5, "whiteScreen_L3", k32.b);
+        SCENE_WHITE_SCREEN_L2 = new SceneType("SCENE_WHITE_SCREEN_L2", 4, "whiteScreen_L2", c42.a);
+        SCENE_WHITE_SCREEN_L3 = new SceneType("SCENE_WHITE_SCREEN_L3", 5, "whiteScreen_L3", c42.b);
         SCENE_INIT_DATA_ERROR = new SceneType("SCENE_INIT_DATA_ERROR", 6, "data_init", "业务数据初始化异常；");
         SceneType sceneType = new SceneType("SCENE_SKELETON_DEV_TIMEOUT", 7, "skeleton_dev", "开发者骨架屏异常；");
         SCENE_SKELETON_DEV_TIMEOUT = sceneType;
         $VALUES = new SceneType[]{SCENE_PMS_TIMEOUT, SCENE_DOWNLOAD_PKG_TIMEOUT, SCENE_SKELETON_TIMEOUT, SCENE_WHITE_SCREEN_L1, SCENE_WHITE_SCREEN_L2, SCENE_WHITE_SCREEN_L3, SCENE_INIT_DATA_ERROR, sceneType};
     }
 
-    public SceneType(String str, int i, String str2, String str3) {
+    public SceneType(@NonNull String str, @NonNull int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

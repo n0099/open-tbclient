@@ -49,7 +49,7 @@ public class OpenClientUtil {
 
     public static void getLatestBaiduMapApp(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, context) != null) || context == null) {
             return;
         }
         String b = b.b(context);

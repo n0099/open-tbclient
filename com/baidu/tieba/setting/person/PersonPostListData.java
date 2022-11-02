@@ -19,10 +19,10 @@ import tbclient.PostInfoList;
 public class PersonPostListData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List post_list;
+    public List<PostList> post_list;
 
     /* loaded from: classes5.dex */
-    public class Abs implements Serializable {
+    public static class Abs implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String link;
@@ -64,7 +64,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class AnchorInfo implements Serializable {
+    public static class AnchorInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long author_id;
@@ -134,7 +134,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class LbsInfo implements Serializable {
+    public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String lat;
@@ -168,7 +168,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class Media implements Serializable {
+    public static class Media implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String big_pic;
@@ -217,10 +217,10 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class PostList extends AbstractImageProvider implements Serializable {
+    public static class PostList extends AbstractImageProvider implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List Abstract;
+        public List<Abs> Abstract;
         public AnchorInfo anchor_info;
         public String content;
         public long create_time;
@@ -229,7 +229,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         public int is_post_deleted;
         public int is_thread;
         public LbsInfo lbs_info;
-        public List media;
+        public List<Media> media;
         public long post_id;
         public Quote quote;
         public int reply_num;
@@ -274,7 +274,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public class Quote implements Serializable {
+    public static class Quote implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;

@@ -15,7 +15,6 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.TextureView;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
@@ -82,12 +81,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
     public FaceConfig Q;
     public ILivenessStrategy R;
     public IDetectStrategy S;
-    public Map T;
+    public Map<Long, String> T;
     public int U;
     public long V;
     public JSONArray W;
     public int X;
-    public Map Y;
+    public Map<Long, FaceInfo> Y;
     public long Z;
     public Context a;
     public long a0;
@@ -144,12 +143,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
         /* renamed from: com.baidu.sofire.face.a.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0163a implements Runnable {
+        public class RunnableC0171a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0163a(a aVar) {
+            public RunnableC0171a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -276,7 +275,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         public void run() {
             f fVar;
             int i;
-            Pair callSync;
+            Pair<Integer, Object> callSync;
             char c2;
             f fVar2;
             int i2;
@@ -301,7 +300,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     com.baidu.sofire.face.b.b.a(fVar6.a, fVar6.r, 1, 0, null);
                     f fVar7 = this.a;
                     if (fVar7.d != null && (activity3 = fVar7.b) != null) {
-                        activity3.runOnUiThread(new RunnableC0163a(this));
+                        activity3.runOnUiThread(new RunnableC0171a(this));
                     }
                     if (!FH.isInitSuc(1) && this.a.n.a()) {
                         this.a.a(-15);
@@ -474,7 +473,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                         this.a.A.setDisplayOrientation(a2);
                     } catch (Throwable unused) {
                     }
-                    this.a.B.set(Key.ROTATION, a2);
+                    this.a.B.set("rotation", a2);
                     this.a.w.set(a2);
                     f fVar4 = this.a;
                     Point a3 = com.baidu.sofire.face.c.a.a(fVar4.B, fVar4.k, fVar4.l);
@@ -554,7 +553,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                         }
                         this.a.j0.schedule(new a(this), 20000L);
                     }
-                    Pair callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.r);
+                    Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.r);
                     if (callSync != null && ((Integer) callSync.first).intValue() == 0) {
                         this.a.v = true;
                     }
@@ -627,7 +626,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
         @Override // java.lang.Runnable
         public void run() {
-            Pair pair;
+            Pair<Integer, Object> pair;
             Activity activity;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -826,7 +825,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                         f fVar5 = this.a;
                         int a = f.a(fVar5, fVar5.a);
                         this.a.G.setDisplayOrientation(a);
-                        this.a.H.set(Key.ROTATION, a);
+                        this.a.H.set("rotation", a);
                         this.a.w.set(a);
                         f fVar6 = this.a;
                         Point a2 = com.baidu.sofire.face.c.a.a(fVar6.H, fVar6.k, fVar6.l);
@@ -871,12 +870,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
     /* renamed from: com.baidu.sofire.face.a.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0164f implements Runnable {
+    public class RunnableC0172f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        public RunnableC0164f(f fVar) {
+        public RunnableC0172f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1059,7 +1058,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
 
         @Override // com.baidu.pass.face.platform.IDetectStrategyCallback
-        public void onDetectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap hashMap, HashMap hashMap2) {
+        public void onDetectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048576, this, faceStatusNewEnum, str, hashMap, hashMap2) == null) {
                 try {
@@ -1067,7 +1066,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     if (!fVar.p && !fVar.s) {
                         if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
                             fVar.p = true;
-                            Map a = f.a(fVar, hashMap, hashMap2);
+                            Map<Long, String> a = f.a(fVar, hashMap, hashMap2);
                             if (a != null) {
                                 this.a.T = a;
                             } else {
@@ -1128,7 +1127,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
 
         @Override // com.baidu.pass.face.platform.ILivenessStrategyCallback
-        public void onLivenessCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap hashMap, HashMap hashMap2, int i) {
+        public void onLivenessCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{faceStatusNewEnum, str, hashMap, hashMap2, Integer.valueOf(i)}) == null) {
                 try {
@@ -1136,7 +1135,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     if (!fVar.p && !fVar.s) {
                         if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
                             fVar.p = true;
-                            Map a = f.a(fVar, hashMap, hashMap2);
+                            Map<Long, String> a = f.a(fVar, hashMap, hashMap2);
                             if (a != null) {
                                 this.a.T = a;
                             } else {
@@ -1424,7 +1423,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
     @Override // com.baidu.pass.face.platform.listener.ISecurityCallback
     public void getFaceInfoForSecurity(FaceInfo[] faceInfoArr) {
-        Map map;
+        Map<Long, FaceInfo> map;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, faceInfoArr) == null) && faceInfoArr != null) {
             try {
@@ -1658,7 +1657,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     }
                     this.j = null;
                 }
-                Map map = this.T;
+                Map<Long, String> map = this.T;
                 if (map != null) {
                     map.clear();
                     this.T = null;
@@ -2031,13 +2030,13 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                Map map = this.Y;
+                Map<Long, FaceInfo> map = this.Y;
                 if (map != null && map.size() > 0) {
                     JSONObject jSONObject = new JSONObject();
-                    for (Map.Entry entry : this.Y.entrySet()) {
-                        long longValue = ((Long) entry.getKey()).longValue();
-                        FaceInfo faceInfo = (FaceInfo) entry.getValue();
-                        if (longValue > 0 && (a2 = a(faceInfo)) != null) {
+                    for (Map.Entry<Long, FaceInfo> entry : this.Y.entrySet()) {
+                        long longValue = entry.getKey().longValue();
+                        FaceInfo value = entry.getValue();
+                        if (longValue > 0 && (a2 = a(value)) != null) {
                             jSONObject.put(String.valueOf(longValue), a2);
                         }
                     }
@@ -2057,7 +2056,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             try {
                 Activity activity = this.b;
                 if (activity != null) {
-                    activity.runOnUiThread(new RunnableC0164f(this));
+                    activity.runOnUiThread(new RunnableC0172f(this));
                 }
             } catch (Throwable unused) {
             }

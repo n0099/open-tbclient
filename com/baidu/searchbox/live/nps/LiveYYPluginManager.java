@@ -35,9 +35,9 @@ import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeServi
 import com.baidu.searchbox.live.nps.util.SchemeParamsParseUtils;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b91;
-import com.baidu.tieba.c91;
-import com.baidu.tieba.z81;
+import com.baidu.tieba.r91;
+import com.baidu.tieba.t91;
+import com.baidu.tieba.u91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class LiveYYPluginManager {
     public Handler mHandler;
     public boolean mLoadingShowing;
     public YYStatInfo mStatInfo;
-    public Consumer mSubDismissCallback;
+    public Consumer<Boolean> mSubDismissCallback;
     public IYYLiveNPSPlugin mYYLiveNPSPlugin;
     public boolean markClosedByPlugin;
     public ToastService toastService;
@@ -106,7 +106,7 @@ public class LiveYYPluginManager {
     }
 
     /* loaded from: classes2.dex */
-    public class SingletonHolder {
+    public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final LiveYYPluginManager INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,18 +272,6 @@ public class LiveYYPluginManager {
         }
     }
 
-    public void showLoadingBySubPlugin(Consumer consumer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, consumer) == null) {
-            pluginYaLog("showLoadingBySubPlugin, " + this.loadingCallback);
-            if (!this.mLoadingShowing) {
-                showLoading();
-            }
-            this.markClosedByPlugin = true;
-            this.mSubDismissCallback = consumer;
-        }
-    }
-
     public void updateStatInfo(YYStatInfo yYStatInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, yYStatInfo) == null) {
@@ -304,19 +292,19 @@ public class LiveYYPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new z81(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.12
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
 
-                @Override // com.baidu.tieba.z81
+                @Override // com.baidu.tieba.r91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.z81
+                @Override // com.baidu.tieba.r91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -340,7 +328,7 @@ public class LiveYYPluginManager {
                     }
                     this.this$0 = this;
                 }
-            }, new b91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
+            }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -363,11 +351,11 @@ public class LiveYYPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.b91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, c91 c91Var) {
+                @Override // com.baidu.tieba.t91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, c91Var) == null) && c91Var != null) {
-                        c91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
+                        u91Var.onResult(1);
                     }
                 }
             }, 1);
@@ -401,7 +389,7 @@ public class LiveYYPluginManager {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             pluginYaLog("cancelLoading");
             this.isLoadingCanceled = true;
-            Consumer consumer = this.mSubDismissCallback;
+            Consumer<Boolean> consumer = this.mSubDismissCallback;
             if (consumer != null) {
                 consumer.accept(Boolean.TRUE);
             }
@@ -1054,6 +1042,18 @@ public class LiveYYPluginManager {
         }
     }
 
+    public void showLoadingBySubPlugin(Consumer<Boolean> consumer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, consumer) == null) {
+            pluginYaLog("showLoadingBySubPlugin, " + this.loadingCallback);
+            if (!this.mLoadingShowing) {
+                showLoading();
+            }
+            this.markClosedByPlugin = true;
+            this.mSubDismissCallback = consumer;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void showNormalToast(int i, int i2) {
         ToastService toastService;
@@ -1123,7 +1123,7 @@ public class LiveYYPluginManager {
         }
     }
 
-    public void dispatchHostEvent(Context context, String str, Map map) {
+    public void dispatchHostEvent(Context context, String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, map) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
@@ -1139,7 +1139,7 @@ public class LiveYYPluginManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
             if (YYStaticConfig.conf == null) {
-                YYStaticConfig.conf = new HashMap();
+                YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostSchemeParseBegin", Long.valueOf(System.currentTimeMillis()));
             dLog("dispatchYYLiveRouter--YY万能路由，初始化NpsLoadChainLog，设置Entry，插件版本号 = " + getPluginInstallVersion());
@@ -1182,7 +1182,7 @@ public class LiveYYPluginManager {
                             if (i == 14) {
                                 try {
                                     if (YYStaticConfig.conf == null) {
-                                        YYStaticConfig.conf = new HashMap();
+                                        YYStaticConfig.conf = new HashMap<>();
                                     }
                                     if ("download".equals(str3)) {
                                         YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "download");
@@ -1214,7 +1214,7 @@ public class LiveYYPluginManager {
                 return;
             }
             if (YYStaticConfig.conf == null) {
-                YYStaticConfig.conf = new HashMap();
+                YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "direct");
             IYYLiveNPSPlugin iYYLiveNPSPlugin = this.mYYLiveNPSPlugin;
@@ -1232,7 +1232,7 @@ public class LiveYYPluginManager {
         }
     }
 
-    public void loadPlugin(Context context, String str, String str2, boolean z, com.baidu.searchbox.live.interfaces.mix.PluginLoadCallback pluginLoadCallback, Map map) {
+    public void loadPlugin(Context context, String str, String str2, boolean z, com.baidu.searchbox.live.interfaces.mix.PluginLoadCallback pluginLoadCallback, Map<String, String> map) {
         boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, str, str2, Boolean.valueOf(z), pluginLoadCallback, map}) == null) && "com.baidu.searchbox.yylive.entrance".equals(str)) {
@@ -1268,7 +1268,7 @@ public class LiveYYPluginManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str3, obj, str4}) == null) {
                         if (YYStaticConfig.conf == null) {
-                            YYStaticConfig.conf = new HashMap();
+                            YYStaticConfig.conf = new HashMap<>();
                         }
                         if ("download".equals(str4)) {
                             YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "download");
@@ -1372,7 +1372,7 @@ public class LiveYYPluginManager {
         }
     }
 
-    public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2) {
+    public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
             dLog("startPayment--调起YY收银台，插件版本号 = " + getPluginInstallVersion());
@@ -1659,7 +1659,7 @@ public class LiveYYPluginManager {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.dLog("LiveYYPluginManager startYYLiveActivity " + str + GlideException.IndentedAppendable.INDENT + this.mYYLiveNPSPlugin);
             if (YYStaticConfig.conf == null) {
-                YYStaticConfig.conf = new HashMap();
+                YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostJoinLiveBegin", Long.valueOf(System.currentTimeMillis()));
             if (this.mYYLiveNPSPlugin == null) {
@@ -1696,7 +1696,7 @@ public class LiveYYPluginManager {
                         if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, obj, str3}) == null) && i == 14) {
                             try {
                                 if (YYStaticConfig.conf == null) {
-                                    YYStaticConfig.conf = new HashMap();
+                                    YYStaticConfig.conf = new HashMap<>();
                                 }
                                 if ("download".equals(str3)) {
                                     YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "download");
@@ -1705,7 +1705,7 @@ public class LiveYYPluginManager {
                                 } else if ("load".equals(str3)) {
                                     YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "load");
                                 }
-                                Map parseYYLiveParamMap = SchemeParamsParseUtils.parseYYLiveParamMap(this.val$url);
+                                Map<String, String> parseYYLiveParamMap = SchemeParamsParseUtils.parseYYLiveParamMap(this.val$url);
                                 LiveYYPluginManager liveYYPluginManager = this.this$0;
                                 liveYYPluginManager.dLog("parseYYLiveParamMap " + parseYYLiveParamMap);
                                 YYStaticConfig.conf.putAll(parseYYLiveParamMap);

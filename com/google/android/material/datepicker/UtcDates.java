@@ -1,6 +1,9 @@
 package com.google.android.material.datepicker;
 
+import android.annotation.TargetApi;
 import android.content.res.Resources;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class UtcDates {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UTC = "UTC";
-    public static AtomicReference timeSourceRef;
+    public static AtomicReference<TimeSource> timeSourceRef;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +39,7 @@ public class UtcDates {
                 return;
             }
         }
-        timeSourceRef = new AtomicReference();
+        timeSourceRef = new AtomicReference<>();
     }
 
     public UtcDates() {
@@ -84,7 +87,7 @@ public class UtcDates {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            TimeSource timeSource = (TimeSource) timeSourceRef.get();
+            TimeSource timeSource = timeSourceRef.get();
             if (timeSource == null) {
                 return TimeSource.system();
             }
@@ -102,6 +105,7 @@ public class UtcDates {
         return (TimeZone) invokeV.objValue;
     }
 
+    @TargetApi(24)
     public static android.icu.util.TimeZone getUtcAndroidTimeZone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,6 +144,7 @@ public class UtcDates {
         return invokeJ.longValue;
     }
 
+    @TargetApi(24)
     public static android.icu.text.DateFormat getAbbrMonthDayFormat(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -149,6 +154,7 @@ public class UtcDates {
         return (android.icu.text.DateFormat) invokeL.objValue;
     }
 
+    @TargetApi(24)
     public static android.icu.text.DateFormat getAbbrMonthWeekdayDayFormat(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -208,7 +214,7 @@ public class UtcDates {
         return (SimpleDateFormat) invokeL.objValue;
     }
 
-    public static Calendar getUtcCalendarOf(Calendar calendar) {
+    public static Calendar getUtcCalendarOf(@Nullable Calendar calendar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, calendar)) == null) {
@@ -223,6 +229,7 @@ public class UtcDates {
         return (Calendar) invokeL.objValue;
     }
 
+    @TargetApi(24)
     public static android.icu.text.DateFormat getYearAbbrMonthDayFormat(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -232,6 +239,7 @@ public class UtcDates {
         return (android.icu.text.DateFormat) invokeL.objValue;
     }
 
+    @TargetApi(24)
     public static android.icu.text.DateFormat getYearAbbrMonthWeekdayDayFormat(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -250,14 +258,14 @@ public class UtcDates {
         return (SimpleDateFormat) invokeL.objValue;
     }
 
-    public static void setTimeSource(TimeSource timeSource) {
+    public static void setTimeSource(@Nullable TimeSource timeSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65566, null, timeSource) == null) {
             timeSourceRef.set(timeSource);
         }
     }
 
-    public static int findCharactersInDateFormatPattern(String str, String str2, int i, int i2) {
+    public static int findCharactersInDateFormatPattern(@NonNull String str, @NonNull String str2, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, str, str2, i, i2)) == null) {
@@ -276,6 +284,7 @@ public class UtcDates {
         return invokeLLII.intValue;
     }
 
+    @TargetApi(24)
     public static android.icu.text.DateFormat getAndroidFormat(String str, Locale locale) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -340,12 +349,13 @@ public class UtcDates {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, resources, simpleDateFormat)) == null) {
-            return simpleDateFormat.toLocalizedPattern().replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0b44)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0b45)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0b46));
+            return simpleDateFormat.toLocalizedPattern().replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0b50)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0b51)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0b52));
         }
         return (String) invokeLL.objValue;
     }
 
-    public static String removeYearFromDateFormatPattern(String str) {
+    @NonNull
+    public static String removeYearFromDateFormatPattern(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {

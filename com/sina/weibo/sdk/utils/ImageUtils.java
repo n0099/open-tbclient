@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -69,6 +70,7 @@ public class ImageUtils {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(10)
     public static long getVideoDuring(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

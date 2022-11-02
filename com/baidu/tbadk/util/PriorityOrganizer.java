@@ -2,12 +2,15 @@ package com.baidu.tbadk.util;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ci5;
+import com.baidu.tieba.zi5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +20,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,10 +29,12 @@ import java.util.concurrent.PriorityBlockingQueue;
 public class PriorityOrganizer implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Comparator a;
-    public final PriorityBlockingQueue b;
-    public final ConcurrentHashMap c;
+    public final Comparator<Task> a;
+    public final PriorityBlockingQueue<Task> b;
+    public final ConcurrentHashMap<String, List<Task>> c;
+    @NonNull
     public final Timer d;
+    @NonNull
     public final Handler e;
     public final int f;
     public int g;
@@ -43,20 +47,28 @@ public class PriorityOrganizer implements LifecycleObserver {
     }
 
     /* loaded from: classes3.dex */
-    public abstract class Task {
+    public static abstract class Task {
         public static /* synthetic */ Interceptable $ic;
         public static int l;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public String a;
+        @Nullable
         public PriorityOrganizer b;
+        @IntRange(from = 0, to = 100)
         public int c;
         public long d;
         public long e;
+        @Nullable
         public String f;
         public long g;
+        @NonNull
         public Status h;
-        public final List i;
+        @NonNull
+        public final List<TimerTask> i;
+        @Nullable
         public Task j;
+        @Nullable
         public Task k;
 
         public void A() {
@@ -92,7 +104,7 @@ public class PriorityOrganizer implements LifecycleObserver {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes3.dex */
-        public final class Status {
+        public static final class Status {
             public static final /* synthetic */ Status[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final Status CANCELED;
@@ -293,7 +305,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             this.a = getClass().getSimpleName() + "-" + x();
         }
 
-        public static void D(Task task) {
+        public static void D(@NonNull Task task) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, null, task) == null) {
                 task.p();
@@ -316,7 +328,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             }
         }
 
-        public final void o(PriorityOrganizer priorityOrganizer) {
+        public final void o(@NonNull PriorityOrganizer priorityOrganizer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, priorityOrganizer) == null) {
                 this.b = priorityOrganizer;
@@ -354,6 +366,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             return invokeV.intValue;
         }
 
+        @NonNull
         public PriorityOrganizer C() {
             InterceptResult invokeV;
             boolean z;
@@ -364,7 +377,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                 } else {
                     z = false;
                 }
-                ci5.d(z, "任务需先添加到 PriorityOrganizer");
+                zi5.d(z, "任务需先添加到 PriorityOrganizer");
                 return this.b;
             }
             return (PriorityOrganizer) invokeV.objValue;
@@ -436,7 +449,7 @@ public class PriorityOrganizer implements LifecycleObserver {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements Comparator {
+    public class a implements Comparator<Task> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -562,22 +575,22 @@ public class PriorityOrganizer implements LifecycleObserver {
             }
         }
         this.a = new a(this);
-        this.b = new PriorityBlockingQueue(11, this.a);
-        this.c = new ConcurrentHashMap();
+        this.b = new PriorityBlockingQueue<>(11, this.a);
+        this.c = new ConcurrentHashMap<>();
         this.d = new Timer();
         this.e = new Handler(Looper.getMainLooper());
         this.g = 0;
         this.f = i;
     }
 
-    public void v(Task task) {
+    public void v(@NonNull Task task) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, task) == null) {
             if (task.g > 0) {
                 if (task.f != null) {
-                    List list = (List) this.c.get(task.f);
+                    List<Task> list = this.c.get(task.f);
                     if (list == null) {
-                        list = new ArrayList();
+                        list = new ArrayList<>();
                     }
                     if (!list.contains(task)) {
                         list.add(task);
@@ -591,19 +604,17 @@ public class PriorityOrganizer implements LifecycleObserver {
         }
     }
 
-    public final void m(List list) {
+    public final void m(@NonNull List<Task> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                Task task = (Task) it.next();
+            for (Task task : list) {
                 task.q();
                 o(task, false);
             }
         }
     }
 
-    public final Task q(Task task) {
+    public final Task q(@NonNull Task task) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, task)) == null) {
@@ -615,7 +626,7 @@ public class PriorityOrganizer implements LifecycleObserver {
         return (Task) invokeL.objValue;
     }
 
-    public final void t(Task task) {
+    public final void t(@NonNull Task task) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, task) == null) {
             this.b.remove(task);
@@ -623,7 +634,7 @@ public class PriorityOrganizer implements LifecycleObserver {
         }
     }
 
-    public static void s(Task task, Task... taskArr) {
+    public static void s(@NonNull Task task, @NonNull Task... taskArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, task, taskArr) == null) {
             for (Task task2 : taskArr) {
@@ -634,7 +645,8 @@ public class PriorityOrganizer implements LifecycleObserver {
         }
     }
 
-    public final TimerTask u(Runnable runnable, long j) {
+    @NonNull
+    public final TimerTask u(@NonNull Runnable runnable, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, runnable, j)) == null) {
@@ -645,6 +657,7 @@ public class PriorityOrganizer implements LifecycleObserver {
         return (TimerTask) invokeLJ.objValue;
     }
 
+    @NonNull
     public static PriorityOrganizer n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -675,7 +688,7 @@ public class PriorityOrganizer implements LifecycleObserver {
         return invokeV.booleanValue;
     }
 
-    public final void o(Task task, boolean z) {
+    public final void o(@NonNull Task task, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task, z) == null) {
             Task task2 = task.j;
@@ -696,13 +709,13 @@ public class PriorityOrganizer implements LifecycleObserver {
                         task = task.k;
                     } else {
                         this.b.add(task);
-                        List list = (List) this.c.remove(str);
-                        if (list != null) {
-                            m(list);
+                        List<Task> remove = this.c.remove(str);
+                        if (remove != null) {
+                            m(remove);
                         }
-                        List list2 = (List) this.c.remove(task.a);
-                        if (list2 != null) {
-                            m(list2);
+                        List<Task> remove2 = this.c.remove(task.a);
+                        if (remove2 != null) {
+                            m(remove2);
                         }
                         if (z) {
                             p();
@@ -718,11 +731,11 @@ public class PriorityOrganizer implements LifecycleObserver {
     }
 
     public final void p() {
-        Task task;
+        Task peek;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.g < this.f && (task = (Task) this.b.peek()) != null && task.h.isUnStart()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.g < this.f && (peek = this.b.peek()) != null && peek.h.isUnStart()) {
             this.g++;
-            task.s();
+            peek.s();
         }
     }
 }

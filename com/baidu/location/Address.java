@@ -21,6 +21,7 @@ public final class Address {
     public final String province;
     public final String street;
     public final String streetNumber;
+    public final String town;
 
     /* renamed from: com.baidu.location.Address$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -30,7 +31,7 @@ public final class Address {
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BEI_JING = "北京";
         public static final String CHONG_QIN = "重庆";
@@ -47,6 +48,7 @@ public final class Address {
         public String mProvince;
         public String mStreet;
         public String mStreetNumber;
+        public String mTown;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -71,6 +73,7 @@ public final class Address {
             this.mStreetNumber = null;
             this.mAddress = null;
             this.mAdcode = null;
+            this.mTown = null;
         }
 
         public Builder adcode(String str) {
@@ -111,13 +114,17 @@ public final class Address {
                     }
                     stringBuffer.append(str5);
                 }
-                String str7 = this.mStreet;
+                String str7 = this.mTown;
                 if (str7 != null) {
                     stringBuffer.append(str7);
                 }
-                String str8 = this.mStreetNumber;
+                String str8 = this.mStreet;
                 if (str8 != null) {
                     stringBuffer.append(str8);
+                }
+                String str9 = this.mStreetNumber;
+                if (str9 != null) {
+                    stringBuffer.append(str9);
                 }
                 if (stringBuffer.length() > 0) {
                     this.mAddress = stringBuffer.toString();
@@ -206,6 +213,16 @@ public final class Address {
             }
             return (Builder) invokeL.objValue;
         }
+
+        public Builder town(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+                this.mTown = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
     }
 
     public Address(Builder builder) {
@@ -233,6 +250,7 @@ public final class Address {
         this.streetNumber = builder.mStreetNumber;
         this.address = builder.mAddress;
         this.adcode = builder.mAdcode;
+        this.town = builder.mTown;
     }
 
     public /* synthetic */ Address(Builder builder, AnonymousClass1 anonymousClass1) {

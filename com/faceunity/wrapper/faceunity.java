@@ -189,7 +189,7 @@ public class faceunity {
     public static native int fuUnbindAllItems(int i);
 
     /* loaded from: classes7.dex */
-    public class FUImage {
+    public static class FUImage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int h;

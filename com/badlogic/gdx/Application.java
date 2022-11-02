@@ -28,7 +28,7 @@ public interface Application {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class ApplicationType {
+    public static final class ApplicationType {
         public static final /* synthetic */ ApplicationType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ApplicationType Android;

@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.ar.callback.ICallbackWith;
 /* loaded from: classes.dex */
 public interface ICapture {
-    void capture(ICallbackWith iCallbackWith);
+    void capture(ICallbackWith<ICaptureResult> iCallbackWith);
 
     void sendBase64ImageToLua(String... strArr);
 
@@ -12,5 +12,5 @@ public interface ICapture {
 
     void setAbilityListener(ICaptureAbilityListener iCaptureAbilityListener);
 
-    void setCaptureCallback(ICallbackWith iCallbackWith);
+    void setCaptureCallback(ICallbackWith<ICaptureResult> iCallbackWith);
 }

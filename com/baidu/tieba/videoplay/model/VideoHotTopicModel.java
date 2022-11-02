@@ -1,38 +1,43 @@
 package com.baidu.tieba.videoplay.model;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
-import com.baidu.tieba.ba5;
-import com.baidu.tieba.bt4;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.st4;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.wa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class VideoHotTopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public VideoHotTopicParams a;
+    @Nullable
     public b b;
-    public ba5 c;
-    public List d;
+    @NonNull
+    public wa5 c;
+    @NonNull
+    public List<Map<String, Object>> d;
     public int e;
     public boolean f;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(List list);
+        void a(@NonNull List<VideoItemData> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -56,7 +61,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements ba5.a {
+    public class a implements wa5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicParams a;
@@ -81,7 +86,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.a = videoHotTopicParams;
         }
 
-        @Override // com.baidu.tieba.ba5.a
+        @Override // com.baidu.tieba.wa5.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -90,15 +95,14 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.b.f = false;
         }
 
-        @Override // com.baidu.tieba.ba5.a
-        public void b(List list, Map map) {
+        @Override // com.baidu.tieba.wa5.a
+        public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) && this.b.b != null && !list.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
+                for (ThreadData threadData : list) {
                     VideoItemData videoItemData = new VideoItemData();
-                    videoItemData.buildWithThreadData((ThreadData) it.next());
+                    videoItemData.buildWithThreadData(threadData);
                     arrayList.add(videoItemData);
                 }
                 if (map != null) {
@@ -111,7 +115,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoHotTopicModel(TbPageContext tbPageContext, VideoHotTopicParams videoHotTopicParams) {
+    public VideoHotTopicModel(@NonNull TbPageContext tbPageContext, @NonNull VideoHotTopicParams videoHotTopicParams) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -128,7 +132,7 @@ public class VideoHotTopicModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (ba5) ServiceManager.getService(ba5.a);
+        this.c = (wa5) ServiceManager.getService(wa5.a);
         this.d = new ArrayList();
         this.f = false;
         this.a = videoHotTopicParams;
@@ -136,14 +140,15 @@ public class VideoHotTopicModel extends BdBaseModel {
         this.c.c(new a(this, videoHotTopicParams));
     }
 
-    public void F(b bVar) {
+    public void F(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public List D() {
+    @NonNull
+    public List<Map<String, Object>> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -152,15 +157,15 @@ public class VideoHotTopicModel extends BdBaseModel {
         return (List) invokeV.objValue;
     }
 
-    public void E(Long l) {
+    public void E(@NonNull Long l) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) != null) || this.f) {
             return;
         }
         this.f = true;
         this.e = this.a.getCurrentPn() + 1;
-        bt4 bt4Var = new bt4();
-        bt4Var.k(this.e);
-        this.c.b(this.a.getSortType(), bt4Var, l.longValue());
+        st4 st4Var = new st4();
+        st4Var.k(this.e);
+        this.c.b(this.a.getSortType(), st4Var, l.longValue());
     }
 }

@@ -91,7 +91,7 @@ public class AlaLiveUserNotifyModel {
         MessageManager.getInstance().registerListener(this.mGetUserNotifyListener);
     }
 
-    private void showNotifyDialog(int i, AlaLiveUserNotifyData alaLiveUserNotifyData, ArrayList arrayList) {
+    private void showNotifyDialog(int i, AlaLiveUserNotifyData alaLiveUserNotifyData, ArrayList<AlaLiveUserNotifyData> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeILL(65541, this, i, alaLiveUserNotifyData, arrayList) != null) || this.mTbPageContext == null) {
             return;
@@ -137,21 +137,21 @@ public class AlaLiveUserNotifyModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showNextNotifyDialog(int i, ArrayList arrayList) {
+    public void showNextNotifyDialog(int i, ArrayList<AlaLiveUserNotifyData> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, arrayList) == null) && i < ListUtils.getCount(arrayList)) {
             int i2 = i;
             while (true) {
                 if (i2 >= ListUtils.getCount(arrayList)) {
                     break;
-                } else if (((AlaLiveUserNotifyData) arrayList.get(i2)).isSuperGuardian()) {
+                } else if (arrayList.get(i2).isSuperGuardian()) {
                     i = i2;
                     break;
                 } else {
                     i2++;
                 }
             }
-            AlaLiveUserNotifyData alaLiveUserNotifyData = (AlaLiveUserNotifyData) arrayList.get(i);
+            AlaLiveUserNotifyData alaLiveUserNotifyData = arrayList.get(i);
             if (alaLiveUserNotifyData.isSuperGuardian()) {
                 showNotifyDialog(i, alaLiveUserNotifyData, arrayList);
             }

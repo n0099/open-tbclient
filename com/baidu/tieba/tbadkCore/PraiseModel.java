@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PraiseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIKE = 1;
@@ -28,7 +28,7 @@ public class PraiseModel extends BdBaseModel {
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(int i, String str);
 
@@ -55,7 +55,7 @@ public class PraiseModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

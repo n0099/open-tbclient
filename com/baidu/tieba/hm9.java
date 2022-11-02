@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.vm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import org.json.JSONObject;
 /* compiled from: lambda */
 /* loaded from: classes4.dex */
-public final /* synthetic */ class hm9 implements RippedAd.Acceptor {
+public final /* synthetic */ class hm9 implements vm9.a {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ hm9 a = new hm9();
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,15 +13,11 @@ public final /* synthetic */ class hm9 implements RippedAd.Acceptor {
     private /* synthetic */ hm9() {
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.RippedAd.Acceptor
-    public final String accept(Object obj) {
-        InterceptResult invokeL;
-        String optString;
+    @Override // com.baidu.tieba.vm9.a
+    public final void a(tm9 tm9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            optString = ((JSONObject) obj).optString("url");
-            return optString;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tm9Var) == null) {
+            zm9.d(tm9Var);
         }
-        return (String) invokeL.objValue;
     }
 }

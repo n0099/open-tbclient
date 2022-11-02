@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.f29;
-import com.baidu.tieba.g29;
+import com.baidu.tieba.o39;
+import com.baidu.tieba.p39;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class AccountAccessActivity extends BaseActivity {
+public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic;
     public static final String f;
     public static final String g;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public g29 a;
-    public f29 b;
+    public p39 a;
+    public o39 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -117,7 +117,7 @@ public class AccountAccessActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new g29(this);
+            this.a = new p39(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -138,17 +138,17 @@ public class AccountAccessActivity extends BaseActivity {
                     }
                     newWriteModel2.Z(z);
                 }
-                f29 f29Var = new f29(this.a, this.c);
-                this.b = f29Var;
-                this.a.l(f29Var);
-                this.b.h(y1());
+                o39 o39Var = new o39(this.a, this.c);
+                this.b = o39Var;
+                this.a.l(o39Var);
+                this.b.h(x1());
                 return;
             }
             finish();
         }
     }
 
-    public String y1() {
+    public String x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

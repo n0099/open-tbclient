@@ -23,7 +23,7 @@ public final class GlobalSetting {
     public static volatile boolean d = true;
     public static volatile Integer e;
     public static volatile Boolean f;
-    public static final Map g;
+    public static final Map<String, String> g;
     public static volatile String h;
     public static volatile String i;
     public static volatile String j;
@@ -114,7 +114,7 @@ public final class GlobalSetting {
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? e : (Integer) invokeV.objValue;
     }
 
-    public static Map getPreloadAdapterMaps() {
+    public static Map<String, String> getPreloadAdapterMaps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? g : (Map) invokeV.objValue;
@@ -215,7 +215,7 @@ public final class GlobalSetting {
         }
     }
 
-    public static void setPreloadAdapters(Map map) {
+    public static void setPreloadAdapters(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65561, null, map) == null) || map == null) {
             return;

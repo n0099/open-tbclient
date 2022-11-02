@@ -61,13 +61,13 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
                     jsonReader.nextNull();
                     return null;
                 }
-                Collection<E> collection = (Collection) this.constructor.construct();
+                Collection<E> construct = this.constructor.construct();
                 jsonReader.beginArray();
                 while (jsonReader.hasNext()) {
-                    collection.add(this.elementTypeAdapter.read(jsonReader));
+                    construct.add(this.elementTypeAdapter.read(jsonReader));
                 }
                 jsonReader.endArray();
-                return collection;
+                return construct;
             }
             return (Collection) invokeL.objValue;
         }

@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.SmartAppBottomLayout;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ky extends bz {
+public class ky extends gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SmartAppBottomLayout h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ky(Context context) {
@@ -29,15 +34,36 @@ public class ky extends bz {
                 return;
             }
         }
+        this.h = new SmartAppBottomLayout(context);
     }
 
-    @Override // com.baidu.tieba.bz
-    public pb8 t() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rx
+    /* renamed from: w */
+    public void a(rr4 rr4Var) {
+        SmartAppBottomLayout smartAppBottomLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, rr4Var) == null) && (smartAppBottomLayout = this.h) != null) {
+            smartAppBottomLayout.a(rr4Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.zw
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new sb8(this.b, this.i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
         }
-        return (pb8) invokeV.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        SmartAppBottomLayout smartAppBottomLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (smartAppBottomLayout = this.h) != null) {
+            smartAppBottomLayout.d();
+        }
     }
 }

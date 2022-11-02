@@ -1,334 +1,96 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.FileProvider;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.guide.install.InstallActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class eu3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
+/* loaded from: classes4.dex */
+public class eu3 implements m14 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746790, "Lcom/baidu/tieba/eu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947746790, "Lcom/baidu/tieba/eu3;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947746790, "Lcom/baidu/tieba/eu3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947746790, "Lcom/baidu/tieba/eu3;");
+        }
+    }
+
+    public eu3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = wj1.a;
+        this.a = "com.baidu.gamenow";
     }
 
-    public static long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return ac3.a().getLong("install_authorize_guide_time_key", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return ac3.a().getLong("install_continue_guide_time_key", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 26 && !AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) {
-                return "authorize";
-            }
-            return "continue";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return ac3.a().getInt("install_guide_count_key", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return ac3.a().getInt("install_guide_max_count_key", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return ac3.a().getBoolean("install_guide_switch_key", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            ac3.a().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
-        }
-    }
-
-    public static void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            ac3.a().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
-        }
-    }
-
-    public static void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            ac3.a().edit().putInt("install_guide_count_key", ac3.a().getInt("install_guide_count_key", 0) + 1).apply();
-        }
-    }
-
-    public static boolean g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                if (context.getPackageManager() == null) {
-                    return false;
-                }
-                if (context.getPackageManager().getPackageInfo(str, 0) == null) {
-                    return false;
-                }
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, file, z)) == null) {
-            if (context != null && file != null && file.isFile() && file.exists()) {
-                Intent intent = new Intent("android.intent.action.VIEW");
-                if (a) {
-                    Log.e("GameCenterApkUtil", "install apk start");
-                }
-                try {
-                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(1342177280);
-                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
-                    if (z) {
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                    }
-                    if (Build.VERSION.SDK_INT < 24) {
-                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-                    }
-                    m(context, file, intent);
-                    if ((context instanceof Activity) && lt3.o.D()) {
-                        intent.setAction("android.intent.action.INSTALL_PACKAGE");
-                        intent.setFlags(0);
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                        if (Build.VERSION.SDK_INT >= 24) {
-                            intent.addFlags(1);
-                        }
-                        if (context instanceof InstallActivity) {
-                            i = 1345431;
-                        } else {
-                            i = 0;
-                        }
-                        ((Activity) context).startActivityForResult(intent, i);
-                    } else {
-                        context.startActivity(intent);
-                    }
-                    if (a) {
-                        Log.e("GameCenterApkUtil", "install apk done");
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    intent.setComponent(null);
-                    m(context, file, intent);
-                    try {
-                        context.startActivity(intent);
-                        if (a) {
-                            Log.e("GameCenterApkUtil", "retry install apk done");
-                        }
-                    } catch (Exception e2) {
-                        if (a) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean i(Context context, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, context, str, z)) == null) {
-            if (a) {
-                Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return h(context, new File(str), z);
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean j(String str) {
+    @Override // com.baidu.tieba.m14
+    public boolean a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f() && l(str) && d() < e()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof Download)) {
+                return false;
+            }
+            Download download = (Download) obj;
+            if (TextUtils.equals(iu3.a, download.getKeyByUser())) {
                 return true;
             }
-            return false;
+            return TextUtils.isEmpty(eh3.d(download.getFromParam()).optString("apk_id"));
         }
         return invokeL.booleanValue;
     }
 
-    public static void p(boolean z) {
+    @Override // com.baidu.tieba.m14
+    public void b(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
-            ac3.a().edit().putBoolean("install_guide_switch_key", z).apply();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || !(obj instanceof Download)) {
+            return;
         }
+        mu3 mu3Var = new mu3((Download) obj);
+        av3.n().f("reallyDownloaded", new zu3(), mu3Var.m(), mu3Var.j(), mu3Var.l());
     }
 
-    public static boolean k(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.m14
+    public void c(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-                intent.addCategory("android.intent.category.LAUNCHER");
-                intent.setPackage(str);
-                List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                if (queryIntentActivities != null && queryIntentActivities.size() > 0 && queryIntentActivities.iterator().next() != null) {
-                    String str2 = queryIntentActivities.iterator().next().activityInfo.name;
-                    Intent intent2 = new Intent("android.intent.action.MAIN");
-                    intent2.addCategory("android.intent.category.LAUNCHER");
-                    intent2.setComponent(new ComponentName(str, str2));
-                    intent2.setFlags(270532608);
-                    try {
-                        context.startActivity(intent2);
-                        if (a) {
-                            Log.d("GameCenterApkUtil", "openApp:packageName = " + str);
-                            return true;
-                        }
-                        return true;
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || !(obj instanceof Download)) {
+            return;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean l(String str) {
-        InterceptResult invokeL;
-        long b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (TextUtils.equals(str, "authorize")) {
-                b = a();
-            } else {
-                b = b();
-            }
-            if ((System.currentTimeMillis() / 86400000) - (b / 86400000) > 0) {
-                return true;
-            }
-            return false;
+        Download download = (Download) obj;
+        mu3 mu3Var = new mu3(download);
+        av3.n().f("statusInstalled", new zu3(), download.getKeyByUser(), mu3Var.j(), mu3Var.l());
+        if (TextUtils.equals(mu3Var.m(), this.a)) {
+            sc3.a().putBoolean(b, true);
+            av3.n().p(13, mu3Var.m(), mu3Var.h(), mu3Var.l());
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean m(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        ActivityInfo activityInfo;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
-                            context.grantUriPermission(str, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException e) {
-                    if (!a) {
-                        return false;
-                    }
-                    throw e;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
     }
 }

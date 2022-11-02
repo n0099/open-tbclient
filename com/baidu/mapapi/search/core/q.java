@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class q implements Parcelable.Creator {
+public final class q implements Parcelable.Creator<TransitBaseInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,18 +30,24 @@ public final class q implements Parcelable.Creator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public VehicleInfo createFromParcel(Parcel parcel) {
+    public TransitBaseInfo createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new VehicleInfo(parcel) : (VehicleInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+            return new TransitBaseInfo(parcel);
+        }
+        return (TransitBaseInfo) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public VehicleInfo[] newArray(int i) {
+    public TransitBaseInfo[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new VehicleInfo[i] : (VehicleInfo[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new TransitBaseInfo[i];
+        }
+        return (TransitBaseInfo[]) invokeI.objValue;
     }
 }

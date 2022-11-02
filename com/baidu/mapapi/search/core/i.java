@@ -3,13 +3,14 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class i implements Parcelable.Creator {
+public final class i implements Parcelable.Creator<PoiInfo.ParentPoiInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,18 +31,24 @@ public final class i implements Parcelable.Creator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PriceInfo createFromParcel(Parcel parcel) {
+    public PoiInfo.ParentPoiInfo createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new PriceInfo(parcel) : (PriceInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+            return new PoiInfo.ParentPoiInfo(parcel);
+        }
+        return (PoiInfo.ParentPoiInfo) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public PriceInfo[] newArray(int i) {
+    public PoiInfo.ParentPoiInfo[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new PriceInfo[i] : (PriceInfo[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new PoiInfo.ParentPoiInfo[i];
+        }
+        return (PoiInfo.ParentPoiInfo[]) invokeI.objValue;
     }
 }

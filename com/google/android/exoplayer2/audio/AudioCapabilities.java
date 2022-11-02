@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2.audio;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -13,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
+@TargetApi(21)
 /* loaded from: classes7.dex */
 public final class AudioCapabilities {
     public static /* synthetic */ Interceptable $ic;
@@ -120,6 +123,7 @@ public final class AudioCapabilities {
         return invokeI.booleanValue;
     }
 
+    @SuppressLint({"InlinedApi"})
     public static AudioCapabilities getCapabilities(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

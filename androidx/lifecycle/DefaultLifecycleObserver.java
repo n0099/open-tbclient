@@ -1,21 +1,23 @@
 package androidx.lifecycle;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public interface DefaultLifecycleObserver extends FullLifecycleObserver {
     @Override // androidx.lifecycle.FullLifecycleObserver
-    void onCreate(LifecycleOwner lifecycleOwner);
+    void onCreate(@NonNull LifecycleOwner lifecycleOwner);
 
     @Override // androidx.lifecycle.FullLifecycleObserver
-    void onDestroy(LifecycleOwner lifecycleOwner);
+    void onDestroy(@NonNull LifecycleOwner lifecycleOwner);
 
     @Override // androidx.lifecycle.FullLifecycleObserver
-    void onPause(LifecycleOwner lifecycleOwner);
+    void onPause(@NonNull LifecycleOwner lifecycleOwner);
 
     @Override // androidx.lifecycle.FullLifecycleObserver
-    void onResume(LifecycleOwner lifecycleOwner);
+    void onResume(@NonNull LifecycleOwner lifecycleOwner);
 
     @Override // androidx.lifecycle.FullLifecycleObserver
-    void onStart(LifecycleOwner lifecycleOwner);
+    void onStart(@NonNull LifecycleOwner lifecycleOwner);
 
     @Override // androidx.lifecycle.FullLifecycleObserver
-    void onStop(LifecycleOwner lifecycleOwner);
+    void onStop(@NonNull LifecycleOwner lifecycleOwner);
 }

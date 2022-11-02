@@ -19,10 +19,10 @@ public abstract class ExtraInfoCallback {
     public abstract void onReceiveClientIP(String str);
 
     /* loaded from: classes2.dex */
-    public final class ExtraInfoDispatcher {
+    public static final class ExtraInfoDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List mExtraCallbacks;
+        public List<ExtraInfoCallback> mExtraCallbacks;
 
         public ExtraInfoDispatcher() {
             Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public abstract class ExtraInfoCallback {
         }
 
         public void clearCallback() {
-            List list;
+            List<ExtraInfoCallback> list;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.mExtraCallbacks) != null) {
                 list.clear();
             }
         }
 
-        public List getAllCallbacks() {
+        public List<ExtraInfoCallback> getAllCallbacks() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -58,10 +58,10 @@ public abstract class ExtraInfoCallback {
         }
 
         public void addCallback(ExtraInfoCallback extraInfoCallback) {
-            List list;
+            List<ExtraInfoCallback> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, extraInfoCallback) == null) {
-                List list2 = this.mExtraCallbacks;
+                List<ExtraInfoCallback> list2 = this.mExtraCallbacks;
                 if ((list2 == null || !list2.contains(extraInfoCallback)) && (list = this.mExtraCallbacks) != null) {
                     list.add(extraInfoCallback);
                 }
@@ -69,7 +69,7 @@ public abstract class ExtraInfoCallback {
         }
 
         public void removeCallback(ExtraInfoCallback extraInfoCallback) {
-            List list;
+            List<ExtraInfoCallback> list;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, extraInfoCallback) == null) && extraInfoCallback != null && (list = this.mExtraCallbacks) != null) {
                 list.remove(extraInfoCallback);

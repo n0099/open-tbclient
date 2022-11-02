@@ -23,13 +23,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class LayerParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", Config.EXCEPTION_CRASH_CHANNEL, "parent", TbConfig.SW_APID, "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", "cl", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", TbConfig.SW_APID, "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", Config.DEVICE_WIDTH, "h", "ip", "op", "tm", "cl", "hd");
     public static final JsonReader.Options TEXT_NAMES = JsonReader.Options.of("d", "a");
     public static final JsonReader.Options EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
 
     /* renamed from: com.airbnb.lottie.parser.LayerParser$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType;
 
         static {

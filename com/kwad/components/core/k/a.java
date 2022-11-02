@@ -1,6 +1,7 @@
 package com.kwad.components.core.k;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.DI;
@@ -89,7 +90,7 @@ public class a extends com.kwad.sdk.core.network.d {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(com.kwad.components.core.k.kwai.b bVar, List list, boolean z, com.kwad.components.core.k.kwai.d dVar) {
+    public a(com.kwad.components.core.k.kwai.b bVar, @Nullable List<String> list, boolean z, com.kwad.components.core.k.kwai.d dVar) {
         super(b(bVar), a(bVar), bVar != null ? bVar.HS : null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

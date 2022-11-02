@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.apps.setting.oauth.TaskState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h93 {
+public class h93<ResultDataT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final boolean b;
-    public final boolean c;
+    public ResultDataT a;
+    public TaskState b;
+    public OAuthException c;
 
-    public h93(boolean z) {
+    public h93() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,82 +29,55 @@ public class h93 {
                 return;
             }
         }
-        this.a = false;
-        this.b = true;
-        this.c = z;
+        this.b = TaskState.INIT;
     }
 
-    public h93(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = true;
-        this.b = z;
-        this.c = z2;
-    }
-
-    public static h93 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            return new h93(z);
-        }
-        return (h93) invokeZ.objValue;
-    }
-
-    public static h93 d(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return new h93(z, z2);
-        }
-        return (h93) invokeCommon.objValue;
-    }
-
-    public static h93 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new h93(true, true);
-        }
-        return (h93) invokeV.objValue;
-    }
-
-    public boolean a() {
+    public OAuthException a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a && this.b) {
-                return false;
+            return this.c;
+        }
+        return (OAuthException) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            OAuthException oAuthException = this.c;
+            if (oAuthException == null) {
+                return 0;
             }
-            return true;
+            return oAuthException.mErrorCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TaskState.FINISHED == this.b && this.c == null) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a) {
-                if (this.b && this.c) {
-                    return true;
-                }
-                return false;
-            }
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = TaskState.FINISHED;
+            this.c = null;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void d(OAuthException oAuthException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, oAuthException) == null) {
+            this.c = oAuthException;
+        }
     }
 }

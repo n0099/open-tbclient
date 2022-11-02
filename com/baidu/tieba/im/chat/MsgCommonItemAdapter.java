@@ -11,9 +11,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.yf;
-import com.baidu.tieba.zf;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.qf;
+import com.baidu.tieba.rf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,35 +22,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public abstract class MsgCommonItemAdapter extends rn {
+public abstract class MsgCommonItemAdapter<T> extends jn<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public yf b;
-    public zf c;
+    public TbPageContext<MsglistActivity<?>> a;
+    public qf b;
+    public rf c;
     public long d;
     public boolean e;
     public boolean f;
     public int g;
     public boolean h;
-    public ArrayList i;
+    public ArrayList<ReportPrivateMsgData> i;
     public AbsMsglistView.j j;
     public int k;
 
     /* loaded from: classes4.dex */
-    public class MsgViewHolder extends TypeAdapter.ViewHolder {
+    public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Object a;
+        public T a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MsgViewHolder(View view2, Object obj) {
+        public MsgViewHolder(View view2, T t) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, obj};
+                Object[] objArr = {view2, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,21 +61,21 @@ public abstract class MsgCommonItemAdapter extends rn {
                     return;
                 }
             }
-            this.a = obj;
+            this.a = t;
         }
 
-        public Object a() {
+        public T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.a;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgCommonItemAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public MsgCommonItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -102,14 +103,14 @@ public abstract class MsgCommonItemAdapter extends rn {
         this.a = tbPageContext;
     }
 
-    public void A(zf zfVar) {
+    public void A(rf rfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zfVar) == null) {
-            this.c = zfVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rfVar) == null) {
+            this.c = rfVar;
         }
     }
 
-    public void B(ArrayList arrayList) {
+    public void B(ArrayList<ReportPrivateMsgData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
             this.i = arrayList;
@@ -151,10 +152,10 @@ public abstract class MsgCommonItemAdapter extends rn {
         }
     }
 
-    public void z(yf yfVar) {
+    public void z(qf qfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, yfVar) == null) {
-            this.b = yfVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, qfVar) == null) {
+            this.b = qfVar;
         }
     }
 
@@ -184,9 +185,9 @@ public abstract class MsgCommonItemAdapter extends rn {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
+    @Override // com.baidu.tieba.jn
     /* renamed from: v */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder msgViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {

@@ -36,8 +36,6 @@ public final class TakeWhileSequence$iterator$1 implements Iterator<T>, KMappedM
         this.nextState = i;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: kotlin.jvm.functions.Function1 */
-    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
     private final void calcNext() {
         Function1 function1;

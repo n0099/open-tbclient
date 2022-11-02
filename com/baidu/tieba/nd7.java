@@ -1,38 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tieba.md7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: ImShareDialog.java */
 /* loaded from: classes5.dex */
-public class nd7 {
+public final /* synthetic */ class nd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
+    public static void a(md7.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null) {
-                return false;
-            }
-            if (!String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName()) && !String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) && !"".equals(imMessageCenterShowItemData.getOwnerName())) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(65536, null, bVar) == null) {
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null || !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) || "3222425470".equals(imMessageCenterShowItemData.getFriendId()) || "801001117".equals(imMessageCenterShowItemData.getFriendId()) || "5044059141".equals(imMessageCenterShowItemData.getFriendId())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

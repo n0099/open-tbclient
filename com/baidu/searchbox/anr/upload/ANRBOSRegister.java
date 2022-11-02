@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.FileUtils;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.anr.impl.ANRInfo;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ubc.UbcANRRegister;
@@ -18,14 +19,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+@Service
 /* loaded from: classes2.dex */
 public class ANRBOSRegister implements IANRRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FileUploadStrategy fileUploadStrategy;
-    public List uploadFiles;
+    public List<File> uploadFiles;
     public String uploadType;
 
     public ANRBOSRegister() {
@@ -46,17 +47,16 @@ public class ANRBOSRegister implements IANRRegister {
         this.uploadFiles = new ArrayList();
     }
 
-    private void deleteFiles(List list) {
+    private void deleteFiles(List<File> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && list != null && list.size() > 0) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                FileUtils.deleteFile((File) it.next());
+            for (File file : list) {
+                FileUtils.deleteFile(file);
             }
         }
     }
 
-    private void fileUploadBOS(List list, String str) {
+    private void fileUploadBOS(List<File> list, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, this, list, str) == null) && !list.isEmpty() && !TextUtils.isEmpty(str)) {
             this.fileUploadStrategy.upload(list, str, this.uploadType);

@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 import androidx.collection.LongSparseArray;
 import androidx.core.util.Preconditions;
@@ -44,6 +47,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     public final Lifecycle mLifecycle;
     public final LongSparseArray<Fragment.SavedState> mSavedStates;
 
+    @NonNull
     public abstract Fragment createFragment(int i);
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -55,7 +59,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final boolean onFailedToRecycleView(FragmentViewHolder fragmentViewHolder) {
+    public final boolean onFailedToRecycleView(@NonNull FragmentViewHolder fragmentViewHolder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, fragmentViewHolder)) == null) {
@@ -111,7 +115,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public final void onItemRangeChanged(int i, int i2, Object obj) {
+        public final void onItemRangeChanged(int i, int i2, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj) == null) {
                 onChanged();
@@ -157,7 +161,8 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
             this.mPrimaryItemId = -1L;
         }
 
-        private ViewPager2 inferViewPager(RecyclerView recyclerView) {
+        @NonNull
+        private ViewPager2 inferViewPager(@NonNull RecyclerView recyclerView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, recyclerView)) == null) {
@@ -170,7 +175,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
             return (ViewPager2) invokeL.objValue;
         }
 
-        public void register(RecyclerView recyclerView) {
+        public void register(@NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, recyclerView) == null) {
                 this.mViewPager = inferViewPager(recyclerView);
@@ -273,7 +278,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                     }
 
                     @Override // androidx.lifecycle.LifecycleEventObserver
-                    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) {
                             this.this$1.updateFragmentMaxLifecycle(false);
@@ -285,7 +290,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
             }
         }
 
-        public void unregister(RecyclerView recyclerView) {
+        public void unregister(@NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView) == null) {
                 inferViewPager(recyclerView).unregisterOnPageChangeCallback(this.mPageChangeCallback);
@@ -336,7 +341,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FragmentStateAdapter(Fragment fragment) {
+    public FragmentStateAdapter(@NonNull Fragment fragment) {
         this(fragment.getChildFragmentManager(), fragment.getLifecycle());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -393,7 +398,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FragmentStateAdapter(FragmentActivity fragmentActivity) {
+    public FragmentStateAdapter(@NonNull FragmentActivity fragmentActivity) {
         this(fragmentActivity.getSupportFragmentManager(), fragmentActivity.getLifecycle());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -413,7 +418,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
     }
 
-    public FragmentStateAdapter(FragmentManager fragmentManager, Lifecycle lifecycle) {
+    public FragmentStateAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -438,7 +443,8 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         super.setHasStableIds(true);
     }
 
-    public static String createKey(String str, long j) {
+    @NonNull
+    public static String createKey(@NonNull String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, str, j)) == null) {
@@ -447,7 +453,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         return (String) invokeLJ.objValue;
     }
 
-    public static boolean isValidKey(String str, String str2) {
+    public static boolean isValidKey(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
@@ -459,7 +465,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         return invokeLL.booleanValue;
     }
 
-    public static long parseIdFromKey(String str, String str2) {
+    public static long parseIdFromKey(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
@@ -468,7 +474,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         return invokeLL.longValue;
     }
 
-    private void scheduleViewAttach(Fragment fragment, FrameLayout frameLayout) {
+    private void scheduleViewAttach(Fragment fragment, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, this, fragment, frameLayout) == null) {
             this.mFragmentManager.registerFragmentLifecycleCallbacks(new FragmentManager.FragmentLifecycleCallbacks(this, fragment, frameLayout) { // from class: androidx.viewpager2.adapter.FragmentStateAdapter.3
@@ -499,7 +505,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                 }
 
                 @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-                public void onFragmentViewCreated(FragmentManager fragmentManager, Fragment fragment2, View view2, Bundle bundle) {
+                public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment2, @NonNull View view2, @Nullable Bundle bundle) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLLLL(1048576, this, fragmentManager, fragment2, view2, bundle) == null) && fragment2 == this.val$fragment) {
                         fragmentManager.unregisterFragmentLifecycleCallbacks(this);
@@ -535,7 +541,8 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+    @CallSuper
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, recyclerView) == null) {
@@ -552,7 +559,8 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+    @CallSuper
+    public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, recyclerView) == null) {
             this.mFragmentMaxLifecycleEnforcer.unregister(recyclerView);
@@ -659,7 +667,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                 }
 
                 @Override // androidx.lifecycle.LifecycleEventObserver
-                public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_DESTROY) {
                         this.val$handler.removeCallbacks(this.val$runnable);
@@ -680,7 +688,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         return invokeV.booleanValue;
     }
 
-    public void addViewToContainer(View view2, FrameLayout frameLayout) {
+    public void addViewToContainer(@NonNull View view2, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, frameLayout) == null) {
             if (frameLayout.getChildCount() <= 1) {
@@ -727,6 +735,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     }
 
     @Override // androidx.viewpager2.adapter.StatefulAdapter
+    @NonNull
     public final Parcelable saveState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -752,7 +761,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final void onBindViewHolder(FragmentViewHolder fragmentViewHolder, int i) {
+    public final void onBindViewHolder(@NonNull FragmentViewHolder fragmentViewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, fragmentViewHolder, i) == null) {
             long itemId = fragmentViewHolder.getItemId();
@@ -813,7 +822,8 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final FragmentViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    @NonNull
+    public final FragmentViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) {
@@ -824,7 +834,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final void onViewAttachedToWindow(FragmentViewHolder fragmentViewHolder) {
+    public final void onViewAttachedToWindow(@NonNull FragmentViewHolder fragmentViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, fragmentViewHolder) == null) {
             placeFragmentInViewHolder(fragmentViewHolder);
@@ -834,7 +844,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final void onViewRecycled(FragmentViewHolder fragmentViewHolder) {
+    public final void onViewRecycled(@NonNull FragmentViewHolder fragmentViewHolder) {
         Long itemForViewHolder;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048592, this, fragmentViewHolder) == null) && (itemForViewHolder = itemForViewHolder(fragmentViewHolder.getContainer().getId())) != null) {
@@ -843,7 +853,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
     }
 
-    public void placeFragmentInViewHolder(FragmentViewHolder fragmentViewHolder) {
+    public void placeFragmentInViewHolder(@NonNull FragmentViewHolder fragmentViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, fragmentViewHolder) == null) {
             Fragment fragment = this.mFragments.get(fragmentViewHolder.getItemId());
@@ -900,7 +910,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                         }
 
                         @Override // androidx.lifecycle.LifecycleEventObserver
-                        public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                        public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
                             Interceptable interceptable2 = $ic;
                             if ((interceptable2 != null && interceptable2.invokeLL(1048576, this, lifecycleOwner, event) != null) || this.this$0.shouldDelayFragmentTransactions()) {
                                 return;
@@ -919,7 +929,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     }
 
     @Override // androidx.viewpager2.adapter.StatefulAdapter
-    public final void restoreState(Parcelable parcelable) {
+    public final void restoreState(@NonNull Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, parcelable) == null) {
             if (this.mSavedStates.isEmpty() && this.mFragments.isEmpty()) {

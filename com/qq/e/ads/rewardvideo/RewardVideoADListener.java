@@ -16,7 +16,7 @@ public interface RewardVideoADListener {
 
     void onError(AdError adError);
 
-    void onReward(Map map);
+    void onReward(Map<String, Object> map);
 
     void onVideoCached();
 

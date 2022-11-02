@@ -3,6 +3,7 @@ package com.google.android.material.textfield;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -18,6 +19,8 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -43,10 +46,12 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public static final boolean IS_LOLLIPOP;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextInputLayout.AccessibilityDelegate accessibilityDelegate;
+    @Nullable
     public AccessibilityManager accessibilityManager;
     public final TextInputLayout.OnEditTextAttachedListener dropdownMenuOnEditTextAttachedListener;
     public long dropdownPopupActivatedAt;
     public boolean dropdownPopupDirty;
+    @SuppressLint({"ClickableViewAccessibility"})
     public final TextInputLayout.OnEndIconChangedListener endIconChangedListener;
     public final TextWatcher exposedDropdownEndIconTextWatcher;
     public ValueAnimator fadeInAnim;
@@ -110,7 +115,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DropdownMenuEndIconDelegate(TextInputLayout textInputLayout) {
+    public DropdownMenuEndIconDelegate(@NonNull TextInputLayout textInputLayout) {
         super(textInputLayout);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -271,7 +276,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.AccessibilityDelegate, androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
                     super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
@@ -285,7 +290,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+            public void onPopulateAccessibilityEvent(View view2, @NonNull AccessibilityEvent accessibilityEvent) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, accessibilityEvent) == null) {
                     super.onPopulateAccessibilityEvent(view2, accessibilityEvent);
@@ -322,7 +327,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.OnEditTextAttachedListener
-            public void onEditTextAttached(TextInputLayout textInputLayout2) {
+            public void onEditTextAttached(@NonNull TextInputLayout textInputLayout2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && interceptable2.invokeL(1048576, this, textInputLayout2) != null) {
                     return;
@@ -364,7 +369,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.OnEndIconChangedListener
-            public void onEndIconChanged(TextInputLayout textInputLayout2, int i3) {
+            public void onEndIconChanged(@NonNull TextInputLayout textInputLayout2, int i3) {
                 AutoCompleteTextView autoCompleteTextView;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, textInputLayout2, i3) == null) && (autoCompleteTextView = (AutoCompleteTextView) textInputLayout2.getEditText()) != null && i3 == 3) {
@@ -415,7 +420,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         this.this$0.endIconView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
@@ -428,6 +433,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @NonNull
     public AutoCompleteTextView castAutoCompleteTextViewOrThrow(EditText editText) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -451,7 +457,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setPopupBackground(AutoCompleteTextView autoCompleteTextView) {
+    public void setPopupBackground(@NonNull AutoCompleteTextView autoCompleteTextView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65563, this, autoCompleteTextView) == null) && IS_LOLLIPOP) {
             int boxBackgroundMode = this.textInputLayout.getBoxBackgroundMode();
@@ -464,7 +470,8 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setUpDropdownShowHideBehavior(AutoCompleteTextView autoCompleteTextView) {
+    @SuppressLint({"ClickableViewAccessibility"})
+    public void setUpDropdownShowHideBehavior(@NonNull AutoCompleteTextView autoCompleteTextView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65564, this, autoCompleteTextView) == null) {
             autoCompleteTextView.setOnTouchListener(new View.OnTouchListener(this, autoCompleteTextView) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.7
@@ -493,7 +500,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                 }
 
                 @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
+                public boolean onTouch(@NonNull View view2, @NonNull MotionEvent motionEvent) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
@@ -549,7 +556,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void addRippleEffect(AutoCompleteTextView autoCompleteTextView) {
+    public void addRippleEffect(@NonNull AutoCompleteTextView autoCompleteTextView) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65554, this, autoCompleteTextView) != null) || autoCompleteTextView.getKeyListener() != null) {
             return;
@@ -566,7 +573,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showHideDropdown(AutoCompleteTextView autoCompleteTextView) {
+    public void showHideDropdown(@Nullable AutoCompleteTextView autoCompleteTextView) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65565, this, autoCompleteTextView) != null) || autoCompleteTextView == null) {
             return;
@@ -592,7 +599,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         this.dropdownPopupDirty = false;
     }
 
-    private void addRippleEffectOnFilledLayout(AutoCompleteTextView autoCompleteTextView, int i, int[][] iArr, MaterialShapeDrawable materialShapeDrawable) {
+    private void addRippleEffectOnFilledLayout(@NonNull AutoCompleteTextView autoCompleteTextView, int i, int[][] iArr, @NonNull MaterialShapeDrawable materialShapeDrawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65555, this, autoCompleteTextView, i, iArr, materialShapeDrawable) == null) {
             int boxBackgroundColor = this.textInputLayout.getBoxBackgroundColor();
@@ -613,7 +620,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         }
     }
 
-    private void addRippleEffectOnOutlinedLayout(AutoCompleteTextView autoCompleteTextView, int i, int[][] iArr, MaterialShapeDrawable materialShapeDrawable) {
+    private void addRippleEffectOnOutlinedLayout(@NonNull AutoCompleteTextView autoCompleteTextView, int i, int[][] iArr, @NonNull MaterialShapeDrawable materialShapeDrawable) {
         LayerDrawable layerDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65556, this, autoCompleteTextView, i, iArr, materialShapeDrawable) == null) {
@@ -705,13 +712,13 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             stateListDrawable.addState(new int[]{16842922}, popUpMaterialShapeDrawable);
             this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
             if (IS_LOLLIPOP) {
-                i = R.drawable.obfuscated_res_0x7f080d93;
+                i = R.drawable.obfuscated_res_0x7f080dad;
             } else {
-                i = R.drawable.obfuscated_res_0x7f080d94;
+                i = R.drawable.obfuscated_res_0x7f080dae;
             }
             this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, i));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05f7));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05fa));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

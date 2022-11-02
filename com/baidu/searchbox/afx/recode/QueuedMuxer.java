@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.recode;
 
+import android.annotation.SuppressLint;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
@@ -16,6 +17,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class QueuedMuxer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -24,14 +26,14 @@ public class QueuedMuxer {
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer mByteBuffer;
     public final MediaMuxer mMuxer;
-    public final List mSampleInfoList;
+    public final List<SampleInfo> mSampleInfoList;
     public boolean mStarted;
     public MediaFormat mVideoFormat;
     public int mVideoTrackIndex;
 
     /* renamed from: com.baidu.searchbox.afx.recode.QueuedMuxer$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$recode$QueuedMuxer$SampleType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +61,7 @@ public class QueuedMuxer {
     }
 
     /* loaded from: classes2.dex */
-    public class SampleInfo {
+    public static class SampleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int mFlags;
@@ -103,7 +105,7 @@ public class QueuedMuxer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class SampleType {
+    public static final class SampleType {
         public static final /* synthetic */ SampleType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SampleType VIDEO;
@@ -184,6 +186,7 @@ public class QueuedMuxer {
         this.mSampleInfoList = new ArrayList();
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private int getTrackIndexForSampleType(SampleType sampleType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -220,6 +223,7 @@ public class QueuedMuxer {
         this.mByteBuffer = null;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void setOutputFormat(SampleType sampleType, MediaFormat mediaFormat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, sampleType, mediaFormat) == null) {

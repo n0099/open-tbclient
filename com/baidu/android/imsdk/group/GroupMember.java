@@ -20,7 +20,7 @@ public class GroupMember implements Parcelable, NoProGuard {
     public static final int ADDSTATUSFAIL = 1;
     public static final int ADDSTATUSORIG = 2;
     public static final int ADDSTATUSSUC = 0;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GroupMember> CREATOR;
     public static final int ROLECOMMON = 0;
     public static final int ROLEMANAGER = 2;
     public static final int ROLEMASTER = 1;
@@ -59,7 +59,7 @@ public class GroupMember implements Parcelable, NoProGuard {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.group.GroupMember.1
+        CREATOR = new Parcelable.Creator<GroupMember>() { // from class: com.baidu.android.imsdk.group.GroupMember.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,6 +78,7 @@ public class GroupMember implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMember createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -89,6 +90,7 @@ public class GroupMember implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMember[] newArray(int i) {
                 InterceptResult invokeI;

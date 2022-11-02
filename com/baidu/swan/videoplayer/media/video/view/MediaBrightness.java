@@ -9,9 +9,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kd3;
+import com.baidu.tieba.ce3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +40,7 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaBrightness(Context context) {
+    public MediaBrightness(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +61,7 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaBrightness(Context context, AttributeSet attributeSet) {
+    public MediaBrightness(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,7 +82,7 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaBrightness(Context context, AttributeSet attributeSet, int i) {
+    public MediaBrightness(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,7 +115,7 @@ public final class MediaBrightness extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = kd3.c().a((Activity) getContext());
+            this.f = ce3.c().a((Activity) getContext());
         }
     }
 
@@ -129,14 +131,14 @@ public final class MediaBrightness extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d083b, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0850, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e28);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091248);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e57);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091282);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811f4);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
             this.a.setLayoutParams(layoutParams);
         }
     }
@@ -149,7 +151,7 @@ public final class MediaBrightness extends FrameLayout {
             } else if (f <= 0.0f) {
                 f = 0.0f;
             }
-            kd3.c().e((Activity) getContext(), f);
+            ce3.c().e((Activity) getContext(), f);
         }
     }
 

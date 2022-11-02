@@ -18,7 +18,7 @@ public final class Region {
     public static /* synthetic */ Interceptable $ic;
     public static final Region CN_N1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List regionIds;
+    public List<String> regionIds;
 
     static {
         InterceptResult invokeClinit;
@@ -74,7 +74,7 @@ public final class Region {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             CheckUtils.isNotNull(str, "regionId should not be null.");
             for (Region region : values()) {
-                List list = region.regionIds;
+                List<String> list = region.regionIds;
                 if (list != null && list.contains(str)) {
                     return region;
                 }
@@ -107,7 +107,7 @@ public final class Region {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (String) this.regionIds.get(0);
+            return this.regionIds.get(0);
         }
         return (String) invokeV.objValue;
     }

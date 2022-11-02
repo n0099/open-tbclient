@@ -17,23 +17,23 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableReduceMaybe extends Maybe {
+public final class ObservableReduceMaybe<T> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction reducer;
-    public final ObservableSource source;
+    public final BiFunction<T, T, T> reducer;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ReduceObserver implements Observer, Disposable {
+    public static final class ReduceObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public Disposable d;
         public boolean done;
-        public final BiFunction reducer;
-        public Object value;
+        public final BiFunction<T, T, T> reducer;
+        public T value;
 
-        public ReduceObserver(MaybeObserver maybeObserver, BiFunction biFunction) {
+        public ReduceObserver(MaybeObserver<? super T> maybeObserver, BiFunction<T, T, T> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,10 +77,10 @@ public final class ObservableReduceMaybe extends Maybe {
                 return;
             }
             this.done = true;
-            Object obj = this.value;
+            T t = this.value;
             this.value = null;
-            if (obj != null) {
-                this.actual.onSuccess(obj);
+            if (t != null) {
+                this.actual.onSuccess(t);
             } else {
                 this.actual.onComplete();
             }
@@ -110,16 +110,16 @@ public final class ObservableReduceMaybe extends Maybe {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !this.done) {
-                Object obj2 = this.value;
-                if (obj2 == null) {
-                    this.value = obj;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && !this.done) {
+                T t2 = this.value;
+                if (t2 == null) {
+                    this.value = t;
                     return;
                 }
                 try {
-                    this.value = ObjectHelper.requireNonNull(this.reducer.apply(obj2, obj), "The reducer returned a null value");
+                    this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.d.dispose();
@@ -129,7 +129,7 @@ public final class ObservableReduceMaybe extends Maybe {
         }
     }
 
-    public ObservableReduceMaybe(ObservableSource observableSource, BiFunction biFunction) {
+    public ObservableReduceMaybe(ObservableSource<T> observableSource, BiFunction<T, T, T> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,7 +149,7 @@ public final class ObservableReduceMaybe extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new ReduceObserver(maybeObserver, this.reducer));

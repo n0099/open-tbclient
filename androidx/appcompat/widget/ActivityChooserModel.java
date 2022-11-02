@@ -73,7 +73,7 @@ public class ActivityChooserModel extends DataSetObservable {
 
     /* loaded from: classes.dex */
     public interface ActivitySorter {
-        void sort(Intent intent, List list, List list2);
+        void sort(Intent intent, List<ActivityResolveInfo> list, List<HistoricalRecord> list2);
     }
 
     /* loaded from: classes.dex */

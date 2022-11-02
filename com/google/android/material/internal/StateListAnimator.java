@@ -4,23 +4,29 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.util.StateSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class StateListAnimator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Animator.AnimatorListener animationListener;
+    @Nullable
     public Tuple lastMatch;
+    @Nullable
     public ValueAnimator runningAnimator;
-    public final ArrayList tuples;
+    public final ArrayList<Tuple> tuples;
 
     /* loaded from: classes7.dex */
-    public class Tuple {
+    public static class Tuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ValueAnimator animator;
@@ -59,7 +65,7 @@ public final class StateListAnimator {
                 return;
             }
         }
-        this.tuples = new ArrayList();
+        this.tuples = new ArrayList<>();
         this.lastMatch = null;
         this.runningAnimator = null;
         this.animationListener = new AnimatorListenerAdapter(this) { // from class: com.google.android.material.internal.StateListAnimator.1
@@ -116,7 +122,7 @@ public final class StateListAnimator {
         }
     }
 
-    private void start(Tuple tuple) {
+    private void start(@NonNull Tuple tuple) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, tuple) == null) {
             ValueAnimator valueAnimator = tuple.animator;
@@ -142,7 +148,7 @@ public final class StateListAnimator {
             int i = 0;
             while (true) {
                 if (i < size) {
-                    tuple = (Tuple) this.tuples.get(i);
+                    tuple = this.tuples.get(i);
                     if (StateSet.stateSetMatches(tuple.specs, iArr)) {
                         break;
                     }

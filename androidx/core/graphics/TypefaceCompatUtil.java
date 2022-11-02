@@ -8,6 +8,9 @@ import android.os.ParcelFileDescriptor;
 import android.os.Process;
 import android.os.StrictMode;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,6 +26,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -54,6 +58,8 @@ public class TypefaceCompatUtil {
         }
     }
 
+    @Nullable
+    @RequiresApi(19)
     public static ByteBuffer copyToDirectBuffer(Context context, Resources resources, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -146,6 +152,7 @@ public class TypefaceCompatUtil {
         }
     }
 
+    @Nullable
     public static File getTempFile(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -166,6 +173,8 @@ public class TypefaceCompatUtil {
         return (File) invokeL.objValue;
     }
 
+    @Nullable
+    @RequiresApi(19)
     public static ByteBuffer mmap(Context context, CancellationSignal cancellationSignal, Uri uri) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -193,6 +202,8 @@ public class TypefaceCompatUtil {
         return (ByteBuffer) invokeLLL.objValue;
     }
 
+    @Nullable
+    @RequiresApi(19)
     public static ByteBuffer mmap(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

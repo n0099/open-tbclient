@@ -1,5 +1,8 @@
 package androidx.media;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,16 +12,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class AudioAttributesImplBase implements AudioAttributesImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mContentType;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mFlags;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mLegacyStream;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mUsage;
 
     @Override // androidx.media.AudioAttributesImpl
+    @Nullable
     public Object getAudioAttributes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,6 +66,7 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         }
 
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public AudioAttributesImpl build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -93,6 +103,7 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setUsage(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -130,6 +141,7 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setContentType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -146,6 +158,7 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setFlags(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -158,6 +171,7 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setLegacyStreamType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -172,6 +186,7 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesImplBase() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -312,6 +327,7 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

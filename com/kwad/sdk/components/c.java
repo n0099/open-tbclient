@@ -1,6 +1,7 @@
 package com.kwad.sdk.components;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.api.SdkConfig;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,16 +11,17 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public final class c {
-    public static final Map Td = new ConcurrentHashMap();
+    public static final Map<Class, a> Td = new ConcurrentHashMap();
 
     public static void a(Class cls, a aVar) {
         Td.put(cls, aVar);
     }
 
-    public static a f(Class cls) {
-        a aVar = (a) Td.get(cls);
-        if (aVar != null) {
-            return aVar;
+    @Nullable
+    public static <T extends a> T f(Class<T> cls) {
+        T t = (T) Td.get(cls);
+        if (t != null) {
+            return t;
         }
         com.kwad.sdk.core.e.b.w("KSAdSDK", new ComponentsNotFoundException(cls.getSimpleName()));
         try {
@@ -37,7 +39,7 @@ public final class c {
 
     public static void init(Context context, SdkConfig sdkConfig) {
         ArrayList arrayList = new ArrayList(Td.values());
-        Collections.sort(arrayList, new Comparator() { // from class: com.kwad.sdk.components.c.1
+        Collections.sort(arrayList, new Comparator<a>() { // from class: com.kwad.sdk.components.c.1
             public static int a(a aVar, a aVar2) {
                 if (aVar == null) {
                     return -1;
@@ -56,9 +58,10 @@ public final class c {
                 }
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
             @Override // java.util.Comparator
-            public final /* synthetic */ int compare(Object obj, Object obj2) {
-                return a((a) obj, (a) obj2);
+            public final /* synthetic */ int compare(a aVar, a aVar2) {
+                return a(aVar, aVar2);
             }
         });
         Iterator it = arrayList.iterator();

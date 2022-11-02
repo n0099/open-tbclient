@@ -1,6 +1,7 @@
 package com.kwad.components.core.video;
 
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ public final class e {
     public a Kz;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long KA;
@@ -99,6 +100,7 @@ public final class e {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.Kx : invokeV.booleanValue;
     }
 
+    @NonNull
     public final a pj() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

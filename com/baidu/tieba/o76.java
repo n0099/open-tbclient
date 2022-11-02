@@ -1,121 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.BaseClearCache;
-import com.baidu.searchbox.download.center.clearcache.DiskManager;
-import com.baidu.searchbox.download.center.clearcache.DiskUtilKt;
-import com.baidu.searchbox.download.center.clearcache.IClearCacheContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 import java.util.List;
+import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class o76 implements IClearCacheContext {
+public final class o76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void addClearCache(List list) {
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void clearHistoryFile() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public BaseClearCache getDownloadClearCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (BaseClearCache) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void notifyDiskLevelChanged(DiskManager.NotifyLevel notifyLevel, DiskManager.DiskLevel diskLevel, DiskManager.DiskLevel diskLevel2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, notifyLevel, diskLevel, diskLevel2) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void notifyPersonalClearCacheTipsChange() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void registerBackForegroundEvent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void registerDiskUsageLevelChangedObserver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void startDownloadActivity(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-        }
-    }
-
-    public o76() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(selector, "selector");
+            int size = list.size() - 1;
+            if (list.isEmpty()) {
+                return -1;
             }
+            int i = 0;
+            while (i < size) {
+                int i2 = (i + size) >>> 1;
+                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
+                if (compareValues < 0) {
+                    i = i2 + 1;
+                } else if (compareValues > 0) {
+                    size = i2;
+                } else {
+                    return i2 - 1;
+                }
+            }
+            return i;
         }
+        return invokeLLL.intValue;
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public List getAppFileList() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DiskUtilKt.getAppFileList();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(selector, "selector");
+            int size = list.size() - 1;
+            if (list.isEmpty()) {
+                return -1;
+            }
+            int i = 0;
+            while (i < size) {
+                int i2 = (i + size) >>> 1;
+                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
+                if (compareValues < 0) {
+                    i = i2 + 1;
+                } else if (compareValues > 0) {
+                    size = i2;
+                } else {
+                    return i2 - 1;
+                }
+            }
+            return size;
         }
-        return (List) invokeV.objValue;
+        return invokeLLL.intValue;
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public List getUserAssetFileList() {
-        InterceptResult invokeV;
+    public static final <T extends Comparable<? super T>> g66<T> c(Collection<? extends T> collection) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return DiskUtilKt.getUserAssetFileList();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
+            Intrinsics.checkNotNullParameter(collection, "<this>");
+            return new g66<>(collection);
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void cleanCacheMonitorUBC(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            DiskUtilKt.cleanCacheMonitorUBC(str);
-        }
+        return (g66) invokeL.objValue;
     }
 }

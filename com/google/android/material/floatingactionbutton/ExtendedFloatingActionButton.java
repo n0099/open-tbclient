@@ -12,6 +12,10 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.AnimatorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -40,16 +44,19 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     public static final int ANIM_STATE_NONE = 0;
     public static final int ANIM_STATE_SHOWING = 2;
     public static final int DEF_STYLE_RES = 2131755878;
-    public static final Property HEIGHT;
-    public static final Property WIDTH;
+    public static final Property<View, Float> HEIGHT;
+    public static final Property<View, Float> WIDTH;
     public transient /* synthetic */ FieldHolder $fh;
     public int animState;
-    public final CoordinatorLayout.Behavior behavior;
+    @NonNull
+    public final CoordinatorLayout.Behavior<ExtendedFloatingActionButton> behavior;
     public final AnimatorTracker changeVisibilityTracker;
+    @NonNull
     public final MotionStrategy extendStrategy;
     public final MotionStrategy hideStrategy;
     public boolean isExtended;
     public final MotionStrategy showStrategy;
+    @NonNull
     public final MotionStrategy shrinkStrategy;
 
     /* loaded from: classes7.dex */
@@ -101,6 +108,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
 
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
+        @NonNull
         public AnimatorSet createAnimator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -175,7 +183,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onChange(OnChangedCallback onChangedCallback) {
+        public void onChange(@Nullable OnChangedCallback onChangedCallback) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048580, this, onChangedCallback) != null) || onChangedCallback == null) {
                 return;
@@ -189,14 +197,16 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     /* loaded from: classes7.dex */
-    public class ExtendedFloatingActionButtonBehavior extends CoordinatorLayout.Behavior {
+    public static class ExtendedFloatingActionButtonBehavior<T extends ExtendedFloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean AUTO_HIDE_DEFAULT = false;
         public static final boolean AUTO_SHRINK_DEFAULT = true;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean autoHideEnabled;
         public boolean autoShrinkEnabled;
+        @Nullable
         public OnChangedCallback internalAutoHideCallback;
+        @Nullable
         public OnChangedCallback internalAutoShrinkCallback;
         public Rect tmpRect;
 
@@ -236,7 +246,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ExtendedFloatingActionButtonBehavior(Context context, AttributeSet attributeSet) {
+        public ExtendedFloatingActionButtonBehavior(@NonNull Context context, @Nullable AttributeSet attributeSet) {
             super(context, attributeSet);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -260,7 +270,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             obtainStyledAttributes.recycle();
         }
 
-        public static boolean isBottomSheet(View view2) {
+        public static boolean isBottomSheet(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
@@ -273,7 +283,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             return invokeL.booleanValue;
         }
 
-        public void extendOrShow(ExtendedFloatingActionButton extendedFloatingActionButton) {
+        public void extendOrShow(@NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
             OnChangedCallback onChangedCallback;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, extendedFloatingActionButton) == null) {
@@ -287,7 +297,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onAttachedToLayoutParams(CoordinatorLayout.LayoutParams layoutParams) {
+        public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, layoutParams) == null) && layoutParams.dodgeInsetEdges == 0) {
                 layoutParams.dodgeInsetEdges = 80;
@@ -308,21 +318,23 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             }
         }
 
-        public void setInternalAutoHideCallback(OnChangedCallback onChangedCallback) {
+        @VisibleForTesting
+        public void setInternalAutoHideCallback(@Nullable OnChangedCallback onChangedCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, onChangedCallback) == null) {
                 this.internalAutoHideCallback = onChangedCallback;
             }
         }
 
-        public void setInternalAutoShrinkCallback(OnChangedCallback onChangedCallback) {
+        @VisibleForTesting
+        public void setInternalAutoShrinkCallback(@Nullable OnChangedCallback onChangedCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, onChangedCallback) == null) {
                 this.internalAutoShrinkCallback = onChangedCallback;
             }
         }
 
-        public void shrinkOrHide(ExtendedFloatingActionButton extendedFloatingActionButton) {
+        public void shrinkOrHide(@NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
             OnChangedCallback onChangedCallback;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, extendedFloatingActionButton) == null) {
@@ -335,7 +347,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             }
         }
 
-        private boolean shouldUpdateVisibility(View view2, ExtendedFloatingActionButton extendedFloatingActionButton) {
+        private boolean shouldUpdateVisibility(@NonNull View view2, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, view2, extendedFloatingActionButton)) == null) {
@@ -348,7 +360,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             return invokeLL.booleanValue;
         }
 
-        private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, ExtendedFloatingActionButton extendedFloatingActionButton) {
+        private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, coordinatorLayout, appBarLayout, extendedFloatingActionButton)) == null) {
@@ -372,7 +384,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, int i) {
+        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, extendedFloatingActionButton, i)) == null) {
@@ -396,7 +408,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             return invokeLLI.booleanValue;
         }
 
-        private boolean updateFabVisibilityForBottomSheet(View view2, ExtendedFloatingActionButton extendedFloatingActionButton) {
+        private boolean updateFabVisibilityForBottomSheet(@NonNull View view2, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view2, extendedFloatingActionButton)) == null) {
@@ -415,7 +427,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean getInsetDodgeRect(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, Rect rect) {
+        public boolean getInsetDodgeRect(@NonNull CoordinatorLayout coordinatorLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton, @NonNull Rect rect) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, extendedFloatingActionButton, rect)) == null) {
@@ -426,7 +438,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, View view2) {
+        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton, View view2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, coordinatorLayout, extendedFloatingActionButton, view2)) == null) {
@@ -531,7 +543,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onChange(OnChangedCallback onChangedCallback) {
+        public void onChange(@Nullable OnChangedCallback onChangedCallback) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, onChangedCallback) == null) && onChangedCallback != null) {
                 onChangedCallback.onHidden(this.this$0);
@@ -540,7 +552,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     /* loaded from: classes7.dex */
-    public abstract class OnChangedCallback {
+    public static abstract class OnChangedCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -659,7 +671,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onChange(OnChangedCallback onChangedCallback) {
+        public void onChange(@Nullable OnChangedCallback onChangedCallback) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, onChangedCallback) == null) && onChangedCallback != null) {
                 onChangedCallback.onShown(this.this$0);
@@ -680,7 +692,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 return;
             }
         }
-        WIDTH = new Property(Float.class, "width") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.4
+        WIDTH = new Property<View, Float>(Float.class, "width") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -707,7 +719,8 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            public Float get(View view2) {
+            @NonNull
+            public Float get(@NonNull View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
@@ -718,7 +731,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            public void set(View view2, Float f) {
+            public void set(@NonNull View view2, @NonNull Float f) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
                     view2.getLayoutParams().width = f.intValue();
@@ -726,7 +739,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 }
             }
         };
-        HEIGHT = new Property(Float.class, "height") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.5
+        HEIGHT = new Property<View, Float>(Float.class, "height") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -753,7 +766,8 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            public Float get(View view2) {
+            @NonNull
+            public Float get(@NonNull View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
@@ -764,7 +778,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            public void set(View view2, Float f) {
+            public void set(@NonNull View view2, @NonNull Float f) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
                     view2.getLayoutParams().height = f.intValue();
@@ -775,7 +789,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExtendedFloatingActionButton(Context context) {
+    public ExtendedFloatingActionButton(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -796,7 +810,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExtendedFloatingActionButton(Context context, AttributeSet attributeSet) {
+    public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f04029c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -817,7 +831,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void performMotion(MotionStrategy motionStrategy, OnChangedCallback onChangedCallback) {
+    public void performMotion(@NonNull MotionStrategy motionStrategy, @Nullable OnChangedCallback onChangedCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65552, this, motionStrategy, onChangedCallback) != null) || motionStrategy.shouldCancel()) {
             return;
@@ -893,7 +907,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExtendedFloatingActionButton(Context context, AttributeSet attributeSet, int i) {
+    public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1039,84 +1053,84 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         setShapeAppearanceModel(ShapeAppearanceModel.builder(context2, attributeSet, i, DEF_STYLE_RES, ShapeAppearanceModel.PILL).build());
     }
 
-    public void addOnExtendAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void addOnExtendAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
             this.extendStrategy.addAnimationListener(animatorListener);
         }
     }
 
-    public void addOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void addOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animatorListener) == null) {
             this.hideStrategy.addAnimationListener(animatorListener);
         }
     }
 
-    public void addOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void addOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animatorListener) == null) {
             this.showStrategy.addAnimationListener(animatorListener);
         }
     }
 
-    public void addOnShrinkAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void addOnShrinkAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, animatorListener) == null) {
             this.shrinkStrategy.addAnimationListener(animatorListener);
         }
     }
 
-    public void extend(OnChangedCallback onChangedCallback) {
+    public void extend(@NonNull OnChangedCallback onChangedCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onChangedCallback) == null) {
             performMotion(this.extendStrategy, onChangedCallback);
         }
     }
 
-    public void hide(OnChangedCallback onChangedCallback) {
+    public void hide(@NonNull OnChangedCallback onChangedCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onChangedCallback) == null) {
             performMotion(this.hideStrategy, onChangedCallback);
         }
     }
 
-    public void removeOnExtendAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void removeOnExtendAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, animatorListener) == null) {
             this.extendStrategy.removeAnimationListener(animatorListener);
         }
     }
 
-    public void removeOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void removeOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, animatorListener) == null) {
             this.hideStrategy.removeAnimationListener(animatorListener);
         }
     }
 
-    public void removeOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void removeOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, animatorListener) == null) {
             this.showStrategy.removeAnimationListener(animatorListener);
         }
     }
 
-    public void removeOnShrinkAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void removeOnShrinkAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, animatorListener) == null) {
             this.shrinkStrategy.removeAnimationListener(animatorListener);
         }
     }
 
-    public void setExtendMotionSpec(MotionSpec motionSpec) {
+    public void setExtendMotionSpec(@Nullable MotionSpec motionSpec) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, motionSpec) == null) {
             this.extendStrategy.setMotionSpec(motionSpec);
         }
     }
 
-    public void setExtendMotionSpecResource(int i) {
+    public void setExtendMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             setExtendMotionSpec(MotionSpec.createFromResource(getContext(), i));
@@ -1140,56 +1154,56 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         motionStrategy.performNow();
     }
 
-    public void setHideMotionSpec(MotionSpec motionSpec) {
+    public void setHideMotionSpec(@Nullable MotionSpec motionSpec) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, motionSpec) == null) {
             this.hideStrategy.setMotionSpec(motionSpec);
         }
     }
 
-    public void setHideMotionSpecResource(int i) {
+    public void setHideMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             setHideMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
-    public void setShowMotionSpec(MotionSpec motionSpec) {
+    public void setShowMotionSpec(@Nullable MotionSpec motionSpec) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, motionSpec) == null) {
             this.showStrategy.setMotionSpec(motionSpec);
         }
     }
 
-    public void setShowMotionSpecResource(int i) {
+    public void setShowMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             setShowMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
-    public void setShrinkMotionSpec(MotionSpec motionSpec) {
+    public void setShrinkMotionSpec(@Nullable MotionSpec motionSpec) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, motionSpec) == null) {
             this.shrinkStrategy.setMotionSpec(motionSpec);
         }
     }
 
-    public void setShrinkMotionSpecResource(int i) {
+    public void setShrinkMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
             setShrinkMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
-    public void show(OnChangedCallback onChangedCallback) {
+    public void show(@NonNull OnChangedCallback onChangedCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, onChangedCallback) == null) {
             performMotion(this.showStrategy, onChangedCallback);
         }
     }
 
-    public void shrink(OnChangedCallback onChangedCallback) {
+    public void shrink(@NonNull OnChangedCallback onChangedCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, onChangedCallback) == null) {
             performMotion(this.shrinkStrategy, onChangedCallback);
@@ -1254,7 +1268,8 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.AttachedBehavior
-    public CoordinatorLayout.Behavior getBehavior() {
+    @NonNull
+    public CoordinatorLayout.Behavior<ExtendedFloatingActionButton> getBehavior() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -1263,6 +1278,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         return (CoordinatorLayout.Behavior) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public int getCollapsedSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1272,6 +1288,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         return invokeV.intValue;
     }
 
+    @Nullable
     public MotionSpec getExtendMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1281,6 +1298,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         return (MotionSpec) invokeV.objValue;
     }
 
+    @Nullable
     public MotionSpec getHideMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1290,6 +1308,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         return (MotionSpec) invokeV.objValue;
     }
 
+    @Nullable
     public MotionSpec getShowMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1299,6 +1318,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         return (MotionSpec) invokeV.objValue;
     }
 
+    @Nullable
     public MotionSpec getShrinkMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

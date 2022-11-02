@@ -11,6 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.BackpressureKind;
 import io.reactivex.annotations.BackpressureSupport;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.SchedulerSupport;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
@@ -112,11 +114,11 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
 /* loaded from: classes8.dex */
-public abstract class Maybe implements MaybeSource {
+public abstract class Maybe<T> implements MaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void subscribeActual(MaybeObserver maybeObserver);
+    public abstract void subscribeActual(MaybeObserver<? super T> maybeObserver);
 
     public Maybe() {
         Interceptable interceptable = $ic;
@@ -134,7 +136,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe empty() {
+    public static <T> Maybe<T> empty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
@@ -145,7 +147,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe never() {
+    public static <T> Maybe<T> never() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
@@ -156,20 +158,20 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object blockingGet() {
+    public final T blockingGet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BlockingMultiObserver blockingMultiObserver = new BlockingMultiObserver();
             subscribe(blockingMultiObserver);
-            return blockingMultiObserver.blockingGet();
+            return (T) blockingMultiObserver.blockingGet();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe cache() {
+    public final Maybe<T> cache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -180,7 +182,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single count() {
+    public final Single<Long> count() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -191,7 +193,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe hide() {
+    public final Maybe<T> hide() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
@@ -213,7 +215,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single isEmpty() {
+    public final Single<Boolean> isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
@@ -224,7 +226,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe onErrorComplete() {
+    public final Maybe<T> onErrorComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
@@ -235,7 +237,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe onTerminateDetach() {
+    public final Maybe<T> onTerminateDetach() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
@@ -247,7 +249,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable repeat() {
+    public final Flowable<T> repeat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
@@ -258,7 +260,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe retry() {
+    public final Maybe<T> retry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
@@ -279,11 +281,11 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final TestObserver test() {
+    public final TestObserver<T> test() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
-            TestObserver testObserver = new TestObserver();
+            TestObserver<T> testObserver = new TestObserver<>();
             subscribe(testObserver);
             return testObserver;
         }
@@ -293,7 +295,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable toFlowable() {
+    public final Flowable<T> toFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) {
@@ -307,7 +309,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable toObservable() {
+    public final Observable<T> toObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
@@ -321,7 +323,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single toSingle() {
+    public final Single<T> toSingle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) {
@@ -332,7 +334,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe amb(Iterable iterable) {
+    public static <T> Maybe<T> amb(Iterable<? extends MaybeSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iterable)) == null) {
@@ -345,7 +347,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(Iterable iterable) {
+    public static <T> Flowable<T> concat(Iterable<? extends MaybeSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iterable)) == null) {
@@ -358,7 +360,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concatArrayEager(MaybeSource... maybeSourceArr) {
+    public static <T> Flowable<T> concatArrayEager(MaybeSource<? extends T>... maybeSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, maybeSourceArr)) == null) {
@@ -370,7 +372,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concatDelayError(Iterable iterable) {
+    public static <T> Flowable<T> concatDelayError(Iterable<? extends MaybeSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, iterable)) == null) {
@@ -383,7 +385,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concatEager(Iterable iterable) {
+    public static <T> Flowable<T> concatEager(Iterable<? extends MaybeSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, iterable)) == null) {
@@ -394,7 +396,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe create(MaybeOnSubscribe maybeOnSubscribe) {
+    public static <T> Maybe<T> create(MaybeOnSubscribe<T> maybeOnSubscribe) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, maybeOnSubscribe)) == null) {
@@ -406,7 +408,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe defer(Callable callable) {
+    public static <T> Maybe<T> defer(Callable<? extends MaybeSource<? extends T>> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, callable)) == null) {
@@ -418,7 +420,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe error(Throwable th) {
+    public static <T> Maybe<T> error(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, th)) == null) {
@@ -430,7 +432,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe fromAction(Action action) {
+    public static <T> Maybe<T> fromAction(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, action)) == null) {
@@ -442,7 +444,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe fromCallable(Callable callable) {
+    public static <T> Maybe<T> fromCallable(@NonNull Callable<? extends T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, callable)) == null) {
@@ -454,7 +456,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe fromCompletable(CompletableSource completableSource) {
+    public static <T> Maybe<T> fromCompletable(CompletableSource completableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, completableSource)) == null) {
@@ -466,7 +468,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe fromFuture(Future future) {
+    public static <T> Maybe<T> fromFuture(Future<? extends T> future) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, future)) == null) {
@@ -478,7 +480,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe fromRunnable(Runnable runnable) {
+    public static <T> Maybe<T> fromRunnable(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, runnable)) == null) {
@@ -490,7 +492,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe fromSingle(SingleSource singleSource) {
+    public static <T> Maybe<T> fromSingle(SingleSource<T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, singleSource)) == null) {
@@ -502,12 +504,12 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe just(Object obj) {
+    public static <T> Maybe<T> just(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "item is null");
-            return RxJavaPlugins.onAssembly(new MaybeJust(obj));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, t)) == null) {
+            ObjectHelper.requireNonNull(t, "item is null");
+            return RxJavaPlugins.onAssembly(new MaybeJust(t));
         }
         return (Maybe) invokeL.objValue;
     }
@@ -515,7 +517,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(Iterable iterable) {
+    public static <T> Flowable<T> merge(Iterable<? extends MaybeSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, iterable)) == null) {
@@ -527,7 +529,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeArrayDelayError(MaybeSource... maybeSourceArr) {
+    public static <T> Flowable<T> mergeArrayDelayError(MaybeSource<? extends T>... maybeSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, maybeSourceArr)) == null) {
@@ -542,7 +544,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(Iterable iterable) {
+    public static <T> Flowable<T> mergeDelayError(Iterable<? extends MaybeSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, iterable)) == null) {
@@ -553,7 +555,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe unsafeCreate(MaybeSource maybeSource) {
+    public static <T> Maybe<T> unsafeCreate(MaybeSource<T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, maybeSource)) == null) {
@@ -568,7 +570,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe wrap(MaybeSource maybeSource) {
+    public static <T> Maybe<T> wrap(MaybeSource<T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, maybeSource)) == null) {
@@ -583,7 +585,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe ambWith(MaybeSource maybeSource) {
+    public final Maybe<T> ambWith(MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, maybeSource)) == null) {
@@ -595,44 +597,45 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object as(MaybeConverter maybeConverter) {
+    @Experimental
+    public final <R> R as(@NonNull MaybeConverter<T, ? extends R> maybeConverter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeConverter)) == null) {
-            return ((MaybeConverter) ObjectHelper.requireNonNull(maybeConverter, "converter is null")).apply(this);
+            return (R) ((MaybeConverter) ObjectHelper.requireNonNull(maybeConverter, "converter is null")).apply(this);
         }
-        return invokeL.objValue;
+        return (R) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object blockingGet(Object obj) {
+    public final T blockingGet(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "defaultValue is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            ObjectHelper.requireNonNull(t, "defaultValue is null");
             BlockingMultiObserver blockingMultiObserver = new BlockingMultiObserver();
             subscribe(blockingMultiObserver);
-            return blockingMultiObserver.blockingGet(obj);
+            return (T) blockingMultiObserver.blockingGet(t);
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe cast(Class cls) {
+    public final <U> Maybe<U> cast(Class<? extends U> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
             ObjectHelper.requireNonNull(cls, "clazz is null");
-            return map(Functions.castFunction(cls));
+            return (Maybe<U>) map(Functions.castFunction(cls));
         }
         return (Maybe) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe compose(MaybeTransformer maybeTransformer) {
+    public final <R> Maybe<R> compose(MaybeTransformer<? super T, ? extends R> maybeTransformer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, maybeTransformer)) == null) {
@@ -643,7 +646,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe concatMap(Function function) {
+    public final <R> Maybe<R> concatMap(Function<? super T, ? extends MaybeSource<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, function)) == null) {
@@ -656,7 +659,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable concatWith(MaybeSource maybeSource) {
+    public final Flowable<T> concatWith(MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, maybeSource)) == null) {
@@ -668,7 +671,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single contains(Object obj) {
+    public final Single<Boolean> contains(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
@@ -680,12 +683,12 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe defaultIfEmpty(Object obj) {
+    public final Maybe<T> defaultIfEmpty(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "item is null");
-            return switchIfEmpty(just(obj));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, t)) == null) {
+            ObjectHelper.requireNonNull(t, "item is null");
+            return switchIfEmpty(just(t));
         }
         return (Maybe) invokeL.objValue;
     }
@@ -693,7 +696,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final Maybe delay(Publisher publisher) {
+    public final <U, V> Maybe<T> delay(Publisher<U> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, publisher)) == null) {
@@ -706,7 +709,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final Maybe delaySubscription(Publisher publisher) {
+    public final <U> Maybe<T> delaySubscription(Publisher<U> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, publisher)) == null) {
@@ -718,7 +721,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doAfterSuccess(Consumer consumer) {
+    public final Maybe<T> doAfterSuccess(Consumer<? super T> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, consumer)) == null) {
@@ -730,7 +733,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doFinally(Action action) {
+    public final Maybe<T> doFinally(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, action)) == null) {
@@ -742,7 +745,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doOnEvent(BiConsumer biConsumer) {
+    public final Maybe<T> doOnEvent(BiConsumer<? super T, ? super Throwable> biConsumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, biConsumer)) == null) {
@@ -754,7 +757,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe filter(Predicate predicate) {
+    public final Maybe<T> filter(Predicate<? super T> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, predicate)) == null) {
@@ -766,7 +769,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe flatMap(Function function) {
+    public final <R> Maybe<R> flatMap(Function<? super T, ? extends MaybeSource<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, function)) == null) {
@@ -778,7 +781,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable flatMapCompletable(Function function) {
+    public final Completable flatMapCompletable(Function<? super T, ? extends CompletableSource> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, function)) == null) {
@@ -790,7 +793,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable flatMapObservable(Function function) {
+    public final <R> Observable<R> flatMapObservable(Function<? super T, ? extends ObservableSource<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, function)) == null) {
@@ -802,7 +805,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable flatMapPublisher(Function function) {
+    public final <R> Flowable<R> flatMapPublisher(Function<? super T, ? extends Publisher<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, function)) == null) {
@@ -813,7 +816,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single flatMapSingle(Function function) {
+    public final <R> Single<R> flatMapSingle(Function<? super T, ? extends SingleSource<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, function)) == null) {
@@ -825,7 +828,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe flatMapSingleElement(Function function) {
+    public final <R> Maybe<R> flatMapSingleElement(Function<? super T, ? extends SingleSource<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, function)) == null) {
@@ -838,7 +841,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable flattenAsFlowable(Function function) {
+    public final <U> Flowable<U> flattenAsFlowable(Function<? super T, ? extends Iterable<? extends U>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, function)) == null) {
@@ -850,7 +853,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable flattenAsObservable(Function function) {
+    public final <U> Observable<U> flattenAsObservable(Function<? super T, ? extends Iterable<? extends U>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, function)) == null) {
@@ -862,7 +865,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe lift(MaybeOperator maybeOperator) {
+    public final <R> Maybe<R> lift(MaybeOperator<? extends R, ? super T> maybeOperator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, maybeOperator)) == null) {
@@ -874,7 +877,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe map(Function function) {
+    public final <R> Maybe<R> map(Function<? super T, ? extends R> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, function)) == null) {
@@ -887,7 +890,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable mergeWith(MaybeSource maybeSource) {
+    public final Flowable<T> mergeWith(MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, maybeSource)) == null) {
@@ -899,7 +902,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe observeOn(Scheduler scheduler) {
+    public final Maybe<T> observeOn(Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, scheduler)) == null) {
@@ -909,9 +912,11 @@ public abstract class Maybe implements MaybeSource {
         return (Maybe) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Class<U> */
+    /* JADX WARN: Multi-variable type inference failed */
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe ofType(Class cls) {
+    public final <U> Maybe<U> ofType(Class<U> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, cls)) == null) {
@@ -923,7 +928,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe onErrorComplete(Predicate predicate) {
+    public final Maybe<T> onErrorComplete(Predicate<? super Throwable> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, predicate)) == null) {
@@ -935,7 +940,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe onErrorResumeNext(MaybeSource maybeSource) {
+    public final Maybe<T> onErrorResumeNext(MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, maybeSource)) == null) {
@@ -947,7 +952,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe onErrorReturn(Function function) {
+    public final Maybe<T> onErrorReturn(Function<? super Throwable, ? extends T> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, function)) == null) {
@@ -959,19 +964,19 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe onErrorReturnItem(Object obj) {
+    public final Maybe<T> onErrorReturnItem(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "item is null");
-            return onErrorReturn(Functions.justFunction(obj));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, t)) == null) {
+            ObjectHelper.requireNonNull(t, "item is null");
+            return onErrorReturn(Functions.justFunction(t));
         }
         return (Maybe) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe onExceptionResumeNext(MaybeSource maybeSource) {
+    public final Maybe<T> onExceptionResumeNext(MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, maybeSource)) == null) {
@@ -984,7 +989,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable repeat(long j) {
+    public final Flowable<T> repeat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j)) == null) {
@@ -996,7 +1001,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable repeatUntil(BooleanSupplier booleanSupplier) {
+    public final Flowable<T> repeatUntil(BooleanSupplier booleanSupplier) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, booleanSupplier)) == null) {
@@ -1008,7 +1013,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable repeatWhen(Function function) {
+    public final Flowable<T> repeatWhen(Function<? super Flowable<Object>, ? extends Publisher<?>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, function)) == null) {
@@ -1019,7 +1024,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe retry(long j) {
+    public final Maybe<T> retry(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j)) == null) {
@@ -1030,7 +1035,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe retryUntil(BooleanSupplier booleanSupplier) {
+    public final Maybe<T> retryUntil(BooleanSupplier booleanSupplier) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, booleanSupplier)) == null) {
@@ -1042,7 +1047,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe retryWhen(Function function) {
+    public final Maybe<T> retryWhen(Function<? super Flowable<Throwable>, ? extends Publisher<?>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, function)) == null) {
@@ -1053,7 +1058,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Disposable subscribe(Consumer consumer) {
+    public final Disposable subscribe(Consumer<? super T> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, consumer)) == null) {
@@ -1064,7 +1069,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe subscribeOn(Scheduler scheduler) {
+    public final Maybe<T> subscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, scheduler)) == null) {
@@ -1076,19 +1081,19 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final MaybeObserver subscribeWith(MaybeObserver maybeObserver) {
+    public final <E extends MaybeObserver<? super T>> E subscribeWith(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, maybeObserver)) == null) {
-            subscribe(maybeObserver);
-            return maybeObserver;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, e)) == null) {
+            subscribe(e);
+            return e;
         }
-        return (MaybeObserver) invokeL.objValue;
+        return (E) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe switchIfEmpty(MaybeSource maybeSource) {
+    public final Maybe<T> switchIfEmpty(MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, maybeSource)) == null) {
@@ -1100,7 +1105,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe takeUntil(MaybeSource maybeSource) {
+    public final <U> Maybe<T> takeUntil(MaybeSource<U> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, maybeSource)) == null) {
@@ -1112,11 +1117,11 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final TestObserver test(boolean z) {
+    public final TestObserver<T> test(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048654, this, z)) == null) {
-            TestObserver testObserver = new TestObserver();
+            TestObserver<T> testObserver = new TestObserver<>();
             if (z) {
                 testObserver.cancel();
             }
@@ -1128,7 +1133,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe timeout(MaybeSource maybeSource) {
+    public final <U> Maybe<T> timeout(MaybeSource<U> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, maybeSource)) == null) {
@@ -1140,35 +1145,35 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object to(Function function) {
+    public final <R> R to(Function<? super Maybe<T>, R> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048663, this, function)) == null) {
             try {
-                return ((Function) ObjectHelper.requireNonNull(function, "convert is null")).apply(this);
+                return (R) ((Function) ObjectHelper.requireNonNull(function, "convert is null")).apply(this);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 throw ExceptionHelper.wrapOrThrow(th);
             }
         }
-        return invokeL.objValue;
+        return (R) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single toSingle(Object obj) {
+    public final Single<T> toSingle(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048667, this, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "defaultValue is null");
-            return RxJavaPlugins.onAssembly(new MaybeToSingle(this, obj));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048667, this, t)) == null) {
+            ObjectHelper.requireNonNull(t, "defaultValue is null");
+            return RxJavaPlugins.onAssembly(new MaybeToSingle(this, t));
         }
         return (Single) invokeL.objValue;
     }
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe unsubscribeOn(Scheduler scheduler) {
+    public final Maybe<T> unsubscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048668, this, scheduler)) == null) {
@@ -1180,7 +1185,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe ambArray(MaybeSource... maybeSourceArr) {
+    public static <T> Maybe<T> ambArray(MaybeSource<? extends T>... maybeSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, maybeSourceArr)) == null) {
@@ -1198,7 +1203,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concatArray(MaybeSource... maybeSourceArr) {
+    public static <T> Flowable<T> concatArray(MaybeSource<? extends T>... maybeSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, maybeSourceArr)) == null) {
@@ -1217,7 +1222,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concatArrayDelayError(MaybeSource... maybeSourceArr) {
+    public static <T> Flowable<T> concatArrayDelayError(MaybeSource<? extends T>... maybeSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, maybeSourceArr)) == null) {
@@ -1235,7 +1240,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeArray(MaybeSource... maybeSourceArr) {
+    public static <T> Flowable<T> mergeArray(MaybeSource<? extends T>... maybeSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, maybeSourceArr)) == null) {
@@ -1253,7 +1258,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doAfterTerminate(Action action) {
+    public final Maybe<T> doAfterTerminate(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, action)) == null) {
@@ -1264,7 +1269,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doOnComplete(Action action) {
+    public final Maybe<T> doOnComplete(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, action)) == null) {
@@ -1276,7 +1281,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doOnDispose(Action action) {
+    public final Maybe<T> doOnDispose(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, action)) == null) {
@@ -1291,7 +1296,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doOnError(Consumer consumer) {
+    public final Maybe<T> doOnError(Consumer<? super Throwable> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, consumer)) == null) {
@@ -1303,7 +1308,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doOnSubscribe(Consumer consumer) {
+    public final Maybe<T> doOnSubscribe(Consumer<? super Disposable> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, consumer)) == null) {
@@ -1317,7 +1322,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe doOnSuccess(Consumer consumer) {
+    public final Maybe<T> doOnSuccess(Consumer<? super T> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, consumer)) == null) {
@@ -1331,7 +1336,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(MaybeSource maybeSource, MaybeSource maybeSource2) {
+    public static <T> Flowable<T> concat(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, maybeSource, maybeSource2)) == null) {
@@ -1345,7 +1350,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(MaybeSource maybeSource, MaybeSource maybeSource2) {
+    public static <T> Flowable<T> merge(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, maybeSource, maybeSource2)) == null) {
@@ -1359,7 +1364,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(MaybeSource maybeSource, MaybeSource maybeSource2) {
+    public static <T> Flowable<T> mergeDelayError(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, maybeSource, maybeSource2)) == null) {
@@ -1372,7 +1377,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single sequenceEqual(MaybeSource maybeSource, MaybeSource maybeSource2) {
+    public static <T> Single<Boolean> sequenceEqual(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65581, null, maybeSource, maybeSource2)) == null) {
@@ -1383,7 +1388,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Maybe timer(long j, TimeUnit timeUnit) {
+    public static Maybe<Long> timer(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65583, null, j, timeUnit)) == null) {
@@ -1394,7 +1399,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(Iterable iterable, Function function) {
+    public static <T, R> Maybe<R> zip(Iterable<? extends MaybeSource<? extends T>> iterable, Function<? super Object[], ? extends R> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65597, null, iterable, function)) == null) {
@@ -1407,7 +1412,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zipArray(Function function, MaybeSource... maybeSourceArr) {
+    public static <T, R> Maybe<R> zipArray(Function<? super Object[], ? extends R> function, MaybeSource<? extends T>... maybeSourceArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65598, null, function, maybeSourceArr)) == null) {
@@ -1423,7 +1428,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Maybe delay(long j, TimeUnit timeUnit) {
+    public final Maybe<T> delay(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j, timeUnit)) == null) {
@@ -1434,7 +1439,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Maybe delaySubscription(long j, TimeUnit timeUnit) {
+    public final Maybe<T> delaySubscription(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048591, this, j, timeUnit)) == null) {
@@ -1445,7 +1450,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe flatMap(Function function, BiFunction biFunction) {
+    public final <U, R> Maybe<R> flatMap(Function<? super T, ? extends MaybeSource<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, function, biFunction)) == null) {
@@ -1458,7 +1463,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe retry(long j, Predicate predicate) {
+    public final Maybe<T> retry(long j, Predicate<? super Throwable> predicate) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048636, this, j, predicate)) == null) {
@@ -1469,7 +1474,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Disposable subscribe(Consumer consumer, Consumer consumer2) {
+    public final Disposable subscribe(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, consumer, consumer2)) == null) {
@@ -1480,7 +1485,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Maybe timeout(long j, TimeUnit timeUnit) {
+    public final Maybe<T> timeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048655, this, j, timeUnit)) == null) {
@@ -1491,7 +1496,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe zipWith(MaybeSource maybeSource, BiFunction biFunction) {
+    public final <U, R> Maybe<R> zipWith(MaybeSource<? extends U> maybeSource, BiFunction<? super T, ? super U, ? extends R> biFunction) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048669, this, maybeSource, biFunction)) == null) {
@@ -1504,7 +1509,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3) {
+    public static <T> Flowable<T> concat(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, MaybeSource<? extends T> maybeSource3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, maybeSource, maybeSource2, maybeSource3)) == null) {
@@ -1518,7 +1523,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe fromFuture(Future future, long j, TimeUnit timeUnit) {
+    public static <T> Maybe<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{future, Long.valueOf(j), timeUnit})) == null) {
@@ -1532,7 +1537,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3) {
+    public static <T> Flowable<T> merge(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, MaybeSource<? extends T> maybeSource3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65566, null, maybeSource, maybeSource2, maybeSource3)) == null) {
@@ -1547,7 +1552,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3) {
+    public static <T> Flowable<T> mergeDelayError(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, MaybeSource<? extends T> maybeSource3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65575, null, maybeSource, maybeSource2, maybeSource3)) == null) {
@@ -1561,7 +1566,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public static Maybe timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Maybe<Long> timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65584, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1574,7 +1579,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Maybe<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1587,7 +1592,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Maybe timeout(long j, TimeUnit timeUnit, MaybeSource maybeSource) {
+    public final Maybe<T> timeout(long j, TimeUnit timeUnit, MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048656, this, new Object[]{Long.valueOf(j), timeUnit, maybeSource})) == null) {
@@ -1600,7 +1605,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4) {
+    public static <T> Flowable<T> concat(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, MaybeSource<? extends T> maybeSource3, MaybeSource<? extends T> maybeSource4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, maybeSource, maybeSource2, maybeSource3, maybeSource4)) == null) {
@@ -1616,7 +1621,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4) {
+    public static <T> Flowable<T> merge(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, MaybeSource<? extends T> maybeSource3, MaybeSource<? extends T> maybeSource4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65567, null, maybeSource, maybeSource2, maybeSource3, maybeSource4)) == null) {
@@ -1632,7 +1637,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4) {
+    public static <T> Flowable<T> mergeDelayError(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, MaybeSource<? extends T> maybeSource3, MaybeSource<? extends T> maybeSource4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65576, null, maybeSource, maybeSource2, maybeSource3, maybeSource4)) == null) {
@@ -1647,7 +1652,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe using(Callable callable, Function function, Consumer consumer, boolean z) {
+    public static <T, D> Maybe<T> using(Callable<? extends D> callable, Function<? super D, ? extends MaybeSource<? extends T>> function, Consumer<? super D> consumer, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, null, new Object[]{callable, function, consumer, Boolean.valueOf(z)})) == null) {
@@ -1661,7 +1666,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, Function3 function3) {
+    public static <T1, T2, T3, R> Maybe<R> zip(MaybeSource<? extends T1> maybeSource, MaybeSource<? extends T2> maybeSource2, MaybeSource<? extends T3> maybeSource3, Function3<? super T1, ? super T2, ? super T3, ? extends R> function3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65595, null, maybeSource, maybeSource2, maybeSource3, function3)) == null) {
@@ -1675,7 +1680,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe timeout(long j, TimeUnit timeUnit, Scheduler scheduler, MaybeSource maybeSource) {
+    public final Maybe<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler, MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, maybeSource})) == null) {
@@ -1688,7 +1693,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(Publisher publisher) {
+    public static <T> Flowable<T> concat(Publisher<? extends MaybeSource<? extends T>> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, publisher)) == null) {
@@ -1700,7 +1705,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concatDelayError(Publisher publisher) {
+    public static <T> Flowable<T> concatDelayError(Publisher<? extends MaybeSource<? extends T>> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, publisher)) == null) {
@@ -1712,7 +1717,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concatEager(Publisher publisher) {
+    public static <T> Flowable<T> concatEager(Publisher<? extends MaybeSource<? extends T>> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, publisher)) == null) {
@@ -1723,7 +1728,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe error(Callable callable) {
+    public static <T> Maybe<T> error(Callable<? extends Throwable> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, callable)) == null) {
@@ -1736,7 +1741,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(Publisher publisher) {
+    public static <T> Flowable<T> merge(Publisher<? extends MaybeSource<? extends T>> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, publisher)) == null) {
@@ -1748,7 +1753,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(Publisher publisher) {
+    public static <T> Flowable<T> mergeDelayError(Publisher<? extends MaybeSource<? extends T>> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, publisher)) == null) {
@@ -1759,7 +1764,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe onErrorResumeNext(Function function) {
+    public final Maybe<T> onErrorResumeNext(Function<? super Throwable, ? extends MaybeSource<? extends T>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, function)) == null) {
@@ -1771,7 +1776,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe retry(BiPredicate biPredicate) {
+    public final Maybe<T> retry(BiPredicate<? super Integer, ? super Throwable> biPredicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, biPredicate)) == null) {
@@ -1782,11 +1787,11 @@ public abstract class Maybe implements MaybeSource {
 
     @Override // io.reactivex.MaybeSource
     @SchedulerSupport("none")
-    public final void subscribe(MaybeObserver maybeObserver) {
+    public final void subscribe(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048645, this, maybeObserver) == null) {
             ObjectHelper.requireNonNull(maybeObserver, "observer is null");
-            MaybeObserver onSubscribe = RxJavaPlugins.onSubscribe(this, maybeObserver);
+            MaybeObserver<? super T> onSubscribe = RxJavaPlugins.onSubscribe(this, maybeObserver);
             ObjectHelper.requireNonNull(onSubscribe, "observer returned by the RxJavaPlugins hook is null");
             try {
                 subscribeActual(onSubscribe);
@@ -1803,7 +1808,8 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single switchIfEmpty(SingleSource singleSource) {
+    @Experimental
+    public final Single<T> switchIfEmpty(SingleSource<? extends T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, singleSource)) == null) {
@@ -1816,7 +1822,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final Maybe takeUntil(Publisher publisher) {
+    public final <U> Maybe<T> takeUntil(Publisher<U> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, publisher)) == null) {
@@ -1829,7 +1835,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final Maybe timeout(Publisher publisher) {
+    public final <U> Maybe<T> timeout(Publisher<U> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, publisher)) == null) {
@@ -1842,7 +1848,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(Publisher publisher, int i) {
+    public static <T> Flowable<T> concat(Publisher<? extends MaybeSource<? extends T>> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, publisher, i)) == null) {
@@ -1856,7 +1862,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(Publisher publisher, int i) {
+    public static <T> Flowable<T> merge(Publisher<? extends MaybeSource<? extends T>> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65570, null, publisher, i)) == null) {
@@ -1870,7 +1876,8 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(Publisher publisher, int i) {
+    @Experimental
+    public static <T> Flowable<T> mergeDelayError(Publisher<? extends MaybeSource<? extends T>> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65579, null, publisher, i)) == null) {
@@ -1883,7 +1890,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe timeout(MaybeSource maybeSource, MaybeSource maybeSource2) {
+    public final <U> Maybe<T> timeout(MaybeSource<U> maybeSource, MaybeSource<? extends T> maybeSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048660, this, maybeSource, maybeSource2)) == null) {
@@ -1896,7 +1903,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe merge(MaybeSource maybeSource) {
+    public static <T> Maybe<T> merge(MaybeSource<? extends MaybeSource<? extends T>> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, maybeSource)) == null) {
@@ -1908,7 +1915,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe retry(Predicate predicate) {
+    public final Maybe<T> retry(Predicate<? super Throwable> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, predicate)) == null) {
@@ -1919,7 +1926,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single sequenceEqual(MaybeSource maybeSource, MaybeSource maybeSource2, BiPredicate biPredicate) {
+    public static <T> Single<Boolean> sequenceEqual(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, BiPredicate<? super T, ? super T> biPredicate) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65582, null, maybeSource, maybeSource2, biPredicate)) == null) {
@@ -1933,7 +1940,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe using(Callable callable, Function function, Consumer consumer) {
+    public static <T, D> Maybe<T> using(Callable<? extends D> callable, Function<? super D, ? extends MaybeSource<? extends T>> function, Consumer<? super D> consumer) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65586, null, callable, function, consumer)) == null) {
@@ -1944,7 +1951,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(MaybeSource maybeSource, MaybeSource maybeSource2, BiFunction biFunction) {
+    public static <T1, T2, R> Maybe<R> zip(MaybeSource<? extends T1> maybeSource, MaybeSource<? extends T2> maybeSource2, BiFunction<? super T1, ? super T2, ? extends R> biFunction) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65596, null, maybeSource, maybeSource2, biFunction)) == null) {
@@ -1957,7 +1964,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Maybe<T> delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1968,7 +1975,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe flatMap(Function function, Function function2, Callable callable) {
+    public final <R> Maybe<R> flatMap(Function<? super T, ? extends MaybeSource<? extends R>> function, Function<? super Throwable, ? extends MaybeSource<? extends R>> function2, Callable<? extends MaybeSource<? extends R>> callable) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048606, this, function, function2, callable)) == null) {
@@ -1982,7 +1989,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Disposable subscribe(Consumer consumer, Consumer consumer2, Action action) {
+    public final Disposable subscribe(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048644, this, consumer, consumer2, action)) == null) {
@@ -1996,7 +2003,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Maybe<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048657, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -2007,7 +2014,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4, MaybeSource maybeSource5, MaybeSource maybeSource6, MaybeSource maybeSource7, MaybeSource maybeSource8, MaybeSource maybeSource9, Function9 function9) {
+    public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R> Maybe<R> zip(MaybeSource<? extends T1> maybeSource, MaybeSource<? extends T2> maybeSource2, MaybeSource<? extends T3> maybeSource3, MaybeSource<? extends T4> maybeSource4, MaybeSource<? extends T5> maybeSource5, MaybeSource<? extends T6> maybeSource6, MaybeSource<? extends T7> maybeSource7, MaybeSource<? extends T8> maybeSource8, MaybeSource<? extends T9> maybeSource9, Function9<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? super T9, ? extends R> function9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65589, null, new Object[]{maybeSource, maybeSource2, maybeSource3, maybeSource4, maybeSource5, maybeSource6, maybeSource7, maybeSource8, maybeSource9, function9})) == null) {
@@ -2027,7 +2034,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4, MaybeSource maybeSource5, MaybeSource maybeSource6, MaybeSource maybeSource7, MaybeSource maybeSource8, Function8 function8) {
+    public static <T1, T2, T3, T4, T5, T6, T7, T8, R> Maybe<R> zip(MaybeSource<? extends T1> maybeSource, MaybeSource<? extends T2> maybeSource2, MaybeSource<? extends T3> maybeSource3, MaybeSource<? extends T4> maybeSource4, MaybeSource<? extends T5> maybeSource5, MaybeSource<? extends T6> maybeSource6, MaybeSource<? extends T7> maybeSource7, MaybeSource<? extends T8> maybeSource8, Function8<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? extends R> function8) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65590, null, new Object[]{maybeSource, maybeSource2, maybeSource3, maybeSource4, maybeSource5, maybeSource6, maybeSource7, maybeSource8, function8})) == null) {
@@ -2046,7 +2053,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4, MaybeSource maybeSource5, MaybeSource maybeSource6, MaybeSource maybeSource7, Function7 function7) {
+    public static <T1, T2, T3, T4, T5, T6, T7, R> Maybe<R> zip(MaybeSource<? extends T1> maybeSource, MaybeSource<? extends T2> maybeSource2, MaybeSource<? extends T3> maybeSource3, MaybeSource<? extends T4> maybeSource4, MaybeSource<? extends T5> maybeSource5, MaybeSource<? extends T6> maybeSource6, MaybeSource<? extends T7> maybeSource7, Function7<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? extends R> function7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65591, null, new Object[]{maybeSource, maybeSource2, maybeSource3, maybeSource4, maybeSource5, maybeSource6, maybeSource7, function7})) == null) {
@@ -2064,7 +2071,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4, MaybeSource maybeSource5, MaybeSource maybeSource6, Function6 function6) {
+    public static <T1, T2, T3, T4, T5, T6, R> Maybe<R> zip(MaybeSource<? extends T1> maybeSource, MaybeSource<? extends T2> maybeSource2, MaybeSource<? extends T3> maybeSource3, MaybeSource<? extends T4> maybeSource4, MaybeSource<? extends T5> maybeSource5, MaybeSource<? extends T6> maybeSource6, Function6<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? extends R> function6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65592, null, new Object[]{maybeSource, maybeSource2, maybeSource3, maybeSource4, maybeSource5, maybeSource6, function6})) == null) {
@@ -2081,7 +2088,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4, MaybeSource maybeSource5, Function5 function5) {
+    public static <T1, T2, T3, T4, T5, R> Maybe<R> zip(MaybeSource<? extends T1> maybeSource, MaybeSource<? extends T2> maybeSource2, MaybeSource<? extends T3> maybeSource3, MaybeSource<? extends T4> maybeSource4, MaybeSource<? extends T5> maybeSource5, Function5<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? extends R> function5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65593, null, new Object[]{maybeSource, maybeSource2, maybeSource3, maybeSource4, maybeSource5, function5})) == null) {
@@ -2097,7 +2104,7 @@ public abstract class Maybe implements MaybeSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Maybe zip(MaybeSource maybeSource, MaybeSource maybeSource2, MaybeSource maybeSource3, MaybeSource maybeSource4, Function4 function4) {
+    public static <T1, T2, T3, T4, R> Maybe<R> zip(MaybeSource<? extends T1> maybeSource, MaybeSource<? extends T2> maybeSource2, MaybeSource<? extends T3> maybeSource3, MaybeSource<? extends T4> maybeSource4, Function4<? super T1, ? super T2, ? super T3, ? super T4, ? extends R> function4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65594, null, maybeSource, maybeSource2, maybeSource3, maybeSource4, function4)) == null) {
@@ -2113,7 +2120,7 @@ public abstract class Maybe implements MaybeSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final Maybe timeout(Publisher publisher, MaybeSource maybeSource) {
+    public final <U> Maybe<T> timeout(Publisher<U> publisher, MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048662, this, publisher, maybeSource)) == null) {

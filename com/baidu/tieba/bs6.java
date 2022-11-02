@@ -1,128 +1,92 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bs6 {
+public class bs6 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsFragment a;
-    public gj6 b;
-    public TextView c;
-    public boolean d;
-    public int e;
+    public FrsModelController a;
+    public MvcSocketResponsedMessage<pn8, ?> b;
+    public MvcSocketMessage<FrsRequestData, pn8> c;
+    public MvcNetMessage<FrsRequestData, pn8> d;
+    public wn8 e;
 
-    public bs6(FrsFragment frsFragment) {
+    public bs6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = -1;
-        if (frsFragment != null) {
-            this.a = frsFragment;
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                UtilHelper.getStatusBarHeight();
-                return;
+    }
+
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a;
+            if (frsModelController == null) {
+                return false;
             }
-            return;
-        }
-        throw new NullPointerException("FrsFragment is null");
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i >= 0) {
-                d(true);
-                e(i);
-                return;
+            frsModelController.E0(this.b, this.c, this.d);
+            wn8 wn8Var = this.e;
+            if (wn8Var != null) {
+                wn8Var.b();
             }
-            d(false);
-            e(i);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(FrsModelController frsModelController) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = frsModelController;
         }
     }
 
-    public void d(boolean z) {
+    public void b(wn8 wn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wn8Var) == null) {
+            this.e = wn8Var;
         }
     }
 
-    public void e(int i) {
+    public void c(MvcSocketMessage<FrsRequestData, pn8> mvcSocketMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
+            this.c = mvcSocketMessage;
         }
     }
 
-    public void b() {
-        int i;
+    public void d(MvcNetMessage<FrsRequestData, pn8> mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d && (i = this.e) >= 0) {
-                f(i);
-            }
-            this.d = false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
         }
     }
 
-    public void c() {
-        gj6 gj6Var;
+    public void e(MvcSocketResponsedMessage<pn8, ?> mvcSocketResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gj6Var = this.b) != null) {
-            gj6Var.e();
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
+            this.b = mvcSocketResponsedMessage;
         }
-    }
-
-    public final void f(int i) {
-        qh6 j1;
-        FrameLayout t0;
-        String string;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (j1 = this.a.j1()) == null || j1.e0() == null || (t0 = j1.t0()) == null) {
-            return;
-        }
-        if (this.c == null && this.a.getPageContext() != null) {
-            TextView textView = new TextView(this.a.getPageContext().getPageActivity());
-            this.c = textView;
-            textView.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
-            this.c.setGravity(17);
-        }
-        if (this.c != null) {
-            if (i > 0) {
-                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fd8), Integer.valueOf(i));
-            } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11df);
-            }
-            this.c.setText(string);
-        }
-        SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd));
-        if (this.b == null) {
-            this.b = new gj6();
-        }
-        this.b.h(this.c, t0, layoutParams, 2000);
-        this.e = -1;
     }
 }

@@ -1,5 +1,8 @@
 package androidx.recyclerview.widget;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.DiffUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,8 +18,11 @@ import java.util.concurrent.Executors;
 public final class AsyncDifferConfig<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final Executor mBackgroundThreadExecutor;
+    @NonNull
     public final DiffUtil.ItemCallback<T> mDiffCallback;
+    @Nullable
     public final Executor mMainThreadExecutor;
 
     /* loaded from: classes.dex */
@@ -27,6 +33,7 @@ public final class AsyncDifferConfig<T> {
         public transient /* synthetic */ FieldHolder $fh;
         public Executor mBackgroundThreadExecutor;
         public final DiffUtil.ItemCallback<T> mDiffCallback;
+        @Nullable
         public Executor mMainThreadExecutor;
 
         static {
@@ -45,7 +52,7 @@ public final class AsyncDifferConfig<T> {
             sExecutorLock = new Object();
         }
 
-        public Builder(DiffUtil.ItemCallback<T> itemCallback) {
+        public Builder(@NonNull DiffUtil.ItemCallback<T> itemCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,6 +70,7 @@ public final class AsyncDifferConfig<T> {
             this.mDiffCallback = itemCallback;
         }
 
+        @NonNull
         public Builder<T> setBackgroundThreadExecutor(Executor executor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -73,6 +81,8 @@ public final class AsyncDifferConfig<T> {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public Builder<T> setMainThreadExecutor(Executor executor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -83,6 +93,7 @@ public final class AsyncDifferConfig<T> {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public AsyncDifferConfig<T> build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -101,7 +112,7 @@ public final class AsyncDifferConfig<T> {
         }
     }
 
-    public AsyncDifferConfig(Executor executor, Executor executor2, DiffUtil.ItemCallback<T> itemCallback) {
+    public AsyncDifferConfig(@Nullable Executor executor, @NonNull Executor executor2, @NonNull DiffUtil.ItemCallback<T> itemCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,6 +132,7 @@ public final class AsyncDifferConfig<T> {
         this.mDiffCallback = itemCallback;
     }
 
+    @NonNull
     public Executor getBackgroundThreadExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -130,6 +142,7 @@ public final class AsyncDifferConfig<T> {
         return (Executor) invokeV.objValue;
     }
 
+    @NonNull
     public DiffUtil.ItemCallback<T> getDiffCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,6 +152,8 @@ public final class AsyncDifferConfig<T> {
         return (DiffUtil.ItemCallback) invokeV.objValue;
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Executor getMainThreadExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

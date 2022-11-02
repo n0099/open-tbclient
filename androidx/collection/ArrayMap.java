@@ -1,5 +1,7 @@
 package androidx.collection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +16,7 @@ import java.util.Set;
 public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public MapCollections<K, V> mCollections;
 
     public ArrayMap() {
@@ -229,7 +232,7 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
         }
     }
 
-    public boolean containsAll(Collection<?> collection) {
+    public boolean containsAll(@NonNull Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
@@ -238,7 +241,7 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
         return invokeL.booleanValue;
     }
 
-    public boolean removeAll(Collection<?> collection) {
+    public boolean removeAll(@NonNull Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
@@ -247,7 +250,7 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
         return invokeL.booleanValue;
     }
 
-    public boolean retainAll(Collection<?> collection) {
+    public boolean retainAll(@NonNull Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {

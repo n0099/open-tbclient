@@ -1,8 +1,9 @@
 package com.baidu.tieba.homepage.personalize.data;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a37;
+import com.baidu.tieba.k47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,6 +49,7 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         DataRes dataRes;
@@ -66,11 +68,11 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            a37.a = false;
-            if (a37.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-                this.resultData = a37.b();
-                a37.a = true;
-                a37.a();
+            k47.a = false;
+            if (k47.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+                this.resultData = k47.b();
+                k47.a = true;
+                k47.a();
             } else {
                 this.resultData = personalizedResIdl.data;
             }

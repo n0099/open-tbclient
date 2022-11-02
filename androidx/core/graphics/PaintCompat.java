@@ -6,6 +6,8 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -53,7 +55,7 @@ public final class PaintCompat {
         }
     }
 
-    public static boolean hasGlyph(Paint paint, String str) {
+    public static boolean hasGlyph(@NonNull Paint paint, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, paint, str)) == null) {
@@ -113,7 +115,7 @@ public final class PaintCompat {
         return (Pair) invokeV.objValue;
     }
 
-    public static boolean setBlendMode(Paint paint, BlendModeCompat blendModeCompat) {
+    public static boolean setBlendMode(@NonNull Paint paint, @Nullable BlendModeCompat blendModeCompat) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, paint, blendModeCompat)) == null) {

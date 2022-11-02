@@ -1,96 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
+import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qq5 extends SQLiteOpenHelper {
+public class qq5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdWebViewActivity a;
+    public op8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qq5(Context context) {
-        super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 4);
+    public qq5(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {adWebViewActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = adWebViewActivity;
     }
 
-    public final void b(SQLiteDatabase sQLiteDatabase) {
+    public void a(op8 op8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (TextUtils.isEmpty(currentAccount)) {
-                    return;
-                }
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.dropTables", new Object[0]);
-                BdLog.e("drop table wrong " + e.toString());
+        if (interceptable == null || interceptable.invokeL(1048576, this, op8Var) == null) {
+            this.b = op8Var;
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageContext().getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && bh.f(adWebViewActivity.getPageContext())) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public final void a(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (TextUtils.isEmpty(currentAccount)) {
-                    return;
-                }
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, user_type INT);");
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.createTables", new Object[0]);
-                BdLog.e("create table wrong " + e.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && bh.f(adWebViewActivity.getPageContext())) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            b(sQLiteDatabase);
-            a(sQLiteDatabase);
-            try {
-                MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(304001));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && bh.f(adWebViewActivity.getPageContext())) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        AdWebViewActivity adWebViewActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            op8 op8Var = this.b;
+            if ((op8Var != null && op8Var.onJsPrompt(str2, jsPromptResult)) || (adWebViewActivity = this.a) == null || !bh.f(adWebViewActivity.getPageContext())) {
+                return true;
+            }
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

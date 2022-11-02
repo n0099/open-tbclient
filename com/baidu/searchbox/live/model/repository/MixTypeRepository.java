@@ -57,7 +57,7 @@ public final class MixTypeRepository {
         return (LiveTypeData) invokeL.objValue;
     }
 
-    public final void fetchLiveType(String str, final OnMixDataLoaded onMixDataLoaded) {
+    public final void fetchLiveType(String str, final OnMixDataLoaded<MixResult<LiveTypeData>> onMixDataLoaded) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048576, this, str, onMixDataLoaded) != null) || this.isRequestIng) {
             return;
@@ -66,7 +66,7 @@ public final class MixTypeRepository {
         Map mapOf = MapsKt__MapsJVMKt.mapOf(TuplesKt.to("room_id", str));
         MediaLivePluginLogger.Companion.getInstance().logListGetLiveTypeStartToSendReqNet();
         MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartGetLiveTypeTime();
-        MixRequesterKt.fetchData$default(MixUrlConfigKt.getLiveTypeUrl(), mapOf, new MixNetCallback(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixTypeRepository$fetchLiveType$1
+        MixRequesterKt.fetchData$default(MixUrlConfigKt.getLiveTypeUrl(), mapOf, new MixNetCallback<LiveTypeData>(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixTypeRepository$fetchLiveType$1
             public static /* synthetic */ Interceptable $ic;
             public final /* synthetic */ OnMixDataLoaded $callback;
             public transient /* synthetic */ FieldHolder $fh;
@@ -133,6 +133,7 @@ public final class MixTypeRepository {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.searchbox.live.model.net.MixNetCallback
             public LiveTypeData onParseResponseInBackground(NetResponse netResponse) {
                 InterceptResult invokeL;

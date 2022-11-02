@@ -2,13 +2,16 @@ package com.google.android.gms.common.internal;
 
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import javax.annotation.Nullable;
 import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class Asserts {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +33,8 @@ public final class Asserts {
         throw new AssertionError("Uninstantiable");
     }
 
-    public static void checkMainThread(String str) {
+    @KeepForSdk
+    public static void checkMainThread(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || Looper.getMainLooper().getThread() == Thread.currentThread()) {
             return;
@@ -47,7 +51,8 @@ public final class Asserts {
         throw new IllegalStateException(str);
     }
 
-    public static void checkNotMainThread(String str) {
+    @KeepForSdk
+    public static void checkNotMainThread(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || Looper.getMainLooper().getThread() != Thread.currentThread()) {
             return;
@@ -65,6 +70,7 @@ public final class Asserts {
     }
 
     @EnsuresNonNull({"#1"})
+    @KeepForSdk
     public static void checkNotNull(@Nullable Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, null, obj) != null) || obj != null) {
@@ -73,7 +79,8 @@ public final class Asserts {
         throw new IllegalArgumentException("null reference");
     }
 
-    public static void checkNull(Object obj) {
+    @KeepForSdk
+    public static void checkNull(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65541, null, obj) != null) || obj == null) {
             return;
@@ -81,6 +88,7 @@ public final class Asserts {
         throw new IllegalArgumentException("non-null reference");
     }
 
+    @KeepForSdk
     public static void checkState(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZ(65542, null, z) != null) || z) {
@@ -90,7 +98,8 @@ public final class Asserts {
     }
 
     @EnsuresNonNull({"#1"})
-    public static void checkNotNull(@Nullable Object obj, Object obj2) {
+    @KeepForSdk
+    public static void checkNotNull(@Nullable Object obj, @NonNull Object obj2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2) != null) || obj != null) {
             return;
@@ -98,7 +107,8 @@ public final class Asserts {
         throw new IllegalArgumentException(String.valueOf(obj2));
     }
 
-    public static void checkState(boolean z, Object obj) {
+    @KeepForSdk
+    public static void checkState(boolean z, @NonNull Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZL(65543, null, z, obj) != null) || z) {
             return;

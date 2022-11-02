@@ -9,6 +9,9 @@ import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -27,6 +30,8 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+@RequiresApi(21)
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     public static /* synthetic */ Interceptable $ic = null;
@@ -145,7 +150,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
         return (Typeface) invokeL.objValue;
     }
 
-    private File getFile(ParcelFileDescriptor parcelFileDescriptor) {
+    private File getFile(@NonNull ParcelFileDescriptor parcelFileDescriptor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, parcelFileDescriptor)) == null) {
@@ -190,7 +195,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i)) == null) {

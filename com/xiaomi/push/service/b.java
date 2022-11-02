@@ -18,12 +18,12 @@ public class b extends al.a {
     public ii a;
 
     /* renamed from: a  reason: collision with other field name */
-    public WeakReference f919a;
+    public WeakReference<XMPushService> f919a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f920a;
 
-    public b(ii iiVar, WeakReference weakReference, boolean z) {
+    public b(ii iiVar, WeakReference<XMPushService> weakReference, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,10 +54,10 @@ public class b extends al.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        WeakReference weakReference;
+        WeakReference<XMPushService> weakReference;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f919a) == null || this.a == null || (xMPushService = (XMPushService) weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f919a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
         this.a.a(bd.a());

@@ -1,158 +1,61 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.view.View;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.data.UserPendantData;
-import com.baidu.tieba.ig8;
-import com.baidu.tieba.p68;
-import com.baidu.tieba.personCenter.model.PersonCenterModel;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pbextra.praise.PraiseListResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class t58 implements p68.d {
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class t58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PersonCenterModel a;
-    public p68 b;
-    public PersonCenterModel.d c;
-    public CustomMessageListener d;
-    public CustomMessageListener e;
-    public CustomMessageListener f;
-    public CustomMessageListener g;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
+    public final List<q58> h;
+    public b i;
+    public final HttpMessageListener j;
 
-    /* loaded from: classes5.dex */
-    public class a implements PersonCenterModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t58 a;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void O0(int i, List<q58> list, int i2, int i3);
 
-        /* renamed from: com.baidu.tieba.t58$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0406a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ w58 a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ a c;
+        void h(String str);
+    }
 
-            public RunnableC0406a(a aVar, w58 w58Var, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, w58Var, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = w58Var;
-                this.b = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String b = this.a.b();
-                    if (!StringUtils.isNull(b) && this.c.a.b != null && !this.c.a.b.u()) {
-                        ux4.k().w(this.b, this.a.a());
-                        this.c.a.b.q(b);
-                    } else if (this.c.a.b != null) {
-                        this.c.a.b.r(this.a.a());
-                    }
-                }
-            }
-        }
-
-        public a(t58 t58Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t58Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t58Var;
-        }
-
-        @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.d
-        public void a(a68 a68Var) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, a68Var) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (this.a.b != null) {
-                    this.a.b.f();
-                    this.a.b.o(a68Var);
-                }
-                if (a68Var != null && a68Var.x() != null) {
-                    qq4.b(a68Var.x().getPersonPrivate());
-                }
-                g58.d().i(System.currentTimeMillis() - currentTimeMillis);
-                long e = g58.d().e();
-                if (e > 0) {
-                    g58.d().k(System.currentTimeMillis() - e);
-                    g58.d().j(0L);
-                }
-                w58 s = this.a.a.D().s();
-                UserData x = this.a.a.D().x();
-                if (s != null && x != null) {
-                    String str = "key_record_bubble_info_id_" + x.getUserId();
-                    int l = ux4.k().l(str, -1);
-                    if (s.a() > 0 && s.a() != l) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        hh.a().postDelayed(new RunnableC0406a(this, s, str), 501L);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.d
-        public void onFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && i == -1 && !this.a.a.mIsDataLoaded && this.a.b != null) {
-                this.a.b.s();
-            }
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t58 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(t58 t58Var, int i) {
+        public a(t58 t58Var, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -174,166 +77,50 @@ public class t58 implements p68.d {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            ig8 ig8Var;
-            SparseArray sparseArray;
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ig8) && (sparseArray = (ig8Var = (ig8) customResponsedMessage.getData()).a) != null && sparseArray.size() > 0) {
-                ig8.a aVar = (ig8.a) ig8Var.a.get(2);
-                ig8.a aVar2 = (ig8.a) ig8Var.a.get(3);
-                ig8.a aVar3 = (ig8.a) ig8Var.a.get(9);
-                ig8.a aVar4 = (ig8.a) ig8Var.a.get(10);
-                if (this.a.a.D() != null) {
-                    if (aVar2 != null) {
-                        this.a.a.D().g(aVar2.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001400) {
+                    if (httpResponsedMessage.getError() == 0 && (httpResponsedMessage instanceof PraiseListResponsedMessage)) {
+                        PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
+                        if (praiseListResponsedMessage.getError() == 0) {
+                            List<q58> list = praiseListResponsedMessage.getmZanItemDataList();
+                            if (list != null) {
+                                for (q58 q58Var : list) {
+                                    this.a.h.add(q58Var);
+                                }
+                            }
+                            t58 t58Var = this.a;
+                            t58Var.g = t58Var.h.size();
+                            this.a.f = praiseListResponsedMessage.getTotalNum();
+                            t58.h(this.a);
+                            int i = 1001;
+                            if (this.a.e > 5) {
+                                i = 1003;
+                            }
+                            if (this.a.g >= this.a.f) {
+                                i = 1002;
+                            }
+                            if (this.a.i != null) {
+                                this.a.i.O0(this.a.f, this.a.h, i, this.a.f - this.a.g);
+                            }
+                        } else if (this.a.i != null) {
+                            this.a.i.h(praiseListResponsedMessage.getErrMsg());
+                        }
+                    } else if (this.a.i != null) {
+                        this.a.i.h(null);
                     }
-                    if (aVar != null) {
-                        this.a.a.D().e(aVar.a);
-                    }
-                    if (aVar3 != null) {
-                        this.a.a.D().d(aVar3.a);
-                    }
-                    if (aVar4 != null) {
-                        this.a.a.D().f(aVar4.a);
-                    }
-                }
-                ig8.a aVar5 = (ig8.a) ig8Var.a.get(5);
-                if (aVar5 != null && this.a.b != null) {
-                    this.a.b.t(5, aVar5.a);
-                }
-                if (this.a.b != null) {
-                    this.a.b.i();
+                } else if (this.a.i != null) {
+                    this.a.i.h(null);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t58 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(t58 t58Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t58Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t58Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            UserPendantData userPendantData;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserPendantData) && (userPendantData = (UserPendantData) customResponsedMessage.getData()) != null) {
-                if (this.a.a.D() != null) {
-                    this.a.a.D().C(userPendantData);
-                    if (this.a.b != null) {
-                        this.a.b.i();
-                        return;
-                    }
-                    return;
-                }
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(t58 t58Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t58Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-                return;
-            }
-            PersonRedTipManager.getInstance().setIsPrimary(false);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t58 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(t58 t58Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t58Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t58Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            int v;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921744 && this.a.a != null && this.a.a.D() != null && (v = this.a.a.D().v()) != -1) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921739, Integer.valueOf(v)));
-            }
-        }
-    }
-
-    public t58(View view2, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public t58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -343,105 +130,168 @@ public class t58 implements p68.d {
                 return;
             }
         }
-        this.c = new a(this);
-        this.d = new b(this, 2001435);
-        this.e = new c(this, 2016485);
-        this.f = new d(this, 2005016);
-        this.g = new e(this, 2921744);
-        p68 p68Var = new p68(view2, tbPageContext, bdUniqueId);
-        this.b = p68Var;
-        p68Var.p(this);
-        PersonCenterModel personCenterModel = new PersonCenterModel(tbPageContext, bdUniqueId);
-        this.a = personCenterModel;
-        personCenterModel.J(this.c);
-        PersonRedTipManager.getInstance();
-        this.d.setTag(bdUniqueId);
-        this.f.setTag(bdUniqueId);
-        this.g.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.d);
-        MessageManager.getInstance().registerListener(this.f);
-        MessageManager.getInstance().registerListener(this.g);
-        this.e.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = true;
+        this.e = 1;
+        this.f = 0;
+        this.g = 0;
+        this.h = new ArrayList(100);
+        this.i = null;
+        this.j = new a(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
+        this.a = "";
+        this.b = "";
     }
 
-    @Override // com.baidu.tieba.p68.d
-    public void a(View view2) {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a.loadData();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
+            httpMessage.addParam("post_id", this.b + "");
+            httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, this.e + "");
+            httpMessage.addParam("res_num", PayUVEventType.PAY_WALLET_BANNER_SHOW);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void e(int i) {
-        p68 p68Var;
+    public t58(String str, String str2, String str3, boolean z, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (p68Var = this.b) != null) {
-            p68Var.j(i);
-        }
-    }
-
-    public void i(String str) {
-        a68 D;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (D = this.a.D()) != null && D.x() != null) {
-            D.x().setName_show(str);
-            p68 p68Var = this.b;
-            if (p68Var != null) {
-                p68Var.i();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Boolean.valueOf(z), bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = true;
+        this.e = 1;
+        this.f = 0;
+        this.g = 0;
+        this.h = new ArrayList(100);
+        this.i = null;
+        this.j = new a(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.i = bVar;
+        this.d = z;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/u/zan/getuserlist");
+        tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.j);
     }
 
-    public void k(boolean z) {
+    public static /* synthetic */ int h(t58 t58Var) {
+        int i = t58Var.e;
+        t58Var.e = i + 1;
+        return i;
+    }
+
+    public q58 j(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a.K(z);
-            p68 p68Var = this.b;
-            if (p68Var != null) {
-                p68Var.m(z);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i > -1 && i < this.h.size()) {
+                return this.h.get(i);
             }
+            return null;
+        }
+        return (q58) invokeI.objValue;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            n();
         }
     }
 
-    public void d() {
-        p68 p68Var;
+    public void u(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (p68Var = this.b) != null) {
-            p68Var.g();
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public void f() {
-        p68 p68Var;
+    public void o(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (p68Var = this.b) != null) {
-            p68Var.k();
-            this.b = null;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, bundle, str) == null) {
+            bundle.putBoolean(str, this.d);
         }
     }
 
-    public void g() {
-        p68 p68Var;
+    public void p(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (p68Var = this.b) != null) {
-            p68Var.l();
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
+            bundle.putString(str, this.c);
         }
     }
 
-    public void h() {
-        p68 p68Var;
+    public void q(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (p68Var = this.b) != null) {
-            p68Var.n();
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, str) == null) {
+            bundle.putString(str, this.b);
         }
     }
 
-    public void j() {
+    public void r(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            g58.d().j(System.currentTimeMillis());
-            this.a.loadData();
+        if (interceptable == null || interceptable.invokeLL(1048585, this, bundle, str) == null) {
+            bundle.putInt(str, this.f);
+        }
+    }
+
+    public void s(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, bundle, str) == null) {
+            bundle.putString(str, this.a);
+        }
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            messageManager.unRegisterListener(this.j);
+            messageManager.unRegisterTask(CmdConfigHttp.CMD_GRAFFITI_LIST);
+            messageManager.unRegisterTask(309326);
         }
     }
 }

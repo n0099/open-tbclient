@@ -1,5 +1,6 @@
 package com.baidu.sofire.face.a;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.Signature;
@@ -19,7 +20,6 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.SurfaceHolder;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
@@ -80,12 +80,12 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
     public FaceConfig M;
     public ILivenessStrategy N;
     public IDetectStrategy O;
-    public Map P;
+    public Map<Long, String> P;
     public int Q;
     public long R;
     public JSONArray S;
     public int T;
-    public Map U;
+    public Map<Long, FaceInfo> U;
     public long V;
     public long W;
     public RequestInfo X;
@@ -138,12 +138,12 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
         /* renamed from: com.baidu.sofire.face.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0160a implements Runnable {
+        public class RunnableC0168a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0160a(a aVar) {
+            public RunnableC0168a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,13 +173,13 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
         /* renamed from: com.baidu.sofire.face.a.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0161b implements Runnable {
+        public class RunnableC0169b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0161b(a aVar, int i) {
+            public RunnableC0169b(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -260,10 +260,10 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
             this.a = bVar;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:57:0x0117 A[RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:58:0x0118  */
-        /* JADX WARN: Removed duplicated region for block: B:73:0x013e A[Catch: all -> 0x018a, TryCatch #0 {all -> 0x018a, blocks: (B:5:0x0007, B:8:0x000e, B:10:0x0019, B:12:0x004c, B:14:0x0056, B:16:0x0060, B:18:0x0066, B:21:0x006d, B:23:0x007b, B:25:0x007f, B:26:0x0087, B:28:0x008d, B:30:0x0097, B:32:0x009f, B:35:0x00a6, B:38:0x00b2, B:40:0x00b8, B:55:0x0111, B:66:0x0129, B:68:0x012f, B:70:0x0133, B:73:0x013e, B:76:0x0146, B:78:0x014c, B:81:0x0153, B:84:0x015d, B:86:0x0161, B:88:0x0165, B:89:0x0168, B:92:0x016f, B:94:0x0173, B:96:0x0177, B:97:0x017f, B:100:0x0186, B:61:0x011d, B:41:0x00ce, B:43:0x00d8, B:45:0x00de, B:47:0x00f6, B:49:0x0100), top: B:108:0x0007 }] */
-        /* JADX WARN: Removed duplicated region for block: B:75:0x0144  */
+        /* JADX WARN: Removed duplicated region for block: B:57:0x0118 A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:58:0x0119  */
+        /* JADX WARN: Removed duplicated region for block: B:73:0x013f A[Catch: all -> 0x018b, TryCatch #0 {all -> 0x018b, blocks: (B:5:0x0007, B:8:0x000e, B:10:0x001a, B:12:0x004d, B:14:0x0057, B:16:0x0061, B:18:0x0067, B:21:0x006e, B:23:0x007c, B:25:0x0080, B:26:0x0088, B:28:0x008e, B:30:0x0098, B:32:0x00a0, B:35:0x00a7, B:38:0x00b3, B:40:0x00b9, B:55:0x0112, B:66:0x012a, B:68:0x0130, B:70:0x0134, B:73:0x013f, B:76:0x0147, B:78:0x014d, B:81:0x0154, B:84:0x015e, B:86:0x0162, B:88:0x0166, B:89:0x0169, B:92:0x0170, B:94:0x0174, B:96:0x0178, B:97:0x0180, B:100:0x0187, B:61:0x011e, B:41:0x00cf, B:43:0x00d9, B:45:0x00df, B:47:0x00f7, B:49:0x0101), top: B:108:0x0007 }] */
+        /* JADX WARN: Removed duplicated region for block: B:75:0x0145  */
         @Override // java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -271,7 +271,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         public void run() {
             b bVar;
             int i;
-            Pair callSync;
+            Pair<Integer, Object> callSync;
             char c2;
             b bVar2;
             int i2;
@@ -291,7 +291,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     bVar5.o = com.baidu.sofire.face.b.b.a("4");
                     Class cls = Integer.TYPE;
                     b bVar6 = this.a;
-                    Pair callSync2 = FH.callSync(1, "sfv", new Class[]{Activity.class, SurfaceHolder.class, Object.class, cls}, bVar6.b, bVar6.c, bVar6.d, Integer.valueOf(bVar6.n));
+                    Pair<Integer, Object> callSync2 = FH.callSync(1, "sfv", new Class[]{Activity.class, SurfaceHolder.class, Object.class, cls}, bVar6.b, bVar6.c, bVar6.d, Integer.valueOf(bVar6.n));
                     if (callSync2 != null && ((Integer) callSync2.first).intValue() == 0 && ((Integer) callSync2.second).intValue() == 1) {
                         this.a.getClass();
                         return;
@@ -303,7 +303,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     com.baidu.sofire.face.b.b.a(bVar7.a, bVar7.o, 0, 0, null);
                     b bVar8 = this.a;
                     if (bVar8.d != null && (activity3 = bVar8.b) != null) {
-                        activity3.runOnUiThread(new RunnableC0160a(this));
+                        activity3.runOnUiThread(new RunnableC0168a(this));
                     }
                     if (!FH.isInitSuc(1) && this.a.k.a()) {
                         this.a.a(-15);
@@ -332,7 +332,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                             i2 = 1;
                             bVar3 = this.a;
                             if (bVar3.d != null && (activity2 = bVar3.b) != null) {
-                                activity2.runOnUiThread(new RunnableC0161b(this, i2));
+                                activity2.runOnUiThread(new RunnableC0169b(this, i2));
                             }
                             if (c2 != 65534) {
                                 this.a.a(-3);
@@ -371,7 +371,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         i2 = -1;
                         bVar3 = this.a;
                         if (bVar3.d != null) {
-                            activity2.runOnUiThread(new RunnableC0161b(this, i2));
+                            activity2.runOnUiThread(new RunnableC0169b(this, i2));
                         }
                         if (c2 != 65534) {
                         }
@@ -449,7 +449,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
         @Override // java.lang.Runnable
         public void run() {
-            Pair pair;
+            Pair<Integer, Object> pair;
             Activity activity;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -517,12 +517,12 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
     /* renamed from: com.baidu.sofire.face.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0162b implements Runnable {
+    public class RunnableC0170b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0162b(b bVar) {
+        public RunnableC0170b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -610,7 +610,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         this.a.x.setDisplayOrientation(a);
                     } catch (Throwable unused) {
                     }
-                    this.a.y.set(Key.ROTATION, a);
+                    this.a.y.set("rotation", a);
                     this.a.C.set(a);
                     Camera.Parameters parameters = this.a.y;
                     b bVar5 = this.a;
@@ -669,7 +669,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     }
                     bVar17.x.startPreview();
                     this.a.D = true;
-                    Pair callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.o);
+                    Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.o);
                     if (callSync != null && ((Integer) callSync.first).intValue() == 0) {
                         this.a.s = true;
                     }
@@ -779,7 +779,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         b bVar5 = this.a;
                         int a = b.a(bVar5, bVar5.a);
                         this.a.E.setDisplayOrientation(a);
-                        this.a.F.set(Key.ROTATION, a);
+                        this.a.F.set("rotation", a);
                         this.a.C.set(a);
                         Camera.Parameters parameters = this.a.F;
                         b bVar6 = this.a;
@@ -952,7 +952,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
 
         @Override // com.baidu.pass.face.platform.IDetectStrategyCallback
-        public void onDetectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap hashMap, HashMap hashMap2) {
+        public void onDetectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048576, this, faceStatusNewEnum, str, hashMap, hashMap2) == null) {
                 try {
@@ -960,7 +960,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     if (!bVar.m && !bVar.p) {
                         if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
                             bVar.m = true;
-                            Map a = b.a(bVar, hashMap, hashMap2);
+                            Map<Long, String> a = b.a(bVar, hashMap, hashMap2);
                             if (a != null) {
                                 this.a.P = a;
                             } else {
@@ -1021,7 +1021,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         }
 
         @Override // com.baidu.pass.face.platform.ILivenessStrategyCallback
-        public void onLivenessCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap hashMap, HashMap hashMap2, int i) {
+        public void onLivenessCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{faceStatusNewEnum, str, hashMap, hashMap2, Integer.valueOf(i)}) == null) {
                 try {
@@ -1029,7 +1029,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     if (!bVar.m && !bVar.p) {
                         if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
                             bVar.m = true;
-                            Map a = b.a(bVar, hashMap, hashMap2);
+                            Map<Long, String> a = b.a(bVar, hashMap, hashMap2);
                             if (a != null) {
                                 this.a.P = a;
                             } else {
@@ -1307,7 +1307,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
     @Override // com.baidu.pass.face.platform.listener.ISecurityCallback
     public void getFaceInfoForSecurity(FaceInfo[] faceInfoArr) {
-        Map map;
+        Map<Long, FaceInfo> map;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, faceInfoArr) == null) && faceInfoArr != null) {
             try {
@@ -1477,7 +1477,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     }
                     this.i = null;
                 }
-                Map map = this.P;
+                Map<Long, String> map = this.P;
                 if (map != null) {
                     map.clear();
                     this.P = null;
@@ -1523,11 +1523,11 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                 if (jSONObject2 == null) {
                     jSONObject2 = new JSONObject();
                 }
-                Map map = this.P;
+                Map<Long, String> map = this.P;
                 if (map != null && map.size() == 1) {
                     jSONObject2.put("image", this.P.values().iterator().next());
                 } else {
-                    Map map2 = this.P;
+                    Map<Long, String> map2 = this.P;
                     if (map2 != null && map2.size() >= 2) {
                         JSONArray jSONArray = new JSONArray();
                         for (String str : this.P.values()) {
@@ -1804,6 +1804,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
     /* JADX WARN: Removed duplicated region for block: B:64:0x0087 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:70:0x008e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:78:0x0095 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1944,13 +1945,13 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
-                Map map = this.U;
+                Map<Long, FaceInfo> map = this.U;
                 if (map != null && map.size() > 0) {
                     JSONObject jSONObject = new JSONObject();
-                    for (Map.Entry entry : this.U.entrySet()) {
-                        long longValue = ((Long) entry.getKey()).longValue();
-                        FaceInfo faceInfo = (FaceInfo) entry.getValue();
-                        if (longValue > 0 && (a2 = a(faceInfo)) != null) {
+                    for (Map.Entry<Long, FaceInfo> entry : this.U.entrySet()) {
+                        long longValue = entry.getKey().longValue();
+                        FaceInfo value = entry.getValue();
+                        if (longValue > 0 && (a2 = a(value)) != null) {
                             jSONObject.put(String.valueOf(longValue), a2);
                         }
                     }
@@ -1981,7 +1982,7 @@ public class b implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                 if (com.baidu.sofire.face.b.e.a().a(new a(this)) != 1) {
                     a(-7);
                 }
-                com.baidu.sofire.face.b.e.a().a(new RunnableC0162b(this));
+                com.baidu.sofire.face.b.e.a().a(new RunnableC0170b(this));
             } catch (Throwable unused) {
             }
         }

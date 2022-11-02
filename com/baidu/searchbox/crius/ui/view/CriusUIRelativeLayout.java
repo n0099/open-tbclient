@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CriusUIRelativeLayout extends CriusUI {
+public class CriusUIRelativeLayout extends CriusUI<RelativeLayout> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,8 +59,9 @@ public class CriusUIRelativeLayout extends CriusUI {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.searchbox.crius.ui.view.RoundCornerRelativeLayout' to match base method */
     @Override // com.baidu.searchbox.crius.ui.CriusUI
-    public RoundCornerRelativeLayout createView(Context context) {
+    public RelativeLayout createView(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {

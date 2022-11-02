@@ -139,7 +139,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\r\n\u0002\u0010\t\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0018\u0010\u0019R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0006R\u0016\u0010\n\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0006R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003R\u0016\u0010\f\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\f\u0010\u0006R\u0016\u0010\r\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\r\u0010\u0003R\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000e\u0010\u0003R\u0016\u0010\u000f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000f\u0010\u0003R\u0016\u0010\u0010\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0003R\u0016\u0010\u0011\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0003R\u0016\u0010\u0013\u001a\u00020\u00128\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0014R\u0016\u0010\u0015\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0015\u0010\u0006R\u0016\u0010\u0016\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0016\u0010\u0006R\u0016\u0010\u0017\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0017\u0010\u0006¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$Companion;", "", "AB_PRE_START_PLAYER_SWITCH", "Ljava/lang/String;", "", "ENABLE_ERROR_NO_CONVERT", "I", "KEY_PLAY_CDN_TRACE_ID", "KEY_PLAY_CONFIG_PLAY_RATE", "K_LIVE_PLAY_RATE_SETTING", "K_RTC_MEDIA_SERVER_IP", "LIVE_NPS", "LIVE_PLUGIN_SUPPORT_PRE_START_PLAYER_MIM_VERSION", "LIVE_STATE_BACK", "LIVE_TEMPLATE_AUDIO", "LIVE_TEMPLATE_DATE", "PARAM_KABR_SPTS", "PARAM_URL", "", "PLAYER_TIME_OUT_DURATION", "J", "V_MEDIA_SOURCE_TYPE_DEF", "V_MEDIA_SOURCE_TYPE_DURTC", "V_MEDIA_SOURCE_TYPE_PLAYBACK", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -164,7 +164,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\b\u0086\b\u0018\u0000B\u0017\u0012\u0006\u0010\u0007\u001a\u00020\u0001\u0012\u0006\u0010\b\u001a\u00020\u0004¢\u0006\u0004\b\u0018\u0010\u0019J\u0010\u0010\u0002\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0002\u0010\u0003J\u0010\u0010\u0005\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J$\u0010\t\u001a\u00020\u00002\b\b\u0002\u0010\u0007\u001a\u00020\u00012\b\b\u0002\u0010\b\u001a\u00020\u0004HÆ\u0001¢\u0006\u0004\b\t\u0010\nJ\u001a\u0010\u000e\u001a\u00020\r2\b\u0010\f\u001a\u0004\u0018\u00010\u000bHÖ\u0003¢\u0006\u0004\b\u000e\u0010\u000fJ\u0010\u0010\u0011\u001a\u00020\u0010HÖ\u0001¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0013\u001a\u00020\u0001HÖ\u0001¢\u0006\u0004\b\u0013\u0010\u0003R\u0019\u0010\u0007\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0007\u0010\u0014\u001a\u0004\b\u0015\u0010\u0003R\u0019\u0010\b\u001a\u00020\u00048\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\u0016\u001a\u0004\b\u0017\u0010\u0006¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "", "component1", "()Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "component2", "()Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "cacheKey", DI.LIVE_PLAYER, "copy", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;)Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "toString", "Ljava/lang/String;", "getCacheKey", "Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "getPlayer", "<init>", "(Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;)V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class PreStartPlayer {
+    public static final class PreStartPlayer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String cacheKey;
@@ -366,10 +366,10 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
         boolean z3;
         boolean z4;
         Object obj2;
-        Map mediaLivePlayConfig;
+        Map<String, Object> mediaLivePlayConfig;
         Integer num;
         Object obj3;
-        Map mediaLivePlayConfig2;
+        Map<String, Object> mediaLivePlayConfig2;
         boolean z5;
         String str4;
         int i;
@@ -379,7 +379,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
         String str5;
         String str6;
         Object obj7;
-        Map mediaLivePlayConfig3;
+        Map<String, Object> mediaLivePlayConfig3;
         Object obj8;
         Object obj9;
         Object obj10;
@@ -446,7 +446,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                         }
                     }
                     log("preStartPlayer paramsString: 开始构建起播参数， 流地址： playUrl " + optString + ", avcUrl " + optString2 + ", hevcUrl " + optString3);
-                    Map mediaLivePlayConfig4 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CONFIG_PLAY_RATE, MapsKt__MapsJVMKt.mapOf(new Pair(PARAM_KABR_SPTS, optString6)));
+                    Map<String, Object> mediaLivePlayConfig4 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CONFIG_PLAY_RATE, MapsKt__MapsJVMKt.mapOf(new Pair(PARAM_KABR_SPTS, optString6)));
                     if (mediaLivePlayConfig4 != null) {
                         obj = mediaLivePlayConfig4.get(KEY_PLAY_CONFIG_PLAY_RATE);
                     } else {
@@ -468,7 +468,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                         }
                     }
                     if (!StringsKt__StringsJVMKt.isBlank(optString)) {
-                        Map mediaLivePlayConfig5 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString)));
+                        Map<String, Object> mediaLivePlayConfig5 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString)));
                         if (mediaLivePlayConfig5 != null) {
                             obj10 = mediaLivePlayConfig5.get(KEY_PLAY_CDN_TRACE_ID);
                         } else {
@@ -484,7 +484,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                         }
                     }
                     if (!StringsKt__StringsJVMKt.isBlank(optString2)) {
-                        Map mediaLivePlayConfig6 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString2)));
+                        Map<String, Object> mediaLivePlayConfig6 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString2)));
                         if (mediaLivePlayConfig6 != null) {
                             obj9 = mediaLivePlayConfig6.get(KEY_PLAY_CDN_TRACE_ID);
                         } else {
@@ -500,7 +500,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                         }
                     }
                     if (!StringsKt__StringsJVMKt.isBlank(optString3)) {
-                        Map mediaLivePlayConfig7 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString3)));
+                        Map<String, Object> mediaLivePlayConfig7 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString3)));
                         if (mediaLivePlayConfig7 != null) {
                             obj8 = mediaLivePlayConfig7.get(KEY_PLAY_CDN_TRACE_ID);
                         } else {
@@ -539,7 +539,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                                 log("preStartPlayer 无有效流地址");
                                 return false;
                             }
-                            HashMap hashMap = new HashMap();
+                            HashMap<Integer, String> hashMap = new HashMap<>();
                             if (!areEqual && optString6 != null && (!StringsKt__StringsJVMKt.isBlank(optString6)) && str7 != null && (!StringsKt__StringsJVMKt.isBlank(str7))) {
                                 hashMap.put(2014, str7);
                             }
@@ -571,7 +571,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                                 PluginInvokeService pluginManagerService2 = getPluginManagerService();
                                 if (pluginManagerService2 != null) {
                                     obj4 = null;
-                                    Map mediaLivePlayConfig8 = pluginManagerService2.getMediaLivePlayConfig("get_preset_ip", null);
+                                    Map<String, Object> mediaLivePlayConfig8 = pluginManagerService2.getMediaLivePlayConfig("get_preset_ip", null);
                                     if (mediaLivePlayConfig8 != null) {
                                         obj5 = mediaLivePlayConfig8.get("get_preset_ip");
                                         if (obj5 instanceof String) {

@@ -1,330 +1,396 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.PopupWindow;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tieba.so1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class th2 extends PopupWindow {
+public class th2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public String[] b;
-    public int c;
-    public e d;
-    public jg2 e;
 
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a();
-
-        void b(int i);
-
-        void c(String str);
-
-        void d();
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GridView a;
-        public final /* synthetic */ AdapterView.OnItemClickListener b;
-
-        /* loaded from: classes6.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    int intValue = ((Integer) view2.getTag()).intValue();
-                    b bVar = this.a;
-                    bVar.b.onItemClick(bVar.a, view2, intValue, intValue);
-                }
-            }
-        }
-
-        public b(th2 th2Var, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {th2Var, gridView, onItemClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gridView;
-            this.b = onItemClickListener;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int childCount = this.a.getChildCount();
-                if (childCount > 0) {
-                    this.a.setClickable(false);
-                    for (int i = 0; i < childCount; i++) {
-                        View childAt = this.a.getChildAt(i);
-                        childAt.setTag(Integer.valueOf(i));
-                        childAt.setOnClickListener(new a(this));
-                    }
-                    return;
-                }
-                this.a.setOnItemClickListener(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ th2 a;
-
-        public a(th2 th2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {th2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = th2Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && i >= 0 && i <= this.a.b.length) {
-                if (i == 11) {
-                    if (this.a.d != null) {
-                        this.a.d.d();
-                    }
-                } else if (this.a.d != null) {
-                    this.a.d.c(this.a.b[i]);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ th2 a;
-
-        public c(th2 th2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {th2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = th2Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends jg2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ th2 a;
-
-        public d(th2 th2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {th2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = th2Var;
-        }
-
-        @Override // com.baidu.tieba.jg2, com.baidu.tieba.kg2
-        public boolean onKeyDown(int i, KeyEvent keyEvent) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, keyEvent)) == null) {
-                if (i == 4) {
-                    this.a.dismiss();
-                    return true;
-                }
-                return false;
-            }
-            return invokeIL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public th2(Activity activity, int i, e eVar) {
-        super(activity);
+    public boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i), eVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements so1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ th2 b;
+
+        public a(th2 th2Var, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {th2Var, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = th2Var;
+            this.a = file;
+        }
+
+        @Override // com.baidu.tieba.so1.a
+        public void onResult(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (!ok1.a) {
+                    ik4.L(this.a);
+                }
+                th2 th2Var = this.b;
+                th2Var.p("upload file: done. feedback data = " + str);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final th2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-403693171, "Lcom/baidu/tieba/th2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-403693171, "Lcom/baidu/tieba/th2$b;");
+                    return;
+                }
+            }
+            a = new th2(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948181131, "Lcom/baidu/tieba/th2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948181131, "Lcom/baidu/tieba/th2;");
                 return;
             }
         }
-        this.b = new String[12];
-        this.e = new d(this);
-        this.d = eVar;
-        c(i);
-        d(activity);
+        a = ok1.a;
     }
 
-    public final void c(int i) {
+    public th2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int i2 = 0;
-            while (i2 < 9) {
-                int i3 = i2 + 1;
-                this.b[i2] = String.valueOf(i3);
-                i2 = i3;
-            }
-            if (i == 1) {
-                this.b[9] = "X";
-            } else if (i == 0) {
-                this.b[9] = "";
-            } else if (i == 2) {
-                this.b[9] = ".";
-            }
-            this.b[10] = "0";
-        }
-    }
-
-    public final void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.a = activity;
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00b5, (ViewGroup) null);
-            this.c = activity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070152);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091034);
-            gridView.setAdapter((ListAdapter) new sh2(activity, this.b));
-            gh3.a0(new b(this, gridView, new a(this)));
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090666);
-            imageView.setOnClickListener(new c(this));
-            imageView.setClickable(true);
-            setContentView(linearLayout);
-            setWidth(-1);
-            setHeight(this.c);
-            setBackgroundDrawable(new BitmapDrawable());
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.dismiss();
-            Activity activity = this.a;
-            if (activity instanceof SwanAppActivity) {
-                ((SwanAppActivity) activity).F0(this.e);
-            }
-            e eVar = this.d;
-            if (eVar != null) {
-                eVar.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void e() {
+    public static th2 n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !isShowing()) {
-            showAtLocation(this.a.getWindow().getDecorView(), 80, 0, 0);
-            Activity activity = this.a;
-            if (activity instanceof SwanAppActivity) {
-                ((SwanAppActivity) activity).t0(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (th2) invokeV.objValue;
+    }
+
+    public /* synthetic */ th2(a aVar) {
+        this();
+    }
+
+    public boolean l(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, file)) == null) {
+            if (file == null) {
+                return false;
             }
-            e eVar = this.d;
-            if (eVar != null) {
-                eVar.b(this.c);
+            ik4.j(file);
+            return ik4.l(file);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !TextUtils.isEmpty(str) && a) {
+            Log.d("SwanAppCloneModule", str);
+        }
+    }
+
+    public boolean b(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
+            File q = q(str, file, wh2.h);
+            if (q == null) {
+                return false;
+            }
+            File file2 = new File(wh2.a, str);
+            if (!file2.exists()) {
+                return false;
+            }
+            File file3 = new File(q, str);
+            ik4.l(file3);
+            ik4.e(file2, file3);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean i(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
+            File q = q(str, file, wh2.g);
+            if (q == null) {
+                return false;
+            }
+            File file2 = new File(wh2.a, str);
+            if (!file2.exists()) {
+                return false;
+            }
+            File file3 = new File(q, str);
+            ik4.l(file3);
+            ik4.e(file2, file3);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void j(String str, File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, file) == null) && !TextUtils.isEmpty(str) && file != null && file.exists()) {
+            File databasePath = AppRuntime.getApplication().getDatabasePath(str);
+            if (!databasePath.exists()) {
+                return;
+            }
+            ik4.f(databasePath, new File(file, str));
+        }
+    }
+
+    public final void o(File file, File file2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, file, file2) == null) {
+            boolean X = ik4.X(file.getAbsolutePath(), file2.getAbsolutePath());
+            if (X) {
+                ik4.j(file);
+            }
+            p("zip file status = " + X);
+        }
+    }
+
+    public boolean c(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file)) == null) {
+            File q = q(str, file, wh2.k);
+            if (q == null) {
+                return false;
+            }
+            j("ai_apps.db", q);
+            j("ai_apps_pms.db", q);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean d(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
+            File q = q(str, new File(file, wh2.i), "swan_plugin_workspace");
+            if (q == null) {
+                return false;
+            }
+            File q2 = an2.q();
+            if (!q2.exists()) {
+                return false;
+            }
+            ik4.e(q2, q);
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void f(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
+            p("cloneSwanApp: start");
+            r(h(context, str), str);
+            p("cloneSwanApp: end");
+        }
+    }
+
+    public boolean e(Context context, String str, File file) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, file)) == null) {
+            File q = q(str, file, wh2.j);
+            if (context != null && q != null) {
+                return m(context, str, q, new File(vc3.e()), SwanKV.PREFS_SUFFIX) | m(context, str, q, new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), ActivityChooserModel.HISTORY_FILE_EXTENSION);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void g(Context context, String str, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, str, file) == null) {
+            boolean i = i(str, file);
+            boolean b2 = b(wh2.b, file);
+            boolean b3 = b(wh2.c, file);
+            boolean e = e(context, str, file);
+            boolean c = c(str, file);
+            boolean a2 = a(str);
+            boolean d = d(str, file);
+            p("cloneSwanPkg = " + i + " ; cloneSwanCore = " + b2 + " ; cloneExtensionCore = " + b3 + " ; cloneSp = " + e + " ; cloneDb = " + c + " ; cloneAbTest = " + a2 + " ; cloneDynamicLib = " + d);
+        }
+    }
+
+    public File h(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                p("appKey is empty");
+                return null;
+            }
+            p("cloneFilesAndMakeZip start, appKey = " + str);
+            File file = new File(wh2.f + str);
+            if (!l(file)) {
+                p("delete old tmp dir failed");
+                return null;
+            }
+            File a2 = wh2.a();
+            if (a2 == null) {
+                p("dest zip dir is null");
+                return null;
+            }
+            File file2 = new File(a2, wh2.l);
+            if (file2.exists()) {
+                ik4.L(file2);
+            }
+            ik4.h(file2);
+            g(context, str, file);
+            o(file.getParentFile(), file2);
+            p("cloneFilesAndMakeZip end, appKey = " + str);
+            return file2;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public final void k(String str, File file, File file2, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048586, this, str, file, file2, str2) == null) && !TextUtils.isEmpty(str) && file != null && file.exists() && file2 != null && file2.exists()) {
+            String str3 = str + str2;
+            File file3 = new File(file, str3);
+            if (file3.exists()) {
+                ik4.f(file3, new File(file2, str3));
             }
         }
+    }
+
+    public final boolean m(@NonNull Context context, @NonNull String str, @NonNull File file, @Nullable File file2, @NonNull String str2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048588, this, context, str, file, file2, str2)) == null) {
+            if (file2 == null || !file2.exists() || !file2.isDirectory()) {
+                return false;
+            }
+            String[] strArr = {"aiapp_" + str, "aiapp_setting_" + str, "searchbox_webapps_sp", "searchbox_sconsole_sp", "aiapp_open_stat", QuickPersistConfig.SP_FILE_STARTUP, "com.baidu.searchbox_aiapp_openstat", "aiapps_favorite", "aiapps_guide_dialog_sp", "key_pms_sp_name", context.getPackageName() + "_preferences", "abtesting"};
+            for (int i = 0; i < 12; i++) {
+                k(strArr[i], file2, file, str2);
+            }
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public File q(String str, File file, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, file, str2)) == null) {
+            if (TextUtils.isEmpty(str) || file == null || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            File file2 = new File(file, str2);
+            if (!ik4.l(file2)) {
+                return null;
+            }
+            return file2;
+        }
+        return (File) invokeLLL.objValue;
+    }
+
+    public boolean r(File file, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, file, str)) == null) {
+            if (file != null && file.exists()) {
+                File file2 = new File(wh2.a, str);
+                if (file2.exists() && (list = file2.list()) != null && list.length > 0) {
+                    str2 = list[0];
+                } else {
+                    str2 = "-1";
+                }
+                p("upload file: ready");
+                so1 u = ln2.u();
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("aiappid", str);
+                hashMap.put("aiappversion", str2);
+                u.c(hashMap, file, new a(this, file));
+                return true;
+            }
+            p("no zip file");
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

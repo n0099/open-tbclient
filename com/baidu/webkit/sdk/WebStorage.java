@@ -9,14 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.Map;
+/* loaded from: classes7.dex */
 public class WebStorage {
     public static /* synthetic */ Interceptable $ic;
     public static final WebStorage mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class Origin {
+    /* loaded from: classes7.dex */
+    public static class Origin {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mOrigin;
@@ -63,7 +64,7 @@ public class WebStorage {
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface QuotaUpdater {
         void updateQuota(long j);
     }
@@ -125,21 +126,21 @@ public class WebStorage {
         }
     }
 
-    public void getOrigins(ValueCallback valueCallback) {
+    public void getOrigins(ValueCallback<Map> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getOrigins(valueCallback);
         }
     }
 
-    public void getQuotaForOrigin(String str, ValueCallback valueCallback) {
+    public void getQuotaForOrigin(String str, ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getQuotaForOrigin(str, valueCallback);
         }
     }
 
-    public void getUsageForOrigin(String str, ValueCallback valueCallback) {
+    public void getUsageForOrigin(String str, ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getUsageForOrigin(str, valueCallback);

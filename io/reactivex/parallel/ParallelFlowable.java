@@ -12,7 +12,10 @@ import io.reactivex.Flowable;
 import io.reactivex.Scheduler;
 import io.reactivex.annotations.BackpressureKind;
 import io.reactivex.annotations.BackpressureSupport;
+import io.reactivex.annotations.Beta;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.SchedulerSupport;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Action;
@@ -48,17 +51,20 @@ import io.reactivex.internal.util.MergerBiFunction;
 import io.reactivex.internal.util.SorterFunction;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Comparator;
+import java.util.List;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+@Beta
 /* loaded from: classes8.dex */
-public abstract class ParallelFlowable {
+public abstract class ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public abstract int parallelism();
 
-    public abstract void subscribe(Subscriber[] subscriberArr);
+    public abstract void subscribe(@NonNull Subscriber<? super T>[] subscriberArr);
 
     public ParallelFlowable() {
         Interceptable interceptable = $ic;
@@ -77,7 +83,7 @@ public abstract class ParallelFlowable {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable sequential() {
+    public final Flowable<T> sequential() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
@@ -89,7 +95,9 @@ public abstract class ParallelFlowable {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable sequentialDelayError() {
+    @Experimental
+    @NonNull
+    public final Flowable<T> sequentialDelayError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
@@ -99,7 +107,7 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public static ParallelFlowable from(Publisher publisher) {
+    public static <T> ParallelFlowable<T> from(@NonNull Publisher<? extends T> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, publisher)) == null) {
@@ -109,7 +117,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public static ParallelFlowable fromArray(Publisher... publisherArr) {
+    @NonNull
+    public static <T> ParallelFlowable<T> fromArray(@NonNull Publisher<T>... publisherArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, publisherArr)) == null) {
@@ -122,17 +131,20 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final Object as(ParallelFlowableConverter parallelFlowableConverter) {
+    @Experimental
+    @NonNull
+    public final <R> R as(@NonNull ParallelFlowableConverter<T, R> parallelFlowableConverter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parallelFlowableConverter)) == null) {
-            return ((ParallelFlowableConverter) ObjectHelper.requireNonNull(parallelFlowableConverter, "converter is null")).apply(this);
+            return (R) ((ParallelFlowableConverter) ObjectHelper.requireNonNull(parallelFlowableConverter, "converter is null")).apply(this);
         }
-        return invokeL.objValue;
+        return (R) invokeL.objValue;
     }
 
     @CheckReturnValue
-    public final ParallelFlowable compose(ParallelTransformer parallelTransformer) {
+    @NonNull
+    public final <U> ParallelFlowable<U> compose(@NonNull ParallelTransformer<T, U> parallelTransformer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parallelTransformer)) == null) {
@@ -142,7 +154,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable concatMap(Function function) {
+    @NonNull
+    public final <R> ParallelFlowable<R> concatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, function)) == null) {
@@ -152,7 +165,7 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable filter(Predicate predicate) {
+    public final ParallelFlowable<T> filter(@NonNull Predicate<? super T> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, predicate)) == null) {
@@ -163,7 +176,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable flatMap(Function function) {
+    @NonNull
+    public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, function)) == null) {
@@ -173,7 +187,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable map(Function function) {
+    @NonNull
+    public final <R> ParallelFlowable<R> map(@NonNull Function<? super T, ? extends R> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, function)) == null) {
@@ -184,7 +199,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final Flowable reduce(BiFunction biFunction) {
+    @NonNull
+    public final Flowable<T> reduce(@NonNull BiFunction<T, T, T> biFunction) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, biFunction)) == null) {
@@ -195,7 +211,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable runOn(Scheduler scheduler) {
+    @NonNull
+    public final ParallelFlowable<T> runOn(@NonNull Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, scheduler)) == null) {
@@ -207,7 +224,8 @@ public abstract class ParallelFlowable {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable sequential(int i) {
+    @NonNull
+    public final Flowable<T> sequential(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) {
@@ -220,7 +238,8 @@ public abstract class ParallelFlowable {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable sequentialDelayError(int i) {
+    @NonNull
+    public final Flowable<T> sequentialDelayError(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
@@ -231,7 +250,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final Flowable sorted(Comparator comparator) {
+    @NonNull
+    public final Flowable<T> sorted(@NonNull Comparator<? super T> comparator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, comparator)) == null) {
@@ -241,22 +261,24 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final Object to(Function function) {
+    @NonNull
+    public final <U> U to(@NonNull Function<? super ParallelFlowable<T>, U> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, function)) == null) {
             try {
-                return ((Function) ObjectHelper.requireNonNull(function, "converter is null")).apply(this);
+                return (U) ((Function) ObjectHelper.requireNonNull(function, "converter is null")).apply(this);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 throw ExceptionHelper.wrapOrThrow(th);
             }
         }
-        return invokeL.objValue;
+        return (U) invokeL.objValue;
     }
 
     @CheckReturnValue
-    public final Flowable toSortedList(Comparator comparator) {
+    @NonNull
+    public final Flowable<List<T>> toSortedList(@NonNull Comparator<? super T> comparator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, comparator)) == null) {
@@ -266,7 +288,7 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public static ParallelFlowable from(Publisher publisher, int i) {
+    public static <T> ParallelFlowable<T> from(@NonNull Publisher<? extends T> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, publisher, i)) == null) {
@@ -276,7 +298,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable collect(Callable callable, BiConsumer biConsumer) {
+    @NonNull
+    public final <C> ParallelFlowable<C> collect(@NonNull Callable<? extends C> callable, @NonNull BiConsumer<? super C, ? super T> biConsumer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callable, biConsumer)) == null) {
@@ -288,7 +311,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable concatMap(Function function, int i) {
+    @NonNull
+    public final <R> ParallelFlowable<R> concatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, function, i)) == null) {
@@ -300,7 +324,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable concatMapDelayError(Function function, boolean z) {
+    @NonNull
+    public final <R> ParallelFlowable<R> concatMapDelayError(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, function, z)) == null) {
@@ -310,7 +335,9 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doOnNext(Consumer consumer, BiFunction biFunction) {
+    @Experimental
+    @NonNull
+    public final ParallelFlowable<T> doOnNext(@NonNull Consumer<? super T> consumer, @NonNull BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> biFunction) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, consumer, biFunction)) == null) {
@@ -322,7 +349,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable filter(Predicate predicate, BiFunction biFunction) {
+    @Experimental
+    public final ParallelFlowable<T> filter(@NonNull Predicate<? super T> predicate, @NonNull BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> biFunction) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, predicate, biFunction)) == null) {
@@ -334,7 +362,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable flatMap(Function function, boolean z) {
+    @NonNull
+    public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, function, z)) == null) {
@@ -344,7 +373,9 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable map(Function function, BiFunction biFunction) {
+    @Experimental
+    @NonNull
+    public final <R> ParallelFlowable<R> map(@NonNull Function<? super T, ? extends R> function, @NonNull BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> biFunction) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, function, biFunction)) == null) {
@@ -356,7 +387,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable reduce(Callable callable, BiFunction biFunction) {
+    @NonNull
+    public final <R> ParallelFlowable<R> reduce(@NonNull Callable<R> callable, @NonNull BiFunction<R, ? super T, R> biFunction) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, callable, biFunction)) == null) {
@@ -368,7 +400,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable runOn(Scheduler scheduler, int i) {
+    @NonNull
+    public final ParallelFlowable<T> runOn(@NonNull Scheduler scheduler, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048607, this, scheduler, i)) == null) {
@@ -380,7 +413,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public static ParallelFlowable from(Publisher publisher, int i, int i2) {
+    @NonNull
+    public static <T> ParallelFlowable<T> from(@NonNull Publisher<? extends T> publisher, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, publisher, i, i2)) == null) {
@@ -393,7 +427,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable concatMapDelayError(Function function, int i, boolean z) {
+    @NonNull
+    public final <R> ParallelFlowable<R> concatMapDelayError(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, int i, boolean z) {
         InterceptResult invokeCommon;
         ErrorMode errorMode;
         Interceptable interceptable = $ic;
@@ -411,7 +446,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable flatMap(Function function, boolean z, int i) {
+    @NonNull
+    public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
@@ -421,7 +457,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doAfterNext(Consumer consumer) {
+    @NonNull
+    public final ParallelFlowable<T> doAfterNext(@NonNull Consumer<? super T> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, consumer)) == null) {
@@ -435,7 +472,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doAfterTerminated(Action action) {
+    @NonNull
+    public final ParallelFlowable<T> doAfterTerminated(@NonNull Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, action)) == null) {
@@ -446,7 +484,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doOnCancel(Action action) {
+    @NonNull
+    public final ParallelFlowable<T> doOnCancel(@NonNull Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, action)) == null) {
@@ -461,7 +500,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doOnComplete(Action action) {
+    @NonNull
+    public final ParallelFlowable<T> doOnComplete(@NonNull Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, action)) == null) {
@@ -472,7 +512,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doOnError(Consumer consumer) {
+    @NonNull
+    public final ParallelFlowable<T> doOnError(@NonNull Consumer<Throwable> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, consumer)) == null) {
@@ -486,7 +527,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doOnNext(Consumer consumer) {
+    @NonNull
+    public final ParallelFlowable<T> doOnNext(@NonNull Consumer<? super T> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, consumer)) == null) {
@@ -500,7 +542,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doOnRequest(LongConsumer longConsumer) {
+    @NonNull
+    public final ParallelFlowable<T> doOnRequest(@NonNull LongConsumer longConsumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, longConsumer)) == null) {
@@ -515,7 +558,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doOnSubscribe(Consumer consumer) {
+    @NonNull
+    public final ParallelFlowable<T> doOnSubscribe(@NonNull Consumer<? super Subscription> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, consumer)) == null) {
@@ -530,7 +574,9 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable doOnNext(Consumer consumer, ParallelFailureHandling parallelFailureHandling) {
+    @Experimental
+    @NonNull
+    public final ParallelFlowable<T> doOnNext(@NonNull Consumer<? super T> consumer, @NonNull ParallelFailureHandling parallelFailureHandling) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, consumer, parallelFailureHandling)) == null) {
@@ -542,7 +588,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable filter(Predicate predicate, ParallelFailureHandling parallelFailureHandling) {
+    @Experimental
+    public final ParallelFlowable<T> filter(@NonNull Predicate<? super T> predicate, @NonNull ParallelFailureHandling parallelFailureHandling) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, predicate, parallelFailureHandling)) == null) {
@@ -554,7 +601,9 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable map(Function function, ParallelFailureHandling parallelFailureHandling) {
+    @Experimental
+    @NonNull
+    public final <R> ParallelFlowable<R> map(@NonNull Function<? super T, ? extends R> function, @NonNull ParallelFailureHandling parallelFailureHandling) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, function, parallelFailureHandling)) == null) {
@@ -566,7 +615,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final ParallelFlowable flatMap(Function function, boolean z, int i, int i2) {
+    @NonNull
+    public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
@@ -579,7 +629,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final Flowable sorted(Comparator comparator, int i) {
+    @NonNull
+    public final Flowable<T> sorted(@NonNull Comparator<? super T> comparator, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048613, this, comparator, i)) == null) {
@@ -591,7 +642,8 @@ public abstract class ParallelFlowable {
     }
 
     @CheckReturnValue
-    public final Flowable toSortedList(Comparator comparator, int i) {
+    @NonNull
+    public final Flowable<List<T>> toSortedList(@NonNull Comparator<? super T> comparator, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048617, this, comparator, i)) == null) {
@@ -602,14 +654,14 @@ public abstract class ParallelFlowable {
         return (Flowable) invokeLI.objValue;
     }
 
-    public final boolean validate(Subscriber[] subscriberArr) {
+    public final boolean validate(@NonNull Subscriber<?>[] subscriberArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, subscriberArr)) == null) {
             int parallelism = parallelism();
             if (subscriberArr.length != parallelism) {
                 IllegalArgumentException illegalArgumentException = new IllegalArgumentException("parallelism = " + parallelism + ", subscribers = " + subscriberArr.length);
-                for (Subscriber subscriber : subscriberArr) {
+                for (Subscriber<?> subscriber : subscriberArr) {
                     EmptySubscription.error(illegalArgumentException, subscriber);
                 }
                 return false;

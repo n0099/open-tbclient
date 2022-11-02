@@ -1,11 +1,13 @@
 package com.kwad.components.core.page.recycle;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -54,7 +56,7 @@ public class b extends g {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b(Context context, AttributeSet attributeSet) {
+    public b(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -75,7 +77,7 @@ public class b extends g {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(Context context, AttributeSet attributeSet, int i) {
+    public b(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -229,6 +231,7 @@ public class b extends g {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.View
+    @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

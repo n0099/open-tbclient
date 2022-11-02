@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.CollapsibleActionView;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.view.ActionProvider;
@@ -24,6 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     public static /* synthetic */ Interceptable $ic = null;
@@ -100,6 +103,7 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
         }
     }
 
+    @RequiresApi(16)
     /* loaded from: classes.dex */
     public class ActionProviderWrapperJB extends ActionProviderWrapper implements ActionProvider.VisibilityListener {
         public static /* synthetic */ Interceptable $ic;

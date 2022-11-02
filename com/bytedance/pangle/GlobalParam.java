@@ -1,5 +1,6 @@
 package com.bytedance.pangle;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +14,7 @@ import com.bytedance.pangle.log.IZeusReporter;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+@Keep
 /* loaded from: classes7.dex */
 public class GlobalParam {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +32,7 @@ public class GlobalParam {
     public int mInstallThreads;
     public IZeusLogger mLogger;
     public IZeusReporter mReporter;
-    public Map mRequestHeader;
+    public Map<String, String> mRequestHeader;
 
     public GlobalParam() {
         Interceptable interceptable = $ic;
@@ -149,7 +151,7 @@ public class GlobalParam {
         return (IZeusReporter) invokeV.objValue;
     }
 
-    public Map getRequestHeader() {
+    public Map<String, String> getRequestHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {

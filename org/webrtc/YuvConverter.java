@@ -28,13 +28,13 @@ public class YuvConverter {
 
     /* renamed from: org.webrtc.YuvConverter$1  reason: invalid class name */
     /* loaded from: classes9.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
+    public static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public static final float[] uCoeffs;
         public static final float[] vCoeffs;
@@ -188,7 +188,7 @@ public class YuvConverter {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i8);
             nativeAllocateByteBuffer.limit(i8 + i9);
-            return JavaI420Buffer.wrap(width, height, slice, i, slice2, i, nativeAllocateByteBuffer.slice(), i, new Runnable() { // from class: com.baidu.tieba.lx9
+            return JavaI420Buffer.wrap(width, height, slice, i, slice2, i, nativeAllocateByteBuffer.slice(), i, new Runnable() { // from class: com.baidu.tieba.uy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

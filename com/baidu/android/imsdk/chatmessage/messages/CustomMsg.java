@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class CustomMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<CustomMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String data;
     public String encode;
@@ -44,7 +44,7 @@ public class CustomMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.CustomMsg.1
+        CREATOR = new Parcelable.Creator<CustomMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.CustomMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,6 +63,7 @@ public class CustomMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CustomMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -74,6 +75,7 @@ public class CustomMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CustomMsg[] newArray(int i) {
                 InterceptResult invokeI;

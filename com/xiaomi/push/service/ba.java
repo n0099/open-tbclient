@@ -25,11 +25,11 @@ public class ba {
     public SharedPreferences f921a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashSet f922a;
+    public HashSet<a> f922a;
     public SharedPreferences b;
 
     /* loaded from: classes8.dex */
-    public abstract class a implements Runnable {
+    public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mDescription;
@@ -92,7 +92,7 @@ public class ba {
                 return;
             }
         }
-        this.f922a = new HashSet();
+        this.f922a = new HashSet<>();
         this.f921a = context.getSharedPreferences("mipush_oc_normal", 0);
         this.b = context.getSharedPreferences("mipush_oc_custom", 0);
     }
@@ -131,7 +131,7 @@ public class ba {
         return (String) invokeL.objValue;
     }
 
-    private void a(SharedPreferences.Editor editor, Pair pair, String str) {
+    private void a(SharedPreferences.Editor editor, Pair<Integer, Object> pair, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, editor, pair, str) == null) {
             Object obj = pair.second;
@@ -232,15 +232,13 @@ public class ba {
         }
     }
 
-    public void a(List list) {
+    public void a(List<Pair<Integer, Object>> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || com.xiaomi.push.ag.a(list)) {
             return;
         }
         SharedPreferences.Editor edit = this.b.edit();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            Pair pair = (Pair) it.next();
+        for (Pair<Integer, Object> pair : list) {
             Object obj = pair.first;
             if (obj != null) {
                 String a2 = a(((Integer) obj).intValue());
@@ -254,7 +252,7 @@ public class ba {
         edit.apply();
     }
 
-    public void a(List list, List list2) {
+    public void a(List<Pair<hp, Integer>> list, List<Pair<Integer, Object>> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, list, list2) == null) {
             if (com.xiaomi.push.ag.a(list) || com.xiaomi.push.ag.a(list2)) {
@@ -263,17 +261,13 @@ public class ba {
             }
             SharedPreferences.Editor edit = this.f921a.edit();
             edit.clear();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                Pair pair = (Pair) it.next();
+            for (Pair<hp, Integer> pair : list) {
                 Object obj = pair.first;
                 if (obj != null && pair.second != null) {
                     edit.putInt(a((hp) obj), ((Integer) pair.second).intValue());
                 }
             }
-            Iterator it2 = list2.iterator();
-            while (it2.hasNext()) {
-                Pair pair2 = (Pair) it2.next();
+            for (Pair<Integer, Object> pair2 : list2) {
                 Object obj2 = pair2.first;
                 if (obj2 != null && pair2.second != null) {
                     a(edit, pair2, a(((Integer) obj2).intValue()));

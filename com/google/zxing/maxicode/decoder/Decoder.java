@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.ChecksumException;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.DecoderResult;
@@ -77,7 +78,7 @@ public final class Decoder {
         return (DecoderResult) invokeL.objValue;
     }
 
-    public DecoderResult decode(BitMatrix bitMatrix, Map map) throws FormatException, ChecksumException {
+    public DecoderResult decode(BitMatrix bitMatrix, Map<DecodeHintType, ?> map) throws FormatException, ChecksumException {
         InterceptResult invokeLL;
         byte[] bArr;
         Interceptable interceptable = $ic;

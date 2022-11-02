@@ -15,20 +15,20 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableFlattenIterable extends AbstractObservableWithUpstream {
+public final class ObservableFlattenIterable<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function mapper;
+    public final Function<? super T, ? extends Iterable<? extends R>> mapper;
 
     /* loaded from: classes8.dex */
-    public final class FlattenIterableObserver implements Observer, Disposable {
+    public static final class FlattenIterableObserver<T, R> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super R> actual;
         public Disposable d;
-        public final Function mapper;
+        public final Function<? super T, ? extends Iterable<? extends R>> mapper;
 
-        public FlattenIterableObserver(Observer observer, Function function) {
+        public FlattenIterableObserver(Observer<? super R> observer, Function<? super T, ? extends Iterable<? extends R>> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,17 +105,17 @@ public final class ObservableFlattenIterable extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.d == DisposableHelper.DISPOSED) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
-                Observer observer = this.actual;
-                for (Object obj2 : (Iterable) this.mapper.apply(obj)) {
+                Observer<? super R> observer = this.actual;
+                for (R r : this.mapper.apply(t)) {
                     try {
                         try {
-                            observer.onNext(ObjectHelper.requireNonNull(obj2, "The iterator returned a null value"));
+                            observer.onNext((Object) ObjectHelper.requireNonNull(r, "The iterator returned a null value"));
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
                             this.d.dispose();
@@ -138,7 +138,7 @@ public final class ObservableFlattenIterable extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableFlattenIterable(ObservableSource observableSource, Function function) {
+    public ObservableFlattenIterable(ObservableSource<T> observableSource, Function<? super T, ? extends Iterable<? extends R>> function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -159,7 +159,7 @@ public final class ObservableFlattenIterable extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super R> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new FlattenIterableObserver(observer, this.mapper));

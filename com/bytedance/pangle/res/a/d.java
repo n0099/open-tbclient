@@ -10,16 +10,16 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Object a(Object obj) {
+    public static <T> T a(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
             throw null;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r6v0 int), (r1v1 int), (r2v1 int)] */

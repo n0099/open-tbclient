@@ -1,105 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class gt3 {
+public class gt3 extends ht3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
 
-    public static String a() {
+    @Override // com.baidu.tieba.ht3
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return es3.a().m();
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gt3(Context context, ft3 ft3Var) {
+        super(context, ft3Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return es3.a().e();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return es3.a().g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return es3.a().l();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (es3.a().k() && f()) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, ft3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (ft3) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.q = SpeedStatsUtils.UBC_VALUE_BANNER;
+        this.r = "32";
+        this.s = "MSSP,ANTI,NMON";
+        this.t = "LP,DL";
     }
 
-    public static boolean h() {
+    @Override // com.baidu.tieba.ht3
+    public HashMap<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f() && es3.a().d()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("act", this.t);
+            hashMap.put("prod", this.q);
+            hashMap.put("at", this.r);
+            hashMap.put("fet", this.s);
+            if (this.i != null) {
+                hashMap.put(Config.DEVICE_WIDTH, "" + this.i.d());
+                hashMap.put("h", "" + this.i.a());
             }
-            return false;
+            return hashMap;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return es3.a().c();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!TextUtils.isEmpty(a()) && !TextUtils.isEmpty(b()) && System.currentTimeMillis() - es3.a().i().longValue() < 604800000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (!TextUtils.isEmpty(c()) && !TextUtils.isEmpty(d()) && System.currentTimeMillis() - es3.a().i().longValue() < 604800000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (HashMap) invokeV.objValue;
     }
 }

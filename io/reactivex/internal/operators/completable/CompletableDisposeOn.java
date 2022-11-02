@@ -21,7 +21,7 @@ public final class CompletableDisposeOn extends Completable {
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public final class CompletableObserverImplementation implements CompletableObserver, Disposable, Runnable {
+    public static final class CompletableObserverImplementation implements CompletableObserver, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Disposable d;

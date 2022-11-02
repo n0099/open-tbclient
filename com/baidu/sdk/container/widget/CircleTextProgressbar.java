@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ProgressType {
+    public static final class ProgressType {
         public static final /* synthetic */ ProgressType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ProgressType COUNT;
@@ -104,7 +104,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,11 +184,11 @@ public class CircleTextProgressbar extends AbsCountDownView {
             ColorStateList valueOf = ColorStateList.valueOf(0);
             this.f = valueOf;
             this.g = valueOf.getColorForState(getDrawableState(), 0);
-            setWidth(u21.c.a(context, 40.0f));
-            setHeight(u21.c.a(context, 40.0f));
+            setWidth(m31.c.a(context, 40.0f));
+            setHeight(m31.c.a(context, 40.0f));
             setOutLineColor(-7697782);
             setProgressColor(-12956454);
-            setProgressLineWidth(u21.c.a(context, 2.0f));
+            setProgressLineWidth(m31.c.a(context, 2.0f));
             setTextSize(1, 10.0f);
             setTextColor(-1);
             setText("跳过");

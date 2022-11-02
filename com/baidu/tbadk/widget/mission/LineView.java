@@ -7,10 +7,11 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,7 +58,7 @@ public class LineView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LineView(Context context, AttributeSet attributeSet) {
+    public LineView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +80,7 @@ public class LineView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LineView(Context context, AttributeSet attributeSet, int i) {
+    public LineView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -108,8 +109,8 @@ public class LineView extends View {
             paint.setAntiAlias(true);
             this.a.setColor(SkinManager.getColor(R.color.CAM_X0203));
             this.a.setStyle(Paint.Style.STROKE);
-            this.a.setStrokeWidth(fj.f(getContext(), R.dimen.tbds2));
-            this.a.setPathEffect(new DashPathEffect(new float[]{fj.f(getContext(), R.dimen.tbds8), fj.f(getContext(), R.dimen.tbds8)}, 0.0f));
+            this.a.setStrokeWidth(xi.g(getContext(), R.dimen.tbds2));
+            this.a.setPathEffect(new DashPathEffect(new float[]{xi.g(getContext(), R.dimen.tbds8), xi.g(getContext(), R.dimen.tbds8)}, 0.0f));
             this.b = new Path();
         }
     }

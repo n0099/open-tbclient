@@ -19,7 +19,7 @@ import java.util.Map;
 public final class MultiFormatReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map hints;
+    public Map<DecodeHintType, ?> hints;
     public Reader[] readers;
 
     public MultiFormatReader() {
@@ -89,7 +89,7 @@ public final class MultiFormatReader implements Reader {
     }
 
     @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
@@ -99,7 +99,7 @@ public final class MultiFormatReader implements Reader {
         return (Result) invokeLL.objValue;
     }
 
-    public void setHints(Map map) {
+    public void setHints(Map<DecodeHintType, ?> map) {
         boolean z;
         Collection collection;
         Interceptable interceptable = $ic;

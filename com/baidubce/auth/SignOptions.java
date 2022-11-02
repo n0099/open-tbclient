@@ -18,7 +18,7 @@ public class SignOptions {
     public static final int DEFAULT_EXPIRATION_IN_SECONDS = 1800;
     public transient /* synthetic */ FieldHolder $fh;
     public int expirationInSeconds;
-    public Set headersToSign;
+    public Set<String> headersToSign;
     public Date timestamp;
 
     static {
@@ -64,7 +64,7 @@ public class SignOptions {
         return invokeV.intValue;
     }
 
-    public Set getHeadersToSign() {
+    public Set<String> getHeadersToSign() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -89,7 +89,7 @@ public class SignOptions {
         }
     }
 
-    public void setHeadersToSign(Set set) {
+    public void setHeadersToSign(Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, set) == null) {
             this.headersToSign = set;

@@ -1,16 +1,16 @@
 package rx.internal.schedulers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ay9;
-import com.baidu.tieba.ey9;
-import com.baidu.tieba.ky9;
-import com.baidu.tieba.py9;
-import com.baidu.tieba.u2a;
-import com.baidu.tieba.vx9;
-import com.baidu.tieba.wx9;
-import com.baidu.tieba.xx9;
-import com.baidu.tieba.yx9;
-import com.baidu.tieba.z1a;
+import com.baidu.tieba.d4a;
+import com.baidu.tieba.ez9;
+import com.baidu.tieba.fz9;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.hz9;
+import com.baidu.tieba.i3a;
+import com.baidu.tieba.jz9;
+import com.baidu.tieba.nz9;
+import com.baidu.tieba.tz9;
+import com.baidu.tieba.yz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,30 +24,30 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.operators.BufferUntilSubscriber;
 import rx.subjects.PublishSubject;
 /* loaded from: classes9.dex */
-public class SchedulerWhen extends ay9 implements ey9 {
+public class SchedulerWhen extends jz9 implements nz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ey9 d;
-    public static final ey9 e;
+    public static final nz9 d;
+    public static final nz9 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ay9 a;
-    public final yx9 b;
-    public final ey9 c;
+    public final jz9 a;
+    public final hz9<gz9<ez9>> b;
+    public final nz9 c;
 
     /* loaded from: classes9.dex */
-    public class a implements py9 {
+    public class a implements yz9<ScheduledAction, ez9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay9.a a;
+        public final /* synthetic */ jz9.a a;
 
         /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0713a implements vx9.f {
+        public class C0724a implements ez9.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ScheduledAction a;
             public final /* synthetic */ a b;
 
-            public C0713a(a aVar, ScheduledAction scheduledAction) {
+            public C0724a(a aVar, ScheduledAction scheduledAction) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,17 +67,17 @@ public class SchedulerWhen extends ay9 implements ey9 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.vx9.f, com.baidu.tieba.ly9
-            public void call(wx9 wx9Var) {
+            @Override // com.baidu.tieba.ez9.f, com.baidu.tieba.uz9
+            public void call(fz9 fz9Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wx9Var) == null) {
-                    wx9Var.onSubscribe(this.a);
-                    this.a.call(this.b.a, wx9Var);
+                if (interceptable == null || interceptable.invokeL(1048576, this, fz9Var) == null) {
+                    fz9Var.onSubscribe(this.a);
+                    this.a.call(this.b.a, fz9Var);
                 }
             }
         }
 
-        public a(SchedulerWhen schedulerWhen, ay9.a aVar) {
+        public a(SchedulerWhen schedulerWhen, jz9.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,31 +96,31 @@ public class SchedulerWhen extends ay9 implements ey9 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
-        public vx9 call(ScheduledAction scheduledAction) {
+        @Override // com.baidu.tieba.yz9
+        public ez9 call(ScheduledAction scheduledAction) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scheduledAction)) == null) {
-                return vx9.b(new C0713a(this, scheduledAction));
+                return ez9.b(new C0724a(this, scheduledAction));
             }
-            return (vx9) invokeL.objValue;
+            return (ez9) invokeL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public class DelayedAction extends ScheduledAction {
+    public static class DelayedAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ky9 action;
+        public final tz9 action;
         public final long delayTime;
         public final TimeUnit unit;
 
-        public DelayedAction(ky9 ky9Var, long j, TimeUnit timeUnit) {
+        public DelayedAction(tz9 tz9Var, long j, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ky9Var, Long.valueOf(j), timeUnit};
+                Object[] objArr = {tz9Var, Long.valueOf(j), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -130,34 +130,34 @@ public class SchedulerWhen extends ay9 implements ey9 {
                     return;
                 }
             }
-            this.action = ky9Var;
+            this.action = tz9Var;
             this.delayTime = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public ey9 callActual(ay9.a aVar, wx9 wx9Var) {
+        public nz9 callActual(jz9.a aVar, fz9 fz9Var) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, wx9Var)) == null) {
-                return aVar.c(new d(this.action, wx9Var), this.delayTime, this.unit);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, fz9Var)) == null) {
+                return aVar.c(new d(this.action, fz9Var), this.delayTime, this.unit);
             }
-            return (ey9) invokeLL.objValue;
+            return (nz9) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public class ImmediateAction extends ScheduledAction {
+    public static class ImmediateAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ky9 action;
+        public final tz9 action;
 
-        public ImmediateAction(ky9 ky9Var) {
+        public ImmediateAction(tz9 tz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ky9Var};
+                Object[] objArr = {tz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -167,26 +167,26 @@ public class SchedulerWhen extends ay9 implements ey9 {
                     return;
                 }
             }
-            this.action = ky9Var;
+            this.action = tz9Var;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public ey9 callActual(ay9.a aVar, wx9 wx9Var) {
+        public nz9 callActual(jz9.a aVar, fz9 fz9Var) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, wx9Var)) == null) {
-                return aVar.b(new d(this.action, wx9Var));
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, fz9Var)) == null) {
+                return aVar.b(new d(this.action, fz9Var));
             }
-            return (ey9) invokeLL.objValue;
+            return (nz9) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public abstract class ScheduledAction extends AtomicReference implements ey9 {
+    public static abstract class ScheduledAction extends AtomicReference<nz9> implements nz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract ey9 callActual(ay9.a aVar, wx9 wx9Var);
+        public abstract nz9 callActual(jz9.a aVar, fz9 fz9Var);
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ScheduledAction() {
@@ -206,42 +206,42 @@ public class SchedulerWhen extends ay9 implements ey9 {
             }
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return ((ey9) get()).isUnsubscribed();
+                return get().isUnsubscribed();
             }
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public void unsubscribe() {
-            ey9 ey9Var;
+            nz9 nz9Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                ey9 ey9Var2 = SchedulerWhen.e;
+                nz9 nz9Var2 = SchedulerWhen.e;
                 do {
-                    ey9Var = (ey9) get();
-                    if (ey9Var == SchedulerWhen.e) {
+                    nz9Var = get();
+                    if (nz9Var == SchedulerWhen.e) {
                         return;
                     }
-                } while (!compareAndSet(ey9Var, ey9Var2));
-                if (ey9Var != SchedulerWhen.d) {
-                    ey9Var.unsubscribe();
+                } while (!compareAndSet(nz9Var, nz9Var2));
+                if (nz9Var != SchedulerWhen.d) {
+                    nz9Var.unsubscribe();
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void call(ay9.a aVar, wx9 wx9Var) {
-            ey9 ey9Var;
+        public void call(jz9.a aVar, fz9 fz9Var) {
+            nz9 nz9Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(65538, this, aVar, wx9Var) != null) || (ey9Var = (ey9) get()) == SchedulerWhen.e || ey9Var != SchedulerWhen.d) {
+            if ((interceptable != null && interceptable.invokeLL(65538, this, aVar, fz9Var) != null) || (nz9Var = get()) == SchedulerWhen.e || nz9Var != SchedulerWhen.d) {
                 return;
             }
-            ey9 callActual = callActual(aVar, wx9Var);
+            nz9 callActual = callActual(aVar, fz9Var);
             if (!compareAndSet(SchedulerWhen.d, callActual)) {
                 callActual.unsubscribe();
             }
@@ -249,19 +249,19 @@ public class SchedulerWhen extends ay9 implements ey9 {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends ay9.a {
+    public class b extends jz9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicBoolean a;
-        public final /* synthetic */ ay9.a b;
-        public final /* synthetic */ yx9 c;
+        public final /* synthetic */ jz9.a b;
+        public final /* synthetic */ hz9 c;
 
-        public b(SchedulerWhen schedulerWhen, ay9.a aVar, yx9 yx9Var) {
+        public b(SchedulerWhen schedulerWhen, jz9.a aVar, hz9 hz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {schedulerWhen, aVar, yx9Var};
+                Object[] objArr = {schedulerWhen, aVar, hz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -272,35 +272,35 @@ public class SchedulerWhen extends ay9 implements ey9 {
                 }
             }
             this.b = aVar;
-            this.c = yx9Var;
+            this.c = hz9Var;
             this.a = new AtomicBoolean();
         }
 
-        @Override // com.baidu.tieba.ay9.a
-        public ey9 b(ky9 ky9Var) {
+        @Override // com.baidu.tieba.jz9.a
+        public nz9 b(tz9 tz9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ky9Var)) == null) {
-                ImmediateAction immediateAction = new ImmediateAction(ky9Var);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tz9Var)) == null) {
+                ImmediateAction immediateAction = new ImmediateAction(tz9Var);
                 this.c.onNext(immediateAction);
                 return immediateAction;
             }
-            return (ey9) invokeL.objValue;
+            return (nz9) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.ay9.a
-        public ey9 c(ky9 ky9Var, long j, TimeUnit timeUnit) {
+        @Override // com.baidu.tieba.jz9.a
+        public nz9 c(tz9 tz9Var, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{ky9Var, Long.valueOf(j), timeUnit})) == null) {
-                DelayedAction delayedAction = new DelayedAction(ky9Var, j, timeUnit);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tz9Var, Long.valueOf(j), timeUnit})) == null) {
+                DelayedAction delayedAction = new DelayedAction(tz9Var, j, timeUnit);
                 this.c.onNext(delayedAction);
                 return delayedAction;
             }
-            return (ey9) invokeCommon.objValue;
+            return (nz9) invokeCommon.objValue;
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -310,7 +310,7 @@ public class SchedulerWhen extends ay9 implements ey9 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.compareAndSet(false, true)) {
@@ -321,11 +321,11 @@ public class SchedulerWhen extends ay9 implements ey9 {
     }
 
     /* loaded from: classes9.dex */
-    public final class c implements ey9 {
+    public static class c implements nz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -335,7 +335,7 @@ public class SchedulerWhen extends ay9 implements ey9 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -358,18 +358,18 @@ public class SchedulerWhen extends ay9 implements ey9 {
     }
 
     /* loaded from: classes9.dex */
-    public class d implements ky9 {
+    public static class d implements tz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public wx9 a;
-        public ky9 b;
+        public fz9 a;
+        public tz9 b;
 
-        public d(ky9 ky9Var, wx9 wx9Var) {
+        public d(tz9 tz9Var, fz9 fz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ky9Var, wx9Var};
+                Object[] objArr = {tz9Var, fz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -379,11 +379,11 @@ public class SchedulerWhen extends ay9 implements ey9 {
                     return;
                 }
             }
-            this.b = ky9Var;
-            this.a = wx9Var;
+            this.b = tz9Var;
+            this.a = fz9Var;
         }
 
-        @Override // com.baidu.tieba.ky9
+        @Override // com.baidu.tieba.tz9
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -410,10 +410,10 @@ public class SchedulerWhen extends ay9 implements ey9 {
             }
         }
         d = new c();
-        e = u2a.c();
+        e = d4a.c();
     }
 
-    @Override // com.baidu.tieba.ey9
+    @Override // com.baidu.tieba.nz9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -423,7 +423,7 @@ public class SchedulerWhen extends ay9 implements ey9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ey9
+    @Override // com.baidu.tieba.nz9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -431,12 +431,12 @@ public class SchedulerWhen extends ay9 implements ey9 {
         }
     }
 
-    public SchedulerWhen(py9 py9Var, ay9 ay9Var) {
+    public SchedulerWhen(yz9<gz9<gz9<ez9>>, ez9> yz9Var, jz9 jz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {py9Var, ay9Var};
+            Object[] objArr = {yz9Var, jz9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -446,25 +446,27 @@ public class SchedulerWhen extends ay9 implements ey9 {
                 return;
             }
         }
-        this.a = ay9Var;
+        this.a = jz9Var;
         PublishSubject D = PublishSubject.D();
-        this.b = new z1a(D);
-        this.c = ((vx9) py9Var.call(D.n())).f();
+        this.b = new i3a(D);
+        this.c = yz9Var.call(D.n()).f();
     }
 
-    @Override // com.baidu.tieba.ay9
-    public ay9.a createWorker() {
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.baidu.tieba.hz9<com.baidu.tieba.gz9<com.baidu.tieba.ez9>> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.tieba.jz9
+    public jz9.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ay9.a createWorker = this.a.createWorker();
+            jz9.a createWorker = this.a.createWorker();
             BufferUntilSubscriber D = BufferUntilSubscriber.D();
-            z1a z1aVar = new z1a(D);
-            xx9 h = D.h(new a(this, createWorker));
-            b bVar = new b(this, createWorker, z1aVar);
+            i3a i3aVar = new i3a(D);
+            Object h = D.h(new a(this, createWorker));
+            b bVar = new b(this, createWorker, i3aVar);
             this.b.onNext(h);
             return bVar;
         }
-        return (ay9.a) invokeV.objValue;
+        return (jz9.a) invokeV.objValue;
     }
 }

@@ -1,143 +1,269 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.tieba.gs1;
+import com.baidu.tieba.j93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hv1 extends BasePendingOperation {
+public class hv1 extends dv1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final CopyOnWriteArrayList f;
     public transient /* synthetic */ FieldHolder $fh;
-    public at1 a;
-    public m33 b;
-    public JSONObject c;
-    public String d;
-    public String e;
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String b() {
+    @Override // com.baidu.tieba.hs1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "request" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "CommonSysInfoApi" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947837062, "Lcom/baidu/tieba/hv1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes4.dex */
+    public class a extends gs1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hv1 d;
+
+        /* renamed from: com.baidu.tieba.hv1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0294a implements xi3<h93<j93.e>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ gs1.b a;
+            public final /* synthetic */ a b;
+
+            public C0294a(a aVar, gs1.b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bVar;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947837062, "Lcom/baidu/tieba/hv1;");
-                return;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.xi3
+            /* renamed from: b */
+            public void a(h93<j93.e> h93Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h93Var) == null) {
+                    if (!c93.h(h93Var)) {
+                        int b = h93Var.b();
+                        this.a.a(new ew1(b, c93.f(b)));
+                        return;
+                    }
+                    this.a.a(this.b.d.A());
+                }
             }
         }
-        CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-        f = copyOnWriteArrayList;
-        copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
-        f.add("https://dxp.baidu.com/mini");
-        f.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
-        f.add("https://eclick.baidu.com/se.jpg");
-        f.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hv1 hv1Var, String str) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hv1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = hv1Var;
+        }
+
+        @Override // com.baidu.tieba.gs1
+        @NonNull
+        public ew1 d(@NonNull JSONObject jSONObject, @NonNull gs1.b bVar) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
+                e43 b0 = e43.b0();
+                if (b0 == null) {
+                    return new ew1(1001, "null swan runtime");
+                }
+                b0.e0().g(d43.K(), "mapp_i_get_common_sys_info", new C0294a(this, bVar));
+                return new ew1(0);
+            }
+            return (ew1) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.tieba.gs1
+        @NonNull
+        public ew1 e(@NonNull JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+                return this.d.A();
+            }
+            return (ew1) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.gs1
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (d43.K().E() && d43.K().q().e0().f("mapp_i_get_common_sys_info")) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    public hv1(at1 at1Var, m33 m33Var, JSONObject jSONObject, String str, String str2) {
+    /* loaded from: classes4.dex */
+    public static class b extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            String cookie;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                String string = bundle.getString("httpUrl");
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("zid", ln2.G0().a(AppRuntime.getAppContext()));
+                bundle2.putString("uid", ln2.h0().h(AppRuntime.getAppContext()));
+                g93 a = ln2.q().a();
+                if (TextUtils.isEmpty(string)) {
+                    cookie = "";
+                } else {
+                    cookie = a.getCookie(string);
+                }
+                bundle2.putString("cookie", cookie);
+                return bundle2;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hv1(@NonNull fs1 fs1Var) {
+        super(fs1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {at1Var, m33Var, jSONObject, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {fs1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = at1Var;
-        this.b = m33Var;
-        this.c = jSONObject;
-        this.d = str;
-        this.e = str2;
     }
 
-    public static Collection d() {
-        InterceptResult invokeV;
+    @SuppressLint({"SwanBindApiNote"})
+    public ew1 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getCommonSysInfo", false);
+            return m(str, new a(this, "getCommonSysInfo"));
         }
-        return (Collection) invokeV.objValue;
+        return (ew1) invokeL.objValue;
     }
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public boolean a() {
+    @NonNull
+    public final ew1 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return e(this.c.optString("url"));
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return String.format("%s : %s", this.b.getAppId(), this.c.optString("url"));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public BasePendingOperation.OperationType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST;
-        }
-        return (BasePendingOperation.OperationType) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.I(this.b, this.c, this.d, this.e);
-        }
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+            JSONObject z = z();
+            if (z == null) {
+                return new ew1(1001, "result JSONException");
             }
-            int size = f.size();
-            for (int i = 0; i < size; i++) {
-                String str2 = (String) f.get(i);
-                if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
+            return new ew1(0, z);
         }
-        return invokeL.booleanValue;
+        return (ew1) invokeV.objValue;
+    }
+
+    public final JSONObject z() {
+        InterceptResult invokeV;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String i = ln2.h0().i(d43.K());
+            String r = yh3.r();
+            Bundle bundle = new Bundle();
+            bundle.putString("httpUrl", ".baidu.com");
+            t03 c = r03.c(b.class, bundle);
+            String str3 = "";
+            if (!c.a()) {
+                str = "";
+                str2 = str;
+            } else {
+                String string = c.a.getString("zid");
+                str2 = c.a.getString("uid");
+                str3 = c.a.getString("cookie");
+                str = string;
+            }
+            String l = wh3.l(str3, "BAIDUID");
+            String l2 = wh3.l(str3, "H_WISE_SIDS");
+            String a2 = qk4.b(AppRuntime.getAppContext()).a();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("cuid", i);
+                jSONObject.put("imei", r);
+                jSONObject.put("zid", str);
+                jSONObject.put("uid", str2);
+                jSONObject.put("baidu_id", l);
+                jSONObject.put("sid", l2);
+                jSONObject.put("uuid", a2);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

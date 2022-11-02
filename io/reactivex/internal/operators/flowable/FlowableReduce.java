@@ -16,21 +16,21 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableReduce extends AbstractFlowableWithUpstream {
+public final class FlowableReduce<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction reducer;
+    public final BiFunction<T, T, T> reducer;
 
     /* loaded from: classes8.dex */
-    public final class ReduceSubscriber extends DeferredScalarSubscription implements FlowableSubscriber {
+    public static final class ReduceSubscriber<T> extends DeferredScalarSubscription<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4663883003264602070L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction reducer;
+        public final BiFunction<T, T, T> reducer;
         public Subscription s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ReduceSubscriber(Subscriber subscriber, BiFunction biFunction) {
+        public ReduceSubscriber(Subscriber<? super T> subscriber, BiFunction<T, T, T> biFunction) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -70,9 +70,9 @@ public final class FlowableReduce extends AbstractFlowableWithUpstream {
                     return;
                 }
                 this.s = subscriptionHelper;
-                Object obj = this.value;
-                if (obj != null) {
-                    complete(obj);
+                T t = this.value;
+                if (t != null) {
+                    complete(t);
                 } else {
                     this.actual.onComplete();
                 }
@@ -105,18 +105,18 @@ public final class FlowableReduce extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.s == SubscriptionHelper.CANCELLED) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.s == SubscriptionHelper.CANCELLED) {
                 return;
             }
-            Object obj2 = this.value;
-            if (obj2 == null) {
-                this.value = obj;
+            T t2 = this.value;
+            if (t2 == null) {
+                this.value = t;
                 return;
             }
             try {
-                this.value = ObjectHelper.requireNonNull(this.reducer.apply(obj2, obj), "The reducer returned a null value");
+                this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.cancel();
@@ -126,7 +126,7 @@ public final class FlowableReduce extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableReduce(Flowable flowable, BiFunction biFunction) {
+    public FlowableReduce(Flowable<T> flowable, BiFunction<T, T, T> biFunction) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -147,7 +147,7 @@ public final class FlowableReduce extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new ReduceSubscriber(subscriber, this.reducer));

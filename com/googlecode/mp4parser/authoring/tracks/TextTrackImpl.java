@@ -8,12 +8,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
+import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.NullMediaHeaderBox;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.sampleentry.TextSampleEntry;
 import com.google.android.exoplayer2.text.tx3g.Tx3gDecoder;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
+import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.SampleImpl;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox;
@@ -31,11 +34,11 @@ public class TextTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List subs;
+    public List<Line> subs;
     public TrackMetaData trackMetaData;
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -52,7 +55,7 @@ public class TextTrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -82,7 +85,7 @@ public class TextTrackImpl extends AbstractTrack {
     }
 
     /* loaded from: classes7.dex */
-    public class Line {
+    public static class Line {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long from;
@@ -196,7 +199,7 @@ public class TextTrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -247,7 +250,7 @@ public class TextTrackImpl extends AbstractTrack {
         return (SampleDescriptionBox) invokeV.objValue;
     }
 
-    public List getSubs() {
+    public List<Line> getSubs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

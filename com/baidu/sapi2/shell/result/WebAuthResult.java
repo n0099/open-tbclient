@@ -39,7 +39,7 @@ public class WebAuthResult extends SapiResult {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class LoginType {
+    public static final class LoginType {
         public static /* synthetic */ Interceptable $ic;
         public static final LoginType FORCE_BIND;
         public static final LoginType GUIDE_BIND;

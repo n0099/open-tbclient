@@ -6,6 +6,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.widget.RemoteViews;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
@@ -16,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
-public class NotificationTarget extends CustomTarget {
+public class NotificationTarget extends CustomTarget<Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context context;
@@ -95,7 +97,7 @@ public class NotificationTarget extends CustomTarget {
         }
     }
 
-    private void setBitmap(Bitmap bitmap) {
+    private void setBitmap(@Nullable Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bitmap) == null) {
             this.remoteViews.setImageViewBitmap(this.viewId, bitmap);
@@ -104,7 +106,7 @@ public class NotificationTarget extends CustomTarget {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadCleared(Drawable drawable) {
+    public void onLoadCleared(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
             setBitmap(null);
@@ -118,12 +120,15 @@ public class NotificationTarget extends CustomTarget {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.request.target.Target
-    public void onResourceReady(Bitmap bitmap, Transition transition) {
+    public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, transition) == null) {
             setBitmap(bitmap);
         }
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public /* bridge */ /* synthetic */ void onResourceReady(@NonNull Object obj, @Nullable Transition transition) {
+        onResourceReady((Bitmap) obj, (Transition<? super Bitmap>) transition);
     }
 }

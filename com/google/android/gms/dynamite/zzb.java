@@ -2,6 +2,8 @@ package com.google.android.gms.dynamite;
 
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +12,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public final class zzb {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
+    @GuardedBy("DynamiteLoaderV2ClassLoader.class")
     public static volatile ClassLoader zza;
+    @Nullable
+    @GuardedBy("DynamiteLoaderV2ClassLoader.class")
     public static volatile Thread zzb;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,6 +35,7 @@ public final class zzb {
         }
     }
 
+    @Nullable
     public static synchronized ClassLoader zza() {
         InterceptResult invokeV;
         ClassLoader classLoader;
@@ -45,6 +52,7 @@ public final class zzb {
         return (ClassLoader) invokeV.objValue;
     }
 
+    @Nullable
     public static synchronized ClassLoader zzb() {
         InterceptResult invokeV;
         String str;
@@ -77,6 +85,7 @@ public final class zzb {
         return (ClassLoader) invokeV.objValue;
     }
 
+    @Nullable
     public static synchronized Thread zzc() {
         InterceptResult invokeV;
         SecurityException e;

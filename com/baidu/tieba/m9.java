@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.TypedArray;
 import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +35,7 @@ public class m9 {
         return invokeI.booleanValue;
     }
 
-    public static void b(Activity activity) {
+    public static void b(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || !d(activity)) {
             return;

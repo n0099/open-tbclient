@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.webp.WebpSupportStatus;
 import com.facebook.imageformat.DefaultImageFormats;
@@ -14,13 +15,16 @@ import com.facebook.imageformat.ImageFormat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class WebpTranscoderImpl implements WebpTranscoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @DoNotStrip
     public static native void nativeTranscodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
 
+    @DoNotStrip
     public static native void nativeTranscodeWebpToPng(InputStream inputStream, OutputStream outputStream) throws IOException;
 
     public WebpTranscoderImpl() {

@@ -5,19 +5,20 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.be1;
-import com.baidu.tieba.ce1;
-import com.baidu.tieba.f01;
-import com.baidu.tieba.i01;
-import com.baidu.tieba.j01;
-import com.baidu.tieba.j11;
-import com.baidu.tieba.k01;
-import com.baidu.tieba.o01;
-import com.baidu.tieba.p01;
-import com.baidu.tieba.ud1;
-import com.baidu.tieba.vd1;
-import com.baidu.tieba.wd1;
+import com.baidu.tieba.a11;
+import com.baidu.tieba.a21;
+import com.baidu.tieba.b11;
+import com.baidu.tieba.f11;
+import com.baidu.tieba.g11;
+import com.baidu.tieba.me1;
+import com.baidu.tieba.ne1;
+import com.baidu.tieba.oe1;
+import com.baidu.tieba.qm0;
+import com.baidu.tieba.te1;
+import com.baidu.tieba.ue1;
+import com.baidu.tieba.w01;
+import com.baidu.tieba.z01;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,8 +35,9 @@ public class BaseVM {
     public static String b = null;
     public static long c = 0;
     public static String d = "";
+    public static long e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ce1 a;
+    public final ue1 a;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +56,7 @@ public class BaseVM {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class Area {
+    public static final class Area {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Area DEEPLINK_RESULT_APP;
@@ -133,7 +135,7 @@ public class BaseVM {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class CloseType {
+    public static final class CloseType {
         public static final /* synthetic */ CloseType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CloseType CLICK_AD_AREA;
@@ -205,7 +207,7 @@ public class BaseVM {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -248,29 +250,30 @@ public class BaseVM {
                 long j = this.a;
                 long j2 = currentTimeMillis - j;
                 long j3 = j - this.b;
-                o01 b = new p01().g("1038").c("f1", Long.valueOf(this.b)).b("f2", this.c).b("f3", this.d);
-                p01 p01Var = (p01) b.b("f4", j2 + "").b("f5", this.e).b("f6", String.valueOf(ud1.a())).b("f10", String.valueOf(j3));
+                f11 b = new g11().g("1038").c("f1", Long.valueOf(this.b)).b("f2", this.c).b("f3", this.d);
+                g11 g11Var = (g11) b.b("f4", j2 + "").b("f5", this.e).b("f6", String.valueOf(me1.b())).b("f10", String.valueOf(j3));
                 if (TextUtils.equals("query", this.e)) {
-                    p01Var.c("f7", Integer.valueOf(this.f ? 1 : 0));
+                    g11Var.c("f7", Integer.valueOf(this.f ? 1 : 0));
                     if (!TextUtils.isEmpty(this.g)) {
-                        p01Var.c("f8", Integer.valueOf(vd1.b(this.g)));
+                        g11Var.c("f8", Integer.valueOf(ne1.b(this.g)));
+                        g11Var.b("f9", ne1.c(this.g));
                     }
                 }
-                String string = f01.a().b("splash_sp_name").getString("empty_ext_info", "");
+                String string = w01.a().b("splash_sp_name").getString("empty_ext_info", "");
                 if (!TextUtils.isEmpty(string)) {
-                    p01Var.h(string);
+                    g11Var.h(string);
                 }
-                i01.b(p01Var);
+                z01.b(g11Var);
             }
         }
     }
 
-    public BaseVM(ce1 ce1Var) {
+    public BaseVM(ue1 ue1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ce1Var};
+            Object[] objArr = {ue1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -280,7 +283,7 @@ public class BaseVM {
                 return;
             }
         }
-        this.a = ce1Var;
+        this.a = ue1Var;
     }
 
     public static void h(int i) {
@@ -308,7 +311,7 @@ public class BaseVM {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.startsWith(be1.j()) && be1.k()) {
+            if (!TextUtils.isEmpty(str) && !str.startsWith(te1.j()) && te1.k()) {
                 return true;
             }
             return false;
@@ -335,15 +338,15 @@ public class BaseVM {
 
     public static void f(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(wd1.a)) {
-            i01.b(new ClogBuilder().y(ClogBuilder.LogType.DEEP_LINK).u(ClogBuilder.Page.NA_SPLASH).j(str).p(wd1.a));
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(oe1.a)) {
+            z01.b(new ClogBuilder().y(ClogBuilder.LogType.DEEP_LINK).u(ClogBuilder.Page.NA_SPLASH).j(str).p(oe1.a));
         }
     }
 
     public static void k(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
-            i01.b(new ClogBuilder().y(ClogBuilder.LogType.CHECK).u(ClogBuilder.Page.NA_SPLASH).k("13").l(String.valueOf(i)).m(aj0.c().a().q()));
+            z01.b(new ClogBuilder().y(ClogBuilder.LogType.CHECK).u(ClogBuilder.Page.NA_SPLASH).k("13").l(String.valueOf(i)).m(zi0.c().a().r()));
         }
     }
 
@@ -352,13 +355,13 @@ public class BaseVM {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             ClogBuilder u = new ClogBuilder().y(ClogBuilder.LogType.DISCARD).u(ClogBuilder.Page.NA_SPLASH);
-            ce1 ce1Var = this.a;
-            if (ce1Var == null) {
+            ue1 ue1Var = this.a;
+            if (ue1Var == null) {
                 str2 = "";
             } else {
-                str2 = ce1Var.d;
+                str2 = ue1Var.d;
             }
-            i01.b(u.p(str2).k("10").m(str));
+            z01.b(u.p(str2).k("10").m(str));
         }
     }
 
@@ -366,10 +369,16 @@ public class BaseVM {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str) == null) {
-            String string = f01.a().b("splash_sp_name").getString("empty_ext_info", "");
+            String string = w01.a().b("splash_sp_name").getString("empty_ext_info", "");
             if (TextUtils.isEmpty(string)) {
                 return;
             }
+            long currentTimeMillis = System.currentTimeMillis();
+            int a2 = qm0.b().a().a("splash_min_log_interval", 0);
+            if (a2 > 0 && currentTimeMillis - e < a2) {
+                return;
+            }
+            e = currentTimeMillis;
             if (i == 32 && !TextUtils.isEmpty(d)) {
                 str = d;
             }
@@ -377,17 +386,17 @@ public class BaseVM {
             if (!TextUtils.isEmpty(str)) {
                 p.l(str);
             }
-            String p2 = be1.p();
+            String p2 = te1.p();
             if (!TextUtils.isEmpty(p2)) {
                 p.m(p2);
             }
-            if (ud1.a() == 0) {
+            if (me1.b() == 0) {
                 str2 = "0";
             } else {
                 str2 = "1";
             }
             p.n(str2);
-            i01.b(p);
+            z01.b(p);
         }
     }
 
@@ -401,7 +410,7 @@ public class BaseVM {
     public static void o(String str, long j, long j2, String str2, String str3, boolean z, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), str2, str3, Boolean.valueOf(z), str4}) == null) {
-            j11.c(new a(j2, j, str, str2, str3, z, str4), "splash reportPerformance", 3);
+            a21.c(new a(j2, j, str, str2, str3, z, str4), "splash reportPerformance", 3);
         }
     }
 
@@ -415,11 +424,11 @@ public class BaseVM {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.CLICK).u(ClogBuilder.Page.NA_SPLASH).n(String.valueOf(ud1.a())).o(this.a.O).p(this.a.d);
+            ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.CLICK).u(ClogBuilder.Page.NA_SPLASH).n(String.valueOf(me1.b())).o(this.a.O).p(this.a.d);
             if (!TextUtils.isEmpty(str)) {
                 p.m(str);
             }
-            i01.b(p);
+            z01.b(p);
         }
     }
 
@@ -428,7 +437,7 @@ public class BaseVM {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048580, this, str, j) == null) {
             boolean z = true;
-            if (aj0.b().getResources().getConfiguration().orientation != 1) {
+            if (zi0.b().getResources().getConfiguration().orientation != 1) {
                 z = false;
             }
             ClogBuilder l = new ClogBuilder().y(ClogBuilder.LogType.CLOSE).u(ClogBuilder.Page.NA_SPLASH).p(this.a.d).l(String.valueOf(j));
@@ -437,14 +446,14 @@ public class BaseVM {
             } else {
                 str2 = "0";
             }
-            i01.b(l.k(str2).m(str));
+            z01.b(l.k(str2).m(str));
         }
     }
 
     public void j(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.SHOW).u(ClogBuilder.Page.NA_SPLASH).n(String.valueOf(ud1.a())).o(this.a.O).p(this.a.d);
+            ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.SHOW).u(ClogBuilder.Page.NA_SPLASH).n(String.valueOf(me1.b())).o(this.a.O).p(this.a.d);
             if (jSONObject != null) {
                 if (jSONObject.has("adRenderCostTime")) {
                     p.l(jSONObject.optString("adRenderCostTime"));
@@ -459,7 +468,7 @@ public class BaseVM {
                     p.m(jSONObject.optString("adSplashType"));
                 }
             }
-            i01.b(p);
+            z01.b(p);
         }
     }
 
@@ -472,12 +481,12 @@ public class BaseVM {
         for (String str : strArr) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    String replace = new JSONObject(str).optString("url").replace("__GESTURE__", String.valueOf(b)).replace("__SHOWTIME__", String.valueOf(c));
+                    String replace = new JSONObject(str).optString("url").replace("__GESTURE__", String.valueOf(b)).replace("__SHOWTIME__", String.valueOf(c)).replace("__LAUNCH_TYPE__", String.valueOf(me1.b()));
                     if (!TextUtils.isEmpty(replace)) {
-                        j01.a(new k01(ClogBuilder.LogType.CLICK, replace, wd1.a, a(replace)));
+                        a11.a(new b11(ClogBuilder.LogType.CLICK, replace, oe1.a, a(replace)));
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             } else {
                 return;
@@ -494,12 +503,12 @@ public class BaseVM {
         for (String str : strArr) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    String replace = new JSONObject(str).optString("url").replace("__GESTURE__", String.valueOf(this.a.G)).replace("__SHOWTIME__", String.valueOf(c));
+                    String replace = new JSONObject(str).optString("url").replace("__GESTURE__", String.valueOf(this.a.G)).replace("__SHOWTIME__", String.valueOf(c)).replace("__LAUNCH_TYPE__", String.valueOf(me1.b()));
                     if (!TextUtils.isEmpty(replace)) {
-                        j01.a(new k01(ClogBuilder.LogType.SHOW, replace, wd1.a, a(replace)));
+                        a11.a(new b11(ClogBuilder.LogType.SHOW, replace, oe1.a, a(replace)));
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             } else {
                 return;

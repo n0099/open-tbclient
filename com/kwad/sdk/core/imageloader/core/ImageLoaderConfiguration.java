@@ -18,7 +18,7 @@ import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ImageLoaderConfiguration {
     public final boolean customExecutor;
     public final boolean customExecutorForCachedImages;
@@ -43,8 +43,8 @@ public final class ImageLoaderConfiguration {
     public final int threadPriority;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.ImageLoaderConfiguration$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme;
 
         static {
@@ -61,8 +61,8 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class Builder {
+    /* loaded from: classes8.dex */
+    public static class Builder {
         public static final QueueProcessingType DEFAULT_TASK_PROCESSING_TYPE = QueueProcessingType.FIFO;
         public static final int DEFAULT_THREAD_POOL_SIZE = 3;
         public static final int DEFAULT_THREAD_PRIORITY = 3;
@@ -343,8 +343,8 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class NetworkDeniedImageDownloader implements ImageDownloader {
+    /* loaded from: classes8.dex */
+    public static class NetworkDeniedImageDownloader implements ImageDownloader {
         public final ImageDownloader wrappedDownloader;
 
         public NetworkDeniedImageDownloader(ImageDownloader imageDownloader) {
@@ -361,8 +361,8 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class SlowNetworkImageDownloader implements ImageDownloader {
+    /* loaded from: classes8.dex */
+    public static class SlowNetworkImageDownloader implements ImageDownloader {
         public final ImageDownloader wrappedDownloader;
 
         public SlowNetworkImageDownloader(ImageDownloader imageDownloader) {

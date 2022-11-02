@@ -3,6 +3,7 @@ package androidx.core.graphics.drawable;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,6 +15,7 @@ public final class IconKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(26)
     public static final Icon toAdaptiveIcon(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -25,6 +27,7 @@ public final class IconKt {
         return (Icon) invokeL.objValue;
     }
 
+    @RequiresApi(26)
     public static final Icon toIcon(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -36,6 +39,7 @@ public final class IconKt {
         return (Icon) invokeL.objValue;
     }
 
+    @RequiresApi(26)
     public static final Icon toIcon(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -47,6 +51,7 @@ public final class IconKt {
         return (Icon) invokeL.objValue;
     }
 
+    @RequiresApi(26)
     public static final Icon toIcon(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

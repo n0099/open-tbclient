@@ -11,15 +11,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
 import com.baidu.tieba.lego.card.model.LPBigImgCard;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class LPBigImgCardView extends BaseCardView {
+/* loaded from: classes5.dex */
+public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout m;
@@ -38,7 +38,7 @@ public class LPBigImgCardView extends BaseCardView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class LPBigImgCardView extends BaseCardView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,14 +126,14 @@ public class LPBigImgCardView extends BaseCardView {
                 return;
             }
         }
-        this.r = fj.k(getContext());
+        this.r = xi.l(getContext());
     }
 
     public final int C(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return fj.d(this.i.getPageActivity(), (int) (i / 2.0d));
+            return xi.d(this.i.getPageActivity(), (int) (i / 2.0d));
         }
         return invokeI.intValue;
     }
@@ -148,7 +148,7 @@ public class LPBigImgCardView extends BaseCardView {
             this.q = picHeight;
             F(this.n, picHeight);
             if (!TextUtils.isEmpty(lPBigImgCard.getPicUrl())) {
-                this.n.H(lPBigImgCard.getPicUrl(), 17, this.r, this.q, false);
+                this.n.G(lPBigImgCard.getPicUrl(), 17, this.r, this.q, false);
             } else {
                 x(this.n, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
             }
@@ -156,7 +156,7 @@ public class LPBigImgCardView extends BaseCardView {
             if (!TextUtils.isEmpty(lPBigImgCard.getBtnImgUrl()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
                 int btnHeight = lPBigImgCard.getBtnHeight();
                 G(this.o, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-                this.o.L(lPBigImgCard.getBtnImgUrl(), 17, false);
+                this.o.K(lPBigImgCard.getBtnImgUrl(), 17, false);
                 int btnPosRatio = (int) ((i * lPBigImgCard.getBtnPosRatio()) - (btnHeight * 0.5d));
                 if (btnPosRatio < 0) {
                     btnPosRatio = 0;
@@ -223,11 +223,11 @@ public class LPBigImgCardView extends BaseCardView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0179, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d017b, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f0920d9);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0920da);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092360);
+            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f09212c);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09212d);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0923b4);
             return this.m;
         }
         return (View) invokeV.objValue;

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.bh3;
+import com.baidu.tieba.th3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SwanCoreVersion> CREATOR;
     public static final int TYPE_DEBUG = 2;
     public static final int TYPE_PRESET = 0;
     public static final int TYPE_REMOTE = 1;
@@ -43,7 +43,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<SwanCoreVersion> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -120,7 +120,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return bh3.e(this.swanCorePath);
+            return th3.e(this.swanCorePath);
         }
         return invokeV.booleanValue;
     }

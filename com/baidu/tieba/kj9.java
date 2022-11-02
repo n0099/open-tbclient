@@ -1,67 +1,107 @@
 package com.baidu.tieba;
 
-import android.os.IBinder;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.config.AppConfig;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.voyager.impl.IVoyagerService;
 /* loaded from: classes4.dex */
 public class kj9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile IVoyagerService b;
+    public static boolean a;
+    public static float b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915151, "Lcom/baidu/tieba/kj9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947915151, "Lcom/baidu/tieba/kj9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947915151, "Lcom/baidu/tieba/kj9;")) == null) {
+            return;
         }
-        a = AppConfig.isDebug();
-    }
-
-    public kj9() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947915151, "Lcom/baidu/tieba/kj9;");
         }
     }
 
-    public static IVoyagerService b() {
+    public static int a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            if (!a) {
+                f();
+            }
+            return (int) ((f * b) + 0.5f);
+        }
+        return invokeF.intValue;
+    }
+
+    public static int b() {
         InterceptResult invokeV;
-        IBinder f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (kj9.class) {
-                    if (b == null && (f = IPCServiceManager.f("remote_voyager_service", true)) != null) {
-                        b = IVoyagerService.Stub.asInterface(f);
-                    }
-                }
+            if (!a) {
+                f();
             }
-            return b;
+            return c;
         }
-        return (IVoyagerService) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b();
+        }
+        return invokeV.intValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c();
+        }
+        return invokeV.intValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) ue9.c().getContext().getSystemService("window");
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            int orientation = windowManager.getDefaultDisplay().getOrientation();
+            if (orientation != 1 && orientation != 3) {
+                c = displayMetrics.widthPixels;
+                d = displayMetrics.heightPixels;
+            } else {
+                c = displayMetrics.heightPixels;
+                d = displayMetrics.widthPixels;
+            }
+            b = displayMetrics.density;
+            a = true;
+        }
     }
 }

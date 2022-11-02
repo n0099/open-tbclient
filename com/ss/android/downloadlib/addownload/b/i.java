@@ -1,6 +1,7 @@
 package com.ss.android.downloadlib.addownload.b;
 
 import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.addownload.j;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +13,7 @@ import org.json.JSONObject;
 public class i {
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static i a = new i();
     }
 
@@ -31,10 +32,10 @@ public class i {
     public void a(com.ss.android.downloadad.api.a.b bVar) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(bVar);
-        a((Collection) arrayList);
+        a((Collection<com.ss.android.downloadad.api.a.b>) arrayList);
     }
 
-    public synchronized void a(final Collection collection) {
+    public synchronized void a(final Collection<com.ss.android.downloadad.api.a.b> collection) {
         if (collection != null) {
             if (!collection.isEmpty()) {
                 com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.addownload.b.i.1
@@ -53,7 +54,7 @@ public class i {
         }
     }
 
-    public void a(final List list) {
+    public void a(final List<String> list) {
         if (list != null && !list.isEmpty()) {
             com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.addownload.b.i.2
                 @Override // java.lang.Runnable
@@ -68,8 +69,9 @@ public class i {
         }
     }
 
-    public ConcurrentHashMap b() {
-        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+    @NonNull
+    public ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> b() {
+        ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> concurrentHashMap = new ConcurrentHashMap<>();
         Map<String, ?> all = c().getAll();
         if (all == null) {
             return concurrentHashMap;

@@ -20,7 +20,7 @@ import tbclient.Post;
 public class LookMoreHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List list;
+    public List<PostData> list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LookMoreHttpResMessage() {
@@ -57,7 +57,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             if (getError() == 0 && getPostListResIdl != null && (dataRes = getPostListResIdl.data) != null && (list = dataRes.post_list) != null && list.size() > 0) {
                 for (Post post : list) {
                     PostData postData = new PostData();
-                    postData.w0(post);
+                    postData.x0(post);
                     postData.N = 102;
                     this.list.add(postData);
                 }
@@ -65,7 +65,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
         }
     }
 
-    public List getData() {
+    public List<PostData> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

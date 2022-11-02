@@ -1,116 +1,76 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.g93;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nf3 {
+public class nf3 extends hf3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nf3.b(this.a, this.b);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000494, "Lcom/baidu/tieba/nf3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948000494, "Lcom/baidu/tieba/nf3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nf3(b53 b53Var) {
+        super(b53Var, "/swanAPI/setTabBarBadge");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((b53) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = wj1.a;
-        b = 0;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void d(int i, int i2) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
-            if (i != 0 && tm2.g0().l()) {
-                z = true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                e12.c("setTabBarBadge", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            int optInt = optParamsAsJo.optInt("index");
+            String optString = optParamsAsJo.optString("text");
+            if (optString.length() > 3) {
+                optString = context.getString(R.string.obfuscated_res_0x7f0f01e2);
+            }
+            if (hf3.k()) {
+                e12.c("SetTabBarBadgeAction", "fail not TabBar page");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
+                return false;
+            }
+            qf3 j = hf3.j();
+            if (j == null) {
+                e12.c("SetTabBarBadgeAction", "tabBarViewController is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!j.w(optInt, optString)) {
+                e12.c("setTabBarBadge", "set bottom badge fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             } else {
-                z = false;
-            }
-            if (z) {
-                gg3.k(new a(i, i2), "onUpgradeOperation");
-            } else {
-                b(i, i2);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
         }
-    }
-
-    public static void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            if (i == 0) {
-                b = 2;
-            } else if (i2 > i) {
-                b = 1;
-                zd2.d().e(i, i2);
-                zf3.h();
-                um2.m().i();
-                g93.a.a();
-                m92.d();
-            }
-            if (a) {
-                Log.d("SwanAppUpgradeManager", "App onUpgrade on thread: " + Thread.currentThread());
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -20,11 +20,11 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.hx5;
-import com.baidu.tieba.ki6;
-import com.baidu.tieba.li6;
-import com.baidu.tieba.ox5;
-import com.baidu.tieba.px5;
+import com.baidu.tieba.ry5;
+import com.baidu.tieba.uj6;
+import com.baidu.tieba.vj6;
+import com.baidu.tieba.yy5;
+import com.baidu.tieba.zy5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class AlaFrsLiveStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,29 +64,29 @@ public class AlaFrsLiveStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof li6)) {
+            if (!(data instanceof vj6)) {
                 return;
             }
-            li6 li6Var = (li6) data;
-            hx5 hx5Var = new hx5(true);
-            hx5Var.b().e = 2;
-            hx5Var.h(li6Var.c());
-            hx5Var.i(li6Var.d());
-            hx5Var.g(li6Var.b());
-            hx5Var.j(1);
-            hx5Var.k(false);
-            li6Var.a(hx5Var);
+            vj6 vj6Var = (vj6) data;
+            ry5 ry5Var = new ry5(true);
+            ry5Var.b().e = 2;
+            ry5Var.h(vj6Var.c());
+            ry5Var.i(vj6Var.d());
+            ry5Var.g(vj6Var.b());
+            ry5Var.j(1);
+            ry5Var.k(false);
+            vj6Var.a(ry5Var);
         }
     }
 
     /* loaded from: classes3.dex */
-    public final class b extends CustomMessageListener {
+    public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,31 +112,31 @@ public class AlaFrsLiveStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof ki6)) {
+            if (!(data instanceof uj6)) {
                 return;
             }
-            ki6 ki6Var = (ki6) data;
-            hx5 hx5Var = new hx5(true);
-            hx5Var.b().e = 9;
-            hx5Var.h(ki6Var.c());
-            hx5Var.i(ki6Var.d());
-            hx5Var.g(ki6Var.b());
-            hx5Var.j(1);
-            hx5Var.k(true);
-            if (ki6Var.h(9)) {
-                ki6Var.a(hx5Var);
+            uj6 uj6Var = (uj6) data;
+            ry5 ry5Var = new ry5(true);
+            ry5Var.b().e = 9;
+            ry5Var.h(uj6Var.c());
+            ry5Var.i(uj6Var.d());
+            ry5Var.g(uj6Var.b());
+            ry5Var.j(1);
+            ry5Var.k(true);
+            if (uj6Var.h(9)) {
+                uj6Var.a(ry5Var);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public final class c extends CustomMessageListener {
+    public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -162,29 +162,29 @@ public class AlaFrsLiveStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof li6)) {
+            if (!(data instanceof vj6)) {
                 return;
             }
-            li6 li6Var = (li6) data;
-            hx5 hx5Var = new hx5(false);
-            hx5Var.b().e = 1;
-            hx5Var.h(li6Var.c());
-            hx5Var.i(li6Var.d());
-            hx5Var.g(li6Var.b());
-            hx5Var.j(2);
-            hx5Var.k(false);
-            li6Var.a(hx5Var);
+            vj6 vj6Var = (vj6) data;
+            ry5 ry5Var = new ry5(false);
+            ry5Var.b().e = 1;
+            ry5Var.h(vj6Var.c());
+            ry5Var.i(vj6Var.d());
+            ry5Var.g(vj6Var.b());
+            ry5Var.j(2);
+            ry5Var.k(false);
+            vj6Var.a(ry5Var);
         }
     }
 
     /* loaded from: classes3.dex */
-    public final class d extends CustomMessageListener {
+    public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,27 +210,27 @@ public class AlaFrsLiveStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof li6)) {
+            if (!(data instanceof vj6)) {
                 return;
             }
-            li6 li6Var = (li6) data;
-            px5 px5Var = new px5();
-            px5Var.b().e = 3;
-            px5Var.g(li6Var.c());
-            px5Var.h(li6Var.d());
-            px5Var.i(false);
-            li6Var.a(px5Var);
+            vj6 vj6Var = (vj6) data;
+            zy5 zy5Var = new zy5();
+            zy5Var.b().e = 3;
+            zy5Var.g(vj6Var.c());
+            zy5Var.h(vj6Var.d());
+            zy5Var.i(false);
+            vj6Var.a(zy5Var);
         }
     }
 
     /* loaded from: classes3.dex */
-    public final class e extends CustomMessageListener {
+    public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -256,30 +256,30 @@ public class AlaFrsLiveStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof ki6)) {
+            if (!(data instanceof uj6)) {
                 return;
             }
-            ki6 ki6Var = (ki6) data;
-            px5 px5Var = new px5();
-            px5Var.b().e = 8;
-            px5Var.b().b = R.string.obfuscated_res_0x7f0f0252;
-            px5Var.g(ki6Var.c());
-            px5Var.h(ki6Var.d());
-            px5Var.i(true);
-            if (ki6Var.h(8)) {
-                ki6Var.a(px5Var);
+            uj6 uj6Var = (uj6) data;
+            zy5 zy5Var = new zy5();
+            zy5Var.b().e = 8;
+            zy5Var.b().b = R.string.obfuscated_res_0x7f0f0253;
+            zy5Var.g(uj6Var.c());
+            zy5Var.h(uj6Var.d());
+            zy5Var.i(true);
+            if (uj6Var.h(8)) {
+                uj6Var.a(zy5Var);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public final class f extends CustomMessageListener {
+    public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -305,26 +305,26 @@ public class AlaFrsLiveStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof ki6)) {
+            if (!(data instanceof uj6)) {
                 return;
             }
-            ki6 ki6Var = (ki6) data;
-            ox5 ox5Var = new ox5();
-            ox5Var.i(ki6Var.c());
-            ox5Var.j(ki6Var.d());
-            ox5Var.h(ki6Var.b());
-            ox5Var.g(ki6Var);
+            uj6 uj6Var = (uj6) data;
+            yy5 yy5Var = new yy5();
+            yy5Var.i(uj6Var.c());
+            yy5Var.j(uj6Var.d());
+            yy5Var.h(uj6Var.b());
+            yy5Var.g(uj6Var);
         }
     }
 
     /* loaded from: classes3.dex */
-    public final class g implements CustomMessageTask.CustomRunnable {
+    public static class g implements CustomMessageTask.CustomRunnable<AlaAllGameLiveEntryActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -343,12 +343,12 @@ public class AlaFrsLiveStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<AlaAllGameLiveEntryActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((AlaAllGameLiveEntryActivityConfig) customMessage.getData()).startActivity(AlaAllGameLiveEntryActivity.class);
+                    customMessage.getData().startActivity(AlaAllGameLiveEntryActivity.class);
                 }
                 return null;
             }

@@ -36,27 +36,27 @@ public class b extends com.tencent.open.a {
     }
 
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List list, a.C0699a c0699a) {
+    public void a(String str, String str2, List<String> list, a.C0710a c0710a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0699a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0710a) == null) {
             SLog.v("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    list.set(i, URLDecoder.decode((String) list.get(i), "UTF-8"));
+                    list.set(i, URLDecoder.decode(list.get(i), "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
             }
-            a.b bVar = (a.b) this.a.get(str);
+            a.b bVar = this.a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.SecureJsBridge", "-->handler != null");
-                bVar.call(str2, list, c0699a);
+                bVar.call(str2, list, c0710a);
                 return;
             }
             SLog.e("openSDK_LOG.SecureJsBridge", "-->handler == null objName: " + str);
-            if (c0699a != null) {
-                c0699a.a();
+            if (c0710a != null) {
+                c0710a.a();
             }
         }
     }

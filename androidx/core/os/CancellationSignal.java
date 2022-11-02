@@ -1,6 +1,7 @@
 package androidx.core.os;
 
 import android.os.Build;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,6 +103,7 @@ public final class CancellationSignal {
         }
     }
 
+    @Nullable
     public Object getCancellationSignalObject() {
         InterceptResult invokeV;
         Object obj;
@@ -125,7 +127,7 @@ public final class CancellationSignal {
         return invokeV.objValue;
     }
 
-    public void setOnCancelListener(OnCancelListener onCancelListener) {
+    public void setOnCancelListener(@Nullable OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onCancelListener) == null) {
             synchronized (this) {

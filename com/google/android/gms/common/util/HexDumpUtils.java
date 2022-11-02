@@ -1,5 +1,7 @@
 package com.google.android.gms.common.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,6 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class HexDumpUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +30,9 @@ public final class HexDumpUtils {
         }
     }
 
-    public static String dump(byte[] bArr, int i, int i2, boolean z) {
+    @Nullable
+    @KeepForSdk
+    public static String dump(@NonNull byte[] bArr, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         int length;
         int i3;

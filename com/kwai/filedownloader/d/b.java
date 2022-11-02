@@ -21,7 +21,7 @@ public final class b implements com.kwai.filedownloader.d.a {
     public final FileDescriptor fd;
 
     /* loaded from: classes8.dex */
-    public final class a implements c.e {
+    public static class a implements c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

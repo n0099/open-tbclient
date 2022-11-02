@@ -1,26 +1,23 @@
 package com.baidu.mapapi.map;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.mapsdkplatform.comapi.map.ai;
+import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.locks.Lock;
 /* loaded from: classes2.dex */
-public class e implements ai {
+public class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ BaiduMap a;
+    public final /* synthetic */ InfoWindow a;
+    public final /* synthetic */ d b;
 
-    public e(BaiduMap baiduMap) {
+    public e(d dVar, InfoWindow infoWindow) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
+            Object[] objArr = {dVar, infoWindow};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,38 +27,15 @@ public class e implements ai {
                 return;
             }
         }
-        this.a = baiduMap;
+        this.b = dVar;
+        this.a = infoWindow;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.map.ai
-    public Bundle a(int i, int i2, int i3, Context context) {
-        InterceptResult invokeCommon;
-        Lock lock;
-        Lock lock2;
-        TileOverlay tileOverlay;
-        Lock lock3;
-        TileOverlay tileOverlay2;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), context})) == null) {
-            lock = this.a.J;
-            lock.lock();
-            try {
-                tileOverlay = this.a.G;
-                if (tileOverlay != null) {
-                    tileOverlay2 = this.a.G;
-                    Tile a = tileOverlay2.a(i, i2, i3);
-                    if (a != null) {
-                        return a.toBundle();
-                    }
-                }
-                lock3 = this.a.J;
-                lock3.unlock();
-                return null;
-            } finally {
-                lock2 = this.a.J;
-                lock2.unlock();
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.c.setLayoutParams(new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(this.a.d).yOffset(this.a.g).build());
         }
-        return (Bundle) invokeCommon.objValue;
     }
 }

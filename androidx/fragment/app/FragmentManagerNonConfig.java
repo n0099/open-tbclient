@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelStore;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,11 +15,14 @@ import java.util.Map;
 public class FragmentManagerNonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final Map<String, FragmentManagerNonConfig> mChildNonConfigs;
+    @Nullable
     public final Collection<Fragment> mFragments;
+    @Nullable
     public final Map<String, ViewModelStore> mViewModelStores;
 
-    public FragmentManagerNonConfig(Collection<Fragment> collection, Map<String, FragmentManagerNonConfig> map, Map<String, ViewModelStore> map2) {
+    public FragmentManagerNonConfig(@Nullable Collection<Fragment> collection, @Nullable Map<String, FragmentManagerNonConfig> map, @Nullable Map<String, ViewModelStore> map2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,6 +42,7 @@ public class FragmentManagerNonConfig {
         this.mViewModelStores = map2;
     }
 
+    @Nullable
     public Map<String, FragmentManagerNonConfig> getChildNonConfigs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,6 +52,7 @@ public class FragmentManagerNonConfig {
         return (Map) invokeV.objValue;
     }
 
+    @Nullable
     public Collection<Fragment> getFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,6 +62,7 @@ public class FragmentManagerNonConfig {
         return (Collection) invokeV.objValue;
     }
 
+    @Nullable
     public Map<String, ViewModelStore> getViewModelStores() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

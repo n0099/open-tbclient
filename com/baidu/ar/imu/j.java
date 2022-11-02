@@ -34,7 +34,7 @@ public abstract class j extends Observable implements SensorEventListener {
     public Object sw;
     public Boolean sx;
     public final Object sy;
-    public List sz;
+    public List<Sensor> sz;
 
     static {
         InterceptResult invokeClinit;

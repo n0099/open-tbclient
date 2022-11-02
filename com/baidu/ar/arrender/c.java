@@ -59,11 +59,11 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     public long gU;
     public long gV;
     public ARRenderFpsCallback gW;
-    public List u;
+    public List<String> u;
 
     /* renamed from: com.baidu.ar.arrender.c$6  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass6 {
+    public static /* synthetic */ class AnonymousClass6 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] ha;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,7 +175,7 @@ public class c extends e implements OrientationManager.OrientationListener, l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, cVar)) == null) {
-            List list = this.u;
+            List<String> list = this.u;
             return list == null || !list.contains(cVar.ab());
         }
         return invokeL.booleanValue;
@@ -205,7 +205,7 @@ public class c extends e implements OrientationManager.OrientationListener, l {
         if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f == null) {
             return;
         }
-        HashMap hashMap = new HashMap();
+        HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 10200);
         hashMap.put("front_camera", Integer.valueOf(!z ? 1 : 0));
         this.f.b(1902, hashMap);
@@ -716,7 +716,7 @@ public class c extends e implements OrientationManager.OrientationListener, l {
         super.createPixelReader(pixelReadParams, pixelReadListener);
     }
 
-    public void d(List list) {
+    public void d(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, list) == null) {
             this.u = list;

@@ -44,10 +44,10 @@ public abstract class gn {
     public gr f439a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f440a;
+    public List<gk> f440a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map f441a;
+    public final Map<String, Object> f441a;
     public String d;
     public String e;
     public String f;
@@ -193,7 +193,7 @@ public abstract class gn {
             if (grVar != null) {
                 bundle.putBundle("ext_ERROR", grVar.a());
             }
-            List list = this.f440a;
+            List<gk> list = this.f440a;
             if (list != null) {
                 Bundle[] bundleArr = new Bundle[list.size()];
                 int i = 0;
@@ -259,7 +259,7 @@ public abstract class gn {
     public abstract String m371a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection m372a() {
+    public synchronized Collection<gk> m372a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -284,7 +284,7 @@ public abstract class gn {
         }
     }
 
-    public synchronized Collection b() {
+    public synchronized Collection<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -315,7 +315,7 @@ public abstract class gn {
                         if (str2 == null ? gnVar.e == null : str2.equals(gnVar.e)) {
                             String str3 = this.h;
                             if (str3 == null ? gnVar.h == null : str3.equals(gnVar.h)) {
-                                Map map = this.f441a;
+                                Map<String, Object> map = this.f441a;
                                 if (map == null ? gnVar.f441a == null : map.equals(gnVar.f441a)) {
                                     String str4 = this.f;
                                     if (str4 == null ? gnVar.f == null : str4.equals(gnVar.f)) {
@@ -450,8 +450,8 @@ public abstract class gn {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             synchronized (this) {
                 StringBuilder sb2 = new StringBuilder();
-                for (go goVar : m372a()) {
-                    sb2.append(goVar.d());
+                for (gk gkVar : m372a()) {
+                    sb2.append(gkVar.d());
                 }
                 if (this.f441a != null && !this.f441a.isEmpty()) {
                     sb2.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");

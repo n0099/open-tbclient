@@ -1,5 +1,6 @@
 package com.fun.ad.sdk;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +19,7 @@ public class FunAdSlot {
 
     /* renamed from: com.fun.ad.sdk.FunAdSlot$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -68,7 +69,7 @@ public class FunAdSlot {
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -121,7 +122,7 @@ public class FunAdSlot {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setSid(String str) {
+        public Builder setSid(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {

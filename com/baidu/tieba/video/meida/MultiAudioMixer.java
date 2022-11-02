@@ -19,7 +19,7 @@ public abstract class MultiAudioMixer {
     public c a;
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -36,7 +36,7 @@ public abstract class MultiAudioMixer {
     public abstract byte[] c(byte[][] bArr);
 
     /* loaded from: classes6.dex */
-    public class AudioMixException extends IOException {
+    public static class AudioMixException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1344782236320621800L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public abstract class MultiAudioMixer {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends MultiAudioMixer {
+    public static class b extends MultiAudioMixer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

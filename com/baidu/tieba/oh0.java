@@ -1,66 +1,20 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class oh0 implements nn0 {
+public final class oh0 extends jn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.nn0
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nn0
-    public void onActivityDestroyed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nn0
-    public void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nn0
-    public void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nn0
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nn0
-    public void onActivityStarted(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nn0
-    public void onActivityStopped(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
+    public boolean a;
+    public long b;
+    public long c;
 
     public oh0() {
         Interceptable interceptable = $ic;
@@ -72,23 +26,45 @@ public final class oh0 implements nn0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = 0L;
+        this.c = 0L;
     }
 
-    @Override // com.baidu.tieba.nn0
-    public void onBackgroundToForeground(Activity activity) {
+    public final void e() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            cm0.a().a(new jm0(true));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ClogBuilder k = new ClogBuilder().y(ClogBuilder.LogType.CHECK).u(ClogBuilder.Page.NA_SPLASH).k("4");
+            if (this.a) {
+                str = "4003";
+            } else {
+                str = "4002";
+            }
+            z01.b(k.l(str).m(String.valueOf(this.c)));
         }
     }
 
-    @Override // com.baidu.tieba.nn0
-    public void onForegroundToBackground(Activity activity) {
+    @Override // com.baidu.tieba.jn0, com.baidu.tieba.mn0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            cm0.a().a(new jm0(false));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            if (!this.a) {
+                this.c = System.currentTimeMillis() - this.b;
+            }
+            e();
+        }
+    }
+
+    @Override // com.baidu.tieba.jn0, com.baidu.tieba.mn0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.a = false;
+            this.b = System.currentTimeMillis();
         }
     }
 }

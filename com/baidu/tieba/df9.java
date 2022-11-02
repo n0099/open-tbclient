@@ -1,27 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface df9 extends Runnable {
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(DownloadException downloadException);
-
-        void onDownloadCanceled();
-
-        void onDownloadCompleted(String str);
-
-        void onDownloadPaused();
-
-        void onDownloadProgress(long j, long j2);
-    }
-
-    void cancel();
-
-    boolean isComplete();
-
-    boolean isDownloading();
-
-    void pause();
+public class df9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
 }

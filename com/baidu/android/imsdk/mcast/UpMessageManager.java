@@ -26,7 +26,7 @@ public class UpMessageManager {
     public transient /* synthetic */ FieldHolder $fh;
     public EventHandler mEventHandler;
     public HandlerThread mHandlerThread;
-    public ConcurrentLinkedQueue mTaskList;
+    public ConcurrentLinkedQueue<Task> mTaskList;
     public ThreadPoolExecutor mThreadPool;
     public boolean onDispath;
     public boolean onTaskRunning;
@@ -50,7 +50,7 @@ public class UpMessageManager {
     public class EventHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference mActivity;
+        public final WeakReference<UpMessageManager> mActivity;
         public final /* synthetic */ UpMessageManager this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,7 +72,7 @@ public class UpMessageManager {
                 }
             }
             this.this$0 = upMessageManager;
-            this.mActivity = new WeakReference(upMessageManager2);
+            this.mActivity = new WeakReference<>(upMessageManager2);
         }
 
         @Override // android.os.Handler
@@ -80,7 +80,7 @@ public class UpMessageManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 this.this$0.onTaskRunning = false;
-                UpMessageManager upMessageManager = (UpMessageManager) this.mActivity.get();
+                UpMessageManager upMessageManager = this.mActivity.get();
                 if (upMessageManager != null) {
                     if (this.this$0.mTaskList.size() <= 0) {
                         this.this$0.onDispath = false;
@@ -93,7 +93,7 @@ public class UpMessageManager {
     }
 
     /* loaded from: classes.dex */
-    public class Task {
+    public static class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mAction;
@@ -154,7 +154,7 @@ public class UpMessageManager {
                 return;
             }
         }
-        this.mTaskList = new ConcurrentLinkedQueue();
+        this.mTaskList = new ConcurrentLinkedQueue<>();
         this.mThreadPool = (ThreadPoolExecutor) Executors.newFixedThreadPool(3);
         this.onDispath = false;
         this.onTaskRunning = false;
@@ -175,7 +175,7 @@ public class UpMessageManager {
             }
             int corePoolSize = this.mThreadPool.getCorePoolSize() - this.mThreadPool.getActiveCount();
             if (!this.onTaskRunning && corePoolSize > 0) {
-                execute((Task) this.mTaskList.poll());
+                execute(this.mTaskList.poll());
             }
         }
     }

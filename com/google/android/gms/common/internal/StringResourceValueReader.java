@@ -2,6 +2,8 @@ package com.google.android.gms.common.internal;
 
 import android.content.Context;
 import android.content.res.Resources;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class StringResourceValueReader {
     public static /* synthetic */ Interceptable $ic;
@@ -16,7 +20,7 @@ public class StringResourceValueReader {
     public final Resources zza;
     public final String zzb;
 
-    public StringResourceValueReader(Context context) {
+    public StringResourceValueReader(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,10 +38,12 @@ public class StringResourceValueReader {
         Preconditions.checkNotNull(context);
         Resources resources = context.getResources();
         this.zza = resources;
-        this.zzb = resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f0422);
+        this.zzb = resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f0424);
     }
 
-    public String getString(String str) {
+    @Nullable
+    @KeepForSdk
+    public String getString(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {

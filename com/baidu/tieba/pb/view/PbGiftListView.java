@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dt4;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.ut4;
 import com.baidu.tieba.w9;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -165,65 +165,65 @@ public class PbGiftListView extends FrameLayout {
         }
     }
 
-    public void g(dt4 dt4Var, String str, String str2, long j, long j2, long j3) {
+    public void g(ut4 ut4Var, String str, String str2, long j, long j2, long j3) {
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dt4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{ut4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             this.k = j;
             this.i = str;
             this.j = str2;
             this.m = j3;
             this.l = j2;
-            if (dt4Var != null && dt4Var.a() != null && dt4Var.a().size() > 0) {
-                if (dt4Var.a().size() > 4) {
+            if (ut4Var != null && ut4Var.a() != null && ut4Var.a().size() > 0) {
+                if (ut4Var.a().size() > 4) {
                     size = 4;
                 } else {
-                    size = dt4Var.a().size();
+                    size = ut4Var.a().size();
                 }
                 if (size != 1) {
                     if (size != 2) {
                         if (size != 3) {
                             if (size == 4) {
-                                this.c.L(dt4Var.a().get(0).a, 10, false);
-                                this.d.L(dt4Var.a().get(1).a, 10, false);
-                                this.e.L(dt4Var.a().get(2).a, 10, false);
-                                this.f.L(dt4Var.a().get(3).a, 10, false);
+                                this.c.K(ut4Var.a().get(0).a, 10, false);
+                                this.d.K(ut4Var.a().get(1).a, 10, false);
+                                this.e.K(ut4Var.a().get(2).a, 10, false);
+                                this.f.K(ut4Var.a().get(3).a, 10, false);
                                 this.c.setVisibility(0);
                                 this.d.setVisibility(0);
                                 this.e.setVisibility(0);
                                 this.f.setVisibility(0);
                             }
                         } else {
-                            this.c.L(dt4Var.a().get(0).a, 10, false);
-                            this.d.L(dt4Var.a().get(1).a, 10, false);
-                            this.e.L(dt4Var.a().get(2).a, 10, false);
+                            this.c.K(ut4Var.a().get(0).a, 10, false);
+                            this.d.K(ut4Var.a().get(1).a, 10, false);
+                            this.e.K(ut4Var.a().get(2).a, 10, false);
                             this.c.setVisibility(0);
                             this.d.setVisibility(0);
                             this.e.setVisibility(0);
                             this.f.setVisibility(8);
                         }
                     } else {
-                        this.c.L(dt4Var.a().get(0).a, 10, false);
-                        this.d.L(dt4Var.a().get(1).a, 10, false);
+                        this.c.K(ut4Var.a().get(0).a, 10, false);
+                        this.d.K(ut4Var.a().get(1).a, 10, false);
                         this.c.setVisibility(0);
                         this.d.setVisibility(0);
                         this.e.setVisibility(8);
                         this.f.setVisibility(8);
                     }
                 } else {
-                    this.c.L(dt4Var.a().get(0).a, 10, false);
+                    this.c.K(ut4Var.a().get(0).a, 10, false);
                     this.c.setVisibility(0);
                     this.d.setVisibility(8);
                     this.e.setVisibility(8);
                     this.f.setVisibility(8);
                 }
-                if (dt4Var.b() > 0) {
-                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07dc), Integer.valueOf(dt4Var.b())));
+                if (ut4Var.b() > 0) {
+                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07e2), Integer.valueOf(ut4Var.b())));
                     this.g.setVisibility(0);
                 } else {
                     this.g.setVisibility(8);
                 }
-                if (j == eh.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                if (j == wg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
                     this.h.setVisibility(8);
                     return;
                 } else {
@@ -266,22 +266,22 @@ public class PbGiftListView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d06c1, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d06d6, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09180a);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09180b);
-            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09180c);
-            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09180d);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09184b);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09184c);
+            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09184d);
+            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09184e);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08126e);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08126e);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08126e);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08126e);
             this.c.setDefaultResource(R.drawable.icon_gift_moren);
             this.d.setDefaultResource(R.drawable.icon_gift_moren);
             this.e.setDefaultResource(R.drawable.icon_gift_moren);
             this.f.setDefaultResource(R.drawable.icon_gift_moren);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091808);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091809);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091849);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09184a);
             this.h = textView;
             textView.setOnClickListener(new a(this));
         }

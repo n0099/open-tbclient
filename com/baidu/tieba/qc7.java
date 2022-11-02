@@ -1,53 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qc7 implements CustomMessageTask.CustomRunnable {
+public class qc7 {
     public static /* synthetic */ Interceptable $ic;
+    public static qc7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public bc a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948087108, "Lcom/baidu/tieba/qc7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948087108, "Lcom/baidu/tieba/qc7;");
+        }
+    }
 
     public qc7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = new bc(1000, 1000, 1000);
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage run(CustomMessage customMessage) {
-        InterceptResult invokeL;
+    public static qc7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
-                ou4.f();
-                byte[] bArr = (byte[]) ou4.d("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
-                ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
-                try {
-                    responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (qc7.class) {
+                    if (b == null) {
+                        b = new qc7();
+                    }
                 }
-                return responseOfficialBarMenuLocalMessage;
             }
-            return null;
+            return b;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (qc7) invokeV.objValue;
+    }
+
+    public bc b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (bc) invokeV.objValue;
     }
 }

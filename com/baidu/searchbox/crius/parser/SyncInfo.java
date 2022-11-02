@@ -1,6 +1,7 @@
 package com.baidu.searchbox.crius.parser;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,12 +18,12 @@ public class SyncInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String action;
-    public ArrayList filters;
+    public ArrayList<Filter> filters;
     public String valueCriusMap;
     public String valuePath;
 
     /* loaded from: classes2.dex */
-    public class Filter {
+    public static class Filter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String filterPath;
@@ -82,7 +83,7 @@ public class SyncInfo {
             return invokeL.booleanValue;
         }
 
-        public void parse(JSONObject jSONObject) {
+        public void parse(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
                 return;
@@ -127,7 +128,8 @@ public class SyncInfo {
         return invokeV.booleanValue;
     }
 
-    public static SyncInfo parse(JSONObject jSONObject) {
+    @Nullable
+    public static SyncInfo parse(@Nullable JSONObject jSONObject) {
         InterceptResult invokeL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
@@ -140,7 +142,7 @@ public class SyncInfo {
             syncInfo.valuePath = jSONObject.optString("value_path");
             syncInfo.valueCriusMap = jSONObject.optString("value_crius_map");
             if (jSONObject.has("filters") && (optJSONArray = jSONObject.optJSONArray("filters")) != null && optJSONArray.length() > 0) {
-                syncInfo.filters = new ArrayList(optJSONArray.length());
+                syncInfo.filters = new ArrayList<>(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     Filter filter = new Filter();
                     try {

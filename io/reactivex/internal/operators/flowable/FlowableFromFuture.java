@@ -11,14 +11,14 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableFromFuture extends Flowable {
+public final class FlowableFromFuture<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Future future;
+    public final Future<? extends T> future;
     public final long timeout;
     public final TimeUnit unit;
 
-    public FlowableFromFuture(Future future, long j, TimeUnit timeUnit) {
+    public FlowableFromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,22 +39,22 @@ public final class FlowableFromFuture extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
-        Object obj;
+    public void subscribeActual(Subscriber<? super T> subscriber) {
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             DeferredScalarSubscription deferredScalarSubscription = new DeferredScalarSubscription(subscriber);
             subscriber.onSubscribe(deferredScalarSubscription);
             try {
                 if (this.unit != null) {
-                    obj = this.future.get(this.timeout, this.unit);
+                    t = this.future.get(this.timeout, this.unit);
                 } else {
-                    obj = this.future.get();
+                    t = this.future.get();
                 }
-                if (obj == null) {
+                if (t == null) {
                     subscriber.onError(new NullPointerException("The future returned null"));
                 } else {
-                    deferredScalarSubscription.complete(obj);
+                    deferredScalarSubscription.complete(t);
                 }
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);

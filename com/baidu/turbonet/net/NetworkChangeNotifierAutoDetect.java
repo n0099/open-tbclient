@@ -1,5 +1,6 @@
 package com.baidu.turbonet.net;
 
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -67,6 +68,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         void f(int[] iArr);
     }
 
+    @TargetApi(21)
     /* loaded from: classes6.dex */
     public class c extends ConnectivityManager.NetworkCallback {
         public static /* synthetic */ Interceptable $ic;
@@ -156,13 +158,13 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
         /* renamed from: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0481c implements Runnable {
+        public class RunnableC0492c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ c b;
 
-            public RunnableC0481c(c cVar, int i) {
+            public RunnableC0492c(c cVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -333,7 +335,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if ((interceptable != null && interceptable.invokeLI(1048582, this, network, i) != null) || b(network, null)) {
                 return;
             }
-            this.b.runOnThread(new RunnableC0481c(this, NetworkChangeNotifierAutoDetect.networkToNetId(network)));
+            this.b.runOnThread(new RunnableC0492c(this, NetworkChangeNotifierAutoDetect.networkToNetId(network)));
         }
 
         public final boolean a(Network network, NetworkCapabilities networkCapabilities) {
@@ -405,7 +407,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     /* loaded from: classes6.dex */
-    public class NetworkConnectivityIntentFilter extends IntentFilter {
+    public static class NetworkConnectivityIntentFilter extends IntentFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -432,7 +434,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     /* loaded from: classes6.dex */
-    public abstract class RegistrationPolicy {
+    public static abstract class RegistrationPolicy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetworkChangeNotifierAutoDetect a;
@@ -523,7 +525,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     /* loaded from: classes6.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ConnectivityManager a;
@@ -542,6 +544,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             }
         }
 
+        @TargetApi(21)
         public Network[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -590,6 +593,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             return (d) invokeL.objValue;
         }
 
+        @TargetApi(21)
         public int b() {
             InterceptResult invokeV;
             Network[] allNetworksFiltered;
@@ -611,6 +615,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             return invokeV.intValue;
         }
 
+        @TargetApi(21)
         public NetworkCapabilities c(Network network) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -637,6 +642,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             return (NetworkInfo) invokeL.objValue;
         }
 
+        @TargetApi(21)
         public d f(Network network) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -650,6 +656,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             return (d) invokeL.objValue;
         }
 
+        @TargetApi(21)
         public void i(ConnectivityManager.NetworkCallback networkCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, networkCallback) == null) {
@@ -657,6 +664,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             }
         }
 
+        @TargetApi(21)
         public boolean j(Network network) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -671,6 +679,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             return invokeL.booleanValue;
         }
 
+        @TargetApi(21)
         public void h(NetworkRequest networkRequest, ConnectivityManager.NetworkCallback networkCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, networkRequest, networkCallback) == null) {
@@ -680,7 +689,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     /* loaded from: classes6.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
@@ -736,7 +745,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     /* loaded from: classes6.dex */
-    public class e {
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
@@ -930,6 +939,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
+    @TargetApi(21)
     public NetworkChangeNotifierAutoDetect(Observer observer, Context context, RegistrationPolicy registrationPolicy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1005,6 +1015,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
+    @TargetApi(21)
     public static int networkToNetId(Network network) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1070,6 +1081,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
+    @TargetApi(21)
     public static Network[] getAllNetworksFiltered(b bVar, Network network) {
         InterceptResult invokeLL;
         NetworkCapabilities c2;

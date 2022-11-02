@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.LayoutRes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +40,7 @@ public final class r extends a {
         this.rg = null;
     }
 
-    private void P(int i) {
+    private void P(@LayoutRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
             this.re.addView(LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.re, false), -1, -1);
@@ -62,9 +63,9 @@ public final class r extends a {
             this.rd.setVisibility(z2 ? 4 : 0);
             if (aY) {
                 this.rf.setVisibility(8);
-                i = R.layout.obfuscated_res_0x7f0d0446;
+                i = R.layout.obfuscated_res_0x7f0d0451;
             } else {
-                i = R.layout.obfuscated_res_0x7f0d03ff;
+                i = R.layout.obfuscated_res_0x7f0d040a;
             }
             P(i);
             if (!com.kwad.sdk.core.response.a.a.ay(bQ)) {
@@ -93,10 +94,10 @@ public final class r extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091220);
-            this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091115);
-            this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f091116);
-            this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091117);
+            this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125a);
+            this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09114f);
+            this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f091150);
+            this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091151);
         }
     }
 

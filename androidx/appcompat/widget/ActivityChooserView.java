@@ -22,6 +22,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.ActionProvider;
@@ -37,6 +40,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActivityChooserView extends ViewGroup implements ActivityChooserModel.ActivityChooserModelClient {
     public static /* synthetic */ Interceptable $ic;
@@ -250,20 +254,20 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                         if (view2 == null || view2.getId() != 1) {
                             View inflate = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                             inflate.setId(1);
-                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092203)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003c));
+                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092256)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003c));
                             return inflate;
                         }
                         return view2;
                     }
                     throw new IllegalArgumentException();
                 }
-                if (view2 == null || view2.getId() != R.id.obfuscated_res_0x7f09131d) {
+                if (view2 == null || view2.getId() != R.id.obfuscated_res_0x7f09135a) {
                     view2 = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                 }
                 PackageManager packageManager = this.this$0.getContext().getPackageManager();
                 ResolveInfo resolveInfo = (ResolveInfo) getItem(i);
-                ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e14)).setImageDrawable(resolveInfo.loadIcon(packageManager));
-                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092203)).setText(resolveInfo.loadLabel(packageManager));
+                ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e43)).setImageDrawable(resolveInfo.loadIcon(packageManager));
+                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092256)).setText(resolveInfo.loadLabel(packageManager));
                 if (this.mShowDefaultActivity && i == 0 && this.mHighlightDefaultActivity) {
                     view2.setActivated(true);
                 } else {
@@ -425,6 +429,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public static class InnerLayout extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
@@ -473,7 +478,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActivityChooserView(Context context) {
+    public ActivityChooserView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -494,7 +499,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActivityChooserView(Context context, AttributeSet attributeSet) {
+    public ActivityChooserView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -515,7 +520,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActivityChooserView(Context context, AttributeSet attributeSet, int i) {
+    public ActivityChooserView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -624,12 +629,12 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         View findViewById = findViewById(R.id.obfuscated_res_0x7f090074);
         this.mActivityChooserContent = findViewById;
         this.mActivityChooserContentBackground = findViewById.getBackground();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090786);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090794);
         this.mDefaultActivityButton = frameLayout;
         frameLayout.setOnClickListener(this.mCallbacks);
         this.mDefaultActivityButton.setOnLongClickListener(this.mCallbacks);
-        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R.id.obfuscated_res_0x7f090e88);
-        FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09095d);
+        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R.id.obfuscated_res_0x7f090eb7);
+        FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09096d);
         frameLayout2.setOnClickListener(this.mCallbacks);
         frameLayout2.setAccessibilityDelegate(new View.AccessibilityDelegate(this) { // from class: androidx.appcompat.widget.ActivityChooserView.3
             public static /* synthetic */ Interceptable $ic;
@@ -722,7 +727,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         });
         this.mExpandActivityOverflowButton = frameLayout2;
-        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.obfuscated_res_0x7f090e88);
+        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.obfuscated_res_0x7f090eb7);
         this.mExpandActivityOverflowButtonImage = imageView;
         imageView.setImageDrawable(drawable);
         ActivityChooserViewAdapter activityChooserViewAdapter = new ActivityChooserViewAdapter(this);
@@ -935,6 +940,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setProvider(ActionProvider actionProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, actionProvider) == null) {
@@ -946,7 +952,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v17 */
     /* JADX WARN: Type inference failed for: r0v8 */
-    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
     public void showPopupUnchecked(int i) {
         ?? r0;
         Interceptable interceptable = $ic;

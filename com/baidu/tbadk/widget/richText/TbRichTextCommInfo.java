@@ -1,6 +1,7 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,6 +32,7 @@ public class TbRichTextCommInfo extends OrmObject {
     public String g;
     public String h;
     public int i;
+    @Nullable
     public PbContent j;
 
     public TbRichTextCommInfo() {
@@ -72,6 +74,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public PbContent C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

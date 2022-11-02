@@ -1,7 +1,10 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.logsys.LogFile;
 import com.baidu.searchbox.logsystem.logsys.LogObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,9 +23,9 @@ public abstract class BaseUploaderStrategy implements UploadInterface {
 
     /* loaded from: classes2.dex */
     public interface UploadListener {
-        void onUploadDone(LogObject logObject);
+        void onUploadDone(@Nullable LogObject logObject);
 
-        void onUploadStart(LogObject logObject);
+        void onUploadStart(@Nullable LogObject logObject);
     }
 
     public boolean canStopService() {
@@ -42,7 +45,7 @@ public abstract class BaseUploaderStrategy implements UploadInterface {
     }
 
     @Override // com.baidu.searchbox.logsystem.basic.upload.UploadInterface
-    public void upload(Context context, LogObject logObject, List list, Set set, List list2) {
+    public void upload(Context context, @NonNull LogObject logObject, @Nullable List<LogFile> list, @Nullable Set<LogFile> set, @Nullable List<LogFile> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, logObject, list, set, list2) == null) {
         }
@@ -87,7 +90,7 @@ public abstract class BaseUploaderStrategy implements UploadInterface {
         }
     }
 
-    public BaseUploaderStrategy(boolean z, boolean z2, UploadListener uploadListener) {
+    public BaseUploaderStrategy(boolean z, boolean z2, @Nullable UploadListener uploadListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

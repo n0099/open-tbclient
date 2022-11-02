@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class ConstrainedExecutorService extends AbstractExecutorService {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
     public volatile int mMaxConcurrency;
@@ -28,11 +28,11 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     public final String mName;
     public final AtomicInteger mPendingWorkers;
     public final Worker mTaskRunner;
-    public final BlockingQueue mWorkQueue;
+    public final BlockingQueue<Runnable> mWorkQueue;
 
     /* renamed from: com.facebook.common.executors.ConstrainedExecutorService$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -152,7 +152,7 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public List shutdownNow() {
+    public List<Runnable> shutdownNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -161,7 +161,7 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
         return (List) invokeV.objValue;
     }
 
-    public ConstrainedExecutorService(String str, int i, Executor executor, BlockingQueue blockingQueue) {
+    public ConstrainedExecutorService(String str, int i, Executor executor, BlockingQueue<Runnable> blockingQueue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

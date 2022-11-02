@@ -7,6 +7,7 @@ import com.baidu.livesdk.api.im.IMConversation;
 import com.baidu.livesdk.api.im.MsgReceiveListener;
 import com.baidu.livesdk.api.im.SendMessageListener;
 import com.baidu.livesdk.api.im.live.LiveIM;
+import com.baidu.livesdk.api.im.live.LiveMessageBean;
 import com.baidu.livesdk.api.im.live.LiveMsgReceiverListener;
 import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.api.im.live.LiveSendMessageListener;
@@ -293,7 +294,7 @@ public class LiveIMController implements LiveIM {
                     @Override // com.baidu.livesdk.api.im.SendMessageListener
                     public void onSendMessageResult(int i, Object obj) {
                         LiveSendMessageListener liveSendMessageListener2;
-                        List list;
+                        List<LiveMessageBean> list;
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i, obj) == null) && (liveSendMessageListener2 = this.val$listener) != null) {
                             try {

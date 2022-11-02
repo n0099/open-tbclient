@@ -1,75 +1,168 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
+import com.baidu.tbadk.data.LiveRemindNormalConfigData;
+import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
+import com.baidu.tieba.image.liveroom.LiveRoomRecommendListAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.lang.ref.WeakReference;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zg7 extends bh7 {
+public class zg7 implements ImagePagerAdapter.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List c;
+    public LiveRoomRecommendListAdapter a;
+    public int b;
+    public TbPageContext c;
+    public LiveRemindNormalConfigData d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public List<String> i;
+    public CustomMessageListener j;
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ zg7 a;
 
-    @Override // com.baidu.tieba.bh7
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.bh7
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final zg7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-232692831, "Lcom/baidu/tieba/zg7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-232692831, "Lcom/baidu/tieba/zg7$b;");
+        public a(zg7 zg7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zg7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new zg7(null);
+            this.a = zg7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                rg7.c(2, this.a.e, this.a.g, TbadkCoreApplication.getCurrentAccount(), this.a.f, null);
+                this.a.h();
+            }
         }
     }
 
-    public zg7() {
+    /* loaded from: classes6.dex */
+    public class b extends StaggeredGridLayoutManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // androidx.recyclerview.widget.StaggeredGridLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
+        public boolean canScrollVertically() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(zg7 zg7Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zg7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<zg7> a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(zg7 zg7Var) {
+            super(2921733);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zg7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(zg7Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            zg7 zg7Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || (zg7Var = this.a.get()) == null || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921733 || customResponsedMessage.hasError() || customResponsedMessage.getError() != 0) {
+                return;
+            }
+            zg7Var.d = xx4.a().b;
+        }
+    }
+
+    public zg7(List<String> list, TbPageContext tbPageContext, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, tbPageContext, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,134 +172,110 @@ public class zg7 extends bh7 {
                 return;
             }
         }
-        this.c = new ArrayList(4);
+        this.b = 0;
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.j = new c(this);
+        this.i = list;
+        this.c = tbPageContext;
+        this.a = new LiveRoomRecommendListAdapter(tbPageContext, str, str2, str3);
+        this.d = xx4.a().b;
+        this.g = str2;
+        this.e = str;
+        this.f = str3;
     }
 
-    public static zg7 h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
+    public void c(ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (zg7) invokeV.objValue;
-    }
-
-    public /* synthetic */ zg7(a aVar) {
-        this();
-    }
-
-    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            return h().b(jSONObject, jSONObject.optInt("card_type"));
-        }
-        return (ICardInfo) invokeL.objValue;
-    }
-
-    public synchronized void g(bh7 bh7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bh7Var) == null) {
-            synchronized (this) {
-                this.c.add(bh7Var);
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i) == null) {
+            MessageManager.getInstance().unRegisterListener(this.j);
         }
     }
 
-    public static ICardInfo i(String str) {
-        InterceptResult invokeL;
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                ICardInfo j = j(new JSONObject(str));
-                if (j != null) {
-                    if (j.isValid()) {
-                        return j;
-                    }
-                }
-                return null;
-            } catch (CardParseException e) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e);
-                return null;
-            } catch (JSONException e2) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e2);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+            this.a.i(i);
         }
-        return (ICardInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bh7
-    public uh7 a(TbPageContext tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            uh7 e = e(tbPageContext, iCardInfo, i);
-            if (e != null) {
-                e.setBusinessType(i);
-            }
-            return e;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
         }
-        return (uh7) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.bh7
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
+    public void k(List<yg7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.a.j(list);
+        }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
+    public View a(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            return f(jSONObject, i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (!this.h) {
+                return null;
+            }
+            String str = (String) ListUtils.getItem(this.i, i);
+            if (!TextUtils.isEmpty(str) && !str.startsWith("####mLiveRoomPageProvider")) {
+                return null;
+            }
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d077f, viewGroup, false);
+            WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09039f), R.drawable.obfuscated_res_0x7f080959, R.color.CAM_X0101, null);
+            kw4 d = kw4.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903a0));
+            d.v(R.color.CAM_X0101);
+            d.z(R.dimen.T_X08);
+            inflate.findViewById(R.id.obfuscated_res_0x7f09039e).setOnClickListener(new a(this));
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0903a2);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
+            layoutParams.topMargin = this.b;
+            linearLayout.setLayoutParams(layoutParams);
+            viewGroup.addView(inflate);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0903a5);
+            bdRecyclerView.setLayoutManager(new b(this, 2, 1));
+            bdRecyclerView.addItemDecoration(new LiveRoomRecommendListAdapter.LiveRoomItemDecoration());
+            bdRecyclerView.setAdapter(this.a);
+            MessageManager.getInstance().registerListener(this.j);
+            return inflate;
         }
-        return (ICardInfo) invokeLI.objValue;
+        return (View) invokeLI.objValue;
     }
 
-    public final uh7 e(TbPageContext tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
-        uh7 a2;
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            for (bh7 bh7Var : this.c) {
-                try {
-                    a2 = bh7Var.a(tbPageContext, iCardInfo, i);
-                } catch (Throwable th) {
-                    BdLog.detailException("factory <" + bh7Var.d() + "> respond exception", th);
-                }
-                if (a2 != null) {
-                    return a2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                if (StringUtils.isNull(str)) {
+                    new AlaTabFeedActivityConfig(this.c.getPageActivity()).start();
+                    return;
+                } else {
+                    UrlManager.getInstance().dealOneLink(this.c, new String[]{str}, true);
+                    return;
                 }
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("No card factory for card type ");
-            if (iCardInfo == null) {
-                cardType = -1;
+            LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
+            liveStartClickDataEvent.viewTag = str;
+            mb5.i(liveStartClickDataEvent);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LiveRemindNormalConfigData liveRemindNormalConfigData = this.d;
+            if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
+                g(b35.a(this.d.getNormalIconScheme(), 4));
             } else {
-                cardType = iCardInfo.getCardType();
+                g("");
             }
-            sb.append(cardType);
-            BdLog.e(sb.toString());
-            return null;
         }
-        return (uh7) invokeLLI.objValue;
-    }
-
-    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
-            for (bh7 bh7Var : this.c) {
-                try {
-                    ICardInfo b2 = bh7Var.b(jSONObject, i);
-                    if (b2 != null) {
-                        return b2;
-                    }
-                } catch (Throwable th) {
-                    throw new CardParseException("Card type " + i + ", factory <" + bh7Var.d() + "> respond exception", th);
-                }
-            }
-            BdLog.e("No card factory for card type " + i);
-            return null;
-        }
-        return (ICardInfo) invokeLI.objValue;
     }
 }

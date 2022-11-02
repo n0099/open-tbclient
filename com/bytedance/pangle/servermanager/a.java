@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class a implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<a> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final IBinder a;
 
@@ -41,7 +41,7 @@ public final class a implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.bytedance.pangle.servermanager.a.1
+        CREATOR = new Parcelable.Creator<a>() { // from class: com.bytedance.pangle.servermanager.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,13 +59,15 @@ public final class a implements Parcelable {
                 }
             }
 
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ Object createFromParcel(Parcel parcel) {
+            public final /* synthetic */ a createFromParcel(Parcel parcel) {
                 return new a(parcel);
             }
 
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* bridge */ /* synthetic */ Object[] newArray(int i) {
+            public final /* bridge */ /* synthetic */ a[] newArray(int i) {
                 return new a[i];
             }
         };

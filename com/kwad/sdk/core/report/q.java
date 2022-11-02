@@ -1,9 +1,12 @@
 package com.kwad.sdk.core.report;
-/* loaded from: classes7.dex */
-public interface q {
-    v uC();
 
-    com.kwad.sdk.core.network.g uD();
+import com.kwad.sdk.core.network.g;
+import com.kwad.sdk.core.report.c;
+/* loaded from: classes8.dex */
+public interface q<T extends c, R extends com.kwad.sdk.core.network.g> {
+    v<T, R> uC();
 
-    com.kwad.sdk.core.network.g uE();
+    R uD();
+
+    R uE();
 }

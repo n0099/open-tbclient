@@ -15,6 +15,7 @@ import com.baidu.down.loopj.android.request.handler.ICommonRequestHandler;
 import com.baidu.down.loopj.android.request.handler.RedirectException;
 import com.baidu.down.loopj.android.request.handler.UrlConnectionRequestHandler;
 import com.baidu.down.request.task.AbstractTask;
+import com.baidu.down.request.taskmanager.HttpDNSInfo;
 import com.baidu.down.request.taskmanager.OnFetchDataRequestListener;
 import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.retry.HttpRetryStatistic;
@@ -62,11 +63,11 @@ public class AsyncHttpRequest implements Runnable {
     public int mRetryFrequency;
     public boolean mSkipHttpsCertificate;
     public ThreadSpeedStat mThreadSpeedStat;
-    public HashSet redirectUrls;
+    public HashSet<String> redirectUrls;
     public BinaryHttpResponseHandler responseHandler;
 
     /* loaded from: classes2.dex */
-    public class HandlerCdnRedirectException extends RuntimeException {
+    public static class HandlerCdnRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5562528406378234456L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +88,7 @@ public class AsyncHttpRequest implements Runnable {
     }
 
     /* loaded from: classes2.dex */
-    public class HandlerRedirectException extends RuntimeException {
+    public static class HandlerRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4422626752285372402L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +168,7 @@ public class AsyncHttpRequest implements Runnable {
                 return;
             }
         }
-        HashSet hashSet = new HashSet();
+        HashSet<String> hashSet = new HashSet<>();
         this.redirectUrls = hashSet;
         hashSet.add(iCommonRequestHandler.getUrl());
         this.mICommonRequestHandler = iCommonRequestHandler;
@@ -281,7 +282,7 @@ public class AsyncHttpRequest implements Runnable {
                     throw new HandlerRetryException("404 with path");
                 }
                 if (this.responseHandler.mtask.mIntercepters.containsKey("response")) {
-                    IIntercepter iIntercepter = (IIntercepter) this.responseHandler.mtask.mIntercepters.get("response");
+                    IIntercepter<?> iIntercepter = this.responseHandler.mtask.mIntercepters.get("response");
                     if (iIntercepter instanceof AbstractResponseIntercept) {
                         com.baidu.down.common.intercepter.InterceptResult process = ((AbstractResponseIntercept) iIntercepter).process(this.responseHandler.mtask.mContext, this.responseHandler.mtask.getTaskKey(), this.responseHandler.mtask.mDownloadId, this.mICommonRequestHandler.getResponseInfo());
                         if (process != null && process.retCode == 2) {
@@ -516,7 +517,7 @@ public class AsyncHttpRequest implements Runnable {
                                             }
 
                                             @Override // com.baidu.down.request.taskmanager.OnFetchDataRequestListener
-                                            public void afterRequest(boolean z2, TreeSet treeSet) {
+                                            public void afterRequest(boolean z2, TreeSet<HttpDNSInfo> treeSet) {
                                                 Interceptable interceptable2 = $ic;
                                                 if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z2, treeSet) == null) {
                                                     if (z2) {
@@ -583,7 +584,7 @@ public class AsyncHttpRequest implements Runnable {
                             this.mRequestStage = 3;
                         }
                     }
-                    if (this.executionCount > 0 && abstractTask.mIntercepters != null && abstractTask.mIntercepters.containsKey("network") && (process = ((IIntercepter) abstractTask.mIntercepters.get("network")).process(this.responseHandler.mtask.mContext, abstractTask.getTaskKey(), abstractTask.mDownloadId, null)) != null && process.retCode == 1) {
+                    if (this.executionCount > 0 && abstractTask.mIntercepters != null && abstractTask.mIntercepters.containsKey("network") && (process = abstractTask.mIntercepters.get("network").process(this.responseHandler.mtask.mContext, abstractTask.getTaskKey(), abstractTask.mDownloadId, null)) != null && process.retCode == 1) {
                         abstractTask.pause();
                         return;
                     }
@@ -674,10 +675,10 @@ public class AsyncHttpRequest implements Runnable {
                 this.mICommonRequestHandler.saveRequest();
             }
             ICommonRequestHandler iCommonRequestHandler = this.mICommonRequestHandler;
-            List retryRequestInfoList = this.mHttpRetryStrategyHandler.getRetryRequestInfoList();
+            List<RetryRequestInfo> retryRequestInfoList = this.mHttpRetryStrategyHandler.getRetryRequestInfoList();
             int i = this.mRetryFrequency;
             this.mRetryFrequency = i + 1;
-            iCommonRequestHandler.replaceRequest((RetryRequestInfo) retryRequestInfoList.get(i));
+            iCommonRequestHandler.replaceRequest(retryRequestInfoList.get(i));
             ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
             if (threadSpeedStat != null) {
                 threadSpeedStat.drnum++;

@@ -1,5 +1,6 @@
 package com.baidu.rtc;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,8 @@ import java.util.List;
 public class RemoteAudioSamplesInterceptor implements RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List callbacks;
+    @SuppressLint({"UseSparseArrays"})
+    public final List<RTCAudioSamples.RTCRemoteSamplesReadyCallback> callbacks;
 
     public RemoteAudioSamplesInterceptor() {
         Interceptable interceptable = $ic;

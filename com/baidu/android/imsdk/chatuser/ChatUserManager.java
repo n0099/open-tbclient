@@ -29,7 +29,7 @@ public class ChatUserManager extends BaseManager {
     }
 
     @Deprecated
-    public static ArrayList getChatUser(Context context) {
+    public static ArrayList<ChatUser> getChatUser(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -98,7 +98,7 @@ public class ChatUserManager extends BaseManager {
         ChatUserManagerImpl.getInstance(context).getUKbyBuid(j, iGetUkByBuidListener);
     }
 
-    public static void getUsersProfileBatch(Context context, ArrayList arrayList, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
+    public static void getUsersProfileBatch(Context context, ArrayList<Long> arrayList, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65543, null, context, arrayList, iGetUsersProfileBatchListener) != null) || BaseManager.isNullContext(context)) {
             return;
@@ -106,7 +106,7 @@ public class ChatUserManager extends BaseManager {
         ChatUserManagerImpl.getInstance(context).getUsersProfileBatch(arrayList, iGetUsersProfileBatchListener);
     }
 
-    public static void getUsersStatus(Context context, ArrayList arrayList, IGetUserStatusListener iGetUserStatusListener) {
+    public static void getUsersStatus(Context context, ArrayList<Long> arrayList, IGetUserStatusListener iGetUserStatusListener) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65545, null, context, arrayList, iGetUserStatusListener) != null) || BaseManager.isNullContext(context)) {
             return;
@@ -130,7 +130,7 @@ public class ChatUserManager extends BaseManager {
         ChatUserManagerImpl.getInstance(context).getUserByBuid(j, 0, iGetUserListener);
     }
 
-    public static void getUsersProfiles(Context context, ArrayList arrayList, boolean z, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
+    public static void getUsersProfiles(Context context, ArrayList<Long> arrayList, boolean z, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{context, arrayList, Boolean.valueOf(z), iGetUsersProfileBatchListener}) != null) || BaseManager.isNullContext(context)) {
             return;

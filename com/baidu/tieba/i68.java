@@ -1,76 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes4.dex */
-public class i68 extends BaseCardInfo implements eo {
+public class i68 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805566, "Lcom/baidu/tieba/i68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947805566, "Lcom/baidu/tieba/i68;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    public String a;
+    public int b;
+    public List<j68> c;
+    public String d;
+    public String e;
+    public String f;
 
     public i68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public List c() {
-        InterceptResult invokeV;
+    public void a(TbBookrack tbBookrack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbBookrack) != null) || tbBookrack == null) {
+            return;
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        this.a = tbBookrack.booktown;
+        this.b = tbBookrack.num.intValue();
+        this.d = tbBookrack.title;
+        this.e = tbBookrack.icon;
+        this.f = tbBookrack.tip;
+        this.c = new ArrayList();
+        List<BookInfo> list = tbBookrack.book_list;
+        if (list != null) {
+            for (BookInfo bookInfo : list) {
+                if (bookInfo != null) {
+                    j68 j68Var = new j68();
+                    j68Var.a(bookInfo);
+                    this.c.add(j68Var);
+                }
+            }
         }
     }
 }

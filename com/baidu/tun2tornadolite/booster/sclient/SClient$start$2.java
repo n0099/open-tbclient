@@ -20,14 +20,14 @@ import kotlinx.coroutines.Deferred;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$start$2", f = "SClient.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes6.dex */
-public final class SClient$start$2 extends SuspendLambda implements Function2 {
+public final class SClient$start$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public /* synthetic */ Object L$0;
     public int label;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SClient$start$2(Continuation continuation) {
+    public SClient$start$2(Continuation<? super SClient$start$2> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +48,7 @@ public final class SClient$start$2 extends SuspendLambda implements Function2 {
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) {
@@ -61,7 +61,7 @@ public final class SClient$start$2 extends SuspendLambda implements Function2 {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(CoroutineScope coroutineScope, Continuation continuation) {
+    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, coroutineScope, continuation)) == null) ? ((SClient$start$2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
@@ -71,13 +71,13 @@ public final class SClient$start$2 extends SuspendLambda implements Function2 {
     @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$start$2$1", f = "SClient.kt", i = {}, l = {118}, m = "invokeSuspend", n = {}, s = {})
     /* renamed from: com.baidu.tun2tornadolite.booster.sclient.SClient$start$2$1  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public final class AnonymousClass1 extends SuspendLambda implements Function2 {
+    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AnonymousClass1(Continuation continuation) {
+        public AnonymousClass1(Continuation<? super AnonymousClass1> continuation) {
             super(2, continuation);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -98,7 +98,7 @@ public final class SClient$start$2 extends SuspendLambda implements Function2 {
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-        public final Continuation create(Object obj, Continuation continuation) {
+        public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) ? new AnonymousClass1(continuation) : (Continuation) invokeLL.objValue;
@@ -106,7 +106,7 @@ public final class SClient$start$2 extends SuspendLambda implements Function2 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.jvm.functions.Function2
-        public final Object invoke(CoroutineScope coroutineScope, Continuation continuation) {
+        public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, coroutineScope, continuation)) == null) ? ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
@@ -144,7 +144,7 @@ public final class SClient$start$2 extends SuspendLambda implements Function2 {
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         InterceptResult invokeL;
-        Deferred async$default;
+        Deferred<Unit> async$default;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();

@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class p55 {
+public class p55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditorTools a;
+    public TiePlusStat.StatType a;
+    public TiePlusStat.RichTextType b;
+    public String c;
+    public String d;
+    public boolean e;
+    public String f;
 
-    public p55(EditorTools editorTools) {
+    public p55(TiePlusStat.StatType statType, TiePlusStat.RichTextType richTextType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
+            Object[] objArr = {statType, richTextType, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +32,19 @@ public abstract class p55 {
                 return;
             }
         }
-        this.a = editorTools;
+        this.a = statType;
+        this.b = richTextType;
+        this.c = str;
+        this.d = str2;
+        this.f = str3;
     }
 
-    public EditorTools b() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return "TiePlusStaticData{statType=" + this.a + ", richTextType=" + this.b + ", tid='" + this.c + "', orderId='" + this.d + "', hasDownload=" + this.e + ", packageName='" + this.f + "'}";
         }
-        return (EditorTools) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

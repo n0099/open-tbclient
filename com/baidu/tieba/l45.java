@@ -1,89 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.text.TextPaint;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class l45 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "表情包";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public l45() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return "";
-            }
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 1) {
-                str = "skin=night";
-            } else if (skinType == 4) {
-                str = "skin=dark";
-            } else {
-                str = "skin=default";
-            }
-            if (this.b.contains("?")) {
-                this.b += "&customfullscreen=1&nonavigationbar=1&" + str;
-            } else {
-                this.b += "?customfullscreen=1&nonavigationbar=1&" + str;
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("homepage_guide")) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947892924, "Lcom/baidu/tieba/l45;")) == null) {
             return;
         }
-        this.a = optJSONObject.optString("guide_picture");
-        this.b = optJSONObject.optString("guide_url");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947892924, "Lcom/baidu/tieba/l45;");
+        }
+    }
+
+    public static String a(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            return b(textPaint, str, f - textPaint.measureText(str2), str2);
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String b(TextPaint textPaint, String str, float f, String str2) {
+        InterceptResult invokeCommon;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
+            float measureText = textPaint.measureText(str);
+            if (measureText > f) {
+                if (str.endsWith(a)) {
+                    str = str.substring(0, str.length() - 3);
+                }
+                str3 = StringHelper.STRING_MORE + a;
+            } else if (!str.endsWith(a)) {
+                str3 = a;
+            } else {
+                str3 = "";
+            }
+            while (str.length() > 0 && measureText > f) {
+                str = mj5.l(str, mj5.d(str) - 1);
+                measureText = textPaint.measureText(str);
+            }
+            return str + str3;
+        }
+        return (String) invokeCommon.objValue;
     }
 }

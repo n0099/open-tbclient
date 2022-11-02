@@ -1,14 +1,14 @@
 package rx.subjects;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.ey9;
-import com.baidu.tieba.jy9;
-import com.baidu.tieba.p2a;
-import com.baidu.tieba.sy9;
-import com.baidu.tieba.xx9;
-import com.baidu.tieba.yx9;
-import com.baidu.tieba.zx9;
+import com.baidu.tieba.b0a;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.hz9;
+import com.baidu.tieba.iz9;
+import com.baidu.tieba.mz9;
+import com.baidu.tieba.nz9;
+import com.baidu.tieba.sz9;
+import com.baidu.tieba.y3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,26 +21,26 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes9.dex */
-public final class PublishSubject extends p2a {
+public final class PublishSubject<T> extends y3a<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PublishSubjectState b;
+    public final PublishSubjectState<T> b;
 
     /* loaded from: classes9.dex */
-    public final class PublishSubjectProducer extends AtomicLong implements zx9, ey9, yx9 {
+    public static final class PublishSubjectProducer<T> extends AtomicLong implements iz9, nz9, hz9<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6451806817170721536L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final dy9 actual;
-        public final PublishSubjectState parent;
+        public final mz9<? super T> actual;
+        public final PublishSubjectState<T> parent;
         public long produced;
 
-        public PublishSubjectProducer(PublishSubjectState publishSubjectState, dy9 dy9Var) {
+        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, mz9<? super T> mz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {publishSubjectState, dy9Var};
+                Object[] objArr = {publishSubjectState, mz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,10 +51,10 @@ public final class PublishSubject extends p2a {
                 }
             }
             this.parent = publishSubjectState;
-            this.actual = dy9Var;
+            this.actual = mz9Var;
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public final class PublishSubject extends p2a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.yx9
+        @Override // com.baidu.tieba.hz9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && get() != Long.MIN_VALUE) {
@@ -75,7 +75,7 @@ public final class PublishSubject extends p2a {
             }
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
@@ -83,7 +83,7 @@ public final class PublishSubject extends p2a {
             }
         }
 
-        @Override // com.baidu.tieba.yx9
+        @Override // com.baidu.tieba.hz9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && get() != Long.MIN_VALUE) {
@@ -91,30 +91,30 @@ public final class PublishSubject extends p2a {
             }
         }
 
-        @Override // com.baidu.tieba.zx9
+        @Override // com.baidu.tieba.iz9
         public void request(long j) {
             long j2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && sy9.h(j)) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && b0a.h(j)) {
                 do {
                     j2 = get();
                     if (j2 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j2, sy9.a(j2, j)));
+                } while (!compareAndSet(j2, b0a.a(j2, j)));
             }
         }
 
-        @Override // com.baidu.tieba.yx9
-        public void onNext(Object obj) {
+        @Override // com.baidu.tieba.hz9
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 long j = get();
                 if (j != Long.MIN_VALUE) {
                     long j2 = this.produced;
                     if (j != j2) {
                         this.produced = j2 + 1;
-                        this.actual.onNext(obj);
+                        this.actual.onNext(t);
                         return;
                     }
                     unsubscribe();
@@ -125,7 +125,7 @@ public final class PublishSubject extends p2a {
     }
 
     /* loaded from: classes9.dex */
-    public final class PublishSubjectState extends AtomicReference implements xx9.a, yx9 {
+    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements gz9.a<T>, hz9<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final PublishSubjectProducer[] EMPTY;
         public static final PublishSubjectProducer[] TERMINATED;
@@ -166,24 +166,24 @@ public final class PublishSubject extends p2a {
             lazySet(EMPTY);
         }
 
-        @Override // com.baidu.tieba.yx9
+        @Override // com.baidu.tieba.hz9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                for (PublishSubjectProducer publishSubjectProducer : (PublishSubjectProducer[]) getAndSet(TERMINATED)) {
+                for (PublishSubjectProducer<T> publishSubjectProducer : getAndSet(TERMINATED)) {
                     publishSubjectProducer.onCompleted();
                 }
             }
         }
 
-        public boolean add(PublishSubjectProducer publishSubjectProducer) {
-            PublishSubjectProducer[] publishSubjectProducerArr;
+        public boolean add(PublishSubjectProducer<T> publishSubjectProducer) {
+            PublishSubjectProducer<T>[] publishSubjectProducerArr;
             PublishSubjectProducer[] publishSubjectProducerArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, publishSubjectProducer)) == null) {
                 do {
-                    publishSubjectProducerArr = (PublishSubjectProducer[]) get();
+                    publishSubjectProducerArr = get();
                     if (publishSubjectProducerArr == TERMINATED) {
                         return false;
                     }
@@ -197,24 +197,27 @@ public final class PublishSubject extends p2a {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.yx9
-        public void onNext(Object obj) {
+        @Override // com.baidu.tieba.gz9.a, com.baidu.tieba.uz9
+        public /* bridge */ /* synthetic */ void call(Object obj) {
+            call((mz9) ((mz9) obj));
+        }
+
+        @Override // com.baidu.tieba.hz9
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                for (PublishSubjectProducer publishSubjectProducer : (PublishSubjectProducer[]) get()) {
-                    publishSubjectProducer.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                for (PublishSubjectProducer<T> publishSubjectProducer : get()) {
+                    publishSubjectProducer.onNext(t);
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
-        public void call(dy9 dy9Var) {
+        public void call(mz9<? super T> mz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dy9Var) == null) {
-                PublishSubjectProducer publishSubjectProducer = new PublishSubjectProducer(this, dy9Var);
-                dy9Var.b(publishSubjectProducer);
-                dy9Var.f(publishSubjectProducer);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mz9Var) == null) {
+                PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, mz9Var);
+                mz9Var.b(publishSubjectProducer);
+                mz9Var.f(publishSubjectProducer);
                 if (add(publishSubjectProducer)) {
                     if (publishSubjectProducer.isUnsubscribed()) {
                         remove(publishSubjectProducer);
@@ -224,20 +227,20 @@ public final class PublishSubject extends p2a {
                 }
                 Throwable th = this.error;
                 if (th != null) {
-                    dy9Var.onError(th);
+                    mz9Var.onError(th);
                 } else {
-                    dy9Var.onCompleted();
+                    mz9Var.onCompleted();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.yx9
+        @Override // com.baidu.tieba.hz9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
                 this.error = th;
                 ArrayList arrayList = null;
-                for (PublishSubjectProducer publishSubjectProducer : (PublishSubjectProducer[]) getAndSet(TERMINATED)) {
+                for (PublishSubjectProducer<T> publishSubjectProducer : getAndSet(TERMINATED)) {
                     try {
                         publishSubjectProducer.onError(th);
                     } catch (Throwable th2) {
@@ -247,17 +250,17 @@ public final class PublishSubject extends p2a {
                         arrayList.add(th2);
                     }
                 }
-                jy9.d(arrayList);
+                sz9.d(arrayList);
             }
         }
 
-        public void remove(PublishSubjectProducer publishSubjectProducer) {
-            PublishSubjectProducer[] publishSubjectProducerArr;
+        public void remove(PublishSubjectProducer<T> publishSubjectProducer) {
+            PublishSubjectProducer<T>[] publishSubjectProducerArr;
             PublishSubjectProducer[] publishSubjectProducerArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, publishSubjectProducer) == null) {
                 do {
-                    publishSubjectProducerArr = (PublishSubjectProducer[]) get();
+                    publishSubjectProducerArr = get();
                     if (publishSubjectProducerArr != TERMINATED && publishSubjectProducerArr != EMPTY) {
                         int length = publishSubjectProducerArr.length;
                         int i = -1;
@@ -292,7 +295,7 @@ public final class PublishSubject extends p2a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PublishSubject(PublishSubjectState publishSubjectState) {
+    public PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -303,7 +306,7 @@ public final class PublishSubject extends p2a {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xx9.a) newInitContext.callArgs[0]);
+                super((gz9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -312,16 +315,16 @@ public final class PublishSubject extends p2a {
         this.b = publishSubjectState;
     }
 
-    public static PublishSubject D() {
+    public static <T> PublishSubject<T> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new PublishSubject(new PublishSubjectState());
+            return new PublishSubject<>(new PublishSubjectState());
         }
         return (PublishSubject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yx9
+    @Override // com.baidu.tieba.hz9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -329,7 +332,7 @@ public final class PublishSubject extends p2a {
         }
     }
 
-    @Override // com.baidu.tieba.yx9
+    @Override // com.baidu.tieba.hz9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -337,11 +340,11 @@ public final class PublishSubject extends p2a {
         }
     }
 
-    @Override // com.baidu.tieba.yx9
-    public void onNext(Object obj) {
+    @Override // com.baidu.tieba.hz9
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.b.onNext(obj);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.b.onNext(t);
         }
     }
 }

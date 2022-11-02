@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.TargetApi;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.os.Build;
@@ -7,7 +8,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.px9;
+import com.baidu.tieba.yy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoFrame;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SurfaceTextureHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceTextureHelper";
@@ -106,7 +107,7 @@ public class SurfaceTextureHelper {
                 timestampAligner = null;
             }
             this.timestampAligner = timestampAligner;
-            EglBase c = px9.c(context, EglBase.CONFIG_PIXEL_BUFFER);
+            EglBase c = yy9.c(context, EglBase.CONFIG_PIXEL_BUFFER);
             this.eglBase = c;
             try {
                 c.createDummyPbufferSurface();
@@ -114,7 +115,7 @@ public class SurfaceTextureHelper {
                 this.oesTextureId = GlUtil.generateTexture(36197);
                 SurfaceTexture surfaceTexture = new SurfaceTexture(this.oesTextureId);
                 this.surfaceTexture = surfaceTexture;
-                setOnFrameAvailableListener(surfaceTexture, new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.tieba.ww9
+                setOnFrameAvailableListener(surfaceTexture, new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.tieba.fy9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -148,7 +149,7 @@ public class SurfaceTextureHelper {
     public void setFrameRotation(final int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.handler.post(new Runnable() { // from class: com.baidu.tieba.xw9
+            this.handler.post(new Runnable() { // from class: com.baidu.tieba.gy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -206,7 +207,7 @@ public class SurfaceTextureHelper {
             HandlerThread handlerThread = new HandlerThread(str);
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());
-            return (SurfaceTextureHelper) ThreadUtils.invokeAtFrontUninterruptibly(handler, new Callable(context, handler, z, str) { // from class: org.webrtc.SurfaceTextureHelper.1
+            return (SurfaceTextureHelper) ThreadUtils.invokeAtFrontUninterruptibly(handler, new Callable<SurfaceTextureHelper>(context, handler, z, str) { // from class: org.webrtc.SurfaceTextureHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean val$alignTimestamps;
@@ -256,6 +257,7 @@ public class SurfaceTextureHelper {
         return (SurfaceTextureHelper) invokeLLZ.objValue;
     }
 
+    @TargetApi(21)
     public static void setOnFrameAvailableListener(SurfaceTexture surfaceTexture, SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, surfaceTexture, onFrameAvailableListener, handler) == null) {
@@ -294,7 +296,7 @@ public class SurfaceTextureHelper {
     public void returnTextureFrame() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.handler.post(new Runnable() { // from class: com.baidu.tieba.bx9
+            this.handler.post(new Runnable() { // from class: com.baidu.tieba.ky9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -339,7 +341,7 @@ public class SurfaceTextureHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Logging.d(TAG, "dispose()");
-            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.baidu.tieba.zw9
+            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.baidu.tieba.iy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -391,7 +393,7 @@ public class SurfaceTextureHelper {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             Logging.d(TAG, "stopListening()");
             this.handler.removeCallbacks(this.setListenerRunnable);
-            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.baidu.tieba.yw9
+            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.baidu.tieba.hy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -424,7 +426,7 @@ public class SurfaceTextureHelper {
                     }
                     int i2 = this.textureWidth;
                     if (i2 != 0 && (i = this.textureHeight) != 0) {
-                        VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i2, i, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: com.baidu.tieba.ax9
+                        VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i2, i, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: com.baidu.tieba.jy9
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -454,7 +456,7 @@ public class SurfaceTextureHelper {
             if (i > 0) {
                 if (i2 > 0) {
                     this.surfaceTexture.setDefaultBufferSize(i, i2);
-                    this.handler.post(new Runnable() { // from class: com.baidu.tieba.cx9
+                    this.handler.post(new Runnable() { // from class: com.baidu.tieba.ly9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

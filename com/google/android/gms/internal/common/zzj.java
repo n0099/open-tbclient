@@ -10,11 +10,11 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
-public abstract class zzj implements Iterator {
+public abstract class zzj<T> implements Iterator<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @CheckForNull
-    public Object zza;
+    public T zza;
     public int zzb;
 
     public zzj() {
@@ -34,17 +34,17 @@ public abstract class zzj implements Iterator {
     }
 
     @CheckForNull
-    public abstract Object zza();
+    public abstract T zza();
 
     @CheckForNull
-    public final Object zzb() {
+    public final T zzb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             this.zzb = 3;
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // java.util.Iterator
@@ -77,19 +77,19 @@ public abstract class zzj implements Iterator {
     }
 
     @Override // java.util.Iterator
-    public final Object next() {
+    public final T next() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (hasNext()) {
                 this.zzb = 2;
-                Object obj = this.zza;
+                T t = this.zza;
                 this.zza = null;
-                return obj;
+                return t;
             }
             throw new NoSuchElementException();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // java.util.Iterator

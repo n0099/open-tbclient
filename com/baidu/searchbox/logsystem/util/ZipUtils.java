@@ -1,6 +1,7 @@
 package com.baidu.searchbox.logsystem.util;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -21,13 +21,15 @@ public class ZipUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class ZipSrc {
+    public static final class ZipSrc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public File mFile;
+        @NonNull
         public String mOutName;
 
-        public ZipSrc(File file) {
+        public ZipSrc(@NonNull File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +48,7 @@ public class ZipUtils {
             this.mOutName = file.getName();
         }
 
-        public ZipSrc(File file, String str) {
+        public ZipSrc(@NonNull File file, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +88,7 @@ public class ZipUtils {
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v2, types: [java.io.FileInputStream, java.io.InputStream] */
-    public static void zip(File file, List list) throws IOException {
+    public static void zip(File file, List<ZipSrc> list) throws IOException {
         byte[] bArr;
         ZipOutputStream zipOutputStream;
         Interceptable interceptable = $ic;
@@ -104,9 +106,7 @@ public class ZipUtils {
             }
             try {
                 zipOutputStream.setComment(file.getName());
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    ZipSrc zipSrc = (ZipSrc) it.next();
+                for (ZipSrc zipSrc : list) {
                     File file2 = zipSrc.mFile;
                     try {
                         try {

@@ -2,6 +2,7 @@ package kotlinx.coroutines.flow.internal;
 
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.SuspendFunction;
 import kotlin.jvm.functions.Function3;
@@ -12,7 +13,7 @@ import kotlin.reflect.KDeclarationContainer;
 import kotlinx.coroutines.flow.FlowCollector;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00040\u00032\u0017\u0010\u0005\u001a\u0013\u0018\u00010\u0004¢\u0006\f\b\u0006\u0012\b\b\u0007\u0012\u0004\b\b(\bH\u0086@¢\u0006\u0004\b\t\u0010\n"}, d2 = {"<anonymous>", "", ZeusPerformanceTiming.KEY_BROWSER_STARTUP, "Lkotlinx/coroutines/flow/FlowCollector;", "", "p2", "Lkotlin/ParameterName;", "name", "value", "invoke", "(Lkotlinx/coroutines/flow/FlowCollector;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final /* synthetic */ class SafeCollectorKt$emitFun$1 extends FunctionReference implements Function3, SuspendFunction {
+public final /* synthetic */ class SafeCollectorKt$emitFun$1 extends FunctionReference implements Function3<FlowCollector<? super Object>, Object, Continuation<? super Unit>, Object>, SuspendFunction {
     public SafeCollectorKt$emitFun$1() {
         super(3);
     }
@@ -32,9 +33,14 @@ public final /* synthetic */ class SafeCollectorKt$emitFun$1 extends FunctionRef
         return "emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function3
-    public final Object invoke(FlowCollector flowCollector, Object obj, Continuation continuation) {
+    public /* bridge */ /* synthetic */ Object invoke(FlowCollector<? super Object> flowCollector, Object obj, Continuation<? super Unit> continuation) {
+        return invoke2((FlowCollector<Object>) flowCollector, obj, continuation);
+    }
+
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final Object invoke2(FlowCollector<Object> flowCollector, Object obj, Continuation<? super Unit> continuation) {
         InlineMarker.mark(0);
         Object emit = flowCollector.emit(obj, continuation);
         InlineMarker.mark(2);

@@ -1,18 +1,23 @@
 package io.reactivex;
 
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Cancellable;
 /* loaded from: classes8.dex */
-public interface FlowableEmitter extends Emitter {
+public interface FlowableEmitter<T> extends Emitter<T> {
     boolean isCancelled();
 
     long requested();
 
-    FlowableEmitter serialize();
+    @NonNull
+    FlowableEmitter<T> serialize();
 
-    void setCancellable(Cancellable cancellable);
+    void setCancellable(@Nullable Cancellable cancellable);
 
-    void setDisposable(Disposable disposable);
+    void setDisposable(@Nullable Disposable disposable);
 
-    boolean tryOnError(Throwable th);
+    @Experimental
+    boolean tryOnError(@NonNull Throwable th);
 }

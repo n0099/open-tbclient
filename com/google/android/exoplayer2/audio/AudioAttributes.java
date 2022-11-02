@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.audio;
 
+import android.annotation.TargetApi;
 import android.media.AudioAttributes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,13 +22,13 @@ public final class AudioAttributes {
 
     /* renamed from: com.google.android.exoplayer2.audio.AudioAttributes$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int contentType;
@@ -160,6 +161,7 @@ public final class AudioAttributes {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(21)
     public android.media.AudioAttributes getAudioAttributesV21() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,10 +1,12 @@
 package com.baidu.crius;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.crius.annotations.DoNotStrip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@DoNotStrip
 /* loaded from: classes.dex */
 public class CriusConfig {
     public static /* synthetic */ Interceptable $ic;

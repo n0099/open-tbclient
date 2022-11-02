@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Aspects {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASPECTOF = "aspectOf";
@@ -55,52 +55,52 @@ public class Aspects {
         }
     }
 
-    public static Object aspectOf(Class cls) throws NoAspectBoundException {
+    public static <T> T aspectOf(Class<T> cls) throws NoAspectBoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
             try {
-                return getSingletonOrThreadAspectOf(cls).invoke(null, EMPTY_OBJECT_ARRAY);
+                return (T) getSingletonOrThreadAspectOf(cls).invoke(null, EMPTY_OBJECT_ARRAY);
             } catch (InvocationTargetException e) {
                 throw new NoAspectBoundException(cls.getName(), e);
             } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
             }
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public static Object aspectOf(Class cls, Class cls2) throws NoAspectBoundException {
+    public static <T> T aspectOf(Class<T> cls, Class<?> cls2) throws NoAspectBoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, cls2)) == null) {
             try {
-                return getPerTypeWithinAspectOf(cls).invoke(null, cls2);
+                return (T) getPerTypeWithinAspectOf(cls).invoke(null, cls2);
             } catch (InvocationTargetException e) {
                 throw new NoAspectBoundException(cls.getName(), e);
             } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
             }
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static Object aspectOf(Class cls, Object obj) throws NoAspectBoundException {
+    public static <T> T aspectOf(Class<T> cls, Object obj) throws NoAspectBoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj)) == null) {
             try {
-                return getPerObjectAspectOf(cls).invoke(null, obj);
+                return (T) getPerObjectAspectOf(cls).invoke(null, obj);
             } catch (InvocationTargetException e) {
                 throw new NoAspectBoundException(cls.getName(), e);
             } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
             }
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static Method checkAspectOf(Method method, Class cls) throws NoSuchMethodException {
+    public static Method checkAspectOf(Method method, Class<?> cls) throws NoSuchMethodException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, method, cls)) == null) {
@@ -126,7 +126,7 @@ public class Aspects {
         return (Method) invokeLL.objValue;
     }
 
-    public static Method getPerObjectAspectOf(Class cls) throws NoSuchMethodException {
+    public static Method getPerObjectAspectOf(Class<?> cls) throws NoSuchMethodException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
@@ -144,7 +144,7 @@ public class Aspects {
         return (Method) invokeL.objValue;
     }
 
-    public static Method getPerTypeWithinAspectOf(Class cls) throws NoSuchMethodException {
+    public static Method getPerTypeWithinAspectOf(Class<?> cls) throws NoSuchMethodException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cls)) == null) {
@@ -162,7 +162,7 @@ public class Aspects {
         return (Method) invokeL.objValue;
     }
 
-    public static Method getSingletonOrThreadAspectOf(Class cls) throws NoSuchMethodException {
+    public static Method getSingletonOrThreadAspectOf(Class<?> cls) throws NoSuchMethodException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cls)) == null) {
@@ -180,7 +180,7 @@ public class Aspects {
         return (Method) invokeL.objValue;
     }
 
-    public static boolean hasAspect(Class cls) throws NoAspectBoundException {
+    public static boolean hasAspect(Class<?> cls) throws NoAspectBoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) {
@@ -193,7 +193,7 @@ public class Aspects {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasAspect(Class cls, Class cls2) throws NoAspectBoundException {
+    public static boolean hasAspect(Class<?> cls, Class<?> cls2) throws NoAspectBoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, cls, cls2)) == null) {
@@ -206,7 +206,7 @@ public class Aspects {
         return invokeLL.booleanValue;
     }
 
-    public static boolean hasAspect(Class cls, Object obj) throws NoAspectBoundException {
+    public static boolean hasAspect(Class<?> cls, Object obj) throws NoAspectBoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, cls, obj)) == null) {

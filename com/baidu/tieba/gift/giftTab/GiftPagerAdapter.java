@@ -15,7 +15,7 @@ import java.util.List;
 public class GiftPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<View> a;
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view2, Object obj) {
@@ -24,7 +24,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 
-    public GiftPagerAdapter(List list) {
+    public GiftPagerAdapter(List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public class GiftPagerAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) && i >= 0 && i < getCount()) {
-            viewGroup.removeView((View) this.a.get(i));
+            viewGroup.removeView(this.a.get(i));
         }
     }
 
@@ -56,7 +56,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List list = this.a;
+            List<View> list = this.a;
             if (list == null) {
                 return 0;
             }
@@ -71,7 +71,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
             if (i >= 0 && i < getCount()) {
-                View view2 = (View) this.a.get(i);
+                View view2 = this.a.get(i);
                 viewGroup.addView(view2);
                 return view2;
             }

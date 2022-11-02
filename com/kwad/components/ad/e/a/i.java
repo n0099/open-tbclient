@@ -33,7 +33,7 @@ public final class i extends com.kwad.components.ad.e.kwai.a implements View.OnC
     private void et() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0566a(this.mDetailVideoView.getContext()).L(this.jL.mAdTemplate).b(this.jL.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.i.2
+            com.kwad.components.core.c.a.a.a(new a.C0577a(this.mDetailVideoView.getContext()).L(this.jL.mAdTemplate).b(this.jL.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.i.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ i kh;
@@ -130,7 +130,7 @@ public final class i extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091220);
+            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125a);
         }
     }
 

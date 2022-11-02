@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.square.flist.ForumListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ForumListDetailModel extends BdBaseModel {
+public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public TbPageContext<ForumListActivity> a;
     public ForumListModel.RequestParams b;
     public b c;
     public c d;
@@ -29,7 +29,7 @@ public class ForumListDetailModel extends BdBaseModel {
     public boolean f;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -40,7 +40,7 @@ public class ForumListDetailModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask {
+    public class c extends BdAsyncTask<Void, Void, ForumListModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ForumListModel a;
@@ -96,10 +96,10 @@ public class ForumListDetailModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     if (this.b.e) {
-                        ou4.f();
-                        kf g = ou4.g("tb.my_posts");
+                        hv4.f();
+                        cf<String> g = hv4.g("tb.my_posts");
                         if (g != null) {
-                            str = (String) g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
+                            str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
                         } else {
                             str = null;
                         }
@@ -131,14 +131,14 @@ public class ForumListDetailModel extends BdBaseModel {
                 if (forumListModel != null && forumListModel.isOk()) {
                     this.b.c.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.b.f);
                 } else {
-                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c68), this.b.f);
+                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c7f), this.b.f);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumListDetailModel(TbPageContext tbPageContext, ForumListModel.RequestParams requestParams) {
+    public ForumListDetailModel(TbPageContext<ForumListActivity> tbPageContext, ForumListModel.RequestParams requestParams) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

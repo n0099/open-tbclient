@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 /* loaded from: classes4.dex */
-public class j1 {
+public class j1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final Class b;
+    public final Class<T> b;
     public final l1 c;
     public k3 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public j1(k3 k3Var, Class cls) {
+    public j1(k3 k3Var, Class<T> cls) {
         this(k3Var, cls, (l1) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,7 +37,7 @@ public class j1 {
         }
     }
 
-    public j1(k3 k3Var, Class cls, l1 l1Var) {
+    public j1(k3 k3Var, Class<T> cls, l1<T> l1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public class j1 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public j1(String str, Class cls) {
+    public j1(String str, Class<T> cls) {
         this(str, cls, (l1) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +79,7 @@ public class j1 {
         }
     }
 
-    public j1(String str, Class cls, l1 l1Var) {
+    public j1(String str, Class<T> cls, l1<T> l1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

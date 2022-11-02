@@ -17,14 +17,14 @@ import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ConsumerSingleObserver extends AtomicReference implements SingleObserver, Disposable, LambdaConsumerIntrospection {
+public final class ConsumerSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7012088219455310787L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer onError;
-    public final Consumer onSuccess;
+    public final Consumer<? super Throwable> onError;
+    public final Consumer<? super T> onSuccess;
 
-    public ConsumerSingleObserver(Consumer consumer, Consumer consumer2) {
+    public ConsumerSingleObserver(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,12 +100,12 @@ public final class ConsumerSingleObserver extends AtomicReference implements Sin
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(Object obj) {
+    public void onSuccess(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
             lazySet(DisposableHelper.DISPOSED);
             try {
-                this.onSuccess.accept(obj);
+                this.onSuccess.accept(t);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

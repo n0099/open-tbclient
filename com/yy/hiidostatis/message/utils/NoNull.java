@@ -48,7 +48,7 @@ public class NoNull {
         return invokeL.booleanValue;
     }
 
-    public static List noNull(List list) {
+    public static <T> List<T> noNull(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
@@ -72,7 +72,7 @@ public class NoNull {
         return invokeL.booleanValue;
     }
 
-    public static Map noNull(Map map) {
+    public static <K, V> Map<K, V> noNull(Map<K, V> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {

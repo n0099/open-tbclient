@@ -13,11 +13,12 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetRepostRecommendForum.DataRes;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumResIdl;
+import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
 public class GetRepostForumHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List forumList;
+    public List<SimpleForum> forumList;
     public int privateThread;
     public String recommendExt;
 
@@ -39,7 +40,7 @@ public class GetRepostForumHttpResMessage extends HttpResponsedMessage {
         }
     }
 
-    public List getForumList() {
+    public List<SimpleForum> getForumList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

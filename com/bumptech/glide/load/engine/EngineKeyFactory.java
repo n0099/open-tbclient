@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.Options;
+import com.bumptech.glide.load.Transformation;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class EngineKeyFactory {
@@ -27,7 +28,7 @@ public class EngineKeyFactory {
         }
     }
 
-    public EngineKey buildKey(Object obj, Key key, int i, int i2, Map map, Class cls, Class cls2, Options options) {
+    public EngineKey buildKey(Object obj, Key key, int i, int i2, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, key, Integer.valueOf(i), Integer.valueOf(i2), map, cls, cls2, options})) == null) {

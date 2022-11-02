@@ -3,6 +3,9 @@ package androidx.activity;
 import android.app.Activity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -14,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
+@RequiresApi(19)
 /* loaded from: classes.dex */
 public final class ImmLeaksCleaner implements LifecycleEventObserver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -60,6 +64,7 @@ public final class ImmLeaksCleaner implements LifecycleEventObserver {
         this.mActivity = activity;
     }
 
+    @MainThread
     public static void initializeReflectiveFields() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
@@ -81,7 +86,7 @@ public final class ImmLeaksCleaner implements LifecycleEventObserver {
     }
 
     @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048576, this, lifecycleOwner, event) != null) || event != Lifecycle.Event.ON_DESTROY) {
             return;

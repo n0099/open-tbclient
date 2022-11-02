@@ -25,7 +25,7 @@ import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.Engine$start$1", f = "Engine.kt", i = {}, l = {57, 65, 70}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes6.dex */
-public final class Engine$start$1 extends SuspendLambda implements Function2 {
+public final class Engine$start$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $gameID;
@@ -36,7 +36,7 @@ public final class Engine$start$1 extends SuspendLambda implements Function2 {
     public final /* synthetic */ Engine this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Engine$start$1(Engine engine, int i, String str, String str2, String str3, Continuation continuation) {
+    public Engine$start$1(Engine engine, int i, String str, String str2, String str3, Continuation<? super Engine$start$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,7 +62,7 @@ public final class Engine$start$1 extends SuspendLambda implements Function2 {
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) ? new Engine$start$1(this.this$0, this.$tunfd, this.$region, this.$gameID, this.$gamePackageName, continuation) : (Continuation) invokeLL.objValue;
@@ -70,7 +70,7 @@ public final class Engine$start$1 extends SuspendLambda implements Function2 {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(CoroutineScope coroutineScope, Continuation continuation) {
+    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, coroutineScope, continuation)) == null) ? ((Engine$start$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;

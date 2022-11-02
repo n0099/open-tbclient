@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.chatmessage.sync.Generator;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
@@ -41,8 +42,9 @@ public abstract class NotifyMessageHandler {
         }
     }
 
+    /* JADX WARN: Type inference failed for: r2v5, types: [T, java.lang.Long] */
     public static void handleConfigMessage(Context context, JSONObject jSONObject) throws JSONException {
-        ArrayList arrayList;
+        ArrayList<ChatMsg> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, jSONObject) == null) {
             LogUtils.i(TAG, "handleMessage Config:" + jSONObject.toString());

@@ -28,7 +28,7 @@ public class ProfileVirtualImageInfo implements Serializable {
     public VirtualImageCustomState personalState;
     public int recentIncrAgree;
     public int snapsHootId;
-    public List stateList;
+    public List<VirtualImageCustomState> stateList;
     public String virtualBackground;
     public int virtualBackgroundType;
     public String virtualImageUrl;
@@ -133,7 +133,7 @@ public class ProfileVirtualImageInfo implements Serializable {
         return invokeV.intValue;
     }
 
-    public List getStateList() {
+    public List<VirtualImageCustomState> getStateList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -203,6 +203,8 @@ public class ProfileVirtualImageInfo implements Serializable {
                 VirtualImageCustomState virtualImageCustomState = new VirtualImageCustomState();
                 this.personalState = virtualImageCustomState;
                 virtualImageCustomState.parseProto(virtualImageInfo.personal_state);
+            } else {
+                this.personalState = null;
             }
             boolean z = false;
             if (virtualImageInfo.state_list != null) {

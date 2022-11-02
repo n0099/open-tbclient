@@ -6,8 +6,9 @@ import android.graphics.Canvas;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +39,7 @@ public class AlignTextView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlignTextView(Context context, AttributeSet attributeSet) {
+    public AlignTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +60,7 @@ public class AlignTextView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlignTextView(Context context, AttributeSet attributeSet, int i) {
+    public AlignTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -90,7 +91,7 @@ public class AlignTextView extends TextView {
             }
             String str = (String) text;
             Layout layout = getLayout();
-            if (!ej.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
+            if (!wi.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
                 int lineBaseline = layout.getLineBaseline(0) + getPaddingTop();
                 float measureText = getPaint().measureText(str);
                 float paddingLeft = getPaddingLeft();

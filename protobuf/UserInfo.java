@@ -77,13 +77,13 @@ public final class UserInfo extends Message {
     public final Integer userType;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<UserInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String bjhAvatar;
@@ -101,7 +101,7 @@ public final class UserInfo extends Message {
         public String position;
         public Integer sex;
         public Integer sysGroupId;
-        public List tshowIcon;
+        public List<TshowInfo> tshowIcon;
         public Long userId;
         public String userName;
         public String userNameShow;
@@ -296,7 +296,7 @@ public final class UserInfo extends Message {
                 this.sysGroupId = num5;
             }
             this.permission = builder.permission;
-            List list = builder.tshowIcon;
+            List<TshowInfo> list = builder.tshowIcon;
             if (list == null) {
                 this.tshowIcon = DEFAULT_TSHOWICON;
             } else {

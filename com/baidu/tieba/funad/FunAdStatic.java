@@ -9,9 +9,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.switchs.GdtPrivacySwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ev6;
-import com.baidu.tieba.mv6;
-import com.baidu.tieba.nv6;
+import com.baidu.tieba.mw6;
+import com.baidu.tieba.nw6;
+import com.baidu.tieba.vw6;
+import com.baidu.tieba.ww6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +27,7 @@ public class FunAdStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<mw6.f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,11 +46,11 @@ public class FunAdStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<mw6.f> run(CustomMessage<mw6.f> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage(2921525, new mv6());
+                return new CustomResponsedMessage<>(2921525, new vw6());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -69,7 +70,7 @@ public class FunAdStatic {
             }
         }
         GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
-        ev6.a.set(new nv6());
+        nw6.a.set(new ww6());
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

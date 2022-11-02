@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.AdapterView;
+import android.widget.Filterable;
 import android.widget.ListAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.ListPopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,12 +32,15 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEMS_MEASURED = 15;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final AccessibilityManager accessibilityManager;
+    @NonNull
     public final ListPopupWindow modalListPopup;
+    @NonNull
     public final Rect tempRect;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialAutoCompleteTextView(Context context) {
+    public MaterialAutoCompleteTextView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +61,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialAutoCompleteTextView(Context context, AttributeSet attributeSet) {
+    public MaterialAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f0400a5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +82,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialAutoCompleteTextView(Context context, AttributeSet attributeSet, int i) {
+    public MaterialAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, 0), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,7 +137,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView adapterView, View view2, int i4, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view2, int i4, long j) {
                 Object item;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
@@ -157,8 +163,10 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         obtainStyledAttributes.recycle();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.android.material.textfield.MaterialAutoCompleteTextView */
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateText(Object obj) {
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T extends ListAdapter & Filterable> void updateText(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, obj) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
@@ -173,14 +181,15 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     }
 
     @Override // android.widget.AutoCompleteTextView
-    public void setAdapter(ListAdapter listAdapter) {
+    public <T extends ListAdapter & Filterable> void setAdapter(@Nullable T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, listAdapter) == null) {
-            super.setAdapter(listAdapter);
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            super.setAdapter(t);
             this.modalListPopup.setAdapter(getAdapter());
         }
     }
 
+    @Nullable
     private TextInputLayout findTextInputLayoutAncestor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -196,6 +205,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     }
 
     @Override // android.widget.TextView
+    @Nullable
     public CharSequence getHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

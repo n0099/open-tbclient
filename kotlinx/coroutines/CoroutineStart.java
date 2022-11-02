@@ -42,10 +42,12 @@ public enum CoroutineStart {
         }
     }
 
+    @InternalCoroutinesApi
     public static /* synthetic */ void isLazy$annotations() {
     }
 
-    public final void invoke(Function1 function1, Continuation continuation) {
+    @InternalCoroutinesApi
+    public final <T> void invoke(Function1<? super Continuation<? super T>, ? extends Object> function1, Continuation<? super T> continuation) {
         int i = WhenMappings.$EnumSwitchMapping$0[ordinal()];
         if (i != 1) {
             if (i != 2) {
@@ -64,7 +66,8 @@ public enum CoroutineStart {
         CancellableKt.startCoroutineCancellable(function1, continuation);
     }
 
-    public final void invoke(Function2 function2, Object obj, Continuation continuation) {
+    @InternalCoroutinesApi
+    public final <R, T> void invoke(Function2<? super R, ? super Continuation<? super T>, ? extends Object> function2, R r, Continuation<? super T> continuation) {
         int i = WhenMappings.$EnumSwitchMapping$1[ordinal()];
         if (i != 1) {
             if (i != 2) {
@@ -74,13 +77,13 @@ public enum CoroutineStart {
                     }
                     return;
                 }
-                UndispatchedKt.startCoroutineUndispatched(function2, obj, continuation);
+                UndispatchedKt.startCoroutineUndispatched(function2, r, continuation);
                 return;
             }
-            ContinuationKt.startCoroutine(function2, obj, continuation);
+            ContinuationKt.startCoroutine(function2, r, continuation);
             return;
         }
-        CancellableKt.startCoroutineCancellable(function2, obj, continuation);
+        CancellableKt.startCoroutineCancellable(function2, r, continuation);
     }
 
     public final boolean isLazy() {

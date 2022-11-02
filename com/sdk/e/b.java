@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.a.i;
 /* loaded from: classes8.dex */
-public abstract class b {
+public abstract class b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -40,7 +40,7 @@ public abstract class b {
         }
     }
 
-    public abstract void a(i iVar, String str);
+    public abstract void a(i<T> iVar, String str);
 
     public void b() {
         Interceptable interceptable = $ic;

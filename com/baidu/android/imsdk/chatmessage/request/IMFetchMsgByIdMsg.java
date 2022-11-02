@@ -39,7 +39,7 @@ import org.json.JSONObject;
 public class IMFetchMsgByIdMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgByIdMsg";
-    public static final Map reliableListFirst;
+    public static final Map<Long, Boolean> reliableListFirst;
     public transient /* synthetic */ FieldHolder $fh;
     public long mBeginId;
     public int mCategory;
@@ -85,18 +85,19 @@ public class IMFetchMsgByIdMsg extends Message {
         }
 
         /* JADX WARN: Removed duplicated region for block: B:20:0x0083  */
+        /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Long] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
-            ArrayList arrayList;
+            ArrayList<ChatMsg> arrayList;
             int i;
             int i2;
             boolean z;
-            ArrayList parserMessage;
-            ArrayList addMsgs;
-            ArrayList arrayList2;
+            ArrayList<ChatMsg> parserMessage;
+            ArrayList<ChatMsg> addMsgs;
+            ArrayList<ChatMsg> arrayList2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Type type = new Type();
@@ -146,13 +147,13 @@ public class IMFetchMsgByIdMsg extends Message {
                             MessageExt.getInstance().setCastId(valueOf);
                             ArrayList arrayList3 = new ArrayList();
                             ArrayList arrayList4 = new ArrayList();
-                            Iterator it = parserMessage.iterator();
+                            Iterator<ChatMsg> it = parserMessage.iterator();
                             while (it.hasNext()) {
-                                ChatMsg chatMsg = (ChatMsg) it.next();
-                                TextMsg textMsg = (TextMsg) chatMsg;
+                                ChatMsg next = it.next();
+                                TextMsg textMsg = (TextMsg) next;
                                 if (ConversationStudioManImpl.getInstance(this.mContext).isReliable(textMsg.getCastId())) {
                                     arrayList3.add(textMsg);
-                                    arrayList4.add(Long.valueOf(chatMsg.getMsgId()));
+                                    arrayList4.add(Long.valueOf(next.getMsgId()));
                                 }
                             }
                             LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch reliableMsgs cast message , size " + arrayList3.size() + ", ids :" + arrayList4.toString());
@@ -175,7 +176,7 @@ public class IMFetchMsgByIdMsg extends Message {
                                 if (!IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId))) {
                                     IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), Boolean.FALSE);
                                 }
-                                if (IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId)) && !((Boolean) IMFetchMsgByIdMsg.reliableListFirst.get(Long.valueOf(castId))).booleanValue()) {
+                                if (IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId)) && !IMFetchMsgByIdMsg.reliableListFirst.get(Long.valueOf(castId)).booleanValue()) {
                                     IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), Boolean.TRUE);
                                     TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable(this, arrayList2) { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg.FetchTask.1
                                         public static /* synthetic */ Interceptable $ic;

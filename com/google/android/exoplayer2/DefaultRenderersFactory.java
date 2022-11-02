@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,6 +16,7 @@ import com.google.android.exoplayer2.audio.AudioProcessor;
 import com.google.android.exoplayer2.audio.AudioRendererEventListener;
 import com.google.android.exoplayer2.audio.MediaCodecAudioRenderer;
 import com.google.android.exoplayer2.drm.DrmSessionManager;
+import com.google.android.exoplayer2.drm.FrameworkMediaCrypto;
 import com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
 import com.google.android.exoplayer2.metadata.MetadataOutput;
 import com.google.android.exoplayer2.metadata.MetadataRenderer;
@@ -37,7 +39,8 @@ public class DefaultRenderersFactory implements RenderersFactory {
     public transient /* synthetic */ FieldHolder $fh;
     public final long allowedVideoJoiningTimeMs;
     public final Context context;
-    public final DrmSessionManager drmSessionManager;
+    @Nullable
+    public final DrmSessionManager<FrameworkMediaCrypto> drmSessionManager;
     public final int extensionRendererMode;
 
     @Retention(RetentionPolicy.SOURCE)
@@ -51,7 +54,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AudioProcessor[0] : (AudioProcessor[]) invokeV.objValue;
     }
 
-    public void buildMiscellaneousRenderers(Context context, Handler handler, int i, ArrayList arrayList) {
+    public void buildMiscellaneousRenderers(Context context, Handler handler, int i, ArrayList<Renderer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, handler, i, arrayList) == null) {
         }
@@ -79,7 +82,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultRenderersFactory(Context context, DrmSessionManager drmSessionManager) {
+    public DefaultRenderersFactory(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager) {
         this(context, drmSessionManager, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,7 +103,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultRenderersFactory(Context context, DrmSessionManager drmSessionManager, int i) {
+    public DefaultRenderersFactory(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i) {
         this(context, drmSessionManager, i, 5000L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -120,7 +123,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
         }
     }
 
-    public DefaultRenderersFactory(Context context, DrmSessionManager drmSessionManager, int i, long j) {
+    public DefaultRenderersFactory(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +144,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
         this.allowedVideoJoiningTimeMs = j;
     }
 
-    public void buildAudioRenderers(Context context, DrmSessionManager drmSessionManager, AudioProcessor[] audioProcessorArr, Handler handler, AudioRendererEventListener audioRendererEventListener, int i, ArrayList arrayList) {
+    public void buildAudioRenderers(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, AudioProcessor[] audioProcessorArr, Handler handler, AudioRendererEventListener audioRendererEventListener, int i, ArrayList<Renderer> arrayList) {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
@@ -201,21 +204,21 @@ public class DefaultRenderersFactory implements RenderersFactory {
         }
     }
 
-    public void buildMetadataRenderers(Context context, MetadataOutput metadataOutput, Looper looper, int i, ArrayList arrayList) {
+    public void buildMetadataRenderers(Context context, MetadataOutput metadataOutput, Looper looper, int i, ArrayList<Renderer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, metadataOutput, looper, Integer.valueOf(i), arrayList}) == null) {
             arrayList.add(new MetadataRenderer(metadataOutput, looper));
         }
     }
 
-    public void buildTextRenderers(Context context, TextOutput textOutput, Looper looper, int i, ArrayList arrayList) {
+    public void buildTextRenderers(Context context, TextOutput textOutput, Looper looper, int i, ArrayList<Renderer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, textOutput, looper, Integer.valueOf(i), arrayList}) == null) {
             arrayList.add(new TextRenderer(textOutput, looper));
         }
     }
 
-    public void buildVideoRenderers(Context context, DrmSessionManager drmSessionManager, long j, Handler handler, VideoRendererEventListener videoRendererEventListener, int i, ArrayList arrayList) {
+    public void buildVideoRenderers(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, long j, Handler handler, VideoRendererEventListener videoRendererEventListener, int i, ArrayList<Renderer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, drmSessionManager, Long.valueOf(j), handler, videoRendererEventListener, Integer.valueOf(i), arrayList}) == null) {
             arrayList.add(new MediaCodecVideoRenderer(context, MediaCodecSelector.DEFAULT, j, drmSessionManager, false, handler, videoRendererEventListener, 50));
@@ -241,7 +244,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, handler, videoRendererEventListener, audioRendererEventListener, textOutput, metadataOutput)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Renderer> arrayList = new ArrayList<>();
             buildVideoRenderers(this.context, this.drmSessionManager, this.allowedVideoJoiningTimeMs, handler, videoRendererEventListener, this.extensionRendererMode, arrayList);
             buildAudioRenderers(this.context, this.drmSessionManager, buildAudioProcessors(), handler, audioRendererEventListener, this.extensionRendererMode, arrayList);
             buildTextRenderers(this.context, textOutput, handler.getLooper(), this.extensionRendererMode, arrayList);

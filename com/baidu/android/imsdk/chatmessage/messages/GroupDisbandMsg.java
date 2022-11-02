@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupDisbandMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GroupDisbandMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String mDesc;
     public String mOperator;
@@ -43,7 +43,7 @@ public class GroupDisbandMsg extends NotifyMsg implements Parcelable, NoProGuard
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupDisbandMsg.1
+        CREATOR = new Parcelable.Creator<GroupDisbandMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupDisbandMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,6 +62,7 @@ public class GroupDisbandMsg extends NotifyMsg implements Parcelable, NoProGuard
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupDisbandMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -73,6 +74,7 @@ public class GroupDisbandMsg extends NotifyMsg implements Parcelable, NoProGuard
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupDisbandMsg[] newArray(int i) {
                 InterceptResult invokeI;

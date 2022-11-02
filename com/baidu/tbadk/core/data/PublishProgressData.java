@@ -1,12 +1,13 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.lp8;
+import com.baidu.tieba.vq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -103,7 +104,7 @@ public class PublishProgressData {
         this.ID = j;
     }
 
-    public static PublishProgressData valueOf(WriteData writeData, int i) {
+    public static PublishProgressData valueOf(@NonNull WriteData writeData, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, writeData, i)) == null) {
@@ -142,7 +143,7 @@ public class PublishProgressData {
         return invokeL.booleanValue;
     }
 
-    public void update(PublishProgressData publishProgressData) {
+    public void update(@NonNull PublishProgressData publishProgressData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, publishProgressData) == null) {
             if (!publishProgressData.isRunning) {
@@ -160,7 +161,7 @@ public class PublishProgressData {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
                 if (this.isWork && this.progress == 93) {
                     WorkPostNotifyFlutterData notifyFlutterVideoUploadSucc = WorkPostNotifyFlutterData.notifyFlutterVideoUploadSucc();
-                    notifyFlutterVideoUploadSucc.setFlutterPageId(lp8.k().j());
+                    notifyFlutterVideoUploadSucc.setFlutterPageId(vq8.k().j());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, notifyFlutterVideoUploadSucc));
                 }
             }

@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.web.client;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.net.http.SslError;
 import android.webkit.SslErrorHandler;
@@ -75,6 +76,7 @@ public abstract class BaseWebViewClient extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
+    @TargetApi(24)
     public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

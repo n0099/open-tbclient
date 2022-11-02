@@ -219,14 +219,14 @@ public class DefaultPluginRC implements PluginRC {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, funAdType)) == null) {
-            Set forbiddenPlatforms = FunAdSdk.getForbiddenPlatforms();
+            Set<String> forbiddenPlatforms = FunAdSdk.getForbiddenPlatforms();
             if (forbiddenPlatforms != null && forbiddenPlatforms.contains(funAdType.getPlatform())) {
                 return this.b;
             }
             String platform = funAdType.getPlatform();
-            Set<Pair> set = FunAdSdk.getsForbiddenAids();
+            Set<Pair<String, String>> set = FunAdSdk.getsForbiddenAids();
             if (set != null) {
-                for (Pair pair : set) {
+                for (Pair<String, String> pair : set) {
                     if (pair != null && str.equals(pair.second) && platform.equals(pair.first)) {
                         z = true;
                         break;

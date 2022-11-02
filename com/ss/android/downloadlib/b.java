@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.sapi2.SapiWebView;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
 import com.ss.android.download.api.download.DownloadController;
@@ -125,21 +126,21 @@ public class b implements com.ss.android.downloadad.api.b {
     }
 
     @Override // com.ss.android.downloadad.api.b
-    public Dialog a(Context context, String str, boolean z, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, DownloadStatusChangeListener downloadStatusChangeListener, int i) {
+    public Dialog a(Context context, String str, boolean z, @NonNull DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, DownloadStatusChangeListener downloadStatusChangeListener, int i) {
         return a(context, str, z, downloadModel, downloadEventConfig, downloadController, downloadStatusChangeListener, i, false);
     }
 
     @Override // com.ss.android.downloadad.api.b
-    public Dialog a(Context context, String str, boolean z, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, DownloadStatusChangeListener downloadStatusChangeListener, int i, IDownloadButtonClickListener iDownloadButtonClickListener) {
+    public Dialog a(Context context, String str, boolean z, @NonNull DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, DownloadStatusChangeListener downloadStatusChangeListener, int i, IDownloadButtonClickListener iDownloadButtonClickListener) {
         return a(context, str, z, downloadModel, downloadEventConfig, downloadController, downloadStatusChangeListener, i, false, iDownloadButtonClickListener);
     }
 
-    public Dialog a(Context context, String str, boolean z, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, DownloadStatusChangeListener downloadStatusChangeListener, int i, boolean z2) {
+    public Dialog a(Context context, String str, boolean z, @NonNull DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, DownloadStatusChangeListener downloadStatusChangeListener, int i, boolean z2) {
         return a(context, str, z, downloadModel, downloadEventConfig, downloadController, downloadStatusChangeListener, i, z2, null);
     }
 
-    public Dialog a(final Context context, final String str, final boolean z, final DownloadModel downloadModel, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController, final DownloadStatusChangeListener downloadStatusChangeListener, final int i, final boolean z2, final IDownloadButtonClickListener iDownloadButtonClickListener) {
-        return (Dialog) com.ss.android.downloadlib.e.b.a(new b.a() { // from class: com.ss.android.downloadlib.b.1
+    public Dialog a(final Context context, final String str, final boolean z, @NonNull final DownloadModel downloadModel, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController, final DownloadStatusChangeListener downloadStatusChangeListener, final int i, final boolean z2, final IDownloadButtonClickListener iDownloadButtonClickListener) {
+        return (Dialog) com.ss.android.downloadlib.e.b.a(new b.a<Dialog>() { // from class: com.ss.android.downloadlib.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ss.android.downloadlib.e.b.a
             /* renamed from: a */
@@ -225,7 +226,7 @@ public class b implements com.ss.android.downloadad.api.b {
 
     @Override // com.ss.android.downloadad.api.b
     public boolean a(final Context context, final Uri uri, final DownloadModel downloadModel, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController, final IDownloadButtonClickListener iDownloadButtonClickListener) {
-        return ((Boolean) com.ss.android.downloadlib.e.b.a(new b.a() { // from class: com.ss.android.downloadlib.b.3
+        return ((Boolean) com.ss.android.downloadlib.e.b.a(new b.a<Boolean>() { // from class: com.ss.android.downloadlib.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ss.android.downloadlib.e.b.a
             /* renamed from: a */
@@ -267,21 +268,21 @@ public class b implements com.ss.android.downloadad.api.b {
             }
             String str2 = a;
             k.a(str2, "tryStartDownload show dialog appName:" + downloadModel.getDownloadUrl(), null);
-            Dialog b2 = j.c().b(new b.a(context).a(downloadModel.getName()).b("确认要下载此应用吗？").c("确认").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(new b.InterfaceC0648b() { // from class: com.ss.android.downloadlib.b.2
-                @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+            Dialog b2 = j.c().b(new b.a(context).a(downloadModel.getName()).b("确认要下载此应用吗？").c("确认").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(new b.InterfaceC0659b() { // from class: com.ss.android.downloadlib.b.2
+                @Override // com.ss.android.download.api.model.b.InterfaceC0659b
                 public void a(DialogInterface dialogInterface) {
                     b.this.c.a(downloadModel.getDownloadUrl(), downloadModel.getId(), 2, downloadEventConfig2, downloadController2);
                     com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_confirm", downloadModel, downloadEventConfig2, downloadController2);
                     dialogInterface.dismiss();
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+                @Override // com.ss.android.download.api.model.b.InterfaceC0659b
                 public void b(DialogInterface dialogInterface) {
                     com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_cancel", downloadModel, downloadEventConfig2, downloadController2);
                     dialogInterface.dismiss();
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+                @Override // com.ss.android.download.api.model.b.InterfaceC0659b
                 public void c(DialogInterface dialogInterface) {
                     com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_cancel", downloadModel, downloadEventConfig2, downloadController2);
                 }

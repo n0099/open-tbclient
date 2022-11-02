@@ -1,7 +1,13 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes3.dex */
 public interface dw1 {
-    void onFailure();
+    @NonNull
+    public static final dw1 a = new ew1(202, "params parsed as JSONObject is null");
 
-    void onSuccess(String str);
+    @NonNull
+    String a();
+
+    boolean isSuccess();
 }

@@ -19,7 +19,7 @@ public abstract class d {
     public Context a;
     public InputStream b;
     public OutputStream c;
-    public LinkedList d;
+    public LinkedList<e> d;
 
     public d(Context context, InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public abstract class d {
                 return;
             }
         }
-        this.d = new LinkedList();
+        this.d = new LinkedList<>();
         this.a = context;
         this.b = inputStream;
         this.c = outputStream;
     }
 
-    public LinkedList a() {
+    public LinkedList<e> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (LinkedList) invokeV.objValue;

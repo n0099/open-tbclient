@@ -69,8 +69,8 @@ public abstract class SwitchListener extends AbstractCommandListener<SwitchData>
                 }
                 throw new IllegalArgumentException("getKey should be implemented correctly to return preference key");
             }
-            Object obj = actionData.data;
-            if (obj == null || ((SwitchData) obj).auth == null || !handleData(context, str, str2, key, getSwitchValue(((SwitchData) obj).auth))) {
+            SwitchData switchData = actionData.data;
+            if (switchData == null || switchData.auth == null || !handleData(context, str, str2, key, getSwitchValue(switchData.auth))) {
                 return false;
             }
             DefaultSharedPrefsWrapper defaultSharedPrefsWrapper = DefaultSharedPrefsWrapper.getInstance();

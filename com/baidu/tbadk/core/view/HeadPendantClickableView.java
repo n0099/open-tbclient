@@ -13,7 +13,6 @@ import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
@@ -262,18 +261,18 @@ public class HeadPendantClickableView extends HeadPendantView {
         if ((interceptable == null || interceptable.invokeLZ(1048582, this, threadData, z) == null) && threadData != null && threadData.getAuthor() != null) {
             this.m = threadData;
             MetaData author = threadData.getAuthor();
-            setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f11e1));
+            setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f11ff));
             getHeadView().setUserId(author.getUserId());
             getHeadView().setUserName(author.getUserName());
             getHeadView().setUrl(author.getAvater());
-            if (author.isDefaultAvatar && UbsABTestHelper.showNewUI()) {
-                getHeadView().L(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f7a), 24, false);
+            if (author.isDefaultAvatar) {
+                getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f96), 24, false);
             } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
-                getHeadView().L(author.getAvater(), 10, false);
+                getHeadView().K(author.getAvater(), 10, false);
             } else if (z) {
-                getHeadView().L(author.getAvater(), 25, false);
+                getHeadView().K(author.getAvater(), 25, false);
             } else {
-                getHeadView().L(author.getAvater(), 28, false);
+                getHeadView().K(author.getAvater(), 28, false);
             }
             j(author, 0);
         }

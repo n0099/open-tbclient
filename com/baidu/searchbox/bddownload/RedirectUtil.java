@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,6 +37,7 @@ public class RedirectUtil {
         }
     }
 
+    @NonNull
     public static String getRedirectedUrl(DownloadConnection.Connected connected, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

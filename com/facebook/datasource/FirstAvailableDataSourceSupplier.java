@@ -13,36 +13,39 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
 import java.util.List;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
-public class FirstAvailableDataSourceSupplier implements Supplier {
+public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mDataSourceSuppliers;
+    public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     /* renamed from: com.facebook.datasource.FirstAvailableDataSourceSupplier$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @ThreadSafe
     /* loaded from: classes7.dex */
-    public class FirstAvailableDataSource extends AbstractDataSource {
+    public class FirstAvailableDataSource extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public DataSource mCurrentDataSource;
-        public DataSource mDataSourceWithResult;
+        public DataSource<T> mCurrentDataSource;
+        public DataSource<T> mDataSourceWithResult;
         public int mIndex;
         public final /* synthetic */ FirstAvailableDataSourceSupplier this$0;
 
         /* loaded from: classes7.dex */
-        public class InternalDataSubscriber implements DataSubscriber {
+        public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FirstAvailableDataSource this$1;
 
             @Override // com.facebook.datasource.DataSubscriber
-            public void onCancellation(DataSource dataSource) {
+            public void onCancellation(DataSource<T> dataSource) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
                 }
@@ -67,7 +70,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
             }
 
             @Override // com.facebook.datasource.DataSubscriber
-            public void onFailure(DataSource dataSource) {
+            public void onFailure(DataSource<T> dataSource) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) != null) {
                     return;
@@ -76,7 +79,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
             }
 
             @Override // com.facebook.datasource.DataSubscriber
-            public void onNewResult(DataSource dataSource) {
+            public void onNewResult(DataSource<T> dataSource) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource) == null) {
                     if (!dataSource.hasResult()) {
@@ -91,7 +94,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
             }
 
             @Override // com.facebook.datasource.DataSubscriber
-            public void onProgressUpdate(DataSource dataSource) {
+            public void onProgressUpdate(DataSource<T> dataSource) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
                     this.this$1.setProgress(Math.max(this.this$1.getProgress(), dataSource.getProgress()));
@@ -127,8 +130,8 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
             }
         }
 
-        private void maybeSetDataSourceWithResult(DataSource dataSource, boolean z) {
-            DataSource dataSource2;
+        private void maybeSetDataSourceWithResult(DataSource<T> dataSource, boolean z) {
+            DataSource<T> dataSource2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(65543, this, dataSource, z) == null) {
                 synchronized (this) {
@@ -137,7 +140,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
                             dataSource2 = null;
                             closeSafely(dataSource2);
                         }
-                        DataSource dataSource3 = this.mDataSourceWithResult;
+                        DataSource<T> dataSource3 = this.mDataSourceWithResult;
                         this.mDataSourceWithResult = dataSource;
                         dataSource2 = dataSource3;
                         closeSafely(dataSource2);
@@ -146,7 +149,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
             }
         }
 
-        private synchronized boolean clearCurrentDataSource(DataSource dataSource) {
+        private synchronized boolean clearCurrentDataSource(DataSource<T> dataSource) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, dataSource)) == null) {
@@ -161,7 +164,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
             return invokeL.booleanValue;
         }
 
-        private void closeSafely(DataSource dataSource) {
+        private void closeSafely(DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataSource) == null) && dataSource != null) {
                 dataSource.close();
@@ -169,7 +172,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void onDataSourceFailed(DataSource dataSource) {
+        public void onDataSourceFailed(DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(65544, this, dataSource) != null) || !clearCurrentDataSource(dataSource)) {
                 return;
@@ -183,7 +186,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void onDataSourceNewResult(DataSource dataSource) {
+        public void onDataSourceNewResult(DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65545, this, dataSource) == null) {
                 maybeSetDataSourceWithResult(dataSource, dataSource.isFinished());
@@ -193,7 +196,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
             }
         }
 
-        private synchronized boolean setCurrentDataSource(DataSource dataSource) {
+        private synchronized boolean setCurrentDataSource(DataSource<T> dataSource) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, dataSource)) == null) {
@@ -209,9 +212,9 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
         }
 
         @Nullable
-        private synchronized DataSource getDataSourceWithResult() {
+        private synchronized DataSource<T> getDataSourceWithResult() {
             InterceptResult invokeV;
-            DataSource dataSource;
+            DataSource<T> dataSource;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
                 synchronized (this) {
@@ -231,9 +234,9 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
                     if (!super.close()) {
                         return false;
                     }
-                    DataSource dataSource = this.mCurrentDataSource;
+                    DataSource<T> dataSource = this.mCurrentDataSource;
                     this.mCurrentDataSource = null;
-                    DataSource dataSource2 = this.mDataSourceWithResult;
+                    DataSource<T> dataSource2 = this.mDataSourceWithResult;
                     this.mDataSourceWithResult = null;
                     closeSafely(dataSource2);
                     closeSafely(dataSource);
@@ -245,22 +248,22 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         @Nullable
-        public synchronized Object getResult() {
+        public synchronized T getResult() {
             InterceptResult invokeV;
-            Object obj;
+            T t;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 synchronized (this) {
-                    DataSource dataSourceWithResult = getDataSourceWithResult();
+                    DataSource<T> dataSourceWithResult = getDataSourceWithResult();
                     if (dataSourceWithResult != null) {
-                        obj = dataSourceWithResult.getResult();
+                        t = dataSourceWithResult.getResult();
                     } else {
-                        obj = null;
+                        t = null;
                     }
                 }
-                return obj;
+                return t;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
@@ -270,7 +273,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 synchronized (this) {
-                    DataSource dataSourceWithResult = getDataSourceWithResult();
+                    DataSource<T> dataSourceWithResult = getDataSourceWithResult();
                     if (dataSourceWithResult != null) {
                         if (dataSourceWithResult.hasResult()) {
                             z = true;
@@ -284,7 +287,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
         }
 
         @Nullable
-        private synchronized Supplier getNextSupplier() {
+        private synchronized Supplier<DataSource<T>> getNextSupplier() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
@@ -303,12 +306,12 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
 
         private boolean startNextDataSource() {
             InterceptResult invokeV;
-            DataSource dataSource;
+            DataSource<T> dataSource;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-                Supplier nextSupplier = getNextSupplier();
+                Supplier<DataSource<T>> nextSupplier = getNextSupplier();
                 if (nextSupplier != null) {
-                    dataSource = (DataSource) nextSupplier.get();
+                    dataSource = nextSupplier.get();
                 } else {
                     dataSource = null;
                 }
@@ -323,7 +326,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
         }
     }
 
-    public FirstAvailableDataSourceSupplier(List list) {
+    public FirstAvailableDataSourceSupplier(List<Supplier<DataSource<T>>> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -342,11 +345,11 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
         this.mDataSourceSuppliers = list;
     }
 
-    public static FirstAvailableDataSourceSupplier create(List list) {
+    public static <T> FirstAvailableDataSourceSupplier<T> create(List<Supplier<DataSource<T>>> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            return new FirstAvailableDataSourceSupplier(list);
+            return new FirstAvailableDataSourceSupplier<>(list);
         }
         return (FirstAvailableDataSourceSupplier) invokeL.objValue;
     }
@@ -368,7 +371,7 @@ public class FirstAvailableDataSourceSupplier implements Supplier {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.Supplier
-    public DataSource get() {
+    public DataSource<T> get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

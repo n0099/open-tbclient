@@ -23,7 +23,7 @@ public interface IVideoCompositeService extends IInterface {
     void setIVideoConvertListener(IVideoConvertListener iVideoConvertListener) throws RemoteException;
 
     /* loaded from: classes6.dex */
-    public abstract class Stub extends Binder implements IVideoCompositeService {
+    public static abstract class Stub extends Binder implements IVideoCompositeService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.tieba.video.convert.IVideoCompositeService";
         public static final int TRANSACTION_abortConvert = 2;
@@ -40,7 +40,7 @@ public interface IVideoCompositeService extends IInterface {
         }
 
         /* loaded from: classes6.dex */
-        public class Proxy implements IVideoCompositeService {
+        public static class Proxy implements IVideoCompositeService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;

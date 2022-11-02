@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gy4;
+import com.baidu.tieba.wy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.h s0;
+    public AgreeView.f s0;
 
     /* loaded from: classes3.dex */
-    public class a implements AgreeView.h {
+    public class a implements AgreeView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThreadCardBottomOpSegmentWeightLayout a;
@@ -45,13 +45,13 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
             this.a = threadCardBottomOpSegmentWeightLayout;
         }
 
-        @Override // com.baidu.tbadk.core.view.AgreeView.h
+        @Override // com.baidu.tbadk.core.view.AgreeView.f
         public void a(View view2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeLZ(1048576, this, view2, z) != null) {
                 return;
             }
-            this.a.T(z);
+            this.a.O(z);
         }
     }
 
@@ -76,10 +76,10 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         this.s0 = new a(this);
     }
 
-    public final void T(boolean z) {
+    public final void O(boolean z) {
         float f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && U()) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && P()) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             if (z) {
                 f = 1.0f;
@@ -117,26 +117,26 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void L() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.L();
+            super.F();
             this.e.setVisibilityListener(this.s0);
-            this.e.w(true);
-            gy4.b(this);
+            this.e.x(true);
+            wy4.b(this);
         }
     }
 
-    public final boolean U() {
+    public final boolean P() {
         InterceptResult invokeV;
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean E = this.e.E();
+            boolean F = this.e.F();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             int i = layoutParams.width;
             float f2 = layoutParams.weight;
-            if (E) {
+            if (F) {
                 f = 1.0f;
             } else {
                 f = 2.0f;
@@ -150,22 +150,22 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public View l(Context context) {
+    public View j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0914, (ViewGroup) this, true);
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0928, (ViewGroup) this, true);
         }
         return (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void u(View view2) {
+    public void q(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            super.u(view2);
+            super.q(view2);
             this.e.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.e.I(true);
+            this.e.J(true);
         }
     }
 }

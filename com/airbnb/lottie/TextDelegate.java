@@ -1,18 +1,23 @@
 package com.airbnb.lottie;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TextDelegate {
+    @Nullable
     public final LottieAnimationView animationView;
     public boolean cacheText;
+    @Nullable
     public final LottieDrawable drawable;
-    public final Map stringMap;
+    public final Map<String, String> stringMap;
 
     private String getText(String str) {
         return str;
     }
 
+    @VisibleForTesting
     public TextDelegate() {
         this.stringMap = new HashMap();
         this.cacheText = true;
@@ -45,7 +50,7 @@ public class TextDelegate {
 
     public final String getTextInternal(String str) {
         if (this.cacheText && this.stringMap.containsKey(str)) {
-            return (String) this.stringMap.get(str);
+            return this.stringMap.get(str);
         }
         String text = getText(str);
         if (this.cacheText) {

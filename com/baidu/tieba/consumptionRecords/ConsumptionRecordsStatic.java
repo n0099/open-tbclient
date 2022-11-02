@@ -19,7 +19,7 @@ public class ConsumptionRecordsStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a implements UrlManager.UrlDealListener {
+    public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,7 +38,7 @@ public class ConsumptionRecordsStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {

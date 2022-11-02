@@ -5,6 +5,9 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
 public final class ScaleProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -128,7 +132,8 @@ public final class ScaleProvider implements VisibilityAnimatorProvider {
     }
 
     @Override // com.google.android.material.transition.platform.VisibilityAnimatorProvider
-    public Animator createAppear(ViewGroup viewGroup, View view2) {
+    @Nullable
+    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) {
@@ -141,7 +146,8 @@ public final class ScaleProvider implements VisibilityAnimatorProvider {
     }
 
     @Override // com.google.android.material.transition.platform.VisibilityAnimatorProvider
-    public Animator createDisappear(ViewGroup viewGroup, View view2) {
+    @Nullable
+    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2)) == null) {

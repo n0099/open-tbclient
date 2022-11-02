@@ -14,12 +14,12 @@ import io.reactivex.internal.observers.DeferredScalarDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableFromCallable extends Observable implements Callable {
+public final class ObservableFromCallable<T> extends Observable<T> implements Callable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable callable;
+    public final Callable<? extends T> callable;
 
-    public ObservableFromCallable(Callable callable) {
+    public ObservableFromCallable(Callable<? extends T> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,17 +38,19 @@ public final class ObservableFromCallable extends Observable implements Callable
     }
 
     @Override // java.util.concurrent.Callable
-    public Object call() throws Exception {
+    public T call() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ObjectHelper.requireNonNull(this.callable.call(), "The callable returned a null value");
+            return (T) ObjectHelper.requireNonNull(this.callable.call(), "The callable returned a null value");
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: io.reactivex.internal.observers.DeferredScalarDisposable */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer) == null) {
             DeferredScalarDisposable deferredScalarDisposable = new DeferredScalarDisposable(observer);

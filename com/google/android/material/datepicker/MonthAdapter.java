@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -24,7 +26,7 @@ public class MonthAdapter extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public final CalendarConstraints calendarConstraints;
     public CalendarStyle calendarStyle;
-    public final DateSelector dateSelector;
+    public final DateSelector<?> dateSelector;
     public final Month month;
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -81,7 +83,7 @@ public class MonthAdapter extends BaseAdapter {
         return invokeV.intValue;
     }
 
-    public MonthAdapter(Month month, DateSelector dateSelector, CalendarConstraints calendarConstraints) {
+    public MonthAdapter(Month month, DateSelector<?> dateSelector, CalendarConstraints calendarConstraints) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,6 +176,7 @@ public class MonthAdapter extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
+    @Nullable
     public Long getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -190,10 +193,11 @@ public class MonthAdapter extends BaseAdapter {
     /* JADX WARN: Removed duplicated region for block: B:20:0x0074 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0075  */
     @Override // android.widget.Adapter
+    @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public TextView getView(int i, View view2, ViewGroup viewGroup) {
+    public TextView getView(int i, @Nullable View view2, @NonNull ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Long item;
         Interceptable interceptable = $ic;
@@ -201,7 +205,7 @@ public class MonthAdapter extends BaseAdapter {
             initializeStyles(viewGroup.getContext());
             TextView textView = (TextView) view2;
             if (view2 == null) {
-                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05af, viewGroup, false);
+                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05bf, viewGroup, false);
             }
             int firstPositionInMonth = i - firstPositionInMonth();
             if (firstPositionInMonth >= 0) {
@@ -224,9 +228,9 @@ public class MonthAdapter extends BaseAdapter {
                     }
                     if (this.calendarConstraints.getDateValidator().isValid(item.longValue())) {
                         textView.setEnabled(true);
-                        Iterator it = this.dateSelector.getSelectedDays().iterator();
+                        Iterator<Long> it = this.dateSelector.getSelectedDays().iterator();
                         while (it.hasNext()) {
-                            if (UtcDates.canonicalYearMonthDay(item.longValue()) == UtcDates.canonicalYearMonthDay(((Long) it.next()).longValue())) {
+                            if (UtcDates.canonicalYearMonthDay(item.longValue()) == UtcDates.canonicalYearMonthDay(it.next().longValue())) {
                                 this.calendarStyle.selectedDay.styleItem(textView);
                                 return textView;
                             }

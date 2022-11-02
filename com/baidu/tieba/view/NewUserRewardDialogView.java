@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,9 +17,9 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lv4;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.vm;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.nm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,9 +67,9 @@ public class NewUserRewardDialogView extends LinearLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((Boolean) ((BackgroundSwitchMessage) customResponsedMessage).getData()).booleanValue() && this.a.a != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() && this.a.a != null) {
                 this.a.a.requestRender();
             }
         }
@@ -96,7 +97,7 @@ public class NewUserRewardDialogView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NewUserRewardDialogView(Context context, AttributeSet attributeSet) {
+    public NewUserRewardDialogView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -117,7 +118,7 @@ public class NewUserRewardDialogView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewUserRewardDialogView(Context context, AttributeSet attributeSet, int i) {
+    public NewUserRewardDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -150,17 +151,17 @@ public class NewUserRewardDialogView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0655, this);
-            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f091693);
-            this.b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091698);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091699);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091695);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091694);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091696);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091697);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0669, this);
+            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f0916d2);
+            this.b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0916d7);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d4);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0916d3);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d5);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d6);
             this.a.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.h);
-            this.b.setRoundLayoutRadius(lv4.z(R.string.J_X06));
+            this.b.setRoundLayoutRadius(iw4.z(R.string.J_X06));
         }
     }
 
@@ -171,12 +172,12 @@ public class NewUserRewardDialogView extends LinearLayout {
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setImageResource(this.e, R.drawable.icon_use_close_n);
-            nv4 d = nv4.d(this.f);
+            kw4 d = kw4.d(this.f);
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0902);
             d.n(R.string.J_X01);
             d.v(R.color.CAM_X0105);
-            nv4 d2 = nv4.d(this.g);
+            kw4 d2 = kw4.d(this.g);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);
             d2.n(R.string.J_X01);
@@ -219,13 +220,13 @@ public class NewUserRewardDialogView extends LinearLayout {
         this.d.setText(iconStampData.stampText);
         int i = iconStampData.stampType;
         if (i == 1) {
-            this.a.setSourcePath(vm.b("post_1_times.mp4"));
+            this.a.setSourcePath(nm.b("post_1_times.mp4"));
         } else if (i == 2) {
-            this.a.setSourcePath(vm.b("reply_1_times.mp4"));
+            this.a.setSourcePath(nm.b("reply_1_times.mp4"));
         } else if (i == 3) {
-            this.a.setSourcePath(vm.b("post_7_times.mp4"));
+            this.a.setSourcePath(nm.b("post_7_times.mp4"));
         } else {
-            this.a.setSourcePath(vm.b("reply_7_times.mp4"));
+            this.a.setSourcePath(nm.b("reply_7_times.mp4"));
         }
         this.a.play();
     }

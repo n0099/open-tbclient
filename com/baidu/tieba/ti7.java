@@ -1,40 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ti7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
 
-    public static String a(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public ti7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSONObject)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str + "?");
-            Iterator<String> keys = jSONObject.keys();
-            boolean z = true;
-            while (keys.hasNext()) {
-                if (z) {
-                    String next = keys.next();
-                    if (next != null) {
-                        sb.append(next + "=" + jSONObject.optString(next));
-                        z = false;
-                    }
-                } else {
-                    String next2 = keys.next();
-                    if (next2 != null) {
-                        sb.append("&");
-                        sb.append(next2 + "=" + jSONObject.optString(next2));
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
     }
 }

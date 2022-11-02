@@ -18,7 +18,7 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0618 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d062c : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -89,12 +89,12 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.g();
-            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0602a8));
-            this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060295));
-            this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060295));
-            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e14));
-            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e14));
-            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060872));
+            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0602a9));
+            this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060296));
+            this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060296));
+            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2f));
+            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2f));
+            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060882));
         }
     }
 }

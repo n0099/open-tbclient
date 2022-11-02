@@ -70,7 +70,7 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Tx3gDecoder(List list) {
+    public Tx3gDecoder(List<byte[]> list) {
         super("Tx3gDecoder");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -172,13 +172,13 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
         }
     }
 
-    private void decodeInitializationData(List list) {
+    private void decodeInitializationData(List<byte[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, list) == null) {
             String str = "sans-serif";
             boolean z = false;
-            if (list != null && list.size() == 1 && (((byte[]) list.get(0)).length == 48 || ((byte[]) list.get(0)).length == 53)) {
-                byte[] bArr = (byte[]) list.get(0);
+            if (list != null && list.size() == 1 && (list.get(0).length == 48 || list.get(0).length == 53)) {
+                byte[] bArr = list.get(0);
                 this.defaultFontFace = bArr[24];
                 this.defaultColorRgba = ((bArr[26] & 255) << 24) | ((bArr[27] & 255) << 16) | ((bArr[28] & 255) << 8) | (bArr[29] & 255);
                 if (TX3G_SERIF.equals(new String(bArr, 43, bArr.length - 43))) {

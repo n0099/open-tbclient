@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public final class ColorParser {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Map COLOR_MAP;
+    public static final Map<String, Integer> COLOR_MAP;
     public static final String RGB = "rgb";
     public static final String RGBA = "rgba";
     public static final Pattern RGBA_PATTERN_FLOAT_ALPHA;
@@ -255,7 +255,7 @@ public final class ColorParser {
                     return rgb(Integer.parseInt(matcher2.group(1), 10), Integer.parseInt(matcher2.group(2), 10), Integer.parseInt(matcher2.group(3), 10));
                 }
             } else {
-                Integer num = (Integer) COLOR_MAP.get(Util.toLowerInvariant(replace));
+                Integer num = COLOR_MAP.get(Util.toLowerInvariant(replace));
                 if (num != null) {
                     return num.intValue();
                 }

@@ -27,7 +27,7 @@ public final class c implements Runnable {
     public volatile boolean hw;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String apC;

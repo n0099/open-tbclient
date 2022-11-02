@@ -27,13 +27,13 @@ public class CommandPostData {
 
     /* renamed from: com.baidu.searchbox.net.update.CommandPostData$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public final class SubPostDataKey {
+    public static final class SubPostDataKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String dataKey;

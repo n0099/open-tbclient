@@ -1,214 +1,140 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.ActInfo;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class br4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, List<String>> a;
+    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public int f;
-    public boolean g;
-    public int h;
-    public int i;
-    public xt4 j;
 
-    public br4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                br4.f();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654565, "Lcom/baidu/tieba/br4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947654565, "Lcom/baidu/tieba/br4;");
                 return;
             }
         }
-        this.h = 1;
-        this.i = 1;
+        a = new ArrayMap();
+        b = new ArrayMap();
+        c();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("activity_type");
-            this.b = jSONObject.optInt("status");
-            this.c = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
-            this.d = jSONObject.optInt("end_time");
-            this.e = jSONObject.optString("url");
-            this.f = jSONObject.optInt("total_num");
-            jSONObject.optInt("activity_id");
-            jSONObject.optInt("award_act_id");
-            jSONObject.optInt("component_id");
-            this.g = jSONObject.optBoolean("is_senior");
-            jSONObject.optString("banner_img");
-            jSONObject.optInt("show_total_num");
-            String optString = jSONObject.optString("banner_img_size");
-            if (!ej.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                this.h = eh.e(split[0], 1);
-                this.i = eh.e(split[1], 1);
-            }
-            if (this.h <= 0) {
-                this.h = 1;
-            }
-            if (this.i <= 0) {
-                this.i = 1;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2001167));
         }
     }
 
-    public void i(ActInfo actInfo) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
+    public static synchronized void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) != null) || actInfo == null) {
-            return;
-        }
-        Integer num = actInfo.activity_type;
-        int i5 = -1;
-        if (num != null) {
-            i = num.intValue();
-        } else {
-            i = -1;
-        }
-        this.a = i;
-        Integer num2 = actInfo.status;
-        if (num2 != null) {
-            i2 = num2.intValue();
-        } else {
-            i2 = -1;
-        }
-        this.b = i2;
-        Integer num3 = actInfo.begin_time;
-        if (num3 != null) {
-            i3 = num3.intValue();
-        } else {
-            i3 = -1;
-        }
-        this.c = i3;
-        Integer num4 = actInfo.end_time;
-        if (num4 != null) {
-            i4 = num4.intValue();
-        } else {
-            i4 = -1;
-        }
-        this.d = i4;
-        this.e = actInfo.url;
-        Integer num5 = actInfo.total_num;
-        if (num5 != null) {
-            i5 = num5.intValue();
-        }
-        this.f = i5;
-        actInfo.activity_id.intValue();
-        actInfo.award_act_id.intValue();
-        actInfo.component_id.intValue();
-        this.g = actInfo.is_senior.booleanValue();
-        String str = actInfo.banner_img;
-        actInfo.show_total_num.intValue();
-        String str2 = actInfo.banner_img_size;
-        if (!ej.isEmpty(str2)) {
-            try {
-                String[] split = str2.split(",");
-                this.h = eh.e(split[0], 1);
-                this.i = eh.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            synchronized (br4.class) {
+                if (b.get(str) != null && b.get(str).booleanValue()) {
+                    return;
+                }
+                if (a.get(str) == null) {
+                    a.put(str, new ArrayList());
+                }
+                a.get(str).add(str2);
             }
         }
-        if (this.h <= 0) {
-            this.h = 1;
+    }
+
+    public static synchronized void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            synchronized (br4.class) {
+                b.put(str, Boolean.FALSE);
+                a.remove(str);
+            }
         }
-        if (this.i <= 0) {
-            this.i = 1;
+    }
+
+    public static synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            synchronized (br4.class) {
+                if (b.get(str) != null && b.get(str).booleanValue()) {
+                    return;
+                }
+                b.put(str, Boolean.TRUE);
+                List<String> list = a.get(str);
+                if (list != null && list.size() < 100) {
+                    TiebaStatic.log(new StatisticItem("TiebaTracer").param("obj_name", str).param("obj_param1", TextUtils.join("_", list)));
+                    a.remove(str);
+                }
+            }
         }
-        xt4 xt4Var = new xt4();
-        this.j = xt4Var;
-        xt4Var.a(actInfo.lottery_senior);
+    }
+
+    public static synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (br4.class) {
+                for (Map.Entry<String, List<String>> entry : a.entrySet()) {
+                    e(entry.getKey());
+                }
+            }
+        }
     }
 }

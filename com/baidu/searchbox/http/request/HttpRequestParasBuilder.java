@@ -2,20 +2,20 @@ package com.baidu.searchbox.http.request;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.HttpRequestParasBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public abstract class HttpRequestParasBuilder extends HttpRequestBuilder {
+public abstract class HttpRequestParasBuilder<T extends HttpRequestParasBuilder> extends HttpRequestBuilder<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap params;
+    public LinkedHashMap<String, String> params;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HttpRequestParasBuilder(AbstractHttpManager abstractHttpManager) {
@@ -35,7 +35,7 @@ public abstract class HttpRequestParasBuilder extends HttpRequestBuilder {
                 return;
             }
         }
-        this.params = new LinkedHashMap();
+        this.params = new LinkedHashMap<>();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,64 +58,63 @@ public abstract class HttpRequestParasBuilder extends HttpRequestBuilder {
             }
         }
         if (httpParaRequest.params != null) {
-            this.params = new LinkedHashMap(httpParaRequest.params);
+            this.params = new LinkedHashMap<>(httpParaRequest.params);
         } else {
-            this.params = new LinkedHashMap();
+            this.params = new LinkedHashMap<>();
         }
     }
 
-    public HttpRequestParasBuilder addParam(String str, String str2) {
+    public T addParam(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             this.params.put(str, str2);
             return this;
         }
-        return (HttpRequestParasBuilder) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public HttpRequestParasBuilder addParams(Map map) {
+    public T addParams(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             this.params.putAll(map);
             return this;
         }
-        return (HttpRequestParasBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public HttpRequestParasBuilder params(Map map) {
+    public T params(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-            this.params = new LinkedHashMap(map);
+            this.params = new LinkedHashMap<>(map);
             return this;
         }
-        return (HttpRequestParasBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public HttpRequestParasBuilder removeParam(String str) {
+    public T removeParam(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             this.params.remove(str);
             return this;
         }
-        return (HttpRequestParasBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public HttpRequestParasBuilder removeParams(List list) {
+    public T removeParams(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
             if (list != null && list.size() > 0) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    this.params.remove((String) it.next());
+                for (String str : list) {
+                    this.params.remove(str);
                 }
             }
             return this;
         }
-        return (HttpRequestParasBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

@@ -1,10 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.game.GameInfoData;
+import com.baidu.tbadk.game.GameShareJsBridge;
+import com.baidu.tbadk.game.RequestGameDetailMessage;
+import com.baidu.tbadk.game.ResponseGameDetailMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +20,93 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class w85 {
     public static /* synthetic */ Interceptable $ic;
-    public static w85 b;
+    public static w85 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap a;
+    public GameInfoData a;
+    public String b;
+    public final rb c;
+
+    /* loaded from: classes6.dex */
+    public class a implements CustomMessageTask.CustomRunnable<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w85 a;
+
+        public a(w85 w85Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w85Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w85Var;
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage == null) {
+                    return null;
+                }
+                return new CustomResponsedMessage<>(2001261, this.a.e());
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends rb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w85 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(w85 w85Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w85Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w85Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
+                ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
+                if (!(responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage)) {
+                    return;
+                }
+                this.a.a = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,16 +121,29 @@ public class w85 {
                 return;
             }
         }
-        b = new w85();
+        d = new w85();
     }
 
     public static w85 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d;
         }
         return (w85) invokeV.objValue;
+    }
+
+    public GameInfoData c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            GameInfoData gameInfoData = this.a;
+            if (gameInfoData == null) {
+                return b();
+            }
+            return gameInfoData;
+        }
+        return (GameInfoData) invokeV.objValue;
     }
 
     public w85() {
@@ -59,154 +159,92 @@ public class w85 {
                 return;
             }
         }
-        this.a = new HashMap();
-        f(x85.class);
-        f(z85.class);
-        f(u85.class);
-        f(y85.class);
-        f(a95.class);
+        this.c = new b(this, 303009);
+        MessageManager.getInstance().registerListener(this.c);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new a(this));
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public v85 a(ImageOperation imageOperation) {
-        InterceptResult invokeL;
-        v85 e;
+    public final GameInfoData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageOperation)) == null) {
-            Class cls = (Class) this.a.get(imageOperation.actionName);
-            if (cls == null || (e = e(cls)) == null) {
-                return null;
-            }
-            e.d(imageOperation.actionParam);
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GameInfoData gameInfoData = new GameInfoData();
+            gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f04a9));
+            gameInfoData.setGameLink(this.b);
+            gameInfoData.setGameId("default");
+            gameInfoData.setIconUrl("default");
+            gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f04a8));
+            return gameInfoData;
         }
-        return (v85) invokeL.objValue;
+        return (GameInfoData) invokeV.objValue;
     }
 
-    public final v85 e(Class cls) {
-        InterceptResult invokeL;
+    public ShareFromGameCenterMsgData e() {
+        InterceptResult invokeV;
+        String shareTitle;
+        String shareContent;
+        String shareImage;
+        String shareName;
+        String iconUrl;
+        String gameId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
-            try {
-                return (v85) cls.newInstance();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        }
-        return (v85) invokeL.objValue;
-    }
-
-    public final void f(Class cls) {
-        v85 e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cls) == null) && (e = e(cls)) != null) {
-            this.a.put(e.a(), cls);
-        }
-    }
-
-    public Bitmap b(Bitmap bitmap, boolean z, List list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeCommon;
-        Bitmap bitmap2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Boolean.valueOf(z), list, imageFileInfo})) == null) {
-            if (bitmap == null) {
-                return bitmap;
-            }
-            if (ListUtils.isEmpty(list)) {
-                return bitmap;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                v85 a = a((ImageOperation) list.get(i));
-                if ((a instanceof a95) && imageFileInfo != null) {
-                    ((a95) a).e(imageFileInfo.getFilePath());
-                    return a.b(bitmap, z);
-                }
-            }
-            x85 x85Var = null;
-            int i2 = 0;
-            while (i2 < size) {
-                ImageOperation imageOperation = (ImageOperation) list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    x85 x85Var2 = (x85) a(imageOperation);
-                    if (x85Var == null || x85Var2.f() <= x85Var.f() || x85Var2.e() <= x85Var.e()) {
-                        x85Var = x85Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (x85Var != null) {
-                bitmap2 = x85Var.b(bitmap, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            GameInfoData c = c();
+            ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
+            if (StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true)) {
+                shareTitle = c.getGameName();
             } else {
-                bitmap2 = null;
+                shareTitle = GameShareJsBridge.getInstance().getShareTitle();
             }
-            if (list != null) {
-                for (int i3 = 0; i3 < size; i3++) {
-                    v85 a2 = a((ImageOperation) list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap2 == null) {
-                            return null;
-                        }
-                        bitmap2 = a2.b(bitmap, z);
-                    }
-                }
+            shareFromGameCenterMsgData.setTitle(shareTitle);
+            if (StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true)) {
+                shareContent = c.getIntroduce();
+            } else {
+                shareContent = GameShareJsBridge.getInstance().getShareContent();
             }
-            return bitmap2;
+            shareFromGameCenterMsgData.setContent(shareContent);
+            if (StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true)) {
+                shareImage = c.getIconUrl();
+            } else {
+                shareImage = GameShareJsBridge.getInstance().getShareImage();
+            }
+            shareFromGameCenterMsgData.setImageUrl(shareImage);
+            if (StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true)) {
+                shareName = c.getGameName();
+            } else {
+                shareName = GameShareJsBridge.getInstance().getShareName();
+            }
+            shareFromGameCenterMsgData.setShareSource(shareName);
+            if (StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true)) {
+                iconUrl = c.getIconUrl();
+            } else {
+                iconUrl = GameShareJsBridge.getInstance().getIconUrl();
+            }
+            shareFromGameCenterMsgData.setShareSourceIcon(iconUrl);
+            if (StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true)) {
+                gameId = c.getGameId();
+            } else {
+                gameId = GameShareJsBridge.getInstance().getGameId();
+            }
+            if ("default".equals(gameId)) {
+                shareFromGameCenterMsgData.setShareSourceUrl(gameId);
+            } else {
+                shareFromGameCenterMsgData.setShareSourceUrl("game:detail:TBCGameID=" + gameId);
+            }
+            String shareContentUrl = GameShareJsBridge.getInstance().getShareContentUrl();
+            if (StringUtils.isNull(shareContentUrl)) {
+                shareContentUrl = c.getGameLink();
+            }
+            if (StringUtils.isNull(shareContentUrl, true)) {
+                shareContentUrl = "";
+            } else if (!shareContentUrl.contains("tbgametype")) {
+                shareContentUrl = shareContentUrl + "&tbgametype=1";
+            }
+            shareFromGameCenterMsgData.setShareUrl(shareContentUrl.toString());
+            return shareFromGameCenterMsgData;
         }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public Bitmap c(String str, List list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, imageFileInfo)) == null) {
-            Bitmap bitmap = null;
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                v85 a = a((ImageOperation) list.get(i));
-                if ((a instanceof a95) && imageFileInfo != null) {
-                    return a.c(imageFileInfo.getFilePath());
-                }
-            }
-            x85 x85Var = null;
-            int i2 = 0;
-            while (i2 < list.size()) {
-                ImageOperation imageOperation = (ImageOperation) list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    x85 x85Var2 = (x85) a(imageOperation);
-                    if (x85Var == null || x85Var2.f() <= x85Var.f() || x85Var2.e() <= x85Var.e()) {
-                        x85Var = x85Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (x85Var != null) {
-                bitmap = x85Var.c(str);
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    v85 a2 = a((ImageOperation) list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap == null) {
-                            bitmap = a2.c(str);
-                        } else {
-                            bitmap = a2.b(bitmap, true);
-                        }
-                    }
-                }
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeLLL.objValue;
+        return (ShareFromGameCenterMsgData) invokeV.objValue;
     }
 }

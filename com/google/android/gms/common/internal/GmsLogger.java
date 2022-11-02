@@ -1,19 +1,25 @@
 package com.google.android.gms.common.internal;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class GmsLogger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String zza;
+    @Nullable
     public final String zzb;
 
+    @KeepForSdk
     public boolean canLogPii() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -23,20 +29,23 @@ public final class GmsLogger {
         return invokeV.booleanValue;
     }
 
-    public void pii(String str, String str2) {
+    @KeepForSdk
+    public void pii(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
         }
     }
 
-    public void pii(String str, String str2, Throwable th) {
+    @KeepForSdk
+    public void pii(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, th) == null) {
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GmsLogger(String str) {
+    @KeepForSdk
+    public GmsLogger(@NonNull String str) {
         this(str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,7 +65,8 @@ public final class GmsLogger {
         }
     }
 
-    public GmsLogger(String str, String str2) {
+    @KeepForSdk
+    public GmsLogger(@NonNull String str, @Nullable String str2) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,6 +110,7 @@ public final class GmsLogger {
         return (String) invokeL.objValue;
     }
 
+    @KeepForSdk
     public boolean canLog(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -123,91 +134,104 @@ public final class GmsLogger {
         return (String) invokeLL.objValue;
     }
 
-    public void d(String str, String str2) {
+    @KeepForSdk
+    public void d(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && canLog(3)) {
             Log.d(str, zza(str2));
         }
     }
 
-    public void e(String str, String str2) {
+    @KeepForSdk
+    public void e(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && canLog(6)) {
             Log.e(str, zza(str2));
         }
     }
 
-    public void i(String str, String str2) {
+    @KeepForSdk
+    public void i(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && canLog(4)) {
             Log.i(str, zza(str2));
         }
     }
 
-    public void v(String str, String str2) {
+    @KeepForSdk
+    public void v(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) && canLog(2)) {
             Log.v(str, zza(str2));
         }
     }
 
-    public void w(String str, String str2) {
+    @KeepForSdk
+    public void w(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) && canLog(5)) {
             Log.w(str, zza(str2));
         }
     }
 
-    public void d(String str, String str2, Throwable th) {
+    @KeepForSdk
+    public void d(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, th) == null) && canLog(3)) {
             Log.d(str, zza(str2), th);
         }
     }
 
-    public void e(String str, String str2, Throwable th) {
+    @KeepForSdk
+    public void e(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, th) == null) && canLog(6)) {
             Log.e(str, zza(str2), th);
         }
     }
 
-    public void efmt(String str, String str2, Object... objArr) {
+    @KeepForSdk
+    public void efmt(@NonNull String str, @NonNull String str2, @NonNull Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, objArr) == null) && canLog(6)) {
             Log.e(str, zzb(str2, objArr));
         }
     }
 
-    public void i(String str, String str2, Throwable th) {
+    @KeepForSdk
+    public void i(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, th) == null) && canLog(4)) {
             Log.i(str, zza(str2), th);
         }
     }
 
-    public void v(String str, String str2, Throwable th) {
+    @KeepForSdk
+    public void v(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048588, this, str, str2, th) == null) && canLog(2)) {
             Log.v(str, zza(str2), th);
         }
     }
 
-    public void w(String str, String str2, Throwable th) {
+    @KeepForSdk
+    public void w(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048590, this, str, str2, th) == null) && canLog(5)) {
             Log.w(str, zza(str2), th);
         }
     }
 
-    public void wfmt(String str, String str2, Object... objArr) {
+    @KeepForSdk
+    public void wfmt(@NonNull String str, @NonNull String str2, @NonNull Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048591, this, str, str2, objArr) == null) && canLog(5)) {
             Log.w(this.zza, zzb(str2, objArr));
         }
     }
 
-    public void wtf(String str, String str2, Throwable th) {
+    @KeepForSdk
+    public void wtf(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048592, this, str, str2, th) == null) && canLog(7)) {
             Log.e(str, zza(str2), th);

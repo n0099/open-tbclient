@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.gc0;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.fc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
+public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater a;
-    public List b;
+    public List<LiveTabEntity.TabLabelInfo> b;
     public Context c;
     public String d;
     public int e;
@@ -42,7 +42,7 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
     }
 
     /* loaded from: classes2.dex */
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -123,16 +123,16 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
         this.c = context;
         this.d = str;
         this.a = LayoutInflater.from(context);
-        float b2 = ea0.b(this.c, 14.0f);
+        float b2 = da0.b(this.c, 14.0f);
         this.f = new float[]{b2, b2, b2, b2, b2, b2, b2, b2};
     }
 
-    public void m(List list, String str) {
+    public void m(List<LiveTabEntity.TabLabelInfo> list, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048585, this, list, str) != null) || gc0.c(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048585, this, list, str) != null) || fc0.c(list)) {
             return;
         }
-        List list2 = this.b;
+        List<LiveTabEntity.TabLabelInfo> list2 = this.b;
         if (list2 != null) {
             list2.clear();
         } else {
@@ -143,7 +143,7 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
         int i = 0;
         int i2 = 0;
         for (int i3 = 0; i3 < this.b.size(); i3++) {
-            LiveTabEntity.TabLabelInfo tabLabelInfo = (LiveTabEntity.TabLabelInfo) this.b.get(i3);
+            LiveTabEntity.TabLabelInfo tabLabelInfo = this.b.get(i3);
             if (tabLabelInfo != null) {
                 if (!TextUtils.isEmpty(str) && i == 0 && str.equals(tabLabelInfo.type)) {
                     LiveFeedPageSdk.liveLog("Scheme指定找到了三级标签 = " + tabLabelInfo.name);
@@ -179,9 +179,9 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!gc0.c(this.b) && str != null) {
+            if (!fc0.c(this.b) && str != null) {
                 for (int i = 0; i < this.b.size(); i++) {
-                    LiveTabEntity.TabLabelInfo tabLabelInfo = (LiveTabEntity.TabLabelInfo) this.b.get(i);
+                    LiveTabEntity.TabLabelInfo tabLabelInfo = this.b.get(i);
                     if (tabLabelInfo != null && str.equals(tabLabelInfo.type)) {
                         return i;
                     }
@@ -205,7 +205,7 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (LiveTabEntity.TabLabelInfo) gc0.b(this.b, this.e);
+            return (LiveTabEntity.TabLabelInfo) fc0.b(this.b, this.e);
         }
         return (LiveTabEntity.TabLabelInfo) invokeV.objValue;
     }
@@ -223,7 +223,7 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!gc0.c(this.b)) {
+            if (!fc0.c(this.b)) {
                 this.b.clear();
             }
             notifyDataSetChanged();
@@ -236,7 +236,7 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         LiveTabEntity.TabLabelInfo tabLabelInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) && (tabLabelInfo = (LiveTabEntity.TabLabelInfo) gc0.b(this.b, i)) != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) && (tabLabelInfo = (LiveTabEntity.TabLabelInfo) fc0.b(this.b, i)) != null) {
             viewHolder.a.setText(tabLabelInfo.name);
             if (this.g != null) {
                 viewHolder.itemView.setOnClickListener(new a(this, viewHolder));
@@ -244,12 +244,12 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadii(this.f);
             if (i == this.e) {
-                viewHolder.a.setTextColor(vc0.f().a(this.c, this.d, "color_FF33551"));
-                gradientDrawable.setColors(new int[]{vc0.f().a(this.c, this.d, "color_FF33552"), vc0.f().a(this.c, this.d, "color_FF33552")});
+                viewHolder.a.setTextColor(uc0.f().a(this.c, this.d, "color_FF33551"));
+                gradientDrawable.setColors(new int[]{uc0.f().a(this.c, this.d, "color_FF33552"), uc0.f().a(this.c, this.d, "color_FF33552")});
                 viewHolder.a.setTypeface(Typeface.defaultFromStyle(1));
             } else {
-                viewHolder.a.setTextColor(vc0.f().a(this.c, this.d, "color_525252"));
-                gradientDrawable.setColors(new int[]{vc0.f().a(this.c, this.d, "color_F5F5F53"), vc0.f().a(this.c, this.d, "color_F5F5F53")});
+                viewHolder.a.setTextColor(uc0.f().a(this.c, this.d, "color_525252"));
+                gradientDrawable.setColors(new int[]{uc0.f().a(this.c, this.d, "color_F5F5F53"), uc0.f().a(this.c, this.d, "color_F5F5F53")});
                 viewHolder.a.setTypeface(Typeface.defaultFromStyle(0));
             }
             viewHolder.a.setBackgroundDrawable(gradientDrawable);
@@ -263,9 +263,9 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d054c, viewGroup, false);
+            View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d055c, viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(inflate);
-            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923a0);
+            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923f5);
             return viewHolder;
         }
         return (ViewHolder) invokeLI.objValue;

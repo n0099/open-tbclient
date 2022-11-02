@@ -47,11 +47,11 @@ public class e extends b.a {
                 IComOpenClient unused = b.e = null;
             }
             IComOpenClient unused2 = b.e = IComOpenClient.a.a(iBinder);
-            z = b.t;
+            z = b.v;
             if (!z) {
                 b.a(b.a);
             }
-            boolean unused3 = b.t = true;
+            boolean unused3 = b.v = true;
         }
     }
 }

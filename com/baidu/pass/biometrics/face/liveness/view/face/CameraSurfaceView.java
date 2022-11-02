@@ -1,5 +1,6 @@
 package com.baidu.pass.biometrics.face.liveness.view.face;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Path;
@@ -34,7 +35,7 @@ public class CameraSurfaceView extends SurfaceView {
     public Path d;
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -195,7 +196,8 @@ public class CameraSurfaceView extends SurfaceView {
         }
     }
 
-    private List b(Camera.Parameters parameters) {
+    @TargetApi(5)
+    private List<a> b(Camera.Parameters parameters) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, parameters)) == null) {

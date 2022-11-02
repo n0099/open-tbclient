@@ -1,24 +1,24 @@
 package com.baidu.platform.core.e;
 
-import com.baidu.mapapi.model.CoordUtil;
-import com.baidu.mapapi.model.inner.Point;
-import com.baidu.mapapi.search.share.LocationShareURLOption;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.search.recommendstop.OnGetRecommendStopResultListener;
+import com.baidu.mapapi.search.recommendstop.RecommendStopSearchOption;
+import com.baidu.platform.base.SearchType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class b extends com.baidu.platform.base.e {
+public class b extends com.baidu.platform.base.a implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public OnGetRecommendStopResultListener b;
 
-    public b(LocationShareURLOption locationShareURLOption) {
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {locationShareURLOption};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,27 +28,38 @@ public class b extends com.baidu.platform.base.e {
                 return;
             }
         }
-        a(locationShareURLOption);
+        this.b = null;
     }
 
-    private void a(LocationShareURLOption locationShareURLOption) {
+    @Override // com.baidu.platform.core.e.a
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, locationShareURLOption) == null) {
-            this.a.a("qt", "cs");
-            Point ll2point = CoordUtil.ll2point(locationShareURLOption.mLocation);
-            com.baidu.platform.util.a aVar = this.a;
-            aVar.a("geo", ll2point.x + "|" + ll2point.y);
-            this.a.a("t", locationShareURLOption.mName);
-            this.a.a("cnt", locationShareURLOption.mSnippet);
-            b(false);
-            a(false);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.lock();
+            this.b = null;
+            this.a.unlock();
         }
     }
 
-    @Override // com.baidu.platform.base.e
-    public String a(com.baidu.platform.domain.c cVar) {
+    @Override // com.baidu.platform.core.e.a
+    public void a(OnGetRecommendStopResultListener onGetRecommendStopResultListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetRecommendStopResultListener) == null) {
+            this.a.lock();
+            this.b = onGetRecommendStopResultListener;
+            this.a.unlock();
+        }
+    }
+
+    @Override // com.baidu.platform.core.e.a
+    public boolean a(RecommendStopSearchOption recommendStopSearchOption) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.q() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendStopSearchOption)) == null) {
+            c cVar = new c();
+            cVar.a(SearchType.u);
+            return a(new d(recommendStopSearchOption), this.b, cVar);
+        }
+        return invokeL.booleanValue;
     }
 }

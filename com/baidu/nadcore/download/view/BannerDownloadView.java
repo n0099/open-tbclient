@@ -14,7 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l21;
+import com.baidu.tieba.d31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -157,13 +157,13 @@ public class BannerDownloadView extends AppCompatTextView {
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l21.nad_progress);
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f06083e);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f06083d);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d31.nad_progress);
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f06083f);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f06083e);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070563);
             this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070562);
             this.d = obtainStyledAttributes.getInteger(0, color2);
-            this.e = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f06083c));
+            this.e = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f06083d));
             this.b = obtainStyledAttributes.getColor(8, color);
             this.g = obtainStyledAttributes.getFloat(2, this.g);
             this.a = obtainStyledAttributes.getFloat(4, 0.0f);

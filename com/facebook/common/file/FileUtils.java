@@ -15,7 +15,7 @@ public class FileUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class CreateDirectoryException extends IOException {
+    public static class CreateDirectoryException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +62,7 @@ public class FileUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class FileDeleteException extends IOException {
+    public static class FileDeleteException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +88,7 @@ public class FileUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ParentDirNotFoundException extends FileNotFoundException {
+    public static class ParentDirNotFoundException extends FileNotFoundException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public class FileUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class RenameException extends IOException {
+    public static class RenameException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -2,14 +2,14 @@ package com.facebook.imagepipeline.memory;
 
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public interface PoolBackend {
+public interface PoolBackend<T> {
     @Nullable
-    Object get(int i);
+    T get(int i);
 
-    int getSize(Object obj);
+    int getSize(T t);
 
     @Nullable
-    Object pop();
+    T pop();
 
-    void put(Object obj);
+    void put(T t);
 }

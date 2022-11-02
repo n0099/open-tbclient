@@ -16,14 +16,14 @@ import io.reactivex.internal.operators.maybe.MaybeMap;
 import io.reactivex.internal.operators.maybe.MaybeZipArray;
 import java.util.Arrays;
 /* loaded from: classes8.dex */
-public final class MaybeZipIterable extends Maybe {
+public final class MaybeZipIterable<T, R> extends Maybe<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable sources;
-    public final Function zipper;
+    public final Iterable<? extends MaybeSource<? extends T>> sources;
+    public final Function<? super Object[], ? extends R> zipper;
 
     /* loaded from: classes8.dex */
-    public final class SingletonArrayFunc implements Function {
+    public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MaybeZipIterable this$0;
@@ -46,18 +46,19 @@ public final class MaybeZipIterable extends Maybe {
             this.this$0 = maybeZipIterable;
         }
 
+        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.functions.Function
-        public Object apply(Object obj) throws Exception {
+        public R apply(T t) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return ObjectHelper.requireNonNull(this.this$0.zipper.apply(new Object[]{obj}), "The zipper returned a null value");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+                return (R) ObjectHelper.requireNonNull(this.this$0.zipper.apply(new Object[]{t}), "The zipper returned a null value");
             }
-            return invokeL.objValue;
+            return (R) invokeL.objValue;
         }
     }
 
-    public MaybeZipIterable(Iterable iterable, Function function) {
+    public MaybeZipIterable(Iterable<? extends MaybeSource<? extends T>> iterable, Function<? super Object[], ? extends R> function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,13 +78,13 @@ public final class MaybeZipIterable extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             MaybeSource[] maybeSourceArr = new MaybeSource[8];
             try {
                 int i = 0;
-                for (MaybeSource maybeSource : this.sources) {
+                for (MaybeSource<? extends T> maybeSource : this.sources) {
                     if (maybeSource == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), maybeObserver);
                         return;

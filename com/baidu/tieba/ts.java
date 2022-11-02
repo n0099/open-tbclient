@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface ts {
-    void a(String str, ss ssVar);
+    View getContentView();
 }

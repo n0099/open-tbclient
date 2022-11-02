@@ -32,7 +32,7 @@ public final class z {
     public static String[] c;
     public static String[] d;
     public static String[] e;
-    public static Map f;
+    public static Map<String, Bundle> f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -124,7 +124,7 @@ public final class z {
                 return null;
             }
             try {
-                if (f != null && f.size() > 0 && (bundle = (Bundle) f.get(str)) != null) {
+                if (f != null && f.size() > 0 && (bundle = f.get(str)) != null) {
                     obj = bundle.get(str2);
                 } else {
                     obj = null;

@@ -1,79 +1,117 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.plugin.capture.bean.FaceItem;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.growth.ActivityChangeSchemeModel;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a95 extends v85 {
+public class a95 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    @Override // com.baidu.tieba.v85
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v85
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947570028, "Lcom/baidu/tieba/a95;")) == null) {
+            return;
         }
-    }
-
-    public a95() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947570028, "Lcom/baidu/tieba/a95;");
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class a extends gj5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.a = "";
-    }
 
-    @Override // com.baidu.tieba.v85
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.gj5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return Boolean.valueOf(lm4.E().G());
             }
-            l85.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.loadResizedBitmap(this.a, fj.k(TbadkCoreApplication.getInst()), fj.i(TbadkCoreApplication.getInst()));
+            return (Boolean) invokeV.objValue;
         }
-        return (Bitmap) invokeLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.v85
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(BitmapHelper.loadResizedBitmap(str, fj.k(TbadkCoreApplication.getInst()), fj.i(TbadkCoreApplication.getInst())), true);
+    /* loaded from: classes3.dex */
+    public static class b implements li5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (Bitmap) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.li5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && bool != null && !bool.booleanValue()) {
+                a95.c();
+            }
+        }
     }
 
-    public void e(String str) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
+            return;
+        }
+        ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();
+        b95.a();
+        activityChangeSchemeModel.request();
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
+            if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                kj5.b(new a(), new b());
+            } else if (!lm4.E().G()) {
+                c();
+            }
         }
     }
 }

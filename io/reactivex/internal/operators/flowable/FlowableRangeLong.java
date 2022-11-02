@@ -7,20 +7,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.BackpressureHelper;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableRangeLong extends Flowable {
+public final class FlowableRangeLong extends Flowable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long end;
     public final long start;
 
     /* loaded from: classes8.dex */
-    public abstract class BaseRangeSubscription extends BasicQueueSubscription {
+    public static abstract class BaseRangeSubscription extends BasicQueueSubscription<Long> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2252972430506210021L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,6 +90,7 @@ public final class FlowableRangeLong extends Flowable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.internal.fuseable.SimpleQueue
+        @Nullable
         public final Long poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -117,14 +119,14 @@ public final class FlowableRangeLong extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class RangeConditionalSubscription extends BaseRangeSubscription {
+    public static final class RangeConditionalSubscription extends BaseRangeSubscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2587302975077663557L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber actual;
+        public final ConditionalSubscriber<? super Long> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RangeConditionalSubscription(ConditionalSubscriber conditionalSubscriber, long j, long j2) {
+        public RangeConditionalSubscription(ConditionalSubscriber<? super Long> conditionalSubscriber, long j, long j2) {
             super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -150,7 +152,7 @@ public final class FlowableRangeLong extends Flowable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long j = this.end;
-                ConditionalSubscriber conditionalSubscriber = this.actual;
+                ConditionalSubscriber<? super Long> conditionalSubscriber = this.actual;
                 for (long j2 = this.index; j2 != j; j2++) {
                     if (this.cancelled) {
                         return;
@@ -170,7 +172,7 @@ public final class FlowableRangeLong extends Flowable {
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 long j2 = this.end;
                 long j3 = this.index;
-                ConditionalSubscriber conditionalSubscriber = this.actual;
+                ConditionalSubscriber<? super Long> conditionalSubscriber = this.actual;
                 do {
                     long j4 = 0;
                     while (true) {
@@ -202,14 +204,14 @@ public final class FlowableRangeLong extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class RangeSubscription extends BaseRangeSubscription {
+    public static final class RangeSubscription extends BaseRangeSubscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2587302975077663557L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super Long> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RangeSubscription(Subscriber subscriber, long j, long j2) {
+        public RangeSubscription(Subscriber<? super Long> subscriber, long j, long j2) {
             super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -235,7 +237,7 @@ public final class FlowableRangeLong extends Flowable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long j = this.end;
-                Subscriber subscriber = this.actual;
+                Subscriber<? super Long> subscriber = this.actual;
                 for (long j2 = this.index; j2 != j; j2++) {
                     if (this.cancelled) {
                         return;
@@ -255,7 +257,7 @@ public final class FlowableRangeLong extends Flowable {
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 long j2 = this.end;
                 long j3 = this.index;
-                Subscriber subscriber = this.actual;
+                Subscriber<? super Long> subscriber = this.actual;
                 do {
                     long j4 = 0;
                     while (true) {
@@ -305,7 +307,7 @@ public final class FlowableRangeLong extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super Long> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             if (subscriber instanceof ConditionalSubscriber) {

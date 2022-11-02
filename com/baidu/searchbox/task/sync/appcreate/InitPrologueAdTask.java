@@ -87,7 +87,7 @@ public class InitPrologueAdTask extends LaunchTask {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                MessageManager.getInstance().runTask(new CustomMessage(2016570), (Class) null);
+                                MessageManager.getInstance().runTask(new CustomMessage<>(2016570), (Class) null);
                             } catch (Throwable th) {
                                 BdLog.e(th);
                             }

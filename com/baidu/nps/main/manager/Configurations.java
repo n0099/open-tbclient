@@ -30,7 +30,7 @@ public class Configurations {
     public IWebViewDataDirectoryManager webViewDataDirectoryManager;
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IAlertManager alertManager;

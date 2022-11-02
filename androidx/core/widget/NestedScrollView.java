@@ -25,6 +25,9 @@ import android.widget.EdgeEffect;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingChild3;
@@ -100,7 +103,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public boolean onStartNestedScroll(View view2, View view3, int i, int i2) {
+    public boolean onStartNestedScroll(@NonNull View view2, @NonNull View view3, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048634, this, view2, view3, i, i2)) == null) ? (i & 2) != 0 : invokeLLII.booleanValue;
@@ -320,6 +323,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
             }
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -407,6 +411,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.View, androidx.core.view.ScrollingView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int computeHorizontalScrollExtent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -417,6 +422,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.View, androidx.core.view.ScrollingView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int computeHorizontalScrollOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -427,6 +433,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.View, androidx.core.view.ScrollingView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int computeHorizontalScrollRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -437,6 +444,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.View, androidx.core.view.ScrollingView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int computeVerticalScrollExtent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -447,6 +455,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.View, androidx.core.view.ScrollingView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int computeVerticalScrollOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -570,7 +579,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NestedScrollView(Context context) {
+    public NestedScrollView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -612,7 +621,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NestedScrollView(Context context, AttributeSet attributeSet) {
+    public NestedScrollView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -633,7 +642,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NestedScrollView(Context context, AttributeSet attributeSet, int i) {
+    public NestedScrollView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -836,7 +845,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onStopNestedScroll(View view2) {
+    public void onStopNestedScroll(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, view2) == null) {
             onStopNestedScroll(view2, 0);
@@ -870,7 +879,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
         }
     }
 
-    public void setOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener) {
+    public void setOnScrollChangeListener(@Nullable OnScrollChangeListener onScrollChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048647, this, onScrollChangeListener) == null) {
             this.mOnScrollChangeListener = onScrollChangeListener;
@@ -972,6 +981,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.View, androidx.core.view.ScrollingView
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int computeVerticalScrollRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1118,7 +1128,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onStopNestedScroll(View view2, int i) {
+    public void onStopNestedScroll(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048636, this, view2, i) == null) {
             this.mParentHelper.onStopNestedScroll(view2, i);
@@ -1223,7 +1233,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
         return invokeCommon.booleanValue;
     }
 
-    private void onNestedScrollInternal(int i, int i2, int[] iArr) {
+    private void onNestedScrollInternal(int i, int i2, @Nullable int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(65555, this, i, i2, iArr) == null) {
             int scrollY = getScrollY();
@@ -1257,7 +1267,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view2, float f, float f2) {
+    public boolean onNestedPreFling(@NonNull View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -1267,7 +1277,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view2, View view3, int i) {
+    public void onNestedScrollAccepted(@NonNull View view2, @NonNull View view3, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048625, this, view2, view3, i) == null) {
             onNestedScrollAccepted(view2, view3, i, 0);
@@ -1275,7 +1285,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view2, View view3, int i) {
+    public boolean onStartNestedScroll(@NonNull View view2, @NonNull View view3, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048633, this, view2, view3, i)) == null) {
@@ -1478,7 +1488,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
         return invokeL.intValue;
     }
 
-    public boolean executeKeyEvent(KeyEvent keyEvent) {
+    public boolean executeKeyEvent(@NonNull KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, keyEvent)) == null) {
@@ -1575,7 +1585,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view2, float f, float f2, boolean z) {
+    public boolean onNestedFling(@NonNull View view2, float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
@@ -1590,7 +1600,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr) {
+    public void onNestedPreScroll(@NonNull View view2, int i, int i2, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
             onNestedPreScroll(view2, i, i2, iArr, 0);
@@ -1647,7 +1657,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr, int i3) {
+    public void onNestedPreScroll(@NonNull View view2, int i, int i2, @NonNull int[] iArr, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
             dispatchNestedPreScroll(i, i2, iArr, null, i3);
@@ -1655,7 +1665,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view2, int i, int i2, int i3, int i4) {
+    public void onNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             onNestedScrollInternal(i4, 0, null);
@@ -1663,7 +1673,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // androidx.core.view.NestedScrollingChild3
-    public void dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5, int[] iArr2) {
+    public void dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @NonNull int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), iArr2}) == null) {
             this.mChildHelper.dispatchNestedScroll(i, i2, i3, i4, iArr, i5, iArr2);
@@ -1671,7 +1681,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // androidx.core.view.NestedScrollingParent3
-    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+    public void onNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
             onNestedScrollInternal(i4, i5, iArr);
@@ -1941,7 +1951,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5) {
+    public void onNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             onNestedScrollInternal(i4, i5, null);
@@ -1949,7 +1959,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScrollAccepted(View view2, View view3, int i, int i2) {
+    public void onNestedScrollAccepted(@NonNull View view2, @NonNull View view3, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048626, this, view2, view3, i, i2) == null) {
             this.mParentHelper.onNestedScrollAccepted(view2, view3, i, i2);

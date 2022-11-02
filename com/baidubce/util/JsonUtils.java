@@ -43,7 +43,6 @@ import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -244,7 +243,7 @@ public class JsonUtils {
 
     /* renamed from: com.baidubce.util.JsonUtils$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidubce$services$bos$model$Permission;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,15 +343,13 @@ public class JsonUtils {
         return (BceErrorResponse) invokeL.objValue;
     }
 
-    public static String setAclJson(List list) throws JSONException {
+    public static String setAclJson(List<Grant> list) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                Grant grant = (Grant) it.next();
+            for (Grant grant : list) {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONArray jSONArray2 = new JSONArray();
                 for (Permission permission : grant.getPermission()) {
@@ -374,15 +371,13 @@ public class JsonUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String setPartETag(List list) throws JSONException {
+    public static String setPartETag(List<PartETag> list) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                PartETag partETag = (PartETag) it.next();
+            for (PartETag partETag : list) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("eTag", partETag.getETag());
                 jSONObject2.put("partNumber", partETag.getPartNumber());

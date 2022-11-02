@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes8.dex */
 public class b implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.ss.android.downloadlib.a.b.b.1
+    public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.ss.android.downloadlib.a.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */

@@ -16,7 +16,6 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
@@ -28,7 +27,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List entries;
+    public List<Entry> entries;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +46,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
     }
 
     /* loaded from: classes7.dex */
-    public class Entry {
+    public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int count;
@@ -139,23 +138,20 @@ public class CompositionTimeToSample extends AbstractFullBox {
         ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEntries", "com.coremedia.iso.boxes.CompositionTimeToSample", "java.util.List", "entries", "", "void"), 61);
     }
 
-    public static int[] blowupCompositionTimes(List list) {
+    public static int[] blowupCompositionTimes(List<Entry> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            Iterator it = list.iterator();
             long j = 0;
-            while (it.hasNext()) {
-                j += ((Entry) it.next()).getCount();
+            for (Entry entry : list) {
+                j += entry.getCount();
             }
             int[] iArr = new int[(int) j];
-            Iterator it2 = list.iterator();
             int i = 0;
-            while (it2.hasNext()) {
-                Entry entry = (Entry) it2.next();
+            for (Entry entry2 : list) {
                 int i2 = 0;
-                while (i2 < entry.getCount()) {
-                    iArr[i] = entry.getOffset();
+                while (i2 < entry2.getCount()) {
+                    iArr[i] = entry2.getOffset();
                     i2++;
                     i++;
                 }
@@ -201,7 +197,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public List getEntries() {
+    public List<Entry> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -211,7 +207,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
         return (List) invokeV.objValue;
     }
 
-    public void setEntries(List list) {
+    public void setEntries(List<Entry> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));

@@ -12,7 +12,7 @@ import io.reactivex.functions.Cancellable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class CancellableDisposable extends AtomicReference implements Disposable {
+public final class CancellableDisposable extends AtomicReference<Cancellable> implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5718521705281392066L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,11 +39,11 @@ public final class CancellableDisposable extends AtomicReference implements Disp
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        Cancellable cancellable;
+        Cancellable andSet;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && get() != null && (cancellable = (Cancellable) getAndSet(null)) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && get() != null && (andSet = getAndSet(null)) != null) {
             try {
-                cancellable.cancel();
+                andSet.cancel();
             } catch (Exception e) {
                 Exceptions.throwIfFatal(e);
                 RxJavaPlugins.onError(e);

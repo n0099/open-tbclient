@@ -1,5 +1,6 @@
 package com.baidu.sofire.face.b;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -334,6 +335,7 @@ public class b {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0027 A[Catch: all -> 0x007b, TRY_ENTER, TryCatch #1 {all -> 0x007b, blocks: (B:5:0x0005, B:15:0x0027, B:17:0x0037, B:18:0x003b, B:20:0x003e, B:23:0x004c, B:29:0x005c, B:33:0x006f, B:36:0x0076, B:24:0x004f, B:26:0x0055), top: B:47:0x0005 }] */
+    @SuppressLint({"MissingPermission"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

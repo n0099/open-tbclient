@@ -9,14 +9,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az0;
-import com.baidu.tieba.fs0;
+import com.baidu.tieba.rz0;
+import com.baidu.tieba.ws0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0016\u0018\u00002\u00020\u0001B'\b\u0007\u0012\u0006\u0010*\u001a\u00020)\u0012\n\b\u0002\u0010,\u001a\u0004\u0018\u00010+\u0012\b\b\u0002\u0010-\u001a\u00020\u0005¢\u0006\u0004\b.\u0010/J\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\n\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\n\u0010\bJ\u0017\u0010\f\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\f\u0010\bJ\u000f\u0010\r\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\r\u0010\u0004J\u000f\u0010\u000e\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000e\u0010\u0004J'\u0010\u0012\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u00052\u0006\u0010\u0010\u001a\u00020\u00052\u0006\u0010\u0011\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0012\u0010\u0013R\u0018\u0010\u0015\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0018\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b\u0018\u0010\u0019R\u0018\u0010\u001a\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u0016R$\u0010\u001c\u001a\u0004\u0018\u00010\u001b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R$\u0010#\u001a\u0004\u0018\u00010\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u0010$\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(¨\u00060"}, d2 = {"Lcom/baidu/nadcore/player/widget/BdPlayerSeekBar;", "Landroid/widget/FrameLayout;", "", "inflate", "()V", "", "bufferingPos", "setBufferingPosition", "(I)V", "duration", "setDuration", CriusAttrConstants.POSITION, "setPosition", "switchToFull", "switchToHalf", "pos", "dur", "buffer", "syncPos", "(III)V", "Lcom/baidu/nadcore/player/widget/BdPlayerProgressView;", "durationView", "Lcom/baidu/nadcore/player/widget/BdPlayerProgressView;", "", "isSeeking", "Z", "progressView", "Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "seekBarListener", "Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "getSeekBarListener", "()Lcom/baidu/nadcore/player/callback/ISeekBarListener;", "setSeekBarListener", "(Lcom/baidu/nadcore/player/callback/ISeekBarListener;)V", "Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "seekBarView", "Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "getSeekBarView", "()Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;", "setSeekBarView", "(Lcom/baidu/nadcore/player/widget/BdThumbSeekBarView;)V", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -27,10 +29,12 @@ public class BdPlayerSeekBar extends FrameLayout {
     public BdThumbSeekBarView a;
     public BdPlayerProgressView b;
     public BdPlayerProgressView c;
-    public fs0 d;
+    public ws0 d;
+    @JvmField
     public boolean e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public BdPlayerSeekBar(Context context) {
         this(context, null, 0, 6, null);
         Interceptable interceptable = $ic;
@@ -52,6 +56,7 @@ public class BdPlayerSeekBar extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public BdPlayerSeekBar(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0, 4, null);
         Interceptable interceptable = $ic;
@@ -73,11 +78,12 @@ public class BdPlayerSeekBar extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements BdThumbSeekBarView.b {
+    public static final class a implements BdThumbSeekBarView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdPlayerSeekBar a;
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(BdPlayerSeekBar bdPlayerSeekBar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -102,7 +108,7 @@ public class BdPlayerSeekBar extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, bdThumbSeekBarView) == null) {
                 BdPlayerSeekBar bdPlayerSeekBar = this.a;
                 bdPlayerSeekBar.e = true;
-                fs0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
+                ws0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
                 if (seekBarListener != null) {
                     seekBarListener.a(bdThumbSeekBarView);
                 }
@@ -115,7 +121,7 @@ public class BdPlayerSeekBar extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdThumbSeekBarView) == null) {
                 BdPlayerSeekBar bdPlayerSeekBar = this.a;
                 bdPlayerSeekBar.e = false;
-                fs0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
+                ws0 seekBarListener = bdPlayerSeekBar.getSeekBarListener();
                 if (seekBarListener != null) {
                     seekBarListener.c(this.a.getSeekBarView());
                 }
@@ -127,7 +133,7 @@ public class BdPlayerSeekBar extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bdThumbSeekBarView, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 this.a.setPosition(i);
-                fs0 seekBarListener = this.a.getSeekBarListener();
+                ws0 seekBarListener = this.a.getSeekBarListener();
                 if (seekBarListener != null) {
                     seekBarListener.b(bdThumbSeekBarView, i, z);
                 }
@@ -136,6 +142,7 @@ public class BdPlayerSeekBar extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public BdPlayerSeekBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -165,10 +172,10 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05dd, this);
-            this.b = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f0915f4);
-            this.c = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f0915f3);
-            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f091486);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ed, this);
+            this.b = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f091633);
+            this.c = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f091632);
+            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f0914c5);
             this.a = bdThumbSeekBarView;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setOnSeekBarChangeListener(new a(this));
@@ -176,13 +183,13 @@ public class BdPlayerSeekBar extends FrameLayout {
         }
     }
 
-    public final fs0 getSeekBarListener() {
+    public final ws0 getSeekBarListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.d;
         }
-        return (fs0) invokeV.objValue;
+        return (ws0) invokeV.objValue;
     }
 
     public final BdThumbSeekBarView getSeekBarView() {
@@ -202,10 +209,10 @@ public class BdPlayerSeekBar extends FrameLayout {
         }
     }
 
-    public final void setSeekBarListener(fs0 fs0Var) {
+    public final void setSeekBarListener(ws0 ws0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fs0Var) == null) {
-            this.d = fs0Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ws0Var) == null) {
+            this.d = ws0Var;
         }
     }
 
@@ -226,7 +233,7 @@ public class BdPlayerSeekBar extends FrameLayout {
             }
             if (this.c != null) {
                 boolean z = false;
-                String b = az0.b(i, false);
+                String b = rz0.b(i, false);
                 if (b != null) {
                     if (b.length() == 0) {
                         z = true;
@@ -253,7 +260,7 @@ public class BdPlayerSeekBar extends FrameLayout {
                     z = true;
                 }
             }
-            String b = az0.b(i, z);
+            String b = rz0.b(i, z);
             BdPlayerProgressView bdPlayerProgressView = this.b;
             if (bdPlayerProgressView != null) {
                 if (!(true ^ TextUtils.isEmpty(b))) {

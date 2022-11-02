@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.interceptor.connect;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -17,6 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class HeaderInterceptor implements Interceptor.Connect {
@@ -39,6 +41,7 @@ public class HeaderInterceptor implements Interceptor.Connect {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Connect
+    @NonNull
     public DownloadConnection.Connected interceptConnect(DownloadChain downloadChain) throws IOException {
         InterceptResult invokeL;
         BlockInfo block;
@@ -48,7 +51,7 @@ public class HeaderInterceptor implements Interceptor.Connect {
             BreakpointInfo info = downloadChain.getInfo();
             DownloadConnection connectionOrCreate = downloadChain.getConnectionOrCreate();
             DownloadTask task = downloadChain.getTask();
-            Map headerMapFields = task.getHeaderMapFields();
+            Map<String, List<String>> headerMapFields = task.getHeaderMapFields();
             if (headerMapFields != null) {
                 Util.addUserRequestHeaderField(headerMapFields, connectionOrCreate);
             }
@@ -67,9 +70,9 @@ public class HeaderInterceptor implements Interceptor.Connect {
                     BdDownload.with().callbackDispatcher().dispatch().connectStart(task, blockIndex, connectionOrCreate.getRequestProperties());
                     DownloadConnection.Connected processConnect = downloadChain.processConnect();
                     if (!downloadChain.getCache().isInterrupt()) {
-                        Map responseHeaderFields = processConnect.getResponseHeaderFields();
+                        Map<String, List<String>> responseHeaderFields = processConnect.getResponseHeaderFields();
                         if (responseHeaderFields == null) {
-                            responseHeaderFields = new HashMap();
+                            responseHeaderFields = new HashMap<>();
                         }
                         BdDownload.with().callbackDispatcher().dispatch().connectEnd(task, blockIndex, processConnect.getResponseCode(), responseHeaderFields);
                         BdDownload.with().downloadStrategy().resumeAvailableResponseCheck(processConnect, blockIndex, info).inspect();

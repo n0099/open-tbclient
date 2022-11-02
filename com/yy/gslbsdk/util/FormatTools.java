@@ -1,5 +1,6 @@
 package com.yy.gslbsdk.util;
 
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+@SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes8.dex */
 public class FormatTools {
     public static /* synthetic */ Interceptable $ic = null;
@@ -67,12 +70,13 @@ public class FormatTools {
         }
     }
 
-    public static boolean containInList(List list, Object obj) {
+    public static boolean containInList(List<?> list, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, obj)) == null) {
-            for (Object obj2 : list) {
-                if (obj2.equals(obj)) {
+            Iterator<?> it = list.iterator();
+            while (it.hasNext()) {
+                if (it.next().equals(obj)) {
                     return true;
                 }
             }

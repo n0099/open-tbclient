@@ -1,87 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
-import com.baidu.searchbox.config.AppConfig;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class uj9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "UnionIDFactory";
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public yj9 a;
 
-    public static JSONObject a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
-            try {
-                jSONObject.put("bosMessage", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948213061, "Lcom/baidu/tieba/uj9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return jSONObject;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948213061, "Lcom/baidu/tieba/uj9;");
+                return;
+            }
         }
-        return (JSONObject) invokeLL.objValue;
+        c = rj9.e();
     }
 
-    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
+    public yj9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", str2);
-                jSONObject.put("errmsg", str3);
-                if (z) {
-                    str4 = "1";
-                } else {
-                    str4 = "0";
-                }
-                jSONObject.put(FileMetaUtil.IS_FILE, str4);
-                if (file != null && file.exists() && file.isFile()) {
-                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
-                    jSONObject.put("size", String.valueOf(file.length()));
-                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
-                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
-                }
-            } catch (Exception e) {
-                if (AppConfig.isDebug()) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (JSONObject) invokeCommon.objValue;
+        return (yj9) invokeV.objValue;
     }
 
-    public static JSONObject c(List list) {
-        InterceptResult invokeL;
+    public uj9(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (list != null) {
-                try {
-                    if (list.size() > 0) {
-                        StringBuilder sb = new StringBuilder();
-                        Iterator it = list.iterator();
-                        while (it.hasNext()) {
-                            sb.append((String) it.next());
-                            sb.append("&");
-                        }
-                        jSONObject.put("space", sb.toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        int a = sj9.a();
+        if (c) {
+            String str = b;
+            Log.e(str, "UnionIDFactory manufacturer:" + a);
+        }
+        if (a != 10001) {
+            if (a != 10002) {
+                this.a = new bk9(context);
+                return;
+            }
+            if (c) {
+                Log.e(b, "UnionIDFactory XMUnionID");
+            }
+            this.a = new ck9(context);
+            return;
+        }
+        this.a = new ak9(context);
     }
 }

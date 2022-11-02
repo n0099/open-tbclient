@@ -41,7 +41,7 @@ public interface IAudioListener extends IInterface {
     void onTimeUpdate(int i, int i2) throws RemoteException;
 
     /* loaded from: classes2.dex */
-    public abstract class Stub extends Binder implements IAudioListener {
+    public static abstract class Stub extends Binder implements IAudioListener {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioListener";
         public static final int TRANSACTION_onCanPlay = 1;
@@ -67,7 +67,7 @@ public interface IAudioListener extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        public class Proxy implements IAudioListener {
+        public static class Proxy implements IAudioListener {
             public static /* synthetic */ Interceptable $ic;
             public static IAudioListener sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -511,7 +511,7 @@ public interface IAudioListener extends IInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class Default implements IAudioListener {
+    public static class Default implements IAudioListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

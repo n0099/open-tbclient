@@ -32,7 +32,7 @@ public class AdSlot implements TTAdSlot {
     public TTAdLoadType y;
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public String a;
         public String g;
         public int j;

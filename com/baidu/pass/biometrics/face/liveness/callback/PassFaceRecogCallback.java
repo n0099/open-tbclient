@@ -2,12 +2,13 @@ package com.baidu.pass.biometrics.face.liveness.callback;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.callback.PassBiometricCallback;
+import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class PassFaceRecogCallback implements PassBiometricCallback {
+public abstract class PassFaceRecogCallback implements PassBiometricCallback<PassFaceRecogResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

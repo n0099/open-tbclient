@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.c78;
+import com.baidu.tieba.m88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c78 data;
+    public m88 data;
     public int errCode;
     public String resultString;
 
@@ -36,7 +36,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = 0;
-        this.data = new c78();
+        this.data = new m88();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -62,13 +62,13 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public c78 getPersonBarData() {
+    public m88 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.data;
         }
-        return (c78) invokeV.objValue;
+        return (m88) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -87,10 +87,10 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonBarData(c78 c78Var) {
+    public void setPersonBarData(m88 m88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c78Var) == null) {
-            this.data = c78Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, m88Var) == null) {
+            this.data = m88Var;
         }
     }
 

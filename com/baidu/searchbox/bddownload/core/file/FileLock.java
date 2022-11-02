@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.file;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,8 +21,10 @@ public class FileLock {
     public static final String TAG = "FileLock";
     public static final long WAIT_RELEASE_LOCK_NANO;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map fileLockCountMap;
-    public final Map waitThreadForFileLockMap;
+    @NonNull
+    public final Map<String, AtomicInteger> fileLockCountMap;
+    @NonNull
+    public final Map<String, Thread> waitThreadForFileLockMap;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +68,7 @@ public class FileLock {
         }
     }
 
-    public FileLock(Map map, Map map2) {
+    public FileLock(@NonNull Map<String, AtomicInteger> map, @NonNull Map<String, Thread> map2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,18 +87,18 @@ public class FileLock {
         this.waitThreadForFileLockMap = map2;
     }
 
-    public void decreaseLock(String str) {
+    public void decreaseLock(@NonNull String str) {
         AtomicInteger atomicInteger;
         Thread thread;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             synchronized (this.fileLockCountMap) {
-                atomicInteger = (AtomicInteger) this.fileLockCountMap.get(str);
+                atomicInteger = this.fileLockCountMap.get(str);
             }
             if (atomicInteger != null && atomicInteger.decrementAndGet() == 0) {
                 Util.d(TAG, "decreaseLock decrease lock-count to 0 " + str);
                 synchronized (this.waitThreadForFileLockMap) {
-                    thread = (Thread) this.waitThreadForFileLockMap.get(str);
+                    thread = this.waitThreadForFileLockMap.get(str);
                     if (thread != null) {
                         this.waitThreadForFileLockMap.remove(str);
                     }
@@ -111,12 +114,12 @@ public class FileLock {
         }
     }
 
-    public void waitForRelease(String str) {
+    public void waitForRelease(@NonNull String str) {
         AtomicInteger atomicInteger;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             synchronized (this.fileLockCountMap) {
-                atomicInteger = (AtomicInteger) this.fileLockCountMap.get(str);
+                atomicInteger = this.fileLockCountMap.get(str);
             }
             if (atomicInteger != null && atomicInteger.get() > 0) {
                 synchronized (this.waitThreadForFileLockMap) {
@@ -131,12 +134,12 @@ public class FileLock {
         }
     }
 
-    public void increaseLock(String str) {
+    public void increaseLock(@NonNull String str) {
         AtomicInteger atomicInteger;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this.fileLockCountMap) {
-                atomicInteger = (AtomicInteger) this.fileLockCountMap.get(str);
+                atomicInteger = this.fileLockCountMap.get(str);
             }
             if (atomicInteger == null) {
                 atomicInteger = new AtomicInteger(0);
@@ -160,7 +163,7 @@ public class FileLock {
         return invokeL.booleanValue;
     }
 
-    public void unpark(Thread thread) {
+    public void unpark(@NonNull Thread thread) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, thread) == null) {
             LockSupport.unpark(thread);

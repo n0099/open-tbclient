@@ -1,5 +1,7 @@
 package com.bumptech.glide.load.model.stream;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,16 +18,18 @@ import com.bumptech.glide.load.model.ModelCache;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class HttpGlideUrlLoader implements ModelLoader {
+public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Option TIMEOUT;
+    public static final Option<Integer> TIMEOUT;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModelCache modelCache;
+    @Nullable
+    public final ModelCache<GlideUrl, GlideUrl> modelCache;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(GlideUrl glideUrl) {
+    public boolean handles(@NonNull GlideUrl glideUrl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, glideUrl)) == null) {
@@ -35,10 +39,10 @@ public class HttpGlideUrlLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class Factory implements ModelLoaderFactory {
+    public static class Factory implements ModelLoaderFactory<GlideUrl, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ModelCache modelCache;
+        public final ModelCache<GlideUrl, GlideUrl> modelCache;
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         public void teardown() {
@@ -60,11 +64,12 @@ public class HttpGlideUrlLoader implements ModelLoader {
                     return;
                 }
             }
-            this.modelCache = new ModelCache(500L);
+            this.modelCache = new ModelCache<>(500L);
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<GlideUrl, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -108,7 +113,7 @@ public class HttpGlideUrlLoader implements ModelLoader {
         }
     }
 
-    public HttpGlideUrlLoader(ModelCache modelCache) {
+    public HttpGlideUrlLoader(@Nullable ModelCache<GlideUrl, GlideUrl> modelCache) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,20 +133,20 @@ public class HttpGlideUrlLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(GlideUrl glideUrl, int i, int i2, Options options) {
+    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull GlideUrl glideUrl, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{glideUrl, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            ModelCache modelCache = this.modelCache;
+            ModelCache<GlideUrl, GlideUrl> modelCache = this.modelCache;
             if (modelCache != null) {
-                GlideUrl glideUrl2 = (GlideUrl) modelCache.get(glideUrl, 0, 0);
+                GlideUrl glideUrl2 = modelCache.get(glideUrl, 0, 0);
                 if (glideUrl2 == null) {
                     this.modelCache.put(glideUrl, 0, 0, glideUrl);
                 } else {
                     glideUrl = glideUrl2;
                 }
             }
-            return new ModelLoader.LoadData(glideUrl, new HttpUrlFetcher(glideUrl, ((Integer) options.get(TIMEOUT)).intValue()));
+            return new ModelLoader.LoadData<>(glideUrl, new HttpUrlFetcher(glideUrl, ((Integer) options.get(TIMEOUT)).intValue()));
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }

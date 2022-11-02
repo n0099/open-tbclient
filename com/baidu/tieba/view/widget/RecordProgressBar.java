@@ -7,11 +7,12 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.p09;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.y19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RecordProgressBar extends View implements p09, Runnable {
+public class RecordProgressBar extends View implements y19, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -33,7 +34,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
     public Paint h;
     public Paint i;
     public Paint j;
-    public List k;
+    public List<Float> k;
     public long l;
     public int m;
     public int n;
@@ -41,7 +42,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
     public int p;
     public boolean q;
     public boolean r;
-    public p09.a s;
+    public y19.a s;
     public float t;
 
     /* loaded from: classes6.dex */
@@ -111,11 +112,11 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048591, this, j) == null) && this.k.size() > 0) {
-            List list = this.k;
+            List<Float> list = this.k;
             list.set(list.size() - 1, Float.valueOf(((float) j) / 1000.0f));
             this.t = getProgress();
             postInvalidate();
@@ -123,7 +124,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RecordProgressBar(Context context, AttributeSet attributeSet) {
+    public RecordProgressBar(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,7 +145,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecordProgressBar(Context context, AttributeSet attributeSet, int i) {
+    public RecordProgressBar(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -171,9 +172,9 @@ public class RecordProgressBar extends View implements p09, Runnable {
         this.f = getContext().getResources().getColor(R.color.CAM_X0313);
         this.g = getContext().getResources().getColor(R.color.CAM_X0615);
         this.e = getContext().getResources().getColor(R.color.CAM_X0312);
-        this.a = fj.d(context, 2.0f);
-        this.b = fj.d(context, 2.0f);
-        fj.d(context, 6.0f);
+        this.a = xi.d(context, 2.0f);
+        this.b = xi.d(context, 2.0f);
+        xi.d(context, 6.0f);
         Paint paint = new Paint();
         this.j = paint;
         paint.setColor(this.g);
@@ -183,18 +184,18 @@ public class RecordProgressBar extends View implements p09, Runnable {
         paint2.setColor(this.f);
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.o = false;
             if (this.k.size() > 0) {
-                List list = this.k;
+                List<Float> list = this.k;
                 list.remove(list.size() - 1);
                 this.t = getProgress();
                 invalidate();
             }
-            p09.a aVar = this.s;
+            y19.a aVar = this.s;
             if (aVar != null) {
                 aVar.a(this.t);
             }
@@ -220,7 +221,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            p09.a aVar = this.s;
+            y19.a aVar = this.s;
             if (aVar != null && (aVar.getSpeed() == 0.5f || this.s.getSpeed() == 0.33333334f)) {
                 j = 25;
             } else {
@@ -234,12 +235,12 @@ public class RecordProgressBar extends View implements p09, Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.l != 0 && this.k.size() != 0) {
-            p09.a aVar = this.s;
+            y19.a aVar = this.s;
             if (aVar != null) {
                 aVar.onProgress(this.t);
             }
             if (this.t >= this.n) {
-                p09.a aVar2 = this.s;
+                y19.a aVar2 = this.s;
                 if (aVar2 != null) {
                     aVar2.onFinish();
                     return;
@@ -250,7 +251,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -260,7 +261,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -270,7 +271,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,7 +285,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -303,7 +304,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -316,7 +317,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -326,7 +327,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -372,15 +373,15 @@ public class RecordProgressBar extends View implements p09, Runnable {
                 }
                 if (i2 != 0) {
                     float f3 = f * width;
-                    f += ((Float) this.k.get(i2)).floatValue();
+                    f += this.k.get(i2).floatValue();
                     canvas.drawRect(f3, 0.0f, f * width, getHeight(), this.h);
                 } else if (Build.VERSION.SDK_INT >= 21) {
                     float f4 = f * width;
-                    f += ((Float) this.k.get(i2)).floatValue();
+                    f += this.k.get(i2).floatValue();
                     canvas.drawRoundRect(f4, 0.0f, f * width, getHeight(), 20.0f, 20.0f, this.h);
                 } else {
                     float f5 = f * width;
-                    f += ((Float) this.k.get(i2)).floatValue();
+                    f += this.k.get(i2).floatValue();
                     canvas.drawRect(f5, 0.0f, f * width, getHeight(), this.h);
                 }
                 if (i2 == 0 && getProgress() >= 0.2f) {
@@ -402,7 +403,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -410,7 +411,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
@@ -418,15 +419,15 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
-    public void setOnProgressListener(p09.a aVar) {
+    @Override // com.baidu.tieba.y19
+    public void setOnProgressListener(y19.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
             this.s = aVar;
         }
     }
 
-    public void setProgress(List list) {
+    public void setProgress(List<Float> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             this.k = list;
@@ -434,7 +435,7 @@ public class RecordProgressBar extends View implements p09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.p09
+    @Override // com.baidu.tieba.y19
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048593, this, z) == null) && this.o != z) {

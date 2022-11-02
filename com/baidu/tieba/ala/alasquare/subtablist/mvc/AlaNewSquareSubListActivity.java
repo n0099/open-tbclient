@@ -7,22 +7,22 @@ import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.lw5;
+import com.baidu.tieba.vx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AlaNewSquareSubListActivity extends BaseActivity {
+public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lw5 a;
+    public vx5 a;
     public AlaSquareTabInfo b;
     public String c;
     public String d;
     public String e;
-    public List f;
+    public List<String> f;
 
     public AlaNewSquareSubListActivity() {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            lw5 lw5Var = this.a;
-            if (lw5Var != null) {
-                lw5Var.i();
+            vx5 vx5Var = this.a;
+            if (vx5Var != null) {
+                vx5Var.i();
             }
         }
     }
@@ -64,9 +64,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            lw5 lw5Var = this.a;
-            if (lw5Var != null) {
-                lw5Var.h(getPageContext(), i);
+            vx5 vx5Var = this.a;
+            if (vx5Var != null) {
+                vx5Var.h(getPageContext(), i);
             }
         }
     }
@@ -76,16 +76,16 @@ public class AlaNewSquareSubListActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new lw5(getPageContext(), true);
+            this.a = new vx5(getPageContext(), true);
             if (getIntent() != null) {
-                y1(getIntent());
+                x1(getIntent());
             } else {
                 finish();
             }
         }
     }
 
-    public final void y1(Intent intent) {
+    public final void x1(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             this.b = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);

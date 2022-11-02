@@ -18,13 +18,13 @@ public final class AlaPushAlertResIdl extends Message {
     public final Error error;
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<AlaPushAlertResIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DataRes data;
@@ -70,6 +70,7 @@ public final class AlaPushAlertResIdl extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public AlaPushAlertResIdl build(boolean z) {
             InterceptResult invokeZ;

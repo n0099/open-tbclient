@@ -1,11 +1,13 @@
 package com.baidu.searchbox.v8engine.net;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@NotProguard
 /* loaded from: classes2.dex */
 public class NetRedirectInfo {
     public static /* synthetic */ Interceptable $ic;

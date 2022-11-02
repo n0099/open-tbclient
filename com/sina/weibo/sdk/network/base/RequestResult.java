@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class RequestResult {
+public class RequestResult<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Exception e;
-    public ArrayList interceptResult;
-    public Object response;
+    public ArrayList<Object> interceptResult;
+    public T response;
 
     public RequestResult() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class RequestResult {
         return (Exception) invokeV.objValue;
     }
 
-    public ArrayList getInterceptResult() {
+    public ArrayList<Object> getInterceptResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -47,13 +47,13 @@ public class RequestResult {
         return (ArrayList) invokeV.objValue;
     }
 
-    public Object getResponse() {
+    public T getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.response;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public void setE(Exception exc) {
@@ -63,17 +63,17 @@ public class RequestResult {
         }
     }
 
-    public void setInterceptResult(ArrayList arrayList) {
+    public void setInterceptResult(ArrayList<Object> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
             this.interceptResult = arrayList;
         }
     }
 
-    public void setResponse(Object obj) {
+    public void setResponse(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            this.response = obj;
+        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            this.response = t;
         }
     }
 }

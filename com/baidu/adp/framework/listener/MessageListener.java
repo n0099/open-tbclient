@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class MessageListener extends ja {
+public abstract class MessageListener<T extends ResponsedMessage<?>> extends ja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCmd;
     public boolean mSelfListener;
     public BdUniqueId mTag;
 
-    public abstract void onMessage(ResponsedMessage responsedMessage);
+    public abstract void onMessage(T t);
 
     public MessageListener(int i) {
         Interceptable interceptable = $ic;

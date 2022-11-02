@@ -1,10 +1,11 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
-import com.baidu.tieba.go7;
+import com.baidu.tieba.qp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,10 +15,10 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.SetTail.SetTailResIdl;
 /* loaded from: classes5.dex */
-public class SetTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage {
+public class SetTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<qp7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public go7 resultData;
+    public qp7 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SetTailSocketResponseMessage() {
@@ -38,17 +39,18 @@ public class SetTailSocketResponseMessage extends SocketResponsedMessage impleme
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.IDataResponseMessage
-    public go7 getResultData() {
+    public qp7 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.resultData;
         }
-        return (go7) invokeV.objValue;
+        return (qp7) invokeV.objValue;
     }
 
-    public static go7 getResult(ResponsedMessage responsedMessage, int i, byte[] bArr) throws Exception {
+    public static qp7 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, responsedMessage, i, bArr)) == null) {
@@ -64,19 +66,20 @@ public class SetTailSocketResponseMessage extends SocketResponsedMessage impleme
             if (setTailResIdl.data == null) {
                 return null;
             }
-            go7 go7Var = new go7();
-            go7Var.b(setTailResIdl.data);
-            return go7Var;
+            qp7 qp7Var = new qp7();
+            qp7Var.b(setTailResIdl.data);
+            return qp7Var;
         }
-        return (go7) invokeLIL.objValue;
+        return (qp7) invokeLIL.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            go7 result = getResult(this, i, bArr);
+            qp7 result = getResult(this, i, bArr);
             this.resultData = result;
             return result;
         }

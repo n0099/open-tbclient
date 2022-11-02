@@ -4,14 +4,14 @@ import android.opengl.GLES10;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ImageSizeUtils {
     public static final int DEFAULT_MAX_BITMAP_DIMENSION = 2048;
     public static ImageSize maxBitmapSize;
 
     /* renamed from: com.kwad.sdk.core.imageloader.utils.ImageSizeUtils$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$ViewScaleType;
 
         static {

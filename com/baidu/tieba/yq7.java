@@ -1,55 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.io.File;
 /* loaded from: classes6.dex */
 public interface yq7 {
-    void a();
+    public static final String a = File.separator;
+    public static final String b = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String c = b + a + ".tieba_video_monitor";
+    public static final String d = c + a + "v1";
+    public static final String e;
+    public static final String f;
+    public static final String g;
 
-    void b(boolean z);
-
-    void c(int i);
-
-    void d(e77 e77Var);
-
-    void destroy();
-
-    void e();
-
-    void f(boolean z);
-
-    void g(long j, long j2);
-
-    View getRootView();
-
-    e77 h();
-
-    void i();
-
-    void j(boolean z, int i);
-
-    void k(int i);
-
-    int l();
-
-    void m();
-
-    void n(e77 e77Var);
-
-    void o(long j, long j2, int i);
-
-    d77 p(int i);
-
-    void pause();
-
-    void q();
-
-    void r();
-
-    void resetView();
-
-    void resume();
-
-    void s(int i);
-
-    void t(d77 d77Var, boolean z, int i);
+    static {
+        StringBuilder sb = new StringBuilder();
+        sb.append(d);
+        sb.append(a);
+        e = sb.toString();
+        f = b + a + ".tieba_video_monitor_log";
+        g = f + a + "v1";
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(g);
+        sb2.append(a);
+        sb2.toString();
+    }
 }

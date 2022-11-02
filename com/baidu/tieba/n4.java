@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 public class n4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b7 a;
+    public b7<ModelMaterial> a;
 
     public n4() {
         Interceptable interceptable = $ic;
@@ -33,25 +33,25 @@ public class n4 {
                 return;
             }
         }
-        this.a = new b7();
+        this.a = new b7<>();
     }
 
     public ModelMaterial a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            b7.b it = this.a.iterator();
+            b7.b<ModelMaterial> it = this.a.iterator();
             while (it.hasNext()) {
-                ModelMaterial modelMaterial = (ModelMaterial) it.next();
-                if (modelMaterial.a.equals(str)) {
-                    return modelMaterial;
+                ModelMaterial next = it.next();
+                if (next.a.equals(str)) {
+                    return next;
                 }
             }
-            ModelMaterial modelMaterial2 = new ModelMaterial();
-            modelMaterial2.a = str;
-            modelMaterial2.c = new l3(l3.e);
-            this.a.a(modelMaterial2);
-            return modelMaterial2;
+            ModelMaterial modelMaterial = new ModelMaterial();
+            modelMaterial.a = str;
+            modelMaterial.c = new l3(l3.e);
+            this.a.a(modelMaterial);
+            return modelMaterial;
         }
         return (ModelMaterial) invokeL.objValue;
     }
@@ -93,7 +93,7 @@ public class n4 {
                                     d5Var.d = 2;
                                     d5Var.a = new String(str3);
                                     if (modelMaterial.i == null) {
-                                        modelMaterial.i = new b7(1);
+                                        modelMaterial.i = new b7<>(1);
                                     }
                                     modelMaterial.i.a(d5Var);
                                 }
@@ -152,7 +152,7 @@ public class n4 {
                     d5Var2.d = 2;
                     d5Var2.a = new String(str3);
                     if (modelMaterial2.i == null) {
-                        modelMaterial2.i = new b7(1);
+                        modelMaterial2.i = new b7<>(1);
                     }
                     modelMaterial2.i.a(d5Var2);
                 }

@@ -34,7 +34,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     public static final String TAG = "IMPaGetInfoListRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
-    public List mPaids;
+    public List<Long> mPaids;
     public long mUk;
     public GetPaInfoSliceListener sliceListener;
 
@@ -77,7 +77,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         return invokeV.booleanValue;
     }
 
-    public IMPaGetInfoListRequest(Context context, List list, long j, long j2, GetPaInfoSliceListener getPaInfoSliceListener) {
+    public IMPaGetInfoListRequest(Context context, List<Long> list, long j, long j2, GetPaInfoSliceListener getPaInfoSliceListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +156,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             GetPaInfoSliceListener getPaInfoSliceListener = this.sliceListener;
             if (getPaInfoSliceListener != null) {
                 getPaInfoSliceListener.onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);

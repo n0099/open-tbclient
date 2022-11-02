@@ -1,365 +1,297 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.bj9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MediaInfo;
+import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class cj9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
-    public static volatile cj9 o;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public boolean c;
-    public boolean d;
-    public long e;
-    public int f;
-    public int g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public int l;
-    public HashMap m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947676823, "Lcom/baidu/tieba/cj9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947676823, "Lcom/baidu/tieba/cj9;");
-                return;
-            }
-        }
-        n = AppConfig.isDebug();
-    }
-
-    public cj9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        n();
-    }
-
-    public static cj9 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (o == null) {
-                synchronized (cj9.class) {
-                    if (o == null) {
-                        o = new cj9();
-                    }
-                }
-            }
-            return o;
-        }
-        return (cj9) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return invokeV.longValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean a(String str) {
+    public static long a(String str) {
         InterceptResult invokeL;
-        bj9 bj9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.c;
-            }
-            HashMap hashMap = this.m;
-            if (hashMap != null && (bj9Var = (bj9) hashMap.get(str)) != null) {
-                return bj9Var.e();
-            }
-            return this.c;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long b(String str) {
-        InterceptResult invokeL;
-        bj9 bj9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.i;
-            }
-            HashMap hashMap = this.m;
-            if (hashMap != null && (bj9Var = (bj9) hashMap.get(str)) != null) {
-                return bj9Var.a();
-            }
-            return this.i;
-        }
-        return invokeL.longValue;
-    }
-
-    public int c(String str) {
-        InterceptResult invokeL;
-        bj9 bj9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.l;
-            }
-            HashMap hashMap = this.m;
-            if (hashMap != null && (bj9Var = (bj9) hashMap.get(str)) != null) {
-                return bj9Var.b();
-            }
-            return this.l;
-        }
-        return invokeL.intValue;
-    }
-
-    public long d(String str) {
-        InterceptResult invokeL;
-        bj9 bj9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.h;
-            }
-            HashMap hashMap = this.m;
-            if (hashMap != null && (bj9Var = (bj9) hashMap.get(str)) != null) {
-                return bj9Var.d();
-            }
-            return this.h;
-        }
-        return invokeL.longValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        bj9 bj9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.g;
-            }
-            HashMap hashMap = this.m;
-            if (hashMap != null && (bj9Var = (bj9) hashMap.get(str)) != null) {
-                return bj9Var.c();
-            }
-            return this.g;
-        }
-        return invokeL.intValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/config/");
-            this.b = file;
-            if (!file.exists()) {
-                this.b.mkdirs();
-            }
-            File file2 = new File(this.b, "voyager_config.txt");
-            this.a = file2;
-            if (file2.exists()) {
-                q();
-            } else {
-                r();
-            }
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            String f = vj9.f(this.a);
-            if (n) {
-                Log.d("VoyagerConfig", "read from local: " + f);
-            }
-            if (TextUtils.isEmpty(f)) {
-                r();
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             try {
-                JSONObject jSONObject = new JSONObject(f);
-                this.c = jSONObject.optBoolean("en", dj9.a);
-                this.d = jSONObject.optBoolean("c", dj9.c);
-                this.e = jSONObject.optLong("ui", dj9.e);
-                this.f = jSONObject.optInt("utc", dj9.f);
-                this.i = jSONObject.optLong("et", dj9.g);
-                this.k = jSONObject.optInt("mfc", dj9.i);
-                this.j = jSONObject.optLong("mfs", dj9.h);
-                this.l = jSONObject.optInt("an", dj9.l);
-                this.g = jSONObject.optInt("stmc", dj9.j);
-                this.h = jSONObject.optLong("stms", dj9.k);
-                JSONObject optJSONObject = jSONObject.optJSONObject("set");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                        if (optJSONObject2 != null && optJSONObject2.length() != 0) {
-                            bj9 g = new bj9.b(next).g();
-                            if (optJSONObject2.optInt("en") != dj9.n) {
-                                g.f(dj9.a);
-                            } else {
-                                g.f(dj9.b);
-                            }
-                            long optInt = optJSONObject2.optInt("et", 0);
-                            if (optInt > 0) {
-                                g.g(optInt);
-                            } else {
-                                g.g(this.i);
-                            }
-                            int optInt2 = optJSONObject2.optInt("stmc", 0);
-                            if (optInt2 > 0) {
-                                g.i(optInt2);
-                            } else {
-                                g.i(this.g);
-                            }
-                            long optLong = optJSONObject2.optLong("stms", 0L);
-                            if (optLong > 0) {
-                                g.j(optLong);
-                            } else {
-                                g.j(this.h);
-                            }
-                            if (optJSONObject2.optInt("an") != dj9.m) {
-                                g.h(dj9.l);
-                            } else {
-                                g.h(dj9.m);
-                            }
-                            if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
-                                if (this.m == null) {
-                                    this.m = new HashMap();
-                                }
-                                this.m.put(next, g);
-                            }
+                mediaMetadataRetriever.setDataSource(str);
+                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public static long b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
+            }
+            MediaMetadataRetriever mediaMetadataRetriever = null;
+            try {
+                if (!new File(str).exists()) {
+                    return 0L;
+                }
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    long c = vi9.c(mediaMetadataRetriever2.extractMetadata(9), 0L);
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return c;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
                         }
                     }
+                    return 0L;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
                 }
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
+            } catch (Exception unused5) {
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else {
+            return invokeL.longValue;
         }
     }
 
-    public final void r() {
+    public static int e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.c = dj9.a;
-            this.d = dj9.c;
-            this.e = dj9.e;
-            this.f = dj9.f;
-            this.i = dj9.g;
-            this.k = dj9.i;
-            this.j = dj9.h;
-            this.g = dj9.j;
-            this.h = dj9.k;
-            this.l = dj9.l;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    int b = vi9.b(mediaMetadataRetriever.extractMetadata(20), 0);
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return b;
+                } catch (Throwable th) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                try {
+                    mediaMetadataRetriever.release();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                return 0;
+            }
         }
+        return invokeL.intValue;
+    }
+
+    public static int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            MediaMetadataRetriever mediaMetadataRetriever = null;
+            try {
+                if (!new File(str).exists()) {
+                    return 0;
+                }
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    int parseInt = Integer.parseInt(mediaMetadataRetriever2.extractMetadata(9));
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return parseInt;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeL.intValue;
+        }
+    }
+
+    public static long c(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            long j = 0;
+            if (!FileUtils.isExists(str)) {
+                return 0L;
+            }
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            try {
+                try {
+                    mediaExtractor.setDataSource(str);
+                    MediaFormat mediaFormat = null;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 >= mediaExtractor.getTrackCount()) {
+                            break;
+                        }
+                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
+                        String string = trackFormat.getString("mime");
+                        if (i == 0) {
+                            str2 = "audio/";
+                        } else {
+                            str2 = com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START;
+                        }
+                        if (string.startsWith(str2)) {
+                            mediaExtractor.selectTrack(i2);
+                            mediaFormat = trackFormat;
+                            break;
+                        }
+                        i2++;
+                    }
+                    if (mediaFormat != null) {
+                        j = mediaFormat.getLong("durationUs");
+                    }
+                } catch (Exception e) {
+                    ri9.e("VideoMuxer", "getMediaDurationMs error:" + e.getMessage());
+                }
+                return j / 1000;
+            } finally {
+                mediaExtractor.release();
+            }
+        }
+        return invokeLI.longValue;
+    }
+
+    public static MediaInfo d(String str) {
+        InterceptResult invokeL;
+        MediaInfo mediaInfo;
+        File file;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever2 = null;
+            try {
+                try {
+                    file = new File(str);
+                } catch (Exception e) {
+                    e = e;
+                    mediaInfo = null;
+                }
+                if (file.exists() && file.isFile()) {
+                    mediaInfo = new MediaInfo();
+                    try {
+                        mediaInfo.setVideoPath(str);
+                        mediaInfo.setLastModified(file.lastModified());
+                        mediaMetadataRetriever = new MediaMetadataRetriever();
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                    try {
+                        mediaMetadataRetriever.setDataSource(str);
+                        mediaInfo.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
+                        mediaInfo.setMimeType(mediaMetadataRetriever.extractMetadata(12));
+                        mediaInfo.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
+                        mediaInfo.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
+                        mediaInfo.setRotation(vi9.b(mediaMetadataRetriever.extractMetadata(24), 0));
+                        qi9.a(mediaMetadataRetriever);
+                    } catch (Exception e3) {
+                        e = e3;
+                        mediaMetadataRetriever2 = mediaMetadataRetriever;
+                        ri9.g(e);
+                        if (mediaMetadataRetriever2 != null) {
+                            qi9.a(mediaMetadataRetriever2);
+                        }
+                        return mediaInfo;
+                    } catch (Throwable th) {
+                        th = th;
+                        mediaMetadataRetriever2 = mediaMetadataRetriever;
+                        if (mediaMetadataRetriever2 != null) {
+                            qi9.a(mediaMetadataRetriever2);
+                        }
+                        throw th;
+                    }
+                    return mediaInfo;
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (MediaInfo) invokeL.objValue;
+        }
+    }
+
+    @TargetApi(16)
+    public static boolean g(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str);
+            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+                if (bj9.j(mediaExtractor.getTrackFormat(i))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

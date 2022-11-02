@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
+import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.ImageHeaderParserUtils;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.File;
@@ -30,7 +33,7 @@ public class ThumbnailStreamOpener {
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool byteArrayPool;
     public final ContentResolver contentResolver;
-    public final List parsers;
+    public final List<ImageHeaderParser> parsers;
     public final ThumbnailQuery query;
     public final FileService service;
 
@@ -50,7 +53,7 @@ public class ThumbnailStreamOpener {
         DEFAULT_SERVICE = new FileService();
     }
 
-    public ThumbnailStreamOpener(List list, FileService fileService, ThumbnailQuery thumbnailQuery, ArrayPool arrayPool, ContentResolver contentResolver) {
+    public ThumbnailStreamOpener(List<ImageHeaderParser> list, FileService fileService, ThumbnailQuery thumbnailQuery, ArrayPool arrayPool, ContentResolver contentResolver) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +76,7 @@ public class ThumbnailStreamOpener {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ThumbnailStreamOpener(List list, ThumbnailQuery thumbnailQuery, ArrayPool arrayPool, ContentResolver contentResolver) {
+    public ThumbnailStreamOpener(List<ImageHeaderParser> list, ThumbnailQuery thumbnailQuery, ArrayPool arrayPool, ContentResolver contentResolver) {
         this(list, DEFAULT_SERVICE, thumbnailQuery, arrayPool, contentResolver);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,10 +98,11 @@ public class ThumbnailStreamOpener {
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x004e: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:30:0x004e */
     /* JADX WARN: Removed duplicated region for block: B:32:0x0051  */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String getPath(Uri uri) {
+    private String getPath(@NonNull Uri uri) {
         InterceptResult invokeL;
         Cursor cursor;
         Cursor cursor2;

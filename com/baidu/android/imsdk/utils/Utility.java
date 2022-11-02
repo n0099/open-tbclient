@@ -30,7 +30,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.down.utils.Utils;
-import com.baidu.tieba.c80;
+import com.baidu.tieba.b80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -794,7 +794,7 @@ public final class Utility {
         if (interceptable == null || interceptable.invokeL(65644, null, context) == null) {
             LogUtils.i("Utility", "--- Start IM Service ---");
             try {
-                c80.g(context).f(context, new Intent(context, c80.class));
+                b80.g(context).f(context, new Intent(context, b80.class));
             } catch (Exception e) {
                 LogUtils.e("Utility", "Exception ", e);
             }
@@ -990,7 +990,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, context, i)) == null) {
-            Intent intent = new Intent(context, c80.class);
+            Intent intent = new Intent(context, b80.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 2);
             intent.setPackage(context.getPackageName());
@@ -1003,7 +1003,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i)) == null) {
-            Intent intent = new Intent(context, c80.class);
+            Intent intent = new Intent(context, b80.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 3);
             intent.setPackage(context.getPackageName());
@@ -1340,7 +1340,7 @@ public final class Utility {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             }
             try {
-                c80.g(context).f(context, creatMethodIntent);
+                b80.g(context).f(context, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(str);
                 LogUtils.e("Utility", "Exception ", e);
@@ -1684,7 +1684,7 @@ public final class Utility {
         return invokeLLLL.booleanValue;
     }
 
-    public static void sync(Context context, List list, List list2, DeleteItem deleteItem) {
+    public static void sync(Context context, List<Long> list, List<Long> list2, DeleteItem deleteItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65647, null, context, list, list2, deleteItem) == null) {
             ArrayList<Long> arrayList = new ArrayList();
@@ -1694,9 +1694,9 @@ public final class Utility {
                 int i = 0;
                 int i2 = 0;
                 while (i < list.size() && i2 < list2.size()) {
-                    if (((Long) list.get(i)).equals(list2.get(i2))) {
+                    if (list.get(i).equals(list2.get(i2))) {
                         i++;
-                    } else if (((Long) list.get(i)).longValue() < ((Long) list2.get(i2)).longValue()) {
+                    } else if (list.get(i).longValue() < list2.get(i2).longValue()) {
                         arrayList.add(list.get(i));
                         i++;
                     }

@@ -1,5 +1,6 @@
 package androidx.appcompat.widget;
 
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.app.SearchableInfo;
 import android.content.ActivityNotFoundException;
@@ -38,6 +39,9 @@ import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.CollapsibleActionView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -141,6 +145,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         public Method mDoBeforeTextChanged;
         public Method mEnsureImeVisible;
 
+        @SuppressLint({"DiscouragedPrivateApi", "SoonBlockedPrivateApi"})
         public PreQAutoCompleteTextViewReflector() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -364,6 +369,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public static class SearchAutoComplete extends AppCompatAutoCompleteTextView {
         public static /* synthetic */ Interceptable $ic;
@@ -1036,7 +1042,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SearchView(Context context) {
+    public SearchView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1079,7 +1085,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SearchView(Context context, AttributeSet attributeSet) {
+    public SearchView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040602);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1100,7 +1106,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SearchView(Context context, AttributeSet attributeSet, int i) {
+    public SearchView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1426,17 +1432,17 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         };
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, androidx.appcompat.R.styleable.SearchView, i, 0);
         LayoutInflater.from(context).inflate(obtainStyledAttributes.getResourceId(9, R.layout.obfuscated_res_0x7f0d0019), (ViewGroup) this, true);
-        SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R.id.obfuscated_res_0x7f091e0c);
+        SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R.id.obfuscated_res_0x7f091e55);
         this.mSearchSrcTextView = searchAutoComplete;
         searchAutoComplete.setSearchView(this);
-        this.mSearchEditFrame = findViewById(R.id.obfuscated_res_0x7f091de6);
-        this.mSearchPlate = findViewById(R.id.obfuscated_res_0x7f091e03);
-        this.mSubmitArea = findViewById(R.id.obfuscated_res_0x7f091fa6);
-        this.mSearchButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de2);
-        this.mGoButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df1);
-        this.mCloseButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de3);
-        this.mVoiceButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e16);
-        this.mCollapsedIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e01);
+        this.mSearchEditFrame = findViewById(R.id.obfuscated_res_0x7f091e2f);
+        this.mSearchPlate = findViewById(R.id.obfuscated_res_0x7f091e4c);
+        this.mSubmitArea = findViewById(R.id.obfuscated_res_0x7f091ff2);
+        this.mSearchButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e2b);
+        this.mGoButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e3a);
+        this.mCloseButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e2c);
+        this.mVoiceButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e5f);
+        this.mCollapsedIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e4a);
         ViewCompat.setBackground(this.mSearchPlate, obtainStyledAttributes.getDrawable(10));
         ViewCompat.setBackground(this.mSubmitArea, obtainStyledAttributes.getDrawable(14));
         this.mSearchButton.setImageDrawable(obtainStyledAttributes.getDrawable(13));
@@ -1858,6 +1864,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
+    @Nullable
     public CharSequence getQueryHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2072,6 +2079,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAppSearchData(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, bundle) == null) {
@@ -2157,7 +2165,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    public void setQueryHint(CharSequence charSequence) {
+    public void setQueryHint(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, charSequence) == null) {
             this.mQueryHint = charSequence;

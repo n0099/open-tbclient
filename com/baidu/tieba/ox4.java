@@ -1,19 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface ox4 {
-    void a(Context context);
+    void a(qx4 qx4Var, JSONObject jSONObject);
 
-    void b(Context context, int i);
-
-    void c(Context context, int i, boolean z);
-
-    Class d();
-
-    void e(Context context, int i, boolean z);
-
-    String f();
-
-    int getCurrentTabType();
+    void b(int i, Throwable th);
 }

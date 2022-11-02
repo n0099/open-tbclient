@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.ThreadUtils;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.library_loader.Linker;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
@@ -41,7 +42,7 @@ public class LegacyLinker extends Linker {
     public static native boolean nativeUseSharedRelro(String str, Linker.LibInfo libInfo);
 
     /* loaded from: classes6.dex */
-    public final class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -87,6 +88,7 @@ public class LegacyLinker extends Linker {
         }
     }
 
+    @CalledByNative
     public static void postCallbackOnMainThread(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {

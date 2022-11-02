@@ -10,7 +10,7 @@ import java.util.Map;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class RFC2617Scheme extends AuthSchemeBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public abstract class RFC2617Scheme extends AuthSchemeBase {
         throw new RuntimeException("Stub!");
     }
 
-    public Map getParameters() {
+    public Map<String, String> getParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

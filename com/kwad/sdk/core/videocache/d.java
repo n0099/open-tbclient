@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static final Pattern aem = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
     public static final Pattern aen = Pattern.compile("GET /(.*) HTTP");

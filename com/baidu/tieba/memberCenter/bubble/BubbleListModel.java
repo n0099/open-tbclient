@@ -21,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BubbleListModel extends BdBaseModel {
@@ -240,14 +239,12 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public static boolean B(List list) {
+    public static boolean B(List<BubbleListData.BubbleData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             if (list != null && list.size() > 0) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) it.next();
+                for (BubbleListData.BubbleData bubbleData : list) {
                     if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
                         return false;
                     }

@@ -1,44 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.AdImageView;
-import com.baidu.nadcore.widget.IAdImageView;
-import com.baidu.searchbox.crius.CriusRuntime;
-import com.baidu.searchbox.crius.data.RenderData;
-import com.baidu.searchbox.crius.factory.INativeRenderFactory;
-import com.baidu.searchbox.crius.util.CriusUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.CriusLoader;
+import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tj0 implements INativeRenderFactory {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "tj0";
+public class tj0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public Map<String, a> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948182991, "Lcom/baidu/tieba/tj0;")) == null) {
-            return;
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948182991, "Lcom/baidu/tieba/tj0;");
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public CriusData a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 
@@ -46,143 +62,157 @@ public class tj0 implements INativeRenderFactory {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final Drawable a(String str, Context context) {
-        InterceptResult invokeLL;
+    public static tj0 b(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, context)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("file://") && str.length() > 7) {
-                try {
-                    return context.getResources().getDrawable(context.getResources().getIdentifier(str.substring(7), ResourceManager.DRAWABLE, context.getPackageName()));
-                } catch (Exception unused) {
-                    if (CriusRuntime.DEBUG) {
-                        String str2 = a;
-                        Log.e(str2, "crius find placeholder image failed，placeHolder=" + str);
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            tj0 tj0Var = new tj0();
+            tj0Var.i(jSONObject);
+            return tj0Var;
         }
-        return (Drawable) invokeLL.objValue;
+        return (tj0) invokeL.objValue;
     }
 
-    public final void b(AdImageView adImageView, RenderData renderData, boolean z) {
-        Drawable a2;
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adImageView, renderData, z) != null) || adImageView == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            CriusLoader.init(context);
+            CriusLoader.registerComponentFactory(new rj0());
+            CriusLoader.registerNativeRenderFactory(new sj0());
+        }
+    }
+
+    public CriusData e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                return new CriusData(zi0.b(), jSONObject, true, null);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (CriusData) invokeL.objValue;
+    }
+
+    public final void g(Set<String> set) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, set) != null) || set == null) {
             return;
         }
-        String str = renderData.placeHolderImage;
-        String str2 = renderData.placeHolderImageNight;
-        if (TextUtils.isEmpty(str)) {
-            str = renderData.backgroundImage;
-            str2 = renderData.backgroundImageNight;
-            if (TextUtils.isEmpty(str)) {
-                adImageView.setBackground(null);
-            }
-        }
-        if (z && !TextUtils.isEmpty(str2)) {
-            str = str2;
-        }
-        if (!TextUtils.isEmpty(str) && (a2 = a(str, aj0.b())) != null) {
-            adImageView.setPlaceHolderDrawable(a2);
+        for (String str : set) {
+            pn0.a().d(str);
         }
     }
 
-    @Override // com.baidu.searchbox.crius.factory.INativeRenderFactory
-    public View createView(Context context, String str) {
+    public tj0 i(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jSONObject)) == null) {
+            j(jSONObject, "cmd_map", Arrays.asList("crius", "crius_pop", "crius_content"));
+            return this;
+        }
+        return (tj0) invokeL.objValue;
+    }
+
+    public final Map<String, String> c(@NonNull JSONObject jSONObject, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if ("image".equalsIgnoreCase(str)) {
-                AdImageView adImageView = new AdImageView(context);
-                adImageView.setImageScaleType(IAdImageView.ImageScaleType.CENTER_CROP);
-                return adImageView;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject(str);
+            if (optJSONObject != null) {
+                HashMap hashMap = new HashMap();
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys != null && keys.hasNext()) {
+                    String next = keys.next();
+                    String optString = optJSONObject.optString(next);
+                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                        hashMap.put(next, optString);
+                    }
+                }
+                return hashMap;
             }
             return null;
         }
-        return (View) invokeLL.objValue;
+        return (Map) invokeLL.objValue;
     }
 
-    @Override // com.baidu.searchbox.crius.factory.INativeRenderFactory
-    public boolean renderBackground(String str, View view2, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    public a d(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull Map<String, String> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, view2, str2, str3)) == null) {
-            if (view2 == null || TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            if (str2.startsWith("file://") && str2.length() > 7) {
-                Drawable a2 = a(str2, aj0.b());
-                Drawable a3 = a(str3, aj0.b());
-                if (a2 != null) {
-                    if (a3 != null) {
-                        StateListDrawable stateListDrawable = new StateListDrawable();
-                        stateListDrawable.addState(new int[]{16842919}, a3);
-                        stateListDrawable.addState(new int[]{-16842919}, a2);
-                        view2.setBackground(stateListDrawable);
-                    } else {
-                        view2.setBackground(a2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, map)) == null) {
+            a aVar = new a();
+            String optString = jSONObject.optString(str);
+            if (h()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue()) && optString != null) {
+                        optString = optString.replaceAll(entry.getKey(), Uri.encode(entry.getValue()));
                     }
-                } else {
-                    view2.setBackground(null);
                 }
             }
-            return true;
+            if (CriusLoader.isCriusNone()) {
+                a(zi0.b());
+            }
+            if (!CriusLoader.isCriusOk()) {
+                return aVar;
+            }
+            try {
+                aVar.a = e(new JSONObject(optString));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            CriusData criusData = aVar.a;
+            if (criusData != null && criusData.getImageUrls() != null) {
+                g(aVar.a.getImageUrls());
+            }
+            return aVar;
         }
-        return invokeLLLL.booleanValue;
+        return (a) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.searchbox.crius.factory.INativeRenderFactory
-    public boolean renderView(String str, View view2, RenderData renderData, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        int positive;
-        int positive2;
-        int positive3;
-        int positive4;
+    public final Map<String, a> f(@NonNull JSONObject jSONObject, @NonNull List<String> list, @NonNull Map<String, String> map) {
+        InterceptResult invokeLLL;
+        a d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, view2, renderData, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean z3 = false;
-            if (renderData == null || view2 == null || !(view2 instanceof AdImageView)) {
-                return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, jSONObject, list, map)) == null) {
+            HashMap hashMap = null;
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str) && (d = d(jSONObject, str, map)) != null) {
+                    if (hashMap == null) {
+                        hashMap = new HashMap();
+                    }
+                    hashMap.put(str, d);
+                }
             }
-            AdImageView adImageView = (AdImageView) view2;
-            float f = renderData.borderRadius;
-            if (f > 0.0f) {
-                positive = (int) CriusUtil.positive(f);
-                positive2 = positive;
-                positive3 = positive2;
-                positive4 = positive3;
-            } else {
-                positive = (int) CriusUtil.positive(renderData.borderRadiusLeftTop);
-                positive2 = (int) CriusUtil.positive(renderData.borderRadiusRightTop);
-                positive3 = (int) CriusUtil.positive(renderData.borderRadiusLeftBottom);
-                positive4 = (int) CriusUtil.positive(renderData.borderRadiusRightBottom);
-            }
-            if (positive > 0 || positive2 > 0 || positive3 > 0 || positive4 > 0) {
-                adImageView.setRadius(positive, positive2, positive3, positive4);
-            }
-            int i = renderData.width;
-            if (i == renderData.height && positive == positive2 && positive2 == positive3 && positive3 == positive4 && positive3 * 2 == i) {
-                z3 = true;
-            }
-            if (z3) {
-                adImageView.setCircle();
-            }
-            adImageView.setBorder(renderData.borderRadiusWidth, renderData.borderRadiusColor);
-            b(adImageView, renderData, z);
-            adImageView.g(renderData.src);
-            return true;
+            return hashMap;
         }
-        return invokeCommon.booleanValue;
+        return (Map) invokeLLL.objValue;
+    }
+
+    public tj0 j(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, str, list)) == null) {
+            Map<String, String> c = c(jSONObject, str);
+            this.a = c;
+            if (c != null) {
+                this.b = f(jSONObject, list, c);
+            }
+            return this;
+        }
+        return (tj0) invokeLLL.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.net.update.v2;
 
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ public class JSONParser {
 
     /* renamed from: com.baidu.searchbox.net.update.v2.JSONParser$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,6 +97,7 @@ public class JSONParser {
         return (JSONArray) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static JSONObject readJSONObject(JsonReader jsonReader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -115,6 +117,7 @@ public class JSONParser {
         return (JSONObject) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static Object readObject(JsonReader jsonReader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

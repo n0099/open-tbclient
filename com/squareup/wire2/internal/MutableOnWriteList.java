@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.RandomAccess;
 /* loaded from: classes8.dex */
-public final class MutableOnWriteList extends AbstractList implements RandomAccess, Serializable {
+public final class MutableOnWriteList<T> extends AbstractList<T> implements RandomAccess, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List immutableList;
-    public List mutableList;
+    public final List<T> immutableList;
+    public List<T> mutableList;
 
-    public MutableOnWriteList(List list) {
+    public MutableOnWriteList(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,17 +39,17 @@ public final class MutableOnWriteList extends AbstractList implements RandomAcce
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public Object get(int i) {
+    public T get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return this.mutableList.get(i);
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public Object remove(int i) {
+    public T remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -58,7 +58,7 @@ public final class MutableOnWriteList extends AbstractList implements RandomAcce
             }
             return this.mutableList.remove(i);
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
     private Object writeReplace() throws ObjectStreamException {
@@ -81,26 +81,26 @@ public final class MutableOnWriteList extends AbstractList implements RandomAcce
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public void add(int i, Object obj) {
+    public void add(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
             if (this.mutableList == this.immutableList) {
                 this.mutableList = new ArrayList(this.immutableList);
             }
-            this.mutableList.add(i, obj);
+            this.mutableList.add(i, t);
         }
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public Object set(int i, Object obj) {
+    public T set(int i, T t) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, t)) == null) {
             if (this.mutableList == this.immutableList) {
                 this.mutableList = new ArrayList(this.immutableList);
             }
-            return this.mutableList.set(i, obj);
+            return this.mutableList.set(i, t);
         }
-        return invokeIL.objValue;
+        return (T) invokeIL.objValue;
     }
 }

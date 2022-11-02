@@ -15,11 +15,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class RouteNode implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<RouteNode> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public LatLng b;
     public String c;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +44,7 @@ public class RouteNode implements Parcelable {
                 return;
             }
         }
-        CREATOR = new j();
+        CREATOR = new l();
     }
 
     public RouteNode() {
@@ -49,6 +59,33 @@ public class RouteNode implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public LatLng getLocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 
     public RouteNode(Parcel parcel) {
@@ -82,46 +119,6 @@ public class RouteNode implements Parcelable {
         return (RouteNode) invokeL.objValue;
     }
 
-    public static RouteNode titleAndLocation(String str, LatLng latLng) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, latLng)) == null) {
-            RouteNode routeNode = new RouteNode();
-            routeNode.setTitle(str);
-            routeNode.setLocation(latLng);
-            return routeNode;
-        }
-        return (RouteNode) invokeLL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public LatLng getLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (LatLng) invokeV.objValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
     public void setLocation(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, latLng) == null) {
@@ -141,6 +138,18 @@ public class RouteNode implements Parcelable {
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.c = str;
         }
+    }
+
+    public static RouteNode titleAndLocation(String str, LatLng latLng) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, latLng)) == null) {
+            RouteNode routeNode = new RouteNode();
+            routeNode.setTitle(str);
+            routeNode.setLocation(latLng);
+            return routeNode;
+        }
+        return (RouteNode) invokeLL.objValue;
     }
 
     @Override // android.os.Parcelable

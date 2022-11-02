@@ -2,8 +2,8 @@ package com.baidu.live.business.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.live.business.model.data.LiveGrParams;
-import com.baidu.tieba.gc0;
-import com.baidu.tieba.jc0;
+import com.baidu.tieba.fc0;
+import com.baidu.tieba.ic0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,8 +21,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class GrParasmUtil {
     public static /* synthetic */ Interceptable $ic;
-    public static Map grParamsMap;
-    public static List uploadFeedList;
+    public static Map<String, LiveGrParams> grParamsMap;
+    public static List<String> uploadFeedList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,13 +56,13 @@ public class GrParasmUtil {
         }
     }
 
-    public static void clear(List list) {
+    public static void clear(List<String> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, list) == null) && !grParamsMap.isEmpty() && !gc0.c(list)) {
-            Iterator it = grParamsMap.entrySet().iterator();
+        if ((interceptable == null || interceptable.invokeL(65538, null, list) == null) && !grParamsMap.isEmpty() && !fc0.c(list)) {
+            Iterator<Map.Entry<String, LiveGrParams>> it = grParamsMap.entrySet().iterator();
             while (it.hasNext()) {
-                Map.Entry entry = (Map.Entry) it.next();
-                if (entry != null && list.contains(entry.getKey())) {
+                Map.Entry<String, LiveGrParams> next = it.next();
+                if (next != null && list.contains(next.getKey())) {
                     it.remove();
                 }
             }
@@ -78,13 +78,13 @@ public class GrParasmUtil {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (Map.Entry entry : grParamsMap.entrySet()) {
+            for (Map.Entry<String, LiveGrParams> entry : grParamsMap.entrySet()) {
                 if (entry != null) {
-                    String str = (String) entry.getKey();
-                    LiveGrParams liveGrParams = (LiveGrParams) entry.getValue();
-                    if (liveGrParams != null && (json = liveGrParams.toJson()) != null) {
+                    String key = entry.getKey();
+                    LiveGrParams value = entry.getValue();
+                    if (value != null && (json = value.toJson()) != null) {
                         jSONArray.put(json);
-                        uploadFeedList.add(str);
+                        uploadFeedList.add(key);
                     }
                 }
             }
@@ -96,11 +96,11 @@ public class GrParasmUtil {
     public static void logGrParam(String str, boolean z, boolean z2) {
         LiveGrParams liveGrParams;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || jc0.a(str)) {
+        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || ic0.a(str)) {
             return;
         }
         if (grParamsMap.containsKey(str)) {
-            liveGrParams = (LiveGrParams) grParamsMap.get(str);
+            liveGrParams = grParamsMap.get(str);
         } else {
             liveGrParams = new LiveGrParams();
             grParamsMap.put(str, liveGrParams);

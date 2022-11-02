@@ -1,10 +1,11 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.wj9;
+import com.baidu.tieba.fl9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +58,7 @@ public class ContentUtils {
         }
     }
 
-    public static JSONObject createActiveReqContent(ActiveUpObj activeUpObj) {
+    public static JSONObject createActiveReqContent(@NonNull ActiveUpObj activeUpObj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activeUpObj)) == null) {
@@ -90,7 +91,7 @@ public class ContentUtils {
         }
     }
 
-    public static JSONObject createFetchReqContent(FetchTaskObj fetchTaskObj) {
+    public static JSONObject createFetchReqContent(@NonNull FetchTaskObj fetchTaskObj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fetchTaskObj)) == null) {
@@ -167,7 +168,7 @@ public class ContentUtils {
                     }
                 }
                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                Collections.sort(arrayList, new Comparator() { // from class: com.baidu.searchbox.retrieve.upload.ContentUtils.1
+                Collections.sort(arrayList, new Comparator<Map.Entry<String, String>>() { // from class: com.baidu.searchbox.retrieve.upload.ContentUtils.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -187,11 +188,11 @@ public class ContentUtils {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.util.Comparator
-                    public int compare(Map.Entry entry, Map.Entry entry2) {
+                    public int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
                         InterceptResult invokeLL2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry, entry2)) == null) {
-                            return ((String) entry.getKey()).compareTo((String) entry2.getKey());
+                            return entry.getKey().compareTo(entry2.getKey());
                         }
                         return invokeLL2.intValue;
                     }
@@ -202,7 +203,7 @@ public class ContentUtils {
                     stringBuffer.append((String) entry.getValue());
                 }
                 stringBuffer.append(str);
-                return wj9.c(stringBuffer.toString().getBytes(), false);
+                return fl9.c(stringBuffer.toString().getBytes(), false);
             }
             return "";
         }

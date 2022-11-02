@@ -76,12 +76,12 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
     }
 
     /* loaded from: classes6.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View[] a;
         public AnimatorSet b;
-        public final List c;
+        public final List<Animator> c;
         public c d;
         public PropertyValuesHolder e;
         public PropertyValuesHolder f;
@@ -198,7 +198,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
             this.b = animatorSet;
             animatorSet.setDuration(i);
             this.b.addListener(this.n);
-            List list = this.c;
+            List<Animator> list = this.c;
             View[] viewArr = this.a;
             list.add(ObjectAnimator.ofPropertyValuesHolder(viewArr[viewArr.length - 1], this.e, this.f, this.g, this.h));
             for (int length = this.a.length - 2; length >= 0; length--) {
@@ -294,10 +294,10 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
     }
 
     /* loaded from: classes6.dex */
-    public class e extends TimerTask {
+    public static class e extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<f> a;
 
         public e(f fVar) {
             Interceptable interceptable = $ic;
@@ -314,23 +314,23 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                     return;
                 }
             }
-            this.a = new WeakReference(fVar);
+            this.a = new WeakReference<>(fVar);
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((f) this.a.get()).sendEmptyMessage(1);
+                this.a.get().sendEmptyMessage(1);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f extends Handler {
+    public static class f extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<TbImageSwitch> a;
 
         public f(TbImageSwitch tbImageSwitch) {
             Interceptable interceptable = $ic;
@@ -347,7 +347,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                     return;
                 }
             }
-            this.a = new WeakReference(tbImageSwitch);
+            this.a = new WeakReference<>(tbImageSwitch);
         }
 
         @Override // android.os.Handler
@@ -355,7 +355,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                TbImageSwitch tbImageSwitch = (TbImageSwitch) this.a.get();
+                TbImageSwitch tbImageSwitch = this.a.get();
                 if (tbImageSwitch == null) {
                     return;
                 }
@@ -504,7 +504,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         }
     }
 
-    public List getChildViews() {
+    public List<View> getChildViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -1,55 +1,87 @@
 package com.baidu.tieba;
 
-import android.util.DisplayMetrics;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.TaskState;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.ITaskModelData;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rt {
+public final class rt extends st<TaskState> {
     public static /* synthetic */ Interceptable $ic;
-    public static final DisplayMetrics a;
-    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ut a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316331, "Lcom/baidu/tieba/rt;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448316331, "Lcom/baidu/tieba/rt;");
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.key : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rt(ut utVar) {
+        super(utVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {utVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ut) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        DisplayMetrics displayMetrics = rr.c.h().getAppContext().getResources().getDisplayMetrics();
-        a = displayMetrics;
-        b = displayMetrics.density;
+        this.a = utVar;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public final <T extends ITaskModelData> T b(ut utVar, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int identifier = rr.c.h().getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-            int i = 0;
-            if (identifier > 0) {
-                try {
-                    i = rr.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
-                } catch (Exception unused) {
-                }
-            }
-            if (i == 0) {
-                return (int) (b * 25.0f);
-            }
-            return i;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, utVar, str, str2)) == null) {
+            return utVar.a(str).a(str2);
         }
-        return invokeV.intValue;
+        return (T) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.st
+    /* renamed from: d */
+    public TaskState a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                ut utVar = this.a;
+                String optString = jSONObject.optString("info");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "jsonObject.optString(TaskInfo.key)");
+                TaskInfo taskInfo = (TaskInfo) b(utVar, "info", optString);
+                if (taskInfo != null) {
+                    ut utVar2 = this.a;
+                    String optString2 = jSONObject.optString(TaskStatus.key);
+                    Intrinsics.checkExpressionValueIsNotNull(optString2, "jsonObject.optString(TaskStatus.key)");
+                    TaskStatus taskStatus = (TaskStatus) b(utVar2, TaskStatus.key, optString2);
+                    if (taskStatus != null) {
+                        return new TaskState(taskInfo, taskStatus);
+                    }
+                }
+                return null;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (TaskState) invokeL.objValue;
     }
 }

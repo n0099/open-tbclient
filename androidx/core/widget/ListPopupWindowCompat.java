@@ -3,6 +3,8 @@ package androidx.core.widget;
 import android.os.Build;
 import android.view.View;
 import android.widget.ListPopupWindow;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +29,8 @@ public final class ListPopupWindowCompat {
         }
     }
 
-    public static View.OnTouchListener createDragToOpenListener(ListPopupWindow listPopupWindow, View view2) {
+    @Nullable
+    public static View.OnTouchListener createDragToOpenListener(@NonNull ListPopupWindow listPopupWindow, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, listPopupWindow, view2)) == null) {

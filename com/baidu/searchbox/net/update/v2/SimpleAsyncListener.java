@@ -30,7 +30,6 @@ public abstract class SimpleAsyncListener extends SimpleSyncListener {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.SimpleSyncListener, com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(final Context context, final String str, final String str2, final ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;

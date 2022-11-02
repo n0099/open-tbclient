@@ -26,7 +26,7 @@ import java.net.URL;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
-public class FileUploadTask extends AsyncTask {
+public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_BYTES_SIZE = 8192;
     public static final String TAG;

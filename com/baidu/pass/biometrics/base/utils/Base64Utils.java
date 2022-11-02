@@ -1,11 +1,13 @@
 package com.baidu.pass.biometrics.base.utils;
 
+import android.annotation.TargetApi;
 import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(8)
 /* loaded from: classes2.dex */
 public class Base64Utils {
     public static /* synthetic */ Interceptable $ic = null;

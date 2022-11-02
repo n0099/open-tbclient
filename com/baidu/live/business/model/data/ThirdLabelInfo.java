@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ThirdLabelInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ThirdLabelInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String dot;
     public String endColor;
@@ -47,7 +47,7 @@ public class ThirdLabelInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.ThirdLabelInfo.1
+        CREATOR = new Parcelable.Creator<ThirdLabelInfo>() { // from class: com.baidu.live.business.model.data.ThirdLabelInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,6 +66,7 @@ public class ThirdLabelInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ThirdLabelInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -77,6 +78,7 @@ public class ThirdLabelInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ThirdLabelInfo[] newArray(int i) {
                 InterceptResult invokeI;

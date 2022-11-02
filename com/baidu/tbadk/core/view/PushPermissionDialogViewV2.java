@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.sy4;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.kw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +65,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304) {
                 return;
@@ -102,16 +103,16 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             setGravity(1);
             setLayoutParams(layoutParams);
             if (UbsABTestHelper.isPushPermissionDialogBtnBottom()) {
-                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d075f, this);
+                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0774, this);
             } else {
-                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d075e, this);
+                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0773, this);
             }
             c();
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PushPermissionDialogViewV2(Context context, AttributeSet attributeSet) {
+    public PushPermissionDialogViewV2(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -132,7 +133,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PushPermissionDialogViewV2(Context context, AttributeSet attributeSet, int i) {
+    public PushPermissionDialogViewV2(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -177,31 +178,31 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
             setBackgroundDrawable(gradientDrawable);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092256);
             this.a = textView;
             if (textView != null) {
-                nv4 d = nv4.d(textView);
+                kw4 d = kw4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X05);
                 d.A(R.string.F_X02);
             }
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ac);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ba);
             this.b = textView2;
             if (textView2 != null) {
-                nv4 d2 = nv4.d(textView2);
+                kw4 d2 = kw4.d(textView2);
                 d2.v(R.color.CAM_X0108);
                 d2.z(R.dimen.T_X07);
                 d2.A(R.string.F_X01);
             }
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908b5);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b18);
-            this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08090e));
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b1a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908c5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b5c);
+            this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080923));
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b5e);
             this.e = tBSpecificationBtn;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-                this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f85));
-                this.e.setConfig(new sy4());
+                this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9d));
+                this.e.setConfig(new iz4());
             }
             this.f = skinType;
         }

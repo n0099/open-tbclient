@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
@@ -25,7 +26,7 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
     @Nullable
     public final Bitmap mBitmap;
     public final Paint mBorderPaint;
-    public WeakReference mLastBitmap;
+    public WeakReference<Bitmap> mLastBitmap;
     public final Paint mPaint;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -89,9 +90,9 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
     private void updatePaint() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            WeakReference weakReference = this.mLastBitmap;
+            WeakReference<Bitmap> weakReference = this.mLastBitmap;
             if (weakReference == null || weakReference.get() != this.mBitmap) {
-                this.mLastBitmap = new WeakReference(this.mBitmap);
+                this.mLastBitmap = new WeakReference<>(this.mBitmap);
                 Paint paint = this.mPaint;
                 Bitmap bitmap = this.mBitmap;
                 Shader.TileMode tileMode = Shader.TileMode.CLAMP;
@@ -150,6 +151,7 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
     }
 
     @Override // com.facebook.drawee.drawable.RoundedDrawable
+    @VisibleForTesting
     public boolean shouldRound() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

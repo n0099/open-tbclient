@@ -15,15 +15,15 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class DisposableLambdaObserver implements Observer, Disposable {
+public final class DisposableLambdaObserver<T> implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer actual;
+    public final Observer<? super T> actual;
     public final Action onDispose;
-    public final Consumer onSubscribe;
+    public final Consumer<? super Disposable> onSubscribe;
     public Disposable s;
 
-    public DisposableLambdaObserver(Observer observer, Consumer consumer, Action action) {
+    public DisposableLambdaObserver(Observer<? super T> observer, Consumer<? super Disposable> consumer, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,10 +88,10 @@ public final class DisposableLambdaObserver implements Observer, Disposable {
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.actual.onNext(obj);
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            this.actual.onNext(t);
         }
     }
 

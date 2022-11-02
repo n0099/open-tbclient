@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class UserStatus implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<UserStatus> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsOnline;
     public long mLastOnlineTime;
@@ -42,7 +42,7 @@ public class UserStatus implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatuser.UserStatus.1
+        CREATOR = new Parcelable.Creator<UserStatus>() { // from class: com.baidu.android.imsdk.chatuser.UserStatus.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,6 +61,7 @@ public class UserStatus implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserStatus createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -72,6 +73,7 @@ public class UserStatus implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserStatus[] newArray(int i) {
                 InterceptResult invokeI;

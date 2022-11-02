@@ -5,12 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwai.sodler.lib.a.a;
 import com.kwai.sodler.lib.a.f;
+import com.kwai.sodler.lib.h;
 /* loaded from: classes8.dex */
-public interface b {
+public interface b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> {
 
     /* loaded from: classes8.dex */
-    public class a extends C0629b {
+    public static class a extends C0640b<com.kwai.sodler.lib.kwai.a, com.kwai.sodler.lib.b.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,11 +33,11 @@ public interface b {
 
     /* renamed from: com.kwai.sodler.lib.ext.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0629b implements b {
+    public static class C0640b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> implements b<P, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0629b() {
+        public C0640b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,43 +52,43 @@ public interface b {
         }
 
         @Override // com.kwai.sodler.lib.ext.b
-        public void a(f fVar) {
+        public void a(R r) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, r) == null) {
             }
         }
 
         @Override // com.kwai.sodler.lib.ext.b
-        public void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
+        public void a(R r, P p) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, aVar) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r, p) == null) {
             }
         }
 
         @Override // com.kwai.sodler.lib.ext.b
-        public void a(f fVar, PluginError pluginError) {
+        public void a(R r, PluginError pluginError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, pluginError) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, r, pluginError) == null) {
             }
         }
 
         @Override // com.kwai.sodler.lib.ext.b
-        public void b(f fVar) {
+        public void b(R r) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
             }
         }
 
         @Override // com.kwai.sodler.lib.ext.b
-        public void c(f fVar) {
+        public void c(R r) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, r) == null) {
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c extends C0629b {
+    public static class c extends C0640b<h, com.kwai.sodler.lib.b.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,13 +107,13 @@ public interface b {
         }
     }
 
-    void a(f fVar);
+    void a(R r);
 
-    void a(f fVar, com.kwai.sodler.lib.a.a aVar);
+    void a(R r, P p);
 
-    void a(f fVar, PluginError pluginError);
+    void a(R r, PluginError pluginError);
 
-    void b(f fVar);
+    void b(R r);
 
-    void c(f fVar);
+    void c(R r);
 }

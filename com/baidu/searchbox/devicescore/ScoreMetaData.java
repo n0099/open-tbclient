@@ -10,7 +10,7 @@ import java.util.Map;
 public class ScoreMetaData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map params;
+    public Map<String, Object> params;
     public String type;
 
     public ScoreMetaData() {

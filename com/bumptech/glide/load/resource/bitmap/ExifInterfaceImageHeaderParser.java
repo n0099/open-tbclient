@@ -1,5 +1,7 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +15,7 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+@RequiresApi(27)
 /* loaded from: classes7.dex */
 public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +36,7 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public int getOrientation(InputStream inputStream, ArrayPool arrayPool) throws IOException {
+    public int getOrientation(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, inputStream, arrayPool)) == null) {
@@ -47,7 +50,7 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public int getOrientation(ByteBuffer byteBuffer, ArrayPool arrayPool) throws IOException {
+    public int getOrientation(@NonNull ByteBuffer byteBuffer, @NonNull ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer, arrayPool)) == null) {
@@ -57,7 +60,8 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public ImageHeaderParser.ImageType getType(InputStream inputStream) {
+    @NonNull
+    public ImageHeaderParser.ImageType getType(@NonNull InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
@@ -67,7 +71,8 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public ImageHeaderParser.ImageType getType(ByteBuffer byteBuffer) {
+    @NonNull
+    public ImageHeaderParser.ImageType getType(@NonNull ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {

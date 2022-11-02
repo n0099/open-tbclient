@@ -116,14 +116,14 @@ public class NoOpImageCacheStatsTracker implements ImageCacheStatsTracker {
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void registerBitmapMemoryCache(MemoryCache memoryCache) {
+    public void registerBitmapMemoryCache(MemoryCache<?, ?> memoryCache) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, memoryCache) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void registerEncodedMemoryCache(MemoryCache memoryCache) {
+    public void registerEncodedMemoryCache(MemoryCache<?, ?> memoryCache) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, memoryCache) == null) {
         }

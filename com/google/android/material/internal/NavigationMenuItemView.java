@@ -13,6 +13,10 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.CheckedTextView;
 import android.widget.FrameLayout;
+import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.LinearLayoutCompat;
@@ -33,6 +37,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class NavigationMenuItemView extends ForegroundLinearLayout implements MenuView.ItemView {
     public static /* synthetic */ Interceptable $ic;
@@ -126,7 +131,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NavigationMenuItemView(Context context) {
+    public NavigationMenuItemView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -147,7 +152,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NavigationMenuItemView(Context context, AttributeSet attributeSet) {
+    public NavigationMenuItemView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -168,7 +173,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NavigationMenuItemView(Context context, AttributeSet attributeSet, int i) {
+    public NavigationMenuItemView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -210,7 +215,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
                     super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
@@ -219,9 +224,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             }
         };
         setOrientation(0);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d021f, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0221, (ViewGroup) this, true);
         setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020c));
-        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f0907b2);
+        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f0907c0);
         this.textView = checkedTextView;
         checkedTextView.setDuplicateParentStateEnabled(true);
         ViewCompat.setAccessibilityDelegate(this.textView, this.accessibilityDelegate);
@@ -251,6 +256,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         }
     }
 
+    @Nullable
     private StateListDrawable createDefaultBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -267,11 +273,11 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         return (StateListDrawable) invokeV.objValue;
     }
 
-    private void setActionView(View view2) {
+    private void setActionView(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, this, view2) == null) && view2 != null) {
             if (this.actionArea == null) {
-                this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0907b1)).inflate();
+                this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0907bf)).inflate();
             }
             this.actionArea.removeAllViews();
             this.actionArea.addView(view2);
@@ -328,7 +334,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         }
     }
 
-    public void setIconSize(int i) {
+    public void setIconSize(@Dimension int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.iconSize = i;
@@ -390,7 +396,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void initialize(MenuItemImpl menuItemImpl, int i) {
+    public void initialize(@NonNull MenuItemImpl menuItemImpl, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItemImpl, i) == null) {
@@ -420,7 +426,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setIcon(Drawable drawable) {
+    public void setIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
             if (drawable != null) {
@@ -436,7 +442,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
                 drawable.setBounds(0, 0, i, i);
             } else if (this.needsEmptyIcon) {
                 if (this.emptyDrawable == null) {
-                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e55, getContext().getTheme());
+                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e70, getContext().getTheme());
                     this.emptyDrawable = drawable2;
                     if (drawable2 != null) {
                         int i2 = this.iconSize;

@@ -1,221 +1,129 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pj7 {
+public class pj7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public TableLayout b;
-    public View c;
-    public TextView d;
-    public View e;
+    public List<nj7> a;
+    public Context b;
+    public int c;
+    public int d;
+    public final int e;
 
-    public pj7(TbPageContext tbPageContext) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public pj7(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = new ArrayList();
+        this.c = 0;
+        this.d = 0;
+        this.b = context;
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5);
+        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
+        this.e = i;
     }
 
-    public void h(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public nj7 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.d != null) {
-            if (!StringUtils.isNull(str)) {
-                this.d.setText(str);
-            } else {
-                this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08bc));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
+            return null;
         }
+        return (nj7) invokeI.objValue;
     }
 
-    public void i(boolean z) {
-        int i;
+    public void b(List<nj7> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            View view2 = this.e;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a.clear();
+            if (list != null && list.size() > 0) {
+                this.a.addAll(list);
             }
-            view2.setVisibility(i);
+            notifyDataSetChanged();
         }
     }
 
-    public View a(lj7 lj7Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, lj7Var, i)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a7, (ViewGroup) null);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092131);
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e9e);
-            if (lj7Var != null) {
-                int c = lj7Var.c();
-                imageView.setVisibility(0);
-                imageView.setTag(Integer.valueOf(c));
-                g(imageView, c, TbadkCoreApplication.getInst().getSkinType());
-                textView.setText(e(lj7Var.b(), 8));
-                linearLayout.setTag(lj7Var);
-            } else {
-                textView.setText(R.string.obfuscated_res_0x7f0f088f);
-                textView.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
-                imageView.setVisibility(8);
-            }
-            b(linearLayout, i, this.b, 2);
-            return linearLayout;
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    public final void b(View view2, int i, TableLayout tableLayout, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), tableLayout, Integer.valueOf(i2)}) == null) {
-            TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702aa), -2);
-            if (i % i2 == 0) {
-                TableRow tableRow = new TableRow(this.a.getPageActivity());
-                tableRow.addView(view2, layoutParams);
-                tableLayout.addView(tableRow);
-            } else if (tableLayout.getChildCount() != 0) {
-                ((TableRow) tableLayout.getChildAt(tableLayout.getChildCount() - 1)).addView(view2, layoutParams);
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.removeAllViews();
-            this.c.setVisibility(8);
-            this.b.setVisibility(8);
-            this.d.setVisibility(8);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            f(TbadkCoreApplication.getInst().getSkinType());
-            this.c.setVisibility(0);
-            this.b.setVisibility(0);
-            this.d.setVisibility(0);
-        }
-    }
-
-    public View d() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a6, (ViewGroup) null);
-            this.c = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092208);
-            this.e = findViewById;
-            findViewById.setVisibility(0);
-            this.b = (TableLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e11);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091f5c);
-            this.d = textView;
-            textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08bc));
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.size();
         }
-        return (View) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final String e(String str, int i) {
-        InterceptResult invokeLI;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                textView = (TextView) view2;
+            } else {
+                textView = new TextView(this.b);
+                textView.setGravity(17);
+                textView.setTextSize(0, this.c);
+                int i2 = this.d;
+                textView.setPadding(0, i2, 0, i2);
             }
-            if (str.length() <= i) {
-                return str;
+            nj7 nj7Var = (nj7) ListUtils.getItem(this.a, i);
+            if (nj7Var == null) {
+                return null;
             }
-            String substring = str.substring(0, i - 1);
-            return substring + this.a.getString(R.string.obfuscated_res_0x7f0f0556);
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public void f(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.getLayoutMode().k(this.c);
-            int childCount = this.b.getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
-                TableRow tableRow = (TableRow) this.b.getChildAt(i3);
-                int childCount2 = tableRow.getChildCount();
-                for (int i4 = 0; i4 < childCount2; i4++) {
-                    LinearLayout linearLayout = (LinearLayout) tableRow.getChildAt(i4);
-                    if (linearLayout.getChildCount() != 0) {
-                        TextView textView = (TextView) linearLayout.getChildAt(0);
-                        ImageView imageView = (ImageView) linearLayout.getChildAt(1);
-                        if (i3 == childCount - 1 && i4 == childCount2 - 1) {
-                            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
-                        } else {
-                            if (imageView.getTag() != null) {
-                                i2 = ((Integer) imageView.getTag()).intValue();
-                            } else {
-                                i2 = 0;
-                            }
-                            g(imageView, i2, i);
-                            SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, i);
-                        }
-                        SkinManager.setBackgroundResource(textView, R.drawable.square_search_item_bg, i);
-                    }
-                }
+            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(nj7Var.c, 8, (String) null));
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
+            if (i == this.e) {
+                SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
+            } else {
+                SkinManager.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
             }
+            return textView;
         }
-    }
-
-    public final void g(ImageView imageView, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLII(1048582, this, imageView, i, i2) != null) || imageView == null) {
-            return;
-        }
-        imageView.setImageDrawable(null);
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    imageView.setVisibility(8);
-                    return;
-                } else {
-                    SkinManager.setImageResource(imageView, R.drawable.icon_topic_recommend, i2);
-                    return;
-                }
-            }
-            SkinManager.setImageResource(imageView, R.drawable.icon_topic_hot, i2);
-            return;
-        }
-        SkinManager.setImageResource(imageView, R.drawable.icon_topic_new, i2);
+        return (View) invokeILL.objValue;
     }
 }

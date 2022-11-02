@@ -75,13 +75,13 @@ public class SapiScheme {
         }
     }
 
-    private String buildScheme(String str, String str2, List list) {
+    private String buildScheme(String str, String str2, List<PassNameValuePair> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, str, str2, list)) == null) {
             String str3 = "baiduppscapp://v2/" + str + "?";
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
             }
             list.add(new PassNameValuePair("minver", str2));
             return str3 + SapiUtils.createRequestParams(list);
@@ -138,7 +138,7 @@ public class SapiScheme {
         return invokeLLL.intValue;
     }
 
-    public void invokeScApp(Activity activity, String str, String str2, List list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
+    public void invokeScApp(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, str2, list, invokeScAppResult) == null) {
             this.invokeScAppResult = invokeScAppResult;

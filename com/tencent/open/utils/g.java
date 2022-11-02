@@ -29,7 +29,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-    public static Map a;
+    public static Map<String, g> a;
     public static String b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context c;
@@ -124,7 +124,7 @@ public class g {
                         str = "0";
                     }
                 }
-                gVar = (g) a.get(str);
+                gVar = a.get(str);
                 if (gVar == null) {
                     gVar = new g(context, str);
                     a.put(str, gVar);

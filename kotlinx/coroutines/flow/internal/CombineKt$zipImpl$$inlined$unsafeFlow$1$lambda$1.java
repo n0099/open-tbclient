@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.internal.Symbol;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\u00020\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\b"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends SuspendLambda implements Function2 {
+public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public final /* synthetic */ FlowCollector $this_unsafeFlow;
     public Object L$0;
     public Object L$1;
@@ -49,21 +49,22 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 = new CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1(this.$this_unsafeFlow, continuation, this.this$0);
         combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1.p$ = (CoroutineScope) obj;
         return combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
+        return ((CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\u0010\u0003\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006H\n¢\u0006\u0002\b\u0007¨\u0006\b"}, d2 = {"<anonymous>", "", "T1", "T2", "R", AdvanceSetting.NETWORK_TYPE, "", "invoke", "kotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public final class AnonymousClass1 extends Lambda implements Function1 {
+    public static final class AnonymousClass1 extends Lambda implements Function1<Throwable, Unit> {
         public final /* synthetic */ ReceiveChannel $first;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,13 +73,16 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
             this.$first = receiveChannel;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // kotlin.jvm.functions.Function1
-        public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-            invoke((Throwable) obj);
+        public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
+            invoke2(th);
             return Unit.INSTANCE;
         }
 
-        public final void invoke(Throwable th) {
+        /* renamed from: invoke  reason: avoid collision after fix types in other method */
+        public final void invoke2(Throwable th) {
             if (!this.$first.isClosedForReceive()) {
                 this.$first.cancel((CancellationException) new AbortFlowException(CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1.this.$this_unsafeFlow));
             }

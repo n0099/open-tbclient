@@ -1,5 +1,6 @@
 package com.ss.android.downloadlib.a.b;
 
+import android.annotation.SuppressLint;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
@@ -14,15 +15,15 @@ public interface c extends IInterface {
     void a(b bVar, d dVar) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class a extends Binder implements c {
+    public static abstract class a extends Binder implements c {
         public static String a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.b.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0651a implements c {
+        public static class C0662a implements c {
             public IBinder a;
 
-            public C0651a(IBinder iBinder) {
+            public C0662a(IBinder iBinder) {
                 if (TextUtils.isEmpty(a.a)) {
                     JSONObject i = j.i();
                     String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("r"), i.optString("s"));
@@ -71,10 +72,11 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0651a(iBinder);
+            return new C0662a(iBinder);
         }
 
         @Override // android.os.Binder
+        @SuppressLint({"WrongConstant"})
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             if (i != 1598968902) {
                 b bVar = null;
@@ -83,7 +85,7 @@ public interface c extends IInterface {
                 }
                 parcel.enforceInterface(a);
                 if (parcel.readInt() != 0) {
-                    bVar = (b) b.CREATOR.createFromParcel(parcel);
+                    bVar = b.CREATOR.createFromParcel(parcel);
                 }
                 a(bVar, d.a.a(parcel.readStrongBinder()));
                 parcel2.writeNoException();

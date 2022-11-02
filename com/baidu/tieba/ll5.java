@@ -1,59 +1,123 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import com.airbnb.lottie.ImageAssetDelegate;
+import com.airbnb.lottie.LottieImageAsset;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ll5 {
+/* loaded from: classes5.dex */
+public class ll5 implements ImageAssetDelegate {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
+    public String a;
+    public LocalFileImageLoaderProc b;
+    public boolean c;
 
-    public ll5(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946740, "Lcom/baidu/tieba/ll5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947946740, "Lcom/baidu/tieba/ll5;");
+                return;
+            }
+        }
+        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    }
+
+    public ll5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
-        this.b = R.color.CAM_X0305;
-        this.c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
-        this.d = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-        this.e = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
-        this.f = 0;
-        this.g = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
-        this.h = 0;
-        this.i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds26);
-        this.j = str;
+        this.c = false;
     }
 
-    public String a() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d + "/" + TbConfig.getTempDirName() + "/animation/";
         }
         return (String) invokeV.objValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = a() + str + "/";
+        }
+    }
+
+    @Override // com.airbnb.lottie.ImageAssetDelegate
+    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
+            if (wi.isEmpty(this.a)) {
+                return null;
+            }
+            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
+            hn hnVar = (hn) sg.h().n(str, 36, new Object[0]);
+            if (hnVar == null && b()) {
+                if (this.b == null) {
+                    this.b = new LocalFileImageLoaderProc();
+                }
+                hnVar = this.b.getBitmapFromFile(str, 0, 0);
+            }
+            if (hnVar != null && hnVar.p() != null) {
+                Bitmap p = hnVar.p();
+                try {
+                    if (p.getConfig() != null) {
+                        return p.copy(p.getConfig(), false);
+                    }
+                } catch (OutOfMemoryError e) {
+                    TbadkCoreApplication.getInst().onAppMemoryLow();
+                    BdLog.e(e);
+                }
+            }
+            sg.h().m(str, 36, null, null);
+            return null;
+        }
+        return (Bitmap) invokeL.objValue;
     }
 }

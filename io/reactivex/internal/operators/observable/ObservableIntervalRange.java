@@ -15,7 +15,7 @@ import io.reactivex.internal.schedulers.TrampolineScheduler;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableIntervalRange extends Observable {
+public final class ObservableIntervalRange extends Observable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long end;
@@ -26,15 +26,15 @@ public final class ObservableIntervalRange extends Observable {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class IntervalRangeObserver extends AtomicReference implements Disposable, Runnable {
+    public static final class IntervalRangeObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1891866368734007884L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super Long> actual;
         public long count;
         public final long end;
 
-        public IntervalRangeObserver(Observer observer, long j, long j2) {
+        public IntervalRangeObserver(Observer<? super Long> observer, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public final class ObservableIntervalRange extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Long> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             IntervalRangeObserver intervalRangeObserver = new IntervalRangeObserver(observer, this.start, this.end);

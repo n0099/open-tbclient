@@ -1,5 +1,6 @@
 package com.baidu.android.imrtc.send;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -88,6 +89,7 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -106,6 +108,7 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

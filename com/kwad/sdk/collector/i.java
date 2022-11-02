@@ -1,6 +1,8 @@
 package com.kwad.sdk.collector;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusRules;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,7 @@ public final class i {
         context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(a(strategy), j).apply();
     }
 
-    public static boolean a(Context context, AppStatusRules.Strategy strategy) {
+    public static boolean a(Context context, @NonNull AppStatusRules.Strategy strategy) {
         if (context == null) {
             return false;
         }
@@ -31,11 +33,12 @@ public final class i {
         return minLaunchIntervalWithMS <= 0 || j + minLaunchIntervalWithMS < currentTimeMillis;
     }
 
-    public static List c(AppStatusRules appStatusRules) {
+    public static List<AppStatusRules.Strategy> c(@Nullable AppStatusRules appStatusRules) {
         return appStatusRules == null ? new ArrayList() : appStatusRules.obtainNamedStrategyList();
     }
 
-    public static AppStatusRules.Strategy d(AppStatusRules appStatusRules) {
+    @NonNull
+    public static AppStatusRules.Strategy d(@Nullable AppStatusRules appStatusRules) {
         return appStatusRules == null ? AppStatusRules.Strategy.LOCAL_DEFAULT : appStatusRules.obtainDefaultStrategy();
     }
 }

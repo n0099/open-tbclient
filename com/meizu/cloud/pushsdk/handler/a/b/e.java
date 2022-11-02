@@ -17,7 +17,7 @@ public class e {
     public String f = "";
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public String a;
         public String b;
         public String c;

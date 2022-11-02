@@ -24,7 +24,7 @@ public final class ABTestHandler {
     public static ABTestHandler instance;
     public static boolean loaded;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile Map map;
+    public volatile Map<String, Integer> map;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +68,7 @@ public final class ABTestHandler {
         return (ABTestHandler) invokeV.objValue;
     }
 
-    public static void updateValue(Context context, Map map) {
+    public static void updateValue(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65547, null, context, map) == null) && map != null && !map.isEmpty()) {
             ThreadPool.getPool().execute(new Runnable(context, map) { // from class: com.yy.hiidostatis.config.ABTestHandler.1
@@ -111,7 +111,7 @@ public final class ABTestHandler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, aBNameDefine)) == null) {
-            Integer num = (Integer) getInstance().map.get(aBNameDefine.getName());
+            Integer num = getInstance().map.get(aBNameDefine.getName());
             if (num == null) {
                 return aBNameDefine.getDefaultValue();
             }
@@ -152,7 +152,7 @@ public final class ABTestHandler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aBNameDefine)) == null) {
-            Integer num = (Integer) getInstance().map.get(aBNameDefine.getName());
+            Integer num = getInstance().map.get(aBNameDefine.getName());
             if (num == null) {
                 if (aBNameDefine.getDefaultValue() == 2) {
                     return true;
@@ -186,14 +186,14 @@ public final class ABTestHandler {
         }
     }
 
-    public static void updateMemoryValue(Context context, Map map) {
+    public static void updateMemoryValue(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, map) == null) {
             if (!loaded) {
                 getInstance().loadConfig(context);
             }
-            for (Map.Entry entry : map.entrySet()) {
-                getInstance().map.put(entry.getKey(), Integer.valueOf(Integer.parseInt((String) entry.getValue())));
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                getInstance().map.put(entry.getKey(), Integer.valueOf(Integer.parseInt(entry.getValue())));
             }
         }
     }
@@ -255,17 +255,17 @@ public final class ABTestHandler {
         }
     }
 
-    public static void updateValueInner(Context context, Map map) {
+    public static void updateValueInner(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65549, null, context, map) == null) && map != null && !map.isEmpty()) {
             try {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : map.entrySet()) {
-                    if (((String) entry.getKey()).startsWith("hiido_")) {
-                        String[] split = ((String) entry.getKey()).split("_");
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (entry.getKey().startsWith("hiido_")) {
+                        String[] split = entry.getKey().split("_");
                         sb.append(split[split.length - 1]);
                         sb.append("=");
-                        sb.append((String) entry.getValue());
+                        sb.append(entry.getValue());
                         sb.append(ParamableElem.DIVIDE_PARAM);
                     }
                 }

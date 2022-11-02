@@ -2,6 +2,7 @@ package com.kwad.components.ad.reward.presenter.b;
 
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,14 +47,14 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911c6);
-            this.sT = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911c7);
-            this.sU = findViewById(R.id.obfuscated_res_0x7f09111c);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091200);
+            this.sT = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091201);
+            this.sU = findViewById(R.id.obfuscated_res_0x7f091156);
         }
     }
 
     @Override // com.kwad.sdk.core.webview.a.kwai.a
-    public final void a(com.kwad.sdk.core.webview.a.a.a aVar) {
+    public final void a(@Nullable com.kwad.sdk.core.webview.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
         }
@@ -74,7 +75,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
                 if (this.sV == null) {
                     this.sV = new t(this.bF, this.sU, this.nM.mApkDownloadHelper, this);
                 }
-                this.sV.a(this.nM.mAdTemplate, (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ca));
+                this.sV.a(this.nM.mAdTemplate, (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204));
             }
         }
     }

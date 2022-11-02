@@ -18,7 +18,7 @@ public interface IPCInvoke extends IInterface {
     Bundle asyncCall(Bundle bundle, IPCCallback iPCCallback) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class Stub extends Binder implements IPCInvoke {
+    public static abstract class Stub extends Binder implements IPCInvoke {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
         public static final int TRANSACTION_asyncCall = 1;
@@ -32,7 +32,7 @@ public interface IPCInvoke extends IInterface {
         }
 
         /* loaded from: classes8.dex */
-        public class Proxy implements IPCInvoke {
+        public static class Proxy implements IPCInvoke {
             public static /* synthetic */ Interceptable $ic;
             public static IPCInvoke sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +200,7 @@ public interface IPCInvoke extends IInterface {
     }
 
     /* loaded from: classes8.dex */
-    public class Default implements IPCInvoke {
+    public static class Default implements IPCInvoke {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

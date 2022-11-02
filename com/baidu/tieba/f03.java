@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+/* loaded from: classes4.dex */
 public class f03 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -28,97 +32,98 @@ public class f03 {
                 return;
             }
         }
-        a = wj1.a;
+        a = ok1.a;
     }
 
-    public static void a(Message message) {
-        Bundle bundle;
+    @SuppressLint({"BDThrowableCheck"})
+    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
+            e03 b = b(str);
+            if (b == null) {
+                if (!a) {
+                    c(i, str2, null);
+                    return;
+                }
+                throw new RuntimeException("Messenger创建代理类失败");
+            }
             if (a) {
-                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
+                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
             }
-            int i = message.arg1;
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
+            if (bundle == null) {
+                bundle = new Bundle();
             }
-            nz2.a(i, str2, str, bundle);
+            b.a = bundle;
+            b.b = i;
+            b.c = str2;
+            b.b(bundle);
         }
     }
 
-    public static void b(Message message) {
-        Bundle bundle;
+    @SuppressLint({"BDThrowableCheck"})
+    public static e03 b(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
-            }
-            nz2.a(-1000, str2, str, bundle);
-        }
-    }
-
-    public static void c(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
                 }
-                throw new RuntimeException("delegation msg obj is not a bundle");
+                return null;
             }
-            Bundle bundle = (Bundle) obj;
-            pz2 pz2Var = new pz2(bundle.getString("key_observer_id", ""));
-            pz2Var.setResult(bundle.getBundle("key_result_data"));
-            qz2.b().c(pz2Var);
-        }
-    }
-
-    public static void d(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null) {
+                    if (!a) {
+                        return null;
+                    }
+                    throw new RuntimeException("Messenger代理类不存在：" + str);
                 }
-                throw new RuntimeException("delegation msg obj is not a bundle");
+                int modifiers = cls.getModifiers();
+                if (e03.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
+                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+                    declaredConstructor.setAccessible(true);
+                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
+                    if (!(newInstance instanceof e03)) {
+                        if (!a) {
+                            return null;
+                        }
+                        throw new RuntimeException("Messenger代理类不是:" + e03.class.getName());
+                    }
+                    return (e03) newInstance;
+                }
+                if (!a) {
+                    return null;
+                }
+                throw new RuntimeException("Messenger代理类不合法：" + str);
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                if (!a) {
+                    return null;
+                }
+                e.printStackTrace();
+                throw new RuntimeException(e);
             }
-            Bundle bundle = (Bundle) obj;
-            pz2 pz2Var = new pz2(bundle.getString("key_observer_id", ""));
-            pz2Var.setResult(bundle.getBundle("key_result_data"));
-            qz2.b().c(pz2Var);
         }
+        return (e03) invokeL.objValue;
     }
 
-    public static void e(int i, Bundle bundle) {
+    public static void c(int i, String str, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
-            c03 e = c03.e();
-            e03 e03Var = new e03(126, bundle);
-            e03Var.a(i);
-            e.h(e03Var);
+        if ((interceptable != null && interceptable.invokeILL(65539, null, i, str, bundle) != null) || m03.a(str)) {
+            return;
         }
-    }
-
-    public static void f(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
-            c03.e().h(new e03(21, bundle));
+        if (a) {
+            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("key_observer_id", str);
+        if (bundle != null) {
+            bundle2.putBundle("key_result_data", bundle);
+        }
+        if (i == -1000) {
+            x03.f(bundle2);
+        } else {
+            x03.e(i, bundle2);
         }
     }
 }

@@ -30,7 +30,7 @@ public class fp {
     public byte[] b;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
 
@@ -83,7 +83,7 @@ public class fp {
     }
 
     /* loaded from: classes8.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -103,7 +103,7 @@ public class fp {
     }
 
     /* loaded from: classes8.dex */
-    public final class d implements b {
+    public static final class d implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

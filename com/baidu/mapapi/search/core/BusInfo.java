@@ -13,10 +13,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BusInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BusInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
+
+    @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +41,7 @@ public class BusInfo extends TransitBaseInfo {
                 return;
             }
         }
-        CREATOR = new a();
+        CREATOR = new b();
     }
 
     public BusInfo() {
@@ -46,6 +56,24 @@ public class BusInfo extends TransitBaseInfo {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public int getStopNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,28 +96,6 @@ public class BusInfo extends TransitBaseInfo {
         }
         this.a = parcel.readInt();
         this.b = parcel.readInt();
-    }
-
-    @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getStopNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public void setStopNum(int i) {

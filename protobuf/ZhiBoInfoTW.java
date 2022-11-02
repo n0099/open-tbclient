@@ -81,13 +81,13 @@ public final class ZhiBoInfoTW extends Message {
     public final Zan zan;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<ZhiBoInfoTW> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -100,7 +100,7 @@ public final class ZhiBoInfoTW extends Message {
         public Integer isHeadline;
         public Integer isHeadlineAvailable;
         public Integer isNewHeadline;
-        public List labels;
+        public List<LabelInfoForLivePost> labels;
         public Long lastModifiedTime;
         public String livecoverSrc;
         public String livecoverSrcBsize;
@@ -293,7 +293,7 @@ public final class ZhiBoInfoTW extends Message {
                 this.content = str5;
             }
             this.userInfo = builder.userInfo;
-            List list = builder.labels;
+            List<LabelInfoForLivePost> list = builder.labels;
             if (list == null) {
                 this.labels = DEFAULT_LABELS;
             } else {

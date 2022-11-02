@@ -9,11 +9,11 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudbase.download.exception.DownloadException;
-import com.baidu.tieba.b10;
 import com.baidu.tieba.c10;
-import com.baidu.tieba.d10;
 import com.baidu.tieba.g;
-import com.baidu.tieba.h10;
+import com.baidu.tieba.w00;
+import com.baidu.tieba.x00;
+import com.baidu.tieba.y00;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class CaptureDownloadService extends Service {
     public static final String EXTRA_TAG = "extra_tag";
     public static final String TAG = "CaptureDownloadService";
     public transient /* synthetic */ FieldHolder $fh;
-    public b10 mDownloadManager;
+    public w00 mDownloadManager;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -48,7 +48,7 @@ public class CaptureDownloadService extends Service {
     }
 
     /* loaded from: classes.dex */
-    public class a extends d10 {
+    public static class a extends y00 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -77,7 +77,7 @@ public class CaptureDownloadService extends Service {
             this.c = LocalBroadcastManager.getInstance(context);
         }
 
-        @Override // com.baidu.tieba.d10
+        @Override // com.baidu.tieba.y00
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -89,7 +89,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.d10
+        @Override // com.baidu.tieba.y00
         public void f(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
@@ -115,7 +115,7 @@ public class CaptureDownloadService extends Service {
             return invokeI.booleanValue;
         }
 
-        @Override // com.baidu.tieba.d10
+        @Override // com.baidu.tieba.y00
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -127,7 +127,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.d10
+        @Override // com.baidu.tieba.y00
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -137,7 +137,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.d10
+        @Override // com.baidu.tieba.y00
         public void g(long j, long j2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
@@ -147,7 +147,7 @@ public class CaptureDownloadService extends Service {
                 g gVar = this.b;
                 gVar.g = 3;
                 gVar.e = i;
-                gVar.f = h10.a(j, j2);
+                gVar.f = c10.a(j, j2);
                 if (i(i)) {
                     j(this.b);
                 }
@@ -199,7 +199,7 @@ public class CaptureDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mDownloadManager = b10.i();
+            this.mDownloadManager = w00.i();
         }
     }
 
@@ -274,7 +274,7 @@ public class CaptureDownloadService extends Service {
     private void download(int i, g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65542, this, i, gVar, str) == null) {
-            c10.a aVar = new c10.a();
+            x00.a aVar = new x00.a();
             aVar.d(gVar.d);
             this.mDownloadManager.f(aVar.a(), str, new a(i, gVar, getApplicationContext()));
         }

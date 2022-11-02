@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d28;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.n38;
 import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,26 +37,26 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public d28 d;
+    public n38 d;
     public int e;
     public PostData f;
     public View g;
-    public final Queue h;
+    public final Queue<b> h;
     public RelativeLayout i;
     public TextView j;
     public boolean k;
     public boolean l;
     public ViewGroup.MarginLayoutParams m;
-    public SparseArray n;
+    public SparseArray<Object> n;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -154,10 +154,10 @@ public class SubPbLayout extends ViewGroup {
         this.m = new ViewGroup.MarginLayoutParams(-1, -2);
         RelativeLayout relativeLayout = new RelativeLayout(context);
         this.i = relativeLayout;
-        relativeLayout.setId(R.id.obfuscated_res_0x7f0917ff);
+        relativeLayout.setId(R.id.obfuscated_res_0x7f091840);
         TextView textView = new TextView(context);
         this.j = textView;
-        textView.setPadding(0, fj.f(context, R.dimen.tbds_3), 0, fj.f(context, R.dimen.tbds12));
+        textView.setPadding(0, xi.g(context, R.dimen.tbds_3), 0, xi.g(context, R.dimen.tbds12));
         if (UbsABTestHelper.isPBPlanA()) {
             f();
         } else {
@@ -190,11 +190,11 @@ public class SubPbLayout extends ViewGroup {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            if ((i > 0 && (this.f.H() == 1 || this.f.H() == 3 || this.f.c0() > this.e)) || this.f.o0(this.l)) {
+            if ((i > 0 && (this.f.H() == 1 || this.f.H() == 3 || this.f.c0() > this.e)) || this.f.p0(this.l)) {
                 if (this.k) {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1242), Integer.valueOf(this.f.c0()));
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1260), Integer.valueOf(this.f.c0()));
                 } else {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1243), Integer.valueOf(this.f.c0()));
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1261), Integer.valueOf(this.f.c0()));
                 }
                 this.j.setText(format);
                 this.i.setOnClickListener(this.a);
@@ -203,8 +203,8 @@ public class SubPbLayout extends ViewGroup {
                     sparseArray = new SparseArray();
                     this.i.setTag(sparseArray);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f092059, this.f);
-                sparseArray.put(R.id.obfuscated_res_0x7f09205b, this.g);
+                sparseArray.put(R.id.obfuscated_res_0x7f0920a4, this.f);
+                sparseArray.put(R.id.obfuscated_res_0x7f0920a6, this.g);
                 this.i.setVisibility(0);
                 this.i.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             } else {
@@ -218,7 +218,7 @@ public class SubPbLayout extends ViewGroup {
         return invokeII.intValue;
     }
 
-    public final int c(List list, int i) {
+    public final int c(List<PostData> list, int i) {
         InterceptResult invokeLI;
         boolean z;
         boolean z2;
@@ -226,7 +226,7 @@ public class SubPbLayout extends ViewGroup {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i)) == null) {
             int count = ListUtils.getCount(list);
             this.e = count;
-            if (!this.f.u0()) {
+            if (!this.f.v0()) {
                 if (count <= 4) {
                     this.e = count;
                 } else {
@@ -265,32 +265,32 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray = new SparseArray();
                         childAt2.setTag(sparseArray);
                     }
-                    Object obj = sparseArray.get(R.id.obfuscated_res_0x7f092059);
+                    Object obj = sparseArray.get(R.id.obfuscated_res_0x7f0920a4);
                     PostData postData = this.f;
                     if (obj != postData) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092059, postData);
+                        sparseArray.put(R.id.obfuscated_res_0x7f0920a4, postData);
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205b, this.g);
-                    sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.TRUE);
-                    if (list.get(i4) != null && ((PostData) list.get(i4)).s() != null) {
-                        if (sparseArray.get(R.id.obfuscated_res_0x7f09205a) != list.get(i4)) {
-                            sparseArray.put(R.id.obfuscated_res_0x7f09205a, list.get(i4));
+                    sparseArray.put(R.id.obfuscated_res_0x7f0920a6, this.g);
+                    sparseArray.put(R.id.obfuscated_res_0x7f0920a0, Boolean.TRUE);
+                    if (list.get(i4) != null && list.get(i4).s() != null) {
+                        if (sparseArray.get(R.id.obfuscated_res_0x7f0920a5) != list.get(i4)) {
+                            sparseArray.put(R.id.obfuscated_res_0x7f0920a5, list.get(i4));
                         }
-                        sparseArray.put(R.id.obfuscated_res_0x7f092071, ((PostData) list.get(i4)).s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09206f, ((PostData) list.get(i4)).s().getPortrait());
-                        sparseArray.put(R.id.obfuscated_res_0x7f092070, ((PostData) list.get(i4)).s().getUserId());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09203c, list.get(i4));
+                        sparseArray.put(R.id.obfuscated_res_0x7f0920bd, list.get(i4).s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f0920bb, list.get(i4).s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f0920bc, list.get(i4).s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092087, list.get(i4));
                     }
-                    SparseArray sparseArray2 = this.n;
+                    SparseArray<Object> sparseArray2 = this.n;
                     if (sparseArray2 != null) {
                         sparseArray.put(-1, sparseArray2.get(-1));
                         sparseArray.put(-2, this.n.get(-2));
                         sparseArray.put(-3, this.n.get(-3));
                         sparseArray.put(-4, this.n.get(-4));
                     }
-                    d28.b bVar = (d28.b) sparseArray.get(R.id.obfuscated_res_0x7f092051);
-                    d28 d28Var = this.d;
-                    PostData postData2 = (PostData) list.get(i4);
+                    n38.b bVar = (n38.b) sparseArray.get(R.id.obfuscated_res_0x7f09209c);
+                    n38 n38Var = this.d;
+                    PostData postData2 = list.get(i4);
                     if (this.f.c0() <= list.size() && list.size() - i4 <= 1) {
                         z = false;
                     } else {
@@ -301,8 +301,8 @@ public class SubPbLayout extends ViewGroup {
                     } else {
                         z2 = false;
                     }
-                    d28Var.c(bVar, postData2, z, z2, false);
-                    bVar.e.setPadding(0, 0, 0, fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+                    n38Var.c(bVar, postData2, z, z2, false);
+                    bVar.e.setPadding(0, 0, 0, xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     if (UbsABTestHelper.isPBPlanA()) {
                         f();
                     } else {
@@ -344,9 +344,9 @@ public class SubPbLayout extends ViewGroup {
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (textView = this.j) != null) {
             textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
             if (this.k) {
-                nv4.d(this.j).v(R.color.CAM_X0304);
+                kw4.d(this.j).v(R.color.CAM_X0304);
             } else {
-                nv4.d(this.j).v(R.color.CAM_X0108);
+                kw4.d(this.j).v(R.color.CAM_X0108);
             }
         }
     }
@@ -357,9 +357,9 @@ public class SubPbLayout extends ViewGroup {
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (textView = this.j) != null) {
             textView.setTextSize(0, TbConfig.getTestContentSizeOfLzl());
             if (this.k) {
-                nv4.d(this.j).v(R.color.CAM_X0318);
+                kw4.d(this.j).v(R.color.CAM_X0318);
             } else {
-                nv4.d(this.j).v(R.color.CAM_X0108);
+                kw4.d(this.j).v(R.color.CAM_X0108);
             }
         }
     }
@@ -395,7 +395,7 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setDefaultTag(SparseArray sparseArray) {
+    public void setDefaultTag(SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, sparseArray) == null) {
             this.n = sparseArray;
@@ -416,10 +416,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(d28 d28Var) {
+    public void setSubPbAdapter(n38 n38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, d28Var) == null) {
-            this.d = d28Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, n38Var) == null) {
+            this.d = n38Var;
         }
     }
 
@@ -430,9 +430,9 @@ public class SubPbLayout extends ViewGroup {
         if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (postData = this.f) != null && postData.a0() != null) {
             int size = this.h.size();
             for (int i5 = 0; i5 < size; i5++) {
-                b bVar = (b) this.h.poll();
-                if (bVar.b.getParent() == null) {
-                    addViewInLayout(bVar.b, bVar.a, this.m, true);
+                b poll = this.h.poll();
+                if (poll.b.getParent() == null) {
+                    addViewInLayout(poll.b, poll.a, this.m, true);
                 }
             }
             int paddingLeft = getPaddingLeft();
@@ -479,7 +479,7 @@ public class SubPbLayout extends ViewGroup {
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             if (this.d != null && (postData = this.f) != null && postData.a0() != null) {
                 int size = View.MeasureSpec.getSize(i);
-                if (this.f.u0()) {
+                if (this.f.v0()) {
                     a0 = this.f.A();
                 } else {
                     a0 = this.f.a0();

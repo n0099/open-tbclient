@@ -1,43 +1,30 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.res.ColorStateList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ji4 implements Runnable {
+public class ji4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public ji4(int i) {
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getColor(i);
         }
-        this.a = i;
+        return invokeLI.intValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
+    public static ColorStateList b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = this.a) < 0) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return context.getColorStateList(i);
         }
-        try {
-            Thread.sleep(i);
-        } catch (Throwable unused) {
-        }
+        return (ColorStateList) invokeLI.objValue;
     }
 }

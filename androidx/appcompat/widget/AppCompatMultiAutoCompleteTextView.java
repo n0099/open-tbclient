@@ -8,6 +8,10 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.MultiAutoCompleteTextView;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
@@ -61,6 +65,8 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,6 +81,8 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +97,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatMultiAutoCompleteTextView(Context context) {
+    public AppCompatMultiAutoCompleteTextView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,7 +118,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatMultiAutoCompleteTextView(Context context, AttributeSet attributeSet) {
+    public AppCompatMultiAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f0400a5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,7 +139,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatMultiAutoCompleteTextView(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatMultiAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -187,7 +195,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.setBackgroundResource(i);
@@ -199,7 +207,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // android.widget.AutoCompleteTextView
-    public void setDropDownBackgroundResource(int i) {
+    public void setDropDownBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             setDropDownBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i));
@@ -207,7 +215,8 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -216,7 +225,8 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {

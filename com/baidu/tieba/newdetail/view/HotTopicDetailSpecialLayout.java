@@ -2,12 +2,13 @@ package com.baidu.tieba.newdetail.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ar7;
-import com.baidu.tieba.br7;
+import com.baidu.tieba.js7;
+import com.baidu.tieba.ks7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,7 +43,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailSpecialLayout(Context context, AttributeSet attributeSet) {
+    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +66,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailSpecialLayout(Context context, AttributeSet attributeSet, int i) {
+    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,8 +92,8 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ar7(tbPageContext));
-            arrayList.add(new br7(tbPageContext));
+            arrayList.add(new js7(tbPageContext));
+            arrayList.add(new ks7(tbPageContext));
             a(arrayList);
         }
     }

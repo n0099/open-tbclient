@@ -5,14 +5,14 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.ch5;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.jv6;
-import com.baidu.tieba.ub5;
-import com.baidu.tieba.uf8;
-import com.baidu.tieba.xb5;
-import com.baidu.tieba.xf8;
-import com.baidu.tieba.xg5;
+import com.baidu.tieba.eh8;
+import com.baidu.tieba.hh8;
+import com.baidu.tieba.qc5;
+import com.baidu.tieba.sw6;
+import com.baidu.tieba.tc5;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.vi5;
+import com.baidu.tieba.wg;
 import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,8 +23,8 @@ import java.util.HashMap;
 import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes5.dex */
-public class FrsRequestData extends OrmObject implements xb5, ub5 {
+/* loaded from: classes6.dex */
+public class FrsRequestData extends OrmObject implements tc5, qc5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -79,7 +79,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
     public int y;
     public int z;
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.pc5
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ub5
+    @Override // com.baidu.tieba.qc5
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ub5
+    @Override // com.baidu.tieba.qc5
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wb5
+    @Override // com.baidu.tieba.sc5
     public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ub5
+    @Override // com.baidu.tieba.qc5
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -238,7 +238,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wb5
+    @Override // com.baidu.tieba.sc5
     public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -461,7 +461,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
     public void setPushTid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            this.L = eh.g(str, 0L);
+            this.L = wg.g(str, 0L);
         }
     }
 
@@ -486,7 +486,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
         }
     }
 
-    @Override // com.baidu.tieba.zb5
+    @Override // com.baidu.tieba.vc5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -514,18 +514,18 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
             builder.yuelaou_locate = this.r;
             builder.sort_type = Integer.valueOf(this.x);
             builder.last_click_tid = Long.valueOf(this.w);
-            builder.app_pos = uf8.e().a();
+            builder.app_pos = eh8.e().a();
             builder.load_type = Integer.valueOf(this.y);
             builder.obj_locate = this.B;
             builder.obj_source = this.C;
             builder.is_selection = Integer.valueOf(this.D);
             builder.call_from = Integer.valueOf(this.E);
             builder.hot_thread_id = Long.valueOf(this.G);
-            String d = jv6.e().d("frs_feed");
+            String d = sw6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = xg5.g(d, xg5.f());
-            builder.ad_bear_sid_price = Double.valueOf(xg5.i());
-            builder.has_ad_bear = Integer.valueOf(xg5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = th5.g(d, th5.f());
+            builder.ad_bear_sid_price = Double.valueOf(th5.i());
+            builder.has_ad_bear = Integer.valueOf(th5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.A);
             builder2.load_count = Integer.valueOf(this.z);
@@ -534,7 +534,7 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.H);
             if (this.y != 1) {
-                str = xf8.f().d("FRS");
+                str = hh8.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.I;
@@ -542,9 +542,9 @@ public class FrsRequestData extends OrmObject implements xb5, ub5 {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.K);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = ch5.b();
+            builder.app_transmit_data = yh5.b();
             builder.push_tid = Long.valueOf(this.L);
-            yh5.c(builder, true, false, true);
+            vi5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

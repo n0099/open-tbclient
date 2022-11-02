@@ -58,7 +58,7 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
         TypeAdapter<?> treeTypeAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, constructorConstructor, gson, typeToken, jsonAdapter)) == null) {
-            Object construct = constructorConstructor.get(TypeToken.get(jsonAdapter.value())).construct();
+            Object construct = constructorConstructor.get(TypeToken.get((Class) jsonAdapter.value())).construct();
             if (construct instanceof TypeAdapter) {
                 treeTypeAdapter = (TypeAdapter) construct;
             } else if (construct instanceof TypeAdapterFactory) {

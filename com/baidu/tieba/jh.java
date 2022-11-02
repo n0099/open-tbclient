@@ -1,219 +1,374 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.os.IBinder;
-import android.view.View;
-import android.widget.PopupWindow;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
+import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class jh {
     public static /* synthetic */ Interceptable $ic;
+    public static jh d;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, b> a;
+    public HashMap<String, c> b;
+    public Handler c;
 
-    public static final boolean a(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !h(activity.getWindow().getDecorView())) {
-                return false;
+    /* loaded from: classes4.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jh jhVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jhVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            dialog.dismiss();
-            return true;
         }
-        return invokeLL.booleanValue;
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 5) {
+                Object obj = message.obj;
+                if ((obj instanceof b) && (bVar = (b) obj) != null) {
+                    bVar.i(false);
+                    bVar.h(false);
+                    bVar.g(0);
+                    bVar.j(System.currentTimeMillis());
+                }
+            }
+        }
     }
 
-    public static final boolean d(PopupWindow popupWindow, Activity activity) {
-        InterceptResult invokeLL;
+    /* loaded from: classes4.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public boolean b;
+        public int c;
+        public long d;
+        public boolean e;
+
+        public b(jh jhVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jhVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = false;
+            this.c = 0;
+            this.e = false;
+        }
+
+        public /* synthetic */ b(jh jhVar, a aVar) {
+            this(jhVar);
+        }
+
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.d;
+            }
+            return invokeV.longValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return invokeV.intValue;
+        }
+
+        public long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a;
+            }
+            return invokeV.longValue;
+        }
+
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.b;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.e;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void f(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.d = j;
+            }
+        }
+
+        public void g(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.c = i;
+            }
+        }
+
+        public void h(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+                this.b = z;
+            }
+        }
+
+        public void i(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+                this.e = z;
+            }
+        }
+
+        public void j(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.a = j;
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+
+        public c(jh jhVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jhVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void d(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.a = i;
+            }
+        }
+
+        public void e(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.b = i;
+            }
+        }
+
+        public void f(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.c = i;
+            }
+        }
+
+        public /* synthetic */ c(jh jhVar, a aVar) {
+            this(jhVar);
+        }
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    public jh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, popupWindow, activity)) == null) {
-            if (popupWindow != null && activity != null) {
-                if (g(activity) || !h(activity.getWindow().getDecorView())) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new a(this, Looper.getMainLooper());
+        c cVar = new c(this, null);
+        cVar.d(3000);
+        cVar.e(120000);
+        cVar.f(500);
+        this.b.put("net", cVar);
+        this.b.put("op", cVar);
+        this.b.put("stat", cVar);
+        this.b.put("crash", cVar);
+        this.b.put("pfmonitor", cVar);
+        c cVar2 = new c(this, null);
+        cVar2.d(3000);
+        cVar2.e(120000);
+        cVar2.f(1500);
+        this.b.put("file", cVar2);
+        this.b.put(IMTrackDatabase.DbEnum.TABLE_NAME, cVar2);
+        this.b.put("img", cVar2);
+        this.b.put("voice", cVar2);
+        this.b.put("error", cVar2);
+        c cVar3 = new c(this, null);
+        cVar3.d(3000);
+        cVar3.e(120000);
+        cVar3.f(1500);
+        this.b.put("dbg", cVar3);
+    }
+
+    public static jh c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (jh.class) {
+                    if (d == null) {
+                        d = new jh();
+                    }
+                }
+            }
+            return d;
+        }
+        return (jh) invokeV.objValue;
+    }
+
+    public synchronized boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this) {
+                c cVar = this.b.get(str);
+                if (cVar == null) {
                     return false;
                 }
-                popupWindow.dismiss();
-                return true;
-            }
-            return c(popupWindow);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean b(Dialog dialog, r9 r9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, dialog, r9Var)) == null) {
-            if (r9Var != null && r9Var.getPageActivity() != null) {
-                return a(dialog, r9Var.getPageActivity());
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean j(Dialog dialog, r9 r9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, dialog, r9Var)) == null) {
-            if (r9Var != null && r9Var.getPageActivity() != null) {
-                return i(dialog, r9Var.getPageActivity());
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean k(PopupWindow popupWindow, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, popupWindow, view2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAsDropDown(view2);
-                    return true;
-                } catch (Exception unused) {
+                b bVar = this.a.get(str);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (bVar == null) {
+                    bVar = new b(this, null);
+                    bVar.h(false);
+                    bVar.i(false);
+                    bVar.j(currentTimeMillis);
+                    this.a.put(str, bVar);
                 }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean c(PopupWindow popupWindow) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, popupWindow)) == null) {
-            if (popupWindow == null || g(popupWindow.getContentView().getContext()) || !h(popupWindow.getContentView())) {
-                return false;
-            }
-            popupWindow.dismiss();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (activity == null || g(activity)) {
-                return false;
-            }
-            if (!h(activity.getWindow().getDecorView()) && activity.getWindow().isActive()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean f(r9 r9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, r9Var)) == null) {
-            if (r9Var == null) {
-                return false;
-            }
-            return e(r9Var.getPageActivity());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (context instanceof Activity) {
-                return ((Activity) context).isFinishing();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
-            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
-                try {
-                    if (windowToken.isBinderAlive()) {
-                        if (windowToken.pingBinder()) {
+                b bVar2 = bVar;
+                if (bVar2.e()) {
+                    return true;
+                }
+                if (bVar2.d()) {
+                    bVar2.g(bVar2.b() + 1);
+                    if (currentTimeMillis - bVar2.a() < cVar.b()) {
+                        if (bVar2.b() >= cVar.c()) {
+                            bVar2.i(true);
+                            BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, VideoItemModel.TYPE_LOADING, str, new Object[0]);
+                            b(bVar2);
                             return true;
                         }
-                        return false;
+                    } else {
+                        bVar2.h(false);
+                        bVar2.g(0);
+                        bVar2.j(currentTimeMillis);
                     }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
+                } else if (currentTimeMillis - bVar2.c() < cVar.a()) {
+                    bVar2.h(true);
+                    bVar2.f(currentTimeMillis);
+                } else {
+                    bVar2.j(currentTimeMillis);
                 }
+                return false;
             }
-            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static final boolean i(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    public final void b(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
-            }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            if (activity.getWindow() != null && h(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused2) {
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            Message obtainMessage = this.c.obtainMessage();
+            obtainMessage.what = 5;
+            obtainMessage.obj = bVar;
+            this.c.removeMessages(5);
+            this.c.sendMessageDelayed(obtainMessage, 300000L);
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean l(PopupWindow popupWindow, View view2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65547, null, popupWindow, view2, i, i2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAsDropDown(view2, i, i2);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeLLII.booleanValue;
-    }
-
-    public static final boolean m(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAtLocation(view2, i, i2, i3);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
     }
 }

@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class n55 {
+public class n55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract p55 b(Context context);
-
-    public abstract void c(p55 p55Var);
-
-    public abstract void d(p55 p55Var);
+    public TbPageContext a;
+    public String b;
 
     public n55() {
         Interceptable interceptable = $ic;
@@ -31,15 +28,40 @@ public abstract class n55 {
         }
     }
 
-    public p55 a(Context context) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            p55 b = b(context);
-            d(b);
-            c(b);
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (p55) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public TbPageContext b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (TbPageContext) invokeV.objValue;
+    }
+
+    public n55(TbPageContext tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        this.b = str;
     }
 }

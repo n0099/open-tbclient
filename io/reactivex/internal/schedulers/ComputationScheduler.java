@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -29,7 +30,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     public static final RxThreadFactory THREAD_FACTORY;
     public static final String THREAD_NAME_PREFIX = "RxComputationThreadPool";
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference pool;
+    public final AtomicReference<FixedSchedulerPool> pool;
     public final ThreadFactory threadFactory;
 
     public static int cap(int i, int i2) {
@@ -39,7 +40,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     }
 
     /* loaded from: classes8.dex */
-    public final class EventLoopWorker extends Scheduler.Worker {
+    public static final class EventLoopWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ListCompositeDisposable both;
@@ -92,7 +93,8 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable)) == null) {
@@ -105,7 +107,8 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -119,7 +122,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     }
 
     /* loaded from: classes8.dex */
-    public final class FixedSchedulerPool implements SchedulerMultiWorkerSupport {
+    public static final class FixedSchedulerPool implements SchedulerMultiWorkerSupport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int cores;
@@ -198,7 +201,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     }
 
     /* loaded from: classes8.dex */
-    public final class PoolWorker extends NewThreadWorker {
+    public static final class PoolWorker extends NewThreadWorker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -266,11 +269,12 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     }
 
     @Override // io.reactivex.Scheduler
+    @NonNull
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new EventLoopWorker(((FixedSchedulerPool) this.pool.get()).getEventLoop());
+            return new EventLoopWorker(this.pool.get().getEventLoop());
         }
         return (Scheduler.Worker) invokeV.objValue;
     }
@@ -282,7 +286,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             do {
-                fixedSchedulerPool = (FixedSchedulerPool) this.pool.get();
+                fixedSchedulerPool = this.pool.get();
                 fixedSchedulerPool2 = NONE;
                 if (fixedSchedulerPool == fixedSchedulerPool2) {
                     return;
@@ -319,7 +323,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
             }
         }
         this.threadFactory = threadFactory;
-        this.pool = new AtomicReference(NONE);
+        this.pool = new AtomicReference<>(NONE);
         start();
     }
 
@@ -328,26 +332,28 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, workerCallback) == null) {
             ObjectHelper.verifyPositive(i, "number > 0 required");
-            ((FixedSchedulerPool) this.pool.get()).createWorkers(i, workerCallback);
+            this.pool.get().createWorkers(i, workerCallback);
         }
     }
 
     @Override // io.reactivex.Scheduler
-    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
+    @NonNull
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
-            return ((FixedSchedulerPool) this.pool.get()).getEventLoop().scheduleDirect(runnable, j, timeUnit);
+            return this.pool.get().getEventLoop().scheduleDirect(runnable, j, timeUnit);
         }
         return (Disposable) invokeCommon.objValue;
     }
 
     @Override // io.reactivex.Scheduler
-    public Disposable schedulePeriodicallyDirect(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    @NonNull
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
-            return ((FixedSchedulerPool) this.pool.get()).getEventLoop().schedulePeriodicallyDirect(runnable, j, j2, timeUnit);
+            return this.pool.get().getEventLoop().schedulePeriodicallyDirect(runnable, j, j2, timeUnit);
         }
         return (Disposable) invokeCommon.objValue;
     }

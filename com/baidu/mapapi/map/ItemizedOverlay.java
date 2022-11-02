@@ -12,6 +12,12 @@ public class ItemizedOverlay extends Overlay {
     public transient /* synthetic */ FieldHolder $fh;
     public MapView a;
 
+    public void reAddAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
     public ItemizedOverlay(Drawable drawable, MapView mapView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -27,21 +33,14 @@ public class ItemizedOverlay extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.c;
+        this.type = com.baidu.mapsdkplatform.comapi.map.i.c;
         this.a = mapView;
     }
 
     public void addItem(OverlayOptions overlayOptions) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, overlayOptions) == null) || overlayOptions == null || overlayOptions == null) {
-            return;
-        }
-        this.a.getMap().addOverlay(overlayOptions);
-    }
-
-    public void reAddAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, overlayOptions) == null) && overlayOptions != null && overlayOptions != null) {
+            this.a.getMap().addOverlay(overlayOptions);
         }
     }
 

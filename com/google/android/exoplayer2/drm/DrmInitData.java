@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.drm;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,13 +20,14 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 /* loaded from: classes7.dex */
-public final class DrmInitData implements Comparator, Parcelable {
+public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<DrmInitData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int hashCode;
     public final int schemeDataCount;
     public final SchemeData[] schemeDatas;
+    @Nullable
     public final String schemeType;
 
     @Override // android.os.Parcelable
@@ -39,9 +41,9 @@ public final class DrmInitData implements Comparator, Parcelable {
     }
 
     /* loaded from: classes7.dex */
-    public final class SchemeData implements Parcelable {
+    public static final class SchemeData implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SchemeData> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] data;
         public int hashCode;
@@ -72,7 +74,7 @@ public final class DrmInitData implements Comparator, Parcelable {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.drm.DrmInitData.SchemeData.1
+            CREATOR = new Parcelable.Creator<SchemeData>() { // from class: com.google.android.exoplayer2.drm.DrmInitData.SchemeData.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,6 +93,7 @@ public final class DrmInitData implements Comparator, Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public SchemeData createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -102,6 +105,7 @@ public final class DrmInitData implements Comparator, Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public SchemeData[] newArray(int i) {
                     InterceptResult invokeI;
@@ -276,7 +280,7 @@ public final class DrmInitData implements Comparator, Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.drm.DrmInitData.1
+        CREATOR = new Parcelable.Creator<DrmInitData>() { // from class: com.google.android.exoplayer2.drm.DrmInitData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -295,6 +299,7 @@ public final class DrmInitData implements Comparator, Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DrmInitData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -306,6 +311,7 @@ public final class DrmInitData implements Comparator, Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DrmInitData[] newArray(int i) {
                 InterceptResult invokeI;
@@ -379,7 +385,7 @@ public final class DrmInitData implements Comparator, Parcelable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DrmInitData(String str, List list) {
+    public DrmInitData(String str, List<SchemeData> list) {
         this(str, false, (SchemeData[]) list.toArray(new SchemeData[list.size()]));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -399,7 +405,7 @@ public final class DrmInitData implements Comparator, Parcelable {
         }
     }
 
-    public DrmInitData(String str, boolean z, SchemeData... schemeDataArr) {
+    public DrmInitData(@Nullable String str, boolean z, SchemeData... schemeDataArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -422,7 +428,7 @@ public final class DrmInitData implements Comparator, Parcelable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DrmInitData(String str, SchemeData... schemeDataArr) {
+    public DrmInitData(@Nullable String str, SchemeData... schemeDataArr) {
         this(str, true, schemeDataArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -443,7 +449,7 @@ public final class DrmInitData implements Comparator, Parcelable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DrmInitData(List list) {
+    public DrmInitData(List<SchemeData> list) {
         this(null, false, (SchemeData[]) list.toArray(new SchemeData[list.size()]));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -510,7 +516,7 @@ public final class DrmInitData implements Comparator, Parcelable {
         }
     }
 
-    public DrmInitData copyWithSchemeType(String str) {
+    public DrmInitData copyWithSchemeType(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {

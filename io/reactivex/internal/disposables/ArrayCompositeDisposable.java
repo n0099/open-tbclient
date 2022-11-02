@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes8.dex */
-public final class ArrayCompositeDisposable extends AtomicReferenceArray implements Disposable {
+public final class ArrayCompositeDisposable extends AtomicReferenceArray<Disposable> implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2746389416410565408L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,16 +36,16 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray impleme
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        Disposable disposable;
+        Disposable andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (get(0) != DisposableHelper.DISPOSED) {
                 int length = length();
                 for (int i = 0; i < length; i++) {
-                    Disposable disposable2 = (Disposable) get(i);
+                    Disposable disposable = get(i);
                     DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                    if (disposable2 != disposableHelper && (disposable = (Disposable) getAndSet(i, disposableHelper)) != DisposableHelper.DISPOSED && disposable != null) {
-                        disposable.dispose();
+                    if (disposable != disposableHelper && (andSet = getAndSet(i, disposableHelper)) != DisposableHelper.DISPOSED && andSet != null) {
+                        andSet.dispose();
                     }
                 }
             }
@@ -71,7 +71,7 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, disposable)) == null) {
             do {
-                disposable2 = (Disposable) get(i);
+                disposable2 = get(i);
                 if (disposable2 == DisposableHelper.DISPOSED) {
                     disposable.dispose();
                     return null;
@@ -88,7 +88,7 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, disposable)) == null) {
             do {
-                disposable2 = (Disposable) get(i);
+                disposable2 = get(i);
                 if (disposable2 == DisposableHelper.DISPOSED) {
                     disposable.dispose();
                     return false;

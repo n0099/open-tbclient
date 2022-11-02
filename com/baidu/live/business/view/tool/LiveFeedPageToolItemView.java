@@ -12,14 +12,13 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.view.CircleIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.rc0;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.qc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class LiveFeedPageToolItemView extends FrameLayout {
@@ -75,10 +74,10 @@ public class LiveFeedPageToolItemView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0551, (ViewGroup) this, true);
-            this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090e14);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ba);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090802);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0561, (ViewGroup) this, true);
+            this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090e43);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09240f);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090812);
             c();
         }
     }
@@ -86,8 +85,8 @@ public class LiveFeedPageToolItemView extends FrameLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rc0.f(this.a, ea0.c(getContext().getResources(), 19.0f), ea0.c(getContext().getResources(), 19.0f));
-            rc0.h(this.b, 1, 9.0f);
+            qc0.f(this.a, da0.c(getContext().getResources(), 19.0f), da0.c(getContext().getResources(), 19.0f));
+            qc0.h(this.b, 1, 9.0f);
         }
     }
 
@@ -111,13 +110,13 @@ public class LiveFeedPageToolItemView extends FrameLayout {
             }
             if (!(z2 | z3)) {
                 if (this.a.getHierarchy() != null) {
-                    ((GenericDraweeHierarchy) this.a.getHierarchy()).setUseGlobalColorFilter(false);
+                    this.a.getHierarchy().setUseGlobalColorFilter(false);
                 }
                 if (z) {
                     if (this.a.getTag() instanceof Boolean) {
                         this.a.setColorFilter(-1694498817);
                     } else if (this.a.getHierarchy() != null) {
-                        ((GenericDraweeHierarchy) this.a.getHierarchy()).setActualImageColorFilter(new PorterDuffColorFilter(-1694498817, PorterDuff.Mode.SRC_ATOP));
+                        this.a.getHierarchy().setActualImageColorFilter(new PorterDuffColorFilter(-1694498817, PorterDuff.Mode.SRC_ATOP));
                     }
                     this.b.setTextColor(-1694498817);
                     this.c.setBackgroundColor(-13619152);
@@ -137,7 +136,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
                             if (this.a.getTag() instanceof Boolean) {
                                 this.a.setColorFilter(CircleIndicator.NIGHT_COLOR_EMOTION_CIRCLE_INDICATOR_HIGHLIGHT);
                             } else if (this.a.getHierarchy() != null) {
-                                ((GenericDraweeHierarchy) this.a.getHierarchy()).setActualImageColorFilter(new PorterDuffColorFilter(CircleIndicator.NIGHT_COLOR_EMOTION_CIRCLE_INDICATOR_HIGHLIGHT, PorterDuff.Mode.SRC_ATOP));
+                                this.a.getHierarchy().setActualImageColorFilter(new PorterDuffColorFilter(CircleIndicator.NIGHT_COLOR_EMOTION_CIRCLE_INDICATOR_HIGHLIGHT, PorterDuff.Mode.SRC_ATOP));
                             }
                             this.b.setTextColor(CircleIndicator.NIGHT_COLOR_EMOTION_CIRCLE_INDICATOR_HIGHLIGHT);
                             this.c.setBackgroundColor(-13619152);
@@ -154,7 +153,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
                     if (this.a.getTag() instanceof Boolean) {
                         this.a.setColorFilter(-11382190);
                     } else if (this.a.getHierarchy() != null) {
-                        ((GenericDraweeHierarchy) this.a.getHierarchy()).setActualImageColorFilter(new PorterDuffColorFilter(-11382190, PorterDuff.Mode.SRC_ATOP));
+                        this.a.getHierarchy().setActualImageColorFilter(new PorterDuffColorFilter(-11382190, PorterDuff.Mode.SRC_ATOP));
                     }
                     this.b.setTextColor(-11382190);
                     this.c.setBackgroundColor(-1118482);
@@ -185,7 +184,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
                 this.a.setImageResource(i);
             }
             setData(str);
-            b(vc0.f().r(), z);
+            b(uc0.f().r(), z);
         }
     }
 
@@ -197,7 +196,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
                 simpleDraweeView.setImageURI(str);
             }
             setData(str2);
-            b(vc0.f().r(), z);
+            b(uc0.f().r(), z);
         }
     }
 }

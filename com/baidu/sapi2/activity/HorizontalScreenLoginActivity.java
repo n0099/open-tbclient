@@ -29,7 +29,7 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class AndroidBug5497Workaround {
+    public static class AndroidBug5497Workaround {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -253,7 +253,7 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
             ViewUtility.setOrientationToUndefined(this);
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04f5);
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
                 AndroidBug5497Workaround.assistActivity(this);
                 init();
                 setupViews();

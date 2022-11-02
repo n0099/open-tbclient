@@ -8,6 +8,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -133,7 +135,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         @Override // android.view.View, android.graphics.drawable.Drawable.Callback
-        public void invalidateDrawable(Drawable drawable) {
+        public void invalidateDrawable(@NonNull Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
                 invalidate(drawable.getBounds());
@@ -152,7 +154,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         @Override // android.view.View
-        public boolean verifyDrawable(Drawable drawable) {
+        public boolean verifyDrawable(@NonNull Drawable drawable) {
             InterceptResult invokeL;
             ArrayList<Drawable> arrayList;
             Interceptable interceptable = $ic;
@@ -250,6 +252,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             return (ViewParent) invokeLL.objValue;
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public ViewParent invalidateChildInParentFast(int i, int i2, Rect rect) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -337,7 +340,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     }
 
     @Override // androidx.transition.ViewOverlayImpl
-    public void add(Drawable drawable) {
+    public void add(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
             this.mOverlayViewGroup.add(drawable);
@@ -345,7 +348,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     }
 
     @Override // androidx.transition.ViewOverlayImpl
-    public void remove(Drawable drawable) {
+    public void remove(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
             this.mOverlayViewGroup.remove(drawable);

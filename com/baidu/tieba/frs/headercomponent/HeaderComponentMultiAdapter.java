@@ -4,10 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xo6;
+import com.baidu.tieba.gq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,21 +17,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentMultiAdapter extends RecyclerView.Adapter {
+public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<LiveFuseForumData> a;
     public Context b;
-    public xo6 c;
+    public gq6 c;
 
     /* loaded from: classes4.dex */
-    public class a extends RecyclerView.ViewHolder {
+    public static class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HeaderComponentMultiItemView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(View view2) {
+        public a(@NonNull View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -47,11 +48,11 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f0906b3);
+            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f0906c1);
         }
     }
 
-    public HeaderComponentMultiAdapter(Context context, List list) {
+    public HeaderComponentMultiAdapter(Context context, List<LiveFuseForumData> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,21 +74,22 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
-    public void onBindViewHolder(a aVar, int i) {
+    public void onBindViewHolder(@NonNull a aVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, aVar, i) == null) {
-            aVar.a.f((LiveFuseForumData) this.a.get(i), this.c);
+            aVar.a.g(this.a.get(i), this.c);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    @NonNull
     /* renamed from: f */
-    public a onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0315, (ViewGroup) null));
+            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0317, (ViewGroup) null));
         }
         return (a) invokeLI.objValue;
     }
@@ -109,10 +111,10 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter {
         return invokeV.intValue;
     }
 
-    public void g(xo6 xo6Var) {
+    public void g(gq6 gq6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xo6Var) == null) {
-            this.c = xo6Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, gq6Var) == null) {
+            this.c = gq6Var;
         }
     }
 }

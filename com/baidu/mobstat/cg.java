@@ -20,20 +20,19 @@ import java.nio.channels.ByteChannel;
 import java.nio.channels.SelectionKey;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes2.dex */
 public class cg implements ce {
     public static /* synthetic */ Interceptable $ic;
-    public static final List a;
+    public static final List<cj> a;
     public static int b;
     public static boolean c;
     public static final /* synthetic */ boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BlockingQueue d;
-    public final BlockingQueue e;
+    public final BlockingQueue<ByteBuffer> d;
+    public final BlockingQueue<ByteBuffer> e;
     public SelectionKey f;
     public ByteChannel g;
     public final ch i;
@@ -143,13 +142,12 @@ public class cg implements ce {
         }
     }
 
-    private void a(Collection collection) {
+    private void a(Collection<cw> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, collection) == null) {
             if (c()) {
-                Iterator it = collection.iterator();
-                while (it.hasNext()) {
-                    a((cw) it.next());
+                for (cw cwVar : collection) {
+                    a(cwVar);
                 }
                 return;
             }
@@ -168,19 +166,18 @@ public class cg implements ce {
                 } else {
                     z = false;
                 }
-                a((Collection) cjVar.a(byteBuffer, z));
+                a(cjVar.a(byteBuffer, z));
                 return;
             }
             throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
         }
     }
 
-    private void a(List list) {
+    private void a(List<ByteBuffer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                f((ByteBuffer) it.next());
+            for (ByteBuffer byteBuffer : list) {
+                f(byteBuffer);
             }
         }
     }

@@ -1,11 +1,14 @@
 package com.baidu.searchbox.common.security.ioc;
 
-import com.baidu.tieba.wi8;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tieba.gk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class HostAbilityRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -25,11 +28,12 @@ public class HostAbilityRuntime {
         }
     }
 
+    @Inject
     public static IHostStateAbiltiy getHostAbility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new wi8();
+            return new gk8();
         }
         return (IHostStateAbiltiy) invokeV.objValue;
     }

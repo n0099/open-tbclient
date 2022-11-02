@@ -25,18 +25,18 @@ public class AlaAttentionManager {
     public static final int ATTENTION_REQUEST_MAP_MAX_SIZE = 3;
     public static AlaAttentionManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mAttentionTaskMap;
-    public HashMap mUserAttentionRequestMap;
+    public HashMap<String, AttentionAsyncTask> mAttentionTaskMap;
+    public HashMap<String, LinkedList<AlaAttentionData>> mUserAttentionRequestMap;
 
     /* renamed from: com.baidu.ala.view.AlaAttentionManager$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public class AttentionAsyncTask extends BdAsyncTask {
+    public class AttentionAsyncTask extends BdAsyncTask<Integer, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String forumId;
@@ -186,8 +186,8 @@ public class AlaAttentionManager {
                 return;
             }
         }
-        this.mUserAttentionRequestMap = new HashMap();
-        this.mAttentionTaskMap = new HashMap();
+        this.mUserAttentionRequestMap = new HashMap<>();
+        this.mAttentionTaskMap = new HashMap<>();
     }
 
     public static AlaAttentionManager getInstance() {
@@ -207,9 +207,9 @@ public class AlaAttentionManager {
     }
 
     public void removeRequestListFirstByUid(String str) {
-        LinkedList linkedList;
+        LinkedList<AlaAttentionData> linkedList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (linkedList = (LinkedList) this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
             try {
                 linkedList.removeFirst();
             } catch (Exception unused) {
@@ -217,7 +217,7 @@ public class AlaAttentionManager {
         }
     }
 
-    private void addAttentionReqeustList(LinkedList linkedList, AlaAttentionData alaAttentionData) {
+    private void addAttentionReqeustList(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, linkedList, alaAttentionData) != null) || alaAttentionData == null) {
             return;
@@ -225,22 +225,22 @@ public class AlaAttentionManager {
         linkedList.add(alaAttentionData.m26clone());
     }
 
-    private void dealAttentionUpdateData(LinkedList linkedList, AlaAttentionData alaAttentionData) {
+    private void dealAttentionUpdateData(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, linkedList, alaAttentionData) == null) {
             if (linkedList.size() < 1) {
                 addAttentionReqeustList(linkedList, alaAttentionData);
                 return;
             }
-            AlaAttentionData alaAttentionData2 = (AlaAttentionData) linkedList.getLast();
-            if (alaAttentionData2.getPortrait().equals(alaAttentionData.getPortrait()) && alaAttentionData2.isAttention() == alaAttentionData.isAttention()) {
+            AlaAttentionData last = linkedList.getLast();
+            if (last.getPortrait().equals(alaAttentionData.getPortrait()) && last.isAttention() == alaAttentionData.isAttention()) {
                 if (!BdLog.isDebugMode()) {
                     return;
                 }
                 throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
             } else if (linkedList.size() < 3) {
                 addAttentionReqeustList(linkedList, alaAttentionData);
-            } else if (((AlaAttentionData) linkedList.get(1)).equals(alaAttentionData)) {
+            } else if (linkedList.get(1).equals(alaAttentionData)) {
                 linkedList.removeLast();
             }
         }
@@ -248,13 +248,13 @@ public class AlaAttentionManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void executeAttentionTask(String str) {
-        LinkedList linkedList;
+        LinkedList<AlaAttentionData> linkedList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && !StringUtils.isNull(str) && ((AttentionAsyncTask) this.mAttentionTaskMap.get(str)) == null && (linkedList = (LinkedList) this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && !StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
             AttentionAsyncTask attentionAsyncTask = new AttentionAsyncTask(this, null);
             this.mAttentionTaskMap.put(str, attentionAsyncTask);
             attentionAsyncTask.setPriority(2);
-            attentionAsyncTask.setAlaAttentionData((AlaAttentionData) linkedList.getFirst());
+            attentionAsyncTask.setAlaAttentionData(linkedList.getFirst());
             attentionAsyncTask.execute(new Integer[0]);
         }
     }
@@ -262,9 +262,9 @@ public class AlaAttentionManager {
     public void updateAttention(String str, AlaAttentionData alaAttentionData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, alaAttentionData) == null) && !StringUtils.isNull(str) && alaAttentionData != null && alaAttentionData.getPortrait() != null) {
-            LinkedList linkedList = (LinkedList) this.mUserAttentionRequestMap.get(str);
+            LinkedList<AlaAttentionData> linkedList = this.mUserAttentionRequestMap.get(str);
             if (linkedList == null) {
-                linkedList = new LinkedList();
+                linkedList = new LinkedList<>();
                 this.mUserAttentionRequestMap.put(str, linkedList);
             }
             dealAttentionUpdateData(linkedList, alaAttentionData);

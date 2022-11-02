@@ -16,6 +16,7 @@ import com.facebook.common.file.FileTree;
 import com.facebook.common.file.FileUtils;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import java.io.File;
 import java.io.IOException;
@@ -24,16 +25,18 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class DynamicDefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final String mBaseDirectoryName;
-    public final Supplier mBaseDirectoryPathSupplier;
+    public final Supplier<File> mBaseDirectoryPathSupplier;
     public final CacheErrorLogger mCacheErrorLogger;
+    @VisibleForTesting
     public volatile State mCurrentState;
     public final int mVersion;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class State {
+    public static class State {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -41,6 +44,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         @Nullable
         public final File rootDirectory;
 
+        @VisibleForTesting
         public State(@Nullable File file, @Nullable DiskStorage diskStorage) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -80,7 +84,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
     private void createStorage() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            File file = new File((File) this.mBaseDirectoryPathSupplier.get(), this.mBaseDirectoryName);
+            File file = new File(this.mBaseDirectoryPathSupplier.get(), this.mBaseDirectoryName);
             createRootDirectoryIfNecessary(file);
             this.mCurrentState = new State(file, new DefaultDiskStorage(file, this.mVersion, this.mCacheErrorLogger));
         }
@@ -108,6 +112,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         }
     }
 
+    @VisibleForTesting
     public void deleteOldStorageIfNecessary() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mCurrentState.delegate != null && this.mCurrentState.rootDirectory != null) {
@@ -115,6 +120,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         }
     }
 
+    @VisibleForTesting
     public synchronized DiskStorage get() throws IOException {
         InterceptResult invokeV;
         DiskStorage diskStorage;
@@ -143,7 +149,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
-    public Collection getEntries() throws IOException {
+    public Collection<DiskStorage.Entry> getEntries() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -206,7 +212,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         }
     }
 
-    public DynamicDefaultDiskStorage(int i, Supplier supplier, String str, CacheErrorLogger cacheErrorLogger) {
+    public DynamicDefaultDiskStorage(int i, Supplier<File> supplier, String str, CacheErrorLogger cacheErrorLogger) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,6 +274,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         return invokeLL.booleanValue;
     }
 
+    @VisibleForTesting
     public void createRootDirectoryIfNecessary(File file) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {

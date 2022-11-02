@@ -11,11 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.cache.common.CacheKey;
 import com.facebook.cache.disk.FileCache;
 import com.facebook.common.internal.AndroidPredicates;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;
+import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imageformat.ImageFormatChecker;
 import com.facebook.imagepipeline.animated.factory.AnimatedFactory;
@@ -33,6 +35,7 @@ import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.decoder.DefaultImageDecoder;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.drawable.DrawableFactory;
+import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.platform.PlatformDecoder;
 import com.facebook.imagepipeline.platform.PlatformDecoderFactory;
 import com.facebook.imagepipeline.producers.ExperimentalThreadHandoffProducerQueueImpl;
@@ -43,21 +46,23 @@ import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import com.facebook.imagepipeline.transcoder.MultiImageTranscoderFactory;
 import com.facebook.imagepipeline.transcoder.SimpleImageTranscoderFactory;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.NotThreadSafe;
+@NotThreadSafe
 /* loaded from: classes7.dex */
 public class ImagePipelineFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public static boolean sForceSinglePipelineInstance;
     public static ImagePipeline sImagePipeline;
     public static ImagePipelineFactory sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public AnimatedFactory mAnimatedFactory;
-    public CountingMemoryCache mBitmapCountingMemoryCache;
-    public InstrumentedMemoryCache mBitmapMemoryCache;
+    public CountingMemoryCache<CacheKey, CloseableImage> mBitmapCountingMemoryCache;
+    public InstrumentedMemoryCache<CacheKey, CloseableImage> mBitmapMemoryCache;
     public final CloseableReferenceFactory mCloseableReferenceFactory;
     public final ImagePipelineConfig mConfig;
-    public CountingMemoryCache mEncodedCountingMemoryCache;
-    public InstrumentedMemoryCache mEncodedMemoryCache;
+    public CountingMemoryCache<CacheKey, PooledByteBuffer> mEncodedCountingMemoryCache;
+    public InstrumentedMemoryCache<CacheKey, PooledByteBuffer> mEncodedMemoryCache;
     public ImageDecoder mImageDecoder;
     public ImagePipeline mImagePipeline;
     public ImageTranscoderFactory mImageTranscoderFactory;
@@ -122,7 +127,7 @@ public class ImagePipelineFactory {
         return (CloseableReferenceFactory) invokeV.objValue;
     }
 
-    public CountingMemoryCache getEncodedCountingMemoryCache() {
+    public CountingMemoryCache<CacheKey, PooledByteBuffer> getEncodedCountingMemoryCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -315,7 +320,7 @@ public class ImagePipelineFactory {
         }
     }
 
-    public CountingMemoryCache getBitmapCountingMemoryCache() {
+    public CountingMemoryCache<CacheKey, CloseableImage> getBitmapCountingMemoryCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -327,9 +332,9 @@ public class ImagePipelineFactory {
         return (CountingMemoryCache) invokeV.objValue;
     }
 
-    public InstrumentedMemoryCache getBitmapMemoryCache() {
+    public InstrumentedMemoryCache<CacheKey, CloseableImage> getBitmapMemoryCache() {
         InterceptResult invokeV;
-        MemoryCache bitmapCountingMemoryCache;
+        MemoryCache<CacheKey, CloseableImage> bitmapCountingMemoryCache;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mBitmapMemoryCache == null) {
@@ -345,9 +350,9 @@ public class ImagePipelineFactory {
         return (InstrumentedMemoryCache) invokeV.objValue;
     }
 
-    public InstrumentedMemoryCache getEncodedMemoryCache() {
+    public InstrumentedMemoryCache<CacheKey, PooledByteBuffer> getEncodedMemoryCache() {
         InterceptResult invokeV;
-        MemoryCache encodedCountingMemoryCache;
+        MemoryCache<CacheKey, PooledByteBuffer> encodedCountingMemoryCache;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.mEncodedMemoryCache == null) {

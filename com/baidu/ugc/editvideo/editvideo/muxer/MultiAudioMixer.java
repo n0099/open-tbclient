@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.editvideo.muxer;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih9;
+import com.baidu.tieba.ri9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public abstract class MultiAudioMixer {
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.muxer.MultiAudioMixer$1  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -100,7 +100,7 @@ public abstract class MultiAudioMixer {
                 }
                 for (int i = 0; i < bArr.length; i++) {
                     if (bArr[i].length != bArr2.length) {
-                        ih9.d("column of the road of audio + " + i + " is diffrent.");
+                        ri9.d("column of the road of audio + " + i + " is diffrent.");
                         return null;
                     }
                 }

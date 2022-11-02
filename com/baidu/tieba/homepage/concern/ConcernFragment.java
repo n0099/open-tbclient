@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.concern;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,22 +29,22 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.hh;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.lp8;
-import com.baidu.tieba.pi6;
-import com.baidu.tieba.pu4;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.pt4;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.ys4;
+import com.baidu.tieba.vq8;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.zg;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +58,7 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes4.dex */
-public class ConcernFragment extends BaseFragment implements pi6 {
+public class ConcernFragment extends BaseFragment implements zj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
@@ -70,23 +71,23 @@ public class ConcernFragment extends BaseFragment implements pi6 {
     public CustomMessageListener h;
     public final CustomMessageListener i;
     public final CustomMessageListener j;
-    public final qb k;
+    public final pb k;
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.zc5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vd5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a038" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -136,8 +137,8 @@ public class ConcernFragment extends BaseFragment implements pi6 {
                 int i;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int k = fj.k(TbadkCoreApplication.getInst());
-                    int i2 = fj.i(TbadkCoreApplication.getInst());
+                    int l = xi.l(TbadkCoreApplication.getInst());
+                    int j = xi.j(TbadkCoreApplication.getInst());
                     float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     if (TbImageHelper.getInstance().isShowBigImage()) {
                         i = 2;
@@ -146,7 +147,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
                     }
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                     requestGetMyPostNetMessage.setProZone(this.a.getProZone());
-                    requestGetMyPostNetMessage.setParams(this.b, this.c, this.d, k, i2, f, i);
+                    requestGetMyPostNetMessage.setParams(this.b, this.c, this.d, l, j, f, i);
                     requestGetMyPostNetMessage.setCallFrom(1);
                     this.e.a.sendMessage(requestGetMyPostNetMessage);
                 }
@@ -176,21 +177,21 @@ public class ConcernFragment extends BaseFragment implements pi6 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PostWriteCallBackData postWriteCallBackData;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
-                long g = eh.g(postWriteCallBackData.getPostId(), 0L);
-                long g2 = eh.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = eh.g(lp8.k().l(), 0L);
+                long g = wg.g(postWriteCallBackData.getPostId(), 0L);
+                long g2 = wg.g(postWriteCallBackData.getThreadId(), 0L);
+                long g3 = wg.g(vq8.k().l(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
-                    hh.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
+                    zg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
                     WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                    ys4 ys4Var = new ys4();
-                    ys4Var.parseFromWriteData(writeData);
+                    pt4 pt4Var = new pt4();
+                    pt4Var.parseFromWriteData(writeData);
                     if (this.a.a != null && this.a.a.E()) {
-                        this.a.a.B(ys4Var);
+                        this.a.a.B(pt4Var);
                     }
                 }
             }
@@ -240,8 +241,8 @@ public class ConcernFragment extends BaseFragment implements pi6 {
                 int i;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int k = fj.k(TbadkCoreApplication.getInst());
-                    int i2 = fj.i(TbadkCoreApplication.getInst());
+                    int l = xi.l(TbadkCoreApplication.getInst());
+                    int j = xi.j(TbadkCoreApplication.getInst());
                     float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     if (TbImageHelper.getInstance().isShowBigImage()) {
                         i = 2;
@@ -250,7 +251,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
                     }
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                     requestGetMyPostNetMessage.setProZone(this.a.getProZone());
-                    requestGetMyPostNetMessage.setParams(this.b, this.c, this.d, k, i2, f, i);
+                    requestGetMyPostNetMessage.setParams(this.b, this.c, this.d, l, j, f, i);
                     requestGetMyPostNetMessage.setCallFrom(1);
                     this.e.a.sendMessage(requestGetMyPostNetMessage);
                 }
@@ -280,21 +281,21 @@ public class ConcernFragment extends BaseFragment implements pi6 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PostWriteCallBackData postWriteCallBackData;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
-                long g = eh.g(postWriteCallBackData.getPostId(), 0L);
-                long g2 = eh.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = eh.g(lp8.k().l(), 0L);
+                long g = wg.g(postWriteCallBackData.getPostId(), 0L);
+                long g2 = wg.g(postWriteCallBackData.getThreadId(), 0L);
+                long g3 = wg.g(vq8.k().l(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
-                    hh.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
+                    zg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
                     WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                    ys4 ys4Var = new ys4();
-                    ys4Var.parseFromWriteData(writeData);
+                    pt4 pt4Var = new pt4();
+                    pt4Var.parseFromWriteData(writeData);
                     if (this.a.a != null && this.a.a.E()) {
-                        this.a.a.B(ys4Var);
+                        this.a.a.B(pt4Var);
                     }
                 }
             }
@@ -330,14 +331,14 @@ public class ConcernFragment extends BaseFragment implements pi6 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Message<?> message;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof UpdateAttentionMessage)) {
                 return;
             }
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() != null && ((UpdateAttentionMessage.a) updateAttentionMessage.getData()).c != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.a.getUniqueId()) && ((UpdateAttentionMessage.a) updateAttentionMessage.getData()).i != null && AntiHelper.t(this.a.getActivity(), ((UpdateAttentionMessage.a) updateAttentionMessage.getData()).i, this.a.g) != null) {
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().c != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.a.getUniqueId()) && updateAttentionMessage.getData().i != null && AntiHelper.t(this.a.getActivity(), updateAttentionMessage.getData().i, this.a.g) != null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -368,17 +369,17 @@ public class ConcernFragment extends BaseFragment implements pi6 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(pu4 pu4Var) {
+        public void onNavigationButtonClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(pu4 pu4Var) {
+        public void onPositiveButtonClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iv4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -413,7 +414,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && this.a.a.E()) {
                 this.a.a.O();
@@ -422,7 +423,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
     }
 
     /* loaded from: classes4.dex */
-    public class f extends qb {
+    public class f extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ConcernFragment a;
@@ -451,11 +452,11 @@ public class ConcernFragment extends BaseFragment implements pi6 {
 
         /* JADX WARN: Removed duplicated region for block: B:13:0x0027  */
         /* JADX WARN: Removed duplicated region for block: B:22:0x0059  */
-        @Override // com.baidu.tieba.qb
+        @Override // com.baidu.tieba.pb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMessage(ResponsedMessage responsedMessage) {
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             String errorString;
             String errorString2;
@@ -468,7 +469,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
                         if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                             GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c68);
+                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c7f);
                             } else {
                                 errorString2 = getMyPostHttpResponseMessage.getErrorString();
                             }
@@ -480,7 +481,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
                         } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                             GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c68);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c7f);
                             } else {
                                 errorString = getMyPostSocketResponseMessage.getErrorString();
                             }
@@ -523,6 +524,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
         this.k = new f(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
     }
 
+    @SuppressLint({"ValidFragment"})
     public ConcernFragment(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -562,7 +564,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
         }
     }
 
-    public void w1(ConcernPageView.o oVar) {
+    public void x1(ConcernPageView.o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, oVar) == null) {
             this.b = oVar;
@@ -596,7 +598,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -650,7 +652,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void t() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
@@ -675,8 +677,8 @@ public class ConcernFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.zc5
-    public List getCurrentPageSourceKeyList() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vd5
+    public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -706,7 +708,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
                 this.a.L();
             }
             this.d = true;
-            s95.e().b();
+            la5.e().b();
         }
     }
 
@@ -764,7 +766,7 @@ public class ConcernFragment extends BaseFragment implements pi6 {
             }
             tbclient.GetMyPost.DataRes dataRes = getMyPostResIdl.data;
             if (dataRes != null && dataRes.thread_info != null) {
-                ys4 ys4Var = new ys4();
+                pt4 pt4Var = new pt4();
                 ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
                 User.Builder builder2 = new User.Builder(builder.author);
                 v1(builder2, getMyPostResIdl.data.user_info);
@@ -776,10 +778,10 @@ public class ConcernFragment extends BaseFragment implements pi6 {
                 if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                     builder.author = builder2.build(true);
                 }
-                builder.fname = lp8.k().m();
-                builder.fid = Long.valueOf(eh.g(lp8.k().m(), 0L));
-                ys4Var.parserProtobuf(builder.build(true));
-                this.a.C(ys4Var, true);
+                builder.fname = vq8.k().m();
+                builder.fid = Long.valueOf(wg.g(vq8.k().m(), 0L));
+                pt4Var.parserProtobuf(builder.build(true));
+                this.a.C(pt4Var, true);
             }
         }
     }

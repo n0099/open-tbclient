@@ -16,7 +16,7 @@ public class ThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueu
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
     public boolean mQueueing;
-    public final Deque mRunnableList;
+    public final Deque<Runnable> mRunnableList;
 
     public ThreadHandoffProducerQueueImpl(Executor executor) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class ThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             while (!this.mRunnableList.isEmpty()) {
-                this.mExecutor.execute((Runnable) this.mRunnableList.pop());
+                this.mExecutor.execute(this.mRunnableList.pop());
             }
             this.mRunnableList.clear();
         }

@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.time.MonotonicClock;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfNotifier;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfState;
@@ -22,13 +24,13 @@ import com.facebook.fresco.ui.common.OnDrawControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class ImagePerfControllerListener2 extends BaseControllerListener2 implements OnDrawControllerListener {
+public class ImagePerfControllerListener2 extends BaseControllerListener2<ImageInfo> implements OnDrawControllerListener<ImageInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ImagePerfControllerListener2";
     public static final int WHAT_STATUS = 1;
     public static final int WHAT_VISIBILITY = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Supplier mAsyncLogging;
+    public final Supplier<Boolean> mAsyncLogging;
     public final MonotonicClock mClock;
     @Nullable
     public Handler mHandler;
@@ -36,13 +38,13 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2 implem
     public final ImagePerfState mImagePerfState;
 
     /* loaded from: classes7.dex */
-    public class LogHandler extends Handler {
+    public static class LogHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ImagePerfNotifier mNotifier;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LogHandler(Looper looper, ImagePerfNotifier imagePerfNotifier) {
+        public LogHandler(@NonNull Looper looper, @NonNull ImagePerfNotifier imagePerfNotifier) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -63,7 +65,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2 implem
         }
 
         @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        public void handleMessage(@NonNull Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i = message.what;
@@ -79,7 +81,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2 implem
         }
     }
 
-    public ImagePerfControllerListener2(MonotonicClock monotonicClock, ImagePerfState imagePerfState, ImagePerfNotifier imagePerfNotifier, Supplier supplier) {
+    public ImagePerfControllerListener2(MonotonicClock monotonicClock, ImagePerfState imagePerfState, ImagePerfNotifier imagePerfNotifier, Supplier<Boolean> supplier) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +120,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2 implem
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            boolean booleanValue = ((Boolean) this.mAsyncLogging.get()).booleanValue();
+            boolean booleanValue = this.mAsyncLogging.get().booleanValue();
             if (booleanValue && this.mHandler == null) {
                 initHandler();
             }
@@ -127,6 +129,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2 implem
         return invokeV.booleanValue;
     }
 
+    @VisibleForTesting
     private void reportViewInvisible(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
@@ -166,6 +169,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2 implem
         }
     }
 
+    @VisibleForTesting
     public void reportViewVisible(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
@@ -206,7 +210,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2 implem
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, extras) == null) {
             long now = this.mClock.now();
-            extras.f1068view.size();
+            extras.f1069view.size();
             this.mImagePerfState.setExtraData(extras);
             this.mImagePerfState.setControllerFinalImageSetTimeMs(now);
             this.mImagePerfState.setImageRequestEndTimeMs(now);

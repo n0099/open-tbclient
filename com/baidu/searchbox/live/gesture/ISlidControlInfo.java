@@ -27,7 +27,7 @@ public interface ISlidControlInfo {
     boolean isSlideRecover();
 
     /* loaded from: classes2.dex */
-    public class SimpleControlInfo implements ISlidControlInfo {
+    public static class SimpleControlInfo implements ISlidControlInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;

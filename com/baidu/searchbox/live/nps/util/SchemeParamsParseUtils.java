@@ -53,7 +53,7 @@ public class SchemeParamsParseUtils {
         return (String) invokeL.objValue;
     }
 
-    public static Map paramsJsonToMap(JSONObject jSONObject) {
+    public static Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
@@ -76,7 +76,7 @@ public class SchemeParamsParseUtils {
         return (Map) invokeL.objValue;
     }
 
-    public static HashMap stringToMap(String str) {
+    public static HashMap<String, String> stringToMap(String str) {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class SchemeParamsParseUtils {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             for (String str3 : str.split("&")) {
                 String[] split = str3.split("=");
                 try {
@@ -103,35 +103,35 @@ public class SchemeParamsParseUtils {
         return (HashMap) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v10. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.Map] */
-    public static Map parseYYLiveParamMap(String str) {
+    public static Map<String, String> parseYYLiveParamMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             HashMap hashMap = new HashMap();
-            HashMap stringToMap = stringToMap(getParamsStr(str));
-            HashMap hashMap2 = stringToMap;
+            HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
+            Map map = stringToMap;
             if (stringToMap != null) {
                 boolean containsKey = stringToMap.containsKey("params");
-                hashMap2 = stringToMap;
+                map = stringToMap;
                 if (containsKey) {
                     try {
-                        String str2 = (String) stringToMap.get("params");
+                        String str2 = stringToMap.get("params");
                         if (str2 != null) {
-                            hashMap2 = paramsJsonToMap(new JSONObject(str2));
+                            map = paramsJsonToMap(new JSONObject(str2));
                         }
                     } catch (Exception unused) {
                     }
-                    hashMap2 = null;
+                    map = null;
                 }
             }
-            if (hashMap2 != null) {
-                String str3 = (String) hashMap2.get("sid");
-                String str4 = (String) hashMap2.get(YyLiveRoomConfig.KEY_SSID);
-                String str5 = (String) hashMap2.get("anchorUid");
-                String str6 = (String) hashMap2.get("templateId");
-                String str7 = (String) hashMap2.get(YyLiveRoomConfig.KEY_STREAMINFO);
+            if (map != null) {
+                String str3 = map.get("sid");
+                String str4 = map.get(YyLiveRoomConfig.KEY_SSID);
+                String str5 = map.get("anchorUid");
+                String str6 = map.get("templateId");
+                String str7 = map.get(YyLiveRoomConfig.KEY_STREAMINFO);
                 if (str.contains("isMix=1")) {
                     hashMap.put("PreJoinChannelType", "mix");
                 } else {
@@ -148,16 +148,14 @@ public class SchemeParamsParseUtils {
         return (Map) invokeL.objValue;
     }
 
-    public static Uri setUriParam(Uri uri, List list, boolean z) {
+    public static Uri setUriParam(Uri uri, List<Pair<String, String>> list, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, uri, list, z)) == null) {
             if (uri != null && list != null && list.size() != 0) {
                 HashSet<String> hashSet = new HashSet(uri.getQueryParameterNames());
                 Uri.Builder clearQuery = uri.buildUpon().clearQuery();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    Pair pair = (Pair) it.next();
+                for (Pair<String, String> pair : list) {
                     if (pair != null && !TextUtils.isEmpty((CharSequence) pair.first)) {
                         boolean remove = hashSet.remove(pair.first);
                         if (remove && !z) {

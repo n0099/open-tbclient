@@ -1,14 +1,15 @@
 package com.kwad.sdk.crash.report.request;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.report.ReportEvent;
 import com.kwad.sdk.crash.utils.d;
 import java.util.Calendar;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
-    public static ReportEvent c(ExceptionMessage exceptionMessage) {
+    public static ReportEvent c(@NonNull ExceptionMessage exceptionMessage) {
         ReportEvent reportEvent = new ReportEvent();
         reportEvent.clientIncrementId = d.uH();
         reportEvent.clientTimeStamp = exceptionMessage.mCurrentTimeStamp;

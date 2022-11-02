@@ -140,7 +140,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public class BdOauthLoginParams {
+    public static class BdOauthLoginParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BdOauthCallback callback;
@@ -164,7 +164,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public class CallBacks {
+    public static class CallBacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SapiWebView.AccountDestoryCallback accountDestoryCallback;
@@ -255,7 +255,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public class DirectedLoginParams {
+    public static class DirectedLoginParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String displayname;
@@ -278,7 +278,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class FingerprintCallback {
+    public static abstract class FingerprintCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -300,7 +300,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class FingerprintResult {
+    public static abstract class FingerprintResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int authType;
@@ -324,7 +324,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class FocusEdittextCoordinateYCallBack {
+    public static abstract class FocusEdittextCoordinateYCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -346,10 +346,10 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public class JoinLoginParams {
+    public static class JoinLoginParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public LinkedHashMap agreement;
+        public LinkedHashMap<String, String> agreement;
         public boolean hasThirdAccount;
 
         public JoinLoginParams() {
@@ -368,7 +368,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class ShareV2LoginParams {
+    public static abstract class ShareV2LoginParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject pageParams;
@@ -393,7 +393,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class SpeechRecognitionResult {
+    public static abstract class SpeechRecognitionResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

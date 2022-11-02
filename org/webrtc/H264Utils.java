@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class H264Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static VideoCodecInfo DEFAULT_H264_BASELINE_PROFILE_CODEC = null;
@@ -25,7 +25,7 @@ public class H264Utils {
     public static final String H264_PROFILE_CONSTRAINED_HIGH = "640c";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static native boolean nativeIsSameH264Profile(Map map, Map map2);
+    public static native boolean nativeIsSameH264Profile(Map<String, String> map, Map<String, String> map2);
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class H264Utils {
         }
     }
 
-    public static Map getDefaultH264Params(boolean z) {
+    public static Map<String, String> getDefaultH264Params(boolean z) {
         InterceptResult invokeZ;
         String str;
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class H264Utils {
         return (Map) invokeZ.objValue;
     }
 
-    public static boolean isSameH264Profile(Map map, Map map2) {
+    public static boolean isSameH264Profile(Map<String, String> map, Map<String, String> map2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, map2)) == null) {

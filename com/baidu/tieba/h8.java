@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
 /* loaded from: classes4.dex */
-public class h8 extends b7 {
+public class h8<T> extends b7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object[] e;
-    public Object[] f;
+    public T[] e;
+    public T[] f;
     public int g;
 
     public h8() {
@@ -48,28 +48,28 @@ public class h8 extends b7 {
         }
     }
 
-    public Object[] p() {
+    public T[] p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             r();
-            Object[] objArr = this.a;
-            this.e = objArr;
+            T[] tArr = this.a;
+            this.e = tArr;
             this.g++;
-            return objArr;
+            return tArr;
         }
-        return (Object[]) invokeV.objValue;
+        return (T[]) ((Object[]) invokeV.objValue);
     }
 
     @Override // com.baidu.tieba.b7
-    public Object pop() {
+    public T pop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             r();
-            return super.pop();
+            return (T) super.pop();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,18 +114,18 @@ public class h8 extends b7 {
     }
 
     @Override // com.baidu.tieba.b7
-    public Object i(int i) {
+    public T i(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             r();
-            return super.i(i);
+            return (T) super.i(i);
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
     @Override // com.baidu.tieba.b7
-    public void sort(Comparator comparator) {
+    public void sort(Comparator<? super T> comparator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, comparator) == null) {
             r();
@@ -134,31 +134,31 @@ public class h8 extends b7 {
     }
 
     @Override // com.baidu.tieba.b7
-    public void insert(int i, Object obj) {
+    public void insert(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, t) == null) {
             r();
-            super.insert(i, obj);
+            super.insert(i, t);
         }
     }
 
     @Override // com.baidu.tieba.b7
-    public boolean j(Object obj, boolean z) {
+    public boolean j(T t, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, obj, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, t, z)) == null) {
             r();
-            return super.j(obj, z);
+            return super.j(t, z);
         }
         return invokeLZ.booleanValue;
     }
 
     @Override // com.baidu.tieba.b7
-    public void l(int i, Object obj) {
+    public void l(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, t) == null) {
             r();
-            super.l(i, obj);
+            super.l(i, t);
         }
     }
 
@@ -167,13 +167,13 @@ public class h8 extends b7 {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             int max = Math.max(0, this.g - 1);
             this.g = max;
-            Object[] objArr = this.e;
-            if (objArr == null) {
+            T[] tArr = this.e;
+            if (tArr == null) {
                 return;
             }
-            if (objArr != this.a && max == 0) {
-                this.f = objArr;
-                int length = objArr.length;
+            if (tArr != this.a && max == 0) {
+                this.f = tArr;
+                int length = tArr.length;
                 for (int i = 0; i < length; i++) {
                     this.f[i] = null;
                 }
@@ -183,16 +183,16 @@ public class h8 extends b7 {
     }
 
     public final void r() {
-        Object[] objArr;
-        Object[] objArr2;
+        T[] tArr;
+        T[] tArr2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (objArr = this.e) != null && objArr == (objArr2 = this.a)) {
-            Object[] objArr3 = this.f;
-            if (objArr3 != null) {
-                int length = objArr3.length;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tArr = this.e) != null && tArr == (tArr2 = this.a)) {
+            T[] tArr3 = this.f;
+            if (tArr3 != null) {
+                int length = tArr3.length;
                 int i = this.b;
                 if (length >= i) {
-                    System.arraycopy(objArr2, 0, objArr3, 0, i);
+                    System.arraycopy(tArr2, 0, tArr3, 0, i);
                     this.a = this.f;
                     this.f = null;
                     return;

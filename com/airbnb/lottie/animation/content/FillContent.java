@@ -6,6 +6,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
@@ -22,16 +23,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FillContent implements DrawingContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
-    public final BaseKeyframeAnimation colorAnimation;
-    public BaseKeyframeAnimation colorFilterAnimation;
+    public final BaseKeyframeAnimation<Integer, Integer> colorAnimation;
+    @Nullable
+    public BaseKeyframeAnimation<ColorFilter, ColorFilter> colorFilterAnimation;
     public final boolean hidden;
     public final BaseLayer layer;
     public final LottieDrawable lottieDrawable;
     public final String name;
-    public final BaseKeyframeAnimation opacityAnimation;
+    public final BaseKeyframeAnimation<Integer, Integer> opacityAnimation;
     public final Path path = new Path();
     public final Paint paint = new LPaint(1);
-    public final List paths = new ArrayList();
+    public final List<PathContent> paths = new ArrayList();
 
     public FillContent(LottieDrawable lottieDrawable, BaseLayer baseLayer, ShapeFill shapeFill) {
         this.layer = baseLayer;
@@ -40,11 +42,11 @@ public class FillContent implements DrawingContent, BaseKeyframeAnimation.Animat
         this.lottieDrawable = lottieDrawable;
         if (shapeFill.getColor() != null && shapeFill.getOpacity() != null) {
             this.path.setFillType(shapeFill.getFillType());
-            BaseKeyframeAnimation createAnimation = shapeFill.getColor().createAnimation();
+            BaseKeyframeAnimation<Integer, Integer> createAnimation = shapeFill.getColor().createAnimation();
             this.colorAnimation = createAnimation;
             createAnimation.addUpdateListener(this);
             baseLayer.addAnimation(this.colorAnimation);
-            BaseKeyframeAnimation createAnimation2 = shapeFill.getOpacity().createAnimation();
+            BaseKeyframeAnimation<Integer, Integer> createAnimation2 = shapeFill.getOpacity().createAnimation();
             this.opacityAnimation = createAnimation2;
             createAnimation2.addUpdateListener(this);
             baseLayer.addAnimation(this.opacityAnimation);
@@ -61,27 +63,27 @@ public class FillContent implements DrawingContent, BaseKeyframeAnimation.Animat
         }
         L.beginSection("FillContent#draw");
         this.paint.setColor(((ColorKeyframeAnimation) this.colorAnimation).getIntValue());
-        this.paint.setAlpha(MiscUtils.clamp((int) ((((i / 255.0f) * ((Integer) this.opacityAnimation.getValue()).intValue()) / 100.0f) * 255.0f), 0, 255));
-        BaseKeyframeAnimation baseKeyframeAnimation = this.colorFilterAnimation;
+        this.paint.setAlpha(MiscUtils.clamp((int) ((((i / 255.0f) * this.opacityAnimation.getValue().intValue()) / 100.0f) * 255.0f), 0, 255));
+        BaseKeyframeAnimation<ColorFilter, ColorFilter> baseKeyframeAnimation = this.colorFilterAnimation;
         if (baseKeyframeAnimation != null) {
-            this.paint.setColorFilter((ColorFilter) baseKeyframeAnimation.getValue());
+            this.paint.setColorFilter(baseKeyframeAnimation.getValue());
         }
         this.path.reset();
         for (int i2 = 0; i2 < this.paths.size(); i2++) {
-            this.path.addPath(((PathContent) this.paths.get(i2)).getPath(), matrix);
+            this.path.addPath(this.paths.get(i2).getPath(), matrix);
         }
         canvas.drawPath(this.path, this.paint);
         L.endSection("FillContent#draw");
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
-        if (obj == LottieProperty.COLOR) {
+    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
+        if (t == LottieProperty.COLOR) {
             this.colorAnimation.setValueCallback(lottieValueCallback);
-        } else if (obj == LottieProperty.OPACITY) {
+        } else if (t == LottieProperty.OPACITY) {
             this.opacityAnimation.setValueCallback(lottieValueCallback);
-        } else if (obj == LottieProperty.COLOR_FILTER) {
-            BaseKeyframeAnimation baseKeyframeAnimation = this.colorFilterAnimation;
+        } else if (t == LottieProperty.COLOR_FILTER) {
+            BaseKeyframeAnimation<ColorFilter, ColorFilter> baseKeyframeAnimation = this.colorFilterAnimation;
             if (baseKeyframeAnimation != null) {
                 this.layer.removeAnimation(baseKeyframeAnimation);
             }
@@ -100,7 +102,7 @@ public class FillContent implements DrawingContent, BaseKeyframeAnimation.Animat
     public void getBounds(RectF rectF, Matrix matrix, boolean z) {
         this.path.reset();
         for (int i = 0; i < this.paths.size(); i++) {
-            this.path.addPath(((PathContent) this.paths.get(i)).getPath(), matrix);
+            this.path.addPath(this.paths.get(i).getPath(), matrix);
         }
         this.path.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
@@ -117,14 +119,14 @@ public class FillContent implements DrawingContent, BaseKeyframeAnimation.Animat
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i, List list, KeyPath keyPath2) {
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
         MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
-    public void setContents(List list, List list2) {
+    public void setContents(List<Content> list, List<Content> list2) {
         for (int i = 0; i < list2.size(); i++) {
-            Content content = (Content) list2.get(i);
+            Content content = list2.get(i);
             if (content instanceof PathContent) {
                 this.paths.add((PathContent) content);
             }

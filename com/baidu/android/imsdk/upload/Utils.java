@@ -26,7 +26,7 @@ public class Utils {
         }
     }
 
-    public static List splitList(List list, int i) {
+    public static <T> List<List<T>> splitList(List<T> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {

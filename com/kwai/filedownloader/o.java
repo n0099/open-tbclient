@@ -19,9 +19,9 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public final class o implements e.a, u {
     public static /* synthetic */ Interceptable $ic;
-    public static Class atv;
+    public static Class<?> atv;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList atw;
+    public final ArrayList<Runnable> atw;
     public com.kwai.filedownloader.services.e atx;
 
     static {
@@ -52,10 +52,10 @@ public final class o implements e.a, u {
                 return;
             }
         }
-        this.atw = new ArrayList();
+        this.atw = new ArrayList<>();
     }
 
-    public static Class CU() {
+    public static Class<?> CU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

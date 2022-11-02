@@ -1,90 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.tieba.i43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class i43 extends j43 {
+public abstract class i43<SelfT extends i43<SelfT>> extends hp2<SelfT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803489, "Lcom/baidu/tieba/i43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public static final class a extends i43<a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a E() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(String str) {
+            super(str);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947803489, "Lcom/baidu/tieba/i43;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        b = wj1.a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(String str, Bundle bundle) {
+            super(str, bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, bundle};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Bundle) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.aj3
+        public /* bridge */ /* synthetic */ aj3 a() {
+            E();
+            return this;
+        }
     }
 
-    public i43() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public i43(String str) {
+        this(str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Bundle) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i43(String str, Bundle bundle) {
+        super(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Bundle) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = TextUtils.isEmpty(str) ? "" : str;
     }
 
-    @Override // com.baidu.tieba.j43
-    public void a() {
-        List<j53> b2;
-        List<j53> a;
+    @Override // com.baidu.tieba.hp2
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            b(new co2(this));
-            b(new z02(this));
-            b(new e12(this));
-            b(new s02(this));
-            b(new f53(this));
-            b(new q43(this));
-            b(new r63(this));
-            b(new ge2(this));
-            b(new pe2(this));
-            b(new he2(this));
-            b(new le2(this));
-            b(new me2(this));
-            b(new ke2(this));
-            b(new qe2(this));
-            b(new je2(this));
-            b(new oe2(this));
-            b(new dj3(this));
-            b(new ne2(this));
-            b(new ie2(this));
-            rk1 d = um2.d();
-            if (d != null && (a = d.a(this)) != null && !a.isEmpty()) {
-                for (j53 j53Var : a) {
-                    b(j53Var);
-                }
-            }
-            if (b) {
-                b(new re2(this));
-                b(new k43(this));
-                if (d != null && (b2 = d.b(this)) != null && !b2.isEmpty()) {
-                    for (j53 j53Var2 : b2) {
-                        b(j53Var2);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return String.format("Event(%s) Ext => %s", this.b, super.toString());
         }
+        return (String) invokeV.objValue;
     }
 }

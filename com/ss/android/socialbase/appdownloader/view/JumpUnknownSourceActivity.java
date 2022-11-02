@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.ss.android.socialbase.appdownloader.b;
 import com.ss.android.socialbase.appdownloader.c.c;
@@ -21,6 +22,7 @@ import org.json.JSONObject;
 public class JumpUnknownSourceActivity extends Activity {
     public k a;
     public Intent b;
+    @Nullable
     public Intent c;
     public int d;
     public JSONObject e;
@@ -33,7 +35,7 @@ public class JumpUnknownSourceActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         a();
         h.a().a(this);

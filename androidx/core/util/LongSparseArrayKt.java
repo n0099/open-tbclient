@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import android.util.LongSparseArray;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,6 +24,7 @@ public final class LongSparseArrayKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(16)
     public static final <T> boolean contains(LongSparseArray<T> longSparseArray, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
@@ -35,6 +37,7 @@ public final class LongSparseArrayKt {
         return invokeLJ.booleanValue;
     }
 
+    @RequiresApi(16)
     public static final <T> boolean containsKey(LongSparseArray<T> longSparseArray, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
@@ -47,6 +50,7 @@ public final class LongSparseArrayKt {
         return invokeLJ.booleanValue;
     }
 
+    @RequiresApi(16)
     public static final <T> boolean containsValue(LongSparseArray<T> longSparseArray, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -59,6 +63,7 @@ public final class LongSparseArrayKt {
         return invokeLL.booleanValue;
     }
 
+    @RequiresApi(16)
     public static final <T> void forEach(LongSparseArray<T> longSparseArray, Function2<? super Long, ? super T, Unit> function2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, longSparseArray, function2) == null) {
@@ -69,6 +74,7 @@ public final class LongSparseArrayKt {
         }
     }
 
+    @RequiresApi(16)
     public static final <T> LongSparseArray<T> plus(LongSparseArray<T> longSparseArray, LongSparseArray<T> longSparseArray2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -81,6 +87,7 @@ public final class LongSparseArrayKt {
         return (LongSparseArray) invokeLL.objValue;
     }
 
+    @RequiresApi(16)
     public static final <T> void putAll(LongSparseArray<T> longSparseArray, LongSparseArray<T> longSparseArray2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, longSparseArray, longSparseArray2) == null) {
@@ -91,6 +98,7 @@ public final class LongSparseArrayKt {
         }
     }
 
+    @RequiresApi(16)
     public static final <T> T getOrDefault(LongSparseArray<T> longSparseArray, long j, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -104,19 +112,21 @@ public final class LongSparseArrayKt {
         return (T) invokeCommon.objValue;
     }
 
+    @RequiresApi(16)
     public static final <T> T getOrElse(LongSparseArray<T> longSparseArray, long j, Function0<? extends T> function0) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{longSparseArray, Long.valueOf(j), function0})) == null) {
             T t = longSparseArray.get(j);
             if (t == null) {
-                return (T) function0.invoke();
+                return function0.invoke();
             }
             return t;
         }
         return (T) invokeCommon.objValue;
     }
 
+    @RequiresApi(16)
     public static final <T> void set(LongSparseArray<T> longSparseArray, long j, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{longSparseArray, Long.valueOf(j), t}) == null) {
@@ -124,6 +134,7 @@ public final class LongSparseArrayKt {
         }
     }
 
+    @RequiresApi(16)
     public static final <T> int getSize(LongSparseArray<T> longSparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -133,6 +144,7 @@ public final class LongSparseArrayKt {
         return invokeL.intValue;
     }
 
+    @RequiresApi(16)
     public static final <T> boolean isEmpty(LongSparseArray<T> longSparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -145,6 +157,7 @@ public final class LongSparseArrayKt {
         return invokeL.booleanValue;
     }
 
+    @RequiresApi(16)
     public static final <T> boolean isNotEmpty(LongSparseArray<T> longSparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -157,6 +170,7 @@ public final class LongSparseArrayKt {
         return invokeL.booleanValue;
     }
 
+    @RequiresApi(16)
     public static final <T> LongIterator keyIterator(final LongSparseArray<T> longSparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -231,6 +245,7 @@ public final class LongSparseArrayKt {
         return (LongIterator) invokeL.objValue;
     }
 
+    @RequiresApi(16)
     public static final <T> Iterator<T> valueIterator(LongSparseArray<T> longSparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -240,6 +255,7 @@ public final class LongSparseArrayKt {
         return (Iterator) invokeL.objValue;
     }
 
+    @RequiresApi(16)
     public static final <T> boolean remove(LongSparseArray<T> longSparseArray, long j, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

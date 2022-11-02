@@ -7,25 +7,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl0;
-import com.baidu.tieba.mk0;
+import com.baidu.tieba.el0;
+import com.baidu.tieba.lk0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class DefaultDownloadViewLP extends FrameLayout implements fl0 {
+public class DefaultDownloadViewLP extends FrameLayout implements el0<DefaultDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerDownloadView a;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fl0
+    @Override // com.baidu.tieba.el0
+    @NonNull
     public DefaultDownloadViewLP getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -39,7 +42,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements fl0 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDownloadViewLP(Context context) {
+    public DefaultDownloadViewLP(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,7 +63,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements fl0 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDownloadViewLP(Context context, AttributeSet attributeSet) {
+    public DefaultDownloadViewLP(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,7 +84,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements fl0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DefaultDownloadViewLP(Context context, AttributeSet attributeSet, int i) {
+    public DefaultDownloadViewLP(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -118,8 +121,8 @@ public class DefaultDownloadViewLP extends FrameLayout implements fl0 {
         }
     }
 
-    @Override // com.baidu.tieba.fl0
-    public void b(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.el0
+    public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || !(viewGroup instanceof RelativeLayout)) {
             return;
@@ -134,9 +137,9 @@ public class DefaultDownloadViewLP extends FrameLayout implements fl0 {
     public void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05eb, this);
-            setBackgroundResource(R.color.obfuscated_res_0x7f060898);
-            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f091457);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05fb, this);
+            setBackgroundResource(R.color.obfuscated_res_0x7f0608aa);
+            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f091496);
         }
     }
 
@@ -144,7 +147,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements fl0 {
         View findViewById;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0915dd)) == null) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f09161c)) == null) {
             return;
         }
         if (z) {
@@ -155,13 +158,13 @@ public class DefaultDownloadViewLP extends FrameLayout implements fl0 {
         findViewById.setVisibility(i);
     }
 
-    @Override // com.baidu.tieba.fl0
-    public void update(String str, mk0 mk0Var) {
+    @Override // com.baidu.tieba.el0
+    public void update(String str, @NonNull lk0 lk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, mk0Var) == null) {
-            if (mk0Var.c == AdDownloadStatus.DOWNLOADING) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0bcc) + str;
-                setProgress(mk0Var.i);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, lk0Var) == null) {
+            if (lk0Var.c == AdDownloadStatus.DOWNLOADING) {
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0bd8) + str;
+                setProgress(lk0Var.i);
             } else {
                 setProgress(0.0f);
             }

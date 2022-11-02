@@ -41,9 +41,9 @@ public final class HttpDns {
     public static String serverIp = "180.76.76.112/v2";
     public transient /* synthetic */ FieldHolder $fh;
     public DegradationFilter degradationFilter;
-    public ConcurrentMap hostManager;
+    public ConcurrentMap<String, HostObject> hostManager;
     public boolean isExpiredIpAvailable;
-    public CopyOnWriteArrayList mRequstingHost;
+    public CopyOnWriteArrayList<String> mRequstingHost;
     public ExecutorService pool;
 
     /* loaded from: classes2.dex */
@@ -161,7 +161,7 @@ public final class HttpDns {
     }
 
     /* loaded from: classes2.dex */
-    public class QueryHostTask implements Callable {
+    public class QueryHostTask implements Callable<String[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String hostName;
@@ -404,7 +404,7 @@ public final class HttpDns {
             }
         }
         this.isExpiredIpAvailable = false;
-        this.mRequstingHost = new CopyOnWriteArrayList();
+        this.mRequstingHost = new CopyOnWriteArrayList<>();
         this.hostManager = new ConcurrentHashMap();
         this.pool = Executors.newCachedThreadPool(new NamingThreadFactory(TAG));
         this.degradationFilter = null;
@@ -440,7 +440,7 @@ public final class HttpDns {
                     Log.v(TAG, "[degradationFilter] - degradationFilter Degrade " + str);
                     return null;
                 }
-                HostObject hostObject = (HostObject) this.hostManager.get(str);
+                HostObject hostObject = this.hostManager.get(str);
                 if ((hostObject == null || (hostObject.isExpired() && !isExpiredIpAvailable())) && !this.mRequstingHost.contains(str)) {
                     Log.v(TAG, "[getIpByHost] - fetch result from network, host: " + str);
                     Future submit = this.pool.submit(new QueryHostTask(this, str));

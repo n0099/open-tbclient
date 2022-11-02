@@ -13,10 +13,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
     public final Method kI;
     public final ThreadMode kJ;
-    public final Class kK;
+    public final Class<?> kK;
     public String kL;
 
-    public e(Method method, Class cls, ThreadMode threadMode) {
+    public e(Method method, Class<?> cls, ThreadMode threadMode) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

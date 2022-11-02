@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TrimPathContent implements Content, BaseKeyframeAnimation.AnimationListener {
-    public final BaseKeyframeAnimation endAnimation;
+    public final BaseKeyframeAnimation<?, Float> endAnimation;
     public final boolean hidden;
-    public final List listeners = new ArrayList();
+    public final List<BaseKeyframeAnimation.AnimationListener> listeners = new ArrayList();
     public final String name;
-    public final BaseKeyframeAnimation offsetAnimation;
-    public final BaseKeyframeAnimation startAnimation;
+    public final BaseKeyframeAnimation<?, Float> offsetAnimation;
+    public final BaseKeyframeAnimation<?, Float> startAnimation;
     public final ShapeTrimPath.Type type;
 
     @Override // com.airbnb.lottie.animation.content.Content
-    public void setContents(List list, List list2) {
+    public void setContents(List<Content> list, List<Content> list2) {
     }
 
     public TrimPathContent(BaseLayer baseLayer, ShapeTrimPath shapeTrimPath) {
@@ -38,7 +38,7 @@ public class TrimPathContent implements Content, BaseKeyframeAnimation.Animation
         this.listeners.add(animationListener);
     }
 
-    public BaseKeyframeAnimation getEnd() {
+    public BaseKeyframeAnimation<?, Float> getEnd() {
         return this.endAnimation;
     }
 
@@ -47,11 +47,11 @@ public class TrimPathContent implements Content, BaseKeyframeAnimation.Animation
         return this.name;
     }
 
-    public BaseKeyframeAnimation getOffset() {
+    public BaseKeyframeAnimation<?, Float> getOffset() {
         return this.offsetAnimation;
     }
 
-    public BaseKeyframeAnimation getStart() {
+    public BaseKeyframeAnimation<?, Float> getStart() {
         return this.startAnimation;
     }
 
@@ -66,7 +66,7 @@ public class TrimPathContent implements Content, BaseKeyframeAnimation.Animation
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.AnimationListener
     public void onValueChanged() {
         for (int i = 0; i < this.listeners.size(); i++) {
-            ((BaseKeyframeAnimation.AnimationListener) this.listeners.get(i)).onValueChanged();
+            this.listeners.get(i).onValueChanged();
         }
     }
 }

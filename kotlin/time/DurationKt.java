@@ -8,7 +8,9 @@ import java.util.concurrent.TimeUnit;
 import kotlin.Deprecated;
 import kotlin.Metadata;
 import kotlin.ReplaceWith;
+import kotlin.SinceKotlin;
 import kotlin.collections.IntIterator;
+import kotlin.internal.InlineOnly;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.math.MathKt__MathJVMKt;
@@ -27,86 +29,128 @@ public final class DurationKt {
     public static final int NANOS_IN_MILLIS = 1000000;
 
     @Deprecated(message = "Use Duration.days() function instead.", replaceWith = @ReplaceWith(expression = "Duration.days(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getDays$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.days() function instead.", replaceWith = @ReplaceWith(expression = "Duration.days(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getDays$annotations(int i) {
     }
 
     @Deprecated(message = "Use Duration.days() function instead.", replaceWith = @ReplaceWith(expression = "Duration.days(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getDays$annotations(long j) {
     }
 
     @Deprecated(message = "Use Duration.hours() function instead.", replaceWith = @ReplaceWith(expression = "Duration.hours(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getHours$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.hours() function instead.", replaceWith = @ReplaceWith(expression = "Duration.hours(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getHours$annotations(int i) {
     }
 
     @Deprecated(message = "Use Duration.hours() function instead.", replaceWith = @ReplaceWith(expression = "Duration.hours(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getHours$annotations(long j) {
     }
 
     @Deprecated(message = "Use Duration.microseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.microseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMicroseconds$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.microseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.microseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMicroseconds$annotations(int i) {
     }
 
     @Deprecated(message = "Use Duration.microseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.microseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMicroseconds$annotations(long j) {
     }
 
     @Deprecated(message = "Use Duration.milliseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.milliseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMilliseconds$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.milliseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.milliseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMilliseconds$annotations(int i) {
     }
 
     @Deprecated(message = "Use Duration.milliseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.milliseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMilliseconds$annotations(long j) {
     }
 
     @Deprecated(message = "Use Duration.minutes() function instead.", replaceWith = @ReplaceWith(expression = "Duration.minutes(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMinutes$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.minutes() function instead.", replaceWith = @ReplaceWith(expression = "Duration.minutes(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMinutes$annotations(int i) {
     }
 
     @Deprecated(message = "Use Duration.minutes() function instead.", replaceWith = @ReplaceWith(expression = "Duration.minutes(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getMinutes$annotations(long j) {
     }
 
     @Deprecated(message = "Use Duration.nanoseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.nanoseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getNanoseconds$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.nanoseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.nanoseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getNanoseconds$annotations(int i) {
     }
 
     @Deprecated(message = "Use Duration.nanoseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.nanoseconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getNanoseconds$annotations(long j) {
     }
 
     @Deprecated(message = "Use Duration.seconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.seconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getSeconds$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.seconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.seconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getSeconds$annotations(int i) {
     }
 
     @Deprecated(message = "Use Duration.seconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.seconds(this)", imports = {"kotlin.time.Duration"}))
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static /* synthetic */ void getSeconds$annotations(long j) {
     }
 
@@ -124,20 +168,29 @@ public final class DurationKt {
         return parseDuration(str, z);
     }
 
+    @ExperimentalTime
     public static final long durationOf(long j, int i) {
         return Duration.m1983constructorimpl((j << 1) + i);
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
+    @ExperimentalTime
     /* renamed from: times-kIfJnKk */
     public static final long m2066timeskIfJnKk(double d, long j) {
         return Duration.m2020timesUwyO8pc(j, d);
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
+    @ExperimentalTime
     /* renamed from: times-mvk6XK0 */
     public static final long m2067timesmvk6XK0(int i, long j) {
         return Duration.m2021timesUwyO8pc(j, i);
     }
 
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static final long toDuration(int i, TimeUnit unit) {
         Intrinsics.checkNotNullParameter(unit, "unit");
         if (unit.compareTo(TimeUnit.SECONDS) <= 0) {
@@ -176,10 +229,12 @@ public final class DurationKt {
         return nanosToMillis(j);
     }
 
+    @ExperimentalTime
     public static final long durationOfMillis(long j) {
         return Duration.m1983constructorimpl((j << 1) + 1);
     }
 
+    @ExperimentalTime
     public static final long durationOfMillisNormalized(long j) {
         if (-4611686018426L <= j && MAX_NANOS_IN_MILLIS >= j) {
             return durationOfNanos(millisToNanos(j));
@@ -187,10 +242,12 @@ public final class DurationKt {
         return durationOfMillis(RangesKt___RangesKt.coerceIn(j, -4611686018427387903L, 4611686018427387903L));
     }
 
+    @ExperimentalTime
     public static final long durationOfNanos(long j) {
         return Duration.m1983constructorimpl(j << 1);
     }
 
+    @ExperimentalTime
     public static final long durationOfNanosNormalized(long j) {
         if (-4611686018426999999L <= j && MAX_NANOS >= j) {
             return durationOfNanos(j);
@@ -231,7 +288,7 @@ public final class DurationKt {
     }
 
     public static final int skipWhile(String str, int i, Function1<? super Character, Boolean> function1) {
-        while (i < str.length() && ((Boolean) function1.invoke(Character.valueOf(str.charAt(i)))).booleanValue()) {
+        while (i < str.length() && function1.invoke(Character.valueOf(str.charAt(i))).booleanValue()) {
             i++;
         }
         return i;
@@ -239,7 +296,7 @@ public final class DurationKt {
 
     public static final String substringWhile(String str, int i, Function1<? super Character, Boolean> function1) {
         int i2 = i;
-        while (i2 < str.length() && ((Boolean) function1.invoke(Character.valueOf(str.charAt(i2)))).booleanValue()) {
+        while (i2 < str.length() && function1.invoke(Character.valueOf(str.charAt(i2))).booleanValue()) {
             i2++;
         }
         if (str != null) {
@@ -308,6 +365,7 @@ public final class DurationKt {
 
     /* JADX WARN: Removed duplicated region for block: B:266:0x0094 A[LOOP:1: B:254:0x006a->B:266:0x0094, LOOP_END] */
     /* JADX WARN: Removed duplicated region for block: B:417:0x00a5 A[EDGE_INSN: B:417:0x00a5->B:268:0x00a5 ?: BREAK  , SYNTHETIC] */
+    @ExperimentalTime
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -628,6 +686,8 @@ public final class DurationKt {
         return Long.parseLong(str);
     }
 
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static final long toDuration(double d, TimeUnit unit) {
         Intrinsics.checkNotNullParameter(unit, "unit");
         double convertDurationUnit = DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(d, unit, TimeUnit.NANOSECONDS);
@@ -641,6 +701,8 @@ public final class DurationKt {
         throw new IllegalArgumentException("Duration value cannot be NaN.".toString());
     }
 
+    @SinceKotlin(version = "1.3")
+    @ExperimentalTime
     public static final long toDuration(long j, TimeUnit unit) {
         Intrinsics.checkNotNullParameter(unit, "unit");
         long convertDurationUnitOverflow = DurationUnitKt__DurationUnitJvmKt.convertDurationUnitOverflow(MAX_NANOS, TimeUnit.NANOSECONDS, unit);

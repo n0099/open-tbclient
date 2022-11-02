@@ -197,7 +197,7 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
                         }
                         break;
                     case -40300674:
-                        if (str.equals(Key.ROTATION)) {
+                        if (str.equals("rotation")) {
                             c = 2;
                             break;
                         }
@@ -457,7 +457,7 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
                 hashSet.add(Key.ALPHA);
             }
             if (diff(this.rotation, motionConstrainedPoint.rotation)) {
-                hashSet.add(Key.ROTATION);
+                hashSet.add("rotation");
             }
             if (!Float.isNaN(this.mPathRotate) || !Float.isNaN(motionConstrainedPoint.mPathRotate)) {
                 hashSet.add(Key.TRANSITION_PATH_ROTATE);

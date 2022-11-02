@@ -1,8 +1,11 @@
 package com.baidu.ugc.editvideo.record.source.multimedia.utils;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -44,7 +47,7 @@ public class ImportExportConfigUtil {
         }
     }
 
-    public static MediaTrackConfig exportConfigJson(Map map, List list, MultiMediaDataTrack multiMediaDataTrack, MediaTrackConfig mediaTrackConfig, String str) {
+    public static MediaTrackConfig exportConfigJson(Map<String, ShaderConfig> map, List<MediaTrack> list, MultiMediaDataTrack multiMediaDataTrack, MediaTrackConfig mediaTrackConfig, String str) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, map, list, multiMediaDataTrack, mediaTrackConfig, str)) == null) ? InnerImportExportConfigUtil.exportConfigJson(map, list, multiMediaDataTrack, mediaTrackConfig, str) : (MediaTrackConfig) invokeLLLLL.objValue;
@@ -68,19 +71,21 @@ public class ImportExportConfigUtil {
         return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, mediaTransition, str2, shaderConfig)) == null) ? InnerImportExportConfigUtil.exportTransitionWithShader(context, str, mediaTransition, str2, shaderConfig) : (String) invokeLLLLL.objValue;
     }
 
-    public static List getMediaTextureDates(Context context, ShaderConfig shaderConfig, File file, String str, OnExportListener onExportListener) throws IOException {
+    @NonNull
+    public static List<MediaTextureData> getMediaTextureDates(Context context, ShaderConfig shaderConfig, File file, String str, OnExportListener onExportListener) throws IOException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65541, null, context, shaderConfig, file, str, onExportListener)) == null) ? InnerImportExportConfigUtil.getMediaTextureDates(context, shaderConfig, file, str, onExportListener) : (List) invokeLLLLL.objValue;
     }
 
-    public static Map getShaderResourceMap(Context context, String str, File file, MediaTrackConfig mediaTrackConfig, OnExportListener onExportListener) {
+    @NonNull
+    public static Map<String, String> getShaderResourceMap(Context context, String str, File file, MediaTrackConfig mediaTrackConfig, OnExportListener onExportListener) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, context, str, file, mediaTrackConfig, onExportListener)) == null) ? InnerImportExportConfigUtil.getShaderResourceMap(context, str, file, mediaTrackConfig, onExportListener) : (Map) invokeLLLLL.objValue;
     }
 
-    public static List getTransitionResourceList(File file, MediaTrackConfig mediaTrackConfig, OnExportListener onExportListener) {
+    public static List<String> getTransitionResourceList(File file, MediaTrackConfig mediaTrackConfig, OnExportListener onExportListener) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, file, mediaTrackConfig, onExportListener)) == null) ? InnerImportExportConfigUtil.getTransitionResourceList(file, mediaTrackConfig, onExportListener) : (List) invokeLLL.objValue;

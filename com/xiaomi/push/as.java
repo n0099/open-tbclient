@@ -116,7 +116,7 @@ public class as implements au {
     }
 
     /* loaded from: classes8.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

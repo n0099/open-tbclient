@@ -22,18 +22,18 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] c;
     public static byte[] d;
-    public static final C0077a e;
+    public static final C0078a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final Cipher a;
     public final Key b;
 
     /* renamed from: com.baidu.bdtask.service.cache.storage.encrypter.aes.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class C0077a {
+    public static final class C0078a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0077a() {
+        public C0078a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public final class a {
             return a.d;
         }
 
-        public /* synthetic */ C0077a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0078a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
@@ -123,7 +123,7 @@ public final class a {
                 return;
             }
         }
-        e = new C0077a(null);
+        e = new C0078a(null);
         c = new int[]{40, 114, -31, -94, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY, -82, -95, -82, -96, 126, -85, 0, -116, -104, 44, -39};
     }
 

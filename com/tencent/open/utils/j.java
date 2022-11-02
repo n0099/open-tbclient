@@ -31,16 +31,16 @@ public final class j {
 
     /* renamed from: com.tencent.open.utils.j$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public class a implements Executor {
+    public static class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue a;
+        public final Queue<Runnable> a;
         public Runnable b;
 
         public a() {
@@ -63,10 +63,10 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    Runnable runnable = (Runnable) this.a.poll();
-                    this.b = runnable;
-                    if (runnable != null) {
-                        j.a.execute(runnable);
+                    Runnable poll = this.a.poll();
+                    this.b = poll;
+                    if (poll != null) {
+                        j.a.execute(poll);
                     }
                 }
             }

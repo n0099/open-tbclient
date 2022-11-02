@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.refresh.IRefreshable$State;
 /* loaded from: classes5.dex */
 public interface oo {
-    void b(View view2, eo eoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
+    void a(IRefreshable$State iRefreshable$State);
+
+    void b();
+
+    void c();
+
+    void d();
 }

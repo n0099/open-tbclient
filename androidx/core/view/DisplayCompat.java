@@ -1,11 +1,15 @@
 package androidx.core.view;
 
+import android.annotation.SuppressLint;
 import android.app.UiModeManager;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Build;
 import android.text.TextUtils;
 import android.view.Display;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +33,7 @@ public final class DisplayCompat {
         public final Display.Mode mMode;
         public final Point mPhysicalDisplaySize;
 
-        public ModeCompat(Point point) {
+        public ModeCompat(@NonNull Point point) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +54,8 @@ public final class DisplayCompat {
             this.mMode = null;
         }
 
-        public ModeCompat(Display.Mode mode, boolean z) {
+        @RequiresApi(23)
+        public ModeCompat(@NonNull Display.Mode mode, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,6 +103,8 @@ public final class DisplayCompat {
             return invokeV.booleanValue;
         }
 
+        @Nullable
+        @RequiresApi(23)
         public Display.Mode toMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -122,7 +129,7 @@ public final class DisplayCompat {
         }
     }
 
-    public static Point getPhysicalDisplaySize(Context context, Display display) {
+    public static Point getPhysicalDisplaySize(@NonNull Context context, @NonNull Display display) {
         InterceptResult invokeLL;
         Point parsePhysicalDisplaySizeFromSystemProperties;
         Interceptable interceptable = $ic;
@@ -154,7 +161,9 @@ public final class DisplayCompat {
         return (Point) invokeLL.objValue;
     }
 
-    public static ModeCompat[] getSupportedModes(Context context, Display display) {
+    @NonNull
+    @SuppressLint({"ArrayReturn"})
+    public static ModeCompat[] getSupportedModes(@NonNull Context context, @NonNull Display display) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, display)) == null) {
@@ -181,6 +190,7 @@ public final class DisplayCompat {
         return (ModeCompat[]) invokeLL.objValue;
     }
 
+    @Nullable
     public static String getSystemProperty(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -195,7 +205,7 @@ public final class DisplayCompat {
         return (String) invokeL.objValue;
     }
 
-    public static boolean isSonyBravia4kTv(Context context) {
+    public static boolean isSonyBravia4kTv(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -207,7 +217,7 @@ public final class DisplayCompat {
         return invokeL.booleanValue;
     }
 
-    public static Point parseDisplaySize(String str) throws NumberFormatException {
+    public static Point parseDisplaySize(@NonNull String str) throws NumberFormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
@@ -224,7 +234,7 @@ public final class DisplayCompat {
         return (Point) invokeL.objValue;
     }
 
-    public static boolean isTv(Context context) {
+    public static boolean isTv(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -237,7 +247,8 @@ public final class DisplayCompat {
         return invokeL.booleanValue;
     }
 
-    public static Point parsePhysicalDisplaySizeFromSystemProperties(String str, Display display) {
+    @Nullable
+    public static Point parsePhysicalDisplaySizeFromSystemProperties(@NonNull String str, @NonNull Display display) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, display)) == null) {
@@ -257,6 +268,7 @@ public final class DisplayCompat {
         return (Point) invokeLL.objValue;
     }
 
+    @RequiresApi(23)
     public static boolean physicalSizeEquals(Display.Mode mode, Point point) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,19 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class x20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public Context a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        w20 a();
-    }
-
-    public x20(a aVar) {
+    public x20(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,12 +27,12 @@ public class x20 {
                 return;
             }
         }
-        this.a = aVar;
+        this.a = context;
     }
 
-    public w20 a() {
+    public r20 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (w20) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? n20.a(this.a) : (r20) invokeV.objValue;
     }
 }

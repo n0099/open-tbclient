@@ -16,9 +16,9 @@ import java.util.Map;
 public class ResInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap dns;
+    public LinkedHashMap<String, DnsInfo> dns;
     public HttpDnsInfo httpdns;
-    public List listRefresh;
+    public List<Map<String, String>> listRefresh;
     public NetStatusInfo netInfo;
     public int status;
     public String userIp;
@@ -41,7 +41,7 @@ public class ResInfo {
         this.status = 2;
     }
 
-    public LinkedHashMap getDns() {
+    public LinkedHashMap<String, DnsInfo> getDns() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -59,7 +59,7 @@ public class ResInfo {
         return (HttpDnsInfo) invokeV.objValue;
     }
 
-    public List getListRefresh() {
+    public List<Map<String, String>> getListRefresh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -104,7 +104,7 @@ public class ResInfo {
         return (String) invokeV.objValue;
     }
 
-    public void addRefresh(Map map) {
+    public void addRefresh(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
             if (this.listRefresh == null) {
@@ -114,7 +114,7 @@ public class ResInfo {
         }
     }
 
-    public void setDns(LinkedHashMap linkedHashMap) {
+    public void setDns(LinkedHashMap<String, DnsInfo> linkedHashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, linkedHashMap) == null) {
             this.dns = linkedHashMap;

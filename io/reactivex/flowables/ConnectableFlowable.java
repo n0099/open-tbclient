@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.functions.Functions;
@@ -15,11 +16,11 @@ import io.reactivex.internal.operators.flowable.FlowableRefCount;
 import io.reactivex.internal.util.ConnectConsumer;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public abstract class ConnectableFlowable extends Flowable {
+public abstract class ConnectableFlowable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void connect(Consumer consumer);
+    public abstract void connect(@NonNull Consumer<? super Disposable> consumer);
 
     public ConnectableFlowable() {
         Interceptable interceptable = $ic;
@@ -35,7 +36,8 @@ public abstract class ConnectableFlowable extends Flowable {
         }
     }
 
-    public Flowable autoConnect() {
+    @NonNull
+    public Flowable<T> autoConnect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -55,7 +57,8 @@ public abstract class ConnectableFlowable extends Flowable {
         return (Disposable) invokeV.objValue;
     }
 
-    public Flowable refCount() {
+    @NonNull
+    public Flowable<T> refCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -64,7 +67,8 @@ public abstract class ConnectableFlowable extends Flowable {
         return (Flowable) invokeV.objValue;
     }
 
-    public Flowable autoConnect(int i) {
+    @NonNull
+    public Flowable<T> autoConnect(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -73,13 +77,14 @@ public abstract class ConnectableFlowable extends Flowable {
         return (Flowable) invokeI.objValue;
     }
 
-    public Flowable autoConnect(int i, Consumer consumer) {
+    @NonNull
+    public Flowable<T> autoConnect(int i, @NonNull Consumer<? super Disposable> consumer) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, consumer)) == null) {
             if (i <= 0) {
                 connect(consumer);
-                return RxJavaPlugins.onAssembly(this);
+                return RxJavaPlugins.onAssembly((ConnectableFlowable) this);
             }
             return RxJavaPlugins.onAssembly(new FlowableAutoConnect(this, i, consumer));
         }

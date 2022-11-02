@@ -1,6 +1,7 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,13 +24,13 @@ public class CrashUtil {
     }
 
     /* loaded from: classes2.dex */
-    public final class CrashTAG {
+    public static final class CrashTAG {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCrashProcessUUID;
         public long mTimeStamp;
 
-        public CrashTAG(String str, long j) {
+        public CrashTAG(@NonNull String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +49,7 @@ public class CrashUtil {
             this.mTimeStamp = j;
         }
 
-        public static CrashTAG getCrashTAG(String str) {
+        public static CrashTAG getCrashTAG(@NonNull String str) {
             InterceptResult invokeL;
             String[] split;
             long j;
@@ -71,7 +72,7 @@ public class CrashUtil {
             return (CrashTAG) invokeL.objValue;
         }
 
-        public static String getCrashTAG(CrashTAG crashTAG) {
+        public static String getCrashTAG(@NonNull CrashTAG crashTAG) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, crashTAG)) == null) {
@@ -85,7 +86,7 @@ public class CrashUtil {
     }
 
     /* loaded from: classes2.dex */
-    public final class CrashpadConstant {
+    public static final class CrashpadConstant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FULL_BDMP_PERFIX = "fullbdmp-";
         public static final String JSON_EXTRA = "json-extra_info";

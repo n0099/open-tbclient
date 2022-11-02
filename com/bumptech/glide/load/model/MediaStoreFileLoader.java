@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,13 +23,13 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.File;
 import java.io.FileNotFoundException;
 /* loaded from: classes7.dex */
-public final class MediaStoreFileLoader implements ModelLoader {
+public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context context;
 
     /* loaded from: classes7.dex */
-    public final class Factory implements ModelLoaderFactory {
+    public static final class Factory implements ModelLoaderFactory<Uri, File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
@@ -59,7 +60,8 @@ public final class MediaStoreFileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<Uri, File> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -70,7 +72,7 @@ public final class MediaStoreFileLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class FilePathFetcher implements DataFetcher {
+    public static class FilePathFetcher implements DataFetcher<File> {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] PROJECTION;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +110,8 @@ public final class MediaStoreFileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public Class getDataClass() {
+        @NonNull
+        public Class<File> getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -118,6 +121,7 @@ public final class MediaStoreFileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
+        @NonNull
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -147,7 +151,7 @@ public final class MediaStoreFileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
+        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super File> dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
                 Cursor query = this.context.getContentResolver().query(this.uri, PROJECTION, null, null, null);
@@ -190,7 +194,7 @@ public final class MediaStoreFileLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(Uri uri) {
+    public boolean handles(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
@@ -201,11 +205,11 @@ public final class MediaStoreFileLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(Uri uri, int i, int i2, Options options) {
+    public ModelLoader.LoadData<File> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            return new ModelLoader.LoadData(new ObjectKey(uri), new FilePathFetcher(this.context, uri));
+            return new ModelLoader.LoadData<>(new ObjectKey(uri), new FilePathFetcher(this.context, uri));
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }

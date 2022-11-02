@@ -1,11 +1,12 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.ky9;
-import com.baidu.tieba.p2a;
-import com.baidu.tieba.sy9;
-import com.baidu.tieba.zx9;
+import com.baidu.tieba.b0a;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.iz9;
+import com.baidu.tieba.mz9;
+import com.baidu.tieba.tz9;
+import com.baidu.tieba.y3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,18 +15,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes9.dex */
-public final class OperatorWindowWithSize$WindowSkip extends dy9 implements ky9 {
+public final class OperatorWindowWithSize$WindowSkip<T> extends mz9<T> implements tz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dy9 e;
+    public final mz9<? super gz9<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
     public int i;
-    public p2a j;
+    public y3a<T, T> j;
 
     /* loaded from: classes9.dex */
-    public final class WindowSkipProducer extends AtomicBoolean implements zx9 {
+    public final class WindowSkipProducer extends AtomicBoolean implements iz9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +50,7 @@ public final class OperatorWindowWithSize$WindowSkip extends dy9 implements ky9 
             this.this$0 = operatorWindowWithSize$WindowSkip;
         }
 
-        @Override // com.baidu.tieba.zx9
+        @Override // com.baidu.tieba.iz9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -58,10 +59,10 @@ public final class OperatorWindowWithSize$WindowSkip extends dy9 implements ky9 
                     if (i != 0) {
                         OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
                         if (get() || !compareAndSet(false, true)) {
-                            operatorWindowWithSize$WindowSkip.e(sy9.c(j, operatorWindowWithSize$WindowSkip.g));
+                            operatorWindowWithSize$WindowSkip.e(b0a.c(j, operatorWindowWithSize$WindowSkip.g));
                             return;
                         } else {
-                            operatorWindowWithSize$WindowSkip.e(sy9.a(sy9.c(j, operatorWindowWithSize$WindowSkip.f), sy9.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
+                            operatorWindowWithSize$WindowSkip.e(b0a.a(b0a.c(j, operatorWindowWithSize$WindowSkip.f), b0a.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
                             return;
                         }
                     }
@@ -72,7 +73,7 @@ public final class OperatorWindowWithSize$WindowSkip extends dy9 implements ky9 
         }
     }
 
-    @Override // com.baidu.tieba.ky9
+    @Override // com.baidu.tieba.tz9
     public void call() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.h.decrementAndGet() == 0) {
@@ -80,52 +81,52 @@ public final class OperatorWindowWithSize$WindowSkip extends dy9 implements ky9 
         }
     }
 
-    @Override // com.baidu.tieba.yx9
+    @Override // com.baidu.tieba.hz9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            p2a p2aVar = this.j;
-            if (p2aVar != null) {
+            y3a<T, T> y3aVar = this.j;
+            if (y3aVar != null) {
                 this.j = null;
-                p2aVar.onCompleted();
+                y3aVar.onCompleted();
             }
             this.e.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.yx9
+    @Override // com.baidu.tieba.hz9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            p2a p2aVar = this.j;
-            if (p2aVar != null) {
+            y3a<T, T> y3aVar = this.j;
+            if (y3aVar != null) {
                 this.j = null;
-                p2aVar.onError(th);
+                y3aVar.onError(th);
             }
             this.e.onError(th);
         }
     }
 
-    @Override // com.baidu.tieba.yx9
-    public void onNext(Object obj) {
+    @Override // com.baidu.tieba.hz9
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
             int i = this.i;
-            p2a p2aVar = this.j;
+            UnicastSubject unicastSubject = this.j;
             if (i == 0) {
                 this.h.getAndIncrement();
-                p2aVar = UnicastSubject.D(this.f, this);
-                this.j = p2aVar;
-                this.e.onNext(p2aVar);
+                unicastSubject = UnicastSubject.D(this.f, this);
+                this.j = unicastSubject;
+                this.e.onNext(unicastSubject);
             }
             int i2 = i + 1;
-            if (p2aVar != null) {
-                p2aVar.onNext(obj);
+            if (unicastSubject != null) {
+                unicastSubject.onNext(t);
             }
             if (i2 == this.f) {
                 this.i = i2;
                 this.j = null;
-                p2aVar.onCompleted();
+                unicastSubject.onCompleted();
             } else if (i2 == this.g) {
                 this.i = 0;
             } else {

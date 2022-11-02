@@ -1,5 +1,6 @@
 package com.baidubce.http;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -40,6 +41,7 @@ import okhttp3.Response;
 import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
+@SuppressLint({"NewApi"})
 /* loaded from: classes7.dex */
 public class BceHttpClient {
     public static /* synthetic */ Interceptable $ic;
@@ -51,17 +53,17 @@ public class BceHttpClient {
     public final Signer signer;
 
     /* loaded from: classes7.dex */
-    public class BceServiceRequestBody extends RequestBody {
+    public class BceServiceRequestBody<T extends AbstractBceRequest> extends RequestBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public BceProgressCallback callback;
+        public BceProgressCallback<T> callback;
         public long length;
         public MediaType mediaType;
-        public AbstractBceRequest request;
+        public T request;
         public InputStream restartableInputStream;
         public final /* synthetic */ BceHttpClient this$0;
 
-        public BceServiceRequestBody(BceHttpClient bceHttpClient, InternalRequest internalRequest) {
+        public BceServiceRequestBody(BceHttpClient bceHttpClient, InternalRequest<T> internalRequest) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +80,7 @@ public class BceHttpClient {
             }
             this.this$0 = bceHttpClient;
             if (internalRequest.getContent() != null) {
-                this.mediaType = MediaType.parse((String) internalRequest.getHeaders().get("Content-Type"));
+                this.mediaType = MediaType.parse(internalRequest.getHeaders().get("Content-Type"));
                 this.restartableInputStream = internalRequest.getContent();
                 this.length = getContentLength(internalRequest);
                 this.callback = null;
@@ -86,7 +88,7 @@ public class BceHttpClient {
             }
         }
 
-        public BceServiceRequestBody(BceHttpClient bceHttpClient, InternalRequest internalRequest, BceProgressCallback bceProgressCallback) {
+        public BceServiceRequestBody(BceHttpClient bceHttpClient, InternalRequest<T> internalRequest, BceProgressCallback<T> bceProgressCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +105,7 @@ public class BceHttpClient {
             }
             this.this$0 = bceHttpClient;
             if (internalRequest.getContent() != null) {
-                this.mediaType = MediaType.parse((String) internalRequest.getHeaders().get("Content-Type"));
+                this.mediaType = MediaType.parse(internalRequest.getHeaders().get("Content-Type"));
                 this.restartableInputStream = internalRequest.getContent();
                 this.length = getContentLength(internalRequest);
                 this.callback = bceProgressCallback;
@@ -111,11 +113,11 @@ public class BceHttpClient {
             }
         }
 
-        private long getContentLength(InternalRequest internalRequest) {
+        private long getContentLength(InternalRequest<T> internalRequest) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, internalRequest)) == null) {
-                String str = (String) internalRequest.getHeaders().get("Content-Length");
+                String str = internalRequest.getHeaders().get("Content-Length");
                 if (str != null) {
                     return Long.parseLong(str);
                 }
@@ -158,7 +160,7 @@ public class BceHttpClient {
                     }
                     long j2 = j + read;
                     bufferedSink.flush();
-                    BceProgressCallback bceProgressCallback = this.callback;
+                    BceProgressCallback<T> bceProgressCallback = this.callback;
                     if (bceProgressCallback != null) {
                         bceProgressCallback.onProgress(this.request, j2, contentLength);
                     }
@@ -231,11 +233,11 @@ public class BceHttpClient {
         this.signer = signer;
     }
 
-    public OkHttpClient addResponseProgressCallback(AbstractBceRequest abstractBceRequest, BceProgressCallback bceProgressCallback) {
+    public <T extends AbstractBceRequest> OkHttpClient addResponseProgressCallback(T t, BceProgressCallback<T> bceProgressCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, abstractBceRequest, bceProgressCallback)) == null) {
-            return this.httpClient.newBuilder().addNetworkInterceptor(new Interceptor(this, abstractBceRequest, bceProgressCallback) { // from class: com.baidubce.http.BceHttpClient.1
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, t, bceProgressCallback)) == null) {
+            return this.httpClient.newBuilder().addNetworkInterceptor(new Interceptor(this, t, bceProgressCallback) { // from class: com.baidubce.http.BceHttpClient.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BceHttpClient this$0;
@@ -247,7 +249,7 @@ public class BceHttpClient {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, abstractBceRequest, bceProgressCallback};
+                        Object[] objArr = {this, t, bceProgressCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -258,7 +260,7 @@ public class BceHttpClient {
                         }
                     }
                     this.this$0 = this;
-                    this.val$request = abstractBceRequest;
+                    this.val$request = t;
                     this.val$callback = bceProgressCallback;
                 }
 
@@ -277,7 +279,7 @@ public class BceHttpClient {
         return (OkHttpClient) invokeLL.objValue;
     }
 
-    public Request createHttpRequest(InternalRequest internalRequest, BceProgressCallback bceProgressCallback) {
+    public <T extends AbstractBceRequest> Request createHttpRequest(InternalRequest<T> internalRequest, BceProgressCallback<T> bceProgressCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, internalRequest, bceProgressCallback)) == null) {
@@ -308,9 +310,9 @@ public class BceHttpClient {
             } else {
                 throw new BceClientException("Unknown HTTP method name: " + internalRequest.getHttpMethod());
             }
-            for (Map.Entry entry : internalRequest.getHeaders().entrySet()) {
-                if (!((String) entry.getKey()).equalsIgnoreCase("Content-Length") && !((String) entry.getKey()).equalsIgnoreCase("Host")) {
-                    url.addHeader((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : internalRequest.getHeaders().entrySet()) {
+                if (!entry.getKey().equalsIgnoreCase("Content-Length") && !entry.getKey().equalsIgnoreCase("Host")) {
+                    url.addHeader(entry.getKey(), entry.getValue());
                 }
             }
             return url.build();
@@ -318,13 +320,13 @@ public class BceHttpClient {
         return (Request) invokeLL.objValue;
     }
 
-    public AbstractBceResponse execute(InternalRequest internalRequest, Class cls, HttpResponseHandler[] httpResponseHandlerArr) {
+    public <T extends AbstractBceResponse, M extends AbstractBceRequest> T execute(InternalRequest<M> internalRequest, Class<T> cls, HttpResponseHandler[] httpResponseHandlerArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, internalRequest, cls, httpResponseHandlerArr)) == null) {
-            return execute(internalRequest, cls, httpResponseHandlerArr, null);
+            return (T) execute(internalRequest, cls, httpResponseHandlerArr, null);
         }
-        return (AbstractBceResponse) invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:69:0x0150  */
@@ -332,7 +334,7 @@ public class BceHttpClient {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public AbstractBceResponse execute(InternalRequest internalRequest, Class cls, HttpResponseHandler[] httpResponseHandlerArr, BceProgressCallback bceProgressCallback) {
+    public <T extends AbstractBceResponse, M extends AbstractBceRequest> T execute(InternalRequest<M> internalRequest, Class<T> cls, HttpResponseHandler[] httpResponseHandlerArr, BceProgressCallback<M> bceProgressCallback) {
         InterceptResult invokeLLLL;
         BceServiceException bceServiceException;
         long delayBeforeNextRetryInMillis;
@@ -389,11 +391,11 @@ public class BceHttpClient {
                     }
                     BceHttpResponse bceHttpResponse = new BceHttpResponse(newCall.execute());
                     bceHttpResponse.getHeader("Date");
-                    AbstractBceResponse abstractBceResponse = (AbstractBceResponse) cls.newInstance();
+                    T newInstance = cls.newInstance();
                     int length = httpResponseHandlerArr.length;
-                    for (int i2 = 0; i2 < length && !httpResponseHandlerArr[i2].handle(bceHttpResponse, abstractBceResponse); i2++) {
+                    for (int i2 = 0; i2 < length && !httpResponseHandlerArr[i2].handle(bceHttpResponse, newInstance); i2++) {
                     }
-                    return abstractBceResponse;
+                    return newInstance;
                 } catch (BceServiceException e4) {
                     e = e4;
                     BceServiceException bceServiceException2 = e;
@@ -448,7 +450,7 @@ public class BceHttpClient {
                 i++;
             }
         } else {
-            return (AbstractBceResponse) invokeLLLL.objValue;
+            return (T) invokeLLLL.objValue;
         }
     }
 

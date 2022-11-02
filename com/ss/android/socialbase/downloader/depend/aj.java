@@ -10,7 +10,7 @@ public interface aj extends IInterface {
     void a(int i, int i2) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class a extends Binder implements aj {
+    public static abstract class a extends Binder implements aj {
         @Override // android.os.IInterface
         public IBinder asBinder() {
             return this;
@@ -18,11 +18,11 @@ public interface aj extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.aj$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0672a implements aj {
+        public static class C0683a implements aj {
             public static aj a;
             public IBinder b;
 
-            public C0672a(IBinder iBinder) {
+            public C0683a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -56,7 +56,7 @@ public interface aj extends IInterface {
         }
 
         public static aj a() {
-            return C0672a.a;
+            return C0683a.a;
         }
 
         public static aj a(IBinder iBinder) {
@@ -67,7 +67,7 @@ public interface aj extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof aj)) {
                 return (aj) queryLocalInterface;
             }
-            return new C0672a(iBinder);
+            return new C0683a(iBinder);
         }
 
         @Override // android.os.Binder

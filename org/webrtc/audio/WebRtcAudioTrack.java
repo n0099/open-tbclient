@@ -1,5 +1,7 @@
 package org.webrtc.audio;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.AudioFormat;
@@ -7,6 +9,7 @@ import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.os.Build;
 import android.os.Process;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.logreport.SLIReportInterface;
 import com.baidu.rtc.logreport.StuckDataCalculator;
@@ -20,6 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
@@ -59,6 +63,7 @@ public class WebRtcAudioTrack {
         return (interceptable == null || (invokeI = interceptable.invokeI(65554, this, i)) == null) ? i == 1 ? 4 : 12 : invokeI.intValue;
     }
 
+    @TargetApi(21)
     public static int getDefaultUsageAttributeOnLollipopOrHigher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,6 +106,7 @@ public class WebRtcAudioTrack {
             this.keepAlive = true;
         }
 
+        @TargetApi(21)
         private int writeOnLollipop(AudioTrack audioTrack, ByteBuffer byteBuffer, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
@@ -223,6 +229,7 @@ public class WebRtcAudioTrack {
         return invokeV.intValue;
     }
 
+    @CalledByNative
     private int getStreamMaxVolume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -234,6 +241,7 @@ public class WebRtcAudioTrack {
         return invokeV.intValue;
     }
 
+    @CalledByNative
     private int getStreamVolume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -245,6 +253,7 @@ public class WebRtcAudioTrack {
         return invokeV.intValue;
     }
 
+    @SuppressLint({"NewApi"})
     private boolean isVolumeFixed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -257,6 +266,7 @@ public class WebRtcAudioTrack {
         return invokeV.booleanValue;
     }
 
+    @TargetApi(24)
     private void logUnderrunCount() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65565, this) == null) && WebRtcAudioUtils.runningOnNougatOrHigher()) {
@@ -277,6 +287,7 @@ public class WebRtcAudioTrack {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @CalledByNative
     public WebRtcAudioTrack(Context context, AudioManager audioManager) {
         this(context, audioManager, 1, null, null);
         Interceptable interceptable = $ic;
@@ -297,7 +308,7 @@ public class WebRtcAudioTrack {
         }
     }
 
-    public WebRtcAudioTrack(Context context, AudioManager audioManager, int i, JavaAudioDeviceModule.RemoteSamplesReadyCallback remoteSamplesReadyCallback, JavaAudioDeviceModule.AudioTrackErrorCallback audioTrackErrorCallback) {
+    public WebRtcAudioTrack(Context context, AudioManager audioManager, int i, @Nullable JavaAudioDeviceModule.RemoteSamplesReadyCallback remoteSamplesReadyCallback, JavaAudioDeviceModule.AudioTrackErrorCallback audioTrackErrorCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -342,6 +353,7 @@ public class WebRtcAudioTrack {
         }
     }
 
+    @CalledByNative
     public void setNativeAudioTrack(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -371,6 +383,7 @@ public class WebRtcAudioTrack {
         }
     }
 
+    @TargetApi(21)
     public static AudioTrack createAudioTrackOnLollipopOrHigher(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
@@ -399,6 +412,7 @@ public class WebRtcAudioTrack {
         return (AudioTrack) invokeIII.objValue;
     }
 
+    @CalledByNative
     private boolean initPlayout(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -457,6 +471,7 @@ public class WebRtcAudioTrack {
         }
     }
 
+    @TargetApi(24)
     private void logMainParametersExtended() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65564, this) == null) {
@@ -469,6 +484,7 @@ public class WebRtcAudioTrack {
         }
     }
 
+    @CalledByNative
     private boolean stopPlayout() {
         InterceptResult invokeV;
         boolean z;
@@ -524,6 +540,7 @@ public class WebRtcAudioTrack {
         }
     }
 
+    @CalledByNative
     private boolean setStreamVolume(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -552,6 +569,7 @@ public class WebRtcAudioTrack {
         }
     }
 
+    @CalledByNative
     private boolean startPlayout() {
         InterceptResult invokeV;
         boolean z;

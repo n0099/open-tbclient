@@ -1,112 +1,84 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.nd4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceRequest;
-import com.baidu.webkit.sdk.WebResourceResponse;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o72 implements v72 {
+public abstract class o72 extends m43 implements s72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList b;
 
-    /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final o72 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-592091455, "Lcom/baidu/tieba/o72$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-592091455, "Lcom/baidu/tieba/o72$b;");
-                    return;
-                }
-            }
-            a = new o72(null);
-        }
-    }
-
-    public o72() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o72(d43 d43Var) {
+        super(d43Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((h43) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new CopyOnWriteArrayList();
     }
 
-    public static o72 b() {
-        InterceptResult invokeV;
+    public static final Map<String, String> I(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (o72) invokeV.objValue;
-    }
-
-    public /* synthetic */ o72(a aVar) {
-        this();
-    }
-
-    public void a(a82 a82Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, a82Var) == null) && a82Var != null && !this.b.contains(a82Var)) {
-            this.b.add(a82Var);
-        }
-    }
-
-    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
-        InterceptResult invokeLZ;
-        Uri url;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
-            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
+            HashMap hashMap = new HashMap();
+            if (bundle != null && !bundle.isEmpty()) {
+                for (String str : bundle.keySet()) {
+                    hashMap.put(str, bundle.getString(str));
+                }
             }
-            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
+            return hashMap;
         }
-        return (WebResourceResponse) invokeLZ.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public final WebResourceResponse d(String str, Map map, boolean z) {
-        InterceptResult invokeLLZ;
+    public static final Bundle J(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
-            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
             }
-            return new d82(this.b, str, map, 0, z).b(str, map, z);
+            return bundle;
         }
-        return (WebResourceResponse) invokeLLZ.objValue;
+        return (Bundle) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nd4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, nd4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            ln2.r0().b(str, map, map2, jSONObject, aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.nd4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, nd4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            ln2.r0().z(str, map, map2, aVar);
+        }
     }
 }

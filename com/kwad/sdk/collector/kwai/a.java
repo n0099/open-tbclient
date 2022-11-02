@@ -8,14 +8,14 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class a extends d {
-    public C0595a SS;
+    public C0606a SS;
 
     /* renamed from: com.kwad.sdk.collector.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0595a {
-        public List ST;
+    public static class C0606a {
+        public List<String> ST;
 
-        public C0595a(List list) {
+        public C0606a(List<String> list) {
             this.ST = list;
         }
 
@@ -26,10 +26,10 @@ public final class a extends d {
         }
     }
 
-    public a(List list) {
-        C0595a c0595a = new C0595a(list);
-        this.SS = c0595a;
-        putBody("targetAppInfo", c0595a.toJson());
+    public a(List<String> list) {
+        C0606a c0606a = new C0606a(list);
+        this.SS = c0606a;
+        putBody("targetAppInfo", c0606a.toJson());
         putBody(CommandMessage.SDK_VERSION, BuildConfig.VERSION_NAME);
         putBody("sdkVersionCode", BuildConfig.VERSION_CODE);
     }

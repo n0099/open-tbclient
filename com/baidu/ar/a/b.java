@@ -20,7 +20,7 @@ public class b {
     public JSONObject bK;
     public e bL;
     public String bM;
-    public ICallbackWith bN;
+    public ICallbackWith<String> bN;
     public Context mContext;
 
     static {
@@ -76,7 +76,7 @@ public class b {
         d.a(context, aVar);
     }
 
-    public void a(ICallbackWith iCallbackWith) {
+    public void a(ICallbackWith<String> iCallbackWith) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iCallbackWith) == null) {
             this.bN = iCallbackWith;
@@ -105,12 +105,12 @@ public class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.ag() : invokeV.intValue;
     }
 
-    public void b(ICallbackWith iCallbackWith) {
+    public void b(ICallbackWith<JSONObject> iCallbackWith) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iCallbackWith) == null) {
             e eVar = new e();
             this.bL = eVar;
-            eVar.c(new ICallbackWith(this) { // from class: com.baidu.ar.a.b.1
+            eVar.c(new ICallbackWith<String>(this) { // from class: com.baidu.ar.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b bO;
@@ -144,7 +144,7 @@ public class b {
                     this.bO.bN.run(str);
                 }
             });
-            this.bL.a(this.mContext, this.bM, new ICallbackWith(this, iCallbackWith) { // from class: com.baidu.ar.a.b.2
+            this.bL.a(this.mContext, this.bM, new ICallbackWith<a>(this, iCallbackWith) { // from class: com.baidu.ar.a.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b bO;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hj;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbClipImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean w0;
+    public boolean v0;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbClipImageView(Context context) {
@@ -75,16 +75,16 @@ public class TbClipImageView extends TbImageView {
                 return;
             }
         }
-        this.w0 = false;
-        R(context, attributeSet, i);
+        this.v0 = false;
+        Q(context, attributeSet, i);
     }
 
-    public final void R(Context context, AttributeSet attributeSet, int i) {
+    public final void Q(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            String trim = hj.g().trim();
+            String trim = zi.g().trim();
             if (trim != null) {
                 String[] strArr = {"M040", "M045"};
                 int i2 = 0;
@@ -119,9 +119,9 @@ public class TbClipImageView extends TbImageView {
                 z2 = false;
             }
             if (!z2 && !z) {
-                this.w0 = true;
+                this.v0 = true;
             } else {
-                this.w0 = false;
+                this.v0 = false;
             }
         }
     }
@@ -134,7 +134,7 @@ public class TbClipImageView extends TbImageView {
             if (i == 0) {
                 super.setDrawerType(i);
             } else if (i == 1) {
-                if (this.w0) {
+                if (this.v0) {
                     i2 = 4;
                 } else {
                     i2 = 5;

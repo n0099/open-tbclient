@@ -1,5 +1,6 @@
 package com.baidu.android.imrtc.notify;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
@@ -178,6 +179,7 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.notify.BIMSyncRtcInfo, com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

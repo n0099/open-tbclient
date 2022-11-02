@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
@@ -59,7 +60,7 @@ public class PaInfoDBManager extends DBBase {
     public class PaInfoListParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List paList;
+        public List<PaInfo> paList;
         public final /* synthetic */ PaInfoDBManager this$0;
 
         public PaInfoListParse(PaInfoDBManager paInfoDBManager) {
@@ -95,7 +96,7 @@ public class PaInfoDBManager extends DBBase {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.android.imsdk.db.CursorParse
-        public List getResult() {
+        public List<PaInfo> getResult() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -158,7 +159,7 @@ public class PaInfoDBManager extends DBBase {
     public class PaidParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList paList;
+        public ArrayList<Long> paList;
         public final /* synthetic */ PaInfoDBManager this$0;
 
         public PaidParse(PaInfoDBManager paInfoDBManager) {
@@ -186,7 +187,7 @@ public class PaInfoDBManager extends DBBase {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor) != null) || cursor == null) {
                 return;
             }
-            this.paList = new ArrayList();
+            this.paList = new ArrayList<>();
             while (cursor.moveToNext()) {
                 this.paList.add(Long.valueOf(cursor.getLong(0)));
             }
@@ -194,7 +195,7 @@ public class PaInfoDBManager extends DBBase {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.android.imsdk.db.CursorParse
-        public ArrayList getResult() {
+        public ArrayList<Long> getResult() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -238,7 +239,7 @@ public class PaInfoDBManager extends DBBase {
         return (PaInfoDBManager) invokeL.objValue;
     }
 
-    public void updateAllShield(List list) {
+    public void updateAllShield(@NonNull List<ChatSession> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, list) == null) && list.size() > 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, list) { // from class: com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.2
@@ -282,7 +283,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    public void updateMarkTopList(List list) {
+    public void updateMarkTopList(@NonNull List<ChatSession> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, list) { // from class: com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.1
@@ -331,7 +332,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    public void updateSubscribedPaList(Map map) {
+    public void updateSubscribedPaList(@NonNull Map<Long, Integer> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, map) == null) && map.size() > 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, map) { // from class: com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager.4
@@ -388,9 +389,9 @@ public class PaInfoDBManager extends DBBase {
         return invokeV.intValue;
     }
 
-    public List querySubscribedPaList() {
+    public List<PaInfo> querySubscribedPaList() {
         InterceptResult invokeV;
-        List result;
+        List<PaInfo> result;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             PaInfoListParse paInfoListParse = new PaInfoListParse(this);
@@ -480,7 +481,7 @@ public class PaInfoDBManager extends DBBase {
         return (PaInfo) invokeL.objValue;
     }
 
-    private ChatSession constructShieldUsers(ChatSession chatSession, Cursor cursor, boolean z) {
+    private ChatSession constructShieldUsers(@NonNull ChatSession chatSession, Cursor cursor, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, this, chatSession, cursor, z)) == null) {
@@ -539,7 +540,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ChatSession constructShieldUsersByPaInfo(ChatSession chatSession, PaInfo paInfo) {
+    public ChatSession constructShieldUsersByPaInfo(@NonNull ChatSession chatSession, @NonNull PaInfo paInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, chatSession, paInfo)) == null) {
@@ -555,12 +556,12 @@ public class PaInfoDBManager extends DBBase {
         return (ChatSession) invokeLL.objValue;
     }
 
-    private void getPaInfo(List list, List list2, IGetUserShieldListener iGetUserShieldListener) {
+    private void getPaInfo(@NonNull List<ChatSession> list, @NonNull List<ChatSession> list2, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, this, list, list2, iGetUserShieldListener) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Long> arrayList = new ArrayList<>();
             for (int i = 0; i < list.size(); i++) {
-                arrayList.add(Long.valueOf(((ChatSession) list.get(i)).getContacter()));
+                arrayList.add(Long.valueOf(list.get(i).getContacter()));
             }
             String str = TAG;
             LogUtils.i(str, "getPaInfo ids " + arrayList.toString());
@@ -597,7 +598,7 @@ public class PaInfoDBManager extends DBBase {
                     }
 
                     @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-                    public void onResult(int i2, String str2, ArrayList arrayList2) {
+                    public void onResult(int i2, String str2, ArrayList<PaInfo> arrayList2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, arrayList2) == null) {
                             if (i2 == 0) {
@@ -606,14 +607,14 @@ public class PaInfoDBManager extends DBBase {
                                     return;
                                 }
                                 for (ChatSession chatSession : this.val$source) {
-                                    Iterator it = arrayList2.iterator();
+                                    Iterator<PaInfo> it = arrayList2.iterator();
                                     while (true) {
                                         if (it.hasNext()) {
-                                            PaInfo paInfo = (PaInfo) it.next();
-                                            if (paInfo.getPaId() == chatSession.getContacter()) {
-                                                this.val$resultUsers.add(this.this$0.constructShieldUsersByPaInfo(chatSession, paInfo));
-                                                this.this$0.subscribePa(paInfo);
-                                                ChatMessageDBManager.getInstance(this.this$0.mContext).updateSessionClass(paInfo);
+                                            PaInfo next = it.next();
+                                            if (next.getPaId() == chatSession.getContacter()) {
+                                                this.val$resultUsers.add(this.this$0.constructShieldUsersByPaInfo(chatSession, next));
+                                                this.this$0.subscribePa(next);
+                                                ChatMessageDBManager.getInstance(this.this$0.mContext).updateSessionClass(next);
                                                 break;
                                             }
                                         }
@@ -703,7 +704,7 @@ public class PaInfoDBManager extends DBBase {
         return invokeCommon.booleanValue;
     }
 
-    public List getPaidListByPainfos(SparseArray sparseArray) {
+    public List<Long> getPaidListByPainfos(SparseArray<List<Integer>> sparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sparseArray)) == null) {
@@ -717,7 +718,7 @@ public class PaInfoDBManager extends DBBase {
                     StringBuilder sb = new StringBuilder();
                     for (int i = 0; i < sparseArray.size(); i++) {
                         int keyAt = sparseArray.keyAt(i);
-                        List<Integer> list = (List) sparseArray.get(keyAt);
+                        List<Integer> list = sparseArray.get(keyAt);
                         sb.append("(");
                         sb.append("paSubscribe.pasubtype");
                         sb.append("=");
@@ -831,7 +832,7 @@ public class PaInfoDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void getShieldUserByPaId(List list, boolean z, IGetUserShieldListener iGetUserShieldListener) {
+    public void getShieldUserByPaId(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), iGetUserShieldListener}) == null) {
@@ -851,9 +852,9 @@ public class PaInfoDBManager extends DBBase {
                         String str = "";
                         if (list.size() > 0) {
                             try {
-                                String str2 = "" + ((ChatSession) list.get(0)).getContacter();
+                                String str2 = "" + list.get(0).getContacter();
                                 for (int i = 1; i < list.size(); i++) {
-                                    str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + ((ChatSession) list.get(i)).getContacter();
+                                    str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i).getContacter();
                                 }
                                 str = "paid in (" + str2 + ") ";
                             } catch (Exception e) {
@@ -882,8 +883,8 @@ public class PaInfoDBManager extends DBBase {
                                 while (true) {
                                     if (i2 >= list.size()) {
                                         break;
-                                    } else if (((ChatSession) list.get(i2)).getContacter() == j) {
-                                        chatSession = (ChatSession) list.get(i2);
+                                    } else if (list.get(i2).getContacter() == j) {
+                                        chatSession = list.get(i2);
                                         break;
                                     } else {
                                         i2++;
@@ -934,7 +935,7 @@ public class PaInfoDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List getShieldUsers(List list) {
+    public List<ChatSession> getShieldUsers(List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
@@ -1005,9 +1006,9 @@ public class PaInfoDBManager extends DBBase {
         return invokeJ.booleanValue;
     }
 
-    public ArrayList queryPaIdByPaType(int i) {
+    public ArrayList<Long> queryPaIdByPaType(int i) {
         InterceptResult invokeI;
-        ArrayList result;
+        ArrayList<Long> result;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             PaidParse paidParse = new PaidParse(this);
@@ -1035,9 +1036,9 @@ public class PaInfoDBManager extends DBBase {
         return (PaInfo) invokeJ.objValue;
     }
 
-    public List queryPaInfoByChatType(int i) {
+    public List<PaInfo> queryPaInfoByChatType(int i) {
         InterceptResult invokeI;
-        List result;
+        List<PaInfo> result;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             PaInfoListParse paInfoListParse = new PaInfoListParse(this);
@@ -1066,9 +1067,9 @@ public class PaInfoDBManager extends DBBase {
         return invokeJ.intValue;
     }
 
-    public ArrayList queryPaidList() {
+    public ArrayList<Long> queryPaidList() {
         InterceptResult invokeV;
-        ArrayList result;
+        ArrayList<Long> result;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             PaidParse paidParse = new PaidParse(this);
@@ -1097,7 +1098,7 @@ public class PaInfoDBManager extends DBBase {
         return invokeCommon.intValue;
     }
 
-    public boolean updateShield(ChatSession chatSession, boolean z) {
+    public boolean updateShield(@NonNull ChatSession chatSession, boolean z) {
         InterceptResult invokeLZ;
         boolean z2;
         boolean z3;

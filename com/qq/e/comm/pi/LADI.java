@@ -8,7 +8,7 @@ public interface LADI extends ApkDownloadComplianceInterface {
 
     String getECPMLevel();
 
-    Map getExtraInfo();
+    Map<String, Object> getExtraInfo();
 
     void sendLossNotification(int i, int i2, String str);
 

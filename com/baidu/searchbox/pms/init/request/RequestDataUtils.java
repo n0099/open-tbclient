@@ -1,6 +1,8 @@
 package com.baidu.searchbox.pms.init.request;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
@@ -118,17 +120,17 @@ public class RequestDataUtils {
             if (CommonUtils.isEmpty(requestParams.getChannelList())) {
                 return "channelList should not be empty";
             }
-            Iterator it = requestParams.getChannelList().iterator();
+            Iterator<RequestParams.Channel> it = requestParams.getChannelList().iterator();
             while (it.hasNext()) {
-                RequestParams.Channel channel = (RequestParams.Channel) it.next();
-                if (channel == null) {
+                RequestParams.Channel next = it.next();
+                if (next == null) {
                     it.remove();
-                } else if (channel.getDataInterceptor() == null) {
-                    if (TextUtils.isEmpty(channel.getChannelId())) {
-                        ResponseDataProcess.dispatchFetchError(new ErrorInfo(2102, "channelId should not be null"), channel);
+                } else if (next.getDataInterceptor() == null) {
+                    if (TextUtils.isEmpty(next.getChannelId())) {
+                        ResponseDataProcess.dispatchFetchError(new ErrorInfo(2102, "channelId should not be null"), next);
                         it.remove();
-                    } else if (!channel.isFetchAllPackages() && CommonUtils.isEmpty(channel.getPackageParamsList())) {
-                        ResponseDataProcess.dispatchFetchError(new ErrorInfo(2102, "packageNames should not be empty"), channel);
+                    } else if (!next.isFetchAllPackages() && CommonUtils.isEmpty(next.getPackageParamsList())) {
+                        ResponseDataProcess.dispatchFetchError(new ErrorInfo(2102, "packageNames should not be empty"), next);
                         it.remove();
                     }
                 }
@@ -168,7 +170,7 @@ public class RequestDataUtils {
         return invokeLL.booleanValue;
     }
 
-    public static JSONObject getPostData(String str, List list) throws JSONException {
+    public static JSONObject getPostData(String str, List<RequestParams.Channel> list) throws JSONException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
@@ -177,9 +179,7 @@ public class RequestDataUtils {
             }
             JSONObject jSONObject = new JSONObject();
             ArrayList arrayList = new ArrayList();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                RequestParams.Channel channel = (RequestParams.Channel) it.next();
+            for (RequestParams.Channel channel : list) {
                 if (channel != null) {
                     IDataInterceptor dataInterceptor = channel.getDataInterceptor();
                     if (dataInterceptor != null) {
@@ -234,7 +234,7 @@ public class RequestDataUtils {
         return invokeLLL.booleanValue;
     }
 
-    public static void putInterceptor(IDataInterceptor iDataInterceptor, String str, JSONObject jSONObject) throws JSONException {
+    public static void putInterceptor(IDataInterceptor iDataInterceptor, String str, @NonNull JSONObject jSONObject) throws JSONException {
         JSONObject uploadData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65548, null, iDataInterceptor, str, jSONObject) != null) || (uploadData = iDataInterceptor.getUploadData()) == null) {
@@ -243,7 +243,7 @@ public class RequestDataUtils {
         jSONObject.put(str, uploadData);
     }
 
-    public static void putNormalChannel(String str, RequestParams.Channel channel, JSONObject jSONObject, List list) throws JSONException {
+    public static void putNormalChannel(String str, @NonNull RequestParams.Channel channel, @NonNull JSONObject jSONObject, @NonNull List<DegradeData> list) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65549, null, str, channel, jSONObject, list) == null) {
             String channelId = channel.getChannelId();
@@ -284,7 +284,7 @@ public class RequestDataUtils {
         }
     }
 
-    public static void putPackageInfo(String str, RequestParams.Channel channel, List list, JSONObject jSONObject) throws JSONException {
+    public static void putPackageInfo(String str, RequestParams.Channel channel, List<PackageParams> list, JSONObject jSONObject) throws JSONException {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65550, null, str, channel, list, jSONObject) == null) {
@@ -301,9 +301,7 @@ public class RequestDataUtils {
                     }
                 }
             } else {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    PackageParams packageParams = (PackageParams) it.next();
+                for (PackageParams packageParams : list) {
                     jSONObject2.put(packageParams.packageName, packageParams.getUpdateParams());
                 }
             }
@@ -313,19 +311,18 @@ public class RequestDataUtils {
         }
     }
 
-    public static List queryItems(String str, List list) {
+    @NonNull
+    public static List<PackageInfo> queryItems(@NonNull String str, @Nullable List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            Map finishedPackageFiles = PackageManager.getFinishedPackageFiles(str, list);
+            Map<String, PackageInfo> finishedPackageFiles = PackageManager.getFinishedPackageFiles(str, list);
             if (CommonUtils.isEmpty(list)) {
                 return arrayList;
             }
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
-                PackageInfo packageInfo = (PackageInfo) finishedPackageFiles.get(str2);
+            for (String str2 : list) {
+                PackageInfo packageInfo = finishedPackageFiles.get(str2);
                 if (packageInfo == null) {
                     packageInfo = createPackageFile(str2);
                 }
@@ -336,7 +333,7 @@ public class RequestDataUtils {
         return (List) invokeLL.objValue;
     }
 
-    public static void removeDegradePackageNames(String str, RequestParams.Channel channel, List list, List list2) {
+    public static void removeDegradePackageNames(String str, RequestParams.Channel channel, List<PackageParams> list, List<String> list2) {
         List<PackageParams> packageParamsList;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLLL(65552, null, str, channel, list, list2) != null) || channel == null || (packageParamsList = channel.getPackageParamsList()) == null) {

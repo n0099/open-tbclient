@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.eo8;
-import com.baidu.tieba.io8;
-import com.baidu.tieba.mj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.np8;
+import com.baidu.tieba.rp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,15 +23,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements eo8 {
+public class CommonTbJsBridge implements np8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String START_LOGIN_MODULE = "startLoginModule";
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext mTbPageContext;
+    public final TbPageContext<?> mTbPageContext;
 
-    public CommonTbJsBridge(TbPageContext tbPageContext) {
+    public CommonTbJsBridge(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class CommonTbJsBridge implements eo8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            TbadkCoreApplication.getInst().login(this.mTbPageContext, new CustomMessage(2002001, new LoginActivityConfig((Context) this.mTbPageContext.getPageActivity(), true)));
+            TbadkCoreApplication.getInst().login(this.mTbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig((Context) this.mTbPageContext.getPageActivity(), true)));
             JSResultData jSResultData = new JSResultData();
             jSResultData.setStatus(1);
             jSResultData.setErrorCode("0");
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements eo8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.eo8
+    @Override // com.baidu.tieba.np8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements eo8 {
         return invokeLLLL.booleanValue;
     }
 
-    public io8 getSupplementInfo() {
+    public rp8 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            io8 io8Var = new io8();
+            rp8 rp8Var = new rp8();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements eo8 {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = mj.c(sb.toString());
+            String c = ej.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements eo8 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                io8Var.o(jSONObject.toString());
-                return io8Var;
+                rp8Var.o(jSONObject.toString());
+                return rp8Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                io8Var.o("");
-                return io8Var;
+                rp8Var.o("");
+                return rp8Var;
             }
         }
-        return (io8) invokeV.objValue;
+        return (rp8) invokeV.objValue;
     }
 }

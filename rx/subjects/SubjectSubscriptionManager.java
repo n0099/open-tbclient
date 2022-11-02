@@ -2,12 +2,12 @@ package rx.subjects;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.ky9;
-import com.baidu.tieba.ly9;
-import com.baidu.tieba.u2a;
-import com.baidu.tieba.xx9;
-import com.baidu.tieba.yx9;
+import com.baidu.tieba.d4a;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.hz9;
+import com.baidu.tieba.mz9;
+import com.baidu.tieba.tz9;
+import com.baidu.tieba.uz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,18 +21,18 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes9.dex */
-public final class SubjectSubscriptionManager extends AtomicReference implements xx9.a {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements gz9.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6035251036011671568L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean active;
     public volatile Object latest;
-    public ly9 onAdded;
-    public ly9 onStart;
-    public ly9 onTerminated;
+    public uz9<c<T>> onAdded;
+    public uz9<c<T>> onStart;
+    public uz9<c<T>> onTerminated;
 
     /* loaded from: classes9.dex */
-    public class a implements ky9 {
+    public class a implements tz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -57,7 +57,7 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.ky9
+        @Override // com.baidu.tieba.tz9
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -67,7 +67,7 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
     }
 
     /* loaded from: classes9.dex */
-    public final class b {
+    public static final class b<T> {
         public static /* synthetic */ Interceptable $ic;
         public static final c[] c;
         public static final b d;
@@ -167,21 +167,21 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
     }
 
     /* loaded from: classes9.dex */
-    public final class c implements yx9 {
+    public static final class c<T> implements hz9<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final dy9 a;
+        public final mz9<? super T> a;
         public boolean b;
         public boolean c;
-        public List d;
+        public List<Object> d;
         public boolean e;
 
-        public c(dy9 dy9Var) {
+        public c(mz9<? super T> mz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dy9Var};
+                Object[] objArr = {mz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -192,7 +192,7 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
                 }
             }
             this.b = true;
-            this.a = dy9Var;
+            this.a = mz9Var;
         }
 
         public void a(Object obj) {
@@ -221,7 +221,7 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
             }
         }
 
-        @Override // com.baidu.tieba.yx9
+        @Override // com.baidu.tieba.hz9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
@@ -229,11 +229,11 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
             }
         }
 
-        @Override // com.baidu.tieba.yx9
-        public void onNext(Object obj) {
+        @Override // com.baidu.tieba.hz9
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-                this.a.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                this.a.onNext(t);
             }
         }
 
@@ -241,7 +241,7 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void c(List list, Object obj) {
+        public void c(List<Object> list, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, obj) == null) {
                 boolean z = true;
@@ -316,7 +316,7 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
             }
         }
 
-        @Override // com.baidu.tieba.yx9
+        @Override // com.baidu.tieba.hz9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -347,13 +347,13 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
         this.onTerminated = Actions.a();
     }
 
-    public boolean add(c cVar) {
-        b bVar;
+    public boolean add(c<T> cVar) {
+        b<T> bVar;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
             do {
-                bVar = (b) get();
+                bVar = get();
                 if (bVar.a) {
                     this.onTerminated.call(cVar);
                     return false;
@@ -365,37 +365,35 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
-    public void call(dy9 dy9Var) {
+    public void call(mz9<? super T> mz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dy9Var) == null) {
-            c cVar = new c(dy9Var);
-            addUnsubscriber(dy9Var, cVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mz9Var) == null) {
+            c<T> cVar = new c<>(mz9Var);
+            addUnsubscriber(mz9Var, cVar);
             this.onStart.call(cVar);
-            if (!dy9Var.isUnsubscribed() && add(cVar) && dy9Var.isUnsubscribed()) {
+            if (!mz9Var.isUnsubscribed() && add(cVar) && mz9Var.isUnsubscribed()) {
                 remove(cVar);
             }
         }
     }
 
-    public c[] next(Object obj) {
+    public c<T>[] next(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             setLatest(obj);
-            return ((b) get()).b;
+            return get().b;
         }
         return (c[]) invokeL.objValue;
     }
 
-    public void remove(c cVar) {
-        b bVar;
-        b b2;
+    public void remove(c<T> cVar) {
+        b<T> bVar;
+        b<T> b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
             do {
-                bVar = (b) get();
+                bVar = get();
                 if (bVar.a || (b2 = bVar.b(cVar)) == bVar) {
                     return;
                 }
@@ -410,25 +408,30 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
         }
     }
 
-    public c[] terminate(Object obj) {
+    public c<T>[] terminate(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
             setLatest(obj);
             this.active = false;
-            if (((b) get()).a) {
+            if (get().a) {
                 return b.c;
             }
-            return ((b) getAndSet(b.d)).b;
+            return getAndSet(b.d).b;
         }
         return (c[]) invokeL.objValue;
     }
 
-    public void addUnsubscriber(dy9 dy9Var, c cVar) {
+    public void addUnsubscriber(mz9<? super T> mz9Var, c<T> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dy9Var, cVar) == null) {
-            dy9Var.b(u2a.a(new a(this, cVar)));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mz9Var, cVar) == null) {
+            mz9Var.b(d4a.a(new a(this, cVar)));
         }
+    }
+
+    @Override // com.baidu.tieba.gz9.a, com.baidu.tieba.uz9
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((mz9) ((mz9) obj));
     }
 
     public Object getLatest() {
@@ -440,11 +443,11 @@ public final class SubjectSubscriptionManager extends AtomicReference implements
         return invokeV.objValue;
     }
 
-    public c[] observers() {
+    public c<T>[] observers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ((b) get()).b;
+            return get().b;
         }
         return (c[]) invokeV.objValue;
     }

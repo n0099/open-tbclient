@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.c15;
+import com.baidu.tieba.s15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c15 mData;
+    public s15 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChannelConfigResponseMessage(int i) {
@@ -39,18 +39,18 @@ public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && isSuccess()) {
-            c15 c15Var = new c15();
-            this.mData = c15Var;
-            c15Var.c(jSONObject);
+            s15 s15Var = new s15();
+            this.mData = s15Var;
+            s15Var.c(jSONObject);
         }
     }
 
-    public c15 getData() {
+    public s15 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (c15) invokeV.objValue;
+        return (s15) invokeV.objValue;
     }
 }

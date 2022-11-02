@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine.net;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
-public abstract class Uri implements Comparable {
+public abstract class Uri implements Comparable<Uri> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ENCODING = "UTF-8";
     public static final char[] HEX_DIGITS;
@@ -23,13 +24,15 @@ public abstract class Uri implements Comparable {
 
     /* renamed from: com.baidu.searchbox.v8engine.net.Uri$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @Nullable
     public abstract String getEncodedAuthority();
 
+    @Nullable
     public abstract String getScheme();
 
     public abstract boolean isHierarchical();
@@ -39,7 +42,7 @@ public abstract class Uri implements Comparable {
     public abstract String toString();
 
     /* loaded from: classes2.dex */
-    public class Part extends AbstractPart {
+    public static class Part extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final Part EMPTY;
         public static final Part NULL;
@@ -55,7 +58,7 @@ public abstract class Uri implements Comparable {
         }
 
         /* loaded from: classes2.dex */
-        public class EmptyPart extends Part {
+        public static class EmptyPart extends Part {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -206,7 +209,7 @@ public abstract class Uri implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class AbstractHierarchicalUri extends Uri {
+    public static abstract class AbstractHierarchicalUri extends Uri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -232,9 +235,10 @@ public abstract class Uri implements Comparable {
             this();
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         @Override // com.baidu.searchbox.v8engine.net.Uri, java.lang.Comparable
-        public /* bridge */ /* synthetic */ int compareTo(Object obj) {
-            return super.compareTo((Uri) obj);
+        public /* bridge */ /* synthetic */ int compareTo(Uri uri) {
+            return super.compareTo(uri);
         }
 
         public String parseAuthority() {
@@ -270,7 +274,7 @@ public abstract class Uri implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class AbstractPart {
+    public static abstract class AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile String decoded;
@@ -297,7 +301,7 @@ public abstract class Uri implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public class AuthorityPart extends AbstractPart {
+    public static class AuthorityPart extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final AuthorityPart EMPTY;
         public static final AuthorityPart NULL;
@@ -387,7 +391,7 @@ public abstract class Uri implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Part fragment;
@@ -547,7 +551,7 @@ public abstract class Uri implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public class HierarchicalUri extends AbstractHierarchicalUri {
+    public static class HierarchicalUri extends AbstractHierarchicalUri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AuthorityPart authority;
@@ -692,7 +696,7 @@ public abstract class Uri implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public class OpaqueUri extends Uri {
+    public static class OpaqueUri extends Uri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile String cachedString;
@@ -775,9 +779,10 @@ public abstract class Uri implements Comparable {
             this(str, part, part2);
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         @Override // com.baidu.searchbox.v8engine.net.Uri, java.lang.Comparable
-        public /* bridge */ /* synthetic */ int compareTo(Object obj) {
-            return super.compareTo((Uri) obj);
+        public /* bridge */ /* synthetic */ int compareTo(Uri uri) {
+            return super.compareTo(uri);
         }
 
         public String getEncodedSchemeSpecificPart() {
@@ -843,7 +848,7 @@ public abstract class Uri implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public class PathPart extends AbstractPart {
+    public static class PathPart extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final PathPart EMPTY;
         public static final PathPart NULL;
@@ -973,7 +978,7 @@ public abstract class Uri implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public class StringUri extends AbstractHierarchicalUri {
+    public static class StringUri extends AbstractHierarchicalUri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AuthorityPart authority;

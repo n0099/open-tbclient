@@ -13,13 +13,13 @@ import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.CountDownLatch;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class BlockingBaseSubscriber extends CountDownLatch implements FlowableSubscriber {
+public abstract class BlockingBaseSubscriber<T> extends CountDownLatch implements FlowableSubscriber<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
     public Throwable error;
     public Subscription s;
-    public Object value;
+    public T value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlockingBaseSubscriber() {
@@ -47,7 +47,7 @@ public abstract class BlockingBaseSubscriber extends CountDownLatch implements F
         }
     }
 
-    public final Object blockingGet() {
+    public final T blockingGet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -70,7 +70,7 @@ public abstract class BlockingBaseSubscriber extends CountDownLatch implements F
             }
             throw ExceptionHelper.wrapOrThrow(th);
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber

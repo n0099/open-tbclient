@@ -29,7 +29,7 @@ public final class SupervisorKt {
         return SupervisorJob(job);
     }
 
-    public static final Object supervisorScope(Function2 function2, Continuation continuation) {
+    public static final <R> Object supervisorScope(Function2<? super CoroutineScope, ? super Continuation<? super R>, ? extends Object> function2, Continuation<? super R> continuation) {
         SupervisorCoroutine supervisorCoroutine = new SupervisorCoroutine(continuation.getContext(), continuation);
         Object startUndispatchedOrReturn = UndispatchedKt.startUndispatchedOrReturn(supervisorCoroutine, supervisorCoroutine, function2);
         if (startUndispatchedOrReturn == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {

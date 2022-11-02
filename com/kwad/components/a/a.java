@@ -1,9 +1,12 @@
 package com.kwad.components.a;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,12 +35,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
     public static volatile a PJ;
     public transient /* synthetic */ FieldHolder $fh;
     public long Nt;
-    public final List PK;
-    public final List PL;
-    public final List PM;
+    public final List<com.kwad.sdk.e.kwai.b> PK;
+    public final List<String> PL;
+    public final List<String> PM;
     public final NetworkMonitor.a PN;
     public Context mContext;
     public volatile boolean mHasInit;
@@ -94,7 +98,7 @@ public class a {
         };
     }
 
-    private WebResourceResponse a(String str, String str2, b.a aVar, boolean z) {
+    private WebResourceResponse a(@NonNull String str, String str2, b.a aVar, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{str, str2, aVar, Boolean.valueOf(z)})) == null) {
@@ -115,12 +119,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.kwad.sdk.e.kwai.b bVar) {
+    public void a(@NonNull com.kwad.sdk.e.kwai.b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65542, this, bVar) == null) || this.PM.contains(bVar.ait)) {
             return;
         }
-        com.kwad.components.a.a.a.a(this.mContext, bVar, new a.InterfaceC0516a(this) { // from class: com.kwad.components.a.a.5
+        com.kwad.components.a.a.a.a(this.mContext, bVar, new a.InterfaceC0527a(this) { // from class: com.kwad.components.a.a.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a PO;
@@ -143,7 +147,7 @@ public class a {
                 this.PO = this;
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0516a
+            @Override // com.kwad.components.a.a.a.InterfaceC0527a
             public final void c(com.kwad.sdk.e.kwai.b bVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar2) == null) {
@@ -152,7 +156,7 @@ public class a {
                 }
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0516a
+            @Override // com.kwad.components.a.a.a.InterfaceC0527a
             public final void d(com.kwad.sdk.e.kwai.b bVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar2) == null) {
@@ -168,7 +172,7 @@ public class a {
                 }
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0516a
+            @Override // com.kwad.components.a.a.a.InterfaceC0527a
             public final void e(com.kwad.sdk.e.kwai.b bVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar2) == null) {
@@ -324,7 +328,7 @@ public class a {
                         try {
                             try {
                                 fileInputStream3 = fileInputStream;
-                                fileInputStream2 = r.a(g.b(new InputStreamReader(fileInputStream)), new c(this) { // from class: com.kwad.components.a.a.7
+                                fileInputStream2 = r.a(g.b(new InputStreamReader(fileInputStream)), new c<com.kwad.sdk.e.kwai.b>(this) { // from class: com.kwad.components.a.a.7
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ a PO;
@@ -353,8 +357,9 @@ public class a {
                                         return (interceptable2 == null || (invokeV = interceptable2.invokeV(65537, null)) == null) ? new com.kwad.sdk.e.kwai.b() : (com.kwad.sdk.e.kwai.b) invokeV.objValue;
                                     }
 
+                                    /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.b' to match base method */
                                     @Override // com.kwad.sdk.core.c
-                                    public final /* synthetic */ com.kwad.sdk.core.b qt() {
+                                    public final /* synthetic */ com.kwad.sdk.e.kwai.b qt() {
                                         return qs();
                                     }
                                 });
@@ -401,7 +406,7 @@ public class a {
         }
     }
 
-    private void b(com.kwad.sdk.e.kwai.b bVar) {
+    private void b(@NonNull com.kwad.sdk.e.kwai.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, bVar) == null) {
             com.kwad.sdk.utils.g.runOnDefaultExecutor(new Runnable(this, bVar) { // from class: com.kwad.components.a.a.6
@@ -441,7 +446,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k(List list) {
+    public void k(List<com.kwad.sdk.e.kwai.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, list) == null) {
             synchronized (this.PK) {
@@ -509,7 +514,8 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List qr() {
+    @Nullable
+    public List<com.kwad.sdk.e.kwai.b> qr() {
         InterceptResult invokeV;
         List<com.kwad.sdk.e.kwai.a> list;
         Interceptable interceptable = $ic;
@@ -601,7 +607,7 @@ public class a {
             }
 
             @Override // com.kwad.components.core.k.e.a
-            public final void a(SdkConfigData sdkConfigData) {
+            public final void a(@NonNull SdkConfigData sdkConfigData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, sdkConfigData) == null) {
                     this.PO.qq();
@@ -618,6 +624,7 @@ public class a {
         NetworkMonitor.getInstance().a(this.mContext, this.PN);
     }
 
+    @Nullable
     public final WebResourceResponse m(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

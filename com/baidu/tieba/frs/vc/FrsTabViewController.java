@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -43,17 +44,10 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah6;
-import com.baidu.tieba.bh6;
-import com.baidu.tieba.bi6;
-import com.baidu.tieba.bz4;
-import com.baidu.tieba.di6;
-import com.baidu.tieba.e46;
-import com.baidu.tieba.ei6;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.ep4;
-import com.baidu.tieba.fi6;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.bk6;
+import com.baidu.tieba.bv6;
+import com.baidu.tieba.cq8;
+import com.baidu.tieba.dk6;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsAllThreadFragment;
 import com.baidu.tieba.frs.FrsFragment;
@@ -66,26 +60,33 @@ import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
 import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.frs.tab.TabData;
-import com.baidu.tieba.gh6;
-import com.baidu.tieba.hi6;
-import com.baidu.tieba.hj6;
-import com.baidu.tieba.ij6;
-import com.baidu.tieba.ks6;
-import com.baidu.tieba.ku6;
-import com.baidu.tieba.kv6;
-import com.baidu.tieba.lp8;
-import com.baidu.tieba.mh7;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.os6;
-import com.baidu.tieba.p95;
-import com.baidu.tieba.q95;
-import com.baidu.tieba.ri6;
-import com.baidu.tieba.st6;
+import com.baidu.tieba.gt6;
+import com.baidu.tieba.ia5;
+import com.baidu.tieba.it6;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.ki6;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.li6;
+import com.baidu.tieba.lj6;
+import com.baidu.tieba.nj6;
+import com.baidu.tieba.oj6;
+import com.baidu.tieba.p56;
+import com.baidu.tieba.pj6;
+import com.baidu.tieba.pn6;
+import com.baidu.tieba.qi6;
+import com.baidu.tieba.rj6;
+import com.baidu.tieba.rk6;
+import com.baidu.tieba.rz4;
+import com.baidu.tieba.sk6;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.ti6;
-import com.baidu.tieba.to8;
-import com.baidu.tieba.xr6;
-import com.baidu.tieba.zr6;
+import com.baidu.tieba.tt6;
+import com.baidu.tieba.tv6;
+import com.baidu.tieba.tw6;
+import com.baidu.tieba.vp4;
+import com.baidu.tieba.vq8;
+import com.baidu.tieba.wi7;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.xt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,10 +102,11 @@ import tbclient.FrsTabInfo;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 /* loaded from: classes4.dex */
-public class FrsTabViewController implements ku6, TbTabLayout.c {
+public class FrsTabViewController implements tv6, TbTabLayout.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zr6 A;
+    @NonNull
+    public final it6 A;
     public CustomMessageListener B;
     public ViewPager.OnPageChangeListener C;
     public CustomMessageListener D;
@@ -125,13 +127,13 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
     public ThemeColorInfo k;
     public FragmentAdapter l;
     public List<p> m;
-    public gh6 n;
-    public em6 o;
+    public qi6 n;
+    public pn6 o;
     public o p;
     public PublishProgressView q;
     public int r;
     public int s;
-    public e46 t;
+    public p56 t;
     public boolean u;
     public boolean v;
     public int w;
@@ -254,14 +256,14 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends p95 {
+    public class a extends ia5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
         public final /* synthetic */ int d;
         public final /* synthetic */ FrsTabViewController e;
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -271,7 +273,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -301,14 +303,14 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.p95
-        public q95 a() {
+        @Override // com.baidu.tieba.ia5
+        public ja5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 FrsCommonTabFragment frsCommonTabFragment = new FrsCommonTabFragment();
                 Bundle bundle = new Bundle();
-                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, kv6.e(this.c, this.e.j.showAdsense.intValue()));
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, tw6.e(this.c, this.e.j.showAdsense.intValue()));
                 bundle.putString("name", this.e.a.c());
                 bundle.putString("from", this.e.a.o3());
                 bundle.putString("forum_id", this.e.a.k());
@@ -326,25 +328,25 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 bundle.putSerializable("view_data", this.e.j);
                 bundle.putBoolean("isAdded", false);
                 frsCommonTabFragment.setArguments(bundle);
-                q95 q95Var = new q95();
-                q95Var.a = frsCommonTabFragment;
-                q95Var.e = this.d;
-                q95Var.i = q95.k;
-                return q95Var;
+                ja5 ja5Var = new ja5();
+                ja5Var.a = frsCommonTabFragment;
+                ja5Var.e = this.d;
+                ja5Var.i = ja5.k;
+                return ja5Var;
             }
-            return (q95) invokeV.objValue;
+            return (ja5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends p95 {
+    public class b extends ia5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
         public final /* synthetic */ int d;
         public final /* synthetic */ FrsTabViewController e;
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -354,7 +356,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -384,14 +386,14 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.p95
-        public q95 a() {
+        @Override // com.baidu.tieba.ia5
+        public ja5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 FrsTabWebFragment frsTabWebFragment = new FrsTabWebFragment();
                 Bundle bundle = new Bundle();
-                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, kv6.e(this.c, this.e.j.showAdsense.intValue()));
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, tw6.e(this.c, this.e.j.showAdsense.intValue()));
                 bundle.putString("name", this.e.a.c());
                 bundle.putString("from", this.e.a.o3());
                 bundle.putString("forum_id", this.e.a.k());
@@ -410,25 +412,25 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 bundle.putSerializable("view_data", this.e.j);
                 bundle.putBoolean("isAdded", false);
                 frsTabWebFragment.setArguments(bundle);
-                q95 q95Var = new q95();
-                q95Var.a = frsTabWebFragment;
-                q95Var.e = this.d;
-                q95Var.i = q95.k;
-                return q95Var;
+                ja5 ja5Var = new ja5();
+                ja5Var.a = frsTabWebFragment;
+                ja5Var.e = this.d;
+                ja5Var.i = ja5.k;
+                return ja5Var;
             }
-            return (q95) invokeV.objValue;
+            return (ja5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends p95 {
+    public class c extends ia5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int c;
         public final /* synthetic */ FrsTabInfo d;
         public final /* synthetic */ FrsTabViewController e;
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -438,7 +440,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -468,8 +470,8 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             this.d = frsTabInfo;
         }
 
-        @Override // com.baidu.tieba.p95
-        public q95 a() {
+        @Override // com.baidu.tieba.ia5
+        public ja5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -492,13 +494,13 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 bundle.putInt(FrsActivityConfig.FRS_CALL_FROM_BY_ITEM_POSITION, this.e.a.q3());
                 frsItemTabFragment.setArguments(bundle);
                 frsItemTabFragment.v1(this.e.a.getUniqueId());
-                q95 q95Var = new q95();
-                q95Var.a = frsItemTabFragment;
-                q95Var.e = this.c;
-                q95Var.i = q95.k;
-                return q95Var;
+                ja5 ja5Var = new ja5();
+                ja5Var.a = frsItemTabFragment;
+                ja5Var.e = this.c;
+                ja5Var.i = ja5.k;
+                return ja5Var;
             }
-            return (q95) invokeV.objValue;
+            return (ja5) invokeV.objValue;
         }
     }
 
@@ -531,13 +533,13 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921384 && (customResponsedMessage.getData() instanceof os6)) {
-                os6 os6Var = (os6) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921384 && (customResponsedMessage.getData() instanceof xt6)) {
+                xt6 xt6Var = (xt6) customResponsedMessage.getData();
                 int i = -1;
                 for (int i2 = 0; i2 < ListUtils.getCount(this.a.i); i2++) {
-                    if (this.a.i.get(i2) != null && (this.a.i.get(i2).b == os6Var.b || this.a.i.get(i2).e == os6Var.e)) {
+                    if (this.a.i.get(i2) != null && (this.a.i.get(i2).b == xt6Var.b || this.a.i.get(i2).e == xt6Var.e)) {
                         i = i2;
                         break;
                     }
@@ -612,9 +614,9 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof gh6) && !this.a.u) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof qi6) && !this.a.u) {
                 this.a.Y();
                 this.a.u = true;
             }
@@ -669,12 +671,12 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         public final void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                ks6 ks6Var = new ks6();
-                ks6Var.b = i;
-                ks6Var.c = i2;
+                tt6 tt6Var = new tt6();
+                tt6Var.b = i;
+                tt6Var.c = i2;
                 CustomMessage customMessage = new CustomMessage(2921590);
                 customMessage.setTag(this.a.a.getBaseFragmentActivity().getUniqueId());
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921590, ks6Var);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921590, tt6Var);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
@@ -690,9 +692,9 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             if (!ListUtils.isEmpty(this.a.m) && this.a.m.size() > i) {
                 p pVar = (p) ListUtils.getItem(this.a.m, i);
                 if (pVar.a == 506) {
-                    bz4 bz4Var = new bz4(5);
-                    bz4Var.n(13);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bz4Var));
+                    rz4 rz4Var = new rz4(5);
+                    rz4Var.n(13);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, rz4Var));
                 }
                 if (pVar.d == 100) {
                     TiebaStatic.log(new StatisticItem("c13008").param("obj_type", 16));
@@ -700,15 +702,15 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 if (pVar.d == 102) {
                     TiebaStatic.log(new StatisticItem("c13008").param("fid", this.a.a.k()).param("obj_type", 17));
                 }
-                if (pVar.b instanceof ti6) {
-                    bi6 bi6Var = new bi6();
-                    bi6Var.a = pVar.a;
-                    bi6Var.b = (ti6) pVar.b;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, bi6Var));
+                if (pVar.b instanceof dk6) {
+                    lj6 lj6Var = new lj6();
+                    lj6Var.a = pVar.a;
+                    lj6Var.b = (dk6) pVar.b;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, lj6Var));
                 } else {
-                    bi6 bi6Var2 = new bi6();
-                    bi6Var2.a = pVar.a;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, bi6Var2));
+                    lj6 lj6Var2 = new lj6();
+                    lj6Var2.a = pVar.a;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, lj6Var2));
                 }
                 int i2 = 0;
                 a(pVar.a, 0);
@@ -719,7 +721,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 H3.setVisibility(i2);
             }
             if (this.a.a != null && (this.a.a.getActivity() instanceof FrsActivity)) {
-                ((FrsActivity) this.a.a.getActivity()).O0().a();
+                ((FrsActivity) this.a.a.getActivity()).R0().a();
             }
         }
     }
@@ -753,7 +755,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
@@ -809,7 +811,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             p C;
             Fragment fragment;
             Interceptable interceptable = $ic;
@@ -820,8 +822,8 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 }
                 String str = split[0];
                 String str2 = split[1];
-                if ("FrsGameLive".equals(str) && 1 == Integer.valueOf(str2).intValue() && (C = this.a.C()) != null && (fragment = C.b) != null && (fragment instanceof ri6)) {
-                    ((ri6) fragment).x();
+                if ("FrsGameLive".equals(str) && 1 == Integer.valueOf(str2).intValue() && (C = this.a.C()) != null && (fragment = C.b) != null && (fragment instanceof bk6)) {
+                    ((bk6) fragment).x();
                 }
             }
         }
@@ -856,24 +858,24 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PublishProgressData publishProgressData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !lp8.k().s() && lp8.k().i() != null && this.a.a != null && publishProgressData.isCurrentForum(this.a.a.k()) && this.a.q != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !vq8.k().s() && vq8.k().i() != null && this.a.a != null && publishProgressData.isCurrentForum(this.a.a.k()) && this.a.q != null) {
                 this.a.q.c(publishProgressData);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class k extends p95 {
+    public class k extends ia5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
         public final /* synthetic */ int d;
         public final /* synthetic */ FrsTabViewController e;
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -883,7 +885,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -913,15 +915,15 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.p95
-        public q95 a() {
+        @Override // com.baidu.tieba.ia5
+        public ja5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 FrsAllThreadFragment frsAllThreadFragment = new FrsAllThreadFragment();
                 if (this.e.a != null && this.e.a.j1() != null) {
                     frsAllThreadFragment.s1(this.e.a.j1().X());
-                    this.e.a.F4(kv6.e(this.c, this.e.j.showAdsense.intValue()));
+                    this.e.a.F4(tw6.e(this.c, this.e.j.showAdsense.intValue()));
                 }
                 Bundle bundle = new Bundle();
                 if (this.e.a != null) {
@@ -930,25 +932,25 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 bundle.putInt(TiebaStatic.Params.TAB_ID, this.d);
                 bundle.putBoolean("isAdded", false);
                 frsAllThreadFragment.setArguments(bundle);
-                q95 q95Var = new q95();
-                q95Var.a = frsAllThreadFragment;
-                q95Var.e = 1;
-                q95Var.i = q95.k;
-                return q95Var;
+                ja5 ja5Var = new ja5();
+                ja5Var.a = frsAllThreadFragment;
+                ja5Var.e = 1;
+                ja5Var.i = ja5.k;
+                return ja5Var;
             }
-            return (q95) invokeV.objValue;
+            return (ja5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class l extends p95 {
+    public class l extends ia5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
         public final /* synthetic */ int d;
         public final /* synthetic */ FrsTabViewController e;
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -958,7 +960,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -988,14 +990,14 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.p95
-        public q95 a() {
+        @Override // com.baidu.tieba.ia5
+        public ja5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 FrsGoodFragment frsGoodFragment = new FrsGoodFragment();
                 Bundle bundle = new Bundle();
-                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, kv6.e(this.c, this.e.j.showAdsense.intValue()));
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, tw6.e(this.c, this.e.j.showAdsense.intValue()));
                 bundle.putString("name", this.e.a.c());
                 bundle.putString("from", this.e.a.o3());
                 bundle.putBoolean("back_special", false);
@@ -1004,25 +1006,25 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 bundle.putString("forum_id", this.e.a.k());
                 bundle.putBoolean("isAdded", false);
                 frsGoodFragment.setArguments(bundle);
-                q95 q95Var = new q95();
-                q95Var.a = frsGoodFragment;
-                q95Var.e = this.d;
-                q95Var.i = q95.k;
-                return q95Var;
+                ja5 ja5Var = new ja5();
+                ja5Var.a = frsGoodFragment;
+                ja5Var.e = this.d;
+                ja5Var.i = ja5.k;
+                return ja5Var;
             }
-            return (q95) invokeV.objValue;
+            return (ja5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class m extends p95 {
+    public class m extends ia5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
         public final /* synthetic */ int d;
         public final /* synthetic */ FrsTabViewController e;
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1032,7 +1034,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1062,14 +1064,14 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.p95
-        public q95 a() {
+        @Override // com.baidu.tieba.ia5
+        public ja5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 FrsNewAreaFragment frsNewAreaFragment = new FrsNewAreaFragment();
                 Bundle bundle = new Bundle();
-                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, kv6.e(this.c, this.e.j.showAdsense.intValue()));
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, tw6.e(this.c, this.e.j.showAdsense.intValue()));
                 bundle.putString("name", this.e.a.c());
                 bundle.putString("from", this.e.a.o3());
                 bundle.putBoolean("back_special", false);
@@ -1077,23 +1079,23 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 bundle.putString("forum_id", this.e.a.k());
                 bundle.putBoolean("isAdded", false);
                 frsNewAreaFragment.setArguments(bundle);
-                q95 q95Var = new q95();
-                q95Var.a = frsNewAreaFragment;
-                q95Var.e = this.d;
-                q95Var.i = q95.k;
-                return q95Var;
+                ja5 ja5Var = new ja5();
+                ja5Var.a = frsNewAreaFragment;
+                ja5Var.e = this.d;
+                ja5Var.i = ja5.k;
+                return ja5Var;
             }
-            return (q95) invokeV.objValue;
+            return (ja5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class n extends p95 {
+    public class n extends ia5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabViewController c;
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1103,7 +1105,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.p95
+        @Override // com.baidu.tieba.ia5
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1131,8 +1133,8 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             this.c = frsTabViewController;
         }
 
-        @Override // com.baidu.tieba.p95
-        public q95 a() {
+        @Override // com.baidu.tieba.ia5
+        public ja5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -1143,13 +1145,13 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 bundle.putString("forum_id", this.c.a.k());
                 bundle.putBoolean("isAdded", false);
                 frsADFragment.setArguments(bundle);
-                q95 q95Var = new q95();
-                q95Var.a = frsADFragment;
-                q95Var.e = 90;
-                q95Var.i = q95.k;
-                return q95Var;
+                ja5 ja5Var = new ja5();
+                ja5Var.a = frsADFragment;
+                ja5Var.e = 90;
+                ja5Var.i = ja5.k;
+                return ja5Var;
             }
-            return (q95) invokeV.objValue;
+            return (ja5) invokeV.objValue;
         }
     }
 
@@ -1199,7 +1201,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         this.u = false;
         this.x = false;
         this.y = false;
-        this.A = xr6.a();
+        this.A = gt6.a();
         this.B = new f(this, 2001623);
         this.C = new g(this);
         this.D = new h(this, 2001612);
@@ -1209,31 +1211,31 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         this.H = new e(this);
         this.a = frsFragment;
         this.A.a(view2, onClickListener);
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c14);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090c0f);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090822);
-        this.h = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090c12);
-        TbTabLayout tbTabLayout = (TbTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c11);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c27);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090c22);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090832);
+        this.h = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090c25);
+        TbTabLayout tbTabLayout = (TbTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c24);
         this.e = tbTabLayout;
         tbTabLayout.setOnTabSelectedListener(this);
         this.e.setSelectedTabTextBlod(true);
-        this.e.setTabTextSize(xr6.c());
-        e46 e46Var = new e46(frsFragment.getPageContext(), this.e);
-        this.t = e46Var;
-        e46Var.L(R.drawable.obfuscated_res_0x7f0802f5);
+        this.e.setTabTextSize(gt6.c());
+        p56 p56Var = new p56(frsFragment.getPageContext(), this.e);
+        this.t = p56Var;
+        p56Var.L(R.drawable.obfuscated_res_0x7f0802f5);
         this.t.o(16);
         this.t.M(true);
         this.t.P(D(R.dimen.tbds34));
         this.t.Q(D(R.dimen.tbds10));
         this.t.m(this.H);
-        this.f = (FrsTabViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090c2a);
+        this.f = (FrsTabViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090c3d);
         this.m = new ArrayList();
         this.l = new FragmentAdapter(this, this.a.getActivity().getSupportFragmentManager(), this.m);
         this.f.addOnPageChangeListener(this.C);
         RelativeLayout relativeLayout = new RelativeLayout(this.a.getContext());
         this.g = relativeLayout;
-        this.o = new em6(frsFragment, relativeLayout);
-        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f091ae4);
+        this.o = new pn6(frsFragment, relativeLayout);
+        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f091b28);
         this.q = publishProgressView;
         publishProgressView.setVisibility(8);
     }
@@ -1242,7 +1244,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            return fj.f(TbadkCoreApplication.getInst().getContext(), i2);
+            return xi.g(TbadkCoreApplication.getInst().getContext(), i2);
         }
         return invokeI.intValue;
     }
@@ -1261,7 +1263,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         return (p) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.ku6
+    @Override // com.baidu.tieba.tv6
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
@@ -1291,16 +1293,16 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         }
     }
 
-    public final Fragment A(int i2, List<p95> list) {
+    public final Fragment A(int i2, List<ia5> list) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, list)) == null) {
-            for (p95 p95Var : list) {
-                Bundle arguments = p95Var.b().a.getArguments();
-                if (arguments != null && i2 == p95Var.b().e && !arguments.getBoolean("isAdded")) {
+            for (ia5 ia5Var : list) {
+                Bundle arguments = ia5Var.b().a.getArguments();
+                if (arguments != null && i2 == ia5Var.b().e && !arguments.getBoolean("isAdded")) {
                     arguments.putBoolean("isAdded", true);
-                    p95Var.b().a.setArguments(arguments);
-                    return p95Var.b().a;
+                    ia5Var.b().a.setArguments(arguments);
+                    return ia5Var.b().a;
                 }
             }
             return null;
@@ -1308,7 +1310,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         return (Fragment) invokeIL.objValue;
     }
 
-    public final p95 B(FrsTabInfo frsTabInfo) {
+    public final ia5 B(FrsTabInfo frsTabInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsTabInfo)) == null) {
@@ -1336,7 +1338,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             }
             return new a(this, frsTabInfo, intValue);
         }
-        return (p95) invokeL.objValue;
+        return (ia5) invokeL.objValue;
     }
 
     public void X(int i2) {
@@ -1349,7 +1351,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 tbTabLayout.setSelectedTabIndicatorColor(M(i2, SkinManager.getColor(R.color.plugin_button_shadow_red)));
                 this.e.setSelectedIndicatorBottomMargin(D(R.dimen.tbds11));
                 SkinManager.setBackgroundColor(this.e, R.color.transparent);
-                this.e.setTabTextColors(xr6.b(), SkinManager.getColor(R.color.CAM_X0105));
+                this.e.setTabTextColors(gt6.b(), SkinManager.getColor(R.color.CAM_X0105));
                 w(i2);
             }
             if (this.o != null && !Q()) {
@@ -1407,13 +1409,13 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
 
     public View H() {
         InterceptResult invokeV;
-        em6 em6Var;
+        pn6 pn6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (Q() || (em6Var = this.o) == null) {
+            if (Q() || (pn6Var = this.o) == null) {
                 return null;
             }
-            return em6Var.h();
+            return pn6Var.h();
         }
         return (View) invokeV.objValue;
     }
@@ -1501,7 +1503,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
     public void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            this.t.S(this.a.getString(R.string.obfuscated_res_0x7f0f03f4), "key_show_frs_tab_click_to_refresh_tip");
+            this.t.S(this.a.getString(R.string.obfuscated_res_0x7f0f03f6), "key_show_frs_tab_click_to_refresh_tip");
         }
     }
 
@@ -1510,9 +1512,9 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Iterator<os6> it = this.i.iterator();
+            Iterator<xt6> it = this.i.iterator();
             while (it.hasNext()) {
-                os6 next = it.next();
+                xt6 next = it.next();
                 if (next != null && ((i2 = next.b) == 1 || i2 == 503)) {
                     return next.b;
                 }
@@ -1540,19 +1542,19 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0205);
             this.d.setAlpha(0.0f);
-            nv4.d(this.b).o(new int[]{R.color.CAM_X0202, R.color.CAM_X0204});
+            kw4.d(this.b).o(new int[]{R.color.CAM_X0202, R.color.CAM_X0204});
         }
     }
 
-    public os6 K(int i2) {
+    public xt6 K(int i2) {
         InterceptResult invokeI;
         TabData tabData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
             if (i2 >= 0 && (tabData = this.i) != null && tabData.size() > 0) {
-                Iterator<os6> it = this.i.iterator();
+                Iterator<xt6> it = this.i.iterator();
                 while (it.hasNext()) {
-                    os6 next = it.next();
+                    xt6 next = it.next();
                     if (next.b == i2) {
                         return next;
                     }
@@ -1560,7 +1562,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             }
             return null;
         }
-        return (os6) invokeI.objValue;
+        return (xt6) invokeI.objValue;
     }
 
     public final void O(FrsViewData frsViewData) {
@@ -1603,8 +1605,8 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         for (p pVar : this.m) {
             if (pVar != null) {
                 Fragment fragment = pVar.b;
-                if (fragment instanceof ri6) {
-                    ((ri6) fragment).g0(z);
+                if (fragment instanceof bk6) {
+                    ((bk6) fragment).g0(z);
                 }
             }
         }
@@ -1625,15 +1627,15 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             if (themeColorInfo != null) {
                 ThemeElement themeElement = themeColorInfo.dark;
                 if (themeElement != null && i2 == 4) {
-                    return mh7.b(themeElement.font_color);
+                    return wi7.b(themeElement.font_color);
                 }
                 ThemeElement themeElement2 = this.k.night;
                 if (themeElement2 != null && i2 == 1) {
-                    return mh7.b(themeElement2.font_color);
+                    return wi7.b(themeElement2.font_color);
                 }
                 ThemeElement themeElement3 = this.k.day;
                 if (themeElement3 != null && i2 == 0) {
-                    return mh7.b(themeElement3.font_color);
+                    return wi7.b(themeElement3.font_color);
                 }
                 return i3;
             }
@@ -1656,11 +1658,11 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         }
     }
 
-    public final void s(FrsTabInfo frsTabInfo, p95 p95Var) {
+    public final void s(FrsTabInfo frsTabInfo, ia5 ia5Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048619, this, frsTabInfo, p95Var) == null) && p95Var != null && p95Var.b() != null && (p95Var.b().a instanceof BaseFragment)) {
-            BaseFragment baseFragment = (BaseFragment) p95Var.b().a;
+        if ((interceptable == null || interceptable.invokeLL(1048619, this, frsTabInfo, ia5Var) == null) && ia5Var != null && ia5Var.b() != null && (ia5Var.b().a instanceof BaseFragment)) {
+            BaseFragment baseFragment = (BaseFragment) ia5Var.b().a;
             if (frsTabInfo != null) {
                 str = frsTabInfo.tab_name;
             } else {
@@ -1704,15 +1706,15 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         ArrayList arrayList = new ArrayList();
         Iterator it = tabData.iterator();
         while (it.hasNext()) {
-            os6 os6Var = (os6) it.next();
-            if (os6Var != null && os6Var.b == 401 && !isRegistedIntent) {
-                arrayList.add(os6Var);
+            xt6 xt6Var = (xt6) it.next();
+            if (xt6Var != null && xt6Var.b == 401 && !isRegistedIntent) {
+                arrayList.add(xt6Var);
             }
         }
         tabData.removeAll(arrayList);
     }
 
-    @Override // com.baidu.tieba.ku6
+    @Override // com.baidu.tieba.tv6
     public boolean b(int i2) {
         InterceptResult invokeI;
         TabData tabData;
@@ -1786,7 +1788,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
 
     @Override // com.baidu.adp.widget.design.TbTabLayout.c
     public void a(TbTabLayout.f fVar) {
-        os6 os6Var;
+        xt6 xt6Var;
         FrsViewData frsViewData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048601, this, fVar) != null) || fVar == null) {
@@ -1794,10 +1796,10 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         }
         int e2 = fVar.e();
         TabData tabData = this.i;
-        if (tabData != null && e2 >= 0 && e2 < tabData.size() && (os6Var = this.i.get(e2)) != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001624, Integer.valueOf(os6Var.b)));
-            TiebaStatic.log(new StatisticItem("c12398").param("fid", this.a.l).param(TiebaStatic.Params.TAB_ID, os6Var.b));
-            if (BdNetTypeUtil.isNetworkAvailableForImmediately() && os6Var.b == 89 && (frsViewData = this.j) != null && frsViewData.isShowRedTip()) {
+        if (tabData != null && e2 >= 0 && e2 < tabData.size() && (xt6Var = this.i.get(e2)) != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001624, Integer.valueOf(xt6Var.b)));
+            TiebaStatic.log(new StatisticItem("c12398").param("fid", this.a.l).param(TiebaStatic.Params.TAB_ID, xt6Var.b));
+            if (BdNetTypeUtil.isNetworkAvailableForImmediately() && xt6Var.b == 89 && (frsViewData = this.j) != null && frsViewData.isShowRedTip()) {
                 this.j.setIsShowRedTip(false);
                 fVar.j(0, false);
             }
@@ -1811,8 +1813,8 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             int min = Math.min(this.i.size(), this.e.getTabCount());
             for (int i3 = 0; i3 < min; i3++) {
                 TbTabLayout.f w = this.e.w(i3);
-                os6 os6Var = this.i.get(i3);
-                if (w != null && os6Var != null && os6Var.e == 102 && (w.b() instanceof FrsTabItemCustomeView) && (frsTabItemCustomeView = (FrsTabItemCustomeView) w.b()) != null) {
+                xt6 xt6Var = this.i.get(i3);
+                if (w != null && xt6Var != null && xt6Var.e == 102 && (w.b() instanceof FrsTabItemCustomeView) && (frsTabItemCustomeView = (FrsTabItemCustomeView) w.b()) != null) {
                     frsTabItemCustomeView.a();
                     frsTabItemCustomeView.setSelectColorFilter(new PorterDuffColorFilter(M(i2, SkinManager.getColor(R.color.plugin_button_shadow_red)), PorterDuff.Mode.SRC_IN));
                 }
@@ -1871,9 +1873,9 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         if ((interceptable != null && interceptable.invokeL(1048617, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        gh6 gh6Var = new gh6(this.a.getActivity().getApplicationContext(), list);
-        this.n = gh6Var;
-        gh6Var.h(this.a.k());
+        qi6 qi6Var = new qi6(this.a.getActivity().getApplicationContext(), list);
+        this.n = qi6Var;
+        qi6Var.h(this.a.k());
         this.n.i(this.a.c());
         this.n.j(this.a.o3());
         FrsViewData frsViewData = this.j;
@@ -1889,7 +1891,7 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                 y(1);
             }
             i2++;
-            p95 B = B(frsTabInfo);
+            ia5 B = B(frsTabInfo);
             if (B != null) {
                 s(frsTabInfo, B);
                 this.n.a(B);
@@ -1903,13 +1905,13 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
     }
 
     public final void Y() {
-        gh6 gh6Var;
+        qi6 qi6Var;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || (gh6Var = this.n) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || (qi6Var = this.n) == null) {
             return;
         }
-        List<p95> f2 = gh6Var.f();
+        List<ia5> f2 = qi6Var.f();
         if (ListUtils.isEmpty(f2) || ListUtils.isEmpty(this.i)) {
             return;
         }
@@ -1920,12 +1922,12 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         ArrayList arrayList = new ArrayList();
         this.e.setSelectedTabIndicatorColor(M(TbadkCoreApplication.getInst().getSkinType(), SkinManager.getColor(R.color.plugin_button_shadow_red)));
         this.e.setSelectedIndicatorBottomMargin(D(R.dimen.tbds10));
-        Iterator<os6> it = this.i.iterator();
+        Iterator<xt6> it = this.i.iterator();
         int i2 = -1;
         int i3 = -1;
         int i4 = 0;
         while (it.hasNext()) {
-            os6 next = it.next();
+            xt6 next = it.next();
             Fragment A = A(next.b, f2);
             if (A != null) {
                 TbTabLayout.f z2 = this.e.z();
@@ -2032,12 +2034,12 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
         }
     }
 
-    @Override // com.baidu.tieba.ku6
+    @Override // com.baidu.tieba.tv6
     public void d(FrsViewData frsViewData, int i2) {
         AccountData currentAccountObj;
         String str;
-        List list;
-        List list2;
+        List<nj6> list;
+        List<nj6> list2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048607, this, frsViewData, i2) == null) && frsViewData != null && frsViewData.getEntelechyTabInfo() != null && frsViewData.getEntelechyTabInfo().a != null) {
             O(frsViewData);
@@ -2048,18 +2050,18 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                     if (frsTabInfo.is_general_tab.intValue() != 1 && frsTabInfo.tab_type.intValue() != 16 && frsTabInfo.tab_id.intValue() != 506 && frsTabInfo.tab_type.intValue() != 102) {
                         if (frsTabInfo.tab_id.intValue() != 89 && frsTabInfo.tab_id.intValue() != 503) {
                             if (frsTabInfo.tab_type.intValue() == 12) {
-                                os6 os6Var = new os6();
-                                os6Var.b = frsTabInfo.tab_id.intValue();
-                                os6Var.a = frsTabInfo.tab_name;
-                                os6Var.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(os6Var);
+                                xt6 xt6Var = new xt6();
+                                xt6Var.b = frsTabInfo.tab_id.intValue();
+                                xt6Var.a = frsTabInfo.tab_name;
+                                xt6Var.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(xt6Var);
                                 arrayList.add(frsTabInfo);
                             } else if (frsTabInfo.tab_type.intValue() == 1 && frsTabInfo.tab_id.intValue() >= 100) {
                                 if (!TextUtils.isEmpty(frsTabInfo.tab_url)) {
-                                    os6 os6Var2 = new os6();
-                                    os6Var2.b = frsTabInfo.tab_id.intValue();
-                                    os6Var2.a = frsTabInfo.tab_name;
-                                    os6Var2.e = frsTabInfo.tab_type.intValue();
+                                    xt6 xt6Var2 = new xt6();
+                                    xt6Var2.b = frsTabInfo.tab_id.intValue();
+                                    xt6Var2.a = frsTabInfo.tab_name;
+                                    xt6Var2.e = frsTabInfo.tab_type.intValue();
                                     StringBuilder sb = new StringBuilder();
                                     String lowerCase = frsTabInfo.tab_url.toLowerCase();
                                     if (!lowerCase.startsWith("http://") && !lowerCase.startsWith("https://") && !lowerCase.contains("://")) {
@@ -2071,142 +2073,142 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                                     sb.append("=");
                                     sb.append(frsViewData.getForum().getId());
                                     String sb2 = sb.toString();
-                                    os6Var2.d = sb2;
+                                    xt6Var2.d = sb2;
                                     f0(sb2, "c10078");
-                                    tabData.add(os6Var2);
+                                    tabData.add(xt6Var2);
                                     arrayList.add(frsTabInfo);
                                 }
                             } else if (frsTabInfo.tab_type.intValue() == 11 && U(frsTabInfo.tab_id.intValue())) {
-                                os6 os6Var3 = new os6();
-                                os6Var3.b = frsTabInfo.tab_id.intValue();
-                                os6Var3.a = frsTabInfo.tab_name;
-                                os6Var3.d = frsTabInfo.tab_url;
-                                os6Var3.e = frsTabInfo.tab_type.intValue();
-                                if (ep4.i(os6Var3.d)) {
+                                xt6 xt6Var3 = new xt6();
+                                xt6Var3.b = frsTabInfo.tab_id.intValue();
+                                xt6Var3.a = frsTabInfo.tab_name;
+                                xt6Var3.d = frsTabInfo.tab_url;
+                                xt6Var3.e = frsTabInfo.tab_type.intValue();
+                                if (vp4.i(xt6Var3.d)) {
                                     if (MessageManager.getInstance().findTask(2016447) != null) {
-                                        tabData.add(os6Var3);
+                                        tabData.add(xt6Var3);
                                         arrayList.add(frsTabInfo);
                                     }
                                 } else {
-                                    tabData.add(os6Var3);
+                                    tabData.add(xt6Var3);
                                     arrayList.add(frsTabInfo);
                                 }
-                            } else if (frsTabInfo.tab_id.intValue() != 1 && hi6.a().b(frsTabInfo.tab_id.intValue()) && frsTabInfo.tab_id.intValue() != 49) {
-                                os6 os6Var4 = new os6();
-                                os6Var4.b = frsTabInfo.tab_id.intValue();
-                                os6Var4.a = frsTabInfo.tab_name;
-                                os6Var4.e = frsTabInfo.tab_type.intValue();
-                                fi6 b2 = ei6.a().b(os6Var4.b);
+                            } else if (frsTabInfo.tab_id.intValue() != 1 && rj6.a().b(frsTabInfo.tab_id.intValue()) && frsTabInfo.tab_id.intValue() != 49) {
+                                xt6 xt6Var4 = new xt6();
+                                xt6Var4.b = frsTabInfo.tab_id.intValue();
+                                xt6Var4.a = frsTabInfo.tab_name;
+                                xt6Var4.e = frsTabInfo.tab_type.intValue();
+                                pj6 b2 = oj6.a().b(xt6Var4.b);
                                 if (b2 != null && (list2 = b2.b) != null && list2.size() > 0) {
-                                    ij6 ij6Var = new ij6();
-                                    os6Var4.c = ij6Var;
-                                    ij6Var.a = b2.a;
-                                    ij6Var.b = new LinkedList();
+                                    sk6 sk6Var = new sk6();
+                                    xt6Var4.c = sk6Var;
+                                    sk6Var.a = b2.a;
+                                    sk6Var.b = new LinkedList();
                                     boolean z = true;
-                                    for (di6 di6Var : b2.b) {
-                                        if (di6Var != null) {
-                                            hj6 hj6Var = new hj6();
-                                            hj6Var.a = di6Var.a;
-                                            hj6Var.b = di6Var.b;
+                                    for (nj6 nj6Var : b2.b) {
+                                        if (nj6Var != null) {
+                                            rk6 rk6Var = new rk6();
+                                            rk6Var.a = nj6Var.a;
+                                            rk6Var.b = nj6Var.b;
                                             if (z) {
-                                                hj6Var.c = true;
+                                                rk6Var.c = true;
                                                 z = false;
                                             }
-                                            os6Var4.c.b.add(hj6Var);
+                                            xt6Var4.c.b.add(rk6Var);
                                         }
                                     }
                                 }
-                                tabData.add(os6Var4);
+                                tabData.add(xt6Var4);
                                 arrayList.add(frsTabInfo);
                             } else if (frsTabInfo.tab_id.intValue() == 1) {
-                                os6 os6Var5 = new os6();
-                                os6Var5.b = frsTabInfo.tab_id.intValue();
-                                os6Var5.a = frsTabInfo.tab_name;
-                                os6Var5.e = frsTabInfo.tab_type.intValue();
-                                fi6 b3 = ei6.a().b(os6Var5.b);
+                                xt6 xt6Var5 = new xt6();
+                                xt6Var5.b = frsTabInfo.tab_id.intValue();
+                                xt6Var5.a = frsTabInfo.tab_name;
+                                xt6Var5.e = frsTabInfo.tab_type.intValue();
+                                pj6 b3 = oj6.a().b(xt6Var5.b);
                                 if (b3 != null && (list = b3.b) != null && list.size() > 0) {
-                                    ij6 ij6Var2 = new ij6();
-                                    os6Var5.c = ij6Var2;
-                                    ij6Var2.a = b3.a;
-                                    ij6Var2.b = new LinkedList();
-                                    for (di6 di6Var2 : b3.b) {
-                                        if (di6Var2 != null) {
-                                            hj6 hj6Var2 = new hj6();
-                                            hj6Var2.a = di6Var2.a;
-                                            hj6Var2.b = di6Var2.b;
-                                            os6Var5.c.b.add(hj6Var2);
+                                    sk6 sk6Var2 = new sk6();
+                                    xt6Var5.c = sk6Var2;
+                                    sk6Var2.a = b3.a;
+                                    sk6Var2.b = new LinkedList();
+                                    for (nj6 nj6Var2 : b3.b) {
+                                        if (nj6Var2 != null) {
+                                            rk6 rk6Var2 = new rk6();
+                                            rk6Var2.a = nj6Var2.a;
+                                            rk6Var2.b = nj6Var2.b;
+                                            xt6Var5.c.b.add(rk6Var2);
                                         }
                                     }
                                 }
-                                tabData.add(os6Var5);
+                                tabData.add(xt6Var5);
                                 arrayList.add(frsTabInfo);
                             } else if (frsTabInfo.tab_id.intValue() == 49) {
                                 if (this.a.j1().Y().k(ThreadData.TYPE_VIDEO_ALA_ONLIVE)) {
-                                    os6 os6Var6 = new os6();
-                                    os6Var6.a = frsTabInfo.tab_name;
+                                    xt6 xt6Var6 = new xt6();
+                                    xt6Var6.a = frsTabInfo.tab_name;
                                     if (frsViewData.getAlaLiveCount() != 0 && frsViewData.getAlaLiveCount() <= 99) {
-                                        os6Var6.a = frsTabInfo.tab_name + "(" + frsViewData.getAlaLiveCount() + SmallTailInfo.EMOTION_SUFFIX;
+                                        xt6Var6.a = frsTabInfo.tab_name + "(" + frsViewData.getAlaLiveCount() + SmallTailInfo.EMOTION_SUFFIX;
                                     }
                                     int i3 = this.s;
                                     if (i3 > 0 && i3 != frsViewData.getAlaLiveCount() && this.s <= 99) {
-                                        os6Var6.a = frsTabInfo.tab_name + "(" + this.s + SmallTailInfo.EMOTION_SUFFIX;
+                                        xt6Var6.a = frsTabInfo.tab_name + "(" + this.s + SmallTailInfo.EMOTION_SUFFIX;
                                     } else if (this.s <= 99 && frsViewData.getAlaLiveCount() <= 99) {
                                         int i4 = this.s;
                                         if (i4 == 0 && i4 != frsViewData.getAlaLiveCount()) {
-                                            os6Var6.a = frsTabInfo.tab_name;
+                                            xt6Var6.a = frsTabInfo.tab_name;
                                         }
                                     } else {
-                                        os6Var6.a = frsTabInfo.tab_name + "(99+)";
+                                        xt6Var6.a = frsTabInfo.tab_name + "(99+)";
                                     }
-                                    os6Var6.b = frsTabInfo.tab_id.intValue();
-                                    os6Var6.e = frsTabInfo.tab_type.intValue();
-                                    tabData.add(os6Var6);
+                                    xt6Var6.b = frsTabInfo.tab_id.intValue();
+                                    xt6Var6.e = frsTabInfo.tab_type.intValue();
+                                    tabData.add(xt6Var6);
                                     arrayList.add(frsTabInfo);
                                 }
                             } else if (frsTabInfo.tab_id.intValue() == 1120) {
-                                os6 os6Var7 = new os6();
-                                os6Var7.b = frsTabInfo.tab_id.intValue();
-                                os6Var7.a = frsTabInfo.tab_name;
-                                os6Var7.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(os6Var7);
+                                xt6 xt6Var7 = new xt6();
+                                xt6Var7.b = frsTabInfo.tab_id.intValue();
+                                xt6Var7.a = frsTabInfo.tab_name;
+                                xt6Var7.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(xt6Var7);
                                 arrayList.add(frsTabInfo);
                                 y(2);
                             } else if (frsTabInfo.tab_id.intValue() == 90) {
-                                os6 os6Var8 = new os6();
-                                os6Var8.b = frsTabInfo.tab_id.intValue();
-                                os6Var8.a = frsTabInfo.tab_name;
-                                os6Var8.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(os6Var8);
+                                xt6 xt6Var8 = new xt6();
+                                xt6Var8.b = frsTabInfo.tab_id.intValue();
+                                xt6Var8.a = frsTabInfo.tab_name;
+                                xt6Var8.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(xt6Var8);
                                 arrayList.add(frsTabInfo);
                             } else if (frsTabInfo.tab_type.intValue() == 91) {
-                                os6 os6Var9 = new os6();
-                                os6Var9.b = frsTabInfo.tab_id.intValue();
-                                os6Var9.a = StringHelper.cutChineseAndEnglishWithSuffix(frsTabInfo.tab_name, 8, (String) null);
-                                os6Var9.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(os6Var9);
+                                xt6 xt6Var9 = new xt6();
+                                xt6Var9.b = frsTabInfo.tab_id.intValue();
+                                xt6Var9.a = StringHelper.cutChineseAndEnglishWithSuffix(frsTabInfo.tab_name, 8, (String) null);
+                                xt6Var9.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(xt6Var9);
                                 arrayList.add(frsTabInfo);
                             } else if (frsTabInfo.tab_id.intValue() == 504) {
-                                os6 os6Var10 = new os6();
-                                os6Var10.b = frsTabInfo.tab_id.intValue();
-                                os6Var10.a = frsTabInfo.tab_name;
-                                os6Var10.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(os6Var10);
+                                xt6 xt6Var10 = new xt6();
+                                xt6Var10.b = frsTabInfo.tab_id.intValue();
+                                xt6Var10.a = frsTabInfo.tab_name;
+                                xt6Var10.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(xt6Var10);
                                 arrayList.add(frsTabInfo);
                             } else if (frsTabInfo.tab_type.intValue() == 3) {
-                                os6 os6Var11 = new os6();
-                                os6Var11.b = frsTabInfo.tab_id.intValue();
-                                os6Var11.a = frsTabInfo.tab_name;
-                                os6Var11.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(os6Var11);
+                                xt6 xt6Var11 = new xt6();
+                                xt6Var11.b = frsTabInfo.tab_id.intValue();
+                                xt6Var11.a = frsTabInfo.tab_name;
+                                xt6Var11.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(xt6Var11);
                                 arrayList.add(frsTabInfo);
                                 y(1);
                             }
                         } else {
-                            os6 os6Var12 = new os6();
-                            os6Var12.b = frsTabInfo.tab_id.intValue();
-                            os6Var12.a = frsTabInfo.tab_name;
-                            os6Var12.e = frsTabInfo.tab_type.intValue();
-                            tabData.add(os6Var12);
+                            xt6 xt6Var12 = new xt6();
+                            xt6Var12.b = frsTabInfo.tab_id.intValue();
+                            xt6Var12.a = frsTabInfo.tab_name;
+                            xt6Var12.e = frsTabInfo.tab_type.intValue();
+                            tabData.add(xt6Var12);
                             arrayList.add(frsTabInfo);
                             if (frsTabInfo.tab_id.intValue() == 503) {
                                 String str2 = "";
@@ -2218,18 +2220,18 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                                 if (frsViewData.getForum() != null && frsViewData.getForum().getName() != null) {
                                     str2 = frsViewData.getForum().getName();
                                 }
-                                int h2 = st6.h("503~" + str + str2);
+                                int h2 = bv6.h("503~" + str + str2);
                                 if (h2 == -1) {
                                     Iterator<FrsTabInfo> it = frsViewData.getEntelechyTabInfo().b.iterator();
                                     while (true) {
                                         if (it.hasNext()) {
                                             FrsTabInfo next = it.next();
                                             if (next.tab_type == frsTabInfo.tab_type) {
-                                                st6.i("503~" + str + str2, next.tab_id.intValue());
+                                                bv6.i("503~" + str + str2, next.tab_id.intValue());
                                                 if (7 == h2) {
-                                                    to8.b();
+                                                    cq8.b();
                                                 } else {
-                                                    to8.a();
+                                                    cq8.a();
                                                 }
                                             }
                                         }
@@ -2238,13 +2240,13 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                             }
                         }
                     } else {
-                        os6 os6Var13 = new os6();
-                        os6Var13.a = frsTabInfo.tab_name;
-                        os6Var13.b = frsTabInfo.tab_id.intValue();
-                        os6Var13.e = frsTabInfo.tab_type.intValue();
-                        os6Var13.f = frsTabInfo.head_pics;
-                        os6Var13.d = frsTabInfo.tab_url;
-                        tabData.add(os6Var13);
+                        xt6 xt6Var13 = new xt6();
+                        xt6Var13.a = frsTabInfo.tab_name;
+                        xt6Var13.b = frsTabInfo.tab_id.intValue();
+                        xt6Var13.e = frsTabInfo.tab_type.intValue();
+                        xt6Var13.f = frsTabInfo.head_pics;
+                        xt6Var13.d = frsTabInfo.tab_url;
+                        tabData.add(xt6Var13);
                         arrayList.add(frsTabInfo);
                     }
                 }
@@ -2321,18 +2323,18 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                     customResponsedMessage.setOrginalMessage(customMessage);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                os6 os6Var = this.i.get(e2);
-                if (os6Var != null) {
-                    if (102 == os6Var.e && (fVar.b() instanceof FrsTabItemCustomeView)) {
+                xt6 xt6Var = this.i.get(e2);
+                if (xt6Var != null) {
+                    if (102 == xt6Var.e && (fVar.b() instanceof FrsTabItemCustomeView)) {
                         ((FrsTabItemCustomeView) fVar.b()).b(true);
                     }
-                    this.w = os6Var.b;
-                    if (BdNetTypeUtil.isNetworkAvailableForImmediately() && os6Var.b == 89 && (frsViewData = this.j) != null && frsViewData.isShowRedTip()) {
+                    this.w = xt6Var.b;
+                    if (BdNetTypeUtil.isNetworkAvailableForImmediately() && xt6Var.b == 89 && (frsViewData = this.j) != null && frsViewData.isShowRedTip()) {
                         this.j.setIsShowRedTip(false);
                         fVar.j(0, false);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001625, Integer.valueOf(os6Var.b)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001625, Integer.valueOf(xt6Var.b)));
                     }
-                    if (os6Var.b == 502) {
+                    if (xt6Var.b == 502) {
                         if (this.a.H3() != null) {
                             this.a.H3().setIconFade(R.drawable.btn_frs_professional_edit_n);
                         }
@@ -2340,19 +2342,19 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
                         this.a.H3().setIconFade(0);
                     }
                     if (UbsABTestHelper.isFrsTabLocationTestC()) {
-                        FrsTabTestHelper.storeUserLastAccessTab(os6Var.a);
+                        FrsTabTestHelper.storeUserLastAccessTab(xt6Var.a);
                     }
                     o oVar = this.p;
                     if (oVar != null) {
-                        oVar.a(os6Var.b, os6Var.e, os6Var.a);
+                        oVar.a(xt6Var.b, xt6Var.e, xt6Var.a);
                     }
-                    bh6 f2 = bh6.f();
-                    if (os6Var.e == 14) {
+                    li6 f2 = li6.f();
+                    if (xt6Var.e == 14) {
                         z = true;
                     }
                     f2.t(z);
-                    ah6.h().o(os6Var.b);
-                    TiebaStatic.log(new StatisticItem("c12398").param("fid", this.a.l).param(TiebaStatic.Params.TAB_ID, os6Var.b));
+                    ki6.h().o(xt6Var.b);
+                    TiebaStatic.log(new StatisticItem("c12398").param("fid", this.a.l).param(TiebaStatic.Params.TAB_ID, xt6Var.b));
                 }
             }
         }
@@ -2364,13 +2366,13 @@ public class FrsTabViewController implements ku6, TbTabLayout.c {
             int min = Math.min(this.i.size(), this.e.getTabCount());
             for (int i2 = 0; i2 < min; i2++) {
                 TbTabLayout.f w = this.e.w(i2);
-                os6 os6Var = this.i.get(i2);
-                if (w != null && os6Var != null && os6Var.e == 102 && os6Var.f != null) {
+                xt6 xt6Var = this.i.get(i2);
+                if (w != null && xt6Var != null && xt6Var.e == 102 && xt6Var.f != null) {
                     FrsTabItemCustomeView frsTabItemCustomeView = new FrsTabItemCustomeView(this.a.getContext());
                     frsTabItemCustomeView.setNeedNightShade(false);
                     frsTabItemCustomeView.setSelectColorFilter(new PorterDuffColorFilter(M(TbadkCoreApplication.getInst().getSkinType(), SkinManager.getColor(R.color.plugin_button_shadow_red)), PorterDuff.Mode.SRC_IN));
                     frsTabItemCustomeView.setNeedNightShade(false);
-                    frsTabItemCustomeView.e(os6Var.f);
+                    frsTabItemCustomeView.e(xt6Var.f);
                     w.o(frsTabItemCustomeView);
                 }
             }

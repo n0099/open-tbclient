@@ -15,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class RLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEADER = "MidPay:";
-    public static CopyOnWriteArrayList logDelegates;
+    public static CopyOnWriteArrayList<IRLogDelegate> logDelegates;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class RLog {
                 return;
             }
         }
-        logDelegates = new CopyOnWriteArrayList();
+        logDelegates = new CopyOnWriteArrayList<>();
     }
 
     public RLog() {
@@ -68,9 +68,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, obj, str) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).debug(tagWithHeader(obj), str);
+                    it.next().debug(tagWithHeader(obj), str);
                 }
                 return;
             }
@@ -82,9 +82,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, obj, str) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).info(tagWithHeader(obj), str);
+                    it.next().info(tagWithHeader(obj), str);
                 }
             } else {
                 Log.i(tagWithHeader(obj), str);
@@ -100,9 +100,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, obj, str) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).verbose(tagWithHeader(obj), str);
+                    it.next().verbose(tagWithHeader(obj), str);
                 }
             } else {
                 Log.v(tagWithHeader(obj), str);
@@ -118,9 +118,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, obj, str) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).warn(tagWithHeader(obj), str);
+                    it.next().warn(tagWithHeader(obj), str);
                 }
             } else {
                 Log.w(tagWithHeader(obj), str);
@@ -136,9 +136,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, th) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).debug(tagWithHeader(obj), str, th);
+                    it.next().debug(tagWithHeader(obj), str, th);
                 }
                 return;
             }
@@ -150,9 +150,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).debug(tagWithHeader(obj), str, objArr);
+                    it.next().debug(tagWithHeader(obj), str, objArr);
                 }
                 return;
             }
@@ -167,9 +167,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, obj, str, th) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).error(tagWithHeader(obj), str, th);
+                    it.next().error(tagWithHeader(obj), str, th);
                 }
             } else {
                 Log.e(tagWithHeader(obj), str, th);
@@ -186,9 +186,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).info(tagWithHeader(obj), str, objArr);
+                    it.next().info(tagWithHeader(obj), str, objArr);
                 }
             } else {
                 try {
@@ -207,9 +207,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).verbose(tagWithHeader(obj), str, objArr);
+                    it.next().verbose(tagWithHeader(obj), str, objArr);
                 }
             } else {
                 try {
@@ -228,9 +228,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65550, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).warn(tagWithHeader(obj), str, objArr);
+                    it.next().warn(tagWithHeader(obj), str, objArr);
                 }
             } else {
                 try {
@@ -249,9 +249,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator it = logDelegates.iterator();
+                Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    ((IRLogDelegate) it.next()).error(tagWithHeader(obj), str, objArr);
+                    it.next().error(tagWithHeader(obj), str, objArr);
                 }
             } else {
                 try {

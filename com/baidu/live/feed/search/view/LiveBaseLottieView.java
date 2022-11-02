@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LiveBaseLottieView extends LottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LottieTask a;
+    public LottieTask<LottieComposition> a;
     public String b;
     public Drawable c;
     public LottieListener d;
     public LottieListener e;
 
     /* loaded from: classes2.dex */
-    public class a implements LottieListener {
+    public class a implements LottieListener<LottieComposition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveBaseLottieView a;
@@ -61,7 +61,7 @@ public class LiveBaseLottieView extends LottieAnimationView {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements LottieListener {
+    public class b implements LottieListener<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveBaseLottieView a;
@@ -192,12 +192,12 @@ public class LiveBaseLottieView extends LottieAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             this.b = str;
-            LottieTask lottieTask = this.a;
+            LottieTask<LottieComposition> lottieTask = this.a;
             if (lottieTask != null) {
                 lottieTask.removeListener(this.d);
                 this.a.removeFailureListener(this.e);
             }
-            LottieTask fromUrl = LottieCompositionFactory.fromUrl(getContext(), str);
+            LottieTask<LottieComposition> fromUrl = LottieCompositionFactory.fromUrl(getContext(), str);
             this.a = fromUrl;
             fromUrl.addListener(this.d).addFailureListener(this.e);
         }
@@ -217,7 +217,7 @@ public class LiveBaseLottieView extends LottieAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
-            LottieTask lottieTask = this.a;
+            LottieTask<LottieComposition> lottieTask = this.a;
             if (lottieTask != null) {
                 lottieTask.removeListener(this.d);
                 this.a.removeFailureListener(this.e);

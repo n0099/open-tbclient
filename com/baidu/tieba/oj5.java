@@ -1,67 +1,84 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Rect;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class oj5 {
+public class oj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataSetObservable a;
 
-    public abstract int a();
-
-    public abstract View b(int i, ViewGroup viewGroup);
-
-    public oj5() {
+    public static boolean a(Context context, String str, rr4 rr4Var) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, rr4Var)) == null) {
+            if (context == null || rr4Var == null) {
+                return false;
             }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else if ("frs".equals(str)) {
+                i = 3;
+            } else {
+                i = -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(rr4Var.getThreadData().originalThreadData, context, i, (Rect) null, rr4Var.getThreadData().getForum_name());
+            return true;
         }
-        this.a = new DataSetObservable();
+        return invokeLLL.booleanValue;
     }
 
-    public void c() {
+    public static boolean b(Context context, String str, rr4 rr4Var) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.notifyChanged();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, rr4Var)) == null) {
+            if (context == null || rr4Var == null) {
+                return false;
+            }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else if ("frs".equals(str)) {
+                i = 3;
+            } else {
+                i = -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(rr4Var, context, i, false);
+            return true;
         }
+        return invokeLLL.booleanValue;
     }
 
-    public void d(DataSetObserver dataSetObserver) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
-            try {
-                this.a.registerObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb()) {
+                return true;
             }
+            return false;
         }
-    }
-
-    public void e(DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
-            try {
-                this.a.unregisterObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

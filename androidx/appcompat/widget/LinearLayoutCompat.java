@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -57,11 +60,13 @@ public class LinearLayoutCompat extends ViewGroup {
     public float mWeightSum;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface DividerMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface OrientationMode {
     }
@@ -258,7 +263,7 @@ public class LinearLayoutCompat extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LinearLayoutCompat(Context context) {
+    public LinearLayoutCompat(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -278,6 +283,7 @@ public class LinearLayoutCompat extends ViewGroup {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean hasDividerBeforeChildAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -339,7 +345,7 @@ public class LinearLayoutCompat extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LinearLayoutCompat(Context context, AttributeSet attributeSet) {
+    public LinearLayoutCompat(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -398,7 +404,7 @@ public class LinearLayoutCompat extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LinearLayoutCompat(Context context, AttributeSet attributeSet, int i) {
+    public LinearLayoutCompat(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -708,6 +714,7 @@ public class LinearLayoutCompat extends ViewGroup {
         return invokeV.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getDividerWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

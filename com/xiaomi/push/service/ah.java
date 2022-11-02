@@ -86,17 +86,17 @@ public final class ah {
         return (Cif) invokeLL.objValue;
     }
 
-    public static Cif a(String str, String str2, iu iuVar, hj hjVar) {
+    public static <T extends iu<T, ?>> Cif a(String str, String str2, T t, hj hjVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, str2, iuVar, hjVar)) == null) ? a(str, str2, iuVar, hjVar, true) : (Cif) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, str2, t, hjVar)) == null) ? a(str, str2, t, hjVar, true) : (Cif) invokeLLLL.objValue;
     }
 
-    public static Cif a(String str, String str2, iu iuVar, hj hjVar, boolean z) {
+    public static <T extends iu<T, ?>> Cif a(String str, String str2, T t, hj hjVar, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, iuVar, hjVar, Boolean.valueOf(z)})) == null) {
-            byte[] a = it.a(iuVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, t, hjVar, Boolean.valueOf(z)})) == null) {
+            byte[] a = it.a(t);
             Cif cif = new Cif();
             hy hyVar = new hy();
             hyVar.f554a = 5L;
@@ -115,12 +115,12 @@ public final class ah {
 
     public static String a(Cif cif) {
         InterceptResult invokeL;
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cif)) == null) {
             hw hwVar = cif.f627a;
             if (hwVar != null && (map = hwVar.f545b) != null) {
-                String str = (String) map.get("ext_traffic_source_pkg");
+                String str = map.get("ext_traffic_source_pkg");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
@@ -220,9 +220,9 @@ public final class ah {
         return (Cif) invokeLL.objValue;
     }
 
-    public static Cif b(String str, String str2, iu iuVar, hj hjVar) {
+    public static <T extends iu<T, ?>> Cif b(String str, String str2, T t, hj hjVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, str, str2, iuVar, hjVar)) == null) ? a(str, str2, iuVar, hjVar, false) : (Cif) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, str, str2, t, hjVar)) == null) ? a(str, str2, t, hjVar, false) : (Cif) invokeLLLL.objValue;
     }
 }

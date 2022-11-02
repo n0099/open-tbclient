@@ -18,18 +18,18 @@ import com.vivo.push.util.y;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class c {
+public abstract class c<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List b;
+    public List<T> b;
     public Context c;
     public byte[] d;
     public byte[] e;
 
     public abstract String a();
 
-    public abstract List a(String str);
+    public abstract List<T> a(String str);
 
     public abstract String b(String str) throws Exception;
 
@@ -130,7 +130,7 @@ public abstract class c {
             } else {
                 try {
                     p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + str);
-                    List a2 = a(b(str));
+                    List<T> a2 = a(b(str));
                     if (a2 != null) {
                         this.b.addAll(a2);
                     }

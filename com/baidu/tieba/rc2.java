@@ -1,43 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.an2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class rc2 {
+public class rc2 extends lc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map a;
-
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rc2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-465569109, "Lcom/baidu/tieba/rc2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-465569109, "Lcom/baidu/tieba/rc2$a;");
-                    return;
-                }
-            }
-            a = new rc2();
-        }
-    }
 
     public rc2() {
         Interceptable interceptable = $ic;
@@ -49,43 +20,16 @@ public class rc2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ConcurrentHashMap();
     }
 
-    public static rc2 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nc2
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            e12.l("SwanAppPurger", "删除小程序: " + str, new Exception("deletePkgFile"));
+            an2.e.e(str);
         }
-        return (rc2) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
-            m02.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
-        }
-    }
-
-    public int c(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Integer num = (Integer) this.a.get(Integer.valueOf(i));
-            if (num != null) {
-                i2 = num.intValue();
-            } else {
-                i2 = 0;
-            }
-            m02.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
-            return i2;
-        }
-        return invokeI.intValue;
     }
 }

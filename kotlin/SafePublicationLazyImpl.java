@@ -40,10 +40,10 @@ public final class SafePublicationLazyImpl<T> implements Lazy<T>, Serializable {
         }
         Function0<? extends T> function0 = this.initializer;
         if (function0 != null) {
-            T t2 = (T) function0.invoke();
-            if (valueUpdater.compareAndSet(this, UNINITIALIZED_VALUE.INSTANCE, t2)) {
+            T invoke = function0.invoke();
+            if (valueUpdater.compareAndSet(this, UNINITIALIZED_VALUE.INSTANCE, invoke)) {
                 this.initializer = null;
-                return t2;
+                return invoke;
             }
         }
         return (T) this._value;

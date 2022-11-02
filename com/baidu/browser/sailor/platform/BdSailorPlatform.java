@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -21,9 +22,9 @@ import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.feature.upload.BdUploadFeature;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
 import com.baidu.browser.sailor.webkit.update.BdZeusUpdate;
-import com.baidu.tieba.ax;
-import com.baidu.tieba.bx;
-import com.baidu.tieba.fx;
+import com.baidu.tieba.sw;
+import com.baidu.tieba.tw;
+import com.baidu.tieba.xw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,11 +36,11 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
-import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
+import com.baidu.webkit.sdk.dumper.CrashCallback;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
@@ -55,7 +56,7 @@ public final class BdSailorPlatform implements INoProGuard {
     public static final int PAUSER_WEBKIT_TIMER_DELAY_TIME = 2000;
     public static final String SAILOR_MODULE_NAME = "sailor";
     public static final String TAG = "com.baidu.browser.sailor.platform.BdSailorPlatform";
-    public static SoftReference sErrorPageContent;
+    public static SoftReference<String> sErrorPageContent;
     public static BdSailorPlatform sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
@@ -67,8 +68,8 @@ public final class BdSailorPlatform implements INoProGuard {
     public boolean mNeedFix;
     public b mNetworkChangedReciever;
     public int mNetworkType;
-    public HashMap mSailorFeatureMap;
-    public bx mSailorStatic;
+    public HashMap<String, com.baidu.browser.sailor.feature.a> mSailorFeatureMap;
+    public tw mSailorStatic;
     public BdWebkitManager mWebkitMgr;
     public boolean mWebkitTimerPaused;
     public String mWorkspace;
@@ -110,7 +111,7 @@ public final class BdSailorPlatform implements INoProGuard {
                 }
                 try {
                     Log.d(BdSailorPlatform.TAG, "do pause");
-                    this.a.mWebkitTimerPaused = fx.a().c();
+                    this.a.mWebkitTimerPaused = xw.a().c();
                     CookieSyncManager createInstance = CookieSyncManager.createInstance(this.a.mContext);
                     if (createInstance != null) {
                         createInstance.stopSync();
@@ -196,9 +197,9 @@ public final class BdSailorPlatform implements INoProGuard {
         this.mHasInit = false;
         this.mIsNeedUpdateKernel = true;
         Log.d(TAG, "BdSailorPlatform");
-        this.mSailorStatic = new bx();
+        this.mSailorStatic = new tw();
         this.mWebkitMgr = new BdWebkitManager();
-        this.mSailorFeatureMap = new HashMap(4);
+        this.mSailorFeatureMap = new HashMap<>(4);
     }
 
     public static void destroy() {
@@ -250,10 +251,10 @@ public final class BdSailorPlatform implements INoProGuard {
         return (BdSailorPlatform) invokeV.objValue;
     }
 
-    public static bx getStatic() {
+    public static tw getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getInstance().mSailorStatic : (bx) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getInstance().mSailorStatic : (tw) invokeV.objValue;
     }
 
     public static BdWebkitManager getWebkitManager() {
@@ -312,7 +313,7 @@ public final class BdSailorPlatform implements INoProGuard {
         return invokeL.booleanValue;
     }
 
-    public static boolean onShowFileChooser(Activity activity, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    public static boolean onShowFileChooser(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, activity, valueCallback, fileChooserParams)) == null) {
@@ -330,7 +331,7 @@ public final class BdSailorPlatform implements INoProGuard {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean openFileChooser(Activity activity, ValueCallback valueCallback) {
+    public static boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback) {
         InterceptResult invokeLL;
         BdUploadFeature bdUploadFeature;
         Interceptable interceptable = $ic;
@@ -345,7 +346,7 @@ public final class BdSailorPlatform implements INoProGuard {
         return invokeLL.booleanValue;
     }
 
-    public static boolean openFileChooser(Activity activity, ValueCallback valueCallback, String str) {
+    public static boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65552, null, activity, valueCallback, str)) == null) {
@@ -363,7 +364,7 @@ public final class BdSailorPlatform implements INoProGuard {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean openFileChooser(Activity activity, ValueCallback valueCallback, String str, String str2) {
+    public static boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65553, null, activity, valueCallback, str, str2)) == null) {
@@ -429,7 +430,7 @@ public final class BdSailorPlatform implements INoProGuard {
     public final void clearCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            fx a2 = fx.a();
+            xw a2 = xw.a();
             try {
                 a2.e();
                 a2.b.clearCache(z);
@@ -449,8 +450,8 @@ public final class BdSailorPlatform implements INoProGuard {
                     this.mHandler.removeMessages(1);
                     this.mHandler = null;
                 }
-                ax.a();
-                fx.b();
+                sw.a();
+                xw.b();
                 WebKitFactory.destroy();
                 this.mContext = null;
             } catch (Exception e) {
@@ -491,9 +492,9 @@ public final class BdSailorPlatform implements INoProGuard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Object obj = this.mSailorFeatureMap.get(str);
-            if (obj instanceof com.baidu.browser.sailor.feature.a) {
-                return (com.baidu.browser.sailor.feature.a) obj;
+            com.baidu.browser.sailor.feature.a aVar = this.mSailorFeatureMap.get(str);
+            if (aVar instanceof com.baidu.browser.sailor.feature.a) {
+                return aVar;
             }
             return null;
         }
@@ -557,7 +558,7 @@ public final class BdSailorPlatform implements INoProGuard {
         return invokeLL.booleanValue;
     }
 
-    public final void initWebkit(String str, boolean z, Class cls) {
+    public final void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
         String packageName;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) || this.mIsWebkitInited) {
@@ -569,14 +570,14 @@ public final class BdSailorPlatform implements INoProGuard {
         if (bdWebkitManager != null) {
             bdWebkitManager.initWebkit(str, z, cls);
         } else {
-            WebKitFactory.getLoadErrorCode().trace(LoadErrorCode.MSG_WEBKIT_MANAGER_IS_NULL);
+            WebKitFactory.getLoadErrorCode().trace(523);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        fx a2 = fx.a();
+        xw a2 = xw.a();
         Context appContext = getAppContext();
         if (a2.a == null) {
             a2.a = appContext.getApplicationContext();
-            Log.d(fx.d, "in BdWebViewSingleton, init");
+            Log.d(xw.d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();
@@ -670,7 +671,7 @@ public final class BdSailorPlatform implements INoProGuard {
                     this.mHandler.removeMessages(1);
                     if (this.mWebkitTimerPaused) {
                         Log.d(TAG, "do resume");
-                        fx.a().d();
+                        xw.a().d();
                         CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
                         if (createInstance != null) {
                             createInstance.startSync();

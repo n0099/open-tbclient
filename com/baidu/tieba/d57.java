@@ -1,20 +1,54 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
+import java.io.IOException;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.List;
 import org.json.JSONObject;
+import tbclient.Error;
+import tbclient.ExcFrsPage.DataRes;
+import tbclient.ExcFrsPage.ExcFrsPageResIdl;
+import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes3.dex */
-public class d57 {
+public class d57 implements oc5, uc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b57 a;
-    public ArrayList b;
+    public List<Object> a;
+    public List<Object> b;
+
+    @Override // com.baidu.tieba.pc5
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uc5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.oc5
+    public byte[] toCacheByteArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
+    }
 
     public d57() {
         Interceptable interceptable = $ic;
@@ -30,32 +64,45 @@ public class d57 {
         }
     }
 
-    public static d57 a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.oc5
+    public boolean initByByteArray(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            try {
+                initByProtobuf((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
             }
-            d57 d57Var = new d57();
-            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
-            d57Var.a = b57.a(optJSONObject);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                d57Var.b = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    try {
-                        c57 a = c57.a(optJSONArray.getJSONObject(i));
-                        if (a != null) {
-                            d57Var.b.add(a);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.uc5
+    public void initByProtobuf(Message message) {
+        ExcFrsPageResIdl excFrsPageResIdl;
+        Error error;
+        DataRes dataRes;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, message) != null) || !(message instanceof ExcFrsPageResIdl) || (excFrsPageResIdl = (ExcFrsPageResIdl) message) == null || (error = excFrsPageResIdl.error) == null || error.errorno.intValue() != 0 || (dataRes = excFrsPageResIdl.data) == null) {
+            return;
+        }
+        if (dataRes.thread_list != null) {
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            arrayList.addAll(excFrsPageResIdl.data.thread_list);
+        }
+        excFrsPageResIdl.data.has_more.intValue();
+        excFrsPageResIdl.data.pn.intValue();
+        if (excFrsPageResIdl.data.tag_list != null) {
+            this.b = new ArrayList();
+            for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
+                if (excellentTagInfo != null) {
+                    this.b.add(excellentTagInfo);
                 }
             }
-            return d57Var;
         }
-        return (d57) invokeL.objValue;
     }
 }

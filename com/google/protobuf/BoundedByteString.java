@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.protobuf.ByteString;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
 public class BoundedByteString extends LiteralByteString {
@@ -19,7 +20,7 @@ public class BoundedByteString extends LiteralByteString {
 
     /* renamed from: com.google.protobuf.BoundedByteString$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -71,6 +72,7 @@ public class BoundedByteString extends LiteralByteString {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.Iterator
         public Byte next() {
             InterceptResult invokeV;
@@ -173,8 +175,10 @@ public class BoundedByteString extends LiteralByteString {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.google.protobuf.ByteString$ByteIterator' to match base method */
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString, java.lang.Iterable
-    public ByteString.ByteIterator iterator() {
+    /* renamed from: iterator */
+    public Iterator<Byte> iterator2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

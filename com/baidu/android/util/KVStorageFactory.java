@@ -1,5 +1,6 @@
 package com.baidu.android.util;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -75,6 +76,7 @@ public class KVStorageFactory {
         return (SharedPreferences) invokeL.objValue;
     }
 
+    @SuppressLint({"LogConditional"})
     public static SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

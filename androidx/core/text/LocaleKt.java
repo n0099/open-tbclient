@@ -1,6 +1,7 @@
 package androidx.core.text;
 
 import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,6 +13,7 @@ public final class LocaleKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(17)
     public static final int getLayoutDirection(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

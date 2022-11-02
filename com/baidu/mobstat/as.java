@@ -41,10 +41,10 @@ public class as {
     public transient /* synthetic */ FieldHolder $fh;
     public Object A;
     public Context a;
-    public WeakReference b;
+    public WeakReference<Activity> b;
     public Handler c;
     public boolean d;
-    public List e;
+    public List<WeakReference<View>> e;
     public volatile MtjConfig.FeedTrackStrategy f;
     public long g;
     public long h;
@@ -57,9 +57,9 @@ public class as {
     public String o;
     public boolean p;
     public boolean q;
-    public List r;
-    public HashMap s;
-    public HashMap t;
+    public List<WeakReference<View>> r;
+    public HashMap<WeakReference<View>, ArrayList<ao>> s;
+    public HashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> t;
     public a v;
     public ViewTreeObserver.OnScrollChangedListener w;
     public Runnable x;
@@ -70,9 +70,9 @@ public class as {
     public interface a {
         void a(an anVar);
 
-        void a(ArrayList arrayList);
+        void a(ArrayList<ao> arrayList);
 
-        void b(ArrayList arrayList);
+        void b(ArrayList<ap> arrayList);
     }
 
     private boolean a(long j, long j2) {
@@ -196,8 +196,8 @@ public class as {
         this.e = Collections.synchronizedList(new ArrayList());
         this.f = MtjConfig.FeedTrackStrategy.TRACK_ALL;
         this.r = new ArrayList();
-        this.s = new HashMap();
-        this.t = new HashMap();
+        this.s = new HashMap<>();
+        this.t = new HashMap<>();
         this.x = null;
         this.y = 0.0f;
         this.z = 0.0f;
@@ -207,7 +207,7 @@ public class as {
         this.c = new Handler(handlerThread.getLooper());
     }
 
-    private ap a(ArrayList arrayList) {
+    private ap a(ArrayList<ap> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, arrayList)) == null) {
@@ -215,7 +215,7 @@ public class as {
             if (arrayList == null || arrayList.size() == 0) {
                 return null;
             }
-            Collections.sort(arrayList, new Comparator(this) { // from class: com.baidu.mobstat.as.6
+            Collections.sort(arrayList, new Comparator<ap>(this) { // from class: com.baidu.mobstat.as.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ as a;
@@ -260,15 +260,15 @@ public class as {
             StringBuilder sb = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
             int i = 0;
-            Iterator it = arrayList.iterator();
+            Iterator<ap> it = arrayList.iterator();
             long j = 0;
             while (it.hasNext()) {
-                ap apVar2 = (ap) it.next();
-                long i2 = apVar2.i();
-                String l = apVar2.l();
+                ap next = it.next();
+                long i2 = next.i();
+                String l = next.l();
                 if (Long.valueOf(l).longValue() >= ar.a().d()) {
                     if (j == 0) {
-                        apVar = apVar2;
+                        apVar = next;
                         j = i2;
                     }
                     long j2 = i2 - j;
@@ -285,7 +285,7 @@ public class as {
                     } else {
                         sb.append("|" + j2);
                     }
-                    i += apVar2.h();
+                    i += next.h();
                 }
             }
             if (apVar != null) {
@@ -307,26 +307,26 @@ public class as {
         return (String) invokeL.objValue;
     }
 
-    private void c(HashMap hashMap) {
+    private void c(HashMap<WeakReference<View>, ArrayList<ao>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65589, this, hashMap) == null) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                ArrayList arrayList = (ArrayList) entry.getValue();
-                if (arrayList != null) {
-                    arrayList.clear();
+            for (Map.Entry<WeakReference<View>, ArrayList<ao>> entry : hashMap.entrySet()) {
+                ArrayList<ao> value = entry.getValue();
+                if (value != null) {
+                    value.clear();
                 }
             }
             hashMap.clear();
         }
     }
 
-    private ArrayList h(HashMap hashMap) {
+    private ArrayList<ap> h(HashMap<String, ArrayList<ap>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65602, this, hashMap)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : hashMap.entrySet()) {
-                ap a2 = a((ArrayList) entry.getValue());
+            ArrayList<ap> arrayList = new ArrayList<>();
+            for (Map.Entry<String, ArrayList<ap>> entry : hashMap.entrySet()) {
+                ap a2 = a(entry.getValue());
                 if (a2 != null) {
                     arrayList.add(a2);
                 }
@@ -336,12 +336,12 @@ public class as {
         return (ArrayList) invokeL.objValue;
     }
 
-    private ArrayList a(HashMap hashMap) {
+    private ArrayList<WeakReference<View>> a(HashMap<View, Integer> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, hashMap)) == null) {
             ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-            Collections.sort(arrayList, new Comparator(this) { // from class: com.baidu.mobstat.as.3
+            Collections.sort(arrayList, new Comparator<Map.Entry<View, Integer>>(this) { // from class: com.baidu.mobstat.as.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ as a;
@@ -367,35 +367,35 @@ public class as {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
-                public int compare(Map.Entry entry, Map.Entry entry2) {
+                public int compare(Map.Entry<View, Integer> entry, Map.Entry<View, Integer> entry2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, entry, entry2)) == null) {
-                        return ((Integer) entry2.getValue()).compareTo((Integer) entry.getValue());
+                        return entry2.getValue().compareTo(entry.getValue());
                     }
                     return invokeLL.intValue;
                 }
             });
-            ArrayList arrayList2 = new ArrayList(arrayList.size());
+            ArrayList<WeakReference<View>> arrayList2 = new ArrayList<>(arrayList.size());
             for (Map.Entry entry : arrayList) {
-                arrayList2.add(new WeakReference(entry.getKey()));
+                arrayList2.add(new WeakReference<>(entry.getKey()));
             }
             return arrayList2;
         }
         return (ArrayList) invokeL.objValue;
     }
 
-    private void d(HashMap hashMap) {
+    private void d(HashMap<WeakReference<View>, ArrayList<ao>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65594, this, hashMap) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : this.s.entrySet()) {
-                ArrayList arrayList2 = (ArrayList) entry.getValue();
-                if (arrayList2 != null && arrayList2.size() != 0) {
-                    arrayList.addAll(arrayList2);
+            ArrayList<ao> arrayList = new ArrayList<>();
+            for (Map.Entry<WeakReference<View>, ArrayList<ao>> entry : this.s.entrySet()) {
+                ArrayList<ao> value = entry.getValue();
+                if (value != null && value.size() != 0) {
+                    arrayList.addAll(value);
                 }
             }
-            Collections.sort(arrayList, new Comparator(this) { // from class: com.baidu.mobstat.as.4
+            Collections.sort(arrayList, new Comparator<ao>(this) { // from class: com.baidu.mobstat.as.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ as a;
@@ -445,30 +445,30 @@ public class as {
         }
     }
 
-    private void f(HashMap hashMap) {
+    private void f(HashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65597, this, hashMap) == null) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                HashMap hashMap2 = (HashMap) entry.getValue();
-                if (hashMap2 != null) {
-                    for (Map.Entry entry2 : hashMap2.entrySet()) {
-                        ((ArrayList) entry2.getValue()).clear();
+            for (Map.Entry<WeakReference<View>, HashMap<String, ArrayList<ap>>> entry : hashMap.entrySet()) {
+                HashMap<String, ArrayList<ap>> value = entry.getValue();
+                if (value != null) {
+                    for (Map.Entry<String, ArrayList<ap>> entry2 : value.entrySet()) {
+                        entry2.getValue().clear();
                     }
-                    hashMap2.clear();
+                    value.clear();
                 }
             }
             hashMap.clear();
         }
     }
 
-    private void g(HashMap hashMap) {
+    private void g(HashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65600, this, hashMap) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : hashMap.entrySet()) {
-                arrayList.addAll(h((HashMap) entry.getValue()));
+            ArrayList<ap> arrayList = new ArrayList<>();
+            for (Map.Entry<WeakReference<View>, HashMap<String, ArrayList<ap>>> entry : hashMap.entrySet()) {
+                arrayList.addAll(h(entry.getValue()));
             }
-            Collections.sort(arrayList, new Comparator(this) { // from class: com.baidu.mobstat.as.5
+            Collections.sort(arrayList, new Comparator<ap>(this) { // from class: com.baidu.mobstat.as.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ as a;
@@ -518,16 +518,16 @@ public class as {
         }
     }
 
-    private LinkedHashMap a(HashMap hashMap, View view2) {
+    private LinkedHashMap<WeakReference<View>, ArrayList<ao>> a(HashMap<WeakReference<View>, ArrayList<ao>> hashMap, View view2) {
         InterceptResult invokeLL;
         View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, hashMap, view2)) == null) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                WeakReference weakReference = (WeakReference) entry.getKey();
-                if (weakReference != null && (view3 = (View) weakReference.get()) != null && view3 == view2) {
-                    LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-                    linkedHashMap.put(weakReference, (ArrayList) entry.getValue());
+            for (Map.Entry<WeakReference<View>, ArrayList<ao>> entry : hashMap.entrySet()) {
+                WeakReference<View> key = entry.getKey();
+                if (key != null && (view3 = key.get()) != null && view3 == view2) {
+                    LinkedHashMap<WeakReference<View>, ArrayList<ao>> linkedHashMap = new LinkedHashMap<>(1);
+                    linkedHashMap.put(key, entry.getValue());
                     return linkedHashMap;
                 }
             }
@@ -536,16 +536,16 @@ public class as {
         return (LinkedHashMap) invokeLL.objValue;
     }
 
-    private LinkedHashMap b(HashMap hashMap, View view2) {
+    private LinkedHashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> b(HashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> hashMap, View view2) {
         InterceptResult invokeLL;
         View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65578, this, hashMap, view2)) == null) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                WeakReference weakReference = (WeakReference) entry.getKey();
-                if (weakReference != null && (view3 = (View) weakReference.get()) != null && view3 == view2) {
-                    LinkedHashMap linkedHashMap = new LinkedHashMap();
-                    linkedHashMap.put(weakReference, (HashMap) entry.getValue());
+            for (Map.Entry<WeakReference<View>, HashMap<String, ArrayList<ap>>> entry : hashMap.entrySet()) {
+                WeakReference<View> key = entry.getKey();
+                if (key != null && (view3 = key.get()) != null && view3 == view2) {
+                    LinkedHashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> linkedHashMap = new LinkedHashMap<>();
+                    linkedHashMap.put(key, entry.getValue());
                     return linkedHashMap;
                 }
             }
@@ -558,14 +558,14 @@ public class as {
     public void c(Activity activity, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65587, this, activity, j) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
+            HashMap<View, Integer> hashMap = new HashMap<>();
+            ArrayList<View> arrayList = new ArrayList<>();
+            ArrayList<View> arrayList2 = new ArrayList<>();
             View a2 = bi.a(activity);
             a(activity, a2, hashMap, arrayList, arrayList2);
             if (this.p && !this.q && a(this.g, j)) {
-                ArrayList a3 = a(hashMap);
-                a3.add(new WeakReference(a2));
+                ArrayList<WeakReference<View>> a3 = a(hashMap);
+                a3.add(new WeakReference<>(a2));
                 this.r = a3;
                 this.q = true;
             }
@@ -666,7 +666,7 @@ public class as {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65545, this, activity, j) == null) {
             this.a = activity.getApplicationContext();
-            this.b = new WeakReference(activity);
+            this.b = new WeakReference<>(activity);
             this.g = j;
             String e = bi.e(activity);
             if (bi.a(e, this.j)) {
@@ -678,23 +678,23 @@ public class as {
         }
     }
 
-    private void a(Activity activity, long j, long j2, List list) {
+    private void a(Activity activity, long j, long j2, List<WeakReference<View>> list) {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65546, this, new Object[]{activity, Long.valueOf(j), Long.valueOf(j2), list}) != null) || list == null) {
             return;
         }
         if (list.size() == 0) {
-            list.add(new WeakReference(bi.a(activity)));
+            list.add(new WeakReference<>(bi.a(activity)));
         }
         View view3 = null;
-        Iterator it = list.iterator();
+        Iterator<WeakReference<View>> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            WeakReference weakReference = (WeakReference) it.next();
-            if (weakReference != null && (view2 = (View) weakReference.get()) != null) {
+            WeakReference<View> next = it.next();
+            if (next != null && (view2 = next.get()) != null) {
                 view3 = view2;
                 break;
             }
@@ -708,12 +708,12 @@ public class as {
         }
         String e = bi.e(activity);
         String f = bi.f(activity);
-        ArrayList a2 = a(activity, view3);
-        int a3 = ag.a(this.a, ((Integer) a2.get(0)).intValue());
-        int a4 = ag.a(this.a, ((Integer) a2.get(1)).intValue());
-        ArrayList b = bi.b(activity, view3);
-        int a5 = ag.a(this.a, ((Integer) b.get(0)).intValue());
-        int a6 = ag.a(this.a, ((Integer) b.get(1)).intValue());
+        ArrayList<Integer> a2 = a(activity, view3);
+        int a3 = ag.a(this.a, a2.get(0).intValue());
+        int a4 = ag.a(this.a, a2.get(1).intValue());
+        ArrayList<Integer> b = bi.b(activity, view3);
+        int a5 = ag.a(this.a, b.get(0).intValue());
+        int a6 = ag.a(this.a, b.get(1).intValue());
         if (a5 > a3) {
             a3 = a5;
         }
@@ -725,7 +725,7 @@ public class as {
         }
     }
 
-    private void a(Activity activity, View view2, HashMap hashMap, ArrayList arrayList, ArrayList arrayList2) {
+    private void a(Activity activity, View view2, HashMap<View, Integer> hashMap, ArrayList<View> arrayList, ArrayList<View> arrayList2) {
         int width;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLLLL(65547, this, activity, view2, hashMap, arrayList, arrayList2) != null) || view2 == null || bi.c(activity, view2)) {
@@ -827,9 +827,9 @@ public class as {
                 this.i = j;
                 this.k = bi.e(activity);
                 this.l = "";
-                Map t = bi.t(a2);
-                if (t != null && t.size() > 0 && !TextUtils.isEmpty((CharSequence) t.get("title"))) {
-                    this.l = (String) t.get("title");
+                Map<String, String> t = bi.t(a2);
+                if (t != null && t.size() > 0 && !TextUtils.isEmpty(t.get("title"))) {
+                    this.l = t.get("title");
                 }
                 this.m = bi.c(o, this.k);
                 this.n = bi.s(o);
@@ -845,18 +845,18 @@ public class as {
         if ((interceptable != null && interceptable.invokeCommon(65551, this, new Object[]{view2, view3, activity, Long.valueOf(j)}) != null) || view2 == null || view3 == null || !bi.a(view3, ar.a().c())) {
             return;
         }
-        Map t = bi.t(view3);
+        Map<String, String> t = bi.t(view3);
         String str3 = "";
         if (t == null || t.size() <= 0) {
             str = "";
         } else {
-            if (TextUtils.isEmpty((CharSequence) t.get("title"))) {
+            if (TextUtils.isEmpty(t.get("title"))) {
                 str2 = "";
             } else {
-                str2 = (String) t.get("title");
+                str2 = t.get("title");
             }
-            if (!TextUtils.isEmpty((CharSequence) t.get("content"))) {
-                str3 = (String) t.get("content");
+            if (!TextUtils.isEmpty(t.get("content"))) {
+                str3 = t.get("content");
             }
             str = str2;
         }
@@ -876,7 +876,7 @@ public class as {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(View view2, ViewTreeObserver.OnScrollChangedListener onScrollChangedListener, List list) {
+    public void a(View view2, ViewTreeObserver.OnScrollChangedListener onScrollChangedListener, List<WeakReference<View>> list) {
         ViewTreeObserver viewTreeObserver;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65553, this, view2, onScrollChangedListener, list) != null) || view2 == null || a(list, view2) || a(view2) || (viewTreeObserver = view2.getViewTreeObserver()) == null || !viewTreeObserver.isAlive() || onScrollChangedListener == null || list == null) {
@@ -884,33 +884,33 @@ public class as {
         }
         try {
             viewTreeObserver.addOnScrollChangedListener(onScrollChangedListener);
-            list.add(new WeakReference(view2));
+            list.add(new WeakReference<>(view2));
         } catch (Exception unused) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(WeakReference weakReference, long j) {
+    public void a(WeakReference<Activity> weakReference, long j) {
         Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(65561, this, weakReference, j) != null) || weakReference == null || (activity = (Activity) weakReference.get()) == null) {
+        if ((interceptable != null && interceptable.invokeLJ(65561, this, weakReference, j) != null) || weakReference == null || (activity = weakReference.get()) == null) {
             return;
         }
         d(activity, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(HashMap hashMap, long j) {
+    public void a(HashMap<WeakReference<View>, ArrayList<ao>> hashMap, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLJ(65562, this, hashMap, j) == null) && hashMap != null && hashMap.size() != 0) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                ArrayList arrayList = (ArrayList) entry.getValue();
-                if (arrayList != null && arrayList.size() != 0) {
-                    Iterator it = arrayList.iterator();
+            for (Map.Entry<WeakReference<View>, ArrayList<ao>> entry : hashMap.entrySet()) {
+                ArrayList<ao> value = entry.getValue();
+                if (value != null && value.size() != 0) {
+                    Iterator<ao> it = value.iterator();
                     while (it.hasNext()) {
-                        ao aoVar = (ao) it.next();
-                        if (aoVar.e() == aoVar.c()) {
-                            aoVar.a(j);
+                        ao next = it.next();
+                        if (next.e() == next.c()) {
+                            next.a(j);
                         }
                     }
                 }
@@ -924,9 +924,9 @@ public class as {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(HashMap hashMap, View view2, ao aoVar) {
-        ArrayList arrayList;
-        WeakReference weakReference;
+    private void a(HashMap<WeakReference<View>, ArrayList<ao>> hashMap, View view2, ao aoVar) {
+        ArrayList<ao> arrayList;
+        WeakReference<View> weakReference;
         ao aoVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65563, this, hashMap, view2, aoVar) == null) {
@@ -937,23 +937,23 @@ public class as {
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            LinkedHashMap a3 = a(hashMap, view2);
+            LinkedHashMap<WeakReference<View>, ArrayList<ao>> a3 = a(hashMap, view2);
             if (a3 != null && a3.size() > 0) {
-                Iterator it = a3.entrySet().iterator();
+                Iterator<Map.Entry<WeakReference<View>, ArrayList<ao>>> it = a3.entrySet().iterator();
                 if (it.hasNext()) {
-                    Map.Entry entry = (Map.Entry) it.next();
-                    weakReference = (WeakReference) entry.getKey();
-                    arrayList = (ArrayList) entry.getValue();
+                    Map.Entry<WeakReference<View>, ArrayList<ao>> next = it.next();
+                    weakReference = next.getKey();
+                    arrayList = next.getValue();
                     if (arrayList != null) {
-                        Iterator it2 = arrayList.iterator();
+                        Iterator<ao> it2 = arrayList.iterator();
                         while (it2.hasNext()) {
-                            ao aoVar3 = (ao) it2.next();
-                            String a4 = aoVar3.a();
-                            long c2 = aoVar3.c();
-                            long e2 = aoVar3.e();
-                            boolean d2 = aoVar3.d();
+                            ao next2 = it2.next();
+                            String a4 = next2.a();
+                            long c2 = next2.c();
+                            long e2 = next2.e();
+                            boolean d2 = next2.d();
                             if (a2.equals(a4) && d == d2 && (e2 >= c2 || c2 == c)) {
-                                aoVar2 = aoVar3;
+                                aoVar2 = next2;
                                 break;
                             }
                         }
@@ -961,11 +961,11 @@ public class as {
                     aoVar2 = null;
                     if (aoVar2 != null) {
                         if (arrayList == null) {
-                            arrayList = new ArrayList();
+                            arrayList = new ArrayList<>();
                         }
                         arrayList.add(aoVar);
                         if (weakReference == null) {
-                            weakReference = new WeakReference(view2);
+                            weakReference = new WeakReference<>(view2);
                         }
                         hashMap.put(weakReference, arrayList);
                         return;
@@ -991,9 +991,9 @@ public class as {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(HashMap hashMap, View view2, ap apVar) {
-        HashMap hashMap2;
-        WeakReference weakReference;
+    private void a(HashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> hashMap, View view2, ap apVar) {
+        HashMap<String, ArrayList<ap>> hashMap2;
+        WeakReference<View> weakReference;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65564, this, hashMap, view2, apVar) != null) || view2 == null) {
             return;
@@ -1003,25 +1003,25 @@ public class as {
         String d = apVar.d();
         String f = apVar.f();
         if (!TextUtils.isEmpty(d) && !TextUtils.isEmpty(f)) {
-            LinkedHashMap b = b(hashMap, view2);
+            LinkedHashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> b = b(hashMap, view2);
             ap apVar2 = null;
             if (b != null && b.size() > 0) {
-                Iterator it = b.entrySet().iterator();
+                Iterator<Map.Entry<WeakReference<View>, HashMap<String, ArrayList<ap>>>> it = b.entrySet().iterator();
                 if (it.hasNext()) {
-                    Map.Entry entry = (Map.Entry) it.next();
-                    weakReference = (WeakReference) entry.getKey();
-                    hashMap2 = (HashMap) entry.getValue();
+                    Map.Entry<WeakReference<View>, HashMap<String, ArrayList<ap>>> next = it.next();
+                    weakReference = next.getKey();
+                    hashMap2 = next.getValue();
                     if (hashMap2 != null) {
-                        for (Map.Entry entry2 : hashMap2.entrySet()) {
-                            ArrayList arrayList = (ArrayList) entry2.getValue();
-                            if (arrayList != null && arrayList.size() != 0) {
-                                Iterator it2 = arrayList.iterator();
+                        for (Map.Entry<String, ArrayList<ap>> entry : hashMap2.entrySet()) {
+                            ArrayList<ap> value = entry.getValue();
+                            if (value != null && value.size() != 0) {
+                                Iterator<ap> it2 = value.iterator();
                                 while (it2.hasNext()) {
-                                    ap apVar3 = (ap) it2.next();
-                                    long k2 = apVar3.k();
-                                    long j2 = apVar3.j();
-                                    if (a(apVar3, apVar) && (k2 >= j2 || j2 == apVar.j())) {
-                                        apVar2 = apVar3;
+                                    ap next2 = it2.next();
+                                    long k2 = next2.k();
+                                    long j2 = next2.j();
+                                    if (a(next2, apVar) && (k2 >= j2 || j2 == apVar.j())) {
+                                        apVar2 = next2;
                                         break;
                                     }
                                 }
@@ -1034,24 +1034,24 @@ public class as {
                             return;
                         }
                         if (hashMap2 == null) {
-                            HashMap hashMap3 = new HashMap();
-                            ArrayList arrayList2 = new ArrayList();
-                            arrayList2.add(apVar);
-                            hashMap3.put(a2, arrayList2);
+                            HashMap<String, ArrayList<ap>> hashMap3 = new HashMap<>();
+                            ArrayList<ap> arrayList = new ArrayList<>();
+                            arrayList.add(apVar);
+                            hashMap3.put(a2, arrayList);
                             if (weakReference == null) {
-                                weakReference = new WeakReference(view2);
+                                weakReference = new WeakReference<>(view2);
                             }
                             hashMap.put(weakReference, hashMap3);
                             return;
                         }
-                        ArrayList arrayList3 = (ArrayList) hashMap2.get(a2);
-                        if (arrayList3 == null) {
-                            ArrayList arrayList4 = new ArrayList();
-                            arrayList4.add(apVar);
-                            hashMap2.put(a2, arrayList4);
+                        ArrayList<ap> arrayList2 = hashMap2.get(a2);
+                        if (arrayList2 == null) {
+                            ArrayList<ap> arrayList3 = new ArrayList<>();
+                            arrayList3.add(apVar);
+                            hashMap2.put(a2, arrayList3);
                             return;
                         }
-                        arrayList3.add(apVar);
+                        arrayList2.add(apVar);
                         return;
                     }
                     apVar2.a(j);
@@ -1069,24 +1069,24 @@ public class as {
         }
     }
 
-    private void a(HashMap hashMap, HashMap hashMap2, long j) {
-        HashMap hashMap3;
-        ArrayList arrayList;
+    private void a(HashMap<WeakReference<View>, ArrayList<ao>> hashMap, HashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> hashMap2, long j) {
+        HashMap<String, ArrayList<ap>> hashMap3;
+        ArrayList<ao> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65565, this, new Object[]{hashMap, hashMap2, Long.valueOf(j)}) == null) {
             try {
-                for (Map.Entry entry : hashMap.entrySet()) {
+                for (Map.Entry<WeakReference<View>, ArrayList<ao>> entry : hashMap.entrySet()) {
                     try {
-                        arrayList = (ArrayList) entry.getValue();
+                        arrayList = entry.getValue();
                     } catch (Exception unused) {
                         arrayList = null;
                     }
                     if (arrayList != null && arrayList.size() != 0) {
-                        Iterator it = arrayList.iterator();
+                        Iterator<ao> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            ao aoVar = (ao) it.next();
-                            if (aoVar.e() == aoVar.c()) {
-                                aoVar.a(j);
+                            ao next = it.next();
+                            if (next.e() == next.c()) {
+                                next.a(j);
                             }
                         }
                     }
@@ -1094,22 +1094,22 @@ public class as {
             } catch (Throwable unused2) {
             }
             try {
-                for (Map.Entry entry2 : hashMap2.entrySet()) {
+                for (Map.Entry<WeakReference<View>, HashMap<String, ArrayList<ap>>> entry2 : hashMap2.entrySet()) {
                     try {
-                        hashMap3 = (HashMap) entry2.getValue();
+                        hashMap3 = entry2.getValue();
                     } catch (Exception unused3) {
                         hashMap3 = null;
                     }
                     if (hashMap3 != null && hashMap3.size() != 0) {
-                        for (Map.Entry entry3 : hashMap3.entrySet()) {
-                            ArrayList arrayList2 = (ArrayList) entry3.getValue();
-                            if (arrayList2 != null && arrayList2.size() != 0) {
-                                Iterator it2 = arrayList2.iterator();
+                        for (Map.Entry<String, ArrayList<ap>> entry3 : hashMap3.entrySet()) {
+                            ArrayList<ap> value = entry3.getValue();
+                            if (value != null && value.size() != 0) {
+                                Iterator<ap> it2 = value.iterator();
                                 while (it2.hasNext()) {
-                                    ap apVar = (ap) it2.next();
-                                    if (apVar.k() == apVar.j()) {
-                                        apVar.a(j);
-                                        apVar.a(String.valueOf(apVar.j() - apVar.i()));
+                                    ap next2 = it2.next();
+                                    if (next2.k() == next2.j()) {
+                                        next2.a(j);
+                                        next2.a(String.valueOf(next2.j() - next2.i()));
                                     }
                                 }
                             }
@@ -1122,20 +1122,20 @@ public class as {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List list) {
+    public void a(List<WeakReference<View>> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65566, this, list) == null) && list != null && list.size() != 0) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < list.size(); i++) {
-                WeakReference weakReference = null;
+                WeakReference<View> weakReference = null;
                 try {
-                    weakReference = (WeakReference) list.get(i);
+                    weakReference = list.get(i);
                 } catch (Exception unused) {
                 }
                 if (weakReference == null) {
                     arrayList.add(weakReference);
                 } else {
-                    View view2 = (View) weakReference.get();
+                    View view2 = weakReference.get();
                     if (view2 == null) {
                         arrayList.add(weakReference);
                     } else {
@@ -1151,18 +1151,18 @@ public class as {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List list, ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
+    public void a(List<WeakReference<View>> list, ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65567, this, list, onScrollChangedListener) == null) && list != null && list.size() > 0) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                WeakReference weakReference = null;
+                WeakReference<View> weakReference = null;
                 try {
-                    weakReference = (WeakReference) list.get(i);
+                    weakReference = list.get(i);
                 } catch (Exception unused) {
                 }
                 if (weakReference != null) {
-                    a((View) weakReference.get(), onScrollChangedListener);
+                    a(weakReference.get(), onScrollChangedListener);
                 }
             }
             list.clear();
@@ -1184,14 +1184,14 @@ public class as {
         return invokeL.booleanValue;
     }
 
-    private void b(HashMap hashMap) {
+    private void b(HashMap<WeakReference<View>, ArrayList<ao>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65583, this, hashMap) == null) {
             d(hashMap);
         }
     }
 
-    private void e(HashMap hashMap) {
+    private void e(HashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65596, this, hashMap) == null) {
             g(hashMap);
@@ -1331,15 +1331,15 @@ public class as {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65592, this, activity, j) == null) {
             b(this.t, j);
-            List list = this.e;
+            List<WeakReference<View>> list = this.e;
             if (list != null && list.size() > 0) {
                 for (int i = 0; i < this.e.size(); i++) {
-                    WeakReference weakReference = null;
+                    WeakReference<View> weakReference = null;
                     try {
-                        weakReference = (WeakReference) this.e.get(i);
+                        weakReference = this.e.get(i);
                     } catch (Exception unused) {
                     }
-                    if (weakReference != null && (view2 = (View) weakReference.get()) != null && bi.d(view2) && !a(view2) && (view2 instanceof ViewGroup)) {
+                    if (weakReference != null && (view2 = weakReference.get()) != null && bi.d(view2) && !a(view2) && (view2 instanceof ViewGroup)) {
                         ViewGroup viewGroup = (ViewGroup) view2;
                         for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                             View childAt = viewGroup.getChildAt(i2);
@@ -1384,7 +1384,7 @@ public class as {
         return invokeCommon.booleanValue;
     }
 
-    private boolean a(List list, View view2) {
+    private boolean a(List<WeakReference<View>> list, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, this, list, view2)) == null) {
@@ -1393,9 +1393,9 @@ public class as {
             }
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                WeakReference weakReference = null;
+                WeakReference<View> weakReference = null;
                 try {
-                    weakReference = (WeakReference) list.get(i);
+                    weakReference = list.get(i);
                 } catch (Exception unused) {
                 }
                 if (weakReference != null && view2 == weakReference.get()) {
@@ -1436,9 +1436,9 @@ public class as {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, view2, view3)) == null) {
-            Map t = bi.t(view2);
-            if (t != null && t.size() > 0 && !TextUtils.isEmpty((CharSequence) t.get("title"))) {
-                str = (String) t.get("title");
+            Map<String, String> t = bi.t(view2);
+            if (t != null && t.size() > 0 && !TextUtils.isEmpty(t.get("title"))) {
+                str = t.get("title");
             } else {
                 str = "";
             }
@@ -1448,21 +1448,21 @@ public class as {
         return (String) invokeLLL.objValue;
     }
 
-    private void b(HashMap hashMap, long j) {
+    private void b(HashMap<WeakReference<View>, HashMap<String, ArrayList<ap>>> hashMap, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLJ(65584, this, hashMap, j) == null) && hashMap != null && hashMap.size() != 0) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                HashMap hashMap2 = (HashMap) entry.getValue();
-                if (hashMap2 != null) {
-                    for (Map.Entry entry2 : hashMap2.entrySet()) {
-                        ArrayList arrayList = (ArrayList) entry2.getValue();
-                        if (arrayList != null && arrayList.size() != 0) {
-                            Iterator it = arrayList.iterator();
+            for (Map.Entry<WeakReference<View>, HashMap<String, ArrayList<ap>>> entry : hashMap.entrySet()) {
+                HashMap<String, ArrayList<ap>> value = entry.getValue();
+                if (value != null) {
+                    for (Map.Entry<String, ArrayList<ap>> entry2 : value.entrySet()) {
+                        ArrayList<ap> value2 = entry2.getValue();
+                        if (value2 != null && value2.size() != 0) {
+                            Iterator<ap> it = value2.iterator();
                             while (it.hasNext()) {
-                                ap apVar = (ap) it.next();
-                                if (apVar.k() == apVar.j()) {
-                                    apVar.a(j);
-                                    apVar.a(String.valueOf(apVar.j() - apVar.i()));
+                                ap next = it.next();
+                                if (next.k() == next.j()) {
+                                    next.a(j);
+                                    next.a(String.valueOf(next.j() - next.i()));
                                 }
                             }
                         }
@@ -1479,14 +1479,14 @@ public class as {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList a(Activity activity, View view2) {
+    public ArrayList<Integer> a(Activity activity, View view2) {
         InterceptResult invokeLL;
         int computeHorizontalScrollRange;
         int computeVerticalScrollRange;
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, view2)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Integer> arrayList = new ArrayList<>();
             int i = 0;
             if (view2 != null && activity != null) {
                 int width = view2.getWidth();
@@ -1798,7 +1798,7 @@ public class as {
         }
     }
 
-    public void a(WeakReference weakReference) {
+    public void a(WeakReference<Activity> weakReference) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048583, this, weakReference) != null) || weakReference == null) {
             return;

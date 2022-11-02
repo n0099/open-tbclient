@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class u4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c7 a;
+    public c7<r4, Matrix4> a;
     public Matrix4[] b;
 
     public u4() {

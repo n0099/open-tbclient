@@ -7,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class m1 implements r8 {
+import java.lang.reflect.GenericDeclaration;
+/* loaded from: classes5.dex */
+public class m1 implements r8<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public n1 a;
@@ -18,9 +19,9 @@ public class m1 implements r8 {
     public final long e;
     public volatile boolean f;
     public volatile boolean g;
-    public volatile b7 h;
-    public volatile q8 i;
-    public volatile q8 j;
+    public volatile b7<j1> h;
+    public volatile q8<Void> i;
+    public volatile q8<Void> j;
     public volatile Object k;
     public volatile boolean l;
 
@@ -148,16 +149,16 @@ public class m1 implements r8 {
         return (Void) invokeV.objValue;
     }
 
-    public final void c(b7 b7Var) {
+    public final void c(b7<j1> b7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b7Var) == null) {
             boolean z = b7Var.c;
             b7Var.c = true;
             for (int i = 0; i < b7Var.b; i++) {
-                String str = ((j1) b7Var.get(i)).a;
-                Class cls = ((j1) b7Var.get(i)).b;
+                String str = b7Var.get(i).a;
+                GenericDeclaration genericDeclaration = b7Var.get(i).b;
                 for (int i2 = b7Var.b - 1; i2 > i; i2--) {
-                    if (cls == ((j1) b7Var.get(i2)).b && str.equals(((j1) b7Var.get(i2)).a)) {
+                    if (genericDeclaration == b7Var.get(i2).b && str.equals(b7Var.get(i2).a)) {
                         b7Var.i(i2);
                     }
                 }

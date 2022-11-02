@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class id implements iu, Serializable, Cloneable {
+public class id implements iu<id, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -46,7 +46,7 @@ public class id implements iu, Serializable, Cloneable {
     public BitSet f605a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f606a;
+    public List<String> f606a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f607a;
@@ -667,7 +667,7 @@ public class id implements iu, Serializable, Cloneable {
             if (e()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("cmdArgs:");
-                List list = this.f606a;
+                List<String> list = this.f606a;
                 if (list == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

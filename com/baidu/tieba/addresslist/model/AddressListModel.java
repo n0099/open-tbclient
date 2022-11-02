@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.d35;
-import com.baidu.tieba.eq5;
+import com.baidu.tieba.nr5;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.t35;
+import com.baidu.tieba.v35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AddressListModel extends BdBaseModel {
+public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eq5 a;
+    public nr5 a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -60,20 +60,20 @@ public class AddressListModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = eq5.d();
+        this.a = nr5.d();
     }
 
     public int A(String str) {
         InterceptResult invokeL;
-        List<b35> c;
+        List<t35> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!d35.a(str) || (c = this.a.c()) == null) {
+            if (!v35.a(str) || (c = this.a.c()) == null) {
                 return -1;
             }
-            for (b35 b35Var : c) {
-                if (str.equals(b35Var.a())) {
-                    return c.indexOf(b35Var);
+            for (t35 t35Var : c) {
+                if (str.equals(t35Var.a())) {
+                    return c.indexOf(t35Var);
                 }
             }
             return -1;
@@ -88,35 +88,35 @@ public class AddressListModel extends BdBaseModel {
         }
     }
 
-    public void F(eq5.a aVar) {
+    public void F(nr5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.a.f(aVar);
         }
     }
 
-    public void G(List list) {
+    public void G(List<t35> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void H(eq5.a aVar) {
+    public void H(nr5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.a.h(aVar);
         }
     }
 
-    public void z(b35 b35Var) {
+    public void z(t35 t35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, b35Var) == null) {
-            this.a.a(b35Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, t35Var) == null) {
+            this.a.a(t35Var);
         }
     }
 
-    public List C() {
+    public List<t35> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

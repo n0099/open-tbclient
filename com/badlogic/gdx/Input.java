@@ -13,7 +13,7 @@ public interface Input {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class OnscreenKeyboardType {
+    public static final class OnscreenKeyboardType {
         public static final /* synthetic */ OnscreenKeyboardType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OnscreenKeyboardType Default;
@@ -87,7 +87,7 @@ public interface Input {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class Orientation {
+    public static final class Orientation {
         public static final /* synthetic */ Orientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Orientation Landscape;
@@ -153,7 +153,7 @@ public interface Input {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class Peripheral {
+    public static final class Peripheral {
         public static final /* synthetic */ Peripheral[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Peripheral Accelerometer;

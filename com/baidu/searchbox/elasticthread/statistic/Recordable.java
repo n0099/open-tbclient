@@ -15,7 +15,7 @@ public interface Recordable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RecordStatus {
+    public static final class RecordStatus {
         public static final /* synthetic */ RecordStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RecordStatus RECORDING;

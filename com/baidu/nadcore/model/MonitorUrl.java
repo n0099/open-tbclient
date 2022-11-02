@@ -1,5 +1,7 @@
 package com.baidu.nadcore.model;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +38,8 @@ public final class MonitorUrl implements Serializable {
         this.clickUrl = str2;
     }
 
-    public static List fromJson(JSONArray jSONArray) {
+    @NonNull
+    public static List<MonitorUrl> fromJson(@Nullable JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {

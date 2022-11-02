@@ -2,6 +2,8 @@ package com.airbnb.lottie;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.airbnb.lottie.utils.Logger;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -12,16 +14,17 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 /* loaded from: classes.dex */
-public class LottieTask {
+public class LottieTask<T> {
     public static Executor EXECUTOR = Executors.newCachedThreadPool();
-    public final Set failureListeners;
+    public final Set<LottieListener<Throwable>> failureListeners;
     public final Handler handler;
-    public volatile LottieResult result;
-    public final Set successListeners;
+    @Nullable
+    public volatile LottieResult<T> result;
+    public final Set<LottieListener<T>> successListeners;
 
     /* loaded from: classes.dex */
-    public class LottieFutureTask extends FutureTask {
-        public LottieFutureTask(Callable callable) {
+    public class LottieFutureTask extends FutureTask<LottieResult<T>> {
+        public LottieFutureTask(Callable<LottieResult<T>> callable) {
             super(callable);
         }
 
@@ -31,7 +34,7 @@ public class LottieTask {
                 return;
             }
             try {
-                LottieTask.this.setResult((LottieResult) get());
+                LottieTask.this.setResult(get());
             } catch (InterruptedException | ExecutionException e) {
                 LottieTask.this.setResult(new LottieResult(e));
             }
@@ -54,7 +57,8 @@ public class LottieTask {
         });
     }
 
-    public LottieTask(Callable callable) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public LottieTask(Callable<LottieResult<T>> callable) {
         this(callable, false);
     }
 
@@ -71,14 +75,14 @@ public class LottieTask {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void notifySuccessListeners(Object obj) {
+    public synchronized void notifySuccessListeners(T t) {
         for (LottieListener lottieListener : new ArrayList(this.successListeners)) {
-            lottieListener.onResult(obj);
+            lottieListener.onResult(t);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(LottieResult lottieResult) {
+    public void setResult(@Nullable LottieResult<T> lottieResult) {
         if (this.result == null) {
             this.result = lottieResult;
             notifyListeners();
@@ -87,7 +91,7 @@ public class LottieTask {
         throw new IllegalStateException("A task may only be set once.");
     }
 
-    public synchronized LottieTask addFailureListener(LottieListener lottieListener) {
+    public synchronized LottieTask<T> addFailureListener(LottieListener<Throwable> lottieListener) {
         if (this.result != null && this.result.getException() != null) {
             lottieListener.onResult(this.result.getException());
         }
@@ -95,7 +99,7 @@ public class LottieTask {
         return this;
     }
 
-    public synchronized LottieTask addListener(LottieListener lottieListener) {
+    public synchronized LottieTask<T> addListener(LottieListener<T> lottieListener) {
         if (this.result != null && this.result.getValue() != null) {
             lottieListener.onResult(this.result.getValue());
         }
@@ -103,27 +107,28 @@ public class LottieTask {
         return this;
     }
 
-    public synchronized LottieTask removeFailureListener(LottieListener lottieListener) {
+    public synchronized LottieTask<T> removeFailureListener(LottieListener<Throwable> lottieListener) {
         this.failureListeners.remove(lottieListener);
         return this;
     }
 
-    public synchronized LottieTask removeListener(LottieListener lottieListener) {
+    public synchronized LottieTask<T> removeListener(LottieListener<T> lottieListener) {
         this.successListeners.remove(lottieListener);
         return this;
     }
 
-    public LottieTask(Callable callable, boolean z) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public LottieTask(Callable<LottieResult<T>> callable, boolean z) {
         this.successListeners = new LinkedHashSet(1);
         this.failureListeners = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
         this.result = null;
         if (z) {
             try {
-                setResult((LottieResult) callable.call());
+                setResult(callable.call());
                 return;
             } catch (Throwable th) {
-                setResult(new LottieResult(th));
+                setResult(new LottieResult<>(th));
                 return;
             }
         }

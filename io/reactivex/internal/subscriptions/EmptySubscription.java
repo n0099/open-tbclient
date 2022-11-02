@@ -9,11 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import org.reactivestreams.Subscriber;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class EmptySubscription implements QueueSubscription {
+public final class EmptySubscription implements QueueSubscription<Object> {
     public static final /* synthetic */ EmptySubscription[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final EmptySubscription INSTANCE;
@@ -44,6 +45,7 @@ public final class EmptySubscription implements QueueSubscription {
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
+    @Nullable
     public Object poll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +115,7 @@ public final class EmptySubscription implements QueueSubscription {
         }
     }
 
-    public static void complete(Subscriber subscriber) {
+    public static void complete(Subscriber<?> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, subscriber) == null) {
             subscriber.onSubscribe(INSTANCE);
@@ -148,7 +150,7 @@ public final class EmptySubscription implements QueueSubscription {
         }
     }
 
-    public static void error(Throwable th, Subscriber subscriber) {
+    public static void error(Throwable th, Subscriber<?> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, th, subscriber) == null) {
             subscriber.onSubscribe(INSTANCE);

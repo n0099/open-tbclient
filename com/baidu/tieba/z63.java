@@ -1,57 +1,55 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.b73;
-import com.baidu.tieba.r92;
-import com.baidu.tieba.v22;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-@Deprecated
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class z63 extends j53 {
+public class z63 extends b63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context c;
 
     /* loaded from: classes6.dex */
-    public class a implements b73.e {
+    public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ m33 b;
-        public final /* synthetic */ zo2 c;
-        public final /* synthetic */ mt2 d;
-        public final /* synthetic */ v22 e;
-        public final /* synthetic */ UnitedSchemeEntity f;
-        public final /* synthetic */ CallbackHandler g;
-        public final /* synthetic */ String h;
-        public final /* synthetic */ Context i;
-        public final /* synthetic */ z63 j;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
 
-        public a(z63 z63Var, String str, m33 m33Var, zo2 zo2Var, mt2 mt2Var, v22 v22Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str2, Context context) {
+        public a(z63 z63Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z63Var, str, m33Var, zo2Var, mt2Var, v22Var, unitedSchemeEntity, callbackHandler, str2, context};
+                Object[] objArr = {z63Var, callbackHandler, unitedSchemeEntity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,65 +59,32 @@ public class z63 extends j53 {
                     return;
                 }
             }
-            this.j = z63Var;
-            this.a = str;
-            this.b = m33Var;
-            this.c = zo2Var;
-            this.d = mt2Var;
-            this.e = v22Var;
-            this.f = unitedSchemeEntity;
-            this.g = callbackHandler;
-            this.h = str2;
-            this.i = context;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
         }
 
-        @Override // com.baidu.tieba.b73.e
-        public void a(String str) {
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                sw2.d(this.a);
-                m02.i("navigateTo", "check pages success");
-                fa3.F(true, this.b.Y().T());
-                this.c.o();
-                r92.e f = r92.f(this.c.getActivity(), w92.c(this.d.a));
-                v63.l(this.f, this.g, this.b, f.a.a(), this.d.a, v63.g(this.e), this.h);
-                this.j.p(f, this.d, this.e, this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.b73.e
-        public void b(int i, ff3 ff3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ff3Var) == null) {
-                m02.c("navigateTo", "check pages failed");
-                fa3.F(false, this.b.Y().T());
-                this.c.o();
-                if (j53.b) {
-                    Context context = this.i;
-                    e33.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01a8) + i).G();
-                }
-                v63.j(this.f, this.g, this.h);
-                aa3.j(this.d, ff3Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements r92.f {
+    public class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r92.e a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ mt2 c;
-        public final /* synthetic */ v22 d;
-        public final /* synthetic */ z63 e;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
 
-        public b(z63 z63Var, r92.e eVar, String str, mt2 mt2Var, v22 v22Var) {
+        public b(z63 z63Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z63Var, eVar, str, mt2Var, v22Var};
+                Object[] objArr = {z63Var, callbackHandler, unitedSchemeEntity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -129,183 +94,293 @@ public class z63 extends j53 {
                     return;
                 }
             }
-            this.e = z63Var;
-            this.a = eVar;
-            this.b = str;
-            this.c = mt2Var;
-            this.d = v22Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
         }
 
-        @Override // com.baidu.tieba.r92.f
-        public void onReady() {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (j53.b) {
-                    Log.d("NavigateToAction", "tryToExecutePageRoute onReady start.");
-                }
-                sw2.e(this.a, this.b);
-                this.e.o(this.a.a, this.c, this.d, this.b);
-                if (j53.b) {
-                    Log.d("NavigateToAction", "tryToExecutePageRoute onReady end.");
-                }
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948311858, "Lcom/baidu/tieba/z63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class c extends BaseAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ int c;
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+        }
+
+        public c(z63 z63Var, List list, Context context, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z63Var, list, context, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948311858, "Lcom/baidu/tieba/z63;");
-                return;
+            this.a = list;
+            this.b = context;
+            this.c = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.widget.Adapter
+        /* renamed from: a */
+        public String getItem(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                return (String) this.a.get(i);
+            }
+            return (String) invokeI.objValue;
+        }
+
+        public final void b(@NonNull View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+                if (i == 0) {
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081199));
+                } else {
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081198));
+                }
             }
         }
-        d = tm2.g0().q();
-        if (j53.b) {
-            Log.d("NavigateToAction", "NavigateToAction max count: " + d);
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.size();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.widget.Adapter
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
+                    view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00cf, null);
+                }
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092152);
+                textView.setTextColor(this.c);
+                textView.setText(getItem(i));
+                b(view2, i);
+                return view2;
+            }
+            return (View) invokeILL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ i33 c;
+
+        public d(z63 z63Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, i33 i33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z63Var, callbackHandler, unitedSchemeEntity, i33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = i33Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("tapIndex", i);
+                    UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    this.c.dismiss();
+                } catch (JSONException e) {
+                    if (b63.b) {
+                        e.printStackTrace();
+                    }
+                    UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(201));
+                }
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z63(j43 j43Var) {
-        super(j43Var, "/swanAPI/navigateTo");
+    public z63(b53 b53Var) {
+        super(b53Var, "/swanAPI/showActionSheet");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (j53.b) {
-                Log.d("NavigateToAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            this.c = context;
-            String uuid = UUID.randomUUID().toString();
-            sw2.b(uuid);
-            String o = v63.o(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(o)) {
-                m02.c("navigateTo", "url is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (e43Var != null && e43Var.n0()) {
+                if (b63.b) {
+                    Log.d("ShowActionSheet", "ShowActionSheet does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                 return false;
-            }
-            zo2 U = zo2.U();
-            v22 V = U.V();
-            if (V == null) {
-                m02.c("navigateTo", "manager is null");
+            } else if (context != null && e43Var != null) {
+                return l(context, unitedSchemeEntity, callbackHandler);
+            } else {
+                e12.c("ShowActionSheet", "aiapp is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            }
-            mt2 d2 = mt2.d(o, U.z());
-            d2.e = "0";
-            d2.f = uuid;
-            aa3.g(d2);
-            if (!gh3.b(U.s(), d2, false)) {
-                m02.c("navigateTo", "page params error : path=" + d2.a + " ; routePath=" + d2.d);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                aa3.i(d2);
-                return false;
-            }
-            String n = v63.n(unitedSchemeEntity, "params", "initData");
-            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(d2.d) && m33.M() != null) {
-                m33.M().L0(n, d2.d);
-            }
-            String n2 = v63.n(unitedSchemeEntity, "params", FetchLog.START_TIME);
-            if (!TextUtils.isEmpty(n2)) {
-                HybridUbcFlow q = rw2.q("route", uuid);
-                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
-                ubcFlowEvent.h(Long.valueOf(n2).longValue());
-                q.F(ubcFlowEvent);
-            }
-            if (j53.b) {
-                Log.d("NavigateToAction", "PreloadSlaveManager start.");
-            }
-            String optString = mg3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                m02.c("navigateTo", "cb is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                aa3.i(d2);
-                return false;
-            } else if (z53.b().a(d2)) {
-                z53.b().i("navigateTo", d2);
-                m02.c("NavigateToAction", "access to this page is prohibited");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                U.a();
-                b73.g(m33Var, d2, "", new a(this, uuid, m33Var, U, d2, V, unitedSchemeEntity, callbackHandler, optString, context), uuid);
-                return true;
             }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void o(sp1 sp1Var, mt2 mt2Var, v22 v22Var, String str) {
-        SwanAppActivity activity;
+    public final int k(Context context, int i) {
+        InterceptResult invokeLI;
+        int s;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sp1Var, mt2Var, v22Var, str) == null) && (activity = zo2.U().getActivity()) != null && !activity.isFinishing()) {
-            v63.e(sp1Var, mt2Var, str);
-            sw2.c(0, str);
-            if (v22Var.k() < d) {
-                u22.S3(gh3.n());
-                v22.b i = v22Var.i("navigateTo");
-                i.n(v22.g, v22.i);
-                i.k("normal", mt2Var).b();
-                wf3.c(v22Var, this.c);
-                rw2.q("route", str).F(new UbcFlowEvent("na_push_page_end"));
-                sw2.a(str, mt2Var);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i)) == null) {
+            Resources resources = context.getResources();
+            int dimensionPixelSize = ((((i + 1) * resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f5)) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f3)) + i) - 1;
+            if (vh3.J() && dimensionPixelSize > (s = vh3.s(context) - vh3.t())) {
+                return s;
             }
-            gt1.A(v22Var, mt2Var, str, true);
+            return dimensionPixelSize;
         }
+        return invokeLI.intValue;
     }
 
-    public final void p(r92.e eVar, mt2 mt2Var, v22 v22Var, String str) {
-        boolean z;
-        String str2;
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0073  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x007a  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        int i;
+        String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, mt2Var, v22Var, str) == null) {
-            if (eVar != null && eVar.b) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            HybridUbcFlow q = rw2.q("route", str);
-            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-            if (z) {
-                str2 = "1";
-            } else {
-                str2 = "0";
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONArray jSONArray = optParamsAsJo.getJSONArray("itemList");
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    String string = jSONArray.getString(i2);
+                    if (TextUtils.isEmpty(string)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                        return false;
+                    }
+                    arrayList.add(string);
+                }
+                optString = optParamsAsJo.optString("itemColor");
+            } catch (IllegalArgumentException | JSONException e) {
+                if (b63.b) {
+                    e.printStackTrace();
+                }
             }
-            q.D("preload", str2);
-            if (j53.b) {
-                Log.d("NavigateToAction", "tryToExecutePageRoute start. isReady : " + z);
+            if (!TextUtils.isEmpty(optString)) {
+                if (optString.length() == 4 && optString.charAt(0) == '#') {
+                    optString = SwanAppConfigData.d(optString);
+                }
+                i = Color.parseColor(optString);
+                if (!arrayList.isEmpty()) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                if (i == -1) {
+                    i = context.getResources().getColor(R.color.obfuscated_res_0x7f060396);
+                }
+                h33 h33Var = new h33(context);
+                h33Var.f(true);
+                h33Var.i(true);
+                h33Var.k(true);
+                h33Var.T(false);
+                h33Var.m(true);
+                h33Var.n(new mj3());
+                h33Var.s(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f3));
+                h33Var.p(R.drawable.obfuscated_res_0x7f080125);
+                h33Var.F(R.color.obfuscated_res_0x7f060a63);
+                h33Var.B(R.string.obfuscated_res_0x7f0f0112, new b(this, callbackHandler, unitedSchemeEntity));
+                h33Var.K(new a(this, callbackHandler, unitedSchemeEntity));
+                View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d00ce, null);
+                ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f091355);
+                listView.setSelector(new ColorDrawable(0));
+                listView.setAdapter((ListAdapter) new c(this, arrayList, context, i));
+                h33Var.W(inflate);
+                h33Var.j();
+                h33Var.q(k(context, arrayList.size()));
+                i33 c2 = h33Var.c();
+                Window window = c2.getWindow();
+                if (window != null) {
+                    window.setGravity(80);
+                    window.setDimAmount(0.65f);
+                    window.setLayout(vh3.s(context), -2);
+                    window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+                }
+                c2.a(false);
+                c2.setCanceledOnTouchOutside(true);
+                listView.setOnItemClickListener(new d(this, callbackHandler, unitedSchemeEntity, c2));
+                c2.show();
+                return true;
             }
-            r92.q(eVar, new b(this, eVar, str, mt2Var, v22Var));
-            if (j53.b) {
-                Log.d("NavigateToAction", "tryToExecutePageRoute end.");
+            i = -1;
+            if (!arrayList.isEmpty()) {
             }
+        } else {
+            return invokeLLL.booleanValue;
         }
     }
 }

@@ -20,10 +20,10 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GoodsMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GoodsMsg> CREATOR;
     public static final String TAG = "GoodsMsg";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mAllImgs;
+    public List<String> mAllImgs;
     public double mCoupon;
     public String mEvent;
     public int mId;
@@ -49,7 +49,7 @@ public class GoodsMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GoodsMsg.1
+        CREATOR = new Parcelable.Creator<GoodsMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GoodsMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,6 +68,7 @@ public class GoodsMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GoodsMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -79,6 +80,7 @@ public class GoodsMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GoodsMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -91,7 +93,7 @@ public class GoodsMsg extends NormalMsg {
         };
     }
 
-    public List getAllImgs() {
+    public List<String> getAllImgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

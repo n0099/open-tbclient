@@ -4,17 +4,18 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g13;
+import com.baidu.tieba.y13;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SPSwitchRootLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g13 a;
+    public y13 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchRootLinearLayout(Context context) {
@@ -38,7 +39,7 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SPSwitchRootLinearLayout(Context context, AttributeSet attributeSet) {
+    public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +60,7 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SPSwitchRootLinearLayout(Context context, AttributeSet attributeSet, int i) {
+    public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -83,7 +84,7 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new g13(this);
+            this.a = new y13(this);
         }
     }
 

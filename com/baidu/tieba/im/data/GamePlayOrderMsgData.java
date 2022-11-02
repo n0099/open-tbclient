@@ -1,12 +1,13 @@
 package com.baidu.tieba.im.data;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ad7;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.ke7;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +43,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
     public long user_id;
 
     /* loaded from: classes4.dex */
-    public final class ButtonActionParams extends OrmObject implements Serializable {
+    public static final class ButtonActionParams extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -335888920495926025L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +268,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
     }
 
     /* loaded from: classes4.dex */
-    public final class ContentInfo extends OrmObject implements Serializable {
+    public static final class ContentInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -539795134006538216L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -682,6 +683,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
         }
     }
 
+    @Nullable
     public static GamePlayOrderMsgData parseFromMsgInfo(MsgInfo msgInfo, boolean z) {
         InterceptResult invokeLZ;
         long longValue;
@@ -690,7 +692,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
             if (msgInfo != null && !StringUtils.isNull(msgInfo.content)) {
                 GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(msgInfo.content, GamePlayOrderMsgData.class);
                 if (gamePlayOrderMsgData != null) {
-                    if (eh.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+                    if (wg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
                         longValue = msgInfo.userId.longValue();
                     } else {
                         longValue = msgInfo.toUid.longValue();
@@ -698,7 +700,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
                     gamePlayOrderMsgData.setGid(longValue);
                     gamePlayOrderMsgData.setUser_id(msgInfo.userId.longValue());
                     gamePlayOrderMsgData.setLast(z);
-                    gamePlayOrderMsgData.setMid(ad7.a(msgInfo.msgId.longValue()));
+                    gamePlayOrderMsgData.setMid(ke7.a(msgInfo.msgId.longValue()));
                 }
                 return gamePlayOrderMsgData;
             }

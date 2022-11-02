@@ -45,7 +45,7 @@ public class PatchManager {
     }
 
     /* loaded from: classes6.dex */
-    public class PatchInstallWrapper extends RemoteServiceWrapper {
+    public static class PatchInstallWrapper extends RemoteServiceWrapper {
         public static final int MSG_WHAT_PATCH_INSTALL = 1;
         public Bundle mExtra;
         public PatchInstallObserver mLocalObserver;
@@ -97,7 +97,7 @@ public class PatchManager {
     }
 
     /* loaded from: classes6.dex */
-    public abstract class RemoteServiceWrapper {
+    public static abstract class RemoteServiceWrapper {
         public String mAction;
         public Context mContext;
         public ServiceConnectionImpl mServiceConnection = new ServiceConnectionImpl();
@@ -134,7 +134,7 @@ public class PatchManager {
     }
 
     /* loaded from: classes6.dex */
-    public class PatchCleanWrapper extends RemoteServiceWrapper {
+    public static class PatchCleanWrapper extends RemoteServiceWrapper {
         public static final int MSG_WHAT_UNBIND = 1;
         public Handler mUiHandler;
 

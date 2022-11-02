@@ -1,8 +1,11 @@
 package com.baidu.searchbox.player.session;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDPlayerConfig;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.ControlEventTrigger;
 import com.baidu.searchbox.player.event.PlayerEvent;
@@ -20,6 +23,7 @@ public final class VideoSession {
     public transient /* synthetic */ FieldHolder $fh;
     public ControlEventTrigger mControlEventTrigger;
     public StringBuilder mDesc;
+    @Nullable
     public IMessenger mMessenger;
     public PlayerStatus mStatus;
 
@@ -57,6 +61,8 @@ public final class VideoSession {
         return (ControlEventTrigger) invokeV.objValue;
     }
 
+    @Nullable
+    @PublicMethod
     public IMessenger getMessenger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,6 +72,8 @@ public final class VideoSession {
         return (IMessenger) invokeV.objValue;
     }
 
+    @NonNull
+    @PublicMethod
     public PlayerStatus getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,6 +83,7 @@ public final class VideoSession {
         return (PlayerStatus) invokeV.objValue;
     }
 
+    @PublicMethod
     public boolean isComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,6 +96,7 @@ public final class VideoSession {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,6 +109,7 @@ public final class VideoSession {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isIdle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -111,6 +122,7 @@ public final class VideoSession {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isPause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,6 +135,7 @@ public final class VideoSession {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -135,6 +148,7 @@ public final class VideoSession {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,6 +161,7 @@ public final class VideoSession {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isPreparing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -159,6 +174,7 @@ public final class VideoSession {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public boolean isStop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -242,14 +258,14 @@ public final class VideoSession {
         }
     }
 
-    public void bindMessenger(IMessenger iMessenger) {
+    public void bindMessenger(@NonNull IMessenger iMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMessenger) == null) {
             this.mMessenger = iMessenger;
         }
     }
 
-    public boolean matchStatus(PlayerStatus... playerStatusArr) {
+    public boolean matchStatus(@NonNull PlayerStatus... playerStatusArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, playerStatusArr)) == null) {

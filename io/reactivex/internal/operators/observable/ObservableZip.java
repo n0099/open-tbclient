@@ -20,28 +20,28 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableZip extends Observable {
+public final class ObservableZip<T, R> extends Observable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
     public final boolean delayError;
-    public final ObservableSource[] sources;
-    public final Iterable sourcesIterable;
-    public final Function zipper;
+    public final ObservableSource<? extends T>[] sources;
+    public final Iterable<? extends ObservableSource<? extends T>> sourcesIterable;
+    public final Function<? super Object[], ? extends R> zipper;
 
     /* loaded from: classes8.dex */
-    public final class ZipCoordinator extends AtomicInteger implements Disposable {
+    public static final class ZipCoordinator<T, R> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2983708048395377667L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super R> actual;
         public volatile boolean cancelled;
         public final boolean delayError;
-        public final ZipObserver[] observers;
-        public final Object[] row;
-        public final Function zipper;
+        public final ZipObserver<T, R>[] observers;
+        public final T[] row;
+        public final Function<? super Object[], ? extends R> zipper;
 
-        public ZipCoordinator(Observer observer, Function function, int i, boolean z) {
+        public ZipCoordinator(Observer<? super R> observer, Function<? super Object[], ? extends R> function, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public final class ObservableZip extends Observable {
             this.actual = observer;
             this.zipper = function;
             this.observers = new ZipObserver[i];
-            this.row = new Object[i];
+            this.row = (T[]) new Object[i];
             this.delayError = z;
         }
 
@@ -74,7 +74,7 @@ public final class ObservableZip extends Observable {
         public void cancelSources() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (ZipObserver zipObserver : this.observers) {
+                for (ZipObserver<T, R> zipObserver : this.observers) {
                     zipObserver.dispose();
                 }
             }
@@ -83,7 +83,7 @@ public final class ObservableZip extends Observable {
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                for (ZipObserver zipObserver : this.observers) {
+                for (ZipObserver<T, R> zipObserver : this.observers) {
                     zipObserver.queue.clear();
                 }
             }
@@ -111,7 +111,7 @@ public final class ObservableZip extends Observable {
             return invokeV.booleanValue;
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, Observer observer, boolean z3, ZipObserver zipObserver) {
+        public boolean checkTerminated(boolean z, boolean z2, Observer<? super R> observer, boolean z3, ZipObserver<?, ?> zipObserver) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), observer, Boolean.valueOf(z3), zipObserver})) == null) {
@@ -158,18 +158,18 @@ public final class ObservableZip extends Observable {
             if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            ZipObserver[] zipObserverArr = this.observers;
-            Observer observer = this.actual;
-            Object[] objArr = this.row;
+            ZipObserver<T, R>[] zipObserverArr = this.observers;
+            Observer<? super R> observer = this.actual;
+            T[] tArr = this.row;
             boolean z2 = this.delayError;
             int i = 1;
             while (true) {
                 int i2 = 0;
                 int i3 = 0;
-                for (ZipObserver zipObserver : zipObserverArr) {
-                    if (objArr[i3] == null) {
+                for (ZipObserver<T, R> zipObserver : zipObserverArr) {
+                    if (tArr[i3] == null) {
                         boolean z3 = zipObserver.done;
-                        Object poll = zipObserver.queue.poll();
+                        T poll = zipObserver.queue.poll();
                         if (poll == null) {
                             z = true;
                         } else {
@@ -179,7 +179,7 @@ public final class ObservableZip extends Observable {
                             return;
                         }
                         if (!z) {
-                            objArr[i3] = poll;
+                            tArr[i3] = poll;
                         } else {
                             i2++;
                         }
@@ -197,8 +197,8 @@ public final class ObservableZip extends Observable {
                     }
                 } else {
                     try {
-                        observer.onNext(ObjectHelper.requireNonNull(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
-                        Arrays.fill(objArr, (Object) null);
+                        observer.onNext((Object) ObjectHelper.requireNonNull(this.zipper.apply(tArr.clone()), "The zipper returned a null value"));
+                        Arrays.fill(tArr, (Object) null);
                     } catch (Throwable th2) {
                         Exceptions.throwIfFatal(th2);
                         cancel();
@@ -209,13 +209,13 @@ public final class ObservableZip extends Observable {
             }
         }
 
-        public void subscribe(ObservableSource[] observableSourceArr, int i) {
+        public void subscribe(ObservableSource<? extends T>[] observableSourceArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048583, this, observableSourceArr, i) == null) {
-                ZipObserver[] zipObserverArr = this.observers;
+                ZipObserver<T, R>[] zipObserverArr = this.observers;
                 int length = zipObserverArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    zipObserverArr[i2] = new ZipObserver(this, i);
+                    zipObserverArr[i2] = new ZipObserver<>(this, i);
                 }
                 lazySet(0);
                 this.actual.onSubscribe(this);
@@ -227,16 +227,16 @@ public final class ObservableZip extends Observable {
     }
 
     /* loaded from: classes8.dex */
-    public final class ZipObserver implements Observer {
+    public static final class ZipObserver<T, R> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public Throwable error;
-        public final ZipCoordinator parent;
-        public final SpscLinkedArrayQueue queue;
-        public final AtomicReference s;
+        public final ZipCoordinator<T, R> parent;
+        public final SpscLinkedArrayQueue<T> queue;
+        public final AtomicReference<Disposable> s;
 
-        public ZipObserver(ZipCoordinator zipCoordinator, int i) {
+        public ZipObserver(ZipCoordinator<T, R> zipCoordinator, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,9 +251,9 @@ public final class ObservableZip extends Observable {
                     return;
                 }
             }
-            this.s = new AtomicReference();
+            this.s = new AtomicReference<>();
             this.parent = zipCoordinator;
-            this.queue = new SpscLinkedArrayQueue(i);
+            this.queue = new SpscLinkedArrayQueue<>(i);
         }
 
         public void dispose() {
@@ -283,10 +283,10 @@ public final class ObservableZip extends Observable {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.queue.offer(obj);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.queue.offer(t);
                 this.parent.drain();
             }
         }
@@ -300,7 +300,7 @@ public final class ObservableZip extends Observable {
         }
     }
 
-    public ObservableZip(ObservableSource[] observableSourceArr, Iterable iterable, Function function, int i, boolean z) {
+    public ObservableZip(ObservableSource<? extends T>[] observableSourceArr, Iterable<? extends ObservableSource<? extends T>> iterable, Function<? super Object[], ? extends R> function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -323,17 +323,17 @@ public final class ObservableZip extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super R> observer) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            ObservableSource[] observableSourceArr = this.sources;
+            ObservableSource<? extends T>[] observableSourceArr = this.sources;
             if (observableSourceArr == null) {
                 observableSourceArr = new Observable[8];
                 length = 0;
-                for (ObservableSource observableSource : this.sourcesIterable) {
+                for (ObservableSource<? extends T> observableSource : this.sourcesIterable) {
                     if (length == observableSourceArr.length) {
-                        ObservableSource[] observableSourceArr2 = new ObservableSource[(length >> 2) + length];
+                        ObservableSource<? extends T>[] observableSourceArr2 = new ObservableSource[(length >> 2) + length];
                         System.arraycopy(observableSourceArr, 0, observableSourceArr2, 0, length);
                         observableSourceArr = observableSourceArr2;
                     }

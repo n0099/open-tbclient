@@ -1,16 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public interface fp1 {
-    void a(NgWebView ngWebView);
+    boolean a();
 
-    void b(NgWebView ngWebView, String str);
+    /* loaded from: classes4.dex */
+    public static class a implements fp1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
+        @Override // com.baidu.tieba.fp1
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
-    void d(String str, Context context);
-
-    void e(String str, Context context);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

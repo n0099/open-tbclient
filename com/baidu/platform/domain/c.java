@@ -36,4 +36,12 @@ public interface c {
     String q();
 
     String r();
+
+    String s();
+
+    String t();
+
+    String u();
+
+    String v();
 }

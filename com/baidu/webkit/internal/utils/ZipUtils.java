@@ -28,7 +28,7 @@ public class ZipUtils implements INoProGuard {
     public ZipEntry nextEntry;
 
     /* loaded from: classes6.dex */
-    public final class a extends ZipInputStream {
+    public class a extends ZipInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ZipUtils a;
@@ -141,7 +141,7 @@ public class ZipUtils implements INoProGuard {
         }
     }
 
-    private void pushEntry(Stack stack, String str, String[] strArr) {
+    private void pushEntry(Stack<String> stack, String str, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, stack, str, strArr) == null) {
             if (str != null) {
@@ -288,7 +288,7 @@ public class ZipUtils implements INoProGuard {
             return invokeLLLL.booleanValue;
         }
         byte[] bArr = new byte[512];
-        Stack stack = new Stack();
+        Stack<String> stack = new Stack<>();
         if (str == null || str2 == null) {
             return false;
         }
@@ -306,10 +306,10 @@ public class ZipUtils implements INoProGuard {
                 FileInputStream fileInputStream2 = null;
                 while (stack.size() > 0) {
                     try {
-                        String str5 = (String) stack.pop();
+                        String pop = stack.pop();
                         if (strArr != null) {
-                            for (String str6 : strArr) {
-                                if (str6.equals(str5)) {
+                            for (String str5 : strArr) {
+                                if (str5.equals(pop)) {
                                     z = true;
                                     break;
                                 }
@@ -317,14 +317,14 @@ public class ZipUtils implements INoProGuard {
                         }
                         z = false;
                         if (!z) {
-                            String str7 = str4 + str5;
-                            File file2 = new File(str7);
+                            String str6 = str4 + pop;
+                            File file2 = new File(str6);
                             if (file2.isDirectory()) {
-                                zipOutputStream.putNextEntry(new ZipEntry(str5 + "/"));
-                                pushEntry(stack, str5, file2.list());
+                                zipOutputStream.putNextEntry(new ZipEntry(pop + "/"));
+                                pushEntry(stack, pop, file2.list());
                             } else {
-                                zipOutputStream.putNextEntry(new ZipEntry(str5));
-                                FileInputStream fileInputStream3 = new FileInputStream(str7);
+                                zipOutputStream.putNextEntry(new ZipEntry(pop));
+                                FileInputStream fileInputStream3 = new FileInputStream(str6);
                                 while (true) {
                                     try {
                                         int read = fileInputStream3.read(bArr);

@@ -57,20 +57,20 @@ public final class PollInfo extends Message {
     public final Integer type;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<PollInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer endTime;
         public Integer isMulti;
         public Integer isPolled;
         public Integer lastTime;
-        public List options;
+        public List<PollOption> options;
         public Integer optionsCount;
         public String polledValue;
         public Integer status;
@@ -234,7 +234,7 @@ public final class PollInfo extends Message {
             } else {
                 this.endTime = num5;
             }
-            List list = builder.options;
+            List<PollOption> list = builder.options;
             if (list == null) {
                 this.options = DEFAULT_OPTIONS;
             } else {

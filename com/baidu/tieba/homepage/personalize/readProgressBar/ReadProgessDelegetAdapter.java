@@ -11,38 +11,38 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.i26;
-import com.baidu.tieba.i37;
-import com.baidu.tieba.j37;
-import com.baidu.tieba.oo;
-import com.baidu.tieba.rn;
+import com.baidu.tieba.go;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.s36;
+import com.baidu.tieba.s47;
+import com.baidu.tieba.t47;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ReadProgessDelegetAdapter extends rn {
+public class ReadProgessDelegetAdapter extends jn<t47, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext a;
-    public oo b;
+    public final TbPageContext<?> a;
+    public go b;
 
     /* loaded from: classes4.dex */
-    public class ViewHolder extends TypeAdapter.ViewHolder {
+    public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public i37 a;
+        public s47 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(i37 i37Var) {
-            super(i37Var.k());
+        public ViewHolder(s47 s47Var) {
+            super(s47Var.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i37Var};
+                Object[] objArr = {s47Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,12 +53,12 @@ public class ReadProgessDelegetAdapter extends rn {
                     return;
                 }
             }
-            this.a = i37Var;
+            this.a = s47Var;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements oo {
+    public class a implements go {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,10 +78,10 @@ public class ReadProgessDelegetAdapter extends rn {
             }
         }
 
-        @Override // com.baidu.tieba.oo
-        public void b(View view2, eo eoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.go
+        public void b(View view2, wn wnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, eoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, wnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 TiebaStatic.log(new StatisticItem("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
             }
@@ -89,7 +89,7 @@ public class ReadProgessDelegetAdapter extends rn {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReadProgessDelegetAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public ReadProgessDelegetAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,26 +114,26 @@ public class ReadProgessDelegetAdapter extends rn {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
+    @Override // com.baidu.tieba.jn
     /* renamed from: s */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new ViewHolder(new i37(this.a, viewGroup));
+            return new ViewHolder(new s47(this.a, viewGroup));
         }
         return (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
+    @Override // com.baidu.tieba.jn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j37 j37Var, ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t47 t47Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j37Var, viewHolder})) == null) {
-            i26.b().a(new StatisticItem("c11272"));
-            viewHolder.a.l(j37Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t47Var, viewHolder})) == null) {
+            s36.b().a(new StatisticItem("c11272"));
+            viewHolder.a.l(t47Var);
             return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;

@@ -382,7 +382,7 @@ public class BinaryReqTask extends AbstractTask {
         this.mTaskSpeedStat = taskSpeedStat;
         taskSpeedStat.did = fileMsg.mId;
         taskSpeedStat.docid = "";
-        HashMap hashMap = new HashMap();
+        HashMap<String, String> hashMap = new HashMap<>();
         this.mHeaders = hashMap;
         hashMap.putAll(fileMsg.mHeaders);
     }

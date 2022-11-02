@@ -6,21 +6,27 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 /* loaded from: classes7.dex */
 public interface IGmsServiceBroker extends IInterface {
-    void getService(IGmsCallbacks iGmsCallbacks, GetServiceRequest getServiceRequest) throws RemoteException;
+    @KeepForSdk
+    void getService(@NonNull IGmsCallbacks iGmsCallbacks, @Nullable GetServiceRequest getServiceRequest) throws RemoteException;
 
     /* loaded from: classes7.dex */
-    public abstract class Stub extends Binder implements IGmsServiceBroker {
+    public static abstract class Stub extends Binder implements IGmsServiceBroker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // android.os.IInterface
+        @NonNull
+        @KeepForSdk
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -44,7 +50,7 @@ public interface IGmsServiceBroker extends IInterface {
         }
 
         @Override // android.os.Binder
-        public final boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        public final boolean onTransact(int i, @NonNull Parcel parcel, @Nullable Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             IGmsCallbacks zzaaVar;
             Interceptable interceptable = $ic;
@@ -67,7 +73,7 @@ public interface IGmsServiceBroker extends IInterface {
                 }
                 if (i == 46) {
                     if (parcel.readInt() != 0) {
-                        getServiceRequest = (GetServiceRequest) GetServiceRequest.CREATOR.createFromParcel(parcel);
+                        getServiceRequest = GetServiceRequest.CREATOR.createFromParcel(parcel);
                     }
                     getService(zzaaVar, getServiceRequest);
                     Preconditions.checkNotNull(parcel2);
@@ -75,7 +81,7 @@ public interface IGmsServiceBroker extends IInterface {
                     return true;
                 } else if (i == 47) {
                     if (parcel.readInt() != 0) {
-                        zzaj zzajVar = (zzaj) zzaj.CREATOR.createFromParcel(parcel);
+                        zzaj.CREATOR.createFromParcel(parcel);
                     }
                     throw new UnsupportedOperationException();
                 } else {

@@ -16,10 +16,10 @@ public final class PriorityTaskManager {
     public transient /* synthetic */ FieldHolder $fh;
     public int highestPriority;
     public final Object lock;
-    public final PriorityQueue queue;
+    public final PriorityQueue<Integer> queue;
 
     /* loaded from: classes7.dex */
-    public class PriorityTooLowException extends IOException {
+    public static class PriorityTooLowException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public final class PriorityTaskManager {
             }
         }
         this.lock = new Object();
-        this.queue = new PriorityQueue(10, Collections.reverseOrder());
+        this.queue = new PriorityQueue<>(10, Collections.reverseOrder());
         this.highestPriority = Integer.MIN_VALUE;
     }
 
@@ -120,7 +120,7 @@ public final class PriorityTaskManager {
                 if (this.queue.isEmpty()) {
                     intValue = Integer.MIN_VALUE;
                 } else {
-                    intValue = ((Integer) this.queue.peek()).intValue();
+                    intValue = this.queue.peek().intValue();
                 }
                 this.highestPriority = intValue;
                 this.lock.notifyAll();

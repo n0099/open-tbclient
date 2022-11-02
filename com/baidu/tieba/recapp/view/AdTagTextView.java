@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -33,7 +34,7 @@ public class AdTagTextView extends LinearLayout {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0070 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0071 : invokeV.intValue;
     }
 
     public void onChangeSkinType() {
@@ -43,7 +44,7 @@ public class AdTagTextView extends LinearLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class VerticalImageSpan extends ImageSpan {
+    public static class VerticalImageSpan extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -145,7 +146,7 @@ public class AdTagTextView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdTagTextView(Context context, AttributeSet attributeSet) {
+    public AdTagTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -183,7 +184,7 @@ public class AdTagTextView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.obfuscated_res_0x7f0907aa);
+            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.obfuscated_res_0x7f0907b8);
         }
     }
 

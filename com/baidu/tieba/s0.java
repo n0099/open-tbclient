@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class s0 {
     public static /* synthetic */ Interceptable $ic;
-    public static x7 e;
+    public static x7<String, s0> e;
     public static int f;
     public static final b g;
     public static final e7 h;
@@ -22,7 +22,7 @@ public class s0 {
     public final int d;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -34,7 +34,7 @@ public class s0 {
     }
 
     /* loaded from: classes5.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public e7 a;
@@ -76,7 +76,7 @@ public class s0 {
         }
 
         @SafeVarargs
-        public final b a(Class... clsArr) {
+        public final b a(Class<? extends m0>... clsArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, clsArr)) == null) {
@@ -87,7 +87,7 @@ public class s0 {
         }
 
         @SafeVarargs
-        public final b c(Class... clsArr) {
+        public final b c(Class<? extends m0>... clsArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, clsArr)) == null) {
@@ -123,7 +123,7 @@ public class s0 {
                 return;
             }
         }
-        e = new x7();
+        e = new x7<>();
         f = 0;
         g = new b();
         h = new e7();
@@ -175,7 +175,7 @@ public class s0 {
     }
 
     @SafeVarargs
-    public static final b d(Class... clsArr) {
+    public static final b d(Class<? extends m0>... clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, clsArr)) == null) {
@@ -188,7 +188,7 @@ public class s0 {
     }
 
     @SafeVarargs
-    public static final b i(Class... clsArr) {
+    public static final b i(Class<? extends m0>... clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, clsArr)) == null) {

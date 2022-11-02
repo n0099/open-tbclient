@@ -2,22 +2,21 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class za7 implements rb5 {
+public class za7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ya7.a b;
-    public ja7 c;
-    public long d;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
     public int e;
+    public int f;
 
     public za7() {
         Interceptable interceptable = $ic;
@@ -33,102 +32,98 @@ public class za7 implements rb5 {
         }
     }
 
-    public long b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.d;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public ja7 c() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return (ja7) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public ya7.a d() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.f;
         }
-        return (ya7.a) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public int e() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.d = str;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static za7 a(ChatMessage chatMessage, ya7.a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, chatMessage, aVar)) == null) {
-            za7 za7Var = new za7();
-            if (chatMessage == null) {
-                return za7Var;
-            }
-            aVar.h /= 100;
-            za7Var.m(chatMessage.getReadCountPv());
-            za7Var.l(aVar);
-            za7Var.h(chatMessage.getTime());
-            if (chatMessage.getObjContent() instanceof ja7) {
-                za7Var.j((ja7) chatMessage.getObjContent());
-            }
-            return za7Var;
-        }
-        return (za7) invokeLL.objValue;
     }
 
     public void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void i(boolean z) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public void j(ja7 ja7Var) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ja7Var) == null) {
-            this.c = ja7Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void l(ya7.a aVar) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void m(int i) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.e = i;
         }
     }

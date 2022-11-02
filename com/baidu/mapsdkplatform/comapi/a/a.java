@@ -2,6 +2,8 @@ package com.baidu.mapsdkplatform.comapi.a;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
+import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
@@ -24,6 +26,20 @@ public class a extends c {
     public int e;
     public int f;
     public float[] g;
+
+    @Override // com.baidu.mapsdkplatform.comapi.a.c
+    public void a(TypeEvaluator typeEvaluator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, typeEvaluator) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.a.c
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        }
+    }
 
     public a(float... fArr) {
         Interceptable interceptable = $ic;
@@ -49,6 +65,7 @@ public class a extends c {
         this.g = fArr;
     }
 
+    @TargetApi(11)
     public ObjectAnimator a(Marker marker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -69,13 +86,44 @@ public class a extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i > 0 || i == -1) {
+                this.f = i;
+            }
+        }
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.a.c
+    @TargetApi(11)
     public void a() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animator = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (animator = this.a) == null) {
             return;
         }
         animator.start();
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.a.c
+    @TargetApi(11)
+    public void b() {
+        Animator animator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (animator = this.a) != null) {
+            animator.cancel();
+            this.a = null;
+        }
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -98,9 +146,10 @@ public class a extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
+    @TargetApi(11)
     public void a(Animator animator) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, animator) == null) || animator == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, animator) != null) || animator == null) {
             return;
         }
         animator.addListener(new b(this));
@@ -109,7 +158,7 @@ public class a extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Interpolator interpolator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interpolator) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, interpolator) == null) {
             this.c = interpolator;
         }
     }
@@ -117,52 +166,19 @@ public class a extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, animationListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, animationListener) == null) {
             this.d = animationListener;
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
+    @TargetApi(11)
     public void a(Marker marker, Animation animation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, marker, animation) == null) {
             ObjectAnimator a = a(marker);
             this.a = a;
             a(a);
-        }
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.a.c
-    public void b() {
-        Animator animator;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.a) == null) {
-            return;
-        }
-        animator.cancel();
-        this.a = null;
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.a.c
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            if (i > 0 || i == -1) {
-                this.f = i;
-            }
-        }
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.a.c
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
         }
     }
 }

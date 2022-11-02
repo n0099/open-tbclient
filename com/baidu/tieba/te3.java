@@ -1,71 +1,226 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.iz2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class te3 extends pe3 {
+public class te3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public c b;
+    public final iz2.a c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public te3(j43 j43Var) {
-        super(j43Var, "/swanAPI/openTabBar");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((j43) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public class a implements iz2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ te3 a;
+
+        public a(te3 te3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {te3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = te3Var;
+        }
+
+        @Override // com.baidu.tieba.iz2.a
+        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 700 && iArr.length > 0 && iArr[0] == 0 && this.a.b != null) {
+                this.a.b.a(this.a.a);
             }
         }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                m02.c("openTabBar", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (pe3.k()) {
-                m02.c("OpenTabBarAction", "fail not TabBar page");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
-                return false;
-            } else {
-                ye3 j = pe3.j();
-                if (j == null) {
-                    m02.c("OpenTabBarAction", "tabBarViewController is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!j.r(optParamsAsJo.optBoolean("animation"))) {
-                    m02.c("openTabBar", "open bottom bar fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final te3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-406433943, "Lcom/baidu/tieba/te3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-406433943, "Lcom/baidu/tieba/te3$b;");
+                    return;
+                }
+            }
+            a = new te3(null);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Vibrator a;
+
+        public c(@NonNull Vibrator vibrator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vibrator};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vibrator;
+        }
+
+        @SuppressLint({"MissingPermission"})
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                try {
+                    if (lg3.j()) {
+                        this.a.vibrate(VibrationEffect.createOneShot(j, -1));
+                        return;
+                    }
+                    this.a.vibrate(j);
+                } catch (Exception unused) {
                 }
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948178279, "Lcom/baidu/tieba/te3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948178279, "Lcom/baidu/tieba/te3;");
+                return;
+            }
+        }
+        d = ok1.a;
+    }
+
+    public static te3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b.a;
+        }
+        return (te3) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!lg3.h()) {
+                return true;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext != null && ContextCompat.checkSelfPermission(appContext, "android.permission.VIBRATE") == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e(400L);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(15L);
+        }
+    }
+
+    public te3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+        this.c = new a(this);
+        Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
+        if (vibrator != null) {
+            this.b = new c(vibrator);
+        }
+    }
+
+    public /* synthetic */ te3(a aVar) {
+        this();
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.a = j;
+            if (this.b == null) {
+                if (!d) {
+                    return;
+                }
+                throw new RuntimeException("not support vibration");
+            } else if (c()) {
+                this.b.a(this.a);
+            } else {
+                String[] strArr = {"android.permission.VIBRATE"};
+                SwanAppActivity w = d43.K().w();
+                if (w != null) {
+                    w.y(700, strArr, this.c);
+                }
+            }
+        }
     }
 }

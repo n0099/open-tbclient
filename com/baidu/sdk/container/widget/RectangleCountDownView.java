@@ -1,17 +1,20 @@
 package com.baidu.sdk.container.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"AppCompatCustomView", "DefaultLocale", "NewApi"})
 /* loaded from: classes2.dex */
 public class RectangleCountDownView extends AbsCountDownView {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +45,7 @@ public class RectangleCountDownView extends AbsCountDownView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RectangleCountDownView(Context context, AttributeSet attributeSet) {
+    public RectangleCountDownView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,11 +69,11 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
             setTextColor(Color.parseColor("#ffffff"));
-            setWidth(u21.c.a(context, 72.0f));
-            setHeight(u21.c.a(context, 30.0f));
+            setWidth(m31.c.a(context, 72.0f));
+            setHeight(m31.c.a(context, 30.0f));
             setGravity(17);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadius(u21.c.a(context, 15.0f));
+            gradientDrawable.setCornerRadius(m31.c.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
             setText(String.format("跳过 %02d", Long.valueOf(this.e / 1000)));
@@ -78,7 +81,7 @@ public class RectangleCountDownView extends AbsCountDownView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RectangleCountDownView(Context context, AttributeSet attributeSet, int i) {
+    public RectangleCountDownView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

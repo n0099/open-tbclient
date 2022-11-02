@@ -12,10 +12,10 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public class et {
     public static /* synthetic */ Interceptable $ic;
-    public static Vector a;
+    public static Vector<Pair<String, Long>> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ConcurrentHashMap f326a;
+    public static ConcurrentHashMap<String, Long> f326a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,8 +31,8 @@ public class et {
                 return;
             }
         }
-        a = new Vector();
-        f326a = new ConcurrentHashMap();
+        a = new Vector<>();
+        f326a = new ConcurrentHashMap<>();
     }
 
     public static String a() {
@@ -42,10 +42,10 @@ public class et {
             StringBuilder sb = new StringBuilder();
             synchronized (a) {
                 for (int i = 0; i < a.size(); i++) {
-                    Pair pair = (Pair) a.elementAt(i);
-                    sb.append((String) pair.first);
+                    Pair<String, Long> elementAt = a.elementAt(i);
+                    sb.append((String) elementAt.first);
                     sb.append(":");
-                    sb.append(pair.second);
+                    sb.append(elementAt.second);
                     if (i < a.size() - 1) {
                         sb.append(ParamableElem.DIVIDE_PARAM);
                     }

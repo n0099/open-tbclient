@@ -2,6 +2,7 @@ package androidx.appcompat.widget;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -19,6 +20,10 @@ import android.view.ViewPropertyAnimator;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.widget.OverScroller;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.graphics.Insets;
 import androidx.core.view.InputDeviceCompat;
@@ -37,6 +42,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"UnknownNullness"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements DecorContentParent, NestedScrollingParent, NestedScrollingParent2, NestedScrollingParent3 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -50,6 +57,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     public final Runnable mAddActionBarHideOffset;
     public boolean mAnimatingForFling;
     public final Rect mBaseContentInsets;
+    @NonNull
     public WindowInsetsCompat mBaseInnerInsets;
     public final Rect mBaseInnerInsetsRect;
     public ContentFrameLayout mContent;
@@ -61,11 +69,14 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     public boolean mHideOnContentScroll;
     public int mHideOnContentScrollReference;
     public boolean mIgnoreWindowContentOverlay;
+    @NonNull
     public WindowInsetsCompat mInnerInsets;
     public final Rect mInnerInsetsRect;
     public final Rect mLastBaseContentInsets;
+    @NonNull
     public WindowInsetsCompat mLastBaseInnerInsets;
     public final Rect mLastBaseInnerInsetsRect;
+    @NonNull
     public WindowInsetsCompat mLastInnerInsets;
     public final Rect mLastInnerInsetsRect;
     public int mLastSystemUiVisibility;
@@ -436,7 +447,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarOverlayLayout(Context context) {
+    public ActionBarOverlayLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -485,7 +496,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionBarOverlayLayout(Context context, AttributeSet attributeSet) {
+    public ActionBarOverlayLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -635,7 +646,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean applyInsets(View view2, Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
+    private boolean applyInsets(@NonNull View view2, @NonNull Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
         InterceptResult invokeCommon;
         boolean z5;
         Interceptable interceptable = $ic;
@@ -1013,7 +1024,8 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.View
-    public WindowInsets onApplyWindowInsets(WindowInsets windowInsets) {
+    @RequiresApi(21)
+    public WindowInsets onApplyWindowInsets(@NonNull WindowInsets windowInsets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, windowInsets)) == null) {

@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.animated.base;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -64,7 +65,7 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public CloseableReference getPreDecodedFrame(int i) {
+    public CloseableReference<Bitmap> getPreDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {

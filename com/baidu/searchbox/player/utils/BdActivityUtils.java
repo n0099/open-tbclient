@@ -1,6 +1,9 @@
 package com.baidu.searchbox.player.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +27,9 @@ public class BdActivityUtils {
         }
     }
 
-    public static void requestLandscape(Activity activity, boolean z) {
+    @PublicMethod
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void requestLandscape(@Nullable Activity activity, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
             if (z) {
@@ -36,7 +41,9 @@ public class BdActivityUtils {
         }
     }
 
-    public static void requestPortrait(Activity activity) {
+    @PublicMethod
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void requestPortrait(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, activity) == null) && activity != null) {
             activity.setRequestedOrientation(1);

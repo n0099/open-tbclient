@@ -52,7 +52,7 @@ public class PreLoadBaiduClass extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Class.forName("com.baidu.tieba.if1");
+                Class.forName("com.baidu.tieba.ag1");
             } catch (ClassNotFoundException e) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e.toString());
                 e.printStackTrace();
@@ -76,7 +76,7 @@ public class PreLoadBaiduClass extends LaunchTask {
                 e4.printStackTrace();
             }
             try {
-                Class.forName("com.baidu.tieba.eq8");
+                Class.forName("com.baidu.tieba.or8");
             } catch (ClassNotFoundException e5) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e5.toString());
                 e5.printStackTrace();

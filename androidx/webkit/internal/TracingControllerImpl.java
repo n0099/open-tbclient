@@ -1,6 +1,9 @@
 package androidx.webkit.internal;
 
+import android.annotation.SuppressLint;
 import android.webkit.TracingConfig;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.webkit.TracingConfig;
 import androidx.webkit.TracingController;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +22,7 @@ public class TracingControllerImpl extends TracingController {
     public TracingControllerBoundaryInterface mBoundaryInterface;
     public android.webkit.TracingController mFrameworksImpl;
 
+    @SuppressLint({"NewApi"})
     public TracingControllerImpl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,6 +60,7 @@ public class TracingControllerImpl extends TracingController {
         return (TracingControllerBoundaryInterface) invokeV.objValue;
     }
 
+    @RequiresApi(28)
     private android.webkit.TracingController getFrameworksImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,6 +74,7 @@ public class TracingControllerImpl extends TracingController {
     }
 
     @Override // androidx.webkit.TracingController
+    @SuppressLint({"NewApi"})
     public boolean isTracing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,7 +92,8 @@ public class TracingControllerImpl extends TracingController {
     }
 
     @Override // androidx.webkit.TracingController
-    public void start(TracingConfig tracingConfig) {
+    @SuppressLint({"NewApi"})
+    public void start(@NonNull TracingConfig tracingConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tracingConfig) == null) {
             if (tracingConfig != null) {
@@ -106,6 +113,7 @@ public class TracingControllerImpl extends TracingController {
     }
 
     @Override // androidx.webkit.TracingController
+    @SuppressLint({"NewApi"})
     public boolean stop(OutputStream outputStream, Executor executor) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

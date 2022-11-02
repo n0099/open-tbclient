@@ -25,41 +25,41 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream {
+public final class FlowableMergeWithSingle<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource other;
+    public final SingleSource<? extends T> other;
 
     /* loaded from: classes8.dex */
-    public final class MergeWithObserver extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class MergeWithObserver<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
         public static final int OTHER_STATE_HAS_VALUE = 1;
         public static final long serialVersionUID = -4592979584110982903L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
         public int consumed;
         public long emitted;
         public final AtomicThrowable error;
         public final int limit;
         public volatile boolean mainDone;
-        public final AtomicReference mainSubscription;
-        public final OtherObserver otherObserver;
+        public final AtomicReference<Subscription> mainSubscription;
+        public final OtherObserver<T> otherObserver;
         public volatile int otherState;
         public final int prefetch;
-        public volatile SimplePlainQueue queue;
+        public volatile SimplePlainQueue<T> queue;
         public final AtomicLong requested;
-        public Object singleItem;
+        public T singleItem;
 
         /* loaded from: classes8.dex */
-        public final class OtherObserver extends AtomicReference implements SingleObserver {
+        public static final class OtherObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final MergeWithObserver parent;
+            public final MergeWithObserver<T> parent;
 
-            public OtherObserver(MergeWithObserver mergeWithObserver) {
+            public OtherObserver(MergeWithObserver<T> mergeWithObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,15 +94,15 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(T t) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    this.parent.otherSuccess(obj);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                    this.parent.otherSuccess(t);
                 }
             }
         }
 
-        public MergeWithObserver(Subscriber subscriber) {
+        public MergeWithObserver(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,8 +118,8 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
                 }
             }
             this.actual = subscriber;
-            this.mainSubscription = new AtomicReference();
-            this.otherObserver = new OtherObserver(this);
+            this.mainSubscription = new AtomicReference<>();
+            this.otherObserver = new OtherObserver<>(this);
             this.error = new AtomicThrowable();
             this.requested = new AtomicLong();
             int bufferSize = Flowable.bufferSize();
@@ -127,24 +127,24 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
             this.limit = bufferSize - (bufferSize >> 2);
         }
 
-        public void otherSuccess(Object obj) {
+        public void otherSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
                 if (compareAndSet(0, 1)) {
                     long j = this.emitted;
                     if (this.requested.get() != j) {
                         this.emitted = j + 1;
-                        this.actual.onNext(obj);
+                        this.actual.onNext(t);
                         this.otherState = 2;
                     } else {
-                        this.singleItem = obj;
+                        this.singleItem = t;
                         this.otherState = 1;
                         if (decrementAndGet() == 0) {
                             return;
                         }
                     }
                 } else {
-                    this.singleItem = obj;
+                    this.singleItem = t;
                     this.otherState = 1;
                     if (getAndIncrement() != 0) {
                         return;
@@ -175,11 +175,11 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
             }
         }
 
-        public SimplePlainQueue getOrCreateQueue() {
+        public SimplePlainQueue<T> getOrCreateQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                SimplePlainQueue simplePlainQueue = this.queue;
+                SimplePlainQueue<T> simplePlainQueue = this.queue;
                 if (simplePlainQueue == null) {
                     SpscArrayQueue spscArrayQueue = new SpscArrayQueue(Flowable.bufferSize());
                     this.queue = spscArrayQueue;
@@ -199,6 +199,7 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r10v3. Raw type applied. Possible types: T, ? super T */
         /* JADX WARN: Code restructure failed: missing block: B:37:0x0085, code lost:
             if (r13 != 0) goto L58;
          */
@@ -270,11 +271,11 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drainLoop() {
-            Object obj;
+            T t;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Subscriber subscriber = this.actual;
+                Subscriber<? super T> subscriber = this.actual;
                 long j = this.emitted;
                 int i = this.consumed;
                 int i2 = this.limit;
@@ -298,20 +299,19 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
                         } else {
                             int i6 = this.otherState;
                             if (i6 == i3) {
-                                Object obj2 = this.singleItem;
                                 this.singleItem = null;
                                 this.otherState = 2;
-                                subscriber.onNext(obj2);
+                                subscriber.onNext((T) this.singleItem);
                                 j++;
                             } else {
                                 boolean z2 = this.mainDone;
-                                SimplePlainQueue simplePlainQueue = this.queue;
+                                SimplePlainQueue<T> simplePlainQueue = this.queue;
                                 if (simplePlainQueue != null) {
-                                    obj = simplePlainQueue.poll();
+                                    t = simplePlainQueue.poll();
                                 } else {
-                                    obj = null;
+                                    t = (Object) null;
                                 }
-                                if (obj == null) {
+                                if (t == null) {
                                     z = true;
                                 } else {
                                     z = false;
@@ -323,11 +323,11 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
                                 } else if (z) {
                                     break;
                                 } else {
-                                    subscriber.onNext(obj);
+                                    subscriber.onNext(t);
                                     j++;
                                     i++;
                                     if (i == i2) {
-                                        ((Subscription) this.mainSubscription.get()).request(i2);
+                                        this.mainSubscription.get().request(i2);
                                         i = 0;
                                     }
                                     i3 = 1;
@@ -383,34 +383,34 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
                 if (compareAndSet(0, 1)) {
                     long j = this.emitted;
                     if (this.requested.get() != j) {
-                        SimplePlainQueue simplePlainQueue = this.queue;
+                        SimplePlainQueue<T> simplePlainQueue = this.queue;
                         if (simplePlainQueue != null && !simplePlainQueue.isEmpty()) {
-                            simplePlainQueue.offer(obj);
+                            simplePlainQueue.offer(t);
                         } else {
                             this.emitted = j + 1;
-                            this.actual.onNext(obj);
+                            this.actual.onNext(t);
                             int i = this.consumed + 1;
                             if (i == this.limit) {
                                 this.consumed = 0;
-                                ((Subscription) this.mainSubscription.get()).request(i);
+                                this.mainSubscription.get().request(i);
                             } else {
                                 this.consumed = i;
                             }
                         }
                     } else {
-                        getOrCreateQueue().offer(obj);
+                        getOrCreateQueue().offer(t);
                     }
                     if (decrementAndGet() == 0) {
                         return;
                     }
                 } else {
-                    getOrCreateQueue().offer(obj);
+                    getOrCreateQueue().offer(t);
                     if (getAndIncrement() != 0) {
                         return;
                     }
@@ -421,7 +421,7 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableMergeWithSingle(Flowable flowable, SingleSource singleSource) {
+    public FlowableMergeWithSingle(Flowable<T> flowable, SingleSource<? extends T> singleSource) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -442,7 +442,7 @@ public final class FlowableMergeWithSingle extends AbstractFlowableWithUpstream 
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             MergeWithObserver mergeWithObserver = new MergeWithObserver(subscriber);

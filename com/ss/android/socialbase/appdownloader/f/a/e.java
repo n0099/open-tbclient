@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.heytap.mcssdk.PushManager;
 import java.io.File;
@@ -21,7 +22,7 @@ public class e {
         return (i >>> 24) == 1 ? "android:" : "";
     }
 
-    public static PackageInfo a(Context context, File file, int i) {
+    public static PackageInfo a(@NonNull Context context, @NonNull File file, int i) {
         int i2;
         if (com.ss.android.socialbase.downloader.i.a.a(LaunchTaskConstants.OTHER_PROCESS) && (i2 = Build.VERSION.SDK_INT) >= 21 && i2 < 26) {
             try {
@@ -34,7 +35,7 @@ public class e {
         return b(context, file, i);
     }
 
-    public static PackageInfo b(Context context, File file, int i) {
+    public static PackageInfo b(@NonNull Context context, @NonNull File file, int i) {
         PackageManager packageManager = context.getPackageManager();
         if (packageManager == null) {
             a("unzip_getpackagearchiveinfo", "packageManager == null");
@@ -67,7 +68,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static PackageInfo a(File file) {
+    public static PackageInfo a(@NonNull File file) {
         ZipInputStream zipInputStream;
         FileInputStream fileInputStream;
         ZipFile zipFile;
@@ -301,7 +302,7 @@ public class e {
         return String.format("<0x%X, type 0x%02X>", Integer.valueOf(c), Integer.valueOf(b));
     }
 
-    public static void a(String str, String str2) {
+    public static void a(@NonNull String str, @NonNull String str2) {
         com.ss.android.socialbase.downloader.d.b g = com.ss.android.socialbase.downloader.downloader.c.g();
         if (g == null) {
             return;

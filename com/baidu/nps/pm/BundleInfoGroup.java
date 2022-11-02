@@ -12,7 +12,7 @@ import java.util.Map;
 public class BundleInfoGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map bundleInfoMap;
+    public Map<Integer, BundleInfo> bundleInfoMap;
     public long timeStamp;
 
     public BundleInfoGroup(long j) {
@@ -41,7 +41,7 @@ public class BundleInfoGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             synchronized (this) {
-                bundleInfo = (BundleInfo) this.bundleInfoMap.get(Integer.valueOf(i));
+                bundleInfo = this.bundleInfoMap.get(Integer.valueOf(i));
             }
             return bundleInfo;
         }
@@ -83,9 +83,9 @@ public class BundleInfoGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             synchronized (this) {
-                BundleInfo bundleInfo = (BundleInfo) this.bundleInfoMap.remove(Integer.valueOf(i));
-                if (bundleInfo != null) {
-                    this.bundleInfoMap.put(Integer.valueOf(i2), bundleInfo);
+                BundleInfo remove = this.bundleInfoMap.remove(Integer.valueOf(i));
+                if (remove != null) {
+                    this.bundleInfoMap.put(Integer.valueOf(i2), remove);
                 }
             }
         }

@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.DownloadConstants;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,22 +15,60 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
-import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
-import java.util.ArrayList;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.CharsKt__CharJVMKt;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public final class cw {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static byte[] b;
-    public static final cw c;
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> a;
+    public static b b;
+    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public /* synthetic */ b(Looper looper, a aVar) {
+            this(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
+                cw.d();
+                cw.b.sendEmptyMessageDelayed(0, 15000L);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,73 +83,112 @@ public final class cw {
                 return;
             }
         }
-        c = new cw();
-        a = new int[]{219, 74, DownloadConstants.STATUS_WAITING_FOR_NETWORK, 53, TTAdConstant.IMAGE_MODE_LIVE, 242, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, 233, 21, 62, 77, 117, 76, 201, 232, 66, 209, 249, 34, 66, 113, 52, 203};
+        a = new ConcurrentHashMap<>();
+        c = false;
+        b bVar = new b(gw.a("PreferenceQueue").getLooper(), null);
+        b = bVar;
+        bVar.sendEmptyMessageDelayed(0, 15000L);
     }
 
-    public cw() {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeV(65542, null) == null) && !b.hasMessages(0)) {
+            b.sendEmptyMessageDelayed(0, 15000L);
         }
     }
 
-    public final String a(String str) {
-        InterceptResult invokeL;
+    public static void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.length() % 2 == 0) {
-                try {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 1; i < str.length(); i += 2) {
-                        arrayList.add(Byte.valueOf((byte) Integer.parseInt("" + str.charAt(i - 1) + "" + str.charAt(i), CharsKt__CharJVMKt.checkRadix(16))));
-                    }
-                    if (arrayList.size() <= 16) {
-                        return "";
-                    }
-                    if (b == null) {
-                        b = new byte[a.length];
-                        int length = a.length;
-                        for (int i2 = 0; i2 < length; i2++) {
-                            byte[] bArr = b;
-                            if (bArr == null) {
-                                Intrinsics.throwNpe();
-                            }
-                            bArr[i2] = (byte) a[i2];
-                        }
-                    }
-                    byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
-                    byte[] bArr2 = b;
-                    if (bArr2 == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    String a2 = wt.a(b(byteArray, bArr2, CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(16, arrayList.size()))));
-                    Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(decodeBytes)");
-                    return a2;
-                } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            Log.d("BdPreferenceQueueWorker", "wait to finish");
+            b.removeMessages(0);
+            d();
+            f();
+        }
+    }
+
+    public static void c(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, obj) != null) || str == null) {
+            return;
+        }
+        if (a.containsKey(str)) {
+            ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+            if (concurrentHashMap != null) {
+                if (obj != null) {
+                    concurrentHashMap.put(str2, obj);
+                } else {
+                    concurrentHashMap.remove(str2);
                 }
+            } else if (obj != null && str2 != null) {
+                ConcurrentHashMap<String, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
+                concurrentHashMap2.put(str2, obj);
+                a.put(str, concurrentHashMap2);
             }
-            return "";
+        } else if (obj != null && str2 != null) {
+            ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
+            concurrentHashMap3.put(str2, obj);
+            a.put(str, concurrentHashMap3);
         }
-        return (String) invokeL.objValue;
     }
 
-    public final byte[] b(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-        InterceptResult invokeLLL;
+    public static void d() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-            Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-            cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
-            return cipher.doFinal(bArr3);
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || c) {
+            return;
         }
-        return (byte[]) invokeLLL.objValue;
+        c = true;
+        try {
+            try {
+                Context baseContext = yv.a().getBaseContext();
+                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + a.size());
+                for (String str : a.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+                    if (concurrentHashMap != null && concurrentHashMap.size() > 0) {
+                        SharedPreferences.Editor edit = baseContext.getSharedPreferences(str, 0).edit();
+                        i = 0;
+                        for (String str2 : concurrentHashMap.keySet()) {
+                            Object obj = concurrentHashMap.get(str2);
+                            if (obj != null) {
+                                if (obj instanceof Integer) {
+                                    edit.putInt(str2, ((Integer) obj).intValue());
+                                } else if (obj instanceof Long) {
+                                    edit.putLong(str2, ((Long) obj).longValue());
+                                } else if (obj instanceof Float) {
+                                    edit.putFloat(str2, ((Float) obj).floatValue());
+                                } else if (obj instanceof Boolean) {
+                                    edit.putBoolean(str2, ((Boolean) obj).booleanValue());
+                                } else if (obj instanceof String) {
+                                    edit.putString(str2, (String) obj);
+                                } else if (obj instanceof Set) {
+                                    edit.putStringSet(str2, (Set) obj);
+                                }
+                                i++;
+                            }
+                        }
+                        edit.commit();
+                    } else {
+                        i = 0;
+                    }
+                    concurrentHashMap.clear();
+                    if (i > 0) {
+                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i + " items have been wroten");
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } finally {
+            c = false;
+        }
+    }
+
+    public static void e(String str) {
+        ConcurrentHashMap<String, Object> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && str != null && (concurrentHashMap = a.get(str)) != null) {
+            concurrentHashMap.clear();
+        }
     }
 }

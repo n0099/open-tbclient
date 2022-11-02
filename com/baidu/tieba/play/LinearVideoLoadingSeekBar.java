@@ -1,5 +1,6 @@
 package com.baidu.tieba.play;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -8,13 +9,16 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vl8;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.gr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes5.dex */
 public class LinearVideoLoadingSeekBar extends SeekBar {
     public static /* synthetic */ Interceptable $ic;
@@ -84,7 +88,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LinearVideoLoadingSeekBar(Context context, AttributeSet attributeSet) {
+    public LinearVideoLoadingSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,7 +109,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LinearVideoLoadingSeekBar(Context context, AttributeSet attributeSet, int i) {
+    public LinearVideoLoadingSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +131,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         this.b = 1;
         this.c = false;
         this.e = new a(this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.LinearVideoLoadingSeekBar);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.LinearVideoLoadingSeekBar);
         this.d = obtainStyledAttributes.getColor(1, -16777216);
         this.b = obtainStyledAttributes.getDimensionPixelSize(0, this.b);
         obtainStyledAttributes.recycle();
@@ -179,7 +183,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             } else {
                 max = Math.max(255 - ((this.a * 255) / width), 30) / 255.0f;
             }
-            paint.setColor(vl8.a(this.d, max));
+            paint.setColor(fn8.a(this.d, max));
             paint.setStrokeWidth(this.b);
             float f = width / 2.0f;
             int i2 = this.a;

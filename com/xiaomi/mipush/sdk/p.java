@@ -10,7 +10,6 @@ import com.xiaomi.push.al;
 import com.xiaomi.push.hj;
 import com.xiaomi.push.hw;
 import com.xiaomi.push.ii;
-import com.xiaomi.push.iu;
 import com.xiaomi.push.service.bd;
 /* loaded from: classes8.dex */
 public final class p extends al.a {
@@ -56,6 +55,6 @@ public final class p extends al.a {
             return;
         }
         iiVar.a(bd.a());
-        ao.a(this.a.getApplicationContext()).a((iu) this.f85a, hj.i, true, (hw) null, true);
+        ao.a(this.a.getApplicationContext()).a((ao) this.f85a, hj.i, true, (hw) null, true);
     }
 }

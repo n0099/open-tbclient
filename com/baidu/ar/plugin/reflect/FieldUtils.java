@@ -16,7 +16,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static Map sFieldCache;
+    public static Map<String, Field> sFieldCache;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public class FieldUtils {
         }
     }
 
-    public static Field getDeclaredField(Class cls, String str, boolean z) {
+    public static Field getDeclaredField(Class<?> cls, String str, boolean z) {
         InterceptResult invokeLLZ;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class FieldUtils {
         }
     }
 
-    public static Field getField(Class cls, String str) {
+    public static Field getField(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, str)) == null) {
@@ -149,7 +149,7 @@ public class FieldUtils {
         return (Field) invokeLL.objValue;
     }
 
-    public static String getKey(Class cls, String str) {
+    public static String getKey(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, str)) == null) {
@@ -167,7 +167,7 @@ public class FieldUtils {
         return invokeLL.objValue;
     }
 
-    public static Object readStaticField(Class cls, String str) {
+    public static Object readStaticField(Class<?> cls, String str) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class FieldUtils {
         return invokeLL.objValue;
     }
 
-    public static Field getField(Class cls, String str, boolean z) {
+    public static Field getField(Class<?> cls, String str, boolean z) {
         InterceptResult invokeLLZ;
         boolean z2;
         Field field;
@@ -201,7 +201,7 @@ public class FieldUtils {
             Validate.isTrue(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String key = getKey(cls, str);
             synchronized (sFieldCache) {
-                field = (Field) sFieldCache.get(key);
+                field = sFieldCache.get(key);
             }
             if (field != null) {
                 if (z && !field.isAccessible()) {
@@ -209,7 +209,7 @@ public class FieldUtils {
                 }
                 return field;
             }
-            for (Class cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
+            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
                 try {
                     declaredField = cls2.getDeclaredField(str);
                 } catch (NoSuchFieldException unused) {
@@ -227,7 +227,7 @@ public class FieldUtils {
                 return declaredField;
             }
             Field field2 = null;
-            for (Class cls3 : Utils.getAllInterfaces(cls)) {
+            for (Class<?> cls3 : Utils.getAllInterfaces(cls)) {
                 try {
                     Field field3 = cls3.getField(str);
                     if (field2 == null) {
@@ -318,7 +318,7 @@ public class FieldUtils {
         }
     }
 
-    public static void writeStaticField(Class cls, String str, Object obj) {
+    public static void writeStaticField(Class<?> cls, String str, Object obj) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65553, null, cls, str, obj) == null) {

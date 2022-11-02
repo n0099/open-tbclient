@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class CustomMessage extends Message {
+public class CustomMessage<T> extends Message<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object mData;
+    public T mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomMessage(int i) {
@@ -58,13 +58,13 @@ public class CustomMessage extends Message {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomMessage(int i, Object obj) {
+    public CustomMessage(int i, T t) {
         super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), obj};
+            Object[] objArr = {Integer.valueOf(i), t};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -76,7 +76,7 @@ public class CustomMessage extends Message {
             }
         }
         this.mData = null;
-        this.mData = obj;
+        this.mData = t;
     }
 
     @Override // com.baidu.adp.framework.message.Message
@@ -89,29 +89,29 @@ public class CustomMessage extends Message {
         return invokeI.booleanValue;
     }
 
-    public void setData(Object obj) {
+    public void setData(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.mData = obj;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            this.mData = t;
         }
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public Object encodeInBackGround() {
+    public T encodeInBackGround() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public Object getData() {
+    public T getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 }

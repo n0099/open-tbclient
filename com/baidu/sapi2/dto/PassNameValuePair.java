@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PassNameValuePair implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PassNameValuePair> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String name;
     public String value;
@@ -41,7 +41,7 @@ public class PassNameValuePair implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.sapi2.dto.PassNameValuePair.1
+        CREATOR = new Parcelable.Creator<PassNameValuePair>() { // from class: com.baidu.sapi2.dto.PassNameValuePair.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,6 +60,7 @@ public class PassNameValuePair implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PassNameValuePair createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -71,6 +72,7 @@ public class PassNameValuePair implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PassNameValuePair[] newArray(int i) {
                 InterceptResult invokeI;

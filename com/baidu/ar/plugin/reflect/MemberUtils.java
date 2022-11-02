@@ -17,9 +17,9 @@ import java.util.Map;
 public class MemberUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCESS_TEST = 7;
-    public static final Class[] ORDERED_PRIMITIVE_TYPES;
-    public static final Map primitiveWrapperMap;
-    public static final Map wrapperPrimitiveMap;
+    public static final Class<?>[] ORDERED_PRIMITIVE_TYPES;
+    public static final Map<Class<?>, Class<?>> primitiveWrapperMap;
+    public static final Map<Class<?>, Class<?>> wrapperPrimitiveMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean isPackageAccess(int i) {
@@ -52,12 +52,12 @@ public class MemberUtils {
         primitiveWrapperMap.put(Long.TYPE, Long.class);
         primitiveWrapperMap.put(Double.TYPE, Double.class);
         primitiveWrapperMap.put(Float.TYPE, Float.class);
-        Map map = primitiveWrapperMap;
-        Class cls = Void.TYPE;
+        Map<Class<?>, Class<?>> map = primitiveWrapperMap;
+        Class<?> cls = Void.TYPE;
         map.put(cls, cls);
         wrapperPrimitiveMap = new HashMap();
-        for (Class cls2 : primitiveWrapperMap.keySet()) {
-            Class cls3 = (Class) primitiveWrapperMap.get(cls2);
+        for (Class<?> cls2 : primitiveWrapperMap.keySet()) {
+            Class<?> cls3 = primitiveWrapperMap.get(cls2);
             if (!cls2.equals(cls3)) {
                 wrapperPrimitiveMap.put(cls3, cls2);
             }
@@ -78,7 +78,7 @@ public class MemberUtils {
         }
     }
 
-    public static int compareParameterTypes(Class[] clsArr, Class[] clsArr2, Class[] clsArr3) {
+    public static int compareParameterTypes(Class<?>[] clsArr, Class<?>[] clsArr2, Class<?>[] clsArr3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, clsArr, clsArr2, clsArr3)) == null) {
@@ -95,7 +95,7 @@ public class MemberUtils {
         return invokeLLL.intValue;
     }
 
-    public static float getObjectTransformationCost(Class cls, Class cls2) {
+    public static float getObjectTransformationCost(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, cls2)) == null) {
@@ -123,7 +123,7 @@ public class MemberUtils {
         return invokeLL.floatValue;
     }
 
-    public static float getPrimitivePromotionCost(Class cls, Class cls2) {
+    public static float getPrimitivePromotionCost(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         float f;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class MemberUtils {
             }
             int i = 0;
             while (cls != cls2) {
-                Class[] clsArr = ORDERED_PRIMITIVE_TYPES;
+                Class<?>[] clsArr = ORDERED_PRIMITIVE_TYPES;
                 if (i >= clsArr.length) {
                     break;
                 }
@@ -153,7 +153,7 @@ public class MemberUtils {
         return invokeLL.floatValue;
     }
 
-    public static float getTotalTransformationCost(Class[] clsArr, Class[] clsArr2) {
+    public static float getTotalTransformationCost(Class<?>[] clsArr, Class<?>[] clsArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, clsArr, clsArr2)) == null) {
@@ -166,7 +166,7 @@ public class MemberUtils {
         return invokeLL.floatValue;
     }
 
-    public static boolean isAssignable(Class cls, Class cls2) {
+    public static boolean isAssignable(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, cls, cls2)) == null) {
@@ -187,34 +187,32 @@ public class MemberUtils {
         return invokeL.booleanValue;
     }
 
-    public static Class primitiveToWrapper(Class cls) {
+    public static Class<?> primitiveToWrapper(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cls)) == null) {
             if (cls != null && cls.isPrimitive()) {
-                return (Class) primitiveWrapperMap.get(cls);
+                return primitiveWrapperMap.get(cls);
             }
             return cls;
         }
         return (Class) invokeL.objValue;
     }
 
-    public static Class wrapperToPrimitive(Class cls) {
+    public static Class<?> wrapperToPrimitive(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) {
-            return (Class) wrapperPrimitiveMap.get(cls);
+            return wrapperPrimitiveMap.get(cls);
         }
         return (Class) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Class */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static boolean isAssignable(Class cls, Class cls2, boolean z) {
+    public static boolean isAssignable(Class<?> cls, Class<?> cls2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, cls, cls2, z)) == null) {
-            if (cls2 == 0) {
+            if (cls2 == null) {
                 return false;
             }
             if (cls == null) {
@@ -276,7 +274,7 @@ public class MemberUtils {
         return invokeLLZ.booleanValue;
     }
 
-    public static boolean isAssignable(Class[] clsArr, Class[] clsArr2, boolean z) {
+    public static boolean isAssignable(Class<?>[] clsArr, Class<?>[] clsArr2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, clsArr, clsArr2, z)) == null) {

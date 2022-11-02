@@ -5,19 +5,21 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes8.dex */
 public class RatioFrameLayout extends FrameLayout {
     public float aqZ;
 
-    public RatioFrameLayout(Context context) {
+    public RatioFrameLayout(@NonNull Context context) {
         this(context, null);
     }
 
-    public RatioFrameLayout(Context context, AttributeSet attributeSet) {
+    public RatioFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public RatioFrameLayout(Context context, AttributeSet attributeSet, int i) {
+    public RatioFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.aqZ = 0.0f;
     }

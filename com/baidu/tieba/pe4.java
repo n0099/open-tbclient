@@ -1,76 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
+import java.util.Map;
+import okhttp3.MediaType;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pe4 extends se4 {
+public class pe4 extends hd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public long f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pe4(String str, String str2, long j, int i) {
-        super(i);
+    public static void a(String str, Map<String, String> map, Map<String, String> map2, ld4<String> ld4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, ld4Var) != null) || d(str, ld4Var)) {
+            return;
+        }
+        c(ib4.g().getRequest(), str, map, map2, ld4Var);
+    }
+
+    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ld4<String> ld4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, ld4Var) != null) || d(str, ld4Var)) {
+            return;
+        }
+        eb4 postStringRequest = ib4.g().postStringRequest();
+        qb4.a(postStringRequest, map);
+        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
+        c(postStringRequest, str, map, map2, ld4Var);
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
+    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, ld4<String> ld4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, ld4Var) == null) {
+            httpRequestBuilder.url(md4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(hd4.b).cookieManager(hd4.a).enableStat(true).build().executeStat(ld4Var);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean d(String str, ld4<String> ld4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, ld4Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
             }
+            if (ld4Var != null) {
+                ld4Var.onStart();
+                return false;
+            }
+            return false;
         }
-        this.d = str;
-        this.e = str2;
-        this.f = j;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public pe4 i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (pe4) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

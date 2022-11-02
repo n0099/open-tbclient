@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.AppendOnlyLinkedArrayList;
@@ -23,7 +24,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes8.dex */
-public final class BehaviorSubject extends Subject {
+public final class BehaviorSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final BehaviorDisposable[] EMPTY;
     public static final Object[] EMPTY_ARRAY;
@@ -32,25 +33,25 @@ public final class BehaviorSubject extends Subject {
     public long index;
     public final ReadWriteLock lock;
     public final Lock readLock;
-    public final AtomicReference subscribers;
-    public final AtomicReference terminalEvent;
-    public final AtomicReference value;
+    public final AtomicReference<BehaviorDisposable<T>[]> subscribers;
+    public final AtomicReference<Throwable> terminalEvent;
+    public final AtomicReference<Object> value;
     public final Lock writeLock;
 
     /* loaded from: classes8.dex */
-    public final class BehaviorDisposable implements Disposable, AppendOnlyLinkedArrayList.NonThrowingPredicate {
+    public static final class BehaviorDisposable<T> implements Disposable, AppendOnlyLinkedArrayList.NonThrowingPredicate<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public volatile boolean cancelled;
         public boolean emitting;
         public boolean fastPath;
         public long index;
         public boolean next;
-        public AppendOnlyLinkedArrayList queue;
-        public final BehaviorSubject state;
+        public AppendOnlyLinkedArrayList<Object> queue;
+        public final BehaviorSubject<T> state;
 
-        public BehaviorDisposable(Observer observer, BehaviorSubject behaviorSubject) {
+        public BehaviorDisposable(Observer<? super T> observer, BehaviorSubject<T> behaviorSubject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +80,7 @@ public final class BehaviorSubject extends Subject {
         }
 
         public void emitLoop() {
-            AppendOnlyLinkedArrayList appendOnlyLinkedArrayList;
+            AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 while (!this.cancelled) {
@@ -119,7 +120,7 @@ public final class BehaviorSubject extends Subject {
                 if (this.next) {
                     return;
                 }
-                BehaviorSubject behaviorSubject = this.state;
+                BehaviorSubject<T> behaviorSubject = this.state;
                 Lock lock = behaviorSubject.readLock;
                 lock.lock();
                 this.index = behaviorSubject.index;
@@ -153,9 +154,9 @@ public final class BehaviorSubject extends Subject {
                         return;
                     }
                     if (this.emitting) {
-                        AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                        AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                         if (appendOnlyLinkedArrayList == null) {
-                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                             this.queue = appendOnlyLinkedArrayList;
                         }
                         appendOnlyLinkedArrayList.add(obj);
@@ -201,16 +202,17 @@ public final class BehaviorSubject extends Subject {
     }
 
     @CheckReturnValue
-    public static BehaviorSubject create() {
+    public static <T> BehaviorSubject<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new BehaviorSubject();
+            return new BehaviorSubject<>();
         }
         return (BehaviorSubject) invokeV.objValue;
     }
 
     @Override // io.reactivex.subjects.Subject
+    @Nullable
     public Throwable getThrowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -224,19 +226,22 @@ public final class BehaviorSubject extends Subject {
         return (Throwable) invokeV.objValue;
     }
 
-    public Object getValue() {
+    @Nullable
+    public T getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Object obj = this.value.get();
             if (!NotificationLite.isComplete(obj) && !NotificationLite.isError(obj)) {
-                return NotificationLite.getValue(obj);
+                return (T) NotificationLite.getValue(obj);
             }
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: io.reactivex.subjects.BehaviorSubject<T> */
+    /* JADX WARN: Multi-variable type inference failed */
     public Object[] getValues() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -265,7 +270,7 @@ public final class BehaviorSubject extends Subject {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (((BehaviorDisposable[]) this.subscribers.get()).length != 0) {
+            if (this.subscribers.get().length != 0) {
                 return true;
             }
             return false;
@@ -303,7 +308,7 @@ public final class BehaviorSubject extends Subject {
             return;
         }
         Object complete = NotificationLite.complete();
-        for (BehaviorDisposable behaviorDisposable : terminate(complete)) {
+        for (BehaviorDisposable<T> behaviorDisposable : terminate(complete)) {
             behaviorDisposable.emitNext(complete, this.index);
         }
     }
@@ -312,7 +317,7 @@ public final class BehaviorSubject extends Subject {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return ((BehaviorDisposable[]) this.subscribers.get()).length;
+            return this.subscribers.get().length;
         }
         return invokeV.intValue;
     }
@@ -334,19 +339,19 @@ public final class BehaviorSubject extends Subject {
         this.lock = reentrantReadWriteLock;
         this.readLock = reentrantReadWriteLock.readLock();
         this.writeLock = this.lock.writeLock();
-        this.subscribers = new AtomicReference(EMPTY);
-        this.value = new AtomicReference();
-        this.terminalEvent = new AtomicReference();
+        this.subscribers = new AtomicReference<>(EMPTY);
+        this.value = new AtomicReference<>();
+        this.terminalEvent = new AtomicReference<>();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BehaviorSubject(Object obj) {
+    public BehaviorSubject(T t) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -357,7 +362,7 @@ public final class BehaviorSubject extends Subject {
                 return;
             }
         }
-        this.value.lazySet(ObjectHelper.requireNonNull(obj, "defaultValue is null"));
+        this.value.lazySet(ObjectHelper.requireNonNull(t, "defaultValue is null"));
     }
 
     @Override // io.reactivex.Observer
@@ -370,33 +375,33 @@ public final class BehaviorSubject extends Subject {
                 return;
             }
             Object error = NotificationLite.error(th);
-            for (BehaviorDisposable behaviorDisposable : terminate(error)) {
+            for (BehaviorDisposable<T> behaviorDisposable : terminate(error)) {
                 behaviorDisposable.emitNext(error, this.index);
             }
         }
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, obj) == null) {
-            ObjectHelper.requireNonNull(obj, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (interceptable == null || interceptable.invokeL(1048587, this, t) == null) {
+            ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.terminalEvent.get() != null) {
                 return;
             }
-            Object next = NotificationLite.next(obj);
+            Object next = NotificationLite.next(t);
             setCurrent(next);
-            for (BehaviorDisposable behaviorDisposable : (BehaviorDisposable[]) this.subscribers.get()) {
+            for (BehaviorDisposable<T> behaviorDisposable : this.subscribers.get()) {
                 behaviorDisposable.emitNext(next, this.index);
             }
         }
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, observer) == null) {
-            BehaviorDisposable behaviorDisposable = new BehaviorDisposable(observer, this);
+            BehaviorDisposable<T> behaviorDisposable = new BehaviorDisposable<>(observer, this);
             observer.onSubscribe(behaviorDisposable);
             if (add(behaviorDisposable)) {
                 if (behaviorDisposable.cancelled) {
@@ -407,7 +412,7 @@ public final class BehaviorSubject extends Subject {
                     return;
                 }
             }
-            Throwable th = (Throwable) this.terminalEvent.get();
+            Throwable th = this.terminalEvent.get();
             if (th == ExceptionHelper.TERMINATED) {
                 observer.onComplete();
             } else {
@@ -417,23 +422,23 @@ public final class BehaviorSubject extends Subject {
     }
 
     @CheckReturnValue
-    public static BehaviorSubject createDefault(Object obj) {
+    public static <T> BehaviorSubject<T> createDefault(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            return new BehaviorSubject(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
+            return new BehaviorSubject<>(t);
         }
         return (BehaviorSubject) invokeL.objValue;
     }
 
-    public boolean add(BehaviorDisposable behaviorDisposable) {
-        BehaviorDisposable[] behaviorDisposableArr;
-        BehaviorDisposable[] behaviorDisposableArr2;
+    public boolean add(BehaviorDisposable<T> behaviorDisposable) {
+        BehaviorDisposable<T>[] behaviorDisposableArr;
+        BehaviorDisposable<T>[] behaviorDisposableArr2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, behaviorDisposable)) == null) {
             do {
-                behaviorDisposableArr = (BehaviorDisposable[]) this.subscribers.get();
+                behaviorDisposableArr = this.subscribers.get();
                 if (behaviorDisposableArr == TERMINATED) {
                     return false;
                 }
@@ -465,53 +470,57 @@ public final class BehaviorSubject extends Subject {
         }
     }
 
-    public BehaviorDisposable[] terminate(Object obj) {
+    public BehaviorDisposable<T>[] terminate(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, obj)) == null) {
-            BehaviorDisposable[] behaviorDisposableArr = (BehaviorDisposable[]) this.subscribers.getAndSet(TERMINATED);
-            if (behaviorDisposableArr != TERMINATED) {
+            BehaviorDisposable<T>[] andSet = this.subscribers.getAndSet(TERMINATED);
+            if (andSet != TERMINATED) {
                 setCurrent(obj);
             }
-            return behaviorDisposableArr;
+            return andSet;
         }
         return (BehaviorDisposable[]) invokeL.objValue;
     }
 
-    public Object[] getValues(Object[] objArr) {
+    /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: T[] */
+    /* JADX WARN: Multi-variable type inference failed */
+    public T[] getValues(T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tArr)) == null) {
             Object obj = this.value.get();
             if (obj != null && !NotificationLite.isComplete(obj) && !NotificationLite.isError(obj)) {
                 Object value = NotificationLite.getValue(obj);
-                if (objArr.length != 0) {
-                    objArr[0] = value;
-                    if (objArr.length != 1) {
-                        objArr[1] = null;
-                        return objArr;
+                if (tArr.length != 0) {
+                    tArr[0] = value;
+                    if (tArr.length != 1) {
+                        tArr[1] = 0;
+                        return tArr;
                     }
-                    return objArr;
+                    return tArr;
                 }
-                Object[] objArr2 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), 1);
-                objArr2[0] = value;
-                return objArr2;
+                T[] tArr2 = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), 1));
+                tArr2[0] = value;
+                return tArr2;
             }
-            if (objArr.length != 0) {
-                objArr[0] = null;
+            if (tArr.length != 0) {
+                tArr[0] = 0;
             }
-            return objArr;
+            return tArr;
         }
-        return (Object[]) invokeL.objValue;
+        return (T[]) ((Object[]) invokeL.objValue);
     }
 
-    public void remove(BehaviorDisposable behaviorDisposable) {
-        BehaviorDisposable[] behaviorDisposableArr;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.subjects.BehaviorSubject$BehaviorDisposable<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void remove(BehaviorDisposable<T> behaviorDisposable) {
+        BehaviorDisposable<T>[] behaviorDisposableArr;
         BehaviorDisposable[] behaviorDisposableArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, behaviorDisposable) == null) {
             do {
-                behaviorDisposableArr = (BehaviorDisposable[]) this.subscribers.get();
+                behaviorDisposableArr = this.subscribers.get();
                 int length = behaviorDisposableArr.length;
                 if (length == 0) {
                     return;

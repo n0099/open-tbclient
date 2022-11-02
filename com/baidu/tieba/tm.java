@@ -1,31 +1,24 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.ConcurrentHashMap;
+import java.lang.Thread;
 /* loaded from: classes6.dex */
-public class tm extends DefaultDownloadCallback {
+public class tm implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DefaultDownloadCallback a;
+    public Thread.UncaughtExceptionHandler a;
 
-    public tm(DefaultDownloadCallback defaultDownloadCallback) {
+    public tm(Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
+            Object[] objArr = {uncaughtExceptionHandler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,48 +28,17 @@ public class tm extends DefaultDownloadCallback {
                 return;
             }
         }
-        this.a = defaultDownloadCallback;
+        this.a = uncaughtExceptionHandler;
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, packageInfo, errorInfo) != null) || errorInfo == null) {
-            return;
-        }
-        BdLog.e(errorInfo.errorMsg);
-        DefaultDownloadCallback defaultDownloadCallback = this.a;
-        if (defaultDownloadCallback != null) {
-            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null && !StringUtils.isNull(packageInfo.filePath) && !StringUtils.isNull(packageInfo.name)) {
-            File file = new File(packageInfo.filePath);
-            if (file.exists() && file.isFile()) {
-                String b = vm.b(packageInfo.name);
-                File file2 = new File(b);
-                if ((!file2.exists() || file2.delete()) && file.renameTo(file2)) {
-                    if (b.contains(".so")) {
-                        if (xm.a(BdBaseApplication.getInst().getContext(), vm.a(packageInfo.name))) {
-                            ConcurrentHashMap resHashMap = BdBaseApplication.getInst().getResHashMap();
-                            String str = packageInfo.name;
-                            resHashMap.put(str, vm.a(str));
-                        }
-                        ((nm) ServiceManager.getService(nm.a)).a(packageInfo.name);
-                    } else {
-                        ConcurrentHashMap resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                        String str2 = packageInfo.name;
-                        resHashMap2.put(str2, vm.a(str2));
-                    }
-                    DefaultDownloadCallback defaultDownloadCallback = this.a;
-                    if (defaultDownloadCallback != null) {
-                        defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
+            TitanDownloadService.startServiceIfNeeded(BdBaseApplication.getInst().getContext());
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.a;
+            if (uncaughtExceptionHandler != null) {
+                uncaughtExceptionHandler.uncaughtException(thread, th);
             }
         }
     }

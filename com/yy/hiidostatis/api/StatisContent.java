@@ -31,7 +31,7 @@ public class StatisContent extends BaseStatisContent {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class Priority {
+    public static final class Priority {
         public static final /* synthetic */ Priority[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Priority PRIORITY_HIGH;
@@ -266,7 +266,7 @@ public class StatisContent extends BaseStatisContent {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StatisContent statisContent = new StatisContent();
-            TreeMap treeMap = new TreeMap(BaseStatisContent.COMPARATOR);
+            TreeMap<String, String> treeMap = new TreeMap<>(BaseStatisContent.COMPARATOR);
             statisContent.raw = treeMap;
             treeMap.putAll(this.raw);
             statisContent.setAct(this.mAct);
@@ -288,7 +288,7 @@ public class StatisContent extends BaseStatisContent {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StatisContent statisContent = new StatisContent();
-            TreeMap treeMap = new TreeMap(BaseStatisContent.COMPARATOR);
+            TreeMap<String, String> treeMap = new TreeMap<>(BaseStatisContent.COMPARATOR);
             statisContent.raw = treeMap;
             treeMap.putAll(this.raw);
             statisContent.setAct(this.mAct);

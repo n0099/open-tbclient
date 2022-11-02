@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.JanusConnection;
@@ -29,7 +30,7 @@ import com.baidu.rtc.signalling.play.RemoteSdpResponse;
 import com.baidu.rtc.snapshot.SnapShotCallback;
 import com.baidu.rtc.snapshot.SnapShotHelper;
 import com.baidu.rtc.utils.CommonUtils;
-import com.baidu.tieba.px9;
+import com.baidu.tieba.yy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -277,7 +278,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         };
         this.mContext = context.getApplicationContext();
         this.mLocalUserId = Long.valueOf(CommonUtils.randomNumber(10)).longValue();
-        this.mRootEglBase = px9.a();
+        this.mRootEglBase = yy9.a();
         this.mReportHandler = RtcReportHandle.getInstance(this.mContext);
         RtcReportHandle.enableMonitor(true, this.mEnablePullQualityMonitor, this.mIsEnableErrorInfoMonitor, false);
         this.mTimeStatistician = new PlayTimeStatistician();
@@ -779,7 +780,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
     }
 
     @Override // com.baidu.rtc.player.BRTCPlayer
-    public long initPlayer(BRTCPlayerParameters bRTCPlayerParameters, BRTCPlayerEvents bRTCPlayerEvents) {
+    public long initPlayer(@NonNull BRTCPlayerParameters bRTCPlayerParameters, @NonNull BRTCPlayerEvents bRTCPlayerEvents) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bRTCPlayerParameters, bRTCPlayerEvents)) == null) {

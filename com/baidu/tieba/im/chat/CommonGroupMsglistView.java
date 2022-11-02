@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.chat;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +34,7 @@ public class CommonGroupMsglistView extends AbsMsglistView {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
-    public ArrayList selectList() {
+    public ArrayList<ReportPrivateMsgData> selectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

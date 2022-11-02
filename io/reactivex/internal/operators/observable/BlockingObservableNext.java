@@ -18,24 +18,24 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class BlockingObservableNext implements Iterable {
+public final class BlockingObservableNext<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource source;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class NextIterator implements Iterator {
+    public static final class NextIterator<T> implements Iterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Throwable error;
         public boolean hasNext;
         public boolean isNextConsumed;
-        public final ObservableSource items;
-        public Object next;
-        public final NextObserver observer;
+        public final ObservableSource<T> items;
+        public T next;
+        public final NextObserver<T> observer;
         public boolean started;
 
-        public NextIterator(ObservableSource observableSource, NextObserver nextObserver) {
+        public NextIterator(ObservableSource<T> observableSource, NextObserver<T> nextObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public final class BlockingObservableNext implements Iterable {
                     new ObservableMaterialize(this.items).subscribe(this.observer);
                 }
                 try {
-                    Notification takeNext = this.observer.takeNext();
+                    Notification<T> takeNext = this.observer.takeNext();
                     if (takeNext.isOnNext()) {
                         this.isNextConsumed = false;
                         this.next = takeNext.getValue();
@@ -109,7 +109,7 @@ public final class BlockingObservableNext implements Iterable {
         }
 
         @Override // java.util.Iterator
-        public Object next() {
+        public T next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -123,7 +123,7 @@ public final class BlockingObservableNext implements Iterable {
                 }
                 throw ExceptionHelper.wrapOrThrow(th);
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
@@ -136,10 +136,10 @@ public final class BlockingObservableNext implements Iterable {
     }
 
     /* loaded from: classes8.dex */
-    public final class NextObserver extends DisposableObserver {
+    public static final class NextObserver<T> extends DisposableObserver<Notification<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BlockingQueue buf;
+        public final BlockingQueue<Notification<T>> buf;
         public final AtomicInteger waiting;
 
         @Override // io.reactivex.Observer
@@ -173,13 +173,13 @@ public final class BlockingObservableNext implements Iterable {
             }
         }
 
-        public Notification takeNext() throws InterruptedException {
+        public Notification<T> takeNext() throws InterruptedException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 setWaiting();
                 BlockingHelper.verifyNonBlocking();
-                return (Notification) this.buf.take();
+                return this.buf.take();
             }
             return (Notification) invokeV.objValue;
         }
@@ -192,16 +192,19 @@ public final class BlockingObservableNext implements Iterable {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.Observer
-        public void onNext(Notification notification) {
+        public /* bridge */ /* synthetic */ void onNext(Object obj) {
+            onNext((Notification) ((Notification) obj));
+        }
+
+        public void onNext(Notification<T> notification) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, notification) == null) {
                 if (this.waiting.getAndSet(0) == 1 || !notification.isOnNext()) {
                     while (!this.buf.offer(notification)) {
-                        Notification notification2 = (Notification) this.buf.poll();
-                        if (notification2 != null && !notification2.isOnNext()) {
-                            notification = notification2;
+                        Notification<T> poll = this.buf.poll();
+                        if (poll != null && !poll.isOnNext()) {
+                            notification = poll;
                         }
                     }
                 }
@@ -209,7 +212,7 @@ public final class BlockingObservableNext implements Iterable {
         }
     }
 
-    public BlockingObservableNext(ObservableSource observableSource) {
+    public BlockingObservableNext(ObservableSource<T> observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -228,7 +231,7 @@ public final class BlockingObservableNext implements Iterable {
     }
 
     @Override // java.lang.Iterable
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

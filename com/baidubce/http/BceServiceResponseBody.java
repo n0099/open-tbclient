@@ -18,20 +18,20 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
 /* loaded from: classes7.dex */
-public class BceServiceResponseBody extends ResponseBody {
+public class BceServiceResponseBody<T extends AbstractBceRequest> extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BceProgressCallback bceProgressCallback;
+    public BceProgressCallback<T> bceProgressCallback;
     public BufferedSource bceRespBufferedSource;
     public final ResponseBody bceResponseBody;
-    public AbstractBceRequest request;
+    public T request;
 
-    public BceServiceResponseBody(ResponseBody responseBody, AbstractBceRequest abstractBceRequest, BceProgressCallback bceProgressCallback) {
+    public BceServiceResponseBody(ResponseBody responseBody, T t, BceProgressCallback<T> bceProgressCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody, abstractBceRequest, bceProgressCallback};
+            Object[] objArr = {responseBody, t, bceProgressCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,7 +42,7 @@ public class BceServiceResponseBody extends ResponseBody {
             }
         }
         this.bceResponseBody = responseBody;
-        this.request = abstractBceRequest;
+        this.request = t;
         this.bceProgressCallback = bceProgressCallback;
     }
 
@@ -78,6 +78,8 @@ public class BceServiceResponseBody extends ResponseBody {
                     this.totalBytesRead = 0L;
                 }
 
+                /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.baidubce.callback.BceProgressCallback */
+                /* JADX WARN: Multi-variable type inference failed */
                 @Override // okio.ForwardingSource, okio.Source
                 public long read(Buffer buffer, long j) throws IOException {
                     InterceptResult invokeLJ;

@@ -5,6 +5,7 @@ import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHel
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.AbstractMap;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.WeakHashMap;
@@ -24,9 +25,9 @@ import kotlinx.coroutines.CopyableThrowable;
 public final class ExceptionsConstuctorKt {
     public static final int throwableFields = fieldsCountOrDefault(Throwable.class, -1);
     public static final ReentrantReadWriteLock cacheLock = new ReentrantReadWriteLock();
-    public static final WeakHashMap exceptionCtors = new WeakHashMap();
+    public static final WeakHashMap<Class<? extends Throwable>, Function1<Throwable, Throwable>> exceptionCtors = new WeakHashMap<>();
 
-    public static final Function1 createConstructor(Constructor constructor) {
+    public static final Function1<Throwable, Throwable> createConstructor(Constructor<?> constructor) {
         Class<?>[] parameterTypes = constructor.getParameterTypes();
         int length = parameterTypes.length;
         if (length != 0) {
@@ -48,7 +49,7 @@ public final class ExceptionsConstuctorKt {
         return new ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$4(constructor);
     }
 
-    public static final int fieldsCount(Class cls, int i) {
+    public static final int fieldsCount(Class<?> cls, int i) {
         do {
             int i2 = 0;
             for (Field field : cls.getDeclaredFields()) {
@@ -62,7 +63,7 @@ public final class ExceptionsConstuctorKt {
         return i;
     }
 
-    public static final int fieldsCountOrDefault(Class cls, int i) {
+    public static final int fieldsCountOrDefault(Class<?> cls, int i) {
         Integer m698constructorimpl;
         JvmClassMappingKt.getKotlinClass(cls);
         try {
@@ -86,41 +87,41 @@ public final class ExceptionsConstuctorKt {
         return fieldsCount(cls, i);
     }
 
-    public static final Function1 safeCtor(Function1 function1) {
+    public static final Function1<Throwable, Throwable> safeCtor(Function1<? super Throwable, ? extends Throwable> function1) {
         return new ExceptionsConstuctorKt$safeCtor$1(function1);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, ARITH, INVOKE] complete} */
-    public static final Throwable tryCopyException(Throwable th) {
+    public static final <E extends Throwable> E tryCopyException(E e) {
         Object m698constructorimpl;
         ReentrantReadWriteLock.ReadLock readLock;
         int i;
         ReentrantReadWriteLock.WriteLock writeLock;
-        Function1 function1;
+        Function1<Throwable, Throwable> function1;
         int i2;
-        Throwable th2 = null;
-        if (th instanceof CopyableThrowable) {
+        Object obj = null;
+        if (e instanceof CopyableThrowable) {
             try {
                 Result.Companion companion = Result.Companion;
-                m698constructorimpl = Result.m698constructorimpl(((CopyableThrowable) th).createCopy());
-            } catch (Throwable th3) {
+                m698constructorimpl = Result.m698constructorimpl(((CopyableThrowable) e).createCopy());
+            } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th3));
+                m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th));
             }
             if (!Result.m704isFailureimpl(m698constructorimpl)) {
-                th2 = m698constructorimpl;
+                obj = m698constructorimpl;
             }
-            return th2;
+            return (E) obj;
         }
         ReentrantReadWriteLock.ReadLock readLock2 = cacheLock.readLock();
         readLock2.lock();
         try {
-            Function1 function12 = (Function1) exceptionCtors.get(th.getClass());
+            Function1<Throwable, Throwable> function12 = exceptionCtors.get(e.getClass());
             if (function12 != null) {
-                return (Throwable) function12.invoke(th);
+                return (E) function12.invoke(e);
             }
             int i3 = 0;
-            if (throwableFields != fieldsCountOrDefault(th.getClass(), 0)) {
+            if (throwableFields != fieldsCountOrDefault(e.getClass(), 0)) {
                 ReentrantReadWriteLock reentrantReadWriteLock = cacheLock;
                 readLock = reentrantReadWriteLock.readLock();
                 if (reentrantReadWriteLock.getWriteHoldCount() == 0) {
@@ -134,7 +135,7 @@ public final class ExceptionsConstuctorKt {
                 writeLock = reentrantReadWriteLock.writeLock();
                 writeLock.lock();
                 try {
-                    exceptionCtors.put(th.getClass(), ExceptionsConstuctorKt$tryCopyException$4$1.INSTANCE);
+                    exceptionCtors.put(e.getClass(), ExceptionsConstuctorKt$tryCopyException$4$1.INSTANCE);
                     Unit unit = Unit.INSTANCE;
                     return null;
                 } finally {
@@ -145,13 +146,13 @@ public final class ExceptionsConstuctorKt {
                     writeLock.unlock();
                 }
             }
-            Iterator it = ArraysKt___ArraysKt.sortedWith(th.getClass().getConstructors(), new Comparator() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$tryCopyException$$inlined$sortedByDescending$1
+            Iterator it = ArraysKt___ArraysKt.sortedWith(e.getClass().getConstructors(), new Comparator<T>() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$tryCopyException$$inlined$sortedByDescending$1
                 @Override // java.util.Comparator
-                public final int compare(Object obj, Object obj2) {
-                    return ComparisonsKt__ComparisonsKt.compareValues(Integer.valueOf(((Constructor) obj2).getParameterTypes().length), Integer.valueOf(((Constructor) obj).getParameterTypes().length));
+                public final int compare(T t, T t2) {
+                    return ComparisonsKt__ComparisonsKt.compareValues(Integer.valueOf(((Constructor) t2).getParameterTypes().length), Integer.valueOf(((Constructor) t).getParameterTypes().length));
                 }
             }).iterator();
-            Function1 function13 = null;
+            Function1<Throwable, Throwable> function13 = null;
             while (it.hasNext() && (function13 = createConstructor((Constructor) it.next())) == null) {
             }
             ReentrantReadWriteLock reentrantReadWriteLock2 = cacheLock;
@@ -167,14 +168,14 @@ public final class ExceptionsConstuctorKt {
             writeLock = reentrantReadWriteLock2.writeLock();
             writeLock.lock();
             try {
-                WeakHashMap weakHashMap = exceptionCtors;
-                Class<?> cls = th.getClass();
+                AbstractMap abstractMap = exceptionCtors;
+                Class<?> cls = e.getClass();
                 if (function13 != null) {
                     function1 = function13;
                 } else {
                     function1 = ExceptionsConstuctorKt$tryCopyException$5$1.INSTANCE;
                 }
-                weakHashMap.put(cls, function1);
+                abstractMap.put(cls, function1);
                 Unit unit2 = Unit.INSTANCE;
                 while (i3 < i) {
                     readLock.lock();
@@ -184,7 +185,7 @@ public final class ExceptionsConstuctorKt {
                 if (function13 == null) {
                     return null;
                 }
-                return (Throwable) function13.invoke(th);
+                return (E) function13.invoke(e);
             } finally {
                 while (i3 < i) {
                     readLock.lock();

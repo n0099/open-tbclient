@@ -86,10 +86,10 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class MainThreadHandler extends Handler {
+    public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference mWeakVoiceSinWaveView;
+        public WeakReference<VoiceSinWaveView> mWeakVoiceSinWaveView;
 
         public MainThreadHandler(VoiceSinWaveView voiceSinWaveView) {
             Interceptable interceptable = $ic;
@@ -106,14 +106,14 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                     return;
                 }
             }
-            this.mWeakVoiceSinWaveView = new WeakReference(voiceSinWaveView);
+            this.mWeakVoiceSinWaveView = new WeakReference<>(voiceSinWaveView);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             VoiceSinWaveView voiceSinWaveView;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, message) != null) || message.what != 4097 || (voiceSinWaveView = (VoiceSinWaveView) this.mWeakVoiceSinWaveView.get()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, message) != null) || message.what != 4097 || (voiceSinWaveView = this.mWeakVoiceSinWaveView.get()) == null) {
                 return;
             }
             voiceSinWaveView.drawFrame();
@@ -123,11 +123,11 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class TimerThread extends Thread {
+    public static class TimerThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isCancel;
-        public WeakReference mWeakVoiceSinWaveView;
+        public WeakReference<VoiceSinWaveView> mWeakVoiceSinWaveView;
 
         public TimerThread(VoiceSinWaveView voiceSinWaveView) {
             Interceptable interceptable = $ic;
@@ -145,7 +145,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                 }
             }
             this.isCancel = false;
-            this.mWeakVoiceSinWaveView = new WeakReference(voiceSinWaveView);
+            this.mWeakVoiceSinWaveView = new WeakReference<>(voiceSinWaveView);
         }
 
         public synchronized boolean getCancel() {
@@ -166,7 +166,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 while (!getCancel()) {
-                    VoiceSinWaveView voiceSinWaveView = (VoiceSinWaveView) this.mWeakVoiceSinWaveView.get();
+                    VoiceSinWaveView voiceSinWaveView = this.mWeakVoiceSinWaveView.get();
                     if (voiceSinWaveView != null) {
                         voiceSinWaveView.mMainHandler.sendEmptyMessage(4097);
                         try {
@@ -280,20 +280,6 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, voiceWaveCallBack) == null) {
             this.mVoiceWaveCallBack = voiceWaveCallBack;
-        }
-    }
-
-    @Override // com.baidu.pass.ecommerce.view.VoiceWaveInterface
-    public void showInParentView(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, viewGroup) == null) {
-            Log.d(TAG, "showInParentView.");
-            if (viewGroup == null || this.mParent != null) {
-                return;
-            }
-            this.mIsNeedGetSize = true;
-            viewGroup.addView(this, new ViewGroup.LayoutParams(-1, -1));
-            this.mParent = viewGroup;
         }
     }
 
@@ -734,6 +720,20 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
             }
             this.mMaskPaint.setXfermode(null);
             canvas.restoreToCount(saveLayer);
+        }
+    }
+
+    @Override // com.baidu.pass.ecommerce.view.VoiceWaveInterface
+    public void showInParentView(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, viewGroup) == null) {
+            Log.d(TAG, "showInParentView.");
+            if (viewGroup == null || this.mParent != null) {
+                return;
+            }
+            this.mIsNeedGetSize = true;
+            viewGroup.addView(this, new ViewGroup.LayoutParams(-1, -1));
+            this.mParent = viewGroup;
         }
     }
 }

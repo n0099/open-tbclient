@@ -1,114 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.t65;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class ha6 {
+public class ha6 extends t65 {
     public static /* synthetic */ Interceptable $ic;
+    public static ha6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List b;
-    public b c;
-    public ga6 d;
+    public LinkedList<w65> a;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(ka6 ka6Var);
+    @Override // com.baidu.tieba.t65
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements oo {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ha6 a;
+    @Override // com.baidu.tieba.t65
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
-        public a(ha6 ha6Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947817036, "Lcom/baidu/tieba/ha6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ha6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ha6Var;
-        }
-
-        @Override // com.baidu.tieba.oo
-        public void b(View view2, eo eoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, eoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (eoVar instanceof ka6)) {
-                ka6 ka6Var = (ka6) eoVar;
-                if (this.a.c != null) {
-                    this.a.c.a(ka6Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", ka6Var.a()).param("obj_locate", 2));
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947817036, "Lcom/baidu/tieba/ha6;");
+                return;
             }
         }
+        b = new ha6();
     }
 
-    public ha6(Context context) {
+    public ha6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
-        c();
     }
 
-    public void d(b bVar) {
+    public static synchronized ha6 e() {
+        InterceptResult invokeV;
+        ha6 ha6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ha6.class) {
+                ha6Var = b;
+            }
+            return ha6Var;
         }
+        return (ha6) invokeV.objValue;
     }
 
-    public List b() {
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinkedList<w65> linkedList = this.a;
+            if (linkedList != null && linkedList.size() != 0) {
+                return false;
+            }
+            return true;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.t65
+    public void b(t65.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ga6 ga6Var = new ga6(this.a, ka6.e);
-            this.d = ga6Var;
-            ga6Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            LinkedList<w65> linkedList = this.a;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                Iterator<w65> it = this.a.iterator();
+                while (it.hasNext()) {
+                    w65 next = it.next();
+                    if (aVar != null) {
+                        aVar.a(next);
+                    }
+                }
+            } else if (TbFaceManager.i().m() > 0) {
+                this.a = new LinkedList<>();
+                ga6 ga6Var = new ga6();
+                this.a.add(ga6Var);
+                if (aVar != null) {
+                    aVar.a(ga6Var);
+                }
+            }
         }
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            LinkedList<w65> linkedList = this.a;
+            if (linkedList != null) {
+                Iterator<w65> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    if (it.next().m(str)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

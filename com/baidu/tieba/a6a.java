@@ -1,78 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.os.Build;
-import android.view.WindowManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes3.dex */
-public class a6a {
+public class a6a implements IH5PayActivityVisit {
     public static /* synthetic */ Interceptable $ic;
-    public static Point a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947568509, "Lcom/baidu/tieba/a6a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public a6a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947568509, "Lcom/baidu/tieba/a6a;");
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit
+    public void notifyPayFlowActivityVisit(String str, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, str, i, i2, i3) == null) {
+            RLog.info("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str);
+            PayFlowType a = f7a.a(i3);
+            if (a == null) {
+                RLog.error("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str + " payFlowType null", new Object[0]);
                 return;
             }
+            h6a.b(str, i, i2, a);
         }
-        a = new Point();
-    }
-
-    public static Point a(Context context, Point point) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, point)) == null) {
-            Point point2 = a;
-            if (point2 != null && point2.x > 0 && point2.y > 0) {
-                if (point == null) {
-                    point = new Point();
-                }
-                Point point3 = a;
-                point.x = point3.x;
-                point.y = point3.y;
-                return point;
-            }
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
-            if (point == null) {
-                point = new Point();
-            }
-            if (Build.VERSION.SDK_INT >= 17) {
-                windowManager.getDefaultDisplay().getRealSize(point);
-            } else {
-                windowManager.getDefaultDisplay().getSize(point);
-            }
-            if (point.x > 0 && point.y > 0) {
-                if (a == null) {
-                    a = new Point();
-                }
-                Point point4 = a;
-                point4.x = point.x;
-                point4.y = point.y;
-            }
-            return point;
-        }
-        return (Point) invokeLL.objValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return a(context, null).x;
-        }
-        return invokeL.intValue;
     }
 }

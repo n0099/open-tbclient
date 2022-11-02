@@ -190,7 +190,7 @@ public class CrashController {
                     this.mIsSpecialDo = true;
                     doSpecial();
                 }
-                Map all = getAll();
+                Map<String, ?> all = getAll();
                 Object[] objArr = new Object[1];
                 if (all == null) {
                     size = 0;
@@ -200,18 +200,18 @@ public class CrashController {
                 objArr[0] = Integer.valueOf(size);
                 L.brief("all crash size = %d", objArr);
                 if (all != null && all.size() > 0) {
-                    for (Map.Entry entry : all.entrySet()) {
-                        String str = (String) entry.getKey();
+                    for (Map.Entry<String, ?> entry : all.entrySet()) {
+                        String key = entry.getKey();
                         JSONObject jSONObject = new JSONObject((String) entry.getValue());
-                        L.brief("get crashid = %s", str);
+                        L.brief("get crashid = %s", key);
                         if (!doExpire(jSONObject)) {
                             if (!report(jSONObject)) {
                                 break;
                             }
-                            clearInfo(str);
+                            clearInfo(key);
                             delFile(jSONObject.getString("dpath"));
                             delFile(jSONObject.getString("lpath"));
-                            L.brief("del crashid = %s", str);
+                            L.brief("del crashid = %s", key);
                         }
                     }
                 }
@@ -219,7 +219,7 @@ public class CrashController {
         }
     }
 
-    private boolean doReport(String str, Map map, Map map2, int i) {
+    private boolean doReport(String str, Map<String, String> map, Map<String, String> map2, int i) {
         InterceptResult invokeLLLI;
         HttpUtil.HttpResp postFileByUrlConn;
         Interceptable interceptable = $ic;
@@ -385,7 +385,7 @@ public class CrashController {
         return (JSONObject) invokeCommon.objValue;
     }
 
-    private Map getAll() {
+    private Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {

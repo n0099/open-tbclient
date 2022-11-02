@@ -1,7 +1,9 @@
 package com.baidu.searchbox.logsystem.logsys.eventscene.handler;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +16,7 @@ public class ProcessEventSceneHandler extends BaseEventSceneHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set requireGeneralSnapshots(Context context, EventObject eventObject) {
+    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eventObject)) == null) {

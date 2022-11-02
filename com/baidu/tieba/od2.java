@@ -1,81 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
+import androidx.annotation.NonNull;
+import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class od2 extends nd2 {
+public class od2 extends ld2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentValues d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public od2(ContentValues contentValues) {
-        super("lifecycle", null);
+    public od2(@NonNull kd2 kd2Var) {
+        super(kd2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {contentValues};
+            Object[] objArr = {kd2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
+                super((kd2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = contentValues;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public od2(Map map) {
-        super("lifecycle", map);
+    @Override // com.baidu.tieba.ld2
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            f(bc4.i().v().keySet());
+            d();
+            ArraySet<String> a = a();
+            tl1 tl1Var = this.b;
+            if (tl1Var != null) {
+                tl1Var.f();
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.nd2, com.baidu.tieba.md2
-    public void m(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("cuid", tm2.h0().i(tm2.c()));
-            map.put("mtjCuid", tm2.h0().i(tm2.c()));
-            ContentValues contentValues = this.d;
-            if (contentValues != null) {
-                for (String str : contentValues.keySet()) {
-                    Object obj = this.d.get(str);
-                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                        map.put(str, String.valueOf(obj));
-                    } else {
-                        map.put(str, obj);
-                    }
-                }
-                return;
-            }
-            for (Map.Entry entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
-            }
+            c(a);
         }
     }
 }

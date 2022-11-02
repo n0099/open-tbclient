@@ -13,7 +13,7 @@ import java.util.List;
 public class ListBucketsResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List buckets;
+    public List<BucketSummary> buckets;
     public User owner;
 
     public ListBucketsResponse() {
@@ -32,7 +32,7 @@ public class ListBucketsResponse extends BosResponse {
         this.buckets = new ArrayList();
     }
 
-    public List getBuckets() {
+    public List<BucketSummary> getBuckets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -50,7 +50,7 @@ public class ListBucketsResponse extends BosResponse {
         return (User) invokeV.objValue;
     }
 
-    public void setBuckets(List list) {
+    public void setBuckets(List<BucketSummary> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.buckets = list;

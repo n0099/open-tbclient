@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Toast;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -209,7 +210,7 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
@@ -421,7 +422,7 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10b4, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10cf, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

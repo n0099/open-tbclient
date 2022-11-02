@@ -14,7 +14,7 @@ public interface OnGestureListener {
     void onRightMove(int i, int i2);
 
     /* loaded from: classes2.dex */
-    public class SimpleOnGestureListener implements OnGestureListener {
+    public static class SimpleOnGestureListener implements OnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

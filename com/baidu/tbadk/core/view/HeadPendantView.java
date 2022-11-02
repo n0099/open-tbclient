@@ -15,14 +15,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
+import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.Glide;
 /* loaded from: classes3.dex */
 public class HeadPendantView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -108,11 +110,29 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = fj.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = xi.g(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
         d();
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, str) != null) || this.c == null) {
+            return;
+        }
+        if (this.f && !StringUtils.isNull(str)) {
+            this.c.setVisibility(0);
+            this.c.setImageDrawable(null);
+            Glide.with(this.a).load(str).into(this.c);
+            if (this.l) {
+                e(this.c);
+                return;
+            }
+            return;
+        }
+        this.c.setVisibility(8);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,7 +157,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = fj.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = xi.g(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -191,7 +211,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = fj.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = xi.g(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -248,7 +268,7 @@ public class HeadPendantView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.i = fj.f(getContext(), R.dimen.tbds42);
+            this.i = xi.g(getContext(), R.dimen.tbds42);
             b();
             c();
             a();
@@ -324,19 +344,6 @@ public class HeadPendantView extends RelativeLayout {
         imageView.setVisibility(i);
     }
 
-    public void i(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, metaData) != null) || metaData == null) {
-            return;
-        }
-        if (metaData.getPendantData() != null) {
-            m(metaData.getPendantData().getImgUrl());
-        } else {
-            m(null);
-        }
-        g(metaData);
-    }
-
     public void setAutoChangeStyle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
@@ -349,7 +356,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.i = fj.f(getContext(), i);
+                this.i = xi.g(getContext(), i);
             }
             f();
         }
@@ -430,6 +437,24 @@ public class HeadPendantView extends RelativeLayout {
         }
     }
 
+    public void i(MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, metaData) != null) || metaData == null) {
+            return;
+        }
+        UserPendantData pendantData = metaData.getPendantData();
+        if (pendantData != null) {
+            if (!StringUtils.isNull(pendantData.getDynamicImgUrl())) {
+                m(pendantData.getDynamicImgUrl());
+            } else {
+                m(pendantData.getImgUrl());
+            }
+        } else {
+            m(null);
+        }
+        g(metaData);
+    }
+
     public void l(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || StringUtils.isNull(str)) {
@@ -442,24 +467,6 @@ public class HeadPendantView extends RelativeLayout {
         } else {
             k(str, 25, false);
         }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048592, this, str) != null) || this.c == null) {
-            return;
-        }
-        if (this.f && !StringUtils.isNull(str)) {
-            this.c.setVisibility(0);
-            this.c.setImageDrawable(null);
-            this.c.L(str, 10, false);
-            if (this.l) {
-                e(this.c);
-                return;
-            }
-            return;
-        }
-        this.c.setVisibility(8);
     }
 
     public void n(MetaData metaData) {
@@ -524,7 +531,7 @@ public class HeadPendantView extends RelativeLayout {
     public void k(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.e.H(str, i, 0, 0, z);
+            this.e.G(str, i, 0, 0, z);
         }
     }
 

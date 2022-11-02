@@ -2,7 +2,7 @@ package com.bytedance.pangle.f;
 
 import android.content.pm.Signature;
 import android.os.Build;
-import android.util.SparseArray;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import java.io.RandomAccessFile;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.security.cert.Certificate;
-import java.security.cert.X509Certificate;
+@RequiresApi(api = 21)
 /* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
@@ -37,17 +37,17 @@ public final class d {
                         f.a(str, randomAccessFile, -262969152, ApkSignatureSchemeV2Verifier.APK_SIGNATURE_SCHEME_V2_BLOCK_ID);
                         try {
                             try {
-                                m mVar = (m) ((SparseArray) f.a.get(str)).get(-262969152);
+                                m mVar = f.a.get(str).get(-262969152);
                                 if (mVar != null) {
-                                    c.C0495c a = c.a(randomAccessFile, mVar);
+                                    c.C0506c a = c.a(randomAccessFile, mVar);
                                     Signature[] a2 = a(new Certificate[][]{a.a});
                                     if (a.b != null) {
                                         int size = a.b.a.size();
                                         Signature[] signatureArr2 = new Signature[size];
                                         iArr = new int[a.b.b.size()];
                                         for (int i = 0; i < size; i++) {
-                                            signatureArr2[i] = new Signature(((X509Certificate) a.b.a.get(i)).getEncoded());
-                                            iArr[i] = ((Integer) a.b.b.get(i)).intValue();
+                                            signatureArr2[i] = new Signature(a.b.a.get(i).getEncoded());
+                                            iArr[i] = a.b.b.get(i).intValue();
                                         }
                                         signatureArr = signatureArr2;
                                     } else {
@@ -72,7 +72,7 @@ public final class d {
                                 throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v2", e);
                             }
                         } catch (n unused4) {
-                            m mVar2 = (m) ((SparseArray) f.a.get(str)).get(ApkSignatureSchemeV2Verifier.APK_SIGNATURE_SCHEME_V2_BLOCK_ID);
+                            m mVar2 = f.a.get(str).get(ApkSignatureSchemeV2Verifier.APK_SIGNATURE_SCHEME_V2_BLOCK_ID);
                             if (mVar2 != null) {
                                 o oVar2 = new o(a(b.a(randomAccessFile, mVar2).a));
                                 try {

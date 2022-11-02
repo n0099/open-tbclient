@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +51,7 @@ public class BOSTokenRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static STSInfo getBosStsInfo(String str) {
+    public static STSInfo getBosStsInfo(@NonNull String str) {
         InterceptResult invokeL;
         Closeable closeable;
         HttpURLConnection httpURLConnection;

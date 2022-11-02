@@ -1,6 +1,7 @@
 package com.baidu.webkit.internal.utils;
 
 import android.content.SharedPreferences;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebViewFactory;
+@Keep
 /* loaded from: classes6.dex */
 public class ZeusInitConfigUtils {
     public static /* synthetic */ Interceptable $ic = null;

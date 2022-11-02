@@ -27,20 +27,20 @@ public final class DefaultEbmlReader implements EbmlReader {
     public long elementContentSize;
     public int elementId;
     public int elementState;
-    public final Stack masterElementsStack;
+    public final Stack<MasterElement> masterElementsStack;
     public EbmlReaderOutput output;
     public final byte[] scratch;
     public final VarintReader varintReader;
 
     /* renamed from: com.google.android.exoplayer2.extractor.mkv.DefaultEbmlReader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class MasterElement {
+    public static final class MasterElement {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long elementEndPosition;
@@ -84,7 +84,7 @@ public final class DefaultEbmlReader implements EbmlReader {
             }
         }
         this.scratch = new byte[8];
-        this.masterElementsStack = new Stack();
+        this.masterElementsStack = new Stack<>();
         this.varintReader = new VarintReader();
     }
 
@@ -172,8 +172,8 @@ public final class DefaultEbmlReader implements EbmlReader {
             }
             Assertions.checkState(z);
             while (true) {
-                if (!this.masterElementsStack.isEmpty() && extractorInput.getPosition() >= ((MasterElement) this.masterElementsStack.peek()).elementEndPosition) {
-                    this.output.endMasterElement(((MasterElement) this.masterElementsStack.pop()).elementId);
+                if (!this.masterElementsStack.isEmpty() && extractorInput.getPosition() >= this.masterElementsStack.peek().elementEndPosition) {
+                    this.output.endMasterElement(this.masterElementsStack.pop().elementId);
                     return true;
                 }
                 if (this.elementState == 0) {

@@ -4,18 +4,18 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b75;
-import com.baidu.tieba.c75;
-import com.baidu.tieba.i75;
+import com.baidu.tieba.b85;
+import com.baidu.tieba.u75;
+import com.baidu.tieba.v75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b75 {
+public class KPSwitchFSPanelFrameLayout extends FrameLayout implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c75 a;
+    public v75 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -82,7 +82,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b75 {
         b();
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.u75
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -90,18 +90,18 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b75 {
         }
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.u75
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            i75.d(this, i);
+            b85.d(this, i);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new c75(this);
+            this.a = new v75(this);
         }
     }
 }

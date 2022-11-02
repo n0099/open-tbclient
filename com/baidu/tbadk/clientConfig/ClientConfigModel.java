@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.mq4;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.vp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetClientConfig.DataRes;
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vp4 a;
-    public final qb b;
+    public mq4 a;
+    public final pb b;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -45,7 +45,7 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ClientConfigModel a;
@@ -72,8 +72,8 @@ public class ClientConfigModel extends BdBaseModel {
             this.a = clientConfigModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (!this.a.C(responsedMessage)) {
@@ -95,7 +95,7 @@ public class ClientConfigModel extends BdBaseModel {
                     this.a.D(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                 } else {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c68);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c7f);
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
@@ -108,13 +108,13 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity bdBaseFragmentActivity, vp4 vp4Var) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, mq4 mq4Var) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdBaseFragmentActivity, vp4Var};
+            Object[] objArr = {bdBaseFragmentActivity, mq4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,11 +127,11 @@ public class ClientConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = vp4Var;
+        this.a = mq4Var;
         registerListener(aVar);
     }
 
-    public final boolean C(ResponsedMessage responsedMessage) {
+    public final boolean C(ResponsedMessage<?> responsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, responsedMessage)) == null) {
@@ -148,14 +148,14 @@ public class ClientConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes == null) {
                 if (this.a != null) {
-                    this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0494));
+                    this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0496));
                     return;
                 }
                 return;
             }
-            vp4 vp4Var = this.a;
-            if (vp4Var != null) {
-                vp4Var.a(dataRes);
+            mq4 mq4Var = this.a;
+            if (mq4Var != null) {
+                mq4Var.a(dataRes);
             }
         }
     }

@@ -3,10 +3,13 @@ package com.baidu.mapsdkplatform.comapi.commonutils;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.NetworkUtil;
+import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
-import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
+import com.baidu.platform.comapi.util.f;
+import com.baidu.platform.comjni.map.commonmemcache.NACommonMemCache;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,30 +20,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 /* loaded from: classes2.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
-    public static /* synthetic */ Interceptable $ic;
-    public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a;
-    public static boolean b;
-    public static String c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static NACommonMemCache a = null;
+    public static boolean b = false;
+    public static String c = "";
     public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1917727474, "Lcom/baidu/mapsdkplatform/comapi/commonutils/SysUpdateUtil;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1917727474, "Lcom/baidu/mapsdkplatform/comapi/commonutils/SysUpdateUtil;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1917727474, "Lcom/baidu/mapsdkplatform/comapi/commonutils/SysUpdateUtil;")) == null) {
+            return;
         }
-        a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
-        b = false;
-        c = "";
-        d = 0;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1917727474, "Lcom/baidu/mapsdkplatform/comapi/commonutils/SysUpdateUtil;");
+        }
     }
 
     public SysUpdateUtil() {
@@ -53,19 +52,21 @@ public class SysUpdateUtil implements SysUpdateObserver {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        a = f.b();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
-    public void init() {
-        com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar;
+    public void init(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && a != null) {
+            if (TextUtils.isEmpty(str)) {
+                str = SyncSysInfo.getPhoneInfoCache();
+            }
+            a.a(str);
         }
-        aVar.a();
-        a.b();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
@@ -76,49 +77,46 @@ public class SysUpdateUtil implements SysUpdateObserver {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c9, code lost:
-        if ("10.0.0.200".equals(r9.trim()) != false) goto L47;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00d4  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00dc  */
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    public void updatePhoneInfo(String str) {
+        NACommonMemCache nACommonMemCache;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (nACommonMemCache = a) != null) {
+            nACommonMemCache.a(str);
+        }
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void updateNetworkProxy(Context context) {
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) != null) || (activeNetworkInfo = NetworkUtil.getActiveNetworkInfo(context)) == null || !activeNetworkInfo.isAvailable()) {
-            return;
-        }
-        String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
-        if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
-            AppEngine.SetProxyInfo(null, 0);
-            b = false;
-        } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
-        } else {
-            String extraInfo = activeNetworkInfo.getExtraInfo();
-            b = false;
-            if (extraInfo != null) {
-                String lowerCase2 = extraInfo.toLowerCase();
-                if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    c = "10.0.0.172";
-                } else {
-                    if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
-                        if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && (activeNetworkInfo = NetworkUtil.getActiveNetworkInfo(context)) != null && activeNetworkInfo.isAvailable()) {
+            String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
+            if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
+                b = false;
+            } else if (lowerCase.equals("mobile") || (lowerCase.equals("wifi") && !NetworkUtil.isWifiConnected(activeNetworkInfo))) {
+                String extraInfo = activeNetworkInfo.getExtraInfo();
+                b = false;
+                if (extraInfo != null) {
+                    String lowerCase2 = extraInfo.toLowerCase();
+                    if (!lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
+                        if (lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
+                            c = "10.0.0.200";
+                            d = 80;
+                            b = true;
+                            return;
+                        } else if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
                             b = false;
-                        }
-                        if (b) {
-                            AppEngine.SetProxyInfo(c, d);
                             return;
                         } else {
-                            AppEngine.SetProxyInfo(null, 0);
                             return;
                         }
                     }
-                    c = "10.0.0.200";
+                    c = "10.0.0.172";
+                    d = 80;
+                    b = true;
+                    return;
                 }
-            } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
@@ -126,25 +124,13 @@ public class SysUpdateUtil implements SysUpdateObserver {
                         c = "10.0.0.172";
                         d = defaultPort;
                         b = true;
+                    } else if ("10.0.0.200".equals(defaultHost.trim())) {
+                        c = "10.0.0.200";
+                        d = 80;
+                        b = true;
                     }
                 }
-                if (b) {
-                }
-            }
-            d = 80;
-            b = true;
-            if (b) {
             }
         }
-    }
-
-    @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
-    public void updatePhoneInfo() {
-        com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = a) == null) {
-            return;
-        }
-        aVar.b();
     }
 }

@@ -28,9 +28,9 @@ import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.c80;
-import com.baidu.tieba.m80;
-import com.baidu.tieba.q80;
+import com.baidu.tieba.b80;
+import com.baidu.tieba.l80;
+import com.baidu.tieba.p80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class MessageParser {
     }
 
     /* loaded from: classes.dex */
-    public class DuParser {
+    public static class DuParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int category;
@@ -278,7 +278,7 @@ public class MessageParser {
         }
     }
 
-    public static void getAckNeedPainfos(Context context, boolean z, ArrayList arrayList, ArrayList arrayList2) {
+    public static void getAckNeedPainfos(Context context, boolean z, ArrayList<ChatMsg> arrayList, ArrayList<Long> arrayList2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Boolean.valueOf(z), arrayList, arrayList2}) == null) && arrayList2.size() > 0 && z) {
             LogUtils.d(TAG, "ack> will get remote pa, ids=" + arrayList2.toString());
@@ -308,17 +308,17 @@ public class MessageParser {
                 }
 
                 @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-                public void onResult(int i, String str, ArrayList arrayList3) {
+                public void onResult(int i, String str, ArrayList<PaInfo> arrayList3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, arrayList3) == null) {
                         LogUtils.d(MessageParser.TAG, "ack> get remote painfos, responseCode=" + i + ", strMsg=" + str);
                         if (i == 0 && arrayList3 != null && arrayList3.size() > 0) {
                             LogUtils.d(MessageParser.TAG, "ack> get remote pa, painfos size=" + arrayList3.size());
-                            Iterator it = arrayList3.iterator();
+                            Iterator<PaInfo> it = arrayList3.iterator();
                             while (it.hasNext()) {
-                                PaInfo paInfo = (PaInfo) it.next();
-                                PaInfoDBManager.getInstance(this.val$context).subscribePa(paInfo);
-                                ChatMessageDBManager.getInstance(this.val$context).updateSessionClass(paInfo);
+                                PaInfo next = it.next();
+                                PaInfoDBManager.getInstance(this.val$context).subscribePa(next);
+                                ChatMessageDBManager.getInstance(this.val$context).updateSessionClass(next);
                             }
                             MessageParser.handleAck(this.val$context, this.val$msgWithRemotePainfo, false);
                         }
@@ -328,9 +328,9 @@ public class MessageParser {
         }
     }
 
-    public static synchronized List handleAck(Context context, ArrayList arrayList, boolean z) {
+    public static synchronized List<NewAckMessage.Tripule> handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
         InterceptResult invokeLLZ;
-        List handleAck;
+        List<NewAckMessage.Tripule> handleAck;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, context, arrayList, z)) == null) {
             synchronized (MessageParser.class) {
@@ -347,7 +347,7 @@ public class MessageParser {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public static synchronized java.util.List handleAck(android.content.Context r40, java.util.ArrayList r41, boolean r42, boolean r43) {
+    public static synchronized java.util.List<com.baidu.android.imsdk.request.NewAckMessage.Tripule> handleAck(android.content.Context r40, java.util.ArrayList<com.baidu.android.imsdk.chatmessage.messages.ChatMsg> r41, boolean r42, boolean r43) {
         /*
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.android.imsdk.internal.MessageParser.$ic
             if (r0 != 0) goto L264
@@ -673,13 +673,14 @@ public class MessageParser {
 
     /* JADX WARN: Removed duplicated region for block: B:106:0x026c A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:108:0x026e A[Catch: Exception -> 0x0328, TryCatch #5 {Exception -> 0x0328, blocks: (B:115:0x028c, B:117:0x0292, B:119:0x02ac, B:121:0x02be, B:122:0x02c5, B:124:0x02cd, B:128:0x02da, B:129:0x02dd, B:131:0x02e3, B:133:0x02e9, B:135:0x02ef, B:136:0x02f2, B:138:0x02f8, B:140:0x02fd, B:142:0x0309, B:144:0x0318, B:143:0x030d, B:109:0x0276, B:104:0x025f, B:108:0x026e), top: B:167:0x025f }] */
+    /* JADX WARN: Type inference failed for: r0v11, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v13 */
-    /* JADX WARN: Type inference failed for: r1v14, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v14, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r1v17 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ChatMsg parserMessage(Context context, JSONObject jSONObject, Type type, boolean z) {
+    public static ChatMsg parserMessage(Context context, JSONObject jSONObject, Type<Long> type, boolean z) {
         InterceptResult invokeCommon;
         Context context2;
         String str;
@@ -978,18 +979,19 @@ public class MessageParser {
         return (ChatMsg) invokeL.objValue;
     }
 
-    public static ArrayList parserMessage(Context context, JSONArray jSONArray, Type type, boolean z, boolean z2) {
+    /* JADX WARN: Type inference failed for: r2v4, types: [T, java.lang.Long] */
+    public static ArrayList<ChatMsg> parserMessage(Context context, JSONArray jSONArray, Type<Long> type, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, jSONArray, type, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
             if (jSONArray != null) {
                 try {
                     Type type2 = new Type();
                     type2.t = 0L;
                     for (int i = 0; i < jSONArray.length(); i++) {
                         ChatMsg parserMessage = parserMessage(context, jSONArray.getJSONObject(i), type2, z);
-                        if (((Long) type.t).longValue() < ((Long) type2.t).longValue()) {
+                        if (type.t.longValue() < ((Long) type2.t).longValue()) {
                             type.t = type2.t;
                         }
                         if (parserMessage != null) {
@@ -1046,21 +1048,21 @@ public class MessageParser {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public static void sendNewAckToServer(Context context, long j, List list, boolean z) {
+    public static void sendNewAckToServer(Context context, long j, List<NewAckMessage.Tripule> list, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Long.valueOf(j), list, Boolean.valueOf(z)}) == null) && list != null && list.size() != 0) {
-            List<List> splitList = Utils.splitList(list, 20);
+            List<List<NewAckMessage.Tripule>> splitList = Utils.splitList(list, 20);
             if (splitList != null && splitList.size() > 0) {
-                for (List list2 : splitList) {
+                for (List<NewAckMessage.Tripule> list2 : splitList) {
                     NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (c80.e) {
+                    if (b80.e) {
                         BLCPRequest bLCPRequest = new BLCPRequest();
                         bLCPRequest.a = 2L;
                         bLCPRequest.b = 95L;
                         bLCPRequest.c = newAckMessage.getBody().getBytes();
                         bLCPRequest.d = System.nanoTime();
-                        m80.c(bLCPRequest, new q80(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                        l80.c(bLCPRequest, new p80(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ Context val$context;
@@ -1085,7 +1087,7 @@ public class MessageParser {
                                 this.val$context = context;
                             }
 
-                            @Override // com.baidu.tieba.q80
+                            @Override // com.baidu.tieba.p80
                             public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {

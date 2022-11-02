@@ -11,7 +11,7 @@ public abstract class b implements v {
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.v
-    public void a(List list) {
+    public void a(List<String> list) {
         if (list != null && !list.isEmpty()) {
             this.a = true;
         }

@@ -12,28 +12,28 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
-public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque, Serializable {
+/* loaded from: classes8.dex */
+public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements BlockingDeque<E>, Serializable {
     public static final long serialVersionUID = -387911632671998426L;
     public final int capacity;
     public transient int count;
-    public transient Node first;
-    public transient Node last;
+    public transient Node<E> first;
+    public transient Node<E> last;
     public final ReentrantLock lock;
     public final Condition notEmpty;
     public final Condition notFull;
 
-    /* loaded from: classes7.dex */
-    public abstract class AbstractItr implements Iterator {
-        public Node lastRet;
-        public Node next;
-        public Object nextItem;
+    /* loaded from: classes8.dex */
+    public abstract class AbstractItr implements Iterator<E> {
+        public Node<E> lastRet;
+        public Node<E> next;
+        public E nextItem;
 
         public AbstractItr() {
             ReentrantLock reentrantLock = LinkedBlockingDeque.this.lock;
             reentrantLock.lock();
             try {
-                Node firstNode = firstNode();
+                Node<E> firstNode = firstNode();
                 this.next = firstNode;
                 this.nextItem = firstNode == null ? null : firstNode.item;
             } finally {
@@ -41,9 +41,9 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
             }
         }
 
-        private Node succ(Node node) {
+        private Node<E> succ(Node<E> node) {
             while (true) {
-                Node nextNode = nextNode(node);
+                Node<E> nextNode = nextNode(node);
                 if (nextNode == null) {
                     return null;
                 }
@@ -61,7 +61,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
             ReentrantLock reentrantLock = LinkedBlockingDeque.this.lock;
             reentrantLock.lock();
             try {
-                Node succ = succ(this.next);
+                Node<E> succ = succ(this.next);
                 this.next = succ;
                 this.nextItem = succ == null ? null : succ.item;
             } finally {
@@ -69,7 +69,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
             }
         }
 
-        public abstract Node firstNode();
+        public abstract Node<E> firstNode();
 
         @Override // java.util.Iterator
         public boolean hasNext() {
@@ -77,22 +77,22 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         }
 
         @Override // java.util.Iterator
-        public Object next() {
-            Node node = this.next;
+        public E next() {
+            Node<E> node = this.next;
             if (node != null) {
                 this.lastRet = node;
-                Object obj = this.nextItem;
+                E e = this.nextItem;
                 advance();
-                return obj;
+                return e;
             }
             throw new NoSuchElementException();
         }
 
-        public abstract Node nextNode(Node node);
+        public abstract Node<E> nextNode(Node<E> node);
 
         @Override // java.util.Iterator
         public void remove() {
-            Node node = this.lastRet;
+            Node<E> node = this.lastRet;
             if (node == null) {
                 throw new IllegalStateException();
             }
@@ -109,48 +109,48 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class DescendingItr extends AbstractItr {
+    /* loaded from: classes8.dex */
+    public class DescendingItr extends LinkedBlockingDeque<E>.AbstractItr {
         public DescendingItr() {
             super();
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.assist.deque.LinkedBlockingDeque.AbstractItr
-        public Node firstNode() {
+        public Node<E> firstNode() {
             return LinkedBlockingDeque.this.last;
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.assist.deque.LinkedBlockingDeque.AbstractItr
-        public Node nextNode(Node node) {
+        public Node<E> nextNode(Node<E> node) {
             return node.prev;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class Itr extends AbstractItr {
+    /* loaded from: classes8.dex */
+    public class Itr extends LinkedBlockingDeque<E>.AbstractItr {
         public Itr() {
             super();
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.assist.deque.LinkedBlockingDeque.AbstractItr
-        public Node firstNode() {
+        public Node<E> firstNode() {
             return LinkedBlockingDeque.this.first;
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.assist.deque.LinkedBlockingDeque.AbstractItr
-        public Node nextNode(Node node) {
+        public Node<E> nextNode(Node<E> node) {
             return node.next;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public final class Node {
-        public Object item;
-        public Node next;
-        public Node prev;
+    /* loaded from: classes8.dex */
+    public static final class Node<E> {
+        public E item;
+        public Node<E> next;
+        public Node<E> prev;
 
-        public Node(Object obj) {
-            this.item = obj;
+        public Node(E e) {
+            this.item = e;
         }
     }
 
@@ -169,16 +169,16 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         this.capacity = i;
     }
 
-    public LinkedBlockingDeque(Collection collection) {
+    public LinkedBlockingDeque(Collection<? extends E> collection) {
         this(Integer.MAX_VALUE);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            for (Object obj : collection) {
-                if (obj == null) {
+            for (E e : collection) {
+                if (e == null) {
                     throw new NullPointerException();
                 }
-                if (!linkLast(new Node(obj))) {
+                if (!linkLast(new Node<>(e))) {
                     throw new IllegalStateException("Deque full");
                 }
             }
@@ -187,11 +187,11 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         }
     }
 
-    private boolean linkFirst(Node node) {
+    private boolean linkFirst(Node<E> node) {
         if (this.count >= this.capacity) {
             return false;
         }
-        Node node2 = this.first;
+        Node<E> node2 = this.first;
         node.next = node2;
         this.first = node;
         if (this.last == null) {
@@ -204,11 +204,11 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         return true;
     }
 
-    private boolean linkLast(Node node) {
+    private boolean linkLast(Node<E> node) {
         if (this.count >= this.capacity) {
             return false;
         }
-        Node node2 = this.last;
+        Node<E> node2 = this.last;
         node.prev = node2;
         this.last = node;
         if (this.first == null) {
@@ -221,6 +221,8 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         return true;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.kwad.sdk.core.imageloader.core.assist.deque.LinkedBlockingDeque<E> */
+    /* JADX WARN: Multi-variable type inference failed */
     private void readObject(ObjectInputStream objectInputStream) {
         objectInputStream.defaultReadObject();
         this.count = 0;
@@ -235,13 +237,13 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         }
     }
 
-    private Object unlinkFirst() {
-        Node node = this.first;
+    private E unlinkFirst() {
+        Node<E> node = this.first;
         if (node == null) {
             return null;
         }
-        Node node2 = node.next;
-        Object obj = node.item;
+        Node<E> node2 = node.next;
+        E e = node.item;
         node.item = null;
         node.next = node;
         this.first = node2;
@@ -252,16 +254,16 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         }
         this.count--;
         this.notFull.signal();
-        return obj;
+        return e;
     }
 
-    private Object unlinkLast() {
-        Node node = this.last;
+    private E unlinkLast() {
+        Node<E> node = this.last;
         if (node == null) {
             return null;
         }
-        Node node2 = node.prev;
-        Object obj = node.item;
+        Node<E> node2 = node.prev;
+        E e = node.item;
         node.item = null;
         node.prev = node;
         this.last = node2;
@@ -272,7 +274,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         }
         this.count--;
         this.notFull.signal();
-        return obj;
+        return e;
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) {
@@ -280,7 +282,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         reentrantLock.lock();
         try {
             objectOutputStream.defaultWriteObject();
-            for (Node node = this.first; node != null; node = node.next) {
+            for (Node<E> node = this.first; node != null; node = node.next) {
                 objectOutputStream.writeObject(node.item);
             }
             objectOutputStream.writeObject(null);
@@ -290,21 +292,21 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection, java.util.Queue, com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque, java.util.concurrent.BlockingQueue
-    public boolean add(Object obj) {
-        addLast(obj);
+    public boolean add(E e) {
+        addLast(e);
         return true;
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public void addFirst(Object obj) {
-        if (!offerFirst(obj)) {
+    public void addFirst(E e) {
+        if (!offerFirst(e)) {
             throw new IllegalStateException("Deque full");
         }
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public void addLast(Object obj) {
-        if (!offerLast(obj)) {
+    public void addLast(E e) {
+        if (!offerLast(e)) {
             throw new IllegalStateException("Deque full");
         }
     }
@@ -314,10 +316,10 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            Node node = this.first;
+            Node<E> node = this.first;
             while (node != null) {
                 node.item = null;
-                Node node2 = node.next;
+                Node<E> node2 = node.next;
                 node.prev = null;
                 node.next = null;
                 node = node2;
@@ -339,7 +341,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            for (Node node = this.first; node != null; node = node.next) {
+            for (Node<E> node = this.first; node != null; node = node.next) {
                 if (obj.equals(node.item)) {
                     reentrantLock.unlock();
                     return true;
@@ -352,17 +354,18 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Iterator descendingIterator() {
+    public Iterator<E> descendingIterator() {
         return new DescendingItr();
     }
 
     @Override // java.util.concurrent.BlockingQueue
-    public int drainTo(Collection collection) {
+    public int drainTo(Collection<? super E> collection) {
         return drainTo(collection, Integer.MAX_VALUE);
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: E, ? super E */
     @Override // java.util.concurrent.BlockingQueue
-    public int drainTo(Collection collection, int i) {
+    public int drainTo(Collection<? super E> collection, int i) {
         if (collection != null) {
             if (collection != this) {
                 ReentrantLock reentrantLock = this.lock;
@@ -370,7 +373,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
                 try {
                     int min = Math.min(i, this.count);
                     for (int i2 = 0; i2 < min; i2++) {
-                        collection.add(this.first.item);
+                        collection.add((E) this.first.item);
                         unlinkFirst();
                     }
                     return min;
@@ -384,13 +387,13 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // java.util.AbstractQueue, java.util.Queue, com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object element() {
+    public E element() {
         return getFirst();
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object getFirst() {
-        Object peekFirst = peekFirst();
+    public E getFirst() {
+        E peekFirst = peekFirst();
         if (peekFirst != null) {
             return peekFirst;
         }
@@ -398,8 +401,8 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object getLast() {
-        Object peekLast = peekLast();
+    public E getLast() {
+        E peekLast = peekLast();
         if (peekLast != null) {
             return peekLast;
         }
@@ -407,23 +410,23 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Iterator iterator() {
+    public Iterator<E> iterator() {
         return new Itr();
     }
 
-    public boolean offer(Object obj) {
-        return offerLast(obj);
+    public boolean offer(E e) {
+        return offerLast(e);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, java.util.concurrent.BlockingQueue
-    public boolean offer(Object obj, long j, TimeUnit timeUnit) {
-        return offerLast(obj, j, timeUnit);
+    public boolean offer(E e, long j, TimeUnit timeUnit) {
+        return offerLast(e, j, timeUnit);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public boolean offerFirst(Object obj) {
-        if (obj != null) {
-            Node node = new Node(obj);
+    public boolean offerFirst(E e) {
+        if (e != null) {
+            Node<E> node = new Node<>(e);
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lock();
             try {
@@ -436,9 +439,9 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public boolean offerFirst(Object obj, long j, TimeUnit timeUnit) {
-        if (obj != null) {
-            Node node = new Node(obj);
+    public boolean offerFirst(E e, long j, TimeUnit timeUnit) {
+        if (e != null) {
+            Node<E> node = new Node<>(e);
             long nanos = timeUnit.toNanos(j);
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lockInterruptibly();
@@ -461,9 +464,9 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public boolean offerLast(Object obj) {
-        if (obj != null) {
-            Node node = new Node(obj);
+    public boolean offerLast(E e) {
+        if (e != null) {
+            Node<E> node = new Node<>(e);
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lock();
             try {
@@ -476,9 +479,9 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public boolean offerLast(Object obj, long j, TimeUnit timeUnit) {
-        if (obj != null) {
-            Node node = new Node(obj);
+    public boolean offerLast(E e, long j, TimeUnit timeUnit) {
+        if (e != null) {
+            Node<E> node = new Node<>(e);
             long nanos = timeUnit.toNanos(j);
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lockInterruptibly();
@@ -501,12 +504,12 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // java.util.Queue, com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object peek() {
+    public E peek() {
         return peekFirst();
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object peekFirst() {
+    public E peekFirst() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -517,7 +520,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object peekLast() {
+    public E peekLast() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -528,17 +531,17 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // java.util.Queue, com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object poll() {
+    public E poll() {
         return pollFirst();
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, java.util.concurrent.BlockingQueue
-    public Object poll(long j, TimeUnit timeUnit) {
+    public E poll(long j, TimeUnit timeUnit) {
         return pollFirst(j, timeUnit);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object pollFirst() {
+    public E pollFirst() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -549,13 +552,13 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public Object pollFirst(long j, TimeUnit timeUnit) {
+    public E pollFirst(long j, TimeUnit timeUnit) {
         long nanos = timeUnit.toNanos(j);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lockInterruptibly();
         while (true) {
             try {
-                Object unlinkFirst = unlinkFirst();
+                E unlinkFirst = unlinkFirst();
                 if (unlinkFirst != null) {
                     return unlinkFirst;
                 }
@@ -571,7 +574,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object pollLast() {
+    public E pollLast() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -582,13 +585,13 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public Object pollLast(long j, TimeUnit timeUnit) {
+    public E pollLast(long j, TimeUnit timeUnit) {
         long nanos = timeUnit.toNanos(j);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lockInterruptibly();
         while (true) {
             try {
-                Object unlinkLast = unlinkLast();
+                E unlinkLast = unlinkLast();
                 if (unlinkLast != null) {
                     return unlinkLast;
                 }
@@ -604,26 +607,26 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object pop() {
+    public E pop() {
         return removeFirst();
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public void push(Object obj) {
-        addFirst(obj);
+    public void push(E e) {
+        addFirst(e);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, java.util.concurrent.BlockingQueue
-    public void put(Object obj) {
-        putLast(obj);
+    public void put(E e) {
+        putLast(e);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public void putFirst(Object obj) {
-        if (obj == null) {
+    public void putFirst(E e) {
+        if (e == null) {
             throw null;
         }
-        Node node = new Node(obj);
+        Node<E> node = new Node<>(e);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         while (!linkFirst(node)) {
@@ -636,11 +639,11 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public void putLast(Object obj) {
-        if (obj == null) {
+    public void putLast(E e) {
+        if (e == null) {
             throw null;
         }
-        Node node = new Node(obj);
+        Node<E> node = new Node<>(e);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         while (!linkLast(node)) {
@@ -664,7 +667,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // java.util.AbstractQueue, java.util.Queue, com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object remove() {
+    public E remove() {
         return removeFirst();
     }
 
@@ -674,8 +677,8 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object removeFirst() {
-        Object pollFirst = pollFirst();
+    public E removeFirst() {
+        E pollFirst = pollFirst();
         if (pollFirst != null) {
             return pollFirst;
         }
@@ -690,7 +693,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            for (Node node = this.first; node != null; node = node.next) {
+            for (Node<E> node = this.first; node != null; node = node.next) {
                 if (obj.equals(node.item)) {
                     unlink(node);
                     reentrantLock.unlock();
@@ -704,8 +707,8 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    public Object removeLast() {
-        Object pollLast = pollLast();
+    public E removeLast() {
+        E pollLast = pollLast();
         if (pollLast != null) {
             return pollLast;
         }
@@ -720,7 +723,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            for (Node node = this.last; node != null; node = node.prev) {
+            for (Node<E> node = this.last; node != null; node = node.prev) {
                 if (obj.equals(node.item)) {
                     unlink(node);
                     reentrantLock.unlock();
@@ -745,17 +748,17 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, java.util.concurrent.BlockingQueue
-    public Object take() {
+    public E take() {
         return takeFirst();
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public Object takeFirst() {
+    public E takeFirst() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         while (true) {
             try {
-                Object unlinkFirst = unlinkFirst();
+                E unlinkFirst = unlinkFirst();
                 if (unlinkFirst != null) {
                     return unlinkFirst;
                 }
@@ -767,12 +770,12 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public Object takeLast() {
+    public E takeLast() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         while (true) {
             try {
-                Object unlinkLast = unlinkLast();
+                E unlinkLast = unlinkLast();
                 if (unlinkLast != null) {
                     return unlinkLast;
                 }
@@ -790,7 +793,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         try {
             Object[] objArr = new Object[this.count];
             int i = 0;
-            Node node = this.first;
+            Node<E> node = this.first;
             while (node != null) {
                 int i2 = i + 1;
                 objArr[i] = node.item;
@@ -803,25 +806,27 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r6v10, resolved type: T[] */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.AbstractCollection, java.util.Collection
-    public Object[] toArray(Object[] objArr) {
+    public <T> T[] toArray(T[] tArr) {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            if (objArr.length < this.count) {
-                objArr = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), this.count);
+            if (tArr.length < this.count) {
+                tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), this.count));
             }
             int i = 0;
-            Node node = this.first;
+            Node<E> node = this.first;
             while (node != null) {
-                objArr[i] = node.item;
+                tArr[i] = node.item;
                 node = node.next;
                 i++;
             }
-            if (objArr.length > i) {
-                objArr[i] = null;
+            if (tArr.length > i) {
+                tArr[i] = null;
             }
-            return objArr;
+            return tArr;
         } finally {
             reentrantLock.unlock();
         }
@@ -832,7 +837,7 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            Node node = this.first;
+            Node<E> node = this.first;
             if (node == null) {
                 return "[]";
             }
@@ -857,9 +862,9 @@ public class LinkedBlockingDeque extends AbstractQueue implements BlockingDeque,
         }
     }
 
-    public void unlink(Node node) {
-        Node node2 = node.prev;
-        Node node3 = node.next;
+    public void unlink(Node<E> node) {
+        Node<E> node2 = node.prev;
+        Node<E> node3 = node.next;
         if (node2 == null) {
             unlinkFirst();
         } else if (node3 == null) {

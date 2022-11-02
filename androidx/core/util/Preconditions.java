@@ -1,5 +1,9 @@
 package androidx.core.util;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class Preconditions {
     public static /* synthetic */ Interceptable $ic;
@@ -34,6 +39,7 @@ public final class Preconditions {
         throw new IllegalArgumentException();
     }
 
+    @IntRange(from = 0)
     public static int checkArgumentNonnegative(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -46,7 +52,8 @@ public final class Preconditions {
         return invokeI.intValue;
     }
 
-    public static <T> T checkNotNull(T t) {
+    @NonNull
+    public static <T> T checkNotNull(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, t)) == null) {
@@ -65,7 +72,7 @@ public final class Preconditions {
         }
     }
 
-    public static void checkArgument(boolean z, Object obj) {
+    public static void checkArgument(boolean z, @NonNull Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZL(65538, null, z, obj) != null) || z) {
             return;
@@ -73,7 +80,8 @@ public final class Preconditions {
         throw new IllegalArgumentException(String.valueOf(obj));
     }
 
-    public static int checkArgumentNonnegative(int i, String str) {
+    @IntRange(from = 0)
+    public static int checkArgumentNonnegative(int i, @Nullable String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, str)) == null) {
@@ -85,7 +93,8 @@ public final class Preconditions {
         return invokeIL.intValue;
     }
 
-    public static <T> T checkNotNull(T t, Object obj) {
+    @NonNull
+    public static <T> T checkNotNull(@Nullable T t, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, t, obj)) == null) {
@@ -97,7 +106,7 @@ public final class Preconditions {
         return (T) invokeLL.objValue;
     }
 
-    public static void checkState(boolean z, String str) {
+    public static void checkState(boolean z, @Nullable String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZL(65545, null, z, str) != null) || z) {
             return;
@@ -105,7 +114,7 @@ public final class Preconditions {
         throw new IllegalStateException(str);
     }
 
-    public static int checkArgumentInRange(int i, int i2, int i3, String str) {
+    public static int checkArgumentInRange(int i, int i2, int i3, @NonNull String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str})) == null) {

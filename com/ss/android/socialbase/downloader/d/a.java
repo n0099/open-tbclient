@@ -2,6 +2,7 @@ package com.ss.android.socialbase.downloader.d;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -334,7 +335,7 @@ public class a {
         a("segment_io", aVar.b("monitor_segment_io"), aVar, downloadInfo, str, str2, str3, iVar, z, false, baseException, j, j2, false, -1L, -1L, -1L, null);
     }
 
-    public static void a(DownloadInfo downloadInfo, List list) {
+    public static void a(DownloadInfo downloadInfo, List<com.ss.android.socialbase.downloader.f.i> list) {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("segments", com.ss.android.socialbase.downloader.f.i.a(list));
@@ -388,7 +389,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(com.ss.android.socialbase.downloader.network.g gVar, String str, String str2, long j, String str3, int i, IOException iOException, DownloadInfo downloadInfo) {
+    public static void a(@Nullable com.ss.android.socialbase.downloader.network.g gVar, String str, String str2, long j, String str3, int i, IOException iOException, DownloadInfo downloadInfo) {
         com.ss.android.socialbase.downloader.g.a a;
         int a2;
         String e;

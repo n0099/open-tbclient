@@ -17,14 +17,14 @@ import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
 /* loaded from: classes4.dex */
-public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage {
+public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int commonGroupNum;
-    public List commonGroups;
+    public List<GroupInfoData> commonGroups;
     public int groupNum;
     public GroupPermData groupPerm;
-    public List groups;
+    public List<GroupInfoData> groups;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGroupsByUidLocalMessage() {
@@ -53,7 +53,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List getCommonGroups() {
+    public List<GroupInfoData> getCommonGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -80,7 +80,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage {
         return (GroupPermData) invokeV.objValue;
     }
 
-    public List getGroups() {
+    public List<GroupInfoData> getGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -192,7 +192,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage {
         }
     }
 
-    public void setCommonGroups(List list) {
+    public void setCommonGroups(List<GroupInfoData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.commonGroups = list;
@@ -213,7 +213,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage {
         }
     }
 
-    public void setGroups(List list) {
+    public void setGroups(List<GroupInfoData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.groups = list;

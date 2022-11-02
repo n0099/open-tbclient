@@ -1,50 +1,122 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TabPic;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public class os6 {
+public class os6 extends jn<on8, FrsLikeRecommendHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public ij6 c;
-    public String d;
-    public int e;
-    public TabPic f;
+    public ThemeColorInfo a;
 
-    public os6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ on8 a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ os6 d;
+
+        public a(os6 os6Var, on8 on8Var, ViewGroup viewGroup, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {os6Var, on8Var, viewGroup, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = os6Var;
+            this.a = on8Var;
+            this.b = viewGroup;
+            this.c = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d.getOnAdapterItemClickListener() != null) {
+                this.d.getOnAdapterItemClickListener().b(view2, this.a, on8.e, this.b, this.c, view2.getId());
             }
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        String str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public os6(@NonNull Context context) {
+        super(context, on8.e);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj != null && (obj instanceof os6)) {
-                os6 os6Var = (os6) obj;
-                if (this.b == os6Var.b && (str = this.a) != null && str.equals(os6Var.a)) {
-                    return true;
-                }
-                return super.equals(obj);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: s */
+    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0332, viewGroup, false), this.a);
+        }
+        return (FrsLikeRecommendHolder) invokeL.objValue;
+    }
+
+    public void u(ThemeColorInfo themeColorInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, themeColorInfo) == null) {
+            this.a = themeColorInfo;
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, on8 on8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        t(i, view2, viewGroup, on8Var, frsLikeRecommendHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, on8 on8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, on8Var, frsLikeRecommendHolder})) == null) {
+            if (on8Var != null && frsLikeRecommendHolder != null) {
+                frsLikeRecommendHolder.a(on8Var);
+                frsLikeRecommendHolder.c(new a(this, on8Var, viewGroup, i));
+                frsLikeRecommendHolder.b();
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

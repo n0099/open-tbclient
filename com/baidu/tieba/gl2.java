@@ -1,68 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.davemorrissey.labs.subscaleview.ImageSource;
 /* loaded from: classes4.dex */
-public class gl2 extends gh2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "release";
+public class gl2 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947797692, "Lcom/baidu/tieba/gl2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947797692, "Lcom/baidu/tieba/gl2;");
-        }
-    }
-
-    public gl2() {
+    public static String a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str.startsWith(ImageSource.FILE_SCHEME)) {
+                str = str.substring(8);
             }
+            e43 M = e43.M();
+            if (mb3.E(str) && M != null) {
+                return mb3.H(str, M);
+            }
+            return str;
         }
-    }
-
-    @Override // com.baidu.tieba.gh2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gh2
-    /* renamed from: e */
-    public void a(ZeusPlugin.Command command, xl2 xl2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xl2Var) == null) {
-            xl2Var.release();
-            du1.e().o(xl2Var);
-            d(xl2Var, command.what, null, false);
-        }
+        return (String) invokeL.objValue;
     }
 }

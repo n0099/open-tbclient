@@ -2,6 +2,7 @@ package androidx.media;
 
 import android.media.VolumeProvider;
 import android.os.Build;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,6 +25,7 @@ public abstract class VolumeProviderCompat {
     public VolumeProvider mVolumeProviderFwk;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ControlType {
     }

@@ -2,11 +2,13 @@ package com.baidu.mario.audio;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@NotProguard
 /* loaded from: classes2.dex */
 public class AudioParams {
     public static /* synthetic */ Interceptable $ic = null;

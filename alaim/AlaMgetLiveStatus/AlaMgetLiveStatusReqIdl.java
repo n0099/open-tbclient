@@ -15,13 +15,13 @@ public final class AlaMgetLiveStatusReqIdl extends Message {
     public final DataReq data;
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<AlaMgetLiveStatusReqIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DataReq data;
@@ -65,6 +65,7 @@ public final class AlaMgetLiveStatusReqIdl extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public AlaMgetLiveStatusReqIdl build(boolean z) {
             InterceptResult invokeZ;

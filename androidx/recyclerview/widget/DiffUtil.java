@@ -1,5 +1,9 @@
 package androidx.recyclerview.widget;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,6 +34,7 @@ public class DiffUtil {
 
         public abstract boolean areItemsTheSame(int i, int i2);
 
+        @Nullable
         public Object getChangePayload(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
@@ -337,7 +342,7 @@ public class DiffUtil {
             return (PostponedUpdate) invokeCommon.objValue;
         }
 
-        public int convertNewPositionToOld(int i) {
+        public int convertNewPositionToOld(@IntRange(from = 0) int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -353,7 +358,7 @@ public class DiffUtil {
             return invokeI.intValue;
         }
 
-        public int convertOldPositionToNew(int i) {
+        public int convertOldPositionToNew(@IntRange(from = 0) int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -369,7 +374,7 @@ public class DiffUtil {
             return invokeI.intValue;
         }
 
-        public void dispatchUpdatesTo(ListUpdateCallback listUpdateCallback) {
+        public void dispatchUpdatesTo(@NonNull ListUpdateCallback listUpdateCallback) {
             BatchingListUpdateCallback batchingListUpdateCallback;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listUpdateCallback) == null) {
@@ -406,13 +411,14 @@ public class DiffUtil {
             }
         }
 
-        public void dispatchUpdatesTo(RecyclerView.Adapter adapter) {
+        public void dispatchUpdatesTo(@NonNull RecyclerView.Adapter adapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, adapter) == null) {
                 dispatchUpdatesTo(new AdapterListUpdateCallback(adapter));
             }
         }
 
+        @VisibleForTesting
         public List<Snake> getSnakes() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -428,11 +434,12 @@ public class DiffUtil {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract boolean areContentsTheSame(T t, T t2);
+        public abstract boolean areContentsTheSame(@NonNull T t, @NonNull T t2);
 
-        public abstract boolean areItemsTheSame(T t, T t2);
+        public abstract boolean areItemsTheSame(@NonNull T t, @NonNull T t2);
 
-        public Object getChangePayload(T t, T t2) {
+        @Nullable
+        public Object getChangePayload(@NonNull T t, @NonNull T t2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, t2)) == null) {
@@ -617,7 +624,8 @@ public class DiffUtil {
         }
     }
 
-    public static DiffResult calculateDiff(Callback callback) {
+    @NonNull
+    public static DiffResult calculateDiff(@NonNull Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callback)) == null) {
@@ -626,7 +634,8 @@ public class DiffUtil {
         return (DiffResult) invokeL.objValue;
     }
 
-    public static DiffResult calculateDiff(Callback callback, boolean z) {
+    @NonNull
+    public static DiffResult calculateDiff(@NonNull Callback callback, boolean z) {
         InterceptResult invokeLZ;
         Range range;
         Interceptable interceptable = $ic;

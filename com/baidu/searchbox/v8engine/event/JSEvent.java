@@ -1,12 +1,14 @@
 package com.baidu.searchbox.v8engine.event;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@NotProguard
 /* loaded from: classes2.dex */
 public class JSEvent {
     public static /* synthetic */ Interceptable $ic;

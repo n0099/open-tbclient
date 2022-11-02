@@ -39,7 +39,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
     public long mAppid;
     public long mGroupId;
     public String mKey;
-    public ArrayList mMembers;
+    public ArrayList<String> mMembers;
 
     static {
         InterceptResult invokeClinit;
@@ -168,7 +168,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMAddGroupMemberRequest(Context context, String str, long j, long j2, ArrayList arrayList, boolean z) {
+    public IMAddGroupMemberRequest(Context context, String str, long j, long j2, ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -209,12 +209,12 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
             sb.append(currentTimeMillis);
             sb.append("&sign=");
             sb.append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
-            ArrayList arrayList = this.mMembers;
+            ArrayList<String> arrayList = this.mMembers;
             if (arrayList != null && arrayList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = this.mMembers.iterator();
+                Iterator<String> it = this.mMembers.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put((String) it.next());
+                    jSONArray.put(it.next());
                 }
                 sb.append("&members=");
                 sb.append(jSONArray.toString());
@@ -228,7 +228,7 @@ public class IMAddGroupMemberRequest extends GroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
                 if (this.isCreateGroup) {

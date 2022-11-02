@@ -3,6 +3,9 @@ package androidx.lifecycle;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,6 +35,7 @@ public class LifecycleService extends Service implements LifecycleOwner {
     }
 
     @Override // androidx.lifecycle.LifecycleOwner
+    @NonNull
     public Lifecycle getLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,6 +46,7 @@ public class LifecycleService extends Service implements LifecycleOwner {
     }
 
     @Override // android.app.Service
+    @CallSuper
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -51,6 +56,7 @@ public class LifecycleService extends Service implements LifecycleOwner {
     }
 
     @Override // android.app.Service
+    @CallSuper
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -60,7 +66,9 @@ public class LifecycleService extends Service implements LifecycleOwner {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
+    @Nullable
+    @CallSuper
+    public IBinder onBind(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
@@ -71,7 +79,8 @@ public class LifecycleService extends Service implements LifecycleOwner {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
+    @CallSuper
+    public void onStart(@Nullable Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i) == null) {
             this.mDispatcher.onServicePreSuperOnStart();
@@ -80,7 +89,8 @@ public class LifecycleService extends Service implements LifecycleOwner {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    @CallSuper
+    public int onStartCommand(@Nullable Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, intent, i, i2)) == null) {

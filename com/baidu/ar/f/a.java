@@ -19,12 +19,12 @@ public class a implements SensorEventListener {
     public Context mContext;
     public SensorManager rH;
     public Sensor vS;
-    public InterfaceC0057a vT;
+    public InterfaceC0058a vT;
     public boolean vU;
-    public LinkedList vV;
-    public LinkedList vW;
-    public LinkedList vX;
-    public LinkedList vY;
+    public LinkedList<Double> vV;
+    public LinkedList<Float> vW;
+    public LinkedList<Float> vX;
+    public LinkedList<Float> vY;
     public int vZ;
     public double wa;
     public boolean wb;
@@ -32,7 +32,7 @@ public class a implements SensorEventListener {
 
     /* renamed from: com.baidu.ar.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0057a {
+    public interface InterfaceC0058a {
         void b(float f, float f2, float f3, float f4);
 
         void destroy();
@@ -54,10 +54,10 @@ public class a implements SensorEventListener {
             }
         }
         this.vU = true;
-        this.vV = new LinkedList();
-        this.vW = new LinkedList();
-        this.vX = new LinkedList();
-        this.vY = new LinkedList();
+        this.vV = new LinkedList<>();
+        this.vW = new LinkedList<>();
+        this.vX = new LinkedList<>();
+        this.vY = new LinkedList<>();
         this.vZ = 10;
         this.wa = 0.0d;
         this.wb = true;
@@ -72,10 +72,10 @@ public class a implements SensorEventListener {
         }
     }
 
-    public void a(InterfaceC0057a interfaceC0057a) {
+    public void a(InterfaceC0058a interfaceC0058a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0057a) == null) {
-            this.vT = interfaceC0057a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0058a) == null) {
+            this.vT = interfaceC0058a;
         }
     }
 
@@ -100,7 +100,7 @@ public class a implements SensorEventListener {
     }
 
     public void b(float f, float f2, float f3) {
-        InterfaceC0057a interfaceC0057a;
+        InterfaceC0058a interfaceC0058a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             double sqrt = Math.sqrt((f * f) + (f2 * f2) + (f3 * f3));
@@ -109,19 +109,19 @@ public class a implements SensorEventListener {
             }
             com.baidu.ar.h.b.aQ("max acc is : " + this.wa);
             a(this.vV, sqrt);
-            a(this.vW, Math.abs(f));
-            a(this.vX, Math.abs(f2));
-            a(this.vY, Math.abs(f3));
+            a((LinkedList) this.vW, Math.abs(f));
+            a((LinkedList) this.vX, Math.abs(f2));
+            a((LinkedList) this.vY, Math.abs(f3));
             if (this.vV.size() == this.vZ) {
                 float f4 = 0.0f;
                 double d = 0.0d;
                 float f5 = 0.0f;
                 float f6 = 0.0f;
                 for (int i = 0; i < this.vV.size(); i++) {
-                    d += ((Double) this.vV.get(i)).doubleValue();
-                    f4 += ((Float) this.vW.get(i)).floatValue();
-                    f5 += ((Float) this.vX.get(i)).floatValue();
-                    f6 += ((Float) this.vY.get(i)).floatValue();
+                    d += this.vV.get(i).doubleValue();
+                    f4 += this.vW.get(i).floatValue();
+                    f5 += this.vX.get(i).floatValue();
+                    f6 += this.vY.get(i).floatValue();
                 }
                 int i2 = this.vZ;
                 double d2 = d / i2;
@@ -136,11 +136,11 @@ public class a implements SensorEventListener {
                         this.wb = false;
                     } else if (d2 < 10.0d) {
                         this.wb = true;
-                        interfaceC0057a = this.vT;
-                        if (interfaceC0057a == null) {
+                        interfaceC0058a = this.vT;
+                        if (interfaceC0058a == null) {
                             return;
                         }
-                        interfaceC0057a.b(f7, f8, f9, (float) this.wa);
+                        interfaceC0058a.b(f7, f8, f9, (float) this.wa);
                         this.wa = 0.0d;
                     }
                 } else if (this.wb) {
@@ -150,11 +150,11 @@ public class a implements SensorEventListener {
                     this.wb = false;
                 } else if (d2 < 5.0d) {
                     this.wb = true;
-                    interfaceC0057a = this.vT;
-                    if (interfaceC0057a == null) {
+                    interfaceC0058a = this.vT;
+                    if (interfaceC0058a == null) {
                         return;
                     }
-                    interfaceC0057a.b(f7, f8, f9, (float) this.wa);
+                    interfaceC0058a.b(f7, f8, f9, (float) this.wa);
                     this.wa = 0.0d;
                 }
             }
@@ -206,9 +206,9 @@ public class a implements SensorEventListener {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            InterfaceC0057a interfaceC0057a = this.vT;
-            if (interfaceC0057a != null) {
-                interfaceC0057a.destroy();
+            InterfaceC0058a interfaceC0058a = this.vT;
+            if (interfaceC0058a != null) {
+                interfaceC0058a.destroy();
                 this.vT = null;
             }
             SensorManager sensorManager = this.rH;

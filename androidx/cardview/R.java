@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public final class attr {
+    public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int cardBackgroundColor = 0x7f04011f;
         public static final int cardCornerRadius = 0x7f040120;
@@ -45,12 +45,12 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class color {
+    public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int cardview_dark_background = 0x7f06044c;
-        public static final int cardview_light_background = 0x7f06044d;
-        public static final int cardview_shadow_end_color = 0x7f06044e;
-        public static final int cardview_shadow_start_color = 0x7f06044f;
+        public static final int cardview_dark_background = 0x7f06044d;
+        public static final int cardview_light_background = 0x7f06044e;
+        public static final int cardview_shadow_end_color = 0x7f06044f;
+        public static final int cardview_shadow_start_color = 0x7f060450;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -69,7 +69,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class dimen {
+    public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int cardview_compat_inset_shadow = 0x7f0701b3;
         public static final int cardview_default_elevation = 0x7f0701b4;
@@ -92,7 +92,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class style {
+    public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int Base_CardView = 0x7f100016;
         public static final int CardView = 0x7f1000fc;
@@ -116,7 +116,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public final class styleable {
+    public static final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] CardView;
         public static final int CardView_android_minHeight = 0x00000001;

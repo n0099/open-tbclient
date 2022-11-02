@@ -19,14 +19,14 @@ public class RateShareEntry extends GroupEntry {
     public static final String TYPE = "rash";
     public transient /* synthetic */ FieldHolder $fh;
     public short discardPriority;
-    public List entries;
+    public List<Entry> entries;
     public int maximumBitrate;
     public int minimumBitrate;
     public short operationPointCut;
     public short targetRateShare;
 
     /* loaded from: classes7.dex */
-    public class Entry {
+    public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int availableBitrate;
@@ -146,7 +146,7 @@ public class RateShareEntry extends GroupEntry {
         return invokeV.shortValue;
     }
 
-    public List getEntries() {
+    public List<Entry> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -205,8 +205,8 @@ public class RateShareEntry extends GroupEntry {
             if (this.discardPriority != rateShareEntry.discardPriority || this.maximumBitrate != rateShareEntry.maximumBitrate || this.minimumBitrate != rateShareEntry.minimumBitrate || this.operationPointCut != rateShareEntry.operationPointCut || this.targetRateShare != rateShareEntry.targetRateShare) {
                 return false;
             }
-            List list = this.entries;
-            List list2 = rateShareEntry.entries;
+            List<Entry> list = this.entries;
+            List<Entry> list2 = rateShareEntry.entries;
             if (list == null ? list2 == null : list.equals(list2)) {
                 return true;
             }
@@ -278,7 +278,7 @@ public class RateShareEntry extends GroupEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int i2 = ((this.operationPointCut * 31) + this.targetRateShare) * 31;
-            List list = this.entries;
+            List<Entry> list = this.entries;
             if (list != null) {
                 i = list.hashCode();
             } else {
@@ -296,7 +296,7 @@ public class RateShareEntry extends GroupEntry {
         }
     }
 
-    public void setEntries(List list) {
+    public void setEntries(List<Entry> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.entries = list;

@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.datasource;
 
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,14 +9,15 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.BaseDataSubscriber;
 import com.facebook.datasource.DataSource;
 import com.facebook.imagepipeline.image.CloseableBitmap;
+import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class BaseListBitmapDataSubscriber extends BaseDataSubscriber {
+public abstract class BaseListBitmapDataSubscriber extends BaseDataSubscriber<List<CloseableReference<CloseableImage>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void onNewResultListImpl(List list);
+    public abstract void onNewResultListImpl(List<Bitmap> list);
 
     public BaseListBitmapDataSubscriber() {
         Interceptable interceptable = $ic;
@@ -32,19 +34,19 @@ public abstract class BaseListBitmapDataSubscriber extends BaseDataSubscriber {
     }
 
     @Override // com.facebook.datasource.BaseDataSubscriber
-    public void onNewResultImpl(DataSource dataSource) {
+    public void onNewResultImpl(DataSource<List<CloseableReference<CloseableImage>>> dataSource) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, dataSource) != null) || !dataSource.isFinished()) {
             return;
         }
-        List<CloseableReference> list = (List) dataSource.getResult();
-        if (list == null) {
+        List<CloseableReference<CloseableImage>> result = dataSource.getResult();
+        if (result == null) {
             onNewResultListImpl(null);
             return;
         }
         try {
-            ArrayList arrayList = new ArrayList(list.size());
-            for (CloseableReference closeableReference : list) {
+            ArrayList arrayList = new ArrayList(result.size());
+            for (CloseableReference<CloseableImage> closeableReference : result) {
                 if (closeableReference != null && (closeableReference.get() instanceof CloseableBitmap)) {
                     arrayList.add(((CloseableBitmap) closeableReference.get()).getUnderlyingBitmap());
                 } else {
@@ -53,8 +55,8 @@ public abstract class BaseListBitmapDataSubscriber extends BaseDataSubscriber {
             }
             onNewResultListImpl(arrayList);
         } finally {
-            for (CloseableReference closeableReference2 : list) {
-                CloseableReference.closeSafely(closeableReference2);
+            for (CloseableReference<CloseableImage> next : result) {
+                CloseableReference.closeSafely(next);
             }
         }
     }

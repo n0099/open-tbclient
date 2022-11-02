@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class Table$DebugRect extends Rectangle {
     public static /* synthetic */ Interceptable $ic;
-    public static a8 pool;
+    public static a8<Table$DebugRect> pool;
     public transient /* synthetic */ FieldHolder $fh;
     public l3 color;
 

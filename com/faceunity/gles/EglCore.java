@@ -1,5 +1,6 @@
 package com.faceunity.gles;
 
+import android.annotation.TargetApi;
 import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;
@@ -18,6 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
+@TargetApi(18)
 /* loaded from: classes7.dex */
 public final class EglCore {
     public static /* synthetic */ Interceptable $ic = null;

@@ -1,11 +1,13 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import android.view.Surface;
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.rtc.CyberCaptureManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes2.dex */
 public abstract class CaptureManagerProvider {
     public static /* synthetic */ Interceptable $ic;

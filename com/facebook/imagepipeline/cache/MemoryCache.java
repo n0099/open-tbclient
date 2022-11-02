@@ -5,7 +5,7 @@ import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public interface MemoryCache {
+public interface MemoryCache<K, V> {
 
     /* loaded from: classes7.dex */
     public interface CacheTrimStrategy {
@@ -13,20 +13,20 @@ public interface MemoryCache {
     }
 
     @Nullable
-    CloseableReference cache(Object obj, CloseableReference closeableReference);
+    CloseableReference<V> cache(K k, CloseableReference<V> closeableReference);
 
-    boolean contains(Predicate predicate);
+    boolean contains(Predicate<K> predicate);
 
-    boolean contains(Object obj);
+    boolean contains(K k);
 
     @Nullable
-    CloseableReference get(Object obj);
+    CloseableReference<V> get(K k);
 
     int getCount();
 
     int getSizeInBytes();
 
-    void probe(Object obj);
+    void probe(K k);
 
-    int removeAll(Predicate predicate);
+    int removeAll(Predicate<K> predicate);
 }

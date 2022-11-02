@@ -28,10 +28,10 @@ public class IMGetUserIpLocation extends Message {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public int mReSendCount;
-    public ArrayList mUids;
+    public ArrayList<Long> mUids;
     public int msgtype;
 
-    public IMGetUserIpLocation(Context context, ArrayList arrayList) {
+    public IMGetUserIpLocation(Context context, ArrayList<Long> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +82,7 @@ public class IMGetUserIpLocation extends Message {
         return (IMGetUserIpLocation) invokeLL.objValue;
     }
 
-    private void updateDB(Context context, ArrayList arrayList) {
+    private void updateDB(Context context, ArrayList<IpInfo> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, arrayList) == null) {
             IMUserManager.getInstance(context).updateUserIpInfo(arrayList);
@@ -116,7 +116,7 @@ public class IMGetUserIpLocation extends Message {
         return invokeV.intValue;
     }
 
-    public ArrayList getToUsers() {
+    public ArrayList<Long> getToUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -145,11 +145,11 @@ public class IMGetUserIpLocation extends Message {
                     setNeedReSend(false);
                 }
             }
-            ArrayList arrayList = null;
+            ArrayList<IpInfo> arrayList = null;
             if (i == 0) {
                 try {
                     if (jSONObject.has("location")) {
-                        ArrayList arrayList2 = new ArrayList();
+                        ArrayList<IpInfo> arrayList2 = new ArrayList<>();
                         try {
                             JSONArray jSONArray = (JSONArray) jSONObject.opt("location");
                             for (int i3 = 0; i3 < jSONArray.length(); i3++) {

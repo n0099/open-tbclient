@@ -12,6 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
@@ -36,6 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.TextScale;
 import java.util.HashSet;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     public static /* synthetic */ Interceptable $ic = null;
@@ -46,7 +53,9 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     public transient /* synthetic */ FieldHolder $fh;
     public final int activeItemMaxWidth;
     public final int activeItemMinWidth;
-    public SparseArray badgeDrawables;
+    @NonNull
+    public SparseArray<BadgeDrawable> badgeDrawables;
+    @Nullable
     public BottomNavigationItemView[] buttons;
     public final int inactiveItemMaxWidth;
     public final int inactiveItemMinWidth;
@@ -54,19 +63,25 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     public int itemBackgroundRes;
     public final int itemHeight;
     public boolean itemHorizontalTranslationEnabled;
+    @Dimension
     public int itemIconSize;
     public ColorStateList itemIconTint;
-    public final Pools.Pool itemPool;
+    public final Pools.Pool<BottomNavigationItemView> itemPool;
+    @StyleRes
     public int itemTextAppearanceActive;
+    @StyleRes
     public int itemTextAppearanceInactive;
+    @Nullable
     public final ColorStateList itemTextColorDefault;
     public ColorStateList itemTextColorFromUser;
     public int labelVisibilityMode;
     public MenuBuilder menu;
+    @NonNull
     public final View.OnClickListener onClickListener;
     public BottomNavigationPresenter presenter;
     public int selectedItemId;
     public int selectedItemPosition;
+    @NonNull
     public final TransitionSet set;
     public int[] tempChildWidths;
 
@@ -145,7 +160,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             validateMenuItemId(i);
-            BadgeDrawable badgeDrawable = (BadgeDrawable) this.badgeDrawables.get(i);
+            BadgeDrawable badgeDrawable = this.badgeDrawables.get(i);
             if (badgeDrawable == null) {
                 badgeDrawable = BadgeDrawable.create(getContext());
                 this.badgeDrawables.put(i, badgeDrawable);
@@ -181,7 +196,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         this.itemPool = new Pools.SynchronizedPool(5);
         this.selectedItemId = 0;
         this.selectedItemPosition = 0;
-        this.badgeDrawables = new SparseArray(5);
+        this.badgeDrawables = new SparseArray<>(5);
         Resources resources = getResources();
         this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f8);
         this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fa);
@@ -233,12 +248,12 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         ViewCompat.setImportantForAccessibility(this, 1);
     }
 
-    private void setBadgeIfNeeded(BottomNavigationItemView bottomNavigationItemView) {
+    private void setBadgeIfNeeded(@NonNull BottomNavigationItemView bottomNavigationItemView) {
         BadgeDrawable badgeDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, bottomNavigationItemView) == null) {
             int id = bottomNavigationItemView.getId();
-            if (isValidId(id) && (badgeDrawable = (BadgeDrawable) this.badgeDrawables.get(id)) != null) {
+            if (isValidId(id) && (badgeDrawable = this.badgeDrawables.get(id)) != null) {
                 bottomNavigationItemView.setBadge(badgeDrawable);
             }
         }
@@ -252,6 +267,8 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         throw new IllegalArgumentException(i + " is not a valid view id");
     }
 
+    @Nullable
+    @VisibleForTesting
     public BottomNavigationItemView findItemView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -271,11 +288,12 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return (BottomNavigationItemView) invokeI.objValue;
     }
 
+    @Nullable
     public BadgeDrawable getBadge(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return (BadgeDrawable) this.badgeDrawables.get(i);
+            return this.badgeDrawables.get(i);
         }
         return (BadgeDrawable) invokeI.objValue;
     }
@@ -289,7 +307,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     }
 
     @Override // android.view.View
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+    public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, accessibilityNodeInfo) == null) {
             super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
@@ -301,7 +319,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             validateMenuItemId(i);
-            BadgeDrawable badgeDrawable = (BadgeDrawable) this.badgeDrawables.get(i);
+            BadgeDrawable badgeDrawable = this.badgeDrawables.get(i);
             BottomNavigationItemView findItemView = findItemView(i);
             if (findItemView != null) {
                 findItemView.removeBadge();
@@ -312,14 +330,14 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setBadgeDrawables(SparseArray sparseArray) {
+    public void setBadgeDrawables(SparseArray<BadgeDrawable> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, sparseArray) == null) {
             this.badgeDrawables = sparseArray;
             BottomNavigationItemView[] bottomNavigationItemViewArr = this.buttons;
             if (bottomNavigationItemViewArr != null) {
                 for (BottomNavigationItemView bottomNavigationItemView : bottomNavigationItemViewArr) {
-                    bottomNavigationItemView.setBadge((BadgeDrawable) sparseArray.get(bottomNavigationItemView.getId()));
+                    bottomNavigationItemView.setBadge(sparseArray.get(bottomNavigationItemView.getId()));
                 }
             }
         }
@@ -338,7 +356,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setItemBackground(Drawable drawable) {
+    public void setItemBackground(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, drawable) == null) {
             this.itemBackground = drawable;
@@ -371,7 +389,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setItemIconSize(int i) {
+    public void setItemIconSize(@Dimension int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
             this.itemIconSize = i;
@@ -384,7 +402,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setItemTextAppearanceActive(int i) {
+    public void setItemTextAppearanceActive(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
             this.itemTextAppearanceActive = i;
@@ -401,7 +419,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setItemTextAppearanceInactive(int i) {
+    public void setItemTextAppearanceInactive(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
             this.itemTextAppearanceInactive = i;
@@ -465,16 +483,16 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            BottomNavigationItemView bottomNavigationItemView = (BottomNavigationItemView) this.itemPool.acquire();
-            if (bottomNavigationItemView == null) {
+            BottomNavigationItemView acquire = this.itemPool.acquire();
+            if (acquire == null) {
                 return new BottomNavigationItemView(getContext());
             }
-            return bottomNavigationItemView;
+            return acquire;
         }
         return (BottomNavigationItemView) invokeV.objValue;
     }
 
-    public SparseArray getBadgeDrawables() {
+    public SparseArray<BadgeDrawable> getBadgeDrawables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -483,6 +501,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return (SparseArray) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getIconTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -492,6 +511,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getItemBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -515,6 +535,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return invokeV.intValue;
     }
 
+    @Dimension
     public int getItemIconSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -524,6 +545,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return invokeV.intValue;
     }
 
+    @StyleRes
     public int getItemTextAppearanceActive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -533,6 +555,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return invokeV.intValue;
     }
 
+    @StyleRes
     public int getItemTextAppearanceInactive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -651,6 +674,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
+    @Nullable
     public ColorStateList createDefaultColorStateList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;

@@ -2,6 +2,7 @@ package com.win.opensdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,7 +135,7 @@ public class x1 {
                                 info.setVv_ins_urls(optJSONObject.optString("vv_ins_urls"));
                                 info.setVv_show_urls(optJSONObject.optString("vv_show_urls"));
                                 info.setVv_start_urls(optJSONObject.optString("vv_start_urls"));
-                                info.setW(optJSONObject.optInt("w", 0));
+                                info.setW(optJSONObject.optInt(Config.DEVICE_WIDTH, 0));
                                 info.setH(optJSONObject.optInt("h", 0));
                                 info.setEvents(optJSONObject.optString("events"));
                                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("material");

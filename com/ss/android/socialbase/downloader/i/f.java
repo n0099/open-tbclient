@@ -1,5 +1,6 @@
 package com.ss.android.socialbase.downloader.i;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.database.Cursor;
@@ -50,7 +51,6 @@ import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -64,8 +64,8 @@ public class f {
     public static final String a = "f";
     public static final Pattern b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
     public static String c = null;
-    public static volatile SparseArray d = new SparseArray();
-    public static volatile SparseArray e = new SparseArray();
+    public static volatile SparseArray<Boolean> d = new SparseArray<>();
+    public static volatile SparseArray<List<ai>> e = new SparseArray<>();
     public static final char[] f = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static Pattern g = null;
     public static Pattern h = null;
@@ -283,7 +283,7 @@ public class f {
         if (downloadInfo == null) {
             return -1L;
         }
-        List c2 = com.ss.android.socialbase.downloader.downloader.c.x().c(downloadInfo.getId());
+        List<com.ss.android.socialbase.downloader.model.b> c2 = com.ss.android.socialbase.downloader.downloader.c.x().c(downloadInfo.getId());
         if (downloadInfo.getChunkCount() == 1) {
             return downloadInfo.getCurBytes();
         }
@@ -350,11 +350,10 @@ public class f {
         return connectivityManager;
     }
 
-    public static long b(List list) {
-        Iterator it = list.iterator();
+    public static long b(List<com.ss.android.socialbase.downloader.model.b> list) {
         long j2 = 0;
-        while (it.hasNext()) {
-            j2 += ((com.ss.android.socialbase.downloader.model.b) it.next()).o();
+        for (com.ss.android.socialbase.downloader.model.b bVar : list) {
+            j2 += bVar.o();
         }
         return j2;
     }
@@ -462,7 +461,7 @@ public class f {
         return j2;
     }
 
-    public static void b(List list, DownloadInfo downloadInfo) {
+    public static void b(List<com.ss.android.socialbase.downloader.model.c> list, DownloadInfo downloadInfo) {
         long ttnetProtectTimeout = downloadInfo.getTtnetProtectTimeout();
         if (ttnetProtectTimeout > 300) {
             list.add(new com.ss.android.socialbase.downloader.model.c("extra_ttnet_protect_timeout", String.valueOf(ttnetProtectTimeout)));
@@ -564,14 +563,12 @@ public class f {
         return true;
     }
 
-    public static long d(List list) {
+    public static long d(List<com.ss.android.socialbase.downloader.model.b> list) {
         if (list == null || list.isEmpty()) {
             return -1L;
         }
-        Iterator it = list.iterator();
         long j2 = -1;
-        while (it.hasNext()) {
-            com.ss.android.socialbase.downloader.model.b bVar = (com.ss.android.socialbase.downloader.model.b) it.next();
+        for (com.ss.android.socialbase.downloader.model.b bVar : list) {
             if (bVar != null && (bVar.n() <= bVar.p() || bVar.p() == 0)) {
                 if (j2 == -1 || j2 > bVar.n()) {
                     j2 = bVar.n();
@@ -585,7 +582,7 @@ public class f {
         if (downloadInfo == null) {
             return 0L;
         }
-        List c2 = com.ss.android.socialbase.downloader.downloader.c.x().c(downloadInfo.getId());
+        List<com.ss.android.socialbase.downloader.model.b> c2 = com.ss.android.socialbase.downloader.downloader.c.x().c(downloadInfo.getId());
         int chunkCount = downloadInfo.getChunkCount();
         boolean z = true;
         if (chunkCount <= 1) {
@@ -800,11 +797,11 @@ public class f {
         throw new NullPointerException("bytes is null");
     }
 
-    public static HashMap a(SparseArray sparseArray) {
+    public static <K> HashMap<Integer, K> a(SparseArray<K> sparseArray) {
         if (sparseArray == null) {
             return null;
         }
-        HashMap hashMap = new HashMap();
+        HashMap<Integer, K> hashMap = new HashMap<>();
         int size = sparseArray.size();
         for (int i2 = 0; i2 < size; i2++) {
             int keyAt = sparseArray.keyAt(i2);
@@ -844,12 +841,10 @@ public class f {
         return true;
     }
 
-    public static List a(List list) {
+    public static List<com.ss.android.socialbase.downloader.model.b> a(List<com.ss.android.socialbase.downloader.model.b> list) {
         SparseArray sparseArray = new SparseArray();
         SparseArray sparseArray2 = new SparseArray();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            com.ss.android.socialbase.downloader.model.b bVar = (com.ss.android.socialbase.downloader.model.b) it.next();
+        for (com.ss.android.socialbase.downloader.model.b bVar : list) {
             if (bVar != null) {
                 if (bVar.d()) {
                     sparseArray.put(bVar.s(), bVar);
@@ -863,9 +858,9 @@ public class f {
                 } else {
                     com.ss.android.socialbase.downloader.model.b bVar3 = (com.ss.android.socialbase.downloader.model.b) sparseArray.get(bVar.b());
                     if (bVar3 != null) {
-                        List g2 = bVar3.g();
+                        List<com.ss.android.socialbase.downloader.model.b> g2 = bVar3.g();
                         if (g2 == null) {
-                            g2 = new ArrayList();
+                            g2 = new ArrayList<>();
                             bVar3.a(g2);
                         }
                         bVar.a(bVar3);
@@ -916,13 +911,11 @@ public class f {
         return str + "unknown error";
     }
 
-    public static List a(List list, String str, long j2, long j3) {
+    public static List<com.ss.android.socialbase.downloader.model.c> a(List<com.ss.android.socialbase.downloader.model.c> list, String str, long j2, long j3) {
         String format;
         ArrayList arrayList = new ArrayList();
         if (list != null && list.size() > 0) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                com.ss.android.socialbase.downloader.model.c cVar = (com.ss.android.socialbase.downloader.model.c) it.next();
+            for (com.ss.android.socialbase.downloader.model.c cVar : list) {
                 if (cVar != null) {
                     arrayList.add(cVar);
                 }
@@ -943,7 +936,7 @@ public class f {
         return arrayList;
     }
 
-    public static List a(List list, String str, com.ss.android.socialbase.downloader.model.b bVar) {
+    public static List<com.ss.android.socialbase.downloader.model.c> a(List<com.ss.android.socialbase.downloader.model.c> list, String str, com.ss.android.socialbase.downloader.model.b bVar) {
         return a(list, str, bVar.m(), bVar.p());
     }
 
@@ -957,7 +950,7 @@ public class f {
 
     public static void a(int i2, boolean z, BaseException baseException) {
         synchronized (d) {
-            List<ai> list = (List) e.get(i2);
+            List<ai> list = e.get(i2);
             if (list != null) {
                 for (ai aiVar : list) {
                     if (aiVar != null) {
@@ -975,7 +968,7 @@ public class f {
         }
     }
 
-    public static void a(SparseArray sparseArray, Map map) {
+    public static <K> void a(SparseArray<K> sparseArray, Map<Integer, K> map) {
         if (map != null && sparseArray != null) {
             for (Integer num : map.keySet()) {
                 if (num != null) {
@@ -1021,9 +1014,9 @@ public class f {
             if (z) {
                 com.ss.android.socialbase.downloader.c.a.b(a, "has another same task is saving temp file");
                 if (aiVar != null) {
-                    List list = (List) e.get(downloadInfo.getId());
+                    List<ai> list = e.get(downloadInfo.getId());
                     if (list == null) {
-                        list = new ArrayList();
+                        list = new ArrayList<>();
                         e.put(downloadInfo.getId(), list);
                     }
                     list.add(aiVar);
@@ -1278,7 +1271,7 @@ public class f {
         throw baseException;
     }
 
-    public static void a(List list, DownloadInfo downloadInfo) {
+    public static void a(List<com.ss.android.socialbase.downloader.model.c> list, DownloadInfo downloadInfo) {
         long throttleNetSpeed = downloadInfo.getThrottleNetSpeed();
         if (throttleNetSpeed > 0) {
             list.add(new com.ss.android.socialbase.downloader.model.c("extra_throttle_net_speed", String.valueOf(throttleNetSpeed)));
@@ -1479,7 +1472,7 @@ public class f {
         return true;
     }
 
-    public static boolean a(List list, List list2) {
+    public static boolean a(List<com.ss.android.socialbase.downloader.model.c> list, List<com.ss.android.socialbase.downloader.model.c> list2) {
         if (list == list2) {
             return true;
         }
@@ -1509,13 +1502,11 @@ public class f {
         return -1L;
     }
 
-    public static boolean c(List list) {
+    public static boolean c(List<com.ss.android.socialbase.downloader.model.c> list) {
         if (list == null || list.size() == 0) {
             return false;
         }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            com.ss.android.socialbase.downloader.model.c cVar = (com.ss.android.socialbase.downloader.model.c) it.next();
+        for (com.ss.android.socialbase.downloader.model.c cVar : list) {
             if (cVar != null && !TextUtils.isEmpty(cVar.a()) && !TextUtils.isEmpty(cVar.b()) && "download-tc21-1-15".equals(cVar.a()) && "download-tc21-1-15".equals(cVar.b())) {
                 return true;
             }
@@ -1666,6 +1657,7 @@ public class f {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    @TargetApi(19)
     public static void b(File file, File file2, boolean z) throws IOException {
         long j2;
         if (file2.exists() && file2.isDirectory()) {

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -30,15 +29,15 @@ public class NetworkQuality {
     public static final String TAG = "NetworkQualityLog";
     public static final int UNKNOWN_NETWORK_QUALITY = -1;
     public static int sLastNetworkQualityQuality = 1;
-    public static Map sLastSdtProbeErrorCodeMap = null;
+    public static Map<String, List<Integer>> sLastSdtProbeErrorCodeMap = null;
     public static int sNetworkQuality = 1;
-    public static final List sNetworkQualityListeners;
+    public static final List<NetworkQualityListener> sNetworkQualityListeners;
     public static volatile int sNetworkQualityUpdateFrom;
     public static WeakNetCheckConfig sWeakNetCheckConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public abstract class NetworkQualityListener {
+    public static abstract class NetworkQualityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Executor mExecutor;
@@ -79,7 +78,7 @@ public class NetworkQuality {
     }
 
     /* loaded from: classes2.dex */
-    public class WeakNetCheckConfig {
+    public static class WeakNetCheckConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;
         public static final long DEFAULT_TTFB_GOOD_THRESHOLD = 590;
@@ -88,7 +87,7 @@ public class NetworkQuality {
         public boolean enableSdt;
         public long goodTtfbThresholdMillis;
         public long nqeWeakTtfbThresholdMillis;
-        public List sdtProbeDomains;
+        public List<String> sdtProbeDomains;
         public long weakTtfbThresholdMillis;
 
         public WeakNetCheckConfig() {
@@ -110,7 +109,7 @@ public class NetworkQuality {
             this.sdtProbeDomains = new ArrayList();
         }
 
-        public WeakNetCheckConfig(long j, long j2, long j3, List list, boolean z, boolean z2) {
+        public WeakNetCheckConfig(long j, long j2, long j3, List<String> list, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,9 +139,7 @@ public class NetworkQuality {
             }
             if (list != null && !list.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    String str = (String) it.next();
+                for (String str : list) {
                     if (!TextUtils.isEmpty(str)) {
                         arrayList.add(str);
                     }
@@ -151,7 +148,7 @@ public class NetworkQuality {
                     this.sdtProbeDomains = Collections.unmodifiableList(arrayList);
                 }
             }
-            List list2 = this.sdtProbeDomains;
+            List<String> list2 = this.sdtProbeDomains;
             if (list2 == null || list2.isEmpty()) {
                 this.sdtProbeDomains = Arrays.asList("www.baidu.com");
             }
@@ -306,7 +303,7 @@ public class NetworkQuality {
         }
     }
 
-    public static void updateLastSdtProbeErrCode(Map map) {
+    public static void updateLastSdtProbeErrCode(Map<String, List<Integer>> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, map) == null) {
             synchronized (NetworkQuality.class) {

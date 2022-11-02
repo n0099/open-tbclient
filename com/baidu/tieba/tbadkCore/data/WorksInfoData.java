@@ -18,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.RecomTopicList;
 import tbclient.WorksInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WorksInfoData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<WorksInfoData> CREATOR;
@@ -36,8 +36,8 @@ public class WorksInfoData implements Serializable, Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes6.dex */
+    public static class a implements Parcelable.Creator<WorksInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -21,7 +21,7 @@ public final class HttpDate {
     public static final DateFormat[] BROWSER_COMPATIBLE_DATE_FORMATS;
     public static final String[] BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS;
     public static final long MAX_DATE = 253402300799999L;
-    public static final ThreadLocal STANDARD_DATE_FORMAT;
+    public static final ThreadLocal<DateFormat> STANDARD_DATE_FORMAT;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class HttpDate {
                 return;
             }
         }
-        STANDARD_DATE_FORMAT = new ThreadLocal() { // from class: com.baidu.searchbox.network.outback.core.internal.HttpDate.1
+        STANDARD_DATE_FORMAT = new ThreadLocal<DateFormat>() { // from class: com.baidu.searchbox.network.outback.core.internal.HttpDate.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,7 +92,7 @@ public final class HttpDate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, date)) == null) {
-            return ((DateFormat) STANDARD_DATE_FORMAT.get()).format(date);
+            return STANDARD_DATE_FORMAT.get().format(date);
         }
         return (String) invokeL.objValue;
     }
@@ -105,7 +105,7 @@ public final class HttpDate {
                 return null;
             }
             ParsePosition parsePosition = new ParsePosition(0);
-            Date parse = ((DateFormat) STANDARD_DATE_FORMAT.get()).parse(str, parsePosition);
+            Date parse = STANDARD_DATE_FORMAT.get().parse(str, parsePosition);
             if (parsePosition.getIndex() == str.length()) {
                 return parse;
             }

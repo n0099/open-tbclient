@@ -2,12 +2,14 @@ package com.kwad.components.core.webview.jshandler;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.components.core.c.a.a;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -21,8 +23,9 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
     public final AdTemplate mAdTemplate;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
+    @KsJson
     /* loaded from: classes7.dex */
-    public final class a extends com.kwad.sdk.core.response.kwai.a {
+    public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String LY;
@@ -90,7 +93,7 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    public static void a(AdInfo adInfo, a aVar) {
+    public static void a(@NonNull AdInfo adInfo, @NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, adInfo, aVar) == null) {
             AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
@@ -116,7 +119,7 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         com.kwad.components.core.c.a.c cVar2;
         int i;
         Interceptable interceptable = $ic;
@@ -170,7 +173,7 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.components.core.c.a.a.a(new a.C0566a(this.LW.Lk.Gl.getContext()).L(this.LW.mAdTemplate).b(this.LW.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.p.1.1
+                        com.kwad.components.core.c.a.a.a(new a.C0577a(this.LW.Lk.Gl.getContext()).L(this.LW.mAdTemplate).b(this.LW.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.p.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass1 LX;
@@ -208,6 +211,7 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

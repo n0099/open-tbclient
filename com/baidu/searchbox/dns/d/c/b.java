@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.HttpURLConnection;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public abstract class b extends a {
+public abstract class b<T> extends a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +45,7 @@ public abstract class b extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             String q = q();
-            Map parameters = getParameters();
+            Map<String, Object> parameters = getParameters();
             String str = "?";
             if (q.contains("?")) {
                 str = "&";

@@ -8,11 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.OOMSoftReference;
 import java.util.LinkedList;
+import javax.annotation.concurrent.NotThreadSafe;
+@NotThreadSafe
 /* loaded from: classes7.dex */
-public class OOMSoftReferenceBucket extends Bucket {
+public class OOMSoftReferenceBucket<V> extends Bucket<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList mSpareReferences;
+    public LinkedList<OOMSoftReference<V>> mSpareReferences;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OOMSoftReferenceBucket(int i, int i2, int i3) {
@@ -33,33 +35,33 @@ public class OOMSoftReferenceBucket extends Bucket {
                 return;
             }
         }
-        this.mSpareReferences = new LinkedList();
+        this.mSpareReferences = new LinkedList<>();
     }
 
     @Override // com.facebook.imagepipeline.memory.Bucket
-    public void addToFreeList(Object obj) {
+    public void addToFreeList(V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            OOMSoftReference oOMSoftReference = (OOMSoftReference) this.mSpareReferences.poll();
-            if (oOMSoftReference == null) {
-                oOMSoftReference = new OOMSoftReference();
+        if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
+            OOMSoftReference<V> poll = this.mSpareReferences.poll();
+            if (poll == null) {
+                poll = new OOMSoftReference<>();
             }
-            oOMSoftReference.set(obj);
-            this.mFreeList.add(oOMSoftReference);
+            poll.set(v);
+            this.mFreeList.add(poll);
         }
     }
 
     @Override // com.facebook.imagepipeline.memory.Bucket
-    public Object pop() {
+    public V pop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            OOMSoftReference oOMSoftReference = (OOMSoftReference) this.mFreeList.poll();
-            Object obj = oOMSoftReference.get();
+            OOMSoftReference<V> oOMSoftReference = (OOMSoftReference) this.mFreeList.poll();
+            V v = oOMSoftReference.get();
             oOMSoftReference.clear();
             this.mSpareReferences.add(oOMSoftReference);
-            return obj;
+            return v;
         }
-        return invokeV.objValue;
+        return (V) invokeV.objValue;
     }
 }

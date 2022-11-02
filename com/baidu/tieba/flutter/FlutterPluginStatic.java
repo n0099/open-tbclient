@@ -7,8 +7,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.bq4;
-import com.baidu.tieba.ee5;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.sq4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,7 +35,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (bq4.c().contains("-Flutter")) {
+        if (sq4.c().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -62,13 +62,13 @@ public class FlutterPluginStatic {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
-                public void onMessage(CustomResponsedMessage customResponsedMessage) {
+                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
                         if (customResponsedMessage.getData() instanceof IntentConfig) {
                             FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                        } else if (customResponsedMessage.getData() instanceof ee5) {
-                            FlutterPluginManager.getInstance().init((ee5) customResponsedMessage.getData());
+                        } else if (customResponsedMessage.getData() instanceof af5) {
+                            FlutterPluginManager.getInstance().init((af5) customResponsedMessage.getData());
                         } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                             FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                         } else {
@@ -77,7 +77,7 @@ public class FlutterPluginStatic {
                     }
                 }
             });
-            CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.2
+            CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new CustomMessageTask.CustomRunnable<PersonInfoActivityConfig>() { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,12 +96,12 @@ public class FlutterPluginStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage run(CustomMessage customMessage) {
+                public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
                         if (customMessage != null && customMessage.getData() != null) {
-                            FlutterPluginManager.getInstance().initFromPersonInfo((PersonInfoActivityConfig) customMessage.getData());
+                            FlutterPluginManager.getInstance().initFromPersonInfo(customMessage.getData());
                         }
                         return null;
                     }

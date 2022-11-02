@@ -14,23 +14,23 @@ import java.util.Comparator;
 /* loaded from: classes7.dex */
 public class SlidingPercentile {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Comparator INDEX_COMPARATOR;
+    public static final Comparator<Sample> INDEX_COMPARATOR;
     public static final int MAX_RECYCLED_SAMPLES = 5;
     public static final int SORT_ORDER_BY_INDEX = 1;
     public static final int SORT_ORDER_BY_VALUE = 0;
     public static final int SORT_ORDER_NONE = -1;
-    public static final Comparator VALUE_COMPARATOR;
+    public static final Comparator<Sample> VALUE_COMPARATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int currentSortOrder;
     public final int maxWeight;
     public int nextSampleIndex;
     public int recycledSampleCount;
     public final Sample[] recycledSamples;
-    public final ArrayList samples;
+    public final ArrayList<Sample> samples;
     public int totalWeight;
 
     /* loaded from: classes7.dex */
-    public class Sample {
+    public static class Sample {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int index;
@@ -65,7 +65,7 @@ public class SlidingPercentile {
                 return;
             }
         }
-        INDEX_COMPARATOR = new Comparator() { // from class: com.google.android.exoplayer2.util.SlidingPercentile.1
+        INDEX_COMPARATOR = new Comparator<Sample>() { // from class: com.google.android.exoplayer2.util.SlidingPercentile.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -94,7 +94,7 @@ public class SlidingPercentile {
                 return invokeLL.intValue;
             }
         };
-        VALUE_COMPARATOR = new Comparator() { // from class: com.google.android.exoplayer2.util.SlidingPercentile.2
+        VALUE_COMPARATOR = new Comparator<Sample>() { // from class: com.google.android.exoplayer2.util.SlidingPercentile.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -166,7 +166,7 @@ public class SlidingPercentile {
         }
         this.maxWeight = i;
         this.recycledSamples = new Sample[5];
-        this.samples = new ArrayList();
+        this.samples = new ArrayList<>();
         this.currentSortOrder = -1;
     }
 
@@ -196,7 +196,7 @@ public class SlidingPercentile {
                 int i6 = this.maxWeight;
                 if (i5 > i6) {
                     int i7 = i5 - i6;
-                    Sample sample2 = (Sample) this.samples.get(0);
+                    Sample sample2 = this.samples.get(0);
                     int i8 = sample2.weight;
                     if (i8 <= i7) {
                         this.totalWeight -= i8;
@@ -226,7 +226,7 @@ public class SlidingPercentile {
             float f2 = f * this.totalWeight;
             int i = 0;
             for (int i2 = 0; i2 < this.samples.size(); i2++) {
-                Sample sample = (Sample) this.samples.get(i2);
+                Sample sample = this.samples.get(i2);
                 i += sample.weight;
                 if (i >= f2) {
                     return sample.value;
@@ -235,8 +235,8 @@ public class SlidingPercentile {
             if (this.samples.isEmpty()) {
                 return Float.NaN;
             }
-            ArrayList arrayList = this.samples;
-            return ((Sample) arrayList.get(arrayList.size() - 1)).value;
+            ArrayList<Sample> arrayList = this.samples;
+            return arrayList.get(arrayList.size() - 1).value;
         }
         return invokeF.floatValue;
     }

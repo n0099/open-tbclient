@@ -11,6 +11,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.SystemClock;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DrawableContainer extends Drawable implements Drawable.Callback {
     public static /* synthetic */ Interceptable $ic = null;
@@ -46,7 +51,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         public Drawable.Callback mCallback;
 
         @Override // android.graphics.drawable.Drawable.Callback
-        public void invalidateDrawable(Drawable drawable) {
+        public void invalidateDrawable(@NonNull Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
             }
@@ -78,7 +83,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
-        public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+        public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
             Drawable.Callback callback;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) && (callback = this.mCallback) != null) {
@@ -87,7 +92,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
-        public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
+        public void unscheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable) {
             Drawable.Callback callback;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, runnable) == null) && (callback = this.mCallback) != null) {
@@ -264,6 +269,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @RequiresApi(21)
         public boolean canApplyTheme() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -472,6 +478,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
             return (Drawable) invokeI.objValue;
         }
 
+        @RequiresApi(21)
         public final void applyTheme(Resources.Theme theme) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, theme) == null) && theme != null) {
@@ -764,6 +771,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
+    @RequiresApi(21)
     public boolean canApplyTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -825,6 +833,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
+    @NonNull
     public Drawable getCurrent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -946,6 +955,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
+    @NonNull
     public Drawable mutate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1003,7 +1013,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
     }
 
-    public static int resolveDensity(Resources resources, int i) {
+    public static int resolveDensity(@Nullable Resources resources, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, resources, i)) == null) {
@@ -1027,7 +1037,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
     }
 
-    public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
+    public void unscheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048619, this, drawable, runnable) == null) && drawable == this.mCurrDrawable && getCallback() != null) {
             getCallback().unscheduleDrawable(this, runnable);
@@ -1204,7 +1214,8 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void applyTheme(Resources.Theme theme) {
+    @RequiresApi(21)
+    public void applyTheme(@NonNull Resources.Theme theme) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, theme) == null) {
             this.mDrawableContainerState.applyTheme(theme);
@@ -1212,7 +1223,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             Drawable drawable = this.mCurrDrawable;
@@ -1227,7 +1238,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void getHotspotBounds(Rect rect) {
+    public void getHotspotBounds(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, rect) == null) {
             Rect rect2 = this.mHotspotBounds;
@@ -1240,7 +1251,8 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void getOutline(Outline outline) {
+    @RequiresApi(21)
+    public void getOutline(@NonNull Outline outline) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, outline) == null) && (drawable = this.mCurrDrawable) != null) {
@@ -1248,7 +1260,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
     }
 
-    public void invalidateDrawable(Drawable drawable) {
+    public void invalidateDrawable(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, drawable) == null) {
             DrawableContainerState drawableContainerState = this.mDrawableContainerState;
@@ -1438,7 +1450,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTintMode(PorterDuff.Mode mode) {
+    public void setTintMode(@NonNull PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, mode) == null) {
             DrawableContainerState drawableContainerState = this.mDrawableContainerState;
@@ -1458,7 +1470,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean getPadding(Rect rect) {
+    public boolean getPadding(@NonNull Rect rect) {
         InterceptResult invokeL;
         boolean padding;
         Interceptable interceptable = $ic;
@@ -1525,7 +1537,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
     }
 
-    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) && drawable == this.mCurrDrawable && getCallback() != null) {
             getCallback().scheduleDrawable(this, runnable, j);

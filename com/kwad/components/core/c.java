@@ -1,6 +1,7 @@
 package com.kwad.components.core;
 
 import android.app.Activity;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +59,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadConfigFeedAd(KsScene ksScene, KsLoadManager.FeedAdListener feedAdListener) {
+    public final void loadConfigFeedAd(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener) {
         com.kwad.components.ad.a.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksScene, feedAdListener) == null) || (cVar = (com.kwad.components.ad.a.c) com.kwad.sdk.components.c.f(com.kwad.components.ad.a.c.class)) == null) {
@@ -68,7 +69,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadDrawAd(KsScene ksScene, KsLoadManager.DrawAdListener drawAdListener) {
+    public final void loadDrawAd(KsScene ksScene, @NonNull KsLoadManager.DrawAdListener drawAdListener) {
         com.kwad.components.ad.a.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, ksScene, drawAdListener) == null) || (bVar = (com.kwad.components.ad.a.b) com.kwad.sdk.components.c.f(com.kwad.components.ad.a.b.class)) == null) {
@@ -78,7 +79,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadFeedAd(KsScene ksScene, KsLoadManager.FeedAdListener feedAdListener) {
+    public final void loadFeedAd(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener) {
         com.kwad.components.ad.a.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, ksScene, feedAdListener) == null) || (cVar = (com.kwad.components.ad.a.c) com.kwad.sdk.components.c.f(com.kwad.components.ad.a.c.class)) == null) {
@@ -88,7 +89,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadFullScreenVideoAd(KsScene ksScene, KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener) {
+    public final void loadFullScreenVideoAd(KsScene ksScene, @NonNull KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener) {
         d dVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, ksScene, fullScreenVideoAdListener) == null) || (dVar = (d) com.kwad.sdk.components.c.f(d.class)) == null) {
@@ -98,7 +99,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadInterstitialAd(KsScene ksScene, KsLoadManager.InterstitialAdListener interstitialAdListener) {
+    public final void loadInterstitialAd(@NonNull KsScene ksScene, @NonNull KsLoadManager.InterstitialAdListener interstitialAdListener) {
         e eVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, ksScene, interstitialAdListener) == null) || (eVar = (e) com.kwad.sdk.components.c.f(e.class)) == null) {
@@ -108,7 +109,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadNativeAd(KsScene ksScene, KsLoadManager.NativeAdListener nativeAdListener) {
+    public final void loadNativeAd(KsScene ksScene, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
         f fVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, ksScene, nativeAdListener) == null) || (fVar = (f) com.kwad.sdk.components.c.f(f.class)) == null) {
@@ -118,7 +119,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadNativeAd(String str, KsLoadManager.NativeAdListener nativeAdListener) {
+    public final void loadNativeAd(String str, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
         f fVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, nativeAdListener) == null) || (fVar = (f) com.kwad.sdk.components.c.f(f.class)) == null) {
@@ -128,7 +129,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadRewardVideoAd(KsScene ksScene, KsLoadManager.RewardVideoAdListener rewardVideoAdListener) {
+    public final void loadRewardVideoAd(KsScene ksScene, @NonNull KsLoadManager.RewardVideoAdListener rewardVideoAdListener) {
         g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048585, this, ksScene, rewardVideoAdListener) == null) || (gVar = (g) com.kwad.sdk.components.c.f(g.class)) == null) {
@@ -138,7 +139,7 @@ public final class c implements KsLoadManager {
     }
 
     @Override // com.kwad.sdk.api.KsLoadManager
-    public final void loadSplashScreenAd(KsScene ksScene, KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
+    public final void loadSplashScreenAd(@NonNull KsScene ksScene, @NonNull KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
         h hVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048586, this, ksScene, splashScreenAdListener) == null) || (hVar = (h) com.kwad.sdk.components.c.f(h.class)) == null) {

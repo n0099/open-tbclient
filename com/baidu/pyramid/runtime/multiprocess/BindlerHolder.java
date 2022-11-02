@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BindlerHolder implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BindlerHolder> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public IBinder mBinder;
 
@@ -29,7 +29,7 @@ public class BindlerHolder implements Parcelable {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<BindlerHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

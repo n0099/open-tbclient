@@ -121,7 +121,7 @@ public final class SapiConfiguration implements NoProguard {
 
     /* renamed from: com.baidu.sapi2.SapiConfiguration$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -132,7 +132,7 @@ public final class SapiConfiguration implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class Builder implements NoProguard {
+    public static class Builder implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean accountCenterRealNameAuthen;
@@ -155,8 +155,8 @@ public final class SapiConfiguration implements NoProguard {
         public Domain environment;
         public String faceLincenseFile;
         public String faceLincenseID;
-        public Map faceResPaths;
-        public List fastLoginFeatureList;
+        public Map<String, String> faceResPaths;
+        public List<FastLoginFeature> fastLoginFeatureList;
         public boolean forbidPresetPhoneNumber;
         public boolean forbidSslErrorDialog;
         public String googleClientId;
@@ -496,7 +496,7 @@ public final class SapiConfiguration implements NoProguard {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setFaceResPaths(Map map) {
+        public Builder setFaceResPaths(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, map)) == null) {
@@ -966,11 +966,11 @@ public final class SapiConfiguration implements NoProguard {
                     return this;
                 }
                 boolean z = false;
-                Iterator it = SapiOptions.getInitialProcessNameWhiteList().iterator();
+                Iterator<String> it = SapiOptions.getInitialProcessNameWhiteList().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
-                    } else if (str.matches((String) it.next())) {
+                    } else if (str.matches(it.next())) {
                         z = true;
                         break;
                     }
@@ -1419,7 +1419,7 @@ public final class SapiConfiguration implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
-            LoginShareStrategy loginShareStrategy = (LoginShareStrategy) sapiOptions.getSpecificShareStrategy().get(this.tpl);
+            LoginShareStrategy loginShareStrategy = sapiOptions.getSpecificShareStrategy().get(this.tpl);
             if (loginShareStrategy != null) {
                 Log.d(ShareUtils.TAG, "loginShareStrategy shareStrategy is " + loginShareStrategy.getStrValue());
                 return loginShareStrategy;

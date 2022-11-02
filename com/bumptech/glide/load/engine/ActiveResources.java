@@ -1,6 +1,9 @@
 package com.bumptech.glide.load.engine;
 
 import android.os.Process;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,31 +25,36 @@ import java.util.concurrent.ThreadFactory;
 public final class ActiveResources {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map activeEngineResources;
+    @VisibleForTesting
+    public final Map<Key, ResourceWeakReference> activeEngineResources;
+    @Nullable
     public volatile DequeuedResourceCallback cb;
     public final boolean isActiveResourceRetentionAllowed;
     public volatile boolean isShutdown;
     public EngineResource.ResourceListener listener;
     public final Executor monitorClearedResourcesExecutor;
-    public final ReferenceQueue resourceReferenceQueue;
+    public final ReferenceQueue<EngineResource<?>> resourceReferenceQueue;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
     public interface DequeuedResourceCallback {
         void onResourceDequeued();
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public final class ResourceWeakReference extends WeakReference {
+    public static final class ResourceWeakReference extends WeakReference<EngineResource<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean isCacheable;
         public final Key key;
-        public Resource resource;
+        @Nullable
+        public Resource<?> resource;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ResourceWeakReference(Key key, EngineResource engineResource, ReferenceQueue referenceQueue, boolean z) {
+        public ResourceWeakReference(@NonNull Key key, @NonNull EngineResource<?> engineResource, @NonNull ReferenceQueue<? super EngineResource<?>> referenceQueue, boolean z) {
             super(engineResource, referenceQueue);
-            Resource resource;
+            Resource<?> resource;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +111,7 @@ public final class ActiveResources {
             }
 
             @Override // java.util.concurrent.ThreadFactory
-            public Thread newThread(Runnable runnable) {
+            public Thread newThread(@NonNull Runnable runnable) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
@@ -163,6 +171,7 @@ public final class ActiveResources {
         }
     }
 
+    @VisibleForTesting
     public ActiveResources(boolean z, Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -179,7 +188,7 @@ public final class ActiveResources {
             }
         }
         this.activeEngineResources = new HashMap();
-        this.resourceReferenceQueue = new ReferenceQueue();
+        this.resourceReferenceQueue = new ReferenceQueue<>();
         this.isActiveResourceRetentionAllowed = z;
         this.monitorClearedResourcesExecutor = executor;
         executor.execute(new Runnable(this) { // from class: com.bumptech.glide.load.engine.ActiveResources.2
@@ -215,13 +224,13 @@ public final class ActiveResources {
         });
     }
 
-    public synchronized void activate(Key key, EngineResource engineResource) {
+    public synchronized void activate(Key key, EngineResource<?> engineResource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, key, engineResource) == null) {
             synchronized (this) {
-                ResourceWeakReference resourceWeakReference = (ResourceWeakReference) this.activeEngineResources.put(key, new ResourceWeakReference(key, engineResource, this.resourceReferenceQueue, this.isActiveResourceRetentionAllowed));
-                if (resourceWeakReference != null) {
-                    resourceWeakReference.reset();
+                ResourceWeakReference put = this.activeEngineResources.put(key, new ResourceWeakReference(key, engineResource, this.resourceReferenceQueue, this.isActiveResourceRetentionAllowed));
+                if (put != null) {
+                    put.reset();
                 }
             }
         }
@@ -244,6 +253,7 @@ public final class ActiveResources {
         }
     }
 
+    @VisibleForTesting
     public void shutdown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -255,13 +265,13 @@ public final class ActiveResources {
         }
     }
 
-    public void cleanupActiveReference(ResourceWeakReference resourceWeakReference) {
+    public void cleanupActiveReference(@NonNull ResourceWeakReference resourceWeakReference) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resourceWeakReference) == null) {
             synchronized (this) {
                 this.activeEngineResources.remove(resourceWeakReference.key);
                 if (resourceWeakReference.isCacheable && resourceWeakReference.resource != null) {
-                    this.listener.onResourceReleased(resourceWeakReference.key, new EngineResource(resourceWeakReference.resource, true, false, resourceWeakReference.key, this.listener));
+                    this.listener.onResourceReleased(resourceWeakReference.key, new EngineResource<>(resourceWeakReference.resource, true, false, resourceWeakReference.key, this.listener));
                 }
             }
         }
@@ -271,24 +281,25 @@ public final class ActiveResources {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, key) == null) {
             synchronized (this) {
-                ResourceWeakReference resourceWeakReference = (ResourceWeakReference) this.activeEngineResources.remove(key);
-                if (resourceWeakReference != null) {
-                    resourceWeakReference.reset();
+                ResourceWeakReference remove = this.activeEngineResources.remove(key);
+                if (remove != null) {
+                    remove.reset();
                 }
             }
         }
     }
 
-    public synchronized EngineResource get(Key key) {
+    @Nullable
+    public synchronized EngineResource<?> get(Key key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, key)) == null) {
             synchronized (this) {
-                ResourceWeakReference resourceWeakReference = (ResourceWeakReference) this.activeEngineResources.get(key);
+                ResourceWeakReference resourceWeakReference = this.activeEngineResources.get(key);
                 if (resourceWeakReference == null) {
                     return null;
                 }
-                EngineResource engineResource = (EngineResource) resourceWeakReference.get();
+                EngineResource<?> engineResource = resourceWeakReference.get();
                 if (engineResource == null) {
                     cleanupActiveReference(resourceWeakReference);
                 }
@@ -298,6 +309,7 @@ public final class ActiveResources {
         return (EngineResource) invokeL.objValue;
     }
 
+    @VisibleForTesting
     public void setDequeuedResourceCallback(DequeuedResourceCallback dequeuedResourceCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dequeuedResourceCallback) == null) {

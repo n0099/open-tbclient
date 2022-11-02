@@ -6,6 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.SystemClock;
 import android.widget.ImageView;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -33,23 +36,28 @@ import org.json.JSONObject;
 public final class h extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public KsScene fn;
+    @NonNull
     public AdTemplate mAdTemplate;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
+    @NonNull
     public AdBaseFrameLayout mRootContainer;
+    @NonNull
     public KsVideoPlayConfig mVideoPlayConfig;
     public KsSplashScreenAd.SplashScreenAdInteractionListener xT;
     public int xV;
     public boolean yb;
+    @Nullable
     public com.kwad.components.ad.splashscreen.c.a yc;
     public com.kwad.sdk.core.h.a yd;
-    public List ye;
+    public List<g> ye;
     public String yf;
     public boolean yg;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void b(com.kwad.sdk.core.report.f fVar);
+        void b(@NonNull com.kwad.sdk.core.report.f fVar);
     }
 
     public h() {
@@ -90,7 +98,7 @@ public final class h extends com.kwad.sdk.mvp.a {
     public final void a(Context context, int i, int i2, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), aVar}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0566a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i2).aj(false).a(new a.b(this, com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate), i, aVar) { // from class: com.kwad.components.ad.splashscreen.h.2
+            com.kwad.components.core.c.a.a.a(new a.C0577a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i2).aj(false).a(new a.b(this, com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate), i, aVar) { // from class: com.kwad.components.ad.splashscreen.h.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdInfo pE;
@@ -173,6 +181,7 @@ public final class h extends com.kwad.sdk.mvp.a {
         }
     }
 
+    @MainThread
     public final void e(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
@@ -213,7 +222,7 @@ public final class h extends com.kwad.sdk.mvp.a {
                 return null;
             }
             String jB = jB();
-            ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911eb);
+            ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091225);
             Bitmap createBitmap = Bitmap.createBitmap(this.mRootContainer.getWidth(), this.mRootContainer.getHeight(), Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             Bitmap bitmap = this.yc.ky().getBitmap();
@@ -263,6 +272,7 @@ public final class h extends com.kwad.sdk.mvp.a {
         return (String) invokeV.objValue;
     }
 
+    @MainThread
     public final void jD() {
         KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener;
         Interceptable interceptable = $ic;
@@ -272,6 +282,7 @@ public final class h extends com.kwad.sdk.mvp.a {
         splashScreenAdInteractionListener.onAdClicked();
     }
 
+    @MainThread
     public final void jE() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -285,6 +296,7 @@ public final class h extends com.kwad.sdk.mvp.a {
         }
     }
 
+    @MainThread
     public final void jF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -296,6 +308,7 @@ public final class h extends com.kwad.sdk.mvp.a {
         }
     }
 
+    @MainThread
     public final void jG() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {

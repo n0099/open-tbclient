@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.decode;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.pm.ConfigurationInfo;
 import android.media.MediaCodec;
@@ -72,7 +73,7 @@ public class VideoPlayer {
     }
 
     /* loaded from: classes2.dex */
-    public class PlayTask implements Runnable {
+    public static class PlayTask implements Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_PLAY_ERROR = 1;
         public static final int MSG_PLAY_STOPPED = 0;
@@ -85,7 +86,7 @@ public class VideoPlayer {
         public Thread mThread;
 
         /* loaded from: classes2.dex */
-        public class LocalHandler extends Handler {
+        public static class LocalHandler extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public OnVideoEndedListener mOnEndedListener;
@@ -166,6 +167,7 @@ public class VideoPlayer {
             this.mLocalHandler = new LocalHandler(onVideoEndedListener, onVideoErrorListener, onReportListener);
         }
 
+        @SuppressLint({"MobilebdThread"})
         public void execute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -359,8 +361,9 @@ public class VideoPlayer {
     /* JADX WARN: Removed duplicated region for block: B:82:0x013c  */
     /* JADX WARN: Removed duplicated region for block: B:84:0x0141  */
     /* JADX WARN: Type inference failed for: r10v0 */
-    /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r10v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r10v2 */
+    @SuppressLint({"BDThrowableCheck"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -490,6 +493,7 @@ public class VideoPlayer {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void onDataSourceSet(MediaExtractor mediaExtractor) {
         int selectVideoTrackIndex;
         Interceptable interceptable = $ic;
@@ -511,6 +515,7 @@ public class VideoPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @SuppressLint({"BDThrowableCheck"})
     public void play() throws IOException {
         FrameCallback frameCallback;
         Interceptable interceptable = $ic;

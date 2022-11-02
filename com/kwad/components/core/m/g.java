@@ -2,6 +2,7 @@ package com.kwad.components.core.m;
 
 import android.content.Context;
 import android.content.IntentFilter;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -55,7 +56,7 @@ public class g {
         this.mAppContext = context.getApplicationContext();
     }
 
-    public static g av(Context context) {
+    public static g av(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {

@@ -1,15 +1,17 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public interface nv8 {
     void a(int i);
 
-    void b();
+    void b(int i, @NonNull View view2);
 
-    void onConvertAborted();
+    @NonNull
+    View getView();
 
-    void onConvertFailed();
+    void removeAllViews();
 
-    void onConvertProgress(int i);
-
-    void onConvertSuccess();
+    void setItemParams(int i, int i2);
 }

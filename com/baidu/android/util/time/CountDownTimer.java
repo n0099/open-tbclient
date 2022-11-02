@@ -1,5 +1,6 @@
 package com.baidu.android.util.time;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
@@ -16,6 +17,7 @@ public class CountDownTimer {
     public transient /* synthetic */ FieldHolder $fh;
     public final long mCountdownInterval;
     public long mCountdownMillis;
+    @SuppressLint({"HandlerLeak"})
     public Handler mHandler;
     public boolean mIsCancelled;
     public boolean mIsFinished;
@@ -25,7 +27,7 @@ public class CountDownTimer {
     public long mStopTimeInFuture;
 
     /* loaded from: classes.dex */
-    public abstract class StatusListener {
+    public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -45,7 +45,7 @@ public class HlsChunkSource {
     public boolean isTimestampMaster;
     public long liveEdgeTimeUs;
     public final DataSource mediaDataSource;
-    public final List muxedCaptionFormats;
+    public final List<Format> muxedCaptionFormats;
     public final HlsPlaylistTracker playlistTracker;
     public byte[] scratchSpace;
     public final TimestampAdjusterProvider timestampAdjusterProvider;
@@ -54,7 +54,7 @@ public class HlsChunkSource {
     public final HlsMasterPlaylist.HlsUrl[] variants;
 
     /* loaded from: classes7.dex */
-    public final class EncryptionKeyChunk extends DataChunk {
+    public static final class EncryptionKeyChunk extends DataChunk {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String iv;
@@ -101,7 +101,7 @@ public class HlsChunkSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class HlsChunkHolder {
+    public static final class HlsChunkHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Chunk chunk;
@@ -135,7 +135,7 @@ public class HlsChunkSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class InitializationTrackSelection extends BaseTrackSelection {
+    public static final class InitializationTrackSelection extends BaseTrackSelection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int selectedIndex;
@@ -211,7 +211,7 @@ public class HlsChunkSource {
         }
     }
 
-    public HlsChunkSource(HlsExtractorFactory hlsExtractorFactory, HlsPlaylistTracker hlsPlaylistTracker, HlsMasterPlaylist.HlsUrl[] hlsUrlArr, HlsDataSourceFactory hlsDataSourceFactory, TimestampAdjusterProvider timestampAdjusterProvider, List list) {
+    public HlsChunkSource(HlsExtractorFactory hlsExtractorFactory, HlsPlaylistTracker hlsPlaylistTracker, HlsMasterPlaylist.HlsUrl[] hlsUrlArr, HlsDataSourceFactory hlsDataSourceFactory, TimestampAdjusterProvider timestampAdjusterProvider, List<Format> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -441,7 +441,7 @@ public class HlsChunkSource {
                 if (!playlistSnapshot.hasEndTag && j3 >= playlistSnapshot.getEndTimeUs()) {
                     i = playlistSnapshot.mediaSequence + playlistSnapshot.segments.size();
                 } else {
-                    int binarySearchFloor = Util.binarySearchFloor(playlistSnapshot.segments, (Object) Long.valueOf(j3 - playlistSnapshot.startTimeUs), true, (!this.playlistTracker.isLive() || hlsMediaChunk == null) ? true : true);
+                    int binarySearchFloor = Util.binarySearchFloor((List<? extends Comparable<? super Long>>) playlistSnapshot.segments, Long.valueOf(j3 - playlistSnapshot.startTimeUs), true, (!this.playlistTracker.isLive() || hlsMediaChunk == null) ? true : true);
                     int i3 = playlistSnapshot.mediaSequence;
                     i = binarySearchFloor + i3;
                     if (i < i3 && hlsMediaChunk != null) {
@@ -466,7 +466,7 @@ public class HlsChunkSource {
                             this.expectedPlaylistUrl = hlsUrl2;
                             return;
                         }
-                        HlsMediaPlaylist.Segment segment = (HlsMediaPlaylist.Segment) hlsMediaPlaylist.segments.get(i4);
+                        HlsMediaPlaylist.Segment segment = hlsMediaPlaylist.segments.get(i4);
                         String str = segment.fullSegmentEncryptionKeyUri;
                         if (str != null) {
                             Uri resolveToUri = UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, str);

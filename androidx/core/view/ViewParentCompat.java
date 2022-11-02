@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -195,7 +196,7 @@ public final class ViewParentCompat {
         }
     }
 
-    public static void onNestedScroll(ViewParent viewParent, View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+    public static void onNestedScroll(ViewParent viewParent, View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{viewParent, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
             if (viewParent instanceof NestedScrollingParent3) {

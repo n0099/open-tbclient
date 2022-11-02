@@ -18,10 +18,10 @@ public class ActivityListenerManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class Listener extends BaseActivityListener {
+    public static class Listener extends BaseActivityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference mActivityListenerRef;
+        public final WeakReference<ActivityListener> mActivityListenerRef;
 
         public Listener(ActivityListener activityListener) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class ActivityListenerManager {
                     return;
                 }
             }
-            this.mActivityListenerRef = new WeakReference(activityListener);
+            this.mActivityListenerRef = new WeakReference<>(activityListener);
         }
 
         @Nullable
@@ -46,7 +46,7 @@ public class ActivityListenerManager {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, activity)) == null) {
-                ActivityListener activityListener = (ActivityListener) this.mActivityListenerRef.get();
+                ActivityListener activityListener = this.mActivityListenerRef.get();
                 if (activityListener == null) {
                     Preconditions.checkArgument(activity instanceof ListenableActivity);
                     ((ListenableActivity) activity).removeActivityListener(this);

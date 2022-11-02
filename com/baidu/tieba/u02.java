@@ -1,110 +1,70 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class u02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public JSONArray c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
+    public Context a;
+    public t02 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157106, "Lcom/baidu/tieba/u02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948157106, "Lcom/baidu/tieba/u02;");
-                return;
-            }
-        }
-        i = wj1.a;
-    }
-
-    public u02() {
+    public u02(@NonNull Context context, @NonNull ij3 ij3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, ij3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = context;
+        this.b = new t02(ij3Var);
+    }
+
+    @NonNull
+    public t02 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (t02) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.c();
         }
     }
 
-    public static u02 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @NonNull
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            u02 u02Var = new u02();
-            try {
-                u02Var.c = jSONObject.getJSONArray("host");
-                u02Var.b = jSONObject.getString("appKey");
-                u02Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                u02Var.d = jSONObject.getString("serverPort");
-                u02Var.f = jSONObject.getString("wsServerPort");
-                Uri.decode(jSONObject.optString("url"));
-                u02Var.g = jSONObject.optString("notInHistory", "1");
-                u02Var.h = jSONObject.optLong("coreVersion");
-            } catch (JSONException unused) {
-                if (i) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
-                }
-            }
-            return u02Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (u02) invokeL.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public String a(int i2) {
-        InterceptResult invokeI;
+    public void c(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.c;
-            if (jSONArray == null) {
-                return "";
-            }
-            return jSONArray.optString(i2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = context;
         }
-        return (String) invokeI.objValue;
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return "http://" + str + ":" + this.d + "/app.zip";
-        }
-        return (String) invokeL.objValue;
     }
 }

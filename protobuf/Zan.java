@@ -33,19 +33,19 @@ public final class Zan extends Message {
     public final Integer num;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<Zan> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer consentType;
         public Integer isLiked;
         public Integer lastTime;
-        public List likerId;
+        public List<Long> likerId;
         public Integer num;
 
         public Builder() {
@@ -159,7 +159,7 @@ public final class Zan extends Message {
             } else {
                 this.lastTime = num3;
             }
-            List list = builder.likerId;
+            List<Long> list = builder.likerId;
             if (list == null) {
                 this.likerId = DEFAULT_LIKERID;
             } else {

@@ -10,11 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
+import javax.annotation.concurrent.GuardedBy;
 @JNINamespace
 /* loaded from: classes6.dex */
 public final class CronetUploadDataStream implements UploadDataSink {
@@ -28,8 +30,11 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public final Runnable f;
     public ByteBuffer g;
     public final Object h;
+    @GuardedBy("mLock")
     public long i;
+    @GuardedBy("mLock")
     public UserCallback j;
+    @GuardedBy("mLock")
     public boolean k;
     public Runnable l;
 
@@ -50,7 +55,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class UserCallback {
+    public static final class UserCallback {
         public static final /* synthetic */ UserCallback[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UserCallback GET_LENGTH;
@@ -305,6 +310,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
+    @CalledByNative
     public void readData(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, byteBuffer) == null) {
@@ -344,6 +350,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
+    @CalledByNative
     public void onUploadDataStreamDestroyed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -351,6 +358,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
+    @CalledByNative
     public void rewind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -384,6 +392,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
+    @GuardedBy("mLock")
     public final void l(UserCallback userCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, userCallback) != null) || this.j == userCallback) {

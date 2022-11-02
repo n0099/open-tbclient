@@ -2,7 +2,7 @@ package com.baidu.mapapi.utils;
 
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.Point;
+import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

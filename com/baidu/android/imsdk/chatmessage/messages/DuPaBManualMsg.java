@@ -22,7 +22,7 @@ public class DuPaBManualMsg extends ChatMsg {
     public static final String B_EVALUATIONS = "evaluations";
     public static final String B_TEXT = "text";
     public static final String B_TITLE = "title";
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<DuPaBManualMsg> CREATOR;
     public static final String TAG = "DuPaBManualMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String callbackKey;
@@ -42,7 +42,7 @@ public class DuPaBManualMsg extends ChatMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaBManualMsg.1
+        CREATOR = new Parcelable.Creator<DuPaBManualMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaBManualMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,6 +61,7 @@ public class DuPaBManualMsg extends ChatMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DuPaBManualMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -72,6 +73,7 @@ public class DuPaBManualMsg extends ChatMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DuPaBManualMsg[] newArray(int i) {
                 InterceptResult invokeI;

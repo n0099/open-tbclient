@@ -10,8 +10,8 @@ import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.h55;
+import com.baidu.tieba.a65;
+import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import java.util.Vector;
 /* loaded from: classes.dex */
 public class ResourceDownloader {
     public static /* synthetic */ Interceptable $ic;
-    public static Vector sResDownloadingTaskList;
+    public static Vector<String> sResDownloadingTaskList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -81,7 +81,7 @@ public class ResourceDownloader {
             return;
         }
         if (sResDownloadingTaskList == null) {
-            sResDownloadingTaskList = new Vector();
+            sResDownloadingTaskList = new Vector<>();
         }
         synchronized (sResDownloadingTaskList) {
             sResDownloadingTaskList.add(str);
@@ -133,7 +133,7 @@ public class ResourceDownloader {
                 downloadData.setUrl(str2);
                 downloadData.setCheck(str6);
                 downloadData.setType(19);
-                downloadData.setCallback(new g55(z, str4, str5 + str3) { // from class: com.baidu.ala.downloader.ResourceDownloader.2
+                downloadData.setCallback(new z55(z, str4, str5 + str3) { // from class: com.baidu.ala.downloader.ResourceDownloader.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$fileMd5ListKey;
@@ -160,7 +160,7 @@ public class ResourceDownloader {
                         this.val$fileMd5ListKey = r8;
                     }
 
-                    @Override // com.baidu.tieba.g55
+                    @Override // com.baidu.tieba.z55
                     public void onFileDownloadFailed(DownloadData downloadData2, int i, String str7) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null && interceptable2.invokeLIL(1048576, this, downloadData2, i, str7) != null) {
@@ -171,11 +171,11 @@ public class ResourceDownloader {
                         BdLog.e("failed to donwload dynamic zip" + str7);
                     }
 
-                    @Override // com.baidu.tieba.g55
+                    @Override // com.baidu.tieba.z55
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData2) == null) {
-                            new BdAsyncTask(this, downloadData2) { // from class: com.baidu.ala.downloader.ResourceDownloader.2.1
+                            new BdAsyncTask<Void, Void, Boolean>(this, downloadData2) { // from class: com.baidu.ala.downloader.ResourceDownloader.2.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass2 this$0;
@@ -252,7 +252,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // com.baidu.tieba.g55
+                    @Override // com.baidu.tieba.z55
                     public boolean onFileDownloaded(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -263,7 +263,7 @@ public class ResourceDownloader {
                         return invokeL.booleanValue;
                     }
 
-                    @Override // com.baidu.tieba.g55
+                    @Override // com.baidu.tieba.z55
                     public void onFileUpdateProgress(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadData2) == null) {
@@ -271,7 +271,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // com.baidu.tieba.g55
+                    @Override // com.baidu.tieba.z55
                     public boolean onPreDownload(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -285,7 +285,7 @@ public class ResourceDownloader {
                         return invokeL.booleanValue;
                     }
                 });
-                new BdAsyncTask(str, str4, downloadData, str4 + "/" + str3 + ".zip") { // from class: com.baidu.ala.downloader.ResourceDownloader.3
+                new BdAsyncTask<Void, Void, Boolean>(str, str4, downloadData, str4 + "/" + str3 + ".zip") { // from class: com.baidu.ala.downloader.ResourceDownloader.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DownloadData val$downloadData;
@@ -334,7 +334,7 @@ public class ResourceDownloader {
                             ResourceDownloader.addDownloadingResId(this.val$resId);
                             DownloaderHelper.cleanDir(new File(this.val$targetResDir));
                             this.val$downloadData.setPath(this.val$targetResPath);
-                            h55.k().l(this.val$downloadData);
+                            a65.k().l(this.val$downloadData);
                             return Boolean.TRUE;
                         }
                         return (Boolean) invokeL.objValue;
@@ -347,7 +347,7 @@ public class ResourceDownloader {
     public static void checkAndDownloadResZipInMainThread(String str, String str2, String str3, String str4, String str5, String str6, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z)}) == null) {
-            new BdAsyncTask(str, str2, str3, str4, str5, str6, z) { // from class: com.baidu.ala.downloader.ResourceDownloader.1
+            new BdAsyncTask<String, Void, Void>(str, str2, str3, str4, str5, str6, z) { // from class: com.baidu.ala.downloader.ResourceDownloader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String val$fileMd5Prefix;

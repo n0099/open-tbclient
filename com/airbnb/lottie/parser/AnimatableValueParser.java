@@ -1,5 +1,6 @@
 package com.airbnb.lottie.parser;
 
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableColorValue;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
@@ -11,15 +12,18 @@ import com.airbnb.lottie.model.animatable.AnimatableShapeValue;
 import com.airbnb.lottie.model.animatable.AnimatableTextFrame;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
+import com.airbnb.lottie.value.Keyframe;
 import java.io.IOException;
 import java.util.List;
 /* loaded from: classes.dex */
 public class AnimatableValueParser {
-    public static List parse(JsonReader jsonReader, float f, LottieComposition lottieComposition, ValueParser valueParser) throws IOException {
+    @Nullable
+    public static <T> List<Keyframe<T>> parse(JsonReader jsonReader, float f, LottieComposition lottieComposition, ValueParser<T> valueParser) throws IOException {
         return KeyframesParser.parse(jsonReader, lottieComposition, f, valueParser);
     }
 
-    public static List parse(JsonReader jsonReader, LottieComposition lottieComposition, ValueParser valueParser) throws IOException {
+    @Nullable
+    public static <T> List<Keyframe<T>> parse(JsonReader jsonReader, LottieComposition lottieComposition, ValueParser<T> valueParser) throws IOException {
         return KeyframesParser.parse(jsonReader, lottieComposition, 1.0f, valueParser);
     }
 

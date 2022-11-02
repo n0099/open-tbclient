@@ -147,7 +147,7 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         this.mDefaultCharset = str;
     }
 
-    public void a(int i, HashMap hashMap, byte[] bArr) {
+    public void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap, bArr) == null) {
@@ -160,7 +160,7 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    public void b(int i, HashMap hashMap, byte[] bArr) {
+    public void b(int i, HashMap<String, String> hashMap, byte[] bArr) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, hashMap, bArr) == null) {
@@ -177,7 +177,7 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    public void onSuccess(int i, String str, HashMap hashMap) {
+    public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048588, this, i, str, hashMap) == null) {
             onSuccess(i, str);
@@ -202,7 +202,7 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    public void c(int i, HashMap hashMap, byte[] bArr) {
+    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048582, this, i, hashMap, bArr) == null) {

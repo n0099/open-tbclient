@@ -27,7 +27,7 @@ public final class DefaultImageFormats {
     public static final ImageFormat WEBP_EXTENDED_WITH_ALPHA;
     public static final ImageFormat WEBP_LOSSLESS;
     public static final ImageFormat WEBP_SIMPLE;
-    public static ImmutableList sAllDefaultFormats;
+    public static ImmutableList<ImageFormat> sAllDefaultFormats;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -71,7 +71,7 @@ public final class DefaultImageFormats {
         }
     }
 
-    public static List getDefaultFormats() {
+    public static List<ImageFormat> getDefaultFormats() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

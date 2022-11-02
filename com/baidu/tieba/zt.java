@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.TaskState;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.ITaskModelData;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.model.meter.TaskMeterData;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,75 +12,68 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class zt extends au {
+public final class zt extends st<TaskMeterData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cu a;
+    public final ut a;
 
-    public String c() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.key : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskMeterData.key : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zt(cu cuVar) {
-        super(cuVar);
+    public zt(ut utVar) {
+        super(utVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cuVar};
+            Object[] objArr = {utVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((cu) newInitContext.callArgs[0]);
+                super((ut) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cuVar;
-    }
-
-    public final ITaskModelData b(cu cuVar, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cuVar, str, str2)) == null) {
-            return cuVar.a(str).a(str2);
-        }
-        return (ITaskModelData) invokeLLL.objValue;
+        this.a = utVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.au
-    /* renamed from: d */
-    public TaskState a(String str) {
+    @Override // com.baidu.tieba.st
+    /* renamed from: c */
+    public TaskMeterData a(String str) {
         InterceptResult invokeL;
+        JSONObject jSONObject;
+        int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                cu cuVar = this.a;
-                String optString = jSONObject.optString("info");
-                Intrinsics.checkExpressionValueIsNotNull(optString, "jsonObject.optString(TaskInfo.key)");
-                TaskInfo taskInfo = (TaskInfo) b(cuVar, "info", optString);
-                if (taskInfo != null) {
-                    cu cuVar2 = this.a;
-                    String optString2 = jSONObject.optString(TaskStatus.key);
-                    Intrinsics.checkExpressionValueIsNotNull(optString2, "jsonObject.optString(TaskStatus.key)");
-                    TaskStatus taskStatus = (TaskStatus) b(cuVar2, TaskStatus.key, optString2);
-                    if (taskStatus != null) {
-                        return new TaskState(taskInfo, taskStatus);
-                    }
-                }
-                return null;
+                jSONObject = new JSONObject(str);
+                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
             } catch (Exception e) {
+                e = e;
+            }
+            try {
+                st a = this.a.a("ui");
+                String optString = jSONObject.optString("ui");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
+                TaskUIData taskUIData = (TaskUIData) a.a(optString);
+                if (taskUIData == null) {
+                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+                }
+                return new TaskMeterData(optInt, taskUIData);
+            } catch (Exception e2) {
+                e = e2;
                 e.printStackTrace();
-                return null;
+                return new TaskMeterData(0, null, 3, null);
             }
         }
-        return (TaskState) invokeL.objValue;
+        return (TaskMeterData) invokeL.objValue;
     }
 }

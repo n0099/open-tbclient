@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage {
+public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETE = 1;
     public static final int NORMAL = -1;

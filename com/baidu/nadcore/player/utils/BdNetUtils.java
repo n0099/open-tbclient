@@ -1,13 +1,14 @@
 package com.baidu.nadcore.player.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.b21;
+import com.baidu.tieba.s21;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +33,7 @@ public class BdNetUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class NetStatus {
+    public static final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetStatus NET_DOWN;
@@ -130,12 +131,13 @@ public class BdNetUtils {
         return (NetStatus) invokeV.objValue;
     }
 
+    @SuppressLint({"MissingPermission"})
     public static NetworkInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                return ((ConnectivityManager) aj0.b().getSystemService("connectivity")).getActiveNetworkInfo();
+                return ((ConnectivityManager) zi0.b().getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception unused) {
                 return null;
             }
@@ -208,14 +210,14 @@ public class BdNetUtils {
     public static void i(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
-            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bfe));
+            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0c0a));
             if (!TextUtils.isEmpty(str)) {
                 sb.append("，\n");
-                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0c33));
+                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0c4a));
                 sb.append(str);
                 sb.append("MB");
             }
-            b21.a().showToast(context, sb.toString());
+            s21.a().showToast(context, sb.toString());
         }
     }
 }

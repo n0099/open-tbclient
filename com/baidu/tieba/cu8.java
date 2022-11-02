@@ -1,69 +1,205 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.dh7;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeRecommand;
 /* loaded from: classes3.dex */
-public class cu8 {
+public class cu8 extends yv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public MainTabActivity c;
+    public boolean d;
 
-    public cu8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public class a implements dh7.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yv4.a a;
+        public final /* synthetic */ cu8 b;
+
+        public a(cu8 cu8Var, yv4.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cu8Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = cu8Var;
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.tieba.dh7.e
+        public void a() {
+            yv4.a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
+                aVar.a(false);
+            }
+        }
+
+        @Override // com.baidu.tieba.dh7.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (!dh7.n(this.b.c).k(this.b.c.B.intValue(), 0)) {
+                    yv4.a aVar = this.a;
+                    if (aVar != null) {
+                        aVar.a(false);
+                        return;
+                    }
+                    return;
+                }
+                yv4.a aVar2 = this.a;
+                if (aVar2 != null) {
+                    aVar2.a(true);
+                }
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+    /* loaded from: classes3.dex */
+    public class b implements dh7.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cu8 a;
+
+        public b(cu8 cu8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cu8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cu8Var;
         }
-        return (String) invokeV.objValue;
+
+        @Override // com.baidu.tieba.dh7.f
+        public void dismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cu8 a;
+
+        public c(cu8 cu8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cu8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cu8Var;
         }
-        return (String) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !dh7.n(this.a.c).I(this.a.c.B.intValue(), 0)) {
+                this.a.c();
+            }
+        }
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cu8(TbPageContext tbPageContext, or8 or8Var, MainTabActivity mainTabActivity, boolean z) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, or8Var, mainTabActivity, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.c = mainTabActivity;
+        this.d = z;
     }
 
-    public void d(ThemeRecommand themeRecommand) {
+    @Override // com.baidu.tieba.yv4
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, themeRecommand) != null) || themeRecommand == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            dh7.n(this.c).l();
         }
-        this.a = themeRecommand.icon;
-        this.b = themeRecommand.tip_text;
-        this.c = themeRecommand.button_text;
-        String str = themeRecommand.button_url;
+    }
+
+    @Override // com.baidu.tieba.yv4
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            dh7.n(this.c).F(new b(this));
+            zg.a().postDelayed(new c(this), 400L);
+        }
+    }
+
+    @Override // com.baidu.tieba.yv4
+    public void d(yv4.a aVar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (ew4.d() && aVar != null) {
+                aVar.a(false);
+            } else if (!dh7.m && ((TbSingleton.getInstance().isCanShowHotSplash || dh7.m || TbSingleton.getInstance().mIsSplashClick) && !this.d)) {
+                if (aVar != null) {
+                    aVar.a(false);
+                }
+            } else {
+                dh7 n = dh7.n(this.c);
+                if (dh7.m) {
+                    str = "1";
+                } else {
+                    str = "2";
+                }
+                if (!n.C(str, this.c.B.intValue(), 0, this.c.K, new a(this, aVar), false) && aVar != null) {
+                    aVar.a(false);
+                }
+            }
+        }
     }
 }

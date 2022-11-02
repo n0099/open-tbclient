@@ -5,13 +5,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.IntRange;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.tj1;
-import com.baidu.tieba.uj1;
+import com.baidu.tieba.lk1;
+import com.baidu.tieba.mk1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,6 +40,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.TypeIntrinsics;
 import kotlin.text.Charsets;
+@Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009a\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0012\n\u0002\b\u0003\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\n\n\u0002\b\u0006\n\u0002\u0010\"\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\bl\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\b\u0017\u0018\u0000 ·\u0001:\b·\u0001¸\u0001¹\u0001º\u0001B)\b\u0016\u0012\n\u0010®\u0001\u001a\u0005\u0018\u00010\u00ad\u0001\u0012\b\u0010N\u001a\u0004\u0018\u00010\u0004\u0012\u0006\u0010]\u001a\u00020\u0012¢\u0006\u0006\b¯\u0001\u0010°\u0001B!\b\u0016\u0012\n\u0010®\u0001\u001a\u0005\u0018\u00010\u00ad\u0001\u0012\b\u0010N\u001a\u0004\u0018\u00010\u0004¢\u0006\u0006\b¯\u0001\u0010±\u0001B\u0015\b\u0016\u0012\b\u0010N\u001a\u0004\u0018\u00010\u0004¢\u0006\u0006\b¯\u0001\u0010¨\u0001B\u001d\b\u0016\u0012\b\u0010N\u001a\u0004\u0018\u00010\u0004\u0012\u0006\u0010]\u001a\u00020\u0012¢\u0006\u0006\b¯\u0001\u0010²\u0001B\u0015\b\u0016\u0012\b\u0010´\u0001\u001a\u00030³\u0001¢\u0006\u0006\b¯\u0001\u0010µ\u0001B5\u0012\n\u0010®\u0001\u001a\u0005\u0018\u00010\u00ad\u0001\u0012\b\u0010N\u001a\u0004\u0018\u00010\u0004\u0012\b\b\u0002\u0010]\u001a\u00020\u0012\u0012\n\b\u0002\u0010^\u001a\u0004\u0018\u00010\u0004¢\u0006\u0006\b¯\u0001\u0010¶\u0001J\u000f\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0002\u0010\u0003J\u0019\u0010\u0006\u001a\u00020\u00012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u00020\bH\u0016¢\u0006\u0004\b\t\u0010\nJ\u0019\u0010\f\u001a\f\u0012\u0004\u0012\u00020\u0004\u0012\u0002\b\u00030\u000bH\u0016¢\u0006\u0004\b\f\u0010\rJ\u0015\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u00040\u000eH\u0017¢\u0006\u0004\b\u000f\u0010\u0010J+\u0010\u0014\u001a\u001e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00120\u0011j\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0012`\u0013H\u0017¢\u0006\u0004\b\u0014\u0010\u0015J\u001f\u0010\u0017\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u0019\u0010\u001a\u001a\u0004\u0018\u00010\u00192\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u0010\u0010\u001c\u001a\u00020\bH\u0096 ¢\u0006\u0004\b\u001c\u0010\nJ\u001f\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u001dH\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ\u000f\u0010!\u001a\u00020 H\u0016¢\u0006\u0004\b!\u0010\"J\u001f\u0010$\u001a\u00020#2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020#H\u0016¢\u0006\u0004\b$\u0010%J\u001f\u0010&\u001a\u00020\u00122\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u0012H\u0016¢\u0006\u0004\b&\u0010'J\u001f\u0010(\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\bH\u0016¢\u0006\u0004\b(\u0010)J\u000f\u0010*\u001a\u00020\u0012H\u0016¢\u0006\u0004\b*\u0010+J1\u00100\u001a\u0004\u0018\u00018\u0000\"\b\b\u0000\u0010-*\u00020,2\u0006\u0010\u0005\u001a\u00020\u00042\f\u0010/\u001a\b\u0012\u0004\u0012\u00028\u00000.H\u0016¢\u0006\u0004\b0\u00101J\u001f\u00103\u001a\u0002022\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u000202H\u0016¢\u0006\u0004\b3\u00104J#\u00105\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0005\u001a\u00020\u00042\b\u0010\u0016\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b5\u00106J\u001f\u00107\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e2\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b7\u00108J/\u0010;\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u0001092\u0006\u0010\u0005\u001a\u00020\u00042\u000e\u0010:\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u000109H\u0016¢\u0006\u0004\b;\u0010<J/\u0010A\u001a\u00020@2\u0016\u0010>\u001a\u0012\u0012\u0006\u0012\u0004\u0018\u00010\u0004\u0012\u0006\u0012\u0004\u0018\u00010=0\u000b2\u0006\u0010?\u001a\u00020\u0001H\u0016¢\u0006\u0004\bA\u0010BJ\u0018\u0010D\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\bH\u0082 ¢\u0006\u0004\bD\u0010EJ \u0010F\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u0004H\u0082 ¢\u0006\u0004\bF\u0010GJ\u0018\u0010H\u001a\u00020\b2\u0006\u0010C\u001a\u00020\bH\u0082 ¢\u0006\u0004\bH\u0010IJ \u0010J\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e2\u0006\u0010C\u001a\u00020\bH\u0082 ¢\u0006\u0004\bJ\u0010KJ8\u0010L\u001a\"\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0012\u0018\u00010\u0011j\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0012\u0018\u0001`\u00132\u0006\u0010C\u001a\u00020\bH\u0082 ¢\u0006\u0004\bL\u0010MJ(\u0010Q\u001a\u00020\b2\u0006\u0010N\u001a\u00020\u00042\u0006\u0010O\u001a\u00020\u00122\u0006\u0010P\u001a\u00020\u0012H\u0082 ¢\u0006\u0004\bQ\u0010RJ(\u0010S\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u0001H\u0082 ¢\u0006\u0004\bS\u0010TJ\"\u0010U\u001a\u0004\u0018\u00010\u00192\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u0004H\u0082 ¢\u0006\u0004\bU\u0010VJ(\u0010W\u001a\u00020\u001d2\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u001dH\u0082 ¢\u0006\u0004\bW\u0010XJ\u0018\u0010Y\u001a\u00020\u00042\u0006\u0010C\u001a\u00020\bH\u0082 ¢\u0006\u0004\bY\u0010ZJ(\u0010[\u001a\u00020#2\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020#H\u0082 ¢\u0006\u0004\b[\u0010\\J*\u0010_\u001a\u00020\b2\u0006\u0010N\u001a\u00020\u00042\u0006\u0010]\u001a\u00020\u00122\b\u0010^\u001a\u0004\u0018\u00010\u0004H\u0082 ¢\u0006\u0004\b_\u0010`J(\u0010a\u001a\u00020\u00122\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u0012H\u0082 ¢\u0006\u0004\ba\u0010bJ(\u0010c\u001a\u00020\b2\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\bH\u0082 ¢\u0006\u0004\bc\u0010dJ(\u0010e\u001a\u0002022\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u000202H\u0082 ¢\u0006\u0004\be\u0010fJ,\u0010g\u001a\u0004\u0018\u00010\u00042\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\b\u0010\u0016\u001a\u0004\u0018\u00010\u0004H\u0082 ¢\u0006\u0004\bg\u0010hJ(\u0010i\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e2\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u0004H\u0082 ¢\u0006\u0004\bi\u0010jJ\u0018\u0010l\u001a\u00020@2\u0006\u0010k\u001a\u00020\u0001H\u0084 ¢\u0006\u0004\bl\u0010mJ\u0018\u0010n\u001a\u00020@2\u0006\u0010C\u001a\u00020\bH\u0082 ¢\u0006\u0004\bn\u0010oJ \u0010p\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u0004H\u0082 ¢\u0006\u0004\bp\u0010GJ \u0010r\u001a\u00020@2\u0006\u0010C\u001a\u00020\b2\u0006\u0010q\u001a\u00020\u0001H\u0082 ¢\u0006\u0004\br\u0010sJ\u0018\u0010t\u001a\u00020@2\u0006\u0010C\u001a\u00020\bH\u0082 ¢\u0006\u0004\bt\u0010oJ(\u0010v\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\u0001H\u0082 ¢\u0006\u0004\bv\u0010TJ(\u0010w\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\u0019H\u0082 ¢\u0006\u0004\bw\u0010xJ(\u0010y\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\u001dH\u0082 ¢\u0006\u0004\by\u0010zJ(\u0010{\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020#H\u0082 ¢\u0006\u0004\b{\u0010|J(\u0010}\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\u0012H\u0082 ¢\u0006\u0004\b}\u0010~J)\u0010\u007f\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\bH\u0082 ¢\u0006\u0005\b\u007f\u0010\u0080\u0001J+\u0010\u0081\u0001\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u000202H\u0082 ¢\u0006\u0006\b\u0081\u0001\u0010\u0082\u0001J+\u0010\u0083\u0001\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\u0004H\u0082 ¢\u0006\u0006\b\u0083\u0001\u0010\u0084\u0001J3\u0010\u0085\u0001\u001a\u00020\u00012\u0006\u0010C\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u00042\u000e\u0010u\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00040\u000eH\u0082 ¢\u0006\u0006\b\u0085\u0001\u0010\u0086\u0001J\u0012\u0010\u0087\u0001\u001a\u00020@H\u0016¢\u0006\u0006\b\u0087\u0001\u0010\u0088\u0001J\u0019\u0010\u0089\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0005\b\u0089\u0001\u0010\u0007J\u001d\u0010\u008b\u0001\u001a\u00020\u00012\t\b\u0001\u0010\u008a\u0001\u001a\u00020\bH\u0096 ¢\u0006\u0005\b\u008b\u0001\u0010EJ\u0017\u0010q\u001a\u00020@2\u0006\u0010q\u001a\u00020\u0001H\u0016¢\u0006\u0004\bq\u0010mJ\u0012\u0010\u008c\u0001\u001a\u00020@H\u0016¢\u0006\u0006\b\u008c\u0001\u0010\u0088\u0001J!\u0010\u008d\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\u0001H\u0016¢\u0006\u0005\b\u008d\u0001\u0010\u0018J$\u0010\u008e\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\b\u0010u\u001a\u0004\u0018\u00010\u0019H\u0016¢\u0006\u0006\b\u008e\u0001\u0010\u008f\u0001J\"\u0010\u0090\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\u001dH\u0016¢\u0006\u0006\b\u0090\u0001\u0010\u0091\u0001J\"\u0010\u0092\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020#H\u0016¢\u0006\u0006\b\u0092\u0001\u0010\u0093\u0001J\"\u0010\u0094\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\u0012H\u0016¢\u0006\u0006\b\u0094\u0001\u0010\u0095\u0001J\"\u0010\u0096\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u00020\bH\u0016¢\u0006\u0006\b\u0096\u0001\u0010\u0097\u0001J$\u0010\u0098\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\b\u0010u\u001a\u0004\u0018\u00010,H\u0016¢\u0006\u0006\b\u0098\u0001\u0010\u0099\u0001J\"\u0010\u009a\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010u\u001a\u000202H\u0016¢\u0006\u0006\b\u009a\u0001\u0010\u009b\u0001J$\u0010\u009c\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\b\u0010u\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0006\b\u009c\u0001\u0010\u009d\u0001J,\u0010\u009e\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0010\u0010u\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0004\u0018\u00010\u000eH\u0016¢\u0006\u0006\b\u009e\u0001\u0010\u009f\u0001J+\u0010¡\u0001\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u000f\u0010 \u0001\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u000109H\u0016¢\u0006\u0006\b¡\u0001\u0010¢\u0001R\u0017\u0010]\u001a\u00020\u00128\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b]\u0010£\u0001R)\u0010N\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0005\bN\u0010¤\u0001\u001a\u0006\b¥\u0001\u0010¦\u0001\"\u0006\b§\u0001\u0010¨\u0001R\u0019\u0010©\u0001\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b©\u0001\u0010ª\u0001R)\u0010^\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0005\b^\u0010¤\u0001\u001a\u0006\b«\u0001\u0010¦\u0001\"\u0006\b¬\u0001\u0010¨\u0001¨\u0006»\u0001"}, d2 = {"Lcom/baidu/storage/swankv/SwanKV;", "", "clearAll", "()Z", "", "key", "containKey", "(Ljava/lang/String;)Z", "", "contentSize", "()J", "", "getAll", "()Ljava/util/Map;", "", "getAllKeys", "()[Ljava/lang/String;", "Ljava/util/HashMap;", "", "Lkotlin/collections/HashMap;", "getAllTypes", "()Ljava/util/HashMap;", "defaultValue", "getBool", "(Ljava/lang/String;Z)Z", "", "getBytes", "(Ljava/lang/String;)[B", "getCustomMeta", "", "getDouble", "(Ljava/lang/String;D)D", "Ljava/io/File;", "getFile", "()Ljava/io/File;", "", "getFloat", "(Ljava/lang/String;F)F", "getInt", "(Ljava/lang/String;I)I", "getLong", "(Ljava/lang/String;J)J", "getMode", "()I", "Landroid/os/Parcelable;", ExifInterface.GPS_DIRECTION_TRUE, "Landroid/os/Parcelable$Creator;", "creator", "getParcel", "(Ljava/lang/String;Landroid/os/Parcelable$Creator;)Landroid/os/Parcelable;", "", "getShort", "(Ljava/lang/String;S)S", "getString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "getStringArray", "(Ljava/lang/String;)[Ljava/lang/String;", "", "defValues", "getStringSet", "(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;", "", "map", "replaceIfExist", "", "importFromMap", "(Ljava/util/Map;Z)V", "handle", "nClean", "(J)Z", "nContainKey", "(JLjava/lang/String;)Z", "nContentSize", "(J)J", "nGetAllKeys", "(J)[Ljava/lang/String;", "nGetAllType", "(J)Ljava/util/HashMap;", "name", "ashmemFd", "size", "nGetAshmemHandle", "(Ljava/lang/String;II)J", "nGetBool", "(JLjava/lang/String;Z)Z", "nGetBytes", "(JLjava/lang/String;)[B", "nGetDouble", "(JLjava/lang/String;D)D", "nGetFilePath", "(J)Ljava/lang/String;", "nGetFloat", "(JLjava/lang/String;F)F", "mode", "rootPath", "nGetHandle", "(Ljava/lang/String;ILjava/lang/String;)J", "nGetInt", "(JLjava/lang/String;I)I", "nGetLong", "(JLjava/lang/String;J)J", "nGetShort", "(JLjava/lang/String;S)S", "nGetString", "(JLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "nGetStringArray", "(JLjava/lang/String;)[Ljava/lang/String;", "doOrUnLock", "nLockThread", "(Z)V", "nRelease", "(J)V", "nRemove", NativeConstants.COMPONENT_SYNC_TEXT_VIEW, "nSync", "(JZ)V", "nTrim", "value", "nWriteBool", "nWriteBytes", "(JLjava/lang/String;[B)Z", "nWriteDouble", "(JLjava/lang/String;D)Z", "nWriteFloat", "(JLjava/lang/String;F)Z", "nWriteInt", "(JLjava/lang/String;I)Z", "nWriteLong", "(JLjava/lang/String;J)Z", "nWriteShort", "(JLjava/lang/String;S)Z", "nWriteString", "(JLjava/lang/String;Ljava/lang/String;)Z", "nWriteStringArray", "(JLjava/lang/String;[Ljava/lang/String;)Z", "release", "()V", "removeKey", "data", "setCustomMeta", "trim", "writeBool", "writeBytes", "(Ljava/lang/String;[B)Z", "writeDouble", "(Ljava/lang/String;D)Z", "writeFloat", "(Ljava/lang/String;F)Z", "writeInt", "(Ljava/lang/String;I)Z", "writeLong", "(Ljava/lang/String;J)Z", "writeParcel", "(Ljava/lang/String;Landroid/os/Parcelable;)Z", "writeShort", "(Ljava/lang/String;S)Z", "writeString", "(Ljava/lang/String;Ljava/lang/String;)Z", "writeStringArray", "(Ljava/lang/String;[Ljava/lang/String;)Z", SavedStateHandle.VALUES, "writeStringSet", "(Ljava/lang/String;Ljava/util/Set;)Z", "I", "Ljava/lang/String;", "getName", "()Ljava/lang/String;", "setName", "(Ljava/lang/String;)V", "nativeHandle", "J", "getRootPath", "setRootPath", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;Ljava/lang/String;I)V", "(Landroid/content/Context;Ljava/lang/String;)V", "(Ljava/lang/String;I)V", "Lcom/baidu/storage/swankv/AshmemFileDescriptor;", "fd", "(Lcom/baidu/storage/swankv/AshmemFileDescriptor;)V", "(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)V", "Companion", "DataType", "SoLoader", "SwanKVMode", "swankv_staticRelease"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public class SwanKV {
@@ -45,7 +49,7 @@ public class SwanKV {
     public static final a Companion;
     public static final String DEFAULT_NAME = "default";
     public static final String FLAVOR_SHARED = "shared";
-    public static final Vector HANDLER_LISTENERS;
+    public static final Vector<mk1> HANDLER_LISTENERS;
     public static final String LIB_CPP_SHARED = "c++_shared";
     public static final String LIB_SWANKV = "swanKV";
     public static final int MAX_FILE_NAME = 100;
@@ -100,10 +104,10 @@ public class SwanKV {
     }
 
     @JvmStatic
-    public static final boolean initialize(tj1 tj1Var) {
+    public static final boolean initialize(lk1 lk1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tj1Var)) == null) ? Companion.g(tj1Var) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, lk1Var)) == null) ? Companion.g(lk1Var) : invokeL.booleanValue;
     }
 
     private final native boolean nClean(long j);
@@ -114,7 +118,7 @@ public class SwanKV {
 
     private final native String[] nGetAllKeys(long j);
 
-    private final native HashMap nGetAllType(long j);
+    private final native HashMap<String, Integer> nGetAllType(long j);
 
     private final native long nGetAshmemHandle(String str, int i, int i2);
 
@@ -178,10 +182,10 @@ public class SwanKV {
     }
 
     @JvmStatic
-    public static final void registerEventHandler(uj1 uj1Var) {
+    public static final void registerEventHandler(mk1 mk1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65586, null, uj1Var) == null) {
-            Companion.j(uj1Var);
+        if (interceptable == null || interceptable.invokeL(65586, null, mk1Var) == null) {
+            Companion.j(mk1Var);
         }
     }
 
@@ -189,10 +193,10 @@ public class SwanKV {
     public static final native void registerNAHandler(boolean z);
 
     @JvmStatic
-    public static final void unregisterEventHandler(uj1 uj1Var) {
+    public static final void unregisterEventHandler(mk1 mk1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65588, null, uj1Var) == null) {
-            Companion.l(uj1Var);
+        if (interceptable == null || interceptable.invokeL(65588, null, mk1Var) == null) {
+            Companion.l(mk1Var);
         }
     }
 
@@ -200,10 +204,10 @@ public class SwanKV {
 
     public final native void nLockThread(boolean z);
 
-    public native boolean setCustomMeta(long j);
+    public native boolean setCustomMeta(@IntRange(from = 0, to = 4294967295L) long j);
 
     /* loaded from: classes2.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -226,13 +230,13 @@ public class SwanKV {
         }
 
         @JvmStatic
-        public final void j(uj1 uj1Var) {
+        public final void j(mk1 mk1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, uj1Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, mk1Var) == null) {
                 if (SwanKV.HANDLER_LISTENERS.isEmpty()) {
                     k(true);
                 }
-                SwanKV.HANDLER_LISTENERS.add(uj1Var);
+                SwanKV.HANDLER_LISTENERS.add(mk1Var);
             }
         }
 
@@ -246,10 +250,10 @@ public class SwanKV {
         }
 
         @JvmStatic
-        public final void l(uj1 uj1Var) {
+        public final void l(mk1 mk1Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048585, this, uj1Var) == null) && uj1Var != null) {
-                SwanKV.HANDLER_LISTENERS.remove(uj1Var);
+            if ((interceptable == null || interceptable.invokeL(1048585, this, mk1Var) == null) && mk1Var != null) {
+                SwanKV.HANDLER_LISTENERS.remove(mk1Var);
                 if (SwanKV.HANDLER_LISTENERS.isEmpty()) {
                     k(false);
                 }
@@ -307,10 +311,10 @@ public class SwanKV {
             InterceptResult invokeLLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, context, bVar, z)) == null) {
-                tj1 tj1Var = new tj1(context);
-                tj1Var.e(bVar);
-                tj1Var.d(z);
-                return g(tj1Var);
+                lk1 lk1Var = new lk1(context);
+                lk1Var.e(bVar);
+                lk1Var.d(z);
+                return g(lk1Var);
             }
             return invokeLLZ.booleanValue;
         }
@@ -328,22 +332,22 @@ public class SwanKV {
         public final void i(int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048582, this, i, str, str2) == null) {
-                for (uj1 uj1Var : SwanKV.HANDLER_LISTENERS) {
-                    uj1Var.a(i, str, str2);
+                for (mk1 mk1Var : SwanKV.HANDLER_LISTENERS) {
+                    mk1Var.a(i, str, str2);
                 }
             }
         }
 
         @JvmStatic
-        public final boolean g(tj1 tj1Var) {
+        public final boolean g(lk1 lk1Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tj1Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, lk1Var)) == null) {
                 if (!SwanKV.isInitFinish.compareAndSet(false, true)) {
                     return true;
                 }
-                if (tj1Var.c() != null) {
-                    b c = tj1Var.c();
+                if (lk1Var.c() != null) {
+                    b c = lk1Var.c();
                     if (c == null) {
                         Intrinsics.throwNpe();
                     }
@@ -351,7 +355,7 @@ public class SwanKV {
                 } else {
                     System.loadLibrary(SwanKV.LIB_SWANKV);
                 }
-                File file = new File(tj1Var.getContext().getFilesDir(), SwanKV.PREFS_SEGMENT);
+                File file = new File(lk1Var.getContext().getFilesDir(), SwanKV.PREFS_SEGMENT);
                 if (!file.exists() || !file.isDirectory()) {
                     if (!file.isDirectory()) {
                         file.delete();
@@ -362,7 +366,7 @@ public class SwanKV {
                 }
                 String absolutePath = file.getAbsolutePath();
                 Intrinsics.checkExpressionValueIsNotNull(absolutePath, "baseDir.absolutePath");
-                h(absolutePath, tj1Var.a(), tj1Var.b());
+                h(absolutePath, lk1Var.a(), lk1Var.b());
                 return true;
             }
             return invokeL.booleanValue;
@@ -384,7 +388,7 @@ public class SwanKV {
         }
         Companion = new a(null);
         isInitFinish = new AtomicBoolean(false);
-        HANDLER_LISTENERS = new Vector();
+        HANDLER_LISTENERS = new Vector<>();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -545,6 +549,7 @@ public class SwanKV {
         return invokeV.longValue;
     }
 
+    @NonNull
     public String[] getAllKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -558,13 +563,14 @@ public class SwanKV {
         return (String[]) invokeV.objValue;
     }
 
-    public HashMap getAllTypes() {
+    @NonNull
+    public HashMap<String, Integer> getAllTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HashMap nGetAllType = nGetAllType(this.nativeHandle);
+            HashMap<String, Integer> nGetAllType = nGetAllType(this.nativeHandle);
             if (nGetAllType == null) {
-                return new HashMap();
+                return new HashMap<>();
             }
             return nGetAllType;
         }
@@ -682,49 +688,49 @@ public class SwanKV {
         }
     }
 
-    public Map getAll() {
+    public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap nGetAllType = nGetAllType(this.nativeHandle);
+            HashMap<String, Integer> nGetAllType = nGetAllType(this.nativeHandle);
             if (nGetAllType != null && !nGetAllType.isEmpty()) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (Map.Entry entry : nGetAllType.entrySet()) {
-                    String str = (String) entry.getKey();
+                for (Map.Entry<String, Integer> entry : nGetAllType.entrySet()) {
+                    String key = entry.getKey();
                     Object obj = null;
-                    switch (((Number) entry.getValue()).intValue()) {
+                    switch (entry.getValue().intValue()) {
                         case 0:
-                            obj = (Serializable) getBytes(str);
+                            obj = (Serializable) getBytes(key);
                             break;
                         case 1:
-                            obj = Boolean.valueOf(getBool(str, false));
+                            obj = Boolean.valueOf(getBool(key, false));
                             break;
                         case 2:
-                            obj = Integer.valueOf(getInt(str, 0));
+                            obj = Integer.valueOf(getInt(key, 0));
                             break;
                         case 3:
-                            obj = Float.valueOf(getFloat(str, 0.0f));
+                            obj = Float.valueOf(getFloat(key, 0.0f));
                             break;
                         case 4:
-                            obj = Double.valueOf(getDouble(str, 0.0d));
+                            obj = Double.valueOf(getDouble(key, 0.0d));
                             break;
                         case 5:
-                            obj = Short.valueOf(getShort(str, (short) 0));
+                            obj = Short.valueOf(getShort(key, (short) 0));
                             break;
                         case 6:
-                            obj = Long.valueOf(getLong(str, 0L));
+                            obj = Long.valueOf(getLong(key, 0L));
                             break;
                         case 7:
-                            obj = getString(str, null);
+                            obj = getString(key, null);
                             break;
                         case 8:
-                            obj = (Serializable) getStringArray(str);
+                            obj = (Serializable) getStringArray(key);
                             break;
                         case 9:
-                            obj = (Serializable) getBytes(str);
+                            obj = (Serializable) getBytes(key);
                             break;
                     }
-                    linkedHashMap.put(str, obj);
+                    linkedHashMap.put(key, obj);
                 }
                 return linkedHashMap;
             }
@@ -802,16 +808,16 @@ public class SwanKV {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x001b */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v0, types: [java.util.Set, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r6v1, types: [java.util.Set] */
+    /* JADX WARN: Type inference failed for: r6v0, types: [java.util.Set<java.lang.String>, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r6v1, types: [java.util.Set<java.lang.String>] */
     /* JADX WARN: Type inference failed for: r6v2, types: [java.util.HashSet] */
-    public Set getStringSet(String str, Set set) {
+    public Set<String> getStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, set)) == null) {
             String[] stringArray = getStringArray(str);
             if (stringArray != null) {
-                set = new HashSet();
+                set = new HashSet<>();
                 for (String str2 : stringArray) {
                     set.add(str2);
                 }
@@ -911,7 +917,7 @@ public class SwanKV {
         return invokeLL.booleanValue;
     }
 
-    public boolean writeStringSet(String str, Set set) {
+    public boolean writeStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, str, set)) == null) {
@@ -927,7 +933,7 @@ public class SwanKV {
         return invokeLL.booleanValue;
     }
 
-    public Parcelable getParcel(String str, Parcelable.Creator creator) {
+    public <T extends Parcelable> T getParcel(String str, Parcelable.Creator<T> creator) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -944,13 +950,13 @@ public class SwanKV {
                     Intrinsics.checkExpressionValueIsNotNull(obtain, "Parcel.obtain()");
                     obtain.unmarshall(bytes, 0, bytes.length);
                     obtain.setDataPosition(0);
-                    return (Parcelable) creator.createFromParcel(obtain);
+                    return creator.createFromParcel(obtain);
                 }
                 return null;
             }
             return null;
         }
-        return (Parcelable) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public boolean writeParcel(String str, Parcelable parcelable) {
@@ -970,29 +976,29 @@ public class SwanKV {
         return invokeLL.booleanValue;
     }
 
-    public void importFromMap(Map map, boolean z) {
+    public void importFromMap(Map<String, ? extends Object> map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048598, this, map, z) == null) {
             nLockThread(true);
             try {
-                for (Map.Entry entry : map.entrySet()) {
-                    String str = (String) entry.getKey();
+                for (Map.Entry<String, ? extends Object> entry : map.entrySet()) {
+                    String key = entry.getKey();
                     Object value = entry.getValue();
-                    if (str != null && value != null && (z || !containKey(str))) {
+                    if (key != null && value != null && (z || !containKey(key))) {
                         if (value instanceof Boolean) {
-                            writeBool(str, ((Boolean) value).booleanValue());
+                            writeBool(key, ((Boolean) value).booleanValue());
                         } else if (value instanceof String) {
-                            writeString(str, (String) value);
+                            writeString(key, (String) value);
                         } else if (value instanceof Integer) {
-                            writeInt(str, ((Number) value).intValue());
+                            writeInt(key, ((Number) value).intValue());
                         } else if (value instanceof Float) {
-                            writeFloat(str, ((Number) value).floatValue());
+                            writeFloat(key, ((Number) value).floatValue());
                         } else if (value instanceof Double) {
-                            writeDouble(str, ((Number) value).doubleValue());
+                            writeDouble(key, ((Number) value).doubleValue());
                         } else if (value instanceof Long) {
-                            writeLong(str, ((Number) value).longValue());
+                            writeLong(key, ((Number) value).longValue());
                         } else if (value instanceof Set) {
-                            writeStringSet(str, TypeIntrinsics.asMutableSet(value));
+                            writeStringSet(key, TypeIntrinsics.asMutableSet(value));
                         }
                     }
                 }

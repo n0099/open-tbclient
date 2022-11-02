@@ -127,7 +127,7 @@ public class f1 extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class c {
+    public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public static final /* synthetic */ int[] b;
@@ -182,7 +182,7 @@ public class f1 extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public e a;
@@ -241,7 +241,7 @@ public class f1 extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class e {
+    public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
         public static final e b;
@@ -311,7 +311,7 @@ public class f1 extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class f {
+    public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
         public static final f b;
@@ -378,7 +378,7 @@ public class f1 extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class g {
+    public static class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

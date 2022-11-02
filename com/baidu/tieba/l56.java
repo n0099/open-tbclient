@@ -1,29 +1,22 @@
 package com.baidu.tieba;
 
+import android.content.res.Configuration;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a8;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.splashad.SplashAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public abstract class l56 implements a8.a {
+public class l56 {
     public static /* synthetic */ Interceptable $ic;
+    public static l56 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract boolean a(long j);
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public void c(m56 m56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m56Var) == null) {
-        }
-    }
+    public WeakReference<SplashAdView> a;
 
     public l56() {
         Interceptable interceptable = $ic;
@@ -39,11 +32,54 @@ public abstract class l56 implements a8.a {
         }
     }
 
-    @Override // com.baidu.tieba.a8.a
-    public void reset() {
+    public static l56 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                b = new l56();
+            }
+            return b;
+        }
+        return (l56) invokeV.objValue;
+    }
+
+    public void c() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.a();
+        }
+    }
+
+    public void d() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.b();
+        }
+    }
+
+    public void b(Configuration configuration) {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.onConfigurationChanged(configuration);
+        }
+    }
+
+    public void e(BaseFragmentActivity baseFragmentActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, baseFragmentActivity) == null) && baseFragmentActivity != null) {
+            SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
+            this.a = new WeakReference<>(splashAdView);
+            ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f0912d6);
+            if (viewGroup != null) {
+                viewGroup.addView(splashAdView);
+            }
         }
     }
 }

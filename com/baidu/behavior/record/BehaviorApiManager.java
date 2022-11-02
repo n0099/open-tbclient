@@ -2,6 +2,7 @@ package com.baidu.behavior.record;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.behavior.record.api.Behavior;
@@ -16,7 +17,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
@@ -83,7 +83,7 @@ public class BehaviorApiManager implements IBehaviorApi {
         return invokeL.booleanValue;
     }
 
-    private boolean isNull(String str) {
+    private boolean isNull(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
@@ -98,15 +98,13 @@ public class BehaviorApiManager implements IBehaviorApi {
         return invokeL.booleanValue;
     }
 
-    private void upload(String str, List list) {
+    private void upload(String str, List<Behavior> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, list) == null) {
             try {
                 if (!list.isEmpty()) {
                     JSONArray jSONArray = new JSONArray();
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        Behavior behavior = (Behavior) it.next();
+                    for (Behavior behavior : list) {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("i", behavior.getInfoName());
                         jSONObject.put("c", behavior.getUseCount());
@@ -131,7 +129,7 @@ public class BehaviorApiManager implements IBehaviorApi {
     }
 
     @Override // com.baidu.behavior.record.api.IBehaviorApi
-    public void addBehavior(int i, String str, String str2) {
+    public void addBehavior(int i, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeILL(1048576, this, i, str, str2) != null) || !isInfoNameIdValid(str) || isNull(str2)) {
             return;
@@ -159,7 +157,7 @@ public class BehaviorApiManager implements IBehaviorApi {
     }
 
     @Override // com.baidu.behavior.record.api.IBehaviorApi
-    public void addBehavior(int i, String str, String str2, String str3) {
+    public void addBehavior(int i, @NonNull String str, @NonNull String str2, @NonNull String str3) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3}) != null) || !isInfoNameIdValid(str) || isNull(str3)) {
             return;
@@ -191,24 +189,20 @@ public class BehaviorApiManager implements IBehaviorApi {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void addBehavior(List list) {
+    public void addBehavior(List<Behavior> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                Behavior behavior = (Behavior) it.next();
+            for (Behavior behavior : list) {
                 if (!isInfoNameIdValid(behavior.getInfoName()) || isNull(behavior.getScene())) {
                     return;
                 }
-                while (it.hasNext()) {
+                while (r0.hasNext()) {
                 }
             }
             try {
                 HashMap hashMap = new HashMap();
                 ArrayList arrayList = new ArrayList();
-                Iterator it2 = list.iterator();
-                while (it2.hasNext()) {
-                    Behavior behavior2 = (Behavior) it2.next();
+                for (Behavior behavior2 : list) {
                     if (TextUtils.isEmpty(behavior2.getScene())) {
                         arrayList.add(behavior2);
                     } else {

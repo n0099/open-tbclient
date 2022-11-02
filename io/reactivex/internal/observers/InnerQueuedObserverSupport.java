@@ -1,11 +1,11 @@
 package io.reactivex.internal.observers;
 /* loaded from: classes8.dex */
-public interface InnerQueuedObserverSupport {
+public interface InnerQueuedObserverSupport<T> {
     void drain();
 
-    void innerComplete(InnerQueuedObserver innerQueuedObserver);
+    void innerComplete(InnerQueuedObserver<T> innerQueuedObserver);
 
-    void innerError(InnerQueuedObserver innerQueuedObserver, Throwable th);
+    void innerError(InnerQueuedObserver<T> innerQueuedObserver, Throwable th);
 
-    void innerNext(InnerQueuedObserver innerQueuedObserver, Object obj);
+    void innerNext(InnerQueuedObserver<T> innerQueuedObserver, T t);
 }

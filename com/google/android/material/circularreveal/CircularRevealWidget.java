@@ -4,6 +4,9 @@ import android.animation.TypeEvaluator;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.Property;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +22,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
     /* renamed from: com.google.android.material.circularreveal.CircularRevealWidget$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -30,24 +33,27 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
     void draw(Canvas canvas);
 
+    @Nullable
     Drawable getCircularRevealOverlayDrawable();
 
+    @ColorInt
     int getCircularRevealScrimColor();
 
+    @Nullable
     RevealInfo getRevealInfo();
 
     boolean isOpaque();
 
-    void setCircularRevealOverlayDrawable(Drawable drawable);
+    void setCircularRevealOverlayDrawable(@Nullable Drawable drawable);
 
-    void setCircularRevealScrimColor(int i);
+    void setCircularRevealScrimColor(@ColorInt int i);
 
-    void setRevealInfo(RevealInfo revealInfo);
+    void setRevealInfo(@Nullable RevealInfo revealInfo);
 
     /* loaded from: classes7.dex */
-    public class CircularRevealEvaluator implements TypeEvaluator {
+    public static class CircularRevealEvaluator implements TypeEvaluator<RevealInfo> {
         public static /* synthetic */ Interceptable $ic;
-        public static final TypeEvaluator CIRCULAR_REVEAL;
+        public static final TypeEvaluator<RevealInfo> CIRCULAR_REVEAL;
         public transient /* synthetic */ FieldHolder $fh;
         public final RevealInfo revealInfo;
 
@@ -85,7 +91,8 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
-        public RevealInfo evaluate(float f, RevealInfo revealInfo, RevealInfo revealInfo2) {
+        @NonNull
+        public RevealInfo evaluate(float f, @NonNull RevealInfo revealInfo, @NonNull RevealInfo revealInfo2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), revealInfo, revealInfo2})) == null) {
@@ -97,9 +104,9 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
     }
 
     /* loaded from: classes7.dex */
-    public class CircularRevealProperty extends Property {
+    public static class CircularRevealProperty extends Property<CircularRevealWidget, RevealInfo> {
         public static /* synthetic */ Interceptable $ic;
-        public static final Property CIRCULAR_REVEAL;
+        public static final Property<CircularRevealWidget, RevealInfo> CIRCULAR_REVEAL;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -141,7 +148,8 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
-        public RevealInfo get(CircularRevealWidget circularRevealWidget) {
+        @Nullable
+        public RevealInfo get(@NonNull CircularRevealWidget circularRevealWidget) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, circularRevealWidget)) == null) {
@@ -152,7 +160,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
-        public void set(CircularRevealWidget circularRevealWidget, RevealInfo revealInfo) {
+        public void set(@NonNull CircularRevealWidget circularRevealWidget, @Nullable RevealInfo revealInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, circularRevealWidget, revealInfo) == null) {
                 circularRevealWidget.setRevealInfo(revealInfo);
@@ -161,9 +169,9 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
     }
 
     /* loaded from: classes7.dex */
-    public class CircularRevealScrimColorProperty extends Property {
+    public static class CircularRevealScrimColorProperty extends Property<CircularRevealWidget, Integer> {
         public static /* synthetic */ Interceptable $ic;
-        public static final Property CIRCULAR_REVEAL_SCRIM_COLOR;
+        public static final Property<CircularRevealWidget, Integer> CIRCULAR_REVEAL_SCRIM_COLOR;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -205,7 +213,8 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
-        public Integer get(CircularRevealWidget circularRevealWidget) {
+        @NonNull
+        public Integer get(@NonNull CircularRevealWidget circularRevealWidget) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, circularRevealWidget)) == null) {
@@ -216,7 +225,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
-        public void set(CircularRevealWidget circularRevealWidget, Integer num) {
+        public void set(@NonNull CircularRevealWidget circularRevealWidget, @NonNull Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, circularRevealWidget, num) == null) {
                 circularRevealWidget.setCircularRevealScrimColor(num.intValue());
@@ -225,7 +234,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
     }
 
     /* loaded from: classes7.dex */
-    public class RevealInfo {
+    public static class RevealInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final float INVALID_RADIUS = Float.MAX_VALUE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,7 +292,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
             this();
         }
 
-        public void set(RevealInfo revealInfo) {
+        public void set(@NonNull RevealInfo revealInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, revealInfo) == null) {
                 set(revealInfo.centerX, revealInfo.centerY, revealInfo.radius);
@@ -291,7 +300,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public RevealInfo(RevealInfo revealInfo) {
+        public RevealInfo(@NonNull RevealInfo revealInfo) {
             this(revealInfo.centerX, revealInfo.centerY, revealInfo.radius);
             Interceptable interceptable = $ic;
             if (interceptable != null) {

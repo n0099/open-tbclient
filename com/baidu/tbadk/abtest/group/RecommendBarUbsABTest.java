@@ -19,7 +19,7 @@ public class RecommendBarUbsABTest extends AbsGroupUbsABTest {
     public static final String RECOMMEND_BAR_SID_HOT_TEXT = "11_9_discover_hot_card_hot_text";
     public static final String RECOMMEND_BAR_SID_SLOGAN = "11_9_discover_hot_card_slogan";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -39,7 +39,7 @@ public class RecommendBarUbsABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -81,7 +81,7 @@ public class RecommendBarUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(3);
+        ArrayList<String> arrayList = new ArrayList<>(3);
         this.mABTestList = arrayList;
         arrayList.add(RECOMMEND_BAR_SID);
         this.mABTestList.add(RECOMMEND_BAR_SID_SLOGAN);

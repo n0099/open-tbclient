@@ -1,5 +1,6 @@
 package com.baidu.tieba.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
@@ -91,6 +92,7 @@ public class SymbolEMTextView extends EMTextView {
     }
 
     @Override // android.widget.TextView, android.view.View
+    @SuppressLint({"SetTextI18n"})
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {

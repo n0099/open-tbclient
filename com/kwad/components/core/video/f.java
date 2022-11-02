@@ -1,5 +1,6 @@
 package com.kwad.components.core.video;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +13,7 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, String str2, c.a aVar) {
+    public static boolean a(@NonNull String str, String str2, c.a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, aVar)) == null) {
@@ -27,7 +28,7 @@ public final class f {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean h(AdTemplate adTemplate) {
+    public static boolean h(@NonNull AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adTemplate)) == null) {

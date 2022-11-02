@@ -1,47 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
+import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
+import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
+import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.MiPushClient;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class yj8 {
+public class yj8 implements ICloudControlRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Intent intent) {
-        InterceptResult invokeL;
+    public yj8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
-            if (intent == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return intent.getBooleanExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, false);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
+    public void registerAllProcessors(DataProcessors dataProcessors) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (intent == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
+            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
+            dataProcessors.addProcessor(UBCCloudControlProcessor.UBC_KEY, new UBCCloudControlProcessor());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, MiPushClient.COMMAND_REGISTER);
+            if (runTask != null) {
+                dataProcessors.addProcessor("config", (ICloudControlProcessor) runTask.getData());
             }
-            boolean booleanExtra = intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false);
-            if (booleanExtra) {
-                String stringExtra = intent.getStringExtra("fname");
-                if (!StringUtils.isNull(stringExtra)) {
-                    TiebaStatic.log(new StatisticItem("c11897").param("fname", stringExtra));
-                }
-            }
-            return booleanExtra;
         }
-        return invokeL.booleanValue;
     }
 }

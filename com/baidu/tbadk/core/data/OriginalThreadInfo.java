@@ -2,6 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.text.SpannableString;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
@@ -11,13 +13,13 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ct4;
-import com.baidu.tieba.ku4;
-import com.baidu.tieba.nh5;
-import com.baidu.tieba.ol5;
-import com.baidu.tieba.ss4;
+import com.baidu.tieba.cv4;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.ki5;
+import com.baidu.tieba.mm5;
+import com.baidu.tieba.tt4;
+import com.baidu.tieba.um5;
 import com.baidu.tieba.video.ActivityItemData;
-import com.baidu.tieba.wl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,16 +70,19 @@ public class OriginalThreadInfo {
     public ArrayList<VoiceData.VoiceModel> q;
     public VideoInfo r;
     public List<PbContent> s;
+    @NonNull
     public final List<PbContent> t;
     public SpannableString u;
-    public List<wl5> v;
+    @Nullable
+    public List<um5> v;
+    @Nullable
     public ThreadData w;
     public boolean x;
     public User y;
     public Agree z;
 
     /* loaded from: classes3.dex */
-    public class ShareInfo extends OrmObject implements Serializable {
+    public static class ShareInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ItemData itemData;
@@ -152,6 +157,7 @@ public class OriginalThreadInfo {
         this.t = new ArrayList();
     }
 
+    @Nullable
     public SpannableString c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,6 +167,7 @@ public class OriginalThreadInfo {
         return (SpannableString) invokeV.objValue;
     }
 
+    @Nullable
     public ThreadData g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -170,7 +177,8 @@ public class OriginalThreadInfo {
         return (ThreadData) invokeV.objValue;
     }
 
-    public List<wl5> h() {
+    @Nullable
+    public List<um5> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -250,7 +258,7 @@ public class OriginalThreadInfo {
             if (this.v == null) {
                 this.v = new ArrayList();
             }
-            this.u = new SpannableString(ol5.G(this.s, this.E, true, this.w, this.v));
+            this.u = new SpannableString(mm5.G(this.s, this.E, true, this.w, this.v));
         }
     }
 
@@ -258,7 +266,7 @@ public class OriginalThreadInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.a = 0;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d44);
+            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d5b);
             this.c = null;
         }
     }
@@ -270,7 +278,7 @@ public class OriginalThreadInfo {
         }
     }
 
-    public void u(ThreadData threadData) {
+    public void u(@Nullable ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, threadData) == null) {
             this.w = threadData;
@@ -306,12 +314,12 @@ public class OriginalThreadInfo {
             originalThreadInfo2.h = arrayList2;
             originalThreadInfo2.r = threadData.getThreadVideoInfo();
             if (threadData.isLinkThread() && threadData.getLinkThreadData() != null) {
-                ss4 linkThreadData = threadData.getLinkThreadData();
+                jt4 linkThreadData = threadData.getLinkThreadData();
                 originalThreadInfo2.g = linkThreadData.d();
                 abstractData.text = linkThreadData.a();
                 mediaData.setPic(linkThreadData.b());
             } else if (threadData.isInterviewLiveStyle() && threadData.getTaskInfoData() != null) {
-                mediaData.setPic(threadData.getTaskInfoData().i());
+                mediaData.setPic(threadData.getTaskInfoData().k());
             } else if (ListUtils.getCount(threadData.getMedias()) > 0) {
                 originalThreadInfo2.h = threadData.getMedias();
             } else if (threadData.getThreadVideoInfo() != null && !StringUtils.isNull(threadData.getThreadVideoInfo().thumbnail_url)) {
@@ -365,7 +373,7 @@ public class OriginalThreadInfo {
                 str = null;
             }
             if (TextUtils.isEmpty(str)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f74);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f8c);
             }
             return str;
         }
@@ -384,7 +392,7 @@ public class OriginalThreadInfo {
                     PbContent pbContent = this.s.get(i);
                     if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && m() && (str = pbContent.text) != null && str.length() >= 3) {
                         ActivityItemData activityItemData = new ActivityItemData();
-                        activityItemData.link_url = nh5.d(pbContent.text);
+                        activityItemData.link_url = ki5.d(pbContent.text);
                         String str2 = pbContent.text;
                         activityItemData.activity_name = str2.substring(1, str2.length() - 2);
                         return activityItemData;
@@ -397,6 +405,7 @@ public class OriginalThreadInfo {
         return (ActivityItemData) invokeV.objValue;
     }
 
+    @NonNull
     public List<PbContent> f() {
         InterceptResult invokeV;
         List<PbContent> list;
@@ -414,7 +423,7 @@ public class OriginalThreadInfo {
         return (List) invokeV.objValue;
     }
 
-    public void p(OriginThreadInfo originThreadInfo, ThreadData threadData) {
+    public void p(OriginThreadInfo originThreadInfo, @Nullable ThreadData threadData) {
         boolean z;
         boolean z2;
         boolean z3;
@@ -545,7 +554,7 @@ public class OriginalThreadInfo {
                 this.f = jSONObject.optString("tid");
                 this.g = jSONObject.optString("title");
                 this.k = jSONObject.optInt("thread_type");
-                this.s = ct4.a(jSONObject.optJSONArray("content"));
+                this.s = tt4.a(jSONObject.optJSONArray("content"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
                 if (optJSONObject != null) {
                     AlaInfoData alaInfoData = new AlaInfoData();
@@ -599,7 +608,7 @@ public class OriginalThreadInfo {
                     this.p = baijiahaoData;
                     baijiahaoData.parseJson(optJSONObject2);
                 }
-                this.r = ku4.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+                this.r = cv4.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                     this.q = new ArrayList<>();
@@ -662,7 +671,7 @@ public class OriginalThreadInfo {
             } else if (!StringUtils.isNull(this.g)) {
                 this.b = this.g;
             } else {
-                this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d44);
+                this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d5b);
             }
         }
     }

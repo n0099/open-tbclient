@@ -30,14 +30,14 @@ public class ActionJsonData {
     public static final String TAG_TEXT = "text";
     public static final String TAG_VERSION = "version";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mDataset;
+    public List<JSONObject> mDataset;
     public Link mLink;
     public int mSignInStatus;
     public int mStatus;
     public int mVersion;
 
     /* loaded from: classes.dex */
-    public final class Link {
+    public static final class Link {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Notification mNotification;
@@ -59,7 +59,7 @@ public class ActionJsonData {
     }
 
     /* loaded from: classes.dex */
-    public final class Notification {
+    public static final class Notification {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCommand;
@@ -81,7 +81,7 @@ public class ActionJsonData {
     }
 
     /* loaded from: classes.dex */
-    public final class SignIn {
+    public static final class SignIn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCommand;
@@ -118,7 +118,7 @@ public class ActionJsonData {
         this.mVersion = 0;
     }
 
-    public List getDataset() {
+    public List<JSONObject> getDataset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -180,7 +180,7 @@ public class ActionJsonData {
         return (ActionJsonData) invokeL.objValue;
     }
 
-    public void setDataset(List list) {
+    public void setDataset(List<JSONObject> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.mDataset = list;
@@ -245,8 +245,8 @@ public class ActionJsonData {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject(TAG_DATASET);
-            JSONArray optJSONArray = jSONObject.optJSONArray(TAG_DATASET);
+            JSONObject optJSONObject = jSONObject.optJSONObject("dataset");
+            JSONArray optJSONArray = jSONObject.optJSONArray("dataset");
             if (optJSONArray != null) {
                 arrayList = new ArrayList();
                 int length = optJSONArray.length();

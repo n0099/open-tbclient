@@ -13,12 +13,12 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class SingleFromCallable extends Single {
+public final class SingleFromCallable<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable callable;
+    public final Callable<? extends T> callable;
 
-    public SingleFromCallable(Callable callable) {
+    public SingleFromCallable(Callable<? extends T> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +37,7 @@ public final class SingleFromCallable extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             Disposable empty = Disposables.empty();
@@ -46,9 +46,9 @@ public final class SingleFromCallable extends Single {
                 return;
             }
             try {
-                Object requireNonNull = ObjectHelper.requireNonNull(this.callable.call(), "The callable returned a null value");
+                Object obj = (Object) ObjectHelper.requireNonNull(this.callable.call(), "The callable returned a null value");
                 if (!empty.isDisposed()) {
-                    singleObserver.onSuccess(requireNonNull);
+                    singleObserver.onSuccess(obj);
                 }
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);

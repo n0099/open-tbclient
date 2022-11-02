@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
@@ -40,7 +39,7 @@ public class CookieJarImpl implements CookieJar {
     }
 
     @Override // okhttp3.CookieJar
-    public List loadForRequest(HttpUrl httpUrl) {
+    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
@@ -79,7 +78,7 @@ public class CookieJarImpl implements CookieJar {
         return (String) invokeL.objValue;
     }
 
-    private List getCookies(HttpUrl httpUrl, String str) {
+    private List<Cookie> getCookies(HttpUrl httpUrl, String str) {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
@@ -112,16 +111,15 @@ public class CookieJarImpl implements CookieJar {
     }
 
     @Override // okhttp3.CookieJar
-    public void saveFromResponse(HttpUrl httpUrl, List list) {
+    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) && this.cookieManager != null) {
             ArrayList arrayList = new ArrayList();
             String httpUrl2 = httpUrl.toString();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String cookie = ((Cookie) it.next()).toString();
-                if (!TextUtils.isEmpty(cookie) && this.cookieManager.shouldAcceptCookie(httpUrl2, cookie)) {
-                    arrayList.add(cookie);
+            for (Cookie cookie : list) {
+                String cookie2 = cookie.toString();
+                if (!TextUtils.isEmpty(cookie2) && this.cookieManager.shouldAcceptCookie(httpUrl2, cookie2)) {
+                    arrayList.add(cookie2);
                 }
             }
             this.cookieManager.storeCookie(httpUrl.toString(), arrayList);

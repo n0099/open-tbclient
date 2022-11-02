@@ -1,5 +1,8 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.arch.core.util.Function;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +28,9 @@ public class Transformations {
         }
     }
 
-    public static <X> LiveData<X> distinctUntilChanged(LiveData<X> liveData) {
+    @NonNull
+    @MainThread
+    public static <X> LiveData<X> distinctUntilChanged(@NonNull LiveData<X> liveData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveData)) == null) {
@@ -72,7 +77,9 @@ public class Transformations {
         return (LiveData) invokeL.objValue;
     }
 
-    public static <X, Y> LiveData<Y> map(LiveData<X> liveData, Function<X, Y> function) {
+    @NonNull
+    @MainThread
+    public static <X, Y> LiveData<Y> map(@NonNull LiveData<X> liveData, @NonNull Function<X, Y> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, liveData, function)) == null) {
@@ -103,7 +110,7 @@ public class Transformations {
                 }
 
                 @Override // androidx.lifecycle.Observer
-                public void onChanged(X x) {
+                public void onChanged(@Nullable X x) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, x) == null) {
                         this.val$result.setValue(this.val$mapFunction.apply(x));
@@ -115,7 +122,9 @@ public class Transformations {
         return (LiveData) invokeLL.objValue;
     }
 
-    public static <X, Y> LiveData<Y> switchMap(LiveData<X> liveData, Function<X, LiveData<Y>> function) {
+    @NonNull
+    @MainThread
+    public static <X, Y> LiveData<Y> switchMap(@NonNull LiveData<X> liveData, @NonNull Function<X, LiveData<Y>> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, liveData, function)) == null) {
@@ -147,7 +156,7 @@ public class Transformations {
                 }
 
                 @Override // androidx.lifecycle.Observer
-                public void onChanged(X x) {
+                public void onChanged(@Nullable X x) {
                     LiveData<Y> liveData2;
                     Object obj;
                     Interceptable interceptable2 = $ic;
@@ -183,7 +192,7 @@ public class Transformations {
                             }
 
                             @Override // androidx.lifecycle.Observer
-                            public void onChanged(Y y) {
+                            public void onChanged(@Nullable Y y) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, y) == null) {
                                     this.this$0.val$result.setValue(y);

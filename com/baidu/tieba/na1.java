@@ -1,5 +1,23 @@
 package com.baidu.tieba;
+
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface na1 {
-    void onNativeANR(int i);
+public class na1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if ("arm64-v8a".equalsIgnoreCase(Build.CPU_ABI)) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 }

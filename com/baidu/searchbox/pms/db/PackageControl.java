@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
@@ -130,9 +132,9 @@ public class PackageControl {
         return (ContentValues) invokeL.objValue;
     }
 
-    private Cursor getPackageFileCursorByGroup(List list, boolean z, String str, String str2, String str3) {
+    private Cursor getPackageFileCursorByGroup(List<Pair<String, String>> list, boolean z, String str, String str2, String str3) {
         InterceptResult invokeCommon;
-        Pair pair;
+        Pair<String, String> pair;
         String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{list, Boolean.valueOf(z), str, str2, str3})) == null) {
@@ -144,7 +146,7 @@ public class PackageControl {
                 int i = 0;
                 while (i < size) {
                     str6 = str6 + ((String) pair.first) + " = ? ";
-                    strArr[i] = (String) ((Pair) list.get(i)).second;
+                    strArr[i] = (String) list.get(i).second;
                     i++;
                     if (i < size) {
                         StringBuilder sb = new StringBuilder();
@@ -175,7 +177,7 @@ public class PackageControl {
         return (Cursor) invokeCommon.objValue;
     }
 
-    private List getPackageFiles(Cursor cursor) {
+    private List<PackageInfo> getPackageFiles(Cursor cursor) {
         InterceptResult invokeL;
         int i;
         int i2;
@@ -383,15 +385,15 @@ public class PackageControl {
                 packageInfo.rawId = PmsContentProviderImpl.insertExt(this.mContext, PmsContentProviderImpl.CONTENT_URI_PACKAGE_INFO, contentValues);
                 if (packageInfo.rawId > 0) {
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(new Pair("channel_id", packageInfo.channelId));
-                    arrayList.add(new Pair("package_name", packageInfo.packageName));
+                    arrayList.add(new Pair<>("channel_id", packageInfo.channelId));
+                    arrayList.add(new Pair<>("package_name", packageInfo.packageName));
                     if (ABIUtils.checkCpuAbiIs64()) {
-                        arrayList.add(new Pair(PackageTable.ABI, "1"));
+                        arrayList.add(new Pair<>(PackageTable.ABI, "1"));
                     } else {
-                        arrayList.add(new Pair(PackageTable.ABI, "2"));
+                        arrayList.add(new Pair<>(PackageTable.ABI, "2"));
                     }
                     ArrayList arrayList2 = new ArrayList();
-                    arrayList2.add(new Pair("update_time", "" + packageInfo.updateTime));
+                    arrayList2.add(new Pair<>("update_time", "" + packageInfo.updateTime));
                     deleteItemExceptByKeValues(arrayList, arrayList2, true);
                 }
                 return packageInfo.rawId;
@@ -405,30 +407,28 @@ public class PackageControl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new Pair("channel_id", str));
+            arrayList.add(new Pair<>("channel_id", str));
             if (!TextUtils.isEmpty(str2)) {
-                arrayList.add(new Pair("package_name", str2));
+                arrayList.add(new Pair<>("package_name", str2));
             }
             if (!TextUtils.isEmpty(str3)) {
-                arrayList.add(new Pair("update_version", str3));
+                arrayList.add(new Pair<>("update_version", str3));
             }
-            arrayList.add(new Pair("type", "10"));
+            arrayList.add(new Pair<>("type", "10"));
             return deleteItemByKeValues(arrayList, true);
         }
         return invokeLLL.booleanValue;
     }
 
-    public boolean deleteItemByKeValues(List list, boolean z) {
+    public boolean deleteItemByKeValues(List<Pair<String, String>> list, boolean z) {
         InterceptResult invokeLZ;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, list, z)) == null) {
             StringBuilder sb = new StringBuilder();
             String[] strArr = new String[list.size()];
-            Iterator it = list.iterator();
             int i = 0;
-            while (it.hasNext()) {
-                Pair pair = (Pair) it.next();
+            for (Pair<String, String> pair : list) {
                 if (i == 0) {
                     sb.append(pair.first + " =? ");
                 } else {
@@ -463,7 +463,8 @@ public class PackageControl {
     /* JADX WARN: Type inference failed for: r6v6, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r6v7 */
     /* JADX WARN: Type inference failed for: r6v9, types: [android.database.Cursor] */
-    public List queryFinishedItems(String str, List list) {
+    @Nullable
+    public List<PackageInfo> queryFinishedItems(@NonNull String str, @Nullable List<String> list) {
         InterceptResult invokeLL;
         Throwable th;
         Cursor cursor;
@@ -474,12 +475,11 @@ public class PackageControl {
             arrayList.add(new Pair("type", "10"));
             ?? arrayList2 = new ArrayList();
             if (list != null && list.size() > 0) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    arrayList2.add(new Pair("package_name", (String) it.next()));
+                for (String str2 : list) {
+                    arrayList2.add(new Pair("package_name", str2));
                 }
             }
-            List list2 = null;
+            List<PackageInfo> list2 = null;
             try {
                 try {
                     cursor = getPackageFileCursor(arrayList, arrayList2, "update_version", "DESC");
@@ -513,38 +513,36 @@ public class PackageControl {
         return (List) invokeLL.objValue;
     }
 
-    public boolean deleteItemExceptByKeValues(List list, List list2, boolean z) {
+    public boolean deleteItemExceptByKeValues(List<Pair<String, String>> list, List<Pair<String, String>> list2, boolean z) {
         InterceptResult invokeLLZ;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, list, list2, z)) == null) {
             StringBuilder sb = new StringBuilder();
             String[] strArr = new String[list.size() + list2.size()];
-            Iterator it = list.iterator();
+            Iterator<Pair<String, String>> it = list.iterator();
             int i = 0;
             while (true) {
                 String str2 = " AND ";
                 if (!it.hasNext()) {
                     break;
                 }
-                Pair pair = (Pair) it.next();
+                Pair<String, String> next = it.next();
                 if (i == 0) {
-                    sb.append(pair.first + " =? ");
+                    sb.append(next.first + " =? ");
                 } else {
                     if (!z) {
                         str2 = " OR ";
                     }
                     sb.append(str2);
-                    sb.append(pair.first + " =? ");
+                    sb.append(next.first + " =? ");
                 }
-                strArr[i] = "" + pair.second;
+                strArr[i] = "" + next.second;
                 i++;
             }
-            Iterator it2 = list2.iterator();
-            while (it2.hasNext()) {
-                Pair pair2 = (Pair) it2.next();
+            for (Pair<String, String> pair : list2) {
                 if (i == 0) {
-                    sb.append(pair2.first + " !=? ");
+                    sb.append(pair.first + " !=? ");
                 } else {
                     if (z) {
                         str = " AND ";
@@ -552,9 +550,9 @@ public class PackageControl {
                         str = " OR ";
                     }
                     sb.append(str);
-                    sb.append(pair2.first + " !=? ");
+                    sb.append(pair.first + " !=? ");
                 }
-                strArr[i] = "" + pair2.second;
+                strArr[i] = "" + pair.second;
                 i++;
             }
             if (PmsContentProviderImpl.deleteExt(this.mContext, PmsContentProviderImpl.CONTENT_URI_PACKAGE_INFO, sb.toString(), strArr) <= 0) {
@@ -565,18 +563,18 @@ public class PackageControl {
         return invokeLLZ.booleanValue;
     }
 
-    public Cursor getPackageFileCursor(List list, List list2, String str, String str2) {
+    public Cursor getPackageFileCursor(List<Pair<String, String>> list, List<Pair<String, String>> list2, String str, String str2) {
         InterceptResult invokeLLLL;
         int i;
-        Pair pair;
-        Pair pair2;
+        Pair<String, String> pair;
+        Pair<String, String> pair2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, list, list2, str, str2)) == null) {
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
             }
             if (list2 == null) {
-                list2 = new ArrayList();
+                list2 = new ArrayList<>();
             }
             int size = list.size() + list2.size();
             String[] strArr = new String[size];
@@ -591,7 +589,7 @@ public class PackageControl {
                 while (i3 < list.size()) {
                     str3 = str3 + ((String) pair2.first) + " = ? ";
                     int i4 = i + 1;
-                    strArr[i] = (String) ((Pair) list.get(i3)).second;
+                    strArr[i] = (String) list.get(i3).second;
                     if (i4 < size) {
                         str3 = str3 + "AND ";
                     }
@@ -606,7 +604,7 @@ public class PackageControl {
                 while (i2 < list2.size()) {
                     str4 = str4 + ((String) pair.first) + " = ? ";
                     int i5 = i + 1;
-                    strArr[i] = (String) ((Pair) list2.get(i2)).second;
+                    strArr[i] = (String) list2.get(i2).second;
                     if (i5 < size) {
                         str4 = str4 + "OR ";
                     }
@@ -626,13 +624,13 @@ public class PackageControl {
         return (Cursor) invokeLLLL.objValue;
     }
 
-    public List queryAllItems() {
+    public List<PackageInfo> queryAllItems() {
         InterceptResult invokeV;
         Cursor cursor;
         Throwable th;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List list = null;
+            List<PackageInfo> list = null;
             try {
                 cursor = getQueryCursor();
                 if (cursor != null) {
@@ -666,7 +664,7 @@ public class PackageControl {
         return (List) invokeV.objValue;
     }
 
-    public List queryFinishedItems(String str, String str2, String str3) {
+    public List<PackageInfo> queryFinishedItems(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, str2, str3)) == null) {
@@ -680,28 +678,28 @@ public class PackageControl {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x004f */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r9v11, types: [java.lang.String] */
-    public List queryItems(String str, String str2, String str3, String str4, int i) {
+    public List<PackageInfo> queryItems(String str, String str2, String str3, String str4, int i) {
         InterceptResult invokeCommon;
         Throwable th;
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i)})) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new Pair("channel_id", str));
+            arrayList.add(new Pair<>("channel_id", str));
             if (str2 != null) {
-                arrayList.add(new Pair("package_name", str2));
+                arrayList.add(new Pair<>("package_name", str2));
             }
             if (i >= 0) {
                 str2 = i + "";
-                arrayList.add(new Pair("type", str2));
+                arrayList.add(new Pair<>("type", str2));
             }
             Cursor cursor2 = str2;
             if (!TextUtils.isEmpty(str3)) {
                 ?? r9 = PackageTable.MD5;
-                arrayList.add(new Pair(PackageTable.MD5, str3));
+                arrayList.add(new Pair<>(PackageTable.MD5, str3));
                 cursor2 = r9;
             }
-            List list = null;
+            List<PackageInfo> list = null;
             try {
                 try {
                     cursor = getPackageFileCursorByGroup(arrayList, true, "update_version", str4, null);
@@ -738,7 +736,7 @@ public class PackageControl {
         return (List) invokeCommon.objValue;
     }
 
-    public int resetFinishedUpdateVersion(String str, List list) {
+    public int resetFinishedUpdateVersion(String str, List<String> list) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
@@ -755,11 +753,10 @@ public class PackageControl {
             String str2 = "channel_id =? AND type =? ";
             if (list != null && list.size() > 0) {
                 String str3 = str2 + "AND (";
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
+                for (String str4 : list) {
                     str3 = str3 + "package_name =? ";
                     int i3 = i2 + 1;
-                    strArr[i2] = (String) it.next();
+                    strArr[i2] = str4;
                     if (i3 < i) {
                         str3 = str3 + "OR ";
                     }
@@ -774,7 +771,7 @@ public class PackageControl {
         return invokeLL.intValue;
     }
 
-    public List safeLoadPackageFile(Cursor cursor) {
+    public List<PackageInfo> safeLoadPackageFile(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cursor)) == null) {

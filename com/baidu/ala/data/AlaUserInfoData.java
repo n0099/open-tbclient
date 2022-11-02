@@ -13,7 +13,7 @@ public class AlaUserInfoData extends OrmObject {
     public int certify_status;
     public String description;
     public String live_id;
-    public List live_mark_info_new;
+    public List<AlaLiveMarkData> live_mark_info_new;
     public String location;
     public AlaMarkCountInfoData mark_count;
     public String portrait;

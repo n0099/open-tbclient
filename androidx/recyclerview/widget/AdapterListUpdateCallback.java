@@ -1,5 +1,6 @@
 package androidx.recyclerview.widget;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class AdapterListUpdateCallback implements ListUpdateCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final RecyclerView.Adapter mAdapter;
 
-    public AdapterListUpdateCallback(RecyclerView.Adapter adapter) {
+    public AdapterListUpdateCallback(@NonNull RecyclerView.Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

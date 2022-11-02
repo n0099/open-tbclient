@@ -18,6 +18,7 @@ import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.ManagerApplyInfo;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
+import tbclient.SimpleThreadInfo;
 /* loaded from: classes4.dex */
 public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +30,7 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public boolean isComplaintShow;
     public ManagerElectionTab managerElectionTab;
     public PriManagerApplyInfo privateApplyInfo;
-    public List threadInfoList;
+    public List<SimpleThreadInfo> threadInfoList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumDetailHttpResponse(int i) {
@@ -130,7 +131,7 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
         return (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public List getThreadInfoList() {
+    public List<SimpleThreadInfo> getThreadInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {

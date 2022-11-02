@@ -1,47 +1,108 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface jn1 {
+public class jn1 implements wp1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void onFinish();
+    @Override // com.baidu.tieba.wp1
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(Exception exc);
+    @Override // com.baidu.tieba.wp1
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
     }
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a(boolean z);
-
-        void b();
+    @Override // com.baidu.tieba.wp1
+    public wp1 create() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (wp1) invokeV.objValue;
     }
 
-    void a(a aVar);
+    @Override // com.baidu.tieba.wp1
+    public void d(ot2 ot2Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, ot2Var, z) == null) {
+        }
+    }
 
-    void b(Activity activity, Bundle bundle, yj1 yj1Var);
+    @Override // com.baidu.tieba.wp1
+    public void e(ot2 ot2Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, ot2Var, context) == null) {
+        }
+    }
 
-    void c(ak1 ak1Var);
+    @Override // com.baidu.tieba.wp1
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    String d(Context context);
+    @Override // com.baidu.tieba.wp1
+    public boolean onBackPressed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    boolean e(Context context);
+    @Override // com.baidu.tieba.wp1
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
 
-    String f(Context context);
+    @Override // com.baidu.tieba.wp1
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
 
-    void g(c cVar);
+    @Override // com.baidu.tieba.wp1
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
 
-    String h(Context context);
-
-    String i(Context context);
-
-    void j(yj1 yj1Var);
+    public jn1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

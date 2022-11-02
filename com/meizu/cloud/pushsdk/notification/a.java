@@ -1,5 +1,7 @@
 package com.meizu.cloud.pushsdk.notification;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -50,6 +52,7 @@ public abstract class a implements c {
         }
     }
 
+    @TargetApi(23)
     private Icon b(String str) {
         try {
             int identifier = this.a.getPackageManager().getResourcesForApplication(str).getIdentifier(PushConstants.MZ_PUSH_NOTIFICATION_SMALL_ICON, ResourceManager.DRAWABLE, str);
@@ -64,6 +67,7 @@ public abstract class a implements c {
         }
     }
 
+    @SuppressLint({"NewApi"})
     private void c(Notification notification, MessageV3 messageV3) {
         com.meizu.cloud.pushsdk.notification.c.b.a(notification, true);
         com.meizu.cloud.pushsdk.notification.c.b.a(notification, c(messageV3));
@@ -284,6 +288,7 @@ public abstract class a implements c {
     }
 
     @Override // com.meizu.cloud.pushsdk.notification.c
+    @SuppressLint({"NewApi"})
     public void e(MessageV3 messageV3) {
         Notification a = a(messageV3, a(messageV3), b(messageV3));
         int abs = Math.abs((int) System.currentTimeMillis());

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -68,6 +69,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_FORUM_BROADCAST_SINGLE_FEED = "com.baidu.tieba://unidispatch/forumbroadcast/singlefeed";
     public static final String SCHEMA_FORUM_DETAIL_FLUTTER = "com.baidu.tieba://unidispatch/forumDetail?forumId=";
     public static final String SCHEMA_GAME_PLAY_ALBUM = "com.baidu.tieba://unidispatch/GameGodAlbum";
+    public static final String SCHEMA_GAME_PLAY_DISPATCH_PAGE = "com.baidu.tieba://unidispatch/DispatchOrder";
     public static final String SCHEMA_GAME_PLAY_GODS_PAGE = "com.baidu.tieba://unidispatch/GameGodsDetailPage";
     public static final String SCHEMA_GAME_PLAY_MAIN_PAGE = "com.baidu.tieba://unidispatch/GamePlayPage";
     public static final String SCHEMA_GAME_PLAY_ORDERING_PAGE = "com.baidu.tieba://unidispatch/GameGodsDetailPage";
@@ -78,6 +80,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_GAME_RECOMMENT_PAGE = "tbmaintab://tieba.baidu.com";
     public static final String SCHEMA_LIVE_MY_CONCERN_LIST = "com.baidu.tieba://unidispatch/liveconcernlist";
     public static final String SCHEMA_LIVE_SDK = "bdtiebalive://";
+    public static final String SCHEMA_MESSAGE_CENTER_PAGE = "com.baidu.tieba://unidispatch/MessageCenter";
     public static final String SCHEMA_NAITVE_H5 = "com.baidu.tieba://unidispatch/tbwebview";
     public static final String SCHEMA_PATH_FROM_FORUM_SQUARE = "/forumsquare";
     public static final String SCHEMA_REPLY_ME = "com.baidu.tieba://unidispatch/replyme";
@@ -208,7 +211,7 @@ public class UrlSchemaHelper {
         }
     }
 
-    public static boolean checkBaiduboxappSwan(String str) {
+    public static boolean checkBaiduboxappSwan(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -217,7 +220,8 @@ public class UrlSchemaHelper {
         return invokeL.booleanValue;
     }
 
-    public static String replaceSwanBaiduboxapp2Tiebaclient(String str) {
+    @NonNull
+    public static String replaceSwanBaiduboxapp2Tiebaclient(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {

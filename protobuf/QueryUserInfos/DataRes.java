@@ -66,17 +66,17 @@ public final class DataRes extends Message {
     public final Integer userType;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer hasConcerned;
-        public List iconInfo;
+        public List<IconInfo> iconInfo;
         public Long id;
         public String intro;
         public Integer isBlacklist;
@@ -286,7 +286,7 @@ public final class DataRes extends Message {
             } else {
                 this.isInterestman = num8;
             }
-            List list = builder.iconInfo;
+            List<IconInfo> list = builder.iconInfo;
             if (list == null) {
                 this.iconInfo = DEFAULT_ICONINFO;
             } else {

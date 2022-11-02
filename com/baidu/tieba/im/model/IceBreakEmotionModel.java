@@ -12,8 +12,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.im.message.IceBreakHttpResponsedMessage;
-import com.baidu.tieba.n97;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.xa7;
+import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,14 +22,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class IceBreakEmotionModel extends BdBaseModel {
+public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IceBreakRequestCallback mCallback;
 
     /* loaded from: classes4.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List list);
+        void onSuccess(List<ya7> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -112,12 +113,12 @@ public class IceBreakEmotionModel extends BdBaseModel {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    n97 n97Var;
+                    xa7 xa7Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (n97Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (xa7Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
                         return;
                     }
-                    List a = n97Var.a();
+                    List<ya7> a = xa7Var.a();
                     if (!ListUtils.isEmpty(a) && this.this$0.mCallback != null) {
                         this.this$0.mCallback.onSuccess(a);
                     }

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.internal.Util;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,16 +22,16 @@ public final class FormBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType CONTENT_TYPE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List encodedNames;
-    public final List encodedValues;
+    public final List<String> encodedNames;
+    public final List<String> encodedValues;
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Charset charset;
-        public final List names;
-        public final List values;
+        public final List<String> names;
+        public final List<String> values;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public Builder() {
@@ -163,7 +164,7 @@ public final class FormBody extends RequestBody {
         return invokeV.intValue;
     }
 
-    public FormBody(List list, List list2) {
+    public FormBody(List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,7 +183,7 @@ public final class FormBody extends RequestBody {
         this.encodedValues = Util.immutableList(list2);
     }
 
-    private long writeOrCountBytes(OutputStream outputStream, boolean z) throws IOException {
+    private long writeOrCountBytes(@Nullable OutputStream outputStream, boolean z) throws IOException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, this, outputStream, z)) == null) {
@@ -195,9 +196,9 @@ public final class FormBody extends RequestBody {
                 if (i > 0) {
                     bufferedOutputStream.write(38);
                 }
-                Util.writeUtf8(bufferedOutputStream, (String) this.encodedNames.get(i));
+                Util.writeUtf8(bufferedOutputStream, this.encodedNames.get(i));
                 bufferedOutputStream.write(61);
-                Util.writeUtf8(bufferedOutputStream, (String) this.encodedValues.get(i));
+                Util.writeUtf8(bufferedOutputStream, this.encodedValues.get(i));
             }
             bufferedOutputStream.flush();
             if (z) {
@@ -212,7 +213,7 @@ public final class FormBody extends RequestBody {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return (String) this.encodedNames.get(i);
+            return this.encodedNames.get(i);
         }
         return (String) invokeI.objValue;
     }
@@ -221,7 +222,7 @@ public final class FormBody extends RequestBody {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return (String) this.encodedValues.get(i);
+            return this.encodedValues.get(i);
         }
         return (String) invokeI.objValue;
     }

@@ -1,5 +1,6 @@
 package com.kwai.sodler.lib.kwai.b;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.q;
+@SuppressLint({"RestrictedApi"})
 /* loaded from: classes8.dex */
 public final class d extends ContextThemeWrapper implements b {
     public static /* synthetic */ Interceptable $ic;

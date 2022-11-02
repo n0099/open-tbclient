@@ -19,14 +19,14 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.c.a$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0144a {
+    public static class C0152a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long A;
@@ -36,7 +36,7 @@ public class a {
         public final com.baidu.searchbox.dns.d.a x;
         public final com.baidu.searchbox.dns.d.a.a z;
 
-        public C0144a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C0152a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

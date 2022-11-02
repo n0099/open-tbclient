@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.util.LongSparseArray;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
@@ -91,7 +92,7 @@ public class ChatUserDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateAllShield(List list) {
+    public void updateAllShield(@NonNull List<ChatSession> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65555, this, list) == null) && list.size() > 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, list) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.2
@@ -147,7 +148,7 @@ public class ChatUserDBManager extends DBBase {
         return invokeJ.intValue;
     }
 
-    public void updateMarkTopList(List list) {
+    public void updateMarkTopList(@NonNull List<ChatSession> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, list) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.1
@@ -195,7 +196,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    public void updateSubscribedUsers(Map map) {
+    public void updateSubscribedUsers(@NonNull Map<Long, Integer> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, map) == null) && map.size() > 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable(this, map) { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.4
@@ -360,7 +361,7 @@ public class ChatUserDBManager extends DBBase {
         return invokeCommon.intValue;
     }
 
-    private ChatSession constructShieldUsers(ChatSession chatSession, Cursor cursor, boolean z) {
+    private ChatSession constructShieldUsers(@NonNull ChatSession chatSession, @NonNull Cursor cursor, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65549, this, chatSession, cursor, z)) == null) {
@@ -380,12 +381,12 @@ public class ChatUserDBManager extends DBBase {
         return (ChatSession) invokeLLZ.objValue;
     }
 
-    private void getUserInfo(List list, List list2, IGetUserShieldListener iGetUserShieldListener) {
+    private void getUserInfo(@NonNull List<ChatSession> list, @NonNull List<ChatSession> list2, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65554, this, list, list2, iGetUserShieldListener) == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < list.size(); i++) {
-                arrayList.add(Long.valueOf(((ChatSession) list.get(i)).getContacter()));
+                arrayList.add(Long.valueOf(list.get(i).getContacter()));
             }
             String str = TAG;
             LogUtils.i(str, "getUserInfo uks " + arrayList.toString() + ", hasResult :" + list2.size());
@@ -429,7 +430,7 @@ public class ChatUserDBManager extends DBBase {
                     }
 
                     @Override // com.baidu.android.imsdk.account.IGetUidByUkListener
-                    public void onGetUidByUkResult(int i3, String str2, long[] jArr2, Map map) {
+                    public void onGetUidByUkResult(int i3, String str2, long[] jArr2, Map<Long, Long> map) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), str2, jArr2, map}) == null) {
                             if (i3 != 0) {
@@ -437,8 +438,8 @@ public class ChatUserDBManager extends DBBase {
                                 return;
                             }
                             ArrayList arrayList2 = new ArrayList();
-                            for (Map.Entry entry : map.entrySet()) {
-                                if (((Long) entry.getValue()).longValue() > 0) {
+                            for (Map.Entry<Long, Long> entry : map.entrySet()) {
+                                if (entry.getValue().longValue() > 0) {
                                     arrayList2.add(entry.getValue());
                                 }
                             }
@@ -471,7 +472,7 @@ public class ChatUserDBManager extends DBBase {
                                     }
 
                                     @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                                    public void onGetUserIdentityResult(int i4, List list3) {
+                                    public void onGetUserIdentityResult(int i4, List<ChatUser> list3) {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, list3) == null) {
                                             if (i4 == 0) {
@@ -481,15 +482,15 @@ public class ChatUserDBManager extends DBBase {
                                                     return;
                                                 }
                                                 for (ChatSession chatSession : this.this$1.val$source) {
-                                                    Iterator it = list3.iterator();
+                                                    Iterator<ChatUser> it = list3.iterator();
                                                     while (true) {
                                                         if (it.hasNext()) {
-                                                            ChatUser chatUser = (ChatUser) it.next();
-                                                            if (chatUser.getUk() == chatSession.getContacter()) {
+                                                            ChatUser next = it.next();
+                                                            if (next.getUk() == chatSession.getContacter()) {
                                                                 AnonymousClass3 anonymousClass32 = this.this$1;
-                                                                anonymousClass32.val$resultUsers.add(anonymousClass32.this$0.constructShieldUsersByChatUser(chatSession, chatUser));
-                                                                this.this$1.this$0.updateUser(chatUser);
-                                                                ChatMessageDBManager.getInstance(this.this$1.this$0.mContext).updateSessionClass(chatUser);
+                                                                anonymousClass32.val$resultUsers.add(anonymousClass32.this$0.constructShieldUsersByChatUser(chatSession, next));
+                                                                this.this$1.this$0.updateUser(next);
+                                                                ChatMessageDBManager.getInstance(this.this$1.this$0.mContext).updateSessionClass(next);
                                                                 break;
                                                             }
                                                         }
@@ -515,7 +516,7 @@ public class ChatUserDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ChatSession constructShieldUsersByChatUser(ChatSession chatSession, ChatUser chatUser) {
+    public ChatSession constructShieldUsersByChatUser(@NonNull ChatSession chatSession, @NonNull ChatUser chatUser) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, chatSession, chatUser)) == null) {
@@ -727,7 +728,7 @@ public class ChatUserDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public LongSparseArray getChatUserByBduids(List list) {
+    public LongSparseArray<ChatUser> getChatUserByBduids(List<Long> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
@@ -740,7 +741,7 @@ public class ChatUserDBManager extends DBBase {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i));
             }
             String str = "buid in (" + sb.toString() + ") ";
-            LongSparseArray longSparseArray = new LongSparseArray();
+            LongSparseArray<ChatUser> longSparseArray = new LongSparseArray<>();
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
                 if (openDatabase == null) {
@@ -765,13 +766,11 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    public void updateUserIdentity(List list) {
+    public void updateUserIdentity(List<ChatUser> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, list) == null) && list != null && list.size() > 0) {
             synchronized (DBBase.mSyncLock) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    ChatUser chatUser = (ChatUser) it.next();
+                for (ChatUser chatUser : list) {
                     ContentValues contentValues = new ContentValues();
                     if (chatUser.getUk() > 0) {
                         contentValues.put("uid", Long.valueOf(chatUser.getUk()));
@@ -873,13 +872,13 @@ public class ChatUserDBManager extends DBBase {
     /* JADX WARN: Type inference failed for: r10v1 */
     /* JADX WARN: Type inference failed for: r10v2 */
     /* JADX WARN: Type inference failed for: r10v3, types: [android.database.Cursor] */
-    public ArrayList getChatUser() {
+    public ArrayList<ChatUser> getChatUser() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (DBBase.mSyncLock) {
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ChatUser> arrayList = new ArrayList<>();
                 SQLiteDatabase openDatabase = openDatabase();
                 ?? r10 = 0;
                 try {
@@ -943,7 +942,7 @@ public class ChatUserDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List getNotExpiredChatUserByBduids(List list, long j) {
+    public List<Long> getNotExpiredChatUserByBduids(List<Long> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, list, j)) == null) {
@@ -980,7 +979,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    public boolean updateShield(ChatSession chatSession, boolean z) {
+    public boolean updateShield(@NonNull ChatSession chatSession, boolean z) {
         InterceptResult invokeLZ;
         boolean z2;
         boolean z3;
@@ -1044,7 +1043,7 @@ public class ChatUserDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void getShieldUserByUids(List list, boolean z, IGetUserShieldListener iGetUserShieldListener) {
+    public void getShieldUserByUids(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{list, Boolean.valueOf(z), iGetUserShieldListener}) == null) {
@@ -1064,9 +1063,9 @@ public class ChatUserDBManager extends DBBase {
                         String str = "";
                         if (list.size() > 0) {
                             try {
-                                String str2 = "" + ((ChatSession) list.get(0)).getContacter();
+                                String str2 = "" + list.get(0).getContacter();
                                 for (int i = 1; i < list.size(); i++) {
-                                    str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + ((ChatSession) list.get(i)).getContacter();
+                                    str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i).getContacter();
                                 }
                                 str = "uid in (" + str2 + ") ";
                             } catch (Exception e) {
@@ -1095,8 +1094,8 @@ public class ChatUserDBManager extends DBBase {
                                 while (true) {
                                     if (i2 >= list.size()) {
                                         break;
-                                    } else if (((ChatSession) list.get(i2)).getContacter() == j) {
-                                        chatSession = (ChatSession) list.get(i2);
+                                    } else if (list.get(i2).getContacter() == j) {
+                                        chatSession = list.get(i2);
                                         break;
                                     } else {
                                         i2++;
@@ -1136,7 +1135,7 @@ public class ChatUserDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List getShieldUsers() {
+    public List<ChatSession> getShieldUsers() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
@@ -1260,7 +1259,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    public int updateUser(ArrayList arrayList) {
+    public int updateUser(ArrayList<ChatUser> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, arrayList)) == null) {
@@ -1274,10 +1273,10 @@ public class ChatUserDBManager extends DBBase {
                     ArrayList arrayList2 = new ArrayList(arrayList.size());
                     for (int i = 0; i < arrayList.size(); i++) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("username", ((ChatUser) arrayList.get(i)).getUserName());
-                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, ((ChatUser) arrayList.get(i)).getIconUrl());
-                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, ((ChatUser) arrayList.get(i)).getTinyUrl());
-                        arrayList2.add(i, new DBBase.UpdateArgs(this, "uid = ? ", new String[]{String.valueOf(((ChatUser) arrayList.get(i)).getUk())}, contentValues));
+                        contentValues.put("username", arrayList.get(i).getUserName());
+                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, arrayList.get(i).getIconUrl());
+                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, arrayList.get(i).getTinyUrl());
+                        arrayList2.add(i, new DBBase.UpdateArgs(this, "uid = ? ", new String[]{String.valueOf(arrayList.get(i).getUk())}, contentValues));
                     }
                     return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
                 }
@@ -1286,7 +1285,7 @@ public class ChatUserDBManager extends DBBase {
         return invokeL.intValue;
     }
 
-    public int updateUserIpInfo(ArrayList arrayList) {
+    public int updateUserIpInfo(ArrayList<IpInfo> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
@@ -1299,7 +1298,7 @@ public class ChatUserDBManager extends DBBase {
                 }
                 ArrayList arrayList2 = new ArrayList(arrayList.size());
                 for (int i = 0; i < arrayList.size(); i++) {
-                    arrayList2.add(i, new DBBase.UpdateArgs(this, "uid= ?", new String[]{String.valueOf(((IpInfo) arrayList.get(i)).getUid())}, constructIpInfoContentValue((IpInfo) arrayList.get(i), new ContentValues())));
+                    arrayList2.add(i, new DBBase.UpdateArgs(this, "uid= ?", new String[]{String.valueOf(arrayList.get(i).getUid())}, constructIpInfoContentValue(arrayList.get(i), new ContentValues())));
                 }
                 return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
             }

@@ -27,7 +27,7 @@ public class ax {
         }
     }
 
-    public static void a(Class cls, Context context) {
+    public static void a(Class<?> cls, Context context) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || a) {
             return;
@@ -45,7 +45,7 @@ public class ax {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                Class a2 = v.a(context, "com.bun.miitmdid.core.JLibrary");
+                Class<?> a2 = v.a(context, "com.bun.miitmdid.core.JLibrary");
                 if (a2 != null) {
                     a(a2, context);
                     return true;

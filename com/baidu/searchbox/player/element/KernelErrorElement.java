@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
@@ -53,6 +54,7 @@ public class KernelErrorElement extends AbsElement {
     }
 
     @Override // com.baidu.searchbox.player.element.IElement
+    @NonNull
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,9 +68,9 @@ public class KernelErrorElement extends AbsElement {
     public void initElement() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0153, null);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0155, null);
             this.mRootView = linearLayout;
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0919ee);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a32);
             this.mTextNetError = textView;
             textView.setOnClickListener(this.mParent);
         }
@@ -95,7 +97,7 @@ public class KernelErrorElement extends AbsElement {
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
-    public void onEventNotify(VideoEvent videoEvent) {
+    public void onEventNotify(@NonNull VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {

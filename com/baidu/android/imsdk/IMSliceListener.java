@@ -2,8 +2,8 @@ package com.baidu.android.imsdk;
 
 import java.util.List;
 /* loaded from: classes.dex */
-public interface IMSliceListener extends IMListener {
-    List getResult();
+public interface IMSliceListener<T> extends IMListener {
+    List<T> getResult();
 
     boolean isComplete();
 
@@ -11,7 +11,7 @@ public interface IMSliceListener extends IMListener {
 
     void mergeErrorMsg(String str);
 
-    void mergeSliceData(List list);
+    void mergeSliceData(List<T> list);
 
-    void onResult(int i, String str, List list);
+    void onResult(int i, String str, List<T> list);
 }

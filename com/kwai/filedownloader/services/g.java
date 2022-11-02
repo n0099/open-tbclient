@@ -246,7 +246,7 @@ public final class g implements y {
             if (Eo <= 1) {
                 return cd.Em();
             }
-            List ce = this.awA.ce(i);
+            List<com.kwai.filedownloader.c.a> ce = this.awA.ce(i);
             if (ce == null || ce.size() != Eo) {
                 return 0L;
             }

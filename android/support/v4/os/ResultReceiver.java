@@ -1,11 +1,13 @@
 package android.support.v4.os;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.support.v4.os.IResultReceiver;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,10 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BanParcelableUsage"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ResultReceiver implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ResultReceiver> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler mHandler;
     public final boolean mLocal;
@@ -128,7 +132,7 @@ public class ResultReceiver implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: android.support.v4.os.ResultReceiver.1
+        CREATOR = new Parcelable.Creator<ResultReceiver>() { // from class: android.support.v4.os.ResultReceiver.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,6 +151,7 @@ public class ResultReceiver implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ResultReceiver createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -158,6 +163,7 @@ public class ResultReceiver implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ResultReceiver[] newArray(int i) {
                 InterceptResult invokeI;

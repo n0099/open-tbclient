@@ -8,6 +8,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +66,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawCardH5(Context context, AttributeSet attributeSet) {
+    public DrawCardH5(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,7 +88,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawCardH5(Context context, AttributeSet attributeSet, int i) {
+    public DrawCardH5(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,11 +113,11 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             this.mContext = context;
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0418, this);
-            this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f091071);
-            this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f091067);
-            this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f091073);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09109c);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0423, this);
+            this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ab);
+            this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a1);
+            this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ad);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910d9);
         }
     }
 
@@ -148,7 +150,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         }
     }
 
-    public final void a(AdTemplate adTemplate, a aVar) {
+    public final void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
             this.mAdTemplate = adTemplate;
@@ -177,7 +179,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 != this.cp) {
-                com.kwad.components.core.c.a.a.a(new a.C0566a(getContext()).L(this.mAdTemplate).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
+                com.kwad.components.core.c.a.a.a(new a.C0577a(getContext()).L(this.mAdTemplate).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DrawCardH5 cs;

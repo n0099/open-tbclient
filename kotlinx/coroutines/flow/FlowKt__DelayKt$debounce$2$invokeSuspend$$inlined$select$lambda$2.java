@@ -15,7 +15,7 @@ import kotlinx.coroutines.internal.Symbol;
 import kotlinx.coroutines.selects.SelectBuilder;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "invoke", "(Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__DelayKt$debounce$2$1$2$1", "kotlinx/coroutines/flow/FlowKt__DelayKt$debounce$2$$special$$inlined$let$lambda$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2 extends SuspendLambda implements Function1 {
+public final class FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2 extends SuspendLambda implements Function1<Continuation<? super Unit>, Object> {
     public final /* synthetic */ FlowCollector $downstream$inlined;
     public final /* synthetic */ Ref.ObjectRef $lastValue$inlined;
     public final /* synthetic */ SelectBuilder $this_select$inlined;
@@ -36,13 +36,14 @@ public final class FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lamb
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Continuation continuation) {
+    public final Continuation<Unit> create(Continuation<?> continuation) {
         return new FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2(this.$value, continuation, this.$this_select$inlined, this.this$0, this.$values$inlined, this.$lastValue$inlined, this.$downstream$inlined);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // kotlin.jvm.functions.Function1
-    public final Object invoke(Object obj) {
-        return ((FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2) create((Continuation) obj)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Continuation<? super Unit> continuation) {
+        return ((FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2) create(continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

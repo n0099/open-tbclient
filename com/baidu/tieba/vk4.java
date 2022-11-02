@@ -1,121 +1,117 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.system.Os;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
 /* loaded from: classes6.dex */
-public final class vk4 {
+public class vk4 implements sk4<String> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final SparseArray b;
-    public static final SparseArray c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948243658, "Lcom/baidu/tieba/vk4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948243658, "Lcom/baidu/tieba/vk4;");
+    public vk4(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = wj1.a;
-        SparseArray sparseArray = new SparseArray(32);
-        b = sparseArray;
-        sparseArray.put(10015, 2001);
-        b.put(10013, 2002);
-        b.put(904, 2003);
-        b.put(10012, 2004);
-        b.put(10004, 2006);
-        b.put(701, 2007);
-        b.put(10005, 2008);
-        b.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
-        b.put(10007, -2301);
-        b.put(10008, 2101);
-        b.put(923, 2103);
-        b.put(10009, 2105);
-        b.put(10010, 2106);
-        b.put(10003, 2107);
-        b.put(10011, 2108);
-        b.put(10014, 3001);
-        b.put(3002, 3002);
-        b.put(3003, 3003);
-        b.put(3004, 3005);
-        SparseArray sparseArray2 = new SparseArray();
-        c = sparseArray2;
-        sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
-        c.put(10014, "MEDIA_ERR_NETWORK");
-        c.put(3002, "MEDIA_ERR_NETWORK");
-        c.put(3003, "MEDIA_ERR_NETWORK");
-        c.put(3004, "MEDIA_ERR_NETWORK");
-        c.put(-2022, "MEDIA_ERR_NETWORK");
-        c.put(-111, "MEDIA_ERR_NETWORK");
-        c.put(10008, "MEDIA_ERR_DECODE");
+        this.a = context.getApplicationContext();
     }
 
-    public static String a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.sk4
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            return (String) c.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !new File(this.a.getFilesDir(), "libuuid.so").exists();
         }
-        return (String) invokeI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static JSONObject c(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            return d(StatConstants.KEY_EXT_ERR_MSG, a(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d();
         }
-        return (JSONObject) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (b.indexOfKey(i) < 0) {
-                if (a) {
-                    Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
-                    return 100;
-                }
-                return 100;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (!file.exists()) {
+                return null;
             }
-            return ((Integer) b.get(i)).intValue();
+            return yk4.c(file);
         }
-        return invokeI.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static JSONObject d(String str, Object obj) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk4
+    /* renamed from: c */
+    public void put(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str);
+        }
+    }
+
+    @SuppressLint({"WorldReadableFiles"})
+    @TargetApi(21)
+    public final void e(String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (Build.VERSION.SDK_INT >= 24) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            FileOutputStream fileOutputStream = null;
             try {
-                if (obj instanceof Integer) {
-                    jSONObject.put(str, ((Integer) obj).intValue());
-                } else if (obj instanceof String) {
-                    jSONObject.put(str, obj);
+                try {
+                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
+                    fileOutputStream.write(str.getBytes());
+                    fileOutputStream.flush();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (JSONException unused) {
+                if (i != 0) {
+                    try {
+                        Os.chmod(file.getAbsolutePath(), 436);
+                    } catch (Exception unused) {
+                    }
+                }
+            } finally {
+                yk4.a(fileOutputStream);
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeLL.objValue;
     }
 }

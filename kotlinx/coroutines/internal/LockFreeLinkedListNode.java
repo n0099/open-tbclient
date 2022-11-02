@@ -9,11 +9,15 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import kotlin.Metadata;
+import kotlin.PublishedApi;
 import kotlin.TypeCastException;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.DebugKt;
+import kotlinx.coroutines.InternalCoroutinesApi;
+@InternalCoroutinesApi
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\u0000\n\u0002\b\r\b\u0017\u0018\u0000:\u0005JKLMNB\u0007¢\u0006\u0004\bI\u0010&J\u0019\u0010\u0004\u001a\u00020\u00032\n\u0010\u0002\u001a\u00060\u0000j\u0002`\u0001¢\u0006\u0004\b\u0004\u0010\u0005J,\u0010\t\u001a\u00020\u00072\n\u0010\u0002\u001a\u00060\u0000j\u0002`\u00012\u000e\b\u0004\u0010\b\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006H\u0086\b¢\u0006\u0004\b\t\u0010\nJ4\u0010\r\u001a\u00020\u00072\n\u0010\u0002\u001a\u00060\u0000j\u0002`\u00012\u0016\u0010\f\u001a\u0012\u0012\b\u0012\u00060\u0000j\u0002`\u0001\u0012\u0004\u0012\u00020\u00070\u000bH\u0086\b¢\u0006\u0004\b\r\u0010\u000eJD\u0010\u000f\u001a\u00020\u00072\n\u0010\u0002\u001a\u00060\u0000j\u0002`\u00012\u0016\u0010\f\u001a\u0012\u0012\b\u0012\u00060\u0000j\u0002`\u0001\u0012\u0004\u0012\u00020\u00070\u000b2\u000e\b\u0004\u0010\b\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006H\u0086\b¢\u0006\u0004\b\u000f\u0010\u0010J'\u0010\u0012\u001a\u00020\u00072\n\u0010\u0002\u001a\u00060\u0000j\u0002`\u00012\n\u0010\u0011\u001a\u00060\u0000j\u0002`\u0001H\u0001¢\u0006\u0004\b\u0012\u0010\u0013J\u0019\u0010\u0014\u001a\u00020\u00072\n\u0010\u0002\u001a\u00060\u0000j\u0002`\u0001¢\u0006\u0004\b\u0014\u0010\u0015J\"\u0010\u0018\u001a\n\u0018\u00010\u0000j\u0004\u0018\u0001`\u00012\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0082\u0010¢\u0006\u0004\b\u0018\u0010\u0019J)\u0010\u001c\u001a\b\u0012\u0004\u0012\u00028\u00000\u001b\"\f\b\u0000\u0010\u001a*\u00060\u0000j\u0002`\u00012\u0006\u0010\u0002\u001a\u00028\u0000¢\u0006\u0004\b\u001c\u0010\u001dJ\u0017\u0010\u001f\u001a\f\u0012\b\u0012\u00060\u0000j\u0002`\u00010\u001e¢\u0006\u0004\b\u001f\u0010 J \u0010\"\u001a\u00060\u0000j\u0002`\u00012\n\u0010!\u001a\u00060\u0000j\u0002`\u0001H\u0082\u0010¢\u0006\u0004\b\"\u0010#J\u001b\u0010$\u001a\u00020\u00032\n\u0010\u0011\u001a\u00060\u0000j\u0002`\u0001H\u0002¢\u0006\u0004\b$\u0010\u0005J\r\u0010%\u001a\u00020\u0003¢\u0006\u0004\b%\u0010&J\u000f\u0010'\u001a\u00020\u0003H\u0001¢\u0006\u0004\b'\u0010&J,\u0010)\u001a\u00020(2\n\u0010\u0002\u001a\u00060\u0000j\u0002`\u00012\u000e\b\u0004\u0010\b\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006H\u0081\b¢\u0006\u0004\b)\u0010*J\u0017\u0010+\u001a\n\u0018\u00010\u0000j\u0004\u0018\u0001`\u0001H\u0014¢\u0006\u0004\b+\u0010,J\u000f\u0010-\u001a\u00020\u0007H\u0016¢\u0006\u0004\b-\u0010.J.\u0010/\u001a\u0004\u0018\u00018\u0000\"\u0006\b\u0000\u0010\u001a\u0018\u00012\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00070\u000bH\u0086\b¢\u0006\u0004\b/\u00100J\u0015\u00101\u001a\n\u0018\u00010\u0000j\u0004\u0018\u0001`\u0001¢\u0006\u0004\b1\u0010,J\u0017\u00102\u001a\n\u0018\u00010\u0000j\u0004\u0018\u0001`\u0001H\u0001¢\u0006\u0004\b2\u0010,J\u000f\u00104\u001a\u000203H\u0002¢\u0006\u0004\b4\u00105J\u000f\u00107\u001a\u000206H\u0016¢\u0006\u0004\b7\u00108J/\u0010;\u001a\u00020:2\n\u0010\u0002\u001a\u00060\u0000j\u0002`\u00012\n\u0010\u0011\u001a\u00060\u0000j\u0002`\u00012\u0006\u00109\u001a\u00020(H\u0001¢\u0006\u0004\b;\u0010<J'\u0010@\u001a\u00020\u00032\n\u0010=\u001a\u00060\u0000j\u0002`\u00012\n\u0010\u0011\u001a\u00060\u0000j\u0002`\u0001H\u0000¢\u0006\u0004\b>\u0010?R\u0016\u0010A\u001a\u00020\u00078V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bA\u0010.R\u0013\u0010\u0011\u001a\u00020B8F@\u0006¢\u0006\u0006\u001a\u0004\bC\u0010DR\u0017\u0010F\u001a\u00060\u0000j\u0002`\u00018F@\u0006¢\u0006\u0006\u001a\u0004\bE\u0010,R\u0017\u0010H\u001a\u00060\u0000j\u0002`\u00018F@\u0006¢\u0006\u0006\u001a\u0004\bG\u0010,¨\u0006O"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "Lkotlinx/coroutines/internal/Node;", "node", "", "addLast", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V", "Lkotlin/Function0;", "", "condition", "addLastIf", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlin/jvm/functions/Function0;)Z", "Lkotlin/Function1;", "predicate", "addLastIfPrev", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlin/jvm/functions/Function1;)Z", "addLastIfPrevAndIf", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Z", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "addNext", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Z", "addOneIfEmpty", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Z", "Lkotlinx/coroutines/internal/OpDescriptor;", "op", "correctPrev", "(Lkotlinx/coroutines/internal/OpDescriptor;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AddLastDesc;", "describeAddLast", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AddLastDesc;", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$RemoveFirstDesc;", "describeRemoveFirst", "()Lkotlinx/coroutines/internal/LockFreeLinkedListNode$RemoveFirstDesc;", ProgressInfo.JSON_KEY_CURRENT, "findPrevNonRemoved", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "finishAdd", "helpRemove", "()V", "helpRemovePrev", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;", "makeCondAddOp", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlin/jvm/functions/Function0;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;", "nextIfRemoved", "()Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "remove", "()Z", "removeFirstIfIsInstanceOfOrPeekIf", "(Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "removeFirstOrNull", "removeOrNext", "Lkotlinx/coroutines/internal/Removed;", "removed", "()Lkotlinx/coroutines/internal/Removed;", "", "toString", "()Ljava/lang/String;", "condAdd", "", "tryCondAddNext", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;)I", "prev", "validateNode$kotlinx_coroutines_core", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V", "validateNode", "isRemoved", "", "getNext", "()Ljava/lang/Object;", "getNextNode", "nextNode", "getPrevNode", "prevNode", "<init>", "AbstractAtomicDesc", "AddLastDesc", "CondAddOp", "PrepareOp", "RemoveFirstDesc", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
 public class LockFreeLinkedListNode {
@@ -26,20 +30,22 @@ public class LockFreeLinkedListNode {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000f\b\u0016\u0018\u0000*\f\b\u0000\u0010\u0003*\u00060\u0001j\u0002`\u00022\u00020\u0004B\u001b\u0012\n\u0010\u001f\u001a\u00060\u0001j\u0002`\u0002\u0012\u0006\u0010\u001b\u001a\u00028\u0000¢\u0006\u0004\b \u0010\tJ'\u0010\b\u001a\u00020\u00072\n\u0010\u0005\u001a\u00060\u0001j\u0002`\u00022\n\u0010\u0006\u001a\u00060\u0001j\u0002`\u0002H\u0014¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\f\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\f\u0010\rJ#\u0010\u0010\u001a\u00020\u000f2\n\u0010\u0005\u001a\u00060\u0001j\u0002`\u00022\u0006\u0010\u0006\u001a\u00020\u000eH\u0014¢\u0006\u0004\b\u0010\u0010\u0011J\u001f\u0010\u0014\u001a\n\u0018\u00010\u0001j\u0004\u0018\u0001`\u00022\u0006\u0010\u0013\u001a\u00020\u0012H\u0004¢\u0006\u0004\b\u0014\u0010\u0015J'\u0010\u0016\u001a\u00020\u000e2\n\u0010\u0005\u001a\u00060\u0001j\u0002`\u00022\n\u0010\u0006\u001a\u00060\u0001j\u0002`\u0002H\u0014¢\u0006\u0004\b\u0016\u0010\u0017R\u001e\u0010\u001a\u001a\n\u0018\u00010\u0001j\u0004\u0018\u0001`\u00028D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u0018\u0010\u0019R\u0016\u0010\u001b\u001a\u00028\u00008\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u001b\u0010\u001cR\u001e\u0010\u001e\u001a\n\u0018\u00010\u0001j\u0004\u0018\u0001`\u00028D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u001d\u0010\u0019R\u001a\u0010\u001f\u001a\u00060\u0001j\u0002`\u00028\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u001f\u0010\u001c¨\u0006!"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AddLastDesc;", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "Lkotlinx/coroutines/internal/Node;", ExifInterface.GPS_DIRECTION_TRUE, "kotlinx/coroutines/internal/LockFreeLinkedListNode$AbstractAtomicDesc", "affected", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "", "finishOnSuccess", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$PrepareOp;", "prepareOp", "finishPrepare", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode$PrepareOp;)V", "", "", HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Ljava/lang/Object;)Z", "Lkotlinx/coroutines/internal/OpDescriptor;", "op", "takeAffectedNode", "(Lkotlinx/coroutines/internal/OpDescriptor;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "updatedNext", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Ljava/lang/Object;", "getAffectedNode", "()Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "affectedNode", "node", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "getOriginalNext", "originalNext", "queue", "<init>", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public class AddLastDesc extends AbstractAtomicDesc {
+    public static class AddLastDesc<T extends LockFreeLinkedListNode> extends AbstractAtomicDesc {
         public static final AtomicReferenceFieldUpdater _affectedNode$FU = AtomicReferenceFieldUpdater.newUpdater(AddLastDesc.class, Object.class, "_affectedNode");
         public volatile Object _affectedNode;
-        public final LockFreeLinkedListNode node;
+        @JvmField
+        public final T node;
+        @JvmField
         public final LockFreeLinkedListNode queue;
 
-        public AddLastDesc(LockFreeLinkedListNode lockFreeLinkedListNode, LockFreeLinkedListNode lockFreeLinkedListNode2) {
+        public AddLastDesc(LockFreeLinkedListNode lockFreeLinkedListNode, T t) {
             boolean z;
             this.queue = lockFreeLinkedListNode;
-            this.node = lockFreeLinkedListNode2;
+            this.node = t;
             if (DebugKt.getASSERTIONS_ENABLED()) {
                 Object obj = this.node._next;
-                LockFreeLinkedListNode lockFreeLinkedListNode3 = this.node;
-                if (obj == lockFreeLinkedListNode3 && ((LockFreeLinkedListNode) lockFreeLinkedListNode3._prev) == this.node) {
+                T t2 = this.node;
+                if (obj == t2 && ((LockFreeLinkedListNode) t2._prev) == this.node) {
                     z = true;
                 } else {
                     z = false;
@@ -66,10 +72,10 @@ public class LockFreeLinkedListNode {
 
         @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode.AbstractAtomicDesc
         public Object updatedNext(LockFreeLinkedListNode lockFreeLinkedListNode, LockFreeLinkedListNode lockFreeLinkedListNode2) {
-            LockFreeLinkedListNode lockFreeLinkedListNode3 = this.node;
-            LockFreeLinkedListNode._prev$FU.compareAndSet(lockFreeLinkedListNode3, lockFreeLinkedListNode3, lockFreeLinkedListNode);
-            LockFreeLinkedListNode lockFreeLinkedListNode4 = this.node;
-            LockFreeLinkedListNode._next$FU.compareAndSet(lockFreeLinkedListNode4, lockFreeLinkedListNode4, this.queue);
+            T t = this.node;
+            LockFreeLinkedListNode._prev$FU.compareAndSet(t, t, lockFreeLinkedListNode);
+            T t2 = this.node;
+            LockFreeLinkedListNode._next$FU.compareAndSet(t2, t2, this.queue);
             return this.node;
         }
 
@@ -95,9 +101,12 @@ public class LockFreeLinkedListNode {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\b\b!\u0018\u00002\u00020\u0001B\u0013\u0012\n\u0010\n\u001a\u00060\u0002j\u0002`\u0003¢\u0006\u0004\b\r\u0010\u000eJ%\u0010\b\u001a\u00020\u00072\n\u0010\u0004\u001a\u00060\u0002j\u0002`\u00032\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0016¢\u0006\u0004\b\b\u0010\tR\u001a\u0010\n\u001a\u00060\u0002j\u0002`\u00038\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\n\u0010\u000bR\u001e\u0010\f\u001a\n\u0018\u00010\u0002j\u0004\u0018\u0001`\u00038\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b\f\u0010\u000b¨\u0006\u000f"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;", "Lkotlinx/coroutines/internal/AtomicOp;", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "Lkotlinx/coroutines/internal/Node;", "affected", "", SmsLoginView.f.l, "", TaskProcessData.keyComplete, "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Ljava/lang/Object;)V", "newNode", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "oldNext", "<init>", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @PublishedApi
     /* loaded from: classes8.dex */
-    public abstract class CondAddOp extends AtomicOp {
+    public static abstract class CondAddOp extends AtomicOp<LockFreeLinkedListNode> {
+        @JvmField
         public final LockFreeLinkedListNode newNode;
+        @JvmField
         public LockFreeLinkedListNode oldNext;
 
         public CondAddOp(LockFreeLinkedListNode lockFreeLinkedListNode) {
@@ -132,9 +141,12 @@ public class LockFreeLinkedListNode {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001B'\u0012\n\u0010\u0006\u001a\u00060\fj\u0002`\r\u0012\n\u0010\u0016\u001a\u00060\fj\u0002`\r\u0012\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u001b\u0010\u0007\u001a\u0004\u0018\u00010\u00052\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\n\u0010\u000bR\u001a\u0010\u0006\u001a\u00060\fj\u0002`\r8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0006\u0010\u000eR\u001a\u0010\u0012\u001a\u0006\u0012\u0002\b\u00030\u000f8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0010\u0010\u0011R\u0016\u0010\u0014\u001a\u00020\u00138\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0014\u0010\u0015R\u001a\u0010\u0016\u001a\u00060\fj\u0002`\r8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0016\u0010\u000e¨\u0006\u0019"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeLinkedListNode$PrepareOp;", "Lkotlinx/coroutines/internal/OpDescriptor;", "", "finishPrepare", "()V", "", "affected", "perform", "(Ljava/lang/Object;)Ljava/lang/Object;", "", "toString", "()Ljava/lang/String;", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "Lkotlinx/coroutines/internal/Node;", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "Lkotlinx/coroutines/internal/AtomicOp;", "getAtomicOp", "()Lkotlinx/coroutines/internal/AtomicOp;", "atomicOp", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AbstractAtomicDesc;", "desc", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AbstractAtomicDesc;", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "<init>", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AbstractAtomicDesc;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public final class PrepareOp extends OpDescriptor {
+    public static final class PrepareOp extends OpDescriptor {
+        @JvmField
         public final LockFreeLinkedListNode affected;
+        @JvmField
         public final AbstractAtomicDesc desc;
+        @JvmField
         public final LockFreeLinkedListNode next;
 
         public PrepareOp(LockFreeLinkedListNode lockFreeLinkedListNode, LockFreeLinkedListNode lockFreeLinkedListNode2, AbstractAtomicDesc abstractAtomicDesc) {
@@ -148,7 +160,7 @@ public class LockFreeLinkedListNode {
         }
 
         @Override // kotlinx.coroutines.internal.OpDescriptor
-        public AtomicOp getAtomicOp() {
+        public AtomicOp<?> getAtomicOp() {
             return this.desc.getAtomicOp();
         }
 
@@ -201,11 +213,12 @@ public class LockFreeLinkedListNode {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0014\b\u0016\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B\u0013\u0012\n\u0010\u001f\u001a\u00060\u0003j\u0002`\u0004¢\u0006\u0004\b&\u0010'J\u001d\u0010\u0007\u001a\u0004\u0018\u00010\u00062\n\u0010\u0005\u001a\u00060\u0003j\u0002`\u0004H\u0014¢\u0006\u0004\b\u0007\u0010\bJ'\u0010\u000b\u001a\u00020\n2\n\u0010\u0005\u001a\u00060\u0003j\u0002`\u00042\n\u0010\t\u001a\u00060\u0003j\u0002`\u0004H\u0004¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000f\u001a\u00020\n2\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010J#\u0010\u0012\u001a\u00020\u00112\n\u0010\u0005\u001a\u00060\u0003j\u0002`\u00042\u0006\u0010\t\u001a\u00020\u0006H\u0004¢\u0006\u0004\b\u0012\u0010\u0013J\u001f\u0010\u0016\u001a\n\u0018\u00010\u0003j\u0004\u0018\u0001`\u00042\u0006\u0010\u0015\u001a\u00020\u0014H\u0004¢\u0006\u0004\b\u0016\u0010\u0017J'\u0010\u0018\u001a\u00020\u00062\n\u0010\u0005\u001a\u00060\u0003j\u0002`\u00042\n\u0010\t\u001a\u00060\u0003j\u0002`\u0004H\u0004¢\u0006\u0004\b\u0018\u0010\u0019R\u001e\u0010\u001c\u001a\n\u0018\u00010\u0003j\u0004\u0018\u0001`\u00048D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u001a\u0010\u001bR\u001e\u0010\u001e\u001a\n\u0018\u00010\u0003j\u0004\u0018\u0001`\u00048D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b\u001d\u0010\u001bR\u001a\u0010\u001f\u001a\u00060\u0003j\u0002`\u00048\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u001f\u0010 R\u0019\u0010%\u001a\u00028\u00008F@\u0006¢\u0006\f\u0012\u0004\b#\u0010$\u001a\u0004\b!\u0010\"¨\u0006("}, d2 = {"Lkotlinx/coroutines/internal/LockFreeLinkedListNode$RemoveFirstDesc;", ExifInterface.GPS_DIRECTION_TRUE, "kotlinx/coroutines/internal/LockFreeLinkedListNode$AbstractAtomicDesc", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "Lkotlinx/coroutines/internal/Node;", "affected", "", SmsLoginView.f.l, "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Ljava/lang/Object;", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "", "finishOnSuccess", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$PrepareOp;", "prepareOp", "finishPrepare", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode$PrepareOp;)V", "", HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Ljava/lang/Object;)Z", "Lkotlinx/coroutines/internal/OpDescriptor;", "op", "takeAffectedNode", "(Lkotlinx/coroutines/internal/OpDescriptor;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "updatedNext", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Ljava/lang/Object;", "getAffectedNode", "()Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "affectedNode", "getOriginalNext", "originalNext", "queue", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "getResult", "()Ljava/lang/Object;", "result$annotations", "()V", TiebaStatic.LogFields.RESULT, "<init>", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public class RemoveFirstDesc extends AbstractAtomicDesc {
+    public static class RemoveFirstDesc<T> extends AbstractAtomicDesc {
         public static final AtomicReferenceFieldUpdater _affectedNode$FU = AtomicReferenceFieldUpdater.newUpdater(RemoveFirstDesc.class, Object.class, "_affectedNode");
         public static final AtomicReferenceFieldUpdater _originalNext$FU = AtomicReferenceFieldUpdater.newUpdater(RemoveFirstDesc.class, Object.class, "_originalNext");
         public volatile Object _affectedNode = null;
         public volatile Object _originalNext = null;
+        @JvmField
         public final LockFreeLinkedListNode queue;
 
         public static /* synthetic */ void result$annotations() {
@@ -277,12 +290,12 @@ public class LockFreeLinkedListNode {
             return (LockFreeLinkedListNode) this._originalNext;
         }
 
-        public final Object getResult() {
-            LockFreeLinkedListNode affectedNode = getAffectedNode();
-            if (affectedNode == null) {
+        public final T getResult() {
+            T t = (T) getAffectedNode();
+            if (t == null) {
                 Intrinsics.throwNpe();
             }
-            return affectedNode;
+            return t;
         }
     }
 
@@ -297,8 +310,8 @@ public class LockFreeLinkedListNode {
         return removed;
     }
 
-    public final RemoveFirstDesc describeRemoveFirst() {
-        return new RemoveFirstDesc(this);
+    public final RemoveFirstDesc<LockFreeLinkedListNode> describeRemoveFirst() {
+        return new RemoveFirstDesc<>(this);
     }
 
     public final Object getNext() {
@@ -332,6 +345,7 @@ public class LockFreeLinkedListNode {
         throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.internal.Removed");
     }
 
+    @PublishedApi
     public final void helpRemovePrev() {
         LockFreeLinkedListNode lockFreeLinkedListNode = this;
         while (true) {
@@ -385,6 +399,7 @@ public class LockFreeLinkedListNode {
         }
     }
 
+    @PublishedApi
     public final LockFreeLinkedListNode removeOrNext() {
         Object next;
         LockFreeLinkedListNode lockFreeLinkedListNode;
@@ -412,7 +427,7 @@ public class LockFreeLinkedListNode {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\b&\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b%\u0010&J#\u0010\u0007\u001a\u00020\u00062\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u0007\u0010\bJ\u001d\u0010\u0005\u001a\u0004\u0018\u00010\u00042\n\u0010\u000b\u001a\u00060\tj\u0002`\nH\u0014¢\u0006\u0004\b\u0005\u0010\fJ'\u0010\u000e\u001a\u00020\u00062\n\u0010\u000b\u001a\u00060\tj\u0002`\n2\n\u0010\r\u001a\u00060\tj\u0002`\nH$¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u0012\u001a\u00020\u00062\u0006\u0010\u0011\u001a\u00020\u0010H&¢\u0006\u0004\b\u0012\u0010\u0013J\u0019\u0010\u0014\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0014\u0010\u0015J\u001b\u0010\u0016\u001a\u0004\u0018\u00010\u00042\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0002¢\u0006\u0004\b\u0016\u0010\u0017J#\u0010\u0019\u001a\u00020\u00182\n\u0010\u000b\u001a\u00060\tj\u0002`\n2\u0006\u0010\r\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\u0019\u0010\u001aJ\u001f\u0010\u001c\u001a\n\u0018\u00010\tj\u0004\u0018\u0001`\n2\u0006\u0010\u0003\u001a\u00020\u001bH\u0014¢\u0006\u0004\b\u001c\u0010\u001dJ'\u0010\u001e\u001a\u00020\u00042\n\u0010\u000b\u001a\u00060\tj\u0002`\n2\n\u0010\r\u001a\u00060\tj\u0002`\nH$¢\u0006\u0004\b\u001e\u0010\u001fR\u001e\u0010\"\u001a\n\u0018\u00010\tj\u0004\u0018\u0001`\n8$@$X¤\u0004¢\u0006\u0006\u001a\u0004\b \u0010!R\u001e\u0010$\u001a\n\u0018\u00010\tj\u0004\u0018\u0001`\n8$@$X¤\u0004¢\u0006\u0006\u001a\u0004\b#\u0010!¨\u0006'"}, d2 = {"Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AbstractAtomicDesc;", "Lkotlinx/coroutines/internal/AtomicDesc;", "Lkotlinx/coroutines/internal/AtomicOp;", "op", "", SmsLoginView.f.l, "", TaskProcessData.keyComplete, "(Lkotlinx/coroutines/internal/AtomicOp;Ljava/lang/Object;)V", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "Lkotlinx/coroutines/internal/Node;", "affected", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Ljava/lang/Object;", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "finishOnSuccess", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode$PrepareOp;", "prepareOp", "finishPrepare", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode$PrepareOp;)V", "onPrepare", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode$PrepareOp;)Ljava/lang/Object;", "prepare", "(Lkotlinx/coroutines/internal/AtomicOp;)Ljava/lang/Object;", "", HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Ljava/lang/Object;)Z", "Lkotlinx/coroutines/internal/OpDescriptor;", "takeAffectedNode", "(Lkotlinx/coroutines/internal/OpDescriptor;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "updatedNext", "(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Ljava/lang/Object;", "getAffectedNode", "()Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "affectedNode", "getOriginalNext", "originalNext", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public abstract class AbstractAtomicDesc extends AtomicDesc {
+    public static abstract class AbstractAtomicDesc extends AtomicDesc {
         public Object failure(LockFreeLinkedListNode lockFreeLinkedListNode) {
             return null;
         }
@@ -432,7 +447,7 @@ public class LockFreeLinkedListNode {
         public abstract Object updatedNext(LockFreeLinkedListNode lockFreeLinkedListNode, LockFreeLinkedListNode lockFreeLinkedListNode2);
 
         @Override // kotlinx.coroutines.internal.AtomicDesc
-        public final void complete(AtomicOp atomicOp, Object obj) {
+        public final void complete(AtomicOp<?> atomicOp, Object obj) {
             boolean z;
             Object obj2;
             if (obj == null) {
@@ -498,7 +513,7 @@ public class LockFreeLinkedListNode {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public final Object prepare(AtomicOp atomicOp) {
+        public final Object prepare(AtomicOp<?> atomicOp) {
             while (true) {
                 LockFreeLinkedListNode takeAffectedNode = takeAffectedNode(atomicOp);
                 if (takeAffectedNode != null) {
@@ -545,7 +560,7 @@ public class LockFreeLinkedListNode {
         }
     }
 
-    public final boolean addLastIf(LockFreeLinkedListNode lockFreeLinkedListNode, Function0 function0) {
+    public final boolean addLastIf(LockFreeLinkedListNode lockFreeLinkedListNode, Function0<Boolean> function0) {
         int tryCondAddNext;
         LockFreeLinkedListNode$makeCondAddOp$1 lockFreeLinkedListNode$makeCondAddOp$1 = new LockFreeLinkedListNode$makeCondAddOp$1(function0, lockFreeLinkedListNode, lockFreeLinkedListNode);
         do {
@@ -557,17 +572,18 @@ public class LockFreeLinkedListNode {
         return false;
     }
 
-    public final boolean addLastIfPrev(LockFreeLinkedListNode lockFreeLinkedListNode, Function1 function1) {
+    public final boolean addLastIfPrev(LockFreeLinkedListNode lockFreeLinkedListNode, Function1<? super LockFreeLinkedListNode, Boolean> function1) {
         LockFreeLinkedListNode prevNode;
         do {
             prevNode = getPrevNode();
-            if (!((Boolean) function1.invoke(prevNode)).booleanValue()) {
+            if (!function1.invoke(prevNode).booleanValue()) {
                 return false;
             }
         } while (!prevNode.addNext(lockFreeLinkedListNode, this));
         return true;
     }
 
+    @PublishedApi
     public final boolean addNext(LockFreeLinkedListNode lockFreeLinkedListNode, LockFreeLinkedListNode lockFreeLinkedListNode2) {
         _prev$FU.lazySet(lockFreeLinkedListNode, this);
         _next$FU.lazySet(lockFreeLinkedListNode, lockFreeLinkedListNode2);
@@ -578,7 +594,8 @@ public class LockFreeLinkedListNode {
         return true;
     }
 
-    public final CondAddOp makeCondAddOp(LockFreeLinkedListNode lockFreeLinkedListNode, Function0 function0) {
+    @PublishedApi
+    public final CondAddOp makeCondAddOp(LockFreeLinkedListNode lockFreeLinkedListNode, Function0<Boolean> function0) {
         return new LockFreeLinkedListNode$makeCondAddOp$1(function0, lockFreeLinkedListNode, lockFreeLinkedListNode);
     }
 
@@ -643,8 +660,8 @@ public class LockFreeLinkedListNode {
         return false;
     }
 
-    public final AddLastDesc describeAddLast(LockFreeLinkedListNode lockFreeLinkedListNode) {
-        return new AddLastDesc(this, lockFreeLinkedListNode);
+    public final <T extends LockFreeLinkedListNode> AddLastDesc<T> describeAddLast(T t) {
+        return new AddLastDesc<>(this, t);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -698,12 +715,12 @@ public class LockFreeLinkedListNode {
         }
     }
 
-    public final boolean addLastIfPrevAndIf(LockFreeLinkedListNode lockFreeLinkedListNode, Function1 function1, Function0 function0) {
+    public final boolean addLastIfPrevAndIf(LockFreeLinkedListNode lockFreeLinkedListNode, Function1<? super LockFreeLinkedListNode, Boolean> function1, Function0<Boolean> function0) {
         int tryCondAddNext;
         LockFreeLinkedListNode$makeCondAddOp$1 lockFreeLinkedListNode$makeCondAddOp$1 = new LockFreeLinkedListNode$makeCondAddOp$1(function0, lockFreeLinkedListNode, lockFreeLinkedListNode);
         do {
             LockFreeLinkedListNode prevNode = getPrevNode();
-            if (!((Boolean) function1.invoke(prevNode)).booleanValue()) {
+            if (!function1.invoke(prevNode).booleanValue()) {
                 return false;
             }
             tryCondAddNext = prevNode.tryCondAddNext(lockFreeLinkedListNode, this, lockFreeLinkedListNode$makeCondAddOp$1);
@@ -714,6 +731,7 @@ public class LockFreeLinkedListNode {
         return false;
     }
 
+    @PublishedApi
     public final int tryCondAddNext(LockFreeLinkedListNode lockFreeLinkedListNode, LockFreeLinkedListNode lockFreeLinkedListNode2, CondAddOp condAddOp) {
         _prev$FU.lazySet(lockFreeLinkedListNode, this);
         _next$FU.lazySet(lockFreeLinkedListNode, lockFreeLinkedListNode2);
@@ -727,7 +745,8 @@ public class LockFreeLinkedListNode {
         return 2;
     }
 
-    public final /* synthetic */ Object removeFirstIfIsInstanceOfOrPeekIf(Function1 function1) {
+    /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object, kotlinx.coroutines.internal.LockFreeLinkedListNode] */
+    public final /* synthetic */ <T> T removeFirstIfIsInstanceOfOrPeekIf(Function1<? super T, Boolean> function1) {
         while (true) {
             Object next = getNext();
             if (next != null) {
@@ -739,7 +758,7 @@ public class LockFreeLinkedListNode {
                 if (!(lockFreeLinkedListNode instanceof Object)) {
                     return null;
                 }
-                if (((Boolean) function1.invoke(lockFreeLinkedListNode)).booleanValue() && !lockFreeLinkedListNode.isRemoved()) {
+                if (function1.invoke(lockFreeLinkedListNode).booleanValue() && !lockFreeLinkedListNode.isRemoved()) {
                     return lockFreeLinkedListNode;
                 }
                 LockFreeLinkedListNode removeOrNext = lockFreeLinkedListNode.removeOrNext();

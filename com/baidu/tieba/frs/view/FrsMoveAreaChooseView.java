@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,11 +14,11 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah6;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nu6;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.ki6;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.wv6;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,15 +65,15 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             setGravity(80);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d033a, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090bbe);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bc2);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bc0);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bbf);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090bc1);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d033c, this);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090bd1);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bd5);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bd3);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bd2);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090bd4);
             this.e = recyclerView;
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
-            this.e.addItemDecoration(new GridSpacingItemDecoration(3, fj.f(getContext(), R.dimen.M_W_X004), fj.f(getContext(), R.dimen.M_H_X003), false));
+            this.e.addItemDecoration(new GridSpacingItemDecoration(3, xi.g(getContext(), R.dimen.M_W_X004), xi.g(getContext(), R.dimen.M_H_X003), false));
             FrsMoveAreaChooseAdapter frsMoveAreaChooseAdapter = new FrsMoveAreaChooseAdapter(this);
             this.f = frsMoveAreaChooseAdapter;
             this.e.setAdapter(frsMoveAreaChooseAdapter);
@@ -98,7 +99,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0605);
-            nv4 d = nv4.d(this.b);
+            kw4 d = kw4.d(this.b);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
@@ -117,15 +118,15 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                 b();
             } else if (view2 == this.d) {
                 if (this.a != null && getParent() != null && this.f.e() >= 0) {
-                    boolean h = ux4.k().h("key_frs_move_area_tip", true);
-                    List g = ah6.h().g();
+                    boolean h = ky4.k().h("key_frs_move_area_tip", true);
+                    List<FrsTabInfo> g = ki6.h().g();
                     FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g, this.f.d());
                     FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g, this.f.e());
                     if (frsTabInfo != null && frsTabInfo2 != null) {
                         if (h) {
-                            nu6.a(this.a, frsTabInfo, frsTabInfo2);
+                            wv6.a(this.a, frsTabInfo, frsTabInfo2);
                         } else {
-                            ah6.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                            ki6.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                         }
                         if (this.h != null) {
                             view2.setTag("choose_done");
@@ -141,7 +142,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
     }
 
     @Override // android.view.View
-    public void setOnClickListener(View.OnClickListener onClickListener) {
+    public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
             this.h = onClickListener;

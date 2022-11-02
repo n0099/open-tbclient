@@ -14,7 +14,7 @@ import java.util.List;
 public class a extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<View> a;
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view2, Object obj) {
@@ -23,7 +23,7 @@ public class a extends PagerAdapter {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 
-    public a(List list) {
+    public a(List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +45,7 @@ public class a extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
-            viewGroup.removeView((View) this.a.get(i));
+            viewGroup.removeView(this.a.get(i));
         }
     }
 
@@ -64,7 +64,7 @@ public class a extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            viewGroup.addView((View) this.a.get(i));
+            viewGroup.addView(this.a.get(i));
             return this.a.get(i);
         }
         return invokeLI.objValue;

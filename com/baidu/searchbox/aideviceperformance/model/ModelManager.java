@@ -22,7 +22,7 @@ import java.util.Map;
 public class ModelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static long defaultModelsVersion = 1;
-    public static HashMap mModelInfoProviderHashMap;
+    public static HashMap<ModelInfoDataProvider.DevicePerformanceModelInfoType, IDevicePerformanceModelInfoProvider> mModelInfoProviderHashMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class ModelManager {
                 return;
             }
         }
-        mModelInfoProviderHashMap = new HashMap();
+        mModelInfoProviderHashMap = new HashMap<>();
     }
 
     public ModelManager() {
@@ -60,7 +60,7 @@ public class ModelManager {
         DevicePerformanceModelInfo devicePerformanceModelInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, devicePerformanceModelInfoType)) == null) {
-            if (devicePerformanceModelInfoType == null || (devicePerformanceModelInfo = (DevicePerformanceModelInfo) new ModelInfoDataProvider().getDefaultModelInfoMap().get(devicePerformanceModelInfoType)) == null) {
+            if (devicePerformanceModelInfoType == null || (devicePerformanceModelInfo = new ModelInfoDataProvider().getDefaultModelInfoMap().get(devicePerformanceModelInfoType)) == null) {
                 return null;
             }
             return devicePerformanceModelInfo;
@@ -73,7 +73,7 @@ public class ModelManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, devicePerformanceModelInfoType)) == null) {
             DevicePerformanceModelInfo defaultModelInfo = defaultModelInfo(devicePerformanceModelInfoType);
-            IDevicePerformanceModelInfoProvider iDevicePerformanceModelInfoProvider = (IDevicePerformanceModelInfoProvider) mModelInfoProviderHashMap.get(devicePerformanceModelInfoType);
+            IDevicePerformanceModelInfoProvider iDevicePerformanceModelInfoProvider = mModelInfoProviderHashMap.get(devicePerformanceModelInfoType);
             if (iDevicePerformanceModelInfoProvider != null) {
                 return iDevicePerformanceModelInfoProvider.getDevicePerformanceModelInfo(devicePerformanceModelInfoType, defaultModelInfo);
             }
@@ -93,9 +93,9 @@ public class ModelManager {
             if (Long.valueOf(DeviceInfoSharedPreferenceWrapper.getInstance().getLong(ModelInfoDataProvider.defaultModelAssertDir, -1L)).longValue() < defaultModelsVersion || !new File(ModelInfoDataProvider.defaultModelFilePath).exists()) {
                 return true;
             }
-            for (Map.Entry entry : new ModelInfoDataProvider().getDefaultModelInfoMap().entrySet()) {
-                DevicePerformanceModelInfo devicePerformanceModelInfo = (DevicePerformanceModelInfo) entry.getValue();
-                if (devicePerformanceModelInfo == null || !new File(devicePerformanceModelInfo.modelPath).exists()) {
+            for (Map.Entry<ModelInfoDataProvider.DevicePerformanceModelInfoType, DevicePerformanceModelInfo> entry : new ModelInfoDataProvider().getDefaultModelInfoMap().entrySet()) {
+                DevicePerformanceModelInfo value = entry.getValue();
+                if (value == null || !new File(value.modelPath).exists()) {
                     return true;
                 }
                 while (r0.hasNext()) {

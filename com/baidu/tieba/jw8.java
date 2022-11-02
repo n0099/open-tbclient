@@ -1,52 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.ue0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class jw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public jw8(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public static class a implements ue0.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<nw8> a;
+
+        @Override // com.baidu.tieba.ue0.a
+        public void onProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             }
         }
-        this.a = i;
-        this.b = i2;
+
+        public a(nw8 nw8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nw8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(nw8Var);
+        }
+
+        @Override // com.baidu.tieba.ue0.a
+        public void onResult(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) && this.a.get() != null) {
+                if (z) {
+                    this.a.get().a();
+                } else {
+                    this.a.get().b();
+                }
+            }
+        }
     }
 
-    public int a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ue0.n();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void b(Context context, nw8 nw8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, nw8Var) == null) {
+            c(context);
+            ue0.p(new a(nw8Var));
         }
-        return invokeV.intValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            new rf0(context).a("cover_style", FileHelper.CreateFileIfNotFound(".cover_style"));
+            FileHelper.makeDirectory(".stickers");
+            FileHelper.makeDirectory(".filters");
+        }
     }
 }

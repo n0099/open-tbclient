@@ -1,5 +1,7 @@
 package com.kwad.sdk.commercial.model;
 
+import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.core.response.kwai.a;
 import com.kwad.sdk.utils.r;
@@ -8,6 +10,7 @@ import com.kwai.adclient.kscommerciallogger.model.SubBusinessType;
 import com.qq.e.comm.constants.Constants;
 import java.io.Serializable;
 import org.json.JSONObject;
+@KsJson
 /* loaded from: classes7.dex */
 public class WebViewCommercialMsg extends a implements b, Serializable {
     public static final long serialVersionUID = -1007322423487775751L;
@@ -22,7 +25,7 @@ public class WebViewCommercialMsg extends a implements b, Serializable {
     public com.kwai.adclient.kscommerciallogger.model.b type;
 
     @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(JSONObject jSONObject) {
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject == null) {
             return;

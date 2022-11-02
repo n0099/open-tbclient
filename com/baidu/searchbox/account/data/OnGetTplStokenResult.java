@@ -12,7 +12,7 @@ public class OnGetTplStokenResult {
     public int mErrCode;
     public String mErrMsg;
     public String mFailureType;
-    public Map mStokens;
+    public Map<String, String> mStokens;
 
     public OnGetTplStokenResult() {
         Interceptable interceptable = $ic;

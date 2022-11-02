@@ -124,9 +124,9 @@ public class ep extends es {
             }
             int a4 = a(resources, "title", "id", packageName);
             a().setTextViewText(a4, ((es) this).f319a);
-            Map map = ((es) this).f322a;
+            Map<String, String> map = ((es) this).f322a;
             if (map != null && this.a == 16777216) {
-                a((String) map.get("notification_image_text_color"));
+                a(map.get("notification_image_text_color"));
             }
             RemoteViews a5 = a();
             int i = this.a;

@@ -27,7 +27,7 @@ public interface ImageCacheStatsTracker {
 
     void onStagingAreaMiss(CacheKey cacheKey);
 
-    void registerBitmapMemoryCache(MemoryCache memoryCache);
+    void registerBitmapMemoryCache(MemoryCache<?, ?> memoryCache);
 
-    void registerEncodedMemoryCache(MemoryCache memoryCache);
+    void registerEncodedMemoryCache(MemoryCache<?, ?> memoryCache);
 }

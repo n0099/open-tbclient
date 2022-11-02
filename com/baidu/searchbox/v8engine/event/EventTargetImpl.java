@@ -27,7 +27,7 @@ public class EventTargetImpl implements EventTarget {
     public transient /* synthetic */ FieldHolder $fh;
     public JSRuntime mJSRuntime;
     public final Lock mLock;
-    public Map mTargets;
+    public Map<String, List<JsFunction>> mTargets;
 
     public EventTargetImpl(JSRuntime jSRuntime) {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public class EventTargetImpl implements EventTarget {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List getEventListeners(String str) {
+    public List<JsFunction> getEventListeners(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            List list = (List) getTargetMap().get(str);
+            List<JsFunction> list = getTargetMap().get(str);
             if (list == null) {
                 return new ArrayList();
             }
@@ -169,7 +169,7 @@ public class EventTargetImpl implements EventTarget {
         }
         try {
             this.mLock.lock();
-            List eventListeners = getEventListeners(str);
+            List<JsFunction> eventListeners = getEventListeners(str);
             if (!eventListeners.contains(jsFunction)) {
                 jsFunction.setReleaseMode(false);
                 eventListeners.add(jsFunction);
@@ -241,7 +241,7 @@ public class EventTargetImpl implements EventTarget {
         return invokeL.booleanValue;
     }
 
-    public Map getTargetMap() {
+    public Map<String, List<JsFunction>> getTargetMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -264,7 +264,7 @@ public class EventTargetImpl implements EventTarget {
             try {
                 this.mLock.lock();
                 for (String str : strArr) {
-                    if (getTargetMap().containsKey(str) && !((List) getTargetMap().get(str)).isEmpty()) {
+                    if (getTargetMap().containsKey(str) && !getTargetMap().get(str).isEmpty()) {
                         this.mLock.unlock();
                         return true;
                     }
@@ -287,10 +287,10 @@ public class EventTargetImpl implements EventTarget {
         try {
             this.mLock.lock();
             if (jsFunction == null) {
-                List eventListeners = getEventListeners(str);
+                List<JsFunction> eventListeners = getEventListeners(str);
                 if (eventListeners != null) {
                     while (!eventListeners.isEmpty()) {
-                        JsFunction jsFunction2 = (JsFunction) eventListeners.get(0);
+                        JsFunction jsFunction2 = eventListeners.get(0);
                         eventListeners.remove(jsFunction2);
                         jsFunction2.release();
                     }
@@ -299,7 +299,7 @@ public class EventTargetImpl implements EventTarget {
                     }
                 }
             } else {
-                List eventListeners2 = getEventListeners(str);
+                List<JsFunction> eventListeners2 = getEventListeners(str);
                 if (eventListeners2 != null && eventListeners2.contains(jsFunction)) {
                     eventListeners2.remove(jsFunction);
                     jsFunction.release();

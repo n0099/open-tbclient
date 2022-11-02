@@ -19,7 +19,7 @@ public class PayResultData extends OrmObject implements Serializable {
     public int wrongtime;
 
     /* loaded from: classes5.dex */
-    public final class UnusualInfo extends OrmObject implements Serializable {
+    public static final class UnusualInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7762965384357134074L;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,12 +1,13 @@
 package com.baidu.swan.apps.event;
 
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.rc3;
-import com.baidu.tieba.tm2;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.jd3;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+@Keep
+/* loaded from: classes3.dex */
 public class SwanJSVersionUpdateEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -36,7 +38,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = wj1.a;
+        DEBUG = ok1.a;
     }
 
     public long getVersionCode() {
@@ -70,7 +72,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        SwanCoreVersion g = rc3.g(0);
+        SwanCoreVersion g = jd3.g(0);
         if (g != null) {
             this.mVersionCode = g.swanCoreVersionCode;
             this.mVersionName = g.swanCoreVersionName;
@@ -87,7 +89,7 @@ public class SwanJSVersionUpdateEvent {
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
-            tm2.N().a(swanJSVersionUpdateEvent);
+            ln2.N().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
             }

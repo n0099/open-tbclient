@@ -2,6 +2,7 @@ package androidx.core.util;
 
 import android.util.Size;
 import android.util.SizeF;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,6 +13,7 @@ public final class SizeKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(21)
     public static final float component1(SizeF sizeF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -21,6 +23,7 @@ public final class SizeKt {
         return invokeL.floatValue;
     }
 
+    @RequiresApi(21)
     public static final float component2(SizeF sizeF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -30,6 +33,7 @@ public final class SizeKt {
         return invokeL.floatValue;
     }
 
+    @RequiresApi(21)
     public static final int component1(Size size) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -39,6 +43,7 @@ public final class SizeKt {
         return invokeL.intValue;
     }
 
+    @RequiresApi(21)
     public static final int component2(Size size) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -7,9 +7,10 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.lj3;
+import com.baidu.tieba.dk3;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,7 +50,7 @@ public class CommonTagView extends TextView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CommonTagView(Context context, AttributeSet attributeSet) {
+    public CommonTagView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,7 +71,7 @@ public class CommonTagView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommonTagView(Context context, AttributeSet attributeSet, int i) {
+    public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,28 +101,28 @@ public class CommonTagView extends TextView {
         int paddingBottom;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, lj3.CommonTagView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, dk3.CommonTagView);
             this.b = obtainStyledAttributes.getDimensionPixelOffset(1, 1);
             this.c = obtainStyledAttributes.getColor(0, -16777216);
             this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
             obtainStyledAttributes.recycle();
             if (getPaddingLeft() == 0) {
-                paddingLeft = dh3.f(context, 2.0f);
+                paddingLeft = vh3.f(context, 2.0f);
             } else {
                 paddingLeft = getPaddingLeft();
             }
             if (getPaddingRight() == 0) {
-                paddingRight = dh3.f(context, 2.0f);
+                paddingRight = vh3.f(context, 2.0f);
             } else {
                 paddingRight = getPaddingRight();
             }
             if (getPaddingTop() == 0) {
-                paddingTop = dh3.f(context, 1.0f);
+                paddingTop = vh3.f(context, 1.0f);
             } else {
                 paddingTop = getPaddingTop();
             }
             if (getPaddingBottom() == 0) {
-                paddingBottom = dh3.f(context, 1.0f);
+                paddingBottom = vh3.f(context, 1.0f);
             } else {
                 paddingBottom = getPaddingBottom();
             }

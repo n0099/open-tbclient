@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes4.dex */
-public abstract class ky3 {
+public final class ky3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract File a();
-
-    public abstract void b(String str, long j);
+    public void a(mb2 mb2Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, mb2Var, context) == null) {
+        }
+    }
 
     public ky3() {
         Interceptable interceptable = $ic;

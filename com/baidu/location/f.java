@@ -1,5 +1,6 @@
 package com.baidu.location;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
@@ -10,7 +11,6 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.location.e.k;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.DexClassLoader;
-import java.io.File;
-import java.io.RandomAccessFile;
 /* loaded from: classes2.dex */
 public class f extends Service {
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,40 +63,11 @@ public class f extends Service {
         this.c = null;
     }
 
-    private boolean a(File file) {
-        InterceptResult invokeL;
-        int readInt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, file)) == null) {
-            boolean z = false;
-            try {
-                File file2 = new File(k.j() + "/grtcfrsa.dat");
-                if (file2.exists()) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
-                    randomAccessFile.seek(200L);
-                    if (randomAccessFile.readBoolean() && randomAccessFile.readBoolean() && (readInt = randomAccessFile.readInt()) != 0) {
-                        byte[] bArr = new byte[readInt];
-                        randomAccessFile.read(bArr, 0, readInt);
-                        String str = new String(bArr);
-                        String a = k.a(file, "SHA-256");
-                        if (a != null && k.b(a, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
-                            z = true;
-                        }
-                    }
-                    randomAccessFile.close();
-                }
-            } catch (Exception unused) {
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
     public static float getFrameVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 7.93f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return 9.363f;
         }
         return invokeV.floatValue;
     }
@@ -107,13 +75,20 @@ public class f extends Service {
     public static String getJarFileName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "app.jar" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "app.jar" : (String) invokeV.objValue;
     }
 
     public static Context getServiceContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? mC : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? mC : (Context) invokeV.objValue;
+    }
+
+    public static void setServiceContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            mC = context;
+        }
     }
 
     @Override // android.app.Service
@@ -131,6 +106,7 @@ public class f extends Service {
     }
 
     @Override // android.app.Service
+    @SuppressLint({"NewApi"})
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -141,23 +117,6 @@ public class f extends Service {
             mC = getApplicationContext();
             System.currentTimeMillis();
             this.b = new com.baidu.location.d.a();
-            try {
-                File file = new File(k.j() + File.separator + replaceFileName);
-                File file2 = new File(k.j() + File.separator + "app.jar");
-                if (file.exists()) {
-                    if (file2.exists()) {
-                        file2.delete();
-                    }
-                    file.renameTo(file2);
-                }
-                if (file2.exists()) {
-                    if (a(new File(k.j() + File.separator + "app.jar"))) {
-                        this.a = (LLSInterface) new DexClassLoader(k.j() + File.separator + "app.jar", k.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
-                    }
-                }
-            } catch (Exception unused) {
-                this.a = null;
-            }
             LLSInterface lLSInterface = this.a;
             if (lLSInterface == null || lLSInterface.getVersion() < this.b.getVersion()) {
                 this.c = this.b;
@@ -205,7 +164,11 @@ public class f extends Service {
                     e.printStackTrace();
                 }
             }
-            return this.c.onStartCommand(intent, i, i2);
+            LLSInterface lLSInterface = this.c;
+            if (lLSInterface == null) {
+                return 2;
+            }
+            return lLSInterface.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;
     }

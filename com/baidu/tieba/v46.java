@@ -1,126 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.Unit;
 /* loaded from: classes6.dex */
-public final class v46 {
+public class v46 extends jn<w46, CardViewHolder<x46>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Set b;
-    public int c;
+    public TbPageContext<?> a;
 
-    public v46(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v46(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), w46.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = new LinkedHashSet();
+        this.a = tbPageContext;
     }
 
-    public final t46 a(int i, int i2) {
-        InterceptResult invokeII;
-        t46 t46Var;
-        Object obj;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            synchronized (this) {
-                Iterator it = this.b.iterator();
-                while (true) {
-                    t46Var = null;
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        t46 t46Var2 = (t46) obj;
-                        if (t46Var2.l() >= i && t46Var2.j() >= i2 && t46Var2.l() - i < 5 && t46Var2.j() - i2 < 5) {
-                            z = true;
-                            continue;
-                        } else {
-                            z = false;
-                            continue;
-                        }
-                        if (z) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
-                    }
-                }
-                t46 t46Var3 = (t46) obj;
-                if (t46Var3 != null) {
-                    this.b.remove(t46Var3);
-                    this.c -= t46Var3.k();
-                    t46Var = t46Var3;
-                }
-            }
-            return t46Var;
-        }
-        return (t46) invokeII.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (t46 t46Var : this.b) {
-                    t46Var.e();
-                }
-                this.b.clear();
-                this.c = 0;
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final boolean c(t46 t46Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: s */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        u46 g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t46Var)) == null) {
-            if (t46Var == null) {
-                g = null;
-            } else {
-                g = t46Var.g();
-            }
-            if (g == null) {
-                return true;
-            }
-            if (this.b.contains(t46Var)) {
-                return false;
-            }
-            if (t46Var.k() + this.c > this.a) {
-                BdLog.v("DrawingCache [Release][+] OOM Pool");
-                return false;
-            }
-            synchronized (this) {
-                this.b.add(t46Var);
-                t46Var.f();
-                this.c += t46Var.k();
-                Unit unit = Unit.INSTANCE;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder(new x46(this.a));
         }
-        return invokeL.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w46 w46Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w46Var, cardViewHolder})) == null) {
+            if (cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().l(w46Var);
+                return cardViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

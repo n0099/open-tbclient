@@ -1,5 +1,6 @@
 package com.facebook.drawee.drawable;
 
+import android.annotation.TargetApi;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
@@ -383,6 +384,7 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     }
 
     @Override // android.graphics.drawable.Drawable
+    @TargetApi(21)
     public void setHotspot(float f, float f2) {
         Drawable drawable;
         Interceptable interceptable = $ic;

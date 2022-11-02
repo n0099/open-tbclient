@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class zl8 extends BaseCardInfo implements eo {
+public class zl8 extends rq4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ThreadData> a;
-    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +29,7 @@ public class zl8 extends BaseCardInfo implements eo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
     }
 
     public zl8() {
@@ -45,19 +42,43 @@ public class zl8 extends BaseCardInfo implements eo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = -1;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
-    public BdUniqueId getType() {
+    public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.c;
+            }
+            return 0L;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.d;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            f(c);
+            return d();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ public class RequestSubLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1056common;
-    public List labelList;
+    public CommonReq f1057common;
+    public List<Integer> labelList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestSubLabelMessage() {
@@ -50,10 +50,10 @@ public class RequestSubLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1364common = this.f1056common;
+            builder.f1367common = this.f1057common;
             builder.arr_tag_id = this.labelList;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                yh5.a(builder, true);
+                vi5.a(builder, true);
             }
             SubTagListReqIdl.Builder builder2 = new SubTagListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -65,15 +65,15 @@ public class RequestSubLabelMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f1056common = commonReq;
+            this.f1057common = commonReq;
         }
     }
 
-    public void setLabelList(List list) {
+    public void setLabelList(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             if (ListUtils.isEmpty(list)) {
-                list = new ArrayList();
+                list = new ArrayList<>();
             }
             this.labelList = list;
         }

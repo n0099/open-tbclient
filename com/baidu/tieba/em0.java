@@ -1,15 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.pyramid.runtime.service.ServiceReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface em0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "eventbus");
-
-    void a(dm0 dm0Var);
-
-    void b(Object obj, gm0 gm0Var);
-
-    void c(Object obj, int i, gm0 gm0Var);
-
-    void unregister(Object obj);
+    <T extends cm0> void a(hm0 hm0Var, fm0<T> fm0Var, T t);
 }

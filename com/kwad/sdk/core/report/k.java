@@ -1,5 +1,7 @@
 package com.kwad.sdk.core.report;
 
+import androidx.annotation.NonNull;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.kwad.components.offline.api.core.api.ILoggerReporter;
 import com.kwad.sdk.commercial.model.HybridLoadMsg;
 import com.kwad.sdk.commercial.model.WebViewCommercialMsg;
@@ -11,14 +13,14 @@ import com.kwai.adclient.kscommerciallogger.model.c;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class k {
     public static volatile boolean aaa;
     public static float aab;
     public static float aac;
     public static float aad;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void f(String str, String str2, boolean z);
     }
@@ -83,7 +85,7 @@ public final class k {
                 }
             }, new com.kwai.adclient.kscommerciallogger.kwai.b() { // from class: com.kwad.sdk.core.report.k.2
                 @Override // com.kwai.adclient.kscommerciallogger.kwai.b
-                public final void K(String str, String str2) {
+                public final void K(@NonNull String str, @NonNull String str2) {
                     try {
                         new JSONObject(str2).optString("event_id");
                     } catch (JSONException unused) {
@@ -95,7 +97,7 @@ public final class k {
     }
 
     public static void a(String str, WebViewCommercialMsg webViewCommercialMsg) {
-        com.kwad.sdk.utils.r.putValue(webViewCommercialMsg.msg, "ratio", webViewCommercialMsg.rate);
+        com.kwad.sdk.utils.r.putValue(webViewCommercialMsg.msg, MapBundleKey.OfflineMapKey.OFFLINE_RATION, webViewCommercialMsg.rate);
         a(webViewCommercialMsg.rate, str, webViewCommercialMsg.biz, webViewCommercialMsg.subBiz, webViewCommercialMsg.type, webViewCommercialMsg.eventId, webViewCommercialMsg.msg);
     }
 
@@ -121,7 +123,7 @@ public final class k {
         a(d, ILoggerReporter.Category.APM_LOG, z ? BusinessType.AD_REWARD : BusinessType.AD_FULLSCREEN, SubBusinessType.OTHER, com.kwai.adclient.kscommerciallogger.model.a.ary, z ? "ad_sdk_reward_page_show" : "ad_sdk_fullscreen_page_show", jSONObject);
     }
 
-    public static void b(com.kwad.sdk.utils.a.a aVar) {
+    public static void b(@NonNull com.kwad.sdk.utils.a.a aVar) {
         a((float) (1.0d / aVar.Yr), ILoggerReporter.Category.APM_LOG, BusinessType.OTHER, SubBusinessType.OTHER, com.kwai.adclient.kscommerciallogger.model.d.asl, "ad_union_kv_fail_rate", aVar.toJson());
     }
 
@@ -159,19 +161,19 @@ public final class k {
     public static void g(JSONObject jSONObject) {
         double d = 1.0d;
         try {
-            if (jSONObject.has("ratio") && !Double.isNaN(jSONObject.optDouble("ratio"))) {
-                d = jSONObject.optDouble("ratio");
+            if (jSONObject.has(MapBundleKey.OfflineMapKey.OFFLINE_RATION) && !Double.isNaN(jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION))) {
+                d = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION);
             }
         } catch (Exception unused) {
         }
         a(d, ILoggerReporter.Category.APM_LOG, BusinessType.OTHER, SubBusinessType.OTHER, com.kwai.adclient.kscommerciallogger.model.a.arI, "ad_sdk_dynamic_update", jSONObject);
     }
 
-    public static JSONObject h(JSONObject jSONObject) {
+    public static JSONObject h(@NonNull JSONObject jSONObject) {
         double d;
         try {
-            if (jSONObject.has("ratio")) {
-                d = jSONObject.optDouble("ratio");
+            if (jSONObject.has(MapBundleKey.OfflineMapKey.OFFLINE_RATION)) {
+                d = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION);
             } else {
                 if (jSONObject.has("ratio_count")) {
                     if (jSONObject.optDouble("ratio_count") > 0.0d) {
@@ -182,8 +184,8 @@ public final class k {
                 }
                 d = 1.0d;
             }
-            if (!jSONObject.has("ratio")) {
-                com.kwad.sdk.utils.r.putValue(jSONObject, "ratio", d);
+            if (!jSONObject.has(MapBundleKey.OfflineMapKey.OFFLINE_RATION)) {
+                com.kwad.sdk.utils.r.putValue(jSONObject, MapBundleKey.OfflineMapKey.OFFLINE_RATION, d);
             }
             if (!jSONObject.has("ratio_count") && d > 0.0d) {
                 com.kwad.sdk.utils.r.putValue(jSONObject, "ratio_count", 1.0d / d);

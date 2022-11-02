@@ -267,20 +267,20 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map map) {
+    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
             onGenBosObjectUrlListener(i, str2, str3, map);
         }
     }
 
-    public void onGenBosObjectUrlListener(int i, String str, String str2, Map map) {
+    public void onGenBosObjectUrlListener(int i, String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, map}) == null) {
             if (i == 0) {
-                this.mGetUrl = (String) map.get(GET_URL);
-                this.mPutUrl = (String) map.get(PUT_URL);
-                this.mThumbUrl = (String) map.get("thumb_url");
+                this.mGetUrl = map.get(GET_URL);
+                this.mPutUrl = map.get(PUT_URL);
+                this.mThumbUrl = map.get("thumb_url");
                 String str3 = TAG;
                 LogUtils.i(str3, "get_url:" + this.mGetUrl);
                 String str4 = TAG;

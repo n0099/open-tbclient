@@ -2,6 +2,8 @@ package androidx.core.text;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -49,7 +51,7 @@ public final class TextUtilsCompat {
         }
     }
 
-    public static int getLayoutDirectionFromFirstChar(Locale locale) {
+    public static int getLayoutDirectionFromFirstChar(@NonNull Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, locale)) == null) {
@@ -62,7 +64,7 @@ public final class TextUtilsCompat {
         return invokeL.intValue;
     }
 
-    public static int getLayoutDirectionFromLocale(Locale locale) {
+    public static int getLayoutDirectionFromLocale(@Nullable Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, locale)) == null) {
@@ -84,7 +86,8 @@ public final class TextUtilsCompat {
         return invokeL.intValue;
     }
 
-    public static String htmlEncode(String str) {
+    @NonNull
+    public static String htmlEncode(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {

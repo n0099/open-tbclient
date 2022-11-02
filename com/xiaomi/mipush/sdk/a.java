@@ -1,5 +1,6 @@
 package com.xiaomi.mipush.sdk;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -14,11 +15,12 @@ import com.xiaomi.push.en;
 import com.xiaomi.push.eo;
 import java.util.HashSet;
 import java.util.Set;
+@TargetApi(14)
 /* loaded from: classes8.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set a;
+    public Set<String> a;
 
     public a() {
         Interceptable interceptable = $ic;

@@ -3,13 +3,15 @@ package kotlinx.coroutines;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.Future;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.functions.Function0;
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlinx/coroutines/JobKt__FutureKt", "kotlinx/coroutines/JobKt__JobKt"}, d2 = {}, k = 4, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
 public final class JobKt {
-    public static final DisposableHandle DisposableHandle(Function0 function0) {
+    @InternalCoroutinesApi
+    public static final DisposableHandle DisposableHandle(Function0<Unit> function0) {
         return JobKt__JobKt.DisposableHandle(function0);
     }
 
@@ -37,15 +39,16 @@ public final class JobKt {
         JobKt__JobKt.cancel(coroutineContext, cancellationException);
     }
 
-    public static final Object cancelAndJoin(Job job, Continuation continuation) {
+    public static final Object cancelAndJoin(Job job, Continuation<? super Unit> continuation) {
         return JobKt__JobKt.cancelAndJoin(job, continuation);
     }
 
-    public static final void cancelFutureOnCancellation(CancellableContinuation cancellableContinuation, Future future) {
+    public static final void cancelFutureOnCancellation(CancellableContinuation<?> cancellableContinuation, Future<?> future) {
         JobKt__FutureKt.cancelFutureOnCancellation(cancellableContinuation, future);
     }
 
-    public static final DisposableHandle cancelFutureOnCompletion(Job job, Future future) {
+    @InternalCoroutinesApi
+    public static final DisposableHandle cancelFutureOnCompletion(Job job, Future<?> future) {
         return JobKt__FutureKt.cancelFutureOnCompletion(job, future);
     }
 

@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.mh7;
+import com.baidu.tieba.wi7;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,23 +87,23 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.d();
-            int f = fj.f(getContext(), R.dimen.tbds92);
-            int f2 = fj.f(getContext(), R.dimen.tbds82);
+            int g = xi.g(getContext(), R.dimen.tbds92);
+            int g2 = xi.g(getContext(), R.dimen.tbds82);
             if (getPendantView() != null) {
-                getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(f, f2));
+                getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(g, g2));
             }
             TbImageView tbImageView = new TbImageView(getContext());
             this.m = tbImageView;
             tbImageView.setDefaultBgResource(0);
             this.m.setDefaultResource(0);
             this.m.setImageDrawable(null);
-            int f3 = fj.f(getContext(), R.dimen.tbds115);
-            int f4 = fj.f(getContext(), R.dimen.tbds34);
-            int f5 = fj.f(getContext(), R.dimen.tbds154);
-            int f6 = fj.f(getContext(), R.dimen.tbds32);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f3, f4);
-            layoutParams.topMargin = f5;
-            layoutParams.leftMargin = f6;
+            int g3 = xi.g(getContext(), R.dimen.tbds115);
+            int g4 = xi.g(getContext(), R.dimen.tbds34);
+            int g5 = xi.g(getContext(), R.dimen.tbds154);
+            int g6 = xi.g(getContext(), R.dimen.tbds32);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g3, g4);
+            layoutParams.topMargin = g5;
+            layoutParams.leftMargin = g6;
             this.m.setLayoutParams(layoutParams);
             this.m.setVisibility(8);
         }
@@ -122,23 +122,23 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                int f = fj.f(getContext(), R.dimen.tbds5);
-                int f2 = fj.f(getContext(), R.dimen.tbds130);
-                int f3 = fj.f(getContext(), R.dimen.tbds26);
-                int f4 = fj.f(getContext(), R.dimen.tbds44);
-                getHeadView().setBorderWidth(f);
-                getHeadView().setBorderColor(mh7.b("#FCD442"));
+                int g = xi.g(getContext(), R.dimen.tbds5);
+                int g2 = xi.g(getContext(), R.dimen.tbds130);
+                int g3 = xi.g(getContext(), R.dimen.tbds26);
+                int g4 = xi.g(getContext(), R.dimen.tbds44);
+                getHeadView().setBorderWidth(g);
+                getHeadView().setBorderColor(wi7.b("#FCD442"));
                 getHeadView().setDrawBorder(true);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f2, f2);
-                layoutParams.leftMargin = f3;
-                layoutParams.topMargin = f4;
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g2, g2);
+                layoutParams.leftMargin = g3;
+                layoutParams.topMargin = g4;
                 getHeadView().setLayoutParams(layoutParams);
                 return;
             }
-            int f5 = fj.f(getContext(), R.dimen.tbds90);
+            int g5 = xi.g(getContext(), R.dimen.tbds90);
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
-            getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(f5, f5));
+            getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(g5, g5));
             TbImageView tbImageView = this.m;
             if (tbImageView != null) {
                 tbImageView.setVisibility(8);

@@ -9,7 +9,7 @@ import java.util.Map;
 public class RetryRequestInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map header;
+    public Map<String, String> header;
     public String url;
 
     public RetryRequestInfo() {

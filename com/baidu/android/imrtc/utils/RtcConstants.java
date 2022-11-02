@@ -70,7 +70,7 @@ public class RtcConstants {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class RoomEventType {
+    public static final class RoomEventType {
         public static final /* synthetic */ RoomEventType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RoomEventType CALLEE_RING;

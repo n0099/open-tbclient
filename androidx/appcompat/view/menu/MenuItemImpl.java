@@ -19,6 +19,8 @@ import android.view.ViewConfiguration;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -32,6 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class MenuItemImpl implements SupportMenuItem {
     public static /* synthetic */ Interceptable $ic = null;
@@ -843,7 +846,7 @@ public final class MenuItemImpl implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setIconTintList(ColorStateList colorStateList) {
+    public MenuItem setIconTintList(@Nullable ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, colorStateList)) == null) {

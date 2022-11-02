@@ -30,7 +30,7 @@ public class BoxAccount {
     public ErrorBean errorBean;
     @Deprecated
     public int expiryTime;
-    public HashMap extFields;
+    public HashMap<String, String> extFields;
     public int gender;
     public String horoscope;
     @Deprecated
@@ -249,12 +249,12 @@ public class BoxAccount {
         return invokeV.intValue;
     }
 
-    public HashMap getExtFields() {
+    public HashMap<String, String> getExtFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (this.extFields == null) {
-                this.extFields = new HashMap();
+                this.extFields = new HashMap<>();
             }
             return this.extFields;
         }
@@ -553,7 +553,7 @@ public class BoxAccount {
         }
     }
 
-    public void setExtFields(HashMap hashMap) {
+    public void setExtFields(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, hashMap) == null) {
             this.extFields = hashMap;

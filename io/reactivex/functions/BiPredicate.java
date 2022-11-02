@@ -1,5 +1,7 @@
 package io.reactivex.functions;
+
+import io.reactivex.annotations.NonNull;
 /* loaded from: classes8.dex */
-public interface BiPredicate {
-    boolean test(Object obj, Object obj2) throws Exception;
+public interface BiPredicate<T1, T2> {
+    boolean test(@NonNull T1 t1, @NonNull T2 t2) throws Exception;
 }

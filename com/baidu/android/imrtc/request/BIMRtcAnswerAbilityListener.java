@@ -1,15 +1,16 @@
 package com.baidu.android.imrtc.request;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface BIMRtcAnswerAbilityListener {
-    void onResult(int i, String str, BIMRtcAnswerAbilityResult bIMRtcAnswerAbilityResult);
+    void onResult(int i, String str, @NonNull BIMRtcAnswerAbilityResult bIMRtcAnswerAbilityResult);
 
     /* loaded from: classes.dex */
-    public class BIMRtcAnswerAbilityResult {
+    public static class BIMRtcAnswerAbilityResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int ability;

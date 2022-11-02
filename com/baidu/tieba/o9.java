@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o9 extends p9 {
+public class o9<T> extends p9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o9(r9 r9Var, int i) {
+    public o9(r9<T> r9Var, int i) {
         super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

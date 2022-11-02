@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Annotation;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface DeclareAnnotation {
     Annotation getAnnotation();
 
     String getAnnotationAsText();
 
-    AjType getDeclaringType();
+    AjType<?> getDeclaringType();
 
     Kind getKind();
 
@@ -23,8 +23,8 @@ public interface DeclareAnnotation {
     TypePattern getTypePattern();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class Kind {
+    /* loaded from: classes9.dex */
+    public static final class Kind {
         public static final /* synthetic */ Kind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Kind Constructor;

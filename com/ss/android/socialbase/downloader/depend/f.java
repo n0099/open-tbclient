@@ -12,7 +12,7 @@ public interface f extends IInterface {
     void a(DownloadInfo downloadInfo, BaseException baseException, int i) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class a extends Binder implements f {
+    public static abstract class a extends Binder implements f {
         @Override // android.os.IInterface
         public IBinder asBinder() {
             return this;
@@ -20,11 +20,11 @@ public interface f extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0674a implements f {
+        public static class C0685a implements f {
             public static f a;
             public IBinder b;
 
-            public C0674a(IBinder iBinder) {
+            public C0685a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -69,7 +69,7 @@ public interface f extends IInterface {
         }
 
         public static f a() {
-            return C0674a.a;
+            return C0685a.a;
         }
 
         public static f a(IBinder iBinder) {
@@ -80,7 +80,7 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C0674a(iBinder);
+            return new C0685a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -96,12 +96,12 @@ public interface f extends IInterface {
             parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlDepend");
             BaseException baseException = null;
             if (parcel.readInt() != 0) {
-                downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                downloadInfo = DownloadInfo.CREATOR.createFromParcel(parcel);
             } else {
                 downloadInfo = null;
             }
             if (parcel.readInt() != 0) {
-                baseException = (BaseException) BaseException.CREATOR.createFromParcel(parcel);
+                baseException = BaseException.CREATOR.createFromParcel(parcel);
             }
             a(downloadInfo, baseException, parcel.readInt());
             parcel2.writeNoException();

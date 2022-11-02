@@ -1,431 +1,119 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.Direction;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nv4 {
+public class nv4 extends mv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public Drawable b;
+    public TextView l;
+    public TextView m;
+    public View.OnClickListener n;
+    public int o;
+    public int p;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ nv4 b;
-
-        public a(nv4 nv4Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nv4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nv4Var;
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nv4 nv4Var = this.b;
-                nv4Var.b = lv4.D(nv4Var.b, this.a, this.b.a.getMeasuredHeight());
-                this.b.a.setBackgroundDrawable(this.b.b);
-            }
+    @Override // com.baidu.tieba.mv4
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ nv4 c;
-
-        public b(nv4 nv4Var, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nv4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = nv4Var;
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nv4 nv4Var = this.c;
-                nv4Var.b = lv4.E(nv4Var.b, this.a, this.b, this.c.a.getMeasuredHeight());
-                this.c.a.setBackgroundDrawable(this.c.b);
-            }
-        }
-    }
-
-    public nv4(View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nv4(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = view2;
-        this.b = lv4.e(view2);
+        this.o = R.color.CAM_X0304;
+        this.p = R.color.CAM_X0107;
+        this.l = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092276);
+        this.m = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092264);
+        i(true);
     }
 
-    public nv4 w(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.mv4
+    public void b(r9<?> r9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            View view2 = this.a;
-            if (view2 instanceof EMTextView) {
-                ((EMTextView) view2).setLineSpacing(lv4.n(i), ((EMTextView) this.a).getLineSpacingMultiplier());
-                return this;
-            }
-            throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
+        if (interceptable == null || interceptable.invokeL(1048576, this, r9Var) == null) {
+            super.b(r9Var);
+            o();
         }
-        return (nv4) invokeI.objValue;
     }
 
-    public nv4 y(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            if (!(this.a instanceof TextView)) {
-                return this;
-            }
-            float[] C = lv4.C(i);
-            ((TextView) this.a).setShadowLayer(C[1], C[2], C[3], (int) C[0]);
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public static nv4 d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
-            return new nv4(view2);
-        }
-        return (nv4) invokeL.objValue;
-    }
-
-    public nv4 A(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setTypeface(lv4.I(lv4.F(i)));
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public nv4 e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.a == null) {
-                return this;
-            }
-            this.b = lv4.c(this.b, i);
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public void f(int i) {
-        Drawable j;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || this.a == null || (j = lv4.j(this.b, i)) == null) {
-            return;
-        }
-        this.b = j;
-        this.a.setBackgroundDrawable(j);
-    }
-
-    public void g(int i) {
-        Drawable x;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.a == null || (x = lv4.x(this.b, i)) == null) {
-            return;
-        }
-        this.b = x;
-        this.a.setBackgroundDrawable(x);
-    }
-
+    @Override // com.baidu.tieba.mv4
     public void h(int i) {
-        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || (view2 = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            j(i);
         }
-        view2.post(new a(this, i));
     }
 
-    public nv4 j(int i) {
-        InterceptResult invokeI;
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (this.a == null) {
-                return this;
-            }
-            Drawable f = lv4.f(this.b, i);
-            if (f == null) {
-                return this;
-            }
-            this.b = f;
-            this.a.setBackgroundDrawable(f);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            kw4.d(this.l).x(this.o);
+            kw4.d(this.m).x(this.p);
+        }
+    }
+
+    public nv4 p(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
+            this.m.setText(i);
+            this.m.setOnClickListener(onClickListener);
+            this.m.setVisibility(0);
             return this;
         }
-        return (nv4) invokeI.objValue;
+        return (nv4) invokeIL.objValue;
     }
 
-    public nv4 k(int i) {
-        InterceptResult invokeI;
+    public nv4 q(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (this.a == null) {
-                return this;
-            }
-            Drawable g = lv4.g(this.b, i);
-            if (g == null) {
-                return this;
-            }
-            this.b = g;
-            this.a.setBackgroundDrawable(g);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
+            this.l.setText(i);
+            this.l.setOnClickListener(onClickListener);
+            this.l.setVisibility(0);
+            this.n = onClickListener;
             return this;
         }
-        return (nv4) invokeI.objValue;
+        return (nv4) invokeIL.objValue;
     }
 
-    public nv4 l(int i) {
-        InterceptResult invokeI;
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (this.a == null) {
-                return this;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.o = R.color.CAM_X0304;
+                this.l.setEnabled(true);
+                this.l.setOnClickListener(this.n);
+            } else {
+                this.o = R.color.CAM_X0110;
+                this.l.setEnabled(false);
+                this.l.setOnClickListener(null);
             }
-            this.b = lv4.h(this.b, i);
-            return this;
+            o();
         }
-        return (nv4) invokeI.objValue;
-    }
-
-    public nv4 m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (this.a == null) {
-                return this;
-            }
-            this.b = lv4.m(this.b, i);
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public nv4 n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (this.a == null) {
-                return this;
-            }
-            this.b = lv4.l(this.b, i);
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public void o(int[] iArr) {
-        Drawable q;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, iArr) != null) || this.a == null || (q = lv4.q(this.b, Direction.BOTTOM, iArr)) == null) {
-            return;
-        }
-        this.b = q;
-        this.a.setBackgroundDrawable(q);
-    }
-
-    public nv4 q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            View view2 = this.a;
-            if (view2 == null) {
-                return this;
-            }
-            view2.setLayerType(i, null);
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public nv4 r(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setLinkTextColor(lv4.i(i));
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public void s(int i) {
-        Drawable u;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048591, this, i) != null) || this.a == null || (u = lv4.u(this.b, lv4.G(i))) == null) {
-            return;
-        }
-        this.b = u;
-        this.a.setBackgroundDrawable(u);
-    }
-
-    public nv4 t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            if (this.a == null) {
-                return this;
-            }
-            Drawable w = lv4.w(this.b, i);
-            if (w == null) {
-                return this;
-            }
-            this.b = w;
-            this.a.setBackgroundDrawable(w);
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public nv4 u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            View view2 = this.a;
-            if (view2 == null) {
-                return this;
-            }
-            Drawable B = lv4.B(view2, this.b, lv4.G(i));
-            if (B == null) {
-                return this;
-            }
-            this.b = B;
-            this.a.setBackgroundDrawable(B);
-            q(1);
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public nv4 v(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setTextColor(lv4.i(i));
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public nv4 x(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setTextColor(lv4.H(i));
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public nv4 z(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setTextSize(0, lv4.n(i));
-            return this;
-        }
-        return (nv4) invokeI.objValue;
-    }
-
-    public void i(int i, int i2) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(1048581, this, i, i2) != null) || (view2 = this.a) == null) {
-            return;
-        }
-        view2.post(new b(this, i, i2));
-    }
-
-    public void p(int[] iArr, Direction direction) {
-        Drawable q;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048588, this, iArr, direction) != null) || this.a == null || (q = lv4.q(this.b, direction, iArr)) == null) {
-            return;
-        }
-        this.b = q;
-        this.a.setBackgroundDrawable(q);
     }
 }

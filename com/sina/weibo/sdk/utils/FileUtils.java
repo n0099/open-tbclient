@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.utils;
 
+import android.annotation.SuppressLint;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
@@ -119,6 +120,7 @@ public class FileUtils {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static String getPath(Context context, Uri uri) {
         InterceptResult invokeLL;
         boolean z;

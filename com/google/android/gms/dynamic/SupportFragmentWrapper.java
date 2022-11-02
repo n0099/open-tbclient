@@ -3,6 +3,8 @@ package com.google.android.gms.dynamic;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,8 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.dynamic.IFragmentWrapper;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +41,9 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
         this.zza = fragment;
     }
 
-    public static SupportFragmentWrapper wrap(Fragment fragment) {
+    @Nullable
+    @KeepForSdk
+    public static SupportFragmentWrapper wrap(@Nullable Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
@@ -50,7 +56,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final void zzk(IObjectWrapper iObjectWrapper) {
+    public final void zzk(@NonNull IObjectWrapper iObjectWrapper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
@@ -93,7 +99,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final void zzp(Intent intent) {
+    public final void zzp(@NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, intent) == null) {
             this.zza.startActivity(intent);
@@ -101,7 +107,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final void zzr(IObjectWrapper iObjectWrapper) {
+    public final void zzr(@NonNull IObjectWrapper iObjectWrapper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
@@ -142,6 +148,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    @Nullable
     public final Bundle zzd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -152,6 +159,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    @Nullable
     public final IFragmentWrapper zze() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -162,6 +170,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    @Nullable
     public final IFragmentWrapper zzf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -172,6 +181,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    @NonNull
     public final IObjectWrapper zzg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,6 +192,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    @NonNull
     public final IObjectWrapper zzh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,6 +203,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    @NonNull
     public final IObjectWrapper zzi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -202,6 +214,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    @Nullable
     public final String zzj() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -292,7 +305,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final void zzq(Intent intent, int i) {
+    public final void zzq(@NonNull Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, intent, i) == null) {
             this.zza.startActivityForResult(intent, i);

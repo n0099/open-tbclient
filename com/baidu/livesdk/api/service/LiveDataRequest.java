@@ -20,7 +20,7 @@ public interface LiveDataRequest {
     void release();
 
     /* loaded from: classes2.dex */
-    public class LiveData {
+    public static class LiveData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -79,11 +79,11 @@ public interface LiveDataRequest {
     }
 
     /* loaded from: classes2.dex */
-    public class PageData {
+    public static class PageData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String errno;
-        public List liveDatas;
+        public List<LiveData> liveDatas;
         public String message;
         public PageInfo pageInfo;
 
@@ -106,7 +106,7 @@ public interface LiveDataRequest {
             this.message = str2;
         }
 
-        public PageData(String str, List list, PageInfo pageInfo) {
+        public PageData(String str, List<LiveData> list, PageInfo pageInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public interface LiveDataRequest {
             return (String) invokeV.objValue;
         }
 
-        public List getLiveDatas() {
+        public List<LiveData> getLiveDatas() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -169,7 +169,7 @@ public interface LiveDataRequest {
             }
         }
 
-        public void setLiveDatas(List list) {
+        public void setLiveDatas(List<LiveData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
                 this.liveDatas = list;
@@ -192,7 +192,7 @@ public interface LiveDataRequest {
     }
 
     /* loaded from: classes2.dex */
-    public class PageInfo {
+    public static class PageInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int page;

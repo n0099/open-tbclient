@@ -16,6 +16,7 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.view.KeyEvent;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -161,6 +162,7 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         return (PendingIntent) invokeCommon.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static ComponentName getMediaButtonReceiverComponent(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

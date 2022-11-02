@@ -13,10 +13,11 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.MaybeObserver;
 import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueDisposable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class EmptyDisposable implements QueueDisposable {
+public final class EmptyDisposable implements QueueDisposable<Object> {
     public static final /* synthetic */ EmptyDisposable[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final EmptyDisposable INSTANCE;
@@ -48,6 +49,7 @@ public final class EmptyDisposable implements QueueDisposable {
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
+    @Nullable
     public Object poll() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,7 +131,7 @@ public final class EmptyDisposable implements QueueDisposable {
         return invokeL.booleanValue;
     }
 
-    public static void complete(MaybeObserver maybeObserver) {
+    public static void complete(MaybeObserver<?> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, maybeObserver) == null) {
             maybeObserver.onSubscribe(INSTANCE);
@@ -137,7 +139,7 @@ public final class EmptyDisposable implements QueueDisposable {
         }
     }
 
-    public static void complete(Observer observer) {
+    public static void complete(Observer<?> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, observer) == null) {
             observer.onSubscribe(INSTANCE);
@@ -163,7 +165,7 @@ public final class EmptyDisposable implements QueueDisposable {
         return invokeLL.booleanValue;
     }
 
-    public static void error(Throwable th, MaybeObserver maybeObserver) {
+    public static void error(Throwable th, MaybeObserver<?> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, th, maybeObserver) == null) {
             maybeObserver.onSubscribe(INSTANCE);
@@ -171,7 +173,7 @@ public final class EmptyDisposable implements QueueDisposable {
         }
     }
 
-    public static void error(Throwable th, Observer observer) {
+    public static void error(Throwable th, Observer<?> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, th, observer) == null) {
             observer.onSubscribe(INSTANCE);
@@ -179,7 +181,7 @@ public final class EmptyDisposable implements QueueDisposable {
         }
     }
 
-    public static void error(Throwable th, SingleObserver singleObserver) {
+    public static void error(Throwable th, SingleObserver<?> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, th, singleObserver) == null) {
             singleObserver.onSubscribe(INSTANCE);

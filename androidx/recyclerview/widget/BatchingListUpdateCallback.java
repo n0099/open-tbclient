@@ -1,5 +1,6 @@
 package androidx.recyclerview.widget;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +20,7 @@ public class BatchingListUpdateCallback implements ListUpdateCallback {
     public int mLastEventType;
     public final ListUpdateCallback mWrapped;
 
-    public BatchingListUpdateCallback(ListUpdateCallback listUpdateCallback) {
+    public BatchingListUpdateCallback(@NonNull ListUpdateCallback listUpdateCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oj3 extends ActivityDelegation implements fi3 {
+public class oj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout a;
 
     public oj3() {
         Interceptable interceptable = $ic;
@@ -25,35 +25,44 @@ public class oj3 extends ActivityDelegation implements fi3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+    }
+
+    public final void a(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof RelativeLayout)) {
+            return;
+        }
+        if (this.a == null) {
+            RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
+            this.a = relativeLayout;
+            relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801a1);
+        }
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new ViewGroup.LayoutParams(-1, -1));
+    }
+
+    public void b(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        if (ln2.M().a()) {
+            a(viewGroup);
+        } else {
+            c(viewGroup);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fi3
-    /* renamed from: c */
-    public void a(Bundle bundle) {
+    public final void c(ViewGroup viewGroup) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.mResult.putBundle(TiebaStatic.LogFields.RESULT, bundle);
-            finish();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (relativeLayout = this.a) != null) {
+            viewGroup.removeView(relativeLayout);
+            this.a = null;
         }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean c = lg3.c(this.mParams, "isRealName", false);
-            String g = lg3.g(this.mParams, "swanAppId");
-            if (c) {
-                nj3.H((Activity) getAgent(), g, this);
-            } else {
-                nj3.K((Activity) getAgent(), g, this);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -101,7 +101,7 @@ public class AbTestManager {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList getExperimentInfoList() {
+    public ArrayList<a9> getExperimentInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -127,7 +127,7 @@ public class AbTestManager {
     }
 
     @Deprecated
-    public void forceReloadConfig(List list) {
+    public void forceReloadConfig(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.mExperimentManager.i(list);
@@ -152,20 +152,20 @@ public class AbTestManager {
         return invokeI.booleanValue;
     }
 
-    public ArrayList getSidsFromTids(ArrayList arrayList) {
+    public ArrayList<String> getSidsFromTids(ArrayList<Integer> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            ArrayList l = this.mExperimentManager.l();
+            ArrayList<String> arrayList2 = new ArrayList<>();
+            ArrayList<a9> l = this.mExperimentManager.l();
             if (l == null) {
                 return arrayList2;
             }
             for (int i = 0; i < l.size(); i++) {
-                a9 a9Var = (a9) l.get(i);
+                a9 a9Var = l.get(i);
                 if (a9Var != null) {
                     for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        if (((Integer) arrayList.get(i2)).intValue() == a9Var.c()) {
+                        if (arrayList.get(i2).intValue() == a9Var.c()) {
                             arrayList2.add(a9Var.c() + "_" + a9Var.b());
                         }
                     }

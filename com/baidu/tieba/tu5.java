@@ -1,79 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class tu5 extends BaseCardInfo {
+public class tu5 implements lo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193717, "Lcom/baidu/tieba/tu5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948193717, "Lcom/baidu/tieba/tu5;");
-                return;
-            }
-        }
-        g = BdUniqueId.gen();
-    }
 
     public tu5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return TbadkCoreApplication.getInst().getZid(context, null, 0, null);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.lo2
+    public String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return c(context);
+            }
+            return b(context);
         }
-        this.a = jSONObject.optString("user_id");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString("user_nickname");
-        this.d = jSONObject.optString("portrait");
-        this.e = jSONObject.optString("user_brief");
-        jSONObject.optLong("start_time");
-        this.f = jSONObject.optString("remark");
+        return (String) invokeL.objValue;
+    }
+
+    public final String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, su5.class, null);
+            if (!callOnMainWithContentProvider.isOk()) {
+                return "";
+            }
+            return callOnMainWithContentProvider.mResult.getString(TiebaStatic.LogFields.RESULT, "");
+        }
+        return (String) invokeL.objValue;
     }
 }

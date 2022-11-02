@@ -3,6 +3,7 @@ package com.kwad.components.offline.tk.a;
 import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -68,7 +69,7 @@ public final class a {
         QA = null;
     }
 
-    public static void a(Context context, SoLoadListener soLoadListener) {
+    public static void a(Context context, @NonNull SoLoadListener soLoadListener) {
         String rK;
         String str;
         String str2;
@@ -83,7 +84,7 @@ public final class a {
             return;
         }
         Qr.set(true);
-        HashMap hashMap = new HashMap();
+        HashMap<String, String> hashMap = new HashMap<>();
         boolean useTkLite = useTkLite();
         if (AbiUtil.isArm64(context)) {
             rK = d.rL();
@@ -169,11 +170,11 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
             public void a(c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(65537, this, cVar) == null) {
-                    super.a((f) cVar);
+                    super.a((AnonymousClass1) cVar);
                 }
             }
 
@@ -186,12 +187,12 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
             /* renamed from: b */
             public void c(c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(65539, this, cVar) == null) {
-                    super.c((f) cVar);
+                    super.c((AnonymousClass1) cVar);
                     long unused = a.Qz = SystemClock.elapsedRealtime();
                     TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setDownloadState(0).setRetryCount(cVar.Fp()).toJson());
                 }
@@ -199,13 +200,13 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
             /* renamed from: c */
             public void b(c cVar) {
                 String str9;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cVar) == null) {
-                    super.b((f) cVar);
+                    super.b((AnonymousClass1) cVar);
                     if (cVar.getState() == 1) {
                         TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setDownloadTime(SystemClock.elapsedRealtime() - a.Qz).setDownloadState(1).toJson());
                         return;
@@ -229,12 +230,12 @@ public final class a {
                 }
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
             public final /* synthetic */ void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
                 qB();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
             public final /* bridge */ /* synthetic */ void a(f fVar, PluginError pluginError) {
                 a(pluginError);
             }

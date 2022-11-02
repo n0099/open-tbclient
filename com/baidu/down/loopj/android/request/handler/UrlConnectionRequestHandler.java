@@ -1,5 +1,6 @@
 package com.baidu.down.loopj.android.request.handler;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
@@ -42,11 +43,11 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public transient /* synthetic */ FieldHolder $fh;
     public InputStream inputStream;
     public ProxyURLConnection mAsyncUrlConnection;
-    public Map mBackUpRequestHeader;
+    public Map<String, String> mBackUpRequestHeader;
     public String mBackUpURL;
     public boolean mConvertDomainNameToIp;
     public UrlDNSInfo mDomainNameAndIpInfo;
-    public Map mRequestHeader;
+    public Map<String, String> mRequestHeader;
     public boolean mTlsCertSkip;
     public String mURL;
     public HttpURLConnection mURLConnectionRequest;
@@ -75,7 +76,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         }
     }
 
-    public UrlConnectionRequestHandler(ProxyURLConnection proxyURLConnection, String str, Map map) {
+    public UrlConnectionRequestHandler(ProxyURLConnection proxyURLConnection, String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,6 +99,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         this.mURLConnectionRetryHandler = proxyURLConnection.getRetryHandler();
     }
 
+    @SuppressLint({"LongLogTag"})
     private String convertUrlDomainNameToIp(String str) throws URLDNSException {
         InterceptResult invokeL;
         String str2;
@@ -153,7 +155,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void onHandleFollowRedirect(HashSet hashSet) throws RedirectException {
+    public void onHandleFollowRedirect(HashSet<String> hashSet) throws RedirectException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, hashSet) == null) {
             String headerField = this.mURLConnectionRequest.getHeaderField("Location");
@@ -221,7 +223,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            return (String) this.mRequestHeader.get(str);
+            return this.mRequestHeader.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -289,7 +291,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         this.mURL = retryRequestInfo.url;
         if (!retryRequestInfo.header.isEmpty()) {
             for (String str2 : retryRequestInfo.header.keySet()) {
-                if (TextUtils.isEmpty((CharSequence) retryRequestInfo.header.get(str2))) {
+                if (TextUtils.isEmpty(retryRequestInfo.header.get(str2))) {
                     this.mRequestHeader.remove(str2);
                 } else {
                     this.mRequestHeader.put(str2, retryRequestInfo.header.get(str2));
@@ -361,7 +363,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public void restoreRequest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            Map map = this.mBackUpRequestHeader;
+            Map<String, String> map = this.mBackUpRequestHeader;
             if (map != null) {
                 this.mRequestHeader = map;
                 this.mBackUpRequestHeader = null;
@@ -472,10 +474,10 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
             } else {
                 sb.append("Uri: null\n");
             }
-            Map map = this.mRequestHeader;
+            Map<String, String> map = this.mRequestHeader;
             if (map != null) {
                 for (String str : map.keySet()) {
-                    sb.append(str + ":" + ((String) this.mRequestHeader.get(str)) + "\n");
+                    sb.append(str + ":" + this.mRequestHeader.get(str) + "\n");
                 }
             }
             if (!isHttpRequestNull()) {

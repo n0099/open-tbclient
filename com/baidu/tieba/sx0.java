@@ -1,95 +1,149 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.message.HandlerMessenger;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class sx0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class sx0 extends rx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public a e;
+    public final HandlerThread f;
 
-    public static final void a(zx0 mpdModel, JSONArray clarityUrlList) {
-        ArrayList a;
-        int i;
-        boolean z;
-        vx0 vx0Var;
-        ArrayList d;
-        ArrayList a2;
+    @Override // com.baidu.tieba.rx0
+    public String getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
-            xx0 a3 = mpdModel.a();
-            if (a3 != null && (a = a3.a()) != null) {
-                xx0 a4 = mpdModel.a();
-                if (a4 != null && (a2 = a4.a()) != null) {
-                    i = a2.size();
-                } else {
-                    i = 0;
-                }
-                if (i > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    a = null;
-                }
-                if (a != null && (vx0Var = (vx0) a.get(0)) != null && (d = vx0Var.d()) != null) {
-                    int length = clarityUrlList.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        Object obj = clarityUrlList.get(i2);
-                        if (!(obj instanceof JSONObject)) {
-                            obj = null;
-                        }
-                        JSONObject jSONObject = (JSONObject) obj;
-                        if (jSONObject != null) {
-                            Object obj2 = d.get(0);
-                            if (!(obj2 instanceof yx0)) {
-                                obj2 = null;
-                            }
-                            yx0 yx0Var = (yx0) obj2;
-                            if (yx0Var != null) {
-                                jSONObject.put("interact_url", yx0Var.a());
-                            }
-                        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? HandlerMessenger.TAG : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sx0 a;
+
+        /* renamed from: com.baidu.tieba.sx0$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0421a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ mu0 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0421a(a aVar, mu0 mu0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, mu0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
+                this.b = aVar;
+                this.a = mu0Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.b.a.i(this.a)) {
+                    this.b.a.g(this.a);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(sx0 sx0Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sx0Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sx0Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                Object obj = message.obj;
+                if (!(obj instanceof mu0)) {
+                    return;
+                }
+                nj0.b(new RunnableC0421a(this, (mu0) obj));
             }
         }
     }
 
-    public static final void b(zx0 mpdModel, JSONObject mpdJson) {
-        JSONArray optJSONArray;
-        JSONArray optJSONArray2;
+    public sx0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
-            JSONObject optJSONObject = mpdJson.optJSONObject(BdVideoSeries.RESOURCE_TYPE_INTERACT);
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) != null) {
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) != null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        int length2 = optJSONArray2.length();
-                        for (int i2 = 0; i2 < length2; i2++) {
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
-                            if (optJSONObject3 != null) {
-                                arrayList2.add(new yx0(optJSONObject3.optString("url")));
-                            }
-                        }
-                        arrayList.add(new vx0(arrayList2, optJSONObject2.optString("type"), null, null, null, null, 60, null));
-                    }
-                }
-                mpdModel.c(new xx0(arrayList));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        HandlerThread handlerThread = new HandlerThread(HandlerMessenger.TAG);
+        this.f = handlerThread;
+        handlerThread.start();
+        this.e = new a(this, this.f.getLooper());
+    }
+
+    @Override // com.baidu.tieba.rx0
+    public void l(@NonNull mu0 mu0Var) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mu0Var) == null) && (aVar = this.e) != null) {
+            aVar.obtainMessage(153, mu0Var).sendToTarget();
+        }
+    }
+
+    @Override // com.baidu.tieba.rx0, com.baidu.tieba.tx0
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.release();
+            this.f.quit();
+            a aVar = this.e;
+            if (aVar != null) {
+                aVar.removeMessages(153);
+            }
+            this.e = null;
         }
     }
 }

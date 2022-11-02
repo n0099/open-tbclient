@@ -13,11 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class Poi implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<Poi> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String mAddr;
     public final String mId;
     public final String mName;
     public final double mRank;
+    public final String mTags;
 
     static {
         InterceptResult invokeClinit;
@@ -35,12 +37,12 @@ public final class Poi implements Parcelable {
         CREATOR = new d();
     }
 
-    public Poi(String str, String str2, double d) {
+    public Poi(String str, String str2, double d, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Double.valueOf(d)};
+            Object[] objArr = {str, str2, Double.valueOf(d), str3, str4};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,6 +55,8 @@ public final class Poi implements Parcelable {
         this.mId = str;
         this.mName = str2;
         this.mRank = d;
+        this.mTags = str3;
+        this.mAddr = str4;
     }
 
     @Override // android.os.Parcelable
@@ -65,31 +69,45 @@ public final class Poi implements Parcelable {
         return invokeV.intValue;
     }
 
+    public String getAddr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAddr : (String) invokeV.objValue;
+    }
+
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mId : (String) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
     public double getRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRank : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRank : invokeV.doubleValue;
+    }
+
+    public String getTags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTags : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
             parcel.writeString(this.mId);
             parcel.writeString(this.mName);
             parcel.writeDouble(this.mRank);
+            parcel.writeString(this.mTags);
+            parcel.writeString(this.mAddr);
         }
     }
 }

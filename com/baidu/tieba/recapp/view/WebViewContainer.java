@@ -35,7 +35,7 @@ public class WebViewContainer extends FrameLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
+    public static class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WebViewContainer a;

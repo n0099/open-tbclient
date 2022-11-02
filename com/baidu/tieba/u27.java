@@ -1,42 +1,76 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.Resource;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class u27 extends j36 {
-    public static /* synthetic */ Interceptable $ic;
+public class u27 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static HashMap<String, Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public u27() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159183, "Lcom/baidu/tieba/u27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948159183, "Lcom/baidu/tieba/u27;");
+                return;
+            }
+        }
+        b = new HashMap<>();
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            b.clear();
         }
     }
 
-    public void c(Resource resource) {
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, resource) != null) || resource == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.a = resource.res_id.longValue();
-        this.b = resource.user_name;
-        this.c = resource.user_image;
-        this.d = resource.user_link;
-        this.e = resource.res_title;
-        this.f = resource.res_image;
-        this.g = resource.res_link;
-        this.h = resource.position.longValue();
-        this.i = resource.icon_text;
+        b.put(str, 0);
+    }
+
+    public static void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            a = z;
+            if (!z) {
+                b.clear();
+            }
+        }
     }
 }

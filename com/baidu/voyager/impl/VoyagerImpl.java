@@ -5,12 +5,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.aj9;
-import com.baidu.tieba.cj9;
-import com.baidu.tieba.kj9;
-import com.baidu.tieba.rj9;
-import com.baidu.tieba.sj9;
-import com.baidu.tieba.ve1;
+import com.baidu.tieba.al9;
+import com.baidu.tieba.bl9;
+import com.baidu.tieba.jk9;
+import com.baidu.tieba.lk9;
+import com.baidu.tieba.nf1;
+import com.baidu.tieba.tk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VoyagerImpl implements sj9 {
+public class VoyagerImpl implements bl9 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,29 +58,29 @@ public class VoyagerImpl implements sj9 {
         }
     }
 
-    @Override // com.baidu.tieba.sj9
-    public void a(String str, String str2, int i, rj9 rj9Var) {
+    @Override // com.baidu.tieba.bl9
+    public void a(String str, String str2, int i, al9 al9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, str, str2, i, rj9Var) == null) {
-            if (ve1.g()) {
-                aj9.m().s(str, str2, rj9Var);
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, str, str2, i, al9Var) == null) {
+            if (nf1.g()) {
+                jk9.m().s(str, str2, al9Var);
                 return;
             }
             try {
-                IVoyagerService b2 = kj9.b();
+                IVoyagerService b2 = tk9.b();
                 if (b2 != null) {
-                    b2.uploadZipFileWithCallback(str, str2, i, new IVoyagerCallback.Stub(this, rj9Var) { // from class: com.baidu.voyager.impl.VoyagerImpl.2
+                    b2.uploadZipFileWithCallback(str, str2, i, new IVoyagerCallback.Stub(this, al9Var) { // from class: com.baidu.voyager.impl.VoyagerImpl.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ VoyagerImpl this$0;
-                        public final /* synthetic */ rj9 val$uploadListener;
+                        public final /* synthetic */ al9 val$uploadListener;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, rj9Var};
+                                Object[] objArr = {this, al9Var};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -91,7 +91,7 @@ public class VoyagerImpl implements sj9 {
                                 }
                             }
                             this.this$0 = this;
-                            this.val$uploadListener = rj9Var;
+                            this.val$uploadListener = al9Var;
                         }
 
                         @Override // com.baidu.voyager.impl.IVoyagerCallback
@@ -108,7 +108,7 @@ public class VoyagerImpl implements sj9 {
                                         e.printStackTrace();
                                     }
                                 }
-                                aj9.m().j(true, str3, jSONObject, this.val$uploadListener);
+                                jk9.m().j(true, str3, jSONObject, this.val$uploadListener);
                             }
                         }
 
@@ -126,7 +126,7 @@ public class VoyagerImpl implements sj9 {
                                         e.printStackTrace();
                                     }
                                 }
-                                aj9.m().j(false, str3, jSONObject, this.val$uploadListener);
+                                jk9.m().j(false, str3, jSONObject, this.val$uploadListener);
                             }
                         }
                     });
@@ -141,47 +141,47 @@ public class VoyagerImpl implements sj9 {
         }
     }
 
-    @Override // com.baidu.tieba.sj9
-    public void b(List list, String str, long j, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.bl9
+    public void b(List<String> list, String str, long j, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j), jSONObject}) == null) {
-            g(list, str, j, 0, cj9.f().c(str), jSONObject);
+            g(list, str, j, 0, lk9.f().c(str), jSONObject);
         }
     }
 
-    @Override // com.baidu.tieba.sj9
-    public void e(List list, String str, long j, rj9 rj9Var) {
+    @Override // com.baidu.tieba.bl9
+    public void e(List<String> list, String str, long j, al9 al9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, str, Long.valueOf(j), rj9Var}) == null) {
-            h(list, str, j, cj9.f().c(str), rj9Var);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, str, Long.valueOf(j), al9Var}) == null) {
+            h(list, str, j, lk9.f().c(str), al9Var);
         }
     }
 
-    @Override // com.baidu.tieba.sj9
+    @Override // com.baidu.tieba.bl9
     public void c(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, jSONObject) == null) {
-            i(str, str2, 0, cj9.f().c(str2), jSONObject);
+            i(str, str2, 0, lk9.f().c(str2), jSONObject);
         }
     }
 
-    @Override // com.baidu.tieba.sj9
-    public void d(String str, String str2, rj9 rj9Var) {
+    @Override // com.baidu.tieba.bl9
+    public void d(String str, String str2, al9 al9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, rj9Var) == null) {
-            a(str, str2, cj9.f().c(str2), rj9Var);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, al9Var) == null) {
+            a(str, str2, lk9.f().c(str2), al9Var);
         }
     }
 
-    public void g(List list, String str, long j, int i, int i2, JSONObject jSONObject) {
+    public void g(List<String> list, String str, long j, int i, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
-            if (ve1.g()) {
-                aj9.m().p(list, str, j, i, i2, jSONObject);
+            if (nf1.g()) {
+                jk9.m().p(list, str, j, i, i2, jSONObject);
                 return;
             }
             try {
-                IVoyagerService b2 = kj9.b();
+                IVoyagerService b2 = tk9.b();
                 if (b2 != null) {
                     b2.uploadFileList(list, str, j, i, i2, jSONObject.toString());
                 } else if (b) {
@@ -195,28 +195,28 @@ public class VoyagerImpl implements sj9 {
         }
     }
 
-    public void h(List list, String str, long j, int i, rj9 rj9Var) {
+    public void h(List<String> list, String str, long j, int i, al9 al9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), rj9Var}) == null) {
-            if (ve1.g()) {
-                aj9.m().q(list, str, j, i, rj9Var);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), al9Var}) == null) {
+            if (nf1.g()) {
+                jk9.m().q(list, str, j, i, al9Var);
                 return;
             }
             try {
-                IVoyagerService b2 = kj9.b();
+                IVoyagerService b2 = tk9.b();
                 if (b2 != null) {
-                    b2.uploadFileListWithCallback(list, str, j, i, new IVoyagerCallback.Stub(this, rj9Var) { // from class: com.baidu.voyager.impl.VoyagerImpl.1
+                    b2.uploadFileListWithCallback(list, str, j, i, new IVoyagerCallback.Stub(this, al9Var) { // from class: com.baidu.voyager.impl.VoyagerImpl.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ VoyagerImpl this$0;
-                        public final /* synthetic */ rj9 val$uploadListener;
+                        public final /* synthetic */ al9 val$uploadListener;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, rj9Var};
+                                Object[] objArr = {this, al9Var};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -227,7 +227,7 @@ public class VoyagerImpl implements sj9 {
                                 }
                             }
                             this.this$0 = this;
-                            this.val$uploadListener = rj9Var;
+                            this.val$uploadListener = al9Var;
                         }
 
                         @Override // com.baidu.voyager.impl.IVoyagerCallback
@@ -244,7 +244,7 @@ public class VoyagerImpl implements sj9 {
                                         e.printStackTrace();
                                     }
                                 }
-                                aj9.m().j(true, str2, jSONObject, this.val$uploadListener);
+                                jk9.m().j(true, str2, jSONObject, this.val$uploadListener);
                             }
                         }
 
@@ -262,7 +262,7 @@ public class VoyagerImpl implements sj9 {
                                         e.printStackTrace();
                                     }
                                 }
-                                aj9.m().j(false, str2, jSONObject, this.val$uploadListener);
+                                jk9.m().j(false, str2, jSONObject, this.val$uploadListener);
                             }
                         }
                     });
@@ -280,12 +280,12 @@ public class VoyagerImpl implements sj9 {
     public void i(String str, String str2, int i, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
-            if (ve1.g()) {
-                aj9.m().r(str, str2, i, i2, jSONObject);
+            if (nf1.g()) {
+                jk9.m().r(str, str2, i, i2, jSONObject);
                 return;
             }
             try {
-                IVoyagerService b2 = kj9.b();
+                IVoyagerService b2 = tk9.b();
                 if (b2 != null) {
                     b2.uploadZipFile(str, str2, i, i2, jSONObject.toString());
                 } else if (b) {

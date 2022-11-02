@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Checkable;
 import android.widget.ImageButton;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -23,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class CheckableImageButton extends AppCompatImageButton implements Checkable {
     public static /* synthetic */ Interceptable $ic;
@@ -33,9 +36,9 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
     public boolean pressable;
 
     /* loaded from: classes7.dex */
-    public class SavedState extends AbsSavedState {
+    public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean checked;
 
@@ -52,7 +55,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
                     return;
                 }
             }
-            CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.internal.CheckableImageButton.SavedState.1
+            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.internal.CheckableImageButton.SavedState.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +75,8 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                public SavedState createFromParcel(Parcel parcel) {
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -83,6 +87,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
+                @NonNull
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
@@ -93,8 +98,10 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.ClassLoaderCreator
-                public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
@@ -106,7 +113,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel, ClassLoader classLoader) {
+        public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -147,7 +154,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
             }
         }
 
-        private void readFromParcel(Parcel parcel) {
+        private void readFromParcel(@NonNull Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, parcel) == null) {
                 boolean z = true;
@@ -159,7 +166,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
@@ -213,6 +220,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
     }
 
     @Override // android.view.View
+    @NonNull
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -319,7 +327,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
+            public void onInitializeAccessibilityEvent(View view2, @NonNull AccessibilityEvent accessibilityEvent) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityEvent) == null) {
                     super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
@@ -328,7 +336,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, accessibilityNodeInfoCompat) == null) {
                     super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);

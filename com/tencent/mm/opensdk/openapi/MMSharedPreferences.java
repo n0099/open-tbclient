@@ -27,16 +27,16 @@ public class MMSharedPreferences implements SharedPreferences {
     public final String[] columns;
     public final ContentResolver cr;
     public REditor editor;
-    public final HashMap values;
+    public final HashMap<String, Object> values;
 
     /* loaded from: classes8.dex */
-    public class REditor implements SharedPreferences.Editor {
+    public static class REditor implements SharedPreferences.Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean clear;
         public ContentResolver cr;
-        public Set remove;
-        public Map values;
+        public Set<String> remove;
+        public Map<String, Object> values;
 
         public REditor(ContentResolver contentResolver) {
             Interceptable interceptable = $ic;
@@ -97,11 +97,11 @@ public class MMSharedPreferences implements SharedPreferences {
                     this.cr.delete(c.b.CONTENT_URI, null, null);
                     this.clear = false;
                 }
-                Iterator it = this.remove.iterator();
+                Iterator<String> it = this.remove.iterator();
                 while (it.hasNext()) {
-                    this.cr.delete(c.b.CONTENT_URI, "key = ?", new String[]{(String) it.next()});
+                    this.cr.delete(c.b.CONTENT_URI, "key = ?", new String[]{it.next()});
                 }
-                for (Map.Entry entry : this.values.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.values.entrySet()) {
                     Object value = entry.getValue();
                     if (value == null) {
                         str = "unresolve failed, null value";
@@ -129,7 +129,7 @@ public class MMSharedPreferences implements SharedPreferences {
                             z = true;
                         }
                         if (!z) {
-                            this.cr.update(c.b.CONTENT_URI, contentValues, "key = ?", new String[]{(String) entry.getKey()});
+                            this.cr.update(c.b.CONTENT_URI, contentValues, "key = ?", new String[]{entry.getKey()});
                         }
                     }
                     Log.e("MicroMsg.SDK.PluginProvider.Resolver", str);
@@ -205,7 +205,7 @@ public class MMSharedPreferences implements SharedPreferences {
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putStringSet(String str, Set set) {
+        public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) {
@@ -242,7 +242,7 @@ public class MMSharedPreferences implements SharedPreferences {
             }
         }
         this.columns = new String[]{"_id", "key", "type", "value"};
-        this.values = new HashMap();
+        this.values = new HashMap<>();
         this.editor = null;
         this.cr = context.getContentResolver();
     }
@@ -288,7 +288,7 @@ public class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Map getAll() {
+    public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -369,7 +369,7 @@ public class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Set getStringSet(String str, Set set) {
+    public Set<String> getStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) {

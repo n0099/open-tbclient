@@ -19,7 +19,7 @@ public class c extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b wx;
-    public Map wy;
+    public Map<String, String> wy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Looper looper, b bVar) {
@@ -126,7 +126,7 @@ public class c extends Handler {
         }
     }
 
-    public void setPubParams(Map map) {
+    public void setPubParams(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, map) == null) || map == null) {
             return;

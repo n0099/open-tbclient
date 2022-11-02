@@ -8,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public class DeferredScalarDisposable extends BasicIntQueueDisposable {
+public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISPOSED = 4;
     public static final int FUSED_CONSUMED = 32;
@@ -19,10 +20,10 @@ public class DeferredScalarDisposable extends BasicIntQueueDisposable {
     public static final int TERMINATED = 2;
     public static final long serialVersionUID = -5502432239815349361L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer actual;
-    public Object value;
+    public final Observer<? super T> actual;
+    public T value;
 
-    public DeferredScalarDisposable(Observer observer) {
+    public DeferredScalarDisposable(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,19 +121,20 @@ public class DeferredScalarDisposable extends BasicIntQueueDisposable {
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final Object poll() throws Exception {
+    @Nullable
+    public final T poll() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (get() != 16) {
                 return null;
             }
-            Object obj = this.value;
+            T t = this.value;
             this.value = null;
             lazySet(32);
-            return obj;
+            return t;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public final boolean tryDispose() {
@@ -147,21 +149,21 @@ public class DeferredScalarDisposable extends BasicIntQueueDisposable {
         return invokeV.booleanValue;
     }
 
-    public final void complete(Object obj) {
+    public final void complete(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
             int i = get();
             if ((i & 54) != 0) {
                 return;
             }
-            Observer observer = this.actual;
+            Observer<? super T> observer = this.actual;
             if (i == 8) {
-                this.value = obj;
+                this.value = t;
                 lazySet(16);
                 observer.onNext(null);
             } else {
                 lazySet(2);
-                observer.onNext(obj);
+                observer.onNext(t);
             }
             if (get() != 4) {
                 observer.onComplete();

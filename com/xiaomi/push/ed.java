@@ -31,7 +31,7 @@ public final class ed {
     public String f306a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap f307a;
+    public HashMap<ef, eg> f307a;
     public String b;
 
     public ed(Context context) {
@@ -49,7 +49,7 @@ public final class ed {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
+        HashMap<ef, eg> hashMap = new HashMap<>();
         this.f307a = hashMap;
         this.f304a = context;
         hashMap.put(ef.b, new ej());
@@ -78,7 +78,7 @@ public final class ed {
     public void a(ef efVar, Context context, ec ecVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, efVar, context, ecVar) == null) {
-            ((eg) this.f307a.get(efVar)).a(context, ecVar);
+            this.f307a.get(efVar).a(context, ecVar);
         }
     }
 
@@ -132,7 +132,7 @@ public final class ed {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, efVar, context, intent, str) == null) {
             if (efVar != null) {
-                ((eg) this.f307a.get(efVar)).a(context, intent, str);
+                this.f307a.get(efVar).a(context, intent, str);
             } else {
                 dz.a(context, StringUtil.NULL_STRING, 1008, "A receive a incorrect message with empty type");
             }

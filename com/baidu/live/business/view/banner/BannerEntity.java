@@ -16,10 +16,10 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class BannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BannerEntity> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String bannerId;
-    public List mBannerList;
+    public List<LiveBannerEntity> mBannerList;
     public double mBannerWH;
     public int mBroadcastInterval;
     public String mLogExt;
@@ -36,7 +36,7 @@ public class BannerEntity implements Parcelable {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<BannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -32,7 +32,7 @@ public class LiveSearchHotRankData {
         }
     }
 
-    public static List parse(String str) {
+    public static List<LiveRoomEntity> parse(String str) {
         InterceptResult invokeL;
         JSONObject optJSONObject;
         JSONArray optJSONArray;

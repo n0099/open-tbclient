@@ -1,12 +1,14 @@
 package com.baidu.swan.apps.so;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.e93;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.w93;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
+@Keep
 /* loaded from: classes3.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -54,8 +57,8 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = wj1.a;
-        sUbcImpl = new e93();
+        DEBUG = ok1.a;
+        sUbcImpl = new w93();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
 
@@ -85,6 +88,7 @@ public final class SoUtils {
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     public static boolean hasGingerbread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,7 +198,7 @@ public final class SoUtils {
         }
     }
 
-    public static void saveLog(HashMap hashMap, String str, String str2) {
+    public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) && !TextUtils.isEmpty(str2)) {
             hashMap.put(str, str2);

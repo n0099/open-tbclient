@@ -23,12 +23,12 @@ public final class NetWorkDetector {
     public static final String TAG = "NetWorkDetector";
     public static NetWorkDetector sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mDetectCacheMap;
+    public HashMap<String, HostStatusCache> mDetectCacheMap;
     public boolean sNeedDetect;
 
     /* renamed from: com.baidu.down.utils.network.NetWorkDetector$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -49,7 +49,7 @@ public final class NetWorkDetector {
     }
 
     /* loaded from: classes2.dex */
-    public final class HostStatusCache {
+    public static final class HostStatusCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long cacheTime;
@@ -92,7 +92,7 @@ public final class NetWorkDetector {
         }
         this.sNeedDetect = true;
         this.mDetectCacheMap = null;
-        this.mDetectCacheMap = new HashMap();
+        this.mDetectCacheMap = new HashMap<>();
     }
 
     public static NetWorkDetector getInstance() {
@@ -132,7 +132,7 @@ public final class NetWorkDetector {
                     return false;
                 }
                 if (this.mDetectCacheMap.containsKey(str)) {
-                    HostStatusCache hostStatusCache = (HostStatusCache) this.mDetectCacheMap.get(str);
+                    HostStatusCache hostStatusCache = this.mDetectCacheMap.get(str);
                     if (SystemClock.elapsedRealtime() - hostStatusCache.cacheTime < j) {
                         if (hostStatusCache.lastStatus == 0) {
                             z = true;

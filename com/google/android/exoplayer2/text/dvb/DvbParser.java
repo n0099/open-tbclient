@@ -63,7 +63,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class ClutDefinition {
+    public static final class ClutDefinition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int[] clutEntries2Bit;
@@ -94,7 +94,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class DisplayDefinition {
+    public static final class DisplayDefinition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int height;
@@ -129,7 +129,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class ObjectData {
+    public static final class ObjectData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] bottomFieldData;
@@ -160,15 +160,15 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class PageComposition {
+    public static final class PageComposition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SparseArray regions;
+        public final SparseArray<PageRegion> regions;
         public final int state;
         public final int timeOutSecs;
         public final int version;
 
-        public PageComposition(int i, int i2, int i3, SparseArray sparseArray) {
+        public PageComposition(int i, int i2, int i3, SparseArray<PageRegion> sparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,7 +191,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class PageRegion {
+    public static final class PageRegion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int horizontalAddress;
@@ -218,7 +218,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class RegionComposition {
+    public static final class RegionComposition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int clutId;
@@ -230,10 +230,10 @@ public final class DvbParser {
         public final int pixelCode2Bit;
         public final int pixelCode4Bit;
         public final int pixelCode8Bit;
-        public final SparseArray regionObjects;
+        public final SparseArray<RegionObject> regionObjects;
         public final int width;
 
-        public RegionComposition(int i, boolean z, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, SparseArray sparseArray) {
+        public RegionComposition(int i, boolean z, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, SparseArray<RegionObject> sparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -266,7 +266,7 @@ public final class DvbParser {
             if ((interceptable != null && interceptable.invokeL(1048576, this, regionComposition) != null) || regionComposition == null) {
                 return;
             }
-            SparseArray sparseArray = regionComposition.regionObjects;
+            SparseArray<RegionObject> sparseArray = regionComposition.regionObjects;
             for (int i = 0; i < sparseArray.size(); i++) {
                 this.regionObjects.put(sparseArray.keyAt(i), sparseArray.valueAt(i));
             }
@@ -274,7 +274,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class RegionObject {
+    public static final class RegionObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int backgroundPixelCode;
@@ -309,17 +309,17 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class SubtitleService {
+    public static final class SubtitleService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SparseArray ancillaryCluts;
-        public final SparseArray ancillaryObjects;
+        public final SparseArray<ClutDefinition> ancillaryCluts;
+        public final SparseArray<ObjectData> ancillaryObjects;
         public final int ancillaryPageId;
-        public final SparseArray cluts;
+        public final SparseArray<ClutDefinition> cluts;
         public DisplayDefinition displayDefinition;
-        public final SparseArray objects;
+        public final SparseArray<ObjectData> objects;
         public PageComposition pageComposition;
-        public final SparseArray regions;
+        public final SparseArray<RegionComposition> regions;
         public final int subtitlePageId;
 
         public SubtitleService(int i, int i2) {
@@ -337,11 +337,11 @@ public final class DvbParser {
                     return;
                 }
             }
-            this.regions = new SparseArray();
-            this.cluts = new SparseArray();
-            this.objects = new SparseArray();
-            this.ancillaryCluts = new SparseArray();
-            this.ancillaryObjects = new SparseArray();
+            this.regions = new SparseArray<>();
+            this.cluts = new SparseArray<>();
+            this.objects = new SparseArray<>();
+            this.ancillaryCluts = new SparseArray<>();
+            this.ancillaryObjects = new SparseArray<>();
             this.subtitlePageId = i;
             this.ancillaryPageId = i2;
         }
@@ -1148,7 +1148,7 @@ public final class DvbParser {
                     if (readBits2 == subtitleService.subtitlePageId && pageComposition2 != null) {
                         RegionComposition parseRegionComposition = parseRegionComposition(parsableBitArray, readBits3);
                         if (pageComposition2.state == 0) {
-                            parseRegionComposition.mergeFrom((RegionComposition) subtitleService.regions.get(parseRegionComposition.id));
+                            parseRegionComposition.mergeFrom(subtitleService.regions.get(parseRegionComposition.id));
                         }
                         subtitleService.regions.put(parseRegionComposition.id, parseRegionComposition);
                         break;
@@ -1272,12 +1272,12 @@ public final class DvbParser {
         return (PageComposition) invokeLI.objValue;
     }
 
-    public List decode(byte[] bArr, int i) {
+    public List<Cue> decode(byte[] bArr, int i) {
         InterceptResult invokeLI;
         int i2;
         ObjectData objectData;
         int i3;
-        SparseArray sparseArray;
+        SparseArray<RegionObject> sparseArray;
         Paint paint;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
@@ -1300,27 +1300,27 @@ public final class DvbParser {
                 this.canvas.setBitmap(createBitmap);
             }
             ArrayList arrayList = new ArrayList();
-            SparseArray sparseArray2 = this.subtitleService.pageComposition.regions;
+            SparseArray<PageRegion> sparseArray2 = this.subtitleService.pageComposition.regions;
             for (int i4 = 0; i4 < sparseArray2.size(); i4++) {
-                PageRegion pageRegion = (PageRegion) sparseArray2.valueAt(i4);
-                RegionComposition regionComposition = (RegionComposition) this.subtitleService.regions.get(sparseArray2.keyAt(i4));
-                int i5 = pageRegion.horizontalAddress + displayDefinition.horizontalPositionMinimum;
-                int i6 = pageRegion.verticalAddress + displayDefinition.verticalPositionMinimum;
+                PageRegion valueAt = sparseArray2.valueAt(i4);
+                RegionComposition regionComposition = this.subtitleService.regions.get(sparseArray2.keyAt(i4));
+                int i5 = valueAt.horizontalAddress + displayDefinition.horizontalPositionMinimum;
+                int i6 = valueAt.verticalAddress + displayDefinition.verticalPositionMinimum;
                 float f = i5;
                 float f2 = i6;
                 this.canvas.clipRect(f, f2, Math.min(regionComposition.width + i5, displayDefinition.horizontalPositionMaximum), Math.min(regionComposition.height + i6, displayDefinition.verticalPositionMaximum), Region.Op.REPLACE);
-                ClutDefinition clutDefinition = (ClutDefinition) this.subtitleService.cluts.get(regionComposition.clutId);
-                if (clutDefinition == null && (clutDefinition = (ClutDefinition) this.subtitleService.ancillaryCluts.get(regionComposition.clutId)) == null) {
+                ClutDefinition clutDefinition = this.subtitleService.cluts.get(regionComposition.clutId);
+                if (clutDefinition == null && (clutDefinition = this.subtitleService.ancillaryCluts.get(regionComposition.clutId)) == null) {
                     clutDefinition = this.defaultClutDefinition;
                 }
-                SparseArray sparseArray3 = regionComposition.regionObjects;
+                SparseArray<RegionObject> sparseArray3 = regionComposition.regionObjects;
                 int i7 = 0;
                 while (i7 < sparseArray3.size()) {
                     int keyAt = sparseArray3.keyAt(i7);
-                    RegionObject regionObject = (RegionObject) sparseArray3.valueAt(i7);
-                    ObjectData objectData2 = (ObjectData) this.subtitleService.objects.get(keyAt);
+                    RegionObject valueAt2 = sparseArray3.valueAt(i7);
+                    ObjectData objectData2 = this.subtitleService.objects.get(keyAt);
                     if (objectData2 == null) {
-                        objectData = (ObjectData) this.subtitleService.ancillaryObjects.get(keyAt);
+                        objectData = this.subtitleService.ancillaryObjects.get(keyAt);
                     } else {
                         objectData = objectData2;
                     }
@@ -1332,7 +1332,7 @@ public final class DvbParser {
                         }
                         i3 = i7;
                         sparseArray = sparseArray3;
-                        paintPixelDataSubBlocks(objectData, clutDefinition, regionComposition.depth, regionObject.horizontalPosition + i5, i6 + regionObject.verticalPosition, paint, this.canvas);
+                        paintPixelDataSubBlocks(objectData, clutDefinition, regionComposition.depth, valueAt2.horizontalPosition + i5, i6 + valueAt2.verticalPosition, paint, this.canvas);
                     } else {
                         i3 = i7;
                         sparseArray = sparseArray3;

@@ -1,95 +1,62 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes4.dex */
-public class kh3 implements pg4 {
+public final class kh3 {
     public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kh3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-661325739, "Lcom/baidu/tieba/kh3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-661325739, "Lcom/baidu/tieba/kh3$b;");
-                    return;
-                }
-            }
-            a = new kh3(null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947913043, "Lcom/baidu/tieba/kh3;")) == null) {
+            return;
         }
-    }
-
-    public kh3() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947913043, "Lcom/baidu/tieba/kh3;");
         }
     }
 
-    public static kh3 b() {
+    public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return AppRuntime.getAppContext();
         }
-        return (kh3) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public /* synthetic */ kh3(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.pg4
-    public boolean a(String str, int i) {
-        InterceptResult invokeLI;
+    public static SharedPreferences c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return false;
-                }
-                File file = new File(um2.g().b(), str);
-                if (!file.exists() || !file.isDirectory()) {
-                    return false;
-                }
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                a = PreferenceManager.getDefaultSharedPreferences(a());
             }
-            File file2 = new File(im2.g(), str);
-            if (!file2.exists() || !file2.isDirectory()) {
-                return false;
-            }
-            return true;
+            return a;
         }
-        return invokeLI.booleanValue;
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static boolean b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
+            return c().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
     }
 }

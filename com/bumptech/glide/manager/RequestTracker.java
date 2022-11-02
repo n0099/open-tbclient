@@ -1,6 +1,9 @@
 package com.bumptech.glide.manager;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,8 +24,8 @@ public class RequestTracker {
     public static final String TAG = "RequestTracker";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isPaused;
-    public final List pendingRequests;
-    public final Set requests;
+    public final List<Request> pendingRequests;
+    public final Set<Request> requests;
 
     public RequestTracker() {
         Interceptable interceptable = $ic;
@@ -105,6 +108,7 @@ public class RequestTracker {
         return (String) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public void addRequest(Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
@@ -112,7 +116,7 @@ public class RequestTracker {
         }
     }
 
-    public boolean clearAndRemove(Request request) {
+    public boolean clearAndRemove(@Nullable Request request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request)) == null) {
@@ -151,7 +155,7 @@ public class RequestTracker {
         return invokeV.booleanValue;
     }
 
-    public void runRequest(Request request) {
+    public void runRequest(@NonNull Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, request) == null) {
             this.requests.add(request);

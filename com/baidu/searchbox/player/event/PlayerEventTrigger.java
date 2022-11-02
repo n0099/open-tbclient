@@ -1,7 +1,9 @@
 package com.baidu.searchbox.player.event;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.model.VideoUrlModel;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,6 +72,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    @PublicMethod
     public void updateDataSource() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -86,6 +89,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         return invokeI.booleanValue;
     }
 
+    @PublicMethod
     public void goBackOrForeground(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -112,7 +116,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    public void setDataSource(VideoUrlModel videoUrlModel) {
+    public void setDataSource(@NonNull VideoUrlModel videoUrlModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, videoUrlModel) == null) {
             VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_SET_DATA_SOURCE);
@@ -123,7 +127,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
     }
 
     @Override // com.baidu.searchbox.player.event.SingleTargetTrigger, com.baidu.searchbox.player.event.IEventTrigger
-    public void triggerEvent(VideoEvent videoEvent) {
+    public void triggerEvent(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, videoEvent) == null) {
             super.triggerEvent(videoEvent);

@@ -16,11 +16,11 @@ public class SlideListInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int hasMore;
-    public ArrayList list;
+    public ArrayList<SlideInfo> list;
     public String pageSession;
 
     /* loaded from: classes2.dex */
-    public class SlideInfo {
+    public static class SlideInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String avcUrl;
@@ -119,7 +119,7 @@ public class SlideListInfo {
             this.hasMore = optJSONObject.optInt("has_more");
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
             if (optJSONArray != null) {
-                this.list = new ArrayList();
+                this.list = new ArrayList<>();
                 if (optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);

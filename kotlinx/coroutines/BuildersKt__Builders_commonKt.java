@@ -3,6 +3,7 @@ package kotlinx.coroutines;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.ContinuationInterceptor;
 import kotlin.coroutines.CoroutineContext;
@@ -23,32 +24,28 @@ public final /* synthetic */ class BuildersKt__Builders_commonKt {
     public static final int SUSPENDED = 1;
     public static final int UNDECIDED = 0;
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v3, types: [kotlinx.coroutines.AbstractCoroutine, kotlinx.coroutines.Deferred, java.lang.Object] */
-    public static final Deferred async(CoroutineScope coroutineScope, CoroutineContext coroutineContext, CoroutineStart coroutineStart, Function2 function2) {
-        LazyDeferredCoroutine lazyDeferredCoroutine;
+    public static final <T> Deferred<T> async(CoroutineScope coroutineScope, CoroutineContext coroutineContext, CoroutineStart coroutineStart, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2) {
+        DeferredCoroutine deferredCoroutine;
         CoroutineContext newCoroutineContext = CoroutineContextKt.newCoroutineContext(coroutineScope, coroutineContext);
         if (coroutineStart.isLazy()) {
-            lazyDeferredCoroutine = new LazyDeferredCoroutine(newCoroutineContext, function2);
+            deferredCoroutine = new LazyDeferredCoroutine(newCoroutineContext, function2);
         } else {
-            lazyDeferredCoroutine = new DeferredCoroutine(newCoroutineContext, true);
+            deferredCoroutine = new DeferredCoroutine(newCoroutineContext, true);
         }
-        lazyDeferredCoroutine.start(coroutineStart, lazyDeferredCoroutine, function2);
-        return lazyDeferredCoroutine;
+        ((AbstractCoroutine) deferredCoroutine).start(coroutineStart, deferredCoroutine, function2);
+        return deferredCoroutine;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v3, types: [kotlinx.coroutines.AbstractCoroutine, kotlinx.coroutines.Job, java.lang.Object] */
-    public static final Job launch(CoroutineScope coroutineScope, CoroutineContext coroutineContext, CoroutineStart coroutineStart, Function2 function2) {
-        LazyStandaloneCoroutine lazyStandaloneCoroutine;
+    public static final Job launch(CoroutineScope coroutineScope, CoroutineContext coroutineContext, CoroutineStart coroutineStart, Function2<? super CoroutineScope, ? super Continuation<? super Unit>, ? extends Object> function2) {
+        AbstractCoroutine standaloneCoroutine;
         CoroutineContext newCoroutineContext = CoroutineContextKt.newCoroutineContext(coroutineScope, coroutineContext);
         if (coroutineStart.isLazy()) {
-            lazyStandaloneCoroutine = new LazyStandaloneCoroutine(newCoroutineContext, function2);
+            standaloneCoroutine = new LazyStandaloneCoroutine(newCoroutineContext, function2);
         } else {
-            lazyStandaloneCoroutine = new StandaloneCoroutine(newCoroutineContext, true);
+            standaloneCoroutine = new StandaloneCoroutine(newCoroutineContext, true);
         }
-        lazyStandaloneCoroutine.start(coroutineStart, lazyStandaloneCoroutine, function2);
-        return lazyStandaloneCoroutine;
+        standaloneCoroutine.start(coroutineStart, standaloneCoroutine, function2);
+        return standaloneCoroutine;
     }
 
     public static /* synthetic */ Deferred async$default(CoroutineScope coroutineScope, CoroutineContext coroutineContext, CoroutineStart coroutineStart, Function2 function2, int i, Object obj) {
@@ -71,10 +68,12 @@ public final /* synthetic */ class BuildersKt__Builders_commonKt {
         return BuildersKt.launch(coroutineScope, coroutineContext, coroutineStart, function2);
     }
 
-    public static final Object invoke(CoroutineDispatcher coroutineDispatcher, Function2 function2, Continuation continuation) {
+    @ExperimentalCoroutinesApi
+    public static final <T> Object invoke(CoroutineDispatcher coroutineDispatcher, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
         return BuildersKt.withContext(coroutineDispatcher, function2, continuation);
     }
 
+    @ExperimentalCoroutinesApi
     public static final Object invoke$$forInline(CoroutineDispatcher coroutineDispatcher, Function2 function2, Continuation continuation) {
         InlineMarker.mark(0);
         Object withContext = BuildersKt.withContext(coroutineDispatcher, function2, continuation);
@@ -82,7 +81,7 @@ public final /* synthetic */ class BuildersKt__Builders_commonKt {
         return withContext;
     }
 
-    public static final Object withContext(CoroutineContext coroutineContext, Function2 function2, Continuation continuation) {
+    public static final <T> Object withContext(CoroutineContext coroutineContext, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
         Object result;
         CoroutineContext context = continuation.getContext();
         CoroutineContext plus = context.plus(coroutineContext);

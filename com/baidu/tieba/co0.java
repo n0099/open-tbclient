@@ -1,56 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.VideoEventTypeEnum;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class co0 implements yi0 {
+public class co0 {
     public static /* synthetic */ Interceptable $ic;
+    public static ao0 a;
+    public static bo0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final VideoEventTypeEnum a;
 
-    public co0(VideoEventTypeEnum type) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947681349, "Lcom/baidu/tieba/co0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947681349, "Lcom/baidu/tieba/co0;");
+        }
+    }
+
+    public co0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
     }
 
-    @Override // com.baidu.tieba.yi0
-    public String a() {
+    public static ao0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = co0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "VideoViewEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (co0.class) {
+                    if (a == null) {
+                        a = (ao0) ServiceManager.getService(ao0.a);
+                    }
+                    if (a == null) {
+                        a = ao0.b;
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (ao0) invokeV.objValue;
     }
 
-    public final VideoEventTypeEnum getType() {
+    public static bo0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (co0.class) {
+                    if (b == null) {
+                        b = (bo0) ServiceManager.getService(bo0.a);
+                    }
+                    if (b == null) {
+                        b = bo0.b;
+                    }
+                }
+            }
+            return b;
         }
-        return (VideoEventTypeEnum) invokeV.objValue;
+        return (bo0) invokeV.objValue;
     }
 }

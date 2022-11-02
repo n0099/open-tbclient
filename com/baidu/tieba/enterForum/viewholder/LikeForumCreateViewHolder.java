@@ -3,6 +3,7 @@ package com.baidu.tieba.enterForum.viewholder;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +22,7 @@ public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
     public TextView d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LikeForumCreateViewHolder(View view2) {
+    public LikeForumCreateViewHolder(@NonNull View view2) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,11 +39,11 @@ public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091c81);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cc9);
         this.a = findViewById;
-        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091612);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a55);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a87);
+        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091651);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a68);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a9a);
     }
 
     public void a() {
@@ -50,7 +51,7 @@ public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f0807d3, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f0807da, WebPManager.ResourceStateType.NORMAL);
         }
     }
 }

@@ -1,138 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
-import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public final class t70 implements r70, s70 {
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes6.dex */
+public class t70 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile t70 b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public ThreadPoolExecutor a;
 
-    public t70(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133980, "Lcom/baidu/tieba/t70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948133980, "Lcom/baidu/tieba/t70;");
+                return;
+            }
+        }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        c = availableProcessors;
+        d = Math.max(4, Math.min(availableProcessors - 1, 4));
+        e = (c * 3) + 1;
+    }
+
+    public t70() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.a = null;
+        ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(false);
+        Executors.newSingleThreadExecutor();
     }
 
-    @Override // com.baidu.tieba.r70
-    public final String a() {
+    public static t70 a() {
         InterceptResult invokeV;
-        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = p70.d().c() != w70.a ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox" : "https://tcbox.baidu.com/ztbox";
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append("?");
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("action=zubc");
-            sb2.append("&appname=imsdk");
-            sb2.append("&uid=");
-            sb2.append(p70.d().a());
-            sb2.append("&ua=");
-            Context context = this.a;
-            DisplayMetrics a = b80.a(context);
-            int i = a != null ? a.widthPixels : 0;
-            DisplayMetrics a2 = b80.a(context);
-            int i2 = a2 != null ? a2.heightPixels : 0;
-            DisplayMetrics a3 = b80.a(context);
-            int i3 = a3 != null ? a3.densityDpi : 0;
-            sb2.append(i + "_" + i2 + "_android_" + b80.b(context) + "_" + i3);
-            sb2.append("&ut=");
-            String str2 = Build.MODEL;
-            String replace = TextUtils.isEmpty(str2) ? "NUL" : str2.replace("_", "-");
-            String str3 = Build.VERSION.RELEASE;
-            String replace2 = TextUtils.isEmpty(str3) ? "0.0" : str3.replace("_", "-");
-            int i4 = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            sb2.append(replace + "_" + replace2 + "_" + i4 + "_" + (TextUtils.isEmpty(str4) ? "NUL" : str4.replace("_", "-")));
-            sb2.append("&network=");
-            z70 z70Var = new z70(this.a);
-            boolean isEmpty = TextUtils.isEmpty(z70Var.a);
-            String str5 = NetworkParam.NET_TYPE_ID_DISCONNECT;
-            if (!isEmpty && (num = (Integer) z70.c.get(z70Var.a)) != null) {
-                str5 = num + "_" + z70Var.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (t70.class) {
+                    if (b == null) {
+                        b = new t70();
+                    }
+                }
             }
-            if (str5 == null) {
-                str5 = "unknown";
+            return b;
+        }
+        return (t70) invokeV.objValue;
+    }
+
+    public final boolean b(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            try {
+                this.a.submit(runnable);
+                return true;
+            } catch (Throwable th) {
+                x70.b("UBCTaskManager", "Exception ", th);
+                return false;
             }
-            sb2.append(str5);
-            sb2.append("&appversion=");
-            sb2.append(b80.b(this.a));
-            if (p70.d().c() != w70.a) {
-                sb2.append("&debug=1");
-            }
-            sb.append(sb2.toString());
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s70
-    public final void a(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            String str = new String(bArr);
-            y70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
-        }
-    }
-
-    @Override // com.baidu.tieba.r70
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s70
-    public final void b(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
-            String str = new String(bArr);
-            y70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
-        }
-    }
-
-    @Override // com.baidu.tieba.r70
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "application/octet-stream" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r70
-    public final Map d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

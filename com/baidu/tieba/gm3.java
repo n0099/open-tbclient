@@ -2,33 +2,47 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.util.Log;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.i33;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes4.dex */
-public class gm3 implements jn2 {
+public class gm3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements DelegateListener {
+    public interface b {
+        void onResult(boolean z);
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fk1 a;
+        public final /* synthetic */ b a;
 
-        public a(gm3 gm3Var, fk1 fk1Var) {
+        public a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gm3Var, fk1Var};
+                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,47 +52,127 @@ public class gm3 implements jn2 {
                     return;
                 }
             }
-            this.a = fk1Var;
+            this.a = bVar;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(DelegateResult delegateResult) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            b bVar;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                Bundle bundle = delegateResult.mResult;
-                if (bundle == null) {
-                    this.a.a(0);
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) && (bVar = this.a) != null) {
+                if (i == -1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                bVar.onResult(z);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947798684, "Lcom/baidu/tieba/gm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947798684, "Lcom/baidu/tieba/gm3;");
+                return;
+            }
+        }
+        a = ok1.a;
+        b = new String[]{"BLA-AL00", "R7Plus"};
+    }
+
+    public static DialogInterface.OnClickListener a(b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
+            return new a(bVar);
+        }
+        return (DialogInterface.OnClickListener) invokeL.objValue;
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return NotificationManagerCompat.from(context).areNotificationsEnabled();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            String packageName = context.getPackageName();
+            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+            intent.setData(Uri.fromParts("package", packageName, null));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            if (!Arrays.asList(b).contains(Build.MODEL)) {
+                Intent intent = new Intent();
+                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 26) {
+                    intent.putExtra("android.provider.extra.APP_PACKAGE", context.getPackageName());
+                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                } else if (i >= 21) {
+                    intent.putExtra("app_package", context.getPackageName());
+                    intent.putExtra("app_uid", context.getApplicationInfo().uid);
+                }
+                try {
+                    context.startActivity(intent);
+                    return;
+                } catch (Exception e) {
+                    if (a) {
+                        Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e);
+                    }
+                    c(context);
                     return;
                 }
-                String string = bundle.getString("invoiceInfo");
-                if (TextUtils.isEmpty(string)) {
-                    this.a.a(0);
-                } else {
-                    this.a.b(mg3.d(string));
+            }
+            c(context);
+        }
+    }
+
+    public static void e(Context context, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
+            if (!(context instanceof Activity)) {
+                if (!a) {
+                    return;
                 }
+                throw new IllegalArgumentException("context must be activity.");
+            } else if (bVar == null) {
+            } else {
+                DialogInterface.OnClickListener a2 = a(bVar);
+                i33.a aVar = new i33.a(context);
+                aVar.n(new mj3());
+                i33 c = aVar.c();
+                aVar.U(R.string.obfuscated_res_0x7f0f128e);
+                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f128d));
+                aVar.y();
+                aVar.J(ln2.M().a());
+                aVar.O(R.string.obfuscated_res_0x7f0f128f, a2);
+                aVar.B(R.string.obfuscated_res_0x7f0f128c, a2);
+                aVar.a();
+                c.setCancelable(false);
+                c.show();
             }
-        }
-    }
-
-    public gm3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.jn2
-    public void a(Context context, String str, String str2, fk1 fk1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, fk1Var) == null) && context != null && fk1Var != null) {
-            DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, fm3.class, new a(this, fk1Var));
         }
     }
 }

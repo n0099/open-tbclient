@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public class b {
+public class b<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.g.b";
     public static final boolean b;
@@ -39,8 +39,8 @@ public class b {
     public PInfo c;
     public AInfo d;
     public SInfo e;
-    public ArrayList f;
-    public com.sdk.e.a g;
+    public ArrayList<KInfo> f;
+    public com.sdk.e.a<T> g;
     public Context h;
     public String i;
     public c j;
@@ -61,7 +61,7 @@ public class b {
         b = g.b;
     }
 
-    public b(Context context, com.sdk.e.a aVar, c cVar) {
+    public b(Context context, com.sdk.e.a<T> aVar, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +82,7 @@ public class b {
     }
 
     public void a(int i, int i2, String str) {
-        com.sdk.e.a aVar;
+        com.sdk.e.a<T> aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) || (aVar = this.g) == null) {
             return;
@@ -91,23 +91,24 @@ public class b {
         this.g = null;
     }
 
-    public void a(int i, String str, int i2, Object obj, String str2) {
-        com.sdk.e.a aVar;
+    public void a(int i, String str, int i2, T t, String str2) {
+        com.sdk.e.a<T> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) || (aVar = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) || (aVar = this.g) == null) {
             return;
         }
-        aVar.onSuccess(i, str, i2, obj, str2);
+        aVar.onSuccess(i, str, i2, t, str2);
         this.g = null;
     }
 
-    public e a(String str, String str2, DataInfo dataInfo, com.sdk.e.b bVar, int i, g.a aVar) {
+    /* JADX WARN: Type inference failed for: r3v28, types: [Params[], java.lang.Object[]] */
+    public e<T> a(String str, String str2, DataInfo dataInfo, com.sdk.e.b<T> bVar, int i, g.a aVar) {
         InterceptResult invokeCommon;
         DataInfo dataInfo2;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, dataInfo, bVar, Integer.valueOf(i), aVar})) == null) {
-            e eVar = null;
+            e<T> eVar = null;
             if (com.sdk.n.a.a(str).booleanValue()) {
                 a(1, 101008, "未检测到域名");
                 return null;
@@ -121,7 +122,7 @@ public class b {
             } else {
                 dataInfo2 = dataInfo;
             }
-            TreeMap treeMap = new TreeMap();
+            TreeMap<String, Object> treeMap = new TreeMap<>();
             String a2 = com.sdk.q.a.a(16);
             String a3 = com.sdk.q.a.a(16);
             String apiKey = AppUtils.getApiKey(this.h, BaseConfig.apk);
@@ -159,7 +160,7 @@ public class b {
                 treeMap.put("paramsKey", a6);
                 treeMap.put("l", Long.valueOf(System.currentTimeMillis()));
                 String a7 = com.sdk.s.a.a(apiKey, str2, treeMap);
-                HashMap hashMap = new HashMap(16);
+                HashMap<String, Object> hashMap = new HashMap<>(16);
                 if (com.sdk.n.a.b(a7).booleanValue()) {
                     treeMap.put("sign", a7);
                     treeMap.put("sign_Type", com.sdk.u.a.e);
@@ -178,13 +179,13 @@ public class b {
                     f.b bVar2 = f.b.b;
                 }
                 com.sdk.a.g gVar = new com.sdk.a.g(this.h, hVar);
-                e eVar2 = new e(gVar);
+                e<T> eVar2 = new e<>(gVar);
                 try {
-                    Object[] objArr = {gVar};
+                    ?? r3 = {gVar};
                     Executor executor = com.sdk.d.e.b;
                     if (!eVar2.g) {
                         eVar2.g = true;
-                        eVar2.c.a = objArr;
+                        eVar2.c.a = r3;
                         executor.execute(new j(eVar2.i, eVar2.d));
                         return eVar2;
                     }
@@ -227,14 +228,14 @@ public class b {
                     this.f = com.sdk.f.a.a();
                 }
                 ArrayList arrayList = new ArrayList();
-                Iterator it = this.f.iterator();
+                Iterator<KInfo> it = this.f.iterator();
                 while (it.hasNext()) {
-                    KInfo kInfo = (KInfo) it.next();
+                    KInfo next = it.next();
                     MobileKInfo mobileKInfo = new MobileKInfo();
-                    mobileKInfo.setIe(kInfo.getIe());
-                    mobileKInfo.setIs(kInfo.getIs());
-                    mobileKInfo.setM(kInfo.getM());
-                    mobileKInfo.setIdfd(kInfo.isIdfd());
+                    mobileKInfo.setIe(next.getIe());
+                    mobileKInfo.setIs(next.getIs());
+                    mobileKInfo.setM(next.getM());
+                    mobileKInfo.setIdfd(next.isIdfd());
                     arrayList.add(mobileKInfo);
                 }
                 if (this.c == null) {

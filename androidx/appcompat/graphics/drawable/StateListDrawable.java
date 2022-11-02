@@ -1,5 +1,6 @@
 package androidx.appcompat.graphics.drawable;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -7,6 +8,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.StateSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.DrawableContainer;
 import androidx.appcompat.resources.R;
 import androidx.appcompat.widget.ResourceManagerInternal;
@@ -21,6 +26,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+@SuppressLint({"RestrictedAPI"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class StateListDrawable extends DrawableContainer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -111,6 +118,7 @@ public class StateListDrawable extends DrawableContainer {
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public Drawable newDrawable(Resources resources) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -141,6 +149,7 @@ public class StateListDrawable extends DrawableContainer {
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public Drawable newDrawable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -198,6 +207,7 @@ public class StateListDrawable extends DrawableContainer {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    @NonNull
     public Drawable mutate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -211,7 +221,7 @@ public class StateListDrawable extends DrawableContainer {
         return (Drawable) invokeV.objValue;
     }
 
-    public StateListDrawable(StateListState stateListState) {
+    public StateListDrawable(@Nullable StateListState stateListState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -343,7 +353,8 @@ public class StateListDrawable extends DrawableContainer {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public void applyTheme(Resources.Theme theme) {
+    @RequiresApi(21)
+    public void applyTheme(@NonNull Resources.Theme theme) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, theme) == null) {
             super.applyTheme(theme);
@@ -397,7 +408,7 @@ public class StateListDrawable extends DrawableContainer {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer
-    public void setConstantState(DrawableContainer.DrawableContainerState drawableContainerState) {
+    public void setConstantState(@NonNull DrawableContainer.DrawableContainerState drawableContainerState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawableContainerState) == null) {
             super.setConstantState(drawableContainerState);
@@ -418,7 +429,7 @@ public class StateListDrawable extends DrawableContainer {
         return (StateListState) invokeV.objValue;
     }
 
-    public void inflate(Context context, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
+    public void inflate(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048587, this, context, resources, xmlPullParser, attributeSet, theme) == null) {
             TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.StateListDrawable);

@@ -1,107 +1,45 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StrikethroughSpan;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.wallet.CurrencyHelper;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.module.frs.Frs$From;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Serializable;
 /* loaded from: classes3.dex */
-public class bw6 {
+public final class bw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SpannableString a(long j, int i, int i2) {
-        InterceptResult invokeCommon;
-        String formatOverBaiwanNum;
+    public static final long d(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert(i2)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i2, j);
-            } else {
-                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
-            }
-            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i2);
-            String str = "[icon]" + formatOverBaiwanNum;
-            SpannableString spannableString = new SpannableString(str);
-            boolean z = true;
-            if (TbadkApplication.getInst().getSkinType() != 1) {
-                z = false;
-            }
-            if (z) {
-                moneyIcon.setAlpha(179);
-            } else {
-                moneyIcon.setAlpha(255);
-            }
-            int f = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-            moneyIcon.setBounds(0, 0, f, f);
-            hj5 hj5Var = new hj5(moneyIcon);
-            hj5Var.b(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            hj5Var.c(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            UtilHelper.setSpan(spannableString, str, "[icon]", hj5Var);
-            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
-            return spannableString;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
+            return bundle.getLong("extra_fid");
         }
-        return (SpannableString) invokeCommon.objValue;
+        return invokeL.longValue;
     }
 
-    public static SpannableString b(long j, boolean z, int i) {
-        InterceptResult invokeCommon;
-        String formatOverBaiwanNum;
-        String str;
+    public static final String e(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert(i)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i, j);
-            } else {
-                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
-            }
-            if (z) {
-                str = "=[icon]" + formatOverBaiwanNum;
-            } else {
-                str = "[icon]" + formatOverBaiwanNum;
-            }
-            SpannableString spannableString = new SpannableString(str);
-            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i);
-            int f = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-            moneyIcon.setBounds(0, 0, f, f);
-            hj5 hj5Var = new hj5(moneyIcon);
-            hj5Var.b(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            hj5Var.c(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            UtilHelper.setSpan(spannableString, str, "[icon]", hj5Var);
-            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-            if (z) {
-                UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
-            }
-            return spannableString;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+            return bundle.getString("extra_forum_name");
         }
-        return (SpannableString) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static SpannableString c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static final Frs$From f(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (StringUtils.isNull(str)) {
-                return new SpannableString("");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
+            Serializable serializable = bundle.getSerializable("extra_from");
+            if (serializable != null) {
+                return (Frs$From) serializable;
             }
-            SpannableString spannableString = new SpannableString(str);
-            UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)));
-            UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-            if (!StringUtils.isNull(str3)) {
-                UtilHelper.setSpan(spannableString, str, str3, new StrikethroughSpan());
-            }
-            return spannableString;
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.module.frs.Frs.From");
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (Frs$From) invokeL.objValue;
     }
 }

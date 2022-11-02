@@ -10,11 +10,11 @@ import com.google.android.exoplayer2.upstream.cache.Cache;
 import java.util.Comparator;
 import java.util.TreeSet;
 /* loaded from: classes7.dex */
-public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Comparator {
+public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Comparator<CacheSpan> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long currentSize;
-    public final TreeSet leastRecentlyUsed;
+    public final TreeSet<CacheSpan> leastRecentlyUsed;
     public final long maxBytes;
 
     @Override // com.google.android.exoplayer2.upstream.cache.CacheEvictor
@@ -40,7 +40,7 @@ public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Compar
             }
         }
         this.maxBytes = j;
-        this.leastRecentlyUsed = new TreeSet(this);
+        this.leastRecentlyUsed = new TreeSet<>(this);
     }
 
     private void evictCache(Cache cache, long j) {
@@ -48,7 +48,7 @@ public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Compar
         if (interceptable == null || interceptable.invokeLJ(65537, this, cache, j) == null) {
             while (this.currentSize + j > this.maxBytes && !this.leastRecentlyUsed.isEmpty()) {
                 try {
-                    cache.removeSpan((CacheSpan) this.leastRecentlyUsed.first());
+                    cache.removeSpan(this.leastRecentlyUsed.first());
                 } catch (Cache.CacheException unused) {
                 }
             }

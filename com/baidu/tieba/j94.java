@@ -1,91 +1,255 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class j94 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
+public class j94 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaiduMap a;
-    public List b;
-    public List c;
 
-    public abstract List b();
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONObject a;
 
-    public j94(BaiduMap baiduMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new JSONObject();
+        }
+
+        public static a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new a();
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public JSONObject b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public a c(String str, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        this.a.put(str, obj);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return this;
+            }
+            return (a) invokeLL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838116, "Lcom/baidu/tieba/j94;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838116, "Lcom/baidu/tieba/j94;");
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = baiduMap;
-        if (0 == 0) {
-            this.b = new ArrayList();
-        }
-        if (this.c == null) {
-            this.c = new ArrayList();
-        }
+        a = ok1.a;
     }
 
-    public final void a() {
+    public static void a(o94 o94Var, yq2 yq2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
-            return;
-        }
-        c();
-        if (b() != null) {
-            this.b.addAll(b());
-        }
-        for (OverlayOptions overlayOptions : this.b) {
-            this.c.add(this.a.addOverlay(overlayOptions));
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
-            return;
-        }
-        for (Overlay overlay : this.c) {
-            overlay.remove();
-        }
-        this.b.clear();
-        this.c.clear();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.c.size() > 0) {
-            LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.c) {
-                if (overlay instanceof Marker) {
-                    builder.include(((Marker) overlay).getPosition());
+        if (interceptable == null || interceptable.invokeLL(65537, null, o94Var, yq2Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", o94Var.j);
+            a2.c("markerId", yq2Var.a);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "callouttap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, o94Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
             }
-            this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            lj3.d(o94Var.i, o94Var.j, "map", "callouttap", jSONObject);
+        }
+    }
+
+    public static void b(View view2, o94 o94Var) {
+        String str;
+        wq2 wq2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, o94Var) == null) {
+            m94 G = o94Var.G(view2);
+            if (G != null && (wq2Var = G.a) != null) {
+                str = wq2Var.a;
+            } else {
+                str = "";
+            }
+            a a2 = a.a();
+            a2.c("mapId", o94Var.j);
+            a2.c("controlId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "controltap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, o94Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            lj3.d(o94Var.i, o94Var.j, "map", "controltap", jSONObject);
+        }
+    }
+
+    public static void e(Marker marker, o94 o94Var) {
+        String str;
+        yq2 yq2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, marker, o94Var) == null) {
+            n94 H = o94Var.H(marker);
+            if (H != null && (yq2Var = H.a) != null) {
+                str = yq2Var.a;
+            } else {
+                str = "";
+            }
+            a a2 = a.a();
+            a2.c("mapId", o94Var.j);
+            a2.c("markerId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "markertap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, o94Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            lj3.d(o94Var.i, o94Var.j, "map", "markertap", jSONObject);
+        }
+    }
+
+    public static void c(o94 o94Var, LatLng latLng) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, o94Var, latLng) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(latLng.latitude));
+            a2.c("longitude", Double.valueOf(latLng.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("mapId", o94Var.j);
+            a3.c(CriusAttrConstants.POSITION, b);
+            JSONObject b2 = a3.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "tap");
+                jSONObject.put("data", b2.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, o94Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            lj3.d(o94Var.i, o94Var.j, "map", "tap", jSONObject);
+        }
+    }
+
+    public static void d(o94 o94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, o94Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", o94Var.j);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "updated");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, o94Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            lj3.d(o94Var.i, o94Var.j, "map", "updated", jSONObject);
+        }
+    }
+
+    public static void f(o94 o94Var, MapStatus mapStatus, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65542, null, o94Var, mapStatus, i) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(mapStatus.bound.northeast.latitude));
+            a2.c("longitude", Double.valueOf(mapStatus.bound.northeast.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("latitude", Double.valueOf(mapStatus.bound.southwest.latitude));
+            a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
+            JSONObject b2 = a3.b();
+            a a4 = a.a();
+            a4.c("mapId", o94Var.j);
+            a4.c("northeast", b);
+            a4.c("southwest", b2);
+            a4.c("scale", Float.valueOf(mapStatus.zoom));
+            a4.c("reason", Integer.valueOf(i));
+            JSONObject b3 = a4.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "regionchange");
+                jSONObject.put("data", b3.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, o94Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            lj3.d(o94Var.i, o94Var.j, "map", "regionchange", jSONObject);
         }
     }
 }

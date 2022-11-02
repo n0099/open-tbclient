@@ -21,7 +21,7 @@ public class gk implements go {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f431a;
+    public List<gk> f431a;
 
     /* renamed from: a  reason: collision with other field name */
     public String[] f432a;
@@ -55,7 +55,7 @@ public class gk implements go {
         this.f433b = strArr2;
     }
 
-    public gk(String str, String str2, String[] strArr, String[] strArr2, String str3, List list) {
+    public gk(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gk> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class gk implements go {
         return (gk) invokeL.objValue;
     }
 
-    public static Parcelable[] a(List list) {
+    public static Parcelable[] a(List<gk> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) ? a((gk[]) list.toArray(new gk[list.size()])) : (Parcelable[]) invokeL.objValue;
@@ -158,7 +158,7 @@ public class gk implements go {
                 }
             }
             bundle.putBundle("attributes", bundle2);
-            List list = this.f431a;
+            List<gk> list = this.f431a;
             if (list != null && list.size() > 0) {
                 bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f431a));
             }
@@ -270,7 +270,7 @@ public class gk implements go {
                 }
             }
             if (TextUtils.isEmpty(this.c)) {
-                List list = this.f431a;
+                List<gk> list = this.f431a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
                     return sb.toString();

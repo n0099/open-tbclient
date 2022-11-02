@@ -13,7 +13,7 @@ public class FeatureCardCompetition extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Integer floor;
-    public List sub_nodes;
+    public List<FeatureCardCompetitionSubNode> sub_nodes;
     public String title;
     public Integer type;
 

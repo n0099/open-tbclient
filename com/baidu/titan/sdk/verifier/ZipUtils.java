@@ -51,18 +51,18 @@ public abstract class ZipUtils {
         return getUnsignedInt32(byteBuffer, byteBuffer.position() + 12);
     }
 
-    public static Pair findZipEndOfCentralDirectoryRecord(RandomAccessFile randomAccessFile) throws IOException {
+    public static Pair<ByteBuffer, Long> findZipEndOfCentralDirectoryRecord(RandomAccessFile randomAccessFile) throws IOException {
         if (randomAccessFile.length() < 22) {
             return null;
         }
-        Pair findZipEndOfCentralDirectoryRecord = findZipEndOfCentralDirectoryRecord(randomAccessFile, 0);
+        Pair<ByteBuffer, Long> findZipEndOfCentralDirectoryRecord = findZipEndOfCentralDirectoryRecord(randomAccessFile, 0);
         if (findZipEndOfCentralDirectoryRecord != null) {
             return findZipEndOfCentralDirectoryRecord;
         }
         return findZipEndOfCentralDirectoryRecord(randomAccessFile, 65535);
     }
 
-    public static Pair findZipEndOfCentralDirectoryRecord(RandomAccessFile randomAccessFile, int i) throws IOException {
+    public static Pair<ByteBuffer, Long> findZipEndOfCentralDirectoryRecord(RandomAccessFile randomAccessFile, int i) throws IOException {
         if (i >= 0 && i <= 65535) {
             long length = randomAccessFile.length();
             if (length < 22) {

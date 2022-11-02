@@ -12,6 +12,8 @@ import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.Flowable;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.disposables.Disposables;
 import io.reactivex.functions.Function;
@@ -21,6 +23,7 @@ import io.reactivex.processors.UnicastProcessor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
+@Experimental
 /* loaded from: classes8.dex */
 public class SchedulerWhen extends Scheduler implements Disposable {
     public static /* synthetic */ Interceptable $ic;
@@ -29,10 +32,10 @@ public class SchedulerWhen extends Scheduler implements Disposable {
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler actualScheduler;
     public Disposable disposable;
-    public final FlowableProcessor workerProcessor;
+    public final FlowableProcessor<Flowable<Completable>> workerProcessor;
 
     /* loaded from: classes8.dex */
-    public final class CreateWorkerFunction implements Function {
+    public static final class CreateWorkerFunction implements Function<ScheduledAction, Completable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Scheduler.Worker actualWorker;
@@ -104,7 +107,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
     }
 
     /* loaded from: classes8.dex */
-    public class DelayedAction extends ScheduledAction {
+    public static class DelayedAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Runnable action;
@@ -143,7 +146,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
     }
 
     /* loaded from: classes8.dex */
-    public class ImmediateAction extends ScheduledAction {
+    public static class ImmediateAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Runnable action;
@@ -178,7 +181,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
     }
 
     /* loaded from: classes8.dex */
-    public class OnCompletedAction implements Runnable {
+    public static class OnCompletedAction implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Runnable action;
@@ -217,14 +220,14 @@ public class SchedulerWhen extends Scheduler implements Disposable {
     }
 
     /* loaded from: classes8.dex */
-    public final class QueueWorker extends Scheduler.Worker {
+    public static final class QueueWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final FlowableProcessor actionProcessor;
+        public final FlowableProcessor<ScheduledAction> actionProcessor;
         public final Scheduler.Worker actualWorker;
         public final AtomicBoolean unsubscribed;
 
-        public QueueWorker(FlowableProcessor flowableProcessor, Scheduler.Worker worker) {
+        public QueueWorker(FlowableProcessor<ScheduledAction> flowableProcessor, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -264,7 +267,8 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable)) == null) {
@@ -276,7 +280,8 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -289,7 +294,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class ScheduledAction extends AtomicReference implements Disposable {
+    public static abstract class ScheduledAction extends AtomicReference<Disposable> implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -320,7 +325,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 Disposable disposable2 = SchedulerWhen.DISPOSED;
                 do {
-                    disposable = (Disposable) get();
+                    disposable = get();
                     if (disposable == SchedulerWhen.DISPOSED) {
                         return;
                     }
@@ -336,7 +341,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return ((Disposable) get()).isDisposed();
+                return get().isDisposed();
             }
             return invokeV.booleanValue;
         }
@@ -344,7 +349,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         public void call(Scheduler.Worker worker, CompletableObserver completableObserver) {
             Disposable disposable;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, worker, completableObserver) != null) || (disposable = (Disposable) get()) == SchedulerWhen.DISPOSED || disposable != SchedulerWhen.SUBSCRIBED) {
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, worker, completableObserver) != null) || (disposable = get()) == SchedulerWhen.DISPOSED || disposable != SchedulerWhen.SUBSCRIBED) {
                 return;
             }
             Disposable callActual = callActual(worker, completableObserver);
@@ -355,7 +360,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
     }
 
     /* loaded from: classes8.dex */
-    public final class SubscribedDisposable implements Disposable {
+    public static final class SubscribedDisposable implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -426,7 +431,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         return invokeV.booleanValue;
     }
 
-    public SchedulerWhen(Function function, Scheduler scheduler) {
+    public SchedulerWhen(Function<Flowable<Flowable<Completable>>, Completable> function, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -445,20 +450,21 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         FlowableProcessor serialized = UnicastProcessor.create().toSerialized();
         this.workerProcessor = serialized;
         try {
-            this.disposable = ((Completable) function.apply(serialized)).subscribe();
+            this.disposable = function.apply(serialized).subscribe();
         } catch (Throwable th) {
             throw ExceptionHelper.wrapOrThrow(th);
         }
     }
 
     @Override // io.reactivex.Scheduler
+    @NonNull
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Scheduler.Worker createWorker = this.actualScheduler.createWorker();
-            FlowableProcessor serialized = UnicastProcessor.create().toSerialized();
-            Flowable map = serialized.map(new CreateWorkerFunction(createWorker));
+            FlowableProcessor<T> serialized = UnicastProcessor.create().toSerialized();
+            Flowable<Completable> map = serialized.map(new CreateWorkerFunction(createWorker));
             QueueWorker queueWorker = new QueueWorker(serialized, createWorker);
             this.workerProcessor.onNext(map);
             return queueWorker;

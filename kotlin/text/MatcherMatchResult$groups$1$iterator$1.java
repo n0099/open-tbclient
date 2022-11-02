@@ -15,9 +15,11 @@ public final class MatcherMatchResult$groups$1$iterator$1 extends Lambda impleme
         this.this$0 = matcherMatchResult$groups$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return invoke(((Number) obj).intValue());
+    public /* bridge */ /* synthetic */ MatchGroup invoke(Integer num) {
+        return invoke(num.intValue());
     }
 
     public final MatchGroup invoke(int i) {

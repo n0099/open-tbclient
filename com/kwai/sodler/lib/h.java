@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public class h extends g {
@@ -42,7 +41,7 @@ public class h extends g {
         }
     }
 
-    private Set a(Context context, File file, File file2) {
+    private Set<File> a(Context context, File file, File file2) {
         InterceptResult invokeLLL;
         String[] list;
         Interceptable interceptable = $ic;
@@ -81,18 +80,16 @@ public class h extends g {
         return (File) invokeL.objValue;
     }
 
-    private void d(Set set) {
+    private void d(Set<File> set) {
         com.kwai.sodler.lib.c.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, set) == null) || (bVar = this.aya) == null || bVar.ayF.size() <= 0 || set == null) {
             return;
         }
-        HashMap hashMap = this.aya.ayF;
-        Iterator it = set.iterator();
-        while (it.hasNext()) {
-            File file = (File) it.next();
+        HashMap<String, String> hashMap = this.aya.ayF;
+        for (File file : set) {
             String Y = ab.Y(file);
-            String str = (String) hashMap.get(file.getName());
+            String str = hashMap.get(file.getName());
             if (str != null && !TextUtils.equals(Y, str)) {
                 e(set);
                 throw new PluginError.LoadError(new Exception(file.getName() + " Md5 check error,find " + Y + ",except " + str), 4008);
@@ -100,12 +97,11 @@ public class h extends g {
         }
     }
 
-    public static void e(Set set) {
+    public static void e(Set<File> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, set) == null) {
-            Iterator it = set.iterator();
-            while (it.hasNext()) {
-                o.O((File) it.next());
+            for (File file : set) {
+                o.O(file);
             }
         }
     }

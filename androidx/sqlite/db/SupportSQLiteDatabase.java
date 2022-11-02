@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteTransactionListener;
 import android.os.CancellationSignal;
+import android.util.Pair;
+import androidx.annotation.RequiresApi;
 import java.io.Closeable;
 import java.util.List;
 import java.util.Locale;
@@ -22,6 +24,7 @@ public interface SupportSQLiteDatabase extends Closeable {
 
     int delete(String str, String str2, Object[] objArr);
 
+    @RequiresApi(api = 16)
     void disableWriteAheadLogging();
 
     boolean enableWriteAheadLogging();
@@ -32,7 +35,7 @@ public interface SupportSQLiteDatabase extends Closeable {
 
     void execSQL(String str, Object[] objArr) throws SQLException;
 
-    List getAttachedDbs();
+    List<Pair<String, String>> getAttachedDbs();
 
     long getMaximumSize();
 
@@ -54,18 +57,21 @@ public interface SupportSQLiteDatabase extends Closeable {
 
     boolean isReadOnly();
 
+    @RequiresApi(api = 16)
     boolean isWriteAheadLoggingEnabled();
 
     boolean needUpgrade(int i);
 
     Cursor query(SupportSQLiteQuery supportSQLiteQuery);
 
+    @RequiresApi(api = 16)
     Cursor query(SupportSQLiteQuery supportSQLiteQuery, CancellationSignal cancellationSignal);
 
     Cursor query(String str);
 
     Cursor query(String str, Object[] objArr);
 
+    @RequiresApi(api = 16)
     void setForeignKeyConstraintsEnabled(boolean z);
 
     void setLocale(Locale locale);

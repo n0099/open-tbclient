@@ -15,20 +15,20 @@ import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class MaybeToFlowable extends Flowable implements HasUpstreamMaybeSource {
+public final class MaybeToFlowable<T> extends Flowable<T> implements HasUpstreamMaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource source;
+    public final MaybeSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class MaybeToFlowableSubscriber extends DeferredScalarSubscription implements MaybeObserver {
+    public static final class MaybeToFlowableSubscriber<T> extends DeferredScalarSubscription<T> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7603343402964826922L;
         public transient /* synthetic */ FieldHolder $fh;
         public Disposable d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MaybeToFlowableSubscriber(Subscriber subscriber) {
+        public MaybeToFlowableSubscriber(Subscriber<? super T> subscriber) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -82,15 +82,15 @@ public final class MaybeToFlowable extends Flowable implements HasUpstreamMaybeS
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                complete(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                complete(t);
             }
         }
     }
 
-    public MaybeToFlowable(MaybeSource maybeSource) {
+    public MaybeToFlowable(MaybeSource<T> maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public final class MaybeToFlowable extends Flowable implements HasUpstreamMaybeS
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber) == null) {
             this.source.subscribe(new MaybeToFlowableSubscriber(subscriber));
@@ -117,7 +117,7 @@ public final class MaybeToFlowable extends Flowable implements HasUpstreamMaybeS
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource source() {
+    public MaybeSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

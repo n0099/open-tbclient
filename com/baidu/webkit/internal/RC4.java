@@ -26,7 +26,7 @@ public class RC4 implements INoProGuard {
     public int y;
 
     /* loaded from: classes6.dex */
-    public final class a extends GZIPOutputStream {
+    public static class a extends GZIPOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

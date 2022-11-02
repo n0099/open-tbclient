@@ -2,6 +2,6 @@ package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.SapiResult;
 /* loaded from: classes2.dex */
-public interface SapiWebCallback {
-    void onFinish(SapiResult sapiResult);
+public interface SapiWebCallback<R extends SapiResult> {
+    void onFinish(R r);
 }

@@ -35,16 +35,16 @@ public class cj {
     public ci f164a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ArrayList f165a;
+    public final ArrayList<a> f165a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final HashMap f166a;
+    public final HashMap<String, ch> f166a;
 
     /* renamed from: a  reason: collision with other field name */
     public ThreadPoolExecutor f167a;
 
     /* loaded from: classes8.dex */
-    public abstract class a implements Runnable {
+    public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -59,7 +59,7 @@ public class cj {
         public String f170a;
 
         /* renamed from: a  reason: collision with other field name */
-        public WeakReference f171a;
+        public WeakReference<Context> f171a;
 
         /* renamed from: a  reason: collision with other field name */
         public Random f172a;
@@ -134,7 +134,7 @@ public class cj {
             if (interceptable == null || interceptable.invokeLL(1048582, this, chVar, context) == null) {
                 this.f168a = chVar;
                 this.b = chVar.a();
-                this.f171a = new WeakReference(context);
+                this.f171a = new WeakReference<>(context);
             }
         }
 
@@ -160,10 +160,10 @@ public class cj {
 
         @Override // java.lang.Runnable
         public final void run() {
-            WeakReference weakReference;
+            WeakReference<Context> weakReference;
             Context context;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (weakReference = this.f171a) == null || (context = (Context) weakReference.get()) == null || context.getFilesDir() == null || this.f168a == null || TextUtils.isEmpty(this.f170a)) {
+            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (weakReference = this.f171a) == null || (context = weakReference.get()) == null || context.getFilesDir() == null || this.f168a == null || TextUtils.isEmpty(this.f170a)) {
                 return;
             }
             File file = new File(this.f170a);
@@ -172,7 +172,7 @@ public class cj {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class b extends a {
+    public static abstract class b<T> extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -181,17 +181,17 @@ public class cj {
         public String f173a;
 
         /* renamed from: a  reason: collision with other field name */
-        public List f174a;
+        public List<String> f174a;
 
         /* renamed from: a  reason: collision with other field name */
         public String[] f175a;
-        public List b;
+        public List<T> b;
         public String c;
         public String d;
         public String e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(String str, List list, String str2, String[] strArr, String str3, String str4, String str5, int i) {
+        public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -225,7 +225,7 @@ public class cj {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((a) this).f168a.getReadableDatabase() : (SQLiteDatabase) invokeV.objValue;
         }
 
-        public abstract Object a(Context context, Cursor cursor);
+        public abstract T a(Context context, Cursor cursor);
 
         @Override // com.xiaomi.push.cj.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
@@ -233,7 +233,7 @@ public class cj {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sQLiteDatabase) == null) {
                 this.b.clear();
-                List list = this.f174a;
+                List<String> list = this.f174a;
                 if (list == null || list.size() <= 0) {
                     strArr = null;
                 } else {
@@ -245,28 +245,28 @@ public class cj {
                 Cursor query = sQLiteDatabase.query(super.b, strArr, this.f173a, this.f175a, this.c, this.d, this.e, i > 0 ? String.valueOf(i) : null);
                 if (query != null && query.moveToFirst()) {
                     do {
-                        Object a = a(context, query);
+                        T a = a(context, query);
                         if (a != null) {
                             this.b.add(a);
                         }
                     } while (query.moveToNext());
                     query.close();
                 }
-                a(context, this.b);
+                a(context, (List) this.b);
             }
         }
 
-        public abstract void a(Context context, List list);
+        public abstract void a(Context context, List<T> list);
     }
 
     /* loaded from: classes8.dex */
-    public class c extends a {
+    public static class c extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList a;
+        public ArrayList<a> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(String str, ArrayList arrayList) {
+        public c(String str, ArrayList<a> arrayList) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -283,7 +283,7 @@ public class cj {
                     return;
                 }
             }
-            ArrayList arrayList2 = new ArrayList();
+            ArrayList<a> arrayList2 = new ArrayList<>();
             this.a = arrayList2;
             arrayList2.addAll(arrayList);
         }
@@ -293,11 +293,11 @@ public class cj {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.a(context);
-                Iterator it = this.a.iterator();
+                Iterator<a> it = this.a.iterator();
                 while (it.hasNext()) {
-                    a aVar = (a) it.next();
-                    if (aVar != null) {
-                        aVar.a(context);
+                    a next = it.next();
+                    if (next != null) {
+                        next.a(context);
                     }
                 }
             }
@@ -307,11 +307,11 @@ public class cj {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sQLiteDatabase) == null) {
-                Iterator it = this.a.iterator();
+                Iterator<a> it = this.a.iterator();
                 while (it.hasNext()) {
-                    a aVar = (a) it.next();
-                    if (aVar != null) {
-                        aVar.a(context, sQLiteDatabase);
+                    a next = it.next();
+                    if (next != null) {
+                        next.a(context, sQLiteDatabase);
                     }
                 }
             }
@@ -319,7 +319,7 @@ public class cj {
     }
 
     /* loaded from: classes8.dex */
-    public class d extends a {
+    public static class d extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -359,7 +359,7 @@ public class cj {
     }
 
     /* loaded from: classes8.dex */
-    public class e extends a {
+    public static class e extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ContentValues a;
@@ -409,9 +409,9 @@ public class cj {
                 return;
             }
         }
-        this.f166a = new HashMap();
+        this.f166a = new HashMap<>();
         this.f167a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.f165a = new ArrayList();
+        this.f165a = new ArrayList<>();
         this.f163a = context;
     }
 
@@ -419,7 +419,7 @@ public class cj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            ch chVar = (ch) this.f166a.get(str);
+            ch chVar = this.f166a.get(str);
             if (chVar == null) {
                 synchronized (this.f166a) {
                     if (chVar == null) {
@@ -474,7 +474,7 @@ public class cj {
         }
         String m239a = aVar.m239a();
         synchronized (this.f166a) {
-            chVar = (ch) this.f166a.get(m239a);
+            chVar = this.f166a.get(m239a);
             if (chVar == null) {
                 chVar = this.f164a.a(this.f163a, m239a);
                 this.f166a.put(m239a, chVar);
@@ -498,7 +498,7 @@ public class cj {
         this.f167a.execute(runnable);
     }
 
-    public void a(ArrayList arrayList) {
+    public void a(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
             if (this.f164a == null) {
@@ -508,18 +508,18 @@ public class cj {
             if (this.f167a.isShutdown()) {
                 return;
             }
-            Iterator it = arrayList.iterator();
+            Iterator<a> it = arrayList.iterator();
             while (it.hasNext()) {
-                a aVar = (a) it.next();
-                if (aVar.m240a()) {
-                    aVar.a(a(aVar.m239a()), this.f163a);
+                a next = it.next();
+                if (next.m240a()) {
+                    next.a(a(next.m239a()), this.f163a);
                 }
-                ArrayList arrayList2 = (ArrayList) hashMap.get(aVar.m239a());
+                ArrayList arrayList2 = (ArrayList) hashMap.get(next.m239a());
                 if (arrayList2 == null) {
                     arrayList2 = new ArrayList();
-                    hashMap.put(aVar.m239a(), arrayList2);
+                    hashMap.put(next.m239a(), arrayList2);
                 }
-                arrayList2.add(aVar);
+                arrayList2.add(next);
             }
             for (String str : hashMap.keySet()) {
                 ArrayList arrayList3 = (ArrayList) hashMap.get(str);
@@ -543,7 +543,7 @@ public class cj {
         }
         String m239a = aVar.m239a();
         synchronized (this.f166a) {
-            chVar = (ch) this.f166a.get(m239a);
+            chVar = this.f166a.get(m239a);
             if (chVar == null) {
                 chVar = this.f164a.a(this.f163a, m239a);
                 this.f166a.put(m239a, chVar);

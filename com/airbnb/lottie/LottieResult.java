@@ -1,13 +1,16 @@
 package com.airbnb.lottie;
 
+import androidx.annotation.Nullable;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public final class LottieResult {
+public final class LottieResult<V> {
+    @Nullable
     public final Throwable exception;
-    public final Object value;
+    @Nullable
+    public final V value;
 
-    public LottieResult(Object obj) {
-        this.value = obj;
+    public LottieResult(V v) {
+        this.value = v;
         this.exception = null;
     }
 
@@ -33,11 +36,13 @@ public final class LottieResult {
         return getException().toString().equals(getException().toString());
     }
 
+    @Nullable
     public Throwable getException() {
         return this.exception;
     }
 
-    public Object getValue() {
+    @Nullable
+    public V getValue() {
         return this.value;
     }
 

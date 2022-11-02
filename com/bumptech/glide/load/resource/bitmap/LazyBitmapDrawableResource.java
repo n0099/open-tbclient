@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,13 +18,13 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
-public final class LazyBitmapDrawableResource implements Resource, Initializable {
+public final class LazyBitmapDrawableResource implements Resource<BitmapDrawable>, Initializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Resource bitmapResource;
+    public final Resource<Bitmap> bitmapResource;
     public final Resources resources;
 
-    public LazyBitmapDrawableResource(Resources resources, Resource resource) {
+    public LazyBitmapDrawableResource(@NonNull Resources resources, @NonNull Resource<Bitmap> resource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +43,8 @@ public final class LazyBitmapDrawableResource implements Resource, Initializable
         this.bitmapResource = (Resource) Preconditions.checkNotNull(resource);
     }
 
-    public static Resource obtain(Resources resources, Resource resource) {
+    @Nullable
+    public static Resource<BitmapDrawable> obtain(@NonNull Resources resources, @Nullable Resource<Bitmap> resource) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, resource)) == null) {
@@ -74,18 +77,21 @@ public final class LazyBitmapDrawableResource implements Resource, Initializable
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.engine.Resource
+    @NonNull
     public BitmapDrawable get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new BitmapDrawable(this.resources, (Bitmap) this.bitmapResource.get());
+            return new BitmapDrawable(this.resources, this.bitmapResource.get());
         }
         return (BitmapDrawable) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public Class getResourceClass() {
+    @NonNull
+    public Class<BitmapDrawable> getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -108,7 +114,7 @@ public final class LazyBitmapDrawableResource implements Resource, Initializable
     public void initialize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Resource resource = this.bitmapResource;
+            Resource<Bitmap> resource = this.bitmapResource;
             if (resource instanceof Initializable) {
                 ((Initializable) resource).initialize();
             }

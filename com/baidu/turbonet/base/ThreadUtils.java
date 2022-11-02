@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 /* loaded from: classes6.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -99,6 +100,7 @@ public class ThreadUtils {
         }
     }
 
+    @CalledByNative
     public static boolean isThreadPriorityAudio(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -111,6 +113,7 @@ public class ThreadUtils {
         return invokeI.booleanValue;
     }
 
+    @CalledByNative
     public static void setThreadPriorityAudio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {

@@ -14,20 +14,20 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 /* loaded from: classes8.dex */
-public final class MaybeMap extends AbstractMaybeWithUpstream {
+public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function mapper;
+    public final Function<? super T, ? extends R> mapper;
 
     /* loaded from: classes8.dex */
-    public final class MapMaybeObserver implements MaybeObserver, Disposable {
+    public static final class MapMaybeObserver<T, R> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super R> actual;
         public Disposable d;
-        public final Function mapper;
+        public final Function<? super T, ? extends R> mapper;
 
-        public MapMaybeObserver(MaybeObserver maybeObserver, Function function) {
+        public MapMaybeObserver(MaybeObserver<? super R> maybeObserver, Function<? super T, ? extends R> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,11 +92,11 @@ public final class MaybeMap extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 try {
-                    this.actual.onSuccess(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null item"));
+                    this.actual.onSuccess(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null item"));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.actual.onError(th);
@@ -106,7 +106,7 @@ public final class MaybeMap extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeMap(MaybeSource maybeSource, Function function) {
+    public MaybeMap(MaybeSource<T> maybeSource, Function<? super T, ? extends R> function) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +127,7 @@ public final class MaybeMap extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new MapMaybeObserver(maybeObserver, this.mapper));

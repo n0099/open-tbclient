@@ -6,12 +6,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.io8;
 import com.baidu.tieba.model.message.CheckRealNameHttpResponseMessage;
 import com.baidu.tieba.model.message.CheckRealNameRequestNetMessage;
 import com.baidu.tieba.model.message.CheckRealNameSocketResponseMessage;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class CheckRealNameModel extends BdBaseModel {
     public static final String TYPE_PB_SHARE = "pb_share";
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public qb b;
+    public pb b;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -53,7 +53,7 @@ public class CheckRealNameModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CheckRealNameModel a;
@@ -80,8 +80,8 @@ public class CheckRealNameModel extends BdBaseModel {
             this.a = checkRealNameModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -148,8 +148,8 @@ public class CheckRealNameModel extends BdBaseModel {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            zm8.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            zm8.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            io8.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            io8.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

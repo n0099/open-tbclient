@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
 public final class zzv extends zzw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable zzd;
+    public final Callable<String> zzd;
 
     public /* synthetic */ zzv(Callable callable, zzu zzuVar) {
         super(false, null, null);
@@ -21,7 +21,7 @@ public final class zzv extends zzw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return (String) this.zzd.call();
+                return this.zzd.call();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

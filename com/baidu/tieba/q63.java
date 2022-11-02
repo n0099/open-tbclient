@@ -1,35 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.i43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q63 extends j53 {
+public class q63 extends o63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q63(j43 j43Var) {
-        super(j43Var, "/swanAPI/showNavigationBarLoading");
+    public q63(h43 h43Var) {
+        super(h43Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
+            Object[] objArr = {h43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((h43) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,41 +31,24 @@ public class q63 extends j53 {
         }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xi3
+    /* renamed from: M */
+    public void a(i43.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (j53.b) {
-                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            if (m33Var != null && m33Var.n0()) {
-                if (j53.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            }
-            v22 V = zo2.U().V();
-            if (V == null) {
-                m02.c("navigationLoading", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            s22 m = V.m();
-            if (m == null) {
-                m02.c("navigationLoading", "swanAppFragment is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!m.N2()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                m02.c("navigationLoading", "show navigation loading progressbar fail");
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && q03.J(aVar.D(), "swan_forbidden_kill_on_server")) {
+            this.b = aVar.j("ipc_forbidden_flag", 1);
+            I(aVar.o("mAppId", d43.K().getAppId()));
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.o63
+    public void I(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            p03 w = q03.Q("swan_forbidden_kill_on_client").z("mAppId", str).w("ipc_forbidden_flag", this.b);
+            w.J(str);
+            w.call();
+        }
     }
 }

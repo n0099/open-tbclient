@@ -2,6 +2,7 @@ package com.baidu.rtc;
 
 import android.os.Environment;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.rtc.RtcAudioDumper;
@@ -26,6 +27,7 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
     public long fileSizeInBytes;
     public boolean isRunning;
     public final Object lock;
+    @Nullable
     public OutputStream rawAudioFileOutputStream;
 
     public RtcAudioDumper(ExecutorService executorService) {
@@ -77,7 +79,7 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                     openRawAudioOutputFile(rTCAudioSamples.getSampleRate(), rTCAudioSamples.getChannelCount());
                     this.fileSizeInBytes = 0L;
                 }
-                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.lf1
+                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.dg1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

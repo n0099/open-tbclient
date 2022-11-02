@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ public class VirtualBarAssist {
     public int usableHeightPrevious;
     public ViewTreeObserver viewTreeObserver;
 
-    public VirtualBarAssist(Activity activity) {
+    public VirtualBarAssist(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +71,7 @@ public class VirtualBarAssist {
         this.childOfContent = ((FrameLayout) activity.findViewById(16908290)).getChildAt(0);
     }
 
-    public static VirtualBarAssist assistActivity(Activity activity) {
+    public static VirtualBarAssist assistActivity(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {

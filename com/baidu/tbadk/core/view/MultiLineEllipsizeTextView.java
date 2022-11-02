@@ -8,11 +8,12 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +56,7 @@ public class MultiLineEllipsizeTextView extends EMTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiLineEllipsizeTextView(Context context, AttributeSet attributeSet) {
+    public MultiLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,7 +78,7 @@ public class MultiLineEllipsizeTextView extends EMTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiLineEllipsizeTextView(Context context, AttributeSet attributeSet, int i) {
+    public MultiLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,7 +99,7 @@ public class MultiLineEllipsizeTextView extends EMTextView {
         this.b = StringHelper.STRING_MORE;
     }
 
-    public final List a(TextPaint textPaint, CharSequence charSequence, int i) {
+    public final List<Point> a(TextPaint textPaint, CharSequence charSequence, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, textPaint, charSequence, i)) == null) {
@@ -122,9 +123,9 @@ public class MultiLineEllipsizeTextView extends EMTextView {
             super.onMeasure(i, i2);
             CharSequence text = getText();
             Rect rect = new Rect();
-            if (!ej.isEmpty(text.toString())) {
+            if (!wi.isEmpty(text.toString())) {
                 TextPaint paint = getPaint();
-                if (!ej.isEmpty(this.b)) {
+                if (!wi.isEmpty(this.b)) {
                     String str2 = this.b;
                     paint.getTextBounds(str2, 0, str2.length() - 1, rect);
                 }
@@ -140,9 +141,9 @@ public class MultiLineEllipsizeTextView extends EMTextView {
                     }
                 }
                 float measuredWidth = getMeasuredWidth() - paddingRight;
-                List a2 = a(paint, text, (int) measuredWidth);
+                List<Point> a2 = a(paint, text, (int) measuredWidth);
                 if (ListUtils.getCount(a2) > getMaxLines()) {
-                    Point point = (Point) a2.get(getMaxLines() - 1);
+                    Point point = a2.get(getMaxLines() - 1);
                     text.toString();
                     paint.getTextBounds(String.valueOf(text), point.x, point.y, rect);
                     float f = (measuredWidth - width) - this.c;
@@ -165,7 +166,7 @@ public class MultiLineEllipsizeTextView extends EMTextView {
                     }
                 } else if (getMaxLines() == Integer.MAX_VALUE && this.c != 0) {
                     if (!ListUtils.isEmpty(a2)) {
-                        Point point2 = (Point) a2.get(a2.size() - 1);
+                        Point point2 = a2.get(a2.size() - 1);
                         paint.getTextBounds(String.valueOf(text), point2.x, point2.y, rect);
                         if (rect.width() > measuredWidth - this.c) {
                             setMeasuredDimension(getMeasuredWidth(), (int) (getMeasuredHeight() + rect.height() + getLineSpacingExtra()));

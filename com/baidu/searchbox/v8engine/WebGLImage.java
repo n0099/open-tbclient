@@ -21,6 +21,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+@NotProguard
 /* loaded from: classes2.dex */
 public class WebGLImage {
     public static /* synthetic */ Interceptable $ic = null;
@@ -63,7 +64,7 @@ public class WebGLImage {
     public native boolean nativeLoadAsset(long j, Bitmap bitmap);
 
     /* loaded from: classes2.dex */
-    public class CanvasResult {
+    public static class CanvasResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @V8JavascriptField

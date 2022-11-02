@@ -11,6 +11,10 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import androidx.annotation.ColorRes;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -107,7 +111,7 @@ public class ShadowDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         LinearGradient linearGradient;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
@@ -145,14 +149,14 @@ public class ShadowDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.mShadowPaint.setAlpha(i);
         }
     }
 
-    public ShadowDrawable setBgColor(int i) {
+    public ShadowDrawable setBgColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
@@ -163,7 +167,7 @@ public class ShadowDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
+    public void setColorFilter(@Nullable ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, colorFilter) == null) {
             this.mShadowPaint.setColorFilter(colorFilter);
@@ -192,7 +196,7 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShadowAlpha(int i) {
+    public ShadowDrawable setShadowAlpha(@IntRange(from = 0, to = 255) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
@@ -202,7 +206,7 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShadowColor(int i) {
+    public ShadowDrawable setShadowColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
@@ -225,7 +229,7 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShadowSide(int i) {
+    public ShadowDrawable setShadowSide(@ShadowSide int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
@@ -235,7 +239,7 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShape(int i) {
+    public ShadowDrawable setShape(@Shape int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
@@ -323,7 +327,7 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeL.objValue;
     }
 
-    public ShadowDrawable setBgColor(int[] iArr) {
+    public ShadowDrawable setBgColor(@ColorRes int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iArr)) == null) {

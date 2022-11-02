@@ -27,7 +27,7 @@ public class SpanStringUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class CenterImageSpan extends ImageSpan {
+    public static class CenterImageSpan extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class SpanStringUtils {
     }
 
     /* loaded from: classes2.dex */
-    public class CenterImageSpanEditText extends ImageSpan {
+    public static class CenterImageSpanEditText extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

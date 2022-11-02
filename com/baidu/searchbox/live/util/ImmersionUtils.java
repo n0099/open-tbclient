@@ -1,5 +1,6 @@
 package com.baidu.searchbox.live.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -7,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.live.arch.utils.RomUtils;
 import com.baidu.live.arch.utils.StatusBarUtils;
@@ -148,7 +150,7 @@ public class ImmersionUtils {
         return invokeF.intValue;
     }
 
-    public static float getDensity(Context context) {
+    public static float getDensity(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -193,6 +195,7 @@ public class ImmersionUtils {
         }
     }
 
+    @SuppressLint({"WrongConstant"})
     public static void fixFullScreen4Notch(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) && activity != null && Build.VERSION.SDK_INT >= 28) {

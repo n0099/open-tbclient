@@ -12,6 +12,8 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -82,6 +85,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // android.graphics.drawable.Drawable
+    @NonNull
     public Rect getDirtyBounds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,7 +132,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void getOutline(Outline outline) {
+    public void getOutline(@NonNull Outline outline) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outline) == null) {
             this.mDrawable.getOutline(outline);
@@ -136,7 +140,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14, android.graphics.drawable.Drawable
-    public boolean setState(int[] iArr) {
+    public boolean setState(@NonNull int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iArr)) == null) {
@@ -174,7 +178,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14, android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTintMode(PorterDuff.Mode mode) {
+    public void setTintMode(@NonNull PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, mode) == null) {
             if (isCompatTintEnabled()) {

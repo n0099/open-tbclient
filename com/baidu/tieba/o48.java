@@ -1,78 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 /* loaded from: classes5.dex */
-public class o48 implements eo {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+public interface o48 {
+    AbsVideoPbFragment B();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982390, "Lcom/baidu/tieba/o48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947982390, "Lcom/baidu/tieba/o48;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
+    PbModel.h B0();
 
-    public o48() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    PbModel K();
 
-    @Override // com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
+    AbsPbActivity P();
 
-    public o48(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = i;
-        this.a = i2;
-    }
+    void finish();
+
+    TbPageContext getPageContext();
+
+    PbFragment k1();
+
+    void registerListener(MessageListener<?> messageListener);
 }

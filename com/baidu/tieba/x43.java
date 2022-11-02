@@ -1,381 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.gh3;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class x43 extends j53 {
+public final class x43 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements fi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ x43 g;
-
-        public a(x43 x43Var, CallbackHandler callbackHandler, String str, String str2, Context context, JSONObject jSONObject, String str3) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948250354, "Lcom/baidu/tieba/x43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x43Var, callbackHandler, str, str2, context, jSONObject, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.g = x43Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-            this.d = context;
-            this.e = jSONObject;
-            this.f = str3;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: b */
-        public void a(m83 m83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m83Var) == null) {
-                if (m83Var != null && !m83Var.d) {
-                    if (this.g.m(m83Var, this.c)) {
-                        this.g.l(this.d, this.e, this.a, this.b, this.f);
-                        return;
-                    } else {
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
-                        return;
-                    }
-                }
-                if (j53.b) {
-                    Log.i("OpenAppAction", "no configuration of authority");
-                }
-                k83.o(10005, this.a, this.b);
-                fa3.r(10005, m83Var);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements gh3.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-
-        public b(x43 x43Var, CallbackHandler callbackHandler, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x43Var, callbackHandler, str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-        }
-
-        @Override // com.baidu.tieba.gh3.g
-        public void a(boolean z) {
-            int i;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    i = 0;
-                } else {
-                    i = 1001;
-                }
-                if (z) {
-                    str = "打开APP成功";
-                } else {
-                    str = "打开APP失败，本地没有安装";
-                }
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(i, str).toString());
-                c.a("open", this.c, "confirm", this.d);
-            }
-        }
-
-        @Override // com.baidu.tieba.gh3.g
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
-                c.a("open", this.c, "cancel", this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a(String str, String str2, String str3, String str4) {
-            String str5;
-            String str6;
-            String str7;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, str4) == null) {
-                oa3 oa3Var = new oa3();
-                m33 b0 = m33.b0();
-                String str8 = "";
-                if (b0 == null) {
-                    str5 = "";
-                    str6 = str5;
-                    str7 = str6;
-                } else {
-                    str8 = fa3.n(b0.k());
-                    str6 = b0.getAppId();
-                    str7 = b0.Z();
-                    str5 = b0.W().T();
-                }
-                String a = tm2.n().a();
-                oa3Var.a = str8;
-                oa3Var.b = str;
-                oa3Var.e = str2;
-                oa3Var.f = str6;
-                oa3Var.c = str5;
-                oa3Var.a("appName", str7);
-                oa3Var.a("hostName", a);
-                oa3Var.a("hostVersion", gh3.D());
-                oa3Var.a(PushConstants.CLICK_TYPE, str3);
-                try {
-                    str4 = URLDecoder.decode(str4, "UTF-8");
-                } catch (UnsupportedEncodingException unused) {
-                }
-                oa3Var.a("scheme", str4);
-                t93.i("2572", "90", oa3Var.f());
-                if (j53.b) {
-                    Log.d("OpenAppAction", String.format("ubcId=%s && ceresId=%s , content:%s ", "2572", "90", oa3Var.f()));
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x43(j43 j43Var) {
-        super(j43Var, "/swanAPI/openApp");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948250354, "Lcom/baidu/tieba/x43;");
                 return;
             }
         }
+        a = ok1.a;
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    public static b53 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (!tm2.a().d()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
-                return false;
-            } else if (m33Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
-                return false;
-            } else {
-                JSONObject a2 = j53.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params");
-                    return false;
-                }
-                String optString = a2.optString("cb");
-                if (j53.b) {
-                    Log.i("OpenAppAction", "params is " + a2.toString());
-                }
-                String optString2 = a2.optString("open", "");
-                String optString3 = a2.optString("invokeFrom", "");
-                c.a("invoke", optString3, null, optString2);
-                if (optString2.startsWith("baiduboxapp")) {
-                    if (!tm2.a().c()) {
-                        e33.f(context, R.string.obfuscated_res_0x7f0f1263).G();
-                        return false;
-                    }
-                    l(context, a2, callbackHandler, optString, optString3);
-                } else {
-                    m33Var.e0().e("scope_open_app", new a(this, callbackHandler, optString, optString2, context, a2, optString3));
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
+            b53 b53Var = new b53();
+            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", b53Var);
+            ln2.s().a(b53Var);
+            b53Var.b(new r73(b53Var));
+            b53Var.b(new q73(b53Var));
+            b53Var.b(new x73(b53Var));
+            b53Var.b(new v73(b53Var));
+            b53Var.b(new u73(b53Var));
+            b53Var.b(new o73(b53Var));
+            b53Var.b(new h73(b53Var));
+            b53Var.b(new g73(b53Var));
+            b53Var.b(new f73(b53Var));
+            b53Var.b(new i73(b53Var));
+            b53Var.b(new m73(b53Var));
+            b53Var.b(new l73(b53Var));
+            b53Var.b(new z73(b53Var));
+            b53Var.b(new b83(b53Var));
+            b53Var.b(new a83(b53Var));
+            b53Var.b(new j53(b53Var));
+            b53Var.b(new c73(b53Var));
+            b53Var.b(new ex1(b53Var));
+            b53Var.b(new hx1(b53Var));
+            b53Var.b(new jx1(b53Var));
+            b53Var.b(new cx1(b53Var));
+            b53Var.b(new fx1(b53Var));
+            b53Var.b(new ix1(b53Var));
+            b53Var.b(new jr2(b53Var));
+            b53Var.b(new ir2(b53Var));
+            b53Var.b(new ft2(b53Var));
+            b53Var.b(new y22(b53Var));
+            b53Var.b(new s12(b53Var));
+            b53Var.b(new zb3(b53Var));
+            b53Var.b(new sb3(b53Var));
+            b53Var.b(new tb3(b53Var));
+            b53Var.b(new wb3(b53Var));
+            b53Var.b(new mv2(b53Var));
+            b53Var.b(new tm2(b53Var));
+            b53Var.b(new qm2(b53Var));
+            b53Var.b(new um2(b53Var));
+            b53Var.b(new if3(b53Var));
+            b53Var.b(new jf3(b53Var));
+            b53Var.b(new kf3(b53Var));
+            b53Var.b(new lf3(b53Var));
+            b53Var.b(new mf3(b53Var));
+            b53Var.b(new nf3(b53Var));
+            b53Var.b(new of3(b53Var));
+            b53Var.b(new pf3(b53Var));
+            b53Var.b(new mq2(b53Var));
+            b53Var.b(new pw1(b53Var));
+            b53Var.b(new uw1(b53Var));
+            b53Var.b(new qw1(b53Var));
+            b53Var.b(new tw1(b53Var));
+            b53Var.b(new rw1(b53Var));
+            b53Var.b(new sw1(b53Var));
+            b53Var.b(new g02(b53Var));
+            b53Var.b(new h02(b53Var));
+            b53Var.b(new xg2(b53Var));
+            b53Var.b(new wk1(b53Var));
+            b53Var.b(new tk1(b53Var));
+            b53Var.b(new re3(b53Var));
+            b53Var.b(new se3(b53Var));
+            b53Var.b(new be3(b53Var));
+            b53Var.b(new pj3(b53Var));
+            b53Var.b(new iw1(b53Var));
+            b53Var.b(new nr2(b53Var));
+            b53Var.b(new or2(b53Var));
+            b53Var.b(new mr2(b53Var));
+            b53Var.b(new rb3(b53Var));
+            b53Var.b(new n22(b53Var));
+            b53Var.b(new vf3(b53Var));
+            b53Var.b(new uf3(b53Var));
+            b53Var.b(new wf3(b53Var));
+            b53Var.b(new le3(b53Var));
+            b53Var.b(new a73(b53Var));
+            b53Var.b(new x63(b53Var));
+            b53Var.b(new t53(b53Var));
+            if (a) {
+                b53Var.b(new y73(b53Var));
+                b53Var.b(new c22(b53Var));
             }
+            b53Var.b(new w53(b53Var));
+            b53Var.b(new n53(b53Var));
+            b53Var.b(new e53(b53Var));
+            b53Var.b(new p53(b53Var));
+            b53Var.b(new dx1(b53Var));
+            b53Var.b(new gx1(b53Var));
+            b53Var.b(new b02(b53Var));
+            b53Var.b(new h63(b53Var));
+            b53Var.b(new k63(b53Var));
+            b53Var.b(new l63(b53Var));
+            b53Var.b(new j63(b53Var));
+            b53Var.b(new m63(b53Var));
+            b53Var.b(new s73(b53Var));
+            b53Var.b(new yq1(b53Var));
+            b53Var.b(new oe2(b53Var));
+            b53Var.b(new f63(b53Var));
+            b53Var.b(new g63(b53Var));
+            b53Var.b(new e73(b53Var));
+            b53Var.b(new n63(b53Var));
+            b53Var.b(new a63(b53Var));
+            b53Var.b(new g53(b53Var));
+            b53Var.b(new wt2(b53Var));
+            b53Var.b(new o53(b53Var));
+            b53Var.b(new uk2(b53Var));
+            b53Var.b(new wk2(b53Var));
+            b53Var.b(new s63(b53Var));
+            b53Var.b(new t63(b53Var));
+            b53Var.b(new qt2(b53Var));
+            b53Var.b(new bl1(b53Var));
+            b53Var.b(new ow2(b53Var));
+            b53Var.b(new fr1(b53Var));
+            b53Var.b(new jr1(b53Var));
+            b53Var.b(new hr1(b53Var));
+            b53Var.b(new kr1(b53Var));
+            b53Var.b(new ir1(b53Var));
+            b53Var.b(new t83(b53Var));
+            b53Var.b(new wq1(b53Var));
+            b53Var.b(new xq1(b53Var));
+            b53Var.b(new dr1(b53Var));
+            ln2.Y().a(b53Var);
+            return b53Var;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void l(Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str, String str2) {
-        boolean z;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, callbackHandler, str, str2) == null) {
-            String optString = jSONObject.optString("open");
-            int i = 0;
-            if (!TextUtils.isEmpty(optString)) {
-                optString = Uri.decode(optString);
-                tm2.P().a(optString, jSONObject.optJSONObject("extraParams"));
-                if (j53.b) {
-                    Log.i("OpenAppAction", "openUrl:" + optString);
-                }
-                z = o(context, optString, callbackHandler, str, str2);
-            } else {
-                z = false;
-            }
-            boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
-            if (j53.b) {
-                Log.i("OpenAppAction", "open app result=" + z + "\nisNeedDownload=" + optBoolean);
-            }
-            if (!optBoolean) {
-                if (!z) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1002, "打开APP失败，本地没有安装").toString());
-                }
-            } else if (!z) {
-                boolean e = gh3.e(context, jSONObject.optString("download"));
-                if (!e) {
-                    i = 1001;
-                }
-                if (e) {
-                    str3 = "下载APP成功";
-                } else {
-                    str3 = "下载APP失败";
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, str3).toString());
-                c.a("download", str2, null, optString);
-            }
-        }
-    }
-
-    public final boolean m(m83 m83Var, String str) {
-        InterceptResult invokeLL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m83Var, str)) == null) {
-            if (m83Var != null && !TextUtils.isEmpty(str)) {
-                String T = l33.K().q().W().T();
-                if (TextUtils.isEmpty(T)) {
-                    T = "NA";
-                }
-                JSONObject jSONObject = m83Var.o;
-                if (jSONObject != null && jSONObject.keys() != null) {
-                    if (j53.b) {
-                        Log.i("OpenAppAction", "source: " + T + " openUrl:" + str + " 配置数据:" + jSONObject);
-                    }
-                    JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
-                    if (optJSONArray == null) {
-                        length = 0;
-                    } else {
-                        length = optJSONArray.length();
-                    }
-                    if (length > 0) {
-                        boolean z = false;
-                        for (int i = 0; i < length; i++) {
-                            if (T.equals(optJSONArray.optString(i))) {
-                                z = true;
-                            }
-                        }
-                        if (!z || !n(str, optJSONArray2)) {
-                            return false;
-                        }
-                        return true;
-                    }
-                    return n(str, optJSONArray2);
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean n(String str, JSONArray jSONArray) {
-        InterceptResult invokeLL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jSONArray)) == null) {
-            if (jSONArray == null) {
-                length = 0;
-            } else {
-                length = jSONArray.length();
-            }
-            if (length > 0 && !TextUtils.isEmpty(str)) {
-                for (int i = 0; i < length; i++) {
-                    String optString = jSONArray.optString(i);
-                    if (!TextUtils.isEmpty(optString)) {
-                        String decode = Uri.decode(optString);
-                        int indexOf = decode.indexOf(":");
-                        if (indexOf > 0) {
-                            decode = decode.substring(0, indexOf);
-                        }
-                        if (str.startsWith(decode)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean o(Context context, String str, CallbackHandler callbackHandler, String str2, String str3) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, context, str, callbackHandler, str2, str3)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                return gh3.Z(context, str, new b(this, callbackHandler, str2, str3, str));
-            }
-            return false;
-        }
-        return invokeLLLLL.booleanValue;
+        return (b53) invokeL.objValue;
     }
 }

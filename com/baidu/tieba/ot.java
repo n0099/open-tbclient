@@ -1,27 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
-public final class ot {
+public class ot {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (activity == null || activity.isFinishing()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr == null) {
+                return "";
             }
-            if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                return true;
-            }
-            return false;
+            return new String(bArr, Charset.forName("UTF-8"));
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
+            }
+            return str.getBytes(Charset.forName("UTF-8"));
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (bArr == null) {
+                return new byte[0];
+            }
+            return Base64.encode(bArr, 2);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                return Base64.decode(bArr, 2);
+            }
+            return new byte[0];
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

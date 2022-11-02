@@ -47,7 +47,7 @@ public interface IDownloadManager {
         }
 
         @Override // com.baidu.searchbox.pms.download.IDownloadManager
-        public void start(List list, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
+        public void start(List<PackageInfo> list, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, list, downloadOptions, downloadCallback) == null) {
             }
@@ -76,5 +76,5 @@ public interface IDownloadManager {
 
     void resume(PackageInfo packageInfo);
 
-    void start(List list, DownloadOptions downloadOptions, DownloadCallback downloadCallback);
+    void start(List<PackageInfo> list, DownloadOptions downloadOptions, DownloadCallback downloadCallback);
 }

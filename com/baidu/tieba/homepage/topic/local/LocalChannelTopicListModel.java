@@ -6,8 +6,8 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.d57;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
+import com.baidu.tieba.n67;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class LocalChannelTopicListModel extends BdBaseModel {
+public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicListModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
@@ -23,7 +23,7 @@ public class LocalChannelTopicListModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(d57 d57Var);
+        void a(n67 n67Var);
 
         void onFail(String str);
     }
@@ -79,9 +79,9 @@ public class LocalChannelTopicListModel extends BdBaseModel {
                 }
                 return;
             }
-            d57 d57Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+            n67 n67Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
             if (this.a.a != null) {
-                this.a.a.a(d57Var);
+                this.a.a.a(n67Var);
             }
         }
     }

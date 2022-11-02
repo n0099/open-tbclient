@@ -8,6 +8,9 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,40 +19,61 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public abstract class RoundedDrawable extends Drawable implements Rounded, TransformAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
     public final RectF mBitmapBounds;
     public int mBorderColor;
     public final Path mBorderPath;
+    @VisibleForTesting
     public final float[] mBorderRadii;
     public float mBorderWidth;
+    @VisibleForTesting
     public final Matrix mBoundsTransform;
     public final float[] mCornerRadii;
     public final Drawable mDelegate;
+    @VisibleForTesting
     public final RectF mDrawableBounds;
+    @Nullable
+    @VisibleForTesting
     public RectF mInsideBorderBounds;
+    @Nullable
+    @VisibleForTesting
     public float[] mInsideBorderRadii;
+    @Nullable
+    @VisibleForTesting
     public Matrix mInsideBorderTransform;
+    @VisibleForTesting
     public final Matrix mInverseParentTransform;
     public boolean mIsCircle;
     public boolean mIsPathDirty;
     public boolean mIsShaderTransformDirty;
     public float mPadding;
     public boolean mPaintFilterBitmap;
+    @VisibleForTesting
     public final Matrix mParentTransform;
     public final Path mPath;
+    @VisibleForTesting
     public final Matrix mPrevBoundsTransform;
+    @Nullable
+    @VisibleForTesting
     public Matrix mPrevInsideBorderTransform;
+    @VisibleForTesting
     public final Matrix mPrevParentTransform;
+    @VisibleForTesting
     public final RectF mPrevRootBounds;
     public boolean mRadiiNonZero;
+    @VisibleForTesting
     public final RectF mRootBounds;
     public boolean mScaleDownInsideBorders;
+    @VisibleForTesting
     public final Matrix mTransform;
+    @Nullable
     public TransformCallback mTransformCallback;
 
     public RoundedDrawable(Drawable drawable) {
@@ -102,6 +126,7 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
+    @RequiresApi(api = 19)
     public int getAlpha() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -132,6 +157,8 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
+    @Nullable
+    @RequiresApi(api = 21)
     public ColorFilter getColorFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -221,6 +248,7 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
         return invokeV.booleanValue;
     }
 
+    @VisibleForTesting
     public boolean shouldRound() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -234,7 +262,7 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             if (FrescoSystrace.isTracing()) {
@@ -274,7 +302,7 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
+    public void setColorFilter(@Nullable ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, colorFilter) == null) {
             this.mDelegate.setColorFilter(colorFilter);
@@ -334,7 +362,7 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // com.facebook.drawee.drawable.TransformAwareDrawable
-    public void setTransformCallback(TransformCallback transformCallback) {
+    public void setTransformCallback(@Nullable TransformCallback transformCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, transformCallback) == null) {
             this.mTransformCallback = transformCallback;
@@ -355,7 +383,7 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(int i, PorterDuff.Mode mode) {
+    public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048594, this, i, mode) == null) {
             this.mDelegate.setColorFilter(i, mode);

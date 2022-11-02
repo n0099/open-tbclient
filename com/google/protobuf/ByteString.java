@@ -20,7 +20,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class ByteString implements Iterable {
+public abstract class ByteString implements Iterable<Byte> {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONCATENATE_BY_COPY_SIZE = 128;
@@ -31,19 +31,19 @@ public abstract class ByteString implements Iterable {
 
     /* renamed from: com.google.protobuf.ByteString$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public interface ByteIterator extends Iterator {
+    public interface ByteIterator extends Iterator<Byte> {
         byte nextByte();
     }
 
     public abstract ByteBuffer asReadOnlyByteBuffer();
 
-    public abstract List asReadOnlyByteBufferList();
+    public abstract List<ByteBuffer> asReadOnlyByteBufferList();
 
     public abstract byte byteAt(int i);
 
@@ -62,8 +62,10 @@ public abstract class ByteString implements Iterable {
     public abstract boolean isValidUtf8();
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.google.protobuf.ByteString$ByteIterator' to match base method */
     @Override // java.lang.Iterable
-    public abstract ByteIterator iterator();
+    /* renamed from: iterator */
+    public abstract Iterator<Byte> iterator2();
 
     public abstract CodedInputStream newCodedInput();
 
@@ -84,7 +86,7 @@ public abstract class ByteString implements Iterable {
     public abstract void writeTo(OutputStream outputStream) throws IOException;
 
     /* loaded from: classes7.dex */
-    public final class CodedBuilder {
+    public static final class CodedBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] buffer;
@@ -135,13 +137,13 @@ public abstract class ByteString implements Iterable {
     }
 
     /* loaded from: classes7.dex */
-    public final class Output extends OutputStream {
+    public static final class Output extends OutputStream {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] EMPTY_BYTE_ARRAY;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] buffer;
         public int bufferPos;
-        public final ArrayList flushedBuffers;
+        public final ArrayList<ByteString> flushedBuffers;
         public int flushedBuffersTotalBytes;
         public final int initialCapacity;
 
@@ -216,7 +218,7 @@ public abstract class ByteString implements Iterable {
             }
             if (i >= 0) {
                 this.initialCapacity = i;
-                this.flushedBuffers = new ArrayList();
+                this.flushedBuffers = new ArrayList<>();
                 this.buffer = new byte[i];
                 return;
             }
@@ -403,12 +405,12 @@ public abstract class ByteString implements Iterable {
         return (String) invokeV.objValue;
     }
 
-    public static ByteString balancedConcat(Iterator it, int i) {
+    public static ByteString balancedConcat(Iterator<ByteString> it, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, it, i)) == null) {
             if (i == 1) {
-                return (ByteString) it.next();
+                return it.next();
             }
             int i2 = i >>> 1;
             return balancedConcat(it, i2).concat(balancedConcat(it, i - i2));
@@ -462,16 +464,15 @@ public abstract class ByteString implements Iterable {
         }
     }
 
-    public static ByteString copyFrom(Iterable iterable) {
+    public static ByteString copyFrom(Iterable<ByteString> iterable) {
         InterceptResult invokeL;
         Collection collection;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) {
             if (!(iterable instanceof Collection)) {
                 collection = new ArrayList();
-                Iterator it = iterable.iterator();
-                while (it.hasNext()) {
-                    collection.add((ByteString) it.next());
+                for (ByteString byteString : iterable) {
+                    collection.add(byteString);
                 }
             } else {
                 collection = (Collection) iterable;

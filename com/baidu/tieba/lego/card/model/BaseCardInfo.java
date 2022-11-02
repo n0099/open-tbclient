@@ -3,15 +3,15 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.ai7;
-import com.baidu.tieba.tg7;
+import com.baidu.tieba.di7;
+import com.baidu.tieba.kj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BaseCardInfo extends BaseLegoCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +72,9 @@ public class BaseCardInfo extends BaseLegoCardInfo {
                 if (obj instanceof UpdateAttentionMessage.a) {
                     UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
                     return responseAttentionUser(aVar.c, aVar.d);
-                } else if (obj instanceof ai7) {
-                    ai7 ai7Var = (ai7) obj;
-                    return responseAttentionForum(ai7Var.a, ai7Var.b);
+                } else if (obj instanceof kj7) {
+                    kj7 kj7Var = (kj7) obj;
+                    return responseAttentionForum(kj7Var.a, kj7Var.b);
                 } else {
                     return false;
                 }
@@ -89,7 +89,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return tg7.b.a(str).d("fid");
+                return di7.b.a(str).d("fid");
             }
             return "";
         }
@@ -101,7 +101,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return tg7.b.a(str).d("touid");
+                return di7.b.a(str).d("touid");
             }
             return "";
         }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,10 +10,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nf4 {
+public abstract class nf4 implements qf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nf4 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Nullable
+    public JSONArray c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    @Nullable
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
 
     public nf4() {
         Interceptable interceptable = $ic;
@@ -29,45 +48,41 @@ public class nf4 {
         }
     }
 
-    public static nf4 a() {
-        InterceptResult invokeV;
+    public static <T> T e(@Nullable T t, @Nullable of4<T> of4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (nf4.class) {
-                    if (a == null) {
-                        a = new nf4();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, of4Var)) == null) {
+            if (t != null && of4Var != null) {
+                of4Var.a(t);
             }
-            return a;
+            return t;
         }
-        return (nf4) invokeV.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        boolean z;
+    @Override // com.baidu.tieba.qf4
+    @Nullable
+    public JSONObject a(@Nullable of4<JSONObject> of4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, of4Var)) == null) {
+            JSONObject d = d();
+            e(d, of4Var);
+            return d;
         }
-        String optString = jSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && xa4.b() != null && xa4.b().i() != null) {
-            JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
-            JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
-            boolean z2 = true;
-            if (optJSONArray != null) {
-                z = xa4.b().o(false, optJSONArray);
-            } else {
-                z = true;
-            }
-            if (optJSONArray2 != null) {
-                z2 = xa4.b().o(true, optJSONArray2);
-            }
-            if (z && z2) {
-                xa4.b().i().putString("key_online_description_fix_version", optString);
-            }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.qf4
+    @Nullable
+    public JSONArray b(@Nullable of4<JSONArray> of4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, of4Var)) == null) {
+            JSONArray c = c();
+            e(c, of4Var);
+            return c;
         }
+        return (JSONArray) invokeL.objValue;
     }
 }

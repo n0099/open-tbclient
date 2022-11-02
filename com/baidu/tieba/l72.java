@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.tieba.i72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,107 +16,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public final class l72 {
+public class l72<T extends i72> extends sb4<ed4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public i72 a;
-    public j72 b;
-    public ConcurrentHashMap c;
+    @NonNull
+    public final T a;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PrefetchEvent a;
-        public final /* synthetic */ l72 b;
-
-        public a(l72 l72Var, PrefetchEvent prefetchEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l72Var, prefetchEvent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = l72Var;
-            this.a = prefetchEvent;
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.b.e(this.a);
-        }
+        return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements i72.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PrefetchEvent a;
-        public final /* synthetic */ l72 b;
-
-        public b(l72 l72Var, PrefetchEvent prefetchEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l72Var, prefetchEvent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = l72Var;
-            this.a = prefetchEvent;
-        }
-
-        @Override // com.baidu.tieba.i72.e
-        public void a(l03 l03Var, PMSAppInfo pMSAppInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, l03Var, pMSAppInfo) == null) {
-                this.b.b.b(this.a, l03Var, pMSAppInfo);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final l72 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-677978877, "Lcom/baidu/tieba/l72$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-677978877, "Lcom/baidu/tieba/l72$c;");
-                    return;
-                }
-            }
-            a = new l72(null);
+    @CallSuper
+    public void p(@NonNull ed4 ed4Var, @Nullable xf3 xf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, ed4Var, xf3Var) == null) {
         }
     }
 
@@ -131,29 +55,25 @@ public final class l72 {
                 return;
             }
         }
-        d = wj1.a;
+        b = ok1.a;
     }
 
-    public static l72 g() {
+    @Override // com.baidu.tieba.sb4
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.g();
         }
-        return (l72) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.clear();
-        }
-    }
-
-    public l72() {
+    public l72(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -163,55 +83,107 @@ public final class l72 {
                 return;
             }
         }
-        this.c = new ConcurrentHashMap();
-        this.a = new i72();
-        this.b = new j72();
+        this.a = t;
     }
 
-    public /* synthetic */ l72(a aVar) {
-        this();
-    }
-
-    public void c(PrefetchEvent prefetchEvent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sb4, com.baidu.tieba.vb4
+    /* renamed from: s */
+    public void c(ed4 ed4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, prefetchEvent) != null) || prefetchEvent == null) {
-            return;
-        }
-        this.c.put(ov1.a(prefetchEvent.appId), prefetchEvent);
-    }
-
-    public final void e(PrefetchEvent prefetchEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent) == null) {
-            this.a.g(prefetchEvent, new b(this, prefetchEvent));
+        if (interceptable == null || interceptable.invokeL(1048586, this, ed4Var) == null) {
+            super.c(ed4Var);
+            if (b) {
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + ed4Var);
+            }
         }
     }
 
-    public final boolean h(PrefetchEvent prefetchEvent) {
+    @Override // com.baidu.tieba.xb4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (set.contains("event_performance_ubc")) {
+                this.a.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                set.remove("event_performance_ubc");
+            }
+            return bundle2;
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vb4
+    /* renamed from: o */
+    public String d(ed4 ed4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, prefetchEvent)) == null) {
-            if (!m72.h() || prefetchEvent == null || !prefetchEvent.isValid() || !TextUtils.equals(prefetchEvent.state, "show")) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ed4Var)) == null) {
+            if (TextUtils.isEmpty(ed4Var.o)) {
+                ed4Var.o = l();
             }
-            return false;
+            int i = ed4Var.h;
+            if (i == 0) {
+                return x72.b(ed4Var.o, String.valueOf(ed4Var.i));
+            }
+            if (i == 1) {
+                return x72.d(ed4Var.o, String.valueOf(ed4Var.i));
+            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void f(PrefetchEvent prefetchEvent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sb4, com.baidu.tieba.vb4
+    /* renamed from: r */
+    public final void i(ed4 ed4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, prefetchEvent) == null) {
-            if (d) {
-                Log.d("SwanAppPrefetchManager", "fire preloadEvent abSwitch: " + m72.h());
+        if (interceptable == null || interceptable.invokeL(1048585, this, ed4Var) == null) {
+            super.i(ed4Var);
+            p(ed4Var, t(ed4Var));
+            if (b) {
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + ed4Var);
             }
-            if (h(prefetchEvent)) {
-                return;
-            }
-            if (d) {
-                Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
-            }
-            ExecutorUtilsExt.postOnSerial(new a(this, prefetchEvent), "prefetch-event-thread");
         }
+    }
+
+    @CallSuper
+    public void q(ed4 ed4Var, yc4 yc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ed4Var, yc4Var) == null) {
+            super.e(ed4Var, yc4Var);
+            e12.k("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + ed4Var.a);
+            ik4.M(ed4Var.a);
+            if (b) {
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + ed4Var + ", error=" + yc4Var);
+            }
+        }
+    }
+
+    public final xf3 t(ed4 ed4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, ed4Var)) == null) {
+            if (!rh3.a(new File(ed4Var.a), ed4Var.m)) {
+                xf3 xf3Var = new xf3();
+                xf3Var.k(12L);
+                xf3Var.b(2300L);
+                xf3Var.d("分包签名校验失败");
+                return xf3Var;
+            } else if (!x72.g(ed4Var)) {
+                xf3 xf3Var2 = new xf3();
+                xf3Var2.k(12L);
+                xf3Var2.b(2320L);
+                xf3Var2.d("分包解压失败");
+                return xf3Var2;
+            } else {
+                return null;
+            }
+        }
+        return (xf3) invokeL.objValue;
     }
 }

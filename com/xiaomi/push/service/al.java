@@ -1,5 +1,7 @@
 package com.xiaomi.push.service;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -73,14 +75,14 @@ public class al {
     public static volatile as f890a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final LinkedList f891a;
+    public static final LinkedList<Pair<Integer, Cif>> f891a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ExecutorService f892a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements Callable {
+    public static class a implements Callable<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -142,7 +144,7 @@ public class al {
     }
 
     /* loaded from: classes8.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -168,7 +170,7 @@ public class al {
     }
 
     /* loaded from: classes8.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -210,7 +212,7 @@ public class al {
                 return;
             }
         }
-        f891a = new LinkedList();
+        f891a = new LinkedList<>();
         f892a = Executors.newCachedThreadPool();
     }
 
@@ -232,7 +234,7 @@ public class al {
         return invokeLLL.intValue;
     }
 
-    public static int a(Context context, String str, Map map, int i) {
+    public static int a(Context context, String str, Map<String, String> map, int i) {
         InterceptResult invokeLLLI;
         ComponentName a2;
         Interceptable interceptable = $ic;
@@ -246,11 +248,11 @@ public class al {
         return invokeLLLI.intValue;
     }
 
-    public static int a(Map map) {
+    public static int a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
-            String str = map == null ? null : (String) map.get("timeout");
+            String str = map == null ? null : map.get("timeout");
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
@@ -356,7 +358,7 @@ public class al {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, str, cif, bArr, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            Map m432a = cif.m465a().m432a();
+            Map<String, String> m432a = cif.m465a().m432a();
             if (m432a == null) {
                 return null;
             }
@@ -380,7 +382,7 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Intent m604a(Context context, String str, Map map, int i) {
+    public static Intent m604a(Context context, String str, Map<String, String> map, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65546, null, context, str, map, i)) == null) {
@@ -408,14 +410,14 @@ public class al {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Intent a(Context context, String str, Map map, String str2, String str3, String str4, String str5) {
+    public static Intent a(Context context, String str, Map<String, String> map, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Intent launchIntentForPackage;
         Intent intent;
         Intent intent2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, str, map, str2, str3, str4, str5})) == null) {
-            String str6 = (String) map.get(str2);
+            String str6 = map.get(str2);
             if (TextUtils.isEmpty(str6)) {
                 return null;
             }
@@ -428,7 +430,7 @@ public class al {
             } else {
                 if (bk.b.equals(str6)) {
                     if (map.containsKey(str3)) {
-                        String str7 = (String) map.get(str3);
+                        String str7 = map.get(str3);
                         if (str7 != null) {
                             try {
                                 intent2 = Intent.parseUri(str7, 1);
@@ -450,12 +452,12 @@ public class al {
                         }
                     } else if (map.containsKey(str4)) {
                         intent = new Intent();
-                        intent.setComponent(new ComponentName(str, (String) map.get(str4)));
+                        intent.setComponent(new ComponentName(str, map.get(str4)));
                     }
                     launchIntentForPackage = null;
                 } else {
                     if (bk.c.equals(str6)) {
-                        String str8 = (String) map.get(str5);
+                        String str8 = map.get(str5);
                         if (!TextUtils.isEmpty(str8)) {
                             String trim = str8.trim();
                             if (!trim.startsWith("http://") && !trim.startsWith("https://")) {
@@ -561,9 +563,9 @@ public class al {
             hw m465a = cif.m465a();
             String a2 = a(cif);
             if (m465a != null && m465a.m432a() != null) {
-                Map m432a = m465a.m432a();
-                String str = (String) m432a.get("layout_name");
-                String str2 = (String) m432a.get("layout_value");
+                Map<String, String> m432a = m465a.m432a();
+                String str = m432a.get("layout_name");
+                String str2 = m432a.get("layout_value");
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                     try {
                         Resources resourcesForApplication = context.getPackageManager().getResourcesForApplication(a2);
@@ -629,21 +631,22 @@ public class al {
         return (RemoteViews) invokeLLL.objValue;
     }
 
+    @TargetApi(16)
     public static eq a(Context context, Cif cif, byte[] bArr, String str, int i) {
         InterceptResult invokeCommon;
         PendingIntent a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{context, cif, bArr, str, Integer.valueOf(i)})) == null) {
             String a3 = a(cif);
-            Map m432a = cif.m465a().m432a();
-            String str2 = (String) m432a.get("notification_style_type");
+            Map<String, String> m432a = cif.m465a().m432a();
+            String str2 = m432a.get("notification_style_type");
             eq a4 = (!com.xiaomi.push.m.m561a(context) || f890a == null) ? null : f890a.a(context, i, a3, m432a);
             if (a4 != null) {
                 a4.a(m432a);
                 return a4;
             } else if ("2".equals(str2)) {
                 eq eqVar = new eq(context);
-                Bitmap a5 = TextUtils.isEmpty((String) m432a.get("notification_bigPic_uri")) ? null : a(context, (String) m432a.get("notification_bigPic_uri"), false);
+                Bitmap a5 = TextUtils.isEmpty(m432a.get("notification_bigPic_uri")) ? null : a(context, m432a.get("notification_bigPic_uri"), false);
                 if (a5 == null) {
                     com.xiaomi.channel.commonutils.logger.b.m89a("can not get big picture.");
                     return eqVar;
@@ -660,23 +663,23 @@ public class al {
                 return eqVar2;
             } else if ("4".equals(str2) && com.xiaomi.push.m.m560a()) {
                 ep epVar = new ep(context, a3);
-                if (!TextUtils.isEmpty((CharSequence) m432a.get("notification_banner_image_uri"))) {
-                    epVar.a(a(context, (String) m432a.get("notification_banner_image_uri"), false));
+                if (!TextUtils.isEmpty(m432a.get("notification_banner_image_uri"))) {
+                    epVar.a(a(context, m432a.get("notification_banner_image_uri"), false));
                 }
-                if (!TextUtils.isEmpty((CharSequence) m432a.get("notification_banner_icon_uri"))) {
-                    epVar.b(a(context, (String) m432a.get("notification_banner_icon_uri"), false));
+                if (!TextUtils.isEmpty(m432a.get("notification_banner_icon_uri"))) {
+                    epVar.b(a(context, m432a.get("notification_banner_icon_uri"), false));
                 }
                 epVar.a(m432a);
                 return epVar;
             } else if ("3".equals(str2) && com.xiaomi.push.m.m560a()) {
                 er erVar = new er(context, i, a3);
-                if (!TextUtils.isEmpty((CharSequence) m432a.get("notification_colorful_button_text")) && (a2 = a(context, a3, cif, bArr, i, 4)) != null) {
-                    erVar.a((CharSequence) m432a.get("notification_colorful_button_text"), a2).a((String) m432a.get("notification_colorful_button_bg_color"));
+                if (!TextUtils.isEmpty(m432a.get("notification_colorful_button_text")) && (a2 = a(context, a3, cif, bArr, i, 4)) != null) {
+                    erVar.a(m432a.get("notification_colorful_button_text"), a2).a(m432a.get("notification_colorful_button_bg_color"));
                 }
-                if (!TextUtils.isEmpty((CharSequence) m432a.get("notification_colorful_bg_color"))) {
-                    erVar.b((String) m432a.get("notification_colorful_bg_color"));
-                } else if (!TextUtils.isEmpty((CharSequence) m432a.get("notification_colorful_bg_image_uri"))) {
-                    erVar.a(a(context, (String) m432a.get("notification_colorful_bg_image_uri"), false));
+                if (!TextUtils.isEmpty(m432a.get("notification_colorful_bg_color"))) {
+                    erVar.b(m432a.get("notification_colorful_bg_color"));
+                } else if (!TextUtils.isEmpty(m432a.get("notification_colorful_bg_image_uri"))) {
+                    erVar.a(a(context, m432a.get("notification_colorful_bg_image_uri"), false));
                 }
                 erVar.a(m432a);
                 return erVar;
@@ -699,6 +702,7 @@ public class al {
     /* JADX WARN: Removed duplicated region for block: B:76:0x01c6  */
     /* JADX WARN: Type inference failed for: r12v21 */
     /* JADX WARN: Type inference failed for: r12v23 */
+    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -732,7 +736,7 @@ public class al {
             b bVar2 = new b();
             hw m465a = cif.m465a();
             String a8 = a(cif);
-            Map m432a = m465a.m432a();
+            Map<String, String> m432a = m465a.m432a();
             String[] a9 = a(context, m465a);
             if (remoteViews != null) {
                 eqVar = new eq(context);
@@ -785,7 +789,7 @@ public class al {
                     i4 = 1;
                 } else {
                     i4 = 1;
-                    a6 = a(context, (String) m432a.get("notification_small_icon_uri"), true);
+                    a6 = a(context, m432a.get("notification_small_icon_uri"), true);
                 }
                 if (a6 != null) {
                     Object[] objArr = new Object[i4];
@@ -802,7 +806,7 @@ public class al {
                     } else {
                         sb = new StringBuilder();
                         sb.append("failed te get small icon with url:");
-                        a7 = (String) m432a.get("notification_small_icon_uri");
+                        a7 = m432a.get("notification_small_icon_uri");
                     }
                 } else {
                     sb = new StringBuilder();
@@ -830,7 +834,7 @@ public class al {
                 if (a5 != null) {
                     eqVar2.setLargeIcon(a5);
                     z2 = true;
-                    a3 = m432a != null ? null : a(context, (String) m432a.get("notification_large_icon_uri"), true);
+                    a3 = m432a != null ? null : a(context, m432a.get("notification_large_icon_uri"), true);
                     if (a3 != null) {
                         eqVar2.setLargeIcon(a3);
                     }
@@ -840,15 +844,15 @@ public class al {
                         z4 = false;
                         z5 = true;
                     } else {
-                        String str3 = (String) m432a.get("notification_group");
-                        boolean parseBoolean = Boolean.parseBoolean((String) m432a.get("notification_is_summary"));
-                        boolean parseBoolean2 = Boolean.parseBoolean((String) m432a.get("notification_group_disable_default"));
+                        String str3 = m432a.get("notification_group");
+                        boolean parseBoolean = Boolean.parseBoolean(m432a.get("notification_is_summary"));
+                        boolean parseBoolean2 = Boolean.parseBoolean(m432a.get("notification_group_disable_default"));
                         if (TextUtils.isEmpty(str3) && (com.xiaomi.push.m.m560a() || !parseBoolean2)) {
                             str3 = a(cif);
                         }
                         String str4 = str3;
                         com.xiaomi.push.bk.a((Object) eqVar2, "setGroupSummary", Boolean.valueOf(parseBoolean));
-                        String str5 = (String) m432a.get("notification_style_type");
+                        String str5 = m432a.get("notification_style_type");
                         if ("com.xiaomi.xmsf".equals(context.getPackageName()) && ("4".equals(str5) || "3".equals(str5))) {
                             z4 = true;
                             z5 = true;
@@ -864,7 +868,7 @@ public class al {
                     eqVar2.setAutoCancel(z5);
                     currentTimeMillis = System.currentTimeMillis();
                     if (m432a != null && m432a.containsKey(ALaKeepAliveService.KEY_TICKER)) {
-                        eqVar2.setTicker((CharSequence) m432a.get(ALaKeepAliveService.KEY_TICKER));
+                        eqVar2.setTicker(m432a.get(ALaKeepAliveService.KEY_TICKER));
                     }
                     if (currentTimeMillis - a <= 10000) {
                         a = currentTimeMillis;
@@ -874,7 +878,7 @@ public class al {
                         }
                         eqVar2.setDefaults(i2);
                         if (m432a != null && (i2 & 1) != 0) {
-                            String str6 = (String) m432a.get("sound_uri");
+                            String str6 = m432a.get("sound_uri");
                             if (!TextUtils.isEmpty(str6)) {
                                 bVar = bVar2;
                                 StringBuilder sb2 = new StringBuilder();
@@ -912,13 +916,13 @@ public class al {
                             str2 = "com.xiaomi.xmsf";
                         }
                         at.a(m465a);
-                        String str7 = (String) m432a.get("channel_id");
+                        String str7 = m432a.get("channel_id");
                         if (!TextUtils.isEmpty(str7) || context.getApplicationInfo().targetSdkVersion >= 26) {
                             String a19 = a(context, a8, m432a);
                             int b2 = b(m432a);
                             int i5 = m465a.f537a;
                             cc.a(context, m432a, eqVar2, currentTimeMillis2);
-                            com.xiaomi.push.bk.a((Object) eqVar2, "setChannelId", at.a(a18, str7, a19, (String) m432a.get("channel_description"), i5, b2, (String) m432a.get("sound_uri"), (String) m432a.get("channel_perm")));
+                            com.xiaomi.push.bk.a((Object) eqVar2, "setChannelId", at.a(a18, str7, a19, m432a.get("channel_description"), i5, b2, m432a.get("sound_uri"), m432a.get("channel_perm")));
                             if (i3 == -100 && ay.a(m432a)) {
                                 ay.a(eqVar2, z7);
                             }
@@ -929,7 +933,7 @@ public class al {
                                 ay.a(eqVar2, z7);
                             }
                         }
-                        String str8 = (String) m432a.get("background_color");
+                        String str8 = m432a.get("background_color");
                         if (!TextUtils.isEmpty(str8)) {
                             try {
                                 int parseInt = Integer.parseInt(str8);
@@ -958,17 +962,17 @@ public class al {
                         if (notification.extras == null) {
                             notification.extras = new Bundle();
                         }
-                        if (!TextUtils.isEmpty((CharSequence) m432a.get("enable_keyguard"))) {
-                            ay.b(notification, Boolean.parseBoolean((String) m432a.get("enable_keyguard")));
+                        if (!TextUtils.isEmpty(m432a.get("enable_keyguard"))) {
+                            ay.b(notification, Boolean.parseBoolean(m432a.get("enable_keyguard")));
                         }
-                        if (!TextUtils.isEmpty((CharSequence) m432a.get("enable_float"))) {
-                            ay.a(notification, Boolean.parseBoolean((String) m432a.get("enable_float")));
+                        if (!TextUtils.isEmpty(m432a.get("enable_float"))) {
+                            ay.a(notification, Boolean.parseBoolean(m432a.get("enable_float")));
                         }
-                        if (!TextUtils.isEmpty((CharSequence) m432a.get("float_small_win")) && "0".equals((String) m432a.get("float_small_win")) && com.xiaomi.push.h.d(context, a8)) {
+                        if (!TextUtils.isEmpty(m432a.get("float_small_win")) && "0".equals(m432a.get("float_small_win")) && com.xiaomi.push.h.d(context, a8)) {
                             ay.a(notification, false);
                         }
-                        int a20 = com.xiaomi.push.w.a((String) m432a.get("section_is_prr"), -1);
-                        int a21 = com.xiaomi.push.w.a((String) m432a.get("section_prr_cl"), -1);
+                        int a20 = com.xiaomi.push.w.a(m432a.get("section_is_prr"), -1);
+                        int a21 = com.xiaomi.push.w.a(m432a.get("section_prr_cl"), -1);
                         if (a20 >= 0 && a21 >= 0) {
                             ay.a(notification, a20, a21);
                         }
@@ -992,7 +996,7 @@ public class al {
             eqVar2.setAutoCancel(z5);
             currentTimeMillis = System.currentTimeMillis();
             if (m432a != null) {
-                eqVar2.setTicker((CharSequence) m432a.get(ALaKeepAliveService.KEY_TICKER));
+                eqVar2.setTicker(m432a.get(ALaKeepAliveService.KEY_TICKER));
             }
             if (currentTimeMillis - a <= 10000) {
             }
@@ -1024,7 +1028,7 @@ public class al {
     public static c m605a(Context context, Cif cif, byte[] bArr) {
         InterceptResult invokeLLL;
         int i;
-        Map map;
+        Map<String, String> map;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65554, null, context, cif, bArr)) == null) {
@@ -1064,7 +1068,7 @@ public class al {
                         notification.extras.putString("local_paid", cif.m466a());
                         ay.a(map, notification.extras, "msg_busi_type");
                         ay.a(map, notification.extras, "disable_notification_flags");
-                        String str2 = m465a.m437b() == null ? null : (String) m465a.m437b().get("score_info");
+                        String str2 = m465a.m437b() == null ? null : m465a.m437b().get("score_info");
                         if (!TextUtils.isEmpty(str2)) {
                             notification.extras.putString("score_info", str2);
                         }
@@ -1078,7 +1082,7 @@ public class al {
                         notification.extras.putString("eventMessageType", String.valueOf(i2));
                         notification.extras.putString("target_package", a(cif));
                     }
-                    String str3 = m465a.m432a() == null ? null : (String) m465a.m432a().get("message_count");
+                    String str3 = m465a.m432a() == null ? null : m465a.m432a().get("message_count");
                     if (com.xiaomi.push.m.m560a() && str3 != null) {
                         try {
                             ay.a(notification, Integer.parseInt(str3));
@@ -1124,7 +1128,7 @@ public class al {
                             a8.b(new am(str4, a7, b2), a9);
                         }
                     }
-                    Pair pair = new Pair(Integer.valueOf(b2), cif);
+                    Pair<Integer, Cif> pair = new Pair<>(Integer.valueOf(b2), cif);
                     synchronized (f891a) {
                         f891a.add(pair);
                         if (f891a.size() > 100) {
@@ -1144,10 +1148,10 @@ public class al {
         return (c) invokeLLL.objValue;
     }
 
-    public static String a(Context context, String str, Map map) {
+    public static String a(Context context, String str, Map<String, String> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, str, map)) == null) ? (map == null || TextUtils.isEmpty((CharSequence) map.get("channel_name"))) ? com.xiaomi.push.h.m387b(context, str) : (String) map.get("channel_name") : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, str, map)) == null) ? (map == null || TextUtils.isEmpty(map.get("channel_name"))) ? com.xiaomi.push.h.m387b(context, str) : map.get("channel_name") : (String) invokeLLL.objValue;
     }
 
     public static String a(Cif cif) {
@@ -1156,7 +1160,7 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, cif)) == null) {
             if ("com.xiaomi.xmsf".equals(cif.f633b) && (m465a = cif.m465a()) != null && m465a.m432a() != null) {
-                String str = (String) m465a.m432a().get("miui_package_name");
+                String str = m465a.m432a().get("miui_package_name");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
@@ -1166,7 +1170,7 @@ public class al {
         return (String) invokeL.objValue;
     }
 
-    public static String a(Map map, int i) {
+    public static String a(Map<String, String> map, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, map, i)) == null) {
@@ -1174,17 +1178,17 @@ public class al {
             if (map == null || format == null) {
                 return null;
             }
-            return (String) map.get(format);
+            return map.get(format);
         }
         return (String) invokeLI.objValue;
     }
 
-    public static String a(Map map, String str) {
+    public static String a(Map<String, String> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, map, str)) == null) {
             if (map != null) {
-                return (String) map.get(str);
+                return map.get(str);
             }
             return null;
         }
@@ -1233,7 +1237,7 @@ public class al {
             return;
         }
         ax a2 = ax.a(context, str);
-        List m631b = a2.m631b();
+        List<StatusBarNotification> m631b = a2.m631b();
         if (com.xiaomi.push.w.a(m631b)) {
             return;
         }
@@ -1245,20 +1249,20 @@ public class al {
         } else {
             hashCode = ((str.hashCode() / 10) * 10) + i;
         }
-        Iterator it = m631b.iterator();
+        Iterator<StatusBarNotification> it = m631b.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            StatusBarNotification statusBarNotification = (StatusBarNotification) it.next();
-            if (!TextUtils.isEmpty(String.valueOf(statusBarNotification.getId()))) {
-                int id = statusBarNotification.getId();
+            StatusBarNotification next = it.next();
+            if (!TextUtils.isEmpty(String.valueOf(next.getId()))) {
+                int id = next.getId();
                 if (z) {
-                    linkedList.add(statusBarNotification);
+                    linkedList.add(next);
                     a2.a(id);
                 } else if (hashCode == id) {
-                    d.a(context, statusBarNotification, i2);
-                    linkedList.add(statusBarNotification);
+                    d.a(context, next, i2);
+                    linkedList.add(next);
                     a2.a(id);
                     break;
                 }
@@ -1293,7 +1297,7 @@ public class al {
         a(context, linkedList);
     }
 
-    public static void a(Context context, LinkedList linkedList) {
+    public static void a(Context context, LinkedList<? extends Object> linkedList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65564, null, context, linkedList) == null) || linkedList == null || linkedList.size() <= 0) {
             return;
@@ -1314,6 +1318,7 @@ public class al {
         }
     }
 
+    @TargetApi(16)
     public static void a(eq eqVar, Context context, String str, Cif cif, byte[] bArr, int i) {
         PendingIntent a2;
         PendingIntent a3;
@@ -1321,29 +1326,29 @@ public class al {
         PendingIntent a5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{eqVar, context, str, cif, bArr, Integer.valueOf(i)}) == null) {
-            Map m432a = cif.m465a().m432a();
-            if (TextUtils.equals("3", (CharSequence) m432a.get("notification_style_type")) || TextUtils.equals("4", (CharSequence) m432a.get("notification_style_type"))) {
+            Map<String, String> m432a = cif.m465a().m432a();
+            if (TextUtils.equals("3", m432a.get("notification_style_type")) || TextUtils.equals("4", m432a.get("notification_style_type"))) {
                 return;
             }
             if (m614b(m432a)) {
                 for (int i2 = 1; i2 <= 3; i2++) {
-                    String str2 = (String) m432a.get(String.format("cust_btn_%s_n", Integer.valueOf(i2)));
+                    String str2 = m432a.get(String.format("cust_btn_%s_n", Integer.valueOf(i2)));
                     if (!TextUtils.isEmpty(str2) && (a5 = a(context, str, cif, bArr, i, i2)) != null) {
                         eqVar.addAction(0, str2, a5);
                     }
                 }
                 return;
             }
-            if (!TextUtils.isEmpty((CharSequence) m432a.get("notification_style_button_left_name")) && (a4 = a(context, str, cif, bArr, i, 1)) != null) {
-                eqVar.addAction(0, (CharSequence) m432a.get("notification_style_button_left_name"), a4);
+            if (!TextUtils.isEmpty(m432a.get("notification_style_button_left_name")) && (a4 = a(context, str, cif, bArr, i, 1)) != null) {
+                eqVar.addAction(0, m432a.get("notification_style_button_left_name"), a4);
             }
-            if (!TextUtils.isEmpty((CharSequence) m432a.get("notification_style_button_mid_name")) && (a3 = a(context, str, cif, bArr, i, 2)) != null) {
-                eqVar.addAction(0, (CharSequence) m432a.get("notification_style_button_mid_name"), a3);
+            if (!TextUtils.isEmpty(m432a.get("notification_style_button_mid_name")) && (a3 = a(context, str, cif, bArr, i, 2)) != null) {
+                eqVar.addAction(0, m432a.get("notification_style_button_mid_name"), a3);
             }
-            if (TextUtils.isEmpty((CharSequence) m432a.get("notification_style_button_right_name")) || (a2 = a(context, str, cif, bArr, i, 3)) == null) {
+            if (TextUtils.isEmpty(m432a.get("notification_style_button_right_name")) || (a2 = a(context, str, cif, bArr, i, 3)) == null) {
                 return;
             }
-            eqVar.addAction(0, (CharSequence) m432a.get("notification_style_button_right_name"), a2);
+            eqVar.addAction(0, m432a.get("notification_style_button_right_name"), a2);
         }
     }
 
@@ -1352,7 +1357,7 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, context, cif, str)) == null) {
             if (cif != null && cif.m465a() != null && cif.m465a().m432a() != null && !TextUtils.isEmpty(str)) {
-                return Boolean.parseBoolean((String) cif.m465a().m432a().get("use_clicked_activity")) && l.a(context, a(str));
+                return Boolean.parseBoolean(cif.m465a().m432a().get("use_clicked_activity")) && l.a(context, a(str));
             }
             com.xiaomi.channel.commonutils.logger.b.m89a("should clicked activity params are null.");
             return false;
@@ -1417,14 +1422,14 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m610a(Map map) {
+    public static boolean m610a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, map)) == null) {
             if (map == null || !map.containsKey("notify_foreground")) {
                 return true;
             }
-            return "1".equals((String) map.get("notify_foreground"));
+            return "1".equals(map.get("notify_foreground"));
         }
         return invokeL.booleanValue;
     }
@@ -1448,21 +1453,21 @@ public class al {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, context, hwVar)) == null) {
             String m439c = hwVar.m439c();
             String d = hwVar.d();
-            Map m432a = hwVar.m432a();
+            Map<String, String> m432a = hwVar.m432a();
             if (m432a != null) {
                 int intValue = Float.valueOf((context.getResources().getDisplayMetrics().widthPixels / context.getResources().getDisplayMetrics().density) + 0.5f).intValue();
                 if (intValue <= 320) {
-                    String str2 = (String) m432a.get("title_short");
+                    String str2 = m432a.get("title_short");
                     if (!TextUtils.isEmpty(str2)) {
                         m439c = str2;
                     }
-                    str = (String) m432a.get("description_short");
+                    str = m432a.get("description_short");
                 } else if (intValue > 360) {
-                    String str3 = (String) m432a.get("title_long");
+                    String str3 = m432a.get("title_long");
                     if (!TextUtils.isEmpty(str3)) {
                         m439c = str3;
                     }
-                    str = (String) m432a.get("description_long");
+                    str = m432a.get("description_long");
                 }
             }
             return new String[]{m439c, d};
@@ -1484,12 +1489,12 @@ public class al {
         return invokeLL.intValue;
     }
 
-    public static int b(Map map) {
+    public static int b(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, map)) == null) {
             if (map != null) {
-                String str = (String) map.get("channel_importance");
+                String str = map.get("channel_importance");
                 if (TextUtils.isEmpty(str)) {
                     return 3;
                 }
@@ -1510,7 +1515,7 @@ public class al {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Intent b(Context context, String str, Map map, int i) {
+    public static Intent b(Context context, String str, Map<String, String> map, int i) {
         InterceptResult invokeLLLI;
         Intent launchIntentForPackage;
         String str2;
@@ -1525,9 +1530,9 @@ public class al {
                 return m604a(context, str, map, i);
             }
             if (map.containsKey("notify_effect")) {
-                String str3 = (String) map.get("notify_effect");
+                String str3 = map.get("notify_effect");
                 int i2 = -1;
-                String str4 = (String) map.get("intent_flag");
+                String str4 = map.get("intent_flag");
                 try {
                     if (!TextUtils.isEmpty(str4)) {
                         i2 = Integer.parseInt(str4);
@@ -1544,7 +1549,7 @@ public class al {
                 } else {
                     if (bk.b.equals(str3)) {
                         if (map.containsKey("intent_uri")) {
-                            String str5 = (String) map.get("intent_uri");
+                            String str5 = map.get("intent_uri");
                             if (str5 != null) {
                                 try {
                                     intent2 = Intent.parseUri(str5, 1);
@@ -1566,11 +1571,11 @@ public class al {
                             }
                         } else if (map.containsKey(ForumSquareActivityConfig.FORUM_CLASS_NAME)) {
                             intent = new Intent();
-                            intent.setComponent(new ComponentName(str, (String) map.get(ForumSquareActivityConfig.FORUM_CLASS_NAME)));
+                            intent.setComponent(new ComponentName(str, map.get(ForumSquareActivityConfig.FORUM_CLASS_NAME)));
                         }
                         launchIntentForPackage = null;
                     } else {
-                        if (bk.c.equals(str3) && (str2 = (String) map.get("web_uri")) != null) {
+                        if (bk.c.equals(str3) && (str2 = map.get("web_uri")) != null) {
                             String trim = str2.trim();
                             if (!trim.startsWith("http://") && !trim.startsWith("https://")) {
                                 trim = "http://" + trim;
@@ -1665,7 +1670,7 @@ public class al {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m614b(Map map) {
+    public static boolean m614b(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, map)) == null) {
@@ -1673,17 +1678,17 @@ public class al {
                 com.xiaomi.channel.commonutils.logger.b.m89a("meta extra is null");
                 return false;
             }
-            return "6".equals((String) map.get("notification_style_type"));
+            return "6".equals(map.get("notification_style_type"));
         }
         return invokeL.booleanValue;
     }
 
-    public static int c(Map map) {
+    public static int c(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, map)) == null) {
             if (map != null) {
-                String str = (String) map.get("notification_priority");
+                String str = map.get("notification_priority");
                 if (TextUtils.isEmpty(str)) {
                     return 0;
                 }

@@ -18,7 +18,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
     boolean isOaidTrackLimited() throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class Stub extends Binder implements OpenDeviceIdentifierService {
+    public static abstract class Stub extends Binder implements OpenDeviceIdentifierService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.uodis.opendevice.aidl.OpenDeviceIdentifierService";
         public static final int TRANSACTION_getOaid = 1;
@@ -33,7 +33,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
         }
 
         /* loaded from: classes8.dex */
-        public class Proxy implements OpenDeviceIdentifierService {
+        public static class Proxy implements OpenDeviceIdentifierService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;

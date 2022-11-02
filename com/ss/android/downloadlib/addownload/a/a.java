@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.config.k;
 import com.ss.android.download.api.model.b;
 import com.ss.android.downloadlib.activity.TTDelegateActivity;
@@ -22,14 +24,15 @@ import org.json.JSONObject;
 public class a {
     public static final String a = "a";
     public static a b;
-    public CopyOnWriteArrayList c;
+    @NonNull
+    public CopyOnWriteArrayList<com.ss.android.downloadlib.addownload.b.a> c;
     public boolean d = false;
     public String e;
     public b f;
 
     /* renamed from: com.ss.android.downloadlib.addownload.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0653a {
+    public interface InterfaceC0664a {
         void a();
     }
 
@@ -46,7 +49,7 @@ public class a {
         return b;
     }
 
-    private void a(final Context context, final com.ss.android.downloadlib.addownload.b.a aVar, final InterfaceC0653a interfaceC0653a, boolean z) {
+    private void a(final Context context, final com.ss.android.downloadlib.addownload.b.a aVar, final InterfaceC0664a interfaceC0664a, boolean z) {
         String str;
         String str2;
         String format;
@@ -76,26 +79,26 @@ public class a {
         } else {
             format = String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes));
         }
-        c.b(c2.d(format).a(false).a(l.a(context, aVar.g)).a(new b.InterfaceC0648b() { // from class: com.ss.android.downloadlib.addownload.a.a.1
-            @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+        c.b(c2.d(format).a(false).a(l.a(context, aVar.g)).a(new b.InterfaceC0659b() { // from class: com.ss.android.downloadlib.addownload.a.a.1
+            @Override // com.ss.android.download.api.model.b.InterfaceC0659b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("backdialog_install", d);
                 com.ss.android.socialbase.appdownloader.d.a(context, (int) aVar.a);
                 dialogInterface.dismiss();
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0659b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("backdialog_exit", d);
-                InterfaceC0653a interfaceC0653a2 = interfaceC0653a;
-                if (interfaceC0653a2 != null) {
-                    interfaceC0653a2.a();
+                InterfaceC0664a interfaceC0664a2 = interfaceC0664a;
+                if (interfaceC0664a2 != null) {
+                    interfaceC0664a2.a();
                 }
                 a.this.b("");
                 dialogInterface.dismiss();
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0659b
             public void c(DialogInterface dialogInterface) {
                 a.this.b("");
             }
@@ -104,7 +107,7 @@ public class a {
         this.e = aVar.d;
     }
 
-    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC0653a interfaceC0653a) {
+    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC0664a interfaceC0664a) {
         if (downloadInfo == null) {
             try {
                 if (this.c.isEmpty()) {
@@ -117,22 +120,22 @@ public class a {
         if (activity != null && !activity.isFinishing()) {
             boolean z2 = true;
             if (downloadInfo != null && this.c.isEmpty()) {
-                a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0653a);
+                a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0664a);
                 return true;
             }
             long j = 0;
             if (downloadInfo != null) {
                 j = new File(downloadInfo.getTargetFilePath()).lastModified();
             }
-            ListIterator listIterator = this.c.listIterator(this.c.size());
+            ListIterator<com.ss.android.downloadlib.addownload.b.a> listIterator = this.c.listIterator(this.c.size());
             while (true) {
                 if (listIterator.hasPrevious()) {
-                    com.ss.android.downloadlib.addownload.b.a aVar = (com.ss.android.downloadlib.addownload.b.a) listIterator.previous();
-                    if (aVar != null && !l.d(j.getContext(), aVar.d) && l.a(aVar.g)) {
-                        if (new File(aVar.g).lastModified() >= j) {
-                            a(activity, aVar, z, interfaceC0653a);
+                    com.ss.android.downloadlib.addownload.b.a previous = listIterator.previous();
+                    if (previous != null && !l.d(j.getContext(), previous.d) && l.a(previous.g)) {
+                        if (new File(previous.g).lastModified() >= j) {
+                            a(activity, previous, z, interfaceC0664a);
                         } else {
-                            a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0653a);
+                            a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0664a);
                         }
                     }
                 } else {
@@ -180,7 +183,7 @@ public class a {
 
     public void a(long j, long j2, long j3, String str, String str2, String str3, String str4) {
         for (int i = 0; i < this.c.size(); i++) {
-            com.ss.android.downloadlib.addownload.b.a aVar = (com.ss.android.downloadlib.addownload.b.a) this.c.get(i);
+            com.ss.android.downloadlib.addownload.b.a aVar = this.c.get(i);
             if (aVar != null && aVar.b == j2) {
                 this.c.set(i, new com.ss.android.downloadlib.addownload.b.a(j, j2, j3, str, str2, str3, str4));
                 this.f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.c);
@@ -191,9 +194,9 @@ public class a {
         this.f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.c);
     }
 
-    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC0653a interfaceC0653a) {
+    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC0664a interfaceC0664a) {
         this.c.clear();
-        a(context, aVar, interfaceC0653a, z);
+        a(context, aVar, interfaceC0664a, z);
         this.d = true;
         g.a(context).c();
         this.f.b("sp_ad_install_back_dialog", "key_uninstalled_list");
@@ -215,9 +218,10 @@ public class a {
         }
     }
 
-    public boolean a(Activity activity, boolean z, InterfaceC0653a interfaceC0653a) {
+    @MainThread
+    public boolean a(Activity activity, boolean z, InterfaceC0664a interfaceC0664a) {
         if (j.i().optInt("disable_install_app_dialog") != 1 && !this.d) {
-            return a(activity, a(activity), z, interfaceC0653a);
+            return a(activity, a(activity), z, interfaceC0664a);
         }
         return false;
     }

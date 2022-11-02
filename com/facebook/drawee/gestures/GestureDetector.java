@@ -9,18 +9,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class GestureDetector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
     public long mActionDownTime;
+    @VisibleForTesting
     public float mActionDownX;
+    @VisibleForTesting
     public float mActionDownY;
+    @VisibleForTesting
     @Nullable
     public ClickListener mClickListener;
+    @VisibleForTesting
     public boolean mIsCapturingGesture;
+    @VisibleForTesting
     public boolean mIsClickCandidate;
+    @VisibleForTesting
     public final float mSingleTapSlopPx;
 
     /* loaded from: classes7.dex */

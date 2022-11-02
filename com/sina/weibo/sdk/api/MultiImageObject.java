@@ -15,9 +15,9 @@ import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class MultiImageObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MultiImageObject> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList imageList;
+    public ArrayList<Uri> imageList;
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
     public int describeContents() {
@@ -72,7 +72,7 @@ public class MultiImageObject extends BaseMediaObject {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.api.MultiImageObject.1
+        CREATOR = new Parcelable.Creator<MultiImageObject>() { // from class: com.sina.weibo.sdk.api.MultiImageObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,6 +91,7 @@ public class MultiImageObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MultiImageObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -102,6 +103,7 @@ public class MultiImageObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MultiImageObject[] newArray(int i) {
                 InterceptResult invokeI;
@@ -128,7 +130,7 @@ public class MultiImageObject extends BaseMediaObject {
         }
     }
 
-    public ArrayList getImageList() {
+    public ArrayList<Uri> getImageList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -158,7 +160,7 @@ public class MultiImageObject extends BaseMediaObject {
         this.imageList = parcel.createTypedArrayList(Uri.CREATOR);
     }
 
-    public void setImageList(ArrayList arrayList) {
+    public void setImageList(ArrayList<Uri> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
             this.imageList = arrayList;

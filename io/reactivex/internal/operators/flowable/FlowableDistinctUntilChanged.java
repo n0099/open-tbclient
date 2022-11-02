@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.BiPredicate;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
@@ -15,23 +16,23 @@ import io.reactivex.internal.subscribers.BasicFuseableConditionalSubscriber;
 import io.reactivex.internal.subscribers.BasicFuseableSubscriber;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpstream {
+public final class FlowableDistinctUntilChanged<T, K> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate comparer;
-    public final Function keySelector;
+    public final BiPredicate<? super K, ? super K> comparer;
+    public final Function<? super T, K> keySelector;
 
     /* loaded from: classes8.dex */
-    public final class DistinctUntilChangedConditionalSubscriber extends BasicFuseableConditionalSubscriber {
+    public static final class DistinctUntilChangedConditionalSubscriber<T, K> extends BasicFuseableConditionalSubscriber<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiPredicate comparer;
+        public final BiPredicate<? super K, ? super K> comparer;
         public boolean hasValue;
-        public final Function keySelector;
-        public Object last;
+        public final Function<? super T, K> keySelector;
+        public K last;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DistinctUntilChangedConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Function function, BiPredicate biPredicate) {
+        public DistinctUntilChangedConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, Function<? super T, K> function, BiPredicate<? super K, ? super K> biPredicate) {
             super(conditionalSubscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -53,9 +54,9 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && !tryOnNext(obj)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && !tryOnNext(t)) {
                 this.s.request(1L);
             }
         }
@@ -70,24 +71,26 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
             return invokeI.intValue;
         }
 
+        /* JADX DEBUG: Type inference failed for r4v0. Raw type applied. Possible types: K, ? super K */
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return invokeV.objValue;
+                return (T) invokeV.objValue;
             }
             while (true) {
-                Object poll = this.qs.poll();
+                T poll = this.qs.poll();
                 if (poll == null) {
                     return null;
                 }
-                Object apply = this.keySelector.apply(poll);
+                K apply = this.keySelector.apply(poll);
                 if (!this.hasValue) {
                     this.hasValue = true;
                     this.last = apply;
                     return poll;
-                } else if (!this.comparer.test(this.last, apply)) {
+                } else if (!this.comparer.test((K) this.last, apply)) {
                     this.last = apply;
                     return poll;
                 } else {
@@ -99,21 +102,22 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r4v1. Raw type applied. Possible types: K, ? super K */
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (this.done) {
                     return false;
                 }
                 if (this.sourceMode != 0) {
-                    return this.actual.tryOnNext(obj);
+                    return this.actual.tryOnNext(t);
                 }
                 try {
-                    Object apply = this.keySelector.apply(obj);
+                    K apply = this.keySelector.apply(t);
                     if (this.hasValue) {
-                        boolean test = this.comparer.test(this.last, apply);
+                        boolean test = this.comparer.test((K) this.last, apply);
                         this.last = apply;
                         if (test) {
                             return false;
@@ -122,7 +126,7 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
                         this.hasValue = true;
                         this.last = apply;
                     }
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     return true;
                 } catch (Throwable th) {
                     fail(th);
@@ -134,16 +138,16 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class DistinctUntilChangedSubscriber extends BasicFuseableSubscriber implements ConditionalSubscriber {
+    public static final class DistinctUntilChangedSubscriber<T, K> extends BasicFuseableSubscriber<T, T> implements ConditionalSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiPredicate comparer;
+        public final BiPredicate<? super K, ? super K> comparer;
         public boolean hasValue;
-        public final Function keySelector;
-        public Object last;
+        public final Function<? super T, K> keySelector;
+        public K last;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DistinctUntilChangedSubscriber(Subscriber subscriber, Function function, BiPredicate biPredicate) {
+        public DistinctUntilChangedSubscriber(Subscriber<? super T> subscriber, Function<? super T, K> function, BiPredicate<? super K, ? super K> biPredicate) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -165,9 +169,9 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && !tryOnNext(obj)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && !tryOnNext(t)) {
                 this.s.request(1L);
             }
         }
@@ -182,24 +186,26 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
             return invokeI.intValue;
         }
 
+        /* JADX DEBUG: Type inference failed for r4v0. Raw type applied. Possible types: K, ? super K */
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return invokeV.objValue;
+                return (T) invokeV.objValue;
             }
             while (true) {
-                Object poll = this.qs.poll();
+                T poll = this.qs.poll();
                 if (poll == null) {
                     return null;
                 }
-                Object apply = this.keySelector.apply(poll);
+                K apply = this.keySelector.apply(poll);
                 if (!this.hasValue) {
                     this.hasValue = true;
                     this.last = apply;
                     return poll;
-                } else if (!this.comparer.test(this.last, apply)) {
+                } else if (!this.comparer.test((K) this.last, apply)) {
                     this.last = apply;
                     return poll;
                 } else {
@@ -211,22 +217,23 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r4v1. Raw type applied. Possible types: K, ? super K */
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (this.done) {
                     return false;
                 }
                 if (this.sourceMode != 0) {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     return true;
                 }
                 try {
-                    Object apply = this.keySelector.apply(obj);
+                    K apply = this.keySelector.apply(t);
                     if (this.hasValue) {
-                        boolean test = this.comparer.test(this.last, apply);
+                        boolean test = this.comparer.test((K) this.last, apply);
                         this.last = apply;
                         if (test) {
                             return false;
@@ -235,7 +242,7 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
                         this.hasValue = true;
                         this.last = apply;
                     }
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     return true;
                 } catch (Throwable th) {
                     fail(th);
@@ -247,7 +254,7 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDistinctUntilChanged(Flowable flowable, Function function, BiPredicate biPredicate) {
+    public FlowableDistinctUntilChanged(Flowable<T> flowable, Function<? super T, K> function, BiPredicate<? super K, ? super K> biPredicate) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -269,7 +276,7 @@ public final class FlowableDistinctUntilChanged extends AbstractFlowableWithUpst
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             if (subscriber instanceof ConditionalSubscriber) {

@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
@@ -169,7 +170,7 @@ public class t1 {
                 a.put("manu", Build.MANUFACTURER);
                 a.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
                 a.put("h", String.valueOf(context.getResources().getDisplayMetrics().heightPixels));
-                a.put("w", String.valueOf(context.getResources().getDisplayMetrics().widthPixels));
+                a.put(Config.DEVICE_WIDTH, String.valueOf(context.getResources().getDisplayMetrics().widthPixels));
                 HashMap hashMap2 = a;
                 try {
                     i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;

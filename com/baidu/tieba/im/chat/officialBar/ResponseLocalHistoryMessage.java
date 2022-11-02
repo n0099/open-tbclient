@@ -1,18 +1,19 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ResponseLocalHistoryMessage extends CustomResponsedMessage {
+public class ResponseLocalHistoryMessage extends CustomResponsedMessage<List<ResponseHistoryMessage.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseLocalHistoryMessage(List list) {
+    public ResponseLocalHistoryMessage(List<ResponseHistoryMessage.a> list) {
         super(2001152, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

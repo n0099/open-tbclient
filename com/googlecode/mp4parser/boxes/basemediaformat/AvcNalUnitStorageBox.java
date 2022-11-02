@@ -105,7 +105,7 @@ public class AvcNalUnitStorageBox extends AbstractBox {
         return (String[]) invokeV.objValue;
     }
 
-    public List getPictureParameterSetsAsStrings() {
+    public List<String> getPictureParameterSetsAsStrings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -125,7 +125,7 @@ public class AvcNalUnitStorageBox extends AbstractBox {
         return (String[]) invokeV.objValue;
     }
 
-    public List getSequenceParameterSetExtsAsStrings() {
+    public List<String> getSequenceParameterSetExtsAsStrings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -135,7 +135,7 @@ public class AvcNalUnitStorageBox extends AbstractBox {
         return (List) invokeV.objValue;
     }
 
-    public List getSequenceParameterSetsAsStrings() {
+    public List<String> getSequenceParameterSetsAsStrings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {

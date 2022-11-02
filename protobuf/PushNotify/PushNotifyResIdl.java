@@ -24,16 +24,16 @@ public final class PushNotifyResIdl extends Message {
     public final Long pushTime;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<PushNotifyResIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List multiMsg;
+        public List<PusherMsg> multiMsg;
         public Long pushTime;
 
         public Builder() {
@@ -129,7 +129,7 @@ public final class PushNotifyResIdl extends Message {
             } else {
                 this.pushTime = l;
             }
-            List list = builder.multiMsg;
+            List<PusherMsg> list = builder.multiMsg;
             if (list == null) {
                 this.multiMsg = DEFAULT_MULTIMSG;
                 return;

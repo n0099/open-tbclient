@@ -9,6 +9,9 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,6 +27,7 @@ public class ActivityOptionsCompat {
     public static final String EXTRA_USAGE_TIME_REPORT_PACKAGES = "android.usage_time_packages";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Nullable
     public Rect getLaunchBounds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -33,18 +37,20 @@ public class ActivityOptionsCompat {
         return (Rect) invokeV.objValue;
     }
 
-    public void requestUsageTimeReport(PendingIntent pendingIntent) {
+    public void requestUsageTimeReport(@NonNull PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pendingIntent) == null) {
         }
     }
 
-    public ActivityOptionsCompat setLaunchBounds(Rect rect) {
+    @NonNull
+    public ActivityOptionsCompat setLaunchBounds(@Nullable Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect)) == null) ? this : (ActivityOptionsCompat) invokeL.objValue;
     }
 
+    @Nullable
     public Bundle toBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,12 +60,13 @@ public class ActivityOptionsCompat {
         return (Bundle) invokeV.objValue;
     }
 
-    public void update(ActivityOptionsCompat activityOptionsCompat) {
+    public void update(@NonNull ActivityOptionsCompat activityOptionsCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activityOptionsCompat) == null) {
         }
     }
 
+    @RequiresApi(16)
     /* loaded from: classes.dex */
     public static class ActivityOptionsCompatImpl extends ActivityOptionsCompat {
         public static /* synthetic */ Interceptable $ic;
@@ -85,7 +92,7 @@ public class ActivityOptionsCompat {
         }
 
         @Override // androidx.core.app.ActivityOptionsCompat
-        public void requestUsageTimeReport(PendingIntent pendingIntent) {
+        public void requestUsageTimeReport(@NonNull PendingIntent pendingIntent) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pendingIntent) == null) && Build.VERSION.SDK_INT >= 23) {
                 this.mActivityOptions.requestUsageTimeReport(pendingIntent);
@@ -93,7 +100,8 @@ public class ActivityOptionsCompat {
         }
 
         @Override // androidx.core.app.ActivityOptionsCompat
-        public ActivityOptionsCompat setLaunchBounds(Rect rect) {
+        @NonNull
+        public ActivityOptionsCompat setLaunchBounds(@Nullable Rect rect) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect)) == null) {
@@ -106,7 +114,7 @@ public class ActivityOptionsCompat {
         }
 
         @Override // androidx.core.app.ActivityOptionsCompat
-        public void update(ActivityOptionsCompat activityOptionsCompat) {
+        public void update(@NonNull ActivityOptionsCompat activityOptionsCompat) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, activityOptionsCompat) == null) && (activityOptionsCompat instanceof ActivityOptionsCompatImpl)) {
                 this.mActivityOptions.update(((ActivityOptionsCompatImpl) activityOptionsCompat).mActivityOptions);
@@ -151,6 +159,7 @@ public class ActivityOptionsCompat {
         }
     }
 
+    @NonNull
     public static ActivityOptionsCompat makeBasic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,6 +172,7 @@ public class ActivityOptionsCompat {
         return (ActivityOptionsCompat) invokeV.objValue;
     }
 
+    @NonNull
     public static ActivityOptionsCompat makeTaskLaunchBehind() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,7 +185,8 @@ public class ActivityOptionsCompat {
         return (ActivityOptionsCompat) invokeV.objValue;
     }
 
-    public static ActivityOptionsCompat makeClipRevealAnimation(View view2, int i, int i2, int i3, int i4) {
+    @NonNull
+    public static ActivityOptionsCompat makeClipRevealAnimation(@NonNull View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
@@ -187,7 +198,8 @@ public class ActivityOptionsCompat {
         return (ActivityOptionsCompat) invokeCommon.objValue;
     }
 
-    public static ActivityOptionsCompat makeScaleUpAnimation(View view2, int i, int i2, int i3, int i4) {
+    @NonNull
+    public static ActivityOptionsCompat makeScaleUpAnimation(@NonNull View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
@@ -199,7 +211,8 @@ public class ActivityOptionsCompat {
         return (ActivityOptionsCompat) invokeCommon.objValue;
     }
 
-    public static ActivityOptionsCompat makeCustomAnimation(Context context, int i, int i2) {
+    @NonNull
+    public static ActivityOptionsCompat makeCustomAnimation(@NonNull Context context, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, context, i, i2)) == null) {
@@ -211,7 +224,8 @@ public class ActivityOptionsCompat {
         return (ActivityOptionsCompat) invokeLII.objValue;
     }
 
-    public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, View view2, String str) {
+    @NonNull
+    public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, @NonNull View view2, @NonNull String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, activity, view2, str)) == null) {
@@ -223,7 +237,8 @@ public class ActivityOptionsCompat {
         return (ActivityOptionsCompat) invokeLLL.objValue;
     }
 
-    public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, Pair<View, String>... pairArr) {
+    @NonNull
+    public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, Pair<View, String>... pairArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, activity, pairArr)) == null) {
@@ -242,7 +257,8 @@ public class ActivityOptionsCompat {
         return (ActivityOptionsCompat) invokeLL.objValue;
     }
 
-    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(View view2, Bitmap bitmap, int i, int i2) {
+    @NonNull
+    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(@NonNull View view2, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, view2, bitmap, i, i2)) == null) {

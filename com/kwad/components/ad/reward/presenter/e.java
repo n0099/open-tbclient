@@ -2,6 +2,8 @@ package com.kwad.components.ad.reward.presenter;
 
 import android.content.Context;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -65,7 +67,7 @@ public final class e {
         return invokeL.booleanValue;
     }
 
-    public static void a(com.kwad.components.ad.reward.k kVar, l.b bVar) {
+    public static void a(com.kwad.components.ad.reward.k kVar, @NonNull l.b bVar) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, kVar, bVar) == null) {
@@ -197,7 +199,7 @@ public final class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(com.kwad.components.ad.reward.k kVar, boolean z, a aVar) {
+    public static void a(com.kwad.components.ad.reward.k kVar, boolean z, @Nullable a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{kVar, Boolean.valueOf(z), aVar}) == null) {
             AdTemplate adTemplate = kVar.mAdTemplate;

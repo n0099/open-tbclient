@@ -1,23 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ds8 extends CustomMessageListener {
+public class ds8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public pq8 b;
+    public PollingModel b;
+    public final Runnable c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ds8 a;
+
+        public a(ds8 ds8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ds8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ds8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.T(PollingModel.POLLING_TYPE_LOOP);
+                zg.a().postDelayed(this.a.c, 300000L);
+            }
+        }
+    }
+
     public ds8(MainTabActivity mainTabActivity) {
-        super(2921736);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,41 +58,20 @@ public class ds8 extends CustomMessageListener {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new a(this);
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage customResponsedMessage) {
-        pq8 pq8Var;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
-            MainTabActivity mainTabActivity = this.a;
-            this.b = mainTabActivity.e;
-            mainTabActivity.i1(true);
-            if (MainTabActivity.W && (pq8Var = this.b) != null && pq8Var.h() != null) {
-                this.b.h().a();
-            }
-            pq8 pq8Var2 = this.b;
-            if (pq8Var2 != null && pq8Var2.c() != null) {
-                this.b.c().b();
-            }
-            if (gw4.a().f()) {
-                gw4.a().g(this.a.getClass().getName());
-                gw4.a().l(false);
-            }
-            if (gw4.a().e()) {
-                gw4.a().b();
-                gw4.a().h(this.a.getClass().getName());
-                gw4.a().k(false);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zg.a().removeCallbacks(this.c);
         }
     }
 }

@@ -10,7 +10,7 @@ public class EventType {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class PayEventID {
+    public static final class PayEventID {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ENTRANCE_PAGE = "-10";
         public static final String ORDER_FAIL = "2";
@@ -44,7 +44,7 @@ public class EventType {
     }
 
     /* loaded from: classes8.dex */
-    public final class PayNetStateID {
+    public static final class PayNetStateID {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EVENT_DNS_RESULT = "event_dns_result";
         public static final String EVENT_HTTP_ERROR = "event_http_error";

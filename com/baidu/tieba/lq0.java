@@ -1,9 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.net.request.Headers;
-/* loaded from: classes4.dex */
-public interface lq0 extends kq0 {
-    void b(Headers headers, Object obj, int i);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public abstract class lq0 implements xq0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    Object d(Headers headers, String str, int i) throws Exception;
+    public abstract vq0 b(String str);
+
+    public lq0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

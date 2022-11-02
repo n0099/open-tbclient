@@ -6,6 +6,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Log;
 import android.widget.CompoundButton;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +37,8 @@ public final class CompoundButtonCompat {
         }
     }
 
-    public static Drawable getButtonDrawable(CompoundButton compoundButton) {
+    @Nullable
+    public static Drawable getButtonDrawable(@NonNull CompoundButton compoundButton) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, compoundButton)) == null) {
@@ -66,7 +69,8 @@ public final class CompoundButtonCompat {
         return (Drawable) invokeL.objValue;
     }
 
-    public static ColorStateList getButtonTintList(CompoundButton compoundButton) {
+    @Nullable
+    public static ColorStateList getButtonTintList(@NonNull CompoundButton compoundButton) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, compoundButton)) == null) {
@@ -81,7 +85,8 @@ public final class CompoundButtonCompat {
         return (ColorStateList) invokeL.objValue;
     }
 
-    public static PorterDuff.Mode getButtonTintMode(CompoundButton compoundButton) {
+    @Nullable
+    public static PorterDuff.Mode getButtonTintMode(@NonNull CompoundButton compoundButton) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, compoundButton)) == null) {
@@ -96,7 +101,7 @@ public final class CompoundButtonCompat {
         return (PorterDuff.Mode) invokeL.objValue;
     }
 
-    public static void setButtonTintList(CompoundButton compoundButton, ColorStateList colorStateList) {
+    public static void setButtonTintList(@NonNull CompoundButton compoundButton, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, compoundButton, colorStateList) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -107,7 +112,7 @@ public final class CompoundButtonCompat {
         }
     }
 
-    public static void setButtonTintMode(CompoundButton compoundButton, PorterDuff.Mode mode) {
+    public static void setButtonTintMode(@NonNull CompoundButton compoundButton, @Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, compoundButton, mode) == null) {
             if (Build.VERSION.SDK_INT >= 21) {

@@ -30,7 +30,7 @@ public class ESDescriptor extends BaseDescriptor {
     public int esId;
     public int oCREsId;
     public int oCRstreamFlag;
-    public List otherDescriptors;
+    public List<BaseDescriptor> otherDescriptors;
     public int remoteODFlag;
     public SLConfigDescriptor slConfigDescriptor;
     public int streamDependenceFlag;
@@ -96,7 +96,7 @@ public class ESDescriptor extends BaseDescriptor {
         return invokeV.intValue;
     }
 
-    public List getOtherDescriptors() {
+    public List<BaseDescriptor> getOtherDescriptors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -208,7 +208,7 @@ public class ESDescriptor extends BaseDescriptor {
             if (decoderConfigDescriptor == null ? eSDescriptor.decoderConfigDescriptor != null : !decoderConfigDescriptor.equals(eSDescriptor.decoderConfigDescriptor)) {
                 return false;
             }
-            List list = this.otherDescriptors;
+            List<BaseDescriptor> list = this.otherDescriptors;
             if (list == null ? eSDescriptor.otherDescriptors != null : !list.equals(eSDescriptor.otherDescriptors)) {
                 return false;
             }
@@ -252,7 +252,7 @@ public class ESDescriptor extends BaseDescriptor {
                 i3 = 0;
             }
             int i8 = (i7 + i3) * 31;
-            List list = this.otherDescriptors;
+            List<BaseDescriptor> list = this.otherDescriptors;
             if (list != null) {
                 i5 = list.hashCode();
             }

@@ -1,24 +1,16 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yl1 implements do1 {
+public class yl1 implements tn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.do1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
 
     public yl1() {
         Interceptable interceptable = $ic;
@@ -32,5 +24,23 @@ public class yl1 implements do1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.tn1
+    public void a(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            sc3.a().putInt("fontSizeLevel", i);
+        }
+    }
+
+    @Override // com.baidu.tieba.tn1
+    public int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return sc3.a().getInt("fontSizeLevel", 1);
+        }
+        return invokeL.intValue;
     }
 }

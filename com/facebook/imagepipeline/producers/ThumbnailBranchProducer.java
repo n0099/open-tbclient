@@ -10,13 +10,13 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 /* loaded from: classes7.dex */
-public class ThumbnailBranchProducer implements Producer {
+public class ThumbnailBranchProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThumbnailProducer[] mThumbnailProducers;
+    public final ThumbnailProducer<EncodedImage>[] mThumbnailProducers;
 
     /* loaded from: classes7.dex */
-    public class ThumbnailConsumer extends DelegatingConsumer {
+    public class ThumbnailConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ProducerContext mProducerContext;
@@ -25,7 +25,7 @@ public class ThumbnailBranchProducer implements Producer {
         public final /* synthetic */ ThumbnailBranchProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ThumbnailConsumer(ThumbnailBranchProducer thumbnailBranchProducer, Consumer consumer, ProducerContext producerContext, int i) {
+        public ThumbnailConsumer(ThumbnailBranchProducer thumbnailBranchProducer, Consumer<EncodedImage> consumer, ProducerContext producerContext, int i) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -73,7 +73,7 @@ public class ThumbnailBranchProducer implements Producer {
         }
     }
 
-    public ThumbnailBranchProducer(ThumbnailProducer... thumbnailProducerArr) {
+    public ThumbnailBranchProducer(ThumbnailProducer<EncodedImage>... thumbnailProducerArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class ThumbnailBranchProducer implements Producer {
                 return;
             }
         }
-        ThumbnailProducer[] thumbnailProducerArr2 = (ThumbnailProducer[]) Preconditions.checkNotNull(thumbnailProducerArr);
+        ThumbnailProducer<EncodedImage>[] thumbnailProducerArr2 = (ThumbnailProducer[]) Preconditions.checkNotNull(thumbnailProducerArr);
         this.mThumbnailProducers = thumbnailProducerArr2;
         Preconditions.checkElementIndex(0, thumbnailProducerArr2.length);
     }
@@ -100,7 +100,7 @@ public class ThumbnailBranchProducer implements Producer {
             return invokeIL.intValue;
         }
         while (true) {
-            ThumbnailProducer[] thumbnailProducerArr = this.mThumbnailProducers;
+            ThumbnailProducer<EncodedImage>[] thumbnailProducerArr = this.mThumbnailProducers;
             if (i < thumbnailProducerArr.length) {
                 if (thumbnailProducerArr[i].canProvideImageForSize(resizeOptions)) {
                     return i;
@@ -113,7 +113,7 @@ public class ThumbnailBranchProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             if (producerContext.getImageRequest().getResizeOptions() == null) {
@@ -125,7 +125,7 @@ public class ThumbnailBranchProducer implements Producer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean produceResultsFromThumbnailProducer(int i, Consumer consumer, ProducerContext producerContext) {
+    public boolean produceResultsFromThumbnailProducer(int i, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65539, this, i, consumer, producerContext)) == null) {

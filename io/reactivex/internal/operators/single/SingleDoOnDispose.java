@@ -16,21 +16,21 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleDoOnDispose extends Single {
+public final class SingleDoOnDispose<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onDispose;
-    public final SingleSource source;
+    public final SingleSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class DoOnDisposeObserver extends AtomicReference implements SingleObserver, Disposable {
+    public static final class DoOnDisposeObserver<T> extends AtomicReference<Action> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8583764624474935784L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
         public Disposable d;
 
-        public DoOnDisposeObserver(SingleObserver singleObserver, Action action) {
+        public DoOnDisposeObserver(SingleObserver<? super T> singleObserver, Action action) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,11 +51,11 @@ public final class SingleDoOnDispose extends Single {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            Action action;
+            Action andSet;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (action = (Action) getAndSet(null)) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (andSet = getAndSet(null)) != null) {
                 try {
-                    action.run();
+                    andSet.run();
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -92,15 +92,15 @@ public final class SingleDoOnDispose extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
     }
 
-    public SingleDoOnDispose(SingleSource singleSource, Action action) {
+    public SingleDoOnDispose(SingleSource<T> singleSource, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public final class SingleDoOnDispose extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DoOnDisposeObserver(singleObserver, this.onDispose));

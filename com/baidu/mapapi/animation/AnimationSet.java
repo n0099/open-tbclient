@@ -29,19 +29,18 @@ public class AnimationSet extends Animation {
         this.bdAnimation = new d();
     }
 
-    public void addAnimation(Animation animation) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || animation == null) {
-            return;
-        }
-        ((d) this.bdAnimation).a(animation);
-    }
-
     @Override // com.baidu.mapapi.animation.Animation
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.bdAnimation.b();
+        }
+    }
+
+    public void addAnimation(Animation animation) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && animation != null) {
+            ((d) this.bdAnimation).a(animation);
         }
     }
 

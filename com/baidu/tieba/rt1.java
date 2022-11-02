@@ -1,46 +1,43 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.tieba.pr1;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rt1 extends pt1 {
+public class rt1 extends kt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pr1
+    @Override // com.baidu.tieba.hs1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "SubscribeServiceApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "NetworkApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements pr1.a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rt1 a;
+        public final /* synthetic */ e43 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ rt1 c;
 
-        public a(rt1 rt1Var) {
+        public a(rt1 rt1Var, e43 e43Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rt1Var};
+                Object[] objArr = {rt1Var, e43Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,94 +47,33 @@ public class rt1 extends pt1 {
                     return;
                 }
             }
-            this.a = rt1Var;
+            this.c = rt1Var;
+            this.a = e43Var;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.pr1.a
-        public mv1 a(m33 m33Var, JSONObject jSONObject, String str) {
-            InterceptResult invokeLLL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, m33Var, jSONObject, str)) == null) {
-                return this.a.E(m33Var, jSONObject, str);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a0().b(this.c.a().g(), this.b);
             }
-            return (mv1) invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ rt1 b;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public b(rt1 rt1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rt1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rt1Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            String message;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                rt1 rt1Var = this.b;
-                String str = this.a;
-                if (exc == null) {
-                    message = "";
-                } else {
-                    message = exc.getMessage();
-                }
-                rt1Var.B(str, message);
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.b.d(this.a, this.b.D(response));
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rt1(nr1 nr1Var) {
-        super(nr1Var);
+    public rt1(@NonNull fs1 fs1Var) {
+        super(fs1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nr1Var};
+            Object[] objArr = {fs1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nr1) newInitContext.callArgs[0]);
+                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -145,97 +81,49 @@ public class rt1 extends pt1 {
         }
     }
 
-    public mv1 F(String str) {
+    public ew1 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getNetworkType", false);
+            String e = SwanAppNetworkUtils.e();
+            if (TextUtils.isEmpty(e)) {
+                e = "unknown";
+            } else if ("no".equals(e)) {
+                e = "none";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("networkType", e);
+                return new ew1(0, jSONObject);
+            } catch (JSONException unused) {
+                return new ew1(202);
+            }
+        }
+        return (ew1) invokeV.objValue;
+    }
+
+    public ew1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#subscribe params=" + str, false);
-            return l(str, true, new a(this));
-        }
-        return (mv1) invokeL.objValue;
-    }
-
-    public final void A(Request request, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, request, str) == null) {
-            pa4 pa4Var = new pa4(request.url().toString(), request.body(), new b(this, str));
-            pa4Var.i = request.tag();
-            pa4Var.f = true;
-            pa4Var.g = true;
-            pa4Var.h = true;
-            qa4.g().e(pa4Var);
-        }
-    }
-
-    public final void B(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            d(str, new mv1(500106, str2));
-        }
-    }
-
-    public final RequestBody C(m33 m33Var, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m33Var, jSONObject)) == null) {
-            String optString = jSONObject.optString("subscribeId");
-            String O = m33Var.O();
-            String optString2 = jSONObject.optString("templateId");
-            if (!TextUtils.isEmpty(O) && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                return new FormBody.Builder().add("appkey", O).add("uniq_id", optString).add("type", jSONObject.optString("type", "query")).add("template_id", optString2).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#networkStatusChange", false);
+            e43 b0 = e43.b0();
+            if (b0 == null) {
+                return new ew1(202, "swan app is null");
             }
-            return null;
-        }
-        return (RequestBody) invokeLL.objValue;
-    }
-
-    public final Pair z(m33 m33Var, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, m33Var, jSONObject)) == null) {
-            RequestBody C = C(m33Var, jSONObject);
-            if (C == null) {
-                return new Pair(null, 202);
+            Pair<ew1, JSONObject> s = s(str);
+            ew1 ew1Var = (ew1) s.first;
+            if (!ew1Var.isSuccess()) {
+                return ew1Var;
             }
-            return new Pair(new Request.Builder().url(tm2.W().a()).post(C).build(), 0);
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    public mv1 D(Response response) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, response)) == null) {
-            if (response != null && response.body() != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(response.body().string());
-                    String optString = jSONObject.optString("errno");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (TextUtils.equals("0", optString) && optJSONObject != null) {
-                        return new mv1(0, optJSONObject, false);
-                    }
-                    return new mv1(500106, "subscribe fail");
-                } catch (Exception e) {
-                    return new mv1(500106, Log.getStackTraceString(e));
-                }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new ew1(1001, "cb is empty");
             }
-            return new mv1(500106, "response body is null");
+            d43.M().post(new a(this, b0, optString));
+            return ew1.f();
         }
-        return (mv1) invokeL.objValue;
-    }
-
-    public final mv1 E(m33 m33Var, JSONObject jSONObject, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, m33Var, jSONObject, str)) == null) {
-            Pair z = z(m33Var, jSONObject);
-            Request request = (Request) z.first;
-            if (request == null) {
-                return new mv1(((Integer) z.second).intValue(), IActiveUploadListener.PARAM_ERR_MSG);
-            }
-            A(request, str);
-            return new mv1(0, "success");
-        }
-        return (mv1) invokeLLL.objValue;
+        return (ew1) invokeL.objValue;
     }
 }

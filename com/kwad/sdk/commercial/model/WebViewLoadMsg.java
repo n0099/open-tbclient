@@ -1,7 +1,9 @@
 package com.kwad.sdk.commercial.model;
 
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.response.kwai.a;
 import java.io.Serializable;
+@KsJson
 /* loaded from: classes7.dex */
 public class WebViewLoadMsg extends a implements Serializable {
     public static final int FAIL = 2;

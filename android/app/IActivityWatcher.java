@@ -18,7 +18,7 @@ public interface IActivityWatcher extends IInterface {
     void closingSystemDialogs(String str) throws RemoteException;
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IActivityWatcher {
+    public static abstract class Stub extends Binder implements IActivityWatcher {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "android.app.IActivityWatcher";
         public static final int TRANSACTION_activityResuming = 1;
@@ -33,7 +33,7 @@ public interface IActivityWatcher extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        public class Proxy implements IActivityWatcher {
+        public static class Proxy implements IActivityWatcher {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;

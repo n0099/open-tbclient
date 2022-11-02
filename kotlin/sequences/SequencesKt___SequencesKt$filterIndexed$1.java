@@ -19,8 +19,9 @@ public final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda impl
         this.$predicate = function2;
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+    public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
         return Boolean.valueOf(invoke((IndexedValue) obj));
     }
 

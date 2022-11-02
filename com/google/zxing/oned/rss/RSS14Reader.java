@@ -34,8 +34,8 @@ public final class RSS14Reader extends AbstractRSSReader {
     public static final int[] OUTSIDE_GSUM;
     public static final int[] OUTSIDE_ODD_WIDEST;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List possibleLeftPairs;
-    public final List possibleRightPairs;
+    public final List<Pair> possibleLeftPairs;
+    public final List<Pair> possibleRightPairs;
 
     static {
         InterceptResult invokeClinit;
@@ -85,20 +85,20 @@ public final class RSS14Reader extends AbstractRSSReader {
         }
     }
 
-    public static void addOrTally(Collection collection, Pair pair) {
+    public static void addOrTally(Collection<Pair> collection, Pair pair) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65538, null, collection, pair) != null) || pair == null) {
             return;
         }
         boolean z = false;
-        Iterator it = collection.iterator();
+        Iterator<Pair> it = collection.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            Pair pair2 = (Pair) it.next();
-            if (pair2.getValue() == pair.getValue()) {
-                pair2.incrementCount();
+            Pair next = it.next();
+            if (next.getValue() == pair.getValue()) {
+                next.incrementCount();
                 z = true;
                 break;
             }
@@ -410,7 +410,7 @@ public final class RSS14Reader extends AbstractRSSReader {
         return (DataCharacter) invokeLLZ.objValue;
     }
 
-    private Pair decodePair(BitArray bitArray, boolean z, int i, Map map) {
+    private Pair decodePair(BitArray bitArray, boolean z, int i, Map<DecodeHintType, ?> map) {
         InterceptResult invokeCommon;
         int[] findFinderPattern;
         ResultPointCallback resultPointCallback;
@@ -517,7 +517,7 @@ public final class RSS14Reader extends AbstractRSSReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {

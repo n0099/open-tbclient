@@ -1,6 +1,6 @@
 package com.baidu.swan.pms;
 
-import com.baidu.tieba.va4;
+import com.baidu.tieba.nb4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ public class PMSConstants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class PMSConstants {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class CloudSwitch {
+    public static final class CloudSwitch {
         public static final /* synthetic */ CloudSwitch[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CloudSwitch DISPLAY;
@@ -99,7 +99,7 @@ public class PMSConstants {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class CustomerService {
+    public static final class CustomerService {
         public static final /* synthetic */ CustomerService[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CustomerService CUSTOMER_SERVICE;
@@ -168,7 +168,7 @@ public class PMSConstants {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class PayProtected {
+    public static final class PayProtected {
         public static final /* synthetic */ PayProtected[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PayProtected NO_PAY_PROTECTED;
@@ -235,11 +235,11 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(va4 va4Var) {
+    public static boolean a(nb4 nb4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, va4Var)) == null) {
-            if (va4Var != null && va4Var.x()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, nb4Var)) == null) {
+            if (nb4Var != null && nb4Var.x()) {
                 return true;
             }
             return false;

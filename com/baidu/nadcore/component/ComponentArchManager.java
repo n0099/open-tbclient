@@ -17,8 +17,8 @@ import com.baidu.nps.main.manager.Bundle;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.xi0;
 import com.baidu.tieba.yi0;
-import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,8 +33,8 @@ import kotlin.jvm.internal.Intrinsics;
 public class ComponentArchManager implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CopyOnWriteArrayList a;
-    public final SimpleArrayMap b;
+    public final CopyOnWriteArrayList<IComponentPlugin> a;
+    public final SimpleArrayMap<Class<? extends yi0>, yi0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -57,8 +57,8 @@ public class ComponentArchManager implements LifecycleObserver {
         Intrinsics.checkNotNullParameter(lifecycle, "lifecycle");
         this.c = context;
         this.d = lifecycle;
-        this.a = new CopyOnWriteArrayList();
-        this.b = new SimpleArrayMap();
+        this.a = new CopyOnWriteArrayList<>();
+        this.b = new SimpleArrayMap<>();
     }
 
     public static /* synthetic */ void r(ComponentArchManager componentArchManager, IComponentPlugin iComponentPlugin, boolean z, int i, Object obj) {
@@ -145,7 +145,7 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public final void k(yi0 event) {
+    public final void k(xi0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -172,18 +172,18 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public zi0 p(Class clazz) {
+    public <T extends yi0> T p(Class<T> clazz) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, clazz)) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");
-            Object obj = this.b.get(clazz);
-            if (!(obj instanceof zi0)) {
-                obj = null;
+            yi0 yi0Var = this.b.get(clazz);
+            if (!(yi0Var instanceof yi0)) {
+                yi0Var = null;
             }
-            return (zi0) obj;
+            return (T) yi0Var;
         }
-        return (zi0) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public final void u(IComponentPlugin componentPlugin) {
@@ -200,9 +200,9 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            Iterator it = this.a.iterator();
+            Iterator<IComponentPlugin> it = this.a.iterator();
             while (it.hasNext()) {
-                if (((IComponentPlugin) it.next()).onKeyDown(i, event)) {
+                if (it.next().onKeyDown(i, event)) {
                     return true;
                 }
             }
@@ -224,7 +224,7 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public final void s(Class clazz, zi0 componentService) {
+    public final void s(Class<? extends yi0> clazz, yi0 componentService) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, clazz, componentService) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");

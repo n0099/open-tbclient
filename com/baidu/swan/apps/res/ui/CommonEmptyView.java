@@ -16,13 +16,13 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a93;
-import com.baidu.tieba.tm2;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.s93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CommonEmptyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class CommonEmptyView extends RelativeLayout {
     public FrameLayout f;
     public TextView g;
 
-    /* loaded from: classes2.dex */
-    public class a implements a93 {
+    /* loaded from: classes3.dex */
+    public class a implements s93 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonEmptyView a;
@@ -126,15 +126,15 @@ public class CommonEmptyView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009c, (ViewGroup) this, true);
-            setBackground(context.getResources().getDrawable(R.color.obfuscated_res_0x7f0603b4));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908f8);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908fc);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0908fb);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0908f9);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0908f7);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908f6);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0908fa);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009d, (ViewGroup) this, true);
+            setBackground(context.getResources().getDrawable(R.color.obfuscated_res_0x7f0603b5));
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090908);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09090c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09090b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090909);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090907);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090906);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09090a);
             setPageResources();
         }
     }
@@ -144,7 +144,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            tm2.M().f(this, new a(this));
+            ln2.M().f(this, new a(this));
         }
     }
 
@@ -153,7 +153,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            tm2.M().g(this);
+            ln2.M().g(this);
         }
     }
 
@@ -210,7 +210,7 @@ public class CommonEmptyView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.c.setVisibility(0);
             this.c.setText(i);
-            this.c.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603b7));
+            this.c.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603b8));
         }
     }
 
@@ -255,7 +255,7 @@ public class CommonEmptyView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.c.setVisibility(0);
             this.c.setText(str);
-            this.c.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603b7));
+            this.c.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603b8));
         }
     }
 
@@ -272,20 +272,20 @@ public class CommonEmptyView extends RelativeLayout {
             setBackgroundColor(-1);
             TextView textView = this.b;
             if (textView != null) {
-                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603b9));
+                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603ba));
             }
             TextView textView2 = this.d;
             if (textView2 != null) {
-                textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603b7));
+                textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603b8));
             }
             TextView textView3 = this.e;
             if (textView3 != null) {
                 textView3.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014d));
-                this.e.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a65));
+                this.e.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a77));
             }
             TextView textView4 = this.c;
             if (textView4 != null) {
-                textView4.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603b7));
+                textView4.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603b8));
             }
         }
     }

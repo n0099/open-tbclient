@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class SpliceNullCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SpliceNullCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.os.Parcelable
@@ -36,7 +36,7 @@ public final class SpliceNullCommand extends SpliceCommand {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceNullCommand.1
+        CREATOR = new Parcelable.Creator<SpliceNullCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceNullCommand.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,6 +55,7 @@ public final class SpliceNullCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SpliceNullCommand createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -66,6 +67,7 @@ public final class SpliceNullCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SpliceNullCommand[] newArray(int i) {
                 InterceptResult invokeI;

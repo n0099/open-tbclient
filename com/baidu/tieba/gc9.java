@@ -1,47 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes4.dex */
-public final class gc9 {
+public class gc9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public fc9 a;
 
-    public gc9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947789260, "Lcom/baidu/tieba/gc9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947789260, "Lcom/baidu/tieba/gc9;");
                 return;
             }
         }
-        this.a = new fc9();
+        a = yb9.m();
     }
 
-    public final List a() {
-        InterceptResult invokeV;
+    @SuppressLint({"MissingPermission"})
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return false;
+            }
+            NetworkInfo networkInfo = null;
+            try {
+                networkInfo = connectivityManager.getActiveNetworkInfo();
+            } catch (Exception e) {
+                if (a) {
+                    Log.d("UBCUtil", "get network info error! " + Log.getStackTraceString(e));
+                }
+            }
+            if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
+                return false;
+            }
+            return true;
         }
-        return (List) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void b(int i) {
+    public static String b(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.b(i);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
         }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String c(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return b(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (String) invokeLZ.objValue;
     }
 }

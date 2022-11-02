@@ -2,7 +2,7 @@ package com.kwad.sdk.core.c;
 
 import android.app.Activity;
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c {
     void onActivityCreated(Activity activity, Bundle bundle);
 

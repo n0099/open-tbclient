@@ -13,6 +13,7 @@ import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.EditListBox;
 import com.coremedia.iso.boxes.MediaHeaderBox;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SampleTableBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
@@ -28,6 +29,7 @@ import com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox;
 import com.coremedia.iso.boxes.fragment.TrackRunBox;
 import com.coremedia.iso.boxes.mdat.SampleList;
 import com.googlecode.mp4parser.AbstractContainerBox;
+import com.googlecode.mp4parser.boxes.cenc.CencSampleAuxiliaryDataFormat;
 import com.googlecode.mp4parser.boxes.ultraviolet.SampleEncryptionBox;
 import com.googlecode.mp4parser.util.CastUtils;
 import com.googlecode.mp4parser.util.Path;
@@ -39,14 +41,14 @@ import java.util.List;
 public class Mp4TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List compositionTimeEntries;
+    public List<CompositionTimeToSample.Entry> compositionTimeEntries;
     public long[] decodingTimes;
     public String handler;
     public AbstractMediaHeaderBox mihd;
-    public List sampleDependencies;
+    public List<SampleDependencyTypeBox.Entry> sampleDependencies;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List sampleEncryptionEntries;
-    public List samples;
+    public List<CencSampleAuxiliaryDataFormat> sampleEncryptionEntries;
+    public List<Sample> samples;
     public long[] syncSamples;
     public TrackMetaData trackMetaData;
 
@@ -154,11 +156,11 @@ public class Mp4TrackImpl extends AbstractTrack {
                                             }
                                             if (trackRunBox.isSampleCompositionTimeOffsetPresent()) {
                                                 if (this.compositionTimeEntries.size() != 0) {
-                                                    List list = this.compositionTimeEntries;
+                                                    List<CompositionTimeToSample.Entry> list = this.compositionTimeEntries;
                                                     i = 1;
-                                                    if (((CompositionTimeToSample.Entry) list.get(list.size() - 1)).getOffset() == entry.getSampleCompositionTimeOffset()) {
-                                                        List list2 = this.compositionTimeEntries;
-                                                        CompositionTimeToSample.Entry entry3 = (CompositionTimeToSample.Entry) list2.get(list2.size() - 1);
+                                                    if (list.get(list.size() - 1).getOffset() == entry.getSampleCompositionTimeOffset()) {
+                                                        List<CompositionTimeToSample.Entry> list2 = this.compositionTimeEntries;
+                                                        CompositionTimeToSample.Entry entry3 = list2.get(list2.size() - 1);
                                                         entry3.setCount(entry3.getCount() + 1);
                                                     }
                                                 } else {
@@ -219,7 +221,7 @@ public class Mp4TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -250,7 +252,7 @@ public class Mp4TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -283,7 +285,7 @@ public class Mp4TrackImpl extends AbstractTrack {
         return (long[]) invokeV.objValue;
     }
 
-    public List getSampleEncryptionEntries() {
+    public List<CencSampleAuxiliaryDataFormat> getSampleEncryptionEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -293,7 +295,7 @@ public class Mp4TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

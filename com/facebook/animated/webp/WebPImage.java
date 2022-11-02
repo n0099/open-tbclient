@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 import com.facebook.imagepipeline.animated.base.AnimatedImage;
@@ -14,10 +15,14 @@ import com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder;
 import com.facebook.imagepipeline.common.ImageDecodeOptions;
 import com.facebook.imagepipeline.nativecode.StaticWebpNativeLoader;
 import java.nio.ByteBuffer;
+import javax.annotation.concurrent.ThreadSafe;
+@DoNotStrip
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @DoNotStrip
     public long mNativeContext;
 
     public static native WebPImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
@@ -54,6 +59,7 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
         return invokeV.booleanValue;
     }
 
+    @DoNotStrip
     public WebPImage() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -153,6 +159,7 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
         return invokeV.intValue;
     }
 
+    @DoNotStrip
     public WebPImage(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

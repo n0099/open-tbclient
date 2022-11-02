@@ -6,13 +6,17 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.interfaces.ISelector;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.fn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes3.dex */
-public class DrawableSelector extends AbsDrawableSelector implements ISelector {
+public class DrawableSelector extends AbsDrawableSelector implements ISelector<StateListDrawable, View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BL_TR = "BL_TR";
     public static final String BOTTOM_TOP = "BOTTOM_TOP";
@@ -224,6 +228,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.tbselector.interfaces.ISelector
     public StateListDrawable build() {
         InterceptResult invokeV;
@@ -364,7 +369,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (GradientDrawable) invokeIIII.objValue;
     }
 
-    public DrawableSelector autoGradient(int i) {
+    public DrawableSelector autoGradient(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -372,7 +377,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
             this.gradientColors = r1;
             int[] iArr = {0, SelectorHelper.getColor(i)};
             int[] iArr2 = this.gradientColors;
-            iArr2[0] = vl8.c(iArr2[1]);
+            iArr2[0] = fn8.c(iArr2[1]);
             this.gradientType = 0;
             this.gradientOrientation = TOP_BOTTOM;
             return this;
@@ -458,7 +463,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector defaultDrawable(int i) {
+    public DrawableSelector defaultDrawable(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
@@ -467,7 +472,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector disabledColor(int i) {
+    public DrawableSelector disabledColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
@@ -479,7 +484,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector disabledDrawable(int i) {
+    public DrawableSelector disabledDrawable(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
@@ -488,7 +493,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector disabledStrokeColor(int i) {
+    public DrawableSelector disabledStrokeColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
@@ -500,7 +505,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector focusedColor(int i) {
+    public DrawableSelector focusedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
@@ -512,7 +517,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector focusedDrawable(int i) {
+    public DrawableSelector focusedDrawable(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
@@ -521,7 +526,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector focusedStrokeColor(int i) {
+    public DrawableSelector focusedStrokeColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
@@ -550,7 +555,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         }
     }
 
-    public DrawableSelector pressedColor(int i) {
+    public DrawableSelector pressedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
@@ -562,7 +567,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector pressedDrawable(int i) {
+    public DrawableSelector pressedDrawable(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i)) == null) {
@@ -571,7 +576,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector pressedStrokeColor(int i) {
+    public DrawableSelector pressedStrokeColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i)) == null) {
@@ -597,7 +602,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeF.objValue;
     }
 
-    public DrawableSelector selectedColor(int i) {
+    public DrawableSelector selectedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i)) == null) {
@@ -609,7 +614,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector selectedDrawable(int i) {
+    public DrawableSelector selectedDrawable(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i)) == null) {
@@ -618,7 +623,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector selectedStrokeColor(int i) {
+    public DrawableSelector selectedStrokeColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048637, this, i)) == null) {
@@ -630,7 +635,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector setAlpha(int i) {
+    public DrawableSelector setAlpha(@IntRange(from = 0, to = 255) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048639, this, i)) == null) {
@@ -641,7 +646,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector setShape(int i) {
+    public DrawableSelector setShape(@Shape int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
@@ -671,7 +676,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector strokeWidthDimenId(int i) {
+    public DrawableSelector strokeWidthDimenId(@DimenRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048645, this, i)) == null) {
@@ -736,7 +741,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (StateListDrawable) invokeV.objValue;
     }
 
-    public DrawableSelector dashLine(int i, int i2, float f, float f2) {
+    public DrawableSelector dashLine(@ColorRes int i, int i2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -764,7 +769,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeCommon.objValue;
     }
 
-    public DrawableSelector defaultColor(int i) {
+    public DrawableSelector defaultColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
@@ -788,7 +793,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector defaultColorNotAutoChangeSkinType(int i) {
+    public DrawableSelector defaultColorNotAutoChangeSkinType(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
@@ -812,7 +817,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector defaultStrokeColor(int i) {
+    public DrawableSelector defaultStrokeColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
@@ -836,7 +841,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector gradientLinear(int... iArr) {
+    public DrawableSelector gradientLinear(@ColorRes int... iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, iArr)) == null) {
@@ -873,7 +878,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeL.objValue;
     }
 
-    public DrawableSelector defaultColor(int i, int i2) {
+    public DrawableSelector defaultColor(@ColorRes int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
@@ -897,7 +902,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeII.objValue;
     }
 
-    public DrawableSelector disabledColor(int i, float f) {
+    public DrawableSelector disabledColor(@ColorRes int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
@@ -909,7 +914,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeCommon.objValue;
     }
 
-    public DrawableSelector gradientLinear(String str, int... iArr) {
+    public DrawableSelector gradientLinear(String str, @ColorRes int... iArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, str, iArr)) == null) {
@@ -928,7 +933,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeLL.objValue;
     }
 
-    public DrawableSelector pressedColor(int i, float f) {
+    public DrawableSelector pressedColor(@ColorRes int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
@@ -1187,7 +1192,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeL.objValue;
     }
 
-    public DrawableSelector gradient(int i, int i2) {
+    public DrawableSelector gradient(@ColorRes int i, @ColorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048608, this, i, i2)) == null) {
@@ -1258,7 +1263,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector {
         return (DrawableSelector) invokeLL.objValue;
     }
 
-    public DrawableSelector gradientLinearNotAutoChangeSkinType(int... iArr) {
+    public DrawableSelector gradientLinearNotAutoChangeSkinType(@ColorRes int... iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, iArr)) == null) {

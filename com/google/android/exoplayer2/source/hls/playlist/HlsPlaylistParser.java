@@ -36,7 +36,7 @@ import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public final class HlsPlaylistParser implements ParsingLoadable.Parser {
+public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlaylist> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTR_CLOSED_CAPTIONS_NONE = "CLOSED-CAPTIONS=NONE";
     public static final String BOOLEAN_FALSE = "NO";
@@ -97,14 +97,14 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class LineIterator {
+    public static class LineIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue extraLines;
+        public final Queue<String> extraLines;
         public String next;
         public final BufferedReader reader;
 
-        public LineIterator(Queue queue, BufferedReader bufferedReader) {
+        public LineIterator(Queue<String> queue, BufferedReader bufferedReader) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser {
                     return true;
                 }
                 if (!this.extraLines.isEmpty()) {
-                    this.next = (String) this.extraLines.poll();
+                    this.next = this.extraLines.poll();
                     return true;
                 }
                 do {
@@ -649,6 +649,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.upstream.ParsingLoadable.Parser
     public HlsPlaylist parse(Uri uri, InputStream inputStream) throws IOException {
         InterceptResult invokeLL;

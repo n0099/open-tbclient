@@ -7,15 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.MaybeObserver;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.EndConsumerHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public abstract class DisposableMaybeObserver implements MaybeObserver, Disposable {
+public abstract class DisposableMaybeObserver<T> implements MaybeObserver<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference s;
+    public final AtomicReference<Disposable> s;
 
     public void onStart() {
         Interceptable interceptable = $ic;
@@ -36,7 +37,7 @@ public abstract class DisposableMaybeObserver implements MaybeObserver, Disposab
                 return;
             }
         }
-        this.s = new AtomicReference();
+        this.s = new AtomicReference<>();
     }
 
     @Override // io.reactivex.disposables.Disposable
@@ -61,7 +62,7 @@ public abstract class DisposableMaybeObserver implements MaybeObserver, Disposab
     }
 
     @Override // io.reactivex.MaybeObserver
-    public final void onSubscribe(Disposable disposable) {
+    public final void onSubscribe(@NonNull Disposable disposable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && EndConsumerHelper.setOnce(this.s, disposable, DisposableMaybeObserver.class)) {
             onStart();

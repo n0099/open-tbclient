@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +37,7 @@ public class FakeStartLiveButton extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FakeStartLiveButton(Context context, AttributeSet attributeSet) {
+    public FakeStartLiveButton(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,7 +58,7 @@ public class FakeStartLiveButton extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FakeStartLiveButton(Context context, AttributeSet attributeSet, int i) {
+    public FakeStartLiveButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,7 +82,7 @@ public class FakeStartLiveButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d053a, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d054a, this);
         }
     }
 }

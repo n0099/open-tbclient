@@ -16,13 +16,13 @@ public final class DefaultSharedPrefsWrapper extends SharedPrefsWrapper {
 
     /* renamed from: com.baidu.searchbox.config.DefaultSharedPrefsWrapper$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class Holder {
+    public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final DefaultSharedPrefsWrapper INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;

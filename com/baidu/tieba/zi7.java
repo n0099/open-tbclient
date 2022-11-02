@@ -1,40 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.os.Build;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class zi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, Map map) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, map) != null) || ej.isEmpty(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (map != null) {
-            for (String str2 : map.keySet()) {
-                statisticItem.param(str2, (String) map.get(str2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                return Integer.parseInt(Build.VERSION.SDK);
+            } catch (NumberFormatException unused) {
+                return 0;
             }
         }
-        TiebaStatic.log(statisticItem);
+        return invokeV.intValue;
     }
 
-    public static void b(Map map) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, map) != null) || map == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a() >= 14) {
+                return true;
+            }
+            return false;
         }
-        HashMap hashMap = new HashMap();
-        String str = (String) map.remove("key");
-        for (String str2 : map.keySet()) {
-            hashMap.put(str2, map.get(str2));
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Resources resources;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (b() && (identifier = (resources = activity.getResources()).getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android")) > 0) {
+                return resources.getBoolean(identifier);
+            }
+            return false;
         }
-        a(str, hashMap);
+        return invokeL.booleanValue;
     }
 }

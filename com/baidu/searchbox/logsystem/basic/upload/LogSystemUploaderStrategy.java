@@ -4,6 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.basic.upload.BaseUploaderStrategy;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import com.baidu.searchbox.logsystem.logsys.LogFile;
@@ -43,7 +45,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass4 {
+    public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +77,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public final class Constants {
+    public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KEEP_ALIVE_TIME = 60000;
         public static final int MAX_COUNT_ATTACHMENT = 100;
@@ -100,13 +102,15 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public final class FileEntity implements Comparable {
+    public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public File mFile;
+        @NonNull
         public FileName mFileName;
 
-        public FileEntity(File file, FileName fileName) {
+        public FileEntity(@NonNull File file, @NonNull FileName fileName) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,7 +129,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             this.mFileName = fileName;
         }
 
-        public static FileEntity getFileEntity(File file) {
+        public static FileEntity getFileEntity(@NonNull File file) {
             InterceptResult invokeL;
             FileName fileName;
             Interceptable interceptable = $ic;
@@ -140,7 +144,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(FileEntity fileEntity) {
+        public int compareTo(@NonNull FileEntity fileEntity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fileEntity)) == null) {
@@ -158,7 +162,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public final class FileName {
+    public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";
         public static final String SEPARATOR = "#";
@@ -168,7 +172,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         public String mProcessName;
         public Long mTimestamp;
 
-        public FileName(String str, long j, String str2, LogType logType) {
+        public FileName(@NonNull String str, long j, @NonNull String str2, @NonNull LogType logType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,7 +193,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             this.mLogType = logType;
         }
 
-        public static String createFileID(String str, long j) {
+        public static String createFileID(@NonNull String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) {
@@ -198,7 +202,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             return (String) invokeLJ.objValue;
         }
 
-        public static FileName getFileName(String str) {
+        public static FileName getFileName(@NonNull String str) {
             InterceptResult invokeL;
             String[] split;
             String[] split2;
@@ -252,7 +256,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             return (FileName) invokeLLL.objValue;
         }
 
-        public static String getFileName(FileName fileName) {
+        @NonNull
+        public static String getFileName(@NonNull FileName fileName) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, fileName)) == null) {
@@ -261,6 +266,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             return (String) invokeL.objValue;
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -272,7 +278,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public final class StoreUtil {
+    public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_GZIP_TMP = ".gz.tmp";
         public static final String BASE_TMP = ".tmp";
@@ -301,7 +307,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                return new File((File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "attachment");
+                return new File(LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "attachment");
             }
             return (File) invokeV.objValue;
         }
@@ -319,7 +325,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-                return new File((File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "content");
+                return new File(LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "content");
             }
             return (File) invokeV.objValue;
         }
@@ -337,7 +343,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-                return new File((File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "zip_supply");
+                return new File(LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), "zip_supply");
             }
             return (File) invokeV.objValue;
         }
@@ -346,12 +352,13 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-                return (File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get();
+                return LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get();
             }
             return (File) invokeV.objValue;
         }
 
-        public static File obtainFilePath(File file, FileName fileName) {
+        @NonNull
+        public static File obtainFilePath(@NonNull File file, @NonNull FileName fileName) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, file, fileName)) == null) {
@@ -362,7 +369,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* loaded from: classes2.dex */
-    public final class TrimConfig {
+    public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mLifeTime;
@@ -390,7 +397,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class Type {
+    public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type ATTACHMENT;
@@ -535,7 +542,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    private ResponseEntity uploadAction(Type type, FileEntity fileEntity) {
+    @NonNull
+    private ResponseEntity uploadAction(@NonNull Type type, @NonNull FileEntity fileEntity) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, type, fileEntity)) == null) {
@@ -555,7 +563,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LogSystemUploaderStrategy(boolean z, boolean z2, BaseUploaderStrategy.UploadListener uploadListener) {
+    public LogSystemUploaderStrategy(boolean z, boolean z2, @Nullable BaseUploaderStrategy.UploadListener uploadListener) {
         super(z, z2, uploadListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -578,7 +586,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         this.mAttachmentExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     }
 
-    private File createContentFile(LogObject logObject, List list, String str) {
+    private File createContentFile(@NonNull LogObject logObject, @Nullable List<LogFile> list, @NonNull String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, this, logObject, list, str)) == null) {
@@ -705,7 +713,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 i = 500;
             }
             if (listFiles != null && listFiles.length != 0) {
-                Pair fileCluster = fileCluster(listFiles, new TrimConfig(i, 2592000000L));
+                Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(i, 2592000000L));
                 if (((LinkedList) fileCluster.second).size() > 0) {
                     Iterator it = ((LinkedList) fileCluster.second).iterator();
                     while (it.hasNext()) {
@@ -720,7 +728,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    public ResponseEntity uploadContentSync(File file) {
+    @NonNull
+    public ResponseEntity uploadContentSync(@NonNull File file) {
         InterceptResult invokeL;
         boolean z;
         BaseContentUploader contentUploader;
@@ -758,10 +767,11 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     /* JADX WARN: Code restructure failed: missing block: B:50:0x00af, code lost:
         if (r7 == 2) goto L46;
      */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private File createAttachZipFile(LogObject logObject, List list, Set set, List list2, String str) {
+    private File createAttachZipFile(@NonNull LogObject logObject, @Nullable List<LogFile> list, @Nullable Set<LogFile> set, @Nullable List<LogFile> list2, @NonNull String str) {
         InterceptResult invokeLLLLL;
         FileName fileName;
         Interceptable interceptable = $ic;
@@ -792,9 +802,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     }
                     if (list2 != null && list2.size() > 0) {
                         int i = 0;
-                        Iterator it = list2.iterator();
-                        while (it.hasNext()) {
-                            LogFile logFile = (LogFile) it.next();
+                        for (LogFile logFile : list2) {
                             if (logFile != null && (logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.FULL_BDMP_PERFIX) || logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.TXT_EXTRA))) {
                                 linkedList.add(logFile);
                                 i++;
@@ -804,9 +812,9 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     try {
                         LinkedList linkedList2 = new LinkedList();
                         linkedList2.add(new ZipUtils.ZipSrc(logObject.getLogBasicDataFile(), SnapshotConstant.ProcessConstants.PROCESS_LOG_BASIC_DATA));
-                        Iterator it2 = linkedList.iterator();
-                        while (it2.hasNext()) {
-                            LogFile logFile2 = (LogFile) it2.next();
+                        Iterator it = linkedList.iterator();
+                        while (it.hasNext()) {
+                            LogFile logFile2 = (LogFile) it.next();
                             if (logFile2 != null && logFile2.mFile.exists()) {
                                 linkedList2.add(new ZipUtils.ZipSrc(logFile2.mFile));
                             }
@@ -850,7 +858,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             if (listFiles == null || listFiles.length == 0) {
                 return false;
             }
-            Pair fileCluster = fileCluster(listFiles, new TrimConfig(i2, 2592000000L));
+            Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(i2, 2592000000L));
             if (((LinkedList) fileCluster.second).size() > 0) {
                 Iterator it = ((LinkedList) fileCluster.second).iterator();
                 while (it.hasNext()) {
@@ -888,7 +896,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         return invokeLI.booleanValue;
     }
 
-    private Pair fileCluster(File[] fileArr, TrimConfig trimConfig) {
+    @NonNull
+    private Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster(@NonNull File[] fileArr, @NonNull TrimConfig trimConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, fileArr, trimConfig)) == null) {
@@ -925,7 +934,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     }
                 }
             }
-            return new Pair(linkedList, linkedList2);
+            return new Pair<>(linkedList, linkedList2);
         }
         return (Pair) invokeLL.objValue;
     }
@@ -967,7 +976,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ResponseEntity uploadAttachmentSync(String str, File file) {
+    @NonNull
+    public ResponseEntity uploadAttachmentSync(@NonNull String str, @NonNull File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, this, str, file)) == null) {
@@ -991,7 +1001,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     @Override // com.baidu.searchbox.logsystem.basic.upload.BaseUploaderStrategy, com.baidu.searchbox.logsystem.basic.upload.UploadInterface
-    public void upload(Context context, LogObject logObject, List list, Set set, List list2) {
+    public void upload(Context context, @NonNull LogObject logObject, @Nullable List<LogFile> list, @Nullable Set<LogFile> set, @Nullable List<LogFile> list2) {
         CrashUtil.CrashTAG crashTAG;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, logObject, list, set, list2) == null) {

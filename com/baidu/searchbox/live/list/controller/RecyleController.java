@@ -15,6 +15,7 @@ import com.baidu.searchbox.live.data.constant.MixConstants;
 import com.baidu.searchbox.live.interfaces.mix.IMixActivityInterface;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell;
 import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
 import com.baidu.searchbox.live.shell.list.template.MixAudioFakeShell;
 import com.baidu.searchbox.live.shell.list.template.MixConsultFakeShell;
@@ -70,7 +71,7 @@ public final class RecyleController implements IListManager {
     public transient /* synthetic */ FieldHolder $fh;
     public AbConfigService abService;
     public final Lazy adapter$delegate;
-    public final List closeRoomIdList;
+    public final List<String> closeRoomIdList;
     public final Context context;
     public final Lazy layoutManger$delegate;
     public final ListController listController;
@@ -138,7 +139,7 @@ public final class RecyleController implements IListManager {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/RecyleController$Companion;", "", "LIVE_TYPE_AUDIO", "I", "LIVE_TYPE_CONSULT", "LIVE_TYPE_DATE", "LIVE_TYPE_MEDIA", "LIVE_TYPE_NEW_MEDIA", "LIVE_TYPE_SHOPPING", "LIVE_TYPE_SHOW", "LIVE_TYPE_YY", "TYPE_CACHE_SIZE", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,17 +164,17 @@ public final class RecyleController implements IListManager {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000j\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001BA\u0012\u0006\u0010\u0018\u001a\u00020\u0017\u0012\f\u0010\u001e\u001a\b\u0012\u0004\u0012\u00020\u001d0\u001c\u0012\u0006\u0010&\u001a\u00020%\u0012\u0012\u00100\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020/0.0\u001c\u0012\u0006\u0010#\u001a\u00020\"¢\u0006\u0004\b1\u00102J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0006\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u001f\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0005\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u001f\u0010\u0015\u001a\u00020\r2\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0014\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0015\u0010\u0016R\u0019\u0010\u0018\u001a\u00020\u00178\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u001a\u0010\u001bR\u001f\u0010\u001e\u001a\b\u0012\u0004\u0012\u00020\u001d0\u001c8\u0006@\u0006¢\u0006\f\n\u0004\b\u001e\u0010\u001f\u001a\u0004\b \u0010!R\u0016\u0010#\u001a\u00020\"8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b#\u0010$R\u0019\u0010&\u001a\u00020%8\u0006@\u0006¢\u0006\f\n\u0004\b&\u0010'\u001a\u0004\b(\u0010)R\u001e\u0010,\u001a\n +*\u0004\u0018\u00010*0*8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b,\u0010-R\"\u00100\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020/0.0\u001c8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b0\u0010\u001f¨\u00063"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/RecyleController$ListAdapter;", "androidx/recyclerview/widget/RecyclerView$Adapter", "", "getItemCount", "()I", CriusAttrConstants.POSITION, "getItemViewType", "(I)I", "", "viewName", "Landroid/view/View;", "inflateLiveView", "(Ljava/lang/String;)Landroid/view/View;", "Lcom/baidu/searchbox/live/list/controller/RecyleController$LiveHolder;", "holder", "", "onBindViewHolder", "(Lcom/baidu/searchbox/live/list/controller/RecyleController$LiveHolder;I)V", "Landroid/view/ViewGroup;", "parent", "viewType", "onCreateViewHolder", "(Landroid/view/ViewGroup;I)Lcom/baidu/searchbox/live/list/controller/RecyleController$LiveHolder;", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "data", "Ljava/util/List;", "getData", "()Ljava/util/List;", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "getMixUniqueId", "()Lcom/baidu/live/arch/utils/MiniUniqueId;", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "kotlin.jvm.PlatformType", "pluginInvokeService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "shellList", "<init>", "(Landroid/content/Context;Ljava/util/List;Lcom/baidu/live/arch/utils/MiniUniqueId;Ljava/util/List;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class ListAdapter extends RecyclerView.Adapter {
+    public static final class ListAdapter extends RecyclerView.Adapter<LiveHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
-        public final List data;
+        public final List<LiveContainer.LiveItemModel> data;
         public final IMixActivityInterface mixActivity;
         public final MiniUniqueId mixUniqueId;
         public final PluginInvokeService pluginInvokeService;
-        public final List shellList;
+        public final List<WeakReference<AbstractMixFakeShell>> shellList;
 
-        public ListAdapter(Context context, List list, MiniUniqueId miniUniqueId, List list2, IMixActivityInterface iMixActivityInterface) {
+        public ListAdapter(Context context, List<LiveContainer.LiveItemModel> list, MiniUniqueId miniUniqueId, List<WeakReference<AbstractMixFakeShell>> list2, IMixActivityInterface iMixActivityInterface) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,61 +207,61 @@ public final class RecyleController implements IListManager {
                     case -1290662271:
                         if (str.equals(MixConstants.LIVE_AUDIO_COMPONENT)) {
                             MixAudioFakeShell mixAudioFakeShell = new MixAudioFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixAudioFakeShell));
+                            this.shellList.add(new WeakReference<>(mixAudioFakeShell));
                             createContainerView = mixAudioFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell));
                         createContainerView = mixMediaFakeShell.createContainerView();
                         break;
                     case -308259055:
                         if (str.equals(MixConstants.LIVE_YY_COMPONENT)) {
                             MixYYFakeShell mixYYFakeShell = new MixYYFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixYYFakeShell));
+                            this.shellList.add(new WeakReference<>(mixYYFakeShell));
                             createContainerView = mixYYFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell2 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell2));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell2));
                         createContainerView = mixMediaFakeShell2.createContainerView();
                         break;
                     case -180546576:
                         if (str.equals(MixConstants.LIVE_COMPONENT_NEW_MEDIA)) {
                             MixNewMediaFakeShell mixNewMediaFakeShell = new MixNewMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixNewMediaFakeShell));
+                            this.shellList.add(new WeakReference<>(mixNewMediaFakeShell));
                             createContainerView = mixNewMediaFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell22 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell22));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell22));
                         createContainerView = mixMediaFakeShell22.createContainerView();
                         break;
                     case 1018636823:
                         if (str.equals(MixConstants.LIVE_COMPONENT_CONSULT)) {
                             MixConsultFakeShell mixConsultFakeShell = new MixConsultFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixConsultFakeShell));
+                            this.shellList.add(new WeakReference<>(mixConsultFakeShell));
                             createContainerView = mixConsultFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell222 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell222));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell222));
                         createContainerView = mixMediaFakeShell222.createContainerView();
                         break;
                     case 1736280221:
                         if (str.equals(MixConstants.LIVE_COMPONENT_SHOPPING)) {
                             MixShopFakeShell mixShopFakeShell = new MixShopFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixShopFakeShell));
+                            this.shellList.add(new WeakReference<>(mixShopFakeShell));
                             createContainerView = mixShopFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell2222 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell2222));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell2222));
                         createContainerView = mixMediaFakeShell2222.createContainerView();
                         break;
                     default:
                         MixMediaFakeShell mixMediaFakeShell22222 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell22222));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell22222));
                         createContainerView = mixMediaFakeShell22222.createContainerView();
                         break;
                 }
@@ -281,7 +282,7 @@ public final class RecyleController implements IListManager {
             return (Context) invokeV.objValue;
         }
 
-        public final List getData() {
+        public final List<LiveContainer.LiveItemModel> getData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -315,14 +316,14 @@ public final class RecyleController implements IListManager {
             String templateId;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                String liveType = ((LiveContainer.LiveItemModel) this.data.get(i)).getLiveType();
+                String liveType = this.data.get(i).getLiveType();
                 int hashCode = liveType.hashCode();
                 if (hashCode != 48) {
                     if (hashCode != 51 || !liveType.equals("3")) {
                         return 0;
                     }
                     return 6;
-                } else if (!liveType.equals("0") || (templateId = ((LiveContainer.LiveItemModel) this.data.get(i)).getTemplateId()) == null) {
+                } else if (!liveType.equals("0") || (templateId = this.data.get(i).getTemplateId()) == null) {
                     return 0;
                 } else {
                     switch (templateId.hashCode()) {
@@ -379,7 +380,7 @@ public final class RecyleController implements IListManager {
                 }
                 LiveContainer liveContainer = (LiveContainer) view3;
                 if (liveContainer != null) {
-                    LiveContainer.LiveItemModel liveItemModel = (LiveContainer.LiveItemModel) this.data.get(i);
+                    LiveContainer.LiveItemModel liveItemModel = this.data.get(i);
                     liveItemModel.getRuntimeStatus().setPosition(i);
                     liveContainer.bindData(liveItemModel);
                 }
@@ -472,12 +473,12 @@ public final class RecyleController implements IListManager {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0019\u0010\u0003\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/RecyleController$LiveHolder;", "androidx/recyclerview/widget/RecyclerView$ViewHolder", "Landroid/view/View;", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "getView", "()Landroid/view/View;", "<init>", "(Landroid/view/View;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class LiveHolder extends RecyclerView.ViewHolder {
+    public static final class LiveHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1038view;
+        public final View f1039view;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LiveHolder(View view2) {
@@ -497,14 +498,14 @@ public final class RecyleController implements IListManager {
                     return;
                 }
             }
-            this.f1038view = view2;
+            this.f1039view = view2;
         }
 
         public final View getView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f1038view;
+                return this.f1039view;
             }
             return (View) invokeV.objValue;
         }
@@ -546,7 +547,7 @@ public final class RecyleController implements IListManager {
     }
 
     @Override // com.baidu.searchbox.live.list.controller.IListManager
-    public void onCloseRoom(List list) {
+    public void onCloseRoom(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.closeRoomIdList.addAll(list);
@@ -625,7 +626,7 @@ public final class RecyleController implements IListManager {
         }
     }
 
-    public final Set handleClosedLiveRoom() {
+    public final Set<Integer> handleClosedLiveRoom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -633,11 +634,11 @@ public final class RecyleController implements IListManager {
                 return new LinkedHashSet();
             }
             LinkedHashSet linkedHashSet = new LinkedHashSet();
-            Iterator it = this.listController.getItemData().iterator();
+            Iterator<LiveContainer.LiveItemModel> it = this.listController.getItemData().iterator();
             while (it.hasNext()) {
-                String roomId = ((LiveContainer.LiveItemModel) it.next()).getRoomId();
+                String roomId = it.next().getRoomId();
                 if (this.closeRoomIdList.contains(roomId)) {
-                    List itemData = this.listController.getItemData();
+                    List<LiveContainer.LiveItemModel> itemData = this.listController.getItemData();
                     ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(itemData, 10));
                     int i = 0;
                     for (Object obj : itemData) {

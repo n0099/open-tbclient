@@ -1,111 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public final class m15 {
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+/* loaded from: classes5.dex */
+public class m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
 
-    public m15() {
+    public static List<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String q = ky4.k().q("scheme_white_list", null);
+            if (StringUtils.isNull(q)) {
+                return null;
+            }
+            try {
+                return b(new JSONArray(q));
+            } catch (Exception unused) {
+                return null;
             }
         }
-        this.c = -1;
+        return (List) invokeV.objValue;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public static List<String> b(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                String optString = jSONArray.optString(i);
+                if (!StringUtils.isNull(optString)) {
+                    arrayList.add(optString);
+                }
+            }
+            return arrayList;
         }
-        return invokeV.intValue;
+        return (List) invokeL.objValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    public static void c(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void e(JSONObject jsonObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jsonObject) == null) {
-            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-            i(jsonObject.optInt("match_cond_registry", 0));
-            h(jsonObject.optInt("match_cond_login", 0));
-            f(jsonObject.optInt("cond_day_after_close", -1));
-            g(jsonObject.optInt("cond_time_close", 0));
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
+            if (jSONArray == null) {
+                ky4.k().y("scheme_white_list", "");
+            } else {
+                ky4.k().y("scheme_white_list", jSONArray.toString());
+            }
         }
     }
 }

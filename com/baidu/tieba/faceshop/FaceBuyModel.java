@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.faceshop.FaceBuyQueryData;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class FaceBuyModel extends BdBaseModel {
     public int c;
 
     /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -41,7 +41,7 @@ public class FaceBuyModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask {
+    public class b extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -94,7 +94,7 @@ public class FaceBuyModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 String obj = objArr[0].toString();
                 FaceBuyQueryData faceBuyQueryData = null;
-                if (!ej.isEmpty(obj)) {
+                if (!wi.isEmpty(obj)) {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
                     this.a = netWork;
                     netWork.addPostData("order_id", obj);
@@ -139,7 +139,7 @@ public class FaceBuyModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends BdAsyncTask {
+    public class c extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;

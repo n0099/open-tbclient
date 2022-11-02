@@ -19,10 +19,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.common.util.UriUtil;
 import com.facebook.imagepipeline.bitmaps.SimpleBitmapReleaser;
 import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.CloseableStaticBitmap;
 import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
@@ -32,8 +34,9 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class LocalVideoThumbnailProducer implements Producer {
+public class LocalVideoThumbnailProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final String CREATED_THUMBNAIL = "createdThumbnail";
     public static final String PRODUCER_NAME = "VideoThumbnailProducer";
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,13 +82,13 @@ public class LocalVideoThumbnailProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
             producerContext.putOriginExtra(ImagesContract.LOCAL, "video");
-            StatefulProducerRunnable statefulProducerRunnable = new StatefulProducerRunnable(this, consumer, producerListener, producerContext, PRODUCER_NAME, producerListener, producerContext, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalVideoThumbnailProducer.1
+            StatefulProducerRunnable<CloseableReference<CloseableImage>> statefulProducerRunnable = new StatefulProducerRunnable<CloseableReference<CloseableImage>>(this, consumer, producerListener, producerContext, PRODUCER_NAME, producerListener, producerContext, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalVideoThumbnailProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LocalVideoThumbnailProducer this$0;
@@ -120,7 +123,7 @@ public class LocalVideoThumbnailProducer implements Producer {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void disposeResult(CloseableReference closeableReference) {
+                public void disposeResult(CloseableReference<CloseableImage> closeableReference) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, closeableReference) == null) {
                         CloseableReference.closeSafely(closeableReference);
@@ -129,7 +132,7 @@ public class LocalVideoThumbnailProducer implements Producer {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable
-                public Map getExtraMapOnSuccess(CloseableReference closeableReference) {
+                public Map<String, String> getExtraMapOnSuccess(CloseableReference<CloseableImage> closeableReference) {
                     InterceptResult invokeL;
                     boolean z;
                     Interceptable interceptable2 = $ic;
@@ -156,11 +159,11 @@ public class LocalVideoThumbnailProducer implements Producer {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void onSuccess(CloseableReference closeableReference) {
+                public void onSuccess(CloseableReference<CloseableImage> closeableReference) {
                     boolean z;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048583, this, closeableReference) == null) {
-                        super.onSuccess((Object) closeableReference);
+                        super.onSuccess((AnonymousClass1) closeableReference);
                         ProducerListener2 producerListener2 = this.val$listener;
                         ProducerContext producerContext2 = this.val$producerContext;
                         if (closeableReference != null) {
@@ -176,7 +179,7 @@ public class LocalVideoThumbnailProducer implements Producer {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.common.executors.StatefulRunnable
                 @Nullable
-                public CloseableReference getResult() throws Exception {
+                public CloseableReference<CloseableImage> getResult() throws Exception {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {

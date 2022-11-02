@@ -1,26 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.Pair;
-import android.view.Display;
-import android.view.WindowManager;
+import android.util.Base64;
+import android.util.Log;
+import androidx.annotation.CheckResult;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.KeyFactory;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
 public class wg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,158 +43,157 @@ public class wg3 {
                 return;
             }
         }
-        a = uh3.b;
+        a = ok1.a;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    @NonNull
+    @CheckResult
+    public static String a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (f(appContext)) {
-                return false;
-            }
-            return a(appContext);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
-            boolean z2 = false;
-            if (identifier > 0) {
-                z = resources.getBoolean(identifier);
-            } else {
-                z = false;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
             try {
-                if (Build.VERSION.SDK_INT < 21) {
-                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
-                } else {
-                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
-                }
-                if (i != 0) {
-                    return false;
-                }
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                String str = (String) cls.getMethod("get", String.class).invoke(cls, "qemu.hw.mainkeys");
-                if (!"1".equals(str)) {
-                    if ("0".equals(str)) {
-                        z2 = true;
-                    } else {
-                        z2 = z;
-                    }
-                }
-                return z2;
-            } catch (Exception unused) {
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Pair b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Pair d = d();
-            return new Pair(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!e()) {
-                return 0;
-            }
-            Resources resources = AppRuntime.getAppContext().getResources();
-            if (dh3.L()) {
-                str = SapiSystemBarTintManager.SystemBarConfig.h;
-            } else {
-                str = SapiSystemBarTintManager.SystemBarConfig.i;
-            }
-            return dh3.r(resources, str);
-        }
-        return invokeV.intValue;
-    }
-
-    public static Pair d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            if (windowManager == null) {
-                return new Pair(Integer.valueOf(dh3.o(appContext)), Integer.valueOf(dh3.n(appContext)));
-            }
-            Display defaultDisplay = windowManager.getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            defaultDisplay.getRealMetrics(displayMetrics);
-            return new Pair(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            String str = Build.BRAND;
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
-                        return false;
-                    }
-                    return true;
-                }
-                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
-                    if (str.equalsIgnoreCase("XIAOMI")) {
-                        if (Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase("VIVO")) {
-                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase(a)) {
-                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase("SAMSUNG")) {
-                        if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }
-                if (Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
-                    return false;
-                }
-                return true;
+                Cipher cipher = Cipher.getInstance(str3);
+                cipher.init(1, new SecretKeySpec(str.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str4.getBytes(IMAudioTransRequest.CHARSET)));
+                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
             } catch (Exception e) {
-                if (wj1.a) {
-                    e.printStackTrace();
+                if (a) {
+                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
+                    return "";
                 }
-                return false;
+                return "";
             }
         }
-        return invokeL.booleanValue;
+        return (String) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    public static String b(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) == null) {
+            ?? r0 = 0;
+            try {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance(str);
+                    messageDigest.reset();
+                    fileInputStream = new FileInputStream(file);
+                    try {
+                        byte[] bArr = new byte[8192];
+                        while (true) {
+                            int read = fileInputStream.read(bArr);
+                            if (read > 0) {
+                                messageDigest.update(bArr, 0, read);
+                            } else {
+                                String e = e(messageDigest.digest(), "", z);
+                                ik4.d(fileInputStream);
+                                return e;
+                            }
+                        }
+                    } catch (FileNotFoundException e2) {
+                        e = e2;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        ik4.d(fileInputStream);
+                        return null;
+                    } catch (IOException e3) {
+                        e = e3;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        ik4.d(fileInputStream);
+                        return null;
+                    } catch (NoSuchAlgorithmException e4) {
+                        e = e4;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        ik4.d(fileInputStream);
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    r0 = interceptable;
+                    ik4.d(r0);
+                    throw th;
+                }
+            } catch (FileNotFoundException e5) {
+                e = e5;
+                fileInputStream = null;
+            } catch (IOException e6) {
+                e = e6;
+                fileInputStream = null;
+            } catch (NoSuchAlgorithmException e7) {
+                e = e7;
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                ik4.d(r0);
+                throw th;
+            }
+        } else {
+            return (String) invokeLLZ.objValue;
+        }
+    }
+
+    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            return e(messageDigest.digest(), "", z);
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    @NonNull
+    @CheckResult
+    public static String d(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
+                Cipher cipher = Cipher.getInstance(str3);
+                cipher.init(1, generatePublic);
+                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String e(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
     }
 }

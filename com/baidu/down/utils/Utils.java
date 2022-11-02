@@ -48,7 +48,7 @@ public class Utils {
     public static final String TAG = "Utils";
     public static final int WAP = 1;
     public static final int WIFI = 0;
-    public static final Map extMimeMap;
+    public static final Map<String, String> extMimeMap;
     public static int mApnType = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -371,12 +371,12 @@ public class Utils {
         return invokeLI.intValue;
     }
 
-    public static void removeMapKeyIgnoreCase(Map map, String str) {
+    public static void removeMapKeyIgnoreCase(Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65556, null, map, str) == null) && map != null && str != null) {
-            Iterator it = map.entrySet().iterator();
+            Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
             while (it.hasNext()) {
-                if (((String) ((Map.Entry) it.next()).getKey()).equalsIgnoreCase(str)) {
+                if (it.next().getKey().equalsIgnoreCase(str)) {
                     it.remove();
                 }
             }
@@ -468,7 +468,7 @@ public class Utils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             if (str != null) {
-                return (String) extMimeMap.get(str);
+                return extMimeMap.get(str);
             }
             return null;
         }

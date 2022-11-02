@@ -19,7 +19,7 @@ public class MessageMonitorImpl implements MessageMonitor {
     public transient /* synthetic */ FieldHolder $fh;
     public MessageConfig config;
     public Object lock;
-    public final ConcurrentHashMap msgParams;
+    public final ConcurrentHashMap<String, MessageParams> msgParams;
     public int processId;
 
     @Override // com.yy.hiidostatis.message.MessageMonitor
@@ -30,7 +30,7 @@ public class MessageMonitorImpl implements MessageMonitor {
     }
 
     /* loaded from: classes8.dex */
-    public class MessageParams {
+    public static class MessageParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String act;
@@ -122,7 +122,7 @@ public class MessageMonitorImpl implements MessageMonitor {
         }
         this.lock = new Object();
         this.config = messageConfig;
-        this.msgParams = new ConcurrentHashMap();
+        this.msgParams = new ConcurrentHashMap<>();
         this.processId = KVIO.get().decodeInt(PROCESS_ID_KEY, 1);
         KVIO.get().encode(PROCESS_ID_KEY, this.processId + 1);
     }
@@ -131,10 +131,10 @@ public class MessageMonitorImpl implements MessageMonitor {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            MessageParams messageParams = (MessageParams) this.msgParams.get(str);
+            MessageParams messageParams = this.msgParams.get(str);
             if (messageParams == null) {
                 synchronized (this.lock) {
-                    messageParams = (MessageParams) this.msgParams.get(str);
+                    messageParams = this.msgParams.get(str);
                     if (messageParams == null) {
                         messageParams = new MessageParams(str);
                         this.msgParams.put(str, messageParams);

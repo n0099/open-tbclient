@@ -1,5 +1,7 @@
 package androidx.recyclerview.widget;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.AsyncDifferConfig;
 import androidx.recyclerview.widget.AsyncListDiffer;
 import androidx.recyclerview.widget.DiffUtil;
@@ -19,13 +21,13 @@ public abstract class ListAdapter<T, VH extends RecyclerView.ViewHolder> extends
     public final AsyncListDiffer<T> mDiffer;
     public final AsyncListDiffer.ListListener<T> mListener;
 
-    public void onCurrentListChanged(List<T> list, List<T> list2) {
+    public void onCurrentListChanged(@NonNull List<T> list, @NonNull List<T> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
         }
     }
 
-    public ListAdapter(AsyncDifferConfig<T> asyncDifferConfig) {
+    public ListAdapter(@NonNull AsyncDifferConfig<T> asyncDifferConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +66,7 @@ public abstract class ListAdapter<T, VH extends RecyclerView.ViewHolder> extends
             }
 
             @Override // androidx.recyclerview.widget.AsyncListDiffer.ListListener
-            public void onCurrentListChanged(List<T> list, List<T> list2) {
+            public void onCurrentListChanged(@NonNull List<T> list, @NonNull List<T> list2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, list, list2) == null) {
                     this.this$0.onCurrentListChanged(list, list2);
@@ -76,7 +78,7 @@ public abstract class ListAdapter<T, VH extends RecyclerView.ViewHolder> extends
         asyncListDiffer.addListListener(this.mListener);
     }
 
-    public ListAdapter(DiffUtil.ItemCallback<T> itemCallback) {
+    public ListAdapter(@NonNull DiffUtil.ItemCallback<T> itemCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +117,7 @@ public abstract class ListAdapter<T, VH extends RecyclerView.ViewHolder> extends
             }
 
             @Override // androidx.recyclerview.widget.AsyncListDiffer.ListListener
-            public void onCurrentListChanged(List<T> list, List<T> list2) {
+            public void onCurrentListChanged(@NonNull List<T> list, @NonNull List<T> list2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, list, list2) == null) {
                     this.this$0.onCurrentListChanged(list, list2);
@@ -127,6 +129,7 @@ public abstract class ListAdapter<T, VH extends RecyclerView.ViewHolder> extends
         asyncListDiffer.addListListener(this.mListener);
     }
 
+    @NonNull
     public List<T> getCurrentList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -155,14 +158,14 @@ public abstract class ListAdapter<T, VH extends RecyclerView.ViewHolder> extends
         return (T) invokeI.objValue;
     }
 
-    public void submitList(List<T> list) {
+    public void submitList(@Nullable List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.mDiffer.submitList(list);
         }
     }
 
-    public void submitList(List<T> list, Runnable runnable) {
+    public void submitList(@Nullable List<T> list, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, list, runnable) == null) {
             this.mDiffer.submitList(list, runnable);

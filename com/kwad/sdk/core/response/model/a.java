@@ -1,5 +1,8 @@
 package com.kwad.sdk.core.response.model;
-/* loaded from: classes7.dex */
+
+import com.ksad.json.annotation.KsJson;
+@KsJson
+/* loaded from: classes8.dex */
 public class a extends com.kwad.sdk.core.response.kwai.a {
     public int add;
     public boolean ade;

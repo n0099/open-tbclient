@@ -182,14 +182,14 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         }
     }
 
-    private void invokeUpdateOutputInternal(List list) {
+    private void invokeUpdateOutputInternal(List<Cue> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list) == null) {
             this.output.onCues(list);
         }
     }
 
-    private void updateOutput(List list) {
+    private void updateOutput(List<Cue> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, list) == null) {
             Handler handler = this.outputHandler;
@@ -274,7 +274,7 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         if (this.nextSubtitle == null) {
             this.decoder.setPositionUs(j);
             try {
-                this.nextSubtitle = (SubtitleOutputBuffer) this.decoder.dequeueOutputBuffer();
+                this.nextSubtitle = this.decoder.dequeueOutputBuffer();
             } catch (SubtitleDecoderException e) {
                 throw ExoPlaybackException.createForRenderer(e, getIndex());
             }
@@ -325,9 +325,9 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         while (!this.inputStreamEnded) {
             try {
                 if (this.nextInputBuffer == null) {
-                    SubtitleInputBuffer subtitleInputBuffer = (SubtitleInputBuffer) this.decoder.dequeueInputBuffer();
-                    this.nextInputBuffer = subtitleInputBuffer;
-                    if (subtitleInputBuffer == null) {
+                    SubtitleInputBuffer dequeueInputBuffer = this.decoder.dequeueInputBuffer();
+                    this.nextInputBuffer = dequeueInputBuffer;
+                    if (dequeueInputBuffer == null) {
                         return;
                     }
                 }

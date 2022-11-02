@@ -23,8 +23,8 @@ import org.json.JSONObject;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap T;
-    public HashMap U;
+    public HashMap<String, a> T;
+    public HashMap<String, a> U;
     public boolean V;
     public String W;
     public String X;
@@ -105,7 +105,7 @@ public class b {
                                 jSONObject3 = optJSONObject3;
                                 a aVar = new a(optString, optInt, str8, optLong, arrayList3, arrayList2);
                                 if (this.T == null) {
-                                    this.T = new HashMap();
+                                    this.T = new HashMap<>();
                                 }
                                 this.T.put(next, aVar);
                                 if ("httpsdns.baidu.com".equalsIgnoreCase(next) && arrayList3.size() > 0) {
@@ -142,7 +142,7 @@ public class b {
                 JSONObject jSONObject7 = optJSONObject3;
                 if (jSONObject7 != null) {
                     Iterator<String> keys2 = jSONObject7.keys();
-                    this.U = new HashMap();
+                    this.U = new HashMap<>();
                     while (keys2.hasNext()) {
                         String next2 = keys2.next();
                         JSONObject optJSONObject6 = jSONObject7.optJSONObject(next2);
@@ -186,14 +186,14 @@ public class b {
                                         arrayList = null;
                                     }
                                     if (this.T == null) {
-                                        this.T = new HashMap();
+                                        this.T = new HashMap<>();
                                     }
                                     if (arrayList != null && !arrayList.isEmpty()) {
                                         ipList = arrayList;
                                         jSONObject = optJSONObject;
                                         this.T.put(next3, new a(optString, optInt, str10, optLong, ipList, arrayList6));
                                     }
-                                    ipList = ((a) this.T.get(next3)).getIpList();
+                                    ipList = this.T.get(next3).getIpList();
                                     jSONObject = optJSONObject;
                                     this.T.put(next3, new a(optString, optInt, str10, optLong, ipList, arrayList6));
                                 }
@@ -213,11 +213,11 @@ public class b {
         }
     }
 
-    public Map B() {
+    public Map<String, a> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = this.T;
+            HashMap<String, a> hashMap = this.T;
             if (hashMap != null) {
                 return Collections.unmodifiableMap(hashMap);
             }
@@ -226,11 +226,11 @@ public class b {
         return (Map) invokeV.objValue;
     }
 
-    public Map C() {
+    public Map<String, a> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = this.U;
+            HashMap<String, a> hashMap = this.U;
             if (hashMap != null) {
                 return Collections.unmodifiableMap(hashMap);
             }

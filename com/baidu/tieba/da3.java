@@ -1,93 +1,132 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class da3 {
+public final class da3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile da3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(String str, String str2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947697779, "Lcom/baidu/tieba/da3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947697779, "Lcom/baidu/tieba/da3;");
-                return;
-            }
-        }
-        boolean z = wj1.a;
-    }
-
-    public da3() {
+    public static String a(@NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            return str + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
+            sc3.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
         }
     }
 
-    public static da3 a() {
+    public static void j(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
+            sc3.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
+        }
+    }
+
+    public static void k(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
+            sc3.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
+        }
+    }
+
+    public static void l(boolean z, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
+            sc3.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
+        }
+    }
+
+    public static void m(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
+            sc3.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
+        }
+    }
+
+    public static void n(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
+            sc3.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            String appId = d43.K().getAppId();
+            mc3 a = sc3.a();
+            a.remove(a("SwanAppStabilitySp-obtainData", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
+            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
+            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
+            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
+        }
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return sc3.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", d43.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return sc3.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", d43.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return sc3.a().getInt(a("SwanAppStabilitySp-swanStartupStability", d43.K().getAppId()), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (da3.class) {
-                    if (b == null) {
-                        b = new da3();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return sc3.a().getBoolean(a("SwanAppStabilitySp-autoObtain", d43.K().getAppId()), false);
         }
-        return (da3) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void b(String str) {
-        a aVar;
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (ProcessUtils.isMainProcess() && (aVar = this.a) != null) {
-                aVar.a("swanLauncherTag", str);
-            } else {
-                c("swanLauncherTag", str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return sc3.a().getBoolean(a("SwanAppStabilitySp-obtainData", d43.K().getAppId()), false);
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c(String str, String str2) {
-        h03 y;
+    public static boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (y = l33.K().y()) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("statTag", str);
-            bundle.putString("statisticData", str2);
-            y.W(bundle, ca3.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return sc3.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", d43.K().getAppId()), false);
         }
+        return invokeV.booleanValue;
     }
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
@@ -86,7 +87,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         }
 
         @Override // com.baidu.sapi2.callback.ShareModelResultCallback
-        public void onSuccess(List list) {
+        public void onSuccess(List<ShareStorage.StorageModel> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) {
                 return;
@@ -148,7 +149,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class c {
+    public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +185,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoginPager(Context context, ColorType colorType, IQuickLoginDialogCallback iQuickLoginDialogCallback, IPagerLoadCallback iPagerLoadCallback, ISendSmsCallback iSendSmsCallback) {
+    public LoginPager(@NonNull Context context, ColorType colorType, IQuickLoginDialogCallback iQuickLoginDialogCallback, IPagerLoadCallback iPagerLoadCallback, ISendSmsCallback iSendSmsCallback) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -353,11 +354,11 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(List list) {
+    public void b(List<ShareStorage.StorageModel> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, list) == null) {
             if (list != null && list.size() != 0) {
-                ShareStorage.StorageModel storageModel = (ShareStorage.StorageModel) list.get(0);
+                ShareStorage.StorageModel storageModel = list.get(0);
                 if (storageModel == null) {
                     int i = this.m + 1;
                     this.m = i;
@@ -456,11 +457,11 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List list) {
+    public void a(List<LoginHistoryModel> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, list) == null) {
             if (list != null && list.size() != 0) {
-                LoginHistoryModel loginHistoryModel = (LoginHistoryModel) list.get(0);
+                LoginHistoryModel loginHistoryModel = list.get(0);
                 if (loginHistoryModel == null) {
                     int i = this.m + 1;
                     this.m = i;
@@ -480,13 +481,13 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d0, this);
-            this.c = (OneKeyLoginView) findViewById(R.id.obfuscated_res_0x7f091d5e);
-            this.d = (ShareLoginView) findViewById(R.id.obfuscated_res_0x7f091d60);
-            this.e = (HistoryLoginView) findViewById(R.id.obfuscated_res_0x7f091d5c);
-            this.f = (SendSmsView) findViewById(R.id.obfuscated_res_0x7f091d5f);
-            this.g = (ThirdPartyView) findViewById(R.id.obfuscated_res_0x7f091d61);
-            this.h = (AgreementView) findViewById(R.id.obfuscated_res_0x7f091d5b);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e0, this);
+            this.c = (OneKeyLoginView) findViewById(R.id.obfuscated_res_0x7f091da7);
+            this.d = (ShareLoginView) findViewById(R.id.obfuscated_res_0x7f091da9);
+            this.e = (HistoryLoginView) findViewById(R.id.obfuscated_res_0x7f091da5);
+            this.f = (SendSmsView) findViewById(R.id.obfuscated_res_0x7f091da8);
+            this.g = (ThirdPartyView) findViewById(R.id.obfuscated_res_0x7f091daa);
+            this.h = (AgreementView) findViewById(R.id.obfuscated_res_0x7f091da4);
             this.g.setLoginCallback(this);
             this.h.a((Activity) this.a, this.i);
             b();
@@ -528,7 +529,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
                 }
 
                 @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
-                public void onSuccess(List list) {
+                public void onSuccess(List<LoginHistoryModel> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) {
                         return;

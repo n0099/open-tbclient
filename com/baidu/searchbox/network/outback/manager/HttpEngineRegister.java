@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class HttpEngineRegister {
@@ -34,14 +33,12 @@ public final class HttpEngineRegister {
         }
     }
 
-    public static void register(Context context, String str, String str2, List list, IOutbackClientIPProvider iOutbackClientIPProvider, IAdditionalRecord iAdditionalRecord) {
+    public static void register(Context context, String str, String str2, List<CallFactory.CallFactoryProducer> list, IOutbackClientIPProvider iOutbackClientIPProvider, IAdditionalRecord iAdditionalRecord) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, list, iOutbackClientIPProvider, iAdditionalRecord}) == null) {
             HashMap hashMap = new HashMap();
             if (!list.isEmpty()) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    CallFactory.CallFactoryProducer callFactoryProducer = (CallFactory.CallFactoryProducer) it.next();
+                for (CallFactory.CallFactoryProducer callFactoryProducer : list) {
                     hashMap.put(callFactoryProducer.getEngineName(), callFactoryProducer);
                 }
                 OutbackComponent.getInstance().setOutbackContext(new IOutbackContext(context, hashMap, str, iOutbackClientIPProvider, iAdditionalRecord, str2) { // from class: com.baidu.searchbox.network.outback.manager.HttpEngineRegister.1
@@ -134,7 +131,7 @@ public final class HttpEngineRegister {
                     }
 
                     @Override // com.baidu.searchbox.network.outback.IOutbackContext
-                    public HashMap getOutbackEngines() {
+                    public HashMap<String, CallFactory.CallFactoryProducer> getOutbackEngines() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {

@@ -2,6 +2,7 @@ package com.baidu.ala.liveroom.messages;
 
 import alaim.AlaMgetLiveStatus.AlaMgetLiveStatusResIdl;
 import alaim.AlaMgetLiveStatus.DataRes;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +18,7 @@ import java.util.List;
 public class AlaMGetLiveStatusSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mCloseIds;
+    public List<Long> mCloseIds;
     public long mInterval;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -38,7 +39,7 @@ public class AlaMGetLiveStatusSocketResponseMessage extends SocketResponsedMessa
         }
     }
 
-    public List getClosedIds() {
+    public List<Long> getClosedIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -57,6 +58,7 @@ public class AlaMGetLiveStatusSocketResponseMessage extends SocketResponsedMessa
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

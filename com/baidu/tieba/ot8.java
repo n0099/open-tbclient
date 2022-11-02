@@ -1,97 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ot8 {
+public class ot8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public int b;
+    public final zr8 a;
 
-    public ot8(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ot8(MainTabActivity mainTabActivity) {
+        super(2921725);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = mainTabActivity.e;
     }
 
-    public final boolean a(DressItemData dressItemData) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        zr8 zr8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) {
-            if (TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (zr8Var = this.a) != null && zr8Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.f().c;
+                zg.a().removeCallbacks(runnable);
+                zg.a().post(runnable);
+                return;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(DressItemData dressItemData, boolean z) {
-        String string;
-        String str;
-        int i;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) != null) || dressItemData == null) {
-            return;
-        }
-        boolean a = ys8.a(dressItemData);
-        if (!a) {
-            a = a(dressItemData);
-        }
-        if (a) {
-            this.b = dressItemData.getPropsId();
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-            httpMessage.setExtra(Integer.valueOf(this.b));
-            httpMessage.addParam("bcode", String.valueOf(this.b));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        } else if (dressItemData.getFreeUserLevel() == 100) {
-            if (dressItemData.getActivityFinish() == 0) {
-                ys8.b(this.a, 5, dressItemData.getActivityUrl());
-            }
-        } else {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                str = this.a.getString(R.string.obfuscated_res_0x7f0f0309);
-                i = 9;
-            } else {
-                if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f030f), Integer.valueOf(dressItemData.getFreeUserLevel()));
-                } else {
-                    string = this.a.getString(R.string.obfuscated_res_0x7f0f030b);
-                }
-                str = string;
-                i = 0;
-            }
-            if (z) {
-                str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
-            } else {
-                str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
-            }
-            ys8.d(this.a, 5, str, i, str2, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+            zg.a().removeCallbacks(this.a.f().c);
         }
     }
 }

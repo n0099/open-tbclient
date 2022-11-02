@@ -23,7 +23,7 @@ public class ThirdPartyUtil implements NoProguard {
     public static final String TYPE_QQ = "qzone";
     public static final String TYPE_WEIBO = "tsina";
     public static final String TYPE_WEIXIN = "weixin";
-    public static HashMap wxAuthCodeMap;
+    public static HashMap<String, String> wxAuthCodeMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class ThirdPartyUtil implements NoProguard {
                 return;
             }
         }
-        wxAuthCodeMap = new HashMap();
+        wxAuthCodeMap = new HashMap<>();
     }
 
     public ThirdPartyUtil() {

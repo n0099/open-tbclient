@@ -2,6 +2,7 @@ package com.baidu.searchbox.perfframe.ubc;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.param.ThreadCollector;
@@ -12,7 +13,7 @@ import com.baidu.searchbox.perfframe.impl.PerfExpInfo;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.ve1;
+import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,6 +23,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes2.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,7 +47,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
 
     @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister
     public void onEvent(Context context, PerfExpInfo perfExpInfo) {
-        LinkedList trackUIs;
+        LinkedList<TrackUI> trackUIs;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, perfExpInfo) == null) {
             if (AppConfig.isDebug()) {
@@ -58,7 +60,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 jSONObject.put("time", String.valueOf(perfExpInfo.getTime()));
                 jSONObject.put("description", perfExpInfo.getException());
                 jSONObject.put("page", perfExpInfo.getPage());
-                jSONObject.put("processName", ve1.b());
+                jSONObject.put("processName", nf1.b());
                 jSONObject.put(Constant.KEY_BUSINESS, perfExpInfo.getBusiness());
                 JSONObject jSONObject2 = new JSONObject();
                 if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {
@@ -66,7 +68,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                     int i = 1;
                     int size = trackUIs.size() - 1;
                     while (true) {
-                        TrackUI trackUI = (TrackUI) trackUIs.get(size);
+                        TrackUI trackUI = trackUIs.get(size);
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put("type", trackUI.getType());
                         jSONObject3.put("time", trackUI.getTimeStamp());

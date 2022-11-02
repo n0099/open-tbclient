@@ -53,7 +53,7 @@ public final class aa extends XMPushService.j {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Map map = null;
+            Map<String, String> map = null;
             try {
                 if (com.xiaomi.push.m.m561a((Context) this.f878a)) {
                     try {

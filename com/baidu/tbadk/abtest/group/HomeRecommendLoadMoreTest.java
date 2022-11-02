@@ -18,7 +18,7 @@ public class HomeRecommendLoadMoreTest extends AbsGroupUbsABTest {
     public static final String FEED_REC_PRELOAD = "12_20_feed_rec_preload";
     public static final String FEED_REC_PRELOAD_A = "12_20_feed_rec_preload_a";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -38,7 +38,7 @@ public class HomeRecommendLoadMoreTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -80,7 +80,7 @@ public class HomeRecommendLoadMoreTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
+        ArrayList<String> arrayList = new ArrayList<>();
         this.mABTestList = arrayList;
         arrayList.add(FEED_REC_PRELOAD);
         this.mABTestList.add(FEED_REC_PRELOAD_A);

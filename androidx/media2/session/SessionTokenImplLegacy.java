@@ -4,6 +4,8 @@ import android.content.ComponentName;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.SessionToken;
@@ -72,6 +74,7 @@ public final class SessionTokenImplLegacy extends CustomVersionedParcelable impl
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
+    @Nullable
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,6 +85,7 @@ public final class SessionTokenImplLegacy extends CustomVersionedParcelable impl
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
+    @NonNull
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,6 +96,7 @@ public final class SessionTokenImplLegacy extends CustomVersionedParcelable impl
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
+    @Nullable
     public String getServiceName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

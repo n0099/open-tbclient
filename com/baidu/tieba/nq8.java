@@ -1,122 +1,173 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nq8 {
+public abstract class nq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final eq8 b;
-    public e46 c;
-    public e46 d;
-    public e46 e;
+    public mq8 a;
+    public final String b;
+    public final int c;
+    public final long d;
+    public final String e;
+    public final int f;
 
-    public nq8(MainTabActivity mainTabActivity, eq8 eq8Var) {
+    public abstract void a();
+
+    public abstract boolean c();
+
+    public abstract qq8 g(ArrayList<Integer> arrayList, String str, int i);
+
+    public nq8(String str, int i, int i2, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, eq8Var};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = eq8Var;
+        this.b = str;
+        this.c = i2;
+        this.d = j;
+        this.e = str2;
+        this.f = i;
     }
 
-    public void a() {
-        e46 e46Var;
+    public byte[] b(RandomAccessFile randomAccessFile, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (e46Var = this.e) != null && e46Var.i()) {
-            this.e.h();
-        }
-    }
-
-    public void b() {
-        e46 e46Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (e46Var = this.d) != null && e46Var.i()) {
-            this.d.h();
-            this.d = null;
-        }
-    }
-
-    public void c() {
-        e46 e46Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (e46Var = this.c) != null && e46Var.i()) {
-            this.c.h();
-            this.c = null;
-        }
-    }
-
-    public void d() {
-        eq8 eq8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (eq8Var = this.b) != null && eq8Var.B() != null) {
-            FragmentTabWidget fragmentTabWidget = this.b.B().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
+            if (randomAccessFile != null && i >= 0) {
+                if (i == this.c) {
+                    i2 = (int) (this.d - ((i - 1) * this.f));
+                } else {
+                    i2 = this.f;
+                }
+                byte[] bArr = new byte[i2];
+                boolean z = false;
+                try {
+                    synchronized (randomAccessFile) {
+                        randomAccessFile.seek((i - 1) * this.f);
+                        if (randomAccessFile.read(bArr, 0, i2) != -1) {
+                            z = true;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (z) {
+                    return bArr;
+                }
             }
-            e46 e46Var = new e46(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
-            this.e = e46Var;
-            e46Var.L(R.drawable.obfuscated_res_0x7f0802ee);
-            this.e.l(2);
-            this.e.o(32);
-            this.e.M(true);
-            this.e.Q(-fj.f(this.a, R.dimen.tbds10));
-            this.e.C(R.color.CAM_X0101);
-            this.e.p(R.dimen.tbds54);
-            this.e.w(1);
-            this.e.n(4000);
-            this.e.F(fj.f(this.a, R.dimen.tbds44));
+            return null;
+        }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public void d(int i) {
+        mq8 mq8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (mq8Var = this.a) != null) {
+            mq8Var.onProgressUpdate(i / 100.0f);
         }
     }
 
-    public void e(String str) {
+    public void f(mq8 mq8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
-            FragmentTabWidget fragmentTabWidget = this.b.B().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mq8Var) == null) {
+            this.a = mq8Var;
+        }
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            e46 e46Var = new e46(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
-            this.c = e46Var;
-            e46Var.L(R.drawable.obfuscated_res_0x7f0802ee);
-            this.c.l(2);
-            this.c.o(32);
-            this.c.M(true);
-            this.c.Q(-fj.f(this.a, R.dimen.tbds10));
-            this.c.C(R.color.CAM_X0101);
-            this.c.p(R.dimen.tbds54);
-            this.c.w(999);
-            this.c.n(5000);
-            this.c.F(fj.f(this.a, R.dimen.tbds44));
-            this.c.U(str, "categoryUpdate", false, true);
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                if (optJSONObject != null) {
+                    return optJSONObject.optString("video_url");
+                }
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void f() {
-        e46 e46Var;
+    public qq8 h(RandomAccessFile randomAccessFile, int i, long j, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (e46Var = this.e) != null && !e46Var.i()) {
-            e46 e46Var2 = this.e;
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f059a);
-            e46Var2.S(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
+            byte[] b = b(randomAccessFile, i);
+            if (b == null) {
+                qq8 qq8Var = new qq8();
+                qq8Var.b = -1;
+                qq8Var.c = "上传文件不存在";
+                return qq8Var;
+            } else if (c()) {
+                return null;
+            } else {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
+                netWork.addPostData("chunk_no", String.valueOf(i));
+                netWork.addPostData("chunk_sum", String.valueOf(this.c));
+                netWork.addPostData("chunk_size", String.valueOf(b.length));
+                netWork.addPostData("video_size", String.valueOf(this.d));
+                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
+                netWork.addPostData("video_len", String.valueOf(j));
+                netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+                netWork.addPostData("video_chunk", b);
+                netWork.addPostData("upload_id", str);
+                if (c()) {
+                    return null;
+                }
+                String postMultiNetData = netWork.postMultiNetData();
+                if (c()) {
+                    return null;
+                }
+                qq8 qq8Var2 = new qq8();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    qq8Var2.a = e(postMultiNetData);
+                } else {
+                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
+                        qq8Var2.b = netWork.getNetContext().getResponse().mServerErrorCode;
+                    } else {
+                        qq8Var2.b = netWork.getNetContext().getResponse().mNetErrorCode;
+                    }
+                    qq8Var2.c = netWork.getNetContext().getResponse().mErrorString;
+                }
+                return qq8Var2;
+            }
         }
+        return (qq8) invokeCommon.objValue;
     }
 }

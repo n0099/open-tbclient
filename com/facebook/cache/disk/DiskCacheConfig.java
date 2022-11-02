@@ -25,7 +25,7 @@ public class DiskCacheConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String mBaseDirectoryName;
-    public final Supplier mBaseDirectoryPathSupplier;
+    public final Supplier<File> mBaseDirectoryPathSupplier;
     public final CacheErrorLogger mCacheErrorLogger;
     public final CacheEventListener mCacheEventListener;
     public final Context mContext;
@@ -38,11 +38,11 @@ public class DiskCacheConfig {
     public final int mVersion;
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mBaseDirectoryName;
-        public Supplier mBaseDirectoryPathSupplier;
+        public Supplier<File> mBaseDirectoryPathSupplier;
         public CacheErrorLogger mCacheErrorLogger;
         public CacheEventListener mCacheEventListener;
         @Nullable
@@ -99,7 +99,7 @@ public class DiskCacheConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setBaseDirectoryPathSupplier(Supplier supplier) {
+        public Builder setBaseDirectoryPathSupplier(Supplier<File> supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, supplier)) == null) {
@@ -236,7 +236,7 @@ public class DiskCacheConfig {
         }
         Preconditions.checkState(z, "Either a non-null context or a base directory path or supplier must be provided.");
         if (builder.mBaseDirectoryPathSupplier == null && this.mContext != null) {
-            builder.mBaseDirectoryPathSupplier = new Supplier(this) { // from class: com.facebook.cache.disk.DiskCacheConfig.1
+            builder.mBaseDirectoryPathSupplier = new Supplier<File>(this) { // from class: com.facebook.cache.disk.DiskCacheConfig.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DiskCacheConfig this$0;
@@ -260,6 +260,7 @@ public class DiskCacheConfig {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.facebook.common.internal.Supplier
                 public File get() {
                     InterceptResult invokeV;
@@ -317,7 +318,7 @@ public class DiskCacheConfig {
         return (String) invokeV.objValue;
     }
 
-    public Supplier getBaseDirectoryPathSupplier() {
+    public Supplier<File> getBaseDirectoryPathSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

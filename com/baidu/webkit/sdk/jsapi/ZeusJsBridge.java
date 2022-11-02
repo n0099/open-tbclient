@@ -15,14 +15,14 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebView;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ZeusJsBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_BRIDGE_NAME = "_flyflowNative";
     public static final String REMOVE_CLOUD_SETTINGS_VALUE = "flyflownative_remove";
     public static final String TAG = "jsapi";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mJsAbilityMap;
+    public HashMap<String, IJsAbility> mJsAbilityMap;
     public WebView mWebView;
 
     public ZeusJsBridge(WebView webView) {
@@ -66,7 +66,7 @@ public class ZeusJsBridge {
             if (this.mWebView == null) {
                 return;
             }
-            IJsAbility iJsAbility = (IJsAbility) this.mJsAbilityMap.get(str);
+            IJsAbility iJsAbility = this.mJsAbilityMap.get(str);
             if (iJsAbility != null) {
                 iJsAbility.jsExec(this.mWebView, str2, str3, str4);
                 return;
@@ -80,13 +80,13 @@ public class ZeusJsBridge {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, str3, str4)) == null) {
-            IJsAbility iJsAbility = (IJsAbility) this.mJsAbilityMap.get(str);
+            IJsAbility iJsAbility = this.mJsAbilityMap.get(str);
             return (iJsAbility == null || !(iJsAbility instanceof IJsAbilityExt)) ? "" : ((IJsAbilityExt) iJsAbility).jsExecWithResult(str2, str3, str4);
         }
         return (String) invokeLLLL.objValue;
     }
 
-    public HashMap getJsAbilities() {
+    public HashMap<String, IJsAbility> getJsAbilities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mJsAbilityMap : (HashMap) invokeV.objValue;

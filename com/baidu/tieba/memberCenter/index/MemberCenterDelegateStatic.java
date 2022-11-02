@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.p95;
-import com.baidu.tieba.q95;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.ia5;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.ka5;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,14 +27,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class MemberCenterDelegateStatic extends p95 {
+public class MemberCenterDelegateStatic extends ia5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView c;
     public CustomMessageListener d;
 
     /* loaded from: classes5.dex */
-    public final class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,15 +60,15 @@ public class MemberCenterDelegateStatic extends p95 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            q95 b;
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            ja5 b;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             MemberCenterDelegateStatic memberCenterDelegateStatic = new MemberCenterDelegateStatic();
-            ((r95) customResponsedMessage.getData()).a(memberCenterDelegateStatic);
-            if (((r95) customResponsedMessage.getData()).getContext() == null || (b = memberCenterDelegateStatic.b()) == null) {
+            ((ka5) customResponsedMessage.getData()).a(memberCenterDelegateStatic);
+            if (((ka5) customResponsedMessage.getData()).getContext() == null || (b = memberCenterDelegateStatic.b()) == null) {
                 return;
             }
             b.a.setArguments(new Bundle());
@@ -104,14 +104,14 @@ public class MemberCenterDelegateStatic extends p95 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     this.a.c.setVisibility(8);
                 } else if (TbadkCoreApplication.isLogin()) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    ux4 k = ux4.k();
+                    ky4 k = ky4.k();
                     if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > k.m("maintab_member_center_red_tip_" + currentAccount, 0L)) {
                         this.a.c.setVisibility(0);
                     } else {
@@ -154,21 +154,21 @@ public class MemberCenterDelegateStatic extends p95 {
         }
     }
 
-    @Override // com.baidu.tieba.p95
-    public q95 a() {
+    @Override // com.baidu.tieba.ia5
+    public ja5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q95 q95Var = new q95();
-            q95Var.a = new MemberCenterFragment();
-            q95Var.e = 14;
-            q95Var.b = R.string.obfuscated_res_0x7f0f0ad4;
-            return q95Var;
+            ja5 ja5Var = new ja5();
+            ja5Var.a = new MemberCenterFragment();
+            ja5Var.e = 14;
+            ja5Var.b = R.string.obfuscated_res_0x7f0f0ae0;
+            return ja5Var;
         }
-        return (q95) invokeV.objValue;
+        return (ja5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.p95
+    @Override // com.baidu.tieba.ia5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public class MemberCenterDelegateStatic extends p95 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.p95
+    @Override // com.baidu.tieba.ia5
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -187,7 +187,7 @@ public class MemberCenterDelegateStatic extends p95 {
         }
     }
 
-    @Override // com.baidu.tieba.p95
+    @Override // com.baidu.tieba.ia5
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -197,16 +197,16 @@ public class MemberCenterDelegateStatic extends p95 {
         }
     }
 
-    @Override // com.baidu.tieba.p95
+    @Override // com.baidu.tieba.ia5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ed, (ViewGroup) null);
+            this.b = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
             this.c = new ImageView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f = this.b;
-            aVar.c = fj.d(context, 3.0f);
+            aVar.c = xi.d(context, 3.0f);
             ImageView imageView = this.c;
             aVar.a = imageView;
             aVar.d = R.drawable.icon_news_down_bar_one;

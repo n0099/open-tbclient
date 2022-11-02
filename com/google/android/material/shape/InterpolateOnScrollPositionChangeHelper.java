@@ -3,6 +3,7 @@ package com.google.android.material.shape;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -86,14 +87,14 @@ public class InterpolateOnScrollPositionChangeHelper {
         }
     }
 
-    public void startListeningForScrollChanges(ViewTreeObserver viewTreeObserver) {
+    public void startListeningForScrollChanges(@NonNull ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewTreeObserver) == null) {
             viewTreeObserver.addOnScrollChangedListener(this.scrollChangedListener);
         }
     }
 
-    public void stopListeningForScrollChanges(ViewTreeObserver viewTreeObserver) {
+    public void stopListeningForScrollChanges(@NonNull ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, viewTreeObserver) == null) {
             viewTreeObserver.removeOnScrollChangedListener(this.scrollChangedListener);

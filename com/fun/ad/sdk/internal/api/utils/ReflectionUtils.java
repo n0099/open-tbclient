@@ -63,7 +63,7 @@ public class ReflectionUtils {
         return invokeLL.objValue;
     }
 
-    public static Object invoke(Object obj, String str, Class[] clsArr, Object... objArr) {
+    public static Object invoke(Object obj, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, clsArr, objArr)) == null) {

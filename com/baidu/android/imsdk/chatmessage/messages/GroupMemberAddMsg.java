@@ -19,10 +19,10 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupMemberAddMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GroupMemberAddMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int groupnum;
-    public ArrayList members;
+    public ArrayList<String> members;
     public String operator;
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -45,7 +45,7 @@ public class GroupMemberAddMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberAddMsg.1
+        CREATOR = new Parcelable.Creator<GroupMemberAddMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberAddMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,6 +64,7 @@ public class GroupMemberAddMsg extends NotifyMsg implements Parcelable, NoProGua
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMemberAddMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -75,6 +76,7 @@ public class GroupMemberAddMsg extends NotifyMsg implements Parcelable, NoProGua
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMemberAddMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -100,7 +102,7 @@ public class GroupMemberAddMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        this.members = new ArrayList();
+        this.members = new ArrayList<>();
         setMsgType(1001);
     }
 
@@ -113,7 +115,7 @@ public class GroupMemberAddMsg extends NotifyMsg implements Parcelable, NoProGua
         return invokeV.intValue;
     }
 
-    public ArrayList getMemberBuids() {
+    public ArrayList<String> getMemberBuids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -149,7 +151,7 @@ public class GroupMemberAddMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        this.members = new ArrayList();
+        this.members = new ArrayList<>();
         this.operator = parcel.readString();
         this.groupnum = parcel.readInt();
         parcel.readList(this.members, String.class.getClassLoader());

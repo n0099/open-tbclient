@@ -1,84 +1,100 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class ky0 {
+public final class ky0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ky0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object[] a;
-    public int b;
 
-    public abstract ly0 b();
-
-    public ky0(int i) {
+    public final boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929287, "Lcom/baidu/tieba/ky0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947929287, "Lcom/baidu/tieba/ky0;");
                 return;
             }
         }
-        this.a = new Object[i <= 0 ? 2 : i];
+        a = new ky0();
     }
 
-    public ly0 a() {
-        InterceptResult invokeV;
+    public ky0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.b;
-            if (i <= 0) {
-                ly0 b = b();
-                b.onInit();
-                return b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            int i2 = i - 1;
-            Object[] objArr = this.a;
-            ly0 ly0Var = (ly0) objArr[i2];
-            objArr[i2] = null;
-            this.b = i - 1;
-            ly0Var.onInit();
-            return ly0Var;
         }
-        return (ly0) invokeV.objValue;
     }
 
-    public final boolean c(ly0 ly0Var) {
+    @JvmStatic
+    public static final JSONArray b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ly0Var)) == null) {
-            for (int i = 0; i < this.b; i++) {
-                if (this.a[i] == ly0Var) {
-                    return true;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            qy0 c = a.c(str);
+            if (c != null) {
+                JSONArray jSONArray = new JSONArray();
+                ly0.a(c, jSONArray);
+                jy0.a(c, jSONArray);
+                return jSONArray;
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    public void d(ly0 ly0Var) {
+    public final qy0 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, ly0Var) != null) || c(ly0Var)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("version", -1);
+                if (!a.a(optInt)) {
+                    return null;
+                }
+                qy0 qy0Var = new qy0();
+                qy0Var.e(optInt);
+                qy0Var.d(jSONObject.optString("mode"));
+                ly0.b(qy0Var, jSONObject);
+                jy0.b(qy0Var, jSONObject);
+                Unit unit = Unit.INSTANCE;
+                return qy0Var;
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        int i = this.b;
-        Object[] objArr = this.a;
-        if (i < objArr.length) {
-            objArr[i] = ly0Var;
-            this.b = i + 1;
-        }
-        ly0Var.onRelease();
+        return (qy0) invokeL.objValue;
     }
 }

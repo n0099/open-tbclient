@@ -242,7 +242,7 @@ public abstract class UPCEANReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, bitArray, map)) == null) {
@@ -251,7 +251,7 @@ public abstract class UPCEANReader extends OneDReader {
         return (Result) invokeILL.objValue;
     }
 
-    public Result decodeRow(int i, BitArray bitArray, int[] iArr, Map map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decodeRow(int i, BitArray bitArray, int[] iArr, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeCommon;
         ResultPointCallback resultPointCallback;
         int i2;

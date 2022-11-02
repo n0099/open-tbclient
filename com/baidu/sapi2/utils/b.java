@@ -28,7 +28,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class a implements View.OnClickListener {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebView a;
@@ -36,12 +36,12 @@ public class b {
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0133a implements Runnable {
+        public class RunnableC0141a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0133a(a aVar) {
+            public RunnableC0141a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class b {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.post(new RunnableC0133a(this));
+                this.a.post(new RunnableC0141a(this));
             }
         }
     }
@@ -115,16 +115,16 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, webView)) == null) {
-            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04fd, (ViewGroup) null);
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090461);
+            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d050d, (ViewGroup) null);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09046e);
             if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-                ((LinearLayout) inflate.findViewById(R.id.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609de));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d58)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609e1));
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d57)).setImageResource(R.drawable.obfuscated_res_0x7f081077);
-                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f081043);
+                ((LinearLayout) inflate.findViewById(R.id.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609f0));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091da1)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609f3));
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091da0)).setImageResource(R.drawable.obfuscated_res_0x7f081094);
+                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105f);
                 Resources resources = context.getResources();
                 if (resources != null) {
-                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a29));
+                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a3b));
                 }
             }
             button.setOnClickListener(new a(webView, inflate));
@@ -197,7 +197,7 @@ public class b {
             try {
                 ProgressBar progressBar = new ProgressBar(context, null, 16842872);
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-                progressBar.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609de));
+                progressBar.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609f0));
                 sapiWebView.setProgressBar(progressBar);
             } catch (Throwable th) {
                 Log.e(th);

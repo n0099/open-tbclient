@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ForumList;
+import tbclient.GetDislikeList.DataRes;
 /* loaded from: classes4.dex */
-public class ki8 implements IAperfOverlayContext {
+public class ki8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ii8> a;
+    public boolean b;
 
     public ki8() {
         Interceptable interceptable = $ic;
@@ -22,17 +25,29 @@ public class ki8 implements IAperfOverlayContext {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.b = true;
     }
 
-    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
-    public String getAppVersion() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbConfig.getVersion();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        for (ForumList forumList : dataRes.forum_list) {
+            ii8 ii8Var = new ii8();
+            ii8Var.a = forumList.avatar;
+            ii8Var.b = forumList.forum_name;
+            ii8Var.c = String.valueOf(forumList.forum_id);
+            this.a.add(ii8Var);
+        }
+        boolean z = true;
+        if (dataRes.has_more.intValue() != 1) {
+            z = false;
+        }
+        this.b = z;
     }
 }

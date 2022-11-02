@@ -12,7 +12,7 @@ import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.tieba.a91;
+import com.baidu.tieba.s91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,7 +76,7 @@ public class MultiPluginHelper {
         }
     }
 
-    public static String bundleToJsonStr(Map map) {
+    public static String bundleToJsonStr(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
@@ -96,13 +96,12 @@ public class MultiPluginHelper {
         return (String) invokeL.objValue;
     }
 
-    public static boolean newArchSubPluginNeedForceUpdate(Set set) {
+    public static boolean newArchSubPluginNeedForceUpdate(Set<String> set) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, set)) == null) {
-            Iterator it = set.iterator();
-            while (it.hasNext()) {
-                BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup((String) it.next());
+            for (String str : set) {
+                BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(str);
                 if (bundleGroup != null) {
                     BundleInfo bundleByType = bundleGroup.getBundleByType(1);
                     if (bundleByType != null && bundleByType.getVersionCode() >= 508000000 && bundleByType.needForceUpdate()) {
@@ -119,7 +118,7 @@ public class MultiPluginHelper {
         return invokeL.booleanValue;
     }
 
-    public static HashMap stringToMap(String str) {
+    public static HashMap<String, String> stringToMap(String str) {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
@@ -127,7 +126,7 @@ public class MultiPluginHelper {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             for (String str3 : str.split("&")) {
                 String[] split = str3.split("=");
                 try {
@@ -147,7 +146,7 @@ public class MultiPluginHelper {
         return (HashMap) invokeL.objValue;
     }
 
-    public static void fillSubBundlePkgName(BundleInfo bundleInfo, Set set) {
+    public static void fillSubBundlePkgName(BundleInfo bundleInfo, Set<String> set) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, bundleInfo, set) == null) && bundleInfo != null && bundleInfo.isMainBundle() && set != null) {
             for (SubBundleInfo subBundleInfo : bundleInfo.getSubBundle()) {
@@ -247,7 +246,7 @@ public class MultiPluginHelper {
                     log("ARCH_TYPE_NEW newArchSubPluginNeedForceUpdate true");
                     return 3;
                 }
-                int c = a91.b().c("com.baidu.searchbox.livenps");
+                int c = s91.b().c("com.baidu.searchbox.livenps");
                 if (bundleByType != null && bundleByType.getVersionCode() < 508000000 && bundleByType.getVersionCode() >= c) {
                     log("installLivenps：" + bundleByType.getVersionCode());
                     log("installLivenps.livenpsHostMinVersion：" + c);
@@ -349,7 +348,7 @@ public class MultiPluginHelper {
         }
     }
 
-    public static Map paramsJsonToMap(JSONObject jSONObject) {
+    public static Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
@@ -372,24 +371,24 @@ public class MultiPluginHelper {
         return (Map) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v6. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v6, types: [java.util.Map] */
     public static String parserYYSchemaUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            HashMap stringToMap = stringToMap(getParamsStr(str));
+            HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
             boolean containsKey = stringToMap.containsKey("params");
-            HashMap hashMap = stringToMap;
+            Map map = stringToMap;
             if (containsKey) {
                 try {
-                    hashMap = paramsJsonToMap(new JSONObject((String) stringToMap.get("params")));
+                    map = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
                 } catch (Exception unused) {
-                    hashMap = null;
+                    map = null;
                 }
             }
-            if (hashMap != null) {
-                return (String) hashMap.get("url");
+            if (map != null) {
+                return map.get("url");
             }
             return "";
         }

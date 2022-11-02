@@ -27,7 +27,7 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
     }
 
     /* loaded from: classes8.dex */
-    public final class Builder {
+    public static final class Builder {
         public AdDownloadEventConfig eventConfig = new AdDownloadEventConfig();
 
         @Deprecated

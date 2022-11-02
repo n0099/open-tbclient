@@ -19,7 +19,7 @@ public class c {
     public final long g;
     public final JSONObject h;
     public final JSONObject i;
-    public final List j;
+    public final List<String> j;
     public final int k;
     public final Object l;
     public final String m;
@@ -47,7 +47,7 @@ public class c {
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public String a;
         public String b;
         public String c;
@@ -56,8 +56,8 @@ public class c {
         public long g;
         public JSONObject h;
         public JSONObject i;
-        public Map j;
-        public List k;
+        public Map<String, Object> j;
+        public List<String> k;
         public int l;
         public Object m;
         public String n;
@@ -116,7 +116,7 @@ public class c {
             return this;
         }
 
-        public a a(List list) {
+        public a a(List<String> list) {
             this.k = list;
             return this;
         }
@@ -141,9 +141,9 @@ public class c {
             }
             try {
                 if (this.j != null && !this.j.isEmpty()) {
-                    for (Map.Entry entry : this.j.entrySet()) {
-                        if (!this.h.has((String) entry.getKey())) {
-                            this.h.putOpt((String) entry.getKey(), entry.getValue());
+                    for (Map.Entry<String, Object> entry : this.j.entrySet()) {
+                        if (!this.h.has(entry.getKey())) {
+                            this.h.putOpt(entry.getKey(), entry.getValue());
                         }
                     }
                 }
@@ -236,7 +236,7 @@ public class c {
         return this.i;
     }
 
-    public List j() {
+    public List<String> j() {
         return this.j;
     }
 
@@ -283,7 +283,7 @@ public class c {
         sb.append("\nparamsJson: ");
         sb.append(this.i);
         sb.append("\nclickTrackUrl: ");
-        List list = this.j;
+        List<String> list = this.j;
         String str3 = "";
         if (list == null) {
             str = "";

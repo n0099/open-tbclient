@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
@@ -24,9 +27,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qm;
-import com.baidu.tieba.rm;
-import com.baidu.tieba.vm;
+import com.baidu.tieba.im;
+import com.baidu.tieba.jm;
+import com.baidu.tieba.nm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,8 +109,8 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
                 super.onDownloadSuccess(packageInfo, errorInfo);
-                File file = new File(vm.b(this.a));
-                if (!StringUtils.isNull((String) BdBaseApplication.getInst().getResHashMap().get(this.a)) && file.exists()) {
+                File file = new File(nm.b(this.a));
+                if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(this.a)) && file.exists()) {
                     this.b.setSourceFile(file);
                     this.b.i();
                 }
@@ -158,7 +161,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbAlphaVideo(Context context) {
+    public TbAlphaVideo(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -182,7 +185,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbAlphaVideo(Context context, AttributeSet attributeSet) {
+    public TbAlphaVideo(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -207,7 +210,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbAlphaVideo(Context context, AttributeSet attributeSet, int i) {
+    public TbAlphaVideo(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -267,7 +270,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
         }
     }
 
-    public void setDefaultImage(int i) {
+    public void setDefaultImage(@DrawableRes int i) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (tbImageView = this.c) != null) {
@@ -476,16 +479,16 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0864, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0878, (ViewGroup) this, true);
             if (context instanceof BaseFragmentActivity) {
                 ((BaseFragmentActivity) context).startAnimatable(this);
             } else if (context instanceof BaseActivity) {
                 ((BaseActivity) context).startAnimatable(this);
             }
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090787);
-            setDefaultImage(R.drawable.obfuscated_res_0x7f080bf3);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090795);
+            setDefaultImage(R.drawable.obfuscated_res_0x7f080c0d);
             setOnVideoErrorListener(null);
-            AlphaVideo alphaVideo = (AlphaVideo) inflate.findViewById(R.id.obfuscated_res_0x7f090270);
+            AlphaVideo alphaVideo = (AlphaVideo) inflate.findViewById(R.id.obfuscated_res_0x7f090281);
             this.b = alphaVideo;
             alphaVideo.setLooping(true);
         }
@@ -494,16 +497,16 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            File file = new File(vm.b(str));
-            if (!StringUtils.isNull((String) BdBaseApplication.getInst().getResHashMap().get(str)) && file.exists()) {
+            File file = new File(nm.b(str));
+            if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(str)) && file.exists()) {
                 setSourceFile(file);
                 i();
                 return;
             }
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(rm.a);
+            requestParams.setRunType(jm.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new qm("com.baidu.tieba.resloader." + str, new a(this, str)));
+            requestParams.addChannel(new im("com.baidu.tieba.resloader." + str, new a(this, str)));
             PmsManager.getInstance().execute(requestParams);
         }
     }

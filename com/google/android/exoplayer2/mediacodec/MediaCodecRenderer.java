@@ -1,11 +1,13 @@
 package com.google.android.exoplayer2.mediacodec;
 
+import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,6 +37,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public abstract class MediaCodecRenderer extends BaseRenderer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -69,10 +72,11 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
     public int codecReconfigurationState;
     public boolean codecReconfigured;
     public int codecReinitializationState;
-    public final List decodeOnlyPresentationTimestamps;
+    public final List<Long> decodeOnlyPresentationTimestamps;
     public DecoderCounters decoderCounters;
-    public DrmSession drmSession;
-    public final DrmSessionManager drmSessionManager;
+    public DrmSession<FrameworkMediaCrypto> drmSession;
+    @Nullable
+    public final DrmSessionManager<FrameworkMediaCrypto> drmSessionManager;
     public final DecoderInputBuffer flagsOnlyBuffer;
     public Format format;
     public final FormatHolder formatHolder;
@@ -84,7 +88,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
     public ByteBuffer[] outputBuffers;
     public int outputIndex;
     public boolean outputStreamEnded;
-    public DrmSession pendingDrmSession;
+    public DrmSession<FrameworkMediaCrypto> pendingDrmSession;
     public final boolean playClearSamplesWithoutKeys;
     public boolean shouldSkipAdaptationWorkaroundOutputBuffer;
     public boolean shouldSkipOutputBuffer;
@@ -166,7 +170,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
         return invokeL.booleanValue;
     }
 
-    public abstract int supportsFormat(MediaCodecSelector mediaCodecSelector, DrmSessionManager drmSessionManager, Format format) throws MediaCodecUtil.DecoderQueryException;
+    public abstract int supportsFormat(MediaCodecSelector mediaCodecSelector, DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, Format format) throws MediaCodecUtil.DecoderQueryException;
 
     @Override // com.google.android.exoplayer2.BaseRenderer, com.google.android.exoplayer2.RendererCapabilities
     public final int supportsMixedMimeTypeAdaptation() {
@@ -179,7 +183,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
     }
 
     /* loaded from: classes7.dex */
-    public class DecoderInitializationException extends Exception {
+    public static class DecoderInitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUSTOM_ERROR_CODE_BASE = -50000;
         public static final int DECODER_QUERY_ERROR = -49998;
@@ -261,6 +265,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
             return (String) invokeI.objValue;
         }
 
+        @TargetApi(21)
         public static String getDiagnosticInfoV21(Throwable th) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -339,7 +344,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaCodecRenderer(int i, MediaCodecSelector mediaCodecSelector, DrmSessionManager drmSessionManager, boolean z) {
+    public MediaCodecRenderer(int i, MediaCodecSelector mediaCodecSelector, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, boolean z) {
         super(i);
         boolean z2;
         Interceptable interceptable = $ic;
@@ -468,7 +473,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, this, j)) == null) {
             int size = this.decodeOnlyPresentationTimestamps.size();
             for (int i = 0; i < size; i++) {
-                if (((Long) this.decodeOnlyPresentationTimestamps.get(i)).longValue() == j) {
+                if (this.decodeOnlyPresentationTimestamps.get(i).longValue() == j) {
                     this.decodeOnlyPresentationTimestamps.remove(i);
                     return true;
                 }
@@ -686,7 +691,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                 } else {
                     if (this.codecReconfigurationState == 1) {
                         for (int i = 0; i < this.format.initializationData.size(); i++) {
-                            this.buffer.data.put((byte[]) this.format.initializationData.get(i));
+                            this.buffer.data.put(this.format.initializationData.get(i));
                         }
                         this.codecReconfigurationState = 2;
                     }
@@ -844,20 +849,20 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
         long j;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.codec == null && (format = this.format) != null) {
-            DrmSession drmSession = this.pendingDrmSession;
+            DrmSession<FrameworkMediaCrypto> drmSession = this.pendingDrmSession;
             this.drmSession = drmSession;
             String str = format.sampleMimeType;
             if (drmSession != null) {
-                FrameworkMediaCrypto frameworkMediaCrypto = (FrameworkMediaCrypto) drmSession.getMediaCrypto();
-                if (frameworkMediaCrypto == null) {
+                FrameworkMediaCrypto mediaCrypto2 = drmSession.getMediaCrypto();
+                if (mediaCrypto2 == null) {
                     DrmSession.DrmSessionException error = this.drmSession.getError();
                     if (error == null) {
                         return;
                     }
                     throw ExoPlaybackException.createForRenderer(error, getIndex());
                 }
-                mediaCrypto = frameworkMediaCrypto.getWrappedMediaCrypto();
-                z = frameworkMediaCrypto.requiresSecureDecoderComponent(str);
+                mediaCrypto = mediaCrypto2.getWrappedMediaCrypto();
+                z = mediaCrypto2.requiresSecureDecoderComponent(str);
             } else {
                 mediaCrypto = null;
                 z = false;
@@ -1011,7 +1016,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                     try {
                         this.codec.release();
                         this.codec = null;
-                        DrmSession drmSession = this.drmSession;
+                        DrmSession<FrameworkMediaCrypto> drmSession = this.drmSession;
                         if (drmSession != null && this.pendingDrmSession != drmSession) {
                             try {
                                 this.drmSessionManager.releaseSession(drmSession);
@@ -1020,7 +1025,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                         }
                     } catch (Throwable th) {
                         this.codec = null;
-                        DrmSession drmSession2 = this.drmSession;
+                        DrmSession<FrameworkMediaCrypto> drmSession2 = this.drmSession;
                         if (drmSession2 != null && this.pendingDrmSession != drmSession2) {
                             try {
                                 this.drmSessionManager.releaseSession(drmSession2);
@@ -1033,7 +1038,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                     try {
                         this.codec.release();
                         this.codec = null;
-                        DrmSession drmSession3 = this.drmSession;
+                        DrmSession<FrameworkMediaCrypto> drmSession3 = this.drmSession;
                         if (drmSession3 != null && this.pendingDrmSession != drmSession3) {
                             try {
                                 this.drmSessionManager.releaseSession(drmSession3);
@@ -1043,7 +1048,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                         throw th2;
                     } catch (Throwable th3) {
                         this.codec = null;
-                        DrmSession drmSession4 = this.drmSession;
+                        DrmSession<FrameworkMediaCrypto> drmSession4 = this.drmSession;
                         if (drmSession4 != null && this.pendingDrmSession != drmSession4) {
                             try {
                                 this.drmSessionManager.releaseSession(drmSession4);
@@ -1080,9 +1085,9 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
             boolean z = true;
             if (!areEqual) {
                 if (this.format.drmInitData != null) {
-                    DrmSessionManager drmSessionManager = this.drmSessionManager;
+                    DrmSessionManager<FrameworkMediaCrypto> drmSessionManager = this.drmSessionManager;
                     if (drmSessionManager != null) {
-                        DrmSession acquireSession = drmSessionManager.acquireSession(Looper.myLooper(), this.format.drmInitData);
+                        DrmSession<FrameworkMediaCrypto> acquireSession = drmSessionManager.acquireSession(Looper.myLooper(), this.format.drmInitData);
                         this.pendingDrmSession = acquireSession;
                         if (acquireSession == this.drmSession) {
                             this.drmSessionManager.releaseSession(acquireSession);

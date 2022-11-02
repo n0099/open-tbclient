@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
+import android.os.MessageQueue;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,22 +13,137 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
-public class wx2 implements qo2 {
+public class wx2 implements ip2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap c;
+    public boolean c;
+    public boolean d;
+    public List<Runnable> e;
+    public az2 f;
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
+    public class a implements az2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wx2 c;
+
+        @Override // com.baidu.tieba.az2
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.az2
+        public void c(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.az2
+        public String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "IdleHandler" : (String) invokeV.objValue;
+        }
+
+        public a(wx2 wx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = wx2Var;
+        }
+
+        @Override // com.baidu.tieba.az2
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
+                return;
+            }
+            this.c.c = false;
+            this.c.k();
+            this.c.o();
+        }
+
+        @Override // com.baidu.tieba.az2
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048580, this, str) != null) {
+                return;
+            }
+            this.c.c = true;
+            this.c.n();
+            this.c.p();
+        }
+
+        @Override // com.baidu.tieba.az2
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            this.c.c = false;
+            this.c.k();
+            this.c.d = false;
+        }
     }
 
     /* loaded from: classes6.dex */
-    public class b {
+    public class b implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wx2 a;
+
+        public b(wx2 wx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wx2Var;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.c) {
+                    this.a.l();
+                } else {
+                    this.a.k();
+                }
+                return this.a.c;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final wx2 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +151,13 @@ public class wx2 implements qo2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-303029382, "Lcom/baidu/tieba/wx2$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-303029351, "Lcom/baidu/tieba/wx2$c;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-303029382, "Lcom/baidu/tieba/wx2$b;");
+                    classClinitInterceptable.invokePostClinit(-303029351, "Lcom/baidu/tieba/wx2$c;");
                     return;
                 }
             }
@@ -63,110 +178,110 @@ public class wx2 implements qo2 {
                 return;
             }
         }
-        this.c = new ConcurrentHashMap();
+        this.c = false;
+        this.d = false;
+        this.e = new CopyOnWriteArrayList();
+        this.f = new a(this);
     }
 
-    public static wx2 a() {
-        InterceptResult invokeV;
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.d) {
+            this.d = true;
+            ln2.p0().b(3000);
+            if (ip2.a) {
+                Log.d("SwanPerformance", "YaLog block time = 3000");
+            }
         }
-        return (wx2) invokeV.objValue;
     }
 
     public /* synthetic */ wx2(a aVar) {
         this();
     }
 
-    public View b(int i, ViewGroup viewGroup, boolean z) {
-        InterceptResult invokeCommon;
-        ViewGroup.LayoutParams layoutParams;
+    public boolean i(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
-            View d = d(i);
-            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
-                if (layoutParams2 == null) {
-                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
-                } else {
-                    layoutParams2.width = layoutParams.width;
-                    layoutParams2.height = layoutParams.height;
-                }
-                d.setLayoutParams(layoutParams2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            if (runnable == null) {
+                return false;
             }
-            if (d == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                View inflate = LayoutInflater.from(tm2.c()).inflate(i, viewGroup, z);
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (qo2.a) {
-                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-                return inflate;
+            if (this.c) {
+                this.e.add(runnable);
+                return true;
             }
-            return d;
+            yh3.a0(runnable);
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void c(int... iArr) {
+    public static wx2 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && iArr != null && iArr.length != 0) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                int length = iArr.length;
-                LayoutInflater from = LayoutInflater.from(tm2.c());
-                for (int i : iArr) {
-                    View inflate = from.inflate(i, (ViewGroup) null);
-                    CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.c.get(Integer.valueOf(i));
-                    if (copyOnWriteArrayList == null) {
-                        copyOnWriteArrayList = new CopyOnWriteArrayList();
-                    }
-                    copyOnWriteArrayList.add(inflate);
-                    this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
-                }
-                if (qo2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-            } catch (Exception e) {
-                if (qo2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return c.a;
+        }
+        return (wx2) invokeV.objValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            yy2.g().i(this.f, 5000);
+            this.c = true;
+            p();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Looper.getMainLooper();
+            Looper.myQueue().addIdleHandler(new b(this));
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d) {
+            this.d = false;
+            ln2.p0().c();
+            if (ip2.a) {
+                Log.d("SwanPerformance", "YaLog notify");
             }
         }
     }
 
-    public View d(int i) {
-        InterceptResult invokeI;
-        String str;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            View view2 = null;
-            try {
-                List list = (List) this.c.get(Integer.valueOf(i));
-                if (list != null && !list.isEmpty()) {
-                    view2 = (View) list.remove(0);
-                }
-            } catch (Exception e) {
-                if (qo2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
-            }
-            if (qo2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("tryObtainLayoutByResId resId = ");
-                sb.append(i);
-                if (view2 == null) {
-                    str = " cache view is null";
-                } else {
-                    str = " adopt cached view";
-                }
-                sb.append(str);
-                Log.d("SwanPerformance", sb.toString());
-            }
-            return view2;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.e.isEmpty()) {
+            return;
         }
-        return (View) invokeI.objValue;
+        long currentTimeMillis = System.currentTimeMillis();
+        for (Runnable runnable : this.e) {
+            d43.M().post(runnable);
+        }
+        if (ip2.a) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            Log.d("SwanPerformance", "idle handle all, cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + this.e.size());
+        }
+        this.e.clear();
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e.isEmpty()) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        Runnable remove = this.e.remove(0);
+        if (remove != null) {
+            d43.M().post(remove);
+        }
+        if (ip2.a) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            Log.d("SwanPerformance", "idle handle one, cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + this.e.size());
+        }
     }
 }

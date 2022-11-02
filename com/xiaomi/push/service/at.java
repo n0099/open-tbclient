@@ -1,5 +1,7 @@
 package com.xiaomi.push.service;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -19,7 +21,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bumptech.glide.load.engine.GlideException;
 import com.xiaomi.push.hw;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -63,6 +64,7 @@ public class at {
         return invokeL.intValue;
     }
 
+    @TargetApi(26)
     public static NotificationChannel a(String str, NotificationChannel notificationChannel) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -84,6 +86,7 @@ public class at {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getSharedPreferences("mipush_channel_copy_sp", 0) : (SharedPreferences) invokeL.objValue;
     }
 
+    @TargetApi(26)
     public static String a(ax axVar, String str, CharSequence charSequence, String str2, int i, int i2, String str3, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -112,6 +115,8 @@ public class at {
         return (String) invokeCommon.objValue;
     }
 
+    @SuppressLint({"WrongConstant"})
+    @TargetApi(26)
     public static void a(Context context, ax axVar, NotificationChannel notificationChannel, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, axVar, notificationChannel, Integer.valueOf(i), str}) == null) {
@@ -166,7 +171,7 @@ public class at {
         }
     }
 
-    public static void a(Context context, List list) {
+    public static void a(Context context, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, list) == null) {
             if (a) {
@@ -176,16 +181,15 @@ public class at {
                 return;
             }
             SharedPreferences.Editor edit = a(context).edit();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                edit.remove((String) it.next());
+            for (String str : list) {
+                edit.remove(str);
             }
             edit.apply();
         }
     }
 
     public static void a(hw hwVar) {
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65544, null, hwVar) == null) || hwVar == null || (map = hwVar.f541a) == null || !map.containsKey("REMOVE_CHANNEL_MARK")) {
             return;
@@ -196,10 +200,11 @@ public class at {
         hwVar.f541a.remove("channel_name");
         hwVar.f541a.remove("channel_description");
         hwVar.f541a.remove("channel_perm");
-        com.xiaomi.channel.commonutils.logger.b.m89a("delete channel info by:" + ((String) hwVar.f541a.get("REMOVE_CHANNEL_MARK")));
+        com.xiaomi.channel.commonutils.logger.b.m89a("delete channel info by:" + hwVar.f541a.get("REMOVE_CHANNEL_MARK"));
         hwVar.f541a.remove("REMOVE_CHANNEL_MARK");
     }
 
+    @TargetApi(26)
     public static void a(ax axVar, NotificationChannel notificationChannel, String str) {
         int i;
         char c;
@@ -280,6 +285,7 @@ public class at {
         }
     }
 
+    @TargetApi(26)
     public static boolean a(NotificationChannel notificationChannel, NotificationChannel notificationChannel2) {
         InterceptResult invokeLL;
         boolean z;

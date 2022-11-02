@@ -1,20 +1,20 @@
 package com.baidu.swan.apps.res.ui.pullrefresh;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tm2;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.y13;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.q23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class PullToRefreshBase extends LinearLayout {
+public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean v;
     public transient /* synthetic */ FieldHolder $fh;
     public HEADERTYPE a;
     public float b;
-    public h c;
+    public h<T> c;
     public LoadingLayout d;
     public LoadingLayout e;
     public int f;
@@ -42,18 +42,18 @@ public abstract class PullToRefreshBase extends LinearLayout {
     public int m;
     public ILoadingLayout$State n;
     public ILoadingLayout$State o;
-    public View p;
+    public T p;
     public FrameLayout q;
     public int r;
     public Scroller s;
     public int t;
-    public y13 u;
+    public q23<T> u;
 
     /* loaded from: classes3.dex */
-    public interface h {
-        void a(PullToRefreshBase pullToRefreshBase);
+    public interface h<V extends View> {
+        void a(PullToRefreshBase<V> pullToRefreshBase);
 
-        void b(PullToRefreshBase pullToRefreshBase);
+        void b(PullToRefreshBase<V> pullToRefreshBase);
     }
 
     public void F() {
@@ -71,7 +71,7 @@ public abstract class PullToRefreshBase extends LinearLayout {
         return invokeV.intValue;
     }
 
-    public abstract View j(Context context, AttributeSet attributeSet);
+    public abstract T j(Context context, AttributeSet attributeSet);
 
     public boolean o() {
         InterceptResult invokeV;
@@ -170,7 +170,7 @@ public abstract class PullToRefreshBase extends LinearLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class HEADERTYPE {
+    public static final class HEADERTYPE {
         public static final /* synthetic */ HEADERTYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HEADERTYPE BIG_BG_HEADER;
@@ -424,7 +424,7 @@ public abstract class PullToRefreshBase extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class g {
+    public static /* synthetic */ class g {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -480,14 +480,14 @@ public abstract class PullToRefreshBase extends LinearLayout {
                 return;
             }
         }
-        v = wj1.a;
+        v = ok1.a;
     }
 
     private boolean getNgWebViewHeightSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            tm2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
+            ln2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
             return false;
         }
         return invokeV.booleanValue;
@@ -533,22 +533,22 @@ public abstract class PullToRefreshBase extends LinearLayout {
         return (LoadingLayout) invokeV.objValue;
     }
 
-    public y13 getRefreshableFactory() {
+    public q23<T> getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.u;
         }
-        return (y13) invokeV.objValue;
+        return (q23) invokeV.objValue;
     }
 
-    public View getRefreshableView() {
+    public T getRefreshableView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.p;
         }
-        return (View) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public int getScrollYValue() {
@@ -729,6 +729,7 @@ public abstract class PullToRefreshBase extends LinearLayout {
         return (LoadingLayout) invokeLL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public final void m(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, context, attributeSet) == null) {
@@ -737,14 +738,14 @@ public abstract class PullToRefreshBase extends LinearLayout {
             this.m = ViewConfiguration.get(context).getScaledTouchSlop();
             this.d = i(context, attributeSet);
             this.e = h(context, attributeSet);
-            View j = j(context, attributeSet);
+            T j = j(context, attributeSet);
             this.p = j;
             if (v && j == null) {
                 throw new NullPointerException("Refreshable view can not be null.");
             }
-            View view2 = this.p;
-            if (view2 != null) {
-                g(context, view2);
+            T t = this.p;
+            if (t != null) {
+                g(context, t);
             }
             f(context);
             getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
@@ -752,13 +753,13 @@ public abstract class PullToRefreshBase extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBase(Context context, y13 y13Var, HEADERTYPE headertype) {
+    public PullToRefreshBase(Context context, q23<T> q23Var, HEADERTYPE headertype) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, y13Var, headertype};
+            Object[] objArr = {context, q23Var, headertype};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -781,7 +782,7 @@ public abstract class PullToRefreshBase extends LinearLayout {
         this.o = iLoadingLayout$State;
         this.r = -1;
         this.t = -1;
-        this.u = y13Var;
+        this.u = q23Var;
         this.a = headertype;
         m(context, null);
     }
@@ -863,7 +864,7 @@ public abstract class PullToRefreshBase extends LinearLayout {
         }
     }
 
-    public void setOnRefreshListener(h hVar) {
+    public void setOnRefreshListener(h<T> hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, hVar) == null) {
             this.c = hVar;
@@ -937,13 +938,13 @@ public abstract class PullToRefreshBase extends LinearLayout {
         }
     }
 
-    public void g(Context context, View view2) {
+    public void g(Context context, T t) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, context, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, context, t) == null) {
             FrameLayout frameLayout = new FrameLayout(context);
             this.q = frameLayout;
-            frameLayout.addView(view2, -1, -1);
+            frameLayout.addView(t, -1, -1);
             if (getNgWebViewHeightSwitch()) {
                 i = 10;
             } else {
@@ -1141,7 +1142,7 @@ public abstract class PullToRefreshBase extends LinearLayout {
     public void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             LoadingLayout loadingLayout = this.d;
             LoadingLayout loadingLayout2 = this.e;
             if (loadingLayout != null) {
@@ -1162,7 +1163,7 @@ public abstract class PullToRefreshBase extends LinearLayout {
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        View view2;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, motionEvent)) == null) {
             boolean z = false;
@@ -1211,8 +1212,8 @@ public abstract class PullToRefreshBase extends LinearLayout {
                                 if (r() && t()) {
                                     z = (Math.abs(getScrollYValue()) > 0 || y > 0.5f) ? true : true;
                                     this.l = z;
-                                    if (z && o() && (view2 = this.p) != null) {
-                                        view2.onTouchEvent(motionEvent);
+                                    if (z && o() && (t = this.p) != null) {
+                                        t.onTouchEvent(motionEvent);
                                     }
                                 } else if (p() && u()) {
                                     this.l = (Math.abs(getScrollYValue()) > 0 || y < -0.5f) ? true : true;

@@ -13,6 +13,13 @@ import android.os.Build;
 import android.os.CancellationSignal;
 import android.os.Handler;
 import android.provider.BaseColumns;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.collection.LruCache;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.content.res.FontResourcesParserCompat;
@@ -45,12 +52,16 @@ import java.util.concurrent.Callable;
 public class FontsContractCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKGROUND_THREAD_KEEP_ALIVE_DURATION_MS = 10000;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final String PARCEL_FONT_RESULTS = "font_results";
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final int RESULT_CODE_PROVIDER_NOT_FOUND = -1;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final int RESULT_CODE_WRONG_CERTIFICATES = -2;
     public static final SelfDestructiveThread sBackgroundThread;
     public static final Comparator<byte[]> sByteArrayComparator;
     public static final Object sLock;
+    @GuardedBy("sLock")
     public static final SimpleArrayMap<String, ArrayList<SelfDestructiveThread.ReplyCallback<TypefaceResult>>> sPendingReplies;
     public static final LruCache<String, Typeface> sTypefaceCache;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +106,8 @@ public class FontsContractCompat {
         public final FontInfo[] mFonts;
         public final int mStatusCode;
 
-        public FontFamilyResult(int i, FontInfo[] fontInfoArr) {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public FontFamilyResult(int i, @Nullable FontInfo[] fontInfoArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +155,8 @@ public class FontsContractCompat {
         public final Uri mUri;
         public final int mWeight;
 
-        public FontInfo(Uri uri, int i, int i2, boolean z, int i3) {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public FontInfo(@NonNull Uri uri, @IntRange(from = 0) int i, @IntRange(from = 1, to = 1000) int i2, boolean z, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,6 +187,7 @@ public class FontsContractCompat {
             return invokeV.intValue;
         }
 
+        @IntRange(from = 0)
         public int getTtcIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -183,6 +197,7 @@ public class FontsContractCompat {
             return invokeV.intValue;
         }
 
+        @NonNull
         public Uri getUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -192,6 +207,7 @@ public class FontsContractCompat {
             return (Uri) invokeV.objValue;
         }
 
+        @IntRange(from = 1, to = 1000)
         public int getWeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -221,10 +237,12 @@ public class FontsContractCompat {
         public static final int FAIL_REASON_PROVIDER_NOT_FOUND = -1;
         public static final int FAIL_REASON_SECURITY_VIOLATION = -4;
         public static final int FAIL_REASON_WRONG_CERTIFICATES = -2;
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public static final int RESULT_OK = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         /* loaded from: classes.dex */
         public @interface FontRequestFailReason {
         }
@@ -263,7 +281,7 @@ public class FontsContractCompat {
         public final int mResult;
         public final Typeface mTypeface;
 
-        public TypefaceResult(Typeface typeface, int i) {
+        public TypefaceResult(@Nullable Typeface typeface, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -362,6 +380,7 @@ public class FontsContractCompat {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static void resetCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
@@ -369,7 +388,8 @@ public class FontsContractCompat {
         }
     }
 
-    public static Typeface buildTypeface(Context context, CancellationSignal cancellationSignal, FontInfo[] fontInfoArr) {
+    @Nullable
+    public static Typeface buildTypeface(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontInfo[] fontInfoArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, cancellationSignal, fontInfoArr)) == null) {
@@ -408,7 +428,8 @@ public class FontsContractCompat {
         return invokeLL.booleanValue;
     }
 
-    public static FontFamilyResult fetchFonts(Context context, CancellationSignal cancellationSignal, FontRequest fontRequest) throws PackageManager.NameNotFoundException {
+    @NonNull
+    public static FontFamilyResult fetchFonts(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontRequest fontRequest) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, cancellationSignal, fontRequest)) == null) {
@@ -421,6 +442,8 @@ public class FontsContractCompat {
         return (FontFamilyResult) invokeLLL.objValue;
     }
 
+    @RequiresApi(19)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static Map<Uri, ByteBuffer> prepareFontData(Context context, FontInfo[] fontInfoArr, CancellationSignal cancellationSignal) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -451,6 +474,8 @@ public class FontsContractCompat {
         return (List) invokeLL.objValue;
     }
 
+    @NonNull
+    @VisibleForTesting
     public static FontInfo[] getFontFromProvider(Context context, FontRequest fontRequest, String str, CancellationSignal cancellationSignal) {
         InterceptResult invokeLLLL;
         int i;
@@ -519,6 +544,7 @@ public class FontsContractCompat {
         return (FontInfo[]) invokeLLLL.objValue;
     }
 
+    @NonNull
     public static TypefaceResult getFontInternal(Context context, FontRequest fontRequest, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -544,7 +570,8 @@ public class FontsContractCompat {
         return (TypefaceResult) invokeLLI.objValue;
     }
 
-    public static Typeface getFontSync(Context context, FontRequest fontRequest, ResourcesCompat.FontCallback fontCallback, Handler handler, boolean z, int i, int i2) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Typeface getFontSync(Context context, FontRequest fontRequest, @Nullable ResourcesCompat.FontCallback fontCallback, @Nullable Handler handler, boolean z, int i, int i2) {
         InterceptResult invokeCommon;
         SelfDestructiveThread.ReplyCallback<TypefaceResult> replyCallback;
         Interceptable interceptable = $ic;
@@ -729,7 +756,10 @@ public class FontsContractCompat {
         return (Typeface) invokeCommon.objValue;
     }
 
-    public static ProviderInfo getProvider(PackageManager packageManager, FontRequest fontRequest, Resources resources) throws PackageManager.NameNotFoundException {
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    @VisibleForTesting
+    public static ProviderInfo getProvider(@NonNull PackageManager packageManager, @NonNull FontRequest fontRequest, @Nullable Resources resources) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, packageManager, fontRequest, resources)) == null) {
@@ -756,14 +786,14 @@ public class FontsContractCompat {
         return (ProviderInfo) invokeLLL.objValue;
     }
 
-    public static void requestFont(Context context, FontRequest fontRequest, FontRequestCallback fontRequestCallback, Handler handler) {
+    public static void requestFont(@NonNull Context context, @NonNull FontRequest fontRequest, @NonNull FontRequestCallback fontRequestCallback, @NonNull Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65548, null, context, fontRequest, fontRequestCallback, handler) == null) {
             requestFontInternal(context.getApplicationContext(), fontRequest, fontRequestCallback, handler);
         }
     }
 
-    public static void requestFontInternal(Context context, FontRequest fontRequest, FontRequestCallback fontRequestCallback, Handler handler) {
+    public static void requestFontInternal(@NonNull Context context, @NonNull FontRequest fontRequest, @NonNull FontRequestCallback fontRequestCallback, @NonNull Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65549, null, context, fontRequest, fontRequestCallback, handler) == null) {
             handler.post(new Runnable(context, fontRequest, new Handler(), fontRequestCallback) { // from class: androidx.core.provider.FontsContractCompat.4

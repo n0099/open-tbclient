@@ -10,16 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Camera1Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Camera1Enumerator";
-    public static List cachedSupportedFormats;
+    public static List<List<CameraEnumerationAndroid.CaptureFormat>> cachedSupportedFormats;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean captureToTexture;
 
@@ -59,14 +58,12 @@ public class Camera1Enumerator implements CameraEnumerator {
         this.captureToTexture = z;
     }
 
-    public static List convertFramerates(List list) {
+    public static List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates(List<int[]> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                int[] iArr = (int[]) it.next();
+            for (int[] iArr : list) {
                 arrayList.add(new CameraEnumerationAndroid.CaptureFormat.FramerateRange(iArr[0], iArr[1]));
             }
             return arrayList;
@@ -74,14 +71,12 @@ public class Camera1Enumerator implements CameraEnumerator {
         return (List) invokeL.objValue;
     }
 
-    public static List convertSizes(List list) {
+    public static List<Size> convertSizes(List<Camera.Size> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                Camera.Size size = (Camera.Size) it.next();
+            for (Camera.Size size : list) {
                 arrayList.add(new Size(size.width, size.height));
             }
             return arrayList;
@@ -106,9 +101,9 @@ public class Camera1Enumerator implements CameraEnumerator {
         return (Camera.CameraInfo) invokeI.objValue;
     }
 
-    public static synchronized List getSupportedFormats(int i) {
+    public static synchronized List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(int i) {
         InterceptResult invokeI;
-        List list;
+        List<CameraEnumerationAndroid.CaptureFormat> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
             synchronized (Camera1Enumerator.class) {
@@ -118,7 +113,7 @@ public class Camera1Enumerator implements CameraEnumerator {
                         cachedSupportedFormats.add(enumerateFormats(i2));
                     }
                 }
-                list = (List) cachedSupportedFormats.get(i);
+                list = cachedSupportedFormats.get(i);
             }
             return list;
         }
@@ -126,7 +121,7 @@ public class Camera1Enumerator implements CameraEnumerator {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public static List enumerateFormats(int i) {
+    public static List<CameraEnumerationAndroid.CaptureFormat> enumerateFormats(int i) {
         InterceptResult invokeI;
         int i2;
         Interceptable interceptable = $ic;
@@ -246,7 +241,7 @@ public class Camera1Enumerator implements CameraEnumerator {
     }
 
     @Override // org.webrtc.CameraEnumerator
-    public List getSupportedFormats(String str) {
+    public List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {

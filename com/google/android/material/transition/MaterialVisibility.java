@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.transition.TransitionValues;
 import androidx.transition.Visibility;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,20 +16,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
+import com.google.android.material.transition.VisibilityAnimatorProvider;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public abstract class MaterialVisibility extends Visibility {
+public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> extends Visibility {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final VisibilityAnimatorProvider primaryAnimatorProvider;
+    public final P primaryAnimatorProvider;
+    @Nullable
     public VisibilityAnimatorProvider secondaryAnimatorProvider;
 
-    public MaterialVisibility(VisibilityAnimatorProvider visibilityAnimatorProvider, VisibilityAnimatorProvider visibilityAnimatorProvider2) {
+    public MaterialVisibility(P p, @Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {visibilityAnimatorProvider, visibilityAnimatorProvider2};
+            Object[] objArr = {p, visibilityAnimatorProvider};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,8 +41,8 @@ public abstract class MaterialVisibility extends Visibility {
                 return;
             }
         }
-        this.primaryAnimatorProvider = visibilityAnimatorProvider;
-        this.secondaryAnimatorProvider = visibilityAnimatorProvider2;
+        this.primaryAnimatorProvider = p;
+        this.secondaryAnimatorProvider = visibilityAnimatorProvider;
         setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
     }
 
@@ -75,15 +79,17 @@ public abstract class MaterialVisibility extends Visibility {
         return (Animator) invokeLLZ.objValue;
     }
 
-    public VisibilityAnimatorProvider getPrimaryAnimatorProvider() {
+    @NonNull
+    public P getPrimaryAnimatorProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.primaryAnimatorProvider;
         }
-        return (VisibilityAnimatorProvider) invokeV.objValue;
+        return (P) invokeV.objValue;
     }
 
+    @Nullable
     public VisibilityAnimatorProvider getSecondaryAnimatorProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +119,7 @@ public abstract class MaterialVisibility extends Visibility {
         return (Animator) invokeLLLL.objValue;
     }
 
-    public void setSecondaryAnimatorProvider(VisibilityAnimatorProvider visibilityAnimatorProvider) {
+    public void setSecondaryAnimatorProvider(@Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, visibilityAnimatorProvider) == null) {
             this.secondaryAnimatorProvider = visibilityAnimatorProvider;

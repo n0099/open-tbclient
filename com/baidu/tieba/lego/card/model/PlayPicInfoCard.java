@@ -3,15 +3,16 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ah;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.hh7;
-import com.baidu.tieba.ih7;
-import com.baidu.tieba.jh7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.mh7;
+import com.baidu.tieba.ri7;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.si7;
+import com.baidu.tieba.ti7;
+import com.baidu.tieba.wi7;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,26 +23,26 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
+/* loaded from: classes5.dex */
+public class PlayPicInfoCard extends BaseCardInfo implements ri7<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
     public final long duration;
-    public final List imageResList;
+    public final List<b> imageResList;
     public final a mBottomInfo;
     public final c mWaterMark;
     public final double ratio;
     public final int showDot;
 
-    /* loaded from: classes4.dex */
-    public class a {
+    /* loaded from: classes5.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public jh7 c;
-        public ih7 d;
+        public ti7 c;
+        public si7 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -70,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                jh7 jh7Var = new jh7();
-                this.c = jh7Var;
-                jh7Var.d = jSONObject.optString("rText");
+                ti7 ti7Var = new ti7();
+                this.c = ti7Var;
+                ti7Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    ih7 ih7Var = new ih7(optJSONObject);
-                    this.d = ih7Var;
-                    if (!ih7Var.k()) {
+                    si7 si7Var = new si7(optJSONObject);
+                    this.d = si7Var;
+                    if (!si7Var.k()) {
                         this.d = null;
                     }
                 }
@@ -97,8 +98,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b {
+    /* loaded from: classes5.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -126,8 +127,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c {
+    /* loaded from: classes5.dex */
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -203,7 +204,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
                 return;
             }
         }
-        this.ratio = jSONObject.optDouble("ratio", -1.0d);
+        this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, -1.0d);
         this.duration = jSONObject.optLong("duration", 5000L);
         this.descOnPic = jSONObject.optInt("descOnPic", 1);
         this.showDot = jSONObject.optInt("show_dot", 1);
@@ -225,8 +226,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = mh7.b(optJSONObject.optString("descColor", ""));
-                bVar.f = mh7.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = wi7.b(optJSONObject.optString("descColor", ""));
+                bVar.f = wi7.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -247,14 +248,14 @@ public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hh7
+    @Override // com.baidu.tieba.ri7
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {
-            int k = fj.k(TbadkCoreApplication.getInst());
-            int i = (int) (k * playPicInfoCard.ratio);
+            int l = xi.l(TbadkCoreApplication.getInst());
+            int i = (int) (l * playPicInfoCard.ratio);
             for (b bVar : this.imageResList) {
-                ah.h().k(bVar.b, 17, null, k, i, tbPageContext.getUniqueId(), new Object[0]);
+                sg.h().k(bVar.b, 17, null, l, i, tbPageContext.getUniqueId(), new Object[0]);
             }
         }
     }
@@ -286,7 +287,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements hh7 {
         return invokeV.longValue;
     }
 
-    public List getImageResList() {
+    public List<b> getImageResList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

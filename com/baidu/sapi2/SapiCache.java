@@ -1,5 +1,6 @@
 package com.baidu.sapi2;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
@@ -46,11 +47,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class SapiCache {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map cache;
+    public static final Map<String, SoftReference<String>> cache;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
-    public final List newModuleIds;
-    public final List oldModuleIds;
+    public final List<String> newModuleIds;
+    public final List<String> oldModuleIds;
 
     /* loaded from: classes2.dex */
     public interface LoadModuleEventListener {
@@ -153,7 +154,7 @@ public final class SapiCache {
     public void put(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
-            cache.put(str, new SoftReference(str2));
+            cache.put(str, new SoftReference<>(str2));
         }
     }
 
@@ -189,7 +190,7 @@ public final class SapiCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             if (cache.containsKey(str) && cache.get(str) != null) {
-                String str2 = (String) ((SoftReference) cache.get(str)).get();
+                String str2 = cache.get(str).get();
                 if (!TextUtils.isEmpty(str2)) {
                     return str2;
                 }
@@ -297,6 +298,7 @@ public final class SapiCache {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    @TargetApi(4)
     public void resetFileExecPer(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZ(1048593, this, z) != null) || !z) {
@@ -581,7 +583,7 @@ public final class SapiCache {
     public void syncCache(SapiOptions sapiOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, sapiOptions) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("If-None-Match", SapiContext.getInstance().getString(SapiContext.KEY_CONFIG_FILE_ETAG));
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
             try {
@@ -614,7 +616,7 @@ public final class SapiCache {
                     }
 
                     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onSuccess(int i, String str, HashMap hashMap2) {
+                    public void onSuccess(int i, String str, HashMap<String, String> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 != null && interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, hashMap2) != null) || str == null) {
                             return;
@@ -631,7 +633,7 @@ public final class SapiCache {
                         if (i2 == 0 && !TextUtils.isEmpty(str2)) {
                             this.this$0.handleOptions(str2, this.val$oldSapiOptions);
                             if (hashMap2 != null) {
-                                SapiContext.getInstance().put(SapiContext.KEY_CONFIG_FILE_ETAG, (String) hashMap2.get(Headers.ETAG));
+                                SapiContext.getInstance().put(SapiContext.KEY_CONFIG_FILE_ETAG, hashMap2.get(Headers.ETAG));
                             }
                             this.this$0.reportDi();
                         }
@@ -653,6 +655,7 @@ public final class SapiCache {
         }
     }
 
+    @TargetApi(4)
     public String loadDataFromInternal(Context context, String str) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

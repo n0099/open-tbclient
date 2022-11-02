@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.spswitch.handler.SPSwitchRootLayoutHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +38,7 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SPSwitchRootLinearLayout(Context context, AttributeSet attributeSet) {
+    public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,7 +59,7 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SPSwitchRootLinearLayout(Context context, AttributeSet attributeSet, int i) {
+    public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

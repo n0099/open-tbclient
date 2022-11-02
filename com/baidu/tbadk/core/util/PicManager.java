@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.l85;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.e95;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class PicManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class SaveImgCacheAsyncTask extends BdAsyncTask {
+    public class SaveImgCacheAsyncTask extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String imageUrl;
@@ -135,17 +135,17 @@ public class PicManager {
                 if (fixBitmap == null) {
                     return;
                 }
-                addPicMemoryCache(str, new pn(fixBitmap, z2));
+                addPicMemoryCache(str, new hn(fixBitmap, z2));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static void addPicMemoryCache(String str, pn pnVar) {
+    public static void addPicMemoryCache(String str, hn hnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, pnVar) == null) {
-            l85.k().d(str, pnVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, hnVar) == null) {
+            e95.k().d(str, hnVar);
         }
     }
 
@@ -153,25 +153,25 @@ public class PicManager {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            int f = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds408);
-            int f2 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds174);
-            float f3 = (i * 1.0f) / i2;
-            int i3 = (f3 > 1.0f ? 1 : (f3 == 1.0f ? 0 : -1));
+            int g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds408);
+            int g2 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds174);
+            float f = (i * 1.0f) / i2;
+            int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
             if (i3 == 0) {
-                i = f;
+                i = g;
                 i2 = i;
-            } else if (i3 > 0 && f3 < 2.4f) {
-                i2 = (int) ((f * 1.0f) / f3);
-                i = f;
-            } else if (f3 >= 2.4f) {
-                i = f;
-                i2 = f2;
-            } else if (f3 < 1.0f && f3 > 0.41666666f) {
-                i = (int) (f * f3);
-                i2 = f;
-            } else if (f3 <= 0.41666666f) {
-                i2 = f;
-                i = f2;
+            } else if (i3 > 0 && f < 2.4f) {
+                i2 = (int) ((g * 1.0f) / f);
+                i = g;
+            } else if (f >= 2.4f) {
+                i = g;
+                i2 = g2;
+            } else if (f < 1.0f && f > 0.41666666f) {
+                i = (int) (g * f);
+                i2 = g;
+            } else if (f <= 0.41666666f) {
+                i2 = g;
+                i = g2;
             }
             return new IMImageSize(i, i2, false);
         }
@@ -311,7 +311,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    l85.k().i(imageSize);
+                    e95.k().i(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }

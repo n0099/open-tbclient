@@ -116,7 +116,7 @@ public class o implements Runnable {
     public void run() {
         q qVar;
         int i;
-        Pair callSync;
+        Pair<Integer, Object> callSync;
         char c;
         q qVar2;
         int i2;

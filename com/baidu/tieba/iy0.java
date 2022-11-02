@@ -1,24 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class iy0 extends cy0 {
+public class iy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.wu0
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1} : (int[]) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
 
     public iy0() {
         Interceptable interceptable = $ic;
@@ -30,38 +25,12 @@ public final class iy0 extends cy0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.cy0, com.baidu.tieba.wu0
-    public void n(vt0 event) {
-        br0 it;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (Intrinsics.areEqual(SystemEvent.ACTION_VOLUME_CHANGED, event.c()) && (it = i()) != null) {
-                Intrinsics.checkNotNullExpressionValue(it, "player");
-                if (!it.a0() && !it.Q()) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    it = null;
-                }
-                if (it != null) {
-                    int g = event.g(5);
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    ns0 y = it.y();
-                    Intrinsics.checkNotNullExpressionValue(y, "it.playerCallbackManager");
-                    hs0 c = y.c();
-                    if (c != null) {
-                        c.a(g);
-                    }
-                }
-            }
-        }
+        this.b = "";
+        this.d = 0;
+        this.e = 0;
+        this.f = 0;
     }
 }

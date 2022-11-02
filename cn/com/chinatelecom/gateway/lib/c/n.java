@@ -3,6 +3,7 @@ package cn.com.chinatelecom.gateway.lib.c;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -85,7 +86,7 @@ public final class n {
             hashMap.put("bussinessType", str3);
             hashMap.put("sdkversion", "SDK-JJ-v3.7.5");
             hashMap.put("networkType", cn.com.chinatelecom.gateway.lib.b.a.g(context));
-            hashMap.put("onlineType", cn.com.chinatelecom.gateway.lib.b.a.h(context));
+            hashMap.put(MapBundleKey.MapObjKey.OBJ_POI_ONLINETYPE, cn.com.chinatelecom.gateway.lib.b.a.h(context));
             hashMap.put("aip", context.getPackageName());
             String a = cn.com.chinatelecom.gateway.lib.a.d.a(str4, cn.com.chinatelecom.gateway.lib.a.d.a());
             String a2 = cn.com.chinatelecom.gateway.lib.a.a.a(a(hashMap, "&"), str4);

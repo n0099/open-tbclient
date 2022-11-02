@@ -55,7 +55,7 @@ public final class CoroutineScopeKt {
         throw new IllegalStateException(("Scope cannot be cancelled because it does not have a job: " + coroutineScope).toString());
     }
 
-    public static final Object coroutineScope(Function2 function2, Continuation continuation) {
+    public static final <R> Object coroutineScope(Function2<? super CoroutineScope, ? super Continuation<? super R>, ? extends Object> function2, Continuation<? super R> continuation) {
         ScopeCoroutine scopeCoroutine = new ScopeCoroutine(continuation.getContext(), continuation);
         Object startUndispatchedOrReturn = UndispatchedKt.startUndispatchedOrReturn(scopeCoroutine, scopeCoroutine, function2);
         if (startUndispatchedOrReturn == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {

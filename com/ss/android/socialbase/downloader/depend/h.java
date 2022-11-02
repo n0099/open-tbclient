@@ -10,7 +10,7 @@ public interface h extends IInterface {
     boolean a() throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class a extends Binder implements h {
+    public static abstract class a extends Binder implements h {
         @Override // android.os.IInterface
         public IBinder asBinder() {
             return this;
@@ -18,11 +18,11 @@ public interface h extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0676a implements h {
+        public static class C0687a implements h {
             public static h a;
             public IBinder b;
 
-            public C0676a(IBinder iBinder) {
+            public C0687a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -58,7 +58,7 @@ public interface h extends IInterface {
         }
 
         public static h b() {
-            return C0676a.a;
+            return C0687a.a;
         }
 
         public static h a(IBinder iBinder) {
@@ -69,7 +69,7 @@ public interface h extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof h)) {
                 return (h) queryLocalInterface;
             }
-            return new C0676a(iBinder);
+            return new C0687a(iBinder);
         }
 
         @Override // android.os.Binder

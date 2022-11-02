@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.web.client;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -214,6 +215,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
+    @TargetApi(24)
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, webResourceRequest, webResourceError) == null) {
@@ -227,6 +229,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
     }
 
     @Override // com.sina.weibo.sdk.web.client.BaseWebViewClient, android.webkit.WebViewClient
+    @TargetApi(24)
     public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

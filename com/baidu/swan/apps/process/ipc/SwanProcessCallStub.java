@@ -6,16 +6,17 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.swan.apps.IProcessBridge;
-import com.baidu.tieba.zz2;
+import com.baidu.tieba.r03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanProcessCallStub extends IProcessBridge.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,6 +48,7 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
     }
 
     @Override // com.baidu.swan.apps.IProcessBridge
+    @WorkerThread
     public void send(Message message) throws RemoteException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) && message != null && this.mHandler != null) {
@@ -56,6 +58,7 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
     }
 
     @Override // com.baidu.swan.apps.IProcessBridge
+    @WorkerThread
     public Bundle callMainProcessSync(String str, Bundle bundle) throws RemoteException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -63,7 +66,7 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return zz2.e(str, bundle);
+            return r03.e(str, bundle);
         }
         return (Bundle) invokeLL.objValue;
     }

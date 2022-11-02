@@ -3,12 +3,16 @@ package com.google.android.gms.common.util;
 import android.database.CharArrayBuffer;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import java.io.ByteArrayOutputStream;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class DataUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +32,8 @@ public final class DataUtils {
         }
     }
 
-    public static void copyStringToBuffer(String str, CharArrayBuffer charArrayBuffer) {
+    @KeepForSdk
+    public static void copyStringToBuffer(@Nullable String str, @NonNull CharArrayBuffer charArrayBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, charArrayBuffer) == null) {
             if (TextUtils.isEmpty(str)) {
@@ -45,7 +50,9 @@ public final class DataUtils {
         }
     }
 
-    public static byte[] loadImageBytes(Bitmap bitmap) {
+    @NonNull
+    @KeepForSdk
+    public static byte[] loadImageBytes(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {

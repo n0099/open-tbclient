@@ -1,32 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.BaseAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class cx5 {
+public abstract class cx5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
-    public BdTypeListView b;
-    public final List c;
-    public bx5 d;
-    public yw5 e;
-    public ww5 f;
-    public xw5 g;
+    public TbPageContext a;
+    public Context b;
+    public List<gx5> c;
+    public int d;
 
-    public cx5(r9 r9Var, BdTypeListView bdTypeListView, boolean z) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    public cx5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var, bdTypeListView, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,51 +50,61 @@ public class cx5 {
                 return;
             }
         }
+        this.a = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
         this.c = new ArrayList();
-        this.a = r9Var;
-        this.b = bdTypeListView;
-        a(z);
     }
 
-    public final void a(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public gx5 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (z) {
-                yw5 yw5Var = new yw5((TbPageContext) this.a, sx5.c);
-                this.e = yw5Var;
-                this.c.add(yw5Var);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.c.get(i);
+        }
+        return (gx5) invokeI.objValue;
+    }
+
+    public void c(List<gx5> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.c.clear();
+        this.c.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    public void b(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
+        String str2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, threadData, str) == null) && tbPageContext != null && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                String userId = threadData.getAuthor().getUserId();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                z = TextUtils.equals(userId, currentAccount);
+                str2 = currentAccount;
             } else {
-                bx5 bx5Var = new bx5((TbPageContext) this.a, sx5.c);
-                this.d = bx5Var;
-                this.c.add(bx5Var);
+                str2 = "";
+                z = false;
             }
-            this.f = new ww5((TbPageContext) this.a, ex5.a);
-            this.g = new xw5((TbPageContext) this.a, fx5.a);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.a(this.c);
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
+            alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
         }
     }
 
-    public void b(qt5 qt5Var) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qt5Var) == null) {
-            bx5 bx5Var = this.d;
-            if (bx5Var != null) {
-                bx5Var.u(qt5Var);
-            }
-            yw5 yw5Var = this.e;
-            if (yw5Var != null) {
-                yw5Var.u(qt5Var);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.size();
         }
-    }
-
-    public void c(List list) {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeListView = this.b) != null) {
-            bdTypeListView.setData(list);
-        }
+        return invokeV.intValue;
     }
 }

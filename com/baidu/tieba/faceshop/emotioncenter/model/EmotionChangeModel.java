@@ -8,10 +8,11 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ce6;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
+import com.baidu.tieba.mf6;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,19 +67,19 @@ public class EmotionChangeModel extends BdBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003355 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                ce6 ce6Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof ce6)) {
-                    ce6Var = (ce6) extra;
+                mf6 mf6Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof mf6)) {
+                    mf6Var = (mf6) extra;
                 }
-                if (ce6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
-                    ce6Var.G0(emotionCenterResponseMessage.data);
+                if (mf6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
+                    mf6Var.H0(emotionCenterResponseMessage.data);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionChangeModel(TbPageContext tbPageContext) {
+    public EmotionChangeModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -122,11 +123,11 @@ public class EmotionChangeModel extends BdBaseModel {
         }
     }
 
-    public void z(ce6 ce6Var) {
+    public void z(mf6 mf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ce6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, mf6Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
-            httpMessage.setExtra(ce6Var);
+            httpMessage.setExtra(mf6Var);
             sendMessage(httpMessage);
         }
     }

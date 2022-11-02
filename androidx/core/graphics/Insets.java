@@ -1,6 +1,9 @@
 package androidx.core.graphics;
 
 import android.graphics.Rect;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class Insets {
     public static /* synthetic */ Interceptable $ic;
+    @NonNull
     public static final Insets NONE;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bottom;
@@ -45,6 +49,8 @@ public final class Insets {
         return invokeV.intValue;
     }
 
+    @NonNull
+    @RequiresApi(api = 29)
     public android.graphics.Insets toPlatformInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,6 +81,7 @@ public final class Insets {
         this.bottom = i4;
     }
 
+    @NonNull
     public static Insets of(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
@@ -87,7 +94,8 @@ public final class Insets {
         return (Insets) invokeIIII.objValue;
     }
 
-    public static Insets of(Rect rect) {
+    @NonNull
+    public static Insets of(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rect)) == null) {
@@ -96,7 +104,9 @@ public final class Insets {
         return (Insets) invokeL.objValue;
     }
 
-    public static Insets toCompatInsets(android.graphics.Insets insets) {
+    @NonNull
+    @RequiresApi(api = 29)
+    public static Insets toCompatInsets(@NonNull android.graphics.Insets insets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, insets)) == null) {
@@ -105,8 +115,11 @@ public final class Insets {
         return (Insets) invokeL.objValue;
     }
 
+    @NonNull
     @Deprecated
-    public static Insets wrap(android.graphics.Insets insets) {
+    @RequiresApi(api = 29)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Insets wrap(@NonNull android.graphics.Insets insets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, insets)) == null) {

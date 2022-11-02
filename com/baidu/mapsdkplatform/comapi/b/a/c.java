@@ -3,10 +3,11 @@ package com.baidu.mapsdkplatform.comapi.b.a;
 import android.content.Context;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
+import com.baidu.mapsdkplatform.comapi.util.g;
 import com.baidu.mapsdkplatform.comapi.util.h;
-import com.baidu.mapsdkplatform.comapi.util.i;
 import com.baidu.mapsdkplatform.comjni.util.JNIHandler;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -40,8 +41,23 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
     public Context d;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(363238489, "Lcom/baidu/mapsdkplatform/comapi/b/a/c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(363238489, "Lcom/baidu/mapsdkplatform/comapi/b/a/c;");
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,21 +79,6 @@ public class c {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(363238489, "Lcom/baidu/mapsdkplatform/comapi/b/a/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(363238489, "Lcom/baidu/mapsdkplatform/comapi/b/a/c;");
-        }
-    }
-
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,30 +96,41 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (c) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.a;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    private void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65550, this) != null) || !NetworkUtil.isNetworkAvailable(this.d)) {
+            return;
+        }
+        new Thread(new d(this)).start();
     }
 
     private void a(InputStream inputStream, OutputStream outputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, inputStream, outputStream) != null) {
-            return;
-        }
-        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = inputStream.read(bArr, 0, 1024);
-            if (read == -1) {
-                gZIPOutputStream.flush();
-                gZIPOutputStream.close();
-                try {
-                    outputStream.close();
-                    inputStream.close();
-                    return;
-                } catch (Exception unused) {
-                    return;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, inputStream, outputStream) == null) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    gZIPOutputStream.write(bArr, 0, read);
+                } else {
+                    gZIPOutputStream.flush();
+                    gZIPOutputStream.close();
+                    try {
+                        outputStream.close();
+                        inputStream.close();
+                        return;
+                    } catch (Exception unused) {
+                        return;
+                    }
                 }
             }
-            gZIPOutputStream.write(bArr, 0, read);
         }
     }
 
@@ -159,187 +171,188 @@ public class c {
         BufferedReader bufferedReader2;
         BufferedReader bufferedReader3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65543, this, file)) != null) {
-            return invokeL.booleanValue;
-        }
-        synchronized (this) {
-            OutputStream outputStream = null;
-            BufferedReader bufferedReader4 = null;
-            OutputStream outputStream2 = null;
-            try {
-                httpURLConnection = g();
-                if (httpURLConnection == null) {
-                    if (httpURLConnection != null) {
-                        try {
-                            httpURLConnection.disconnect();
-                        } catch (Exception unused) {
-                        }
-                    }
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, file)) == null) {
+            synchronized (this) {
+                OutputStream outputStream = null;
+                BufferedReader bufferedReader4 = null;
+                OutputStream outputStream2 = null;
                 try {
-                    httpURLConnection.connect();
-                    OutputStream outputStream3 = httpURLConnection.getOutputStream();
-                    try {
-                        outputStream3.write(a(b(file).toString().getBytes()));
-                        outputStream3.write(a(("--bd_map_sdk_cc\r\nContent-Disposition: form-data; name=\"file\"; filename=\"c.txt\"\r\n\r\n").getBytes()));
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((int) file.length());
-                        DataInputStream dataInputStream = new DataInputStream(new FileInputStream(file));
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = dataInputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr, 0, read);
-                        }
-                        outputStream3.write(a(byteArrayOutputStream.toByteArray()));
-                        dataInputStream.close();
-                        byteArrayOutputStream.close();
-                        outputStream3.write(a("\r\n--bd_map_sdk_cc--\r\n".getBytes()));
-                        outputStream3.flush();
-                        if (httpURLConnection.getResponseCode() == 200) {
-                            inputStream = httpURLConnection.getInputStream();
+                    httpURLConnection = g();
+                    if (httpURLConnection == null) {
+                        if (httpURLConnection != null) {
                             try {
-                                bufferedReader3 = new BufferedReader(new InputStreamReader(inputStream));
+                                httpURLConnection.disconnect();
+                            } catch (Exception unused) {
+                            }
+                        }
+                        return false;
+                    }
+                    try {
+                        httpURLConnection.connect();
+                        OutputStream outputStream3 = httpURLConnection.getOutputStream();
+                        try {
+                            outputStream3.write(a(b(file).toString().getBytes()));
+                            outputStream3.write(a(("--bd_map_sdk_cc\r\nContent-Disposition: form-data; name=\"file\"; filename=\"c.txt\"\r\n\r\n").getBytes()));
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((int) file.length());
+                            DataInputStream dataInputStream = new DataInputStream(new FileInputStream(file));
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = dataInputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            }
+                            outputStream3.write(a(byteArrayOutputStream.toByteArray()));
+                            dataInputStream.close();
+                            byteArrayOutputStream.close();
+                            outputStream3.write(a("\r\n--bd_map_sdk_cc--\r\n".getBytes()));
+                            outputStream3.flush();
+                            if (httpURLConnection.getResponseCode() == 200) {
+                                inputStream = httpURLConnection.getInputStream();
                                 try {
+                                    bufferedReader3 = new BufferedReader(new InputStreamReader(inputStream));
                                     try {
-                                        StringBuffer stringBuffer = new StringBuffer();
-                                        while (true) {
-                                            int read2 = bufferedReader3.read();
-                                            if (read2 == -1) {
-                                                break;
-                                            }
-                                            stringBuffer.append((char) read2);
-                                        }
                                         try {
-                                            JSONObject jSONObject = new JSONObject(stringBuffer.toString());
-                                            if (jSONObject.has("status") && jSONObject.getInt("status") == 0 && file.exists()) {
-                                                file.delete();
+                                            StringBuffer stringBuffer = new StringBuffer();
+                                            while (true) {
+                                                int read2 = bufferedReader3.read();
+                                                if (read2 == -1) {
+                                                    break;
+                                                }
+                                                stringBuffer.append((char) read2);
                                             }
-                                        } catch (Exception unused2) {
-                                        }
-                                        bufferedReader4 = bufferedReader3;
-                                    } catch (Exception unused3) {
-                                        outputStream2 = outputStream3;
-                                        bufferedReader2 = bufferedReader3;
-                                        if (outputStream2 != null) {
                                             try {
-                                                outputStream2.close();
-                                            } catch (Exception unused4) {
+                                                JSONObject jSONObject = new JSONObject(stringBuffer.toString());
+                                                if (jSONObject.has("status") && jSONObject.getInt("status") == 0 && file.exists()) {
+                                                    file.delete();
+                                                }
+                                            } catch (Exception unused2) {
+                                            }
+                                            bufferedReader4 = bufferedReader3;
+                                        } catch (Exception unused3) {
+                                            outputStream2 = outputStream3;
+                                            bufferedReader2 = bufferedReader3;
+                                            if (outputStream2 != null) {
+                                                try {
+                                                    outputStream2.close();
+                                                } catch (Exception unused4) {
+                                                }
+                                            }
+                                            if (inputStream != null && bufferedReader2 != 0) {
+                                                try {
+                                                    inputStream.close();
+                                                    bufferedReader2.close();
+                                                } catch (Exception unused5) {
+                                                }
+                                            }
+                                            if (httpURLConnection != null) {
+                                                try {
+                                                    httpURLConnection.disconnect();
+                                                } catch (Exception unused6) {
+                                                }
+                                            }
+                                            return false;
+                                        }
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        outputStream = outputStream3;
+                                        bufferedReader = bufferedReader3;
+                                        if (outputStream != null) {
+                                            try {
+                                                outputStream.close();
+                                            } catch (Exception unused7) {
                                             }
                                         }
-                                        if (inputStream != null && bufferedReader2 != 0) {
+                                        if (inputStream != null && bufferedReader != 0) {
                                             try {
                                                 inputStream.close();
-                                                bufferedReader2.close();
-                                            } catch (Exception unused5) {
+                                                bufferedReader.close();
+                                            } catch (Exception unused8) {
                                             }
                                         }
                                         if (httpURLConnection != null) {
                                             try {
                                                 httpURLConnection.disconnect();
-                                            } catch (Exception unused6) {
+                                            } catch (Exception unused9) {
                                             }
                                         }
-                                        return false;
+                                        throw th;
                                     }
-                                } catch (Throwable th) {
-                                    th = th;
-                                    outputStream = outputStream3;
-                                    bufferedReader = bufferedReader3;
-                                    if (outputStream != null) {
-                                        try {
-                                            outputStream.close();
-                                        } catch (Exception unused7) {
-                                        }
-                                    }
-                                    if (inputStream != null && bufferedReader != 0) {
-                                        try {
-                                            inputStream.close();
-                                            bufferedReader.close();
-                                        } catch (Exception unused8) {
-                                        }
-                                    }
-                                    if (httpURLConnection != null) {
-                                        try {
-                                            httpURLConnection.disconnect();
-                                        } catch (Exception unused9) {
-                                        }
-                                    }
-                                    throw th;
+                                } catch (Exception unused10) {
+                                    bufferedReader3 = null;
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    bufferedReader3 = null;
                                 }
-                            } catch (Exception unused10) {
-                                bufferedReader3 = null;
-                            } catch (Throwable th2) {
-                                th = th2;
-                                bufferedReader3 = null;
+                            } else {
+                                inputStream = null;
                             }
-                        } else {
+                            if (outputStream3 != null) {
+                                try {
+                                    outputStream3.close();
+                                } catch (Exception unused11) {
+                                }
+                            }
+                            if (inputStream != null && bufferedReader4 != null) {
+                                try {
+                                    inputStream.close();
+                                    bufferedReader4.close();
+                                } catch (Exception unused12) {
+                                }
+                            }
+                            if (httpURLConnection != null) {
+                                try {
+                                    httpURLConnection.disconnect();
+                                } catch (Exception unused13) {
+                                }
+                            }
+                            return true;
+                        } catch (Exception unused14) {
                             inputStream = null;
+                            bufferedReader3 = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            inputStream = null;
+                            bufferedReader3 = null;
                         }
-                        if (outputStream3 != null) {
-                            try {
-                                outputStream3.close();
-                            } catch (Exception unused11) {
-                            }
+                    } catch (Exception unused15) {
+                        inputStream = null;
+                        bufferedReader2 = inputStream;
+                        if (outputStream2 != null) {
                         }
-                        if (inputStream != null && bufferedReader4 != null) {
-                            try {
-                                inputStream.close();
-                                bufferedReader4.close();
-                            } catch (Exception unused12) {
-                            }
+                        if (inputStream != null) {
+                            inputStream.close();
+                            bufferedReader2.close();
                         }
                         if (httpURLConnection != null) {
-                            try {
-                                httpURLConnection.disconnect();
-                            } catch (Exception unused13) {
-                            }
                         }
-                        return true;
-                    } catch (Exception unused14) {
+                        return false;
+                    } catch (Throwable th4) {
+                        th = th4;
                         inputStream = null;
-                        bufferedReader3 = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        inputStream = null;
-                        bufferedReader3 = null;
+                        bufferedReader = inputStream;
+                        if (outputStream != null) {
+                        }
+                        if (inputStream != null) {
+                            inputStream.close();
+                            bufferedReader.close();
+                        }
+                        if (httpURLConnection != null) {
+                        }
+                        throw th;
                     }
-                } catch (Exception unused15) {
+                } catch (Exception unused16) {
+                    httpURLConnection = null;
                     inputStream = null;
-                    bufferedReader2 = inputStream;
-                    if (outputStream2 != null) {
-                    }
-                    if (inputStream != null) {
-                        inputStream.close();
-                        bufferedReader2.close();
-                    }
-                    if (httpURLConnection != null) {
-                    }
-                    return false;
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (Throwable th5) {
+                    th = th5;
+                    httpURLConnection = null;
                     inputStream = null;
-                    bufferedReader = inputStream;
-                    if (outputStream != null) {
-                    }
-                    if (inputStream != null) {
-                        inputStream.close();
-                        bufferedReader.close();
-                    }
-                    if (httpURLConnection != null) {
-                    }
-                    throw th;
                 }
-            } catch (Exception unused16) {
-                httpURLConnection = null;
-                inputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                httpURLConnection = null;
-                inputStream = null;
             }
+        } else {
+            return invokeL.booleanValue;
         }
     }
 
@@ -410,16 +423,18 @@ public class c {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || h.a().b() == null) {
+        if ((interceptable != null && interceptable.invokeV(65548, this) != null) || g.a().b() == null) {
             return;
         }
-        String b2 = h.a().b().b();
+        String b2 = g.a().b().b();
         if (b2.isEmpty()) {
             return;
         }
         String str = b2 + File.separator + "crash";
         File file = new File(str);
-        if (file.exists() || file.mkdir()) {
+        if (file.exists()) {
+            a = str;
+        } else if (file.mkdir()) {
             a = str;
         } else {
             a = b2;
@@ -430,18 +445,10 @@ public class c {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = a) == null || str.isEmpty() || (str2 = b) == null || str2.isEmpty()) {
-            return;
-        }
-        String str3 = a + File.separator + b;
-        com.baidu.mapsdkplatform.comapi.b.a.a.a().a(str3);
-        JNIHandler.registerNativeHandler(str3);
-    }
-
-    private void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.d)) {
-            new Thread(new d(this)).start();
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && (str = a) != null && !str.isEmpty() && (str2 = b) != null && !str2.isEmpty()) {
+            String str3 = a + File.separator + b;
+            com.baidu.mapsdkplatform.comapi.b.a.a.a().a(str3);
+            JNIHandler.registerNativeHandler(str3);
         }
     }
 
@@ -469,7 +476,7 @@ public class c {
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || Build.VERSION.SDK_INT < 21) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         String[] strArr = Build.SUPPORTED_ABIS;
@@ -477,16 +484,23 @@ public class c {
             c = strArr[0];
         }
         this.d = context;
-        String n = i.n();
-        if (n.isEmpty()) {
+        String p = h.p();
+        if (p.isEmpty()) {
             return;
         }
-        if (n.contains("_")) {
-            n = n.replaceAll("_", "");
+        if (p.contains("_")) {
+            p = p.replaceAll("_", "");
         }
-        b = n + "_" + i.i() + "_";
+        b = p + "_" + h.k() + "_";
         d();
         e();
         f();
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            JNIHandler.addLog(str, str2);
+        }
     }
 }

@@ -23,7 +23,7 @@ public interface IStatisticManager {
     void recordResult(long j, int i, String str);
 
     /* loaded from: classes2.dex */
-    public class StatisticExtendInfo {
+    public static class StatisticExtendInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long costTime;

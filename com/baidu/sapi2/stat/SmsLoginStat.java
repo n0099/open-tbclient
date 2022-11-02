@@ -40,7 +40,7 @@ public class SmsLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class GetdpassStat implements NoProguard {
+    public static class GetdpassStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -51,7 +51,7 @@ public class SmsLoginStat implements NoProguard {
         public static final String VALUE_PAGE = "getdpass";
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -131,7 +131,7 @@ public class SmsLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class SmsClickLoginStat implements NoProguard {
+    public static class SmsClickLoginStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -142,7 +142,7 @@ public class SmsLoginStat implements NoProguard {
         public static final String VALUE_PAGE = "smslogin";
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

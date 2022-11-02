@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,14 +16,14 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.k85;
-import com.baidu.tieba.o85;
-import com.baidu.tieba.pn;
-import com.baidu.tieba.x85;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.d95;
+import com.baidu.tieba.h95;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.q95;
+import com.baidu.tieba.rg;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +86,7 @@ public class RichImageItem extends FrameLayout {
                 z = true;
             }
             if (!z) {
-                fj.J(this.a.getContext(), R.string.obfuscated_res_0x7f0f0550);
+                xi.L(this.a.getContext(), R.string.obfuscated_res_0x7f0f0553);
             } else if (this.a.c != null) {
                 this.a.c.b(imageFileInfo, this.a);
             }
@@ -126,7 +127,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements k85 {
+    public class c implements d95 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -149,13 +150,13 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.k85
-        public void a(pn pnVar, String str, boolean z) {
+        @Override // com.baidu.tieba.d95
+        public void a(hn hnVar, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLZ(1048576, this, pnVar, str, z) != null) || pnVar == null) {
+            if ((interceptable != null && interceptable.invokeLLZ(1048576, this, hnVar, str, z) != null) || hnVar == null) {
                 return;
             }
-            this.a.i(pnVar);
+            this.a.i(hnVar);
             this.a.a.invalidate();
         }
     }
@@ -164,15 +165,15 @@ public class RichImageItem extends FrameLayout {
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pn a;
+        public final /* synthetic */ hn a;
         public final /* synthetic */ RichImageItem b;
 
-        public d(RichImageItem richImageItem, pn pnVar) {
+        public d(RichImageItem richImageItem, hn hnVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {richImageItem, pnVar};
+                Object[] objArr = {richImageItem, hnVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -183,7 +184,7 @@ public class RichImageItem extends FrameLayout {
                 }
             }
             this.b = richImageItem;
-            this.a = pnVar;
+            this.a = hnVar;
         }
 
         @Override // java.lang.Runnable
@@ -198,7 +199,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class e extends zg {
+    public class e extends rg<hn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -222,13 +223,13 @@ public class RichImageItem extends FrameLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zg
-        public void onLoaded(pn pnVar, String str, int i) {
+        @Override // com.baidu.tieba.rg
+        public void onLoaded(hn hnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLI(1048576, this, pnVar, str, i) != null) || pnVar == null) {
+            if ((interceptable != null && interceptable.invokeLLI(1048576, this, hnVar, str, i) != null) || hnVar == null) {
                 return;
             }
-            this.a.i(pnVar);
+            this.a.i(hnVar);
             this.a.a.invalidate();
         }
     }
@@ -297,14 +298,14 @@ public class RichImageItem extends FrameLayout {
         e();
     }
 
-    public final void i(pn pnVar) {
+    public final void i(hn hnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, pnVar) == null) && pnVar != null && pnVar.r() > 0 && pnVar.m() > 0) {
-            h(pnVar.r(), pnVar.m());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, hnVar) == null) && hnVar != null && hnVar.r() > 0 && hnVar.m() > 0) {
+            h(hnVar.r(), hnVar.m());
         }
     }
 
-    public void setImageFileInfo(ImageFileInfo imageFileInfo) {
+    public void setImageFileInfo(@NonNull ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, imageFileInfo) == null) {
             this.d = imageFileInfo;
@@ -322,33 +323,33 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0788, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fde);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d079d, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091017);
             this.a = tbImageView;
-            tbImageView.setTagTextSize(fj.f(getContext(), R.dimen.T_X10));
+            tbImageView.setTagTextSize(xi.g(getContext(), R.dimen.T_X10));
             this.a.setDrawBorder(true);
             this.a.setDrawCorner(true);
             this.a.setAutoChangeStyle(true);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090799);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090792);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907a7);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907a0);
             this.a.setVisibility(0);
             findViewById.setVisibility(0);
             this.a.setGifIconSupport(true);
             this.a.setLongIconSupport(true);
-            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f053c));
+            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f053f));
             setOnClickListener(new a(this));
             findViewById.setOnClickListener(new b(this));
             f();
-            this.e = fj.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            this.e = xi.l(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080821, WebPManager.ResourceStateType.NORMAL));
+            this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08082c, WebPManager.ResourceStateType.NORMAL));
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 this.a.setTagColor(getContext().getResources().getColor(R.color.CAM_X0101));
             } else {
@@ -362,21 +363,21 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = x85.g(i, i * 2);
+            ImageOperation g = q95.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                pn d2 = new o85().d(this.d, new c(this), true);
+                hn d2 = new h95().d(this.d, new c(this), true);
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }
-                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f053c));
+                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f053f));
             } else if (this.d.getImageType() == 1) {
                 String filePath = this.d.getFilePath();
-                if (!ej.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
-                    this.a.setTag(ah.h().g(filePath, 20));
-                    ah.h().k(filePath, 20, new e(this), 0, 0, null, null, filePath, Boolean.FALSE, null);
+                if (!wi.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                    this.a.setTag(sg.h().g(filePath, 20));
+                    sg.h().k(filePath, 20, new e(this), 0, 0, null, null, filePath, Boolean.FALSE, null);
                 }
                 this.a.setTagStr("");
             }

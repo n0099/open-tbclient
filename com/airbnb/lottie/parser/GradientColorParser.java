@@ -1,6 +1,7 @@
 package com.airbnb.lottie.parser;
 
 import android.graphics.Color;
+import androidx.annotation.IntRange;
 import com.airbnb.lottie.model.content.GradientColor;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.MiscUtils;
@@ -8,14 +9,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GradientColorParser implements ValueParser {
+public class GradientColorParser implements ValueParser<GradientColor> {
     public int colorPoints;
 
     public GradientColorParser(int i) {
         this.colorPoints = i;
     }
 
-    private void addOpacityStopsToGradientIfNeeded(GradientColor gradientColor, List list) {
+    private void addOpacityStopsToGradientIfNeeded(GradientColor gradientColor, List<Float> list) {
         int i = this.colorPoints * 4;
         if (list.size() <= i) {
             return;
@@ -26,9 +27,9 @@ public class GradientColorParser implements ValueParser {
         int i2 = 0;
         while (i < list.size()) {
             if (i % 2 == 0) {
-                dArr[i2] = ((Float) list.get(i)).floatValue();
+                dArr[i2] = list.get(i).floatValue();
             } else {
-                dArr2[i2] = ((Float) list.get(i)).floatValue();
+                dArr2[i2] = list.get(i).floatValue();
                 i2++;
             }
             i++;
@@ -40,6 +41,7 @@ public class GradientColorParser implements ValueParser {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
     public GradientColor parse(JsonReader jsonReader, float f) throws IOException {
         boolean z;
@@ -68,7 +70,7 @@ public class GradientColorParser implements ValueParser {
         int i3 = 0;
         for (int i4 = 0; i4 < this.colorPoints * 4; i4++) {
             int i5 = i4 / 4;
-            double floatValue = ((Float) arrayList.get(i4)).floatValue();
+            double floatValue = arrayList.get(i4).floatValue();
             int i6 = i4 % 4;
             if (i6 != 0) {
                 if (i6 != 1) {
@@ -91,6 +93,7 @@ public class GradientColorParser implements ValueParser {
         return gradientColor;
     }
 
+    @IntRange(from = 0, to = 255)
     private int getOpacityAtPosition(double d, double[] dArr, double[] dArr2) {
         double d2;
         int i = 1;

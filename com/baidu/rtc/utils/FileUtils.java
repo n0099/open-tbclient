@@ -27,7 +27,6 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
@@ -551,7 +550,7 @@ public class FileUtils {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static void populateFilesList(File file, List list) throws IOException {
+    public static void populateFilesList(File file, List<String> list) throws IOException {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65566, null, file, list) == null) {
@@ -1023,13 +1022,12 @@ public class FileUtils {
         return invokeLLZ.booleanValue;
     }
 
-    public static void zipFiles(Collection collection, File file, String str) throws IOException {
+    public static void zipFiles(Collection<File> collection, File file, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65580, null, collection, file, str) == null) {
             ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file), 10240));
-            Iterator it = collection.iterator();
-            while (it.hasNext()) {
-                zipFile((File) it.next(), zipOutputStream, "");
+            for (File file2 : collection) {
+                zipFile(file2, zipOutputStream, "");
             }
             zipOutputStream.setComment(str);
             zipOutputStream.close();

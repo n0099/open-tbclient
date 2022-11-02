@@ -12,11 +12,11 @@ public final class DownloadServiceConnectChangedEvent extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ConnectStatus avH;
-    public final Class avI;
+    public final Class<?> avI;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class ConnectStatus {
+    public static final class ConnectStatus {
         public static final /* synthetic */ ConnectStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ConnectStatus connected;
@@ -77,7 +77,7 @@ public final class DownloadServiceConnectChangedEvent extends b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadServiceConnectChangedEvent(ConnectStatus connectStatus, Class cls) {
+    public DownloadServiceConnectChangedEvent(ConnectStatus connectStatus, Class<?> cls) {
         super("event.service.connect.changed");
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class ThumbFetcher implements DataFetcher {
+public class ThumbFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaStoreThumbFetcher";
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +42,7 @@ public class ThumbFetcher implements DataFetcher {
     }
 
     /* loaded from: classes7.dex */
-    public class ImageThumbnailQuery implements ThumbnailQuery {
+    public static class ImageThumbnailQuery implements ThumbnailQuery {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String[] PATH_PROJECTION;
         public static final String PATH_SELECTION = "kind = 1 AND image_id = ?";
@@ -93,7 +95,7 @@ public class ThumbFetcher implements DataFetcher {
     }
 
     /* loaded from: classes7.dex */
-    public class VideoThumbnailQuery implements ThumbnailQuery {
+    public static class VideoThumbnailQuery implements ThumbnailQuery {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String[] PATH_PROJECTION;
         public static final String PATH_SELECTION = "kind = 1 AND video_id = ?";
@@ -145,6 +147,7 @@ public class ThumbFetcher implements DataFetcher {
         }
     }
 
+    @VisibleForTesting
     public ThumbFetcher(Uri uri, ThumbnailStreamOpener thumbnailStreamOpener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -192,7 +195,7 @@ public class ThumbFetcher implements DataFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
+    public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super InputStream> dataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
             try {
@@ -240,7 +243,8 @@ public class ThumbFetcher implements DataFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public Class getDataClass() {
+    @NonNull
+    public Class<InputStream> getDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -250,6 +254,7 @@ public class ThumbFetcher implements DataFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
+    @NonNull
     public DataSource getDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

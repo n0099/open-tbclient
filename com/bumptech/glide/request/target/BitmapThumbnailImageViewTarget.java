@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class BitmapThumbnailImageViewTarget extends ThumbnailImageViewTarget {
+public class BitmapThumbnailImageViewTarget extends ThumbnailImageViewTarget<Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +62,7 @@ public class BitmapThumbnailImageViewTarget extends ThumbnailImageViewTarget {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            return new BitmapDrawable(((ImageView) this.f1063view).getResources(), bitmap);
+            return new BitmapDrawable(((ImageView) this.f1064view).getResources(), bitmap);
         }
         return (Drawable) invokeL.objValue;
     }

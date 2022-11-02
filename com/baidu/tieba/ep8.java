@@ -1,42 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.message.AddPostHttpResponse;
+import com.baidu.tieba.write.message.AddPostRequest;
+import com.baidu.tieba.write.message.AddThreadHttpResponse;
+import com.baidu.tieba.write.message.AddThreadRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
-public class ep8 extends dp8 {
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class ep8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile gp8 g;
-    public volatile boolean h;
-    public int i;
+    public e a;
+    public final BdUniqueId b;
+    public HttpMessageListener c;
+    public HttpMessageListener d;
 
-    /* loaded from: classes3.dex */
-    public class a implements ThreadFactory {
+    /* loaded from: classes4.dex */
+    public interface e {
+        void a(cr8 cr8Var);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
+        public final /* synthetic */ ep8 a;
 
-        public a(ep8 ep8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ep8 ep8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ep8Var};
+                Object[] objArr = {ep8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ep8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                br4.b(AlbumActivityConfig.FROM_WRITE, "threadRES");
+                if ((httpResponsedMessage instanceof AddThreadHttpResponse) && this.a.a != null) {
+                    JSONObject resultData = ((AddThreadHttpResponse) httpResponsedMessage).getResultData();
+                    cr8 cr8Var = new cr8();
+                    if (httpResponsedMessage.hasError()) {
+                        cr8Var.i(true);
+                        cr8Var.f(httpResponsedMessage.getError());
+                        cr8Var.h(httpResponsedMessage.getErrorString());
+                    } else {
+                        cr8Var.i(false);
+                        ErrorData errorData = new ErrorData();
+                        errorData.parserJson(resultData);
+                        cr8Var.f(errorData.getError_code());
+                        cr8Var.h(errorData.getError_msg());
+                        cr8Var.g(errorData.getError_data());
+                    }
+                    cr8Var.j(resultData);
+                    this.a.a.a(cr8Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ep8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ep8 ep8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ep8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                br4.b(AlbumActivityConfig.FROM_WRITE, "postRES");
+                if ((httpResponsedMessage instanceof AddPostHttpResponse) && this.a.a != null) {
+                    JSONObject resultData = ((AddPostHttpResponse) httpResponsedMessage).getResultData();
+                    cr8 cr8Var = new cr8();
+                    if (httpResponsedMessage.hasError()) {
+                        cr8Var.i(true);
+                        cr8Var.f(httpResponsedMessage.getError());
+                        cr8Var.h(httpResponsedMessage.getErrorString());
+                    } else {
+                        cr8Var.i(false);
+                        ErrorData errorData = new ErrorData();
+                        errorData.parserJson(resultData);
+                        cr8Var.f(errorData.getError_code());
+                        cr8Var.h(errorData.getError_msg());
+                        cr8Var.g(errorData.getError_data());
+                    }
+                    cr8Var.j(resultData);
+                    this.a.a.a(cr8Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AddThreadRequest a;
+
+        public c(ep8 ep8Var, AddThreadRequest addThreadRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep8Var, addThreadRequest};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,162 +169,141 @@ public class ep8 extends dp8 {
                     return;
                 }
             }
-            this.a = 0;
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable);
-                thread.setName("VideoUploadThread@" + this.a);
-                this.a = this.a + 1;
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ RandomAccessFile a;
-        public final /* synthetic */ ArrayList b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ int f;
-        public final /* synthetic */ CountDownLatch g;
-        public final /* synthetic */ ep8 h;
-
-        public b(ep8 ep8Var, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ep8Var, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ep8Var;
-            this.a = randomAccessFile;
-            this.b = arrayList;
-            this.c = i;
-            this.d = i2;
-            this.e = str;
-            this.f = i3;
-            this.g = countDownLatch;
+            this.a = addThreadRequest;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gp8 h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
-                if (h != null) {
-                    if (h.b != 0) {
-                        this.h.g.b = h.b;
-                        this.h.g.c = h.c;
-                    }
-                    if (!StringUtils.isNull(h.a)) {
-                        this.h.g.a = h.a;
-                    }
-                    synchronized (this.h) {
-                        ep8.k(this.h);
-                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
-                    }
-                }
-                this.g.countDown();
+                MessageManager.getInstance().sendMessage(this.a);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ep8(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
+    /* loaded from: classes4.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AddPostRequest a;
+
+        public d(ep8 ep8Var, AddPostRequest addPostRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep8Var, addPostRequest};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = addPostRequest;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(this.a);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742140, "Lcom/baidu/tieba/ep8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947742140, "Lcom/baidu/tieba/ep8;");
+                return;
+            }
+        }
+        d();
+    }
+
+    public ep8(r9<?> r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
+            Object[] objArr = {r9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = new gp8();
+        this.b = BdUniqueId.gen();
+        this.c = new a(this, CmdConfigHttp.CMD_WRITE_THREAD_ADD);
+        this.d = new b(this, CmdConfigHttp.CMD_WRITE_POST_ADD);
+        this.c.setTag(this.b);
+        this.c.setSelfListener(true);
+        this.d.setTag(this.b);
+        this.d.setSelfListener(true);
+        if (r9Var != null) {
+            r9Var.registerListener(this.c);
+            r9Var.registerListener(this.d);
+            return;
+        }
+        MessageManager.getInstance().registerListener(this.c);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public static /* synthetic */ int k(ep8 ep8Var) {
-        int i = ep8Var.i;
-        ep8Var.i = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.dp8
-    public void a() {
+    public void b(NetWork netWork) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, netWork) == null) {
+            AddPostRequest addPostRequest = new AddPostRequest();
+            addPostRequest.setRequestData(netWork.getPostDataMap());
+            addPostRequest.setNetType(NetMessage.NetType.HTTP);
+            addPostRequest.setTag(this.b);
+            zg.a().post(new d(this, addPostRequest));
         }
     }
 
-    @Override // com.baidu.tieba.dp8
-    public boolean c() {
-        InterceptResult invokeV;
+    public void c(NetWork netWork) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netWork) == null) {
+            AddThreadRequest addThreadRequest = new AddThreadRequest();
+            addThreadRequest.setRequestData(netWork.getPostDataMap());
+            addThreadRequest.setNetType(NetMessage.NetType.HTTP);
+            addThreadRequest.setTag(this.b);
+            zg.a().post(new c(this, addThreadRequest));
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dp8
-    public gp8 g(ArrayList arrayList, String str, int i) {
-        InterceptResult invokeLLI;
+    public ep8 e(e eVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            int size = arrayList.size();
-            CountDownLatch countDownLatch = new CountDownLatch(size);
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                for (int i2 = 0; i2 < size; i2++) {
-                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
-                }
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                threadPoolExecutor.shutdown();
-                try {
-                    randomAccessFile.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                return this.g;
-            } catch (FileNotFoundException unused) {
-                return this.g;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
+            this.a = eVar;
+            return this;
         }
-        return (gp8) invokeLLI.objValue;
+        return (ep8) invokeL.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_THREAD_ADD, io8.a(TbConfig.POST_THREAD_ADDRESS, 309730));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(AddThreadHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_POST_ADD, io8.a(TbConfig.REPLY_THREAD_ADDRESS, 309731));
+            tbHttpMessageTask2.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask2.setResponsedClass(AddPostHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+        }
     }
 }

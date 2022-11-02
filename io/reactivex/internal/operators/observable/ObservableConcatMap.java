@@ -24,40 +24,40 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableConcatMap extends AbstractObservableWithUpstream {
+public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
     public final ErrorMode delayErrors;
-    public final Function mapper;
+    public final Function<? super T, ? extends ObservableSource<? extends U>> mapper;
 
     /* loaded from: classes8.dex */
-    public final class ConcatMapDelayErrorObserver extends AtomicInteger implements Observer, Disposable {
+    public static final class ConcatMapDelayErrorObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6951100001833242599L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean active;
-        public final Observer actual;
+        public final Observer<? super R> actual;
         public final int bufferSize;
         public volatile boolean cancelled;
         public Disposable d;
         public volatile boolean done;
         public final AtomicThrowable error;
-        public final Function mapper;
-        public final DelayErrorInnerObserver observer;
-        public SimpleQueue queue;
+        public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
+        public final DelayErrorInnerObserver<R> observer;
+        public SimpleQueue<T> queue;
         public int sourceMode;
         public final boolean tillTheEnd;
 
         /* loaded from: classes8.dex */
-        public final class DelayErrorInnerObserver extends AtomicReference implements Observer {
+        public static final class DelayErrorInnerObserver<R> extends AtomicReference<Disposable> implements Observer<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2620149119579502636L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final Observer actual;
-            public final ConcatMapDelayErrorObserver parent;
+            public final Observer<? super R> actual;
+            public final ConcatMapDelayErrorObserver<?, R> parent;
 
-            public DelayErrorInnerObserver(Observer observer, ConcatMapDelayErrorObserver concatMapDelayErrorObserver) {
+            public DelayErrorInnerObserver(Observer<? super R> observer, ConcatMapDelayErrorObserver<?, R> concatMapDelayErrorObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             public void onComplete() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    ConcatMapDelayErrorObserver concatMapDelayErrorObserver = this.parent;
+                    ConcatMapDelayErrorObserver<?, R> concatMapDelayErrorObserver = this.parent;
                     concatMapDelayErrorObserver.active = false;
                     concatMapDelayErrorObserver.drain();
                 }
@@ -97,7 +97,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    ConcatMapDelayErrorObserver concatMapDelayErrorObserver = this.parent;
+                    ConcatMapDelayErrorObserver<?, R> concatMapDelayErrorObserver = this.parent;
                     if (concatMapDelayErrorObserver.error.addThrowable(th)) {
                         if (!concatMapDelayErrorObserver.tillTheEnd) {
                             concatMapDelayErrorObserver.d.dispose();
@@ -111,10 +111,10 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             }
 
             @Override // io.reactivex.Observer
-            public void onNext(Object obj) {
+            public void onNext(R r) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                    this.actual.onNext(obj);
+                if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
+                    this.actual.onNext(r);
                 }
             }
 
@@ -127,7 +127,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             }
         }
 
-        public ConcatMapDelayErrorObserver(Observer observer, Function function, int i, boolean z) {
+        public ConcatMapDelayErrorObserver(Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             this.bufferSize = i;
             this.tillTheEnd = z;
             this.error = new AtomicThrowable();
-            this.observer = new DelayErrorInnerObserver(observer, this);
+            this.observer = new DelayErrorInnerObserver<>(observer, this);
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -185,15 +185,15 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Observer observer = this.actual;
-            SimpleQueue simpleQueue = this.queue;
+            Observer<? super R> observer = this.actual;
+            SimpleQueue<T> simpleQueue = this.queue;
             AtomicThrowable atomicThrowable = this.error;
             while (true) {
                 if (!this.active) {
                     if (this.cancelled) {
                         simpleQueue.clear();
                         return;
-                    } else if (!this.tillTheEnd && ((Throwable) atomicThrowable.get()) != null) {
+                    } else if (!this.tillTheEnd && atomicThrowable.get() != null) {
                         simpleQueue.clear();
                         this.cancelled = true;
                         observer.onError(atomicThrowable.terminate());
@@ -201,7 +201,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
                     } else {
                         boolean z2 = this.done;
                         try {
-                            Object poll = simpleQueue.poll();
+                            T poll = simpleQueue.poll();
                             if (poll == null) {
                                 z = true;
                             } else {
@@ -222,9 +222,9 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
                                     ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null ObservableSource");
                                     if (observableSource instanceof Callable) {
                                         try {
-                                            Object call = ((Callable) observableSource).call();
-                                            if (call != null && !this.cancelled) {
-                                                observer.onNext(call);
+                                            Object obj = (Object) ((Callable) observableSource).call();
+                                            if (obj != 0 && !this.cancelled) {
+                                                observer.onNext(obj);
                                             }
                                         } catch (Throwable th) {
                                             Exceptions.throwIfFatal(th);
@@ -274,11 +274,11 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 if (this.sourceMode == 0) {
-                    this.queue.offer(obj);
+                    this.queue.offer(t);
                 }
                 drain();
             }
@@ -313,30 +313,30 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class SourceObserver extends AtomicInteger implements Observer, Disposable {
+    public static final class SourceObserver<T, U> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8828587559905699186L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean active;
-        public final Observer actual;
+        public final Observer<? super U> actual;
         public final int bufferSize;
         public volatile boolean disposed;
         public volatile boolean done;
         public int fusionMode;
-        public final InnerObserver inner;
-        public final Function mapper;
-        public SimpleQueue queue;
+        public final InnerObserver<U> inner;
+        public final Function<? super T, ? extends ObservableSource<? extends U>> mapper;
+        public SimpleQueue<T> queue;
         public Disposable s;
 
         /* loaded from: classes8.dex */
-        public final class InnerObserver extends AtomicReference implements Observer {
+        public static final class InnerObserver<U> extends AtomicReference<Disposable> implements Observer<U> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -7449079488798789337L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final Observer actual;
-            public final SourceObserver parent;
+            public final Observer<? super U> actual;
+            public final SourceObserver<?, ?> parent;
 
-            public InnerObserver(Observer observer, SourceObserver sourceObserver) {
+            public InnerObserver(Observer<? super U> observer, SourceObserver<?, ?> sourceObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -380,10 +380,10 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             }
 
             @Override // io.reactivex.Observer
-            public void onNext(Object obj) {
+            public void onNext(U u) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                    this.actual.onNext(obj);
+                if (interceptable == null || interceptable.invokeL(1048579, this, u) == null) {
+                    this.actual.onNext(u);
                 }
             }
 
@@ -396,7 +396,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             }
         }
 
-        public SourceObserver(Observer observer, Function function, int i) {
+        public SourceObserver(Observer<? super U> observer, Function<? super T, ? extends ObservableSource<? extends U>> function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -414,7 +414,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             this.actual = observer;
             this.mapper = function;
             this.bufferSize = i;
-            this.inner = new InnerObserver(observer, this);
+            this.inner = new InnerObserver<>(observer, this);
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -468,7 +468,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
                 if (!this.active) {
                     boolean z2 = this.done;
                     try {
-                        Object poll = this.queue.poll();
+                        T poll = this.queue.poll();
                         if (poll == null) {
                             z = true;
                         } else {
@@ -521,13 +521,13 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048582, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048582, this, t) != null) || this.done) {
                 return;
             }
             if (this.fusionMode == 0) {
-                this.queue.offer(obj);
+                this.queue.offer(t);
             }
             drain();
         }
@@ -561,7 +561,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableConcatMap(ObservableSource observableSource, Function function, int i, ErrorMode errorMode) {
+    public ObservableConcatMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends U>> function, int i, ErrorMode errorMode) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -584,7 +584,7 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super U> observer) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, observer) != null) || ObservableScalarXMap.tryScalarXMapSubscribe(this.source, observer, this.mapper)) {
@@ -594,8 +594,8 @@ public final class ObservableConcatMap extends AbstractObservableWithUpstream {
             this.source.subscribe(new SourceObserver(new SerializedObserver(observer), this.mapper, this.bufferSize));
             return;
         }
-        ObservableSource observableSource = this.source;
-        Function function = this.mapper;
+        ObservableSource<T> observableSource = this.source;
+        Function<? super T, ? extends ObservableSource<? extends U>> function = this.mapper;
         int i = this.bufferSize;
         if (this.delayErrors == ErrorMode.END) {
             z = true;

@@ -1,7 +1,9 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.view.ActionMode;
 import android.view.KeyEvent;
+import android.view.KeyboardShortcutGroup;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -189,6 +191,7 @@ public class ak implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @SuppressLint({"NewApi"})
     public void onPointerCaptureChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
@@ -197,6 +200,7 @@ public class ak implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @SuppressLint({"NewApi"})
     public boolean onSearchRequested(SearchEvent searchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -271,6 +275,7 @@ public class ak implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @SuppressLint({"NewApi"})
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -291,7 +296,8 @@ public class ak implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public void onProvideKeyboardShortcuts(List list, Menu menu, int i) {
+    @SuppressLint({"NewApi"})
+    public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, list, menu, i) == null) {
             this.a.onProvideKeyboardShortcuts(list, menu, i);

@@ -22,7 +22,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e eA;
-    public Map eB;
+    public Map<Integer, Vector<Float>> eB;
     public boolean eC;
     public e eD;
     public e eE;
@@ -44,7 +44,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.arplay.core.engine.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] eL;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,19 +118,19 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class EnumC0049a {
+    public static final class EnumC0050a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0049a eM;
-        public static final EnumC0049a eN;
-        public static final EnumC0049a eO;
-        public static final EnumC0049a eP;
-        public static final EnumC0049a eQ;
-        public static final EnumC0049a eR;
-        public static final EnumC0049a eS;
-        public static final EnumC0049a eT;
-        public static final EnumC0049a eU;
-        public static final EnumC0049a eV;
-        public static final /* synthetic */ EnumC0049a[] eW;
+        public static final EnumC0050a eM;
+        public static final EnumC0050a eN;
+        public static final EnumC0050a eO;
+        public static final EnumC0050a eP;
+        public static final EnumC0050a eQ;
+        public static final EnumC0050a eR;
+        public static final EnumC0050a eS;
+        public static final EnumC0050a eT;
+        public static final EnumC0050a eU;
+        public static final EnumC0050a eV;
+        public static final /* synthetic */ EnumC0050a[] eW;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -146,21 +146,21 @@ public class a {
                     return;
                 }
             }
-            eM = new EnumC0049a("EGESTURE_CLICK", 0);
-            eN = new EnumC0049a("EGESTURE_DOUBLE_CLICK", 1);
-            eO = new EnumC0049a("EGESTURE_LONG_PRESS", 2);
-            eP = new EnumC0049a("EGESTURE_SWIPE", 3);
-            eQ = new EnumC0049a("EGESTURE_SINGLE_FINGER_SCROLL", 4);
-            eR = new EnumC0049a("EGESTURE_TWO_FINGER_SCROLL", 5);
-            eS = new EnumC0049a("EGESTURE_TWO_FINGER_PINCH", 6);
-            eT = new EnumC0049a("EGESTURE_TWO_FINGER_UNPINCH", 7);
-            eU = new EnumC0049a("EGESTURE_TWO_FINGER_ROTATE", 8);
-            EnumC0049a enumC0049a = new EnumC0049a("EGESTURE_CLEAR", 9);
-            eV = enumC0049a;
-            eW = new EnumC0049a[]{eM, eN, eO, eP, eQ, eR, eS, eT, eU, enumC0049a};
+            eM = new EnumC0050a("EGESTURE_CLICK", 0);
+            eN = new EnumC0050a("EGESTURE_DOUBLE_CLICK", 1);
+            eO = new EnumC0050a("EGESTURE_LONG_PRESS", 2);
+            eP = new EnumC0050a("EGESTURE_SWIPE", 3);
+            eQ = new EnumC0050a("EGESTURE_SINGLE_FINGER_SCROLL", 4);
+            eR = new EnumC0050a("EGESTURE_TWO_FINGER_SCROLL", 5);
+            eS = new EnumC0050a("EGESTURE_TWO_FINGER_PINCH", 6);
+            eT = new EnumC0050a("EGESTURE_TWO_FINGER_UNPINCH", 7);
+            eU = new EnumC0050a("EGESTURE_TWO_FINGER_ROTATE", 8);
+            EnumC0050a enumC0050a = new EnumC0050a("EGESTURE_CLEAR", 9);
+            eV = enumC0050a;
+            eW = new EnumC0050a[]{eM, eN, eO, eP, eQ, eR, eS, eT, eU, enumC0050a};
         }
 
-        public EnumC0049a(String str, int i) {
+        public EnumC0050a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,16 +179,16 @@ public class a {
             }
         }
 
-        public static EnumC0049a valueOf(String str) {
+        public static EnumC0050a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0049a) Enum.valueOf(EnumC0049a.class, str) : (EnumC0049a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0050a) Enum.valueOf(EnumC0050a.class, str) : (EnumC0050a) invokeL.objValue;
         }
 
-        public static EnumC0049a[] values() {
+        public static EnumC0050a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0049a[]) eW.clone() : (EnumC0049a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0050a[]) eW.clone() : (EnumC0050a[]) invokeV.objValue;
         }
     }
 
@@ -244,7 +244,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c eY;
         public static final c eZ;
@@ -324,7 +324,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class d {
+    public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public static final d fl;
         public static final d fm;
@@ -444,7 +444,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class f {
+    public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f fq;
         public static final f fr;
@@ -680,7 +680,7 @@ public class a {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) && (bVar = this.es) != null && bVar.aW()) {
-            a(EnumC0049a.eM.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+            a(EnumC0050a.eM.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
             aS();
         }
     }
@@ -689,7 +689,7 @@ public class a {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) && (bVar = this.es) != null && bVar.aZ()) {
-            a(EnumC0049a.eQ.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+            a(EnumC0050a.eQ.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         }
     }
 
@@ -697,7 +697,7 @@ public class a {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i2), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9)}) == null) && (bVar = this.es) != null && bVar.ba()) {
-            a(EnumC0049a.eR.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
+            a(EnumC0050a.eR.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
         }
     }
 
@@ -714,9 +714,9 @@ public class a {
                 }
                 this.eJ = z;
             }
-            int ordinal = EnumC0049a.eT.ordinal();
+            int ordinal = EnumC0050a.eT.ordinal();
             if (z) {
-                ordinal = EnumC0049a.eS.ordinal();
+                ordinal = EnumC0050a.eS.ordinal();
             }
             a(ordinal, j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
             if (this.eI) {
@@ -729,7 +729,7 @@ public class a {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) && (bVar = this.es) != null && bVar.bd()) {
-            a(EnumC0049a.eU.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
+            a(EnumC0050a.eU.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
         }
     }
 
@@ -737,7 +737,7 @@ public class a {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (bVar = this.es) != null && bVar.bb()) {
-            a(EnumC0049a.eP.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
+            a(EnumC0050a.eP.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
             clearStatus();
         }
     }
@@ -771,9 +771,9 @@ public class a {
                         float y2 = motionEvent.getY(i3);
                         float f5 = 0.0f;
                         if (this.eB.containsKey(Integer.valueOf(pointerId2))) {
-                            Vector vector = (Vector) this.eB.get(Integer.valueOf(pointerId2));
-                            f5 = x2 - ((Float) vector.firstElement()).floatValue();
-                            f2 = y2 - ((Float) vector.lastElement()).floatValue();
+                            Vector<Float> vector = this.eB.get(Integer.valueOf(pointerId2));
+                            f5 = x2 - vector.firstElement().floatValue();
+                            f2 = y2 - vector.lastElement().floatValue();
                             vector.setElementAt(Float.valueOf(x2), 0);
                             vector.setElementAt(Float.valueOf(y2), 1);
                         } else {
@@ -793,10 +793,10 @@ public class a {
                     return;
                 } else if (actionMasked == 3) {
                     if (this.eB.containsKey(Integer.valueOf(pointerId))) {
-                        Vector vector2 = (Vector) this.eB.get(Integer.valueOf(pointerId));
+                        Vector<Float> vector2 = this.eB.get(Integer.valueOf(pointerId));
                         this.eB.remove(Integer.valueOf(pointerId));
-                        f4 = y - ((Float) vector2.elementAt(1)).floatValue();
-                        f3 = x - ((Float) vector2.elementAt(0)).floatValue();
+                        f4 = y - vector2.elementAt(1).floatValue();
+                        f3 = x - vector2.elementAt(0).floatValue();
                     }
                     fVar = f.ft;
                     a(pointerId, x, y, f3, f4, eventTime, fVar.ordinal(), pressure);
@@ -807,15 +807,15 @@ public class a {
                 }
             }
             if (this.eB.containsKey(Integer.valueOf(pointerId))) {
-                Vector vector3 = (Vector) this.eB.get(Integer.valueOf(pointerId));
+                Vector<Float> vector3 = this.eB.get(Integer.valueOf(pointerId));
                 this.eB.remove(Integer.valueOf(pointerId));
-                f4 = y - ((Float) vector3.elementAt(1)).floatValue();
-                f3 = x - ((Float) vector3.elementAt(0)).floatValue();
+                f4 = y - vector3.elementAt(1).floatValue();
+                f3 = x - vector3.elementAt(0).floatValue();
             }
             fVar = f.fs;
             a(pointerId, x, y, f3, f4, eventTime, fVar.ordinal(), pressure);
         }
-        Vector vector4 = new Vector(2);
+        Vector<Float> vector4 = new Vector<>(2);
         vector4.add(Float.valueOf(x));
         vector4.add(Float.valueOf(y));
         this.eB.put(Integer.valueOf(pointerId), vector4);
@@ -836,14 +836,14 @@ public class a {
     private void aS() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            a(EnumC0049a.eV.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+            a(EnumC0050a.eV.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         }
     }
 
     private void aT() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0049a.eV.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
+            ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0050a.eV.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
         }
     }
 
@@ -864,7 +864,7 @@ public class a {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) && (bVar = this.es) != null && bVar.aY()) {
-            a(EnumC0049a.eO.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+            a(EnumC0050a.eO.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         }
     }
 

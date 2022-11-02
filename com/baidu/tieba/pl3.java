@@ -1,162 +1,123 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ol3;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pl3 extends j53 {
+public class pl3 extends g93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements ol3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-
-        public a(pl3 pl3Var, Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl3Var, context, jSONObject, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = jSONObject;
-            this.c = callbackHandler;
-            this.d = str;
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return true;
         }
-
-        @Override // com.baidu.tieba.ol3.b
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    ol3.d(this.a);
-                }
-                try {
-                    this.b.put("canceled", z);
-                } catch (JSONException e) {
-                    if (j53.b) {
-                        e.printStackTrace();
-                    }
-                }
-                this.c.handleSchemeDispatchCallback(this.d, UnitedSchemeUtility.wrapCallbackParams(this.b, 0).toString());
-            }
-        }
+        return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pl3(j43 j43Var) {
-        super(j43Var, "/swanAPI/guidePushSetting");
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948065842, "Lcom/baidu/tieba/pl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948065842, "Lcom/baidu/tieba/pl3;");
                 return;
             }
         }
+        a = ok1.a;
+        try {
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+        } catch (Exception unused) {
+        }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    public pl3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (m33Var == null) {
-                m02.c("GuidePushSettingAction", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                m02.c("GuidePushSettingAction", "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (TextUtils.isEmpty(optParamsAsJo.optString("source"))) {
-                m02.c("GuidePushSettingAction", "openPushGuide source empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (!(context instanceof Activity)) {
-                m02.c("GuidePushSettingAction", "illegal context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal context");
-                return false;
-            } else {
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                    return false;
-                }
-                boolean b = ol3.b(context);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("authorized", b);
-                } catch (JSONException e) {
-                    if (j53.b) {
-                        e.printStackTrace();
-                    }
-                }
-                if (b) {
-                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                } else {
-                    ol3.e(context, k(context, jSONObject, optString, callbackHandler));
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("authorized", b);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-                    return true;
-                } catch (JSONException e2) {
-                    if (j53.b) {
-                        e2.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final ol3.b k(Context context, JSONObject jSONObject, String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, str, callbackHandler)) == null) {
-            return new a(this, context, jSONObject, callbackHandler, str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (lg3.f()) {
+                CookieManager.getInstance().flush();
+                return;
+            }
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+            CookieSyncManager.getInstance().sync();
         }
-        return (ol3.b) invokeLLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.g93, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String str2 = "";
+            try {
+                str2 = CookieManager.getInstance().getCookie(str);
+                if (a) {
+                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
+                }
+            } catch (Exception unused) {
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (a) {
+                Log.d("RealCookieManager", "storeCookie httpUrl: " + str);
+                Log.d("RealCookieManager", "storeCookie cookies: " + list);
+            }
+            try {
+                for (String str2 : list) {
+                    CookieManager.getInstance().setCookie(str, str2);
+                }
+                a();
+            } catch (Exception unused) {
+            }
+        }
     }
 }

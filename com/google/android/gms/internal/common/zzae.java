@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class zzae extends zzz {
+public final class zzae<E> extends zzz<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zzag zza;
+    public final zzag<E> zza;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zzae(zzag zzagVar, int i) {
+    public zzae(zzag<E> zzagVar, int i) {
         super(zzagVar.size(), i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,12 +34,12 @@ public final class zzae extends zzz {
     }
 
     @Override // com.google.android.gms.internal.common.zzz
-    public final Object zza(int i) {
+    public final E zza(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             return this.zza.get(i);
         }
-        return invokeI.objValue;
+        return (E) invokeI.objValue;
     }
 }

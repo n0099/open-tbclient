@@ -18,9 +18,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CompletableMergeDelayErrorIterable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable sources;
+    public final Iterable<? extends CompletableSource> sources;
 
-    public CompletableMergeDelayErrorIterable(Iterable iterable) {
+    public CompletableMergeDelayErrorIterable(Iterable<? extends CompletableSource> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

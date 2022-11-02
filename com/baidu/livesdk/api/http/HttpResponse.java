@@ -6,13 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class HttpResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String content;
-    public Map headers;
+    public Map<String, List<String>> headers;
     public int responseCode;
 
     public HttpResponse() {
@@ -40,7 +41,7 @@ public class HttpResponse {
         return (String) invokeV.objValue;
     }
 
-    public Map getHeaders() {
+    public Map<String, List<String>> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -65,7 +66,7 @@ public class HttpResponse {
         }
     }
 
-    public void setHeaders(Map map) {
+    public void setHeaders(Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.headers = map;

@@ -6,6 +6,9 @@ import android.animation.AnimatorSet;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,8 +20,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class ExpandableTransformationBehavior extends ExpandableBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public AnimatorSet currentAnimation;
 
+    @NonNull
     public abstract AnimatorSet onCreateExpandedStateChangeAnimation(View view2, View view3, boolean z, boolean z2);
 
     public ExpandableTransformationBehavior() {
@@ -57,6 +62,7 @@ public abstract class ExpandableTransformationBehavior extends ExpandableBehavio
     }
 
     @Override // com.google.android.material.transformation.ExpandableBehavior
+    @CallSuper
     public boolean onExpandedStateChange(View view2, View view3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         boolean z3;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.recapp.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -12,20 +13,24 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.gg8;
-import com.baidu.tieba.oo5;
+import com.baidu.tieba.np5;
+import com.baidu.tieba.qh8;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"DrawAllocation"})
 /* loaded from: classes5.dex */
-public class FeedAdProgressButton extends View implements gg8 {
+public class FeedAdProgressButton extends View implements qh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -51,7 +56,7 @@ public class FeedAdProgressButton extends View implements gg8 {
     public Rect u;
     public Paint v;
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.qh8
     public void setButtonTextNightColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -88,7 +93,7 @@ public class FeedAdProgressButton extends View implements gg8 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f0924);
+        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f0930);
         this.t = 0;
         e(context, attributeSet);
     }
@@ -123,12 +128,12 @@ public class FeedAdProgressButton extends View implements gg8 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f0924);
+        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f0930);
         this.t = 0;
         e(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.qh8
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -139,7 +144,7 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.qh8
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -224,7 +229,7 @@ public class FeedAdProgressButton extends View implements gg8 {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.feed_ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, np5.feed_ad_progress);
             int color = getResources().getColor(R.color.CAM_X0302);
             int color2 = getResources().getColor(R.color.CAM_X0302);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds10);
@@ -266,7 +271,7 @@ public class FeedAdProgressButton extends View implements gg8 {
                 if (this.q.length() >= 4) {
                     string = this.q;
                 } else {
-                    string = getResources().getString(R.string.obfuscated_res_0x7f0f0924);
+                    string = getResources().getString(R.string.obfuscated_res_0x7f0f0930);
                 }
                 this.v.getTextBounds(string, 0, string.length(), this.u);
                 float height = this.u.height() + (this.s * 2);
@@ -318,7 +323,7 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    public void setBackgroundSkin(int i) {
+    public void setBackgroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.d = i;
@@ -333,7 +338,7 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.qh8
     public void setButtonTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -342,15 +347,15 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8
-    public void setButtonTextSize(int i) {
+    @Override // com.baidu.tieba.qh8
+    public void setButtonTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            float f = fj.f(getContext(), i);
-            this.j = f;
+            float g = xi.g(getContext(), i);
+            this.j = g;
             TextPaint textPaint = this.i;
             if (textPaint != null) {
-                textPaint.setTextSize(f);
+                textPaint.setTextSize(g);
             }
             postInvalidate();
         }
@@ -365,7 +370,7 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.qh8
     public void setInitText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
@@ -380,7 +385,7 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.qh8
     public void setRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
@@ -388,14 +393,14 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    public void setStrokeWidth(int i) {
+    public void setStrokeWidth(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             this.t = getResources().getDimensionPixelSize(i);
         }
     }
 
-    public void setTextColorInitSkin(int i) {
+    public void setTextColorInitSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.b = i;
@@ -403,7 +408,7 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    public void setTextColorSkin(int i) {
+    public void setTextColorSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             this.a = i;
@@ -412,7 +417,7 @@ public class FeedAdProgressButton extends View implements gg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gg8
+    @Override // com.baidu.tieba.qh8
     public void setButtonText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {

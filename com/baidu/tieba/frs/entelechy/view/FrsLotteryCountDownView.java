@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,18 +43,18 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public CountDownTimer k;
 
     /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes4.dex */
-    public class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference a;
+        public final WeakReference<CountDownTimer> a;
 
-        public b(WeakReference weakReference) {
+        public b(WeakReference<CountDownTimer> weakReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,20 +80,20 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void run() {
             CountDownTimer countDownTimer;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTimer = (CountDownTimer) this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTimer = this.a.get()) != null) {
                 countDownTimer.cancel();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends CountDownTimer {
+    public static class c extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference a;
+        public final WeakReference<FrsLotteryCountDownView> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(WeakReference weakReference, long j, long j2) {
+        public c(WeakReference<FrsLotteryCountDownView> weakReference, long j, long j2) {
             super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -118,7 +118,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onFinish() {
             FrsLotteryCountDownView frsLotteryCountDownView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (frsLotteryCountDownView = (FrsLotteryCountDownView) this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (frsLotteryCountDownView = this.a.get()) != null) {
                 frsLotteryCountDownView.i.setText("0");
             }
         }
@@ -127,9 +127,9 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onTick(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                FrsLotteryCountDownView frsLotteryCountDownView = (FrsLotteryCountDownView) this.a.get();
+                FrsLotteryCountDownView frsLotteryCountDownView = this.a.get();
                 if (frsLotteryCountDownView == null) {
-                    hh.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
+                    zg.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
                     return;
                 }
                 frsLotteryCountDownView.c.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.l)));
@@ -236,16 +236,16 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0333, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0335, (ViewGroup) this, true);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09143a);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143b);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143c);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143d);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143e);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143f);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091440);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091441);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091479);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09147a);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09147b);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09147c);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09147d);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09147e);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09147f);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091480);
         }
     }
 

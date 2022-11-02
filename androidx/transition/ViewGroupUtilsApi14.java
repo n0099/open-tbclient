@@ -3,6 +3,7 @@ package androidx.transition;
 import android.animation.LayoutTransition;
 import android.util.Log;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +70,7 @@ public class ViewGroupUtilsApi14 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void suppressLayout(ViewGroup viewGroup, boolean z) {
+    public static void suppressLayout(@NonNull ViewGroup viewGroup, boolean z) {
         LayoutTransition layoutTransition;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, viewGroup, z) == null) {
@@ -117,7 +118,7 @@ public class ViewGroupUtilsApi14 {
                         cancelLayoutTransition(layoutTransition3);
                     }
                     if (layoutTransition3 != sEmptyLayoutTransition) {
-                        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092316, layoutTransition3);
+                        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236a, layoutTransition3);
                     }
                 }
                 viewGroup.setLayoutTransition(sEmptyLayoutTransition);
@@ -146,7 +147,7 @@ public class ViewGroupUtilsApi14 {
                             Log.i(TAG, "Failed to get mLayoutSuppressed field by reflection");
                             if (z2) {
                             }
-                            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092316);
+                            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236a);
                             if (layoutTransition == null) {
                             }
                         }
@@ -158,9 +159,9 @@ public class ViewGroupUtilsApi14 {
             if (z2) {
                 viewGroup.requestLayout();
             }
-            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092316);
+            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236a);
             if (layoutTransition == null) {
-                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092316, null);
+                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236a, null);
                 viewGroup.setLayoutTransition(layoutTransition);
             }
         }

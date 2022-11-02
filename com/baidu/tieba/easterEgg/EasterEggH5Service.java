@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.do8;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fo8;
-import com.baidu.tieba.h86;
-import com.baidu.tieba.i86;
-import com.baidu.tieba.j86;
-import com.baidu.tieba.jx4;
-import com.baidu.tieba.n86;
-import com.baidu.tieba.o86;
+import com.baidu.tieba.mp8;
+import com.baidu.tieba.op8;
+import com.baidu.tieba.r96;
+import com.baidu.tieba.s96;
+import com.baidu.tieba.t96;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.x96;
+import com.baidu.tieba.y96;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,14 +46,14 @@ public class EasterEggH5Service extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public EasterEggBridge eggBridge;
     public Gson gson;
-    public do8 jsBridge;
-    public n86 mHttpRule;
-    public o86 mSocketRule;
+    public mp8 jsBridge;
+    public x96 mHttpRule;
+    public y96 mSocketRule;
     public BdUniqueId mTag;
     public String mUrl;
     public BaseWebView mWebView;
-    public i86 model;
-    public h86 onHitEventListener;
+    public s96 model;
+    public r96 onHitEventListener;
     public CustomMessageListener onSearchEventListener;
     public CustomMessageListener onWriteReadListener;
 
@@ -83,7 +83,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements h86 {
+    public class a implements r96 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -106,7 +106,7 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // com.baidu.tieba.h86
+        @Override // com.baidu.tieba.r96
         public void a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) && this.a.mWebView != null) {
@@ -145,7 +145,7 @@ public class EasterEggH5Service extends Service {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             String str;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof String)) {
@@ -195,7 +195,7 @@ public class EasterEggH5Service extends Service {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             String str;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof HttpRequest)) {
@@ -221,7 +221,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements i86.b {
+    public class d implements s96.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -244,15 +244,15 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // com.baidu.tieba.i86.b
-        public void a(boolean z, j86 j86Var) {
+        @Override // com.baidu.tieba.s96.b
+        public void a(boolean z, t96 t96Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, j86Var) == null) {
-                if (z && j86Var != null && !ej.isEmpty(j86Var.a()) && j86Var.c()) {
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, t96Var) == null) {
+                if (z && t96Var != null && !wi.isEmpty(t96Var.a()) && t96Var.c()) {
                     if (this.a.mWebView != null) {
-                        this.a.mWebView.loadUrl(j86Var.a());
+                        this.a.mWebView.loadUrl(t96Var.a());
                     }
-                    HashMap b = j86Var.b();
+                    HashMap<String, String> b = t96Var.b();
                     if (b != null) {
                         this.a.mHttpRule.c(b);
                         this.a.mSocketRule.c(b);
@@ -299,7 +299,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements fo8 {
+    public class f implements op8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -322,7 +322,7 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // com.baidu.tieba.fo8
+        @Override // com.baidu.tieba.op8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -364,13 +364,13 @@ public class EasterEggH5Service extends Service {
             MessageManager.getInstance().registerListener(this.onSearchEventListener);
             this.onWriteReadListener.setTag(this.mTag);
             MessageManager.getInstance().registerListener(this.onWriteReadListener);
-            n86 n86Var = new n86(0);
-            this.mHttpRule = n86Var;
-            n86Var.b(this.onHitEventListener);
+            x96 x96Var = new x96(0);
+            this.mHttpRule = x96Var;
+            x96Var.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mHttpRule);
-            o86 o86Var = new o86(0);
-            this.mSocketRule = o86Var;
-            o86Var.b(this.onHitEventListener);
+            y96 y96Var = new y96(0);
+            this.mSocketRule = y96Var;
+            y96Var.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mSocketRule);
         }
     }
@@ -380,7 +380,7 @@ public class EasterEggH5Service extends Service {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
                 this.mWebView = new BaseWebView(this);
-                this.jsBridge = new do8();
+                this.jsBridge = new mp8();
                 this.mWebView.initCommonJsBridge(this);
                 if (Build.VERSION.SDK_INT >= 21) {
                     this.mWebView.getSettings().setMixedContentMode(0);
@@ -391,7 +391,7 @@ public class EasterEggH5Service extends Service {
                 this.jsBridge.a(easterEggBridge);
                 this.mWebView.setOnJsPromptCallback(new f(this));
             } catch (Throwable th) {
-                jx4.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
+                zx4.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
                 TbadkCoreApplication.getInst().onLowMemory();
                 stopSelf();
             }
@@ -401,7 +401,7 @@ public class EasterEggH5Service extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void loadJsUrl(WebView webView, String str, String... strArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65547, this, webView, str, strArr) != null) || ej.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLLL(65547, this, webView, str, strArr) != null) || wi.isEmpty(str)) {
             return;
         }
         String str2 = "javascript:" + str + "(";
@@ -428,9 +428,9 @@ public class EasterEggH5Service extends Service {
             super.onCreate();
             initWebView();
             initListenerAndRule();
-            i86 i86Var = new i86();
-            this.model = i86Var;
-            i86Var.d(new d(this));
+            s96 s96Var = new s96();
+            this.model = s96Var;
+            s96Var.d(new d(this));
             this.model.e();
         }
     }
@@ -439,9 +439,9 @@ public class EasterEggH5Service extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i86 i86Var = this.model;
-            if (i86Var != null) {
-                i86Var.c();
+            s96 s96Var = this.model;
+            if (s96Var != null) {
+                s96Var.c();
             }
             EasterEggBridge easterEggBridge = this.eggBridge;
             if (easterEggBridge != null) {
@@ -462,7 +462,7 @@ public class EasterEggH5Service extends Service {
             if (intent != null) {
                 String stringExtra = intent.getStringExtra(KEY_URL);
                 this.mUrl = stringExtra;
-                if (!ej.isEmpty(stringExtra)) {
+                if (!wi.isEmpty(stringExtra)) {
                     this.mWebView.loadUrl(this.mUrl);
                 }
             }

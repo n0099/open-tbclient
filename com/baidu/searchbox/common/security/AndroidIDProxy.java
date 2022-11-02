@@ -1,5 +1,6 @@
 package com.baidu.searchbox.common.security;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
@@ -30,6 +31,7 @@ public class AndroidIDProxy {
         }
     }
 
+    @SuppressLint({"HardwareIds"})
     public static DeviceIdBag getAndroidId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -52,6 +54,7 @@ public class AndroidIDProxy {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"HardwareIds"})
     public static DeviceIdBag getAndroidId(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;

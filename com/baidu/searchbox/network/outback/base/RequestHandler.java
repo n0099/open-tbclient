@@ -10,7 +10,7 @@ public interface RequestHandler {
     void preExecuteRequest() throws IOException;
 
     /* loaded from: classes2.dex */
-    public class Default implements RequestHandler {
+    public static class Default implements RequestHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

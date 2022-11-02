@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.d.a;
 import com.baidu.sofire.d.b;
-import com.baidu.sofire.k.a;
 import com.baidu.sofire.k.o;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,13 +36,13 @@ public class Sp {
         }
     }
 
-    public static Set mainProcessGetSubProcessPids() {
+    public static Set<Integer> mainProcessGetSubProcessPids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             Context context = b.a;
             try {
-                Map map = b.b;
+                Map<Integer, a> map = b.b;
                 if (map == null) {
                     return null;
                 }
@@ -60,7 +60,7 @@ public class Sp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             Context context2 = b.a;
-            return a.k(context);
+            return com.baidu.sofire.k.a.k(context);
         }
         return invokeL.intValue;
     }
@@ -75,11 +75,11 @@ public class Sp {
                 if (TextUtils.isEmpty(str)) {
                     a = b.a(-201);
                 } else {
-                    Map map = b.b;
+                    Map<Integer, a> map = b.b;
                     if (map == null) {
                         a = b.a(-200);
                     } else {
-                        com.baidu.sofire.d.a aVar = (com.baidu.sofire.d.a) map.get(Integer.valueOf(i));
+                        a aVar = map.get(Integer.valueOf(i));
                         if (aVar == null) {
                             a = b.a(-202);
                         } else {
@@ -109,11 +109,11 @@ public class Sp {
                 if (bundle == null) {
                     b = b.a(-201);
                 } else {
-                    Map map = b.b;
+                    Map<Integer, a> map = b.b;
                     if (map == null) {
                         b = b.a(-200);
                     } else {
-                        com.baidu.sofire.d.a aVar = (com.baidu.sofire.d.a) map.get(Integer.valueOf(i));
+                        a aVar = map.get(Integer.valueOf(i));
                         if (aVar == null) {
                             b = b.a(-202);
                         } else {
@@ -138,7 +138,7 @@ public class Sp {
         return (Bundle) invokeIL.objValue;
     }
 
-    public static Map mainProcessStartAllPlugin(String str) {
+    public static Map<Integer, Integer> mainProcessStartAllPlugin(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
@@ -170,7 +170,7 @@ public class Sp {
     }
 
     public static void registerNeedNotifySubProcess(String str, boolean z) {
-        List list;
+        List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65543, null, str, z) == null) {
             Context context = b.a;

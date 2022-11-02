@@ -35,7 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class DownloadInfo implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.ss.android.socialbase.downloader.model.DownloadInfo.1
+    public static final Parcelable.Creator<DownloadInfo> CREATOR = new Parcelable.Creator<DownloadInfo>() { // from class: com.ss.android.socialbase.downloader.model.DownloadInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
@@ -63,7 +63,7 @@ public class DownloadInfo implements Parcelable {
     public boolean autoResumed;
     public int backUpUrlRetryCount;
     public boolean backUpUrlUsed;
-    public List backUpUrls;
+    public List<String> backUpUrls;
     public String backUpUrlsStr;
     public int bindValueCount;
     public com.ss.android.socialbase.downloader.constants.b byteInvalidRetryStatus;
@@ -82,11 +82,11 @@ public class DownloadInfo implements Parcelable {
     public StringBuffer errorBytesLog;
     public boolean expiredRedownload;
     public String extra;
-    public List extraHeaders;
+    public List<c> extraHeaders;
     public int[] extraMonitorStatus;
     public BaseException failedException;
     public String filePackageName;
-    public List forbiddenBackupUrls;
+    public List<String> forbiddenBackupUrls;
     public boolean force;
     public boolean forceIgnoreRecommendSize;
     public boolean headConnectionAvailable;
@@ -126,7 +126,7 @@ public class DownloadInfo implements Parcelable {
     public boolean openLimitSpeed;
     public String[] outIp;
     public int[] outSize;
-    public SoftReference packageInfoRef;
+    public SoftReference<PackageInfo> packageInfoRef;
     public String packageName;
     public long realDownloadTime;
     public long realStartDownloadTime;
@@ -146,8 +146,8 @@ public class DownloadInfo implements Parcelable {
     public boolean successByCache;
     public boolean supportPartial;
     public String taskId;
-    public ConcurrentHashMap tempCacheData;
-    public volatile List tempFileSaveCompleteCallbacks;
+    public ConcurrentHashMap<String, Object> tempCacheData;
+    public volatile List<ai> tempFileSaveCompleteCallbacks;
     public String tempPath;
     public long throttleNetSpeed;
     public String title;
@@ -156,7 +156,7 @@ public class DownloadInfo implements Parcelable {
     public String url;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public String A;
         public String B;
         public long C;
@@ -186,7 +186,7 @@ public class DownloadInfo implements Parcelable {
         public String e;
         public boolean f;
         public String g;
-        public List h;
+        public List<c> h;
         public int i;
         public String[] j;
         public int[] k;
@@ -195,7 +195,7 @@ public class DownloadInfo implements Parcelable {
         public boolean n;
         public int p;
         public int q;
-        public List r;
+        public List<String> r;
         public boolean s;
         public String u;
         public boolean v;
@@ -279,7 +279,7 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
-        public a a(List list) {
+        public a a(List<c> list) {
             this.h = list;
             return this;
         }
@@ -323,7 +323,7 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
-        public a b(List list) {
+        public a b(List<String> list) {
             this.r = list;
             return this;
         }
@@ -950,14 +950,14 @@ public class DownloadInfo implements Parcelable {
         if (this.tempCacheData == null) {
             synchronized (this) {
                 if (this.tempCacheData == null) {
-                    this.tempCacheData = new ConcurrentHashMap();
+                    this.tempCacheData = new ConcurrentHashMap<>();
                 }
             }
         }
     }
 
     private String getBackUpUrlsStr() {
-        List list;
+        List<String> list;
         if (this.backUpUrlsStr == null && (list = this.backUpUrls) != null && !list.isEmpty()) {
             try {
                 JSONArray jSONArray = new JSONArray();
@@ -1055,11 +1055,11 @@ public class DownloadInfo implements Parcelable {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     private void refreshBackupUrls(boolean z) {
-        List list = this.forbiddenBackupUrls;
+        List<String> list = this.forbiddenBackupUrls;
         if (list == null || list.size() <= z) {
             return;
         }
-        List list2 = this.backUpUrls;
+        List<String> list2 = this.backUpUrls;
         if (list2 == null) {
             this.backUpUrls = new ArrayList();
         } else {
@@ -1450,10 +1450,10 @@ public class DownloadInfo implements Parcelable {
     }
 
     public String getBackUpUrl() {
-        List list;
+        List<String> list;
         int i;
         if (this.backUpUrlUsed && (list = this.backUpUrls) != null && list.size() > 0 && (i = this.curBackUpUrlIndex) >= 0 && i < this.backUpUrls.size()) {
-            String str = (String) this.backUpUrls.get(this.curBackUpUrlIndex);
+            String str = this.backUpUrls.get(this.curBackUpUrlIndex);
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
@@ -1465,7 +1465,7 @@ public class DownloadInfo implements Parcelable {
         return this.backUpUrlRetryCount;
     }
 
-    public List getBackUpUrls() {
+    public List<String> getBackUpUrls() {
         return this.backUpUrls;
     }
 
@@ -1500,18 +1500,18 @@ public class DownloadInfo implements Parcelable {
     }
 
     public String getConnectionUrl() {
-        List list;
+        List<String> list;
         int i;
-        List list2;
+        List<String> list2;
         String str = this.url;
         if (getStatus() != 8 || (list2 = this.forbiddenBackupUrls) == null || list2.isEmpty() || this.backUpUrlUsed) {
             if (!this.backUpUrlUsed || (list = this.backUpUrls) == null || list.size() <= 0 || (i = this.curBackUpUrlIndex) < 0 || i >= this.backUpUrls.size()) {
                 return (!TextUtils.isEmpty(this.url) && this.url.startsWith("https") && this.needHttpsToHttpRetry && this.httpsToHttpRetryUsed) ? this.url.replaceFirst("https", "http") : str;
             }
-            String str2 = (String) this.backUpUrls.get(this.curBackUpUrlIndex);
+            String str2 = this.backUpUrls.get(this.curBackUpUrlIndex);
             return !TextUtils.isEmpty(str2) ? str2 : str;
         }
-        return (String) this.forbiddenBackupUrls.get(0);
+        return this.forbiddenBackupUrls.get(0);
     }
 
     public int getCurBackUpUrlIndex() {
@@ -1606,7 +1606,7 @@ public class DownloadInfo implements Parcelable {
         return this.extra;
     }
 
-    public List getExtraHeaders() {
+    public List<c> getExtraHeaders() {
         return this.extraHeaders;
     }
 
@@ -1632,7 +1632,7 @@ public class DownloadInfo implements Parcelable {
         return this.dbJsonData.optLong("dbjson_key_first_speed_time");
     }
 
-    public List getForbiddenBackupUrls() {
+    public List<String> getForbiddenBackupUrls() {
         return this.forbiddenBackupUrls;
     }
 
@@ -1757,11 +1757,11 @@ public class DownloadInfo implements Parcelable {
     }
 
     public PackageInfo getPackageInfo() {
-        SoftReference softReference = this.packageInfoRef;
+        SoftReference<PackageInfo> softReference = this.packageInfoRef;
         if (softReference == null) {
             return null;
         }
-        return (PackageInfo) softReference.get();
+        return softReference.get();
     }
 
     public String getPackageName() {
@@ -1855,7 +1855,7 @@ public class DownloadInfo implements Parcelable {
         return this.taskId;
     }
 
-    public ConcurrentHashMap getTempCacheData() {
+    public ConcurrentHashMap<String, Object> getTempCacheData() {
         ensureTempCacheData();
         return this.tempCacheData;
     }
@@ -1886,7 +1886,7 @@ public class DownloadInfo implements Parcelable {
 
     public int getTotalRetryCount() {
         int i = this.retryCount;
-        List list = this.backUpUrls;
+        List<String> list = this.backUpUrls;
         return (list == null || list.isEmpty()) ? i : i + (this.backUpUrlRetryCount * this.backUpUrls.size());
     }
 
@@ -1926,7 +1926,7 @@ public class DownloadInfo implements Parcelable {
 
     public boolean hasNextBackupUrl() {
         int i;
-        List list = this.backUpUrls;
+        List<String> list = this.backUpUrls;
         return list != null && list.size() > 0 && (!this.backUpUrlUsed || ((i = this.curBackUpUrlIndex) >= 0 && i < this.backUpUrls.size() + (-1)));
     }
 
@@ -2481,7 +2481,7 @@ public class DownloadInfo implements Parcelable {
         this.isFirstSuccess = z;
     }
 
-    public void setForbiddenBackupUrls(List list, boolean z) {
+    public void setForbiddenBackupUrls(List<String> list, boolean z) {
         this.forbiddenBackupUrls = list;
         refreshBackupUrls(z);
     }
@@ -2590,7 +2590,7 @@ public class DownloadInfo implements Parcelable {
     }
 
     public void setPackageInfo(PackageInfo packageInfo) {
-        this.packageInfoRef = new SoftReference(packageInfo);
+        this.packageInfoRef = new SoftReference<>(packageInfo);
     }
 
     public void setPackageName(String str) {
@@ -2774,10 +2774,10 @@ public class DownloadInfo implements Parcelable {
         if (this.backUpUrlUsed) {
             this.curBackUpUrlIndex++;
         }
-        List list = this.backUpUrls;
+        List<String> list = this.backUpUrls;
         if (list != null && list.size() != 0 && this.curBackUpUrlIndex >= 0) {
             while (this.curBackUpUrlIndex < this.backUpUrls.size()) {
-                if (!TextUtils.isEmpty((String) this.backUpUrls.get(this.curBackUpUrlIndex))) {
+                if (!TextUtils.isEmpty(this.backUpUrls.get(this.curBackUpUrlIndex))) {
                     this.backUpUrlUsed = true;
                     return true;
                 }

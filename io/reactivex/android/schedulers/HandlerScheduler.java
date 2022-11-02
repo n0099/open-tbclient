@@ -20,7 +20,7 @@ public final class HandlerScheduler extends Scheduler {
     public final Handler handler;
 
     /* loaded from: classes8.dex */
-    public final class HandlerWorker extends Scheduler.Worker {
+    public static final class HandlerWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean disposed;
@@ -92,7 +92,7 @@ public final class HandlerScheduler extends Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public final class ScheduledRunnable implements Runnable, Disposable {
+    public static final class ScheduledRunnable implements Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Runnable delegate;

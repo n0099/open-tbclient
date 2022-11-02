@@ -115,7 +115,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -232,7 +232,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d("", "IMGenBosObjectUrlRequest onFailure " + transErrorCode.first);
             ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null, null, null);
         }
@@ -313,7 +313,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         }
     }
 
-    public Pair transErrorCode(int i, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
         InterceptResult invokeILL;
         String str;
         Interceptable interceptable = $ic;
@@ -329,7 +329,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 i = 1012;
                 str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
             }
-            return new Pair(Integer.valueOf(i), str);
+            return new Pair<>(Integer.valueOf(i), str);
         }
         return (Pair) invokeILL.objValue;
     }

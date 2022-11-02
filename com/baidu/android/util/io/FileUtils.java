@@ -1,11 +1,13 @@
 package com.baidu.android.util.io;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -76,6 +78,7 @@ public final class FileUtils {
         }
     }
 
+    @TargetApi(8)
     @Deprecated
     public static String getCacheDir() {
         InterceptResult invokeV;
@@ -551,7 +554,8 @@ public final class FileUtils {
         return invokeL.booleanValue;
     }
 
-    public static String getCacheDir(Context context) {
+    @TargetApi(8)
+    public static String getCacheDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {

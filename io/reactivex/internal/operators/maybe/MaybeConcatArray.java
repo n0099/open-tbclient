@@ -19,25 +19,25 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class MaybeConcatArray extends Flowable {
+public final class MaybeConcatArray<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource[] sources;
+    public final MaybeSource<? extends T>[] sources;
 
     /* loaded from: classes8.dex */
-    public final class ConcatMaybeObserver extends AtomicInteger implements MaybeObserver, Subscription {
+    public static final class ConcatMaybeObserver<T> extends AtomicInteger implements MaybeObserver<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3520831347801429610L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final AtomicReference current;
+        public final Subscriber<? super T> actual;
+        public final AtomicReference<Object> current;
         public final SequentialDisposable disposables;
         public int index;
         public long produced;
         public final AtomicLong requested;
-        public final MaybeSource[] sources;
+        public final MaybeSource<? extends T>[] sources;
 
-        public ConcatMaybeObserver(Subscriber subscriber, MaybeSource[] maybeSourceArr) {
+        public ConcatMaybeObserver(Subscriber<? super T> subscriber, MaybeSource<? extends T>[] maybeSourceArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public final class MaybeConcatArray extends Flowable {
             this.sources = maybeSourceArr;
             this.requested = new AtomicLong();
             this.disposables = new SequentialDisposable();
-            this.current = new AtomicReference(NotificationLite.COMPLETE);
+            this.current = new AtomicReference<>(NotificationLite.COMPLETE);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -81,8 +81,8 @@ public final class MaybeConcatArray extends Flowable {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            AtomicReference atomicReference = this.current;
-            Subscriber subscriber = this.actual;
+            AtomicReference<Object> atomicReference = this.current;
+            Subscriber<? super T> subscriber = this.actual;
             SequentialDisposable sequentialDisposable = this.disposables;
             while (!sequentialDisposable.isDisposed()) {
                 Object obj = atomicReference.get();
@@ -102,7 +102,7 @@ public final class MaybeConcatArray extends Flowable {
                     }
                     if (z && !sequentialDisposable.isDisposed()) {
                         int i = this.index;
-                        MaybeSource[] maybeSourceArr = this.sources;
+                        MaybeSource<? extends T>[] maybeSourceArr = this.sources;
                         if (i == maybeSourceArr.length) {
                             subscriber.onComplete();
                             return;
@@ -136,10 +136,10 @@ public final class MaybeConcatArray extends Flowable {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.current.lazySet(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.current.lazySet(t);
                 drain();
             }
         }
@@ -154,7 +154,7 @@ public final class MaybeConcatArray extends Flowable {
         }
     }
 
-    public MaybeConcatArray(MaybeSource[] maybeSourceArr) {
+    public MaybeConcatArray(MaybeSource<? extends T>[] maybeSourceArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,7 +173,7 @@ public final class MaybeConcatArray extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(subscriber, this.sources);

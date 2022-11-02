@@ -18,12 +18,12 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile a jV;
-    public volatile List jW;
+    public volatile List<Integer> jW;
     public String jX;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a jY;
         public static final a jZ;
@@ -83,7 +83,7 @@ public class i {
         }
     }
 
-    public i(List list) {
+    public i(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class i {
         }
     }
 
-    public void b(Set set) {
+    public void b(Set<Integer> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) {
             synchronized (this) {
@@ -153,12 +153,12 @@ public class i {
         int[] iArr = new int[this.jW.size()];
         int size = this.jW.size();
         for (int i = 0; i < size; i++) {
-            iArr[i] = ((Integer) this.jW.get(i)).intValue();
+            iArr[i] = this.jW.get(i).intValue();
         }
         AuthJni.setGrantedFeatures(iArr);
     }
 
-    public List cD() {
+    public List<Integer> cD() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;

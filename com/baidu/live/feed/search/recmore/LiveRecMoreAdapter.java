@@ -79,7 +79,7 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public void addNew(List list) {
+    public void addNew(List<? extends LiveRoomEntity> list) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
@@ -88,7 +88,7 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public RecyclerView.Adapter createAdapter(Context context) {
+    public RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -106,7 +106,7 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 }
 
                 @Override // com.baidu.live.feed.search.adapter.LiveRecommendMoreAdapter.OnItemClickListener
-                public void onUbcResultClick(boolean z, List list, List list2, int i) {
+                public void onUbcResultClick(boolean z, List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, int i) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), list, list2, Integer.valueOf(i)}) == null) {
                     }
@@ -227,7 +227,7 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void onUbcResult(boolean z, List list, List list2, int i, String str) {
+                public void onUbcResult(boolean z, List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, int i, String str) {
                     ILiveRecMoreAdapter.OnItemClickListener onItemClickListener;
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), list, list2, Integer.valueOf(i), str}) == null) && onItemClickListener != null) {
@@ -327,22 +327,22 @@ public final class LiveRecMoreAdapter implements ILiveRecMoreAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public void setData(List list, List list2, boolean z) {
+    public void setData(List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, boolean z) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(1048582, this, list, list2, z) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
             }
             if (list2 == null) {
-                list2 = new ArrayList();
+                list2 = new ArrayList<>();
             }
             liveRecommendMoreAdapter.setData(list, list2, z);
         }
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecMoreAdapter
-    public void showRecommend(List list, String str, boolean z) {
+    public void showRecommend(List<? extends LiveRoomEntity> list, String str, boolean z) {
         LiveRecommendMoreAdapter liveRecommendMoreAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(1048588, this, list, str, z) == null) && (liveRecommendMoreAdapter = this.adapter) != null) {

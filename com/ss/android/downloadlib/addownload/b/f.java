@@ -1,6 +1,7 @@
 package com.ss.android.downloadlib.addownload.b;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -9,7 +10,6 @@ import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,22 +17,22 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f {
     public volatile boolean a;
-    public final ConcurrentHashMap b;
-    public final ConcurrentHashMap c;
-    public final ConcurrentHashMap d;
-    public final ConcurrentHashMap e;
+    public final ConcurrentHashMap<Long, DownloadModel> b;
+    public final ConcurrentHashMap<Long, DownloadEventConfig> c;
+    public final ConcurrentHashMap<Long, DownloadController> d;
+    public final ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> e;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static f a = new f();
     }
 
     public f() {
         this.a = false;
-        this.b = new ConcurrentHashMap();
-        this.c = new ConcurrentHashMap();
-        this.d = new ConcurrentHashMap();
-        this.e = new ConcurrentHashMap();
+        this.b = new ConcurrentHashMap<>();
+        this.c = new ConcurrentHashMap<>();
+        this.d = new ConcurrentHashMap<>();
+        this.e = new ConcurrentHashMap<>();
     }
 
     public static f a() {
@@ -55,18 +55,19 @@ public class f {
         }, true);
     }
 
-    public ConcurrentHashMap c() {
+    public ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> c() {
         return this.e;
     }
 
     public DownloadController c(long j) {
-        return (DownloadController) this.d.get(Long.valueOf(j));
+        return this.d.get(Long.valueOf(j));
     }
 
     public com.ss.android.downloadad.api.a.b d(long j) {
-        return (com.ss.android.downloadad.api.a.b) this.e.get(Long.valueOf(j));
+        return this.e.get(Long.valueOf(j));
     }
 
+    @NonNull
     public e e(long j) {
         e eVar = new e();
         eVar.a = j;
@@ -91,11 +92,11 @@ public class f {
     }
 
     public DownloadModel a(long j) {
-        return (DownloadModel) this.b.get(Long.valueOf(j));
+        return this.b.get(Long.valueOf(j));
     }
 
     public DownloadEventConfig b(long j) {
-        return (DownloadEventConfig) this.c.get(Long.valueOf(j));
+        return this.c.get(Long.valueOf(j));
     }
 
     public com.ss.android.downloadad.api.a.b a(int i) {
@@ -163,7 +164,8 @@ public class f {
         return null;
     }
 
-    public Map a(String str, String str2) {
+    @NonNull
+    public Map<Long, com.ss.android.downloadad.api.a.b> a(String str, String str2) {
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             for (com.ss.android.downloadad.api.a.b bVar : this.e.values()) {
@@ -216,14 +218,13 @@ public class f {
         i.a().a(bVar);
     }
 
-    public synchronized void a(List list) {
+    public synchronized void a(List<Long> list) {
         ArrayList arrayList = new ArrayList();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            long longValue = ((Long) it.next()).longValue();
+        for (Long l : list) {
+            long longValue = l.longValue();
             arrayList.add(String.valueOf(longValue));
             this.e.remove(Long.valueOf(longValue));
         }
-        i.a().a((List) arrayList);
+        i.a().a((List<String>) arrayList);
     }
 }

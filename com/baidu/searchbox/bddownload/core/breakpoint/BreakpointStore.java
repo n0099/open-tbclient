@@ -1,17 +1,23 @@
 package com.baidu.searchbox.bddownload.core.breakpoint;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public interface BreakpointStore {
-    BreakpointInfo createAndInsert(DownloadTask downloadTask) throws IOException;
+    @NonNull
+    BreakpointInfo createAndInsert(@NonNull DownloadTask downloadTask) throws IOException;
 
-    BreakpointInfo findAnotherInfoFromCompare(DownloadTask downloadTask, BreakpointInfo breakpointInfo);
+    @Nullable
+    BreakpointInfo findAnotherInfoFromCompare(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo);
 
-    int findOrCreateId(DownloadTask downloadTask);
+    int findOrCreateId(@NonNull DownloadTask downloadTask);
 
+    @Nullable
     BreakpointInfo get(int i);
 
+    @Nullable
     String getResponseFilename(String str);
 
     boolean isFileDirty(int i);
@@ -20,5 +26,5 @@ public interface BreakpointStore {
 
     void remove(int i);
 
-    boolean update(BreakpointInfo breakpointInfo) throws IOException;
+    boolean update(@NonNull BreakpointInfo breakpointInfo) throws IOException;
 }

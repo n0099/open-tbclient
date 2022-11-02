@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,10 +19,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mz6;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.d25;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.v07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -62,7 +63,7 @@ public class NewHotTipLabelView extends EMTextView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
                 this.a.b(TbadkCoreApplication.getInst().getSkinType());
@@ -99,12 +100,12 @@ public class NewHotTipLabelView extends EMTextView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                String o = ux4.o("key_new_hot_topic_update_time");
-                n15 hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig();
-                if (hotNotifyConfig != null && mz6.b(4320000L) && mz6.a(hotNotifyConfig.b(), o)) {
+                String o = ky4.o("key_new_hot_topic_update_time");
+                d25 hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig();
+                if (hotNotifyConfig != null && v07.b(4320000L) && v07.a(hotNotifyConfig.b(), o)) {
                     this.a.setData(hotNotifyConfig);
                 }
             }
@@ -135,7 +136,7 @@ public class NewHotTipLabelView extends EMTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewHotTipLabelView(Context context, AttributeSet attributeSet) {
+    public NewHotTipLabelView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -159,7 +160,7 @@ public class NewHotTipLabelView extends EMTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewHotTipLabelView(Context context, AttributeSet attributeSet, int i) {
+    public NewHotTipLabelView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -201,35 +202,35 @@ public class NewHotTipLabelView extends EMTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i != 1 && i != 4) {
-                setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807fd));
+                setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080805));
             } else {
-                setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807fe));
+                setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080806));
             }
-            nv4 d = nv4.d(this);
+            kw4 d = kw4.d(this);
             d.v(R.color.CAM_X0310);
             d.z(R.dimen.T_X10);
             d.A(R.string.F_X01);
         }
     }
 
-    public void setData(n15 n15Var) {
+    public void setData(d25 d25Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, n15Var) != null) || n15Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, d25Var) != null) || d25Var == null) {
             return;
         }
-        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(n15Var.a(), 6, "");
+        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(d25Var.a(), 6, "");
         if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
-            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0c6e);
+            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0c85);
         }
         setText(cutChineseAndEnglishWithSuffix);
         setVisibility(0);
     }
 
     public void c() {
-        n15 hotNotifyConfig;
+        d25 hotNotifyConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig()) != null) {
-            mz6.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
+            v07.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
         }
     }
 

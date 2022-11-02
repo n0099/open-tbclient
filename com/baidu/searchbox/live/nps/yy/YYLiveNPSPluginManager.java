@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
@@ -70,7 +71,7 @@ public class YYLiveNPSPluginManager {
     }
 
     /* loaded from: classes2.dex */
-    public class SingletonHolder {
+    public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static YYLiveNPSPluginManager instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +138,7 @@ public class YYLiveNPSPluginManager {
         }
     }
 
-    public void clearLiveResourceSize(Context context) {
+    public void clearLiveResourceSize(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             checkHandler();
@@ -213,7 +214,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });
@@ -313,7 +314,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });
@@ -413,7 +414,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });
@@ -508,7 +509,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });
@@ -525,7 +526,7 @@ public class YYLiveNPSPluginManager {
         }
     }
 
-    public void getLiveResourceSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback) {
+    public void getLiveResourceSize(@NonNull Context context, ILiveFileSizeCallback iLiveFileSizeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, iLiveFileSizeCallback) == null) {
             checkHandler();
@@ -603,7 +604,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });
@@ -620,7 +621,7 @@ public class YYLiveNPSPluginManager {
         }
     }
 
-    public void dispatchHostEvent(Context context, String str, Map map) {
+    public void dispatchHostEvent(@NonNull Context context, @NonNull String str, @NonNull Map<String, Object> map) {
         IYYLiveNPSPlugin iYYLiveNPSPlugin;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, map) == null) && (iYYLiveNPSPlugin = this.impl) != null) {
@@ -1034,10 +1035,10 @@ public class YYLiveNPSPluginManager {
                             if (this.val$showLoading) {
                                 if (i == 34) {
                                     if (this.this$0.loadingCallback == null) {
-                                        this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a57, 0);
+                                        this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a63, 0);
                                     }
                                 } else {
-                                    this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                    this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                 }
                             }
                             if (this.this$0.isDebug()) {
@@ -1106,7 +1107,7 @@ public class YYLiveNPSPluginManager {
         }
     }
 
-    public void startYYLiveActivity(Context context, String str) {
+    public void startYYLiveActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, context, str) == null) {
             UBCManager uBCManager = this.ubcManager;
@@ -1203,7 +1204,7 @@ public class YYLiveNPSPluginManager {
                                             this.this$1.this$0.ubcManager.flowEnd(this.this$1.this$0.pageFlow);
                                             this.this$1.this$0.pageFlow = null;
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });
@@ -1278,7 +1279,7 @@ public class YYLiveNPSPluginManager {
         }
     }
 
-    public void startYYCustomerServiceActivity(Context context, String str) {
+    public void startYYCustomerServiceActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
             Log.d(TAG, "startYYFeedbackActivity t=" + System.currentTimeMillis());
@@ -1358,7 +1359,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });
@@ -1371,7 +1372,7 @@ public class YYLiveNPSPluginManager {
         }
     }
 
-    public void startYYFeedbackActivity(Context context, String str) {
+    public void startYYFeedbackActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, context, str) == null) {
             Log.d(TAG, "startYYFeedbackActivity t=" + System.currentTimeMillis());
@@ -1451,7 +1452,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });
@@ -1639,7 +1640,7 @@ public class YYLiveNPSPluginManager {
                                                 return;
                                             }
                                         }
-                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a56, 0);
+                                        this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a62, 0);
                                     }
                                 }
                             });

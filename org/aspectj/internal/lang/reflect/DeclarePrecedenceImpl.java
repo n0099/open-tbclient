@@ -10,11 +10,11 @@ import java.util.StringTokenizer;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclarePrecedence;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DeclarePrecedenceImpl implements DeclarePrecedence {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AjType declaringType;
+    public AjType<?> declaringType;
     public TypePattern[] precedenceList;
     public String precedenceString;
 

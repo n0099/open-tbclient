@@ -1,192 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
+import android.content.pm.Signature;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.BundleInfoGroup;
-import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.nps.utils.SourceData;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nps.interfa.ISignatureVerifier;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+@Service
 /* loaded from: classes6.dex */
-public class ul {
+public class ul implements ISignatureVerifier {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean b;
-    public static boolean c;
-    public static ul d;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile im a;
-
-    /* loaded from: classes6.dex */
-    public final class a implements z81 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.z81
-        public void onProgress(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.z81
-        public void onResult(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.e("Plug-in predownload status{\"code\": " + i + ", \"msg\": " + str + "}");
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318966, "Lcom/baidu/tieba/ul;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448318966, "Lcom/baidu/tieba/ul;");
-                return;
-            }
-        }
-        d = new ul();
-    }
 
     public ul() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.nps.interfa.ISignatureVerifier
+    public boolean checkSignature(String str, Signature[] signatureArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !c && im.m()) {
-            c = true;
-            NPSPackageManager.getInstance().downloadAllBundles();
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || b) {
-            return;
-        }
-        b = true;
-        NPSPackageManager.getInstance().fetchBundleInfo();
-    }
-
-    public static ul e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d;
-        }
-        return (ul) invokeV.objValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a();
-        }
-    }
-
-    public RequestParams.Channel d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g();
-            return this.a.l();
-        }
-        return (RequestParams.Channel) invokeV.objValue;
-    }
-
-    public im f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g();
-            return this.a;
-        }
-        return (im) invokeV.objValue;
-    }
-
-    public final synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new im();
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, signatureArr)) == null) {
+            if (BdLog.isDebugMode()) {
+                return true;
             }
+            String c = tl.c(signatureArr);
+            BdLog.e("new signature: " + c);
+            return "YvigAa51R7YgCp8eDveR1g==".equals(c);
         }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            if (str != null && str.trim().length() != 0) {
-                SourceData sourceData = new SourceData();
-                sourceData.source = "";
-                NPSPackageManager.getInstance().preDownload(str, new a(), 1, sourceData);
-            } else if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.e("PackageName of Plug-in is null.");
-            }
-        }
-    }
-
-    public List c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : NPSPackageManager.getInstance().getAllBundleGroup().entrySet()) {
-                BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) entry.getValue();
-                BundleInfo bundleByType = bundleInfoGroup.getBundleByType(3);
-                if (bundleByType == null) {
-                    bundleByType = bundleInfoGroup.getBundleByType(2);
-                }
-                if (bundleByType != null) {
-                    arrayList.add(bundleByType);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

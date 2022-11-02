@@ -7,9 +7,10 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h61;
+import com.baidu.tieba.z61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +62,7 @@ public class ArrowView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ArrowView(Context context, AttributeSet attributeSet) {
+    public ArrowView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,7 +83,7 @@ public class ArrowView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ArrowView(Context context, AttributeSet attributeSet, int i) {
+    public ArrowView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -263,7 +264,7 @@ public class ArrowView extends View {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = h61.a().getResources().getColor(R.color.obfuscated_res_0x7f060330);
+            this.d = z61.a().getResources().getColor(R.color.obfuscated_res_0x7f060331);
             this.b = new Path();
             Paint paint = new Paint();
             this.a = paint;

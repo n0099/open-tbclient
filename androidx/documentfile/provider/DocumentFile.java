@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.DocumentsContract;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,24 +18,30 @@ public abstract class DocumentFile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DocumentFile";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final DocumentFile mParent;
 
     public abstract boolean canRead();
 
     public abstract boolean canWrite();
 
-    public abstract DocumentFile createDirectory(String str);
+    @Nullable
+    public abstract DocumentFile createDirectory(@NonNull String str);
 
-    public abstract DocumentFile createFile(String str, String str2);
+    @Nullable
+    public abstract DocumentFile createFile(@NonNull String str, @NonNull String str2);
 
     public abstract boolean delete();
 
     public abstract boolean exists();
 
+    @Nullable
     public abstract String getName();
 
+    @Nullable
     public abstract String getType();
 
+    @NonNull
     public abstract Uri getUri();
 
     public abstract boolean isDirectory();
@@ -46,11 +54,12 @@ public abstract class DocumentFile {
 
     public abstract long length();
 
+    @NonNull
     public abstract DocumentFile[] listFiles();
 
-    public abstract boolean renameTo(String str);
+    public abstract boolean renameTo(@NonNull String str);
 
-    public DocumentFile(DocumentFile documentFile) {
+    public DocumentFile(@Nullable DocumentFile documentFile) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +77,8 @@ public abstract class DocumentFile {
         this.mParent = documentFile;
     }
 
-    public static DocumentFile fromFile(File file) {
+    @NonNull
+    public static DocumentFile fromFile(@NonNull File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
@@ -77,7 +87,8 @@ public abstract class DocumentFile {
         return (DocumentFile) invokeL.objValue;
     }
 
-    public DocumentFile findFile(String str) {
+    @Nullable
+    public DocumentFile findFile(@NonNull String str) {
         InterceptResult invokeL;
         DocumentFile[] listFiles;
         Interceptable interceptable = $ic;
@@ -92,7 +103,8 @@ public abstract class DocumentFile {
         return (DocumentFile) invokeL.objValue;
     }
 
-    public static DocumentFile fromSingleUri(Context context, Uri uri) {
+    @Nullable
+    public static DocumentFile fromSingleUri(@NonNull Context context, @NonNull Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, uri)) == null) {
@@ -104,7 +116,8 @@ public abstract class DocumentFile {
         return (DocumentFile) invokeLL.objValue;
     }
 
-    public static DocumentFile fromTreeUri(Context context, Uri uri) {
+    @Nullable
+    public static DocumentFile fromTreeUri(@NonNull Context context, @NonNull Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, uri)) == null) {
@@ -116,7 +129,7 @@ public abstract class DocumentFile {
         return (DocumentFile) invokeLL.objValue;
     }
 
-    public static boolean isDocumentUri(Context context, Uri uri) {
+    public static boolean isDocumentUri(@NonNull Context context, @Nullable Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uri)) == null) {
@@ -128,6 +141,7 @@ public abstract class DocumentFile {
         return invokeLL.booleanValue;
     }
 
+    @Nullable
     public DocumentFile getParentFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

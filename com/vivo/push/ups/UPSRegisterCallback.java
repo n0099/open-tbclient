@@ -1,4 +1,4 @@
 package com.vivo.push.ups;
 /* loaded from: classes8.dex */
-public interface UPSRegisterCallback extends ICallbackResult {
+public interface UPSRegisterCallback extends ICallbackResult<TokenResult> {
 }

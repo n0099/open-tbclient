@@ -10,7 +10,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.b20;
+import com.baidu.tieba.w10;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -137,7 +137,7 @@ public class CuidCookieSync {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             IBaiduIdentityContext baiduIdentityContext = BaiduIdentityRuntime.getBaiduIdentityContext();
             if (!new CT().isDefaultCtv()) {
-                String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", b20.a(BaiduIdentityManager.getInstance().getEnUid()), 31449600L);
+                String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", w10.a(BaiduIdentityManager.getInstance().getEnUid()), 31449600L);
                 baiduIdentityContext.setCookieManualNoBdussOperate("www.baidu.com", cookieStr, true);
                 if (baiduIdentityContext.isBlinkEnable()) {
                     setCUIDToSystemWebView("www.baidu.com", cookieStr);

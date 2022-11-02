@@ -1,11 +1,5 @@
 package com.baidu.location.e;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,25 +8,98 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ConectivityUtils;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes2.dex */
-public abstract class e {
+public class e {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static int b;
-    public static int g;
-    public static int p;
+    public static e a;
+    public static final double[] b;
+    public static final double[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String h;
-    public int i;
-    public String j;
-    public Map k;
-    public String l;
-    public byte[] m;
-    public byte[] n;
-    public String o;
+    public LinkedList<b> d;
+
+    /* loaded from: classes2.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public double a;
+        public double b;
+        public final /* synthetic */ e c;
+
+        public a(e eVar, double d, double d2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, Double.valueOf(d), Double.valueOf(d2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = eVar;
+            this.a = d;
+            this.b = d2;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public a a;
+        public a b;
+        public final /* synthetic */ e c;
+
+        public b(e eVar, a aVar, a aVar2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, aVar, aVar2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = eVar;
+            this.a = aVar;
+            this.b = aVar2;
+        }
+
+        public double a(a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                e eVar = this.c;
+                a aVar2 = this.b;
+                double d = aVar2.a;
+                a aVar3 = this.a;
+                a aVar4 = new a(eVar, d - aVar3.a, aVar2.b - aVar3.b);
+                e eVar2 = this.c;
+                double d2 = aVar.a;
+                a aVar5 = this.a;
+                a aVar6 = new a(eVar2, d2 - aVar5.a, aVar.b - aVar5.b);
+                return (aVar4.a * aVar6.b) - (aVar4.b * aVar6.a);
+            }
+            return invokeL.doubleValue;
+        }
+
+        public boolean b(a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? this.c.a(a(aVar)) == 0 && aVar.a < Math.max(this.a.a, this.b.a) + 1.0E-8d && aVar.a > Math.min(this.a.a, this.b.a) - 1.0E-8d && aVar.b < Math.max(this.a.b, this.b.b) + 1.0E-8d && aVar.b > Math.min(this.a.b, this.b.b) - 1.0E-8d : invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,10 +114,8 @@ public abstract class e {
                 return;
             }
         }
-        g = a.g;
-        a = "10.0.0.172";
-        b = 80;
-        p = 0;
+        b = new double[]{110.389648d, 105.070224d, 96.898845d, 95.617053d, 93.822557d, 91.387165d, 91.387165d, 89.079901d, 87.221341d, 86.259997d, 85.170461d, 85.234525d, 82.863261d, 81.901917d, 79.594685d, 80.395798d, 79.931142d, 77.800174d, 75.252622d, 73.490158d, 73.185732d, 73.874699d, 74.403435d, 74.099003d, 75.460905d, 76.77474d, 78.280852d, 78.15266d, 78.37698d, 78.8897d, 79.690818d, 81.196914d, 81.805762d, 83.888674d, 85.939538d, 87.862215d, 89.031847d, 90.057287d, 91.098741d, 92.156213d, 93.742421d, 95.825333d, 97.956327d, 97.123143d, 98.212679d, 99.206055d, 101.657471d, 102.52267d, 102.23427d, 105.022158d, 106.095662d, 107.858116d, 111.639396d, 109.588503d, 112.280343d, 117.792023d, 118.945559d, 114.203031d, 118.689303d, 123.143466d, 122.726858d, 120.932369d, 123.415857d, 122.374385d, 122.134054d, 121.586108d, 121.17271d, 120.676006d, 120.243409d, 122.790961d, 122.871076d, 121.300884d, 122.134052d, 123.736285d, 126.412019d, 128.559027d, 129.712627d, 131.218707d, 131.987795d, 133.622084d, 135.60888d, 131.378992d, 130.866224d, 128.623088d, 126.091572d, 124.393204d, 122.214164d, 119.65058d, 119.778772d, 118.561044d, 116.510192d, 114.811824d, 119.073776d, 116.446096d, 111.735536d, 110.389648d};
+        c = new double[]{43.216755d, 42.378597d, 43.172612d, 44.421188d, 45.097508d, 45.565732d, 47.334548d, 48.687188d, 49.62362d, 48.947316d, 48.479092d, 47.334548d, 47.438596d, 46.03394d, 45.201556d, 43.344095d, 42.328663d, 41.395882d, 40.829126d, 39.955382d, 39.258748d, 38.361382d, 38.054394d, 37.168842d, 36.389553d, 35.362313d, 34.311457d, 32.587581d, 31.572149d, 30.781055d, 30.438642d, 29.77743d, 30.09623d, 28.714766d, 27.71114d, 27.581258d, 27.014504d, 27.781984d, 27.510415d, 26.506787d, 26.707513d, 27.959095d, 27.29788d, 23.649404d, 23.62579d, 21.677574d, 20.780213d, 21.323353d, 22.185291d, 22.315173d, 22.515897d, 16.802289d, 13.198973d, 0.693351d, 1.541191d, 10.504055d, 15.591095d, 17.892375d, 19.951383d, 22.187501d, 25.375613d, 25.617568d, 30.627458d, 31.082902d, 31.894166d, 32.503117d, 32.805056d, 34.256784d, 35.155304d, 36.90119d, 37.83411d, 37.940728d, 38.64708d, 38.966937d, 40.979374d, 41.253698d, 42.069802d, 42.48888d, 44.65045d, 44.691252d, 48.620679d, 48.091311d, 49.194151d, 50.032311d, 53.274665d, 53.627577d, 53.892257d, 52.987929d, 52.017425d, 50.230825d, 50.186707d, 47.495779d, 47.341379d, 46.503219d, 45.245983d, 43.216755d};
     }
 
     public e() {
@@ -66,146 +131,68 @@ public abstract class e {
                 return;
             }
         }
-        this.h = null;
-        this.i = 1;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00b1, code lost:
-        if ("10.0.0.200".equals(r5.trim()) != false) goto L24;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static int a(Context context, NetworkInfo networkInfo) {
-        InterceptResult invokeLL;
-        String lowerCase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, networkInfo)) == null) {
-            String str = "10.0.0.200";
-            String str2 = "10.0.0.172";
-            if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-                if (lowerCase.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    String defaultHost = Proxy.getDefaultHost();
-                    if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
-                        str2 = defaultHost;
-                    }
-                    a = str2;
-                    return a.d;
-                } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                    String defaultHost2 = Proxy.getDefaultHost();
-                    if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
-                        str = defaultHost2;
-                    }
-                    a = str;
-                    return a.d;
-                } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                    return a.e;
-                }
-            }
-            String defaultHost3 = Proxy.getDefaultHost();
-            if (defaultHost3 != null && defaultHost3.length() > 0) {
-                if (!"10.0.0.172".equals(defaultHost3.trim())) {
-                }
-                a = str2;
-                return a.d;
-            }
-            return a.e;
-        }
-        return invokeLL.intValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            g = c();
+        this.d = null;
+        int length = b.length;
+        this.d = new LinkedList<>();
+        int i3 = 0;
+        while (i3 < length - 1) {
+            i3++;
+            this.d.add(new b(this, new a(this, b[i3] * 100000.0d, c[i3] * 100000.0d), new a(this, b[i3] * 100000.0d, c[i3] * 100000.0d)));
         }
     }
 
-    private int c() {
+    public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            Context serviceContext = com.baidu.location.f.getServiceContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                a = new e();
+            }
+            return a;
+        }
+        return (e) invokeV.objValue;
+    }
+
+    public int a(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)})) == null) {
+            if (d < -1.0E-8d) {
+                return -1;
+            }
+            return d > 1.0E-8d ? 1 : 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public boolean a(double d, double d2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
             try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
-                if (connectivityManager == null) {
-                    return a.g;
-                }
-                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-                if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                    if (activeNetworkInfo.getType() == 1) {
-                        String defaultHost = Proxy.getDefaultHost();
-                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f : a.h;
+                a aVar = new a(this, d * 100000.0d, d2 * 100000.0d);
+                Iterator<b> it = this.d.iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    b next = it.next();
+                    if (next.b(aVar)) {
+                        return true;
                     }
-                    return a(serviceContext, activeNetworkInfo);
+                    int a2 = a(next.a(aVar));
+                    int a3 = a(next.a.b - aVar.b);
+                    int a4 = a(next.b.b - aVar.b);
+                    if (a2 > 0 && a3 <= 0 && a4 > 0) {
+                        i++;
+                    }
+                    if (a2 < 0 && a4 <= 0 && a3 > 0) {
+                        i--;
+                    }
                 }
-                return a.g;
+                return i != 0;
             } catch (Exception unused) {
-                return a.g;
+                return true;
             }
         }
-        return invokeV.intValue;
-    }
-
-    public abstract void a();
-
-    public void a(ExecutorService executorService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, executorService) == null) {
-            try {
-                executorService.execute(new f(this));
-            } catch (Throwable unused) {
-                a(false);
-            }
-        }
-    }
-
-    public void a(ExecutorService executorService, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, executorService, str) == null) {
-            try {
-                executorService.execute(new i(this, str));
-            } catch (Throwable unused) {
-                a(false);
-            }
-        }
-    }
-
-    public void a(ExecutorService executorService, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{executorService, Boolean.valueOf(z), str}) == null) {
-            try {
-                executorService.execute(new g(this, str, z));
-            } catch (Throwable unused) {
-                a(false);
-            }
-        }
-    }
-
-    public abstract void a(boolean z);
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            try {
-                new h(this, str).start();
-            } catch (Throwable unused) {
-                a(false);
-            }
-        }
-    }
-
-    public void b(ExecutorService executorService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, executorService) == null) {
-            a(executorService, false, "loc.map.baidu.com");
-        }
+        return invokeCommon.booleanValue;
     }
 }

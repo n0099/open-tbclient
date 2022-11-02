@@ -22,7 +22,7 @@ public class c extends OrientationEventListener {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a du;
         public static final a dv;

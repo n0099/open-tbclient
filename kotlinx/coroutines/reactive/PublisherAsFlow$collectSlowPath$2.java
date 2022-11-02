@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.FlowCollector;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\b\b\u0000\u0010\u0002*\u00020\u0003*\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.reactive.PublisherAsFlow$collectSlowPath$2", f = "ReactiveFlow.kt", i = {0}, l = {76}, m = "invokeSuspend", n = {"$this$coroutineScope"}, s = {"L$0"})
 /* loaded from: classes8.dex */
-public final class PublisherAsFlow$collectSlowPath$2 extends SuspendLambda implements Function2 {
+public final class PublisherAsFlow$collectSlowPath$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public final /* synthetic */ FlowCollector $collector;
     public Object L$0;
     public int label;
@@ -31,15 +31,16 @@ public final class PublisherAsFlow$collectSlowPath$2 extends SuspendLambda imple
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         PublisherAsFlow$collectSlowPath$2 publisherAsFlow$collectSlowPath$2 = new PublisherAsFlow$collectSlowPath$2(this.this$0, this.$collector, continuation);
         publisherAsFlow$collectSlowPath$2.p$ = (CoroutineScope) obj;
         return publisherAsFlow$collectSlowPath$2;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((PublisherAsFlow$collectSlowPath$2) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
+        return ((PublisherAsFlow$collectSlowPath$2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -58,7 +59,7 @@ public final class PublisherAsFlow$collectSlowPath$2 extends SuspendLambda imple
             CoroutineScope coroutineScope2 = this.p$;
             FlowCollector flowCollector = this.$collector;
             PublisherAsFlow publisherAsFlow = this.this$0;
-            ReceiveChannel produceImpl = publisherAsFlow.produceImpl(CoroutineScopeKt.plus(coroutineScope2, publisherAsFlow.context));
+            ReceiveChannel<T> produceImpl = publisherAsFlow.produceImpl(CoroutineScopeKt.plus(coroutineScope2, publisherAsFlow.context));
             this.L$0 = coroutineScope2;
             this.label = 1;
             if (kotlinx.coroutines.flow.FlowKt.emitAll(flowCollector, produceImpl, this) == coroutine_suspended) {

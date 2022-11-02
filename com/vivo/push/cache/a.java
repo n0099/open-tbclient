@@ -16,7 +16,7 @@ import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public final class a extends c {
+public final class a extends c<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,9 +62,9 @@ public final class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (c.a) {
-                for (com.vivo.push.model.a aVar : this.b) {
-                    if (!TextUtils.isEmpty(aVar.a()) && aVar.a().equals(str)) {
-                        return aVar;
+                for (T t : this.b) {
+                    if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
+                        return t;
                     }
                 }
                 return null;
@@ -89,7 +89,7 @@ public final class a extends c {
     }
 
     @Override // com.vivo.push.cache.c
-    public final List a(String str) {
+    public final List<com.vivo.push.model.a> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {

@@ -14,18 +14,22 @@ import com.facebook.common.references.HasBitmap;
 import com.facebook.common.references.ResourceReleaser;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class CloseableStaticBitmap extends CloseableBitmap implements HasBitmap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Bitmap mBitmap;
-    public CloseableReference mBitmapReference;
+    @GuardedBy("this")
+    public CloseableReference<Bitmap> mBitmapReference;
     public final int mExifOrientation;
     public final QualityInfo mQualityInfo;
     public final int mRotationAngle;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser resourceReleaser, QualityInfo qualityInfo, int i) {
+    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i) {
         this(bitmap, resourceReleaser, qualityInfo, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +49,7 @@ public class CloseableStaticBitmap extends CloseableBitmap implements HasBitmap 
         }
     }
 
-    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser resourceReleaser, QualityInfo qualityInfo, int i, int i2) {
+    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +72,7 @@ public class CloseableStaticBitmap extends CloseableBitmap implements HasBitmap 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CloseableStaticBitmap(CloseableReference closeableReference, QualityInfo qualityInfo, int i) {
+    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i) {
         this(closeableReference, qualityInfo, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -88,7 +92,7 @@ public class CloseableStaticBitmap extends CloseableBitmap implements HasBitmap 
         }
     }
 
-    public CloseableStaticBitmap(CloseableReference closeableReference, QualityInfo qualityInfo, int i, int i2) {
+    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,17 +107,17 @@ public class CloseableStaticBitmap extends CloseableBitmap implements HasBitmap 
                 return;
             }
         }
-        CloseableReference closeableReference2 = (CloseableReference) Preconditions.checkNotNull(closeableReference.cloneOrNull());
+        CloseableReference<Bitmap> closeableReference2 = (CloseableReference) Preconditions.checkNotNull(closeableReference.cloneOrNull());
         this.mBitmapReference = closeableReference2;
-        this.mBitmap = (Bitmap) closeableReference2.get();
+        this.mBitmap = closeableReference2.get();
         this.mQualityInfo = qualityInfo;
         this.mRotationAngle = i;
         this.mExifOrientation = i2;
     }
 
-    private synchronized CloseableReference detachBitmapReference() {
+    private synchronized CloseableReference<Bitmap> detachBitmapReference() {
         InterceptResult invokeV;
-        CloseableReference closeableReference;
+        CloseableReference<Bitmap> closeableReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             synchronized (this) {
@@ -127,9 +131,9 @@ public class CloseableStaticBitmap extends CloseableBitmap implements HasBitmap 
     }
 
     @Nullable
-    public synchronized CloseableReference cloneUnderlyingBitmapReference() {
+    public synchronized CloseableReference<Bitmap> cloneUnderlyingBitmapReference() {
         InterceptResult invokeV;
-        CloseableReference cloneOrNull;
+        CloseableReference<Bitmap> cloneOrNull;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
@@ -142,16 +146,16 @@ public class CloseableStaticBitmap extends CloseableBitmap implements HasBitmap 
 
     @Override // com.facebook.imagepipeline.image.CloseableImage, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        CloseableReference detachBitmapReference;
+        CloseableReference<Bitmap> detachBitmapReference;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (detachBitmapReference = detachBitmapReference()) != null) {
             detachBitmapReference.close();
         }
     }
 
-    public synchronized CloseableReference convertToBitmapReference() {
+    public synchronized CloseableReference<Bitmap> convertToBitmapReference() {
         InterceptResult invokeV;
-        CloseableReference detachBitmapReference;
+        CloseableReference<Bitmap> detachBitmapReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {

@@ -17,7 +17,7 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class ij implements iu, Serializable, Cloneable {
+public class ij implements iu<ij, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc A;
     public static final jc B;
@@ -72,7 +72,7 @@ public class ij implements iu, Serializable, Cloneable {
     public BitSet f662a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f663a;
+    public Map<String, String> f663a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f664a;
@@ -1106,9 +1106,9 @@ public class ij implements iu, Serializable, Cloneable {
             if (this.f663a != null && A()) {
                 jfVar.a(A);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f663a.size()));
-                for (Map.Entry entry : this.f663a.entrySet()) {
-                    jfVar.a((String) entry.getKey());
-                    jfVar.a((String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.f663a.entrySet()) {
+                    jfVar.a(entry.getKey());
+                    jfVar.a(entry.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -1638,7 +1638,7 @@ public class ij implements iu, Serializable, Cloneable {
             if (A()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("connectionAttrs:");
-                Map map = this.f663a;
+                Map<String, String> map = this.f663a;
                 if (map == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

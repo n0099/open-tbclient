@@ -1,261 +1,42 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.Rotation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
+import android.content.Context;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class eg0 extends bg0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String G = "attribute vec4 position;\nattribute vec4 inputTextureCoordinate;\nvarying vec2 textureCoordinate;\n";
-    public static int[] H;
-    public static int I;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public int[] B;
-    public int[] C;
-    public FloatBuffer D;
-    public List E;
-    public int F;
+import java.util.Map;
+/* loaded from: classes4.dex */
+public interface eg0 {
+    long a();
 
-    @Override // com.baidu.tieba.bg0
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
+    void b(int i, int i2);
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ eg0 b;
+    @Deprecated
+    int c(int i, int i2, Map<String, float[]> map);
 
-        public a(eg0 eg0Var, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eg0Var, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = eg0Var;
-            this.a = list;
-        }
+    int d(MediaTrack mediaTrack, int i, Map<String, float[]> map);
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.E = this.a;
-                for (int i = 0; i < this.a.size(); i++) {
-                    this.b.C[i] = ((Integer) this.a.get(i)).intValue();
-                }
-            }
-        }
-    }
+    void e(List<MediaTrack> list, Map<String, ShaderConfig> map);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947733243, "Lcom/baidu/tieba/eg0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947733243, "Lcom/baidu/tieba/eg0;");
-                return;
-            }
-        }
-        H = new int[]{33987, 33988, 33989, 33990, 33991, 33992, 33993, 33994, 33995, 33996};
-        I = 1;
-    }
+    int f(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eg0(String str, String str2) {
-        super(str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.F = 3553;
-        if (!TextUtils.isEmpty(str2) && str2.contains("samplerExternalOES")) {
-            this.F = 36197;
-        }
-        int i3 = I;
-        this.A = new int[i3];
-        this.B = new int[i3];
-        this.C = new int[i3];
-        for (int i4 = 0; i4 < I; i4++) {
-            this.C[i4] = -1;
-        }
-        this.D = ByteBuffer.allocateDirect(jg0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        X(Rotation.NORMAL, false, false);
-    }
+    void g(int i, long j);
 
-    public void Y(List list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && list.size() != 0) {
-            B(new a(this, list));
-        }
-    }
+    int h(MediaSegment mediaSegment, int i, Map<String, float[]> map);
 
-    public static String W(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (I <= H.length) {
-                I = i;
-                StringBuilder sb = new StringBuilder(G);
-                for (int i2 = 0; i2 < i; i2++) {
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("attribute vec4 inputTextureCoordinate");
-                    int i3 = i2 + 2;
-                    sb2.append(i3);
-                    sb.append(sb2.toString());
-                    sb.append(";\n");
-                    sb.append("varying vec2 textureCoordinate" + i3);
-                    sb.append(";\n");
-                }
-                sb.append("\nvoid main()\n{\n    gl_Position = position;\n    textureCoordinate = inputTextureCoordinate.xy;\n");
-                for (int i4 = 0; i4 < i; i4++) {
-                    sb.append("    ");
-                    StringBuilder sb3 = new StringBuilder();
-                    sb3.append("textureCoordinate");
-                    int i5 = i4 + 2;
-                    sb3.append(i5);
-                    sb.append(sb3.toString());
-                    sb.append(" = ");
-                    sb.append("inputTextureCoordinate" + i5);
-                    sb.append(".xy");
-                    sb.append(";\n");
-                }
-                sb.append("}");
-                return sb.toString();
-            }
-            throw new RuntimeException("too many textures !!!");
-        }
-        return (String) invokeI.objValue;
-    }
+    int i(MediaTrack mediaTrack, int i, Map<String, float[]> map);
 
-    public void X(Rotation rotation, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.D.clear();
-            this.D.put(jg0.b(rotation, z, z2)).position(0);
-        }
-    }
+    void j(Context context);
 
-    @Override // com.baidu.tieba.bg0
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i = 0;
-            while (true) {
-                int[] iArr = this.A;
-                if (i < iArr.length) {
-                    GLES20.glDisableVertexAttribArray(iArr[i]);
-                    i++;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
+    int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f);
 
-    @Override // com.baidu.tieba.bg0
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.u();
-            List list = this.E;
-            if (list != null) {
-                Y(list);
-            }
-        }
-    }
+    List<MediaTrack> l();
 
-    @Override // com.baidu.tieba.bg0
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = 0;
-            while (true) {
-                int[] iArr = this.A;
-                if (i < iArr.length) {
-                    if (this.C[i] != -1) {
-                        GLES20.glEnableVertexAttribArray(iArr[i]);
-                        GLES20.glActiveTexture(H[i]);
-                        GLES20.glBindTexture(this.F, this.C[i]);
-                        GLES20.glUniform1i(this.B[i], i + 3);
-                        this.D.position(0);
-                        GLES20.glVertexAttribPointer(this.A[i], 2, 5126, false, 0, (Buffer) this.D);
-                    }
-                    i++;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
+    @Deprecated
+    int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map);
 
-    @Override // com.baidu.tieba.bg0
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.t();
-            int i = 0;
-            while (true) {
-                int[] iArr = this.A;
-                if (i < iArr.length) {
-                    int j = j();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("inputTextureCoordinate");
-                    int i2 = i + 2;
-                    sb.append(i2);
-                    iArr[i] = GLES20.glGetAttribLocation(j, sb.toString());
-                    int[] iArr2 = this.B;
-                    int j2 = j();
-                    iArr2[i] = GLES20.glGetUniformLocation(j2, "inputImageTexture" + i2);
-                    i++;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
+    void n(List<MediaTrack> list);
+
+    void release();
 }

@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.SDKVersion;
 import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class SilentDownloaderManager implements a.InterfaceC0090a {
+public class SilentDownloaderManager implements a.InterfaceC0091a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SilentDownloaderManager a;
     public static volatile boolean d;
@@ -38,12 +39,12 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
     public String g;
     public a h;
     public boolean i;
-    public Map j;
-    public HashMap k;
+    public Map<String, String> j;
+    public HashMap<String, String> k;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -141,7 +142,7 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
         this.e = c.a().a((String) null);
         this.g = o.b();
         this.f = this.g + File.separator + "libs";
-        this.k = new HashMap();
+        this.k = new HashMap<>();
         this.j = new HashMap();
         this.c = CyberPlayerManager.getApplicationContext();
         String d2 = o.d();
@@ -170,14 +171,14 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
         return invokeLI.intValue;
     }
 
-    private void a(Map map) {
+    private void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, map) == null) || map == null || map.size() == 0) {
             return;
         }
-        for (Map.Entry entry : map.entrySet()) {
-            if (!TextUtils.isEmpty((CharSequence) entry.getKey()) || !TextUtils.isEmpty((CharSequence) entry.getValue())) {
-                c(b((String) entry.getKey(), (String) entry.getValue()));
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if (!TextUtils.isEmpty(entry.getKey()) || !TextUtils.isEmpty(entry.getValue())) {
+                c(b(entry.getKey(), entry.getValue()));
                 if (!this.i) {
                     return;
                 }
@@ -213,17 +214,17 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
         return (String) invokeLL.objValue;
     }
 
-    private Map b(String str) {
+    private Map<String, String> b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             String str2 = this.f + File.separator + "libsinfodef_" + str + ".pro";
-            Map a2 = com.baidu.cyberplayer.sdk.config.b.a(str2);
+            Map<String, String> a2 = com.baidu.cyberplayer.sdk.config.b.a(str2);
             HashMap hashMap = new HashMap();
             if (a2 != null && a2.size() != 0) {
-                for (Map.Entry entry : a2.entrySet()) {
-                    String prefStr = CyberCfgManager.getInstance().getPrefStr((String) entry.getKey(), "");
-                    if (!TextUtils.isEmpty(prefStr) && !prefStr.equals(entry.getValue()) && !a((String) entry.getKey(), (String) entry.getValue())) {
+                for (Map.Entry<String, String> entry : a2.entrySet()) {
+                    String prefStr = CyberCfgManager.getInstance().getPrefStr(entry.getKey(), "");
+                    if (!TextUtils.isEmpty(prefStr) && !prefStr.equals(entry.getValue()) && !a(entry.getKey(), entry.getValue())) {
                         hashMap.put(entry.getKey(), entry.getValue());
                     }
                 }
@@ -245,11 +246,11 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            HashMap hashMap = this.k;
+            HashMap<String, String> hashMap = this.k;
             if (hashMap != null) {
                 hashMap.clear();
             }
-            Map map = this.j;
+            Map<String, String> map = this.j;
             if (map != null) {
                 map.clear();
             }
@@ -362,7 +363,7 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
     }
 
     private void e(String str, String str2) {
-        HashMap hashMap;
+        HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65552, this, str, str2) == null) || (hashMap = this.k) == null) {
             return;
@@ -370,6 +371,7 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
         hashMap.put(str, str2);
     }
 
+    @Keep
     public static SilentDownloaderManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -386,14 +388,14 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
         return (SilentDownloaderManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0091a
     public void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0091a
     public void a(String str, long j, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2}) == null) {
@@ -409,15 +411,15 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0091a
     public void a(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
-    public void a(String str, long j, ArrayList arrayList) {
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0091a
+    public void a(String str, long j, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), arrayList}) == null) {
             CyberLog.i("SilentDownloaderManager", "onDownloadSuccess:" + arrayList);
@@ -430,8 +432,8 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
 
     public boolean a() {
         InterceptResult invokeV;
-        Map map;
-        Map map2;
+        Map<String, String> map;
+        Map<String, String> map2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (!d() || (map = this.j) == null || map.size() == 0 || this.h == null) {
@@ -445,9 +447,9 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
                 CyberLog.i("SilentDownloaderManager", "downloadOnce mDownloadMap=" + this.j);
                 a aVar = this.h;
                 if (aVar == a.a) {
-                    c(b("cyber-media-dex", (String) this.j.get("cyber-media-dex")));
+                    c(b("cyber-media-dex", this.j.get("cyber-media-dex")));
                     if (this.i) {
-                        map2 = b((String) this.j.get("cyber-media-dex"));
+                        map2 = b(this.j.get("cyber-media-dex"));
                         a(map2);
                     }
                     b();
@@ -477,7 +479,7 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
                     return false;
                 }
                 if (d(str)) {
-                    Map b = b(str);
+                    Map<String, String> b = b(str);
                     if (b == null || b.size() == 0) {
                         return false;
                     }
@@ -497,6 +499,7 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
         return invokeL.booleanValue;
     }
 
+    @Keep
     public boolean checkLibs(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

@@ -19,7 +19,7 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class hw implements iu, Serializable, Cloneable {
+public class hw implements iu<hw, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -52,7 +52,7 @@ public class hw implements iu, Serializable, Cloneable {
     public BitSet f540a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f541a;
+    public Map<String, String> f541a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f542a;
@@ -64,7 +64,7 @@ public class hw implements iu, Serializable, Cloneable {
     public String f544b;
 
     /* renamed from: b  reason: collision with other field name */
-    public Map f545b;
+    public Map<String, String> f545b;
 
     /* renamed from: c  reason: collision with other field name */
     public int f546c;
@@ -73,7 +73,7 @@ public class hw implements iu, Serializable, Cloneable {
     public String f547c;
 
     /* renamed from: c  reason: collision with other field name */
-    public Map f548c;
+    public Map<String, String> f548c;
 
     /* renamed from: d  reason: collision with other field name */
     public String f549d;
@@ -167,23 +167,23 @@ public class hw implements iu, Serializable, Cloneable {
         this.f546c = hwVar.f546c;
         if (hwVar.j()) {
             HashMap hashMap = new HashMap();
-            for (Map.Entry entry : hwVar.f541a.entrySet()) {
-                hashMap.put((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : hwVar.f541a.entrySet()) {
+                hashMap.put(entry.getKey(), entry.getValue());
             }
             this.f541a = hashMap;
         }
         if (hwVar.k()) {
             HashMap hashMap2 = new HashMap();
-            for (Map.Entry entry2 : hwVar.f545b.entrySet()) {
-                hashMap2.put((String) entry2.getKey(), (String) entry2.getValue());
+            for (Map.Entry<String, String> entry2 : hwVar.f545b.entrySet()) {
+                hashMap2.put(entry2.getKey(), entry2.getValue());
             }
             this.f545b = hashMap2;
         }
         this.f542a = hwVar.f542a;
         if (hwVar.n()) {
             HashMap hashMap3 = new HashMap();
-            for (Map.Entry entry3 : hwVar.f548c.entrySet()) {
-                hashMap3.put((String) entry3.getKey(), (String) entry3.getValue());
+            for (Map.Entry<String, String> entry3 : hwVar.f548c.entrySet()) {
+                hashMap3.put(entry3.getKey(), entry3.getValue());
             }
             this.f548c = hashMap3;
         }
@@ -349,7 +349,7 @@ public class hw implements iu, Serializable, Cloneable {
         return (hw) invokeL.objValue;
     }
 
-    public hw a(Map map) {
+    public hw a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, map)) == null) {
@@ -367,7 +367,7 @@ public class hw implements iu, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map m432a() {
+    public Map<String, String> m432a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f541a : (Map) invokeV.objValue;
@@ -656,7 +656,7 @@ public class hw implements iu, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public Map m437b() {
+    public Map<String, String> m437b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f545b : (Map) invokeV.objValue;
@@ -714,9 +714,9 @@ public class hw implements iu, Serializable, Cloneable {
             if (this.f541a != null && j()) {
                 jfVar.a(j);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f541a.size()));
-                for (Map.Entry entry : this.f541a.entrySet()) {
-                    jfVar.a((String) entry.getKey());
-                    jfVar.a((String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.f541a.entrySet()) {
+                    jfVar.a(entry.getKey());
+                    jfVar.a(entry.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -724,9 +724,9 @@ public class hw implements iu, Serializable, Cloneable {
             if (this.f545b != null && k()) {
                 jfVar.a(k);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f545b.size()));
-                for (Map.Entry entry2 : this.f545b.entrySet()) {
-                    jfVar.a((String) entry2.getKey());
-                    jfVar.a((String) entry2.getValue());
+                for (Map.Entry<String, String> entry2 : this.f545b.entrySet()) {
+                    jfVar.a(entry2.getKey());
+                    jfVar.a(entry2.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -739,9 +739,9 @@ public class hw implements iu, Serializable, Cloneable {
             if (this.f548c != null && n()) {
                 jfVar.a(m);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f548c.size()));
-                for (Map.Entry entry3 : this.f548c.entrySet()) {
-                    jfVar.a((String) entry3.getKey());
-                    jfVar.a((String) entry3.getValue());
+                for (Map.Entry<String, String> entry3 : this.f548c.entrySet()) {
+                    jfVar.a(entry3.getKey());
+                    jfVar.a(entry3.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -1014,7 +1014,7 @@ public class hw implements iu, Serializable, Cloneable {
             if (j()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("extra:");
-                Map map = this.f541a;
+                Map<String, String> map = this.f541a;
                 if (map == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -1024,7 +1024,7 @@ public class hw implements iu, Serializable, Cloneable {
             if (k()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("internal:");
-                Map map2 = this.f545b;
+                Map<String, String> map2 = this.f545b;
                 if (map2 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -1039,7 +1039,7 @@ public class hw implements iu, Serializable, Cloneable {
             if (n()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("apsProperFields:");
-                Map map3 = this.f548c;
+                Map<String, String> map3 = this.f548c;
                 if (map3 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

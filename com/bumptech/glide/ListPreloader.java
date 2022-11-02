@@ -2,6 +2,8 @@ package com.bumptech.glide;
 
 import android.graphics.drawable.Drawable;
 import android.widget.AbsListView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +19,7 @@ import com.bumptech.glide.util.Util;
 import java.util.List;
 import java.util.Queue;
 /* loaded from: classes7.dex */
-public class ListPreloader implements AbsListView.OnScrollListener {
+public class ListPreloader<T> implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isIncreasing;
@@ -25,22 +27,25 @@ public class ListPreloader implements AbsListView.OnScrollListener {
     public int lastFirstVisible;
     public int lastStart;
     public final int maxPreload;
-    public final PreloadSizeProvider preloadDimensionProvider;
-    public final PreloadModelProvider preloadModelProvider;
+    public final PreloadSizeProvider<T> preloadDimensionProvider;
+    public final PreloadModelProvider<T> preloadModelProvider;
     public final PreloadTargetQueue preloadTargetQueue;
     public final RequestManager requestManager;
     public int totalItemCount;
 
     /* loaded from: classes7.dex */
-    public interface PreloadModelProvider {
-        List getPreloadItems(int i);
+    public interface PreloadModelProvider<U> {
+        @NonNull
+        List<U> getPreloadItems(int i);
 
-        RequestBuilder getPreloadRequestBuilder(Object obj);
+        @Nullable
+        RequestBuilder<?> getPreloadRequestBuilder(@NonNull U u);
     }
 
     /* loaded from: classes7.dex */
-    public interface PreloadSizeProvider {
-        int[] getPreloadSize(Object obj, int i, int i2);
+    public interface PreloadSizeProvider<T> {
+        @Nullable
+        int[] getPreloadSize(@NonNull T t, int i, int i2);
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -51,11 +56,12 @@ public class ListPreloader implements AbsListView.OnScrollListener {
     }
 
     /* loaded from: classes7.dex */
-    public final class PreloadTarget implements Target {
+    public static final class PreloadTarget implements Target<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int photoHeight;
         public int photoWidth;
+        @Nullable
         public Request request;
 
         @Override // com.bumptech.glide.manager.LifecycleListener
@@ -66,28 +72,28 @@ public class ListPreloader implements AbsListView.OnScrollListener {
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onLoadCleared(Drawable drawable) {
+        public void onLoadCleared(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
             }
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onLoadFailed(Drawable drawable) {
+        public void onLoadFailed(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
             }
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onLoadStarted(Drawable drawable) {
+        public void onLoadStarted(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
             }
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onResourceReady(Object obj, Transition transition) {
+        public void onResourceReady(@NonNull Object obj, @Nullable Transition<? super Object> transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, obj, transition) == null) {
             }
@@ -108,7 +114,7 @@ public class ListPreloader implements AbsListView.OnScrollListener {
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void removeCallback(SizeReadyCallback sizeReadyCallback) {
+        public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, sizeReadyCallback) == null) {
             }
@@ -129,6 +135,7 @@ public class ListPreloader implements AbsListView.OnScrollListener {
         }
 
         @Override // com.bumptech.glide.request.target.Target
+        @Nullable
         public Request getRequest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -139,7 +146,7 @@ public class ListPreloader implements AbsListView.OnScrollListener {
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void getSize(SizeReadyCallback sizeReadyCallback) {
+        public void getSize(@NonNull SizeReadyCallback sizeReadyCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sizeReadyCallback) == null) {
                 sizeReadyCallback.onSizeReady(this.photoWidth, this.photoHeight);
@@ -147,7 +154,7 @@ public class ListPreloader implements AbsListView.OnScrollListener {
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void setRequest(Request request) {
+        public void setRequest(@Nullable Request request) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, request) == null) {
                 this.request = request;
@@ -156,10 +163,10 @@ public class ListPreloader implements AbsListView.OnScrollListener {
     }
 
     /* loaded from: classes7.dex */
-    public final class PreloadTargetQueue {
+    public static final class PreloadTargetQueue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue queue;
+        public final Queue<PreloadTarget> queue;
 
         public PreloadTargetQueue(int i) {
             Interceptable interceptable = $ic;
@@ -186,17 +193,17 @@ public class ListPreloader implements AbsListView.OnScrollListener {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-                PreloadTarget preloadTarget = (PreloadTarget) this.queue.poll();
-                this.queue.offer(preloadTarget);
-                preloadTarget.photoWidth = i;
-                preloadTarget.photoHeight = i2;
-                return preloadTarget;
+                PreloadTarget poll = this.queue.poll();
+                this.queue.offer(poll);
+                poll.photoWidth = i;
+                poll.photoHeight = i2;
+                return poll;
             }
             return (PreloadTarget) invokeII.objValue;
         }
     }
 
-    public ListPreloader(RequestManager requestManager, PreloadModelProvider preloadModelProvider, PreloadSizeProvider preloadSizeProvider, int i) {
+    public ListPreloader(@NonNull RequestManager requestManager, @NonNull PreloadModelProvider<T> preloadModelProvider, @NonNull PreloadSizeProvider<T> preloadSizeProvider, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -274,7 +281,7 @@ public class ListPreloader implements AbsListView.OnScrollListener {
         }
     }
 
-    private void preloadAdapterPosition(List list, int i, boolean z) {
+    private void preloadAdapterPosition(List<T> list, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{list, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             int size = list.size();
@@ -290,14 +297,14 @@ public class ListPreloader implements AbsListView.OnScrollListener {
         }
     }
 
-    private void preloadItem(Object obj, int i, int i2) {
+    private void preloadItem(@Nullable T t, int i, int i2) {
         int[] preloadSize;
-        RequestBuilder preloadRequestBuilder;
+        RequestBuilder<?> preloadRequestBuilder;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLII(65541, this, obj, i, i2) != null) || obj == null || (preloadSize = this.preloadDimensionProvider.getPreloadSize(obj, i, i2)) == null || (preloadRequestBuilder = this.preloadModelProvider.getPreloadRequestBuilder(obj)) == null) {
+        if ((interceptable != null && interceptable.invokeLII(65541, this, t, i, i2) != null) || t == null || (preloadSize = this.preloadDimensionProvider.getPreloadSize(t, i, i2)) == null || (preloadRequestBuilder = this.preloadModelProvider.getPreloadRequestBuilder(t)) == null) {
             return;
         }
-        preloadRequestBuilder.into(this.preloadTargetQueue.next(preloadSize[0], preloadSize[1]));
+        preloadRequestBuilder.into((RequestBuilder<?>) this.preloadTargetQueue.next(preloadSize[0], preloadSize[1]));
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

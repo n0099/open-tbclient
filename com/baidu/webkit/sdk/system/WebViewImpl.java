@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk.system;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Picture;
@@ -39,7 +40,7 @@ import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +51,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public WebViewClient mWebViewClient;
     public final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class FindAdapter implements WebView.FindListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +86,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class PictureAdapter implements WebView.PictureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +121,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,6 +259,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(11)
     public final boolean canZoomIn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -271,6 +273,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(11)
     public final boolean canZoomOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -308,7 +311,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void capturePicture(int i, int i2, ValueCallback valueCallback) {
+    public final void capturePicture(int i, int i2, ValueCallback<Picture> valueCallback) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIIL(1048586, this, i, i2, valueCallback) == null) || valueCallback == null) {
             return;
@@ -411,7 +414,8 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void evaluateJavaScript(String str, ValueCallback valueCallback) {
+    @TargetApi(19)
+    public final void evaluateJavaScript(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048599, this, str, valueCallback) == null) || Build.VERSION.SDK_INT < 19) {
             return;
@@ -420,14 +424,16 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void evaluateJavaScriptMethod(String str, String str2, String str3, ValueCallback valueCallback) {
+    @TargetApi(19)
+    public final void evaluateJavaScriptMethod(String str, String str2, String str3, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048600, this, str, str2, str3, valueCallback) == null) {
         }
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void evaluateJavaScriptOnPrerender(String str, ValueCallback valueCallback) {
+    @TargetApi(19)
+    public final void evaluateJavaScriptOnPrerender(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, valueCallback) == null) {
         }
@@ -448,6 +454,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(16)
     public final void findAllAsync(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || Build.VERSION.SDK_INT < 16) {
@@ -573,6 +580,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(26)
     public final boolean getRendererPriorityWaivedWhenNotVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -586,6 +594,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(26)
     public final int getRendererRequestedPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -740,7 +749,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void init(Map map, boolean z) {
+    public final void init(Map<String, Object> map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048635, this, map, z) == null) {
         }
@@ -761,6 +770,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(23)
     public final void insertVisualStateCallback(long j, WebView.VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJL(1048638, this, j, visualStateCallback) == null) || Build.VERSION.SDK_INT < 23) {
@@ -834,6 +844,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(11)
     public final boolean isPrivateBrowsingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -875,7 +886,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void loadUrl(String str, Map map, boolean z) {
+    public final void loadUrl(String str, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048646, this, str, map, z) == null) {
             super.loadUrl(str, map);
@@ -928,6 +939,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(11)
     public final void onPause() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048653, this) == null) || Build.VERSION.SDK_INT < 11) {
@@ -946,6 +958,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(11)
     public final void onResume() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048655, this) == null) || Build.VERSION.SDK_INT < 11) {
@@ -1003,6 +1016,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(23)
     public final void postMessageToMainFrame(WebMessage webMessage, Uri uri) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048662, this, webMessage, uri) == null) || Build.VERSION.SDK_INT < 23) {
@@ -1026,6 +1040,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(11)
     public final void removeJavascriptInterface(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048665, this, str) == null) || Build.VERSION.SDK_INT < 11) {
@@ -1088,6 +1103,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(11)
     public final void saveWebArchive(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048673, this, str) == null) || Build.VERSION.SDK_INT < 11) {
@@ -1097,7 +1113,8 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
-    public final void saveWebArchive(String str, boolean z, ValueCallback valueCallback) {
+    @TargetApi(11)
+    public final void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048674, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) || Build.VERSION.SDK_INT < 11) {
             return;
@@ -1163,6 +1180,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(16)
     public final void setFindListener(WebView.FindListener findListener) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048683, this, findListener) == null) || Build.VERSION.SDK_INT < 16) {
@@ -1204,6 +1222,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(26)
     public final void setRendererPriorityPolicy(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048688, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || Build.VERSION.SDK_INT < 26) {
@@ -1297,6 +1316,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(11)
     public final boolean showFindDialog(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -1401,6 +1421,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
+    @TargetApi(21)
     public final boolean zoomByZeus(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;

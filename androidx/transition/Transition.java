@@ -3,6 +3,7 @@ package androidx.transition;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.TimeInterpolator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
@@ -16,6 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.collection.LongSparseArray;
 import androidx.core.content.res.TypedArrayUtils;
@@ -91,21 +96,22 @@ public abstract class Transition implements Cloneable {
     public ArrayList<View> mTargets;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface MatchOrder {
     }
 
     /* loaded from: classes.dex */
     public interface TransitionListener {
-        void onTransitionCancel(Transition transition);
+        void onTransitionCancel(@NonNull Transition transition);
 
-        void onTransitionEnd(Transition transition);
+        void onTransitionEnd(@NonNull Transition transition);
 
-        void onTransitionPause(Transition transition);
+        void onTransitionPause(@NonNull Transition transition);
 
-        void onTransitionResume(Transition transition);
+        void onTransitionResume(@NonNull Transition transition);
 
-        void onTransitionStart(Transition transition);
+        void onTransitionStart(@NonNull Transition transition);
     }
 
     public static boolean isValidMatch(int i) {
@@ -114,11 +120,12 @@ public abstract class Transition implements Cloneable {
         return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? i >= 1 && i <= 4 : invokeI.booleanValue;
     }
 
-    public abstract void captureEndValues(TransitionValues transitionValues);
+    public abstract void captureEndValues(@NonNull TransitionValues transitionValues);
 
-    public abstract void captureStartValues(TransitionValues transitionValues);
+    public abstract void captureStartValues(@NonNull TransitionValues transitionValues);
 
-    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    @Nullable
+    public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, viewGroup, transitionValues, transitionValues2)) == null) {
@@ -127,6 +134,7 @@ public abstract class Transition implements Cloneable {
         return (Animator) invokeLLL.objValue;
     }
 
+    @Nullable
     public String[] getTransitionProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -225,7 +233,7 @@ public abstract class Transition implements Cloneable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract Rect onGetEpicenter(Transition transition);
+        public abstract Rect onGetEpicenter(@NonNull Transition transition);
 
         public EpicenterCallback() {
             Interceptable interceptable = $ic;
@@ -311,6 +319,7 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void runAnimators() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
@@ -329,6 +338,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
@@ -390,6 +400,7 @@ public abstract class Transition implements Cloneable {
         this.mPathMotion = STRAIGHT_PATH_MOTION;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void end() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -421,6 +432,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
+    @SuppressLint({"RestrictedApi"})
     public Transition(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -662,7 +674,7 @@ public abstract class Transition implements Cloneable {
         return (TransitionValues) invokeLZ.objValue;
     }
 
-    public boolean isTransitionRequired(TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public boolean isTransitionRequired(@Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, transitionValues, transitionValues2)) == null) {
@@ -791,7 +803,8 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    public Transition excludeChildren(int i, boolean z) {
+    @NonNull
+    public Transition excludeChildren(@IdRes int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
@@ -801,7 +814,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeCommon.objValue;
     }
 
-    public Transition excludeTarget(int i, boolean z) {
+    @NonNull
+    public Transition excludeTarget(@IdRes int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
@@ -811,7 +825,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeCommon.objValue;
     }
 
-    public TransitionValues getTransitionValues(View view2, boolean z) {
+    @Nullable
+    public TransitionValues getTransitionValues(@NonNull View view2, boolean z) {
         InterceptResult invokeLZ;
         TransitionValuesMaps transitionValuesMaps;
         Interceptable interceptable = $ic;
@@ -994,6 +1009,7 @@ public abstract class Transition implements Cloneable {
         return invokeV.longValue;
     }
 
+    @Nullable
     public Rect getEpicenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1007,6 +1023,7 @@ public abstract class Transition implements Cloneable {
         return (Rect) invokeV.objValue;
     }
 
+    @Nullable
     public EpicenterCallback getEpicenterCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1016,6 +1033,7 @@ public abstract class Transition implements Cloneable {
         return (EpicenterCallback) invokeV.objValue;
     }
 
+    @Nullable
     public TimeInterpolator getInterpolator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1025,6 +1043,7 @@ public abstract class Transition implements Cloneable {
         return (TimeInterpolator) invokeV.objValue;
     }
 
+    @NonNull
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1034,6 +1053,7 @@ public abstract class Transition implements Cloneable {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public PathMotion getPathMotion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1043,6 +1063,7 @@ public abstract class Transition implements Cloneable {
         return (PathMotion) invokeV.objValue;
     }
 
+    @Nullable
     public TransitionPropagation getPropagation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1061,6 +1082,7 @@ public abstract class Transition implements Cloneable {
         return invokeV.longValue;
     }
 
+    @NonNull
     public List<Integer> getTargetIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1070,6 +1092,7 @@ public abstract class Transition implements Cloneable {
         return (List) invokeV.objValue;
     }
 
+    @Nullable
     public List<String> getTargetNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1079,6 +1102,7 @@ public abstract class Transition implements Cloneable {
         return (List) invokeV.objValue;
     }
 
+    @Nullable
     public List<Class<?>> getTargetTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1088,6 +1112,7 @@ public abstract class Transition implements Cloneable {
         return (List) invokeV.objValue;
     }
 
+    @NonNull
     public List<View> getTargets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1201,6 +1226,7 @@ public abstract class Transition implements Cloneable {
         return (int[]) invokeL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void pause(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048618, this, view2) == null) && !this.mEnded) {
@@ -1225,6 +1251,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void resume(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048625, this, view2) == null) && this.mPaused) {
@@ -1251,7 +1278,8 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    public Transition addListener(TransitionListener transitionListener) {
+    @NonNull
+    public Transition addListener(@NonNull TransitionListener transitionListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transitionListener)) == null) {
@@ -1264,7 +1292,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
-    public Transition addTarget(int i) {
+    @NonNull
+    public Transition addTarget(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -1276,7 +1305,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeI.objValue;
     }
 
-    public Transition removeListener(TransitionListener transitionListener) {
+    @NonNull
+    public Transition removeListener(@NonNull TransitionListener transitionListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, transitionListener)) == null) {
@@ -1293,7 +1323,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
-    public Transition removeTarget(int i) {
+    @NonNull
+    public Transition removeTarget(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i)) == null) {
@@ -1312,6 +1343,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
+    @NonNull
     public Transition setDuration(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -1322,14 +1354,15 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeJ.objValue;
     }
 
-    public void setEpicenterCallback(EpicenterCallback epicenterCallback) {
+    public void setEpicenterCallback(@Nullable EpicenterCallback epicenterCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, epicenterCallback) == null) {
             this.mEpicenterCallback = epicenterCallback;
         }
     }
 
-    public Transition setInterpolator(TimeInterpolator timeInterpolator) {
+    @NonNull
+    public Transition setInterpolator(@Nullable TimeInterpolator timeInterpolator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, timeInterpolator)) == null) {
@@ -1339,7 +1372,7 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
-    public void setPathMotion(PathMotion pathMotion) {
+    public void setPathMotion(@Nullable PathMotion pathMotion) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, pathMotion) == null) {
             if (pathMotion == null) {
@@ -1350,7 +1383,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    public void setPropagation(TransitionPropagation transitionPropagation) {
+    public void setPropagation(@Nullable TransitionPropagation transitionPropagation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, transitionPropagation) == null) {
             this.mPropagation = transitionPropagation;
@@ -1367,6 +1400,7 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
+    @NonNull
     public Transition setStartDelay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -1377,7 +1411,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeJ.objValue;
     }
 
-    public Transition addTarget(View view2) {
+    @NonNull
+    public Transition addTarget(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
@@ -1387,7 +1422,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
-    public Transition removeTarget(View view2) {
+    @NonNull
+    public Transition removeTarget(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, view2)) == null) {
@@ -1397,7 +1433,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
-    public Transition addTarget(Class<?> cls) {
+    @NonNull
+    public Transition addTarget(@NonNull Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
@@ -1410,7 +1447,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
-    public Transition removeTarget(Class<?> cls) {
+    @NonNull
+    public Transition removeTarget(@NonNull Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, cls)) == null) {
@@ -1423,7 +1461,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
-    public Transition addTarget(String str) {
+    @NonNull
+    public Transition addTarget(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -1436,7 +1475,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
-    public Transition removeTarget(String str) {
+    @NonNull
+    public Transition removeTarget(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, str)) == null) {
@@ -1449,6 +1489,7 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void animate(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, animator) == null) {
@@ -1501,6 +1542,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void forceToEnd(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, viewGroup) == null) {
@@ -1540,6 +1582,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -1596,6 +1639,7 @@ public abstract class Transition implements Cloneable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void createAnimators(ViewGroup viewGroup, TransitionValuesMaps transitionValuesMaps, TransitionValuesMaps transitionValuesMaps2, ArrayList<TransitionValues> arrayList, ArrayList<TransitionValues> arrayList2) {
         boolean z;
         Animator createAnimator;
@@ -1705,7 +1749,8 @@ public abstract class Transition implements Cloneable {
         }
     }
 
-    public Transition excludeChildren(View view2, boolean z) {
+    @NonNull
+    public Transition excludeChildren(@NonNull View view2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048594, this, view2, z)) == null) {
@@ -1715,7 +1760,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeLZ.objValue;
     }
 
-    public Transition excludeTarget(View view2, boolean z) {
+    @NonNull
+    public Transition excludeTarget(@NonNull View view2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, view2, z)) == null) {
@@ -1725,7 +1771,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeLZ.objValue;
     }
 
-    public Transition excludeChildren(Class<?> cls, boolean z) {
+    @NonNull
+    public Transition excludeChildren(@NonNull Class<?> cls, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048595, this, cls, z)) == null) {
@@ -1735,7 +1782,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeLZ.objValue;
     }
 
-    public Transition excludeTarget(Class<?> cls, boolean z) {
+    @NonNull
+    public Transition excludeTarget(@NonNull Class<?> cls, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048598, this, cls, z)) == null) {
@@ -1745,7 +1793,8 @@ public abstract class Transition implements Cloneable {
         return (Transition) invokeLZ.objValue;
     }
 
-    public Transition excludeTarget(String str, boolean z) {
+    @NonNull
+    public Transition excludeTarget(@NonNull String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048599, this, str, z)) == null) {

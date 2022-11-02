@@ -9,12 +9,12 @@ import io.reactivex.FlowableSubscriber;
 import io.reactivex.subscribers.SerializedSubscriber;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableSerialized extends AbstractFlowableWithUpstream {
+public final class FlowableSerialized<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSerialized(Flowable flowable) {
+    public FlowableSerialized(Flowable<T> flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,7 +34,7 @@ public final class FlowableSerialized extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new SerializedSubscriber(subscriber));

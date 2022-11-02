@@ -1,88 +1,33 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.pc4;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import okhttp3.Interceptor;
 /* loaded from: classes6.dex */
 public interface va4 {
-    wd4 A();
-
-    int B();
-
-    void C();
-
-    void D(bf4 bf4Var);
-
-    String E();
-
-    int F(String str, int i);
-
-    void G(String str, String str2, Throwable th);
-
-    void H(pf4 pf4Var);
-
-    String I();
-
-    String J(int i);
-
-    void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z);
-
-    void L(String str, String str2, String str3, Throwable th, boolean z);
-
-    vc4 M();
-
-    float a();
-
-    String b();
-
-    String c();
-
-    void d(byte[] bArr);
-
-    String e();
-
     CookieManager f();
 
-    String g();
+    int g();
 
-    String h();
+    Context getAppContext();
 
-    oj4 i();
+    int getReadTimeout();
 
-    long j(int i);
+    String getUserAgent();
 
-    void k(JSONArray jSONArray, String str, String str2);
+    boolean h();
 
-    List l(String str, long j);
+    boolean i();
 
-    void m(String str, String str2, pc4.c cVar);
+    boolean isDebug();
 
-    vc4 n();
+    void j(String str, HttpRequestBuilder httpRequestBuilder);
 
-    boolean o(boolean z, JSONArray jSONArray);
+    int k();
 
-    void p(String str, JSONObject jSONObject, lc4 lc4Var, List list);
+    List<Interceptor> l();
 
-    String q();
-
-    boolean r(nc4 nc4Var);
-
-    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
-
-    void t(eg4 eg4Var, ug4 ug4Var);
-
-    String u();
-
-    String v(int i);
-
-    long w(int i);
-
-    boolean x();
-
-    void y(String str, String str2);
-
-    void z(String str, String str2, String str3, boolean z);
+    int m();
 }

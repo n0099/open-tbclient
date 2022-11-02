@@ -1,76 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes3.dex */
-public final class ac3 {
+public class ac3 extends b63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947610328, "Lcom/baidu/tieba/ac3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947610328, "Lcom/baidu/tieba/ac3;");
-                return;
-            }
-        }
-        boolean z = wj1.a;
-        a = new HashMap();
-    }
-
-    public ac3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac3(b53 b53Var) {
+        super(b53Var, "/swanAPI/setStorage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static ub3 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b("searchbox_webapps_sp");
-        }
-        return (ub3) invokeV.objValue;
-    }
-
-    public static ub3 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            ub3 ub3Var = (ub3) a.get(str);
-            if (ub3Var == null) {
-                synchronized (ac3.class) {
-                    ub3Var = (ub3) a.get(str);
-                    if (ub3Var == null) {
-                        ub3Var = new ub3(str);
-                        a.put(str, ub3Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (e43Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String Q = fu1.Q(optParamsAsJo);
+            if (Q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (nb3.b(Q)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
+                return false;
+            } else {
+                String P = fu1.P(optParamsAsJo);
+                if (P == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                } else if (nb3.c(P)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
+                    return false;
+                } else {
+                    nb3 f0 = e43Var.f0();
+                    if (f0.m(Q, P)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
+                        return false;
                     }
+                    f0.g().putString(Q, P);
+                    ag3.h.update();
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
                 }
             }
-            return ub3Var;
         }
-        return (ub3) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

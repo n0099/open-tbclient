@@ -3,15 +3,14 @@ package com.baidu.tbadk.abtest.group;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.eo;
+import com.baidu.tieba.rr4;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -19,7 +18,7 @@ public abstract class AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract ArrayList getABTestKeys();
+    public abstract ArrayList<String> getABTestKeys();
 
     public abstract UsbAbTestSwitch getCurrentUsbAbTest();
 
@@ -41,19 +40,17 @@ public abstract class AbsGroupUbsABTest {
         }
     }
 
-    public static void setCardInfoUbsABTest(List list) {
+    public static void setCardInfoUbsABTest(List<wn> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
             return;
         }
         HashMap hashMap = new HashMap(UbsABTestHelper.getUbsABTestMap());
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            eo eoVar = (eo) it.next();
-            if (eoVar instanceof ar4) {
-                ar4 ar4Var = (ar4) eoVar;
+        for (wn wnVar : list) {
+            if (wnVar instanceof rr4) {
+                rr4 rr4Var = (rr4) wnVar;
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    ar4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
+                    rr4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
                 }
             }
         }

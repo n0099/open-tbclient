@@ -1,82 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes5.dex */
-public class on9 implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListener {
+public class on9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final SharedPreferences a;
+    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ mn9 c;
-    public final /* synthetic */ ln9 d;
 
-    public on9(ln9 ln9Var, mn9 mn9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ln9Var, mn9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038159, "Lcom/baidu/tieba/on9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948038159, "Lcom/baidu/tieba/on9;");
                 return;
             }
         }
-        this.d = ln9Var;
-        this.c = mn9Var;
+        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
+        a = sharedPreferences;
+        b = sharedPreferences.edit();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onAdClose() {
+    public static double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onAdShow() {
+    public static double b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            SharedPreferences sharedPreferences = a;
+            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onAdVideoBarClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onSkippedVideo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onVideoComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-        }
+        return invokeL.doubleValue;
     }
 }

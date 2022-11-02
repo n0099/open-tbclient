@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh3;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class OpenLocationMenuItem {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class MenuItemType {
+    public static final class MenuItemType {
         public static final /* synthetic */ MenuItemType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MenuItemType OPENLOCATION_BAIDU_MAP;
@@ -159,7 +159,7 @@ public class OpenLocationMenuItem {
                 return;
             }
         }
-        e = dh3.g(45.0f);
+        e = vh3.g(45.0f);
     }
 
     public TextView b() {
@@ -196,10 +196,10 @@ public class OpenLocationMenuItem {
             }
         }
         this.c = new TextView(context);
-        this.d = dh3.g(1.0f);
+        this.d = vh3.g(1.0f);
         this.c.setText(str);
         this.c.setTextSize(16.0f);
-        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e8f));
+        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eab));
         this.c.setTextColor(-16777216);
         this.c.setGravity(17);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, e);

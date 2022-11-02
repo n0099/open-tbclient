@@ -15,7 +15,7 @@ public final class LimitingDispatcher extends ExecutorCoroutineDispatcher implem
     public final ExperimentalCoroutineDispatcher dispatcher;
     public final int parallelism;
     public final int taskMode;
-    public final ConcurrentLinkedQueue queue = new ConcurrentLinkedQueue();
+    public final ConcurrentLinkedQueue<Runnable> queue = new ConcurrentLinkedQueue<>();
     public volatile int inFlightTasks = 0;
 
     @Override // kotlinx.coroutines.ExecutorCoroutineDispatcher
@@ -36,7 +36,7 @@ public final class LimitingDispatcher extends ExecutorCoroutineDispatcher implem
     private final void dispatch(Runnable runnable, boolean z) {
         while (inFlightTasks$FU.incrementAndGet(this) > this.parallelism) {
             this.queue.add(runnable);
-            if (inFlightTasks$FU.decrementAndGet(this) >= this.parallelism || (runnable = (Runnable) this.queue.poll()) == null) {
+            if (inFlightTasks$FU.decrementAndGet(this) >= this.parallelism || (runnable = this.queue.poll()) == null) {
                 return;
             }
             while (inFlightTasks$FU.incrementAndGet(this) > this.parallelism) {
@@ -52,15 +52,15 @@ public final class LimitingDispatcher extends ExecutorCoroutineDispatcher implem
 
     @Override // kotlinx.coroutines.scheduling.TaskContext
     public void afterTask() {
-        Runnable runnable = (Runnable) this.queue.poll();
-        if (runnable != null) {
-            this.dispatcher.dispatchWithContext$kotlinx_coroutines_core(runnable, this, true);
+        Runnable poll = this.queue.poll();
+        if (poll != null) {
+            this.dispatcher.dispatchWithContext$kotlinx_coroutines_core(poll, this, true);
             return;
         }
         inFlightTasks$FU.decrementAndGet(this);
-        Runnable runnable2 = (Runnable) this.queue.poll();
-        if (runnable2 != null) {
-            dispatch(runnable2, true);
+        Runnable poll2 = this.queue.poll();
+        if (poll2 != null) {
+            dispatch(poll2, true);
         }
     }
 

@@ -11,25 +11,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.instrumentation.FrescoInstrumenter;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class JobScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String QUEUE_TIME_KEY = "queueTime";
     public transient /* synthetic */ FieldHolder $fh;
     public final Runnable mDoJobRunnable;
+    @VisibleForTesting
+    @GuardedBy("this")
     public EncodedImage mEncodedImage;
     public final Executor mExecutor;
     public final JobRunnable mJobRunnable;
+    @VisibleForTesting
+    @GuardedBy("this")
     public long mJobStartTime;
+    @VisibleForTesting
+    @GuardedBy("this")
     public JobState mJobState;
+    @VisibleForTesting
+    @GuardedBy("this")
     public long mJobSubmitTime;
     public final int mMinimumJobIntervalMs;
+    @VisibleForTesting
+    @GuardedBy("this")
     public int mStatus;
     public final Runnable mSubmitJobRunnable;
 
@@ -40,7 +52,7 @@ public class JobScheduler {
 
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass3 {
+    public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,8 +91,9 @@ public class JobScheduler {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class JobStartExecutorSupplier {
+    public static class JobStartExecutorSupplier {
         public static /* synthetic */ Interceptable $ic;
         public static ScheduledExecutorService sJobStarterExecutor;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,8 +126,9 @@ public class JobScheduler {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public final class JobState {
+    public static final class JobState {
         public static final /* synthetic */ JobState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final JobState IDLE;

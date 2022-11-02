@@ -3,6 +3,7 @@ package com.baidu.searchbox.block.ubc;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
@@ -27,6 +28,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes2.dex */
 public class UbcBlockRegister implements IBlockRegister {
     public static /* synthetic */ Interceptable $ic = null;
@@ -143,13 +145,13 @@ public class UbcBlockRegister implements IBlockRegister {
             if (AppConfig.isDebug()) {
                 Log.d(TAG, "stack format after: " + str);
             }
-            LinkedList trackUIs = blockInfo.getTrackUIs();
+            LinkedList<TrackUI> trackUIs = blockInfo.getTrackUIs();
             if (trackUIs != null && trackUIs.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
                 int i = 1;
                 int size = trackUIs.size() - 1;
                 while (true) {
-                    TrackUI trackUI = (TrackUI) trackUIs.get(size);
+                    TrackUI trackUI = trackUIs.get(size);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("time", trackUI.getTimeStamp());
                     jSONObject2.put("page", RukaTrackUIUtil.trackUI2StringPage(trackUI));

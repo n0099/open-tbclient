@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -21,8 +23,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class b implements com.kwad.sdk.widget.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public ViewGroup es;
+    @Nullable
     public AdInfo mAdInfo;
+    @Nullable
     public AdTemplate mAdTemplate;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
     public a yM;
@@ -32,10 +37,11 @@ public final class b implements com.kwad.sdk.widget.c {
     public View zP;
     public TextView zQ;
     public boolean zR;
+    @Nullable
     public f zS;
     public com.kwad.sdk.widget.f zT;
 
-    public b(ViewGroup viewGroup, ViewStub viewStub, KsAdWebView ksAdWebView, boolean z, com.kwad.components.core.c.a.c cVar) {
+    public b(@NonNull ViewGroup viewGroup, ViewStub viewStub, KsAdWebView ksAdWebView, boolean z, com.kwad.components.core.c.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,8 +86,8 @@ public final class b implements com.kwad.sdk.widget.c {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        this.zP = viewGroup.findViewById(R.id.obfuscated_res_0x7f0911e4);
-        this.zQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911e7);
+        this.zP = viewGroup.findViewById(R.id.obfuscated_res_0x7f09121e);
+        this.zQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091221);
         this.zT = new com.kwad.sdk.widget.f(this.zP.getContext(), this.zP, this);
         this.zP.getContext();
         a(e.a(this.mAdTemplate, this.mAdInfo, this.mApkDownloadHelper, 4));
@@ -152,7 +158,7 @@ public final class b implements com.kwad.sdk.widget.c {
         }
     }
 
-    public final void a(f fVar) {
+    public final void a(@Nullable f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
             this.zS = fVar;
@@ -184,7 +190,7 @@ public final class b implements com.kwad.sdk.widget.c {
             }
             if (this.zO == null) {
                 ViewStub viewStub = this.zM;
-                this.zO = (ViewGroup) ((viewStub == null || viewStub.getParent() == null) ? this.es.findViewById(R.id.obfuscated_res_0x7f0911e5) : this.zM.inflate());
+                this.zO = (ViewGroup) ((viewStub == null || viewStub.getParent() == null) ? this.es.findViewById(R.id.obfuscated_res_0x7f09121f) : this.zM.inflate());
                 g(this.zO);
             }
             ViewGroup viewGroup = this.zO;

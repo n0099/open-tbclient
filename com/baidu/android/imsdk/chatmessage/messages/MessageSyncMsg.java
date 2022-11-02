@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MessageSyncMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long msgid;
     public int status;
@@ -36,7 +36,7 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.MessageSyncMsg.1
+        CREATOR = new Parcelable.Creator<MessageSyncMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.MessageSyncMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,6 +55,7 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MessageSyncMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -66,6 +67,7 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MessageSyncMsg[] newArray(int i) {
                 InterceptResult invokeI;

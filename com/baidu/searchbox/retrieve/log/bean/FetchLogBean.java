@@ -17,12 +17,12 @@ public class FetchLogBean {
     public String mJobId;
     public long mMaxSizeLimit;
     public String mNetwork;
-    public ArrayList mSpace;
+    public ArrayList<String> mSpace;
     public long mStartTime;
     public String mType;
     public String mVersion;
 
-    public FetchLogBean(String str, String str2, String str3, long j, long j2, long j3, long j4, ArrayList arrayList, String str4) {
+    public FetchLogBean(String str, String str2, String str3, long j, long j2, long j3, long j4, ArrayList<String> arrayList, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class FetchLogBean {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList getSpace() {
+    public ArrayList<String> getSpace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -164,7 +164,7 @@ public class FetchLogBean {
         }
     }
 
-    public void setSpace(ArrayList arrayList) {
+    public void setSpace(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, arrayList) == null) {
             this.mSpace = arrayList;

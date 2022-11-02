@@ -25,14 +25,14 @@ public class TaskManager {
     public static final int MESSAGE_POST_EXECUTE = 1;
     public static final int MESSAGE_POST_PROGRESS = 2;
     public static final String TAG = "TaskManager";
-    public static HashMap sTaskManagers;
+    public static HashMap<String, TaskManager> sTaskManagers;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAutoQuit;
     public Task mCurTask;
     public IStateChangeListener mListener;
     public String mName;
     public State mState;
-    public LinkedList mTaskList;
+    public LinkedList<Task> mTaskList;
     public TaskOperation mTaskOperation;
     public Handler mThreadHandler;
     public ThreadWorker mThreadWorker;
@@ -57,7 +57,7 @@ public class TaskManager {
 
     /* renamed from: com.baidu.android.util.concurrent.task.TaskManager$5  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass5 {
+    public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$concurrent$task$Task$RunningStatus;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class TaskManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class State {
+    public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State FINISHED;
@@ -162,7 +162,7 @@ public class TaskManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class TaskManagerState {
+    public static final class TaskManagerState {
         public static final /* synthetic */ TaskManagerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TaskManagerState CONTINUE;
@@ -239,10 +239,10 @@ public class TaskManager {
                 return;
             }
         }
-        sTaskManagers = new HashMap();
+        sTaskManagers = new HashMap<>();
     }
 
-    public static HashMap getTaskManagers() {
+    public static HashMap<String, TaskManager> getTaskManagers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
@@ -368,7 +368,7 @@ public class TaskManager {
                 return;
             }
         }
-        this.mTaskList = new LinkedList();
+        this.mTaskList = new LinkedList<>();
         this.mTaskOperation = new TaskOperation();
         this.mThreadWorker = null;
         this.mCurTask = null;
@@ -430,7 +430,7 @@ public class TaskManager {
             if (this.mTaskList.isEmpty()) {
                 return;
             }
-            Task task = (Task) this.mTaskList.get(0);
+            Task task = this.mTaskList.get(0);
             this.mCurTask = task;
             synchronized (this.mTaskList) {
                 this.mTaskList.remove(0);
@@ -515,7 +515,7 @@ public class TaskManager {
                 return;
             }
         }
-        this.mTaskList = new LinkedList();
+        this.mTaskList = new LinkedList<>();
         this.mTaskOperation = new TaskOperation();
         this.mThreadWorker = null;
         this.mCurTask = null;
@@ -765,7 +765,7 @@ public class TaskManager {
             } else {
                 z = true;
             }
-            LinkedList linkedList = this.mTaskList;
+            LinkedList<Task> linkedList = this.mTaskList;
             if (linkedList != null && linkedList.size() > 0) {
                 z2 = true;
             } else {

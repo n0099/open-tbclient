@@ -1,5 +1,6 @@
 package com.bun.miitmdid;
 
+import androidx.annotation.Keep;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,33 +12,58 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+@Keep
 /* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static final c b;
+    @Keep
     public static final c c;
+    @Keep
     public static final c d;
+    @Keep
     public static final c e;
+    @Keep
     public static final c f;
+    @Keep
     public static final c g;
+    @Keep
     public static final c h;
+    @Keep
     public static final c i;
+    @Keep
     public static final c j;
+    @Keep
     public static final c k;
+    @Keep
     public static final c l;
+    @Keep
     public static final c m;
+    @Keep
     public static final c n;
+    @Keep
     public static final c o;
+    @Keep
     public static final c p;
+    @Keep
     public static final c q;
+    @Keep
     public static final c r;
+    @Keep
     public static final c s;
+    @Keep
     public static final c t;
+    @Keep
     public static final c u;
+    @Keep
     public static final c v;
+    @Keep
     public static final c w;
+    @Keep
     public static final /* synthetic */ c[] x;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public String a;
 
     static {
@@ -121,9 +147,12 @@ public final class c {
         this.a = str2;
     }
 
+    @Keep
     public static native c a(String str);
 
+    @Keep
     public static native c valueOf(String str);
 
+    @Keep
     public static native c[] values();
 }

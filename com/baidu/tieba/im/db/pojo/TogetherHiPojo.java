@@ -18,8 +18,8 @@ public class TogetherHiPojo extends OrmObject {
     public String location;
     public Integer numJoin;
     public Integer numSignup;
-    public List picUrls;
-    public List potraits;
+    public List<String> picUrls;
+    public List<String> potraits;
     public Integer startTime;
 
     public TogetherHiPojo() {

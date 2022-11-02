@@ -9,6 +9,13 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StringRes;
+import androidx.annotation.StyleRes;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,23 +36,32 @@ import com.google.android.material.shape.EdgeTreatment;
 import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
+    @StyleRes
     public static final int DEFAULT_STYLE = 2131755930;
+    @AttrRes
     public static final int DEFAULT_THEME_ATTR = 2130970410;
     public transient /* synthetic */ FieldHolder $fh;
     public int arrowSize;
+    @NonNull
     public final View.OnLayoutChangeListener attachedViewLayoutChangeListener;
+    @NonNull
     public final Context context;
+    @NonNull
     public final Rect displayFrame;
+    @Nullable
     public final Paint.FontMetrics fontMetrics;
     public int layoutMargin;
     public int locationOnScreenX;
     public int minHeight;
     public int minWidth;
     public int padding;
+    @Nullable
     public CharSequence text;
+    @NonNull
     public final TextDrawableHelper textDrawableHelper;
 
     static {
@@ -64,7 +80,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TooltipDrawable(Context context, AttributeSet attributeSet, int i, int i2) {
+    public TooltipDrawable(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -121,7 +137,8 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         this.textDrawableHelper.getTextPaint().setTextAlign(Paint.Align.CENTER);
     }
 
-    public static TooltipDrawable createFromAttributes(Context context, AttributeSet attributeSet) {
+    @NonNull
+    public static TooltipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) {
@@ -228,6 +245,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         return invokeV.intValue;
     }
 
+    @Nullable
     public CharSequence getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -237,6 +255,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public TextAppearance getTextAppearance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -263,7 +282,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    private float calculateTextOriginAndAlignment(Rect rect) {
+    private float calculateTextOriginAndAlignment(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, rect)) == null) {
@@ -272,7 +291,8 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         return invokeL.floatValue;
     }
 
-    public static TooltipDrawable create(Context context) {
+    @NonNull
+    public static TooltipDrawable create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -282,7 +302,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateLocationOnScreen(View view2) {
+    public void updateLocationOnScreen(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, view2) == null) {
             int[] iArr = new int[2];
@@ -292,7 +312,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    public void detachView(View view2) {
+    public void detachView(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
             return;
@@ -319,7 +339,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         return invokeL.booleanValue;
     }
 
-    public void setLayoutMargin(int i) {
+    public void setLayoutMargin(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.layoutMargin = i;
@@ -327,7 +347,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    public void setMinHeight(int i) {
+    public void setMinHeight(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.minHeight = i;
@@ -335,7 +355,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    public void setMinWidth(int i) {
+    public void setMinWidth(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.minWidth = i;
@@ -343,7 +363,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    public void setRelativeToView(View view2) {
+    public void setRelativeToView(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048592, this, view2) != null) || view2 == null) {
             return;
@@ -352,7 +372,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         view2.addOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
     }
 
-    public void setText(CharSequence charSequence) {
+    public void setText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, charSequence) == null) && !TextUtils.equals(this.text, charSequence)) {
             this.text = charSequence;
@@ -361,21 +381,21 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    public void setTextAppearance(TextAppearance textAppearance) {
+    public void setTextAppearance(@Nullable TextAppearance textAppearance) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, textAppearance) == null) {
             this.textDrawableHelper.setTextAppearance(textAppearance, this.context);
         }
     }
 
-    public void setTextAppearanceResource(int i) {
+    public void setTextAppearanceResource(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setTextAppearance(new TextAppearance(this.context, i));
         }
     }
 
-    public void setTextPadding(int i) {
+    public void setTextPadding(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.padding = i;
@@ -383,14 +403,15 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    public void setTextResource(int i) {
+    public void setTextResource(@StringRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             setText(this.context.getResources().getString(i));
         }
     }
 
-    public static TooltipDrawable createFromAttributes(Context context, AttributeSet attributeSet, int i, int i2) {
+    @NonNull
+    public static TooltipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, context, attributeSet, i, i2)) == null) {
@@ -401,7 +422,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         return (TooltipDrawable) invokeLLII.objValue;
     }
 
-    private void drawText(Canvas canvas) {
+    private void drawText(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65546, this, canvas) != null) || this.text == null) {
             return;
@@ -416,7 +437,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         canvas.drawText(charSequence, 0, charSequence.length(), bounds.centerX(), calculateTextOriginAndAlignment, this.textDrawableHelper.getTextPaint());
     }
 
-    private void loadFromAttributes(AttributeSet attributeSet, int i, int i2) {
+    private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65548, this, attributeSet, i, i2) == null) {
             TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, R.styleable.Tooltip, i, i2, new int[0]);
@@ -435,7 +456,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     }
 
     @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             canvas.save();

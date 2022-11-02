@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.AddressStatUtil;
@@ -73,7 +74,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddressEditActivity extends BaseAddressActivity implements ImgOcrOptionDialog.OptionOnClickListener, OnDialogSelectedListenter {
+public class AddressEditActivity extends BaseAddressActivity<AddressEditPresenter> implements ImgOcrOptionDialog.OptionOnClickListener, OnDialogSelectedListenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADDRESS_4_ELEMENT = 15;
     public static final String CHINA_REGION_CODE = "86";
@@ -708,7 +709,7 @@ public class AddressEditActivity extends BaseAddressActivity implements ImgOcrOp
             return;
         }
         AddressManageResult addressManageResult = new AddressManageResult();
-        HashMap hashMap = addressManageResult.map;
+        HashMap<String, String> hashMap = addressManageResult.map;
         hashMap.put("addrId", this.newMapObject.getStrValue(AddressField.KEY_ADDR_ID));
         hashMap.put("name", this.newMapObject.getStrValue("name"));
         hashMap.put("mobile", this.newMapObject.getStrValue("mobile"));
@@ -1065,7 +1066,7 @@ public class AddressEditActivity extends BaseAddressActivity implements ImgOcrOp
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                         InputMethodManager inputMethodManager = (InputMethodManager) this.this$0.getSystemService("input_method");
@@ -1073,7 +1074,7 @@ public class AddressEditActivity extends BaseAddressActivity implements ImgOcrOp
                             inputMethodManager.hideSoftInputFromWindow(this.this$0.detailAddrEt.getWindowToken(), 0);
                         }
                         this.this$0.scrollToAddrDetail(false);
-                        ((AddressEditPresenter) this.this$0.presenter).getSuggestAddrDetail((JSONObject) this.this$0.listAdapter.getItem(i), this.this$0.selectedRegion);
+                        ((AddressEditPresenter) this.this$0.presenter).getSuggestAddrDetail(this.this$0.listAdapter.getItem(i), this.this$0.selectedRegion);
                     }
                 }
             });
@@ -2251,7 +2252,7 @@ public class AddressEditActivity extends BaseAddressActivity implements ImgOcrOp
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {

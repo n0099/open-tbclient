@@ -8,6 +8,9 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -28,13 +31,16 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class MaterialButtonHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_LOLLIPOP;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean backgroundOverwritten;
+    @Nullable
     public ColorStateList backgroundTint;
+    @Nullable
     public PorterDuff.Mode backgroundTintMode;
     public boolean checkable;
     public int cornerRadius;
@@ -43,12 +49,16 @@ public class MaterialButtonHelper {
     public int insetLeft;
     public int insetRight;
     public int insetTop;
+    @Nullable
     public Drawable maskDrawable;
     public final MaterialButton materialButton;
+    @Nullable
     public ColorStateList rippleColor;
     public LayerDrawable rippleDrawable;
+    @NonNull
     public ShapeAppearanceModel shapeAppearanceModel;
     public boolean shouldDrawSurfaceColorStroke;
+    @Nullable
     public ColorStateList strokeColor;
     public int strokeWidth;
 
@@ -74,6 +84,7 @@ public class MaterialButtonHelper {
         IS_LOLLIPOP = z;
     }
 
+    @Nullable
     private MaterialShapeDrawable getSurfaceColorStrokeDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,6 +103,7 @@ public class MaterialButtonHelper {
         return invokeV.intValue;
     }
 
+    @Nullable
     public MaterialShapeDrawable getMaterialShapeDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,6 +113,7 @@ public class MaterialButtonHelper {
         return (MaterialShapeDrawable) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getRippleColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,6 +123,7 @@ public class MaterialButtonHelper {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @NonNull
     public ShapeAppearanceModel getShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -119,6 +133,7 @@ public class MaterialButtonHelper {
         return (ShapeAppearanceModel) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getStrokeColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,7 +197,7 @@ public class MaterialButtonHelper {
         }
     }
 
-    public MaterialButtonHelper(MaterialButton materialButton, ShapeAppearanceModel shapeAppearanceModel) {
+    public MaterialButtonHelper(MaterialButton materialButton, @NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,6 +259,7 @@ public class MaterialButtonHelper {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     private MaterialShapeDrawable getMaterialShapeDrawable(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -260,7 +276,7 @@ public class MaterialButtonHelper {
         return (MaterialShapeDrawable) invokeZ.objValue;
     }
 
-    private void updateButtonShape(ShapeAppearanceModel shapeAppearanceModel) {
+    private void updateButtonShape(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, shapeAppearanceModel) == null) {
             if (getMaterialShapeDrawable() != null) {
@@ -296,6 +312,7 @@ public class MaterialButtonHelper {
         }
     }
 
+    @Nullable
     public Shapeable getMaskDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -312,6 +329,7 @@ public class MaterialButtonHelper {
         return (Shapeable) invokeV.objValue;
     }
 
+    @NonNull
     private InsetDrawable wrapDrawableWithInset(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -346,7 +364,7 @@ public class MaterialButtonHelper {
         }
     }
 
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, shapeAppearanceModel) == null) {
             this.shapeAppearanceModel = shapeAppearanceModel;
@@ -362,7 +380,7 @@ public class MaterialButtonHelper {
         }
     }
 
-    public void setStrokeColor(ColorStateList colorStateList) {
+    public void setStrokeColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, colorStateList) == null) && this.strokeColor != colorStateList) {
             this.strokeColor = colorStateList;
@@ -378,7 +396,7 @@ public class MaterialButtonHelper {
         }
     }
 
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048597, this, colorStateList) == null) && this.backgroundTint != colorStateList) {
             this.backgroundTint = colorStateList;
@@ -388,7 +406,7 @@ public class MaterialButtonHelper {
         }
     }
 
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048598, this, mode) == null) && this.backgroundTintMode != mode) {
             this.backgroundTintMode = mode;
@@ -398,7 +416,7 @@ public class MaterialButtonHelper {
         }
     }
 
-    public void loadFromAttributes(TypedArray typedArray) {
+    public void loadFromAttributes(@NonNull TypedArray typedArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, typedArray) == null) {
             this.insetLeft = typedArray.getDimensionPixelOffset(1, 0);
@@ -435,7 +453,7 @@ public class MaterialButtonHelper {
         }
     }
 
-    public void setRippleColor(ColorStateList colorStateList) {
+    public void setRippleColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048592, this, colorStateList) == null) && this.rippleColor != colorStateList) {
             this.rippleColor = colorStateList;

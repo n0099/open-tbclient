@@ -10,6 +10,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -90,7 +91,7 @@ public class RoundCornerLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RoundCornerLinearLayout(Context context, AttributeSet attributeSet) {
+    public RoundCornerLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,7 +112,7 @@ public class RoundCornerLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoundCornerLinearLayout(Context context, AttributeSet attributeSet, int i) {
+    public RoundCornerLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.upload.action;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ public class IMPushUploadConstants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class Service {
+    public static class Service {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BAIDU_APP = "baidu_app";
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,6 +80,7 @@ public class IMPushUploadConstants {
         return (String) invokeLL.objValue;
     }
 
+    @SuppressLint({"DefaultLocale"})
     public static String sign(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

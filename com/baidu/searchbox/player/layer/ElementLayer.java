@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.element.AbsElement;
 import com.baidu.searchbox.player.event.VideoEvent;
@@ -22,17 +25,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
-public abstract class ElementLayer extends AbsLayer implements View.OnClickListener {
+public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> extends AbsLayer implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup mContainer;
-    public final ArrayList mElements;
+    public T mContainer;
+    public final ArrayList<S> mElements;
 
     public abstract void initContainer();
 
-    public void layoutElement(ViewGroup viewGroup) {
+    public void layoutElement(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
         }
     }
 
@@ -58,10 +61,11 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
                 return;
             }
         }
-        this.mElements = new ArrayList();
+        this.mElements = new ArrayList<>();
     }
 
-    public ArrayList getElements() {
+    @PublicMethod
+    public ArrayList<S> getElements() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -71,6 +75,7 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
+    @Nullable
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,9 +90,9 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onContainerDetach();
-            Iterator it = this.mElements.iterator();
+            Iterator<S> it = this.mElements.iterator();
             while (it.hasNext()) {
-                ((AbsElement) it.next()).onContainerDetach();
+                it.next().onContainerDetach();
             }
         }
     }
@@ -97,9 +102,9 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onLayerDetach();
-            Iterator it = this.mElements.iterator();
+            Iterator<S> it = this.mElements.iterator();
             while (it.hasNext()) {
-                ((AbsElement) it.next()).onLayerDetach();
+                it.next().onLayerDetach();
             }
         }
     }
@@ -109,15 +114,15 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onLayerRelease();
-            Iterator it = this.mElements.iterator();
+            Iterator<S> it = this.mElements.iterator();
             while (it.hasNext()) {
-                ((AbsElement) it.next()).onLayerRelease();
+                it.next().onLayerRelease();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ElementLayer(Activity activity) {
+    public ElementLayer(@NonNull Activity activity) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,22 +139,22 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
                 return;
             }
         }
-        this.mElements = new ArrayList();
+        this.mElements = new ArrayList<>();
     }
 
-    public void attachElementView(AbsElement absElement) {
+    public void attachElementView(@NonNull S s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absElement) == null) {
-            BdViewOpUtils.removeView(absElement.getContentView());
-            if (checkLayoutParams(absElement.getLayoutParams())) {
-                this.mContainer.addView(absElement.getContentView(), absElement.getLayoutParams());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s) == null) {
+            BdViewOpUtils.removeView(s.getContentView());
+            if (checkLayoutParams(s.getLayoutParams())) {
+                this.mContainer.addView(s.getContentView(), s.getLayoutParams());
             } else {
-                this.mContainer.addView(absElement.getContentView());
+                this.mContainer.addView(s.getContentView());
             }
         }
     }
 
-    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
+    public boolean checkLayoutParams(@Nullable ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) {
@@ -167,26 +172,28 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
         return invokeL.booleanValue;
     }
 
-    public void addElement(AbsElement absElement) {
+    @PublicMethod
+    public void addElement(@NonNull S s) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, absElement) == null) && !this.mElements.contains(absElement)) {
-            this.mElements.add(absElement);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, s) == null) && !this.mElements.contains(s)) {
+            this.mElements.add(s);
         }
     }
 
-    public void detachElementView(AbsElement absElement) {
+    public void detachElementView(@NonNull S s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, absElement) == null) {
-            this.mContainer.removeView(absElement.getContentView());
+        if (interceptable == null || interceptable.invokeL(1048579, this, s) == null) {
+            this.mContainer.removeView(s.getContentView());
         }
     }
 
-    public void dispatchEvent(VideoEvent videoEvent) {
+    @PublicMethod
+    public void dispatchEvent(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, videoEvent) == null) {
-            Iterator it = this.mElements.iterator();
+            Iterator<S> it = this.mElements.iterator();
             while (it.hasNext()) {
-                ((AbsElement) it.next()).onEventNotify(videoEvent);
+                it.next().onEventNotify(videoEvent);
             }
         }
     }
@@ -196,15 +203,15 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, message) == null) {
             super.handleLayerMessage(message);
-            Iterator it = this.mElements.iterator();
+            Iterator<S> it = this.mElements.iterator();
             while (it.hasNext()) {
-                ((AbsElement) it.next()).handleLayerMessage(message);
+                it.next().handleLayerMessage(message);
             }
         }
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onControlEventNotify(VideoEvent videoEvent) {
+    public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, videoEvent) == null) {
             super.onControlEventNotify(videoEvent);
@@ -213,7 +220,7 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onInteractiveEventNotify(VideoEvent videoEvent) {
+    public void onInteractiveEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, videoEvent) == null) {
             super.onInteractiveEventNotify(videoEvent);
@@ -222,7 +229,7 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onLayerEventNotify(VideoEvent videoEvent) {
+    public void onLayerEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, videoEvent) == null) {
             super.onLayerEventNotify(videoEvent);
@@ -231,7 +238,7 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(VideoEvent videoEvent) {
+    public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, videoEvent) == null) {
             super.onPlayerEventNotify(videoEvent);
@@ -240,7 +247,7 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onSystemEventNotify(VideoEvent videoEvent) {
+    public void onSystemEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, videoEvent) == null) {
             super.onSystemEventNotify(videoEvent);
@@ -248,22 +255,24 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
         }
     }
 
-    public void removeElement(AbsElement absElement) {
+    @PublicMethod
+    public void removeElement(@NonNull S s) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, absElement) == null) && this.mElements.remove(absElement)) {
-            detachElementView(absElement);
+        if ((interceptable == null || interceptable.invokeL(1048599, this, s) == null) && this.mElements.remove(s)) {
+            detachElementView(s);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.layer.ILayer
-    public ViewGroup getContentView() {
+    @NonNull
+    public T getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mContainer;
         }
-        return (ViewGroup) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.layer.ILayer
@@ -272,13 +281,13 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             initContainer();
             setupElement();
-            Iterator it = this.mElements.iterator();
+            Iterator<S> it = this.mElements.iterator();
             while (it.hasNext()) {
-                AbsElement absElement = (AbsElement) it.next();
-                absElement.setParent(this);
-                absElement.initElement();
-                if (absElement.attachToRootAtOnce()) {
-                    attachElementView(absElement);
+                S next = it.next();
+                next.setParent(this);
+                next.initElement();
+                if (next.attachToRootAtOnce()) {
+                    attachElementView(next);
                 }
             }
             layoutElement(this.mContainer);
@@ -290,9 +299,9 @@ public abstract class ElementLayer extends AbsLayer implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, playerStatus, playerStatus2) == null) {
             super.onPlayerStatusChanged(playerStatus, playerStatus2);
-            Iterator it = this.mElements.iterator();
+            Iterator<S> it = this.mElements.iterator();
             while (it.hasNext()) {
-                ((AbsElement) it.next()).onPlayerStatusChanged(playerStatus, playerStatus2);
+                it.next().onPlayerStatusChanged(playerStatus, playerStatus2);
             }
         }
     }

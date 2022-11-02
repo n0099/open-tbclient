@@ -9,6 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
@@ -27,15 +29,17 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstream {
+public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function combiner;
-    public final Publisher[] otherArray;
-    public final Iterable otherIterable;
+    public final Function<? super Object[], R> combiner;
+    @Nullable
+    public final Publisher<?>[] otherArray;
+    @Nullable
+    public final Iterable<? extends Publisher<?>> otherIterable;
 
     /* loaded from: classes8.dex */
-    public final class SingletonArrayFunc implements Function {
+    public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FlowableWithLatestFromMany this$0;
@@ -58,32 +62,33 @@ public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstre
             this.this$0 = flowableWithLatestFromMany;
         }
 
+        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.functions.Function
-        public Object apply(Object obj) throws Exception {
+        public R apply(T t) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return ObjectHelper.requireNonNull(this.this$0.combiner.apply(new Object[]{obj}), "The combiner returned a null value");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+                return (R) ObjectHelper.requireNonNull(this.this$0.combiner.apply(new Object[]{t}), "The combiner returned a null value");
             }
-            return invokeL.objValue;
+            return (R) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class WithLatestFromSubscriber extends AtomicInteger implements ConditionalSubscriber, Subscription {
+    public static final class WithLatestFromSubscriber<T, R> extends AtomicInteger implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1577321883966341961L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final Function combiner;
+        public final Subscriber<? super R> actual;
+        public final Function<? super Object[], R> combiner;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final AtomicLong requested;
-        public final AtomicReference s;
+        public final AtomicReference<Subscription> s;
         public final WithLatestInnerSubscriber[] subscribers;
-        public final AtomicReferenceArray values;
+        public final AtomicReferenceArray<Object> values;
 
-        public WithLatestFromSubscriber(Subscriber subscriber, Function function, int i) {
+        public WithLatestFromSubscriber(Subscriber<? super R> subscriber, Function<? super Object[], R> function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,8 +110,8 @@ public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstre
                 withLatestInnerSubscriberArr[i4] = new WithLatestInnerSubscriber(this, i4);
             }
             this.subscribers = withLatestInnerSubscriberArr;
-            this.values = new AtomicReferenceArray(i);
-            this.s = new AtomicReference();
+            this.values = new AtomicReferenceArray<>(i);
+            this.s = new AtomicReference<>();
             this.requested = new AtomicLong();
             this.error = new AtomicThrowable();
         }
@@ -159,10 +164,10 @@ public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstre
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, obj) == null) && !tryOnNext(obj) && !this.done) {
-                ((Subscription) this.s.get()).request(1L);
+            if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && !tryOnNext(t) && !this.done) {
+                this.s.get().request(1L);
             }
         }
 
@@ -209,37 +214,37 @@ public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstre
             }
         }
 
-        public void subscribe(Publisher[] publisherArr, int i) {
+        public void subscribe(Publisher<?>[] publisherArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048586, this, publisherArr, i) == null) {
                 WithLatestInnerSubscriber[] withLatestInnerSubscriberArr = this.subscribers;
-                AtomicReference atomicReference = this.s;
-                for (int i2 = 0; i2 < i && !SubscriptionHelper.isCancelled((Subscription) atomicReference.get()); i2++) {
+                AtomicReference<Subscription> atomicReference = this.s;
+                for (int i2 = 0; i2 < i && !SubscriptionHelper.isCancelled(atomicReference.get()); i2++) {
                     publisherArr[i2].subscribe(withLatestInnerSubscriberArr[i2]);
                 }
             }
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, t)) == null) {
                 if (this.done) {
                     return false;
                 }
-                AtomicReferenceArray atomicReferenceArray = this.values;
+                AtomicReferenceArray<Object> atomicReferenceArray = this.values;
                 int length = atomicReferenceArray.length();
                 Object[] objArr = new Object[length + 1];
-                objArr[0] = obj;
+                objArr[0] = t;
                 int i = 0;
                 while (i < length) {
-                    Object obj2 = atomicReferenceArray.get(i);
-                    if (obj2 == null) {
+                    Object obj = atomicReferenceArray.get(i);
+                    if (obj == null) {
                         return false;
                     }
                     i++;
-                    objArr[i] = obj2;
+                    objArr[i] = obj;
                 }
                 try {
                     HalfSerializer.onNext(this.actual, ObjectHelper.requireNonNull(this.combiner.apply(objArr), "The combiner returned a null value"), this, this.error);
@@ -256,15 +261,15 @@ public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstre
     }
 
     /* loaded from: classes8.dex */
-    public final class WithLatestInnerSubscriber extends AtomicReference implements FlowableSubscriber {
+    public static final class WithLatestInnerSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3256684027868224024L;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean hasValue;
         public final int index;
-        public final WithLatestFromSubscriber parent;
+        public final WithLatestFromSubscriber<?, ?> parent;
 
-        public WithLatestInnerSubscriber(WithLatestFromSubscriber withLatestFromSubscriber, int i) {
+        public WithLatestInnerSubscriber(WithLatestFromSubscriber<?, ?> withLatestFromSubscriber, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -327,7 +332,7 @@ public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstre
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWithLatestFromMany(Flowable flowable, Iterable iterable, Function function) {
+    public FlowableWithLatestFromMany(@NonNull Flowable<T> flowable, @NonNull Iterable<? extends Publisher<?>> iterable, @NonNull Function<? super Object[], R> function) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -350,7 +355,7 @@ public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstre
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWithLatestFromMany(Flowable flowable, Publisher[] publisherArr, Function function) {
+    public FlowableWithLatestFromMany(@NonNull Flowable<T> flowable, @NonNull Publisher<?>[] publisherArr, Function<? super Object[], R> function) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -373,16 +378,16 @@ public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstre
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            Publisher[] publisherArr = this.otherArray;
+            Publisher<?>[] publisherArr = this.otherArray;
             if (publisherArr == null) {
                 publisherArr = new Publisher[8];
                 try {
                     length = 0;
-                    for (Publisher publisher : this.otherIterable) {
+                    for (Publisher<?> publisher : this.otherIterable) {
                         if (length == publisherArr.length) {
                             publisherArr = (Publisher[]) Arrays.copyOf(publisherArr, (length >> 1) + length);
                         }

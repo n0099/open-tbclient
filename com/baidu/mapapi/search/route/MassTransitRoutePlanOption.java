@@ -23,7 +23,7 @@ public class MassTransitRoutePlanOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class TacticsIncity {
+    public static final class TacticsIncity {
         public static /* synthetic */ Interceptable $ic;
         public static final TacticsIncity ETRANS_LEAST_TIME;
         public static final TacticsIncity ETRANS_LEAST_TRANSFER;
@@ -83,25 +83,34 @@ public class MassTransitRoutePlanOption {
         public static TacticsIncity valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TacticsIncity) Enum.valueOf(TacticsIncity.class, str) : (TacticsIncity) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TacticsIncity) Enum.valueOf(TacticsIncity.class, str);
+            }
+            return (TacticsIncity) invokeL.objValue;
         }
 
         public static TacticsIncity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) b.clone() : (TacticsIncity[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TacticsIncity[]) b.clone();
+            }
+            return (TacticsIncity[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class TacticsIntercity {
+    public static final class TacticsIntercity {
         public static /* synthetic */ Interceptable $ic;
         public static final TacticsIntercity ETRANS_LEAST_PRICE;
         public static final TacticsIntercity ETRANS_LEAST_TIME;
@@ -155,25 +164,34 @@ public class MassTransitRoutePlanOption {
         public static TacticsIntercity valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TacticsIntercity) Enum.valueOf(TacticsIntercity.class, str) : (TacticsIntercity) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TacticsIntercity) Enum.valueOf(TacticsIntercity.class, str);
+            }
+            return (TacticsIntercity) invokeL.objValue;
         }
 
         public static TacticsIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) b.clone() : (TacticsIntercity[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TacticsIntercity[]) b.clone();
+            }
+            return (TacticsIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class TransTypeIntercity {
+    public static final class TransTypeIntercity {
         public static /* synthetic */ Interceptable $ic;
         public static final TransTypeIntercity ETRANS_COACH_FIRST;
         public static final TransTypeIntercity ETRANS_PLANE_FIRST;
@@ -227,19 +245,28 @@ public class MassTransitRoutePlanOption {
         public static TransTypeIntercity valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TransTypeIntercity) Enum.valueOf(TransTypeIntercity.class, str) : (TransTypeIntercity) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TransTypeIntercity) Enum.valueOf(TransTypeIntercity.class, str);
+            }
+            return (TransTypeIntercity) invokeL.objValue;
         }
 
         public static TransTypeIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) b.clone() : (TransTypeIntercity[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TransTypeIntercity[]) b.clone();
+            }
+            return (TransTypeIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
     }
 

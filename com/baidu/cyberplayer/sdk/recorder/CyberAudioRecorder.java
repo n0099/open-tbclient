@@ -1,11 +1,13 @@
 package com.baidu.cyberplayer.sdk.recorder;
 
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+@Keep
 /* loaded from: classes2.dex */
 public abstract class CyberAudioRecorder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -24,26 +26,31 @@ public abstract class CyberAudioRecorder {
     public static final String KEY_STR_OUTPUT_FILE = "output_file";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     /* loaded from: classes2.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
+    @Keep
     /* loaded from: classes2.dex */
     public interface OnEncBufferCallbackListener {
         boolean onFrameRecorded(ByteBuffer byteBuffer, int i, boolean z);
     }
 
+    @Keep
     /* loaded from: classes2.dex */
     public interface OnErrorListener {
         boolean onError(int i, int i2, Object obj);
     }
 
+    @Keep
     /* loaded from: classes2.dex */
     public interface OnInfoListener {
         boolean onInfo(int i, int i2, Object obj);
     }
 
+    @Keep
     /* loaded from: classes2.dex */
     public interface OnPreparedListener {
         void onPrepared();
@@ -63,7 +70,7 @@ public abstract class CyberAudioRecorder {
         }
     }
 
-    public abstract ArrayList getSupportEncoder();
+    public abstract ArrayList<String> getSupportEncoder();
 
     public abstract void pause();
 

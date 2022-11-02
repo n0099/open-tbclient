@@ -36,7 +36,7 @@ public interface i extends IInterface {
     void i(DownloadInfo downloadInfo) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class a extends Binder implements i {
+    public static abstract class a extends Binder implements i {
         @Override // android.os.IInterface
         public IBinder asBinder() {
             return this;
@@ -44,11 +44,11 @@ public interface i extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0677a implements i {
+        public static class C0688a implements i {
             public static i a;
             public IBinder b;
 
-            public C0677a(IBinder iBinder) {
+            public C0688a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -374,7 +374,7 @@ public interface i extends IInterface {
         }
 
         public static i b() {
-            return C0677a.a;
+            return C0688a.a;
         }
 
         public static i a(IBinder iBinder) {
@@ -385,7 +385,7 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C0677a(iBinder);
+            return new C0688a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -416,7 +416,7 @@ public interface i extends IInterface {
                     case 2:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo4 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo4 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         a(downloadInfo4);
                         parcel2.writeNoException();
@@ -424,7 +424,7 @@ public interface i extends IInterface {
                     case 3:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo12 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo12 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         b(downloadInfo12);
                         parcel2.writeNoException();
@@ -432,7 +432,7 @@ public interface i extends IInterface {
                     case 4:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo11 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo11 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         c(downloadInfo11);
                         parcel2.writeNoException();
@@ -440,7 +440,7 @@ public interface i extends IInterface {
                     case 5:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo10 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo10 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         d(downloadInfo10);
                         parcel2.writeNoException();
@@ -448,7 +448,7 @@ public interface i extends IInterface {
                     case 6:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo9 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo9 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         e(downloadInfo9);
                         parcel2.writeNoException();
@@ -456,12 +456,12 @@ public interface i extends IInterface {
                     case 7:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo = DownloadInfo.CREATOR.createFromParcel(parcel);
                         } else {
                             downloadInfo = null;
                         }
                         if (parcel.readInt() != 0) {
-                            baseException3 = (BaseException) BaseException.CREATOR.createFromParcel(parcel);
+                            baseException3 = BaseException.CREATOR.createFromParcel(parcel);
                         }
                         a(downloadInfo, baseException3);
                         parcel2.writeNoException();
@@ -469,7 +469,7 @@ public interface i extends IInterface {
                     case 8:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo8 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo8 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         f(downloadInfo8);
                         parcel2.writeNoException();
@@ -477,7 +477,7 @@ public interface i extends IInterface {
                     case 9:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo7 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo7 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         g(downloadInfo7);
                         parcel2.writeNoException();
@@ -485,7 +485,7 @@ public interface i extends IInterface {
                     case 10:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo6 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo6 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         h(downloadInfo6);
                         parcel2.writeNoException();
@@ -493,12 +493,12 @@ public interface i extends IInterface {
                     case 11:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo2 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo2 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         } else {
                             downloadInfo2 = null;
                         }
                         if (parcel.readInt() != 0) {
-                            baseException2 = (BaseException) BaseException.CREATOR.createFromParcel(parcel);
+                            baseException2 = BaseException.CREATOR.createFromParcel(parcel);
                         }
                         b(downloadInfo2, baseException2);
                         parcel2.writeNoException();
@@ -506,12 +506,12 @@ public interface i extends IInterface {
                     case 12:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo3 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo3 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         } else {
                             downloadInfo3 = null;
                         }
                         if (parcel.readInt() != 0) {
-                            baseException = (BaseException) BaseException.CREATOR.createFromParcel(parcel);
+                            baseException = BaseException.CREATOR.createFromParcel(parcel);
                         }
                         c(downloadInfo3, baseException);
                         parcel2.writeNoException();
@@ -519,7 +519,7 @@ public interface i extends IInterface {
                     case 13:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
                         if (parcel.readInt() != 0) {
-                            downloadInfo5 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo5 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         i(downloadInfo5);
                         parcel2.writeNoException();

@@ -1,119 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.util.BdLog;
-import com.baidu.permissionhelper.ApiUtil;
-import com.baidu.permissionhelper.context.ContextCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.PermissionRequest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.monitor.MonitorType;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tw {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "tw";
+public final class tw {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public uw a;
+    public JSONObject b;
+    public JSONObject c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448318346, "Lcom/baidu/tieba/tw;")) == null) {
+    public tw() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448318346, "Lcom/baidu/tieba/tw;");
-        }
+        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.c.toString());
+        this.c = null;
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             try {
-                return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            } catch (Throwable th) {
-                BdLog.c(a, th);
-                if (ApiUtil.shouldCheckPermission()) {
-                    return false;
+                if (this.b == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    this.b = jSONObject;
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
                 }
-                return true;
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                this.b.put(str, str2);
+            } catch (Exception unused) {
+                Log.e("staticWebkitInit JSON error");
             }
         }
-        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
-        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.p0.h.i) != false) goto L17;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    public final void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            boolean z = false;
-            if (context == null) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             try {
-                boolean checkPermissionGranted = ContextCompat.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-                if (Build.VERSION.SDK_INT >= 16) {
-                    if (!checkPermissionGranted) {
-                    }
-                    z = true;
-                    return z;
+                if (this.c == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    this.c = jSONObject;
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
                 }
-                return checkPermissionGranted;
-            } catch (Throwable th) {
-                BdLog.c(a, th);
-                if (ApiUtil.shouldCheckPermission()) {
-                    return false;
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
                 }
-                return true;
+                this.c.put(str, str2);
+            } catch (Exception unused) {
+                Log.e("mWebkitDownloadStatics JSON error");
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            if (context == null) {
-                return false;
-            }
-            SharedPreferences sharedPreferences = context.getSharedPreferences(a, 0);
-            if (sharedPreferences == null) {
-                return true;
-            }
-            String str = "permission_request_code=" + String.valueOf(i);
-            boolean z = sharedPreferences.getBoolean(str, true);
-            d(context, str);
-            return z;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static void d(Context context, String str) {
-        SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) && context != null && (sharedPreferences = context.getSharedPreferences(a, 0)) != null) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putBoolean(str, false);
-            edit.apply();
         }
     }
 }

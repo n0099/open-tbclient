@@ -41,8 +41,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isMediaRoleMsg;
     public long mAppId;
     public int mArrayIndex;
-    public List mAtuks;
-    public List mCastids;
+    public List<Long> mAtuks;
+    public List<Long> mCastids;
     public int mCategory;
     public int mChatType;
     public long mContacter;
@@ -128,7 +128,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return invokeV.longValue;
     }
 
-    public List getAtUsers() {
+    public List<Long> getAtUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -137,7 +137,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (List) invokeV.objValue;
     }
 
-    public List getCastids() {
+    public List<Long> getCastids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -970,7 +970,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setAtUsers(List list) {
+    public void setAtUsers(List<Long> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048640, this, list) == null) {
             this.mAtuks = list;
@@ -980,7 +980,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setCastid(List list) {
+    public void setCastid(List<Long> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048641, this, list) == null) {
             this.mCastids = list;

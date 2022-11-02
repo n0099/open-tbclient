@@ -26,7 +26,7 @@ public interface IPmsContext {
         }
 
         @Override // com.baidu.searchbox.pms.IPmsContext
-        public List getLongConnectParams() {
+        public List<RequestParams.Channel> getLongConnectParams() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -82,7 +82,7 @@ public interface IPmsContext {
 
     boolean checkChannelAllow(String str, String str2);
 
-    List getLongConnectParams();
+    List<RequestParams.Channel> getLongConnectParams();
 
     RequestParams getRegisterParams(String str);
 

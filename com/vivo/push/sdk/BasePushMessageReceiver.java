@@ -32,21 +32,21 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onDelAlias(Context context, int i, List list, List list2, String str) {
+    public void onDelAlias(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onDelTags(Context context, int i, List list, List list2, String str) {
+    public void onDelTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onListTags(Context context, int i, List list, String str) {
+    public void onListTags(Context context, int i, List<String> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048580, this, context, i, list, str) == null) {
         }
@@ -67,14 +67,14 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onSetAlias(Context context, int i, List list, List list2, String str) {
+    public void onSetAlias(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onSetTags(Context context, int i, List list, List list2, String str) {
+    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }

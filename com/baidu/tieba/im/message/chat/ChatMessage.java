@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message.chat;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
@@ -9,12 +10,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.i87;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.na;
+import com.baidu.tieba.ma;
+import com.baidu.tieba.s97;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wn;
+import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class ChatMessage extends TbSocketMessage implements na, eo {
+public abstract class ChatMessage extends TbSocketMessage implements ma, wn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
     public static final BdUniqueId TYPE_MSG_ICE_BREAK;
@@ -54,10 +56,10 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List iceBreakEmotions;
+    public List<ya7> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference itemViewWeakReference;
+    public WeakReference<s97> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -177,7 +179,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
         }
     }
 
-    @Override // com.baidu.tieba.eo
+    @Override // com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -326,7 +328,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
         return invokeV.intValue;
     }
 
-    public List getIceBreakEmotions() {
+    public List<ya7> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -353,17 +355,18 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
         return invokeV.booleanValue;
     }
 
-    public i87 getItemView() {
+    @Nullable
+    public s97 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference weakReference = this.itemViewWeakReference;
+            WeakReference<s97> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
-            return (i87) weakReference.get();
+            return weakReference.get();
         }
-        return (i87) invokeV.objValue;
+        return (s97) invokeV.objValue;
     }
 
     public String getLink() {
@@ -577,7 +580,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsTaskId = eh.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        this.statisticsTaskId = wg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -607,7 +610,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsServiceId = eh.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                        this.statisticsServiceId = wg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -624,7 +627,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.na
+    @Override // com.baidu.tieba.ma
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -641,24 +644,24 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
         return invokeL.booleanValue;
     }
 
-    public void setItemView(i87 i87Var) {
-        WeakReference weakReference;
+    public void setItemView(@Nullable s97 s97Var) {
+        WeakReference<s97> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, i87Var) == null) {
-            if (i87Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, s97Var) == null) {
+            if (s97Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference weakReference2 = this.itemViewWeakReference;
+            WeakReference<s97> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == i87Var) {
+                if (weakReference2.get() == s97Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference(i87Var);
+            this.itemViewWeakReference = new WeakReference<>(s97Var);
         }
     }
 
@@ -732,7 +735,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, eo {
         }
     }
 
-    public void setIceBreakEmotions(List list) {
+    public void setIceBreakEmotions(List<ya7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;

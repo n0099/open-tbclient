@@ -19,14 +19,14 @@ public class AnimatableTransformParser {
     public static JsonReader.Options ANIMATABLE_NAMES = JsonReader.Options.of("k");
 
     public static boolean isAnchorPointIdentity(AnimatablePathValue animatablePathValue) {
-        if (animatablePathValue != null && (!animatablePathValue.isStatic() || !((PointF) ((Keyframe) animatablePathValue.getKeyframes().get(0)).startValue).equals(0.0f, 0.0f))) {
+        if (animatablePathValue != null && (!animatablePathValue.isStatic() || !animatablePathValue.getKeyframes().get(0).startValue.equals(0.0f, 0.0f))) {
             return false;
         }
         return true;
     }
 
-    public static boolean isPositionIdentity(AnimatableValue animatableValue) {
-        if (animatableValue != null && ((animatableValue instanceof AnimatableSplitDimensionPathValue) || !animatableValue.isStatic() || !((PointF) ((Keyframe) animatableValue.getKeyframes().get(0)).startValue).equals(0.0f, 0.0f))) {
+    public static boolean isPositionIdentity(AnimatableValue<PointF, PointF> animatableValue) {
+        if (animatableValue != null && ((animatableValue instanceof AnimatableSplitDimensionPathValue) || !animatableValue.isStatic() || !animatableValue.getKeyframes().get(0).startValue.equals(0.0f, 0.0f))) {
             return false;
         }
         return true;
@@ -68,7 +68,7 @@ public class AnimatableTransformParser {
     public static AnimatableTransform parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         boolean z;
         AnimatablePathValue animatablePathValue;
-        AnimatableValue animatableValue;
+        AnimatableValue<PointF, PointF> animatableValue;
         AnimatableFloatValue animatableFloatValue;
         AnimatableFloatValue animatableFloatValue2;
         AnimatableFloatValue animatableFloatValue3;
@@ -84,7 +84,7 @@ public class AnimatableTransformParser {
         }
         AnimatableFloatValue animatableFloatValue4 = null;
         AnimatablePathValue animatablePathValue2 = null;
-        AnimatableValue animatableValue2 = null;
+        AnimatableValue<PointF, PointF> animatableValue2 = null;
         AnimatableScaleValue animatableScaleValue = null;
         AnimatableFloatValue animatableFloatValue5 = null;
         AnimatableFloatValue animatableFloatValue6 = null;
@@ -116,7 +116,7 @@ public class AnimatableTransformParser {
                     parseFloat = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z2);
                     if (!parseFloat.getKeyframes().isEmpty()) {
                         parseFloat.getKeyframes().add(new Keyframe(lottieComposition, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(lottieComposition.getEndFrame())));
-                    } else if (((Keyframe) parseFloat.getKeyframes().get(0)).startValue == null) {
+                    } else if (((Keyframe) parseFloat.getKeyframes().get(0)).startValue == 0) {
                         parseFloat.getKeyframes().set(0, new Keyframe(lottieComposition, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(lottieComposition.getEndFrame())));
                         animatableFloatValue4 = parseFloat;
                         break;

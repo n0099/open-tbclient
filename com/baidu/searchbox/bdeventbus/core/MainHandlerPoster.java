@@ -21,7 +21,7 @@ public final class MainHandlerPoster extends Handler implements Poster {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public final ConcurrentLinkedQueue concurrentLinkedQueue;
+    public final ConcurrentLinkedQueue<Pair<Object, SubscriptionInfo>> concurrentLinkedQueue;
     public boolean handlerActive;
     public final int maxMillisInsideHandleMessage;
 
@@ -42,7 +42,7 @@ public final class MainHandlerPoster extends Handler implements Poster {
             }
         }
         this.TAG = "MainHandlerPoster";
-        this.concurrentLinkedQueue = new ConcurrentLinkedQueue();
+        this.concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
         this.maxMillisInsideHandleMessage = 10;
     }
 
@@ -53,7 +53,7 @@ public final class MainHandlerPoster extends Handler implements Poster {
             Intrinsics.checkNotNullParameter(event, "event");
             Intrinsics.checkNotNullParameter(subscriptionInfo, "subscriptionInfo");
             synchronized (this) {
-                this.concurrentLinkedQueue.offer(new Pair(event, subscriptionInfo));
+                this.concurrentLinkedQueue.offer(new Pair<>(event, subscriptionInfo));
                 if (!this.handlerActive) {
                     this.handlerActive = true;
                     sendMessage(obtainMessage());
@@ -63,7 +63,7 @@ public final class MainHandlerPoster extends Handler implements Poster {
         }
     }
 
-    public final ConcurrentLinkedQueue getConcurrentLinkedQueue() {
+    public final ConcurrentLinkedQueue<Pair<Object, SubscriptionInfo>> getConcurrentLinkedQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -99,21 +99,21 @@ public final class MainHandlerPoster extends Handler implements Poster {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 do {
-                    Pair pair = (Pair) this.concurrentLinkedQueue.poll();
-                    if (pair == null) {
+                    Pair<Object, SubscriptionInfo> poll = this.concurrentLinkedQueue.poll();
+                    if (poll == null) {
                         synchronized (this) {
-                            pair = (Pair) this.concurrentLinkedQueue.poll();
-                            if (pair == null) {
+                            poll = this.concurrentLinkedQueue.poll();
+                            if (poll == null) {
                                 this.handlerActive = false;
                                 return;
                             }
                             Unit unit = Unit.INSTANCE;
                         }
                     }
-                    Intrinsics.checkNotNull(pair);
-                    Action action = ((SubscriptionInfo) pair.getSecond()).getAction();
-                    Intrinsics.checkNotNull(pair);
-                    action.call(pair.getFirst());
+                    Intrinsics.checkNotNull(poll);
+                    Action<Object> action = poll.getSecond().getAction();
+                    Intrinsics.checkNotNull(poll);
+                    action.call(poll.getFirst());
                 } while (System.currentTimeMillis() - currentTimeMillis < this.maxMillisInsideHandleMessage);
                 sendMessage(obtainMessage());
                 this.handlerActive = true;

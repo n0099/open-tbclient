@@ -1,294 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.fragment.app.Fragment;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.good.FrsGoodFragment;
-import com.baidu.tieba.frs.h5.FrsTabWebFragment;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
-import com.baidu.tieba.frs.vc.FrsTabViewController;
-import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
-import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
-import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.GetMyPost.DataRes;
-import tbclient.GetMyPost.GetMyPostResIdl;
-import tbclient.GetMyPost.User_Info;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes4.dex */
-public class iq6 extends oq6 {
+public class iq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CustomMessageListener h;
-    public final CustomMessageListener i;
-    public final qb j;
+    public FrsItemTabFragment a;
+    public BdTypeRecyclerView b;
+    public bj6 c;
+    public List<jn> d;
+    public nq6 e;
+    public uq6 f;
+    public pq6 g;
+    public tq6 h;
+    public oq6 i;
+    public sq6 j;
+    public qq6 k;
+    public rq6 l;
+    public dn6 m;
+    public pm6 n;
+    public an6 o;
+    public xm6 p;
+    public om6 q;
+    public ym6 r;
+    public mq6 s;
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
+    public class a extends z36<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iq6 a;
+        public final /* synthetic */ iq6 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(iq6 iq6Var, int i) {
-            super(i);
+        public a(iq6 iq6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(str) && this.a.b.O0() != null) {
-                    FrsViewData O0 = this.a.b.O0();
-                    O0.removeThread(str);
-                    hq6 hq6Var = this.a.g;
-                    if (hq6Var != null) {
-                        hq6Var.k(str);
-                    }
-                    this.a.a.H1(O0.getThreadList(), O0);
-                    if (xl8.i() != null) {
-                        xl8.i().n(this.a.b.c(), false);
-                    }
-                    if (this.a.b != null) {
-                        if (jh6.g()) {
-                            BdTopToast bdTopToast = new BdTopToast(this.a.b.getContext());
-                            bdTopToast.h(true);
-                            bdTopToast.g(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f11ad));
-                            bdTopToast.i((ViewGroup) this.a.b.C3());
-                            return;
-                        }
-                        BdTopToast bdTopToast2 = new BdTopToast(this.a.b.getContext());
-                        bdTopToast2.h(true);
-                        bdTopToast2.g(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f04c6));
-                        bdTopToast2.i((ViewGroup) this.a.b.C3());
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iq6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(iq6 iq6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r2v3, types: [java.util.List] */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            ForumManageModel.e eVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e)) {
-                iq6 iq6Var = this.a;
-                if (iq6Var.b != null && iq6Var.a != null && iq6Var.d != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.a) && this.a.b.O0() != null) {
-                    String str = eVar.a;
-                    String str2 = eVar.b;
-                    String str3 = eVar.c;
-                    if (eVar.d == 4) {
-                        FrsViewData O0 = this.a.b.O0();
-                        ThreadData threadDataById = O0.getThreadDataById(str);
-                        O0.removeThreadData(threadDataById);
-                        List<eo> topThreadList = O0.getTopThreadList();
-                        if (topThreadList == null) {
-                            topThreadList = new ArrayList<>();
-                        }
-                        topThreadList.add(0, threadDataById);
-                        this.a.a.H1(O0.getThreadList(), O0);
-                        this.a.d.W(O0);
-                    }
-                    if (TextUtils.equals(this.a.b.c(), str3)) {
-                        xl8.i().n(this.a.b.c(), false);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends qb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iq6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(iq6 iq6Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq6Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iq6Var;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:13:0x002d  */
-        /* JADX WARN: Removed duplicated region for block: B:26:0x0085  */
-        @Override // com.baidu.tieba.qb
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(ResponsedMessage responsedMessage) {
-            boolean z;
-            String errorString;
-            int i;
-            String errorString2;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-                    Object extra = responsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof RequestGetMyPostNetMessage) {
-                        z = ((RequestGetMyPostNetMessage) extra).showErrorToast();
-                        JSONObject jSONObject = new JSONObject();
-                        if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
-                            GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                            if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                                errorString2 = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c68);
-                            } else {
-                                errorString2 = getMyPostHttpResponseMessage.getErrorString();
-                            }
-                            if (responsedMessage.getOrginalMessage().getExtra() instanceof RequestGetMyPostNetMessage) {
-                                RequestGetMyPostNetMessage requestGetMyPostNetMessage = (RequestGetMyPostNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                                int proZone = requestGetMyPostNetMessage.getProZone();
-                                this.a.e(jSONObject, requestGetMyPostNetMessage);
-                                i2 = proZone;
-                            } else {
-                                i2 = 0;
-                            }
-                            if (!z && getMyPostHttpResponseMessage.getError() != 0) {
-                                return;
-                            }
-                            this.a.g(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData(), i2, jSONObject);
-                            return;
-                        } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-                            GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                            if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                                errorString = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c68);
-                            } else {
-                                errorString = getMyPostSocketResponseMessage.getErrorString();
-                            }
-                            if (responsedMessage.getOrginalMessage().getExtra() instanceof RequestGetMyPostNetMessage) {
-                                RequestGetMyPostNetMessage requestGetMyPostNetMessage2 = (RequestGetMyPostNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                                int proZone2 = requestGetMyPostNetMessage2.getProZone();
-                                this.a.e(jSONObject, requestGetMyPostNetMessage2);
-                                i = proZone2;
-                            } else {
-                                i = 0;
-                            }
-                            if (!z && getMyPostSocketResponseMessage.getError() != 0) {
-                                return;
-                            }
-                            this.a.g(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData(), i, jSONObject);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                }
-                z = true;
-                JSONObject jSONObject2 = new JSONObject();
-                if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ iq6 e;
-
-        public d(iq6 iq6Var, PostWriteCallBackData postWriteCallBackData, long j, long j2, long j3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq6Var, postWriteCallBackData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {iq6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -298,269 +63,250 @@ public class iq6 extends oq6 {
                     return;
                 }
             }
-            this.e = iq6Var;
-            this.a = postWriteCallBackData;
-            this.b = j;
-            this.c = j2;
-            this.d = j3;
+            this.b = iq6Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.z36
+        /* renamed from: d */
+        public void b(View view2, ThreadData threadData, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int k = fj.k(TbadkCoreApplication.getInst());
-                int i2 = fj.i(TbadkCoreApplication.getInst());
-                float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-                if (TbImageHelper.getInstance().isShowBigImage()) {
-                    i = 2;
-                } else {
-                    i = 1;
-                }
-                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setProZone(this.a.getProZone());
-                requestGetMyPostNetMessage.setParams(this.b, this.c, this.d, k, i2, f, i);
-                this.e.b.sendMessage(requestGetMyPostNetMessage);
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData, obj) == null) {
+                super.b(view2, threadData, obj);
+                this.b.b(threadData);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iq6(FrsFragment frsFragment) {
-        super(frsFragment);
+    /* loaded from: classes4.dex */
+    public class b extends z36<ThreadData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iq6 b;
+
+        public b(iq6 iq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iq6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = iq6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.z36
+        /* renamed from: d */
+        public void b(View view2, ThreadData threadData, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData, obj) == null) {
+                super.b(view2, threadData, obj);
+                this.b.b(threadData);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends z36<ThreadData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iq6 b;
+
+        public c(iq6 iq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iq6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = iq6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.z36
+        /* renamed from: d */
+        public void b(View view2, ThreadData threadData, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData, obj) == null) {
+                super.b(view2, threadData, obj);
+                this.b.b(threadData);
+            }
+        }
+    }
+
+    public iq6(FrsItemTabFragment frsItemTabFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {frsItemTabFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this, 2921031);
-        this.i = new b(this, 2921316);
-        c cVar = new c(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.j = cVar;
-        cVar.getSocketMessageListener().setSelfListener(true);
-        this.j.getHttpMessageListener().setSelfListener(true);
-        this.h.setSelfListener(false);
-        this.b.registerListener(this.h);
-        this.b.registerListener(this.j);
-        this.b.registerListener(this.i);
+        this.d = new LinkedList();
+        c(frsItemTabFragment, bdTypeRecyclerView);
+        this.b = bdTypeRecyclerView;
     }
 
-    public final void c(ThreadData threadData, FrsNewAreaFragment frsNewAreaFragment) {
+    public final void b(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, threadData, frsNewAreaFragment) == null) {
-            frsNewAreaFragment.S1(threadData);
-        }
-    }
-
-    public final void d(ys4 ys4Var) {
-        FrsViewData O0;
-        ArrayList<eo> threadList;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ys4Var) != null) || (O0 = this.b.O0()) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, threadData) != null) || threadData == null) {
             return;
         }
-        this.e.J(ys4Var);
-        if (this.e.w0()) {
-            ArrayList<eo> arrayList = new ArrayList<>();
-            arrayList.add(ys4Var);
-            threadList = this.g.c(false, true, arrayList, null, true, -1, null);
-        } else {
-            threadList = O0.getThreadList();
-        }
-        if (threadList != null) {
-            O0.setThreadList(threadList);
-            O0.checkLiveStageInThreadList();
-            this.a.H1(threadList, O0);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new rz4(4, threadData.getPositionInFrsItemTab(), 1)));
+    }
+
+    public void g(ArrayList<wn> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
+            i();
+            this.b.setData(arrayList);
         }
     }
 
-    public final JSONObject e(JSONObject jSONObject, RequestGetMyPostNetMessage requestGetMyPostNetMessage) {
-        InterceptResult invokeLL;
+    public void h(BdUniqueId bdUniqueId) {
+        mq6 mq6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, requestGetMyPostNetMessage)) == null) {
-            f(jSONObject, String.valueOf(requestGetMyPostNetMessage.getForumId()), String.valueOf(requestGetMyPostNetMessage.getThreadId()), String.valueOf(requestGetMyPostNetMessage.getPostId()), requestGetMyPostNetMessage.getQType(), requestGetMyPostNetMessage.getFrom(), String.valueOf(requestGetMyPostNetMessage.getCallFrom()));
-            return jSONObject;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) && (mq6Var = this.s) != null) {
+            mq6Var.u(bdUniqueId);
         }
-        return (JSONObject) invokeLL.objValue;
     }
 
-    public final JSONObject f(JSONObject jSONObject, String str, String str2, String str3, int i, String str4, String str5) {
-        InterceptResult invokeCommon;
+    public void c(FrsItemTabFragment frsItemTabFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{jSONObject, str, str2, str3, Integer.valueOf(i), str4, str5})) == null) {
-            try {
-                jSONObject.put("forum_id", str);
-                jSONObject.put("thread_id", str2);
-                jSONObject.put("post_id", str3);
-                jSONObject.put("scr_w", fj.k(TbadkCoreApplication.getInst()));
-                jSONObject.put("scr_h", fj.i(TbadkCoreApplication.getInst()));
-                jSONObject.put("scr_dip", TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                jSONObject.put("q_type", i);
-                jSONObject.put("bfrom", str4);
-                jSONObject.put(IntentConfig.CALL_FROM, str5);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public final void g(int i, String str, GetMyPostResIdl getMyPostResIdl, int i2, JSONObject jSONObject) {
-        DataRes dataRes;
-        User_Info user_Info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, getMyPostResIdl, Integer.valueOf(i2), jSONObject}) == null) {
-            if (i != 0) {
-                this.b.showToast(str);
-                return;
-            }
-            FrsViewData O0 = this.b.O0();
-            if (O0 != null && O0.getForum() != null && getMyPostResIdl != null && this.a != null && this.e != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
-                ys4 ys4Var = new ys4();
-                ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
-                User.Builder builder2 = new User.Builder(builder.author);
-                h(builder2, getMyPostResIdl.data.user_info);
-                User user = builder.author;
-                if (user == null || TextUtils.isEmpty(user.name)) {
-                    builder.author = builder2.build(true);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsItemTabFragment, bdTypeRecyclerView) == null) {
+            this.a = frsItemTabFragment;
+            this.g = new pq6(frsItemTabFragment.getPageContext(), er6.b, frsItemTabFragment.getUniqueId());
+            this.h = new tq6(frsItemTabFragment.getPageContext(), fr6.b, frsItemTabFragment.getUniqueId());
+            this.f = new uq6(frsItemTabFragment.getPageContext(), gr6.b, frsItemTabFragment.getUniqueId());
+            this.e = new nq6(frsItemTabFragment.getPageContext(), cr6.b, frsItemTabFragment.getUniqueId());
+            this.i = new oq6(frsItemTabFragment.getPageContext(), dr6.c, frsItemTabFragment.getUniqueId());
+            this.j = new sq6(frsItemTabFragment.getPageContext(), br6.c, frsItemTabFragment.getUniqueId());
+            this.k = new qq6(frsItemTabFragment.getPageContext(), br6.d, frsItemTabFragment.getUniqueId());
+            this.l = new rq6(frsItemTabFragment.getPageContext(), br6.e, frsItemTabFragment.getUniqueId());
+            dn6 dn6Var = new dn6(frsItemTabFragment.getPageContext(), ThreadData.TYPE_USER_NORMAL, frsItemTabFragment.getUniqueId());
+            this.m = dn6Var;
+            dn6Var.z(true);
+            this.m.setFrom(CommonStatisticKey.KEY_FRS_ITEM_TAB_COMMENT_CLICK);
+            pm6 pm6Var = new pm6(frsItemTabFragment.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, frsItemTabFragment.getUniqueId());
+            this.n = pm6Var;
+            pm6Var.B(new a(this));
+            an6 an6Var = new an6(frsItemTabFragment.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, frsItemTabFragment.getUniqueId());
+            this.o = an6Var;
+            an6Var.B(new b(this));
+            xm6 xm6Var = new xm6(frsItemTabFragment.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, frsItemTabFragment.getUniqueId());
+            this.p = xm6Var;
+            xm6Var.B(new c(this));
+            this.q = new om6(frsItemTabFragment.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, frsItemTabFragment.getUniqueId());
+            this.r = new ym6(frsItemTabFragment.getPageContext(), ThreadData.TYPE_GOD_NORMAL, frsItemTabFragment.getUniqueId());
+            this.c = new bj6(frsItemTabFragment.getPageContext(), cj6.b);
+            this.s = new mq6(frsItemTabFragment.getPageContext().getPageActivity(), ar6.c);
+            this.d.add(this.i);
+            this.d.add(this.g);
+            this.d.add(this.h);
+            this.d.add(this.e);
+            this.d.add(this.f);
+            this.d.add(this.j);
+            this.d.add(this.k);
+            this.d.add(this.l);
+            this.d.add(this.m);
+            this.d.add(this.n);
+            this.d.add(this.o);
+            this.d.add(this.p);
+            this.d.add(this.q);
+            this.d.add(this.r);
+            this.d.add(this.c);
+            this.d.add(this.s);
+            for (jn jnVar : this.d) {
+                if (jnVar instanceof ui6) {
+                    ((ui6) jnVar).A(bdTypeRecyclerView);
                 }
-                User user2 = builder.author;
-                if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
-                    builder.author = builder2.build(true);
+                if (jnVar instanceof x36) {
+                    ((x36) jnVar).p(frsItemTabFragment.a);
                 }
-                builder.cheak_repeat = 1;
-                builder.fname = O0.getForum().getName();
-                builder.fid = Long.valueOf(eh.g(O0.getForum().getId(), 0L));
-                ys4Var.parserProtobuf(builder.build(true));
-                i(ys4Var, i2, jSONObject);
+            }
+            i();
+            bdTypeRecyclerView.a(this.d);
+            j();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void e() {
+        oq6 oq6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (oq6Var = this.i) != null) {
+            oq6Var.notifyDataSetChanged();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (jn jnVar : this.d) {
+                if (jnVar instanceof ui6) {
+                    ((ui6) jnVar).v();
+                } else if (jnVar instanceof mf8) {
+                    ((mf8) jnVar).onDestroy();
+                }
             }
         }
     }
 
-    public final void h(User.Builder builder, User_Info user_Info) {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, builder, user_Info) != null) || user_Info == null) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || ListUtils.isEmpty(this.d) || this.a == null) {
             return;
         }
-        Long l = user_Info.id;
-        builder.id = l;
-        builder.gender = user_Info.gender;
-        builder.type = user_Info.type;
-        builder.name = user_Info.name;
-        builder.name_show = user_Info.name_show;
-        if (l.longValue() == TbadkCoreApplication.getCurrentAccountId()) {
-            builder.portrait = TbadkCoreApplication.getCurrentPortrait();
-        } else {
-            builder.portrait = user_Info.portrait;
+        for (jn jnVar : this.d) {
+            if (jnVar instanceof ui6) {
+                ((ui6) jnVar).C(this.a.getTbPageTag());
+            }
         }
-        builder.god_data = user_Info.god_data;
-        builder.fans_num = user_Info.fans_num;
-        builder.fans_nickname = user_Info.fans_nickname;
-        builder.is_bawu = user_Info.is_bawu;
-        builder.bawu_type = user_Info.bawu_type;
-        builder.new_god_data = user_Info.new_god_data;
-        builder.business_account_info = user_Info.business_account_info;
     }
 
-    public final void i(ys4 ys4Var, int i, JSONObject jSONObject) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, ys4Var, i, jSONObject) == null) {
-            if (i == 1) {
-                FrsTabViewController.p C = this.b.E3().C();
-                if (C != null) {
-                    Fragment fragment = C.b;
-                    if (fragment instanceof FrsCommonTabFragment) {
-                        ((FrsCommonTabFragment) fragment).A1(ys4Var);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a != null && !ListUtils.isEmpty(this.d)) {
+            for (jn jnVar : this.d) {
+                if (jnVar instanceof st6) {
+                    st6 st6Var = (st6) jnVar;
+                    if (st6Var.i() != null) {
+                        st6Var.i().a = this.a.f;
+                        st6Var.i().c = this.a.d;
+                        st6Var.i().d = this.a.e;
+                        st6Var.i().e = this.a.a;
+                        st6Var.i().h = this.a.b;
                     }
                 }
-            } else if (i == 2) {
-                FrsTabViewController.p J = this.b.E3().J(301);
-                if (J != null && (J.b instanceof FrsGoodFragment)) {
-                    this.c.b(301);
-                    ((FrsGoodFragment) J.b).R1(ys4Var);
-                }
-            } else if (ys4Var.getTabId() > 0) {
-                FrsTabViewController.p J2 = this.b.E3().J(ys4Var.getTabId());
-                if (J2 != null) {
-                    Fragment fragment2 = J2.b;
-                    if (fragment2 instanceof FrsCommonTabFragment) {
-                        ((FrsCommonTabFragment) fragment2).A1(ys4Var);
-                    } else if (fragment2 instanceof FrsTabWebFragment) {
-                        ((FrsTabWebFragment) fragment2).R1(ys4Var, jSONObject);
-                    }
-                }
-            } else {
-                if (!ListUtils.isEmpty(ys4Var.getItemStar())) {
-                    ys4Var.insertItemToTitleOrAbstractText();
-                }
-                FrsTabViewController.p J3 = this.b.E3().J(this.b.E3().F());
-                if (J3 != null) {
-                    Fragment fragment3 = J3.b;
-                    if (fragment3 instanceof FrsNewAreaFragment) {
-                        c(ys4Var, (FrsNewAreaFragment) fragment3);
-                    } else {
-                        d(ys4Var);
-                    }
-                }
-            }
-        }
-    }
-
-    public void j(PostWriteCallBackData postWriteCallBackData) {
-        FrsModelController frsModelController;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, postWriteCallBackData) != null) || (frsModelController = this.e) == null) {
-            return;
-        }
-        int i = 0;
-        if (frsModelController.g0() != null && this.e.g0().getIsBrandForum()) {
-            z = true;
-        } else {
-            z = false;
-        }
-        int U = this.e.U();
-        int i2 = 2;
-        if (U != 2 && U != 3 && U != 7 && U != 8 && !z) {
-            return;
-        }
-        int Y = this.e.Y();
-        if (ei6.a().b(1) != null) {
-            i = Y;
-        }
-        if (i == 0 && postWriteCallBackData != null) {
-            long g = eh.g(postWriteCallBackData.getPostId(), 0L);
-            long g2 = eh.g(postWriteCallBackData.getThreadId(), 0L);
-            long g3 = eh.g(this.b.k(), 0L);
-            if (g != 0 && g2 != 0 && g3 != 0) {
-                hh.a().postDelayed(new d(this, postWriteCallBackData, g2, g, g3), 1000L);
-                return;
-            }
-            WriteData writeData = postWriteCallBackData.writeDataForVideo;
-            if (writeData != null) {
-                ys4 ys4Var = new ys4();
-                ys4Var.parseFromWriteData(writeData);
-                JSONObject jSONObject = new JSONObject();
-                String forumId = writeData.getForumId();
-                String threadId = writeData.getThreadId();
-                String repostId = writeData.getRepostId();
-                if (!TbImageHelper.getInstance().isShowBigImage()) {
-                    i2 = 1;
-                }
-                f(jSONObject, forumId, threadId, repostId, i2, "", "0");
-                i(ys4Var, writeData.getProZone(), jSONObject);
             }
         }
     }

@@ -23,7 +23,7 @@ public interface IProcessBridge extends IInterface {
     void send(Message message) throws RemoteException;
 
     /* loaded from: classes2.dex */
-    public abstract class Stub extends Binder implements IProcessBridge {
+    public static abstract class Stub extends Binder implements IProcessBridge {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IProcessBridge";
         public static final int TRANSACTION_callMainProcessAsync = 3;
@@ -39,7 +39,7 @@ public interface IProcessBridge extends IInterface {
         }
 
         /* loaded from: classes2.dex */
-        public class Proxy implements IProcessBridge {
+        public static class Proxy implements IProcessBridge {
             public static /* synthetic */ Interceptable $ic;
             public static IProcessBridge sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -277,7 +277,7 @@ public interface IProcessBridge extends IInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class Default implements IProcessBridge {
+    public static class Default implements IProcessBridge {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

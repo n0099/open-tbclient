@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationManagerCompat;
 import com.ss.android.socialbase.appdownloader.c.n;
 import com.ss.android.socialbase.appdownloader.i;
@@ -13,7 +14,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class d {
     public static final String a = "d";
-    public static List b = new ArrayList();
+    public static List<n> b = new ArrayList();
     public static com.ss.android.socialbase.appdownloader.view.a c;
     public static AlertDialog d;
 
@@ -26,7 +27,7 @@ public class d {
         }
     }
 
-    public static synchronized void a(final Activity activity, final n nVar) {
+    public static synchronized void a(@NonNull final Activity activity, @NonNull final n nVar) {
         synchronized (d.class) {
             if (nVar == null) {
                 return;
@@ -98,7 +99,7 @@ public class d {
         }
     }
 
-    public static void b(Activity activity, n nVar) {
+    public static void b(@NonNull Activity activity, @NonNull n nVar) {
         if (activity != null) {
             try {
                 if (!activity.isFinishing()) {

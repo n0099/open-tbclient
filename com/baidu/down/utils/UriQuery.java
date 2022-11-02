@@ -17,8 +17,8 @@ public class UriQuery {
     public transient /* synthetic */ FieldHolder $fh;
     public String mBackupQuery;
     public boolean mBackupQueryDirty;
-    public HashMap mEncodedValuesCache;
-    public HashMap mParams;
+    public HashMap<String, String> mEncodedValuesCache;
+    public HashMap<String, String> mParams;
     public String mQuery;
 
     static {
@@ -52,10 +52,10 @@ public class UriQuery {
             }
         }
         this.mQuery = "";
-        this.mParams = new HashMap();
+        this.mParams = new HashMap<>();
         this.mBackupQueryDirty = false;
         this.mBackupQuery = null;
-        this.mEncodedValuesCache = new HashMap();
+        this.mEncodedValuesCache = new HashMap<>();
         this.mQuery = str;
         parseQuery();
     }
@@ -64,7 +64,7 @@ public class UriQuery {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            String str2 = (String) this.mEncodedValuesCache.get(str);
+            String str2 = this.mEncodedValuesCache.get(str);
             if (str2 == null) {
                 String encodedValue = Utils.getEncodedValue(str);
                 this.mEncodedValuesCache.put(str, encodedValue);
@@ -79,7 +79,7 @@ public class UriQuery {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return (String) this.mParams.get(str);
+            return this.mParams.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -121,7 +121,7 @@ public class UriQuery {
             for (String str : this.mParams.keySet()) {
                 stringBuffer.append(str);
                 stringBuffer.append("=");
-                stringBuffer.append(getEncodedValue((String) this.mParams.get(str)));
+                stringBuffer.append(getEncodedValue(this.mParams.get(str)));
                 stringBuffer.append("&");
             }
             String stringBuffer2 = stringBuffer.toString();

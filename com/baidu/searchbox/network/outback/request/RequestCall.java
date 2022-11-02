@@ -54,7 +54,7 @@ public class RequestCall implements Cancelable {
         buildCall();
     }
 
-    public Cancelable executeAsync(ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback)) == null) {
@@ -63,7 +63,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeAsyncOnUIBack(ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsyncOnUIBack(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) {
@@ -72,7 +72,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeStat(ResponseCallback responseCallback) {
+    public <T> Cancelable executeStat(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, responseCallback)) == null) {
@@ -81,7 +81,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeStatUIBack(ResponseCallback responseCallback) {
+    public <T> Cancelable executeStatUIBack(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, responseCallback)) == null) {
@@ -223,13 +223,13 @@ public class RequestCall implements Cancelable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendSuccessResult(Handler handler, ResponseCallback responseCallback, Response response) {
+    public <T> void sendSuccessResult(Handler handler, ResponseCallback<T> responseCallback, Response response) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65545, this, handler, responseCallback, response) == null) && response != null) {
             try {
                 recordStatusCode(response.code(), response.message());
                 if (responseCallback != null) {
-                    Object parseResponse = responseCallback.parseResponse(response, response.code());
+                    T parseResponse = responseCallback.parseResponse(response, response.code());
                     if (handler != null) {
                         handler.post(new Runnable(this, parseResponse, responseCallback, response) { // from class: com.baidu.searchbox.network.outback.request.RequestCall.4
                             public static /* synthetic */ Interceptable $ic;
@@ -286,7 +286,7 @@ public class RequestCall implements Cancelable {
         }
     }
 
-    public Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, handler, responseCallback)) == null) {
@@ -344,7 +344,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeLL.objValue;
     }
 
-    public Cancelable executeStatWithHandler(Handler handler, ResponseCallback responseCallback) {
+    public <T> Cancelable executeStatWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, handler, responseCallback)) == null) {

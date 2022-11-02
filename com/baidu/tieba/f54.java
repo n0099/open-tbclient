@@ -1,24 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static void a(ua2 ua2Var) {
+    public f54() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, ua2Var) == null) && ua2Var != null && ua2Var.n().hasEventListener("audiointerruptionbegin") && px3.h().i()) {
-            ua2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(ua2 ua2Var) {
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, ua2Var) == null) && ua2Var != null && ua2Var.n().hasEventListener("audiointerruptionend")) {
-            ua2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

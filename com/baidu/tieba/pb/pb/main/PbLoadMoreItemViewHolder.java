@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -63,7 +63,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
@@ -95,12 +95,12 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         }
         this.i = new a(this, 2921471);
         this.a = view2;
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09183c);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091839);
-        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0916be);
-        this.h = fj.f(this.a.getContext(), R.dimen.tbds156);
-        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0908ef);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091ab9);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09187f);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09187c);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0916fe);
+        this.h = xi.g(this.a.getContext(), R.dimen.tbds156);
+        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0908ff);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091afd);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
@@ -115,7 +115,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
             if (str != null) {
                 this.c.setText(str);
             } else {
-                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0e05));
+                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0e1c));
             }
         }
     }
@@ -132,7 +132,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0a63));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0a6f));
         }
     }
 

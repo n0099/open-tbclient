@@ -19,10 +19,10 @@ public class MPushMessage implements Serializable {
     public String pushType;
     public String taskId;
     public String title;
-    public Map extra = new HashMap();
-    public Map params = new HashMap();
+    public Map<String, String> extra = new HashMap();
+    public Map<String, String> params = new HashMap();
 
-    public static Map getParamsMap(JSONObject jSONObject) {
+    public static Map<String, String> getParamsMap(JSONObject jSONObject) {
         HashMap hashMap = new HashMap();
         try {
             Iterator<String> keys = jSONObject.keys();
@@ -85,7 +85,7 @@ public class MPushMessage implements Serializable {
         return this.content;
     }
 
-    public Map getExtra() {
+    public Map<String, String> getExtra() {
         return this.extra;
     }
 
@@ -101,7 +101,7 @@ public class MPushMessage implements Serializable {
         return this.packageName;
     }
 
-    public Map getParams() {
+    public Map<String, String> getParams() {
         return this.params;
     }
 
@@ -125,7 +125,7 @@ public class MPushMessage implements Serializable {
         this.content = str;
     }
 
-    public void setExtra(Map map) {
+    public void setExtra(Map<String, String> map) {
         this.extra = map;
     }
 
@@ -141,7 +141,7 @@ public class MPushMessage implements Serializable {
         this.packageName = str;
     }
 
-    public void setParams(Map map) {
+    public void setParams(Map<String, String> map) {
         this.params = map;
     }
 

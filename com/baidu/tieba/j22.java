@@ -1,18 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.net.LocalServerSocket;
+import android.net.LocalSocket;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.f22;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,35 +13,117 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import org.json.JSONArray;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
 /* loaded from: classes4.dex */
-public class j22 extends SwanAppWebViewManager implements rp1 {
+public class j22 implements f22.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean y;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context w;
-    public boolean x;
+    public f22.b a;
+    public LocalServerSocket b;
+    public h22 c;
+    public String d;
+    public boolean e;
 
-    public void G(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Map<String, String> a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new HashMap();
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void L0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static abstract class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public a a;
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.up1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "console" : (String) invokeV.objValue;
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        public abstract Map<String, String> b();
+
+        public abstract String c();
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        public final void d(PrintWriter printWriter, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
+                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
+            }
+        }
+
+        public void e(OutputStream outputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
+                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
+                d(printWriter, "Date", simpleDateFormat.format(new Date()));
+                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
+                Map<String, String> b = b();
+                if (b != null && b.size() > 0) {
+                    for (Map.Entry<String, String> entry : b.entrySet()) {
+                        d(printWriter, entry.getKey(), entry.getValue());
+                    }
+                }
+                printWriter.append("\r\n");
+                printWriter.append((CharSequence) a());
+                printWriter.flush();
+            }
+        }
     }
 
     static {
@@ -64,177 +139,77 @@ public class j22 extends SwanAppWebViewManager implements rp1 {
                 return;
             }
         }
-        y = wj1.a;
+        f = ok1.a;
     }
 
-    public void E() {
+    @Override // com.baidu.tieba.f22.c
+    public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m02.n(false);
-            ViewParent parent = r().getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(r());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = false;
+            LocalServerSocket localServerSocket = this.b;
+            if (localServerSocket != null) {
+                try {
+                    localServerSocket.close();
+                } catch (IOException e) {
+                    e12.d("V8InspectorServer", "stop local server fail", e);
+                }
+                this.b = null;
             }
-            destroy();
-        }
-    }
-
-    public final void T() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (context = this.w) != null && (context instanceof Activity)) {
-            ng3.a(context, ((Activity) context).getWindow().getDecorView().getWindowToken());
-        }
-    }
-
-    @Override // com.baidu.tieba.rp1
-    public void V() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (r().getVisibility() != 0) {
-                z = true;
-            } else {
-                z = false;
+            h22 h22Var = this.c;
+            if (h22Var != null) {
+                h22Var.l();
+                this.c = null;
             }
-            P(z);
+            this.a = null;
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.up1
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            T();
-            super.destroy();
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.up1
-    public void e0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.e0();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j22(Context context) {
-        super(context);
+    public j22(String str, f22.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, bVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.x = false;
-        this.w = context;
-        g1();
+        this.d = str;
+        this.a = bVar;
     }
 
-    @Override // com.baidu.tieba.rp1
-    public void F(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.f22.c
+    public void start() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e) {
             return;
         }
-        j(viewGroup, r());
-    }
-
-    public void P(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            NgWebView r = r();
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            r.setVisibility(i);
-        }
-    }
-
-    public final void e1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            if (y) {
-                Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
-            }
-            if (this.x && !z) {
-                return;
-            }
-            pe4 pe4Var = new pe4("sconsole-core", n02.c(), n02.b(), 2);
-            hb4 hb4Var = null;
-            vk1 h = um2.h();
-            if (h != null) {
-                hb4Var = h.d();
-            }
-            wa4.g(pe4Var, hb4Var);
-            this.x = true;
-        }
-    }
-
-    public final boolean f1(ViewGroup viewGroup, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, viewGroup, view2)) == null) {
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                if (viewGroup.getChildAt(i) == view2) {
-                    return true;
+        try {
+            this.b = new LocalServerSocket(this.d);
+            this.e = true;
+            int i = 0;
+            while (this.e) {
+                LocalSocket accept = this.b.accept();
+                h22 h22Var = new h22(accept.getInputStream(), accept.getOutputStream());
+                this.c = h22Var;
+                h22Var.o(this.a);
+                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
+                if (d03.H() && (i = i + 1) > 10) {
+                    if (f) {
+                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
+                        return;
+                    }
+                    return;
                 }
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void j(ViewGroup viewGroup, View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048590, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || f1(viewGroup, view2)) {
-            return;
-        }
-        viewGroup.addView(view2, new FrameLayout.LayoutParams(-1, -1));
-    }
-
-    public void g0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (!TextUtils.isEmpty(str2)) {
-                jSONArray.put(str2);
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("logType", str);
-            hashMap.put("logs", jSONArray.toString());
-            zo2.U().m("console", new nd2("searchboxSConsole", hashMap));
-        }
-    }
-
-    public void g1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            r().setVisibility(8);
-            r().setBackgroundColor(0);
-            File file = new File(n02.a(), "index.html");
-            if (file.exists() && file.isFile()) {
-                loadUrl(Uri.fromFile(file).toString());
-                e1(false);
-                return;
-            }
-            loadUrl("file:///android_asset/aiapps/sConsole.html");
-            n02.d();
-            e1(true);
+        } catch (IOException e) {
+            e12.d("V8InspectorServer", "launch local server fail", e);
         }
     }
 }

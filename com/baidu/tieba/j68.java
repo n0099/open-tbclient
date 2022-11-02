@@ -2,23 +2,13 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.BookInfo;
 /* loaded from: classes4.dex */
-public class j68 implements y58 {
+public class j68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.y58
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
 
     public j68() {
         Interceptable interceptable = $ic;
@@ -32,5 +22,19 @@ public class j68 implements y58 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public void a(BookInfo bookInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bookInfo) != null) || bookInfo == null) {
+            return;
+        }
+        String str = bookInfo.book_id;
+        String str2 = bookInfo.title;
+        String str3 = bookInfo.cover;
+        bookInfo.update_time.intValue();
+        bookInfo.book_type.intValue();
+        bookInfo.forum_id.longValue();
+        bookInfo.total_chapter.intValue();
     }
 }

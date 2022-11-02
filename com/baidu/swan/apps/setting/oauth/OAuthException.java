@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.setting.oauth;
 
+import android.annotation.TargetApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -73,6 +74,7 @@ public class OAuthException extends RuntimeException {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @TargetApi(24)
     public OAuthException(String str, Throwable th, boolean z, boolean z2, int i) {
         super(str, th, z, z2);
         Interceptable interceptable = $ic;

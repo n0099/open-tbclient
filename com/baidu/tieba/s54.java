@@ -1,127 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes5.dex */
 public class s54 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReentrantLock c;
-    public static volatile s54 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public v54 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102391, "Lcom/baidu/tieba/s54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948102391, "Lcom/baidu/tieba/s54;");
-                return;
-            }
-        }
-        c = new ReentrantLock();
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(int i, long j, long j2);
+
+        void b(int i);
+
+        void success();
     }
 
-    public s54() {
+    public static void a(String str, a aVar) {
+        e43 M;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = e43.M()) == null) {
+            return;
         }
-        this.a = new ArrayList(3);
-    }
-
-    public static s54 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (s54.class) {
-                    if (d == null) {
-                        d = new s54();
-                    }
-                }
-            }
-            return d;
+        if (r54.b().d(str)) {
+            aVar.success();
+            return;
         }
-        return (s54) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.a.clear();
-        }
-    }
-
-    public final void c(u54 u54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u54Var) == null) {
-            c.lock();
-            try {
-                if (this.b != null) {
-                    this.b.a(u54Var);
-                } else {
-                    this.a.add(u54Var);
-                }
-            } finally {
-                c.unlock();
-            }
-        }
-    }
-
-    public void f(v54 v54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v54Var) == null) {
-            this.b = v54Var;
-            e();
-        }
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            m02.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
-            u54 u54Var = new u54(str);
-            u54Var.hasUpdate = z;
-            c(u54Var);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.a.isEmpty() && this.b != null) {
-            c.lock();
-            try {
-                for (u54 u54Var : this.a) {
-                    this.b.a(u54Var);
-                }
-                this.a.clear();
-            } finally {
-                c.unlock();
-            }
+        String a2 = r54.b().a(str);
+        if (TextUtils.isEmpty(a2)) {
+            aVar.b(2112);
+        } else {
+            ob4.h(new jf4(M.b, M.k0(), a2, 1), new v54(M.b, M.k0(), r54.b().c(str, 2), aVar));
         }
     }
 }

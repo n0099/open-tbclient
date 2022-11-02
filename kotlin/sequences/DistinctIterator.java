@@ -25,8 +25,6 @@ public final class DistinctIterator<T, K> extends AbstractIterator<T> {
         this.observed = new HashSet<>();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.util.HashSet<K> */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.collections.AbstractIterator
     public void computeNext() {
         while (this.source.hasNext()) {

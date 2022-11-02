@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class d {
     public static ExecutorService a = new ThreadPoolExecutor(2, 2, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("Download_OP_Thread"));
     public int c = 0;
-    public volatile SparseArray b = new SparseArray();
+    public volatile SparseArray<c> b = new SparseArray<>();
 
     public static void a(Runnable runnable) {
         a.execute(runnable);
@@ -25,7 +25,7 @@ public class d {
     public c b(int i) {
         synchronized (d.class) {
             b();
-            c cVar = (c) this.b.get(i);
+            c cVar = this.b.get(i);
             if (cVar != null) {
                 cVar.b();
                 c(cVar);
@@ -39,7 +39,7 @@ public class d {
     public void c(int i) {
         synchronized (d.class) {
             b();
-            c cVar = (c) this.b.get(i);
+            c cVar = this.b.get(i);
             if (cVar != null) {
                 cVar.a();
                 c(cVar);
@@ -53,7 +53,7 @@ public class d {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < this.b.size(); i++) {
                 int keyAt = this.b.keyAt(i);
-                if (!((c) this.b.get(keyAt)).d()) {
+                if (!this.b.get(keyAt).d()) {
                     arrayList.add(Integer.valueOf(keyAt));
                 }
             }
@@ -97,13 +97,13 @@ public class d {
         }
     }
 
-    public List a() {
+    public List<Integer> a() {
         ArrayList arrayList;
         synchronized (d.class) {
             b();
             arrayList = new ArrayList();
             for (int i = 0; i < this.b.size(); i++) {
-                c cVar = (c) this.b.get(this.b.keyAt(i));
+                c cVar = this.b.get(this.b.keyAt(i));
                 if (cVar != null) {
                     arrayList.add(Integer.valueOf(cVar.e()));
                 }
@@ -113,7 +113,7 @@ public class d {
     }
 
     public void a(int i, long j) {
-        c cVar = (c) this.b.get(i);
+        c cVar = this.b.get(i);
         if (cVar != null) {
             cVar.c(j);
         }
@@ -196,7 +196,7 @@ public class d {
         synchronized (d.class) {
             boolean z = false;
             if (this.b != null && this.b.size() > 0) {
-                c cVar = (c) this.b.get(i);
+                c cVar = this.b.get(i);
                 if (cVar != null && cVar.d()) {
                     z = true;
                 }

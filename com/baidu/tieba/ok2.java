@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.davemorrissey.labs.subscaleview.ImageSource;
+import android.view.Surface;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public class ok2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ok2 extends qk2 {
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str.startsWith(ImageSource.FILE_SCHEME)) {
-                str = str.substring(8);
-            }
-            m33 M = m33.M();
-            if (ua3.E(str) && M != null) {
-                return ua3.H(str, M);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
     }
+
+    void W(long j);
+
+    int getVideoHeight();
+
+    int getVideoWidth();
+
+    void m(String str);
+
+    void o(@NonNull a aVar);
+
+    void onSurfaceChanged(int i, int i2);
+
+    void s(int i, int i2, int i3, int i4);
+
+    void setSurface(Surface surface);
+
+    void z(int i);
 }

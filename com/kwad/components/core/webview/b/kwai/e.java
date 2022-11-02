@@ -1,5 +1,6 @@
 package com.kwad.components.core.webview.b.kwai;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,8 @@ public abstract class e implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.core.webview.kwai.c ND;
-    public CopyOnWriteArrayList NE;
+    @NonNull
+    public CopyOnWriteArrayList<com.kwad.sdk.core.response.kwai.a> NE;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -28,20 +30,20 @@ public abstract class e implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
         }
-        this.NE = new CopyOnWriteArrayList();
+        this.NE = new CopyOnWriteArrayList<>();
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             this.ND = cVar;
             if (this.NE.size() > 0) {
-                Iterator it = this.NE.iterator();
+                Iterator<com.kwad.sdk.core.response.kwai.a> it = this.NE.iterator();
                 while (it.hasNext()) {
-                    com.kwad.sdk.core.response.kwai.a aVar = (com.kwad.sdk.core.response.kwai.a) it.next();
-                    b(aVar);
-                    this.NE.remove(aVar);
+                    com.kwad.sdk.core.response.kwai.a next = it.next();
+                    b(next);
+                    this.NE.remove(next);
                 }
             }
         }

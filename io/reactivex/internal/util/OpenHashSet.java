@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class OpenHashSet {
+public final class OpenHashSet<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INT_PHI = -1640531527;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object[] keys;
+    public T[] keys;
     public final float loadFactor;
     public int mask;
     public int maxSize;
@@ -67,28 +67,28 @@ public final class OpenHashSet {
         }
     }
 
-    public boolean add(Object obj) {
+    public boolean add(T t) {
         InterceptResult invokeL;
-        Object obj2;
+        T t2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            Object[] objArr = this.keys;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            T[] tArr = this.keys;
             int i = this.mask;
-            int mix = mix(obj.hashCode()) & i;
-            Object obj3 = objArr[mix];
-            if (obj3 != null) {
-                if (obj3.equals(obj)) {
+            int mix = mix(t.hashCode()) & i;
+            T t3 = tArr[mix];
+            if (t3 != null) {
+                if (t3.equals(t)) {
                     return false;
                 }
                 do {
                     mix = (mix + 1) & i;
-                    obj2 = objArr[mix];
-                    if (obj2 == null) {
+                    t2 = tArr[mix];
+                    if (t2 == null) {
                     }
-                } while (!obj2.equals(obj));
+                } while (!t2.equals(t));
                 return false;
             }
-            objArr[mix] = obj;
+            tArr[mix] = t;
             int i2 = this.size + 1;
             this.size = i2;
             if (i2 >= this.maxSize) {
@@ -118,7 +118,7 @@ public final class OpenHashSet {
         int roundToPowerOfTwo = Pow2.roundToPowerOfTwo(i);
         this.mask = roundToPowerOfTwo - 1;
         this.maxSize = (int) (f * roundToPowerOfTwo);
-        this.keys = new Object[roundToPowerOfTwo];
+        this.keys = (T[]) new Object[roundToPowerOfTwo];
     }
 
     public Object[] keys() {
@@ -142,80 +142,80 @@ public final class OpenHashSet {
     public void rehash() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Object[] objArr = this.keys;
-            int length = objArr.length;
+            T[] tArr = this.keys;
+            int length = tArr.length;
             int i = length << 1;
             int i2 = i - 1;
-            Object[] objArr2 = new Object[i];
+            T[] tArr2 = (T[]) new Object[i];
             int i3 = this.size;
             while (true) {
                 int i4 = i3 - 1;
                 if (i3 != 0) {
                     do {
                         length--;
-                    } while (objArr[length] == null);
-                    int mix = mix(objArr[length].hashCode()) & i2;
-                    if (objArr2[mix] != null) {
+                    } while (tArr[length] == null);
+                    int mix = mix(tArr[length].hashCode()) & i2;
+                    if (tArr2[mix] != null) {
                         do {
                             mix = (mix + 1) & i2;
-                        } while (objArr2[mix] != null);
+                        } while (tArr2[mix] != null);
                     }
-                    objArr2[mix] = objArr[length];
+                    tArr2[mix] = tArr[length];
                     i3 = i4;
                 } else {
                     this.mask = i2;
                     this.maxSize = (int) (i * this.loadFactor);
-                    this.keys = objArr2;
+                    this.keys = tArr2;
                     return;
                 }
             }
         }
     }
 
-    public boolean remove(Object obj) {
+    public boolean remove(T t) {
         InterceptResult invokeL;
-        Object obj2;
+        T t2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            Object[] objArr = this.keys;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            T[] tArr = this.keys;
             int i = this.mask;
-            int mix = mix(obj.hashCode()) & i;
-            Object obj3 = objArr[mix];
-            if (obj3 == null) {
+            int mix = mix(t.hashCode()) & i;
+            T t3 = tArr[mix];
+            if (t3 == null) {
                 return false;
             }
-            if (obj3.equals(obj)) {
-                return removeEntry(mix, objArr, i);
+            if (t3.equals(t)) {
+                return removeEntry(mix, tArr, i);
             }
             do {
                 mix = (mix + 1) & i;
-                obj2 = objArr[mix];
-                if (obj2 == null) {
+                t2 = tArr[mix];
+                if (t2 == null) {
                     return false;
                 }
-            } while (!obj2.equals(obj));
-            return removeEntry(mix, objArr, i);
+            } while (!t2.equals(t));
+            return removeEntry(mix, tArr, i);
         }
         return invokeL.booleanValue;
     }
 
-    public boolean removeEntry(int i, Object[] objArr, int i2) {
+    public boolean removeEntry(int i, T[] tArr, int i2) {
         InterceptResult invokeCommon;
         int i3;
-        Object obj;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), objArr, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), tArr, Integer.valueOf(i2)})) == null) {
             this.size--;
             while (true) {
                 int i4 = i + 1;
                 while (true) {
                     i3 = i4 & i2;
-                    obj = objArr[i3];
-                    if (obj == null) {
-                        objArr[i] = null;
+                    t = tArr[i3];
+                    if (t == null) {
+                        tArr[i] = null;
                         return true;
                     }
-                    int mix = mix(obj.hashCode()) & i2;
+                    int mix = mix(t.hashCode()) & i2;
                     if (i <= i3) {
                         if (i < mix && mix <= i3) {
                             i4 = i3 + 1;
@@ -227,7 +227,7 @@ public final class OpenHashSet {
                         i4 = i3 + 1;
                     }
                 }
-                objArr[i] = obj;
+                tArr[i] = t;
                 i = i3;
             }
         } else {

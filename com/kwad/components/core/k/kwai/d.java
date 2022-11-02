@@ -1,5 +1,6 @@
 package com.kwad.components.core.k.kwai;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ public final class d implements com.kwad.sdk.core.b {
     public long photoId;
 
     @Override // com.kwad.sdk.core.b
-    public final void parseJson(JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
         }

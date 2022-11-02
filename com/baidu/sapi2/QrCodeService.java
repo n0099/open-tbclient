@@ -533,7 +533,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         return (QrCodeService) invokeLL.objValue;
     }
 
-    public void getQrCodeImage(SapiCallback sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
+    public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
@@ -571,7 +571,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         }
     }
 
-    public void getQrCodeLoginWithEnuidImage(SapiCallback sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
+    public void getQrCodeLoginWithEnuidImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
         GetQrCodeImageDTO getQrCodeImageDTO2;
         String str3;
         Interceptable interceptable = $ic;
@@ -632,7 +632,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         }
     }
 
-    public void qrAppLogin(SapiCallback sapiCallback, String str, String str2) {
+    public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, sapiCallback, str, str2) == null) {
@@ -640,8 +640,8 @@ public class QrCodeService extends AbstractService implements NoProguard {
             SapiUtils.notEmpty(str2, "cmd can't be empty");
             QrAppLoginResult qrAppLoginResult = new QrAppLoginResult();
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            Map urlParamsToMap = SapiUtils.urlParamsToMap(str);
-            httpHashMapWrap.put("sign", (String) urlParamsToMap.get("sign"));
+            Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str);
+            httpHashMapWrap.put("sign", urlParamsToMap.get("sign"));
             httpHashMapWrap.put("cmd", str2);
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             if (currentAccount != null) {
@@ -651,10 +651,10 @@ public class QrCodeService extends AbstractService implements NoProguard {
             }
             StringBuilder sb = new StringBuilder();
             sb.append("/v2/sapi/qrlogin?lp=");
-            if (TextUtils.isEmpty((CharSequence) urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP))) {
+            if (TextUtils.isEmpty(urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP))) {
                 str3 = "app";
             } else {
-                str3 = (String) urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP);
+                str3 = urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP);
             }
             sb.append(str3);
             new HttpClientWrap().post(sb.toString(), httpHashMapWrap, null, getUaInfo(), new e(this, Looper.getMainLooper(), sapiCallback, qrAppLoginResult));

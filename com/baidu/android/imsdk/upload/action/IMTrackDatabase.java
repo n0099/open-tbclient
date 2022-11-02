@@ -1,11 +1,13 @@
 package com.baidu.android.imsdk.upload.action;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.track.Ack;
@@ -36,6 +38,7 @@ public class IMTrackDatabase {
     public static final int MAX_QUERY_COUNT = 1000;
     public static String TAG = "IMTrackDatabase";
     public static DbOpenHelper dbOpenHelper;
+    @SuppressLint({"StaticFieldLeak"})
     public static IMTrackDatabase instance;
     public static final Object myLock;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +46,7 @@ public class IMTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class AckEnum {
+    public static final class AckEnum {
         public static final /* synthetic */ AckEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "ack";
@@ -118,7 +121,7 @@ public class IMTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class ConnectionEnum {
+    public static final class ConnectionEnum {
         public static final /* synthetic */ ConnectionEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "connection";
@@ -197,7 +200,7 @@ public class IMTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class CrashEnum {
+    public static final class CrashEnum {
         public static final /* synthetic */ CrashEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "crash";
@@ -270,7 +273,7 @@ public class IMTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class DbEnum {
+    public static final class DbEnum {
         public static final /* synthetic */ DbEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "db";
@@ -352,7 +355,7 @@ public class IMTrackDatabase {
     }
 
     /* loaded from: classes.dex */
-    public class DbOpenHelper extends SQLiteOpenHelper {
+    public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_ACK;
         public static final String SQL_TABLE_CREATE_CONNECTION;
@@ -522,7 +525,7 @@ public class IMTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class MsgEnum {
+    public static final class MsgEnum {
         public static final /* synthetic */ MsgEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "msg";
@@ -601,7 +604,7 @@ public class IMTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class RequestEnum {
+    public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "request";
@@ -680,7 +683,7 @@ public class IMTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class UiEnum {
+    public static final class UiEnum {
         public static final /* synthetic */ UiEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "ui";
@@ -809,6 +812,7 @@ public class IMTrackDatabase {
         return (SQLiteDatabase) invokeL.objValue;
     }
 
+    @Nullable
     private void checkDadabaseMaxCount(SQLiteDatabase sQLiteDatabase, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, sQLiteDatabase, str) == null) {
@@ -1008,7 +1012,7 @@ public class IMTrackDatabase {
         }
     }
 
-    public List getAcks() {
+    public List<Ack> getAcks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -1048,7 +1052,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List getConnections() {
+    public List<Connection> getConnections() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -1090,7 +1094,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List getDbs() {
+    public List<Db> getDbs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -1134,7 +1138,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List getMsgs() {
+    public List<Msg> getMsgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -1176,7 +1180,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List getRequests() {
+    public List<Request> getRequests() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -1218,7 +1222,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List getUis() {
+    public List<Ui> getUis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -1260,7 +1264,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List getCrashes() {
+    public List<Crash> getCrashes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

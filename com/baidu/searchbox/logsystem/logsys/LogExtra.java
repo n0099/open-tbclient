@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class LogExtra implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LogExtra> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String mCrashThreadName;
     public String mCrashThreadPriority;
@@ -59,7 +59,7 @@ public final class LogExtra implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.searchbox.logsystem.logsys.LogExtra.1
+        CREATOR = new Parcelable.Creator<LogExtra>() { // from class: com.baidu.searchbox.logsystem.logsys.LogExtra.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,6 +78,7 @@ public final class LogExtra implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LogExtra createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -89,6 +90,7 @@ public final class LogExtra implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LogExtra[] newArray(int i) {
                 InterceptResult invokeI;

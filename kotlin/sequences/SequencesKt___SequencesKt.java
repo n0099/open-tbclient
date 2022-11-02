@@ -25,12 +25,17 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import kotlin.Deprecated;
 import kotlin.DeprecatedSinceKotlin;
+import kotlin.ExperimentalStdlibApi;
+import kotlin.ExperimentalUnsignedTypes;
 import kotlin.Metadata;
+import kotlin.OverloadResolutionByLambdaReturnType;
 import kotlin.Pair;
 import kotlin.ReplaceWith;
+import kotlin.SinceKotlin;
 import kotlin.UInt;
 import kotlin.ULong;
 import kotlin.Unit;
+import kotlin.WasExperimental;
 import kotlin.collections.ArraysKt___ArraysJvmKt;
 import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.collections.CollectionsKt__CollectionsKt;
@@ -45,7 +50,9 @@ import kotlin.collections.SlidingWindowKt;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareBy$2;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareByDescending$1;
+import kotlin.internal.InlineOnly;
 import kotlin.internal.PlatformImplementationsKt;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
@@ -56,55 +63,57 @@ import kotlin.text.StringsKt__AppendableKt;
 public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.sequences.Sequence<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
+    @InlineOnly
     public static final <T> Sequence<T> asSequence(Sequence<? extends T> sequence) {
         return sequence;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     public static final <T> boolean all(Sequence<? extends T> all, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        Iterator it = all.iterator();
+        Iterator<? extends T> it = all.iterator();
         while (it.hasNext()) {
-            if (!((Boolean) predicate.invoke(it.next())).booleanValue()) {
+            if (!predicate.invoke((T) it.next()).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     public static final <T> boolean any(Sequence<? extends T> any, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        Iterator it = any.iterator();
+        Iterator<? extends T> it = any.iterator();
         while (it.hasNext()) {
-            if (((Boolean) predicate.invoke(it.next())).booleanValue()) {
+            if (predicate.invoke((T) it.next()).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V> Map<K, V> associate(Sequence<? extends T> associate, Function1<? super T, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        Iterator it = associate.iterator();
+        Iterator<? extends T> it = associate.iterator();
         while (it.hasNext()) {
-            Pair pair = (Pair) transform.invoke(it.next());
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke((T) it.next());
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K> Map<K, T> associateBy(Sequence<? extends T> associateBy, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (Object obj : associateBy) {
+        Iterator<? extends T> it = associateBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             linkedHashMap.put(keySelector.invoke(obj), obj);
         }
         return linkedHashMap;
@@ -112,16 +121,20 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.3")
     public static final <K, V> Map<K, V> associateWith(Sequence<? extends K> associateWith, Function1<? super K, ? extends V> valueSelector) {
         Intrinsics.checkNotNullParameter(associateWith, "$this$associateWith");
         Intrinsics.checkNotNullParameter(valueSelector, "valueSelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (Object obj : associateWith) {
+        Iterator<? extends K> it = associateWith.iterator();
+        while (it.hasNext()) {
+            Object obj = (K) it.next();
             linkedHashMap.put(obj, valueSelector.invoke(obj));
         }
         return linkedHashMap;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T> Sequence<List<T>> chunked(Sequence<? extends T> chunked, int i) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         return windowed(chunked, i, i, true);
@@ -201,50 +214,59 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     public static final <C extends Collection<? super T>, T> C filterNotNullTo(Sequence<? extends T> filterNotNullTo, C destination) {
         Intrinsics.checkNotNullParameter(filterNotNullTo, "$this$filterNotNullTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        for (Object obj : filterNotNullTo) {
-            if (obj != null) {
-                destination.add(obj);
+        for (T t : filterNotNullTo) {
+            if (t != null) {
+                destination.add(t);
             }
         }
         return destination;
     }
 
+    /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
+    @InlineOnly
     public static final <T> T find(Sequence<? extends T> sequence, Function1<? super T, Boolean> function1) {
         for (T t : sequence) {
-            if (((Boolean) function1.invoke(t)).booleanValue()) {
+            if (function1.invoke(t).booleanValue()) {
                 return t;
             }
         }
         return null;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    @InlineOnly
     public static final <T> T findLast(Sequence<? extends T> sequence, Function1<? super T, Boolean> function1) {
         T t = null;
-        for (Object obj : sequence) {
-            if (((Boolean) function1.invoke(obj)).booleanValue()) {
-                t = (T) obj;
+        for (T t2 : sequence) {
+            if (function1.invoke(t2).booleanValue()) {
+                t = t2;
             }
         }
         return t;
     }
 
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
     public static final <T> T first(Sequence<? extends T> first, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(first, "$this$first");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : first) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 return t;
             }
         }
         throw new NoSuchElementException("Sequence contains no element matching the predicate.");
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <T, R> R firstNotNullOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
         R r;
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         while (true) {
             if (it.hasNext()) {
-                r = (R) function1.invoke(it.next());
+                r = function1.invoke((T) it.next());
                 if (r != null) {
                     break;
                 }
@@ -259,22 +281,26 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         throw new NoSuchElementException("No element of the sequence was transformed to a non-null value.");
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <T, R> R firstNotNullOfOrNull(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            R r = (R) function1.invoke(it.next());
-            if (r != null) {
-                return r;
+            R invoke = function1.invoke((T) it.next());
+            if (invoke != null) {
+                return invoke;
             }
         }
         return null;
     }
 
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
     public static final <T> T firstOrNull(Sequence<? extends T> firstOrNull, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (T t : firstOrNull) {
-            if (((Boolean) predicate.invoke(t)).booleanValue()) {
+            if (predicate.invoke(t).booleanValue()) {
                 return t;
             }
         }
@@ -287,33 +313,44 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new FlatteningSequence(flatMap, transform, SequencesKt___SequencesKt$flatMap$2.INSTANCE);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapIndexedIterable")
     public static final <T, R> Sequence<R> flatMapIndexedIterable(Sequence<? extends T> flatMapIndexed, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMapIndexed, "$this$flatMapIndexed");
         Intrinsics.checkNotNullParameter(transform, "transform");
         return SequencesKt__SequencesKt.flatMapIndexed(flatMapIndexed, transform, SequencesKt___SequencesKt$flatMapIndexed$1.INSTANCE);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapIndexedSequence")
     public static final <T, R> Sequence<R> flatMapIndexedSequence(Sequence<? extends T> flatMapIndexed, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMapIndexed, "$this$flatMapIndexed");
         Intrinsics.checkNotNullParameter(transform, "transform");
         return SequencesKt__SequencesKt.flatMapIndexed(flatMapIndexed, transform, SequencesKt___SequencesKt$flatMapIndexed$2.INSTANCE);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapIterable")
     public static final <T, R> Sequence<R> flatMapIterable(Sequence<? extends T> flatMap, Function1<? super T, ? extends Iterable<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMap, "$this$flatMap");
         Intrinsics.checkNotNullParameter(transform, "transform");
         return new FlatteningSequence(flatMap, transform, SequencesKt___SequencesKt$flatMap$1.INSTANCE);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     public static final <T> void forEach(Sequence<? extends T> forEach, Function1<? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(forEach, "$this$forEach");
         Intrinsics.checkNotNullParameter(action, "action");
-        Iterator it = forEach.iterator();
+        Iterator<? extends T> it = forEach.iterator();
         while (it.hasNext()) {
-            action.invoke(it.next());
+            action.invoke((T) it.next());
         }
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <T, K> Grouping<T, K> groupingBy(final Sequence<? extends T> groupingBy, final Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupingBy, "$this$groupingBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -334,11 +371,11 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     public static final <T> int indexOf(Sequence<? extends T> indexOf, T t) {
         Intrinsics.checkNotNullParameter(indexOf, "$this$indexOf");
         int i = 0;
-        for (Object obj : indexOf) {
+        for (T t2 : indexOf) {
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            if (Intrinsics.areEqual(t, obj)) {
+            if (Intrinsics.areEqual(t, t2)) {
                 return i;
             }
             i++;
@@ -350,11 +387,11 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(lastIndexOf, "$this$lastIndexOf");
         int i = -1;
         int i2 = 0;
-        for (Object obj : lastIndexOf) {
+        for (T t2 : lastIndexOf) {
             if (i2 < 0) {
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            if (Intrinsics.areEqual(t, obj)) {
+            if (Intrinsics.areEqual(t, t2)) {
                 i = i2;
             }
             i2++;
@@ -362,13 +399,15 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return i;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T> T lastOrNull(Sequence<? extends T> lastOrNull, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(lastOrNull, "$this$lastOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         T t = null;
-        for (Object obj : lastOrNull) {
-            if (((Boolean) predicate.invoke(obj)).booleanValue()) {
-                t = (T) obj;
+        for (T t2 : lastOrNull) {
+            if (predicate.invoke(t2).booleanValue()) {
+                t = t2;
             }
         }
         return t;
@@ -398,22 +437,24 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return filterNotNull(new TransformingSequence(mapNotNull, transform));
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v9, types: [java.lang.Comparable] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R extends Comparable<? super R>> R maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        R r = (R) function1.invoke(it.next());
+        R invoke = function1.invoke((T) it.next());
         while (it.hasNext()) {
-            ?? r1 = (Comparable) function1.invoke(it.next());
-            if (r.compareTo(r1) < 0) {
-                r = r1;
+            R invoke2 = function1.invoke((T) it.next());
+            if (invoke.compareTo(invoke2) < 0) {
+                invoke = invoke2;
             }
         }
-        return r;
+        return invoke;
     }
 
     @Deprecated(message = "Use maxWithOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxWithOrNull(comparator)", imports = {}))
@@ -424,41 +465,45 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return (T) maxWithOrNull(maxWith, comparator);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object */
     /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: T, ? super T */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
     public static final <T> T maxWithOrNull(Sequence<? extends T> maxWithOrNull, Comparator<? super T> comparator) {
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
-        Iterator it = maxWithOrNull.iterator();
+        Iterator<? extends T> it = maxWithOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
         Object obj = (T) it.next();
         while (it.hasNext()) {
-            Object obj2 = (Object) it.next();
-            if (comparator.compare(obj, obj2) < 0) {
-                obj = (T) obj2;
+            T next = it.next();
+            if (comparator.compare(obj, next) < 0) {
+                obj = next;
             }
         }
         return (T) obj;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v9, types: [java.lang.Comparable] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R extends Comparable<? super R>> R minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        R r = (R) function1.invoke(it.next());
+        R invoke = function1.invoke((T) it.next());
         while (it.hasNext()) {
-            ?? r1 = (Comparable) function1.invoke(it.next());
-            if (r.compareTo(r1) > 0) {
-                r = r1;
+            R invoke2 = function1.invoke((T) it.next());
+            if (invoke.compareTo(invoke2) > 0) {
+                invoke = invoke2;
             }
         }
-        return r;
+        return invoke;
     }
 
     @Deprecated(message = "Use minWithOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minWithOrNull(comparator)", imports = {}))
@@ -469,20 +514,22 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return (T) minWithOrNull(minWith, comparator);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object */
     /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: T, ? super T */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
     public static final <T> T minWithOrNull(Sequence<? extends T> minWithOrNull, Comparator<? super T> comparator) {
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
-        Iterator it = minWithOrNull.iterator();
+        Iterator<? extends T> it = minWithOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
         Object obj = (T) it.next();
         while (it.hasNext()) {
-            Object obj2 = (Object) it.next();
-            if (comparator.compare(obj, obj2) > 0) {
-                obj = (T) obj2;
+            T next = it.next();
+            if (comparator.compare(obj, next) > 0) {
+                obj = next;
             }
         }
         return (T) obj;
@@ -503,28 +550,32 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         };
     }
 
+    @InlineOnly
     public static final <T> Sequence<T> minusElement(Sequence<? extends T> sequence, T t) {
         return minus(sequence, t);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     public static final <T> boolean none(Sequence<? extends T> none, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        Iterator it = none.iterator();
+        Iterator<? extends T> it = none.iterator();
         while (it.hasNext()) {
-            if (((Boolean) predicate.invoke(it.next())).booleanValue()) {
+            if (predicate.invoke((T) it.next()).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <T> Sequence<T> onEach(Sequence<? extends T> onEach, Function1<? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(onEach, "$this$onEach");
         Intrinsics.checkNotNullParameter(action, "action");
         return map(onEach, new SequencesKt___SequencesKt$onEach$1(action));
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T> Sequence<T> onEachIndexed(Sequence<? extends T> onEachIndexed, Function2<? super Integer, ? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(onEachIndexed, "$this$onEachIndexed");
         Intrinsics.checkNotNullParameter(action, "action");
@@ -537,68 +588,78 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return SequencesKt__SequencesKt.flatten(SequencesKt__SequencesKt.sequenceOf(plus, CollectionsKt___CollectionsKt.asSequence(elements)));
     }
 
+    @InlineOnly
     public static final <T> Sequence<T> plusElement(Sequence<? extends T> sequence, T t) {
         return plus(sequence, t);
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T extends S, ? super T extends S */
     public static final <S, T extends S> S reduce(Sequence<? extends T> reduce, Function2<? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduce, "$this$reduce");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        Iterator it = reduce.iterator();
+        Iterator<? extends T> it = reduce.iterator();
         if (it.hasNext()) {
-            S s = (S) it.next();
+            S next = it.next();
             while (it.hasNext()) {
-                s = (S) operation.invoke(s, it.next());
+                next = operation.invoke(next, (T) it.next());
             }
-            return s;
+            return (S) next;
         }
         throw new UnsupportedOperationException("Empty sequence can't be reduced.");
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T extends S, ? super T extends S */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <S, T extends S> S reduceOrNull(Sequence<? extends T> reduceOrNull, Function2<? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        Iterator it = reduceOrNull.iterator();
+        Iterator<? extends T> it = reduceOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        S s = (S) it.next();
+        S next = it.next();
         while (it.hasNext()) {
-            s = (S) operation.invoke(s, it.next());
+            next = operation.invoke(next, (T) it.next());
         }
-        return s;
+        return (S) next;
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <S, T extends S> Sequence<S> runningReduce(Sequence<? extends T> runningReduce, Function2<? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(runningReduce, "$this$runningReduce");
         Intrinsics.checkNotNullParameter(operation, "operation");
         return SequencesKt__SequenceBuilderKt.sequence(new SequencesKt___SequencesKt$runningReduce$1(runningReduce, operation, null));
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <S, T extends S> Sequence<S> runningReduceIndexed(Sequence<? extends T> runningReduceIndexed, Function3<? super Integer, ? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(runningReduceIndexed, "$this$runningReduceIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         return SequencesKt__SequenceBuilderKt.sequence(new SequencesKt___SequencesKt$runningReduceIndexed$1(runningReduceIndexed, operation, null));
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T> T singleOrNull(Sequence<? extends T> singleOrNull, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(singleOrNull, "$this$singleOrNull");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         boolean z = false;
         T t = null;
-        for (Object obj : singleOrNull) {
-            if (((Boolean) predicate.invoke(obj)).booleanValue()) {
+        for (T t2 : singleOrNull) {
+            if (predicate.invoke(t2).booleanValue()) {
                 if (z) {
                     return null;
                 }
                 z = true;
-                t = (T) obj;
+                t = t2;
             }
         }
-        if (z) {
-            return t;
+        if (!z) {
+            return null;
         }
-        return null;
+        return t;
     }
 
     public static final <T, R extends Comparable<? super R>> Sequence<T> sortedBy(Sequence<? extends T> sortedBy, Function1<? super T, ? extends R> selector) {
@@ -626,73 +687,102 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         };
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     @Deprecated(message = "Use sumOf instead.", replaceWith = @ReplaceWith(expression = "this.sumOf(selector)", imports = {}))
     @DeprecatedSinceKotlin(warningSince = "1.5")
     public static final <T> int sumBy(Sequence<? extends T> sumBy, Function1<? super T, Integer> selector) {
         Intrinsics.checkNotNullParameter(sumBy, "$this$sumBy");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        Iterator it = sumBy.iterator();
+        Iterator<? extends T> it = sumBy.iterator();
         int i = 0;
         while (it.hasNext()) {
-            i += ((Number) selector.invoke(it.next())).intValue();
+            i += selector.invoke((T) it.next()).intValue();
         }
         return i;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     @Deprecated(message = "Use sumOf instead.", replaceWith = @ReplaceWith(expression = "this.sumOf(selector)", imports = {}))
     @DeprecatedSinceKotlin(warningSince = "1.5")
     public static final <T> double sumByDouble(Sequence<? extends T> sumByDouble, Function1<? super T, Double> selector) {
         Intrinsics.checkNotNullParameter(sumByDouble, "$this$sumByDouble");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        Iterator it = sumByDouble.iterator();
+        Iterator<? extends T> it = sumByDouble.iterator();
         double d = 0.0d;
         while (it.hasNext()) {
-            d += ((Number) selector.invoke(it.next())).doubleValue();
+            d += selector.invoke((T) it.next()).doubleValue();
         }
         return d;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> double sumOfDouble(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
         double d = 0;
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            d += ((Number) function1.invoke(it.next())).doubleValue();
+            d += function1.invoke((T) it.next()).doubleValue();
         }
         return d;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> int sumOfInt(Sequence<? extends T> sequence, Function1<? super T, Integer> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         int i = 0;
         while (it.hasNext()) {
-            i += ((Number) function1.invoke(it.next())).intValue();
+            i += function1.invoke((T) it.next()).intValue();
         }
         return i;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final <T> long sumOfLong(Sequence<? extends T> sequence, Function1<? super T, Long> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         long j = 0;
         while (it.hasNext()) {
-            j += ((Number) function1.invoke(it.next())).longValue();
+            j += function1.invoke((T) it.next()).longValue();
         }
         return j;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> int sumOfUInt(Sequence<? extends T> sequence, Function1<? super T, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(it.next())).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke((T) it.next()).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> long sumOfULong(Sequence<? extends T> sequence, Function1<? super T, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(it.next())).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke((T) it.next()).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -706,9 +796,8 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     public static final <T, C extends Collection<? super T>> C toCollection(Sequence<? extends T> toCollection, C destination) {
         Intrinsics.checkNotNullParameter(toCollection, "$this$toCollection");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        Iterator it = toCollection.iterator();
-        while (it.hasNext()) {
-            destination.add(it.next());
+        for (T t : toCollection) {
+            destination.add(t);
         }
         return destination;
     }
@@ -719,6 +808,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new MergingSequence(zip, other, SequencesKt___SequencesKt$zip$1.INSTANCE);
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T, R> Sequence<R> zipWithNext(Sequence<? extends T> zipWithNext, Function2<? super T, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -735,12 +825,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new SequencesKt___SequencesKt$asIterable$$inlined$Iterable$1(asIterable);
     }
 
+    @JvmName(name = "averageOfByte")
     public static final double averageOfByte(Sequence<Byte> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
         int i = 0;
-        for (Number number : average) {
-            d += number.byteValue();
+        for (Byte b : average) {
+            d += b.byteValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -752,12 +843,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfDouble")
     public static final double averageOfDouble(Sequence<Double> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
         int i = 0;
-        for (Number number : average) {
-            d += number.doubleValue();
+        for (Double d2 : average) {
+            d += d2.doubleValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -769,12 +861,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfFloat")
     public static final double averageOfFloat(Sequence<Float> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
         int i = 0;
-        for (Number number : average) {
-            d += number.floatValue();
+        for (Float f : average) {
+            d += f.floatValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -786,12 +879,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfInt")
     public static final double averageOfInt(Sequence<Integer> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
         int i = 0;
-        for (Number number : average) {
-            d += number.intValue();
+        for (Integer num : average) {
+            d += num.intValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -803,12 +897,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfLong")
     public static final double averageOfLong(Sequence<Long> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
         int i = 0;
-        for (Number number : average) {
-            d += number.longValue();
+        for (Long l : average) {
+            d += l.longValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -820,12 +915,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return d / i;
     }
 
+    @JvmName(name = "averageOfShort")
     public static final double averageOfShort(Sequence<Short> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
         double d = 0.0d;
         int i = 0;
-        for (Number number : average) {
-            d += number.shortValue();
+        for (Short sh : average) {
+            d += sh.shortValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -839,7 +935,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     public static final <T> int count(Sequence<? extends T> count) {
         Intrinsics.checkNotNullParameter(count, "$this$count");
-        Iterator it = count.iterator();
+        Iterator<? extends T> it = count.iterator();
         int i = 0;
         while (it.hasNext()) {
             it.next();
@@ -877,46 +973,46 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     public static final <T> T first(Sequence<? extends T> first) {
         Intrinsics.checkNotNullParameter(first, "$this$first");
-        Iterator it = first.iterator();
+        Iterator<? extends T> it = first.iterator();
         if (it.hasNext()) {
-            return (T) it.next();
+            return it.next();
         }
         throw new NoSuchElementException("Sequence is empty.");
     }
 
     public static final <T> T firstOrNull(Sequence<? extends T> firstOrNull) {
         Intrinsics.checkNotNullParameter(firstOrNull, "$this$firstOrNull");
-        Iterator it = firstOrNull.iterator();
+        Iterator<? extends T> it = firstOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        return (T) it.next();
+        return it.next();
     }
 
     public static final <T> T last(Sequence<? extends T> last) {
         Intrinsics.checkNotNullParameter(last, "$this$last");
-        Iterator it = last.iterator();
+        Iterator<? extends T> it = last.iterator();
         if (it.hasNext()) {
-            T t = (T) it.next();
+            T next = it.next();
             while (it.hasNext()) {
-                t = (T) it.next();
+                next = it.next();
             }
-            return t;
+            return next;
         }
         throw new NoSuchElementException("Sequence is empty.");
     }
 
     public static final <T> T lastOrNull(Sequence<? extends T> lastOrNull) {
         Intrinsics.checkNotNullParameter(lastOrNull, "$this$lastOrNull");
-        Iterator it = lastOrNull.iterator();
+        Iterator<? extends T> it = lastOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        T t = (T) it.next();
+        T next = it.next();
         while (it.hasNext()) {
-            t = (T) it.next();
+            next = it.next();
         }
-        return t;
+        return next;
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
@@ -926,22 +1022,21 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return (T) maxOrNull(max);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
     public static final <T extends Comparable<? super T>> T maxOrNull(Sequence<? extends T> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
-        Iterator it = maxOrNull.iterator();
+        Iterator<? extends T> it = maxOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        T t = (T) it.next();
+        T next = it.next();
         while (it.hasNext()) {
-            ?? r1 = (Comparable) it.next();
-            if (t.compareTo(r1) < 0) {
-                t = r1;
+            T next2 = it.next();
+            if (next.compareTo(next2) < 0) {
+                next = next2;
             }
         }
-        return t;
+        return next;
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
@@ -951,22 +1046,21 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return (T) minOrNull(min);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
     public static final <T extends Comparable<? super T>> T minOrNull(Sequence<? extends T> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
-        Iterator it = minOrNull.iterator();
+        Iterator<? extends T> it = minOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        T t = (T) it.next();
+        T next = it.next();
         while (it.hasNext()) {
-            ?? r1 = (Comparable) it.next();
-            if (t.compareTo(r1) > 0) {
-                t = r1;
+            T next2 = it.next();
+            if (next.compareTo(next2) > 0) {
+                next = next2;
             }
         }
-        return t;
+        return next;
     }
 
     public static final <T> boolean none(Sequence<? extends T> none) {
@@ -981,11 +1075,11 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     public static final <T> T single(Sequence<? extends T> single) {
         Intrinsics.checkNotNullParameter(single, "$this$single");
-        Iterator it = single.iterator();
+        Iterator<? extends T> it = single.iterator();
         if (it.hasNext()) {
-            T t = (T) it.next();
+            T next = it.next();
             if (!it.hasNext()) {
-                return t;
+                return next;
             }
             throw new IllegalArgumentException("Sequence has more than one element.");
         }
@@ -994,15 +1088,15 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     public static final <T> T singleOrNull(Sequence<? extends T> singleOrNull) {
         Intrinsics.checkNotNullParameter(singleOrNull, "$this$singleOrNull");
-        Iterator it = singleOrNull.iterator();
+        Iterator<? extends T> it = singleOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        T t = (T) it.next();
+        T next = it.next();
         if (it.hasNext()) {
             return null;
         }
-        return t;
+        return next;
     }
 
     public static final <T extends Comparable<? super T>> Sequence<T> sorted(final Sequence<? extends T> sorted) {
@@ -1022,56 +1116,62 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return sortedWith(sortedDescending, ComparisonsKt__ComparisonsKt.reverseOrder());
     }
 
+    @JvmName(name = "sumOfByte")
     public static final int sumOfByte(Sequence<Byte> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
-        for (Number number : sum) {
-            i += number.byteValue();
+        for (Byte b : sum) {
+            i += b.byteValue();
         }
         return i;
     }
 
+    @JvmName(name = "sumOfDouble")
     public static final double sumOfDouble(Sequence<Double> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         double d = 0.0d;
-        for (Number number : sum) {
-            d += number.doubleValue();
+        for (Double d2 : sum) {
+            d += d2.doubleValue();
         }
         return d;
     }
 
+    @JvmName(name = "sumOfFloat")
     public static final float sumOfFloat(Sequence<Float> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         float f = 0.0f;
-        for (Number number : sum) {
-            f += number.floatValue();
+        for (Float f2 : sum) {
+            f += f2.floatValue();
         }
         return f;
     }
 
+    @JvmName(name = "sumOfInt")
     public static final int sumOfInt(Sequence<Integer> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
-        for (Number number : sum) {
-            i += number.intValue();
+        for (Integer num : sum) {
+            i += num.intValue();
         }
         return i;
     }
 
+    @JvmName(name = "sumOfLong")
     public static final long sumOfLong(Sequence<Long> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         long j = 0;
-        for (Number number : sum) {
-            j += number.longValue();
+        for (Long l : sum) {
+            j += l.longValue();
         }
         return j;
     }
 
+    @JvmName(name = "sumOfShort")
     public static final int sumOfShort(Sequence<Short> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
-        for (Number number : sum) {
-            i += number.shortValue();
+        for (Short sh : sum) {
+            i += sh.shortValue();
         }
         return i;
     }
@@ -1094,9 +1194,8 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     public static final <T> Set<T> toMutableSet(Sequence<? extends T> toMutableSet) {
         Intrinsics.checkNotNullParameter(toMutableSet, "$this$toMutableSet");
         LinkedHashSet linkedHashSet = new LinkedHashSet();
-        Iterator it = toMutableSet.iterator();
-        while (it.hasNext()) {
-            linkedHashSet.add(it.next());
+        for (T t : toMutableSet) {
+            linkedHashSet.add(t);
         }
         return linkedHashSet;
     }
@@ -1111,62 +1210,67 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new IndexingSequence(withIndex);
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T> Sequence<Pair<T, T>> zipWithNext(Sequence<? extends T> zipWithNext) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         return zipWithNext(zipWithNext, SequencesKt___SequencesKt$zipWithNext$1.INSTANCE);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V> Map<K, V> associateBy(Sequence<? extends T> associateBy, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (Object obj : associateBy) {
+        Iterator<? extends T> it = associateBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             linkedHashMap.put(keySelector.invoke(obj), valueTransform.invoke(obj));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: M extends java.util.Map<? super K, ? super T> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, M extends Map<? super K, ? super T>> M associateByTo(Sequence<? extends T> associateByTo, M destination, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
-        for (Object obj : associateByTo) {
+        Iterator<? extends T> it = associateByTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             destination.put(keySelector.invoke(obj), obj);
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V, M extends Map<? super K, ? super V>> M associateTo(Sequence<? extends T> associateTo, M destination, Function1<? super T, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        Iterator it = associateTo.iterator();
+        Iterator<? extends T> it = associateTo.iterator();
         while (it.hasNext()) {
-            Pair pair = (Pair) transform.invoke(it.next());
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke((T) it.next());
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: M extends java.util.Map<? super K, ? super V> */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.3")
     public static final <K, V, M extends Map<? super K, ? super V>> M associateWithTo(Sequence<? extends K> associateWithTo, M destination, Function1<? super K, ? extends V> valueSelector) {
         Intrinsics.checkNotNullParameter(associateWithTo, "$this$associateWithTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(valueSelector, "valueSelector");
-        for (Object obj : associateWithTo) {
+        Iterator<? extends K> it = associateWithTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (K) it.next();
             destination.put(obj, valueSelector.invoke(obj));
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T, R> Sequence<R> chunked(Sequence<? extends T> chunked, int i, Function1<? super List<? extends T>, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -1177,8 +1281,10 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(filterNotTo, "$this$filterNotTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        for (Object obj : filterNotTo) {
-            if (!((Boolean) predicate.invoke(obj)).booleanValue()) {
+        Iterator<? extends T> it = filterNotTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (!predicate.invoke(obj).booleanValue()) {
                 destination.add(obj);
             }
         }
@@ -1189,53 +1295,63 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(filterTo, "$this$filterTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        for (Object obj : filterTo) {
-            if (((Boolean) predicate.invoke(obj)).booleanValue()) {
+        Iterator<? extends T> it = filterTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (predicate.invoke(obj).booleanValue()) {
                 destination.add(obj);
             }
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapIterableTo")
     public static final <T, R, C extends Collection<? super R>> C flatMapIterableTo(Sequence<? extends T> flatMapTo, C destination, Function1<? super T, ? extends Iterable<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMapTo, "$this$flatMapTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        Iterator it = flatMapTo.iterator();
+        Iterator<? extends T> it = flatMapTo.iterator();
         while (it.hasNext()) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(it.next()));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke((T) it.next()));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C flatMapTo(Sequence<? extends T> flatMapTo, C destination, Function1<? super T, ? extends Sequence<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMapTo, "$this$flatMapTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        Iterator it = flatMapTo.iterator();
+        Iterator<? extends T> it = flatMapTo.iterator();
         while (it.hasNext()) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Sequence) transform.invoke(it.next()));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke((T) it.next()));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v4. Raw type applied. Possible types: R, ? super R */
     public static final <T, R> R fold(Sequence<? extends T> fold, R r, Function2<? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        Iterator it = fold.iterator();
+        Iterator<? extends T> it = fold.iterator();
         while (it.hasNext()) {
-            r = (R) operation.invoke(r, it.next());
+            r = operation.invoke(r, (T) it.next());
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C mapNotNullTo(Sequence<? extends T> mapNotNullTo, C destination, Function1<? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapNotNullTo, "$this$mapNotNullTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        Iterator it = mapNotNullTo.iterator();
+        Iterator<? extends T> it = mapNotNullTo.iterator();
         while (it.hasNext()) {
-            Object invoke = transform.invoke(it.next());
+            R invoke = transform.invoke((T) it.next());
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -1243,26 +1359,34 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C mapTo(Sequence<? extends T> mapTo, C destination, Function1<? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapTo, "$this$mapTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        Iterator it = mapTo.iterator();
+        Iterator<? extends T> it = mapTo.iterator();
         while (it.hasNext()) {
-            destination.add(transform.invoke(it.next()));
+            destination.add(transform.invoke((T) it.next()));
         }
         return destination;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R maxOfWith(Sequence<? extends T> sequence, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
-            Object obj = (R) function1.invoke(it.next());
+            Object obj = (R) function1.invoke((T) it.next());
             while (it.hasNext()) {
-                Object invoke = function1.invoke(it.next());
+                R invoke = function1.invoke((T) it.next());
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
             }
             return (R) obj;
@@ -1270,31 +1394,45 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R maxOfWithOrNull(Sequence<? extends T> sequence, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Object obj = (R) function1.invoke(it.next());
+        Object obj = (R) function1.invoke((T) it.next());
         while (it.hasNext()) {
-            Object invoke = function1.invoke(it.next());
+            R invoke = function1.invoke((T) it.next());
             if (comparator.compare(obj, invoke) < 0) {
-                obj = (R) invoke;
+                obj = invoke;
             }
         }
         return (R) obj;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R minOfWith(Sequence<? extends T> sequence, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
-            Object obj = (R) function1.invoke(it.next());
+            Object obj = (R) function1.invoke((T) it.next());
             while (it.hasNext()) {
-                Object invoke = function1.invoke(it.next());
+                R invoke = function1.invoke((T) it.next());
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
             }
             return (R) obj;
@@ -1302,40 +1440,53 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T, R> R minOfWithOrNull(Sequence<? extends T> sequence, Comparator<? super R> comparator, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Object obj = (R) function1.invoke(it.next());
+        Object obj = (R) function1.invoke((T) it.next());
         while (it.hasNext()) {
-            Object invoke = function1.invoke(it.next());
+            R invoke = function1.invoke((T) it.next());
             if (comparator.compare(obj, invoke) > 0) {
-                obj = (R) invoke;
+                obj = invoke;
             }
         }
         return (R) obj;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T, R> Sequence<R> runningFold(Sequence<? extends T> runningFold, R r, Function2<? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(runningFold, "$this$runningFold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         return SequencesKt__SequenceBuilderKt.sequence(new SequencesKt___SequencesKt$runningFold$1(runningFold, r, operation, null));
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <T, R> Sequence<R> runningFoldIndexed(Sequence<? extends T> runningFoldIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(runningFoldIndexed, "$this$runningFoldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         return SequencesKt__SequenceBuilderKt.sequence(new SequencesKt___SequencesKt$runningFoldIndexed$1(runningFoldIndexed, r, operation, null));
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T, R> Sequence<R> scan(Sequence<? extends T> scan, R r, Function2<? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(scan, "$this$scan");
         Intrinsics.checkNotNullParameter(operation, "operation");
         return runningFold(scan, r, operation);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <T, R> Sequence<R> scanIndexed(Sequence<? extends T> scanIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(scanIndexed, "$this$scanIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -1349,31 +1500,34 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new MergingSequence(zip, other, transform);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V, M extends Map<? super K, ? super V>> M associateByTo(Sequence<? extends T> associateByTo, M destination, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
-        for (Object obj : associateByTo) {
+        Iterator<? extends T> it = associateByTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             destination.put(keySelector.invoke(obj), valueTransform.invoke(obj));
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T> Sequence<List<T>> windowed(Sequence<? extends T> windowed, int i, int i2, boolean z) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         return SlidingWindowKt.windowedSequence(windowed, i, i2, z, false);
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> int count(Sequence<? extends T> count, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(count, "$this$count");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        Iterator it = count.iterator();
+        Iterator<? extends T> it = count.iterator();
         int i = 0;
         while (it.hasNext()) {
-            if (((Boolean) predicate.invoke(it.next())).booleanValue() && (i = i + 1) < 0) {
+            if (predicate.invoke((T) it.next()).booleanValue() && (i = i + 1) < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                     CollectionsKt__CollectionsKt.throwCountOverflow();
                 } else {
@@ -1406,11 +1560,14 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         throw new IllegalArgumentException(("Requested element count " + i + " is less than zero.").toString());
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> void forEachIndexed(Sequence<? extends T> forEachIndexed, Function2<? super Integer, ? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(forEachIndexed, "$this$forEachIndexed");
         Intrinsics.checkNotNullParameter(action, "action");
+        Iterator<? extends T> it = forEachIndexed.iterator();
         int i = 0;
-        for (Object obj : forEachIndexed) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1424,14 +1581,14 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K> Map<K, List<T>> groupBy(Sequence<? extends T> groupBy, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (Object obj : groupBy) {
-            Object invoke = keySelector.invoke(obj);
+        Iterator<? extends T> it = groupBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            K invoke = keySelector.invoke(obj);
             Object obj2 = linkedHashMap.get(invoke);
             if (obj2 == null) {
                 obj2 = new ArrayList();
@@ -1442,11 +1599,14 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return linkedHashMap;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> int indexOfFirst(Sequence<? extends T> indexOfFirst, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(indexOfFirst, "$this$indexOfFirst");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
+        Iterator<? extends T> it = indexOfFirst.iterator();
         int i = 0;
-        for (Object obj : indexOfFirst) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
@@ -1454,7 +1614,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            if (((Boolean) predicate.invoke(obj)).booleanValue()) {
+            if (predicate.invoke(obj).booleanValue()) {
                 return i;
             }
             i++;
@@ -1462,12 +1622,15 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return -1;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
     public static final <T> int indexOfLast(Sequence<? extends T> indexOfLast, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
+        Iterator<? extends T> it = indexOfLast.iterator();
         int i = -1;
         int i2 = 0;
-        for (Object obj : indexOfLast) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             if (i2 < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
@@ -1475,7 +1638,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            if (((Boolean) predicate.invoke(obj)).booleanValue()) {
+            if (predicate.invoke(obj).booleanValue()) {
                 i = i2;
             }
             i2++;
@@ -1483,14 +1646,16 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return i;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T> T last(Sequence<? extends T> last, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(last, "$this$last");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         T t = null;
         boolean z = false;
-        for (Object obj : last) {
-            if (((Boolean) predicate.invoke(obj)).booleanValue()) {
-                t = (T) obj;
+        for (T t2 : last) {
+            if (predicate.invoke(t2).booleanValue()) {
+                t = t2;
                 z = true;
             }
         }
@@ -1500,148 +1665,206 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         throw new NoSuchElementException("Sequence contains no element matching the predicate.");
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0020 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v13 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.Object] */
     @Deprecated(message = "Use maxByOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxByOrNull(selector)", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final <T, R extends Comparable<? super R>> T maxBy(Sequence<? extends T> maxBy, Function1<? super T, ? extends R> selector) {
         Intrinsics.checkNotNullParameter(maxBy, "$this$maxBy");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        Iterator it = maxBy.iterator();
+        Iterator<? extends T> it = maxBy.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Object next = it.next();
+        T next = it.next();
         if (!it.hasNext()) {
-            return (T) next;
+            return next;
         }
-        Comparable comparable = (Comparable) selector.invoke(next);
+        R invoke = selector.invoke(next);
+        boolean z = next;
         do {
-            Object next2 = it.next();
-            Comparable comparable2 = (Comparable) selector.invoke(next2);
-            if (comparable.compareTo(comparable2) < 0) {
+            T next2 = it.next();
+            R invoke2 = selector.invoke(next2);
+            next = z;
+            if (invoke.compareTo(invoke2) < 0) {
+                invoke = invoke2;
                 next = next2;
-                comparable = comparable2;
             }
+            z = next;
         } while (it.hasNext());
-        return (T) next;
+        return next;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
     public static final <T, R extends Comparable<? super R>> T maxByOrNull(Sequence<? extends T> maxByOrNull, Function1<? super T, ? extends R> selector) {
+        T t;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        Iterator it = maxByOrNull.iterator();
+        Iterator<? extends T> it = maxByOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        T t = (T) it.next();
+        T next = it.next();
         if (!it.hasNext()) {
-            return t;
+            return next;
         }
-        Comparable comparable = (Comparable) selector.invoke(t);
+        R invoke = selector.invoke(next);
+        T t2 = next;
         do {
-            Object next = it.next();
-            Comparable comparable2 = (Comparable) selector.invoke(next);
-            if (comparable.compareTo(comparable2) < 0) {
-                t = (T) next;
-                comparable = comparable2;
+            T next2 = it.next();
+            R invoke2 = selector.invoke(next2);
+            t = t2;
+            if (invoke.compareTo(invoke2) < 0) {
+                invoke = invoke2;
+                t = next2;
             }
+            t2 = t;
         } while (it.hasNext());
         return t;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T> double maxOf(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
-            double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+            double doubleValue = function1.invoke((T) it.next()).doubleValue();
             while (it.hasNext()) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke((T) it.next()).doubleValue());
             }
             return doubleValue;
         }
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final <T> Double m1949maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+        double doubleValue = function1.invoke((T) it.next()).doubleValue();
         while (it.hasNext()) {
-            doubleValue = Math.max(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+            doubleValue = Math.max(doubleValue, function1.invoke((T) it.next()).doubleValue());
         }
         return Double.valueOf(doubleValue);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0020 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v13 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.Object] */
     @Deprecated(message = "Use minByOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minByOrNull(selector)", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final <T, R extends Comparable<? super R>> T minBy(Sequence<? extends T> minBy, Function1<? super T, ? extends R> selector) {
         Intrinsics.checkNotNullParameter(minBy, "$this$minBy");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        Iterator it = minBy.iterator();
+        Iterator<? extends T> it = minBy.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Object next = it.next();
+        T next = it.next();
         if (!it.hasNext()) {
-            return (T) next;
+            return next;
         }
-        Comparable comparable = (Comparable) selector.invoke(next);
+        R invoke = selector.invoke(next);
+        boolean z = next;
         do {
-            Object next2 = it.next();
-            Comparable comparable2 = (Comparable) selector.invoke(next2);
-            if (comparable.compareTo(comparable2) > 0) {
+            T next2 = it.next();
+            R invoke2 = selector.invoke(next2);
+            next = z;
+            if (invoke.compareTo(invoke2) > 0) {
+                invoke = invoke2;
                 next = next2;
-                comparable = comparable2;
             }
+            z = next;
         } while (it.hasNext());
-        return (T) next;
+        return next;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
     public static final <T, R extends Comparable<? super R>> T minByOrNull(Sequence<? extends T> minByOrNull, Function1<? super T, ? extends R> selector) {
+        T t;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        Iterator it = minByOrNull.iterator();
+        Iterator<? extends T> it = minByOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        T t = (T) it.next();
+        T next = it.next();
         if (!it.hasNext()) {
-            return t;
+            return next;
         }
-        Comparable comparable = (Comparable) selector.invoke(t);
+        R invoke = selector.invoke(next);
+        T t2 = next;
         do {
-            Object next = it.next();
-            Comparable comparable2 = (Comparable) selector.invoke(next);
-            if (comparable.compareTo(comparable2) > 0) {
-                t = (T) next;
-                comparable = comparable2;
+            T next2 = it.next();
+            R invoke2 = selector.invoke(next2);
+            t = t2;
+            if (invoke.compareTo(invoke2) > 0) {
+                invoke = invoke2;
+                t = next2;
             }
+            t2 = t;
         } while (it.hasNext());
         return t;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <T> double minOf(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
-            double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+            double doubleValue = function1.invoke((T) it.next()).doubleValue();
             while (it.hasNext()) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke((T) it.next()).doubleValue());
             }
             return doubleValue;
         }
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final <T> Double m1957minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+        double doubleValue = function1.invoke((T) it.next()).doubleValue();
         while (it.hasNext()) {
-            doubleValue = Math.min(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+            doubleValue = Math.min(doubleValue, function1.invoke((T) it.next()).doubleValue());
         }
         return Double.valueOf(doubleValue);
     }
@@ -1651,8 +1874,10 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        for (Object obj : partition) {
-            if (((Boolean) predicate.invoke(obj)).booleanValue()) {
+        Iterator<? extends T> it = partition.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            if (predicate.invoke(obj).booleanValue()) {
                 arrayList.add(obj);
             } else {
                 arrayList2.add(obj);
@@ -1661,15 +1886,17 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new Pair<>(arrayList, arrayList2);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     public static final <T> T single(Sequence<? extends T> single, Function1<? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(single, "$this$single");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         T t = null;
         boolean z = false;
-        for (Object obj : single) {
-            if (((Boolean) predicate.invoke(obj)).booleanValue()) {
+        for (T t2 : single) {
+            if (predicate.invoke(t2).booleanValue()) {
                 if (!z) {
-                    t = (T) obj;
+                    t = t2;
                     z = true;
                 } else {
                     throw new IllegalArgumentException("Sequence contains more than one matching element.");
@@ -1706,7 +1933,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(elementAtOrElse, "$this$elementAtOrElse");
         Intrinsics.checkNotNullParameter(defaultValue, "defaultValue");
         if (i < 0) {
-            return (T) defaultValue.invoke(Integer.valueOf(i));
+            return defaultValue.invoke(Integer.valueOf(i));
         }
         int i2 = 0;
         for (T t : elementAtOrElse) {
@@ -1716,12 +1943,19 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
             }
             i2 = i3;
         }
-        return (T) defaultValue.invoke(Integer.valueOf(i));
+        return defaultValue.invoke(Integer.valueOf(i));
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R, C extends Collection<? super R>> C flatMapIndexedIterableTo(Sequence<? extends T> sequence, C c, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
+        Iterator<? extends T> it = sequence.iterator();
         int i = 0;
-        for (Object obj : sequence) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1730,15 +1964,22 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(Integer.valueOf(i), obj));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
         return c;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedSequenceTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <T, R, C extends Collection<? super R>> C flatMapIndexedSequenceTo(Sequence<? extends T> sequence, C c, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
+        Iterator<? extends T> it = sequence.iterator();
         int i = 0;
-        for (Object obj : sequence) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1747,17 +1988,21 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Sequence) function2.invoke(Integer.valueOf(i), obj));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
         return c;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r7v4. Raw type applied. Possible types: R, ? super R */
     public static final <T, R> R foldIndexed(Sequence<? extends T> foldIndexed, R r, Function3<? super Integer, ? super R, ? super T, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
+        Iterator<? extends T> it = foldIndexed.iterator();
         int i = 0;
-        for (Object obj : foldIndexed) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1766,39 +2011,40 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            r = (R) operation.invoke(Integer.valueOf(i), r, obj);
+            r = operation.invoke(Integer.valueOf(i), r, obj);
             i = i2;
         }
         return r;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, K, V> Map<K, List<V>> groupBy(Sequence<? extends T> groupBy, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (Object obj : groupBy) {
-            Object invoke = keySelector.invoke(obj);
-            Object obj2 = linkedHashMap.get(invoke);
-            if (obj2 == null) {
-                obj2 = new ArrayList();
-                linkedHashMap.put(invoke, obj2);
+        Iterator<? extends T> it = groupBy.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            K invoke = keySelector.invoke(obj);
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj2).add(valueTransform.invoke(obj));
+            list.add(valueTransform.invoke(obj));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: M extends java.util.Map<? super K, java.util.List<T>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, M extends Map<? super K, List<T>>> M groupByTo(Sequence<? extends T> groupByTo, M destination, Function1<? super T, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
-        for (Object obj : groupByTo) {
-            Object invoke = keySelector.invoke(obj);
+        Iterator<? extends T> it = groupByTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            K invoke = keySelector.invoke(obj);
             Object obj2 = destination.get(invoke);
             if (obj2 == null) {
                 obj2 = new ArrayList();
@@ -1809,12 +2055,15 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C mapIndexedTo(Sequence<? extends T> mapIndexedTo, C destination, Function2<? super Integer, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapIndexedTo, "$this$mapIndexedTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
+        Iterator<? extends T> it = mapIndexedTo.iterator();
         int i = 0;
-        for (Object obj : mapIndexedTo) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1833,8 +2082,10 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(filterIndexedTo, "$this$filterIndexedTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
+        Iterator<? extends T> it = filterIndexedTo.iterator();
         int i = 0;
-        for (Object obj : filterIndexedTo) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1843,7 +2094,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            if (((Boolean) predicate.invoke(Integer.valueOf(i), obj)).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i), obj).booleanValue()) {
                 destination.add(obj);
             }
             i = i2;
@@ -1851,12 +2102,15 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
     public static final <T, R, C extends Collection<? super R>> C mapIndexedNotNullTo(Sequence<? extends T> mapIndexedNotNullTo, C destination, Function2<? super Integer, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(mapIndexedNotNullTo, "$this$mapIndexedNotNullTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
+        Iterator<? extends T> it = mapIndexedNotNullTo.iterator();
         int i = 0;
-        for (Object obj : mapIndexedNotNullTo) {
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
             int i2 = i + 1;
             if (i < 0) {
                 if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
@@ -1865,7 +2119,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            Object invoke = transform.invoke(Integer.valueOf(i), obj);
+            R invoke = transform.invoke(Integer.valueOf(i), obj);
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -1875,14 +2129,17 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: M extends java.util.Map<? super K, java.util.List<V>> */
+    /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: T, ? super T */
     /* JADX WARN: Multi-variable type inference failed */
     public static final <T, K, V, M extends Map<? super K, List<V>>> M groupByTo(Sequence<? extends T> groupByTo, M destination, Function1<? super T, ? extends K> keySelector, Function1<? super T, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
-        for (Object obj : groupByTo) {
-            Object invoke = keySelector.invoke(obj);
+        Iterator<? extends T> it = groupByTo.iterator();
+        while (it.hasNext()) {
+            Object obj = (T) it.next();
+            K invoke = keySelector.invoke(obj);
             Object obj2 = destination.get(invoke);
             if (obj2 == null) {
                 obj2 = new ArrayList();
@@ -1902,7 +2159,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(truncated, "truncated");
         buffer.append(prefix);
         int i2 = 0;
-        for (Object obj : joinTo) {
+        for (T t : joinTo) {
             i2++;
             if (i2 > 1) {
                 buffer.append(separator);
@@ -1910,7 +2167,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
             if (i >= 0 && i2 > i) {
                 break;
             }
-            StringsKt__AppendableKt.appendElement(buffer, obj, function1);
+            StringsKt__AppendableKt.appendElement(buffer, t, function1);
         }
         if (i >= 0 && i2 > i) {
             buffer.append(truncated);
@@ -1999,6 +2256,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
     public static final Double m1945max(Sequence<Double> max) {
@@ -2007,6 +2265,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
     public static final Double m1953min(Sequence<Double> min) {
@@ -2015,6 +2274,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
     public static final Float m1946max(Sequence<Float> max) {
@@ -2023,6 +2283,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
+    @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
     public static final Float m1954min(Sequence<Float> min) {
@@ -2030,148 +2291,176 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return m1960minOrNull(min);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <T> float m1947maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
-            float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+            float floatValue = function1.invoke((T) it.next()).floatValue();
             while (it.hasNext()) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke((T) it.next()).floatValue());
             }
             return floatValue;
         }
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final <T> Float m1950maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+        float floatValue = function1.invoke((T) it.next()).floatValue();
         while (it.hasNext()) {
-            floatValue = Math.max(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+            floatValue = Math.max(floatValue, function1.invoke((T) it.next()).floatValue());
         }
         return Float.valueOf(floatValue);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <T> float m1955minOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
-            float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+            float floatValue = function1.invoke((T) it.next()).floatValue();
             while (it.hasNext()) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke((T) it.next()).floatValue());
             }
             return floatValue;
         }
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final <T> Float m1958minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+        float floatValue = function1.invoke((T) it.next()).floatValue();
         while (it.hasNext()) {
-            floatValue = Math.min(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+            floatValue = Math.min(floatValue, function1.invoke((T) it.next()).floatValue());
         }
         return Float.valueOf(floatValue);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v9, types: [java.lang.Comparable] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <T, R extends Comparable<? super R>> R m1948maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
-            R r = (R) function1.invoke(it.next());
+            R invoke = function1.invoke((T) it.next());
             while (it.hasNext()) {
-                ?? r1 = (Comparable) function1.invoke(it.next());
-                if (r.compareTo(r1) < 0) {
-                    r = r1;
+                R invoke2 = function1.invoke((T) it.next());
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v9, types: [java.lang.Comparable] */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <T, R extends Comparable<? super R>> R m1956minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
-        Iterator it = sequence.iterator();
+        Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
-            R r = (R) function1.invoke(it.next());
+            R invoke = function1.invoke((T) it.next());
             while (it.hasNext()) {
-                ?? r1 = (Comparable) function1.invoke(it.next());
-                if (r.compareTo(r1) > 0) {
-                    r = r1;
+                R invoke2 = function1.invoke((T) it.next());
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
     public static final Double m1951maxOrNull(Sequence<Double> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
-        Iterator it = maxOrNull.iterator();
+        Iterator<Double> it = maxOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        double doubleValue = ((Number) it.next()).doubleValue();
+        double doubleValue = it.next().doubleValue();
         while (it.hasNext()) {
-            doubleValue = Math.max(doubleValue, ((Number) it.next()).doubleValue());
+            doubleValue = Math.max(doubleValue, it.next().doubleValue());
         }
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
     public static final Double m1959minOrNull(Sequence<Double> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
-        Iterator it = minOrNull.iterator();
+        Iterator<Double> it = minOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        double doubleValue = ((Number) it.next()).doubleValue();
+        double doubleValue = it.next().doubleValue();
         while (it.hasNext()) {
-            doubleValue = Math.min(doubleValue, ((Number) it.next()).doubleValue());
+            doubleValue = Math.min(doubleValue, it.next().doubleValue());
         }
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
     public static final Float m1952maxOrNull(Sequence<Float> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
-        Iterator it = maxOrNull.iterator();
+        Iterator<Float> it = maxOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        float floatValue = ((Number) it.next()).floatValue();
+        float floatValue = it.next().floatValue();
         while (it.hasNext()) {
-            floatValue = Math.max(floatValue, ((Number) it.next()).floatValue());
+            floatValue = Math.max(floatValue, it.next().floatValue());
         }
         return Float.valueOf(floatValue);
     }
 
+    @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
     public static final Float m1960minOrNull(Sequence<Float> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
-        Iterator it = minOrNull.iterator();
+        Iterator<Float> it = minOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        float floatValue = ((Number) it.next()).floatValue();
+        float floatValue = it.next().floatValue();
         while (it.hasNext()) {
-            floatValue = Math.min(floatValue, ((Number) it.next()).floatValue());
+            floatValue = Math.min(floatValue, it.next().floatValue());
         }
         return Float.valueOf(floatValue);
     }
@@ -2235,12 +2524,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return plus((Sequence) plus, (Iterable) ArraysKt___ArraysJvmKt.asList(elements));
     }
 
+    /* JADX DEBUG: Type inference failed for r4v0. Raw type applied. Possible types: T extends S, ? super T extends S */
     public static final <S, T extends S> S reduceIndexed(Sequence<? extends T> reduceIndexed, Function3<? super Integer, ? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceIndexed, "$this$reduceIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        Iterator it = reduceIndexed.iterator();
+        Iterator<? extends T> it = reduceIndexed.iterator();
         if (it.hasNext()) {
-            S s = (S) it.next();
+            S next = it.next();
             int i = 1;
             while (it.hasNext()) {
                 int i2 = i + 1;
@@ -2251,22 +2541,24 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                         throw new ArithmeticException("Index overflow has happened.");
                     }
                 }
-                s = (S) operation.invoke(Integer.valueOf(i), s, it.next());
+                next = operation.invoke(Integer.valueOf(i), next, (T) it.next());
                 i = i2;
             }
-            return s;
+            return (S) next;
         }
         throw new UnsupportedOperationException("Empty sequence can't be reduced.");
     }
 
+    /* JADX DEBUG: Type inference failed for r4v0. Raw type applied. Possible types: T extends S, ? super T extends S */
+    @SinceKotlin(version = "1.4")
     public static final <S, T extends S> S reduceIndexedOrNull(Sequence<? extends T> reduceIndexedOrNull, Function3<? super Integer, ? super S, ? super T, ? extends S> operation) {
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        Iterator it = reduceIndexedOrNull.iterator();
+        Iterator<? extends T> it = reduceIndexedOrNull.iterator();
         if (!it.hasNext()) {
             return null;
         }
-        S s = (S) it.next();
+        S next = it.next();
         int i = 1;
         while (it.hasNext()) {
             int i2 = i + 1;
@@ -2277,12 +2569,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
             }
-            s = (S) operation.invoke(Integer.valueOf(i), s, it.next());
+            next = operation.invoke(Integer.valueOf(i), next, (T) it.next());
             i = i2;
         }
-        return s;
+        return (S) next;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <T, R> Sequence<R> windowed(Sequence<? extends T> windowed, int i, int i2, boolean z, Function1<? super List<? extends T>, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         Intrinsics.checkNotNullParameter(transform, "transform");

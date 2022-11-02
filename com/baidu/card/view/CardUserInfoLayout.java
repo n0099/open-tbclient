@@ -52,19 +52,19 @@ import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.gz;
-import com.baidu.tieba.lx;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.bz;
+import com.baidu.tieba.dx;
+import com.baidu.tieba.eh8;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.mx;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.uf8;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.sx;
 import com.baidu.tieba.view.VirtualImageStatusTip;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.yx;
-import com.baidu.tieba.zo4;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +75,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
-public class CardUserInfoLayout extends RelativeLayout implements yx {
+public class CardUserInfoLayout extends RelativeLayout implements sx {
     public static /* synthetic */ Interceptable $ic;
     public static final int Q;
     public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +189,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         public void onClick(View view2) {
             String url;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a) && this.a.C != null && this.a.C.getAuthor() != null && this.a.C.getAuthor().getTShowInfoNew() != null && ListUtils.getItem(this.a.C.getAuthor().getTShowInfoNew(), 0) != null && (url = ((IconData) this.a.C.getAuthor().getTShowInfoNew().get(0)).getUrl()) != null && (w9.a(this.a.a) instanceof TbPageContext)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a) && this.a.C != null && this.a.C.getAuthor() != null && this.a.C.getAuthor().getTShowInfoNew() != null && ListUtils.getItem(this.a.C.getAuthor().getTShowInfoNew(), 0) != null && (url = this.a.C.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (w9.a(this.a.a) instanceof TbPageContext)) {
                 UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(this.a.a), new String[]{url});
             }
         }
@@ -224,8 +224,8 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.C != null && this.a.C.getAuthor() != null && !StringUtils.isNull(this.a.C.getAuthor().getName_show()) && !StringUtils.isNull(this.a.C.getAuthor().getUserId()) && this.a.C.getForum_name() != null) {
-                if (view2.getTag(R.id.obfuscated_res_0x7f092066) != null && (view2.getTag(R.id.obfuscated_res_0x7f092066) instanceof String)) {
-                    String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092066);
+                if (view2.getTag(R.id.obfuscated_res_0x7f0920b1) != null && (view2.getTag(R.id.obfuscated_res_0x7f0920b1) instanceof String)) {
+                    String str = (String) view2.getTag(R.id.obfuscated_res_0x7f0920b1);
                     if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
                         return;
@@ -282,7 +282,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.C != null && this.a.C.getAuthor() != null) {
-                zo4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1523), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.C.getAuthor().getUserId() + "&opacity=0", true, true, true);
+                rp4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1541), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.C.getAuthor().getUserId() + "&opacity=0", true, true, true);
                 if (this.a.z != null) {
                     this.a.y.onClick(view2);
                 }
@@ -318,7 +318,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.C != null && this.a.C.getAuthor() != null) {
-                this.a.frsVirtualImageStatistic(ux.a);
+                this.a.frsVirtualImageStatistic(mx.a);
                 if ((view2 instanceof HeadCustomImageView) && ((HeadCustomImageView) view2).b()) {
                     return;
                 }
@@ -484,7 +484,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
                 return;
             }
         }
-        Q = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        Q = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
     }
 
     public HeadPendantClickableView getAvatar() {
@@ -547,7 +547,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
     public void recoverVirtualImageAnimate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            gz.a(this.B);
+            bz.a(this.B);
             this.q.setVisibility(0);
             this.r.setVisibility(8);
             this.F.setHeadViewNormalSize();
@@ -708,7 +708,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
             if (TbSingleton.getInstance().isUserGrowthOpen() && ((!threadData.isFromHomPage || threadData.isVideoThreadType()) && threadData.getAuthor() != null && threadData.getAuthor().getUserGrowthData() != null && threadData.getAuthor().getUserGrowthData().a() >= 0 && threadData.getAuthor().getUserGrowthData().a() <= 10)) {
                 int a2 = threadData.getAuthor().getUserGrowthData().a();
-                this.h.setImageResource(lx.b(a2));
+                this.h.setImageResource(dx.b(a2));
                 this.h.setVisibility(0);
                 this.h.setTag(threadData);
                 this.h.setOnClickListener(this.P);
@@ -742,7 +742,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
                     }
                     this.e.setText(cutChineseAndEnglishWithEmoji);
                 } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f152b);
+                    this.e.setText(R.string.obfuscated_res_0x7f0f1549);
                 }
             } else {
                 ViewGroup.LayoutParams layoutParams = this.A.getLayoutParams();
@@ -755,7 +755,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
                 if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                     this.e.setText(threadData.getAuthor().getName_show());
                 } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f152b);
+                    this.e.setText(R.string.obfuscated_res_0x7f0f1549);
                 }
             }
             HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.e);
@@ -768,14 +768,14 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData.getVoiceRoomData() != null && !StringUtils.isNull(threadData.getVoiceRoomData().room_name) && threadData.getVoiceRoomData().room_id.longValue() > 0) {
             if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-                marginLayoutParams.bottomMargin = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+                marginLayoutParams.bottomMargin = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
                 setLayoutParams(marginLayoutParams);
             }
             if (threadData.getVoiceRoomData().status.intValue() == 1) {
                 this.c.setIsclearmode(true);
                 if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().isOfficial()) {
                     this.D.setVisibility(0);
-                    SkinManager.setImageResource(this.D, R.drawable.obfuscated_res_0x7f0805f5);
+                    SkinManager.setImageResource(this.D, R.drawable.obfuscated_res_0x7f0805fa);
                 }
                 this.G &= -257;
                 A(threadData);
@@ -814,7 +814,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
                     this.F.setFrom(1);
                 }
                 this.F.e(threadData.getAuthor());
-                this.F.setSmallWidthAndHeight(fj.f(TbadkApplication.getInst(), R.dimen.tbds94), fj.f(TbadkApplication.getInst(), R.dimen.tbds120));
+                this.F.setSmallWidthAndHeight(xi.g(TbadkApplication.getInst(), R.dimen.tbds94), xi.g(TbadkApplication.getInst(), R.dimen.tbds120));
                 this.E.setVisibility(8);
                 this.F.setVisibility(0);
                 frsVirtualImageStatistic(2);
@@ -853,12 +853,12 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             }
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = uf8.e().c();
+                AppPosInfo c2 = eh8.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
-                    double g2 = fj.g(eh.c(str2, 0.0d), eh.c(str3, 0.0d), eh.c(latitude, 0.0d), eh.c(longtitude, 0.0d));
-                    str = g2 <= 50.0d ? StringHelper.formatDistanceNum(g2) : threadData.getAddress();
+                    double h2 = xi.h(wg.c(str2, 0.0d), wg.c(str3, 0.0d), wg.c(latitude, 0.0d), wg.c(longtitude, 0.0d));
+                    str = h2 <= 50.0d ? StringHelper.formatDistanceNum(h2) : threadData.getAddress();
                 }
             } else if (z) {
                 str = threadData.getAddress();
@@ -911,7 +911,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         if (!m(32)) {
             this.g.setVisibility(8);
         } else if (threadData != null && threadData.getAuthor() != null && (threadData.middle_page_num <= 0 || threadData.middle_page_pass_flag != 0)) {
-            ArrayList iconInfo = threadData.getAuthor().getIconInfo();
+            ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
             if (ListUtils.getCount(iconInfo) != 0) {
                 this.g.setVisibility(0);
                 this.g.h(iconInfo, 4, this.a.getResources().getDimensionPixelSize(R.dimen.tbds40), this.a.getResources().getDimensionPixelSize(R.dimen.tbds40), this.a.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
@@ -928,15 +928,15 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             VirtualImageCustomState customState = this.C.getCustomState();
             if (customState == null) {
-                this.I = ux.f;
+                this.I = mx.f;
             } else {
-                this.I = ux.e;
+                this.I = mx.e;
                 this.J = this.r.j(customState);
             }
             if (this.C.isFromFrs()) {
-                ux.a(i2, this.C.getTid(), ux.b, this.I, this.J, this.C.getAuthorId());
+                mx.a(i2, this.C.getTid(), mx.b, this.I, this.J, this.C.getAuthorId());
             } else if (this.C.isFromConcern()) {
-                ux.a(i2, this.C.getTid(), ux.c, this.I, this.J, this.C.getAuthorId());
+                mx.a(i2, this.C.getTid(), mx.c, this.I, this.J, this.C.getAuthorId());
             }
         }
     }
@@ -983,7 +983,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             } else {
                 this.G &= -4097;
             }
-            if (!threadData.isShowForumAndReply() && !(threadData instanceof AdvertAppInfo) && ((threadData.isFromHomPage && !threadData.isUgcThreadType() && !threadData.isNewGodAuthor() && !threadData.isVocieRoom() && threadData.getType() != ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getType() != ThreadData.TYPE_ALA_FRIEND_ROOM) || (threadData.isFromHomPage && UbsABTestHelper.showNewUI() && !threadData.isVocieRoom() && threadData.getType() != ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getType() != ThreadData.TYPE_ALA_FRIEND_ROOM))) {
+            if (!threadData.isShowForumAndReply() && !(threadData instanceof AdvertAppInfo) && ((threadData.isFromHomPage && !threadData.isUgcThreadType() && !threadData.isNewGodAuthor() && !threadData.isVocieRoom() && threadData.getType() != ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getType() != ThreadData.TYPE_ALA_FRIEND_ROOM) || (threadData.isFromHomPage && !threadData.isVocieRoom() && threadData.getType() != ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getType() != ThreadData.TYPE_ALA_FRIEND_ROOM))) {
                 this.G &= -129;
             } else {
                 this.G |= 128;
@@ -1029,7 +1029,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
     public final void z(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048619, this, threadData) == null) && this.i != null && threadData != null && threadData.getAuthor() != null && m(1)) {
-            ArrayList tShowInfoNew = threadData.getAuthor().getTShowInfoNew();
+            ArrayList<IconData> tShowInfoNew = threadData.getAuthor().getTShowInfoNew();
             if (ListUtils.getCount(tShowInfoNew) != 0) {
                 this.i.setVisibility(0);
                 this.i.h(tShowInfoNew, 2, this.a.getResources().getDimensionPixelSize(R.dimen.tbds48), this.a.getResources().getDimensionPixelSize(R.dimen.tbds48), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302), true);
@@ -1045,33 +1045,33 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void f() {
-        int f2;
+        int g2;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (m(512)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.e.getMeasuredHeight());
-                layoutParams.setMargins(fj.f(this.a, R.dimen.tbds10), fj.f(this.a, R.dimen.tbds_5), 0, 0);
+                layoutParams.setMargins(xi.g(this.a, R.dimen.tbds10), xi.g(this.a, R.dimen.tbds_5), 0, 0);
                 this.n.setLayoutParams(layoutParams);
             }
             TextPaint paint = this.e.getPaint();
-            int i4 = fj.q(this.a)[0];
+            int i4 = xi.s(this.a)[0];
             if (i4 <= 0) {
                 return;
             }
             int width = getWidth() - ((i4 * 31) / 108);
             if (this.C.showFollowBtn()) {
-                f2 = fj.f(this.a, R.dimen.tbds120);
+                g2 = xi.g(this.a, R.dimen.tbds120);
             } else {
-                if (this.C.getAuthor() != null && this.C.getAuthor().getThemeCard() != null && !ej.isEmpty(this.C.getAuthor().getThemeCard().getCardImageUrlAndroid()) && !this.C.isHeadLinePost) {
-                    f2 = fj.f(this.a, R.dimen.tbds120);
+                if (this.C.getAuthor() != null && this.C.getAuthor().getThemeCard() != null && !wi.isEmpty(this.C.getAuthor().getThemeCard().getCardImageUrlAndroid()) && !this.C.isHeadLinePost) {
+                    g2 = xi.g(this.a, R.dimen.tbds120);
                 }
                 if (width > 0) {
                     return;
                 }
-                int u = fj.u(paint, n(this.C.getAuthor().getName_show(), 12)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
-                int u2 = fj.u(paint, n(this.C.getAuthor().getName_show(), 10)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
+                int w = xi.w(paint, n(this.C.getAuthor().getName_show(), 12)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
+                int w2 = xi.w(paint, n(this.C.getAuthor().getName_show(), 10)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
                 int measuredWidth = this.i.getMeasuredWidth();
                 int measuredWidth2 = this.e.getMeasuredWidth();
                 int measuredWidth3 = this.n.getMeasuredWidth();
@@ -1083,22 +1083,22 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
                     int i5 = measuredWidth + measuredWidth3;
                     int i6 = measuredWidth4 + i5;
                     int i7 = measuredWidth5 + i6;
-                    int i8 = u + i7 + measuredWidth6;
+                    int i8 = w + i7 + measuredWidth6;
                     if (width > i8) {
                         this.e.setText(n(charSequence, 12));
                     } else if (width < i8) {
                         this.e.setText(n(charSequence, 10));
                     }
-                    if (width < i7 + u2 + measuredWidth6) {
+                    if (width < i7 + w2 + measuredWidth6) {
                         this.g.setVisibility(8);
                     }
-                    if (width < i6 + u2 + measuredWidth6) {
+                    if (width < i6 + w2 + measuredWidth6) {
                         this.f.setVisibility(8);
                     }
-                    if (width < i5 + u2 + measuredWidth6) {
+                    if (width < i5 + w2 + measuredWidth6) {
                         this.i.setVisibility(8);
                     }
-                    if (width < measuredWidth3 + u2 + measuredWidth6) {
+                    if (width < measuredWidth3 + w2 + measuredWidth6) {
                         this.n.setVisibility(8);
                     }
                 }
@@ -1122,7 +1122,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
                 this.j.setMaxWidth(i9);
                 return;
             }
-            width -= f2;
+            width -= g2;
             if (width > 0) {
             }
         }
@@ -1194,15 +1194,15 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             setClipChildren(false);
             setClipToPadding(false);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08bb, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08cf, (ViewGroup) this, true);
             h();
             i();
-            fj.f(this.a, R.dimen.tbds40);
-            this.t = fj.f(this.a, R.dimen.tbds164);
-            this.u = fj.f(this.a, R.dimen.tbds156);
-            this.v = fj.f(this.a, R.dimen.tbds148);
-            this.w = fj.f(this.a, R.dimen.tbds118);
-            this.x = fj.f(this.a, R.dimen.tbds580);
+            xi.g(this.a, R.dimen.tbds40);
+            this.t = xi.g(this.a, R.dimen.tbds164);
+            this.u = xi.g(this.a, R.dimen.tbds156);
+            this.v = xi.g(this.a, R.dimen.tbds148);
+            this.w = xi.g(this.a, R.dimen.tbds118);
+            this.x = xi.g(this.a, R.dimen.tbds580);
         }
     }
 
@@ -1222,7 +1222,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         VirtualImageCustomState customState = this.C.getCustomState();
         if (customState != null && !TextUtils.isEmpty(customState.getIcon())) {
             this.q.setVisibility(8);
-            gz.b(this.B, 400);
+            bz.b(this.B, 400);
             this.r.setVisibility(0);
             this.r.setData(customState, true, str);
             this.r.f();
@@ -1236,7 +1236,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f092473);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f0924c8);
             this.c = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
             this.c.getHeadView().setIsRound(true);
@@ -1244,40 +1244,40 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             this.c.getHeadView().setDefaultResource(17170445);
             this.c.getHeadView().setPlaceHolder(1);
             this.c.setAfterClickListener(new g(this));
-            this.E = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092479);
-            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f092475);
+            this.E = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0924ce);
+            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f0924ca);
             this.F = headCustomImageView;
             headCustomImageView.setOnClickListener(this.O);
-            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09249f);
-            this.D = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eed);
-            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0924c2);
+            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0924f4);
+            this.D = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f26);
+            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092517);
             this.i = userIconBox;
             userIconBox.setOnClickListener(this.L);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a1);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f6);
             this.e = textView;
             textView.setOnClickListener(this.M);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e5a);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a8);
-            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0921af);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e89);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fb);
+            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092202);
             this.g = userIconBox2;
             userIconBox2.setOnClickListener(this.N);
             this.g.setAutoChangedStyle(false);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09218a);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0921dd);
             if (DeviceInfoUtil.isMi5X()) {
                 this.j.setPadding(0, -Q, 0, 0);
             }
-            this.k = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f090601);
-            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090203);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090202);
-            this.A = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0924a3);
-            this.B = findViewById(R.id.obfuscated_res_0x7f090555);
-            this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fb2);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b57);
-            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e23);
-            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f0925f0);
+            this.k = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f09060e);
+            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090212);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090211);
+            this.A = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0924f8);
+            this.B = findViewById(R.id.obfuscated_res_0x7f090562);
+            this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ffd);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b6a);
+            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e6d);
+            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f092647);
             this.r = virtualImageStatusTip;
             virtualImageStatusTip.setOnClickListener(this.O);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09247e);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924d3);
         }
     }
 
@@ -1285,8 +1285,8 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.s = new TBLottieAnimationView(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(fj.f(this.a, R.dimen.tbds650), fj.f(this.a, R.dimen.tbds100));
-            layoutParams.setMargins(fj.f(this.a, R.dimen.tbds64), 0, 0, 0);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(xi.g(this.a, R.dimen.tbds650), xi.g(this.a, R.dimen.tbds100));
+            layoutParams.setMargins(xi.g(this.a, R.dimen.tbds64), 0, 0, 0);
             addView(this.s, layoutParams);
             j();
             this.s.setVisibility(8);
@@ -1318,7 +1318,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             } else {
                 this.s.setImageAssetsFolder("lottie_reactions_guide_left_img_dark");
             }
-            SkinManager.setLottieAnimation(this.s, R.raw.obfuscated_res_0x7f11004c);
+            SkinManager.setLottieAnimation(this.s, R.raw.obfuscated_res_0x7f11004e);
         }
     }
 
@@ -1331,7 +1331,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
         return (String) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048597, this, tbPageContext, i2) == null) && i2 != this.b) {
@@ -1342,7 +1342,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
                 SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
             }
             if (this.D.getVisibility() == 0) {
-                WebPManager.setMaskDrawable(this.D, R.drawable.obfuscated_res_0x7f0805f5, null);
+                WebPManager.setMaskDrawable(this.D, R.drawable.obfuscated_res_0x7f0805fa, null);
             }
             LocationExtendLayout locationExtendLayout = this.k;
             if (locationExtendLayout != null) {
@@ -1385,7 +1385,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             this.c.setIsclearmode(true);
             if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().isOfficial()) {
                 this.D.setVisibility(0);
-                SkinManager.setImageResource(this.D, R.drawable.obfuscated_res_0x7f0805f5);
+                SkinManager.setImageResource(this.D, R.drawable.obfuscated_res_0x7f0805fa);
             }
             this.G &= -257;
             A(threadData);
@@ -1405,29 +1405,29 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             }
             this.f.setOnClickListener(null);
             if (author.getIs_bawu() == 1) {
-                nv4 d2 = nv4.d(this.f);
+                kw4 d2 = kw4.d(this.f);
                 d2.v(R.color.CAM_X0101);
                 d2.e(R.string.A_X04);
                 d2.n(R.string.J_X04);
                 d2.f(R.color.CAM_X0302);
                 if (threadData.isFromBrandForum) {
                     this.f.setVisibility(0);
-                    this.f.setText(R.string.obfuscated_res_0x7f0f0346);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0347);
                     return;
                 } else if ("manager".equals(author.getBawu_type())) {
                     this.f.setVisibility(0);
-                    this.f.setText(R.string.obfuscated_res_0x7f0f02ff);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0300);
                     return;
                 } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(author.getBawu_type())) {
-                    this.f.setText(R.string.obfuscated_res_0x7f0f0300);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0301);
                     this.f.setVisibility(0);
                     return;
                 } else if ("pri_content_assist".equals(author.getBawu_type())) {
-                    this.f.setText(R.string.obfuscated_res_0x7f0f02fc);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f02fd);
                     this.f.setVisibility(0);
                     return;
                 } else if ("pri_manage_assist".equals(author.getBawu_type())) {
-                    this.f.setText(R.string.obfuscated_res_0x7f0f02fd);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f02fe);
                     this.f.setVisibility(0);
                     return;
                 } else {
@@ -1459,7 +1459,7 @@ public class CardUserInfoLayout extends RelativeLayout implements yx {
             textView.setVisibility(i3);
             if (z) {
                 this.m.setText(str);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809c3, R.color.CAM_X0109, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809db, R.color.CAM_X0109, null);
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
             }
         }

@@ -14,9 +14,15 @@ public final /* synthetic */ class TypesJVMKt$typeToString$unwrap$1 extends Func
         super(1, Class.class, "getComponentType", "getComponentType()Ljava/lang/Class;", 0);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public final Class<?> invoke(Class<?> p1) {
+    public /* bridge */ /* synthetic */ Class<?> invoke(Class<? extends Object> cls) {
+        return invoke2((Class<?>) cls);
+    }
+
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final Class<?> invoke2(Class<?> p1) {
         Intrinsics.checkNotNullParameter(p1, "p1");
         return p1.getComponentType();
     }

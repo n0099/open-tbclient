@@ -13,6 +13,7 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -42,7 +43,7 @@ public class H5PayMethod extends DefaultPayMethod {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/payservice/H5PayMethod$Companion;", "", "TAG", "Ljava/lang/String;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,7 +100,7 @@ public class H5PayMethod extends DefaultPayMethod {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestPay(Activity activity, long j, ProductInfo productInfo, String str, IPayCallback iPayCallback) {
+    public void requestPay(Activity activity, long j, ProductInfo productInfo, String str, IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Long.valueOf(j), productInfo, str, iPayCallback}) == null) {
             RLog.error(TAG, "requestPay be invoked but nothing could be done in H5PayMethod", new Object[0]);
@@ -111,7 +112,7 @@ public class H5PayMethod extends DefaultPayMethod {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestPay(Activity activity, long j, String str, String str2, IPayCallback iPayCallback) {
+    public void requestPay(Activity activity, long j, String str, String str2, IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, Long.valueOf(j), str, str2, iPayCallback}) == null) {
             RLog.error(TAG, "requestPay be invoked but nothing could be done in H5PayMethod", new Object[0]);

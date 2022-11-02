@@ -1,5 +1,7 @@
 package com.bumptech.glide.load;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import androidx.collection.SimpleArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +16,7 @@ import java.security.MessageDigest;
 public final class Options implements Key {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap values;
+    public final ArrayMap<Option<?>, Object> values;
 
     public Options() {
         Interceptable interceptable = $ic;
@@ -51,7 +53,9 @@ public final class Options implements Key {
         return (String) invokeV.objValue;
     }
 
-    public static void updateDiskCacheKey(Option option, Object obj, MessageDigest messageDigest) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> void updateDiskCacheKey(@NonNull Option<T> option, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, option, obj, messageDigest) == null) {
             option.update(obj, messageDigest);
@@ -71,40 +75,42 @@ public final class Options implements Key {
         return invokeL.booleanValue;
     }
 
-    public Object get(Option option) {
+    @Nullable
+    public <T> T get(@NonNull Option<T> option) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, option)) == null) {
             if (this.values.containsKey(option)) {
-                return this.values.get(option);
+                return (T) this.values.get(option);
             }
             return option.getDefaultValue();
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public void putAll(Options options) {
+    public void putAll(@NonNull Options options) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, options) == null) {
-            this.values.putAll((SimpleArrayMap) options.values);
+            this.values.putAll((SimpleArrayMap<? extends Option<?>, ? extends Object>) options.values);
         }
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, messageDigest) == null) {
             for (int i = 0; i < this.values.size(); i++) {
-                updateDiskCacheKey((Option) this.values.keyAt(i), this.values.valueAt(i), messageDigest);
+                updateDiskCacheKey(this.values.keyAt(i), this.values.valueAt(i), messageDigest);
             }
         }
     }
 
-    public Options set(Option option, Object obj) {
+    @NonNull
+    public <T> Options set(@NonNull Option<T> option, @NonNull T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, option, obj)) == null) {
-            this.values.put(option, obj);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, option, t)) == null) {
+            this.values.put(option, t);
             return this;
         }
         return (Options) invokeLL.objValue;

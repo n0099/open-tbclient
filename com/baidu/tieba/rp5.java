@@ -1,119 +1,102 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.TbadkCore;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rp5 extends vw4 {
+public class rp5 extends yf1<TbadkCore> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vw4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public class a implements TbadkCore {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(rp5 rp5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rp5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilCheckReadPhoneState(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return PermissionUtil.checkReadPhoneState(context);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilIsAgreePrivacyPolicy() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return PermissionUtil.isAgreePrivacyPolicy();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        @NonNull
+        public String tbConfigGetVersion() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String version = TbConfig.getVersion();
+                if (version == null) {
+                    return "";
+                }
+                return version;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rp5(tw4 tw4Var) {
-        super(tw4Var);
+    public rp5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @ww4(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf1
+    /* renamed from: a */
+    public TbadkCore createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            String h = qj0.c().h(false);
-            String e = qj0.c().e(false);
-            int k = fj.k(getContext());
-            int i = fj.i(getContext());
-            String str = String.valueOf(k) + "," + String.valueOf(i);
-            String versionName = TbadkCoreApplication.getInst().getVersionName();
-            try {
-                jSONObject.put("systemName", "android");
-                if (!TextUtils.isEmpty(h)) {
-                    jSONObject.put("systemVersion", h);
-                }
-                if (!TextUtils.isEmpty(e)) {
-                    jSONObject.put("model", e);
-                }
-                jSONObject.put("cuid", cuid);
-                jSONObject.put("resolution", str);
-                jSONObject.put("appVersion", versionName);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @ww4(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        InterceptResult invokeV;
-        int i;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (BdNetTypeUtil.isWifiNet()) {
-                i = 1;
-                str = "WIFI";
-            } else if (BdNetTypeUtil.is2GNet()) {
-                i = 3;
-                str = "2G";
-            } else if (BdNetTypeUtil.is3GNet()) {
-                i = 4;
-                str = "3G";
-            } else if (BdNetTypeUtil.is4GNet()) {
-                i = 5;
-                str = "4G";
-            } else {
-                i = 0;
-                str = "NotReachable";
-            }
-            try {
-                jSONObject.put("netStatus", i);
-                jSONObject.put("netDesc", str);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @ww4(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        BdToast.b(getContext(), jSONObject.optString("message")).i();
+        return (TbadkCore) invokeV.objValue;
     }
 }

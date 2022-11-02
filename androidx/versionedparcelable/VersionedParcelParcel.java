@@ -7,6 +7,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,6 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.lang.reflect.Method;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class VersionedParcelParcel extends VersionedParcel {
     public static /* synthetic */ Interceptable $ic = null;

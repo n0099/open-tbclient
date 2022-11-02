@@ -9,6 +9,9 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutInfoCompatSaver;
@@ -25,8 +28,10 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ShortcutManagerCompat {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final String ACTION_INSTALL_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
     public static final String EXTRA_SHORTCUT_ID = "android.intent.extra.shortcut.ID";
+    @VisibleForTesting
     public static final String INSTALL_SHORTCUT_PERMISSION = "com.android.launcher.permission.INSTALL_SHORTCUT";
     public static volatile ShortcutInfoCompatSaver<?> sShortcutInfoCompatSaver;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +65,7 @@ public class ShortcutManagerCompat {
         }
     }
 
-    public static boolean addDynamicShortcuts(Context context, List<ShortcutInfoCompat> list) {
+    public static boolean addDynamicShortcuts(@NonNull Context context, @NonNull List<ShortcutInfoCompat> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, list)) == null) {
@@ -79,7 +84,7 @@ public class ShortcutManagerCompat {
         return invokeLL.booleanValue;
     }
 
-    public static boolean updateShortcuts(Context context, List<ShortcutInfoCompat> list) {
+    public static boolean updateShortcuts(@NonNull Context context, @NonNull List<ShortcutInfoCompat> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, list)) == null) {
@@ -98,7 +103,8 @@ public class ShortcutManagerCompat {
         return invokeLL.booleanValue;
     }
 
-    public static Intent createShortcutResultIntent(Context context, ShortcutInfoCompat shortcutInfoCompat) {
+    @NonNull
+    public static Intent createShortcutResultIntent(@NonNull Context context, @NonNull ShortcutInfoCompat shortcutInfoCompat) {
         InterceptResult invokeLL;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -116,7 +122,8 @@ public class ShortcutManagerCompat {
         return (Intent) invokeLL.objValue;
     }
 
-    public static List<ShortcutInfoCompat> getDynamicShortcuts(Context context) {
+    @NonNull
+    public static List<ShortcutInfoCompat> getDynamicShortcuts(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -161,7 +168,7 @@ public class ShortcutManagerCompat {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean isRequestPinShortcutSupported(Context context) {
+    public static boolean isRequestPinShortcutSupported(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -184,7 +191,7 @@ public class ShortcutManagerCompat {
         return invokeL.booleanValue;
     }
 
-    public static int getMaxShortcutCountPerActivity(Context context) {
+    public static int getMaxShortcutCountPerActivity(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -196,7 +203,7 @@ public class ShortcutManagerCompat {
         return invokeL.intValue;
     }
 
-    public static void removeAllDynamicShortcuts(Context context) {
+    public static void removeAllDynamicShortcuts(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             if (Build.VERSION.SDK_INT >= 25) {
@@ -206,7 +213,7 @@ public class ShortcutManagerCompat {
         }
     }
 
-    public static void removeDynamicShortcuts(Context context, List<String> list) {
+    public static void removeDynamicShortcuts(@NonNull Context context, @NonNull List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, list) == null) {
             if (Build.VERSION.SDK_INT >= 25) {
@@ -216,7 +223,7 @@ public class ShortcutManagerCompat {
         }
     }
 
-    public static boolean requestPinShortcut(Context context, ShortcutInfoCompat shortcutInfoCompat, IntentSender intentSender) {
+    public static boolean requestPinShortcut(@NonNull Context context, @NonNull ShortcutInfoCompat shortcutInfoCompat, @Nullable IntentSender intentSender) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, shortcutInfoCompat, intentSender)) == null) {

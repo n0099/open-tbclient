@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.profession.permission;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.dr6;
+import com.baidu.tieba.ms6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes4.dex */
-public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage {
+public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage<ms6, ZoneRightResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,9 +43,9 @@ public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMe
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             try {
-                dr6 dr6Var = new dr6();
-                dr6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
-                setData(dr6Var);
+                ms6 ms6Var = new ms6();
+                ms6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
+                setData(ms6Var);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -53,7 +53,7 @@ public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMe
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
-    public Class getProtobufResponseIdlClass() {
+    public Class<ZoneRightResIdl> getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

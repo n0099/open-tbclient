@@ -8,6 +8,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TintableImageSourceView;
@@ -25,7 +29,7 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     public final AppCompatImageHelper mImageHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatImageView(Context context) {
+    public AppCompatImageView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,7 +50,7 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatImageView(Context context, AttributeSet attributeSet) {
+    public AppCompatImageView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,7 +71,7 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatImageView(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,6 +115,8 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,6 +131,8 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,6 +147,8 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportImageTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -153,6 +163,8 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportImageTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,7 +204,7 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.setBackgroundResource(i);
@@ -216,7 +228,7 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // android.widget.ImageView
-    public void setImageDrawable(Drawable drawable) {
+    public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
             super.setImageDrawable(drawable);
@@ -228,7 +240,7 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // android.widget.ImageView
-    public void setImageResource(int i) {
+    public void setImageResource(@DrawableRes int i) {
         AppCompatImageHelper appCompatImageHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (appCompatImageHelper = this.mImageHelper) != null) {
@@ -237,7 +249,7 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // android.widget.ImageView
-    public void setImageURI(Uri uri) {
+    public void setImageURI(@Nullable Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, uri) == null) {
             super.setImageURI(uri);
@@ -249,7 +261,8 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -258,7 +271,8 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -267,7 +281,8 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
-    public void setSupportImageTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportImageTintList(@Nullable ColorStateList colorStateList) {
         AppCompatImageHelper appCompatImageHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, colorStateList) == null) && (appCompatImageHelper = this.mImageHelper) != null) {
@@ -276,7 +291,8 @@ public class AppCompatImageView extends ImageView implements TintableBackgroundV
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
-    public void setSupportImageTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportImageTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatImageHelper appCompatImageHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, mode) == null) && (appCompatImageHelper = this.mImageHelper) != null) {

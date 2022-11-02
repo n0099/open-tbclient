@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BinderHolder implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BinderHolder> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public IBinder a;
 
@@ -29,7 +29,7 @@ public class BinderHolder implements Parcelable {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<BinderHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,8 +47,10 @@ public class BinderHolder implements Parcelable {
             }
         }
 
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.sofire.mutiprocess.BinderHolder, java.lang.Object] */
         @Override // android.os.Parcelable.Creator
-        public Object createFromParcel(Parcel parcel) {
+        public BinderHolder createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
@@ -57,8 +59,10 @@ public class BinderHolder implements Parcelable {
             return invokeL.objValue;
         }
 
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+        /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.sofire.mutiprocess.BinderHolder[], java.lang.Object[]] */
         @Override // android.os.Parcelable.Creator
-        public Object[] newArray(int i) {
+        public BinderHolder[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {

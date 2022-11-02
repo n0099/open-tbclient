@@ -1,60 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.faceshop.QueryDownloadMessage;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.card.view.RecommendForumLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class fd6 {
     public static /* synthetic */ Interceptable $ic;
-    public static fd6 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public List b;
-    public int c;
-    public CustomMessageListener d;
-    public CustomMessageListener e;
+    public TbPageContext<?> a;
+    public RecommendForumLayout b;
+    public View.OnClickListener c;
+    public PullLeftRefreshLayout.f d;
+    public iq4 e;
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fd6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fd6 fd6Var, int i) {
-            super(i);
+        public a(fd6 fd6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fd6Var, Integer.valueOf(i)};
+                Object[] objArr = {fd6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,35 +46,31 @@ public class fd6 {
             this.a = fd6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001140 && (customResponsedMessage instanceof CancelDownloadMessage)) {
-                this.a.d();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ka6.b(this.a.a, null);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
+    public class b implements PullLeftRefreshLayout.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fd6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(fd6 fd6Var, int i) {
-            super(i);
+        public b(fd6 fd6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fd6Var, Integer.valueOf(i)};
+                Object[] objArr = {fd6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,23 +79,29 @@ public class fd6 {
             this.a = fd6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                this.a.b = (List) ((QueryDownloadMessage) customResponsedMessage).getData();
-                fd6 fd6Var = this.a;
-                fd6Var.g(fd6Var.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ka6.b(this.a.a, null);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends BdAsyncTask {
+    public class c implements iq4<fu4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fd6 a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.iq4
+        /* renamed from: a */
+        public void d(View view2, fu4 fu4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, fu4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            }
+        }
 
         public c(fd6 fd6Var) {
             Interceptable interceptable = $ic;
@@ -137,179 +122,67 @@ public class fd6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        @Override // com.baidu.tieba.iq4
         /* renamed from: b */
-        public List doInBackground(List... listArr) {
-            InterceptResult invokeL;
+        public void c(View view2, fu4 fu4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
-                LinkedList linkedList = new LinkedList();
-                if (listArr[0] == null) {
-                    return linkedList;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, fu4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (fu4Var == null) {
+                    ka6.b(this.a.a, null);
+                    return;
                 }
-                for (int i = 0; i < listArr[0].size(); i++) {
-                    MyEmotionGroupData d = yc6.c().d(TbadkCoreApplication.getCurrentAccount(), (String) listArr[0].get(i));
-                    if (d != null && zc6.d(d.getGroupId())) {
-                        DownloadData downloadData = new DownloadData(d.getGroupId());
-                        downloadData.setStatus(3);
-                        linkedList.add(downloadData);
-                    }
+                String l = fu4Var.l();
+                if (!wi.isForumName(l)) {
+                    return;
                 }
-                return linkedList;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                super.onPostExecute(list);
-                if (list == null) {
-                    list = new LinkedList();
-                }
-                for (DownloadData downloadData : h55.k().j()) {
-                    for (String str : this.a.b) {
-                        if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
-                            list.add(downloadData);
-                        }
-                    }
-                }
-                this.a.h(list);
+                this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947760337, "Lcom/baidu/tieba/fd6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947760337, "Lcom/baidu/tieba/fd6;");
-                return;
-            }
-        }
-        f = new fd6();
-    }
-
-    public static fd6 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
-        }
-        return (fd6) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h55.k().i(11);
-        }
-    }
-
-    public fd6() {
+    public fd6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 5;
-        this.d = new a(this, 2001140);
-        this.e = new b(this, 2001119);
-        MessageManager.getInstance().registerListener(this.e);
-        MessageManager.getInstance().registerListener(this.d);
+        this.c = new a(this);
+        this.d = new b(this);
+        this.e = new c(this);
+        this.a = tbPageContext;
+        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
+        this.b = recommendForumLayout;
+        recommendForumLayout.setShowMore(true);
+        this.b.setSquareEntranceAtStart(true);
+        this.b.setTabName(null);
+        this.b.setFrom(0);
+        this.b.setOnClickRightArrowListener(this.c);
+        this.b.setOnRullOkCallbackr(this.d);
+        this.b.setOnItemCoverListener(this.e);
     }
 
-    public void e(String str) {
+    public void b(gu4 gu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            h55.k().f(str, 11);
+        if (interceptable == null || interceptable.invokeL(1048576, this, gu4Var) == null) {
+            this.b.a(gu4Var);
         }
     }
 
-    public final void g(List list) {
+    public RecommendForumLayout c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            c cVar = new c(this);
-            this.a = cVar;
-            cVar.execute(list);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-    }
-
-    public void h(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
-        }
-    }
-
-    public void i(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(downloadData);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
-        }
-    }
-
-    public void j(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) && !ej.isEmpty(str) && !ej.isEmpty(str3)) {
-            DownloadData downloadData = new DownloadData(str, str2, str3, new ed6());
-            downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
-            downloadData.setType(11);
-            String[] split = str3.split("/");
-            if (split.length > 1) {
-                String[] split2 = split[split.length - 1].split("_");
-                if (split2 != null) {
-                    if (split2.length == 5) {
-                        downloadData.setDescription(split2[1]);
-                        downloadData.setCheck(split2[2]);
-                        downloadData.setWidth(eh.e(split2[3], 200));
-                        downloadData.setHeight(eh.e(split2[4].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0], 200));
-                    } else if (split2.length == 3) {
-                        downloadData.setDescription(split2[1]);
-                        downloadData.setCheck(split2[2].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0]);
-                        downloadData.setWidth(200);
-                        downloadData.setHeight(200);
-                    } else {
-                        downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0518));
-                        downloadData.setStatus(2);
-                    }
-                } else {
-                    downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0518));
-                    downloadData.setStatus(2);
-                }
-            } else {
-                downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0518));
-                downloadData.setStatus(2);
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath());
-            sb.append(FileHelper.getPrefixByType(2));
-            File file = new File(sb.toString());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            sb.append("/");
-            sb.append(str);
-            downloadData.setPath(sb.toString());
-            BdLog.d("download:path:" + downloadData.getPath());
-            h55.k().m(downloadData, this.c);
-        }
+        return (RecommendForumLayout) invokeV.objValue;
     }
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
@@ -42,7 +43,7 @@ public class ScanLoadingView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScanLoadingView(Context context, AttributeSet attributeSet) {
+    public ScanLoadingView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,7 +64,7 @@ public class ScanLoadingView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScanLoadingView(Context context, AttributeSet attributeSet, int i) {
+    public ScanLoadingView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -112,13 +113,13 @@ public class ScanLoadingView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0508, (ViewGroup) this, true);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091405);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0518, (ViewGroup) this, true);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091444);
             this.a = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
             this.a.setFrame(0);
-            SkinManager.setLottieAnimation(this.a, R.raw.obfuscated_res_0x7f110070);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091412), R.color.CAM_X0108, 1);
+            SkinManager.setLottieAnimation(this.a, R.raw.obfuscated_res_0x7f110072);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091451), R.color.CAM_X0108, 1);
             setVisibility(8);
         }
     }

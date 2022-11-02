@@ -271,7 +271,7 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getTplStokenResult) == null) {
-                BiometricsManager.getInstance().recogWithBduss(this.a, this.b, this.c, this.d, this.e.bduss, (String) getTplStokenResult.tplStokenMap.get("pp"), this.f);
+                BiometricsManager.getInstance().recogWithBduss(this.a, this.b, this.c, this.d, this.e.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.f);
             }
         }
     }
@@ -652,12 +652,12 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getTplStokenResult) == null) {
-                String str = (String) getTplStokenResult.tplStokenMap.get("pp");
+                String str = getTplStokenResult.tplStokenMap.get("pp");
                 if (!TextUtils.isEmpty(str)) {
                     CoreViewRouter coreViewRouter = this.e;
                     Activity activity = this.a;
                     FaceIDVerifyDTO faceIDVerifyDTO = this.b;
-                    coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.c, this.d, faceIDVerifyDTO.isCurrentProcessShowAgreement);
+                    coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map<String, String>) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.c, this.d, faceIDVerifyDTO.isCurrentProcessShowAgreement);
                     return;
                 }
                 this.d.setResultCode(-402);
@@ -791,7 +791,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class l implements SapiCallback {
+    public class l implements SapiCallback<SapiResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -886,7 +886,7 @@ public class CoreViewRouter implements NoProguard {
                         return;
                     default:
                         this.e.params.put("retCode", "-301");
-                        Map map = this.e.params;
+                        Map<String, Object> map = this.e.params;
                         map.put("retMsg", "action :" + this.a + " is not support");
                         this.c.onFinish(this.e);
                         return;
@@ -1230,7 +1230,7 @@ public class CoreViewRouter implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048622, this, qrLoginCallback, str) == null) {
             WebLoginDTO webLoginDTO = new WebLoginDTO();
-            webLoginDTO.encryptedId = (String) SapiUtils.urlParamsToMap(str).get(SapiUtils.KEY_QR_LOGIN_ENCUID);
+            webLoginDTO.encryptedId = SapiUtils.urlParamsToMap(str).get(SapiUtils.KEY_QR_LOGIN_ENCUID);
             webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
             startLogin(new e(this, qrLoginCallback), webLoginDTO);
         }
@@ -1383,7 +1383,7 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    private void a(Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, BiometricsManager.e eVar, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, PassFaceRecogCallback passFaceRecogCallback, String str, Map map, String str2) {
+    private void a(Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, BiometricsManager.e eVar, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, PassFaceRecogCallback passFaceRecogCallback, String str, Map<String, String> map, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, passFaceRecogCallback, str, map, str2}) == null) {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
@@ -1478,14 +1478,14 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Activity activity, String str, Map map, String str2, String str3, String str4, String str5, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult, boolean z) {
+    public void a(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, String str5, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{activity, str, map, str2, str3, str4, str5, verifyUserFaceIDCallback, realNameFaceIDResult, Boolean.valueOf(z)}) == null) {
             BiometricsManager.getInstance().recogWithBduss(activity, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, z, new j(this, realNameFaceIDResult, verifyUserFaceIDCallback));
         }
     }
 
-    private void a(Context context, Class cls, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+    private void a(Context context, Class<?> cls, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLLL(65546, this, context, cls, webAuthListener, webLoginDTO) != null) || context == null) {
             return;
@@ -1580,7 +1580,7 @@ public class CoreViewRouter implements NoProguard {
             }
             WebLoginDTO webLoginDTO = new WebLoginDTO();
             webLoginDTO.finishActivityAfterSuc = false;
-            webLoginDTO.encryptedId = (String) SapiUtils.parseQrLoginSchema(str).get("enuid");
+            webLoginDTO.encryptedId = SapiUtils.parseQrLoginSchema(str).get("enuid");
             try {
                 if (TextUtils.isEmpty(str2)) {
                     jSONObject = new JSONObject();
@@ -1618,7 +1618,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        Class cls;
+        Class<?> cls;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048641, this, context, webAuthListener, webLoginDTO) == null) {
             if (webLoginDTO != null && webLoginDTO.isWithYouthStyle) {

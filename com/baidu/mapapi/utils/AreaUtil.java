@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class AreaUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -40,5 +41,28 @@ public class AreaUtil {
             return 0.0d;
         }
         return invokeLL.doubleValue;
+    }
+
+    public static double calculateArea(List<LatLng> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            double d = 0.0d;
+            if (list == null || list.size() < 3) {
+                return 0.0d;
+            }
+            double d2 = 111319.49079327358d;
+            int size = list.size();
+            int i = 0;
+            while (i < size) {
+                LatLng latLng = list.get(i);
+                i++;
+                LatLng latLng2 = list.get(i % size);
+                d += (((latLng.longitude * d2) * Math.cos(latLng.latitude * 0.017453292519943295d)) * (latLng2.latitude * 111319.49079327358d)) - ((latLng.latitude * d2) * ((latLng2.longitude * d2) * Math.cos(latLng2.latitude * 0.017453292519943295d)));
+                d2 = 111319.49079327358d;
+            }
+            return (float) Math.abs(d / 2.0d);
+        }
+        return invokeL.doubleValue;
     }
 }

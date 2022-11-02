@@ -1,65 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.vc4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yo3 implements wd4 {
+public class yo3 implements po3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public zo3 a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
 
-    public yo3() {
+    public yo3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        c(context);
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = zo3.a(context);
         }
     }
 
-    @Override // com.baidu.tieba.vc4
-    public void b(String str, Map map, Map map2, JSONObject jSONObject, vc4.a aVar) {
+    @Override // com.baidu.tieba.po3
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            if (PMSConstants.a(xa4.b())) {
-                pc4.b(str, map, map2, jSONObject, new pm3(aVar));
-            } else {
-                pc4.b(str, map, map2, jSONObject, new wc4(aVar));
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.b && d()) {
+            this.b = false;
+            if (this.a.c()) {
+                this.a.e(12, 0);
+                this.a.e(13, 0);
+                return;
             }
+            this.a.d(12, 0);
+            this.a.d(13, 0);
         }
     }
 
-    @Override // com.baidu.tieba.wd4
-    public id4 c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.po3
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            return gd4.a(str, i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != null && !this.b && d()) {
+            this.b = true;
+            if (this.a.c()) {
+                this.a.e(12, i);
+                this.a.e(13, i);
+                return;
+            }
+            this.a.d(12, i);
+            this.a.d(13, i);
         }
-        return (id4) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.vc4
-    public void z(String str, Map map, Map map2, vc4.a aVar) {
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
-            if (PMSConstants.a(xa4.b())) {
-                pc4.a(str, map, map2, new pm3(aVar));
-            } else {
-                pc4.a(str, map, map2, new wc4(aVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.d) {
+                this.d = true;
+                this.c = this.a.g();
             }
+            return this.c;
         }
+        return invokeV.booleanValue;
     }
 }

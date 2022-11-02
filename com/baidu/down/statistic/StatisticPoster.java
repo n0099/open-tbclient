@@ -5,6 +5,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.down.common.BasicNameValuePair;
+import com.baidu.down.common.NameValuePair;
 import com.baidu.down.loopj.android.http.MultiSrcBinaryTaskHandler;
 import com.baidu.down.loopj.android.urlconnection.ProxyURLConnection;
 import com.baidu.down.request.task.AbstractTask;
@@ -117,7 +118,7 @@ public final class StatisticPoster {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List getPostData(String str) {
+    public List<NameValuePair> getPostData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
@@ -189,19 +190,19 @@ public final class StatisticPoster {
             long elapsedRealtime = SystemClock.elapsedRealtime() - abstractTask.mStartTime;
             long currentLength = abstractTask.mProgressInfo.getCurrentLength() - abstractTask.mCurLength;
             long j3 = abstractTask.mTotalLength;
-            TreeSet priorityDownloadIpInfoSet = ((MultiSrcBinaryReqTask) abstractTask).getPriorityDownloadIpInfoSet();
+            TreeSet<HttpDNSInfo> priorityDownloadIpInfoSet = ((MultiSrcBinaryReqTask) abstractTask).getPriorityDownloadIpInfoSet();
             if (priorityDownloadIpInfoSet != null && !priorityDownloadIpInfoSet.isEmpty()) {
-                Iterator it = priorityDownloadIpInfoSet.iterator();
+                Iterator<HttpDNSInfo> it = priorityDownloadIpInfoSet.iterator();
                 str = "";
                 while (it.hasNext()) {
-                    HttpDNSInfo httpDNSInfo = (HttpDNSInfo) it.next();
-                    String str4 = httpDNSInfo.mCDNSequence + "@";
+                    HttpDNSInfo next = it.next();
+                    String str4 = next.mCDNSequence + "@";
                     try {
-                        str4 = str4 + new URI(httpDNSInfo.mUrl).getHost() + "@";
+                        str4 = str4 + new URI(next.mUrl).getHost() + "@";
                     } catch (URISyntaxException e) {
                         e.printStackTrace();
                     }
-                    int i2 = httpDNSInfo.mStatus;
+                    int i2 = next.mStatus;
                     if (i2 != 2) {
                         if (i2 != 3) {
                             str3 = str4 + "2@-1@-1";
@@ -213,17 +214,17 @@ public final class StatisticPoster {
                         String str5 = str4 + "0@";
                         j2 = j3;
                         long j4 = 0;
-                        if (httpDNSInfo.mDownloadTimes == 0) {
+                        if (next.mDownloadTimes == 0) {
                             str2 = str5 + "0@";
                         } else {
-                            str2 = str5 + httpDNSInfo.getTestAverageSpeed() + "@";
+                            str2 = str5 + next.getTestAverageSpeed() + "@";
                         }
-                        List list = httpDNSInfo.mHttpConnectTime;
+                        List<Long> list = next.mHttpConnectTime;
                         if (list != null && list.size() > 0) {
-                            for (int i3 = 0; i3 < httpDNSInfo.mHttpConnectTime.size(); i3++) {
-                                j4 += ((Long) httpDNSInfo.mHttpConnectTime.get(i3)).longValue();
+                            for (int i3 = 0; i3 < next.mHttpConnectTime.size(); i3++) {
+                                j4 += next.mHttpConnectTime.get(i3).longValue();
                             }
-                            str3 = str2 + (j4 / httpDNSInfo.mHttpConnectTime.size());
+                            str3 = str2 + (j4 / next.mHttpConnectTime.size());
                         } else {
                             str3 = str2 + "-1";
                         }

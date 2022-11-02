@@ -1,6 +1,7 @@
 package com.kwad.components.core.h;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class a extends m {
+public class a extends m<com.kwad.components.core.k.a, AdResultData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b EI;
@@ -74,6 +75,7 @@ public class a extends m {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.network.m
+    @NonNull
     /* renamed from: ah */
     public AdResultData parseData(String str) {
         InterceptResult invokeL;
@@ -89,6 +91,7 @@ public class a extends m {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.network.a
+    @NonNull
     /* renamed from: fe */
     public com.kwad.components.core.k.a createRequest() {
         InterceptResult invokeV;

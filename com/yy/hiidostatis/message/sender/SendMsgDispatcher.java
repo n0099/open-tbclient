@@ -34,7 +34,7 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
     public MessageConfig config;
     public volatile AtomicInteger errorCount;
     public volatile int limitSize;
-    public List messageProcessors;
+    public List<MessageProcessor> messageProcessors;
     public int preRunTime;
     public volatile boolean running;
     public MessageSender sender;
@@ -44,7 +44,7 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
     public MessageSupplier supplier;
     public SharedTimerTask timerTask;
 
-    public SendMsgDispatcher(MessageSupplier messageSupplier, MessageSender messageSender, List list) {
+    public SendMsgDispatcher(MessageSupplier messageSupplier, MessageSender messageSender, List<MessageProcessor> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -238,8 +238,8 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
                             if (this.limitSize > fetchMessage.getContent().length) {
                                 this.running = false;
                             }
-                            Iterator it = this.messageProcessors.iterator();
-                            while (it.hasNext() && (fetchMessage = ((MessageProcessor) it.next()).process(fetchMessage)) != null) {
+                            Iterator<MessageProcessor> it = this.messageProcessors.iterator();
+                            while (it.hasNext() && (fetchMessage = it.next().process(fetchMessage)) != null) {
                             }
                             if (fetchMessage != null) {
                                 i = this.sendingCount.incrementAndGet();

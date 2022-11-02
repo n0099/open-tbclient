@@ -60,7 +60,7 @@ public abstract class JsonReader implements Closeable {
     public abstract void skipValue() throws IOException;
 
     /* loaded from: classes.dex */
-    public final class Options {
+    public static final class Options {
         public final okio.Options doubleQuoteSuffix;
         public final String[] strings;
 

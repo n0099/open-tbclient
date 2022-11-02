@@ -14,7 +14,7 @@ public class ListenerManager {
     public static /* synthetic */ Interceptable $ic;
     public static ListenerManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map mMap;
+    public Map<String, IMListener> mMap;
     public AtomicInteger mOpenCounter;
 
     public ListenerManager() {
@@ -100,7 +100,7 @@ public class ListenerManager {
                 if (!this.mMap.containsKey(str)) {
                     return null;
                 }
-                return (IMListener) this.mMap.get(str);
+                return this.mMap.get(str);
             }
         }
         return (IMListener) invokeL.objValue;
@@ -117,7 +117,7 @@ public class ListenerManager {
                 if (!this.mMap.containsKey(str)) {
                     return null;
                 }
-                return (IMListener) this.mMap.remove(str);
+                return this.mMap.remove(str);
             }
         }
         return (IMListener) invokeL.objValue;

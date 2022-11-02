@@ -14,8 +14,8 @@ public class ListObjectsResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String bucketName;
-    public List commonPrefixes;
-    public List contents;
+    public List<String> commonPrefixes;
+    public List<BosObjectSummary> contents;
     public String delimiter;
     public boolean isTruncated;
     public String marker;
@@ -48,7 +48,7 @@ public class ListObjectsResponse extends BosResponse {
         return (String) invokeV.objValue;
     }
 
-    public List getCommonPrefixes() {
+    public List<String> getCommonPrefixes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -57,7 +57,7 @@ public class ListObjectsResponse extends BosResponse {
         return (List) invokeV.objValue;
     }
 
-    public List getContents() {
+    public List<BosObjectSummary> getContents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -127,14 +127,14 @@ public class ListObjectsResponse extends BosResponse {
         }
     }
 
-    public void setCommonPrefixes(List list) {
+    public void setCommonPrefixes(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.commonPrefixes = list;
         }
     }
 
-    public void setContents(List list) {
+    public void setContents(List<BosObjectSummary> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.contents = list;

@@ -3,6 +3,7 @@ package com.baidu.mapapi.map;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,34 +50,44 @@ public final class MapPoi {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            String optString = jSONObject.optString("tx");
-            this.a = optString;
-            if (optString != null && !optString.equals("")) {
-                this.a = this.a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
-            }
-            this.b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
-            this.c = jSONObject.optString("ud");
-        }
-    }
-
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (LatLng) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (LatLng) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString(MapBundleKey.MapObjKey.OBJ_TEXT);
+        this.a = optString;
+        if (optString != null && !optString.equals("")) {
+            this.a = this.a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
+        }
+        this.b = CoordUtil.decodeNodeLocation(jSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO));
+        this.c = jSONObject.optString("ud");
     }
 }

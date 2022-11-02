@@ -14,7 +14,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class BinaryFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BinaryFrame> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] data;
 
@@ -31,7 +31,7 @@ public final class BinaryFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.BinaryFrame.1
+        CREATOR = new Parcelable.Creator<BinaryFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.BinaryFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,6 +50,7 @@ public final class BinaryFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BinaryFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -61,6 +62,7 @@ public final class BinaryFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BinaryFrame[] newArray(int i) {
                 InterceptResult invokeI;

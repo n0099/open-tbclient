@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.constraintlayout.motion.widget.Key;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.n94;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,64 +12,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a94 {
+public class a94 extends q84<tq2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public boolean d;
-    public b e;
 
     /* loaded from: classes3.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(boolean z);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends AnimatorListenerAdapter {
+    public class a implements n94.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ a94 c;
+        public final /* synthetic */ tq2 a;
+        public final /* synthetic */ nq2 b;
 
-        public a(a94 a94Var, boolean z, int i) {
+        public a(a94 a94Var, tq2 tq2Var, nq2 nq2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a94Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                Object[] objArr = {a94Var, tq2Var, nq2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = a94Var;
-            this.a = z;
-            this.b = i;
+            this.a = tq2Var;
+            this.b = nq2Var;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // com.baidu.tieba.n94.b
+        public void onAnimationEnd() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                animator.removeAllListeners();
-                if (!this.a) {
-                    this.c.c(this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!TextUtils.isEmpty(this.a.y)) {
+                    this.b.c(this.a.y, null);
                 }
-                if (this.c.e != null) {
-                    this.c.e.a(this.a);
-                }
+                e12.i("map", "TranslateMarkerAction animation end");
             }
         }
     }
@@ -91,83 +70,83 @@ public class a94 {
                 return;
             }
         }
-        f = dh3.g(58.0f);
+        boolean z = ok1.a;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public a94(View view2, FrameLayout frameLayout, View view3) {
+    public a94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, frameLayout, view3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.a = view2;
-        this.b = frameLayout;
-        this.c = view3;
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            layoutParams.height = this.a.getHeight() - (i * 2);
-            this.a.setLayoutParams(layoutParams);
         }
     }
 
-    public void e(boolean z) {
+    public static a94 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.b(z);
-            }
-            this.d = z;
-            int i = f;
-            if (z) {
-                i = -i;
-            }
-            float[] fArr = new float[2];
-            if (z) {
-                fArr[0] = 0.0f;
-                fArr[1] = i;
-            } else {
-                fArr[0] = -i;
-                fArr[1] = 0.0f;
-            }
-            float[] fArr2 = new float[2];
-            if (z) {
-                fArr2[0] = 0.0f;
-                fArr2[1] = i * 2;
-            } else {
-                fArr2[0] = (-i) * 2;
-                fArr2[1] = 0.0f;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
-            animatorSet.setDuration(200L);
-            animatorSet.start();
-            animatorSet.addListener(new a(this, z, i));
-            if (z) {
-                c(i);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new a94();
         }
+        return (a94) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.q84
+    /* renamed from: d */
+    public boolean b(Context context, tq2 tq2Var, nq2 nq2Var, e43 e43Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, tq2Var, nq2Var, e43Var, jSONObject)) == null) {
+            return f(context, tq2Var, nq2Var, e43Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean f(Context context, tq2 tq2Var, nq2 nq2Var, e43 e43Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, tq2Var, nq2Var, e43Var)) == null) {
+            e12.i("map", "TranslateMarkerAction start");
+            mq1 A = rp2.U().A(tq2Var.c);
+            if (!(A instanceof kq1)) {
+                e12.c("map", "WebViewManager is null");
+                return false;
+            }
+            o94 d = n84.b().c((kq1) A).d(tq2Var.b);
+            if (d == null) {
+                e12.c("map", "can not find map by id " + tq2Var.b);
+                return false;
+            }
+            return g(tq2Var, d, nq2Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final boolean g(tq2 tq2Var, o94 o94Var, nq2 nq2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tq2Var, o94Var, nq2Var)) == null) {
+            if (!tq2Var.isValid()) {
+                return false;
+            }
+            xq2 xq2Var = tq2Var.A;
+            LatLng latLng = new LatLng(xq2Var.a, xq2Var.b);
+            List<n94> I = o94Var.I(tq2Var.z);
+            e12.i("map", "TranslateMarkerAction animation start");
+            if (I != null) {
+                for (n94 n94Var : I) {
+                    n94Var.c(o94Var, latLng, tq2Var, new a(this, tq2Var, nq2Var));
+                }
+            }
+            e12.i("map", "TranslateMarkerAction end");
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

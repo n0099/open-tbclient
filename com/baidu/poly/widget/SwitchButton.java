@@ -27,8 +27,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ad1;
-import com.baidu.tieba.sa1;
+import com.baidu.tieba.kb1;
+import com.baidu.tieba.sd1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,21 +98,21 @@ public class SwitchButton extends CompoundButton {
     public RectF z;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public CharSequence offText;
         public CharSequence onText;
 
         /* loaded from: classes2.dex */
-        public final class a implements Parcelable.Creator {
+        public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -828,8 +828,8 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             this.k = i;
-            this.d = ad1.b(i);
-            this.c = ad1.a(this.k);
+            this.d = sd1.b(i);
+            this.c = sd1.a(this.k);
             this.D = false;
             this.C = false;
             refreshDrawableState();
@@ -909,7 +909,7 @@ public class SwitchButton extends CompoundButton {
             if (attributeSet == null) {
                 obtainStyledAttributes = null;
             } else {
-                obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, sa1.SwitchButton);
+                obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, kb1.SwitchButton);
             }
             if (obtainStyledAttributes != null) {
                 drawable = obtainStyledAttributes.getDrawable(11);
@@ -1018,7 +1018,7 @@ public class SwitchButton extends CompoundButton {
                 this.k = 3309506;
             }
             if (!this.C && this.d == null) {
-                ColorStateList b = ad1.b(this.k);
+                ColorStateList b = sd1.b(this.k);
                 this.d = b;
                 this.p = b.getDefaultColor();
             }
@@ -1033,7 +1033,7 @@ public class SwitchButton extends CompoundButton {
             }
             this.D = z3;
             if (!z3 && this.c == null) {
-                ColorStateList a2 = ad1.a(this.k);
+                ColorStateList a2 = sd1.a(this.k);
                 this.c = a2;
                 int defaultColor = a2.getDefaultColor();
                 this.q = defaultColor;

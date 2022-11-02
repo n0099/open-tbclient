@@ -1,17 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.runtime.InitException;
-import com.baidu.nps.runtime.resources.ResourcesHookUtil;
-import com.baidu.nps.utils.Constant;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,191 +14,67 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class j91 {
     public static /* synthetic */ Interceptable $ic;
+    public static j91 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BundleInfo a;
-    public k91 b;
-    public l91 c;
+    @Inject
+    public lf1<IPackageGetter> a;
 
-    public j91(BundleInfo bundleInfo) {
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            jf1 b2 = jf1.b();
+            this.a = b2;
+            b2.a(new IPackageGetter_PackageGetter_Provider());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838023, "Lcom/baidu/tieba/j91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838023, "Lcom/baidu/tieba/j91;");
+                return;
+            }
+        }
+        b = new j91();
+    }
+
+    public j91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundleInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        if (a(bundleInfo)) {
-            this.a = bundleInfo;
-            return;
-        }
-        e91.j().s(bundleInfo);
-        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
+        c();
     }
 
-    public static j91 b(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
-            j91 j91Var = new j91(bundleInfo);
-            j91Var.d();
-            return j91Var;
-        }
-        return (j91) invokeL.objValue;
-    }
-
-    public final boolean a(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
-            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
-                return false;
-            }
-            Application applicationContext = ContextHolder.getApplicationContext();
-            if (!s91.d(applicationContext, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).exists()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ClassLoader c() {
+    public static j91 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (ClassLoader) invokeV.objValue;
+        return (j91) invokeV.objValue;
     }
 
-    public final boolean e() {
+    public IPackageGetter b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.b = i91.d().b(this.a, ContextHolder.getApplicationContext());
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (e()) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    if (!g()) {
-                        throw new InitException(20, "resources init error");
-                    }
-                    return;
-                } else if (f()) {
-                    return;
-                } else {
-                    throw new InitException(20, "resources init error");
-                }
-            }
-            throw new InitException(16, "class loader init error");
-        }
-    }
-
-    public final synchronized boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                try {
-                    Application applicationContext = ContextHolder.getApplicationContext();
-                    Resources a = t81.c().a();
-                    Resources b = t81.c().b();
-                    Resources[] d = t81.c().d();
-                    n91.a().b(applicationContext);
-                    String absolutePath = s91.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
-                    if (d != null) {
-                        for (Resources resources : d) {
-                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
-                        }
-                    }
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = s91.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                String str = applicationContext.getApplicationInfo().sourceDir;
-                try {
-                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
-                    Resources a = t81.c().a();
-                    this.c = new l91(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
-                } catch (Exception e) {
-                    if (r91.a()) {
-                        Log.e("Runtime", "resource", e);
-                        return false;
-                    }
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized Resources getResources(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
-            synchronized (this) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return this.c;
-                }
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = s91.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                AssetManager assets = resources.getAssets();
-                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
-                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
-                        if (this.c != null) {
-                            if (Build.VERSION.SDK_INT >= 21) {
-                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
-                                this.c = new l91(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                            }
-                        } else {
-                            this.c = new l91(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                        }
-                    }
-                    return this.c;
-                }
-                throw new InitException(21, "resources hook error");
-            }
-        }
-        return (Resources) invokeL.objValue;
+        return (IPackageGetter) invokeV.objValue;
     }
 }

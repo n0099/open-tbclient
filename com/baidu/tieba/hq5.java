@@ -1,154 +1,306 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
-import com.baidu.tieba.ey4;
-import com.baidu.tieba.fq5;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 /* loaded from: classes4.dex */
-public class hq5 extends p9 {
+public class hq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hq5 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public NewFriendsActivity a;
-    public View b;
-    public NavigationBar c;
-    public ImageView d;
-    public BdListView e;
-    public fq5 f;
-    public fy4 g;
-    public NoDataView h;
+    public AbsDataRecorder a;
+    public String b;
+    public String c;
+    public Stack<HashMap<AbsDataRecorder.Scene, AbsDataRecorder>> d;
+    public boolean e;
+    public Map<String, Integer> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hq5(NewFriendsActivity newFriendsActivity) {
-        super(newFriendsActivity.getPageContext());
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-738841952, "Lcom/baidu/tieba/hq5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-738841952, "Lcom/baidu/tieba/hq5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
+            a = iArr;
+            try {
+                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public hq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {newFriendsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = newFriendsActivity;
-        this.b = newFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09167a);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925ad);
-        this.c = navigationBar;
-        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c6d));
-        this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0079, this.a).findViewById(R.id.obfuscated_res_0x7f09167c);
-        this.d = imageView;
-        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a26, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.e = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09167b);
-        fq5 fq5Var = new fq5(this.a);
-        this.f = fq5Var;
-        this.e.setAdapter((ListAdapter) fq5Var);
-        this.e.setOnItemClickListener(this.a);
-        this.e.setOnItemLongClickListener(this.a);
-        fy4 fy4Var = new fy4(newFriendsActivity.getPageContext());
-        this.g = fy4Var;
-        this.e.setPullRefresh(fy4Var);
-        BdListViewHelper.d(this.a.getActivity(), this.e, BdListViewHelper.HeadType.DEFAULT);
-        this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, fj.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ca9), null);
+        this.e = false;
+        if (this.d == null) {
+            this.d = new Stack<>();
+        }
+        this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
+        this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public void j(zp4 zp4Var, int i) {
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, zp4Var, i) == null) {
-            boolean z = true;
-            if (i != 1) {
-                z = false;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            a();
+            b();
+            if (TbadkCoreApplication.isLogin()) {
+                this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
+                this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
+            } else {
+                eq5.e().a();
             }
-            zp4Var.l(z);
-            this.c.onChangeSkinType(this.a.getPageContext(), i);
-            this.g.H(i);
-            zp4Var.k(this.b);
-            this.h.f(this.a.getPageContext(), i);
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a26, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.a.a();
         }
     }
 
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.A(0L);
-        }
-    }
-
-    public fq5 l() {
+    public static hq5 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (g == null) {
+                synchronized (hq5.class) {
+                    if (g == null) {
+                        g = new hq5();
+                    }
+                }
+            }
+            return g;
         }
-        return (fq5) invokeV.objValue;
+        return (hq5) invokeV.objValue;
     }
 
-    public void q() {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.e.F();
-        }
-    }
-
-    public void m(p97 p97Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, p97Var) == null) {
-            this.f.d(p97Var);
-            this.f.notifyDataSetChanged();
-        }
-    }
-
-    public void n(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.e.setEmptyView(this.h);
-            this.f.e(list);
-            this.f.notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ky4.k().D(this.b);
         }
     }
 
-    public void o(ey4.g gVar) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-            this.g.f(gVar);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ky4.k().D(this.c);
         }
     }
 
-    public void p(fq5.c cVar) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.f.f(cVar);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<AbsDataRecorder.Scene, AbsDataRecorder> hashMap = new HashMap<>();
+            hashMap.put(AbsDataRecorder.Scene.FRS_HOT, null);
+            hashMap.put(AbsDataRecorder.Scene.FRS_NEW, null);
+            this.d.push(hashMap);
         }
     }
 
-    public void r(List list) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f.h(list);
-            this.f.notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.d.isEmpty()) {
+            this.d.pop();
         }
+    }
+
+    public final AbsDataRecorder f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == null) {
+                this.a = new iq5();
+            }
+            return this.a;
+        }
+        return (AbsDataRecorder) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (TbadkCoreApplication.isLogin() && TbadkCoreApplication.getCurrentMemberType() == 0 && eq5.e().i()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ky4.k().w(this.b, ky4.k().l(this.b, 0) + 1);
+            ky4.k().x(this.c, System.currentTimeMillis());
+        }
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!TimeHelper.isSameDay(ky4.k().m(this.c, 0L), System.currentTimeMillis())) {
+                a();
+            }
+            return ky4.k().l(this.b, 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public AbsDataRecorder g(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, scene)) == null) {
+            int i = a.a[scene.ordinal()];
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    return null;
+                }
+                return i(scene);
+            }
+            return f();
+        }
+        return (AbsDataRecorder) invokeL.objValue;
+    }
+
+    public int j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            Map<String, Integer> map = this.f;
+            if (map != null && map.get(str) != null) {
+                return this.f.get(str).intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean l(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) {
+            if (!zq5.i().p(scene) && n() && g(scene) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public final AbsDataRecorder i(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
+            if (!this.d.isEmpty()) {
+                HashMap<AbsDataRecorder.Scene, AbsDataRecorder> peek = this.d.peek();
+                if (peek.get(scene) == null) {
+                    if (scene == AbsDataRecorder.Scene.FRS_HOT) {
+                        peek.put(scene, new fq5());
+                    } else if (scene == AbsDataRecorder.Scene.FRS_NEW) {
+                        peek.put(scene, new gq5());
+                    }
+                }
+                return peek.get(scene);
+            }
+            return null;
+        }
+        return (AbsDataRecorder) invokeL.objValue;
+    }
+
+    public void p(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
+            if (this.f == null) {
+                this.f = new HashMap();
+            }
+            if (this.f.get(str) == null) {
+                this.f.put(str, Integer.valueOf(i));
+            }
+        }
+    }
+
+    public boolean r(int i, AbsDataRecorder.Scene scene) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, scene)) == null) {
+            if (!zq5.i().q() && n() && i >= eq5.e().f(AbsDataRecorder.Scene.PB) && h() < eq5.e().d()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public boolean s(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, scene)) == null) {
+            AbsDataRecorder g2 = g(scene);
+            if (g2 == null || !l(scene) || g2.c() < eq5.e().f(scene) || h() >= eq5.e().d()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -11,7 +11,7 @@ import java.io.InterruptedIOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class h implements l {
     public m aeG;
     public HttpURLConnection aeH;
@@ -38,8 +38,8 @@ public final class h implements l {
     }
 
     private void a(HttpURLConnection httpURLConnection, String str) {
-        for (Map.Entry entry : this.ael.vZ().entrySet()) {
-            httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+        for (Map.Entry<String, String> entry : this.ael.vZ().entrySet()) {
+            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
     }
 

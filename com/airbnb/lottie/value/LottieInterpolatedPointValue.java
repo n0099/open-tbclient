@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.view.animation.Interpolator;
 import com.airbnb.lottie.utils.MiscUtils;
 /* loaded from: classes.dex */
-public class LottieInterpolatedPointValue extends LottieInterpolatedValue {
+public class LottieInterpolatedPointValue extends LottieInterpolatedValue<PointF> {
     public final PointF point;
 
     public LottieInterpolatedPointValue(PointF pointF, PointF pointF2) {

@@ -4,10 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 import tbclient.ItemPlot;
 /* loaded from: classes4.dex */
@@ -28,7 +28,7 @@ public class ItemTableView extends LinearLayout {
     public ItemTableRowView c;
     public ItemTableRowView d;
     public ItemTableRowView e;
-    public SparseArray f;
+    public SparseArray<ItemTableRowView> f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class ItemTableView extends LinearLayout {
                 return;
             }
         }
-        g = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+        g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
     }
 
     public void a() {
@@ -90,7 +90,7 @@ public class ItemTableView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ItemTableView(Context context, AttributeSet attributeSet) {
+    public ItemTableView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,20 +110,18 @@ public class ItemTableView extends LinearLayout {
         }
     }
 
-    public void setData(List list, int i) {
+    public void setData(List<ItemPlot> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, list, i) == null) {
             a();
             if (list == null) {
                 return;
             }
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                ItemPlot itemPlot = (ItemPlot) it.next();
+            for (ItemPlot itemPlot : list) {
                 if (itemPlot != null) {
                     int intValue = itemPlot.level.intValue();
                     float intValue2 = (itemPlot.num.intValue() * 1.0f) / i;
-                    ItemTableRowView itemTableRowView = (ItemTableRowView) this.f.get(intValue);
+                    ItemTableRowView itemTableRowView = this.f.get(intValue);
                     if (itemTableRowView != null) {
                         itemTableRowView.setData(intValue2);
                     }
@@ -134,7 +132,7 @@ public class ItemTableView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ItemTableView(Context context, AttributeSet attributeSet, int i) {
+    public ItemTableView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -164,7 +162,7 @@ public class ItemTableView extends LinearLayout {
             this.c = c(context, 2, g);
             this.b = c(context, 3, g);
             this.a = c(context, 4, g);
-            SparseArray sparseArray = new SparseArray();
+            SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
             this.f = sparseArray;
             sparseArray.put(5, this.e);
             this.f.put(4, this.d);

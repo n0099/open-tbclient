@@ -8,22 +8,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.observers.BasicFuseableObserver;
 /* loaded from: classes8.dex */
-public final class ObservableFilter extends AbstractObservableWithUpstream {
+public final class ObservableFilter<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
+    public final Predicate<? super T> predicate;
 
     /* loaded from: classes8.dex */
-    public final class FilterObserver extends BasicFuseableObserver {
+    public static final class FilterObserver<T> extends BasicFuseableObserver<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Predicate filter;
+        public final Predicate<? super T> filter;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FilterObserver(Observer observer, Predicate predicate) {
+        public FilterObserver(Observer<? super T> observer, Predicate<? super T> predicate) {
             super(observer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -44,13 +45,13 @@ public final class ObservableFilter extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
                 if (this.sourceMode == 0) {
                     try {
-                        if (this.filter.test(obj)) {
-                            this.actual.onNext(obj);
+                        if (this.filter.test(t)) {
+                            this.actual.onNext(t);
                             return;
                         }
                         return;
@@ -74,8 +75,9 @@ public final class ObservableFilter extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
-            Object poll;
+        @Nullable
+        public T poll() throws Exception {
+            T poll;
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -87,12 +89,12 @@ public final class ObservableFilter extends AbstractObservableWithUpstream {
                 } while (!this.filter.test(poll));
                 return poll;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableFilter(ObservableSource observableSource, Predicate predicate) {
+    public ObservableFilter(ObservableSource<T> observableSource, Predicate<? super T> predicate) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,7 +115,7 @@ public final class ObservableFilter extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new FilterObserver(observer, this.predicate));

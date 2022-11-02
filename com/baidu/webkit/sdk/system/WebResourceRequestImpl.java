@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk.system;
 
+import android.annotation.TargetApi;
 import android.net.Uri;
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,7 +11,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import java.util.Map;
-/* loaded from: classes6.dex */
+@TargetApi(21)
+/* loaded from: classes7.dex */
 public final class WebResourceRequestImpl implements WebResourceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +56,7 @@ public final class WebResourceRequestImpl implements WebResourceRequest {
     }
 
     @Override // com.baidu.webkit.sdk.WebResourceRequest
-    public final Map getRequestHeaders() {
+    public final Map<String, String> getRequestHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRequest.getRequestHeaders() : (Map) invokeV.objValue;
@@ -82,6 +84,7 @@ public final class WebResourceRequestImpl implements WebResourceRequest {
     }
 
     @Override // com.baidu.webkit.sdk.WebResourceRequest
+    @TargetApi(24)
     public final boolean isRedirect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

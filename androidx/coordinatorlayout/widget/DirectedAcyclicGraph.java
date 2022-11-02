@@ -1,5 +1,8 @@
 package androidx.coordinatorlayout.widget;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
@@ -12,6 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class DirectedAcyclicGraph<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -40,6 +44,7 @@ public final class DirectedAcyclicGraph<T> {
         this.mSortTmpMarked = new HashSet<>();
     }
 
+    @NonNull
     public ArrayList<T> getSortedList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,15 +81,16 @@ public final class DirectedAcyclicGraph<T> {
         throw new RuntimeException("This graph contains cyclic dependencies");
     }
 
+    @NonNull
     private ArrayList<T> getEmptyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            ArrayList<T> arrayList = (ArrayList) this.mListPool.acquire();
-            if (arrayList == null) {
+            ArrayList<T> acquire = this.mListPool.acquire();
+            if (acquire == null) {
                 return new ArrayList<>();
             }
-            return arrayList;
+            return acquire;
         }
         return (ArrayList) invokeV.objValue;
     }
@@ -112,7 +118,7 @@ public final class DirectedAcyclicGraph<T> {
         return invokeV.intValue;
     }
 
-    private void poolList(ArrayList<T> arrayList) {
+    private void poolList(@NonNull ArrayList<T> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, arrayList) == null) {
             arrayList.clear();
@@ -120,14 +126,14 @@ public final class DirectedAcyclicGraph<T> {
         }
     }
 
-    public void addNode(T t) {
+    public void addNode(@NonNull T t) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && !this.mGraph.containsKey(t)) {
             this.mGraph.put(t, null);
         }
     }
 
-    public boolean contains(T t) {
+    public boolean contains(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
@@ -136,7 +142,8 @@ public final class DirectedAcyclicGraph<T> {
         return invokeL.booleanValue;
     }
 
-    public List getIncomingEdges(T t) {
+    @Nullable
+    public List getIncomingEdges(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
@@ -145,7 +152,7 @@ public final class DirectedAcyclicGraph<T> {
         return (List) invokeL.objValue;
     }
 
-    public boolean hasOutgoingEdges(T t) {
+    public boolean hasOutgoingEdges(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
@@ -161,7 +168,7 @@ public final class DirectedAcyclicGraph<T> {
         return invokeL.booleanValue;
     }
 
-    public void addEdge(T t, T t2) {
+    public void addEdge(@NonNull T t, @NonNull T t2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, t, t2) == null) {
             if (this.mGraph.containsKey(t) && this.mGraph.containsKey(t2)) {
@@ -177,7 +184,8 @@ public final class DirectedAcyclicGraph<T> {
         }
     }
 
-    public List<T> getOutgoingEdges(T t) {
+    @Nullable
+    public List<T> getOutgoingEdges(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {

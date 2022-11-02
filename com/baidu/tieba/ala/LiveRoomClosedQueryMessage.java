@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class LiveRoomClosedQueryMessage extends CustomMessage {
+public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mIds;
-    public List mOriginData;
+    public List<Long> mIds;
+    public List<Object> mOriginData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveRoomClosedQueryMessage(List list, List list2) {
+    public LiveRoomClosedQueryMessage(List<Long> list, List<Object> list2) {
         super(2921025);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +43,7 @@ public class LiveRoomClosedQueryMessage extends CustomMessage {
         }
     }
 
-    public List getIds() {
+    public List<Long> getIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -52,7 +52,7 @@ public class LiveRoomClosedQueryMessage extends CustomMessage {
         return (List) invokeV.objValue;
     }
 
-    public List getOriginData() {
+    public List<Object> getOriginData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

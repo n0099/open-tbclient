@@ -7,6 +7,7 @@ import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -59,11 +60,11 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String VIDEO_LIST = "video_list";
     public static final String VIDEO_SHOW_INDEX = "video_show_index";
     public static final String VIDEO_VIEW_RECT = "video_view_rect";
-    public static List bigDataList;
+    public static List<VideoItemData> bigDataList;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List list, int i) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,7 +86,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List list, int i, Rect rect, String str) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -109,7 +110,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,7 +137,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -164,7 +165,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -193,7 +194,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List list, String str, String str2) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -222,7 +223,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         }
     }
 
-    public void setForceUseBigDataList(List list) {
+    public void setForceUseBigDataList(List<VideoItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             bigDataList = list;

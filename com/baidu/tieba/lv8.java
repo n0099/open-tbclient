@@ -1,101 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes4.dex */
-public abstract class lv8 {
+import tbclient.ThemeRecommand;
+/* loaded from: classes5.dex */
+public class lv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
+    public String a;
     public String b;
     public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public boolean h;
 
-    public abstract void e();
-
-    public abstract void h();
-
-    public lv8(BaseActivity baseActivity, String str, String str2) {
+    public lv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = str2;
-        this.a = baseActivity;
     }
 
-    public final void a() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !ej.isEmpty(this.g)) {
-            FileHelper.deleteFile(new File(this.g));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public boolean b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d(int i, String str) {
+    public void d(ThemeRecommand themeRecommand) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            a();
+        if ((interceptable != null && interceptable.invokeL(1048579, this, themeRecommand) != null) || themeRecommand == null) {
+            return;
         }
-    }
-
-    public void g(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            a();
-        }
-    }
-
-    public void f(VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoInfo) == null) {
-            a();
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
-        }
+        this.a = themeRecommand.icon;
+        this.b = themeRecommand.tip_text;
+        this.c = themeRecommand.button_text;
+        String str = themeRecommand.button_url;
     }
 }

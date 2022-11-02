@@ -1,11 +1,14 @@
 package com.facebook.imagepipeline.platform;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.soloader.DoNotOptimize;
+@DoNotOptimize
 /* loaded from: classes7.dex */
 public class PreverificationHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -25,6 +28,8 @@ public class PreverificationHelper {
         }
     }
 
+    @DoNotOptimize
+    @TargetApi(26)
     public boolean shouldUseHardwareBitmapConfig(Bitmap.Config config) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

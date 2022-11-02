@@ -1,53 +1,129 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.tieba.q33;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface p33 {
-    public static final Set o0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+public class p33 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public CharSequence b;
+    public Drawable c;
+    public boolean d;
+    public long e;
+    public int f;
+    public a g;
+    public Context h;
 
-    void A(q33.a aVar);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(p33 p33Var);
+    }
 
-    w53 B();
+    public void g(o33 o33Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, o33Var) == null) {
+        }
+    }
 
-    boolean E();
+    public p33(Context context, int i, CharSequence charSequence, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), charSequence, drawable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = true;
+        this.e = 0L;
+        this.f = 0;
+        this.h = context;
+        this.a = i;
+        this.b = charSequence;
+        this.c = drawable;
+    }
 
-    void G();
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
 
-    String getAppId();
+    public Drawable b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Drawable drawable = this.c;
+            if (drawable != null) {
+                return drawable;
+            }
+            if (this.f != 0) {
+                Drawable drawable2 = this.h.getResources().getDrawable(this.f);
+                this.f = 0;
+                this.c = drawable2;
+                return drawable2;
+            }
+            return null;
+        }
+        return (Drawable) invokeV.objValue;
+    }
 
-    int k();
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
 
-    void l(Bundle bundle, String str);
+    public a d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (a) invokeV.objValue;
+    }
 
-    SwanAppCores m();
+    public CharSequence e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
 
-    String n(String... strArr);
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void o(fi3 fi3Var);
-
-    void p(String str);
-
-    m33 q();
-
-    void r(SwanAppActivity swanAppActivity);
-
-    void s();
-
-    void t(SwanAppActivity swanAppActivity);
-
-    void u(fi3 fi3Var);
-
-    void v(String str, Bundle bundle);
-
-    SwanAppActivity w();
-
-    pk1 x();
-
-    h03 y();
+    public void h(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.g = aVar;
+        }
+    }
 }

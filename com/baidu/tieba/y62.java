@@ -1,92 +1,77 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vc4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ye4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class y62 extends w62 implements vc4 {
+public abstract class y62 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282036, "Lcom/baidu/tieba/y62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948282036, "Lcom/baidu/tieba/y62;");
-                return;
-            }
-        }
-        tm2.g0().getSwitch("swan_pms_http_request_retry_use_default_net_lib", false);
-        b = false;
-    }
-
-    public static wd4 K() {
-        InterceptResult invokeV;
+    @WorkerThread
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b) {
-                return tm2.r0();
-            }
-            return new yd4();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (wd4) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y62(l33 l33Var) {
-        super(l33Var);
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    @WorkerThread
+    public void c(@NonNull ye4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+        }
+    }
+
+    public abstract void d();
+
+    @WorkerThread
+    public void e(@NonNull fd4 fd4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fd4Var) == null) {
+        }
+    }
+
+    public void f(yc4 yc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, yc4Var) == null) {
+        }
+    }
+
+    @WorkerThread
+    public void g(@NonNull ed4 ed4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ed4Var) == null) {
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    public y62() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {l33Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l33) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.w62, com.baidu.tieba.vc4
-    public void b(String str, Map map, Map map2, JSONObject jSONObject, vc4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            K().b(str, map, map2, jSONObject, aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.w62, com.baidu.tieba.vc4
-    public void z(String str, Map map, Map map2, vc4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            String b2 = mx2.b();
-            if (b2 != null) {
-                if (map == null) {
-                    map = new HashMap();
-                }
-                map.put("launchid", b2);
-            }
-            K().z(str, map, map2, aVar);
         }
     }
 }

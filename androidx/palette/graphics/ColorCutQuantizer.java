@@ -2,6 +2,7 @@ package androidx.palette.graphics;
 
 import android.graphics.Color;
 import android.util.TimingLogger;
+import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.palette.graphics.Palette;
@@ -36,6 +37,7 @@ public final class ColorCutQuantizer {
     public final int[] mHistogram;
     public final List<Palette.Swatch> mQuantizedColors;
     public final float[] mTempHsl;
+    @Nullable
     public final TimingLogger mTimingLogger;
 
     public static int modifyWordWidth(int i, int i2, int i3) {

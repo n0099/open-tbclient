@@ -33,13 +33,13 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
 
     /* renamed from: com.google.zxing.multi.qrcode.detector.MultiFinderPatternFinder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class ModuleSizeComparator implements Serializable, Comparator {
+    public static final class ModuleSizeComparator implements Serializable, Comparator<FinderPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,23 +141,23 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            List possibleCenters = getPossibleCenters();
+            List<FinderPattern> possibleCenters = getPossibleCenters();
             int size = possibleCenters.size();
             int i = 3;
             if (size >= 3) {
                 char c = 0;
                 if (size == 3) {
-                    return new FinderPattern[][]{new FinderPattern[]{(FinderPattern) possibleCenters.get(0), (FinderPattern) possibleCenters.get(1), (FinderPattern) possibleCenters.get(2)}};
+                    return new FinderPattern[][]{new FinderPattern[]{possibleCenters.get(0), possibleCenters.get(1), possibleCenters.get(2)}};
                 }
                 Collections.sort(possibleCenters, new ModuleSizeComparator(null));
                 ArrayList arrayList = new ArrayList();
                 int i2 = 0;
                 while (i2 < size - 2) {
-                    FinderPattern finderPattern = (FinderPattern) possibleCenters.get(i2);
+                    FinderPattern finderPattern = possibleCenters.get(i2);
                     if (finderPattern != null) {
                         int i3 = i2 + 1;
                         while (i3 < size - 1) {
-                            FinderPattern finderPattern2 = (FinderPattern) possibleCenters.get(i3);
+                            FinderPattern finderPattern2 = possibleCenters.get(i3);
                             if (finderPattern2 != null) {
                                 float estimatedModuleSize = (finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) / Math.min(finderPattern.getEstimatedModuleSize(), finderPattern2.getEstimatedModuleSize());
                                 float f = 0.05f;
@@ -165,7 +165,7 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
                                 if (Math.abs(finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) <= 0.5f || estimatedModuleSize < 0.05f) {
                                     int i4 = i3 + 1;
                                     while (i4 < size) {
-                                        FinderPattern finderPattern3 = (FinderPattern) possibleCenters.get(i4);
+                                        FinderPattern finderPattern3 = possibleCenters.get(i4);
                                         if (finderPattern3 != null) {
                                             float estimatedModuleSize2 = (finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) / Math.min(finderPattern2.getEstimatedModuleSize(), finderPattern3.getEstimatedModuleSize());
                                             if (Math.abs(finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) <= f2 || estimatedModuleSize2 < f) {
@@ -214,7 +214,7 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
         return (FinderPattern[][]) invokeV.objValue;
     }
 
-    public FinderPatternInfo[] findMulti(Map map) throws NotFoundException {
+    public FinderPatternInfo[] findMulti(Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeL;
         boolean z;
         boolean z2;

@@ -470,7 +470,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
             WXOpenBusinessWebview.Req req = (WXOpenBusinessWebview.Req) baseReq;
             ContentResolver contentResolver = context.getContentResolver();
             Uri parse = Uri.parse("content://com.tencent.mm.sdk.comm.provider/openBusinessWebview");
-            HashMap hashMap = req.queryInfo;
+            HashMap<String, String> hashMap = req.queryInfo;
             String jSONObject = (hashMap == null || hashMap.size() <= 0) ? "" : new JSONObject(req.queryInfo).toString();
             StringBuilder sb = new StringBuilder();
             sb.append(req.businessType);
@@ -894,12 +894,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 this.appId = str;
             }
             Log.d(TAG, "register app " + this.context.getPackageName());
-            a.C0698a c0698a = new a.C0698a();
-            c0698a.a = "com.tencent.mm";
-            c0698a.action = ConstantsAPI.ACTION_HANDLE_APP_REGISTER;
-            c0698a.content = "weixin://registerapp?appid=" + this.appId;
-            c0698a.b = j;
-            return a.a(this.context, c0698a);
+            a.C0709a c0709a = new a.C0709a();
+            c0709a.a = "com.tencent.mm";
+            c0709a.action = ConstantsAPI.ACTION_HANDLE_APP_REGISTER;
+            c0709a.content = "weixin://registerapp?appid=" + this.appId;
+            c0709a.b = j;
+            return a.a(this.context, c0709a);
         }
         return invokeLJ.booleanValue;
     }
@@ -1102,11 +1102,11 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 return;
             }
             Log.d(TAG, "unregister app " + this.context.getPackageName());
-            a.C0698a c0698a = new a.C0698a();
-            c0698a.a = "com.tencent.mm";
-            c0698a.action = ConstantsAPI.ACTION_HANDLE_APP_UNREGISTER;
-            c0698a.content = "weixin://unregisterapp?appid=" + this.appId;
-            a.a(this.context, c0698a);
+            a.C0709a c0709a = new a.C0709a();
+            c0709a.a = "com.tencent.mm";
+            c0709a.action = ConstantsAPI.ACTION_HANDLE_APP_UNREGISTER;
+            c0709a.content = "weixin://unregisterapp?appid=" + this.appId;
+            a.a(this.context, c0709a);
         }
     }
 }

@@ -51,7 +51,7 @@ public class BindingBenchmark {
     }
 
     /* loaded from: classes2.dex */
-    public class JavaObject {
+    public static class JavaObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @V8JavascriptField

@@ -14,9 +14,9 @@ import java.util.concurrent.Callable;
 public final class CompletableErrorSupplier extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable errorSupplier;
+    public final Callable<? extends Throwable> errorSupplier;
 
-    public CompletableErrorSupplier(Callable callable) {
+    public CompletableErrorSupplier(Callable<? extends Throwable> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

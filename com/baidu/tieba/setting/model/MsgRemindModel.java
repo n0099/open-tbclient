@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.i35;
+import com.baidu.tieba.ky4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sb;
+import com.baidu.tieba.rb;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerSwitchResMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
-import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,13 +55,13 @@ public class MsgRemindModel extends BdBaseModel {
     public static final int SWITCH_YY_MSG = 6;
     public static final int SWITCH_ZAN = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public TbPageContext<?> a;
     public f b;
     public f c;
     public HttpMessageListener d;
-    public sb e;
-    public sb f;
-    public sb g;
+    public rb e;
+    public rb f;
+    public rb g;
 
     /* loaded from: classes5.dex */
     public interface f {
@@ -118,35 +118,35 @@ public class MsgRemindModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i == 2) {
                     if (z) {
-                        q25.d().I(z2);
+                        i35.d().I(z2);
                     }
                 } else if (i == 3) {
                     if (z) {
-                        q25.d().M(z2);
+                        i35.d().M(z2);
                     }
                 } else if (i == 1) {
                     if (z) {
-                        q25.d().N(z2);
+                        i35.d().N(z2);
                     }
                 } else if (i == 20) {
                     if (z) {
-                        q25.d().Q(z2);
+                        i35.d().Q(z2);
                     }
                 } else if (i == 30) {
                     if (z) {
-                        q25.d().S(z2);
+                        i35.d().S(z2);
                     }
                 } else if (i != 10) {
                     if (i == 7) {
                         if (z) {
-                            q25.d().V(z2);
+                            i35.d().V(z2);
                         }
                     } else if (i == 6) {
                         if (z) {
-                            q25.d().U(z2);
+                            i35.d().U(z2);
                         }
                     } else if (i == 33 && z) {
-                        q25.d().W(z2);
+                        i35.d().W(z2);
                     }
                 }
                 if (this.a.c != null) {
@@ -198,10 +198,10 @@ public class MsgRemindModel extends BdBaseModel {
                 FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
                 if (friendAndStrangerSwitchResMsg.getError() == 0) {
                     GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
-                    ux4 k = ux4.k();
+                    ky4 k = ky4.k();
                     k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", friendAndStrangerReqMsg.mMaskType);
                     GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = friendAndStrangerReqMsg.mPushType;
-                    ux4 k2 = ux4.k();
+                    ky4 k2 = ky4.k();
                     k2.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", friendAndStrangerReqMsg.mPushType);
                 }
                 int i = friendAndStrangerReqMsg.mPushType;
@@ -258,7 +258,7 @@ public class MsgRemindModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends sb {
+    public class c extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MsgRemindModel a;
@@ -306,7 +306,7 @@ public class MsgRemindModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class d extends sb {
+    public class d extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MsgRemindModel a;
@@ -356,7 +356,7 @@ public class MsgRemindModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class e extends sb {
+    public class e extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MsgRemindModel a;
@@ -408,7 +408,7 @@ public class MsgRemindModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgRemindModel(TbPageContext tbPageContext) {
+    public MsgRemindModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -440,11 +440,11 @@ public class MsgRemindModel extends BdBaseModel {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbPageContext tbPageContext = this.a;
+            TbPageContext<?> tbPageContext = this.a;
             if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof BaseActivity)) {
                 ((BaseActivity) this.a.getPageActivity()).hideProgressBar();
             }
-            TbPageContext tbPageContext2 = this.a;
+            TbPageContext<?> tbPageContext2 = this.a;
             if (tbPageContext2 != null && (tbPageContext2.getPageActivity() instanceof BaseFragmentActivity)) {
                 ((BaseFragmentActivity) this.a.getPageActivity()).hideProgressBar();
             }
@@ -457,7 +457,7 @@ public class MsgRemindModel extends BdBaseModel {
             if (z) {
                 this.b.a(i, true, z2);
                 if (i != 14) {
-                    if (!q25.d().t() && !q25.d().u() && !q25.d().w() && !q25.d().y() && !q25.d().B() && !q25.d().s() && !q25.d().E()) {
+                    if (!i35.d().t() && !i35.d().u() && !i35.d().w() && !i35.d().y() && !i35.d().B() && !i35.d().s() && !i35.d().E()) {
                         this.b.a(14, true, false);
                         return;
                     }
@@ -476,7 +476,7 @@ public class MsgRemindModel extends BdBaseModel {
                 if (!TextUtils.isEmpty(str)) {
                     this.a.showToast(str);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f114d);
+                    this.a.showToast((int) R.string.obfuscated_res_0x7f0f1169);
                 }
             }
             this.b.a(i, false, z2);
@@ -484,9 +484,9 @@ public class MsgRemindModel extends BdBaseModel {
     }
 
     public void E(int i, boolean z, f fVar) {
-        Message friendAndStrangerReqMsg;
-        Message friendAndStrangerReqMsg2;
-        Message friendAndStrangerReqMsg3;
+        Message<?> friendAndStrangerReqMsg;
+        Message<?> friendAndStrangerReqMsg2;
+        Message<?> friendAndStrangerReqMsg3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), fVar}) == null) {
             if (i != 14 && i != 2 && i != 3 && i != 4 && i != 5 && i != 1 && i != 7 && i != 8 && i != 9 && i != 20 && i != 6 && i != 30 && i != 10 && i != 33) {

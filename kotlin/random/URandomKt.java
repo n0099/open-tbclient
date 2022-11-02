@@ -1,11 +1,14 @@
 package kotlin.random;
 
 import com.baidu.bdtask.model.response.NextActive;
+import kotlin.ExperimentalUnsignedTypes;
 import kotlin.Metadata;
+import kotlin.SinceKotlin;
 import kotlin.UByteArray;
 import kotlin.UInt;
 import kotlin.ULong;
 import kotlin.UnsignedKt;
+import kotlin.WasExperimental;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.UIntRange;
 import kotlin.ranges.ULongRange;
@@ -40,11 +43,15 @@ public final class URandomKt {
         throw new IllegalArgumentException(RandomKt.boundsErrorMessage(ULong.m864boximpl(j), ULong.m864boximpl(j2)).toString());
     }
 
+    @SinceKotlin(version = "1.3")
+    @ExperimentalUnsignedTypes
     public static final byte[] nextUBytes(Random nextUBytes, int i) {
         Intrinsics.checkNotNullParameter(nextUBytes, "$this$nextUBytes");
         return UByteArray.m768constructorimpl(nextUBytes.nextBytes(i));
     }
 
+    @SinceKotlin(version = "1.3")
+    @ExperimentalUnsignedTypes
     /* renamed from: nextUBytes-EVgfTAA  reason: not valid java name */
     public static final byte[] m1896nextUBytesEVgfTAA(Random nextUBytes, byte[] array) {
         Intrinsics.checkNotNullParameter(nextUBytes, "$this$nextUBytes");
@@ -53,18 +60,24 @@ public final class URandomKt {
         return array;
     }
 
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: nextUInt-qCasIEU  reason: not valid java name */
     public static final int m1900nextUIntqCasIEU(Random nextUInt, int i) {
         Intrinsics.checkNotNullParameter(nextUInt, "$this$nextUInt");
         return m1899nextUInta8DCA5k(nextUInt, 0, i);
     }
 
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: nextULong-V1Xi4fY  reason: not valid java name */
     public static final long m1901nextULongV1Xi4fY(Random nextULong, long j) {
         Intrinsics.checkNotNullParameter(nextULong, "$this$nextULong");
         return m1902nextULongjmpaWc(nextULong, 0L, j);
     }
 
+    @SinceKotlin(version = "1.3")
+    @ExperimentalUnsignedTypes
     /* renamed from: nextUBytes-Wvrt4B4  reason: not valid java name */
     public static final byte[] m1897nextUBytesWvrt4B4(Random nextUBytes, byte[] array, int i, int i2) {
         Intrinsics.checkNotNullParameter(nextUBytes, "$this$nextUBytes");
@@ -84,16 +97,22 @@ public final class URandomKt {
         return m1897nextUBytesWvrt4B4(random, bArr, i, i2);
     }
 
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int nextUInt(Random nextUInt) {
         Intrinsics.checkNotNullParameter(nextUInt, "$this$nextUInt");
         return UInt.m792constructorimpl(nextUInt.nextInt());
     }
 
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long nextULong(Random nextULong) {
         Intrinsics.checkNotNullParameter(nextULong, "$this$nextULong");
         return ULong.m870constructorimpl(nextULong.nextLong());
     }
 
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int nextUInt(Random nextUInt, UIntRange range) {
         Intrinsics.checkNotNullParameter(nextUInt, "$this$nextUInt");
         Intrinsics.checkNotNullParameter(range, "range");
@@ -109,6 +128,8 @@ public final class URandomKt {
         throw new IllegalArgumentException("Cannot get random in empty range: " + range);
     }
 
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long nextULong(Random nextULong, ULongRange range) {
         Intrinsics.checkNotNullParameter(nextULong, "$this$nextULong");
         Intrinsics.checkNotNullParameter(range, "range");
@@ -125,6 +146,8 @@ public final class URandomKt {
         throw new IllegalArgumentException("Cannot get random in empty range: " + range);
     }
 
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: nextUInt-a8DCA5k  reason: not valid java name */
     public static final int m1899nextUInta8DCA5k(Random nextUInt, int i, int i2) {
         Intrinsics.checkNotNullParameter(nextUInt, "$this$nextUInt");
@@ -132,6 +155,8 @@ public final class URandomKt {
         return UInt.m792constructorimpl(nextUInt.nextInt(i ^ Integer.MIN_VALUE, i2 ^ Integer.MIN_VALUE) ^ Integer.MIN_VALUE);
     }
 
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: nextULong-jmpaW-c  reason: not valid java name */
     public static final long m1902nextULongjmpaWc(Random nextULong, long j, long j2) {
         Intrinsics.checkNotNullParameter(nextULong, "$this$nextULong");

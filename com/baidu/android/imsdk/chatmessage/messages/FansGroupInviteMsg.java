@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class FansGroupInviteMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<FansGroupInviteMsg> CREATOR;
     public static final String TAG = "FansGroupInviteMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String mDesc;
@@ -47,7 +47,7 @@ public class FansGroupInviteMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansGroupInviteMsg.1
+        CREATOR = new Parcelable.Creator<FansGroupInviteMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansGroupInviteMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,6 +66,7 @@ public class FansGroupInviteMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public FansGroupInviteMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -77,6 +78,7 @@ public class FansGroupInviteMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public FansGroupInviteMsg[] newArray(int i) {
                 InterceptResult invokeI;

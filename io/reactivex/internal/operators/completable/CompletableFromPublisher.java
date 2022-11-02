@@ -14,22 +14,22 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class CompletableFromPublisher extends Completable {
+public final class CompletableFromPublisher<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher flowable;
+    public final Publisher<T> flowable;
 
     /* loaded from: classes8.dex */
-    public final class FromPublisherSubscriber implements FlowableSubscriber, Disposable {
+    public static final class FromPublisherSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver cs;
         public Subscription s;
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             }
         }
 
@@ -100,7 +100,7 @@ public final class CompletableFromPublisher extends Completable {
         }
     }
 
-    public CompletableFromPublisher(Publisher publisher) {
+    public CompletableFromPublisher(Publisher<T> publisher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

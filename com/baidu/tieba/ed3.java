@@ -1,48 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.media.AudioManager;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
-public class ed3 {
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes4.dex */
+public final class ed3 extends fd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static ed3 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap a;
-    public AudioManager b;
-    public boolean c;
-    public BroadcastReceiver d;
+    public boolean g;
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends BroadcastReceiver {
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ed3 this$0;
+        public final /* synthetic */ ArrayList a;
+        public final /* synthetic */ ed3 b;
 
-        public a(ed3 ed3Var) {
+        public a(ed3 ed3Var, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ed3Var};
+                Object[] objArr = {ed3Var, arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,158 +37,143 @@ public class ed3 {
                     return;
                 }
             }
-            this.this$0 = ed3Var;
+            this.b = ed3Var;
+            this.a = arrayList;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int i;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                if (this.this$0.b == null) {
-                    this.this$0.b = (AudioManager) tm2.c().getSystemService("audio");
-                }
-                for (Map.Entry entry : this.this$0.a.entrySet()) {
-                    if (this.this$0.b != null) {
-                        i = this.this$0.b.getStreamVolume(3);
-                    } else {
-                        i = 0;
-                    }
-                    ((b) entry.getValue()).a(i);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m(this.a);
+                this.b.j();
             }
         }
     }
 
-    public ed3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ed3(ad3 ad3Var) {
+        super(ad3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ad3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ad3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
-        this.d = new a(this);
     }
 
-    public static ed3 e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.fd3
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (ed3.class) {
-                    if (e == null) {
-                        e = new ed3();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
+            return;
+        }
+        long j = 0;
+        if (fd3.f) {
+            j = System.currentTimeMillis();
+        }
+        this.a.g(new a(this, this.b.n()));
+        if (fd3.f) {
+            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+            return;
+        }
+        long j = 0;
+        if (fd3.f) {
+            j = System.currentTimeMillis();
+        }
+        this.a.b();
+        this.g = true;
+        if (fd3.f) {
+            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
+        }
+    }
+
+    public void l() {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (fd3.f) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            this.a.h();
+            if (fd3.f) {
+                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
+            }
+        }
+    }
+
+    public ArrayList<zc3> k(String str) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (fd3.f) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            ArrayList<zc3> arrayList = new ArrayList<>();
+            try {
+                arrayList = this.a.e(str);
+            } catch (Exception e) {
+                e12.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
+            }
+            if (fd3.f) {
+                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void m(ArrayList<zc3> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
+            if (fd3.f) {
+                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
+            }
+            Iterator<zc3> it = arrayList.iterator();
+            while (it.hasNext()) {
+                zc3 next = it.next();
+                if (next != null) {
+                    if (fd3.f) {
+                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
+                    }
+                    int i = next.i;
+                    if (i != 0) {
+                        if (i != 2) {
+                            if (i == 3) {
+                                this.a.d(next.a, next.b, next.c);
+                                this.a.a(next);
+                                this.b.y(next);
+                            }
+                        } else {
+                            this.a.d(next.a, next.b, next.c);
+                            this.b.g(next);
+                        }
+                    } else {
+                        this.a.a(next);
+                        this.b.y(next);
                     }
                 }
             }
-            return e;
         }
-        return (ed3) invokeV.objValue;
-    }
-
-    public static void h() {
-        ed3 ed3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (ed3Var = e) != null) {
-            ed3Var.g();
-        }
-    }
-
-    private void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-            tm2.c().registerReceiver(this.d, intentFilter);
-            this.c = true;
-        }
-    }
-
-    private void unregisterReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            try {
-                tm2.c().unregisterReceiver(this.d);
-                this.c = false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = (AudioManager) tm2.c().getSystemService("audio");
-            }
-            AudioManager audioManager = this.b;
-            if (audioManager != null) {
-                return audioManager.getStreamMaxVolume(3);
-            }
-            return 100;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-                this.b = null;
-                this.c = false;
-            }
-            e = null;
-        }
-    }
-
-    public void d(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, bVar) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (this) {
-            this.a.put(str, bVar);
-            if (!this.c) {
-                registerReceiver();
-            }
-            if (wj1.a) {
-                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
-            }
-        }
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            synchronized (this) {
-                Object remove = this.a.remove(str);
-                if (this.a.size() == 0 && this.c) {
-                    unregisterReceiver();
-                }
-                if (wj1.a && remove != null) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
-                }
-                if (remove != null) {
-                    z = true;
-                }
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
     }
 }

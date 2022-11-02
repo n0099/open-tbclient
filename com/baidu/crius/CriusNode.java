@@ -2,6 +2,7 @@ package com.baidu.crius;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.crius.annotations.DoNotStrip;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@DoNotStrip
 /* loaded from: classes.dex */
 public class CriusNode {
     public static /* synthetic */ Interceptable $ic = null;
@@ -18,29 +20,47 @@ public class CriusNode {
     public static final int MARGIN = 1;
     public static final int PADDING = 2;
     public transient /* synthetic */ FieldHolder $fh;
+    @DoNotStrip
     public float mBorderBottom;
+    @DoNotStrip
     public float mBorderLeft;
+    @DoNotStrip
     public float mBorderRight;
+    @DoNotStrip
     public float mBorderTop;
-    public List mChildren;
+    public List<CriusNode> mChildren;
     public Object mData;
+    @DoNotStrip
     public int mEdgeSetFlag;
+    @DoNotStrip
     public boolean mHasNewLayout;
     public boolean mHasSetPosition;
+    @DoNotStrip
     public float mHeight;
+    @DoNotStrip
     public float mLeft;
+    @DoNotStrip
     public float mMarginBottom;
+    @DoNotStrip
     public float mMarginLeft;
+    @DoNotStrip
     public float mMarginRight;
+    @DoNotStrip
     public float mMarginTop;
     public CriusMeasureFunction mMeasureFunction;
     public long mNativePointer;
+    @DoNotStrip
     public float mPaddingBottom;
+    @DoNotStrip
     public float mPaddingLeft;
+    @DoNotStrip
     public float mPaddingRight;
+    @DoNotStrip
     public float mPaddingTop;
     public CriusNode mParent;
+    @DoNotStrip
     public float mTop;
+    @DoNotStrip
     public float mWidth;
 
     private native void jni_CSNodeCalculateLayout(long j, float f, float f2);
@@ -193,7 +213,7 @@ public class CriusNode {
 
     /* renamed from: com.baidu.crius.CriusNode$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$crius$CriusEdge;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -413,7 +433,7 @@ public class CriusNode {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            return (CriusNode) this.mChildren.get(i);
+            return this.mChildren.get(i);
         }
         return (CriusNode) invokeI.objValue;
     }
@@ -458,7 +478,7 @@ public class CriusNode {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, criusNode)) == null) {
-            List list = this.mChildren;
+            List<CriusNode> list = this.mChildren;
             if (list == null) {
                 return -1;
             }
@@ -471,14 +491,14 @@ public class CriusNode {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i)) == null) {
-            List list = this.mChildren;
+            List<CriusNode> list = this.mChildren;
             if (list == null) {
                 return null;
             }
-            CriusNode criusNode = (CriusNode) list.remove(i);
-            criusNode.mParent = null;
-            jni_CSNodeRemoveChild(this.mNativePointer, criusNode.mNativePointer);
-            return criusNode;
+            CriusNode remove = list.remove(i);
+            remove.mParent = null;
+            jni_CSNodeRemoveChild(this.mNativePointer, remove.mNativePointer);
+            return remove;
         }
         return (CriusNode) invokeI.objValue;
     }
@@ -760,7 +780,7 @@ public class CriusNode {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            List list = this.mChildren;
+            List<CriusNode> list = this.mChildren;
             if (list == null) {
                 return 0;
             }
@@ -1082,6 +1102,7 @@ public class CriusNode {
         return invokeL.floatValue;
     }
 
+    @DoNotStrip
     public final long measure(float f, int i, float f2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

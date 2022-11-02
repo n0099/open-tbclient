@@ -14,16 +14,16 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes8.dex */
 public class h {
-    public final Queue a;
+    public final Queue<Integer> a;
     public boolean b;
     public long c;
     public long d;
-    public SoftReference e;
+    public SoftReference<JumpUnknownSourceActivity> e;
     public Handler f;
     public Runnable g;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static final h a = new h();
     }
 
@@ -37,12 +37,12 @@ public class h {
                 h.this.c();
             }
         };
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0666a() { // from class: com.ss.android.socialbase.appdownloader.h.2
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0677a() { // from class: com.ss.android.socialbase.appdownloader.h.2
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
             public void b() {
                 if (h.this.a.isEmpty()) {
                     return;
@@ -75,11 +75,11 @@ public class h {
 
     public JumpUnknownSourceActivity b() {
         JumpUnknownSourceActivity jumpUnknownSourceActivity;
-        SoftReference softReference = this.e;
+        SoftReference<JumpUnknownSourceActivity> softReference = this.e;
         if (softReference == null) {
             jumpUnknownSourceActivity = null;
         } else {
-            jumpUnknownSourceActivity = (JumpUnknownSourceActivity) softReference.get();
+            jumpUnknownSourceActivity = softReference.get();
         }
         this.e = null;
         return jumpUnknownSourceActivity;
@@ -97,25 +97,25 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        final Integer num;
+        final Integer poll;
         if (Build.VERSION.SDK_INT >= 29 && !com.ss.android.socialbase.downloader.a.a.a().b()) {
             return;
         }
         synchronized (this.a) {
-            num = (Integer) this.a.poll();
+            poll = this.a.poll();
         }
         this.f.removeCallbacks(this.g);
-        if (num != null) {
+        if (poll != null) {
             final Context N = com.ss.android.socialbase.downloader.downloader.c.N();
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 this.f.post(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.h.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.b(N, num.intValue(), false);
+                        h.this.b(N, poll.intValue(), false);
                     }
                 });
             } else {
-                b(N, num.intValue(), false);
+                b(N, poll.intValue(), false);
             }
             this.f.postDelayed(this.g, 20000L);
             return;
@@ -170,7 +170,7 @@ public class h {
     }
 
     public void a(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
-        this.e = new SoftReference(jumpUnknownSourceActivity);
+        this.e = new SoftReference<>(jumpUnknownSourceActivity);
     }
 
     public void a(DownloadInfo downloadInfo, String str) {

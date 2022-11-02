@@ -86,7 +86,7 @@ public class k0 {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v3 int)] */
-    private JSONObject a(Context context, List list) {
+    private JSONObject a(Context context, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, context, list)) == null) {
@@ -95,7 +95,7 @@ public class k0 {
                     if (list.size() > 0) {
                         JSONObject jSONObject = new JSONObject();
                         for (int i2 = 0; i2 < list.size(); i2++) {
-                            if (a(context, (String) list.get(i2))) {
+                            if (a(context, list.get(i2))) {
                                 StringBuilder sb = new StringBuilder();
                                 sb.append(i2);
                                 jSONObject.put(sb.toString(), 1);

@@ -4,7 +4,7 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import com.kwad.sdk.utils.am;
 import java.lang.Thread;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class j {
     public final l aeN;
     public final com.kwad.sdk.core.videocache.a aeO;
@@ -15,8 +15,8 @@ public class j {
     public volatile int aeT = -1;
     public final AtomicInteger aeR = new AtomicInteger();
 
-    /* loaded from: classes7.dex */
-    public final class a implements Runnable {
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
         public a() {
         }
 

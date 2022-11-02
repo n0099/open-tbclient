@@ -9,6 +9,8 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -330,7 +332,7 @@ public class SecondFloorPullView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SecondFloorPullView(Context context) {
+    public SecondFloorPullView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -385,7 +387,7 @@ public class SecondFloorPullView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SecondFloorPullView(Context context, AttributeSet attributeSet) {
+    public SecondFloorPullView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -406,7 +408,7 @@ public class SecondFloorPullView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SecondFloorPullView(Context context, AttributeSet attributeSet, int i2) {
+    public SecondFloorPullView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         this(context, attributeSet, i2, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -427,7 +429,7 @@ public class SecondFloorPullView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SecondFloorPullView(Context context, AttributeSet attributeSet, int i2, int i3) {
+    public SecondFloorPullView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
         super(context, attributeSet, i2, i3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

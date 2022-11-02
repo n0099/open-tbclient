@@ -11,7 +11,7 @@ public interface FunNativeInfo {
 
     String getIconUrl();
 
-    List getImageUrls();
+    List<String> getImageUrls();
 
     FunNativeAd.InteractionType getInteractionType();
 

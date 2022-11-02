@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
@@ -43,7 +42,7 @@ public class LaunchedTaskSpeedStats {
     public String mUbcPage;
     public String mUbcType;
     public String mUbcValue;
-    public Map nodesMap;
+    public Map<String, SpeedStatisticsNode> nodesMap;
 
     static {
         InterceptResult invokeClinit;
@@ -178,7 +177,7 @@ public class LaunchedTaskSpeedStats {
         SpeedStatisticsNode speedStatisticsNode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, ruleNode)) == null) {
-            if (!TextUtils.isEmpty(ruleNode.getName()) && (speedStatisticsNode = (SpeedStatisticsNode) this.nodesMap.get(ruleNode.getName())) != null) {
+            if (!TextUtils.isEmpty(ruleNode.getName()) && (speedStatisticsNode = this.nodesMap.get(ruleNode.getName())) != null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("begin", speedStatisticsNode.getBeginTimestamp());
@@ -201,15 +200,13 @@ public class LaunchedTaskSpeedStats {
         return (JSONObject) invokeL.objValue;
     }
 
-    private JSONObject getSpeedNodeParts(List list) {
+    private JSONObject getSpeedNodeParts(List<RuleNode> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, list)) == null) {
             if (list != null && list.size() > 0) {
                 JSONObject jSONObject = new JSONObject();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    RuleNode ruleNode = (RuleNode) it.next();
+                for (RuleNode ruleNode : list) {
                     JSONObject speedNodeJson = getSpeedNodeJson(ruleNode);
                     if (speedNodeJson != null) {
                         try {

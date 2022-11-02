@@ -44,14 +44,14 @@ public final class EndConsumerHelper {
         return (String) invokeL.objValue;
     }
 
-    public static void reportDoubleSubscription(Class cls) {
+    public static void reportDoubleSubscription(Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, cls) == null) {
             RxJavaPlugins.onError(new ProtocolViolationException(composeMessage(cls.getName())));
         }
     }
 
-    public static boolean setOnce(AtomicReference atomicReference, Disposable disposable, Class cls) {
+    public static boolean setOnce(AtomicReference<Disposable> atomicReference, Disposable disposable, Class<?> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, atomicReference, disposable, cls)) == null) {
@@ -69,7 +69,7 @@ public final class EndConsumerHelper {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean validate(Disposable disposable, Disposable disposable2, Class cls) {
+    public static boolean validate(Disposable disposable, Disposable disposable2, Class<?> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, disposable, disposable2, cls)) == null) {
@@ -87,7 +87,7 @@ public final class EndConsumerHelper {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean setOnce(AtomicReference atomicReference, Subscription subscription, Class cls) {
+    public static boolean setOnce(AtomicReference<Subscription> atomicReference, Subscription subscription, Class<?> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference, subscription, cls)) == null) {
@@ -105,7 +105,7 @@ public final class EndConsumerHelper {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean validate(Subscription subscription, Subscription subscription2, Class cls) {
+    public static boolean validate(Subscription subscription, Subscription subscription2, Class<?> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, subscription, subscription2, cls)) == null) {

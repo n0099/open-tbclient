@@ -1,8 +1,12 @@
 package androidx.media2.session;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.ObjectsCompat;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -62,6 +66,7 @@ public final class SessionCommand implements VersionedParcelable {
     public static final int COMMAND_CODE_VOLUME_SET_VOLUME = 30000;
     public static final int COMMAND_VERSION_1 = 1;
     public static final int COMMAND_VERSION_2 = 2;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final int COMMAND_VERSION_CURRENT = 2;
     public static final SparseArray<List<Integer>> VERSION_LIBRARY_COMMANDS_MAP;
     public static final SparseArray<List<Integer>> VERSION_PLAYER_BASIC_COMMANDS_MAP;
@@ -74,11 +79,14 @@ public final class SessionCommand implements VersionedParcelable {
     public Bundle mCustomExtras;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface CommandCode {
     }
 
+    @SuppressLint({"UniqueConstants"})
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface CommandVersion {
     }
@@ -136,6 +144,7 @@ public final class SessionCommand implements VersionedParcelable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public String getCustomAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -145,6 +154,7 @@ public final class SessionCommand implements VersionedParcelable {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public Bundle getCustomExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -187,7 +197,7 @@ public final class SessionCommand implements VersionedParcelable {
         throw new IllegalArgumentException("commandCode shouldn't be COMMAND_CODE_CUSTOM");
     }
 
-    public SessionCommand(String str, Bundle bundle) {
+    public SessionCommand(@NonNull String str, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

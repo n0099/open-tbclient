@@ -1,54 +1,102 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.view.SwanAppLaunchCircleAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.URLConnection;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes3.dex */
-public class as1 extends pr1 {
+public class as1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.pr1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pr1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
-    }
+    public List<AnimatorSet> a;
+    public SwanAppLaunchCircleAnimationView b;
 
     /* loaded from: classes3.dex */
-    public class a implements ActivityResultConsumer {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ SwanAppActivity a;
         public final /* synthetic */ as1 b;
 
-        public a(as1 as1Var, String str) {
+        /* renamed from: com.baidu.tieba.as1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0210a implements Animator.AnimatorListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                }
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationRepeat(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                }
+            }
+
+            public C0210a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator) {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeL(1048579, this, animator) != null) || this.a.a.isFinishing()) {
+                    return;
+                }
+                this.a.a.T().v();
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.a.a.isFinishing()) {
+                    return;
+                }
+                this.a.a.T().a.setVisibility(8);
+                this.a.a.T().H();
+                this.a.a.d().g();
+            }
+        }
+
+        public a(as1 as1Var, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {as1Var, str};
+                Object[] objArr = {as1Var, swanAppActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,110 +107,275 @@ public class as1 extends pr1 {
                 }
             }
             this.b = as1Var;
-            this.a = str;
+            this.a = swanAppActivity;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                this.b.d(this.a, new mv1(0));
-                return true;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                AnimatorSet animatorSet = new AnimatorSet();
+                animatorSet.play(this.b.d(this.a, 150L));
+                animatorSet.addListener(new C0210a(this));
+                animatorSet.start();
+                this.b.a.add(animatorSet);
             }
-            return invokeLIL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as1(nr1 nr1Var) {
-        super(nr1Var);
+    /* loaded from: classes3.dex */
+    public class b implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        public b(as1 as1Var, SwanAppActivity swanAppActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {as1Var, swanAppActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = swanAppActivity;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.a.isFinishing()) {
+                return;
+            }
+            this.a.T().a.setVisibility(8);
+            this.a.T().H();
+            this.a.d().g();
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, animator) != null) || this.a.isFinishing()) {
+                return;
+            }
+            this.a.T().v();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ as1 a;
+
+        public c(as1 as1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {as1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = as1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (AnimatorSet animatorSet : this.a.a) {
+                    animatorSet.removeAllListeners();
+                    animatorSet.cancel();
+                }
+                if (this.a.b != null) {
+                    this.a.b.i();
+                }
+                this.a.a.clear();
+            }
+        }
+    }
+
+    public as1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nr1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new CopyOnWriteArrayList();
     }
 
-    public final String x(String str) {
-        InterceptResult invokeL;
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int lastIndexOf = str.lastIndexOf("/");
-            if (lastIndexOf > 0) {
-                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
-                if (!TextUtils.isEmpty(contentTypeFor)) {
-                    return contentTypeFor;
-                }
-                return "*/*";
-            }
-            return "*/*";
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            d43.M().post(new c(this));
         }
-        return (String) invokeL.objValue;
     }
 
-    public mv1 y(String str) {
-        InterceptResult invokeL;
-        Uri fromFile;
+    public final void g(SwanAppActivity swanAppActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#shareFile", false);
-            if (n()) {
-                m02.c("FileApi", "FileApi does not supported when app is invisible.");
-                return new mv1(1001, "FileApi does not supported when app is invisible.");
+        if (interceptable == null || interceptable.invokeL(1048579, this, swanAppActivity) == null) {
+            d43.M();
+            SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = this.b;
+            if (swanAppLaunchCircleAnimationView != null) {
+                swanAppLaunchCircleAnimationView.setVisibility(4);
+                this.b.i();
             }
-            Pair s = s(str);
-            mv1 mv1Var = (mv1) s.first;
-            if (!mv1Var.isSuccess()) {
-                return mv1Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("filePath");
-            String M = ua3.M(optString, m33.g0());
-            if (!TextUtils.isEmpty(optString) && ua3.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    m02.c("FileApi", "cb is required");
-                    return new mv1(202, "cb is required");
-                }
-                File file = new File(M);
-                if (file.exists() && !file.isDirectory()) {
-                    SwanAppActivity activity = zo2.U().getActivity();
-                    if (activity == null) {
-                        m02.c("FileApi", "activity null");
-                        return new mv1(1001, "activity null");
-                    }
-                    ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
-                    Intent intent = new Intent();
-                    if (tf3.i()) {
-                        fromFile = jh3.a(activity, file);
-                        intent.setFlags(3);
+            i(swanAppActivity);
+        }
+    }
+
+    public final void h(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, swanAppActivity) != null) || swanAppActivity.isFinishing() || swanAppActivity.T() == null) {
+            return;
+        }
+        g(swanAppActivity);
+    }
+
+    public final void i(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, swanAppActivity) == null) {
+            yh3.a0(new a(this, swanAppActivity));
+        }
+    }
+
+    public final ObjectAnimator d(SwanAppActivity swanAppActivity, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, swanAppActivity, j)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.T().a, Key.ALPHA, 1.0f, 0.0f);
+            ofFloat.setDuration(j);
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeLJ.objValue;
+    }
+
+    public void l(SwanAppActivity swanAppActivity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, swanAppActivity, i) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        h(swanAppActivity);
+                        return;
                     } else {
-                        fromFile = Uri.fromFile(file);
+                        k(swanAppActivity, true);
+                        return;
                     }
-                    intent.setAction("android.intent.action.SEND");
-                    intent.putExtra("android.intent.extra.STREAM", fromFile);
-                    intent.setType(x(M));
-                    resultDispatcher.addConsumer(new a(this, optString2));
-                    resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
-                    return mv1.f();
                 }
-                m02.c("FileApi", "file not exists");
-                return new mv1(1001, "file not exists");
+                k(swanAppActivity, false);
+                return;
             }
-            m02.c("FileApi", "a valid filePath is required");
-            return new mv1(202, "a valid filePath is required");
+            h(swanAppActivity);
         }
-        return (mv1) invokeL.objValue;
+    }
+
+    public final AnimatorSet e(SwanAppActivity swanAppActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.T().d, Key.TRANSLATION_X, -vh3.f(AppRuntime.getAppContext(), 9.5f), vh3.f(AppRuntime.getAppContext(), 9.5f));
+            ofFloat.setDuration(380L);
+            ofFloat.setRepeatMode(2);
+            ofFloat.setRepeatCount(-1);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.T().e, Key.TRANSLATION_X, 0.0f, -vh3.f(AppRuntime.getAppContext(), 19.0f));
+            ofFloat2.setDuration(380L);
+            ofFloat2.setRepeatMode(2);
+            ofFloat2.setRepeatCount(-1);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.play(ofFloat).with(ofFloat2);
+            return animatorSet;
+        }
+        return (AnimatorSet) invokeL.objValue;
+    }
+
+    public final AnimatorSet f(SwanAppActivity swanAppActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.T().d, Key.TRANSLATION_X, 0.0f, -vh3.f(AppRuntime.getAppContext(), 9.5f));
+            ofFloat.setDuration(240L);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.T().e, Key.ALPHA, 0.0f, 1.0f);
+            ofFloat2.setDuration(240L);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.play(ofFloat).with(ofFloat2);
+            return animatorSet;
+        }
+        return (AnimatorSet) invokeL.objValue;
+    }
+
+    public void j(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, swanAppActivity) == null) {
+            SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = (SwanAppLaunchCircleAnimationView) swanAppActivity.findViewById(R.id.obfuscated_res_0x7f090001);
+            this.b = swanAppLaunchCircleAnimationView;
+            swanAppLaunchCircleAnimationView.h();
+            jx2.o().F(new UbcFlowEvent("first_anim_start"));
+            ea3.d().i("first_anim_start");
+        }
+    }
+
+    public void m(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, swanAppActivity) == null) {
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.play(f(swanAppActivity)).before(e(swanAppActivity));
+            animatorSet.start();
+            jx2.o().F(new UbcFlowEvent("first_anim_start"));
+            ea3.d().i("first_anim_start");
+            this.a.add(animatorSet);
+        }
+    }
+
+    public final void k(SwanAppActivity swanAppActivity, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, swanAppActivity, z) == null) {
+            AnimatorSet animatorSet = new AnimatorSet();
+            if (z) {
+                i = 100;
+            } else {
+                i = 0;
+            }
+            animatorSet.play(d(swanAppActivity, 150L));
+            animatorSet.addListener(new b(this, swanAppActivity));
+            animatorSet.setStartDelay(i);
+            animatorSet.start();
+            this.a.add(animatorSet);
+        }
     }
 }

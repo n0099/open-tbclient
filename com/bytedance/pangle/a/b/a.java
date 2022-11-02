@@ -46,7 +46,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Constructor a(Class cls, Class... clsArr) {
+    public static Constructor a(Class<?> cls, Class<?>... clsArr) {
         InterceptResult invokeLL;
         Constructor constructor;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Field a(Class cls, String str) {
+    public static Field a(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Throwable th;
         Field field;
@@ -117,7 +117,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Method a(Class cls, String str, Class... clsArr) {
+    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Throwable th;
         Method method;

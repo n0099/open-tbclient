@@ -8,8 +8,8 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.yw6;
+import com.baidu.tieba.hy6;
+import com.baidu.tieba.la5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,9 +56,9 @@ public class InitBottomIndicatorView2Task extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                s95.e().a(1004, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
-                s95.e().a(1005, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
-                s95.e().a(1012, new yw6(TbadkCoreApplication.getInst()));
+                la5.e().a(1004, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
+                la5.e().a(1005, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
+                la5.e().a(1012, new hy6(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 BdLog.e(e);
             }

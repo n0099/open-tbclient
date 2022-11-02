@@ -1,5 +1,6 @@
 package android.support.v4.media;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,10 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.os.ResultReceiver;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.app.BundleCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -63,40 +68,44 @@ public final class MediaBrowserCompat {
 
         void disconnect();
 
+        @Nullable
         Bundle getExtras();
 
-        void getItem(String str, ItemCallback itemCallback);
+        void getItem(@NonNull String str, @NonNull ItemCallback itemCallback);
 
+        @Nullable
         Bundle getNotifyChildrenChangedOptions();
 
+        @NonNull
         String getRoot();
 
         ComponentName getServiceComponent();
 
+        @NonNull
         MediaSessionCompat.Token getSessionToken();
 
         boolean isConnected();
 
-        void search(String str, Bundle bundle, SearchCallback searchCallback);
+        void search(@NonNull String str, Bundle bundle, @NonNull SearchCallback searchCallback);
 
-        void sendCustomAction(String str, Bundle bundle, CustomActionCallback customActionCallback);
+        void sendCustomAction(@NonNull String str, Bundle bundle, @Nullable CustomActionCallback customActionCallback);
 
-        void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback);
+        void subscribe(@NonNull String str, @Nullable Bundle bundle, @NonNull SubscriptionCallback subscriptionCallback);
 
-        void unsubscribe(String str, SubscriptionCallback subscriptionCallback);
+        void unsubscribe(@NonNull String str, SubscriptionCallback subscriptionCallback);
     }
 
     /* loaded from: classes.dex */
     public interface MediaBrowserServiceCallbackImpl {
         void onConnectionFailed(Messenger messenger);
 
-        void onLoadChildren(Messenger messenger, String str, List list, Bundle bundle, Bundle bundle2);
+        void onLoadChildren(Messenger messenger, String str, List<MediaItem> list, Bundle bundle, Bundle bundle2);
 
         void onServiceConnected(Messenger messenger, String str, MediaSessionCompat.Token token, Bundle bundle);
     }
 
     /* loaded from: classes.dex */
-    public class ConnectionCallback {
+    public static class ConnectionCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaBrowser.ConnectionCallback mConnectionCallbackFwk;
@@ -129,6 +138,7 @@ public final class MediaBrowserCompat {
             }
         }
 
+        @RequiresApi(21)
         /* loaded from: classes.dex */
         public class ConnectionCallbackApi21 extends MediaBrowser.ConnectionCallback {
             public static /* synthetic */ Interceptable $ic;
@@ -219,12 +229,12 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class ItemCallback {
+    public static abstract class ItemCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaBrowser.ItemCallback mItemCallbackFwk;
 
-        public void onError(String str) {
+        public void onError(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
@@ -236,6 +246,7 @@ public final class MediaBrowserCompat {
             }
         }
 
+        @RequiresApi(23)
         /* loaded from: classes.dex */
         public class ItemCallbackApi23 extends MediaBrowser.ItemCallback {
             public static /* synthetic */ Interceptable $ic;
@@ -261,7 +272,7 @@ public final class MediaBrowserCompat {
             }
 
             @Override // android.media.browse.MediaBrowser.ItemCallback
-            public void onError(String str) {
+            public void onError(@NonNull String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                     this.this$0.onError(str);
@@ -299,7 +310,7 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public class MediaBrowserImplBase implements MediaBrowserImpl, MediaBrowserServiceCallbackImpl {
+    public static class MediaBrowserImplBase implements MediaBrowserImpl, MediaBrowserServiceCallbackImpl {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CONNECT_STATE_CONNECTED = 3;
         public static final int CONNECT_STATE_CONNECTING = 2;
@@ -320,7 +331,7 @@ public final class MediaBrowserCompat {
         public final ComponentName mServiceComponent;
         public MediaServiceConnection mServiceConnection;
         public int mState;
-        public final ArrayMap mSubscriptions;
+        public final ArrayMap<String, Subscription> mSubscriptions;
 
         /* loaded from: classes.dex */
         public class MediaServiceConnection implements ServiceConnection {
@@ -514,7 +525,7 @@ public final class MediaBrowserCompat {
                 }
             }
             this.mHandler = new CallbackHandler(this);
-            this.mSubscriptions = new ArrayMap();
+            this.mSubscriptions = new ArrayMap<>();
             this.mState = 1;
             if (context != null) {
                 if (componentName != null) {
@@ -657,6 +668,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
+        @Nullable
         public Bundle getExtras() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -670,6 +682,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
+        @NonNull
         public String getRoot() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -683,6 +696,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
+        @NonNull
         public ComponentName getServiceComponent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -696,6 +710,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
+        @NonNull
         public MediaSessionCompat.Token getSessionToken() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -822,7 +837,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void getItem(String str, ItemCallback itemCallback) {
+        public void getItem(@NonNull String str, @NonNull ItemCallback itemCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, str, itemCallback) == null) {
                 if (!TextUtils.isEmpty(str)) {
@@ -916,10 +931,10 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void unsubscribe(String str, SubscriptionCallback subscriptionCallback) {
+        public void unsubscribe(@NonNull String str, SubscriptionCallback subscriptionCallback) {
             Subscription subscription;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048593, this, str, subscriptionCallback) != null) || (subscription = (Subscription) this.mSubscriptions.get(str)) == null) {
+            if ((interceptable != null && interceptable.invokeLL(1048593, this, str, subscriptionCallback) != null) || (subscription = this.mSubscriptions.get(str)) == null) {
                 return;
             }
             try {
@@ -928,8 +943,8 @@ public final class MediaBrowserCompat {
                         this.mServiceBinderWrapper.removeSubscription(str, null, this.mCallbacksMessenger);
                     }
                 } else {
-                    List callbacks = subscription.getCallbacks();
-                    List optionsList = subscription.getOptionsList();
+                    List<SubscriptionCallback> callbacks = subscription.getCallbacks();
+                    List<Bundle> optionsList = subscription.getOptionsList();
                     for (int size = callbacks.size() - 1; size >= 0; size--) {
                         if (callbacks.get(size) == subscriptionCallback) {
                             if (isConnected()) {
@@ -966,7 +981,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserServiceCallbackImpl
-        public void onLoadChildren(Messenger messenger, String str, List list, Bundle bundle, Bundle bundle2) {
+        public void onLoadChildren(Messenger messenger, String str, List<MediaItem> list, Bundle bundle, Bundle bundle2) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLLLLL(1048588, this, messenger, str, list, bundle, bundle2) != null) || !isCurrent(messenger, "onLoadChildren")) {
                 return;
@@ -974,7 +989,7 @@ public final class MediaBrowserCompat {
             if (MediaBrowserCompat.DEBUG) {
                 Log.d(MediaBrowserCompat.TAG, "onLoadChildren for " + this.mServiceComponent + " id=" + str);
             }
-            Subscription subscription = (Subscription) this.mSubscriptions.get(str);
+            Subscription subscription = this.mSubscriptions.get(str);
             if (subscription == null) {
                 if (MediaBrowserCompat.DEBUG) {
                     Log.d(MediaBrowserCompat.TAG, "onLoadChildren for id that isn't subscribed id=" + str);
@@ -1022,13 +1037,13 @@ public final class MediaBrowserCompat {
             }
             this.mCallback.onConnected();
             try {
-                for (Map.Entry entry : this.mSubscriptions.entrySet()) {
-                    String str2 = (String) entry.getKey();
-                    Subscription subscription = (Subscription) entry.getValue();
-                    List callbacks = subscription.getCallbacks();
-                    List optionsList = subscription.getOptionsList();
+                for (Map.Entry<String, Subscription> entry : this.mSubscriptions.entrySet()) {
+                    String key = entry.getKey();
+                    Subscription value = entry.getValue();
+                    List<SubscriptionCallback> callbacks = value.getCallbacks();
+                    List<Bundle> optionsList = value.getOptionsList();
                     for (int i = 0; i < callbacks.size(); i++) {
-                        this.mServiceBinderWrapper.addSubscription(str2, ((SubscriptionCallback) callbacks.get(i)).mToken, (Bundle) optionsList.get(i), this.mCallbacksMessenger);
+                        this.mServiceBinderWrapper.addSubscription(key, callbacks.get(i).mToken, optionsList.get(i), this.mCallbacksMessenger);
                     }
                 }
             } catch (RemoteException unused) {
@@ -1037,7 +1052,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void search(String str, Bundle bundle, SearchCallback searchCallback) {
+        public void search(@NonNull String str, Bundle bundle, @NonNull SearchCallback searchCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048590, this, str, bundle, searchCallback) == null) {
                 if (isConnected()) {
@@ -1091,7 +1106,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void sendCustomAction(String str, Bundle bundle, CustomActionCallback customActionCallback) {
+        public void sendCustomAction(@NonNull String str, Bundle bundle, @Nullable CustomActionCallback customActionCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048591, this, str, bundle, customActionCallback) == null) {
                 if (isConnected()) {
@@ -1148,11 +1163,11 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback) {
+        public void subscribe(@NonNull String str, Bundle bundle, @NonNull SubscriptionCallback subscriptionCallback) {
             Bundle bundle2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048592, this, str, bundle, subscriptionCallback) == null) {
-                Subscription subscription = (Subscription) this.mSubscriptions.get(str);
+                Subscription subscription = this.mSubscriptions.get(str);
                 if (subscription == null) {
                     subscription = new Subscription();
                     this.mSubscriptions.put(str, subscription);
@@ -1175,37 +1190,38 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class SubscriptionCallback {
+    public static abstract class SubscriptionCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaBrowser.SubscriptionCallback mSubscriptionCallbackFwk;
-        public WeakReference mSubscriptionRef;
+        public WeakReference<Subscription> mSubscriptionRef;
         public final IBinder mToken;
 
-        public void onChildrenLoaded(String str, List list) {
+        public void onChildrenLoaded(@NonNull String str, @NonNull List<MediaItem> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
             }
         }
 
-        public void onChildrenLoaded(String str, List list, Bundle bundle) {
+        public void onChildrenLoaded(@NonNull String str, @NonNull List<MediaItem> list, @NonNull Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, bundle) == null) {
             }
         }
 
-        public void onError(String str) {
+        public void onError(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             }
         }
 
-        public void onError(String str, Bundle bundle) {
+        public void onError(@NonNull String str, @NonNull Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, bundle) == null) {
             }
         }
 
+        @RequiresApi(21)
         /* loaded from: classes.dex */
         public class SubscriptionCallbackApi21 extends MediaBrowser.SubscriptionCallback {
             public static /* synthetic */ Interceptable $ic;
@@ -1231,14 +1247,14 @@ public final class MediaBrowserCompat {
             }
 
             @Override // android.media.browse.MediaBrowser.SubscriptionCallback
-            public void onError(String str) {
+            public void onError(@NonNull String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                     this.this$0.onError(str);
                 }
             }
 
-            public List applyOptions(List list, Bundle bundle) {
+            public List<MediaItem> applyOptions(List<MediaItem> list, Bundle bundle) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, bundle)) == null) {
@@ -1264,25 +1280,25 @@ public final class MediaBrowserCompat {
             }
 
             @Override // android.media.browse.MediaBrowser.SubscriptionCallback
-            public void onChildrenLoaded(String str, List list) {
+            public void onChildrenLoaded(@NonNull String str, List<MediaBrowser.MediaItem> list) {
                 Subscription subscription;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list) == null) {
-                    WeakReference weakReference = this.this$0.mSubscriptionRef;
+                    WeakReference<Subscription> weakReference = this.this$0.mSubscriptionRef;
                     if (weakReference == null) {
                         subscription = null;
                     } else {
-                        subscription = (Subscription) weakReference.get();
+                        subscription = weakReference.get();
                     }
                     if (subscription == null) {
                         this.this$0.onChildrenLoaded(str, MediaItem.fromMediaItemList(list));
                         return;
                     }
                     List<MediaItem> fromMediaItemList = MediaItem.fromMediaItemList(list);
-                    List callbacks = subscription.getCallbacks();
-                    List optionsList = subscription.getOptionsList();
+                    List<SubscriptionCallback> callbacks = subscription.getCallbacks();
+                    List<Bundle> optionsList = subscription.getOptionsList();
                     for (int i = 0; i < callbacks.size(); i++) {
-                        Bundle bundle = (Bundle) optionsList.get(i);
+                        Bundle bundle = optionsList.get(i);
                         if (bundle == null) {
                             this.this$0.onChildrenLoaded(str, fromMediaItemList);
                         } else {
@@ -1293,6 +1309,7 @@ public final class MediaBrowserCompat {
             }
         }
 
+        @RequiresApi(26)
         /* loaded from: classes.dex */
         public class SubscriptionCallbackApi26 extends SubscriptionCallbackApi21 {
             public static /* synthetic */ Interceptable $ic;
@@ -1321,7 +1338,7 @@ public final class MediaBrowserCompat {
             }
 
             @Override // android.media.browse.MediaBrowser.SubscriptionCallback
-            public void onChildrenLoaded(String str, List list, Bundle bundle) {
+            public void onChildrenLoaded(@NonNull String str, @NonNull List<MediaBrowser.MediaItem> list, @NonNull Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, bundle) == null) {
                     MediaSessionCompat.ensureClassLoader(bundle);
@@ -1330,7 +1347,7 @@ public final class MediaBrowserCompat {
             }
 
             @Override // android.media.browse.MediaBrowser.SubscriptionCallback
-            public void onError(String str, Bundle bundle) {
+            public void onError(@NonNull String str, @NonNull Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
                     MediaSessionCompat.ensureClassLoader(bundle);
@@ -1366,17 +1383,17 @@ public final class MediaBrowserCompat {
         public void setSubscription(Subscription subscription) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, subscription) == null) {
-                this.mSubscriptionRef = new WeakReference(subscription);
+                this.mSubscriptionRef = new WeakReference<>(subscription);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class CallbackHandler extends Handler {
+    public static class CallbackHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference mCallbackImplRef;
-        public WeakReference mCallbacksMessengerRef;
+        public final WeakReference<MediaBrowserServiceCallbackImpl> mCallbackImplRef;
+        public WeakReference<Messenger> mCallbacksMessengerRef;
 
         public CallbackHandler(MediaBrowserServiceCallbackImpl mediaBrowserServiceCallbackImpl) {
             Interceptable interceptable = $ic;
@@ -1393,18 +1410,18 @@ public final class MediaBrowserCompat {
                     return;
                 }
             }
-            this.mCallbackImplRef = new WeakReference(mediaBrowserServiceCallbackImpl);
+            this.mCallbackImplRef = new WeakReference<>(mediaBrowserServiceCallbackImpl);
         }
 
         @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            WeakReference weakReference;
+        public void handleMessage(@NonNull Message message) {
+            WeakReference<Messenger> weakReference;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (weakReference = this.mCallbacksMessengerRef) != null && weakReference.get() != null && this.mCallbackImplRef.get() != null) {
                 Bundle data = message.getData();
                 MediaSessionCompat.ensureClassLoader(data);
-                MediaBrowserServiceCallbackImpl mediaBrowserServiceCallbackImpl = (MediaBrowserServiceCallbackImpl) this.mCallbackImplRef.get();
-                Messenger messenger = (Messenger) this.mCallbacksMessengerRef.get();
+                MediaBrowserServiceCallbackImpl mediaBrowserServiceCallbackImpl = this.mCallbackImplRef.get();
+                Messenger messenger = this.mCallbacksMessengerRef.get();
                 try {
                     int i = message.what;
                     if (i != 1) {
@@ -1438,13 +1455,13 @@ public final class MediaBrowserCompat {
         public void setCallbacksMessenger(Messenger messenger) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messenger) == null) {
-                this.mCallbacksMessengerRef = new WeakReference(messenger);
+                this.mCallbacksMessengerRef = new WeakReference<>(messenger);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public abstract class CustomActionCallback {
+    public static abstract class CustomActionCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1482,7 +1499,7 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public class CustomActionResultReceiver extends ResultReceiver {
+    public static class CustomActionResultReceiver extends ResultReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String mAction;
@@ -1536,7 +1553,7 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public class ItemReceiver extends ResultReceiver {
+    public static class ItemReceiver extends ResultReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ItemCallback mCallback;
@@ -1586,8 +1603,9 @@ public final class MediaBrowserCompat {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes.dex */
-    public class MediaBrowserImplApi21 implements MediaBrowserImpl, MediaBrowserServiceCallbackImpl, ConnectionCallback.ConnectionCallbackInternal {
+    public static class MediaBrowserImplApi21 implements MediaBrowserImpl, MediaBrowserServiceCallbackImpl, ConnectionCallback.ConnectionCallbackInternal {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaBrowser mBrowserFwk;
@@ -1599,7 +1617,7 @@ public final class MediaBrowserCompat {
         public final Bundle mRootHints;
         public ServiceBinderWrapper mServiceBinderWrapper;
         public int mServiceVersion;
-        public final ArrayMap mSubscriptions;
+        public final ArrayMap<String, Subscription> mSubscriptions;
 
         @Override // android.support.v4.media.MediaBrowserCompat.ConnectionCallback.ConnectionCallbackInternal
         public void onConnectionFailed() {
@@ -1639,7 +1657,7 @@ public final class MediaBrowserCompat {
                 }
             }
             this.mHandler = new CallbackHandler(this);
-            this.mSubscriptions = new ArrayMap();
+            this.mSubscriptions = new ArrayMap<>();
             this.mContext = context;
             if (bundle != null) {
                 bundle2 = new Bundle(bundle);
@@ -1679,6 +1697,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
+        @Nullable
         public Bundle getExtras() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1699,6 +1718,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
+        @NonNull
         public String getRoot() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1719,6 +1739,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
+        @NonNull
         public MediaSessionCompat.Token getSessionToken() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1753,7 +1774,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void getItem(String str, ItemCallback itemCallback) {
+        public void getItem(@NonNull String str, @NonNull ItemCallback itemCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, itemCallback) == null) {
                 if (!TextUtils.isEmpty(str)) {
@@ -1917,12 +1938,12 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserServiceCallbackImpl
-        public void onLoadChildren(Messenger messenger, String str, List list, Bundle bundle, Bundle bundle2) {
+        public void onLoadChildren(Messenger messenger, String str, List<MediaItem> list, Bundle bundle, Bundle bundle2) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLLLLL(1048589, this, messenger, str, list, bundle, bundle2) != null) || this.mCallbacksMessenger != messenger) {
                 return;
             }
-            Subscription subscription = (Subscription) this.mSubscriptions.get(str);
+            Subscription subscription = this.mSubscriptions.get(str);
             if (subscription == null) {
                 if (MediaBrowserCompat.DEBUG) {
                     Log.d(MediaBrowserCompat.TAG, "onLoadChildren for id that isn't subscribed id=" + str);
@@ -1951,7 +1972,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void search(String str, Bundle bundle, SearchCallback searchCallback) {
+        public void search(@NonNull String str, Bundle bundle, @NonNull SearchCallback searchCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048591, this, str, bundle, searchCallback) == null) {
                 if (isConnected()) {
@@ -2046,11 +2067,11 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback) {
+        public void subscribe(@NonNull String str, Bundle bundle, @NonNull SubscriptionCallback subscriptionCallback) {
             Bundle bundle2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048593, this, str, bundle, subscriptionCallback) == null) {
-                Subscription subscription = (Subscription) this.mSubscriptions.get(str);
+                Subscription subscription = this.mSubscriptions.get(str);
                 if (subscription == null) {
                     subscription = new Subscription();
                     this.mSubscriptions.put(str, subscription);
@@ -2076,7 +2097,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void sendCustomAction(String str, Bundle bundle, CustomActionCallback customActionCallback) {
+        public void sendCustomAction(@NonNull String str, Bundle bundle, @Nullable CustomActionCallback customActionCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048592, this, str, bundle, customActionCallback) == null) {
                 if (isConnected()) {
@@ -2175,10 +2196,10 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void unsubscribe(String str, SubscriptionCallback subscriptionCallback) {
+        public void unsubscribe(@NonNull String str, SubscriptionCallback subscriptionCallback) {
             Subscription subscription;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048594, this, str, subscriptionCallback) != null) || (subscription = (Subscription) this.mSubscriptions.get(str)) == null) {
+            if ((interceptable != null && interceptable.invokeLL(1048594, this, str, subscriptionCallback) != null) || (subscription = this.mSubscriptions.get(str)) == null) {
                 return;
             }
             ServiceBinderWrapper serviceBinderWrapper = this.mServiceBinderWrapper;
@@ -2186,8 +2207,8 @@ public final class MediaBrowserCompat {
                 if (subscriptionCallback == null) {
                     this.mBrowserFwk.unsubscribe(str);
                 } else {
-                    List callbacks = subscription.getCallbacks();
-                    List optionsList = subscription.getOptionsList();
+                    List<SubscriptionCallback> callbacks = subscription.getCallbacks();
+                    List<Bundle> optionsList = subscription.getOptionsList();
                     for (int size = callbacks.size() - 1; size >= 0; size--) {
                         if (callbacks.get(size) == subscriptionCallback) {
                             callbacks.remove(size);
@@ -2203,8 +2224,8 @@ public final class MediaBrowserCompat {
                     if (subscriptionCallback == null) {
                         serviceBinderWrapper.removeSubscription(str, null, this.mCallbacksMessenger);
                     } else {
-                        List callbacks2 = subscription.getCallbacks();
-                        List optionsList2 = subscription.getOptionsList();
+                        List<SubscriptionCallback> callbacks2 = subscription.getCallbacks();
+                        List<Bundle> optionsList2 = subscription.getOptionsList();
                         for (int size2 = callbacks2.size() - 1; size2 >= 0; size2--) {
                             if (callbacks2.get(size2) == subscriptionCallback) {
                                 this.mServiceBinderWrapper.removeSubscription(str, subscriptionCallback.mToken, this.mCallbacksMessenger);
@@ -2223,8 +2244,9 @@ public final class MediaBrowserCompat {
         }
     }
 
+    @RequiresApi(23)
     /* loaded from: classes.dex */
-    public class MediaBrowserImplApi23 extends MediaBrowserImplApi21 {
+    public static class MediaBrowserImplApi23 extends MediaBrowserImplApi21 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2250,7 +2272,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21, android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void getItem(String str, ItemCallback itemCallback) {
+        public void getItem(@NonNull String str, @NonNull ItemCallback itemCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, itemCallback) == null) {
                 if (this.mServiceBinderWrapper == null) {
@@ -2262,8 +2284,9 @@ public final class MediaBrowserCompat {
         }
     }
 
+    @RequiresApi(26)
     /* loaded from: classes.dex */
-    public class MediaBrowserImplApi26 extends MediaBrowserImplApi23 {
+    public static class MediaBrowserImplApi26 extends MediaBrowserImplApi23 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2289,7 +2312,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21, android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback) {
+        public void subscribe(@NonNull String str, @Nullable Bundle bundle, @NonNull SubscriptionCallback subscriptionCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, subscriptionCallback) == null) {
                 if (this.mServiceBinderWrapper != null && this.mServiceVersion >= 2) {
@@ -2303,7 +2326,7 @@ public final class MediaBrowserCompat {
         }
 
         @Override // android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21, android.support.v4.media.MediaBrowserCompat.MediaBrowserImpl
-        public void unsubscribe(String str, SubscriptionCallback subscriptionCallback) {
+        public void unsubscribe(@NonNull String str, SubscriptionCallback subscriptionCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, subscriptionCallback) == null) {
                 if (this.mServiceBinderWrapper != null && this.mServiceVersion >= 2) {
@@ -2317,6 +2340,7 @@ public final class MediaBrowserCompat {
         }
     }
 
+    @SuppressLint({"BanParcelableUsage"})
     /* loaded from: classes.dex */
     public static class MediaItem implements Parcelable {
         public static /* synthetic */ Interceptable $ic = null;
@@ -2350,7 +2374,7 @@ public final class MediaBrowserCompat {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: android.support.v4.media.MediaBrowserCompat.MediaItem.1
+            CREATOR = new Parcelable.Creator<MediaItem>() { // from class: android.support.v4.media.MediaBrowserCompat.MediaItem.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2369,6 +2393,7 @@ public final class MediaBrowserCompat {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public MediaItem createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -2380,6 +2405,7 @@ public final class MediaBrowserCompat {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public MediaItem[] newArray(int i) {
                     InterceptResult invokeI;
@@ -2392,6 +2418,7 @@ public final class MediaBrowserCompat {
             };
         }
 
+        @NonNull
         public MediaDescriptionCompat getDescription() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2410,6 +2437,7 @@ public final class MediaBrowserCompat {
             return invokeV.intValue;
         }
 
+        @Nullable
         public String getMediaId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2459,7 +2487,7 @@ public final class MediaBrowserCompat {
                 }
             }
             this.mFlags = parcel.readInt();
-            this.mDescription = (MediaDescriptionCompat) MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
+            this.mDescription = MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
         }
 
         public static MediaItem fromMediaItem(Object obj) {
@@ -2492,7 +2520,7 @@ public final class MediaBrowserCompat {
             return (List) invokeL.objValue;
         }
 
-        public MediaItem(MediaDescriptionCompat mediaDescriptionCompat, int i) {
+        public MediaItem(@NonNull MediaDescriptionCompat mediaDescriptionCompat, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2518,6 +2546,7 @@ public final class MediaBrowserCompat {
             throw new IllegalArgumentException("description cannot be null");
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2538,17 +2567,17 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class SearchCallback {
+    public static abstract class SearchCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onError(String str, Bundle bundle) {
+        public void onError(@NonNull String str, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bundle) == null) {
             }
         }
 
-        public void onSearchResult(String str, Bundle bundle, List list) {
+        public void onSearchResult(@NonNull String str, Bundle bundle, @NonNull List<MediaItem> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle, list) == null) {
             }
@@ -2570,7 +2599,7 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public class SearchResultReceiver extends ResultReceiver {
+    public static class SearchResultReceiver extends ResultReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final SearchCallback mCallback;
@@ -2626,7 +2655,7 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public class ServiceBinderWrapper {
+    public static class ServiceBinderWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Messenger mMessenger;
@@ -2754,11 +2783,11 @@ public final class MediaBrowserCompat {
     }
 
     /* loaded from: classes.dex */
-    public class Subscription {
+    public static class Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List mCallbacks;
-        public final List mOptionsList;
+        public final List<SubscriptionCallback> mCallbacks;
+        public final List<Bundle> mOptionsList;
 
         public Subscription() {
             Interceptable interceptable = $ic;
@@ -2777,7 +2806,7 @@ public final class MediaBrowserCompat {
             this.mOptionsList = new ArrayList();
         }
 
-        public List getCallbacks() {
+        public List<SubscriptionCallback> getCallbacks() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -2786,7 +2815,7 @@ public final class MediaBrowserCompat {
             return (List) invokeV.objValue;
         }
 
-        public List getOptionsList() {
+        public List<Bundle> getOptionsList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -2809,8 +2838,8 @@ public final class MediaBrowserCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
                 for (int i = 0; i < this.mOptionsList.size(); i++) {
-                    if (MediaBrowserCompatUtils.areSameOptions((Bundle) this.mOptionsList.get(i), bundle)) {
-                        return (SubscriptionCallback) this.mCallbacks.get(i);
+                    if (MediaBrowserCompatUtils.areSameOptions(this.mOptionsList.get(i), bundle)) {
+                        return this.mCallbacks.get(i);
                     }
                 }
                 return null;
@@ -2822,7 +2851,7 @@ public final class MediaBrowserCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, bundle, subscriptionCallback) == null) {
                 for (int i = 0; i < this.mOptionsList.size(); i++) {
-                    if (MediaBrowserCompatUtils.areSameOptions((Bundle) this.mOptionsList.get(i), bundle)) {
+                    if (MediaBrowserCompatUtils.areSameOptions(this.mOptionsList.get(i), bundle)) {
                         this.mCallbacks.set(i, subscriptionCallback);
                         return;
                     }
@@ -2864,6 +2893,7 @@ public final class MediaBrowserCompat {
         }
     }
 
+    @Nullable
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2873,6 +2903,8 @@ public final class MediaBrowserCompat {
         return (Bundle) invokeV.objValue;
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public Bundle getNotifyChildrenChangedOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2882,6 +2914,7 @@ public final class MediaBrowserCompat {
         return (Bundle) invokeV.objValue;
     }
 
+    @NonNull
     public String getRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2891,6 +2924,7 @@ public final class MediaBrowserCompat {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public ComponentName getServiceComponent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2900,6 +2934,7 @@ public final class MediaBrowserCompat {
         return (ComponentName) invokeV.objValue;
     }
 
+    @NonNull
     public MediaSessionCompat.Token getSessionToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2945,14 +2980,14 @@ public final class MediaBrowserCompat {
         }
     }
 
-    public void getItem(String str, ItemCallback itemCallback) {
+    public void getItem(@NonNull String str, @NonNull ItemCallback itemCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, itemCallback) == null) {
             this.mImpl.getItem(str, itemCallback);
         }
     }
 
-    public void subscribe(String str, SubscriptionCallback subscriptionCallback) {
+    public void subscribe(@NonNull String str, @NonNull SubscriptionCallback subscriptionCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, subscriptionCallback) == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -2966,7 +3001,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    public void unsubscribe(String str, SubscriptionCallback subscriptionCallback) {
+    public void unsubscribe(@NonNull String str, @NonNull SubscriptionCallback subscriptionCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, subscriptionCallback) == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -2980,7 +3015,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    public void search(String str, Bundle bundle, SearchCallback searchCallback) {
+    public void search(@NonNull String str, Bundle bundle, @NonNull SearchCallback searchCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, str, bundle, searchCallback) == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -2994,7 +3029,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    public void sendCustomAction(String str, Bundle bundle, CustomActionCallback customActionCallback) {
+    public void sendCustomAction(@NonNull String str, Bundle bundle, @Nullable CustomActionCallback customActionCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, str, bundle, customActionCallback) == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -3005,7 +3040,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    public void subscribe(String str, Bundle bundle, SubscriptionCallback subscriptionCallback) {
+    public void subscribe(@NonNull String str, @NonNull Bundle bundle, @NonNull SubscriptionCallback subscriptionCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, str, bundle, subscriptionCallback) == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -3022,7 +3057,7 @@ public final class MediaBrowserCompat {
         }
     }
 
-    public void unsubscribe(String str) {
+    public void unsubscribe(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {

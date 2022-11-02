@@ -10,14 +10,13 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -56,28 +55,28 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.j = str;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09139c);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0913d9);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "mView.findViewById(R.id.…_search_result_item_name)");
         this.a = (TextView) findViewById;
-        View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f09139d);
+        View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f0913da);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mView.findViewById(R.id.…rch_result_item_name_mid)");
         this.h = (TextView) findViewById2;
-        View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f09139a);
+        View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f0913d7);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "mView.findViewById(R.id.…earch_result_item_avatar)");
         this.e = (SimpleDraweeView) findViewById3;
-        View findViewById4 = view2.findViewById(R.id.obfuscated_res_0x7f091397);
+        View findViewById4 = view2.findViewById(R.id.obfuscated_res_0x7f0913d4);
         Intrinsics.checkExpressionValueIsNotNull(findViewById4, "mView.findViewById(R.id.…search_result__item_info)");
         this.b = (TextView) findViewById4;
-        View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f09139b);
+        View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f0913d8);
         Intrinsics.checkExpressionValueIsNotNull(findViewById5, "mView.findViewById(R.id.…earch_result_item_follow)");
         this.c = (TextView) findViewById5;
-        View findViewById6 = view2.findViewById(R.id.obfuscated_res_0x7f090f88);
+        View findViewById6 = view2.findViewById(R.id.obfuscated_res_0x7f090fc1);
         Intrinsics.checkExpressionValueIsNotNull(findViewById6, "mView.findViewById(R.id.item_contain)");
         this.d = findViewById6;
-        View findViewById7 = view2.findViewById(R.id.obfuscated_res_0x7f09137f);
+        View findViewById7 = view2.findViewById(R.id.obfuscated_res_0x7f0913bc);
         Intrinsics.checkExpressionValueIsNotNull(findViewById7, "mView.findViewById(R.id.…t_item_status_tag_lottie)");
         this.f = (LottieAnimationView) findViewById7;
-        View findViewById8 = view2.findViewById(R.id.obfuscated_res_0x7f09137e);
+        View findViewById8 = view2.findViewById(R.id.obfuscated_res_0x7f0913bb);
         Intrinsics.checkExpressionValueIsNotNull(findViewById8, "mView.findViewById(R.id.…ank_list_item_living_tag)");
         this.g = (TextView) findViewById8;
         this.i = context;
@@ -93,24 +92,24 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
                 this.a.setTypeface(Typeface.DEFAULT_BOLD);
                 this.a.setTextSize(1, 16.0f);
             }
-            ((GenericDraweeHierarchy) this.e.getHierarchy()).setPlaceholderImage(vc0.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
+            this.e.getHierarchy().setPlaceholderImage(uc0.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
             TextView textView = this.a;
-            vc0 f = vc0.f();
+            uc0 f = uc0.f();
             View itemView = this.itemView;
             Intrinsics.checkExpressionValueIsNotNull(itemView, "itemView");
             textView.setTextColor(f.a(itemView.getContext(), this.j, "color_1F1F1F"));
             TextView textView2 = this.g;
-            vc0 f2 = vc0.f();
+            uc0 f2 = uc0.f();
             View itemView2 = this.itemView;
             Intrinsics.checkExpressionValueIsNotNull(itemView2, "itemView");
             textView2.setTextColor(f2.a(itemView2.getContext(), this.j, "color_white3"));
-            vc0 f3 = vc0.f();
+            uc0 f3 = uc0.f();
             Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
             String r = f3.r();
             if (Intrinsics.areEqual(r, "day")) {
-                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4e);
+                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d68);
             } else if (Intrinsics.areEqual(r, "night")) {
-                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4f);
+                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d69);
             }
         }
     }

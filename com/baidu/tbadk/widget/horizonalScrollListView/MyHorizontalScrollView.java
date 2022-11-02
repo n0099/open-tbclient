@@ -17,7 +17,7 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
     public GestureDetector mGestureDetector;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }

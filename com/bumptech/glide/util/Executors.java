@@ -1,5 +1,7 @@
 package com.bumptech.glide.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -50,7 +52,7 @@ public final class Executors {
             }
 
             @Override // java.util.concurrent.Executor
-            public void execute(Runnable runnable) {
+            public void execute(@NonNull Runnable runnable) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, runnable) == null) {
                     Util.postOnUiThread(runnable);
@@ -76,7 +78,7 @@ public final class Executors {
             }
 
             @Override // java.util.concurrent.Executor
-            public void execute(Runnable runnable) {
+            public void execute(@NonNull Runnable runnable) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, runnable) == null) {
                     runnable.run();
@@ -117,6 +119,7 @@ public final class Executors {
         return (Executor) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public static void shutdownAndAwaitTermination(ExecutorService executorService) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executorService) == null) {

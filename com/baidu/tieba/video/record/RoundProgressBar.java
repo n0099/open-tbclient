@@ -1,5 +1,6 @@
 package com.baidu.tieba.video.record;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -105,6 +106,7 @@ public class RoundProgressBar extends View {
     }
 
     @Override // android.view.View
+    @SuppressLint({"DrawAllocation"})
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {

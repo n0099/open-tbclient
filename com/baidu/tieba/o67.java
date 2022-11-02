@@ -1,42 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Random;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class o67 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Random a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o67 {
+    void K0(int i, boolean z, List<wn> list);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984281, "Lcom/baidu/tieba/o67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947984281, "Lcom/baidu/tieba/o67;");
-                return;
-            }
-        }
-        a = new Random();
-    }
+    void a();
 
-    public static int a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            if (i >= i2) {
-                return i;
-            }
-            return (int) ((a.nextFloat() * (i2 - i)) + i);
-        }
-        return invokeII.intValue;
-    }
+    void u(int i, s67 s67Var);
 }

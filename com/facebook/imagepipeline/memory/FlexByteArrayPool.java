@@ -7,19 +7,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.common.references.ResourceReleaser;
 import java.util.Map;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class FlexByteArrayPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
     public final SoftRefByteArrayPool mDelegatePool;
-    public final ResourceReleaser mResourceReleaser;
+    public final ResourceReleaser<byte[]> mResourceReleaser;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class SoftRefByteArrayPool extends GenericByteArrayPool {
+    public static class SoftRefByteArrayPool extends GenericByteArrayPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +50,7 @@ public class FlexByteArrayPool {
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        public Bucket newBucket(int i) {
+        public Bucket<byte[]> newBucket(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -78,7 +83,7 @@ public class FlexByteArrayPool {
         }
         Preconditions.checkArgument(z);
         this.mDelegatePool = new SoftRefByteArrayPool(memoryTrimmableRegistry, poolParams, NoOpPoolStatsTracker.getInstance());
-        this.mResourceReleaser = new ResourceReleaser(this) { // from class: com.facebook.imagepipeline.memory.FlexByteArrayPool.1
+        this.mResourceReleaser = new ResourceReleaser<byte[]>(this) { // from class: com.facebook.imagepipeline.memory.FlexByteArrayPool.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FlexByteArrayPool this$0;
@@ -112,7 +117,7 @@ public class FlexByteArrayPool {
         };
     }
 
-    public CloseableReference get(int i) {
+    public CloseableReference<byte[]> get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -137,7 +142,7 @@ public class FlexByteArrayPool {
         return invokeV.intValue;
     }
 
-    public Map getStats() {
+    public Map<String, Integer> getStats() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

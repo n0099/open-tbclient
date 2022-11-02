@@ -1,36 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.FrsPage.Yule;
 /* loaded from: classes4.dex */
-public abstract class fv4 implements Comparable {
+public class fv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public Activity b;
+    public ev4 b;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(boolean z);
-    }
-
-    public abstract void b();
-
-    public abstract void d(a aVar);
-
-    public abstract void e();
-
-    public fv4(Activity activity) {
+    public fv4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,26 +29,50 @@ public abstract class fv4 implements Comparable {
                 return;
             }
         }
-        this.a = Integer.MIN_VALUE;
-        this.b = activity;
+        this.a = 0;
+        this.b = new ev4();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(fv4 fv4Var) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fv4Var)) == null) {
-            return this.a - fv4Var.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == 0) {
+                return false;
+            }
+            return true;
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c() {
+    public ev4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gv4.j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (ev4) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optInt("activity_show");
+            this.b.d(jSONObject.optJSONObject("yule_activity"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void d(Yule yule) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, yule) != null) || yule == null) {
+            return;
+        }
+        this.a = yule.activity_show.intValue();
+        this.b.e(yule.yule_activity);
     }
 }

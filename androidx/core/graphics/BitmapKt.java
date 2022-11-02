@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.ColorSpace;
 import android.graphics.Point;
 import android.graphics.PointF;
+import androidx.annotation.ColorInt;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
@@ -83,6 +85,7 @@ public final class BitmapKt {
         return invokeLII.intValue;
     }
 
+    @RequiresApi(26)
     public static final Bitmap createBitmap(int i, int i2, Bitmap.Config config, boolean z, ColorSpace colorSpace) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -139,7 +142,7 @@ public final class BitmapKt {
         return createScaledBitmap;
     }
 
-    public static final void set(Bitmap bitmap, int i, int i2, int i3) {
+    public static final void set(Bitmap bitmap, int i, int i2, @ColorInt int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(65546, null, bitmap, i, i2, i3) == null) {
             bitmap.setPixel(i, i2, i3);

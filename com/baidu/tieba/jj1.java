@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.TargetApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(9)
 /* loaded from: classes4.dex */
-public class jj1 implements gj1 {
+public abstract class jj1 implements hj1<jj1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ij1 a;
+    public int a;
 
+    public abstract void b();
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public jj1() {
+        this(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,26 +25,49 @@ public class jj1 implements gj1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.gj1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b();
+        }
     }
 
-    @Override // com.baidu.tieba.gj1
-    public void a(Context context, hj1 hj1Var) {
+    public jj1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hj1Var) == null) {
-            ij1 ij1Var = new ij1(context);
-            this.a = ij1Var;
-            ij1Var.b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(jj1 jj1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jj1Var)) == null) {
+            return jj1Var.a - this.a;
+        }
+        return invokeL.intValue;
     }
 }

@@ -1,36 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.ContentObserver;
+import android.view.View;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import java.util.HashMap;
+import java.util.Map;
+import tv.athena.revenue.payui.activity.immersion.BarHide;
 /* loaded from: classes5.dex */
-public class q4a implements IYYPayWayView.a {
+public class q4a implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public IYYPayWayView c;
-    public IYYPayWayView.b d;
-    public IPayCallback e;
-    public v3a f;
-    public boolean g;
+    public ContentObserver A;
+    @ColorInt
+    public int a;
+    @ColorInt
+    public int b;
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public float c;
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public float d;
+    public boolean e;
+    public boolean f;
+    public BarHide g;
+    public boolean h;
+    public boolean i;
+    @ColorInt
+    public int j;
+    @ColorInt
+    public int k;
+    public Map<View, Map<Integer, Integer>> l;
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public float m;
+    public boolean n;
+    public View o;
+    public View p;
+    public View q;
+    @ColorInt
+    public int r;
+    public boolean s;
+    public boolean t;
+    public int u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public t4a y;
+    public v4a z;
 
-    public q4a(Activity activity, boolean z, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, IPayCallback iPayCallback, v3a v3aVar) {
+    public q4a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z), dialog, iYYPayWayView, bVar, iPayCallback, v3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,41 +65,41 @@ public class q4a implements IYYPayWayView.a {
                 return;
             }
         }
-        RLog.info("PayWayViewCallback", "create PayWayViewCallback");
-        this.a = activity;
-        this.b = dialog;
-        this.c = iYYPayWayView;
-        this.d = bVar;
-        this.e = iPayCallback;
-        this.f = v3aVar;
-        this.g = z;
+        this.a = 0;
+        this.b = -16777216;
+        this.c = 0.0f;
+        this.d = 0.0f;
+        this.e = false;
+        this.f = false;
+        this.g = BarHide.FLAG_SHOW_BAR;
+        this.h = false;
+        this.i = true;
+        this.j = -16777216;
+        this.k = -16777216;
+        this.l = new HashMap();
+        this.m = 0.0f;
+        this.n = false;
+        this.s = false;
+        this.t = false;
+        this.u = 18;
+        this.v = true;
+        this.w = true;
+        this.x = false;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
-    public void a(h5a h5aVar, e5a e5aVar, AppCustomExpand appCustomExpand) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public q4a clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, h5aVar, e5aVar, appCustomExpand) == null) {
-            RLog.info("PayWayViewCallback", "onStartPay");
-            this.f.d(this.a, h5aVar, e5aVar, this.b, this.c, appCustomExpand, this.d, this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (q4a) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
-    public void onRefreshViewFail(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            PayFinishInfo b = v5a.b(PayDialogType.PAY_WAY_DIALOG, i, str, this.g);
-            RLog.info("PayWayViewCallback", "showPayWayDialog onRefreshViewFail message:" + b);
-            this.f.g(b);
-            u5a.b(this.b, PayDialogType.PAY_WAY_DIALOG);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
-    public void toHelpCenterPage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f.o(this.a);
-        }
+        return (q4a) invokeV.objValue;
     }
 }

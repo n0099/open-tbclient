@@ -20,12 +20,12 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4612117445868668894L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List b_info;
+    public List<BubbleData> b_info;
     public String error_code;
     public String error_msg;
 
     /* loaded from: classes5.dex */
-    public class BubbleData extends OrmObject implements Serializable {
+    public static class BubbleData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1540726255641451917L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
         return (BubbleListData) invokeV.objValue;
     }
 
-    public List getB_info() {
+    public List<BubbleData> getB_info() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

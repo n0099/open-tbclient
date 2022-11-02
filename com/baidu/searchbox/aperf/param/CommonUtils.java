@@ -16,7 +16,7 @@ import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.y10;
+import com.baidu.tieba.t10;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class CommonUtils {
     public static final String SDK_VERSION = "sdkversion";
     public static final String TRUE = "1";
     public static final String UNKNOWN = "-1";
-    public static final HashSet mVSSKey;
+    public static final HashSet<String> mVSSKey;
     public static String sAppVersion;
     public static String sCPU;
     public static String sEmulator;
@@ -56,11 +56,11 @@ public class CommonUtils {
     public static String sProcessBit;
     public static String sROM;
     public static String sRooted;
-    public static final ConcurrentHashMap sSDKVersionMap;
+    public static final ConcurrentHashMap<String, String> sSDKVersionMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class VSSConstants {
+    public static final class VSSConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String VMHWM = "VmHWM";
         public static final String VMPEAK = "VmPeak";
@@ -96,8 +96,8 @@ public class CommonUtils {
                 return;
             }
         }
-        sSDKVersionMap = new ConcurrentHashMap();
-        mVSSKey = new HashSet() { // from class: com.baidu.searchbox.aperf.param.CommonUtils.1
+        sSDKVersionMap = new ConcurrentHashMap<>();
+        mVSSKey = new HashSet<String>() { // from class: com.baidu.searchbox.aperf.param.CommonUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -273,7 +273,7 @@ public class CommonUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new y10().a();
+            return new t10().a();
         }
         return (String) invokeV.objValue;
     }
@@ -565,7 +565,7 @@ public class CommonUtils {
                                 if (jsonReader != null) {
                                     jsonReader.close();
                                 }
-                                return (String) sSDKVersionMap.get(str);
+                                return sSDKVersionMap.get(str);
                             }
                         } catch (Throwable th) {
                             th = th;
@@ -592,7 +592,7 @@ public class CommonUtils {
                     e5.printStackTrace();
                 }
             }
-            return (String) sSDKVersionMap.get(str);
+            return sSDKVersionMap.get(str);
         }
         return (String) invokeL.objValue;
     }

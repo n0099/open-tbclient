@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -13,9 +14,9 @@ public final class PDF417DetectorResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BitMatrix bits;
-    public final List points;
+    public final List<ResultPoint[]> points;
 
-    public PDF417DetectorResult(BitMatrix bitMatrix, List list) {
+    public PDF417DetectorResult(BitMatrix bitMatrix, List<ResultPoint[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +44,7 @@ public final class PDF417DetectorResult {
         return (BitMatrix) invokeV.objValue;
     }
 
-    public List getPoints() {
+    public List<ResultPoint[]> getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

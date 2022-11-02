@@ -18,18 +18,18 @@ import java.util.List;
 public interface d extends IInterface {
 
     /* loaded from: classes2.dex */
-    public abstract class a extends Binder implements d {
+    public static abstract class a extends Binder implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0095a implements d {
+        public static class C0096a implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0095a(IBinder iBinder) {
+            public C0096a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public interface d extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.d
-            public void a(String str, List list) throws RemoteException {
+            public void a(String str, List<String> list) throws RemoteException {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -258,7 +258,7 @@ public interface d extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C0095a(iBinder) : (d) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C0096a(iBinder) : (d) queryLocalInterface;
             }
             return (d) invokeL.objValue;
         }
@@ -345,7 +345,7 @@ public interface d extends IInterface {
 
     void a(int i, int i2, int i3, int i4) throws RemoteException;
 
-    void a(String str, List list) throws RemoteException;
+    void a(String str, List<String> list) throws RemoteException;
 
     boolean a(int i, int i2, String str) throws RemoteException;
 

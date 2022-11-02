@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util.bdapp;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,6 +13,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
+@SuppressLint({"BDThrowableCheck"})
 @Deprecated
 /* loaded from: classes8.dex */
 public class Base64InputStream extends FilterInputStream {

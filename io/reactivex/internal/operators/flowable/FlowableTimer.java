@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableTimer extends Flowable {
+public final class FlowableTimer extends Flowable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -25,14 +25,14 @@ public final class FlowableTimer extends Flowable {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class TimerSubscriber extends AtomicReference implements Subscription, Runnable {
+    public static final class TimerSubscriber extends AtomicReference<Disposable> implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super Long> actual;
         public volatile boolean requested;
 
-        public TimerSubscriber(Subscriber subscriber) {
+        public TimerSubscriber(Subscriber<? super Long> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public final class FlowableTimer extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super Long> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             TimerSubscriber timerSubscriber = new TimerSubscriber(subscriber);

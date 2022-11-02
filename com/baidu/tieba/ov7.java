@@ -1,90 +1,90 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
 /* loaded from: classes5.dex */
-public class ov7 {
+public class ov7 extends jv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public ImageView e;
+    public ViewStub o;
+    public View p;
+    public TbImageView q;
+    public TextView r;
+    public TextView s;
 
-    public ov7(View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ov7(TbPageContext tbPageContext, View view2) {
+        super(tbPageContext, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = view2;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090640);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09063d);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09063e);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09063f);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092623);
+        this.o = viewStub;
+        viewStub.inflate();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
+        layoutParams.topMargin = xi.j(tbPageContext.getPageActivity()) / 2;
+        this.o.setLayoutParams(layoutParams);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f0924ed);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924c8);
+        this.q = tbImageView;
+        tbImageView.setIsRound(true);
+        this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f6);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092511);
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.jv7
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.a, R.drawable.bg_rec_lick);
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_rec_comment);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0110, 1);
-            SkinManager.setImageResource(this.e, R.drawable.recommend_pb_share_selector);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.a(i);
+            kw4 d = kw4.d(this.p);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0204);
+            kw4 d2 = kw4.d(this.r);
+            d2.v(R.color.CAM_X0105);
+            d2.z(R.dimen.T_X05);
+            d2.A(R.string.F_X02);
+            kw4 d3 = kw4.d(this.s);
+            d3.v(R.color.CAM_X0108);
+            d3.z(R.dimen.T_X08);
+            d3.A(R.string.F_X01);
         }
     }
 
-    public void b(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.jv7
+    public void c(kv7 kv7Var) {
+        ShareStorage.StorageModel storageModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kv7Var) != null) || kv7Var == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(kv7Var.d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
+            return;
         }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d.setText(str);
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.e.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void e(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            View view2 = this.a;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
-        }
+        this.q.K(storageModel.url, 10, false);
+        this.r.setText(storageModel.displayname);
+        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f118c, storageModel.app));
     }
 }

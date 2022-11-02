@@ -1,5 +1,6 @@
 package com.airbnb.lottie.model.content;
 
+import android.graphics.PointF;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.PolystarContent;
@@ -15,11 +16,11 @@ public class PolystarShape implements ContentModel {
     public final AnimatableFloatValue outerRadius;
     public final AnimatableFloatValue outerRoundedness;
     public final AnimatableFloatValue points;
-    public final AnimatableValue position;
+    public final AnimatableValue<PointF, PointF> position;
     public final AnimatableFloatValue rotation;
     public final Type type;
 
-    public PolystarShape(String str, Type type, AnimatableFloatValue animatableFloatValue, AnimatableValue animatableValue, AnimatableFloatValue animatableFloatValue2, AnimatableFloatValue animatableFloatValue3, AnimatableFloatValue animatableFloatValue4, AnimatableFloatValue animatableFloatValue5, AnimatableFloatValue animatableFloatValue6, boolean z) {
+    public PolystarShape(String str, Type type, AnimatableFloatValue animatableFloatValue, AnimatableValue<PointF, PointF> animatableValue, AnimatableFloatValue animatableFloatValue2, AnimatableFloatValue animatableFloatValue3, AnimatableFloatValue animatableFloatValue4, AnimatableFloatValue animatableFloatValue5, AnimatableFloatValue animatableFloatValue6, boolean z) {
         this.name = str;
         this.type = type;
         this.points = animatableFloatValue;
@@ -78,7 +79,7 @@ public class PolystarShape implements ContentModel {
         return this.points;
     }
 
-    public AnimatableValue getPosition() {
+    public AnimatableValue<PointF, PointF> getPosition() {
         return this.position;
     }
 

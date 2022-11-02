@@ -1,91 +1,77 @@
 package com.baidu.tieba;
 
+import android.util.Base64InputStream;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public final class wc9 {
+public class wc9 extends Base64InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
 
-    /* loaded from: classes6.dex */
-    public final class a extends cd9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-
-        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, aVar, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = aVar;
-            this.c = str;
-            this.d = str2;
-        }
-
-        @Override // com.baidu.tieba.cd9
-        public final void a() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != null) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("{");
-                    for (Map.Entry entry : this.a.entrySet()) {
-                        stringBuffer.append("\"");
-                        stringBuffer.append(entry.getKey());
-                        stringBuffer.append("\":\"");
-                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
-                        stringBuffer.append("\",");
-                    }
-                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
-                    stringBuffer2.append("}");
-                    this.b.w(stringBuffer2.toString());
-                }
-                try {
-                    this.b.x(zc9.e().I());
-                    this.b.u(String.valueOf(System.currentTimeMillis()));
-                    this.b.t(this.c);
-                    com.baidu.ubs.analytics.a.a aVar = this.b;
-                    if (this.d == null) {
-                        str = "";
-                    } else {
-                        str = this.d;
-                    }
-                    aVar.s(str);
-                    new ac9().c(this.b);
-                } catch (Exception e) {
-                    if (e.getMessage() != null) {
-                        ad9.b(e.getMessage());
-                    }
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wc9(InputStream inputStream, int i) {
+        super(inputStream, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = false;
     }
 
-    public static void a(String str, String str2, String str3, Map map) {
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
-            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
-            aVar.v(str);
-            bd9.c(new a(map, aVar, str2, str3));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int read = super.read();
+            if (!this.a && read == 117) {
+                this.a = true;
+                return 31;
+            } else if (!this.b && read == 123) {
+                this.b = true;
+                return Cea708Decoder.COMMAND_TGW;
+            } else {
+                return read;
+            }
         }
+        return invokeV.intValue;
+    }
+
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            if (!this.a && read >= 2) {
+                bArr[i] = 31;
+                bArr[i + 1] = -117;
+                this.a = true;
+            }
+            return read;
+        }
+        return invokeLII.intValue;
     }
 }

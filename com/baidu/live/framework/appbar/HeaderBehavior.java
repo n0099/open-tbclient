@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class HeaderBehavior extends ViewOffsetBehavior {
+public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable d;
@@ -29,18 +29,18 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
     public int i;
     public VelocityTracker j;
 
-    public boolean H(View view2) {
+    public boolean H(V v) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v)) == null) {
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public void N(CoordinatorLayout coordinatorLayout, View view2) {
+    public void N(CoordinatorLayout coordinatorLayout, V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, coordinatorLayout, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, coordinatorLayout, v) == null) {
         }
     }
 
@@ -49,15 +49,15 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CoordinatorLayout a;
-        public final View b;
+        public final V b;
         public final /* synthetic */ HeaderBehavior c;
 
-        public a(HeaderBehavior headerBehavior, CoordinatorLayout coordinatorLayout, View view2) {
+        public a(HeaderBehavior headerBehavior, CoordinatorLayout coordinatorLayout, V v) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headerBehavior, coordinatorLayout, view2};
+                Object[] objArr = {headerBehavior, coordinatorLayout, v};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,7 +69,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
             }
             this.c = headerBehavior;
             this.a = coordinatorLayout;
-            this.b = view2;
+            this.b = v;
         }
 
         @Override // java.lang.Runnable
@@ -151,10 +151,10 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean D(CoordinatorLayout coordinatorLayout, View view2, MotionEvent motionEvent) {
+    public boolean D(CoordinatorLayout coordinatorLayout, V v, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, coordinatorLayout, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, coordinatorLayout, v, motionEvent)) == null) {
             if (this.i < 0) {
                 this.i = ViewConfiguration.get(coordinatorLayout.getContext()).getScaledTouchSlop();
             }
@@ -179,7 +179,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
                         int i3 = i;
                         if (this.f) {
                             this.h = y;
-                            O(coordinatorLayout, view2, i3, K(view2), 0);
+                            O(coordinatorLayout, v, i3, K(v), 0);
                         }
                     }
                 } else {
@@ -187,7 +187,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
                     if (velocityTracker != null) {
                         velocityTracker.addMovement(motionEvent);
                         this.j.computeCurrentVelocity(1000);
-                        J(coordinatorLayout, view2, -L(view2), 0, this.j.getYVelocity(this.g));
+                        J(coordinatorLayout, v, -L(v), 0, this.j.getYVelocity(this.g));
                     }
                 }
                 this.f = false;
@@ -199,7 +199,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
                 }
             } else {
                 int y2 = (int) motionEvent.getY();
-                if (!coordinatorLayout.v(view2, (int) motionEvent.getX(), y2) || !H(view2)) {
+                if (!coordinatorLayout.v(v, (int) motionEvent.getX(), y2) || !H(v)) {
                     return false;
                 }
                 this.h = y2;
@@ -222,11 +222,11 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean k(CoordinatorLayout coordinatorLayout, View view2, MotionEvent motionEvent) {
+    public boolean k(CoordinatorLayout coordinatorLayout, V v, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         int findPointerIndex;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, coordinatorLayout, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, coordinatorLayout, v, motionEvent)) == null) {
             if (this.i < 0) {
                 this.i = ViewConfiguration.get(coordinatorLayout.getContext()).getScaledTouchSlop();
             }
@@ -258,7 +258,7 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
                 this.f = false;
                 int x = (int) motionEvent.getX();
                 int y2 = (int) motionEvent.getY();
-                if (H(view2) && coordinatorLayout.v(view2, x, y2)) {
+                if (H(v) && coordinatorLayout.v(v, x, y2)) {
                     this.h = y2;
                     this.g = motionEvent.getPointerId(0);
                     I();
@@ -273,72 +273,72 @@ public abstract class HeaderBehavior extends ViewOffsetBehavior {
         return invokeLLL.booleanValue;
     }
 
-    public final boolean J(CoordinatorLayout coordinatorLayout, View view2, int i, int i2, float f) {
+    public final boolean J(CoordinatorLayout coordinatorLayout, V v, int i, int i2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, view2, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
             Runnable runnable = this.d;
             if (runnable != null) {
-                view2.removeCallbacks(runnable);
+                v.removeCallbacks(runnable);
                 this.d = null;
             }
             if (this.e == null) {
-                this.e = new OverScroller(view2.getContext());
+                this.e = new OverScroller(v.getContext());
             }
             this.e.fling(0, E(), 0, Math.round(f), 0, 0, i, i2);
             if (this.e.computeScrollOffset()) {
-                a aVar = new a(this, coordinatorLayout, view2);
+                a aVar = new a(this, coordinatorLayout, v);
                 this.d = aVar;
-                ViewCompat.postOnAnimation(view2, aVar);
+                ViewCompat.postOnAnimation(v, aVar);
                 return true;
             }
-            N(coordinatorLayout, view2);
+            N(coordinatorLayout, v);
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public int K(View view2) {
+    public int K(V v) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
-            return -view2.getHeight();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, v)) == null) {
+            return -v.getHeight();
         }
         return invokeL.intValue;
     }
 
-    public int L(View view2) {
+    public int L(V v) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            return view2.getHeight();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, v)) == null) {
+            return v.getHeight();
         }
         return invokeL.intValue;
     }
 
-    public final int O(CoordinatorLayout coordinatorLayout, View view2, int i, int i2, int i3) {
+    public final int O(CoordinatorLayout coordinatorLayout, V v, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            return Q(coordinatorLayout, view2, M() - i, i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            return Q(coordinatorLayout, v, M() - i, i2, i3);
         }
         return invokeCommon.intValue;
     }
 
-    public int P(CoordinatorLayout coordinatorLayout, View view2, int i) {
+    public int P(CoordinatorLayout coordinatorLayout, V v, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, view2, i)) == null) {
-            return Q(coordinatorLayout, view2, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, v, i)) == null) {
+            return Q(coordinatorLayout, v, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
         }
         return invokeLLI.intValue;
     }
 
-    public int Q(CoordinatorLayout coordinatorLayout, View view2, int i, int i2, int i3) {
+    public int Q(CoordinatorLayout coordinatorLayout, V v, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         int clamp;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{coordinatorLayout, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int E = E();
             if (i2 != 0 && E >= i2 && E <= i3 && E != (clamp = MathUtils.clamp(i, i2, i3))) {
                 G(clamp);

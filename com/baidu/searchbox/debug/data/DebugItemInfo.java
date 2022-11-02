@@ -16,7 +16,7 @@ public class DebugItemInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: view  reason: collision with root package name */
-    public View f1037view;
+    public View f1038view;
     public ViewType viewType;
 
     public DebugItemInfo(View view2, ViewType viewType) {
@@ -34,7 +34,7 @@ public class DebugItemInfo {
                 return;
             }
         }
-        this.f1037view = view2;
+        this.f1038view = view2;
         this.viewType = viewType;
     }
 
@@ -42,7 +42,7 @@ public class DebugItemInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f1037view;
+            return this.f1038view;
         }
         return (View) invokeV.objValue;
     }
@@ -59,7 +59,7 @@ public class DebugItemInfo {
     public final void setView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.f1037view = view2;
+            this.f1038view = view2;
         }
     }
 

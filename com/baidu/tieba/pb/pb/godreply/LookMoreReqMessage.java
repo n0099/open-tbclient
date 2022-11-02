@@ -5,8 +5,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class LookMoreReqMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public int is_comm_reverse;
     public Long kz;
-    public List post_id;
+    public List<Long> post_id;
     public int scr_h;
     public int scr_w;
     public int st_type;
@@ -53,18 +53,18 @@ public class LookMoreReqMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
-                int k = fj.k(TbadkCoreApplication.getInst());
-                int i = fj.i(TbadkCoreApplication.getInst());
+                int l = xi.l(TbadkCoreApplication.getInst());
+                int j = xi.j(TbadkCoreApplication.getInst());
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.kz = this.kz;
                 builder.with_floor = Integer.valueOf(this.with_floor);
                 builder.post_id = this.post_id;
-                builder.scr_w = Integer.valueOf(k);
-                builder.scr_h = Integer.valueOf(i);
+                builder.scr_w = Integer.valueOf(l);
+                builder.scr_h = Integer.valueOf(j);
                 builder.st_type = Integer.valueOf(this.st_type);
                 builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    yh5.a(builder, true);
+                    vi5.a(builder, true);
                 }
                 GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -83,7 +83,7 @@ public class LookMoreReqMessage extends NetMessage {
         }
     }
 
-    public void setPost_id(List list) {
+    public void setPost_id(List<Long> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.post_id = list;

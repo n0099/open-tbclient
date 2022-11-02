@@ -19,18 +19,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CompletableConcatIterable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable sources;
+    public final Iterable<? extends CompletableSource> sources;
 
     /* loaded from: classes8.dex */
-    public final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
+    public static final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
         public final SequentialDisposable sd;
-        public final Iterator sources;
+        public final Iterator<? extends CompletableSource> sources;
 
-        public ConcatInnerObserver(CompletableObserver completableObserver, Iterator it) {
+        public ConcatInnerObserver(CompletableObserver completableObserver, Iterator<? extends CompletableSource> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public final class CompletableConcatIterable extends Completable {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.sd.isDisposed() || getAndIncrement() != 0) {
                 return;
             }
-            Iterator it = this.sources;
+            Iterator<? extends CompletableSource> it = this.sources;
             while (!this.sd.isDisposed()) {
                 try {
                     if (!it.hasNext()) {
@@ -105,7 +105,7 @@ public final class CompletableConcatIterable extends Completable {
         }
     }
 
-    public CompletableConcatIterable(Iterable iterable) {
+    public CompletableConcatIterable(Iterable<? extends CompletableSource> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

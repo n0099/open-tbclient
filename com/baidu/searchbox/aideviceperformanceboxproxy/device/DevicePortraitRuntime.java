@@ -1,5 +1,7 @@
 package com.baidu.searchbox.aideviceperformanceboxproxy.device;
 
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler;
 import com.baidu.searchbox.aideviceperformance.device.IDevicePortraitThresholdsConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class DevicePortraitRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -26,6 +29,7 @@ public class DevicePortraitRuntime {
         }
     }
 
+    @Inject(force = false)
     public static IDevicePortraitResultHandler getDefaultResultHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -35,6 +39,7 @@ public class DevicePortraitRuntime {
         return (IDevicePortraitResultHandler) invokeV.objValue;
     }
 
+    @Inject(force = false)
     public static IDevicePortraitThresholdsConfig getDefaultThresholdsConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -15,7 +15,6 @@ import com.yy.hiidostatis.inner.implementation.TaskDataSqLiteCacheManager;
 import com.yy.hiidostatis.message.MessageStore;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class MessageStoreProxy implements MessageStore {
@@ -26,7 +25,7 @@ public class MessageStoreProxy implements MessageStore {
 
     /* renamed from: com.yy.hiidostatis.message.storage.MessageStoreProxy$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$api$StatisContent$Priority;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,14 +80,12 @@ public class MessageStoreProxy implements MessageStore {
     }
 
     @Override // com.yy.hiidostatis.message.MessageStore
-    public int notSave(List list) {
+    public int notSave(List<StatisContent> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                StatisContent statisContent = (StatisContent) it.next();
+            for (StatisContent statisContent : list) {
                 TaskData taskData = new TaskData(statisContent.getAct());
                 taskData.setContent(statisContent.getContent());
                 taskData.setDataId(statisContent.getGuid());
@@ -103,15 +100,13 @@ public class MessageStoreProxy implements MessageStore {
     }
 
     @Override // com.yy.hiidostatis.message.MessageStore
-    public int save(List list) {
+    public int save(List<StatisContent> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
             HashMap hashMap = new HashMap();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                StatisContent statisContent = (StatisContent) it.next();
+            for (StatisContent statisContent : list) {
                 TaskData taskData = new TaskData(statisContent.getAct());
                 taskData.setContent(statisContent.getContent());
                 taskData.setDataId(statisContent.getGuid());

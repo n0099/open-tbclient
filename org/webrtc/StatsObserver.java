@@ -1,5 +1,6 @@
 package org.webrtc;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface StatsObserver {
+    @CalledByNative
     void onComplete(StatsReport[] statsReportArr);
 }

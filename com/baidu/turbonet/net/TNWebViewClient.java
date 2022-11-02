@@ -1,5 +1,6 @@
 package com.baidu.turbonet.net;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.Log;
@@ -10,7 +11,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k99;
+import com.baidu.tieba.ta9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,6 +49,7 @@ public class TNWebViewClient extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
+    @TargetApi(21)
     public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         String str;
@@ -68,26 +70,26 @@ public class TNWebViewClient extends WebViewClient {
                 return null;
             }
             Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-            k99 k99Var = new k99(new URL(webResourceRequest.getUrl().toString()), this.a);
-            k99Var.setRequestMethod(webResourceRequest.getMethod());
+            ta9 ta9Var = new ta9(new URL(webResourceRequest.getUrl().toString()), this.a);
+            ta9Var.setRequestMethod(webResourceRequest.getMethod());
             Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
             if (requestHeaders != null) {
                 for (Map.Entry<String, String> entry : requestHeaders.entrySet()) {
-                    k99Var.setRequestProperty(entry.getKey(), entry.getValue());
+                    ta9Var.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             }
             CookieManager cookieManager = CookieManager.getInstance();
             String cookie = cookieManager.getCookie(webResourceRequest.getUrl().toString());
             if (!TextUtils.isEmpty(cookie)) {
-                k99Var.setRequestProperty("Cookie", cookie);
+                ta9Var.setRequestProperty("Cookie", cookie);
             }
-            int responseCode = k99Var.getResponseCode();
+            int responseCode = ta9Var.getResponseCode();
             if (responseCode >= 100 && responseCode <= 599 && (responseCode <= 299 || responseCode >= 400)) {
-                String headerField = k99Var.getHeaderField("Set-Cookie");
+                String headerField = ta9Var.getHeaderField("Set-Cookie");
                 if (!TextUtils.isEmpty(headerField)) {
-                    cookieManager.setCookie(k99Var.getURL().toString(), headerField);
+                    cookieManager.setCookie(ta9Var.getURL().toString(), headerField);
                 }
-                String headerField2 = k99Var.getHeaderField("Content-Type");
+                String headerField2 = ta9Var.getHeaderField("Content-Type");
                 String str3 = "UTF-8";
                 if (headerField2 == null || (length = (split = headerField2.split(ParamableElem.DIVIDE_PARAM)).length) <= 0) {
                     str = "UTF-8";
@@ -103,24 +105,24 @@ public class TNWebViewClient extends WebViewClient {
                     str = str3;
                     str2 = str4;
                 }
-                Map headerFields = k99Var.getHeaderFields();
+                Map<String, List<String>> headerFields = ta9Var.getHeaderFields();
                 if (headerFields != null) {
                     HashMap hashMap = new HashMap();
-                    for (Map.Entry entry2 : headerFields.entrySet()) {
-                        Iterator it = ((List) entry2.getValue()).iterator();
+                    for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
+                        Iterator<String> it = entry2.getValue().iterator();
                         StringBuilder sb = new StringBuilder();
                         while (it.hasNext()) {
-                            sb.append((String) it.next());
+                            sb.append(it.next());
                             if (it.hasNext()) {
                                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                             }
                         }
-                        hashMap.put((String) entry2.getKey(), sb.toString());
+                        hashMap.put(entry2.getKey(), sb.toString());
                     }
-                    if (!TextUtils.isEmpty(k99Var.getResponseMessage())) {
-                        return new WebResourceResponse(str2, str, k99Var.getResponseCode(), k99Var.getResponseMessage(), hashMap, k99Var.getInputStream());
+                    if (!TextUtils.isEmpty(ta9Var.getResponseMessage())) {
+                        return new WebResourceResponse(str2, str, ta9Var.getResponseCode(), ta9Var.getResponseMessage(), hashMap, ta9Var.getInputStream());
                     }
-                    return new WebResourceResponse(str2, str, k99Var.getInputStream());
+                    return new WebResourceResponse(str2, str, ta9Var.getInputStream());
                 }
                 return null;
             }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -16,13 +17,13 @@ import com.google.android.material.datepicker.MaterialCalendar;
 import java.util.Calendar;
 import java.util.Locale;
 /* loaded from: classes7.dex */
-public class YearGridAdapter extends RecyclerView.Adapter {
+public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaterialCalendar materialCalendar;
+    public final MaterialCalendar<?> materialCalendar;
 
     /* loaded from: classes7.dex */
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TextView textView;
@@ -49,7 +50,7 @@ public class YearGridAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public YearGridAdapter(MaterialCalendar materialCalendar) {
+    public YearGridAdapter(MaterialCalendar<?> materialCalendar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,6 +68,7 @@ public class YearGridAdapter extends RecyclerView.Adapter {
         this.materialCalendar = materialCalendar;
     }
 
+    @NonNull
     private View.OnClickListener createYearClickListener(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -139,12 +141,12 @@ public class YearGridAdapter extends RecyclerView.Adapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         CalendarItemStyle calendarItemStyle;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) {
             int yearForPosition = getYearForPosition(i);
-            String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0b39);
+            String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0b45);
             viewHolder.textView.setText(String.format(Locale.getDefault(), "%d", Integer.valueOf(yearForPosition)));
             viewHolder.textView.setContentDescription(String.format(string, Integer.valueOf(yearForPosition)));
             CalendarStyle calendarStyle = this.materialCalendar.getCalendarStyle();
@@ -167,11 +169,12 @@ public class YearGridAdapter extends RecyclerView.Adapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            return new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b8, viewGroup, false));
+            return new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c8, viewGroup, false));
         }
         return (ViewHolder) invokeLI.objValue;
     }

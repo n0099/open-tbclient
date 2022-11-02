@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.opengl.GLES20;
@@ -7,8 +8,7 @@ import android.os.Bundle;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.tx9;
+import com.baidu.tieba.cz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,8 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes8.dex */
+@TargetApi(19)
+/* loaded from: classes9.dex */
 public class HardwareVideoEncoder implements VideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
@@ -59,11 +60,11 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public final int keyFrameIntervalSec;
     public long lastKeyFrameNs;
     public final MediaCodecWrapperFactory mediaCodecWrapperFactory;
-    public final BlockingDeque outputBuilders;
+    public final BlockingDeque<EncodedImage.Builder> outputBuilders;
     @Nullable
     public Thread outputThread;
     public final ThreadUtils.ThreadChecker outputThreadChecker;
-    public final Map params;
+    public final Map<String, String> params;
     public volatile boolean running;
     public final EglBase14.Context sharedContext;
     @Nullable
@@ -81,8 +82,9 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public final YuvFormat yuvFormat;
 
     @Override // org.webrtc.VideoEncoder
+    @CalledByNative
     public /* synthetic */ long createNativeVideoEncoder() {
-        return tx9.$default$createNativeVideoEncoder(this);
+        return cz9.$default$createNativeVideoEncoder(this);
     }
 
     @Override // org.webrtc.VideoEncoder
@@ -93,13 +95,14 @@ public class HardwareVideoEncoder implements VideoEncoder {
     }
 
     @Override // org.webrtc.VideoEncoder
+    @CalledByNative
     public /* synthetic */ boolean isHardwareEncoder() {
-        return tx9.$default$isHardwareEncoder(this);
+        return cz9.$default$isHardwareEncoder(this);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public abstract class YuvFormat {
+    /* loaded from: classes9.dex */
+    public static abstract class YuvFormat {
         public static final /* synthetic */ YuvFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final YuvFormat I420;
@@ -248,7 +251,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
         }
     }
 
-    public HardwareVideoEncoder(MediaCodecWrapperFactory mediaCodecWrapperFactory, String str, VideoCodecType videoCodecType, Integer num, Integer num2, Map map, int i, int i2, BitrateAdjuster bitrateAdjuster, EglBase14.Context context) {
+    public HardwareVideoEncoder(MediaCodecWrapperFactory mediaCodecWrapperFactory, String str, VideoCodecType videoCodecType, Integer num, Integer num2, Map<String, String> map, int i, int i2, BitrateAdjuster bitrateAdjuster, EglBase14.Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -448,7 +451,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                     createVideoFormat.setInteger("frame-rate", this.bitrateAdjuster.getCodecConfigFramerate());
                     createVideoFormat.setInteger("i-frame-interval", this.keyFrameIntervalSec);
                     if (this.codecType == VideoCodecType.H264) {
-                        String str = (String) this.params.get("profile-level-id");
+                        String str = this.params.get("profile-level-id");
                         if (str == null) {
                             str = "42e01f";
                         }
@@ -462,7 +465,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                             c = 1;
                         }
                         createVideoFormat.setInteger(Scopes.PROFILE, 8);
-                        createVideoFormat.setInteger(PollingModel.LEVEL, 256);
+                        createVideoFormat.setInteger("level", 256);
                     }
                     Logging.d(TAG, SsaDecoder.FORMAT_LINE_PREFIX + createVideoFormat);
                     this.codec.configure(createVideoFormat, null, null, 1);
@@ -618,9 +621,9 @@ public class HardwareVideoEncoder implements VideoEncoder {
                     } else {
                         frameType = EncodedImage.FrameType.VideoFrameDelta;
                     }
-                    EncodedImage.Builder builder = (EncodedImage.Builder) this.outputBuilders.poll();
-                    builder.setBuffer(slice).setFrameType(frameType);
-                    this.callback.onEncodedFrame(builder.createEncodedImage(), new VideoEncoder.CodecSpecificInfo());
+                    EncodedImage.Builder poll = this.outputBuilders.poll();
+                    poll.setBuffer(slice).setFrameType(frameType);
+                    this.callback.onEncodedFrame(poll.createEncodedImage(), new VideoEncoder.CodecSpecificInfo());
                 }
                 this.codec.releaseOutputBuffer(dequeueOutputBuffer, false);
             } catch (IllegalStateException e) {

@@ -20,32 +20,32 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableMergeWithCompletable extends AbstractFlowableWithUpstream {
+public final class FlowableMergeWithCompletable<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource other;
 
     /* loaded from: classes8.dex */
-    public final class MergeWithSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class MergeWithSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4592979584110982903L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public final AtomicThrowable error;
         public volatile boolean mainDone;
-        public final AtomicReference mainSubscription;
+        public final AtomicReference<Subscription> mainSubscription;
         public volatile boolean otherDone;
         public final OtherObserver otherObserver;
         public final AtomicLong requested;
 
         /* loaded from: classes8.dex */
-        public final class OtherObserver extends AtomicReference implements CompletableObserver {
+        public static final class OtherObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final MergeWithSubscriber parent;
+            public final MergeWithSubscriber<?> parent;
 
-            public OtherObserver(MergeWithSubscriber mergeWithSubscriber) {
+            public OtherObserver(MergeWithSubscriber<?> mergeWithSubscriber) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public final class FlowableMergeWithCompletable extends AbstractFlowableWithUpst
             }
         }
 
-        public MergeWithSubscriber(Subscriber subscriber) {
+        public MergeWithSubscriber(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public final class FlowableMergeWithCompletable extends AbstractFlowableWithUpst
                 }
             }
             this.actual = subscriber;
-            this.mainSubscription = new AtomicReference();
+            this.mainSubscription = new AtomicReference<>();
             this.otherObserver = new OtherObserver(this);
             this.error = new AtomicThrowable();
             this.requested = new AtomicLong();
@@ -150,10 +150,10 @@ public final class FlowableMergeWithCompletable extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                HalfSerializer.onNext(this.actual, obj, this, this.error);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                HalfSerializer.onNext(this.actual, t, this, this.error);
             }
         }
 
@@ -183,7 +183,7 @@ public final class FlowableMergeWithCompletable extends AbstractFlowableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableMergeWithCompletable(Flowable flowable, CompletableSource completableSource) {
+    public FlowableMergeWithCompletable(Flowable<T> flowable, CompletableSource completableSource) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -204,7 +204,7 @@ public final class FlowableMergeWithCompletable extends AbstractFlowableWithUpst
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             MergeWithSubscriber mergeWithSubscriber = new MergeWithSubscriber(subscriber);

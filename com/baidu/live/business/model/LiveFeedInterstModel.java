@@ -1,12 +1,13 @@
 package com.baidu.live.business.model;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveFeedData;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.tieba.wb0;
 import com.baidu.tieba.xb0;
-import com.baidu.tieba.yb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +27,9 @@ public class LiveFeedInterstModel {
 
     /* loaded from: classes2.dex */
     public interface OnInterestDataLoadCallback {
-        void onFail(int i, String str, Map map);
+        void onFail(@Nullable int i, @Nullable String str, @Nullable Map<String, String> map);
 
-        void onSuccess(LiveFeedData liveFeedData, Map map);
+        void onSuccess(@Nullable LiveFeedData liveFeedData, @Nullable Map<String, String> map);
     }
 
     public LiveFeedInterstModel() {
@@ -45,7 +46,7 @@ public class LiveFeedInterstModel {
         }
     }
 
-    public void reqInterestData(String str, String str2, String str3, OnInterestDataLoadCallback onInterestDataLoadCallback) {
+    public void reqInterestData(@Nullable String str, String str2, @Nullable String str3, @Nullable OnInterestDataLoadCallback onInterestDataLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, onInterestDataLoadCallback) == null) {
             HashMap hashMap = new HashMap();
@@ -55,7 +56,7 @@ public class LiveFeedInterstModel {
             hashMap.put("session_id", str);
             hashMap.put("live_tag", str2);
             hashMap.put("feed_tag", str3);
-            yb0.f(FEED_PAGE_INTEREST_URL, hashMap, new xb0(this, onInterestDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedInterstModel.1
+            xb0.f(FEED_PAGE_INTEREST_URL, hashMap, new wb0<LiveFeedData>(this, onInterestDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedInterstModel.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveFeedInterstModel this$0;
@@ -80,9 +81,8 @@ public class LiveFeedInterstModel {
                     this.val$callback = onInterestDataLoadCallback;
                 }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.xb0
-                public void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list) {
+                /* renamed from: onNetResponse  reason: avoid collision after fix types in other method */
+                public void onNetResponse2(NetResponse netResponse, LiveFeedData liveFeedData, Map<String, String> map, List<String> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, netResponse, liveFeedData, map, list) == null) {
                         if (netResponse != null) {
@@ -108,8 +108,15 @@ public class LiveFeedInterstModel {
                     }
                 }
 
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
+                @Override // com.baidu.tieba.wb0
+                public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list) {
+                    onNetResponse2(netResponse, liveFeedData, (Map<String, String>) map, (List<String>) list);
+                }
+
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.xb0
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // com.baidu.tieba.wb0
                 public LiveFeedData onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;

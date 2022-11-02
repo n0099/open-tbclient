@@ -3,6 +3,8 @@ package com.baidu.pass.ecommerce.view.addressdialog;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +20,7 @@ public class AddrViewPager extends ViewPager {
     public int mRealPagerNum;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddrViewPager(Context context) {
+    public AddrViewPager(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,7 +82,7 @@ public class AddrViewPager extends ViewPager {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddrViewPager(Context context, AttributeSet attributeSet) {
+    public AddrViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

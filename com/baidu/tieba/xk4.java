@@ -1,102 +1,95 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xk4 {
+public class xk4 implements sk4<String> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303240, "Lcom/baidu/tieba/xk4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303240, "Lcom/baidu/tieba/xk4;");
+    public xk4(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = wj1.a;
+        this.a = context.getApplicationContext();
     }
 
-    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.sk4
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
-                    jSONObject2.put("vtype", str3);
-                    jSONObject.putOpt("videoId", str);
-                    jSONObject2.put("data", jSONObject.toString());
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
-                m02.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
-                ti3.d(str2, str, "video", str3, jSONObject2);
-            } else if (a) {
-                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TextUtils.isEmpty(get());
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!al4.a(this.a, "android.permission.WRITE_SETTINGS")) {
+                return null;
             }
+            try {
+                return ApiReplaceUtil.getString(this.a.getContentResolver(), "com.baidu.uuid");
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk4
+    /* renamed from: d */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            e(str);
         }
     }
 
-    public static void b(String str, String str2, String str3, int i, int i2) {
-        String format;
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                format = "0";
-            } else {
-                format = new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
-                jSONObject.putOpt("width", Integer.valueOf(dh3.O(i)));
-                jSONObject.putOpt("height", Integer.valueOf(dh3.O(i2)));
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            a(str, str2, "loadedmetadata", jSONObject);
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !al4.a(this.a, "android.permission.WRITE_SETTINGS")) {
+            return;
         }
-    }
-
-    public static void c(String str, String str2, boolean z) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (z) {
-                str3 = "1";
-            } else {
-                str3 = "0";
-            }
-            try {
-                jSONObject.putOpt("fullscreen", str3);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            a(str, str2, "fullscreenchange", jSONObject);
+        try {
+            Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
+        } catch (Exception unused) {
         }
     }
 }

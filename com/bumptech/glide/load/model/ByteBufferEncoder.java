@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.model;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class ByteBufferEncoder implements Encoder {
+public class ByteBufferEncoder implements Encoder<ByteBuffer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ByteBufferEncoder";
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +36,7 @@ public class ByteBufferEncoder implements Encoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
-    public boolean encode(ByteBuffer byteBuffer, File file, Options options) {
+    public boolean encode(@NonNull ByteBuffer byteBuffer, @NonNull File file, @NonNull Options options) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer, file, options)) == null) {

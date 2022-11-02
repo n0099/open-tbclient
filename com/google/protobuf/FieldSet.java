@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.protobuf.FieldSet.FieldDescriptorLite;
 import com.google.protobuf.Internal;
 import com.google.protobuf.LazyField;
 import com.google.protobuf.MessageLite;
@@ -20,17 +21,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public final class FieldSet {
+public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<FieldDescriptorType>> {
     public static /* synthetic */ Interceptable $ic;
     public static final FieldSet DEFAULT_INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SmallSortedMap fields;
+    public final SmallSortedMap<FieldDescriptorType, Object> fields;
     public boolean hasLazyField;
     public boolean isImmutable;
 
     /* loaded from: classes7.dex */
-    public interface FieldDescriptorLite extends Comparable {
-        Internal.EnumLiteMap getEnumType();
+    public interface FieldDescriptorLite<T extends FieldDescriptorLite<T>> extends Comparable<T> {
+        Internal.EnumLiteMap<?> getEnumType();
 
         WireFormat.JavaType getLiteJavaType();
 
@@ -47,7 +48,7 @@ public final class FieldSet {
 
     /* renamed from: com.google.protobuf.FieldSet$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$FieldType;
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$JavaType;
         public static /* synthetic */ Interceptable $ic;
@@ -214,7 +215,7 @@ public final class FieldSet {
         this.fields = SmallSortedMap.newFieldMap(16);
     }
 
-    public static FieldSet emptySet() {
+    public static <T extends FieldDescriptorLite<T>> FieldSet<T> emptySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
@@ -223,11 +224,11 @@ public final class FieldSet {
         return (FieldSet) invokeV.objValue;
     }
 
-    public static FieldSet newFieldSet() {
+    public static <T extends FieldDescriptorLite<T>> FieldSet<T> newFieldSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return new FieldSet();
+            return new FieldSet<>();
         }
         return (FieldSet) invokeV.objValue;
     }
@@ -249,7 +250,7 @@ public final class FieldSet {
         return invokeV.booleanValue;
     }
 
-    public Iterator iterator() {
+    public Iterator<Map.Entry<FieldDescriptorType, Object>> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -290,13 +291,13 @@ public final class FieldSet {
         makeImmutable();
     }
 
-    public void mergeFrom(FieldSet fieldSet) {
+    public void mergeFrom(FieldSet<FieldDescriptorType> fieldSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, fieldSet) == null) {
             for (int i = 0; i < fieldSet.fields.getNumArrayEntries(); i++) {
                 mergeFromField(fieldSet.fields.getArrayEntryAt(i));
             }
-            for (Map.Entry entry : fieldSet.fields.getOverflowEntries()) {
+            for (Map.Entry<FieldDescriptorType, Object> entry : fieldSet.fields.getOverflowEntries()) {
                 mergeFromField(entry);
             }
         }
@@ -308,21 +309,21 @@ public final class FieldSet {
             for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
                 writeMessageSetTo(this.fields.getArrayEntryAt(i), codedOutputStream);
             }
-            for (Map.Entry entry : this.fields.getOverflowEntries()) {
+            for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
                 writeMessageSetTo(entry, codedOutputStream);
             }
         }
     }
 
-    private void cloneFieldEntry(Map map, Map.Entry entry) {
+    private void cloneFieldEntry(Map<FieldDescriptorType, Object> map, Map.Entry<FieldDescriptorType, Object> entry) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, map, entry) == null) {
-            FieldDescriptorLite fieldDescriptorLite = (FieldDescriptorLite) entry.getKey();
+            FieldDescriptorType key = entry.getKey();
             Object value = entry.getValue();
             if (value instanceof LazyField) {
-                map.put(fieldDescriptorLite, ((LazyField) value).getValue());
+                map.put(key, ((LazyField) value).getValue());
             } else {
-                map.put(fieldDescriptorLite, value);
+                map.put(key, value);
             }
         }
     }
@@ -339,12 +340,12 @@ public final class FieldSet {
         return invokeLZ.intValue;
     }
 
-    public Object getRepeatedField(FieldDescriptorLite fieldDescriptorLite, int i) {
+    public Object getRepeatedField(FieldDescriptorType fielddescriptortype, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fieldDescriptorLite, i)) == null) {
-            if (fieldDescriptorLite.isRepeated()) {
-                Object field = getField(fieldDescriptorLite);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fielddescriptortype, i)) == null) {
+            if (fielddescriptortype.isRepeated()) {
+                Object field = getField(fielddescriptortype);
                 if (field != null) {
                     return ((List) field).get(i);
                 }
@@ -467,7 +468,7 @@ public final class FieldSet {
         return invokeLL.objValue;
     }
 
-    public static int computeFieldSize(FieldDescriptorLite fieldDescriptorLite, Object obj) {
+    public static int computeFieldSize(FieldDescriptorLite<?> fieldDescriptorLite, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, fieldDescriptorLite, obj)) == null) {
@@ -537,30 +538,30 @@ public final class FieldSet {
         }
     }
 
-    private int getMessageSetSerializedSize(Map.Entry entry) {
+    private int getMessageSetSerializedSize(Map.Entry<FieldDescriptorType, Object> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, entry)) == null) {
-            FieldDescriptorLite fieldDescriptorLite = (FieldDescriptorLite) entry.getKey();
+            FieldDescriptorType key = entry.getKey();
             Object value = entry.getValue();
-            if (fieldDescriptorLite.getLiteJavaType() == WireFormat.JavaType.MESSAGE && !fieldDescriptorLite.isRepeated() && !fieldDescriptorLite.isPacked()) {
+            if (key.getLiteJavaType() == WireFormat.JavaType.MESSAGE && !key.isRepeated() && !key.isPacked()) {
                 if (value instanceof LazyField) {
-                    return CodedOutputStream.computeLazyFieldMessageSetExtensionSize(((FieldDescriptorLite) entry.getKey()).getNumber(), (LazyField) value);
+                    return CodedOutputStream.computeLazyFieldMessageSetExtensionSize(entry.getKey().getNumber(), (LazyField) value);
                 }
-                return CodedOutputStream.computeMessageSetExtensionSize(((FieldDescriptorLite) entry.getKey()).getNumber(), (MessageLite) value);
+                return CodedOutputStream.computeMessageSetExtensionSize(entry.getKey().getNumber(), (MessageLite) value);
             }
-            return computeFieldSize(fieldDescriptorLite, value);
+            return computeFieldSize(key, value);
         }
         return invokeL.intValue;
     }
 
-    private boolean isInitialized(Map.Entry entry) {
+    private boolean isInitialized(Map.Entry<FieldDescriptorType, Object> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, entry)) == null) {
-            FieldDescriptorLite fieldDescriptorLite = (FieldDescriptorLite) entry.getKey();
-            if (fieldDescriptorLite.getLiteJavaType() == WireFormat.JavaType.MESSAGE) {
-                if (fieldDescriptorLite.isRepeated()) {
+            FieldDescriptorType key = entry.getKey();
+            if (key.getLiteJavaType() == WireFormat.JavaType.MESSAGE) {
+                if (key.isRepeated()) {
                     for (MessageLite messageLite : (List) entry.getValue()) {
                         if (!messageLite.isInitialized()) {
                             return false;
@@ -588,39 +589,39 @@ public final class FieldSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, codedOutputStream) == null) {
             for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
-                Map.Entry arrayEntryAt = this.fields.getArrayEntryAt(i);
-                writeField((FieldDescriptorLite) arrayEntryAt.getKey(), arrayEntryAt.getValue(), codedOutputStream);
+                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i);
+                writeField(arrayEntryAt.getKey(), arrayEntryAt.getValue(), codedOutputStream);
             }
-            for (Map.Entry entry : this.fields.getOverflowEntries()) {
-                writeField((FieldDescriptorLite) entry.getKey(), entry.getValue(), codedOutputStream);
+            for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
+                writeField(entry.getKey(), entry.getValue(), codedOutputStream);
             }
         }
     }
 
-    private void mergeFromField(Map.Entry entry) {
+    private void mergeFromField(Map.Entry<FieldDescriptorType, Object> entry) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, entry) == null) {
-            FieldDescriptorLite fieldDescriptorLite = (FieldDescriptorLite) entry.getKey();
+            FieldDescriptorType key = entry.getKey();
             Object value = entry.getValue();
             if (value instanceof LazyField) {
                 value = ((LazyField) value).getValue();
             }
-            if (fieldDescriptorLite.isRepeated()) {
-                Object field = getField(fieldDescriptorLite);
+            if (key.isRepeated()) {
+                Object field = getField(key);
                 if (field == null) {
-                    this.fields.put((Comparable) fieldDescriptorLite, (Object) new ArrayList((List) value));
+                    this.fields.put((SmallSortedMap<FieldDescriptorType, Object>) key, (FieldDescriptorType) new ArrayList((List) value));
                 } else {
                     ((List) field).addAll((List) value);
                 }
-            } else if (fieldDescriptorLite.getLiteJavaType() == WireFormat.JavaType.MESSAGE) {
-                Object field2 = getField(fieldDescriptorLite);
+            } else if (key.getLiteJavaType() == WireFormat.JavaType.MESSAGE) {
+                Object field2 = getField(key);
                 if (field2 == null) {
-                    this.fields.put((Comparable) fieldDescriptorLite, value);
+                    this.fields.put((SmallSortedMap<FieldDescriptorType, Object>) key, (FieldDescriptorType) value);
                 } else {
-                    this.fields.put((Comparable) fieldDescriptorLite, (Object) fieldDescriptorLite.internalMergeFrom(((MessageLite) field2).toBuilder(), (MessageLite) value).build());
+                    this.fields.put((SmallSortedMap<FieldDescriptorType, Object>) key, (FieldDescriptorType) key.internalMergeFrom(((MessageLite) field2).toBuilder(), (MessageLite) value).build());
                 }
             } else {
-                this.fields.put((Comparable) fieldDescriptorLite, value);
+                this.fields.put((SmallSortedMap<FieldDescriptorType, Object>) key, (FieldDescriptorType) value);
             }
         }
     }
@@ -701,7 +702,7 @@ public final class FieldSet {
         }
     }
 
-    public static void writeField(FieldDescriptorLite fieldDescriptorLite, Object obj, CodedOutputStream codedOutputStream) throws IOException {
+    public static void writeField(FieldDescriptorLite<?> fieldDescriptorLite, Object obj, CodedOutputStream codedOutputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65553, null, fieldDescriptorLite, obj, codedOutputStream) == null) {
             WireFormat.FieldType liteType = fieldDescriptorLite.getLiteType();
@@ -731,28 +732,28 @@ public final class FieldSet {
         }
     }
 
-    private void writeMessageSetTo(Map.Entry entry, CodedOutputStream codedOutputStream) throws IOException {
+    private void writeMessageSetTo(Map.Entry<FieldDescriptorType, Object> entry, CodedOutputStream codedOutputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65554, this, entry, codedOutputStream) == null) {
-            FieldDescriptorLite fieldDescriptorLite = (FieldDescriptorLite) entry.getKey();
-            if (fieldDescriptorLite.getLiteJavaType() == WireFormat.JavaType.MESSAGE && !fieldDescriptorLite.isRepeated() && !fieldDescriptorLite.isPacked()) {
-                codedOutputStream.writeMessageSetExtension(((FieldDescriptorLite) entry.getKey()).getNumber(), (MessageLite) entry.getValue());
+            FieldDescriptorType key = entry.getKey();
+            if (key.getLiteJavaType() == WireFormat.JavaType.MESSAGE && !key.isRepeated() && !key.isPacked()) {
+                codedOutputStream.writeMessageSetExtension(entry.getKey().getNumber(), (MessageLite) entry.getValue());
             } else {
-                writeField(fieldDescriptorLite, entry.getValue(), codedOutputStream);
+                writeField(key, entry.getValue(), codedOutputStream);
             }
         }
     }
 
-    public void addRepeatedField(FieldDescriptorLite fieldDescriptorLite, Object obj) {
+    public void addRepeatedField(FieldDescriptorType fielddescriptortype, Object obj) {
         List list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, fieldDescriptorLite, obj) == null) {
-            if (fieldDescriptorLite.isRepeated()) {
-                verifyType(fieldDescriptorLite.getLiteType(), obj);
-                Object field = getField(fieldDescriptorLite);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, fielddescriptortype, obj) == null) {
+            if (fielddescriptortype.isRepeated()) {
+                verifyType(fielddescriptortype.getLiteType(), obj);
+                Object field = getField(fielddescriptortype);
                 if (field == null) {
                     list = new ArrayList();
-                    this.fields.put((Comparable) fieldDescriptorLite, (Object) list);
+                    this.fields.put((SmallSortedMap<FieldDescriptorType, Object>) fielddescriptortype, (FieldDescriptorType) list);
                 } else {
                     list = (List) field;
                 }
@@ -763,21 +764,21 @@ public final class FieldSet {
         }
     }
 
-    public void clearField(FieldDescriptorLite fieldDescriptorLite) {
+    public void clearField(FieldDescriptorType fielddescriptortype) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fieldDescriptorLite) == null) {
-            this.fields.remove(fieldDescriptorLite);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fielddescriptortype) == null) {
+            this.fields.remove(fielddescriptortype);
             if (this.fields.isEmpty()) {
                 this.hasLazyField = false;
             }
         }
     }
 
-    public Object getField(FieldDescriptorLite fieldDescriptorLite) {
+    public Object getField(FieldDescriptorType fielddescriptortype) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fieldDescriptorLite)) == null) {
-            Object obj = this.fields.get(fieldDescriptorLite);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fielddescriptortype)) == null) {
+            Object obj = this.fields.get(fielddescriptortype);
             if (obj instanceof LazyField) {
                 return ((LazyField) obj).getValue();
             }
@@ -786,12 +787,12 @@ public final class FieldSet {
         return invokeL.objValue;
     }
 
-    public int getRepeatedFieldCount(FieldDescriptorLite fieldDescriptorLite) {
+    public int getRepeatedFieldCount(FieldDescriptorType fielddescriptortype) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, fieldDescriptorLite)) == null) {
-            if (fieldDescriptorLite.isRepeated()) {
-                Object field = getField(fieldDescriptorLite);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, fielddescriptortype)) == null) {
+            if (fielddescriptortype.isRepeated()) {
+                Object field = getField(fielddescriptortype);
                 if (field == null) {
                     return 0;
                 }
@@ -802,12 +803,12 @@ public final class FieldSet {
         return invokeL.intValue;
     }
 
-    public boolean hasField(FieldDescriptorLite fieldDescriptorLite) {
+    public boolean hasField(FieldDescriptorType fielddescriptortype) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, fieldDescriptorLite)) == null) {
-            if (!fieldDescriptorLite.isRepeated()) {
-                if (this.fields.get(fieldDescriptorLite) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, fielddescriptortype)) == null) {
+            if (!fielddescriptortype.isRepeated()) {
+                if (this.fields.get(fielddescriptortype) != null) {
                     return true;
                 }
                 return false;
@@ -819,17 +820,17 @@ public final class FieldSet {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet m78clone() {
+    public FieldSet<FieldDescriptorType> m78clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            FieldSet newFieldSet = newFieldSet();
+            FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
             for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
-                Map.Entry arrayEntryAt = this.fields.getArrayEntryAt(i);
-                newFieldSet.setField((FieldDescriptorLite) arrayEntryAt.getKey(), arrayEntryAt.getValue());
+                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i);
+                newFieldSet.setField(arrayEntryAt.getKey(), arrayEntryAt.getValue());
             }
-            for (Map.Entry entry : this.fields.getOverflowEntries()) {
-                newFieldSet.setField((FieldDescriptorLite) entry.getKey(), entry.getValue());
+            for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
+                newFieldSet.setField(entry.getKey(), entry.getValue());
             }
             newFieldSet.hasLazyField = this.hasLazyField;
             return newFieldSet;
@@ -843,11 +844,11 @@ public final class FieldSet {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             int i = 0;
             for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-                Map.Entry arrayEntryAt = this.fields.getArrayEntryAt(i2);
-                i += computeFieldSize((FieldDescriptorLite) arrayEntryAt.getKey(), arrayEntryAt.getValue());
+                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);
+                i += computeFieldSize(arrayEntryAt.getKey(), arrayEntryAt.getValue());
             }
-            for (Map.Entry entry : this.fields.getOverflowEntries()) {
-                i += computeFieldSize((FieldDescriptorLite) entry.getKey(), entry.getValue());
+            for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
+                i += computeFieldSize(entry.getKey(), entry.getValue());
             }
             return i;
         }
@@ -863,7 +864,7 @@ public final class FieldSet {
                     return false;
                 }
             }
-            for (Map.Entry entry : this.fields.getOverflowEntries()) {
+            for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
                 if (!isInitialized(entry)) {
                     return false;
                 }
@@ -873,7 +874,7 @@ public final class FieldSet {
         return invokeV.booleanValue;
     }
 
-    public Map getAllFields() {
+    public Map<FieldDescriptorType, Object> getAllFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -882,7 +883,7 @@ public final class FieldSet {
                 for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
                     cloneFieldEntry(newFieldMap, this.fields.getArrayEntryAt(i));
                 }
-                for (Map.Entry entry : this.fields.getOverflowEntries()) {
+                for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
                     cloneFieldEntry(newFieldMap, entry);
                 }
                 if (this.fields.isImmutable()) {
@@ -906,7 +907,7 @@ public final class FieldSet {
             for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
                 i += getMessageSetSerializedSize(this.fields.getArrayEntryAt(i2));
             }
-            for (Map.Entry entry : this.fields.getOverflowEntries()) {
+            for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
                 i += getMessageSetSerializedSize(entry);
             }
             return i;
@@ -914,37 +915,37 @@ public final class FieldSet {
         return invokeV.intValue;
     }
 
-    public void setField(FieldDescriptorLite fieldDescriptorLite, Object obj) {
+    public void setField(FieldDescriptorType fielddescriptortype, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, fieldDescriptorLite, obj) == null) {
-            if (fieldDescriptorLite.isRepeated()) {
+        if (interceptable == null || interceptable.invokeLL(1048593, this, fielddescriptortype, obj) == null) {
+            if (fielddescriptortype.isRepeated()) {
                 if (obj instanceof List) {
                     ArrayList<Object> arrayList = new ArrayList();
                     arrayList.addAll((List) obj);
                     for (Object obj2 : arrayList) {
-                        verifyType(fieldDescriptorLite.getLiteType(), obj2);
+                        verifyType(fielddescriptortype.getLiteType(), obj2);
                     }
                     obj = arrayList;
                 } else {
                     throw new IllegalArgumentException("Wrong object type used with protocol message reflection.");
                 }
             } else {
-                verifyType(fieldDescriptorLite.getLiteType(), obj);
+                verifyType(fielddescriptortype.getLiteType(), obj);
             }
             if (obj instanceof LazyField) {
                 this.hasLazyField = true;
             }
-            this.fields.put((Comparable) fieldDescriptorLite, obj);
+            this.fields.put((SmallSortedMap<FieldDescriptorType, Object>) fielddescriptortype, (FieldDescriptorType) obj);
         }
     }
 
-    public void setRepeatedField(FieldDescriptorLite fieldDescriptorLite, int i, Object obj) {
+    public void setRepeatedField(FieldDescriptorType fielddescriptortype, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048594, this, fieldDescriptorLite, i, obj) == null) {
-            if (fieldDescriptorLite.isRepeated()) {
-                Object field = getField(fieldDescriptorLite);
+        if (interceptable == null || interceptable.invokeLIL(1048594, this, fielddescriptortype, i, obj) == null) {
+            if (fielddescriptortype.isRepeated()) {
+                Object field = getField(fielddescriptortype);
                 if (field != null) {
-                    verifyType(fieldDescriptorLite.getLiteType(), obj);
+                    verifyType(fielddescriptortype.getLiteType(), obj);
                     ((List) field).set(i, obj);
                     return;
                 }

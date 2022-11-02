@@ -1,56 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.GeneralTabList.DataRes;
-import tbclient.ItemInfo;
-import tbclient.SportPageHeadInfo;
-import tbclient.SportScheduleInfo;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes5.dex */
-public class ok6 implements yb5 {
+public class ok6 implements yj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap b;
-    public ArrayList c;
-    public int d;
-    public String e;
-    public String f;
-    public boolean g;
-    public SportScheduleInfo h;
-    public int i;
-    public ItemInfo j;
-    public List k;
-    public int l;
-    public List m;
-
-    @Override // com.baidu.tieba.yb5
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yb5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-        }
-    }
 
     public ok6() {
         Interceptable interceptable = $ic;
@@ -62,69 +26,56 @@ public class ok6 implements yb5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new HashMap();
-        this.c = new ArrayList();
-        this.i = 1;
     }
 
-    public void a(DataRes dataRes) {
-        boolean z;
+    @Override // com.baidu.tieba.yj6
+    public jn<? extends vu4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
+            return new gn6(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z);
         }
-        boolean z2 = false;
-        if (dataRes.has_more.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
+        return (jn) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.yj6
+    public ui6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            return new jr6(tbPageContext, bdUniqueId, bdUniqueId2);
         }
-        this.a = z;
-        if (!ListUtils.isEmpty(dataRes.user_list)) {
-            for (User user : dataRes.user_list) {
-                if (user != null) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserProtobuf(user);
-                    String userId = metaData.getUserId();
-                    if (userId != null && !"0".equals(userId)) {
-                        this.b.put(userId, metaData);
-                    }
-                }
+        return (ui6) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yj6
+    public jn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
+                return new jm6(tbPageContext, bdUniqueId, bdUniqueId2);
             }
+            throw new IllegalArgumentException("Unsupported adapter type.");
         }
-        if (!ListUtils.isEmpty(dataRes.general_list)) {
-            for (ThreadInfo threadInfo : dataRes.general_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.setUserMap(this.b);
-                    threadData.forceReadUserMap = true;
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.parser_title();
-                    threadData.insertItemToTitleOrAbstractText();
-                    this.c.add(threadData);
-                }
+        return (jn) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yj6
+    public jn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
+            if (bdUniqueId == co8.d) {
+                return new hm6(tbPageContext, bdUniqueId, z);
             }
-        }
-        this.l = dataRes.ad_show_select.intValue();
-        this.m = dataRes.ad_mix_list;
-        String str = dataRes.ad_sample_map_key;
-        this.k = dataRes.app_list;
-        AbsGroupUbsABTest.setCardInfoUbsABTest(this.c);
-        this.d = dataRes.new_thread_num.intValue();
-        SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
-        if (sportPageHeadInfo != null) {
-            this.e = sportPageHeadInfo.head_url;
-            this.f = sportPageHeadInfo.jump_url;
-            if (sportPageHeadInfo.is_ad.intValue() == 1) {
-                z2 = true;
+            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
+                return new hn6(tbPageContext, bdUniqueId, bdUniqueId2, z);
             }
-            this.g = z2;
+            throw new IllegalArgumentException("Unsupported adapter type.");
         }
-        this.h = dataRes.sport_schedule_info;
-        this.i = dataRes.sort_type.intValue();
-        this.j = dataRes.item_info;
+        return (jn) invokeCommon.objValue;
     }
 }

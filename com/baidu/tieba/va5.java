@@ -1,53 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
+import android.content.Context;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class va5 implements la5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface va5 {
+    public static final a a = a.a;
 
-    public va5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(TbPageContext<?> tbPageContext, long j);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.la5
-    /* renamed from: a */
-    public boolean onEvent(AgreeEvent agreeEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
-            if (agreeEvent != null && agreeEvent.agreeData != null) {
-                hn8 hn8Var = new hn8();
-                hn8Var.b = agreeEvent.agreeData;
-                String str = agreeEvent.agreeExtra;
-                if (AgreeEvent.IS_THREAD.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, hn8Var));
-                    return true;
-                } else if (AgreeEvent.IS_POST.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, hn8Var));
-                    return true;
+    void b(Context context, Frs$From frs$From, Long l, String str);
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-352810174, "Lcom/baidu/tieba/va5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-352810174, "Lcom/baidu/tieba/va5$a;");
+                    return;
                 }
             }
-            return false;
+            a = new a();
+            b = new ServiceReference("Frs", "FrsService");
         }
-        return invokeL.booleanValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final ServiceReference a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (ServiceReference) invokeV.objValue;
+        }
     }
 }

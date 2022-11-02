@@ -1,5 +1,6 @@
 package com.facebook.drawee.drawable;
 
+import android.annotation.TargetApi;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
@@ -24,16 +26,21 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
     public transient /* synthetic */ FieldHolder $fh;
     public int mAlpha;
     public int mBorderColor;
+    @VisibleForTesting
     public final Path mBorderPath;
+    @VisibleForTesting
     public final float[] mBorderRadii;
     public float mBorderWidth;
     public int mColor;
+    @VisibleForTesting
     @Nullable
     public float[] mInsideBorderRadii;
     public boolean mIsCircle;
     public float mPadding;
+    @VisibleForTesting
     public final Paint mPaint;
     public boolean mPaintFilterBitmap;
+    @VisibleForTesting
     public final Path mPath;
     public final float[] mRadii;
     public boolean mScaleDownInsideBorders;
@@ -129,6 +136,7 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
         }
     }
 
+    @TargetApi(11)
     public static RoundedColorDrawable fromColorDrawable(ColorDrawable colorDrawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -1,10 +1,16 @@
 package com.bumptech.glide;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.ImageView;
+import androidx.annotation.CheckResult;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -36,32 +42,37 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class RequestBuilder extends BaseRequestOptions implements Cloneable, ModelTypes {
+public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBuilder<TranscodeType>> implements Cloneable, ModelTypes<RequestBuilder<TranscodeType>> {
     public static /* synthetic */ Interceptable $ic;
     public static final RequestOptions DOWNLOAD_ONLY_OPTIONS;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context context;
-    public RequestBuilder errorBuilder;
+    @Nullable
+    public RequestBuilder<TranscodeType> errorBuilder;
     public final Glide glide;
     public final GlideContext glideContext;
     public boolean isDefaultTransitionOptionsSet;
     public boolean isModelSet;
     public boolean isThumbnailBuilt;
+    @Nullable
     public Object model;
-    public List requestListeners;
+    @Nullable
+    public List<RequestListener<TranscodeType>> requestListeners;
     public final RequestManager requestManager;
+    @Nullable
     public Float thumbSizeMultiplier;
-    public RequestBuilder thumbnailBuilder;
-    public final Class transcodeClass;
-    public TransitionOptions transitionOptions;
+    @Nullable
+    public RequestBuilder<TranscodeType> thumbnailBuilder;
+    public final Class<TranscodeType> transcodeClass;
+    @NonNull
+    public TransitionOptions<?, ? super TranscodeType> transitionOptions;
 
     /* renamed from: com.bumptech.glide.RequestBuilder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$Priority;
         public static /* synthetic */ Interceptable $ic;
@@ -148,25 +159,26 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
                 return;
             }
         }
-        DOWNLOAD_ONLY_OPTIONS = (RequestOptions) ((RequestOptions) ((RequestOptions) new RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA)).priority(Priority.LOW)).skipMemoryCache(true);
+        DOWNLOAD_ONLY_OPTIONS = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA).priority(Priority.LOW).skipMemoryCache(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.request.BaseRequestOptions
-    public RequestBuilder clone() {
+    @CheckResult
+    public RequestBuilder<TranscodeType> clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequestBuilder requestBuilder = (RequestBuilder) super.m75clone();
-            requestBuilder.transitionOptions = requestBuilder.transitionOptions.m74clone();
+            RequestBuilder<TranscodeType> requestBuilder = (RequestBuilder) super.m75clone();
+            requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m74clone();
             if (requestBuilder.requestListeners != null) {
                 requestBuilder.requestListeners = new ArrayList(requestBuilder.requestListeners);
             }
-            RequestBuilder requestBuilder2 = requestBuilder.thumbnailBuilder;
+            RequestBuilder<TranscodeType> requestBuilder2 = requestBuilder.thumbnailBuilder;
             if (requestBuilder2 != null) {
                 requestBuilder.thumbnailBuilder = requestBuilder2.clone();
             }
-            RequestBuilder requestBuilder3 = requestBuilder.errorBuilder;
+            RequestBuilder<TranscodeType> requestBuilder3 = requestBuilder.errorBuilder;
             if (requestBuilder3 != null) {
                 requestBuilder.errorBuilder = requestBuilder3.clone();
             }
@@ -175,7 +187,8 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (RequestBuilder) invokeV.objValue;
     }
 
-    public RequestBuilder(Glide glide, RequestManager requestManager, Class cls, Context context) {
+    @SuppressLint({"CheckResult"})
+    public RequestBuilder(@NonNull Glide glide, RequestManager requestManager, Class<TranscodeType> cls, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,35 +211,36 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         this.transitionOptions = requestManager.getDefaultTransitionOptions(cls);
         this.glideContext = glide.getGlideContext();
         initRequestListeners(requestManager.getDefaultRequestListeners());
-        apply((BaseRequestOptions) requestManager.getDefaultRequestOptions());
+        apply((BaseRequestOptions<?>) requestManager.getDefaultRequestOptions());
     }
 
-    private Target into(Target target, RequestListener requestListener, BaseRequestOptions baseRequestOptions, Executor executor) {
+    private <Y extends Target<TranscodeType>> Y into(@NonNull Y y, @Nullable RequestListener<TranscodeType> requestListener, BaseRequestOptions<?> baseRequestOptions, Executor executor) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, this, target, requestListener, baseRequestOptions, executor)) == null) {
-            Preconditions.checkNotNull(target);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, this, y, requestListener, baseRequestOptions, executor)) == null) {
+            Preconditions.checkNotNull(y);
             if (this.isModelSet) {
-                Request buildRequest = buildRequest(target, requestListener, baseRequestOptions, executor);
-                Request request = target.getRequest();
+                Request buildRequest = buildRequest(y, requestListener, baseRequestOptions, executor);
+                Request request = y.getRequest();
                 if (buildRequest.isEquivalentTo(request) && !isSkipMemoryCacheWithCompletePreviousRequest(baseRequestOptions, request)) {
                     if (!((Request) Preconditions.checkNotNull(request)).isRunning()) {
                         request.begin();
                     }
-                    return target;
+                    return y;
                 }
-                this.requestManager.clear(target);
-                target.setRequest(buildRequest);
-                this.requestManager.track(target, buildRequest);
-                return target;
+                this.requestManager.clear((Target<?>) y);
+                y.setRequest(buildRequest);
+                this.requestManager.track(y, buildRequest);
+                return y;
             }
             throw new IllegalArgumentException("You must call #load() before calling #into()");
         }
-        return (Target) invokeLLLL.objValue;
+        return (Y) invokeLLLL.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RequestBuilder(Class cls, RequestBuilder requestBuilder) {
+    @SuppressLint({"CheckResult"})
+    public RequestBuilder(Class<TranscodeType> cls, RequestBuilder<?> requestBuilder) {
         this(requestBuilder.glide, requestBuilder.requestManager, cls, requestBuilder.context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -246,10 +260,10 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         }
         this.model = requestBuilder.model;
         this.isModelSet = requestBuilder.isModelSet;
-        apply((BaseRequestOptions) requestBuilder);
+        apply((BaseRequestOptions<?>) requestBuilder);
     }
 
-    private Request buildRequest(Target target, RequestListener requestListener, BaseRequestOptions baseRequestOptions, Executor executor) {
+    private Request buildRequest(Target<TranscodeType> target, @Nullable RequestListener<TranscodeType> requestListener, BaseRequestOptions<?> baseRequestOptions, Executor executor) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, this, target, requestListener, baseRequestOptions, executor)) == null) {
@@ -258,16 +272,15 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (Request) invokeLLLL.objValue;
     }
 
-    private Request buildRequestRecursive(Object obj, Target target, RequestListener requestListener, RequestCoordinator requestCoordinator, TransitionOptions transitionOptions, Priority priority, int i, int i2, BaseRequestOptions baseRequestOptions, Executor executor) {
+    private Request buildRequestRecursive(Object obj, Target<TranscodeType> target, @Nullable RequestListener<TranscodeType> requestListener, @Nullable RequestCoordinator requestCoordinator, TransitionOptions<?, ? super TranscodeType> transitionOptions, Priority priority, int i, int i2, BaseRequestOptions<?> baseRequestOptions, Executor executor) {
         InterceptResult invokeCommon;
         ErrorRequestCoordinator errorRequestCoordinator;
         ErrorRequestCoordinator errorRequestCoordinator2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{obj, target, requestListener, requestCoordinator, transitionOptions, priority, Integer.valueOf(i), Integer.valueOf(i2), baseRequestOptions, executor})) == null) {
             if (this.errorBuilder != null) {
-                ErrorRequestCoordinator errorRequestCoordinator3 = new ErrorRequestCoordinator(obj, requestCoordinator);
-                errorRequestCoordinator = errorRequestCoordinator3;
-                errorRequestCoordinator2 = errorRequestCoordinator3;
+                errorRequestCoordinator2 = new ErrorRequestCoordinator(obj, requestCoordinator);
+                errorRequestCoordinator = errorRequestCoordinator2;
             } else {
                 errorRequestCoordinator = null;
                 errorRequestCoordinator2 = requestCoordinator;
@@ -282,24 +295,25 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
                 overrideWidth = baseRequestOptions.getOverrideWidth();
                 overrideHeight = baseRequestOptions.getOverrideHeight();
             }
-            RequestBuilder requestBuilder = this.errorBuilder;
-            ErrorRequestCoordinator errorRequestCoordinator4 = errorRequestCoordinator;
-            errorRequestCoordinator4.setRequests(buildThumbnailRequestRecursive, requestBuilder.buildRequestRecursive(obj, target, requestListener, errorRequestCoordinator4, requestBuilder.transitionOptions, requestBuilder.getPriority(), overrideWidth, overrideHeight, this.errorBuilder, executor));
-            return errorRequestCoordinator4;
+            RequestBuilder<TranscodeType> requestBuilder = this.errorBuilder;
+            ErrorRequestCoordinator errorRequestCoordinator3 = errorRequestCoordinator;
+            errorRequestCoordinator3.setRequests(buildThumbnailRequestRecursive, requestBuilder.buildRequestRecursive(obj, target, requestListener, errorRequestCoordinator3, requestBuilder.transitionOptions, requestBuilder.getPriority(), overrideWidth, overrideHeight, this.errorBuilder, executor));
+            return errorRequestCoordinator3;
         }
         return (Request) invokeCommon.objValue;
     }
 
-    private Request buildThumbnailRequestRecursive(Object obj, Target target, RequestListener requestListener, RequestCoordinator requestCoordinator, TransitionOptions transitionOptions, Priority priority, int i, int i2, BaseRequestOptions baseRequestOptions, Executor executor) {
+    /* JADX WARN: Type inference failed for: r0v7, types: [com.bumptech.glide.request.BaseRequestOptions] */
+    private Request buildThumbnailRequestRecursive(Object obj, Target<TranscodeType> target, RequestListener<TranscodeType> requestListener, @Nullable RequestCoordinator requestCoordinator, TransitionOptions<?, ? super TranscodeType> transitionOptions, Priority priority, int i, int i2, BaseRequestOptions<?> baseRequestOptions, Executor executor) {
         InterceptResult invokeCommon;
-        TransitionOptions transitionOptions2;
+        TransitionOptions<?, ? super TranscodeType> transitionOptions2;
         Priority thumbnailPriority;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{obj, target, requestListener, requestCoordinator, transitionOptions, priority, Integer.valueOf(i), Integer.valueOf(i2), baseRequestOptions, executor})) == null) {
-            RequestBuilder requestBuilder = this.thumbnailBuilder;
+            RequestBuilder<TranscodeType> requestBuilder = this.thumbnailBuilder;
             if (requestBuilder != null) {
                 if (!this.isThumbnailBuilt) {
-                    TransitionOptions transitionOptions3 = requestBuilder.transitionOptions;
+                    TransitionOptions<?, ? super TranscodeType> transitionOptions3 = requestBuilder.transitionOptions;
                     if (requestBuilder.isDefaultTransitionOptionsSet) {
                         transitionOptions2 = transitionOptions;
                     } else {
@@ -320,7 +334,7 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
                     ThumbnailRequestCoordinator thumbnailRequestCoordinator = new ThumbnailRequestCoordinator(obj, requestCoordinator);
                     Request obtainRequest = obtainRequest(obj, target, requestListener, baseRequestOptions, thumbnailRequestCoordinator, transitionOptions, priority, i, i2, executor);
                     this.isThumbnailBuilt = true;
-                    RequestBuilder requestBuilder2 = this.thumbnailBuilder;
+                    RequestBuilder<TranscodeType> requestBuilder2 = this.thumbnailBuilder;
                     Request buildRequestRecursive = requestBuilder2.buildRequestRecursive(obj, target, requestListener, thumbnailRequestCoordinator, transitionOptions2, priority2, overrideWidth, overrideHeight, requestBuilder2, executor);
                     this.isThumbnailBuilt = false;
                     thumbnailRequestCoordinator.setRequests(obtainRequest, buildRequestRecursive);
@@ -338,7 +352,7 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (Request) invokeCommon.objValue;
     }
 
-    private RequestBuilder cloneWithNullErrorAndThumbnail() {
+    private RequestBuilder<TranscodeType> cloneWithNullErrorAndThumbnail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
@@ -347,16 +361,19 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (RequestBuilder) invokeV.objValue;
     }
 
-    public RequestBuilder getDownloadOnlyRequest() {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<File> getDownloadOnlyRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return new RequestBuilder(File.class, this).apply((BaseRequestOptions) DOWNLOAD_ONLY_OPTIONS);
+            return new RequestBuilder(File.class, this).apply((BaseRequestOptions<?>) DOWNLOAD_ONLY_OPTIONS);
         }
         return (RequestBuilder) invokeV.objValue;
     }
 
-    public Target preload() {
+    @NonNull
+    public Target<TranscodeType> preload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
@@ -365,7 +382,8 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (Target) invokeV.objValue;
     }
 
-    public FutureTarget submit() {
+    @NonNull
+    public FutureTarget<TranscodeType> submit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
@@ -374,7 +392,8 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (FutureTarget) invokeV.objValue;
     }
 
-    private Priority getThumbnailPriority(Priority priority) {
+    @NonNull
+    private Priority getThumbnailPriority(@NonNull Priority priority) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, priority)) == null) {
@@ -393,17 +412,18 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (Priority) invokeL.objValue;
     }
 
-    private void initRequestListeners(List list) {
+    @SuppressLint({"CheckResult"})
+    private void initRequestListeners(List<RequestListener<Object>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, list) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                addListener((RequestListener) it.next());
+            for (RequestListener<Object> requestListener : list) {
+                addListener(requestListener);
             }
         }
     }
 
-    private RequestBuilder loadGeneric(Object obj) {
+    @NonNull
+    private RequestBuilder<TranscodeType> loadGeneric(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, obj)) == null) {
@@ -412,14 +432,15 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
             }
             this.model = obj;
             this.isModelSet = true;
-            return (RequestBuilder) selfOrThrowIfLocked();
+            return selfOrThrowIfLocked();
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.request.BaseRequestOptions
-    public RequestBuilder apply(BaseRequestOptions baseRequestOptions) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> apply(@NonNull BaseRequestOptions<?> baseRequestOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseRequestOptions)) == null) {
@@ -429,39 +450,44 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (RequestBuilder) invokeL.objValue;
     }
 
+    @CheckResult
     @Deprecated
-    public Target downloadOnly(Target target) {
+    public <Y extends Target<File>> Y downloadOnly(@NonNull Y y) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, target)) == null) {
-            return getDownloadOnlyRequest().into(target);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, y)) == null) {
+            return (Y) getDownloadOnlyRequest().into((RequestBuilder<File>) y);
         }
-        return (Target) invokeL.objValue;
+        return (Y) invokeL.objValue;
     }
 
-    public RequestBuilder error(RequestBuilder requestBuilder) {
+    @NonNull
+    public RequestBuilder<TranscodeType> error(@Nullable RequestBuilder<TranscodeType> requestBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, requestBuilder)) == null) {
             if (isAutoCloneEnabled()) {
-                return clone().error(requestBuilder);
+                return clone().error((RequestBuilder) requestBuilder);
             }
             this.errorBuilder = requestBuilder;
-            return (RequestBuilder) selfOrThrowIfLocked();
+            return selfOrThrowIfLocked();
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public Target into(Target target) {
+    @NonNull
+    public <Y extends Target<TranscodeType>> Y into(@NonNull Y y) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, target)) == null) {
-            return into(target, null, Executors.mainThreadExecutor());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, y)) == null) {
+            return (Y) into(y, null, Executors.mainThreadExecutor());
         }
-        return (Target) invokeL.objValue;
+        return (Y) invokeL.objValue;
     }
 
-    public RequestBuilder listener(RequestListener requestListener) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> listener(@Nullable RequestListener<TranscodeType> requestListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, requestListener)) == null) {
@@ -476,16 +502,20 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Bitmap bitmap) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> load(@Nullable Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, bitmap)) == null) {
-            return loadGeneric(bitmap).apply((BaseRequestOptions) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE));
+            return loadGeneric(bitmap).apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE));
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public RequestBuilder thumbnail(RequestBuilder requestBuilder) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> thumbnail(@Nullable RequestBuilder<TranscodeType> requestBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, requestBuilder)) == null) {
@@ -493,12 +523,12 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
                 return clone().thumbnail(requestBuilder);
             }
             this.thumbnailBuilder = requestBuilder;
-            return (RequestBuilder) selfOrThrowIfLocked();
+            return selfOrThrowIfLocked();
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
-    private boolean isSkipMemoryCacheWithCompletePreviousRequest(BaseRequestOptions baseRequestOptions, Request request) {
+    private boolean isSkipMemoryCacheWithCompletePreviousRequest(BaseRequestOptions<?> baseRequestOptions, Request request) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, baseRequestOptions, request)) == null) {
@@ -510,8 +540,9 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return invokeLL.booleanValue;
     }
 
+    @CheckResult
     @Deprecated
-    public FutureTarget downloadOnly(int i, int i2) {
+    public FutureTarget<File> downloadOnly(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
@@ -521,7 +552,7 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
     }
 
     @Deprecated
-    public FutureTarget into(int i, int i2) {
+    public FutureTarget<TranscodeType> into(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i, i2)) == null) {
@@ -530,16 +561,18 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (FutureTarget) invokeII.objValue;
     }
 
-    public Target preload(int i, int i2) {
+    @NonNull
+    public Target<TranscodeType> preload(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048611, this, i, i2)) == null) {
-            return into(PreloadTarget.obtain(this.requestManager, i, i2));
+            return into((RequestBuilder<TranscodeType>) PreloadTarget.obtain(this.requestManager, i, i2));
         }
         return (Target) invokeII.objValue;
     }
 
-    public FutureTarget submit(int i, int i2) {
+    @NonNull
+    public FutureTarget<TranscodeType> submit(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048613, this, i, i2)) == null) {
@@ -549,7 +582,7 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (FutureTarget) invokeII.objValue;
     }
 
-    private Request obtainRequest(Object obj, Target target, RequestListener requestListener, BaseRequestOptions baseRequestOptions, RequestCoordinator requestCoordinator, TransitionOptions transitionOptions, Priority priority, int i, int i2, Executor executor) {
+    private Request obtainRequest(Object obj, Target<TranscodeType> target, RequestListener<TranscodeType> requestListener, BaseRequestOptions<?> baseRequestOptions, RequestCoordinator requestCoordinator, TransitionOptions<?, ? super TranscodeType> transitionOptions, Priority priority, int i, int i2, Executor executor) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{obj, target, requestListener, baseRequestOptions, requestCoordinator, transitionOptions, priority, Integer.valueOf(i), Integer.valueOf(i2), executor})) == null) {
@@ -560,7 +593,9 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (Request) invokeCommon.objValue;
     }
 
-    public RequestBuilder addListener(RequestListener requestListener) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> addListener(@Nullable RequestListener<TranscodeType> requestListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestListener)) == null) {
@@ -573,30 +608,34 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
                 }
                 this.requestListeners.add(requestListener);
             }
-            return (RequestBuilder) selfOrThrowIfLocked();
+            return selfOrThrowIfLocked();
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(byte[] bArr) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> load(@Nullable byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, bArr)) == null) {
-            RequestBuilder loadGeneric = loadGeneric(bArr);
+            RequestBuilder<TranscodeType> loadGeneric = loadGeneric(bArr);
             if (!loadGeneric.isDiskCacheStrategySet()) {
-                loadGeneric = loadGeneric.apply((BaseRequestOptions) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE));
+                loadGeneric = loadGeneric.apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE));
             }
             if (!loadGeneric.isSkipMemoryCacheSet()) {
-                return loadGeneric.apply((BaseRequestOptions) RequestOptions.skipMemoryCacheOf(true));
+                return loadGeneric.apply((BaseRequestOptions<?>) RequestOptions.skipMemoryCacheOf(true));
             }
             return loadGeneric;
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public RequestBuilder thumbnail(float f) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> thumbnail(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048614, this, f)) == null) {
@@ -605,14 +644,16 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
             }
             if (f >= 0.0f && f <= 1.0f) {
                 this.thumbSizeMultiplier = Float.valueOf(f);
-                return (RequestBuilder) selfOrThrowIfLocked();
+                return selfOrThrowIfLocked();
             }
             throw new IllegalArgumentException("sizeMultiplier must be between 0 and 1");
         }
         return (RequestBuilder) invokeF.objValue;
     }
 
-    public RequestBuilder transition(TransitionOptions transitionOptions) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> transition(@NonNull TransitionOptions<?, ? super TranscodeType> transitionOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, transitionOptions)) == null) {
@@ -621,35 +662,48 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
             }
             this.transitionOptions = (TransitionOptions) Preconditions.checkNotNull(transitionOptions);
             this.isDefaultTransitionOptionsSet = false;
-            return (RequestBuilder) selfOrThrowIfLocked();
+            return selfOrThrowIfLocked();
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public RequestBuilder error(Object obj) {
+    @Override // com.bumptech.glide.request.BaseRequestOptions
+    @NonNull
+    @CheckResult
+    public /* bridge */ /* synthetic */ BaseRequestOptions apply(@NonNull BaseRequestOptions baseRequestOptions) {
+        return apply((BaseRequestOptions<?>) baseRequestOptions);
+    }
+
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> error(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
             if (obj == null) {
                 return error((RequestBuilder) null);
             }
-            return error(cloneWithNullErrorAndThumbnail().load(obj));
+            return error((RequestBuilder) cloneWithNullErrorAndThumbnail().load(obj));
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Drawable drawable) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> load(@Nullable Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, drawable)) == null) {
-            return loadGeneric(drawable).apply((BaseRequestOptions) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE));
+            return loadGeneric(drawable).apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE));
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public RequestBuilder thumbnail(RequestBuilder... requestBuilderArr) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> thumbnail(@Nullable RequestBuilder<TranscodeType>... requestBuilderArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, requestBuilderArr)) == null) {
@@ -661,18 +715,20 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public Target into(Target target, RequestListener requestListener, Executor executor) {
+    @NonNull
+    public <Y extends Target<TranscodeType>> Y into(@NonNull Y y, @Nullable RequestListener<TranscodeType> requestListener, Executor executor) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, target, requestListener, executor)) == null) {
-            return into(target, requestListener, this, executor);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, y, requestListener, executor)) == null) {
+            return (Y) into(y, requestListener, this, executor);
         }
-        return (Target) invokeLLL.objValue;
+        return (Y) invokeLLL.objValue;
     }
 
-    public ViewTarget into(ImageView imageView) {
+    @NonNull
+    public ViewTarget<ImageView, TranscodeType> into(@NonNull ImageView imageView) {
         InterceptResult invokeL;
-        BaseRequestOptions baseRequestOptions;
+        BaseRequestOptions<?> baseRequestOptions;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, imageView)) == null) {
             Util.assertMainThread();
@@ -704,7 +760,9 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Uri uri) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> load(@Nullable Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
@@ -715,7 +773,9 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(File file) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> load(@Nullable File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, file)) == null) {
@@ -726,18 +786,22 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Integer num) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> load(@Nullable @DrawableRes @RawRes Integer num) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, num)) == null) {
-            return loadGeneric(num).apply((BaseRequestOptions) RequestOptions.signatureOf(AndroidResourceSignature.obtain(this.context)));
+            return loadGeneric(num).apply((BaseRequestOptions<?>) RequestOptions.signatureOf(AndroidResourceSignature.obtain(this.context)));
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Object obj) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> load(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, obj)) == null) {
@@ -748,7 +812,9 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(String str) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> load(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
@@ -759,8 +825,9 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.ModelTypes
+    @CheckResult
     @Deprecated
-    public RequestBuilder load(URL url) {
+    public RequestBuilder<TranscodeType> load(@Nullable URL url) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, url)) == null) {
@@ -769,14 +836,16 @@ public class RequestBuilder extends BaseRequestOptions implements Cloneable, Mod
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public RequestBuilder thumbnail(List list) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<TranscodeType> thumbnail(@Nullable List<RequestBuilder<TranscodeType>> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, list)) == null) {
-            RequestBuilder requestBuilder = null;
+            RequestBuilder<TranscodeType> requestBuilder = null;
             if (list != null && !list.isEmpty()) {
                 for (int size = list.size() - 1; size >= 0; size--) {
-                    RequestBuilder requestBuilder2 = (RequestBuilder) list.get(size);
+                    RequestBuilder<TranscodeType> requestBuilder2 = list.get(size);
                     if (requestBuilder2 != null) {
                         if (requestBuilder == null) {
                             requestBuilder = requestBuilder2;

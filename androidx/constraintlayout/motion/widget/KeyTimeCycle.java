@@ -341,7 +341,7 @@ public class KeyTimeCycle extends Key {
                         case -908189617:
                             break;
                         case -40300674:
-                            if (next.equals(Key.ROTATION)) {
+                            if (next.equals("rotation")) {
                                 c = 2;
                                 break;
                             }
@@ -477,7 +477,7 @@ public class KeyTimeCycle extends Key {
                 hashSet.add(Key.ELEVATION);
             }
             if (!Float.isNaN(this.mRotation)) {
-                hashSet.add(Key.ROTATION);
+                hashSet.add("rotation");
             }
             if (!Float.isNaN(this.mRotationX)) {
                 hashSet.add(Key.ROTATION_X);
@@ -528,7 +528,7 @@ public class KeyTimeCycle extends Key {
             hashMap.put(Key.ELEVATION, Integer.valueOf(this.mCurveFit));
         }
         if (!Float.isNaN(this.mRotation)) {
-            hashMap.put(Key.ROTATION, Integer.valueOf(this.mCurveFit));
+            hashMap.put("rotation", Integer.valueOf(this.mCurveFit));
         }
         if (!Float.isNaN(this.mRotationX)) {
             hashMap.put(Key.ROTATION_X, Integer.valueOf(this.mCurveFit));
@@ -629,7 +629,7 @@ public class KeyTimeCycle extends Key {
                     c = 65535;
                     break;
                 case -40300674:
-                    if (str.equals(Key.ROTATION)) {
+                    if (str.equals("rotation")) {
                         c = 4;
                         break;
                     }

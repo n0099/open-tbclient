@@ -1,157 +1,122 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xr8 extends qb {
+public class xr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final pq8 b;
+    public final or8 b;
+    public p56 c;
+    public p56 d;
+    public p56 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xr8(MainTabActivity mainTabActivity, eq8 eq8Var) {
-        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+    public xr8(MainTabActivity mainTabActivity, or8 or8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, eq8Var};
+            Object[] objArr = {mainTabActivity, or8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.b = or8Var;
     }
 
-    public final void a() {
-        pq8 pq8Var;
+    public void a() {
+        p56 p56Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pq8Var = this.b) != null && pq8Var.a() != null && this.a.A == 1) {
-            this.b.a().d();
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            MainTabActivity mainTabActivity = this.a;
-            if (currentActivity == mainTabActivity && mainTabActivity.B.intValue() != 1) {
-                this.b.a().f();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p56Var = this.e) != null && p56Var.i()) {
+            this.e.h();
         }
     }
 
-    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        boolean z;
-        boolean z2;
-        pq8 pq8Var;
+    public void b() {
+        p56 p56Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
-                this.a.A = profileHttpResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.A == 1 && (pq8Var = this.b) != null && pq8Var.a() != null) {
-                    this.b.a().d();
-                    this.b.a().f();
-                }
-                a();
-                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
-            }
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.L = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.M = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (p56Var = this.d) != null && p56Var.i()) {
+            this.d.h();
+            this.d = null;
         }
     }
 
-    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        boolean z;
-        boolean z2;
+    public void c() {
+        p56 p56Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
-                this.a.A = profileSocketResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.A == 1) {
-                    pq8 pq8Var = this.b;
-                    if (pq8Var != null && pq8Var.a() != null) {
-                        this.b.a().d();
-                    }
-                    a();
-                }
-                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
-            }
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.L = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.M = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (p56Var = this.c) != null && p56Var.i()) {
+            this.c.h();
+            this.c = null;
         }
     }
 
-    @Override // com.baidu.tieba.qb
-    public void onMessage(ResponsedMessage responsedMessage) {
+    public void d() {
+        or8 or8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, responsedMessage) == null) {
-            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (or8Var = this.b) != null && or8Var.B() != null) {
+            FragmentTabWidget fragmentTabWidget = this.b.B().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
                 return;
             }
-            if (z) {
-                c((ProfileSocketResponseMessage) responsedMessage);
+            p56 p56Var = new p56(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
+            this.e = p56Var;
+            p56Var.L(R.drawable.obfuscated_res_0x7f0802ee);
+            this.e.l(2);
+            this.e.o(32);
+            this.e.M(true);
+            this.e.Q(-xi.g(this.a, R.dimen.tbds10));
+            this.e.C(R.color.CAM_X0101);
+            this.e.p(R.dimen.tbds54);
+            this.e.w(1);
+            this.e.n(4000);
+            this.e.F(xi.g(this.a, R.dimen.tbds44));
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
+            FragmentTabWidget fragmentTabWidget = this.b.B().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
             }
-            if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                b((ProfileHttpResponseMessage) responsedMessage);
-            }
+            p56 p56Var = new p56(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
+            this.c = p56Var;
+            p56Var.L(R.drawable.obfuscated_res_0x7f0802ee);
+            this.c.l(2);
+            this.c.o(32);
+            this.c.M(true);
+            this.c.Q(-xi.g(this.a, R.dimen.tbds10));
+            this.c.C(R.color.CAM_X0101);
+            this.c.p(R.dimen.tbds54);
+            this.c.w(999);
+            this.c.n(5000);
+            this.c.F(xi.g(this.a, R.dimen.tbds44));
+            this.c.U(str, "categoryUpdate", false, true);
+        }
+    }
+
+    public void f() {
+        p56 p56Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (p56Var = this.e) != null && !p56Var.i()) {
+            p56 p56Var2 = this.e;
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f059d);
+            p56Var2.S(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

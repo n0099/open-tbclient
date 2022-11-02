@@ -12,6 +12,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.AnimationDrawable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -113,12 +114,12 @@ public final class c extends AnimationDrawable {
         float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.AE = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c90);
-            this.AF = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c92);
-            this.AG = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c91);
-            this.AH = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c94);
-            this.AI = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c93);
-            Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c99);
+            this.AE = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080caa);
+            this.AF = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cac);
+            this.AG = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cab);
+            this.AH = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cae);
+            this.AI = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cad);
+            Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080cb3);
             int i = this.Bc;
             if (i != 0) {
                 if (i == 1) {
@@ -255,7 +256,7 @@ public final class c extends AnimationDrawable {
     }
 
     @Override // android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public final void draw(Canvas canvas) {
+    public final void draw(@NonNull Canvas canvas) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.AT == null) {

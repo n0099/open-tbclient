@@ -9,6 +9,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,6 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class ActivityRecreator {
     public static /* synthetic */ Interceptable $ic = null;
@@ -73,7 +76,7 @@ public final class ActivityRecreator {
             }
         }
 
-        public LifecycleCheckCallbacks(Activity activity) {
+        public LifecycleCheckCallbacks(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -330,7 +333,7 @@ public final class ActivityRecreator {
         return invokeLIL.booleanValue;
     }
 
-    public static boolean recreate(Activity activity) {
+    public static boolean recreate(@NonNull Activity activity) {
         InterceptResult invokeL;
         Object obj;
         Interceptable interceptable = $ic;

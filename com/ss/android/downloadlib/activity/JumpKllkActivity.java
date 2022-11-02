@@ -2,6 +2,7 @@ package com.ss.android.downloadlib.activity;
 
 import android.app.Activity;
 import android.text.TextUtils;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.h;
 import com.ss.android.socialbase.appdownloader.c;
@@ -26,7 +27,7 @@ public class JumpKllkActivity extends TTDelegateActivity {
             c.a((Activity) this);
         }
         boolean z = false;
-        int optInt = j.i().optInt("ab", 0);
+        int optInt = j.i().optInt(DI.AB_NAME, 0);
         if (optInt == 1) {
             z = true;
         }

@@ -87,7 +87,7 @@ public class RequestCall implements Cancelable {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             HttpRequest httpRequest = this.httpRequest;
-            NetworkStat networkStat = httpRequest.networkStat;
+            NetworkStat<Request> networkStat = httpRequest.networkStat;
             if (networkStat != null) {
                 networkStat.onStartExecute(httpRequest.okRequest, currentTimeMillis);
                 HttpRequest httpRequest2 = this.httpRequest;
@@ -307,7 +307,7 @@ public class RequestCall implements Cancelable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendSuccessResult(Handler handler, ResponseCallback responseCallback, Response response) {
+    public <T> void sendSuccessResult(Handler handler, ResponseCallback<T> responseCallback, Response response) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, this, handler, responseCallback, response) == null) {
             try {
@@ -318,7 +318,7 @@ public class RequestCall implements Cancelable {
                     recordStatusCode(this.httpRequest.okRequest, response.code(), response.message());
                 }
                 if (responseCallback != null) {
-                    Object parseResponse = responseCallback.parseResponse(response, response.code());
+                    T parseResponse = responseCallback.parseResponse(response, response.code());
                     if (handler != null) {
                         handler.post(new Runnable(this, parseResponse, responseCallback, response) { // from class: com.baidu.searchbox.http.request.RequestCall.6
                             public static /* synthetic */ Interceptable $ic;
@@ -386,7 +386,7 @@ public class RequestCall implements Cancelable {
                 wrapNoNetworkExceptionWithDetail = ResponseException.wrapNoNetworkExceptionWithDetail(exc);
             }
             HttpRequest httpRequest = this.httpRequest;
-            NetworkStat networkStat = httpRequest.networkStat;
+            NetworkStat<Request> networkStat = httpRequest.networkStat;
             if (networkStat != null) {
                 networkStat.onException(httpRequest.okRequest, exc);
                 HttpRequest httpRequest2 = this.httpRequest;
@@ -447,7 +447,7 @@ public class RequestCall implements Cancelable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendSuccessResult(Handler handler, StatResponseCallback statResponseCallback, Response response) {
+    public <T> void sendSuccessResult(Handler handler, StatResponseCallback<T> statResponseCallback, Response response) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65550, this, handler, statResponseCallback, response) == null) {
             try {
@@ -463,7 +463,7 @@ public class RequestCall implements Cancelable {
                     recordStatusCode(this.httpRequest.okRequest, response.code(), response.message());
                 }
                 if (statResponseCallback != null) {
-                    Object parseResponse = statResponseCallback.parseResponse(response, response.code(), this.httpRequest.requestNetStat);
+                    T parseResponse = statResponseCallback.parseResponse(response, response.code(), this.httpRequest.requestNetStat);
                     if (handler != null) {
                         handler.post(new Runnable(this, parseResponse, statResponseCallback, response) { // from class: com.baidu.searchbox.http.request.RequestCall.5
                             public static /* synthetic */ Interceptable $ic;
@@ -519,7 +519,7 @@ public class RequestCall implements Cancelable {
         }
     }
 
-    public Cancelable executeAsync(ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback)) == null) {
@@ -528,7 +528,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeAsyncOnUIBack(ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsyncOnUIBack(ResponseCallback<T> responseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) {
@@ -537,7 +537,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeStat(StatResponseCallback statResponseCallback) {
+    public <T> Cancelable executeStat(StatResponseCallback<T> statResponseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, statResponseCallback)) == null) {
@@ -546,7 +546,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeStatUIBack(StatResponseCallback statResponseCallback) {
+    public <T> Cancelable executeStatUIBack(StatResponseCallback<T> statResponseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, statResponseCallback)) == null) {
@@ -555,7 +555,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeL.objValue;
     }
 
-    public Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback responseCallback) {
+    public <T> Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, handler, responseCallback)) == null) {
@@ -614,7 +614,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeLL.objValue;
     }
 
-    public Cancelable executeStatWithHandler(Handler handler, StatResponseCallback statResponseCallback) {
+    public <T> Cancelable executeStatWithHandler(Handler handler, StatResponseCallback<T> statResponseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, handler, statResponseCallback)) == null) {
@@ -714,7 +714,7 @@ public class RequestCall implements Cancelable {
             } finally {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpRequest httpRequest = this.httpRequest;
-                NetworkStat networkStat = httpRequest.networkStat;
+                NetworkStat<Request> networkStat = httpRequest.networkStat;
                 if (networkStat != null) {
                     networkStat.onFinish(httpRequest.okRequest, currentTimeMillis);
                 }

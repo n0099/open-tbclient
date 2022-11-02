@@ -1,161 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.tieba.jh1;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.smallgame.sdk.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class vh1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int d = 1;
+    public static int e = 2;
+    public static int f = 3;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public Map<String, String> b;
+    public SharedPreferences c;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i == 1) {
-                return 2010;
-            }
-            if (i == 2) {
-                return IMConstants.IM_MSG_TYPE_SHIELD;
-            }
-            if (i == 3) {
-                return IMConstants.IM_MSG_TYPE_SHIELD_ME;
-            }
-            if (i == 4) {
-                return 2013;
-            }
-            if (i == 5) {
-                return 2014;
-            }
-            if (i == 6) {
-                return 2015;
-            }
-            return UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948240682, "Lcom/baidu/tieba/vh1;")) == null) {
+            return;
         }
-        return invokeI.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jh1.a a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ArrayList d;
-
-        /* renamed from: com.baidu.tieba.vh1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0431a extends ri1 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ jh1.a b;
-            public final /* synthetic */ a c;
-
-            public C0431a(a aVar, jh1.a aVar2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, aVar2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.b = aVar2;
-            }
-
-            @Override // com.baidu.tieba.ri1
-            public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.onFinish(this.c.b);
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public a(jh1.a aVar, String str, int i, ArrayList arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str, Integer.valueOf(i), arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = str;
-            this.c = i;
-            this.d = arrayList;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jh1.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onFinish(this.b);
-                }
-                if (this.c == 1 && this.d != null) {
-                    for (int i = 0; i < this.d.size(); i++) {
-                        jh1.a aVar2 = (jh1.a) this.d.get(i);
-                        if (aVar2 != null) {
-                            ti1.c().b(new C0431a(this, aVar2));
-                        }
-                    }
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948240682, "Lcom/baidu/tieba/vh1;");
         }
     }
 
-    public static void b(jh1.a aVar, sh1 sh1Var, int i, ArrayList arrayList, boolean z) {
+    public vh1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, sh1Var, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) && sh1Var != null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", sh1Var.a);
-                jSONObject.put("1", sh1Var.b);
-                jSONObject.put("2", String.valueOf(sh1Var.c));
-                jSONObject.put("3", sh1Var.d);
-                String jSONObject2 = jSONObject.toString();
-                if (i == 1) {
-                    if (z) {
-                        ph1.c().f(false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+        this.b = new HashMap();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public String b(int i, String str) {
+        InterceptResult invokeIL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (i == d) {
+                str2 = this.a.get(str);
+            } else if (i == e) {
+                str2 = this.b.get(str);
+            } else {
+                if (i == f) {
+                    SharedPreferences sharedPreferences = this.c;
+                    if (sharedPreferences != null) {
+                        str2 = sharedPreferences.getString(str, "");
+                    } else {
+                        Log.e("TAG", "prefs data store is null");
                     }
-                } else if (i == 2) {
-                    if (z) {
-                        ph1.c().d(false);
-                    }
-                } else if (i == 3) {
-                    if (z) {
-                        ph1.c().j(false);
-                    }
-                } else if (z) {
-                    ph1.c().n(false);
                 }
-                new Thread(new a(aVar, jSONObject2, i, arrayList)).start();
-            } catch (Throwable th) {
-                wi1.d(th);
+                str2 = null;
+            }
+            if (str2 == null) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public void c(SharedPreferences sharedPreferences) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
+            this.c = sharedPreferences;
+        }
+    }
+
+    public void d(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            if (i == d) {
+                this.a.put(str, str2);
+            } else if (i == e) {
+                this.b.put(str, str2);
+            } else if (i == f) {
+                SharedPreferences sharedPreferences = this.c;
+                if (sharedPreferences != null) {
+                    sharedPreferences.edit().putString(str, str2).commit();
+                } else {
+                    Log.e("TAG", "prefs data store is null");
+                }
             }
         }
     }

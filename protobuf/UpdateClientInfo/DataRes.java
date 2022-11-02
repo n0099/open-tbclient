@@ -37,18 +37,18 @@ public final class DataRes extends Message {
     public final UserInfo userInfo;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ConfigVersion configVersion;
-        public List groupInfo;
-        public List heartbeatInterval;
+        public List<GroupInfo> groupInfo;
+        public List<Integer> heartbeatInterval;
         public Long isUserAvailable;
         public MaskInfo maskInfo;
         public UserInfo userInfo;
@@ -145,7 +145,7 @@ public final class DataRes extends Message {
             }
         }
         if (z) {
-            List list = builder.groupInfo;
+            List<GroupInfo> list = builder.groupInfo;
             if (list == null) {
                 this.groupInfo = DEFAULT_GROUPINFO;
             } else {
@@ -153,7 +153,7 @@ public final class DataRes extends Message {
             }
             this.userInfo = builder.userInfo;
             this.maskInfo = builder.maskInfo;
-            List list2 = builder.heartbeatInterval;
+            List<Integer> list2 = builder.heartbeatInterval;
             if (list2 == null) {
                 this.heartbeatInterval = DEFAULT_HEARTBEATINTERVAL;
             } else {

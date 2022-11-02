@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.widget.AbsListView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.NestedScrollingChild;
@@ -91,7 +92,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     /* loaded from: classes2.dex */
     public interface i {
-        boolean a(BdSwipeRefreshLayout bdSwipeRefreshLayout, View view2);
+        boolean a(BdSwipeRefreshLayout bdSwipeRefreshLayout, @Nullable View view2);
     }
 
     /* loaded from: classes2.dex */

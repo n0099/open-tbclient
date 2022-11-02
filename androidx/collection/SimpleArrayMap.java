@@ -1,5 +1,7 @@
 package androidx.collection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,8 +20,10 @@ public class SimpleArrayMap<K, V> {
     public static final boolean CONCURRENT_MODIFICATION_EXCEPTIONS = true;
     public static final boolean DEBUG = false;
     public static final String TAG = "ArrayMap";
+    @Nullable
     public static Object[] mBaseCache;
     public static int mBaseCacheSize;
+    @Nullable
     public static Object[] mTwiceBaseCache;
     public static int mTwiceBaseCacheSize;
     public transient /* synthetic */ FieldHolder $fh;
@@ -182,7 +186,7 @@ public class SimpleArrayMap<K, V> {
         return invokeL.intValue;
     }
 
-    public void putAll(SimpleArrayMap<? extends K, ? extends V> simpleArrayMap) {
+    public void putAll(@NonNull SimpleArrayMap<? extends K, ? extends V> simpleArrayMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, simpleArrayMap) == null) {
             int i = simpleArrayMap.mSize;
@@ -379,7 +383,7 @@ public class SimpleArrayMap<K, V> {
         }
     }
 
-    public boolean containsKey(Object obj) {
+    public boolean containsKey(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -403,6 +407,7 @@ public class SimpleArrayMap<K, V> {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public V get(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -412,7 +417,7 @@ public class SimpleArrayMap<K, V> {
         return (V) invokeL.objValue;
     }
 
-    public int indexOfKey(Object obj) {
+    public int indexOfKey(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
@@ -433,6 +438,7 @@ public class SimpleArrayMap<K, V> {
         return (K) invokeI.objValue;
     }
 
+    @Nullable
     public V remove(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -468,6 +474,7 @@ public class SimpleArrayMap<K, V> {
         return (V) invokeLL.objValue;
     }
 
+    @Nullable
     public V putIfAbsent(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -499,6 +506,7 @@ public class SimpleArrayMap<K, V> {
         return invokeLL.booleanValue;
     }
 
+    @Nullable
     public V replace(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -589,6 +597,7 @@ public class SimpleArrayMap<K, V> {
         return invokeV.intValue;
     }
 
+    @Nullable
     public V put(K k, V v) {
         InterceptResult invokeLL;
         int i;

@@ -23,7 +23,7 @@ public class ClientConfigManagerImpl implements d {
     public Context mContext;
     public e mPushConfigSettings;
 
-    public Set getBlackEventList() {
+    public Set<String> getBlackEventList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -180,7 +180,7 @@ public class ClientConfigManagerImpl implements d {
         return invokeV.booleanValue;
     }
 
-    public Set getWhiteLogList() {
+    public Set<Long> getWhiteLogList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

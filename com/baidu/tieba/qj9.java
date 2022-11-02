@@ -1,16 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class qj9 implements qe1 {
+public class qj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public qj9 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this : (qj9) invokeZ.objValue;
+    }
+
+    public qj9 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this : (qj9) invokeI.objValue;
+    }
 
     public qj9() {
         Interceptable interceptable = $ic;
@@ -24,17 +35,5 @@ public class qj9 implements qe1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.qe1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AcUploadResultObserver());
-            return arrayList;
-        }
-        return invokeV.objValue;
     }
 }

@@ -350,13 +350,13 @@ public final class User extends Message {
     public final CreationData workcreationData;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<User> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ActivitySponsor activitySponsor;
@@ -390,17 +390,17 @@ public final class User extends Message {
         public Integer fansNum;
         public Integer favoriteNum;
         public String followFrom;
-        public List forumToolAuth;
+        public List<ForumToolPerm> forumToolAuth;
         public Long friendNum;
         public Integer gender;
-        public List giftList;
+        public List<GiftInfo> giftList;
         public Integer giftNum;
         public GodInfo godData;
-        public List groupList;
+        public List<MyGroupInfo> groupList;
         public Integer hasBottleEnter;
         public Integer hasConcerned;
         public Integer heavyUser;
-        public List iconinfo;
+        public List<Icon> iconinfo;
         public Long id;
         public Integer influence;
         public String intro;
@@ -428,17 +428,17 @@ public final class User extends Message {
         public Integer levelId;
         public String levelInfluence;
         public String levelName;
-        public List likeForum;
+        public List<LikeForumInfo> likeForum;
         public LiveRoomInfo liveRoomInfo;
-        public List managerForum;
+        public List<BazhuSign> managerForum;
         public Integer meizhiLevel;
         public String modifyAvatarDesc;
-        public List muteUser;
+        public List<SimpleUser> muteUser;
         public Integer myLikeNum;
         public String name;
         public String nameShow;
         public NewGodInfo newGodData;
-        public List newTshowIcon;
+        public List<TshowInfo> newTshowIcon;
         public NewUser newUserInfo;
         public Integer nicknameUpdateTime;
         public Integer noPostHigh;
@@ -453,7 +453,7 @@ public final class User extends Message {
         public Integer postNum;
         public PrivSets privSets;
         public Integer privThread;
-        public List profitList;
+        public List<TwAnchorProfitItem> profitList;
         public String rank;
         public String sealPrefix;
         public Integer sex;
@@ -466,11 +466,11 @@ public final class User extends Message {
         public String tiebaUid;
         public Integer totalAgreeNum;
         public Integer totalVisitorNum;
-        public List tshowIcon;
+        public List<TshowInfo> tshowIcon;
         public TwZhiBoUser twAnchorInfo;
         public Integer type;
         public String uk;
-        public List userPics;
+        public List<UserPics> userPics;
         public Integer userType;
         public Integer userhide;
         public UserVideoChannelInfo videoChannelInfo;
@@ -839,13 +839,13 @@ public final class User extends Message {
             } else {
                 this.isInterestman = num8;
             }
-            List list = builder.iconinfo;
+            List<Icon> list = builder.iconinfo;
             if (list == null) {
                 this.iconinfo = DEFAULT_ICONINFO;
             } else {
                 this.iconinfo = Message.immutableCopyOf(list);
             }
-            List list2 = builder.tshowIcon;
+            List<TshowInfo> list2 = builder.tshowIcon;
             if (list2 == null) {
                 this.tshowIcon = DEFAULT_TSHOWICON;
             } else {
@@ -990,7 +990,7 @@ public final class User extends Message {
             } else {
                 this.isMask = num24;
             }
-            List list3 = builder.userPics;
+            List<UserPics> list3 = builder.userPics;
             if (list3 == null) {
                 this.userPics = DEFAULT_USERPICS;
             } else {
@@ -1003,13 +1003,13 @@ public final class User extends Message {
             } else {
                 this.isFriend = num25;
             }
-            List list4 = builder.likeForum;
+            List<LikeForumInfo> list4 = builder.likeForum;
             if (list4 == null) {
                 this.likeForum = DEFAULT_LIKEFORUM;
             } else {
                 this.likeForum = Message.immutableCopyOf(list4);
             }
-            List list5 = builder.groupList;
+            List<MyGroupInfo> list5 = builder.groupList;
             if (list5 == null) {
                 this.groupList = DEFAULT_GROUPLIST;
             } else {
@@ -1021,7 +1021,7 @@ public final class User extends Message {
             } else {
                 this.giftNum = num26;
             }
-            List list6 = builder.giftList;
+            List<GiftInfo> list6 = builder.giftList;
             if (list6 == null) {
                 this.giftList = DEFAULT_GIFTLIST;
             } else {
@@ -1051,7 +1051,7 @@ public final class User extends Message {
             } else {
                 this.bookmarkNewCount = num30;
             }
-            List list7 = builder.muteUser;
+            List<SimpleUser> list7 = builder.muteUser;
             if (list7 == null) {
                 this.muteUser = DEFAULT_MUTEUSER;
             } else {
@@ -1086,14 +1086,14 @@ public final class User extends Message {
                 this.heavyUser = num31;
             }
             this.vipShowInfo = builder.vipShowInfo;
-            List list8 = builder.newTshowIcon;
+            List<TshowInfo> list8 = builder.newTshowIcon;
             if (list8 == null) {
                 this.newTshowIcon = DEFAULT_NEWTSHOWICON;
             } else {
                 this.newTshowIcon = Message.immutableCopyOf(list8);
             }
             this.twAnchorInfo = builder.twAnchorInfo;
-            List list9 = builder.profitList;
+            List<TwAnchorProfitItem> list9 = builder.profitList;
             if (list9 == null) {
                 this.profitList = DEFAULT_PROFITLIST;
             } else {
@@ -1258,7 +1258,7 @@ public final class User extends Message {
             } else {
                 this.appealThreadPopover = str19;
             }
-            List list10 = builder.forumToolAuth;
+            List<ForumToolPerm> list10 = builder.forumToolAuth;
             if (list10 == null) {
                 this.forumToolAuth = DEFAULT_FORUMTOOLAUTH;
             } else {
@@ -1295,7 +1295,7 @@ public final class User extends Message {
             } else {
                 this.followFrom = str21;
             }
-            List list11 = builder.managerForum;
+            List<BazhuSign> list11 = builder.managerForum;
             if (list11 == null) {
                 this.managerForum = DEFAULT_MANAGERFORUM;
             } else {

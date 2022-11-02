@@ -1,35 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
+    public boolean b;
     public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
     public String h;
-    public String i;
-    public String j;
+    public int i;
+    public boolean j;
+    public String k;
+    public String l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public String p;
+    public String q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public int w;
+    public boolean x;
+    public boolean y;
+    public boolean z;
 
-    public vr3(String str) {
+    public vr3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,121 +49,35 @@ public class vr3 {
                 return;
             }
         }
-        if (str == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str).getJSONObject("data");
-            this.a = jSONObject.optString("download_state", "");
-            this.j = jSONObject.optString("download_hint", "");
-            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
-            if (optJSONObject != null) {
-                this.b = optJSONObject.optString("app_name", "");
-                this.c = optJSONObject.optString("developer_name", "");
-                this.d = optJSONObject.optString("app_icon", "");
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject("privacy");
-                if (optJSONObject2 != null) {
-                    this.f = optJSONObject2.optString("cmd", "");
-                }
-                JSONObject optJSONObject3 = optJSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
-                if (optJSONObject3 != null) {
-                    this.g = optJSONObject3.optString("cmd", "");
-                }
-                this.h = optJSONObject.optString("apk_url", "");
-                this.e = optJSONObject.optString("version", "");
-                this.i = optJSONObject.optString("apk_size", "");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.a = "";
+        this.b = false;
+        this.c = "";
+        this.d = 0;
+        this.e = 0;
+        this.f = false;
+        this.g = false;
+        this.h = "";
+        this.i = 0;
+        this.k = "";
+        this.l = "";
+        this.m = false;
+        this.n = false;
+        this.o = true;
+        this.p = "";
+        this.q = "";
+        this.u = false;
+        this.v = true;
+        this.w = -1;
+        this.x = true;
+        this.y = true;
+        this.z = true;
     }
 
-    public String a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
+            return "VideoPlayerParams{mPlayerId='" + this.a + "', mMute=" + this.b + ", mPoster='" + this.c + "', mInitialTime=" + this.d + ", duration=" + this.e + ", mAutoPlay=" + this.f + ", mLoop=" + this.g + ", mObjectFit='" + this.h + "', mPos=" + this.i + ", mFullScreen=" + this.j + ", mDanmu='" + this.k + "', mDanmuList='" + this.l + "', mEnableDanmu=" + this.m + ", mShowDanmuBtn=" + this.n + ", mShowControlPanel=" + this.o + ", mSrc='" + this.p + "', mSanId='" + this.q + "', mShowPlayBtn=" + this.r + ", mShowMuteBtn=" + this.s + ", mShowCenterPlayBtn=" + this.t + ", mPageGesture=" + this.u + ", mShowProgress=" + this.v + ", mDirection=" + this.w + ", mShowFullscreenBtn=" + this.x + ", mEnableProgressGesture=" + this.y + ", mIsRemoteFile=" + this.z + '}';
         }
         return (String) invokeV.objValue;
     }

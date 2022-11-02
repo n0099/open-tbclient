@@ -10,28 +10,29 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RtpParameters {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List codecs;
-    public final List encodings;
-    public final List headerExtensions;
+    public final List<Codec> codecs;
+    public final List<Encoding> encodings;
+    public final List<HeaderExtension> headerExtensions;
     public final Rtcp rtcp;
     public final String transactionId;
 
-    /* loaded from: classes8.dex */
-    public class Codec {
+    /* loaded from: classes9.dex */
+    public static class Codec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer clockRate;
         public MediaStreamTrack.MediaType kind;
         public String name;
         public Integer numChannels;
-        public Map parameters;
+        public Map<String, String> parameters;
         public int payloadType;
 
-        public Codec(int i, String str, MediaStreamTrack.MediaType mediaType, Integer num, Integer num2, Map map) {
+        @CalledByNative("Codec")
+        public Codec(int i, String str, MediaStreamTrack.MediaType mediaType, Integer num, Integer num2, Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,6 +55,7 @@ public class RtpParameters {
             this.parameters = map;
         }
 
+        @CalledByNative("Codec")
         public Integer getClockRate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -63,6 +65,7 @@ public class RtpParameters {
             return (Integer) invokeV.objValue;
         }
 
+        @CalledByNative("Codec")
         public MediaStreamTrack.MediaType getKind() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -72,6 +75,7 @@ public class RtpParameters {
             return (MediaStreamTrack.MediaType) invokeV.objValue;
         }
 
+        @CalledByNative("Codec")
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -81,6 +85,7 @@ public class RtpParameters {
             return (String) invokeV.objValue;
         }
 
+        @CalledByNative("Codec")
         public Integer getNumChannels() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -90,6 +95,7 @@ public class RtpParameters {
             return (Integer) invokeV.objValue;
         }
 
+        @CalledByNative("Codec")
         public Map getParameters() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -99,6 +105,7 @@ public class RtpParameters {
             return (Map) invokeV.objValue;
         }
 
+        @CalledByNative("Codec")
         public int getPayloadType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -109,8 +116,8 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class Encoding {
+    /* loaded from: classes9.dex */
+    public static class Encoding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean active;
@@ -124,6 +131,7 @@ public class RtpParameters {
         public Integer numTemporalLayers;
         public Long ssrc;
 
+        @CalledByNative("Encoding")
         public Encoding(boolean z, Integer num, Integer num2, Integer num3, Integer num4, Long l) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -148,6 +156,7 @@ public class RtpParameters {
             this.ssrc = l;
         }
 
+        @CalledByNative("Encoding")
         public boolean getActive() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -158,6 +167,7 @@ public class RtpParameters {
         }
 
         @Nullable
+        @CalledByNative("Encoding")
         public Integer getMaxBitrateBps() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -168,6 +178,7 @@ public class RtpParameters {
         }
 
         @Nullable
+        @CalledByNative("Encoding")
         public Integer getMaxFramerate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -178,6 +189,7 @@ public class RtpParameters {
         }
 
         @Nullable
+        @CalledByNative("Encoding")
         public Integer getMinBitrateBps() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -188,6 +200,7 @@ public class RtpParameters {
         }
 
         @Nullable
+        @CalledByNative("Encoding")
         public Integer getNumTemporalLayers() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -197,6 +210,7 @@ public class RtpParameters {
             return (Integer) invokeV.objValue;
         }
 
+        @CalledByNative("Encoding")
         public Long getSsrc() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -207,14 +221,15 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class HeaderExtension {
+    /* loaded from: classes9.dex */
+    public static class HeaderExtension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean encrypted;
         public final int id;
         public final String uri;
 
+        @CalledByNative("HeaderExtension")
         public HeaderExtension(String str, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -235,6 +250,7 @@ public class RtpParameters {
             this.encrypted = z;
         }
 
+        @CalledByNative("HeaderExtension")
         public boolean getEncrypted() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -244,6 +260,7 @@ public class RtpParameters {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("HeaderExtension")
         public int getId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -253,6 +270,7 @@ public class RtpParameters {
             return invokeV.intValue;
         }
 
+        @CalledByNative("HeaderExtension")
         public String getUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -263,13 +281,14 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class Rtcp {
+    /* loaded from: classes9.dex */
+    public static class Rtcp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String cname;
         public final boolean reducedSize;
 
+        @CalledByNative("Rtcp")
         public Rtcp(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -289,6 +308,7 @@ public class RtpParameters {
             this.reducedSize = z;
         }
 
+        @CalledByNative("Rtcp")
         public String getCname() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -298,6 +318,7 @@ public class RtpParameters {
             return (String) invokeV.objValue;
         }
 
+        @CalledByNative("Rtcp")
         public boolean getReducedSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -308,7 +329,8 @@ public class RtpParameters {
         }
     }
 
-    public RtpParameters(String str, Rtcp rtcp, List list, List list2, List list3) {
+    @CalledByNative
+    public RtpParameters(String str, Rtcp rtcp, List<HeaderExtension> list, List<Encoding> list2, List<Codec> list3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -330,7 +352,8 @@ public class RtpParameters {
         this.codecs = list3;
     }
 
-    public List getCodecs() {
+    @CalledByNative
+    public List<Codec> getCodecs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -339,7 +362,8 @@ public class RtpParameters {
         return (List) invokeV.objValue;
     }
 
-    public List getEncodings() {
+    @CalledByNative
+    public List<Encoding> getEncodings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -348,7 +372,8 @@ public class RtpParameters {
         return (List) invokeV.objValue;
     }
 
-    public List getHeaderExtensions() {
+    @CalledByNative
+    public List<HeaderExtension> getHeaderExtensions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -357,6 +382,7 @@ public class RtpParameters {
         return (List) invokeV.objValue;
     }
 
+    @CalledByNative
     public Rtcp getRtcp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -366,6 +392,7 @@ public class RtpParameters {
         return (Rtcp) invokeV.objValue;
     }
 
+    @CalledByNative
     public String getTransactionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -13,21 +13,21 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableSkipWhile extends AbstractObservableWithUpstream {
+public final class ObservableSkipWhile<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
+    public final Predicate<? super T> predicate;
 
     /* loaded from: classes8.dex */
-    public final class SkipWhileObserver implements Observer, Disposable {
+    public static final class SkipWhileObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public boolean notSkipping;
-        public final Predicate predicate;
+        public final Predicate<? super T> predicate;
         public Disposable s;
 
-        public SkipWhileObserver(Observer observer, Predicate predicate) {
+        public SkipWhileObserver(Observer<? super T> observer, Predicate<? super T> predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,17 +90,17 @@ public final class ObservableSkipWhile extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 if (this.notSkipping) {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     return;
                 }
                 try {
-                    if (!this.predicate.test(obj)) {
+                    if (!this.predicate.test(t)) {
                         this.notSkipping = true;
-                        this.actual.onNext(obj);
+                        this.actual.onNext(t);
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -112,7 +112,7 @@ public final class ObservableSkipWhile extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSkipWhile(ObservableSource observableSource, Predicate predicate) {
+    public ObservableSkipWhile(ObservableSource<T> observableSource, Predicate<? super T> predicate) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +133,7 @@ public final class ObservableSkipWhile extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new SkipWhileObserver(observer, this.predicate));

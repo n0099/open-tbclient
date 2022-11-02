@@ -3,6 +3,10 @@ package com.kwad.sdk.core.response.a;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.mobstat.Config;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
@@ -15,21 +19,21 @@ import com.kwad.sdk.utils.ax;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    public static String A(AdInfo adInfo) {
+    public static String A(@NonNull AdInfo adInfo) {
         return au(adInfo).materialUrl;
     }
 
-    public static int B(AdInfo adInfo) {
+    public static int B(@NonNull AdInfo adInfo) {
         return au(adInfo).videoDuration;
     }
 
-    public static long C(AdInfo adInfo) {
+    public static long C(@NonNull AdInfo adInfo) {
         return B(adInfo) * 1000;
     }
 
-    public static String D(AdInfo adInfo) {
+    public static String D(@NonNull AdInfo adInfo) {
         int aD = aD(adInfo);
         if (aD != 1) {
             if (aD != 2 && aD != 3) {
@@ -49,29 +53,29 @@ public final class a {
         return "";
     }
 
-    public static boolean E(AdInfo adInfo) {
+    public static boolean E(@NonNull AdInfo adInfo) {
         return adInfo.adConversionInfo.supportThirdDownload == 1;
     }
 
-    public static int F(AdInfo adInfo) {
+    public static int F(@NonNull AdInfo adInfo) {
         return au(adInfo).videoWidth;
     }
 
-    public static int G(AdInfo adInfo) {
+    public static int G(@NonNull AdInfo adInfo) {
         return au(adInfo).videoHeight;
     }
 
-    public static boolean H(AdInfo adInfo) {
+    public static boolean H(@NonNull AdInfo adInfo) {
         AdInfo.SmallAppJumpInfo smallAppJumpInfo = adInfo.adConversionInfo.smallAppJumpInfo;
         return smallAppJumpInfo == null || TextUtils.isEmpty(smallAppJumpInfo.mediaSmallAppId) || TextUtils.isEmpty(adInfo.adConversionInfo.smallAppJumpInfo.originId) || TextUtils.isEmpty(adInfo.adConversionInfo.smallAppJumpInfo.smallAppJumpUrl);
     }
 
-    public static boolean I(AdInfo adInfo) {
+    public static boolean I(@NonNull AdInfo adInfo) {
         AdInfo.AdMaterialInfo.MaterialFeature au = au(adInfo);
         return au.videoWidth <= au.videoHeight;
     }
 
-    public static String J(AdInfo adInfo) {
+    public static String J(@NonNull AdInfo adInfo) {
         int aD = aD(adInfo);
         String str = "";
         if (aD == 1) {
@@ -103,7 +107,7 @@ public final class a {
     }
 
     @Deprecated
-    public static String K(AdInfo adInfo) {
+    public static String K(@NonNull AdInfo adInfo) {
         int aD = aD(adInfo);
         if (aD != 1) {
             if (aD != 2 && aD != 3) {
@@ -128,7 +132,7 @@ public final class a {
         return "";
     }
 
-    public static String L(AdInfo adInfo) {
+    public static String L(@NonNull AdInfo adInfo) {
         int aD = aD(adInfo);
         if (aD != 1) {
             if (aD != 2 && aD != 3) {
@@ -143,39 +147,39 @@ public final class a {
         return ax(adInfo).blurBackgroundUrl;
     }
 
-    public static int M(AdInfo adInfo) {
+    public static int M(@NonNull AdInfo adInfo) {
         return au(adInfo).width;
     }
 
-    public static int N(AdInfo adInfo) {
+    public static int N(@NonNull AdInfo adInfo) {
         return au(adInfo).height;
     }
 
-    public static long O(AdInfo adInfo) {
+    public static long O(@NonNull AdInfo adInfo) {
         return au(adInfo).photoId;
     }
 
-    public static String P(AdInfo adInfo) {
+    public static String P(@Nullable AdInfo adInfo) {
         return (adInfo == null || TextUtils.isEmpty(adInfo.adBaseInfo.openAppLabel)) ? "立即打开" : adInfo.adBaseInfo.openAppLabel;
     }
 
-    public static long Q(AdInfo adInfo) {
+    public static long Q(@NonNull AdInfo adInfo) {
         return adInfo.adRewardInfo.rewardTime;
     }
 
-    public static int R(AdInfo adInfo) {
+    public static int R(@NonNull AdInfo adInfo) {
         return adInfo.adRewardInfo.skipShowTime;
     }
 
-    public static long S(AdInfo adInfo) {
+    public static long S(@NonNull AdInfo adInfo) {
         return adInfo.adRewardInfo.skipShowTime * 1000;
     }
 
-    public static long T(AdInfo adInfo) {
+    public static long T(@NonNull AdInfo adInfo) {
         return adInfo.adRewardInfo.rewardTime * 1000;
     }
 
-    public static int U(AdInfo adInfo) {
+    public static int U(@NonNull AdInfo adInfo) {
         AdInfo.AdStyleConfInfo adStyleConfInfo = adInfo.adStyleConfInfo;
         if (adStyleConfInfo != null) {
             return adStyleConfInfo.rewardSkipConfirmSwitch;
@@ -184,11 +188,11 @@ public final class a {
         return 1;
     }
 
-    public static boolean V(AdInfo adInfo) {
+    public static boolean V(@NonNull AdInfo adInfo) {
         return U(adInfo) != 0;
     }
 
-    public static long W(AdInfo adInfo) {
+    public static long W(@NonNull AdInfo adInfo) {
         AdInfo.AdStyleConfInfo adStyleConfInfo = adInfo.adStyleConfInfo;
         if (adStyleConfInfo != null) {
             return adStyleConfInfo.fullScreenSkipShowTime * 1000;
@@ -197,7 +201,7 @@ public final class a {
         return 5000L;
     }
 
-    public static long X(AdInfo adInfo) {
+    public static long X(@NonNull AdInfo adInfo) {
         AdInfo.AdStyleConfInfo adStyleConfInfo = adInfo.adStyleConfInfo;
         if (adStyleConfInfo != null) {
             return adStyleConfInfo.closeDelaySeconds * 1000;
@@ -206,7 +210,7 @@ public final class a {
         return 0L;
     }
 
-    public static long Y(AdInfo adInfo) {
+    public static long Y(@NonNull AdInfo adInfo) {
         AdInfo.AdStyleConfInfo adStyleConfInfo = adInfo.adStyleConfInfo;
         if (adStyleConfInfo != null) {
             return adStyleConfInfo.playableCloseSeconds * 1000;
@@ -215,11 +219,12 @@ public final class a {
         return 0L;
     }
 
-    public static boolean Z(AdInfo adInfo) {
+    public static boolean Z(@NonNull AdInfo adInfo) {
         return !am(adInfo) && aa(adInfo);
     }
 
-    public static List aA(AdInfo adInfo) {
+    @NonNull
+    public static List<String> aA(@NonNull AdInfo adInfo) {
         ArrayList arrayList = new ArrayList();
         int aD = aD(adInfo);
         if (aD == 2 || aD == 3) {
@@ -233,11 +238,11 @@ public final class a {
         return arrayList;
     }
 
-    public static boolean aB(AdInfo adInfo) {
+    public static boolean aB(@NonNull AdInfo adInfo) {
         return aD(adInfo) == 1;
     }
 
-    public static boolean aC(AdInfo adInfo) {
+    public static boolean aC(@NonNull AdInfo adInfo) {
         return at(adInfo).featureType == 2;
     }
 
@@ -257,7 +262,8 @@ public final class a {
         return adInfo.adMaterialInfo.materialType == 1;
     }
 
-    public static List aF(AdInfo adInfo) {
+    @Nullable
+    public static List<Integer> aF(@NonNull AdInfo adInfo) {
         String str = adInfo.adBaseInfo.videoPlayedNS;
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
@@ -278,11 +284,12 @@ public final class a {
         return arrayList;
     }
 
-    public static boolean aG(AdInfo adInfo) {
+    public static boolean aG(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.mABParams.videoBlackAreaNewStyle == 1;
     }
 
-    public static int[] aH(AdInfo adInfo) {
+    @NonNull
+    public static int[] aH(@NonNull AdInfo adInfo) {
         String[] split;
         int[] iArr = {3, 3, 3};
         String str = adInfo.adBaseInfo.mABParams.drawActionBarTimes;
@@ -303,7 +310,7 @@ public final class a {
         return iArr;
     }
 
-    public static int aI(AdInfo adInfo) {
+    public static int aI(@NonNull AdInfo adInfo) {
         int[] aH = aH(adInfo);
         if (aH[0] > 0) {
             return aH[0];
@@ -311,7 +318,7 @@ public final class a {
         return 3;
     }
 
-    public static int aJ(AdInfo adInfo) {
+    public static int aJ(@NonNull AdInfo adInfo) {
         int[] aH = aH(adInfo);
         return (aH[1] > 0 ? aH[1] : 3) + aI(adInfo);
     }
@@ -328,18 +335,19 @@ public final class a {
         return "安装获取奖励";
     }
 
-    public static int aK(AdInfo adInfo) {
+    public static int aK(@NonNull AdInfo adInfo) {
         int[] aH = aH(adInfo);
         return (aH[2] > 0 ? aH[2] : 3) + aJ(adInfo);
     }
 
-    public static boolean aK(AdTemplate adTemplate) {
+    public static boolean aK(@NonNull AdTemplate adTemplate) {
         AdInfo bQ = d.bQ(adTemplate);
         AdMatrixInfo.MerchantLiveReservationInfo bA = b.bA(adTemplate);
         return (bA != null && !bA.isEmpty()) && bQ.adBaseInfo.campaignType == 13 && bQ.ocpcActionType == 2;
     }
 
-    public static com.kwad.sdk.core.response.model.b aL(AdInfo adInfo) {
+    @NonNull
+    public static com.kwad.sdk.core.response.model.b aL(@NonNull AdInfo adInfo) {
         String str;
         int M;
         int N;
@@ -402,6 +410,7 @@ public final class a {
         return 0;
     }
 
+    @Nullable
     public static String aS(AdInfo adInfo) {
         if (adInfo != null) {
             return adInfo.adBaseInfo.corporationName;
@@ -409,6 +418,7 @@ public final class a {
         return null;
     }
 
+    @Nullable
     public static String aT(AdInfo adInfo) {
         if (adInfo != null) {
             return adInfo.downloadSafeInfo.permissionInfo;
@@ -416,6 +426,7 @@ public final class a {
         return null;
     }
 
+    @Nullable
     public static String aU(AdInfo adInfo) {
         if (adInfo != null) {
             return adInfo.downloadSafeInfo.appPermissionInfoUrl;
@@ -423,6 +434,7 @@ public final class a {
         return null;
     }
 
+    @Nullable
     public static String aV(AdInfo adInfo) {
         if (adInfo != null) {
             return adInfo.downloadSafeInfo.appPrivacyUrl;
@@ -435,6 +447,7 @@ public final class a {
         return h(i, "下载中  %s%%");
     }
 
+    @Nullable
     public static String aW(AdInfo adInfo) {
         if (adInfo != null) {
             return adInfo.adBaseInfo.appVersion;
@@ -469,27 +482,27 @@ public final class a {
         return ag.zL() ? bb(adInfo) : ba(adInfo);
     }
 
-    public static boolean aa(AdInfo adInfo) {
+    public static boolean aa(@NonNull AdInfo adInfo) {
         return (adInfo.adRewardInfo.showLandingPage != 1 || ac(adInfo) || bQ(adInfo)) ? false : true;
     }
 
-    public static boolean ab(AdInfo adInfo) {
+    public static boolean ab(@NonNull AdInfo adInfo) {
         return adInfo.fullScreenVideoInfo.showLandingPage == 1;
     }
 
-    public static boolean ac(AdInfo adInfo) {
+    public static boolean ac(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.taskType == 4;
     }
 
-    public static String ad(AdInfo adInfo) {
+    public static String ad(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.adDescription;
     }
 
-    public static String ae(AdInfo adInfo) {
+    public static String ae(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.appName;
     }
 
-    public static String af(AdInfo adInfo) {
+    public static String af(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.productName;
     }
 
@@ -501,11 +514,11 @@ public final class a {
         return adBaseInfo.appPackageName;
     }
 
-    public static String ah(AdInfo adInfo) {
+    public static String ah(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.appDownloadCountDesc;
     }
 
-    public static float ai(AdInfo adInfo) {
+    public static float ai(@NonNull AdInfo adInfo) {
         int i = adInfo.adBaseInfo.appScore;
         if (i <= 0) {
             return 0.0f;
@@ -513,7 +526,7 @@ public final class a {
         return i / 10.0f;
     }
 
-    public static float aj(AdInfo adInfo) {
+    public static float aj(@NonNull AdInfo adInfo) {
         float f = adInfo.adBaseInfo.appScore;
         if (f < 30.0f) {
             return 3.0f;
@@ -531,7 +544,7 @@ public final class a {
         return ax.dT(adInfo.adBaseInfo.adSourceDescription) ? "广告" : adInfo.adBaseInfo.adSourceDescription;
     }
 
-    public static String al(AdInfo adInfo) {
+    public static String al(@Nullable AdInfo adInfo) {
         if (adInfo == null) {
             return "立即下载";
         }
@@ -542,19 +555,19 @@ public final class a {
         return str;
     }
 
-    public static boolean am(AdInfo adInfo) {
+    public static boolean am(@NonNull AdInfo adInfo) {
         return ap(adInfo) == 1;
     }
 
-    public static boolean an(AdInfo adInfo) {
+    public static boolean an(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.adAttributeType == 1;
     }
 
-    public static boolean ao(AdInfo adInfo) {
+    public static boolean ao(@NonNull AdInfo adInfo) {
         return adInfo.downloadSafeInfo.complianceInfo != null && am(adInfo) && adInfo.downloadSafeInfo.complianceInfo.titleBarTextSwitch == 1;
     }
 
-    public static int ap(AdInfo adInfo) {
+    public static int ap(@NonNull AdInfo adInfo) {
         int i = adInfo.adBaseInfo.adOperationType;
         int i2 = 1;
         if (i != 1) {
@@ -566,20 +579,21 @@ public final class a {
         return i2;
     }
 
-    public static int aq(AdInfo adInfo) {
+    public static int aq(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.ecpm;
     }
 
-    public static String ar(AdInfo adInfo) {
+    public static String ar(@NonNull AdInfo adInfo) {
         com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);
         return aa.R(dVar == null ? null : dVar.getContext(), adInfo.adConversionInfo.h5Url);
     }
 
-    public static int as(AdInfo adInfo) {
+    public static int as(@NonNull AdInfo adInfo) {
         return adInfo.adConversionInfo.h5Type;
     }
 
-    public static AdInfo.AdMaterialInfo.MaterialFeature at(AdInfo adInfo) {
+    @NonNull
+    public static AdInfo.AdMaterialInfo.MaterialFeature at(@NonNull AdInfo adInfo) {
         for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
             if (materialFeature != null && materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
                 return materialFeature;
@@ -589,7 +603,8 @@ public final class a {
         return new AdInfo.AdMaterialInfo.MaterialFeature();
     }
 
-    public static AdInfo.AdMaterialInfo.MaterialFeature au(AdInfo adInfo) {
+    @NonNull
+    public static AdInfo.AdMaterialInfo.MaterialFeature au(@NonNull AdInfo adInfo) {
         for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
             if (materialFeature != null && materialFeature.featureType == 1 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
                 return materialFeature;
@@ -613,9 +628,10 @@ public final class a {
         return au.height / au.width;
     }
 
-    public static AdInfo.AdMaterialInfo.MaterialFeature ax(AdInfo adInfo) {
-        List list = adInfo.adMaterialInfo.materialFeatureList;
-        AdInfo.AdMaterialInfo.MaterialFeature materialFeature = list.size() > 0 ? (AdInfo.AdMaterialInfo.MaterialFeature) list.get(0) : null;
+    @NonNull
+    public static AdInfo.AdMaterialInfo.MaterialFeature ax(@NonNull AdInfo adInfo) {
+        List<AdInfo.AdMaterialInfo.MaterialFeature> list = adInfo.adMaterialInfo.materialFeatureList;
+        AdInfo.AdMaterialInfo.MaterialFeature materialFeature = list.size() > 0 ? list.get(0) : null;
         return materialFeature == null ? new AdInfo.AdMaterialInfo.MaterialFeature() : materialFeature;
     }
 
@@ -641,19 +657,19 @@ public final class a {
         return downloadSafeInfo.downloadPauseEnable;
     }
 
-    public static String bC(AdInfo adInfo) {
+    public static String bC(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.sdkExtraData;
     }
 
-    public static boolean bD(AdInfo adInfo) {
+    public static boolean bD(@NonNull AdInfo adInfo) {
         return adInfo.ocpcActionType == 72 && adInfo.adBaseInfo.campaignType == 13;
     }
 
-    public static boolean bE(AdInfo adInfo) {
+    public static boolean bE(@NonNull AdInfo adInfo) {
         return adInfo.advertiserInfo.followed;
     }
 
-    public static boolean bF(AdInfo adInfo) {
+    public static boolean bF(@NonNull AdInfo adInfo) {
         if (adInfo.adBaseInfo.industryFirstLevelId != 1022) {
             return false;
         }
@@ -661,27 +677,28 @@ public final class a {
         return i == 192 || i == 53;
     }
 
-    public static String bG(AdInfo adInfo) {
+    @Nullable
+    public static String bG(@NonNull AdInfo adInfo) {
         int i = adInfo.advertiserInfo.fansCount;
         if (i < 200 || i >= 10000) {
             if (i >= 10000) {
                 DecimalFormat decimalFormat = new DecimalFormat("0.0");
-                return decimalFormat.format(i / 10000.0d) + "w";
+                return decimalFormat.format(i / 10000.0d) + Config.DEVICE_WIDTH;
             }
             return null;
         }
         return String.valueOf(i);
     }
 
-    public static String bH(AdInfo adInfo) {
+    public static String bH(@NonNull AdInfo adInfo) {
         return adInfo.advertiserInfo.brief;
     }
 
-    public static String bI(AdInfo adInfo) {
+    public static String bI(@NonNull AdInfo adInfo) {
         return adInfo.advertiserInfo.portraitUrl;
     }
 
-    public static boolean bJ(AdInfo adInfo) {
+    public static boolean bJ(@NonNull AdInfo adInfo) {
         if (bF(adInfo)) {
             return false;
         }
@@ -689,17 +706,17 @@ public final class a {
         return (i == 395 || i == 192) && adInfo.adBaseInfo.campaignType == 13;
     }
 
-    public static boolean bK(AdInfo adInfo) {
+    public static boolean bK(@NonNull AdInfo adInfo) {
         AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
         return adBaseInfo.itemType == 1 && adBaseInfo.campaignType == 14;
     }
 
-    public static boolean bL(AdInfo adInfo) {
+    public static boolean bL(@NonNull AdInfo adInfo) {
         AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
         return adBaseInfo.itemType == 2 && adBaseInfo.campaignType == 14;
     }
 
-    public static String bM(AdInfo adInfo) {
+    public static String bM(@NonNull AdInfo adInfo) {
         com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);
         return aa.R(dVar == null ? null : dVar.getContext(), adInfo.adConversionInfo.deeplinkUrl);
     }
@@ -708,22 +725,22 @@ public final class a {
         return adInfo.adProductInfo;
     }
 
-    public static String bO(AdInfo adInfo) {
+    public static String bO(@NonNull AdInfo adInfo) {
         return adInfo.adConversionInfo.marketUrl;
     }
 
-    public static boolean bP(AdInfo adInfo) {
+    public static boolean bP(@NonNull AdInfo adInfo) {
         return adInfo.adStyleConfInfo.rewardReflowSwitch;
     }
 
-    public static boolean bQ(AdInfo adInfo) {
+    public static boolean bQ(@NonNull AdInfo adInfo) {
         if (am(adInfo)) {
             return false;
         }
         return adInfo.adBaseInfo.extraClickReward;
     }
 
-    public static boolean bR(AdInfo adInfo) {
+    public static boolean bR(@NonNull AdInfo adInfo) {
         return bQ(adInfo) && T(adInfo) < C(adInfo);
     }
 
@@ -747,6 +764,7 @@ public final class a {
         return i == 0 || i == 1;
     }
 
+    @Nullable
     public static String bc(AdInfo adInfo) {
         AdInfo.AdConversionInfo adConversionInfo;
         if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null) {
@@ -755,6 +773,7 @@ public final class a {
         return adConversionInfo.playableUrl;
     }
 
+    @Nullable
     public static String bd(AdInfo adInfo) {
         AdInfo.AdConversionInfo adConversionInfo;
         if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null) {
@@ -763,6 +782,7 @@ public final class a {
         return adConversionInfo.callbackUrl;
     }
 
+    @Nullable
     public static String be(AdInfo adInfo) {
         AdInfo.AdConversionInfo adConversionInfo;
         if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null) {
@@ -802,7 +822,8 @@ public final class a {
         return (TextUtils.isEmpty(ar(adInfo)) || am(adInfo) || adInfo.adStyleInfo.adBrowseInfo.enableAdBrowse != 1) ? false : true;
     }
 
-    public static String bl(AdInfo adInfo) {
+    @NonNull
+    public static String bl(@NonNull AdInfo adInfo) {
         String ae = am(adInfo) ? ae(adInfo) : af(adInfo);
         if (TextUtils.isEmpty(ae)) {
             ae = adInfo.advertiserInfo.rawUserName;
@@ -810,59 +831,61 @@ public final class a {
         return TextUtils.isEmpty(ae) ? "可爱的广告君" : ae;
     }
 
-    public static String bm(AdInfo adInfo) {
+    @NonNull
+    public static String bm(@NonNull AdInfo adInfo) {
         return adInfo.advertiserInfo.rawUserName;
     }
 
-    public static String bn(AdInfo adInfo) {
+    public static String bn(@NonNull AdInfo adInfo) {
         String str = adInfo.adBaseInfo.appIconUrl;
         return (TextUtils.isEmpty(str) || !am(adInfo)) ? adInfo.advertiserInfo.portraitUrl : str;
     }
 
+    @NonNull
     public static String bo(AdInfo adInfo) {
         AdInfo.AdSplashInfo adSplashInfo;
         String str;
         return (adInfo == null || (adSplashInfo = adInfo.adSplashInfo) == null || (str = adSplashInfo.skipTips) == null || TextUtils.isEmpty(str)) ? "跳过" : adInfo.adSplashInfo.skipTips;
     }
 
-    public static int bp(AdInfo adInfo) {
+    public static int bp(@NonNull AdInfo adInfo) {
         return adInfo.adInsertScreenInfo.retainWindowBasedAdShowCount;
     }
 
-    public static int bq(AdInfo adInfo) {
+    public static int bq(@NonNull AdInfo adInfo) {
         return adInfo.adInsertScreenInfo.retainWindowDailyShowCount;
     }
 
-    public static int br(AdInfo adInfo) {
+    public static int br(@NonNull AdInfo adInfo) {
         return adInfo.adInsertScreenInfo.retainWindowStyle;
     }
 
-    public static String bs(AdInfo adInfo) {
+    public static String bs(@NonNull AdInfo adInfo) {
         return adInfo.adInsertScreenInfo.retainWindowText;
     }
 
-    public static boolean bt(AdInfo adInfo) {
+    public static boolean bt(@NonNull AdInfo adInfo) {
         return adInfo.adInsertScreenInfo.cycleAggregateSwitch;
     }
 
-    public static int bu(AdInfo adInfo) {
+    public static int bu(@NonNull AdInfo adInfo) {
         return adInfo.adInsertScreenInfo.cycleAggregateStyle;
     }
 
-    public static int bv(AdInfo adInfo) {
+    public static int bv(@NonNull AdInfo adInfo) {
         return adInfo.adInsertScreenInfo.cycleAggregateInterval;
     }
 
-    public static int bw(AdInfo adInfo) {
+    public static int bw(@NonNull AdInfo adInfo) {
         return adInfo.adInsertScreenInfo.cycleAggregateDailyShowCount;
     }
 
-    public static boolean bx(AdInfo adInfo) {
+    public static boolean bx(@NonNull AdInfo adInfo) {
         int i = adInfo.adSplashInfo.skipType;
         return i == 2 || i == 3;
     }
 
-    public static boolean by(AdInfo adInfo) {
+    public static boolean by(@Nullable AdInfo adInfo) {
         if (bz(adInfo)) {
             int i = adInfo.adSplashInfo.skipType;
             return i == 0 || i == 2;
@@ -870,22 +893,23 @@ public final class a {
         return false;
     }
 
-    public static boolean bz(AdInfo adInfo) {
+    public static boolean bz(@Nullable AdInfo adInfo) {
         return adInfo.adSplashInfo.skipSecond >= 0;
     }
 
-    public static boolean c(AdInfo adInfo, boolean z) {
+    public static boolean c(@NonNull AdInfo adInfo, boolean z) {
         return ((z && am(adInfo)) || adInfo.adBaseInfo.mABParams.showVideoAtH5 == 0 || ax.dT(ar(adInfo))) ? false : true;
     }
 
-    public static boolean c(AdTemplate adTemplate, AdInfo adInfo) {
+    public static boolean c(AdTemplate adTemplate, @NonNull AdInfo adInfo) {
         if (d.cd(adTemplate) || adInfo.adBaseInfo.mABParams.videoBlackAreaNewStyle == 0) {
             return false;
         }
         return ag.zL() ? !I(adInfo) : I(adInfo);
     }
 
-    public static SpannableString e(AdInfo adInfo, int i) {
+    @Nullable
+    public static SpannableString e(AdInfo adInfo, @ColorInt int i) {
         String format;
         int indexOf;
         String bG = bG(adInfo);
@@ -908,7 +932,7 @@ public final class a {
         return "继续下载";
     }
 
-    public static long z(AdInfo adInfo) {
+    public static long z(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.creativeId;
     }
 }

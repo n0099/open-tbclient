@@ -1,6 +1,7 @@
 package com.kwad.components.core.offline.init.a;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +40,7 @@ public final class b extends BaseKsMediaPlayerView {
         }
     }
 
-    public final b a(DetailVideoView detailVideoView) {
+    public final b a(@NonNull DetailVideoView detailVideoView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, detailVideoView)) == null) {

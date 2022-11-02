@@ -2,8 +2,12 @@ package com.baidu.searchbox.logsystem.logsys.eventscene.handler;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.logsys.LogFile;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -21,7 +24,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingCrash";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mEventSceneHandlers;
+    public final List<DeviceEventSceneHandler> mEventSceneHandlers;
 
     public ForwardingDeviceEventSceneHandler() {
         Interceptable interceptable = $ic;
@@ -39,7 +42,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
         this.mEventSceneHandlers = new LinkedList();
     }
 
-    public ForwardingDeviceEventSceneHandler(List list) {
+    public ForwardingDeviceEventSceneHandler(@NonNull List<DeviceEventSceneHandler> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,9 +59,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
         }
         this.mEventSceneHandlers = new LinkedList();
         if (list != null && list.size() > 0) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                DeviceEventSceneHandler deviceEventSceneHandler = (DeviceEventSceneHandler) it.next();
+            for (DeviceEventSceneHandler deviceEventSceneHandler : list) {
                 if (deviceEventSceneHandler != null) {
                     this.mEventSceneHandlers.add(deviceEventSceneHandler);
                 }
@@ -66,7 +67,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
         }
     }
 
-    public ForwardingDeviceEventSceneHandler(DeviceEventSceneHandler... deviceEventSceneHandlerArr) {
+    public ForwardingDeviceEventSceneHandler(@NonNull DeviceEventSceneHandler... deviceEventSceneHandlerArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +92,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
         }
     }
 
-    public ForwardingDeviceEventSceneHandler addEventHandleCallback(DeviceEventSceneHandler deviceEventSceneHandler) {
+    public ForwardingDeviceEventSceneHandler addEventHandleCallback(@NonNull DeviceEventSceneHandler deviceEventSceneHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deviceEventSceneHandler)) == null) {
@@ -105,14 +106,12 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
         return (ForwardingDeviceEventSceneHandler) invokeL.objValue;
     }
 
-    public ForwardingDeviceEventSceneHandler addEventHandleCallback(List list) {
+    public ForwardingDeviceEventSceneHandler addEventHandleCallback(@NonNull List<DeviceEventSceneHandler> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
             if (list != null && list.size() > 0) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    DeviceEventSceneHandler deviceEventSceneHandler = (DeviceEventSceneHandler) it.next();
+                for (DeviceEventSceneHandler deviceEventSceneHandler : list) {
                     if (deviceEventSceneHandler != null) {
                         this.mEventSceneHandlers.add(deviceEventSceneHandler);
                     }
@@ -124,7 +123,8 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     }
 
     @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set getCustomizedSnapshots(Context context, File file, EventObject eventObject) {
+    @Nullable
+    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, file, eventObject)) == null) {
@@ -132,10 +132,10 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
                 Log.d("ForwardingCrash", "Context is null in ForwardingEventSceneHandler.getCustomizedSnapshots.");
             }
             HashSet hashSet = null;
-            for (EventSceneHandler eventSceneHandler : this.mEventSceneHandlers) {
-                if (eventSceneHandler != null) {
+            for (DeviceEventSceneHandler deviceEventSceneHandler : this.mEventSceneHandlers) {
+                if (deviceEventSceneHandler != null) {
                     try {
-                        Set customizedSnapshots = eventSceneHandler.getCustomizedSnapshots(context, file, eventObject);
+                        Set<LogFile> customizedSnapshots = deviceEventSceneHandler.getCustomizedSnapshots(context, file, eventObject);
                         if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                             if (hashSet == null) {
                                 hashSet = new HashSet(customizedSnapshots.size());
@@ -155,7 +155,8 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     }
 
     @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set requireGeneralSnapshots(Context context, EventObject eventObject) {
+    @Nullable
+    public Set<DeviceSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, eventObject)) == null) {
@@ -163,7 +164,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
             for (DeviceEventSceneHandler deviceEventSceneHandler : this.mEventSceneHandlers) {
                 if (deviceEventSceneHandler != null) {
                     try {
-                        Set requireGeneralSnapshots = deviceEventSceneHandler.requireGeneralSnapshots(context, eventObject);
+                        Set<DeviceSnapshotType> requireGeneralSnapshots = deviceEventSceneHandler.requireGeneralSnapshots(context, eventObject);
                         if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0) {
                             if (hashSet == null) {
                                 hashSet = new HashSet(5);
@@ -183,7 +184,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     }
 
     @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public boolean saveFragmentSnapshot(Context context, EventObject eventObject, File file) {
+    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, eventObject, file)) == null) {

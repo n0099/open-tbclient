@@ -23,7 +23,7 @@ public class ca {
     public static final Object a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ArrayList f965a;
+    public static ArrayList<hn> f965a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class ca {
             }
         }
         a = new Object();
-        f965a = new ArrayList();
+        f965a = new ArrayList<>();
     }
 
     public static void a() {

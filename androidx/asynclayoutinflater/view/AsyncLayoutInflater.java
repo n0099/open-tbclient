@@ -8,6 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -30,7 +34,7 @@ public final class AsyncLayoutInflater {
 
     /* loaded from: classes.dex */
     public interface OnInflateFinishedListener {
-        void onInflateFinished(View view2, int i, ViewGroup viewGroup);
+        void onInflateFinished(@NonNull View view2, @LayoutRes int i, @Nullable ViewGroup viewGroup);
     }
 
     /* loaded from: classes.dex */
@@ -250,7 +254,7 @@ public final class AsyncLayoutInflater {
         }
     }
 
-    public AsyncLayoutInflater(Context context) {
+    public AsyncLayoutInflater(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -309,7 +313,8 @@ public final class AsyncLayoutInflater {
         this.mInflateThread = InflateThread.getInstance();
     }
 
-    public void inflate(int i, ViewGroup viewGroup, OnInflateFinishedListener onInflateFinishedListener) {
+    @UiThread
+    public void inflate(@LayoutRes int i, @Nullable ViewGroup viewGroup, @NonNull OnInflateFinishedListener onInflateFinishedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, viewGroup, onInflateFinishedListener) == null) {
             if (onInflateFinishedListener != null) {

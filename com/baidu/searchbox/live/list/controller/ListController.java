@@ -109,7 +109,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000¶\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u000b\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0002¦\u0001\u0018\u0000 Û\u00012\u00020\u00012\u00020\u00022\u00020\u0003:\u0002Û\u0001B%\u0012\u0006\u0010n\u001a\u00020m\u0012\b\u0010¿\u0001\u001a\u00030¾\u0001\u0012\b\u0010¼\u0001\u001a\u00030»\u0001¢\u0006\u0006\bÙ\u0001\u0010Ú\u0001J!\u0010\t\u001a\u00020\b2\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\r\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0011\u001a\u00020\b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0013\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0016\u0010\u0017J+\u0010\u001b\u001a\u00020\b2\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00040\u00182\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJM\u0010%\u001a\u00020\b2\b\u0010\u001d\u001a\u0004\u0018\u00010\u00062\b\u0010\u001e\u001a\u0004\u0018\u00010\u00062\b\u0010\u001f\u001a\u0004\u0018\u00010\u00062\u0006\u0010!\u001a\u00020 2\n\b\u0002\u0010#\u001a\u0004\u0018\u00010\"2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010\u0006H\u0002¢\u0006\u0004\b%\u0010&J\u0015\u0010(\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"¢\u0006\u0004\b(\u0010)J\r\u0010*\u001a\u00020\b¢\u0006\u0004\b*\u0010\u0014JI\u00102\u001a\u00020\b2\u0006\u0010\u001d\u001a\u00020\u00062\u0006\u0010+\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u00062\u0006\u0010-\u001a\u00020\u00062\u0006\u0010/\u001a\u00020.2\u0006\u00100\u001a\u00020\u00062\b\b\u0002\u00101\u001a\u00020\u0006H\u0002¢\u0006\u0004\b2\u00103J\u000f\u00104\u001a\u00020\bH\u0002¢\u0006\u0004\b4\u0010\u0014J\u000f\u00105\u001a\u00020\bH\u0002¢\u0006\u0004\b5\u0010\u0014J)\u0010:\u001a\u00020\b2\u0006\u00106\u001a\u00020\"2\u0006\u00107\u001a\u00020\"2\b\u00109\u001a\u0004\u0018\u000108H\u0016¢\u0006\u0004\b:\u0010;J\u0017\u0010<\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"H\u0016¢\u0006\u0004\b<\u0010)J\u0017\u0010=\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"H\u0016¢\u0006\u0004\b=\u0010)J\u0017\u0010@\u001a\u00020\b2\u0006\u0010?\u001a\u00020>H\u0016¢\u0006\u0004\b@\u0010AJ\r\u0010B\u001a\u00020\b¢\u0006\u0004\bB\u0010\u0014J\r\u0010C\u001a\u00020\b¢\u0006\u0004\bC\u0010\u0014J\u001f\u0010F\u001a\u00020 2\u0006\u0010D\u001a\u00020\"2\u0006\u0010\u0010\u001a\u00020EH\u0016¢\u0006\u0004\bF\u0010GJ\u0017\u0010I\u001a\u00020\b2\u0006\u0010H\u001a\u000208H\u0016¢\u0006\u0004\bI\u0010JJ\u001d\u0010M\u001a\u00020\b2\f\u00109\u001a\b\u0012\u0004\u0012\u00020L0KH\u0002¢\u0006\u0004\bM\u0010NJ/\u0010S\u001a\u00020\b2\u0006\u00106\u001a\u00020\"2\u000e\u0010P\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00060O2\u0006\u0010R\u001a\u00020QH\u0016¢\u0006\u0004\bS\u0010TJ'\u0010X\u001a\u0012\u0012\u0004\u0012\u00020\u0006\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0018\u00010W2\u0006\u0010V\u001a\u00020UH\u0002¢\u0006\u0004\bX\u0010YJ!\u0010\\\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u00062\b\u0010[\u001a\u0004\u0018\u00010ZH\u0002¢\u0006\u0004\b\\\u0010]J\u000f\u0010^\u001a\u00020\bH\u0002¢\u0006\u0004\b^\u0010\u0014J\u000f\u0010_\u001a\u00020\bH\u0002¢\u0006\u0004\b_\u0010\u0014J\u000f\u0010`\u001a\u00020\bH\u0002¢\u0006\u0004\b`\u0010\u0014J\u000f\u0010a\u001a\u00020\bH\u0002¢\u0006\u0004\ba\u0010\u0014J\u000f\u0010b\u001a\u00020\bH\u0002¢\u0006\u0004\bb\u0010\u0014J-\u0010e\u001a\u00020\b2\u0006\u0010c\u001a\u00020\u00062\u0006\u0010d\u001a\u00020\"2\f\u00109\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\be\u0010fJ\u0017\u0010i\u001a\u00020\b2\u0006\u0010h\u001a\u00020gH\u0002¢\u0006\u0004\bi\u0010jJ\u000f\u0010k\u001a\u00020\bH\u0002¢\u0006\u0004\bk\u0010\u0014J\u000f\u0010l\u001a\u00020\bH\u0002¢\u0006\u0004\bl\u0010\u0014R\u0019\u0010n\u001a\u00020m8\u0006@\u0006¢\u0006\f\n\u0004\bn\u0010o\u001a\u0004\bp\u0010qR$\u0010r\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\br\u0010s\u001a\u0004\bt\u0010u\"\u0004\bv\u0010wR\"\u0010x\u001a\u00020\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bx\u0010y\u001a\u0004\bz\u0010{\"\u0004\b|\u0010)R(\u0010~\u001a\u0004\u0018\u00010}8\u0006@\u0006X\u0086\u000e¢\u0006\u0016\n\u0004\b~\u0010\u007f\u001a\u0006\b\u0080\u0001\u0010\u0081\u0001\"\u0006\b\u0082\u0001\u0010\u0083\u0001R)\u0010\u0084\u0001\u001a\u00020 8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b\u0084\u0001\u0010\u0085\u0001\u001a\u0006\b\u0084\u0001\u0010\u0086\u0001\"\u0006\b\u0087\u0001\u0010\u0088\u0001R\u0019\u0010\u0089\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0089\u0001\u0010\u0085\u0001R$\u0010\u008a\u0001\u001a\b\u0012\u0004\u0012\u00020\u00040\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\b\u008a\u0001\u0010\u008b\u0001\u001a\u0006\b\u008c\u0001\u0010\u008d\u0001R#\u0010\u0093\u0001\u001a\u00030\u008e\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b\u008f\u0001\u0010\u0090\u0001\u001a\u0006\b\u0091\u0001\u0010\u0092\u0001R\u0019\u0010\u0094\u0001\u001a\u00020.8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0094\u0001\u0010\u0095\u0001R\u0019\u0010\u0096\u0001\u001a\u00020.8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0096\u0001\u0010\u0095\u0001R$\u0010\u0099\u0001\u001a\r \u0098\u0001*\u0005\u0018\u00010\u0097\u00010\u0097\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0099\u0001\u0010\u009a\u0001R\u0018\u0010\u009b\u0001\u001a\u00020\"8\u0002@\u0002X\u0082D¢\u0006\u0007\n\u0005\b\u009b\u0001\u0010yR\u0019\u0010\u009c\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009c\u0001\u0010\u0085\u0001R\u001c\u0010\u009e\u0001\u001a\u0005\u0018\u00010\u009d\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009e\u0001\u0010\u009f\u0001R\u001c\u0010¡\u0001\u001a\u0005\u0018\u00010 \u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¡\u0001\u0010¢\u0001R\u001c\u0010¤\u0001\u001a\u0005\u0018\u00010£\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¤\u0001\u0010¥\u0001R#\u0010ª\u0001\u001a\u00030¦\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b§\u0001\u0010\u0090\u0001\u001a\u0006\b¨\u0001\u0010©\u0001R\u001c\u0010¬\u0001\u001a\u0005\u0018\u00010«\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¬\u0001\u0010\u00ad\u0001R,\u0010¯\u0001\u001a\u0005\u0018\u00010®\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b¯\u0001\u0010°\u0001\u001a\u0006\b±\u0001\u0010²\u0001\"\u0006\b³\u0001\u0010´\u0001R\u001c\u0010¶\u0001\u001a\u0005\u0018\u00010µ\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¶\u0001\u0010·\u0001R\u001c\u0010¹\u0001\u001a\u0005\u0018\u00010¸\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¹\u0001\u0010º\u0001R\u001a\u0010¼\u0001\u001a\u00030»\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b¼\u0001\u0010½\u0001R\u001a\u0010¿\u0001\u001a\u00030¾\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b¿\u0001\u0010À\u0001R\u001b\u0010Á\u0001\u001a\u0004\u0018\u00010Z8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bÁ\u0001\u0010Â\u0001R+\u0010Ã\u0001\u001a\u0004\u0018\u00010L8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÃ\u0001\u0010Ä\u0001\u001a\u0006\bÅ\u0001\u0010Æ\u0001\"\u0006\bÇ\u0001\u0010È\u0001R,\u0010Ê\u0001\u001a\u0005\u0018\u00010É\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÊ\u0001\u0010Ë\u0001\u001a\u0006\bÌ\u0001\u0010Í\u0001\"\u0006\bÎ\u0001\u0010Ï\u0001R\u0019\u0010Ð\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÐ\u0001\u0010\u0085\u0001R\u0019\u0010Ñ\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bÑ\u0001\u0010\u0085\u0001R,\u0010Ô\u0001\u001a\u0010\u0012\f\u0012\n\u0012\u0005\u0012\u00030Ó\u00010Ò\u00010\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\bÔ\u0001\u0010\u008b\u0001\u001a\u0006\bÕ\u0001\u0010\u008d\u0001R\u001a\u0010×\u0001\u001a\u00030Ö\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b×\u0001\u0010Ø\u0001¨\u0006Ü\u0001"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController;", "Lcom/baidu/live/arch/api/IExtLifecycle;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/list/controller/IListListener;", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "", "id", "", "bindHLReplayInfo", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Ljava/lang/String;)V", "Lorg/json/JSONArray;", "roomIdJSONArray", "cacheCloseRoomIdList", "(Lorg/json/JSONArray;)V", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "changeScrollState", "()V", "Landroid/view/View;", "createView", "()Landroid/view/View;", "", "origin", "addition", "distinct", "(Ljava/util/List;Ljava/util/List;)V", ILiveNPSPlugin.PARAMS_ROOM_ID, "value", "status", "", "useCache", "", "error", StatConstants.KEY_EXT_ERR_MSG, "doEnterUbcByRequestEnter", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/Integer;Ljava/lang/String;)V", CriusAttrConstants.POSITION, "fetchMoreLiveIfNeed", "(I)V", "finish", AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "scheme", "from", "", "clickTime", "clickFrom", "playUrl", "jumpToNewLiveRoom", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "loadLiveRoom", "logEventOnReach", GroupInfoActivityConfig.REQUEST_CODE, "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "onAfterSelect", "onBeforeSelect", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", IntentData.KEY, "onNewIntent", "(Landroid/content/Intent;)V", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "onPreRoomEnterDataLoaded", "(Lcom/baidu/searchbox/live/model/res/MixResult;)V", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "Lorg/json/JSONObject;", "input", "", "paramsJsonToMap", "(Lorg/json/JSONObject;)Ljava/util/Map;", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "sourceInfo", "parseClickTime", "(Ljava/lang/String;Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;)Ljava/lang/String;", "preReqRoomEnter", "queryLiveList", "registerMixRequestService", "registerYYLifeCyclePlugin", "reloadLiveRoom", "pageSession", "hasMore", "slideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "itemLiveType", "templateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "unBindHLReplayInfo", "unregisterMixRequestService", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "curRoomModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getCurRoomModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setCurRoomModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "currentPosition", "I", "getCurrentPosition", "()I", "setCurrentPosition", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "isFromForward", "Z", "()Z", "setFromForward", "(Z)V", "isRegistYYActivityLifeCyclePlugin", "itemData", "Ljava/util/List;", "getItemData", "()Ljava/util/List;", "Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager$delegate", "Lkotlin/Lazy;", "getListManager", "()Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager", "listRequestDuration", "J", "listRequestTime", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "kotlin.jvm.PlatformType", "liveSessionService", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "loadMoreFraction", "localSwitchCanScroll", "Lcom/baidu/searchbox/live/frame/IntentData;", "mIntentData", "Lcom/baidu/searchbox/live/frame/IntentData;", "Lcom/baidu/searchbox/live/frame/ListInfo;", "mListInfo", "Lcom/baidu/searchbox/live/frame/ListInfo;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "mLiveRoomInfoStatPlugin", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "com/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1", "mMixEventDispatcher$delegate", "getMMixEventDispatcher", "()Lcom/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1;", "mMixEventDispatcher", "Lcom/baidu/searchbox/live/model/MixModel;", "mNetModel", "Lcom/baidu/searchbox/live/model/MixModel;", "Lcom/baidu/searchbox/live/frame/PageInfo;", "mPageInfo", "Lcom/baidu/searchbox/live/frame/PageInfo;", "getMPageInfo", "()Lcom/baidu/searchbox/live/frame/PageInfo;", "setMPageInfo", "(Lcom/baidu/searchbox/live/frame/PageInfo;)V", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "mYYLifeCyclePlugin", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "mYYLoadPluginPlugin", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "playSource", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "preReqRoomEnterData", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "getPreReqRoomEnterData", "()Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "setPreReqRoomEnterData", "(Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;)V", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "preReqStatData", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "getPreReqStatData", "()Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "setPreReqStatData", "(Lcom/baidu/searchbox/live/model/res/MixResultStatData;)V", "prefetchEnterSwitch", "serverSwitchCanScroll", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "shellList", "getShellList", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class ListController implements IExtLifecycle, EventAction, IListListener {
+public final class ListController implements IExtLifecycle, EventAction<AbstractEvent>, IListListener {
     public static final /* synthetic */ KProperty[] $$delegatedProperties;
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
@@ -121,7 +121,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
     public Handler handler;
     public boolean isFromForward;
     public boolean isRegistYYActivityLifeCyclePlugin;
-    public final List itemData;
+    public final List<LiveContainer.LiveItemModel> itemData;
     public final Lazy listManager$delegate;
     public long listRequestDuration;
     public long listRequestTime;
@@ -143,7 +143,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
     public MixResultStatData preReqStatData;
     public final boolean prefetchEnterSwitch;
     public boolean serverSwitchCanScroll;
-    public final List shellList;
+    public final List<WeakReference<AbstractMixFakeShell>> shellList;
     public final UBCManager ubcManager;
 
     static {
@@ -188,7 +188,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController$Companion;", "", "KEY_PARAMS", "Ljava/lang/String;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -274,12 +274,10 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         }
     }
 
-    private final void distinct(List list, List list2) {
+    private final void distinct(List<LiveContainer.LiveItemModel> list, List<LiveContainer.LiveItemModel> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65570, this, list, list2) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                LiveContainer.LiveItemModel liveItemModel = (LiveContainer.LiveItemModel) it.next();
+            for (LiveContainer.LiveItemModel liveItemModel : list) {
                 if (list2.contains(liveItemModel)) {
                     list2.remove(liveItemModel);
                 }
@@ -288,7 +286,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void onPreRoomEnterDataLoaded(MixResult mixResult) {
+    public final void onPreRoomEnterDataLoaded(MixResult<LiveRoomEnterRespData> mixResult) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65579, this, mixResult) == null) && (mixResult instanceof MixResult.MixSuccess)) {
             MixResult.MixSuccess mixSuccess = (MixResult.MixSuccess) mixResult;
@@ -311,20 +309,22 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.isFromForward = false;
             fetchMoreLiveIfNeed(i);
-            List list = this.itemData;
+            List<LiveContainer.LiveItemModel> list = this.itemData;
             if (list != null && i >= 0 && i < list.size() && (liveRoomInfoStatPlugin = this.mLiveRoomInfoStatPlugin) != null) {
-                liveRoomInfoStatPlugin.dispatchLiveItemModelSelectedAction((LiveContainer.LiveItemModel) this.itemData.get(i));
+                liveRoomInfoStatPlugin.dispatchLiveItemModelSelectedAction(this.itemData.get(i));
             }
         }
     }
 
     @Override // com.baidu.live.arch.api.IExtLifecycle
     public void onConfigurationChanged(Configuration configuration) {
-        List<WeakReference> list;
+        List<WeakReference<AbstractMixFakeShell>> list;
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, configuration) == null) && (list = this.shellList) != null) {
-            for (WeakReference weakReference : list) {
+            Iterator<T> it = list.iterator();
+            while (it.hasNext()) {
+                WeakReference weakReference = (WeakReference) it.next();
                 if (weakReference != null && (abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get()) != null) {
                     abstractMixFakeShell.onConfigurationChanged(configuration);
                 }
@@ -404,9 +404,11 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         if (interceptable == null || interceptable.invokeL(1048598, this, intent) == null) {
             this.mIntentData = ListExtKt.parseLiveData(intent);
             reloadLiveRoom();
-            List<WeakReference> list = this.shellList;
+            List<WeakReference<AbstractMixFakeShell>> list = this.shellList;
             if (list != null) {
-                for (WeakReference weakReference : list) {
+                Iterator<T> it = list.iterator();
+                while (it.hasNext()) {
+                    WeakReference weakReference = (WeakReference) it.next();
                     if (weakReference != null && (abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get()) != null) {
                         abstractMixFakeShell.onNewIntent(intent);
                     }
@@ -455,6 +457,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ListController this$0;
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -474,7 +477,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                 }
 
                 @Override // com.baidu.searchbox.live.service.MixRequestService
-                public void requestRoomEnter(RoomEnterParams roomEnterParams, boolean z, OnMixDataLoaded onMixDataLoaded) {
+                public void requestRoomEnter(RoomEnterParams roomEnterParams, boolean z, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
                     MixModel mixModel;
                     LiveRoomEnterRespData preReqRoomEnterData;
                     JSONObject jSONObject;
@@ -601,7 +604,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         return (Handler) invokeV.objValue;
     }
 
-    public final List getItemData() {
+    public final List<LiveContainer.LiveItemModel> getItemData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -637,7 +640,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         return (MixResultStatData) invokeV.objValue;
     }
 
-    public final List getShellList() {
+    public final List<WeakReference<AbstractMixFakeShell>> getShellList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -1100,6 +1103,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         listController.jumpToNewLiveRoom(str, str2, str3, str4, j, str5, str7);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.baidu.searchbox.live.model.MixModel */
     /* JADX DEBUG: Multi-variable search result rejected for r3v26, resolved type: T */
     /* JADX DEBUG: Multi-variable search result rejected for r3v27, resolved type: T */
     /* JADX DEBUG: Multi-variable search result rejected for r3v28, resolved type: T */
@@ -1148,13 +1152,13 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                         }
                         if (str != null) {
                             try {
-                                Map stringToMap = MixUriUtilKt.stringToMap(MixUriUtilKt.getParamsStr(str));
+                                Map<String, String> stringToMap = MixUriUtilKt.stringToMap(MixUriUtilKt.getParamsStr(str));
                                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
                                 boolean containsKey = stringToMap.containsKey("params");
                                 T t = stringToMap;
                                 if (containsKey) {
                                     try {
-                                        t = paramsJsonToMap(new JSONObject((String) stringToMap.get("params")));
+                                        t = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
                                     } catch (Exception unused) {
                                         t = 0;
                                     }
@@ -1263,8 +1267,8 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                 }
                 MediaLivePluginLogger.Companion.getInstance().logListBeginGetLiveTypeStart();
                 MixModel mixModel = this.mNetModel;
-                if (mixModel != null) {
-                    mixModel.reqLiveType(new OnMixDataLoaded(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$loadLiveRoom$$inlined$run$lambda$1
+                if (mixModel != 0) {
+                    mixModel.reqLiveType(new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$loadLiveRoom$$inlined$run$lambda$1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ ListController this$0;
@@ -1287,14 +1291,19 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                             this.this$0 = this;
                         }
 
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
-                        public void onMixDataLoaded(MixResult mixResult) {
+                        /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
+                        public void onMixDataLoaded2(MixResult<LiveRoomEnterRespData> mixResult) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null && interceptable2.invokeL(1048576, this, mixResult) != null) {
                                 return;
                             }
                             this.this$0.onPreRoomEnterDataLoaded(mixResult);
+                        }
+
+                        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                        @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                        public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveRoomEnterRespData> mixResult) {
+                            onMixDataLoaded2((MixResult<LiveRoomEnterRespData>) mixResult);
                         }
                     });
                 }
@@ -1386,6 +1395,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ListController this$0;
 
+                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
@@ -1443,6 +1453,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ListController this$0;
 
+                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
@@ -1472,7 +1483,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                     }
 
                     @Override // com.baidu.searchbox.live.component.service.LiveItemModelListService
-                    public List getLiveItemModels() {
+                    public List<LiveContainer.LiveItemModel> getLiveItemModels() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -1493,6 +1504,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                         }
                     }
 
+                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
@@ -1555,7 +1567,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                                 int optInt = jSONObject.optInt("roomType");
                                 String optString2 = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID);
                                 if (this.this$0.getCurrentPosition() >= 0 && this.this$0.getCurrentPosition() < this.this$0.getItemData().size()) {
-                                    LiveContainer.LiveItemModel liveItemModel = (LiveContainer.LiveItemModel) this.this$0.getItemData().get(this.this$0.getCurrentPosition());
+                                    LiveContainer.LiveItemModel liveItemModel = this.this$0.getItemData().get(this.this$0.getCurrentPosition());
                                     ListLogKt.log("MixLiveCell_fake_list", "item model : roomId = " + liveItemModel.getRoomId() + ", roomType= " + liveItemModel.getLiveType() + ", templateId=" + liveItemModel.getTemplateId() + ", response : roomId = " + optString2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "roomType=" + optInt + ", templateId=" + optString);
                                     if (!Intrinsics.areEqual(optString2, liveItemModel.getRoomId())) {
                                         return;
@@ -1602,7 +1614,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                     }
 
                     @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                    public List getListData() {
+                    public List<LiveContainer.LiveItemModel> getListData() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -1692,7 +1704,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                     }
 
                     @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
-                    public void onSlideListSuccess(String str, int i, List list) {
+                    public void onSlideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list) {
                         IMixActivityInterface iMixActivityInterface;
                         LiveRoomInfoStatPlugin liveRoomInfoStatPlugin;
                         Interceptable interceptable2 = $ic;
@@ -1742,7 +1754,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         }
     }
 
-    private final Map paramsJsonToMap(JSONObject jSONObject) {
+    private final Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
@@ -1895,6 +1907,8 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         return (String) invokeLL.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: com.baidu.searchbox.live.model.MixModel */
+    /* JADX WARN: Multi-variable type inference failed */
     private final void preReqRoomEnter() {
         IntentData intentData;
         String str;
@@ -1924,8 +1938,8 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
             RoomEnterParams roomEnterParams = new RoomEnterParams(id, source, str, str2, str3, false, 32, null);
             roomEnterParams.setAudio(Boolean.valueOf(Intrinsics.areEqual(intentData.getModel().getTemplateId(), "5")));
             MixModel mixModel = this.mNetModel;
-            if (mixModel != null) {
-                mixModel.reqRoomEnter(roomEnterParams, new OnMixDataLoaded(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$preReqRoomEnter$$inlined$let$lambda$1
+            if (mixModel != 0) {
+                mixModel.reqRoomEnter(roomEnterParams, new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$preReqRoomEnter$$inlined$let$lambda$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ListController this$0;
@@ -1948,14 +1962,19 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                         this.this$0 = this;
                     }
 
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
-                    public void onMixDataLoaded(MixResult mixResult) {
+                    /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
+                    public void onMixDataLoaded2(MixResult<LiveRoomEnterRespData> mixResult) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null && interceptable2.invokeL(1048576, this, mixResult) != null) {
                             return;
                         }
                         this.this$0.onPreRoomEnterDataLoaded(mixResult);
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                    public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveRoomEnterRespData> mixResult) {
+                        onMixDataLoaded2((MixResult<LiveRoomEnterRespData>) mixResult);
                     }
                 });
             }
@@ -2023,7 +2042,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void slideListSuccess(String str, int i, List list) {
+    public final void slideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65587, this, str, i, list) == null) {
             final int size = this.itemData.size();
@@ -2068,7 +2087,7 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
                         listManager.onListChange(this.$size);
                         if (this.this$0.getCurRoomModel() == null && this.this$0.getItemData().size() > 0) {
                             ListController listController = this.this$0;
-                            listController.setCurRoomModel((LiveContainer.LiveItemModel) listController.getItemData().get(0));
+                            listController.setCurRoomModel(listController.getItemData().get(0));
                             listManager2 = this.this$0.getListManager();
                             LiveContainer.LiveItemModel curRoomModel = this.this$0.getCurRoomModel();
                             if (curRoomModel == null) {
@@ -2194,11 +2213,13 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
 
     @Override // com.baidu.live.arch.api.IExtLifecycle
     public void onActivityResult(int i, int i2, Intent intent) {
-        List<WeakReference> list;
+        List<WeakReference<AbstractMixFakeShell>> list;
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, intent) == null) && (list = this.shellList) != null) {
-            for (WeakReference weakReference : list) {
+            Iterator<T> it = list.iterator();
+            while (it.hasNext()) {
+                WeakReference weakReference = (WeakReference) it.next();
                 if (weakReference != null && (abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get()) != null) {
                     abstractMixFakeShell.onActivityResult(i, i2, intent);
                 }
@@ -2208,11 +2229,13 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
 
     @Override // com.baidu.live.arch.api.IExtLifecycle
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        List<WeakReference> list;
+        List<WeakReference<AbstractMixFakeShell>> list;
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048599, this, i, strArr, iArr) == null) && (list = this.shellList) != null) {
-            for (WeakReference weakReference : list) {
+            Iterator<T> it = list.iterator();
+            while (it.hasNext()) {
+                WeakReference weakReference = (WeakReference) it.next();
                 if (weakReference != null && (abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get()) != null) {
                     abstractMixFakeShell.onRequestPermissionsResult(i, strArr, iArr);
                 }
@@ -2285,18 +2308,18 @@ public final class ListController implements IExtLifecycle, EventAction, IListLi
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048597, this, i, keyEvent)) == null) {
-            for (WeakReference weakReference : this.shellList) {
+            for (WeakReference<AbstractMixFakeShell> weakReference : this.shellList) {
                 if (weakReference != null) {
-                    abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get();
+                    abstractMixFakeShell = weakReference.get();
                 } else {
                     abstractMixFakeShell = null;
                 }
                 if (abstractMixFakeShell != null) {
-                    Object obj = weakReference.get();
-                    if (obj == null) {
+                    AbstractMixFakeShell abstractMixFakeShell2 = weakReference.get();
+                    if (abstractMixFakeShell2 == null) {
                         Intrinsics.throwNpe();
                     }
-                    if (((AbstractMixFakeShell) obj).onKeyDown(i, keyEvent)) {
+                    if (abstractMixFakeShell2.onKeyDown(i, keyEvent)) {
                         return true;
                     }
                 }

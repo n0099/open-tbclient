@@ -13,7 +13,7 @@ public interface IResourceTask extends INoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class OutputType {
+    public static final class OutputType {
         public static final /* synthetic */ OutputType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OutputType FILE;
@@ -73,7 +73,7 @@ public interface IResourceTask extends INoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class ResultType {
+    public static final class ResultType {
         public static final /* synthetic */ ResultType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ResultType RESULT_CACHE;

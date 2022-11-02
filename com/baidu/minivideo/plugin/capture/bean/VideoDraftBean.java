@@ -1,5 +1,6 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class VideoDraftBean implements Jsonable, Comparable, Serializable, Cloneable {
+public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mBackUpType;
@@ -312,7 +313,7 @@ public class VideoDraftBean implements Jsonable, Comparable, Serializable, Clone
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(VideoDraftBean videoDraftBean) {
+    public int compareTo(@NonNull VideoDraftBean videoDraftBean) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoDraftBean)) == null) {

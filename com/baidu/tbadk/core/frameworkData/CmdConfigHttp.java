@@ -112,8 +112,10 @@ public class CmdConfigHttp {
     public static final int CMD_FUN_AD_RECORD = 1003494;
     public static final int CMD_GAME_ITEM_ORDER = 1003496;
     public static final int CMD_GAME_PLAY_ATTENTION_ACCEPT = 1003533;
+    public static final int CMD_GAME_RELATED_FORUMS = 1003546;
     public static final int CMD_GAME_VIDEO = 1003443;
     public static final int CMD_GET_ACCELERATOR_INFO = 1003524;
+    public static final int CMD_GET_AD_FREE_TIME = 1003548;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BIGDAY_INFO = 1003408;
     public static final int CMD_GET_BOTTLE_FORUM_LIST = 1003316;
@@ -143,6 +145,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_HOT_THREAD = 1003005;
     public static final int CMD_GET_ICE_BREAK_EMOTIONS = 1003530;
     public static final int CMD_GET_IMAGE_WATERMARK_TYPE = 1003448;
+    public static final int CMD_GET_INCENTIVE_VIDEO_TASK = 1003547;
     public static final int CMD_GET_INTEREST_LABEL_LIST = 1003333;
     public static final int CMD_GET_LEVLE_INFO = 1001710;
     public static final int CMD_GET_LOCAL_CHANNEL_TOPIC_LIST = 1003521;

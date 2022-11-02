@@ -2,12 +2,12 @@ package com.kwad.sdk.core.video.kwai;
 
 import android.media.TimedText;
 import com.kwad.sdk.core.video.kwai.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements c {
     public c.e JR;
     public c.h JS;
     public c.b JT;
-    public c.InterfaceC0607c JU;
+    public c.InterfaceC0618c JU;
     public c.d JV;
     public c.a JW;
     public c.f adC;
@@ -24,8 +24,8 @@ public abstract class a implements c {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
-    public final void a(c.InterfaceC0607c interfaceC0607c) {
-        this.JU = interfaceC0607c;
+    public final void a(c.InterfaceC0618c interfaceC0618c) {
+        this.JU = interfaceC0618c;
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
@@ -82,8 +82,8 @@ public abstract class a implements c {
     }
 
     public final boolean notifyOnError(int i, int i2) {
-        c.InterfaceC0607c interfaceC0607c = this.JU;
-        return interfaceC0607c != null && interfaceC0607c.j(i, i2);
+        c.InterfaceC0618c interfaceC0618c = this.JU;
+        return interfaceC0618c != null && interfaceC0618c.j(i, i2);
     }
 
     public final boolean notifyOnInfo(int i, int i2) {

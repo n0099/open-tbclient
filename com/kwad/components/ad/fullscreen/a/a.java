@@ -1,6 +1,7 @@
 package com.kwad.components.ad.fullscreen.a;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,6 +29,7 @@ public final class a {
         }
     }
 
+    @Nullable
     public static b H(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

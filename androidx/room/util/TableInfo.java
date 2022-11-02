@@ -2,7 +2,11 @@ package androidx.room.util;
 
 import android.database.Cursor;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
+import androidx.room.ColumnInfo;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +24,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class TableInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Column> columns;
     public final Set<ForeignKey> foreignKeys;
+    @Nullable
     public final Set<Index> indices;
     public final String name;
 
@@ -33,6 +39,7 @@ public class TableInfo {
     public static class Column {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @ColumnInfo.SQLiteTypeAffinity
         public final int affinity;
         public final String name;
         public final boolean notNull;
@@ -61,7 +68,8 @@ public class TableInfo {
             this.affinity = findAffinity(str2);
         }
 
-        public static int findAffinity(String str) {
+        @ColumnInfo.SQLiteTypeAffinity
+        public static int findAffinity(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -150,17 +158,23 @@ public class TableInfo {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public static class ForeignKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final List<String> columnNames;
+        @NonNull
         public final String onDelete;
+        @NonNull
         public final String onUpdate;
+        @NonNull
         public final List<String> referenceColumnNames;
+        @NonNull
         public final String referenceTable;
 
-        public ForeignKey(String str, String str2, String str3, List<String> list, List<String> list2) {
+        public ForeignKey(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull List<String> list, @NonNull List<String> list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,6 +234,7 @@ public class TableInfo {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public static class ForeignKeyWithSequence implements Comparable<ForeignKeyWithSequence> {
         public static /* synthetic */ Interceptable $ic;
@@ -252,7 +267,7 @@ public class TableInfo {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(ForeignKeyWithSequence foreignKeyWithSequence) {
+        public int compareTo(@NonNull ForeignKeyWithSequence foreignKeyWithSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, foreignKeyWithSequence)) == null) {
@@ -266,6 +281,7 @@ public class TableInfo {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public static class Index {
         public static /* synthetic */ Interceptable $ic = null;
@@ -431,6 +447,7 @@ public class TableInfo {
         return (Map) invokeLL.objValue;
     }
 
+    @Nullable
     public static Set<Index> readIndices(SupportSQLiteDatabase supportSQLiteDatabase, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -523,6 +540,7 @@ public class TableInfo {
         return (Set) invokeLL.objValue;
     }
 
+    @Nullable
     public static Index readIndex(SupportSQLiteDatabase supportSQLiteDatabase, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;

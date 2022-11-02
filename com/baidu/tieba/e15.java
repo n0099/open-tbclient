@@ -6,13 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public int c;
+    public boolean a;
 
     public e15() {
         Interceptable interceptable = $ic;
@@ -24,55 +23,50 @@ public class e15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
     }
 
-    public int a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.longValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("zan_or_cai_smallflow");
+            c(optJSONObject);
+            d(optJSONObject);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void e(String str) {
+    public final void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
+            this.a = true;
         }
     }
 
-    public void f(long j) {
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.b = j;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                ky4.k().y("praise_abtest_switch_json", jSONObject.toString());
+            } else {
+                ky4.k().y("praise_abtest_switch_json", "");
+            }
         }
     }
 }

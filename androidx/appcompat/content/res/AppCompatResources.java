@@ -1,5 +1,6 @@
 package androidx.appcompat.content.res;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
@@ -9,6 +10,10 @@ import android.os.Build;
 import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ColorStateListInflaterCompat;
@@ -21,6 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.WeakHashMap;
+@SuppressLint({"RestrictedAPI"})
 /* loaded from: classes.dex */
 public final class AppCompatResources {
     public static /* synthetic */ Interceptable $ic = null;
@@ -37,7 +43,7 @@ public final class AppCompatResources {
         public final Configuration configuration;
         public final ColorStateList value;
 
-        public ColorStateListCacheEntry(ColorStateList colorStateList, Configuration configuration) {
+        public ColorStateListCacheEntry(@NonNull ColorStateList colorStateList, @NonNull Configuration configuration) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,6 +95,7 @@ public final class AppCompatResources {
         }
     }
 
+    @NonNull
     public static TypedValue getTypedValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,7 +111,7 @@ public final class AppCompatResources {
         return (TypedValue) invokeV.objValue;
     }
 
-    public static void addColorStateListToCache(Context context, int i, ColorStateList colorStateList) {
+    public static void addColorStateListToCache(@NonNull Context context, @ColorRes int i, @NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65538, null, context, i, colorStateList) == null) {
             synchronized (sColorStateCacheLock) {
@@ -118,7 +125,8 @@ public final class AppCompatResources {
         }
     }
 
-    public static ColorStateList getCachedColorStateList(Context context, int i) {
+    @Nullable
+    public static ColorStateList getCachedColorStateList(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         ColorStateListCacheEntry colorStateListCacheEntry;
         Interceptable interceptable = $ic;
@@ -137,7 +145,7 @@ public final class AppCompatResources {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public static ColorStateList getColorStateList(Context context, int i) {
+    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
@@ -158,6 +166,7 @@ public final class AppCompatResources {
         return (ColorStateList) invokeLI.objValue;
     }
 
+    @Nullable
     public static ColorStateList inflateColorStateList(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -176,7 +185,8 @@ public final class AppCompatResources {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public static Drawable getDrawable(Context context, int i) {
+    @Nullable
+    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
@@ -185,7 +195,7 @@ public final class AppCompatResources {
         return (Drawable) invokeLI.objValue;
     }
 
-    public static boolean isColorInt(Context context, int i) {
+    public static boolean isColorInt(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, context, i)) == null) {

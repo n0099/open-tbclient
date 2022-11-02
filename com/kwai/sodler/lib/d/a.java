@@ -17,7 +17,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static String ayJ;
     public static String ayK;
-    public static final Map ayL;
+    public static final Map<String, String> ayL;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

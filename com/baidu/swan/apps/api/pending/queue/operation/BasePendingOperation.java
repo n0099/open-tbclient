@@ -36,7 +36,7 @@ public abstract class BasePendingOperation implements Runnable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class OperationType {
+    public static final class OperationType {
         public static final /* synthetic */ OperationType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OperationType OPERATION_TYPE_MAIN_THREAD;

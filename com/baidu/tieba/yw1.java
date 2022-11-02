@@ -1,45 +1,137 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Region;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import kotlinx.coroutines.DebugKt;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yw1 extends sw1 {
+public class yw1 extends uz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String j;
+    public String k;
 
-    @Override // com.baidu.tieba.sw1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(String str) {
+            InterceptResult invokeL;
+            char c;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode != 3551) {
+                    if (hashCode != 109935) {
+                        if (hashCode == 3005871 && str.equals("auto")) {
+                            c = 0;
+                        }
+                        c = 65535;
+                    } else {
+                        if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_OFF)) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_ON)) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
+                if (c != 0 && c != 1 && c != 2) {
+                    return "auto";
+                }
+                return str;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    public yw1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yw1(String str) {
+        super("camera", "cameraId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            e12.d("Camera", "parsing CameraAttrModel occurs exception", e);
         }
     }
 
-    @Override // com.baidu.tieba.sw1
-    public void a(tw1 tw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.uz1, com.baidu.tieba.du2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) {
-            tw1Var.g = true;
-            canvas.clipPath(tw1Var.f, Region.Op.INTERSECT);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            this.j = jSONObject.optString("devicePosition", "back");
+            this.k = jSONObject.optString("flash", "auto");
         }
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.a(this.k);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ku2 ku2Var = this.h;
+            if (ku2Var == null) {
+                return 0;
+            }
+            return ku2Var.c();
+        }
+        return invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ku2 ku2Var = this.h;
+            if (ku2Var == null) {
+                return 0;
+            }
+            return ku2Var.f();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return TextUtils.equals(this.j, "front");
+        }
+        return invokeV.booleanValue;
     }
 }

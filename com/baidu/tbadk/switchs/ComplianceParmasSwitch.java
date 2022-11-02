@@ -14,7 +14,7 @@ public class ComplianceParmasSwitch extends BaseNormalSwitch {
     public static final ComplianceParmasSwitch mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.rf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.jf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

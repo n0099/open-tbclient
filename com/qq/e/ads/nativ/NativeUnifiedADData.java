@@ -3,6 +3,7 @@ package com.qq.e.ads.nativ;
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import com.qq.e.comm.adevent.ADEvent;
@@ -27,17 +28,17 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     public static final int MEDIA_RESUME = 11;
     public static final int MEDIA_START = 9;
     public static final int MEDIA_STOP = 14;
-    public static final Map ext = new HashMap();
+    public static final Map<String, String> ext = new HashMap();
 
-    void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List list);
+    void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list);
 
-    void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List list, List list2);
+    void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list, List<View> list2);
 
-    void bindCTAViews(List list);
+    void bindCTAViews(List<View> list);
 
-    void bindImageViews(List list, int i);
+    void bindImageViews(List<ImageView> list, int i);
 
-    void bindImageViews(List list, byte[] bArr);
+    void bindImageViews(List<ImageView> list, byte[] bArr);
 
     void bindMediaView(MediaView mediaView, VideoOption videoOption, NativeADMediaListener nativeADMediaListener);
 
@@ -67,11 +68,11 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     String getECPMLevel();
 
-    Map getExtraInfo();
+    Map<String, Object> getExtraInfo();
 
     String getIconUrl();
 
-    List getImgList();
+    List<String> getImgList();
 
     String getImgUrl();
 

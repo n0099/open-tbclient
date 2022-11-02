@@ -1,200 +1,84 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
-import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
-import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
-import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
+import com.baidu.tieba.homepage.tabfeed.view.HomeLocalCompleteInfoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import tbclient.GetMyPost.DataRes;
-import tbclient.GetMyPost.GetMyPostResIdl;
-import tbclient.GetMyPost.User_Info;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes5.dex */
-public class o57 {
+public class o57 extends jn<e67, AdapterViewHolder<HomeLocalCompleteInfoLayout>> implements h57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TopicDetailView b;
-    public final qb c;
+    public TbPageContext a;
+    public View.OnClickListener b;
 
-    /* loaded from: classes5.dex */
-    public class a extends qb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o57 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(o57 o57Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o57Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o57Var;
-        }
-
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-                    GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                    this.a.d(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
-                } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-                    GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                    this.a.d(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
-                }
-            }
+    @Override // com.baidu.tieba.h57
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public long b;
-        public final /* synthetic */ o57 c;
-
-        public b(o57 o57Var, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o57Var, Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = o57Var;
-            this.a = j;
-            this.b = j2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int k = fj.k(TbadkCoreApplication.getInst());
-                int i2 = fj.i(TbadkCoreApplication.getInst());
-                float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-                if (TbImageHelper.getInstance().isShowBigImage()) {
-                    i = 2;
-                } else {
-                    i = 1;
-                }
-                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setTag(this.c.a);
-                requestGetMyPostNetMessage.setParams(this.a, this.b, 0L, k, i2, f, i);
-                MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
-            }
-        }
-    }
-
-    public o57(TopicDetailView topicDetailView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o57(TbPageContext tbPageContext, @Nullable View.OnClickListener onClickListener) {
+        super(tbPageContext.getPageActivity(), e67.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {topicDetailView};
+            Object[] objArr = {tbPageContext, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.b = topicDetailView;
+        this.a = tbPageContext;
+        this.b = onClickListener;
     }
 
-    public void f(BdUniqueId bdUniqueId) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: s */
+    public AdapterViewHolder<HomeLocalCompleteInfoLayout> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-            this.c.setTag(bdUniqueId);
-            this.c.getHttpMessageListener().setSelfListener(true);
-            this.c.getSocketMessageListener().setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new AdapterViewHolder<>(new HomeLocalCompleteInfoLayout(viewGroup.getContext()));
         }
+        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    public b c(long j, long j2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e67 e67Var, AdapterViewHolder<HomeLocalCompleteInfoLayout> adapterViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return new b(this, j2, j);
-        }
-        return (b) invokeCommon.objValue;
-    }
-
-    public final void d(int i, GetMyPostResIdl getMyPostResIdl) {
-        DataRes dataRes;
-        ThreadInfo threadInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, getMyPostResIdl) == null) && i == 0 && getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && (threadInfo = dataRes.thread_info) != null) {
-            ThreadInfo.Builder builder = new ThreadInfo.Builder(threadInfo);
-            User.Builder builder2 = new User.Builder(builder.author);
-            e(builder2, getMyPostResIdl.data.user_info);
-            builder2.portrait = TbadkCoreApplication.getCurrentPortrait();
-            builder.author = builder2.build(true);
-            ThreadInfo build = builder.build(true);
-            ThreadData threadData = new ThreadData();
-            threadData.parserProtobuf(build);
-            threadData.setmCreateTime(new Date().getTime());
-            if (!e36.W(threadData)) {
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e67Var, adapterViewHolder})) == null) {
+            if (e67Var != null && adapterViewHolder != null) {
+                HomeLocalCompleteInfoLayout a = adapterViewHolder.a();
+                a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+                a.setCloseClickListener(this.b);
+                g57.o();
+                return adapterViewHolder.getView();
             }
-            this.b.y(threadData);
+            return null;
         }
-    }
-
-    public final void e(User.Builder builder, User_Info user_Info) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, builder, user_Info) != null) || user_Info == null) {
-            return;
-        }
-        builder.id = user_Info.id;
-        builder.gender = user_Info.gender;
-        builder.type = user_Info.type;
-        builder.name = user_Info.name;
-        builder.name_show = user_Info.name_show;
-        builder.portrait = user_Info.portrait;
-        builder.god_data = user_Info.god_data;
-        builder.fans_num = user_Info.fans_num;
+        return (View) invokeCommon.objValue;
     }
 }

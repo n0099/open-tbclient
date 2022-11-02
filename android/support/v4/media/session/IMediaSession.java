@@ -45,7 +45,7 @@ public interface IMediaSession extends IInterface {
 
     PlaybackStateCompat getPlaybackState() throws RemoteException;
 
-    List getQueue() throws RemoteException;
+    List<MediaSessionCompat.QueueItem> getQueue() throws RemoteException;
 
     CharSequence getQueueTitle() throws RemoteException;
 
@@ -128,7 +128,7 @@ public interface IMediaSession extends IInterface {
     void unregisterCallbackListener(IMediaControllerCallback iMediaControllerCallback) throws RemoteException;
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IMediaSession {
+    public static abstract class Stub extends Binder implements IMediaSession {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "android.support.v4.media.session.IMediaSession";
         public static final int TRANSACTION_addQueueItem = 41;
@@ -192,7 +192,7 @@ public interface IMediaSession extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        public class Proxy implements IMediaSession {
+        public static class Proxy implements IMediaSession {
             public static /* synthetic */ Interceptable $ic;
             public static IMediaSession sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -897,7 +897,7 @@ public interface IMediaSession extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            mediaMetadataCompat = (MediaMetadataCompat) MediaMetadataCompat.CREATOR.createFromParcel(obtain2);
+                            mediaMetadataCompat = MediaMetadataCompat.CREATOR.createFromParcel(obtain2);
                         } else {
                             mediaMetadataCompat = null;
                         }
@@ -947,7 +947,7 @@ public interface IMediaSession extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            playbackStateCompat = (PlaybackStateCompat) PlaybackStateCompat.CREATOR.createFromParcel(obtain2);
+                            playbackStateCompat = PlaybackStateCompat.CREATOR.createFromParcel(obtain2);
                         } else {
                             playbackStateCompat = null;
                         }
@@ -961,7 +961,7 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public List getQueue() throws RemoteException {
+            public List<MediaSessionCompat.QueueItem> getQueue() throws RemoteException {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -1141,7 +1141,7 @@ public interface IMediaSession extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            parcelableVolumeInfo = (ParcelableVolumeInfo) ParcelableVolumeInfo.CREATOR.createFromParcel(obtain2);
+                            parcelableVolumeInfo = ParcelableVolumeInfo.CREATOR.createFromParcel(obtain2);
                         } else {
                             parcelableVolumeInfo = null;
                         }
@@ -1591,7 +1591,7 @@ public interface IMediaSession extends IInterface {
                                 bundle = null;
                             }
                             if (parcel.readInt() != 0) {
-                                resultReceiverWrapper = (MediaSessionCompat.ResultReceiverWrapper) MediaSessionCompat.ResultReceiverWrapper.CREATOR.createFromParcel(parcel);
+                                resultReceiverWrapper = MediaSessionCompat.ResultReceiverWrapper.CREATOR.createFromParcel(parcel);
                             }
                             sendCommand(readString, bundle, resultReceiverWrapper);
                             parcel2.writeNoException();
@@ -1750,7 +1750,7 @@ public interface IMediaSession extends IInterface {
                         case 25:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                ratingCompat2 = (RatingCompat) RatingCompat.CREATOR.createFromParcel(parcel);
+                                ratingCompat2 = RatingCompat.CREATOR.createFromParcel(parcel);
                             }
                             rate(ratingCompat2);
                             parcel2.writeNoException();
@@ -1788,7 +1788,7 @@ public interface IMediaSession extends IInterface {
                             return true;
                         case 29:
                             parcel.enforceInterface(DESCRIPTOR);
-                            List queue = getQueue();
+                            List<MediaSessionCompat.QueueItem> queue = getQueue();
                             parcel2.writeNoException();
                             parcel2.writeTypedList(queue);
                             return true;
@@ -1884,7 +1884,7 @@ public interface IMediaSession extends IInterface {
                         case 41:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                mediaDescriptionCompat3 = (MediaDescriptionCompat) MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
+                                mediaDescriptionCompat3 = MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
                             }
                             addQueueItem(mediaDescriptionCompat3);
                             parcel2.writeNoException();
@@ -1892,7 +1892,7 @@ public interface IMediaSession extends IInterface {
                         case 42:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                mediaDescriptionCompat2 = (MediaDescriptionCompat) MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
+                                mediaDescriptionCompat2 = MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
                             }
                             addQueueItemAt(mediaDescriptionCompat2, parcel.readInt());
                             parcel2.writeNoException();
@@ -1900,7 +1900,7 @@ public interface IMediaSession extends IInterface {
                         case 43:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                mediaDescriptionCompat = (MediaDescriptionCompat) MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
+                                mediaDescriptionCompat = MediaDescriptionCompat.CREATOR.createFromParcel(parcel);
                             }
                             removeQueueItem(mediaDescriptionCompat);
                             parcel2.writeNoException();
@@ -1954,7 +1954,7 @@ public interface IMediaSession extends IInterface {
                         case 51:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                ratingCompat = (RatingCompat) RatingCompat.CREATOR.createFromParcel(parcel);
+                                ratingCompat = RatingCompat.CREATOR.createFromParcel(parcel);
                             } else {
                                 ratingCompat = null;
                             }
@@ -1976,7 +1976,7 @@ public interface IMediaSession extends IInterface {
     }
 
     /* loaded from: classes.dex */
-    public class Default implements IMediaSession {
+    public static class Default implements IMediaSession {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2079,7 +2079,7 @@ public interface IMediaSession extends IInterface {
         }
 
         @Override // android.support.v4.media.session.IMediaSession
-        public List getQueue() throws RemoteException {
+        public List<MediaSessionCompat.QueueItem> getQueue() throws RemoteException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {

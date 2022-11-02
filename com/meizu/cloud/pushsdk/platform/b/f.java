@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes8.dex */
-public class f extends c {
+public class f extends c<PushSwitchStatus> {
     public boolean a;
     public String b;
     public int c;
-    public Map m;
+    public Map<String, Boolean> m;
 
     public f(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, null, aVar, scheduledExecutorService);
@@ -52,7 +52,7 @@ public class f extends c {
     }
 
     private void f(boolean z) {
-        Map map = this.m;
+        Map<String, Boolean> map = this.m;
         map.put(this.h + "_" + this.c, Boolean.valueOf(z));
     }
 
@@ -73,8 +73,8 @@ public class f extends c {
     }
 
     private boolean t() {
-        Map map = this.m;
-        Boolean bool = (Boolean) map.get(this.h + "_" + this.c);
+        Map<String, Boolean> map = this.m;
+        Boolean bool = map.get(this.h + "_" + this.c);
         boolean booleanValue = bool != null ? bool.booleanValue() : true;
         DebugLogger.e("Strategy", "isSyncPushStatus " + this.h + " switch type->" + this.c + " flag->" + booleanValue);
         return booleanValue;

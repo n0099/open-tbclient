@@ -17,7 +17,7 @@ import java.lang.ref.WeakReference;
 public final class d extends com.kwad.components.core.webview.b.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference ns;
+    public WeakReference<k> ns;
     public com.kwad.components.ad.reward.b.e tW;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,7 +39,7 @@ public final class d extends com.kwad.components.core.webview.b.d {
                 return;
             }
         }
-        this.ns = new WeakReference(kVar);
+        this.ns = new WeakReference<>(kVar);
     }
 
     @Override // com.kwad.components.core.webview.b.d
@@ -59,8 +59,8 @@ public final class d extends com.kwad.components.core.webview.b.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
-            WeakReference weakReference = this.ns;
-            return new com.kwad.components.ad.reward.h.k(weakReference != null ? (k) weakReference.get() : null, this.tS, bVar);
+            WeakReference<k> weakReference = this.ns;
+            return new com.kwad.components.ad.reward.h.k(weakReference != null ? weakReference.get() : null, this.tS, bVar);
         }
         return (s) invokeL.objValue;
     }

@@ -20,6 +20,14 @@ import android.view.ViewParent;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.MenuRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StringRes;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.CollapsibleActionView;
@@ -379,7 +387,7 @@ public class Toolbar extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(Context context, AttributeSet attributeSet) {
+        public LayoutParams(@NonNull Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -654,7 +662,7 @@ public class Toolbar extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Toolbar(Context context) {
+    public Toolbar(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -767,7 +775,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setNavigationIcon(Drawable drawable) {
+    public void setNavigationIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048651, this, drawable) == null) {
             if (drawable != null) {
@@ -790,7 +798,7 @@ public class Toolbar extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Toolbar(Context context, AttributeSet attributeSet) {
+    public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040727);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -839,7 +847,7 @@ public class Toolbar extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Toolbar(Context context, AttributeSet attributeSet, int i) {
+    public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1079,6 +1087,7 @@ public class Toolbar extends ViewGroup {
         return invokeLI.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setMenu(MenuBuilder menuBuilder, ActionMenuPresenter actionMenuPresenter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048646, this, menuBuilder, actionMenuPresenter) == null) {
@@ -1176,6 +1185,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean canShowOverflowMenu() {
         InterceptResult invokeV;
         ActionMenuView actionMenuView;
@@ -1213,6 +1223,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
+    @Nullable
     public CharSequence getCollapseContentDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1226,6 +1237,7 @@ public class Toolbar extends ViewGroup {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getCollapseIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1389,6 +1401,7 @@ public class Toolbar extends ViewGroup {
         return (Menu) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getNavigationContentDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1402,6 +1415,7 @@ public class Toolbar extends ViewGroup {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getNavigationIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1424,6 +1438,7 @@ public class Toolbar extends ViewGroup {
         return (ActionMenuPresenter) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getOverflowIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1461,6 +1476,8 @@ public class Toolbar extends ViewGroup {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.TESTS})
     public final TextView getSubtitleTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1515,6 +1532,8 @@ public class Toolbar extends ViewGroup {
         return invokeV.intValue;
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.TESTS})
     public final TextView getTitleTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1524,6 +1543,7 @@ public class Toolbar extends ViewGroup {
         return (TextView) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public DecorToolbar getWrapper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1562,6 +1582,7 @@ public class Toolbar extends ViewGroup {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isOverflowMenuShowPending() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1588,6 +1609,7 @@ public class Toolbar extends ViewGroup {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isTitleTruncated() {
         InterceptResult invokeV;
         Layout layout;
@@ -1871,7 +1893,7 @@ public class Toolbar extends ViewGroup {
         return invokeL.booleanValue;
     }
 
-    public void inflateMenu(int i) {
+    public void inflateMenu(@MenuRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
             getMenuInflater().inflate(i, getMenu());
@@ -1918,7 +1940,7 @@ public class Toolbar extends ViewGroup {
         return invokeL.booleanValue;
     }
 
-    public void setCollapseContentDescription(int i) {
+    public void setCollapseContentDescription(@StringRes int i) {
         CharSequence charSequence;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
@@ -1931,13 +1953,14 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setCollapseIcon(int i) {
+    public void setCollapseIcon(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
             setCollapseIcon(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setCollapsible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048637, this, z) == null) {
@@ -1976,21 +1999,21 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setLogo(int i) {
+    public void setLogo(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
             setLogo(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
-    public void setLogoDescription(int i) {
+    public void setLogoDescription(@StringRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
             setLogoDescription(getContext().getText(i));
         }
     }
 
-    public void setNavigationContentDescription(int i) {
+    public void setNavigationContentDescription(@StringRes int i) {
         CharSequence charSequence;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
@@ -2003,7 +2026,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setNavigationIcon(int i) {
+    public void setNavigationIcon(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048650, this, i) == null) {
             setNavigationIcon(AppCompatResources.getDrawable(getContext(), i));
@@ -2025,7 +2048,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setOverflowIcon(Drawable drawable) {
+    public void setOverflowIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048654, this, drawable) == null) {
             ensureMenu();
@@ -2033,7 +2056,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setPopupTheme(int i) {
+    public void setPopupTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048655, this, i) == null) && this.mPopupTheme != i) {
             this.mPopupTheme = i;
@@ -2045,21 +2068,21 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setSubtitle(int i) {
+    public void setSubtitle(@StringRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048656, this, i) == null) {
             setSubtitle(getContext().getText(i));
         }
     }
 
-    public void setSubtitleTextColor(int i) {
+    public void setSubtitleTextColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048659, this, i) == null) {
             setSubtitleTextColor(ColorStateList.valueOf(i));
         }
     }
 
-    public void setTitle(int i) {
+    public void setTitle(@StringRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
             setTitle(getContext().getText(i));
@@ -2098,7 +2121,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setTitleTextColor(int i) {
+    public void setTitleTextColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048669, this, i) == null) {
             setTitleTextColor(ColorStateList.valueOf(i));
@@ -2181,7 +2204,7 @@ public class Toolbar extends ViewGroup {
         return (LayoutParams) invokeV.objValue;
     }
 
-    public void setCollapseContentDescription(CharSequence charSequence) {
+    public void setCollapseContentDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, charSequence) == null) {
             if (!TextUtils.isEmpty(charSequence)) {
@@ -2194,7 +2217,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setCollapseIcon(Drawable drawable) {
+    public void setCollapseIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, drawable) == null) {
             if (drawable != null) {
@@ -2222,7 +2245,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setNavigationContentDescription(CharSequence charSequence) {
+    public void setNavigationContentDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048649, this, charSequence) == null) {
             if (!TextUtils.isEmpty(charSequence)) {
@@ -2235,7 +2258,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setSubtitleTextColor(ColorStateList colorStateList) {
+    public void setSubtitleTextColor(@NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048660, this, colorStateList) == null) {
             this.mSubtitleTextColor = colorStateList;
@@ -2246,7 +2269,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setTitleTextColor(ColorStateList colorStateList) {
+    public void setTitleTextColor(@NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048670, this, colorStateList) == null) {
             this.mTitleTextColor = colorStateList;
@@ -2731,6 +2754,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setMenuCallbacks(MenuPresenter.Callback callback, MenuBuilder.Callback callback2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048647, this, callback, callback2) == null) {
@@ -2743,7 +2767,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setSubtitleTextAppearance(Context context, int i) {
+    public void setSubtitleTextAppearance(Context context, @StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048658, this, context, i) == null) {
             this.mSubtitleTextAppearance = i;
@@ -2754,7 +2778,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setTitleTextAppearance(Context context, int i) {
+    public void setTitleTextAppearance(Context context, @StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048668, this, context, i) == null) {
             this.mTitleTextAppearance = i;

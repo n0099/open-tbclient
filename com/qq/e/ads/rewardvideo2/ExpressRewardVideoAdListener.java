@@ -15,7 +15,7 @@ public interface ExpressRewardVideoAdListener {
 
     void onExpose();
 
-    void onReward(Map map);
+    void onReward(Map<String, Object> map);
 
     void onShow();
 

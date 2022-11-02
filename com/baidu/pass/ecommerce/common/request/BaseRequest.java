@@ -44,7 +44,7 @@ public abstract class BaseRequest {
     public Handler actionTimeHandler;
     public AddressManageDTO addressManageDTO;
     public SapiConfiguration configuration;
-    public List cookies;
+    public List<HttpCookie> cookies;
     public HttpHashMapWrap paramsMap;
 
     public abstract String getRelativeUrl();
@@ -105,7 +105,7 @@ public abstract class BaseRequest {
                 }
             }
         };
-        this.cookies = new ArrayList(this) { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.2
+        this.cookies = new ArrayList<HttpCookie>(this) { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaseRequest this$0;
@@ -173,7 +173,7 @@ public abstract class BaseRequest {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             ArrayList arrayList = new ArrayList(1);
             arrayList.add("pp");
-            return (String) SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this) { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.3
+            return SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this) { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseRequest this$0;

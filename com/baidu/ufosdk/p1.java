@@ -1,5 +1,6 @@
 package com.baidu.ufosdk;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -30,6 +31,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
+@SuppressLint({"SimpleDateFormat", "InlinedApi"})
 /* loaded from: classes6.dex */
 public class p1 {
     public static /* synthetic */ Interceptable $ic;
@@ -130,7 +132,7 @@ public class p1 {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:59:0x007f  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0096 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0097 A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -1,6 +1,7 @@
 package androidx.transition;
 
 import android.animation.TimeInterpolator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
@@ -8,6 +9,10 @@ import android.util.AndroidRuntimeException;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
@@ -61,7 +66,7 @@ public class TransitionSet extends Transition {
         }
 
         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-        public void onTransitionEnd(Transition transition) {
+        public void onTransitionEnd(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, transition) == null) {
                 TransitionSet transitionSet = this.mTransitionSet;
@@ -76,7 +81,7 @@ public class TransitionSet extends Transition {
         }
 
         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-        public void onTransitionStart(Transition transition) {
+        public void onTransitionStart(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                 TransitionSet transitionSet = this.mTransitionSet;
@@ -108,6 +113,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -138,6 +144,7 @@ public class TransitionSet extends Transition {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"RestrictedApi"})
     public TransitionSet(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -165,7 +172,7 @@ public class TransitionSet extends Transition {
         obtainStyledAttributes.recycle();
     }
 
-    private void addTransitionInternal(Transition transition) {
+    private void addTransitionInternal(@NonNull Transition transition) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, transition) == null) {
             this.mTransitions.add(transition);
@@ -186,6 +193,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void forceToEnd(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, viewGroup) == null) {
@@ -197,6 +205,7 @@ public class TransitionSet extends Transition {
         }
     }
 
+    @Nullable
     public Transition getTransitionAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -210,6 +219,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void pause(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, view2) == null) {
@@ -221,7 +231,8 @@ public class TransitionSet extends Transition {
         }
     }
 
-    public TransitionSet removeTransition(Transition transition) {
+    @NonNull
+    public TransitionSet removeTransition(@NonNull Transition transition) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, transition)) == null) {
@@ -233,6 +244,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void resume(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, view2) == null) {
@@ -313,7 +325,8 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet addListener(Transition.TransitionListener transitionListener) {
+    @NonNull
+    public TransitionSet addListener(@NonNull Transition.TransitionListener transitionListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionListener)) == null) {
@@ -324,7 +337,8 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet removeListener(Transition.TransitionListener transitionListener) {
+    @NonNull
+    public TransitionSet removeListener(@NonNull Transition.TransitionListener transitionListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, transitionListener)) == null) {
@@ -351,6 +365,7 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
+    @NonNull
     public TransitionSet setStartDelay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -361,18 +376,21 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public /* bridge */ /* synthetic */ Transition addTarget(Class cls) {
+    @NonNull
+    public /* bridge */ /* synthetic */ Transition addTarget(@NonNull Class cls) {
         return addTarget((Class<?>) cls);
     }
 
     @Override // androidx.transition.Transition
-    public /* bridge */ /* synthetic */ Transition removeTarget(Class cls) {
+    @NonNull
+    public /* bridge */ /* synthetic */ Transition removeTarget(@NonNull Class cls) {
         return removeTarget((Class<?>) cls);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet addTarget(int i) {
+    @NonNull
+    public TransitionSet addTarget(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -386,7 +404,8 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet removeTarget(int i) {
+    @NonNull
+    public TransitionSet removeTarget(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) {
@@ -400,7 +419,8 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet addTarget(View view2) {
+    @NonNull
+    public TransitionSet addTarget(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view2)) == null) {
@@ -414,7 +434,8 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet removeTarget(View view2) {
+    @NonNull
+    public TransitionSet removeTarget(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, view2)) == null) {
@@ -427,7 +448,8 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public TransitionSet addTarget(Class<?> cls) {
+    @NonNull
+    public TransitionSet addTarget(@NonNull Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
@@ -440,7 +462,8 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public TransitionSet removeTarget(Class<?> cls) {
+    @NonNull
+    public TransitionSet removeTarget(@NonNull Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, cls)) == null) {
@@ -454,7 +477,8 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet addTarget(String str) {
+    @NonNull
+    public TransitionSet addTarget(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -468,7 +492,8 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet removeTarget(String str) {
+    @NonNull
+    public TransitionSet removeTarget(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
@@ -480,7 +505,8 @@ public class TransitionSet extends Transition {
         return (TransitionSet) invokeL.objValue;
     }
 
-    public TransitionSet addTransition(Transition transition) {
+    @NonNull
+    public TransitionSet addTransition(@NonNull Transition transition) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, transition)) == null) {
@@ -525,7 +551,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, transitionValues) == null) && isValidTarget(transitionValues.f1028view)) {
             Iterator<Transition> it = this.mTransitions.iterator();
@@ -540,7 +566,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, transitionValues) == null) && isValidTarget(transitionValues.f1028view)) {
             Iterator<Transition> it = this.mTransitions.iterator();
@@ -556,6 +582,7 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
+    @NonNull
     public TransitionSet setDuration(long j) {
         InterceptResult invokeJ;
         ArrayList<Transition> arrayList;
@@ -575,7 +602,8 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public TransitionSet setInterpolator(TimeInterpolator timeInterpolator) {
+    @NonNull
+    public TransitionSet setInterpolator(@Nullable TimeInterpolator timeInterpolator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, timeInterpolator)) == null) {
@@ -592,6 +620,7 @@ public class TransitionSet extends Transition {
         return (TransitionSet) invokeL.objValue;
     }
 
+    @NonNull
     public TransitionSet setOrdering(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -625,6 +654,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void createAnimators(ViewGroup viewGroup, TransitionValuesMaps transitionValuesMaps, TransitionValuesMaps transitionValuesMaps2, ArrayList<TransitionValues> arrayList, ArrayList<TransitionValues> arrayList2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048593, this, viewGroup, transitionValuesMaps, transitionValuesMaps2, arrayList, arrayList2) == null) {
@@ -646,6 +676,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @NonNull
     public Transition excludeTarget(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -659,7 +690,8 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Transition excludeTarget(View view2, boolean z) {
+    @NonNull
+    public Transition excludeTarget(@NonNull View view2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048595, this, view2, z)) == null) {
@@ -672,7 +704,8 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Transition excludeTarget(Class<?> cls, boolean z) {
+    @NonNull
+    public Transition excludeTarget(@NonNull Class<?> cls, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048596, this, cls, z)) == null) {
@@ -685,7 +718,8 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Transition excludeTarget(String str, boolean z) {
+    @NonNull
+    public Transition excludeTarget(@NonNull String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, str, z)) == null) {
@@ -698,6 +732,7 @@ public class TransitionSet extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void runAnimators() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
@@ -735,7 +770,7 @@ public class TransitionSet extends Transition {
                         }
 
                         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                        public void onTransitionEnd(Transition transition) {
+                        public void onTransitionEnd(@NonNull Transition transition) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                                 this.val$nextTransition.runAnimators();

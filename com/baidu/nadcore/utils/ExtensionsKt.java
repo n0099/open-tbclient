@@ -1,0 +1,115 @@
+package com.baidu.nadcore.utils;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.net.Uri;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.Px;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.tieba.m31;
+import com.baidu.tieba.zi0;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Set;
+import kotlin.Metadata;
+import kotlin.Result;
+import kotlin.ResultKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.sequences.SequencesKt___SequencesKt;
+import org.json.JSONObject;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0010\b\n\u0002\b\u000e\u001a\u001c\u0010\u0002\u001a\u00028\u0000\"\n\b\u0000\u0010\u0001\u0018\u0001*\u00020\u0000H\u0086\b¢\u0006\u0004\b\u0002\u0010\u0003\u001a3\u0010\b\u001a\u0004\u0018\u00018\u0000\"\n\b\u0000\u0010\u0001\u0018\u0001*\u00020\u0004*\u00028\u00002\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005H\u0086\bø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u0011\u0010\f\u001a\u00020\u000b*\u00020\n¢\u0006\u0004\b\f\u0010\r\u001aG\u0010\u0015\u001a\u00020\u0012*\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\n2\u0014\b\u0004\u0010\u0013\u001a\u000e\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u00120\u00102\u000e\b\u0006\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00120\u0005H\u0086\bø\u0001\u0000¢\u0006\u0004\b\u0015\u0010\u0016\u001a\u0019\u0010\u0018\u001a\u00020\n*\u00020\u000b2\u0006\u0010\u0017\u001a\u00020\n¢\u0006\u0004\b\u0018\u0010\u0019\u001a!\u0010\u0018\u001a\u00020\n*\u00020\u000b2\u0006\u0010\u0017\u001a\u00020\n2\u0006\u0010\u001a\u001a\u00020\n¢\u0006\u0004\b\u0018\u0010\u001b\u001a\u001b\u0010\u001e\u001a\u00020\u001c*\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u000eH\u0007¢\u0006\u0004\b\u001e\u0010\u001f\u001a*\u0010 \u001a\u00020\u0012\"\n\b\u0000\u0010\u0001\u0018\u0001*\u00020\u0004*\u00028\u00002\b\u0010\u000f\u001a\u0004\u0018\u00010\nH\u0086\b¢\u0006\u0004\b \u0010!\u001a\u001d\u0010#\u001a\u00020\u001c*\u00020\n2\b\b\u0001\u0010\"\u001a\u00020\u001cH\u0007¢\u0006\u0004\b#\u0010$\"*\u0010&\u001a\u00020\u0006*\u00020\u00042\u0006\u0010%\u001a\u00020\u00068Æ\u0002@Æ\u0002X\u0086\u000e¢\u0006\f\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)\u0082\u0002\u0007\n\u0005\b\u009920\u0001¨\u0006*"}, d2 = {"", ExifInterface.GPS_DIRECTION_TRUE, "noOpDelegate", "()Ljava/lang/Object;", "Landroid/view/View;", "Lkotlin/Function0;", "", "predicate", "checkVisible", "(Landroid/view/View;Lkotlin/jvm/functions/Function0;)Landroid/view/View;", "", "Lorg/json/JSONObject;", "cmdToJsonObj", "(Ljava/lang/String;)Lorg/json/JSONObject;", "Landroid/content/Context;", "url", "Lkotlin/Function1;", "Landroid/graphics/drawable/Drawable;", "", "success", "loadFail", "loadDrawableFromUrl", "(Landroid/content/Context;Ljava/lang/String;Lkotlin/Function1;Lkotlin/Function0;)V", "key", "optStringCheckNonNull", "(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;", "fallback", "(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "", "context", "px", "(ILandroid/content/Context;)I", "setBgFromUrl", "(Landroid/view/View;Ljava/lang/String;)V", "defaultColor", "toColor", "(Ljava/lang/String;I)I", "value", "isVisible", "(Landroid/view/View;)Z", "setVisible", "(Landroid/view/View;Z)V", "nadcore-lib-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes2.dex */
+public final class ExtensionsKt {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static final JSONObject a(String cmdToJsonObj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cmdToJsonObj)) == null) {
+            Intrinsics.checkNotNullParameter(cmdToJsonObj, "$this$cmdToJsonObj");
+            JSONObject jSONObject = new JSONObject();
+            Uri uri = Uri.parse(cmdToJsonObj);
+            Intrinsics.checkNotNullExpressionValue(uri, "uri");
+            Set<String> queryParameterNames = uri.getQueryParameterNames();
+            Intrinsics.checkNotNullExpressionValue(queryParameterNames, "uri.queryParameterNames");
+            for (String str : SequencesKt___SequencesKt.filter(CollectionsKt___CollectionsKt.asSequence(queryParameterNames), new ExtensionsKt$cmdToJsonObj$1(cmdToJsonObj, uri))) {
+                String queryParameter = uri.getQueryParameter(str);
+                try {
+                    jSONObject.put(str, new JSONObject(queryParameter));
+                } catch (Exception unused) {
+                    jSONObject.put(str, queryParameter);
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static final String b(JSONObject optStringCheckNonNull, String key) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, optStringCheckNonNull, key)) == null) {
+            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
+            Intrinsics.checkNotNullParameter(key, "key");
+            return c(optStringCheckNonNull, key, "");
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Px
+    public static final int d(int i, Context context) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return m31.c.a(context, i);
+        }
+        return invokeIL.intValue;
+    }
+
+    public static final String c(JSONObject optStringCheckNonNull, String key, String fallback) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, optStringCheckNonNull, key, fallback)) == null) {
+            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(fallback, "fallback");
+            if (!optStringCheckNonNull.isNull(key)) {
+                String optString = optStringCheckNonNull.optString(key, fallback);
+                Intrinsics.checkNotNullExpressionValue(optString, "optString(key, fallback)");
+                return optString;
+            }
+            return fallback;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    @ColorInt
+    public static final int e(String toColor, @ColorRes int i) {
+        InterceptResult invokeLI;
+        Integer m698constructorimpl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, toColor, i)) == null) {
+            Intrinsics.checkNotNullParameter(toColor, "$this$toColor");
+            try {
+                Result.Companion companion = Result.Companion;
+                m698constructorimpl = Result.m698constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
+            } catch (Throwable th) {
+                Result.Companion companion2 = Result.Companion;
+                m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th));
+            }
+            Integer valueOf = Integer.valueOf(ContextCompat.getColor(zi0.b(), i));
+            if (Result.m704isFailureimpl(m698constructorimpl)) {
+                m698constructorimpl = valueOf;
+            }
+            return ((Number) m698constructorimpl).intValue();
+        }
+        return invokeLI.intValue;
+    }
+}

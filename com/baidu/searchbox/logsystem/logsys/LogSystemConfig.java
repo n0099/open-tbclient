@@ -1,6 +1,8 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.logsys.LogDiskStoreConfig;
@@ -14,26 +16,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LogSystemConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public Context mContext;
+    @NonNull
     public LogDiskStoreConfig mLogDiskStoreConfig;
+    @NonNull
     public LogUploadConfig mLogUploadConfig;
 
     /* renamed from: com.baidu.searchbox.logsystem.logsys.LogSystemConfig$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public Context mContext;
+        @Nullable
         public LogDiskStoreConfig mLogDiskStoreConfig;
+        @Nullable
         public LogUploadConfig mLogUploadConfig;
 
-        public Builder(Context context) {
+        public Builder(@NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +59,8 @@ public class LogSystemConfig {
             this.mContext = context;
         }
 
-        private Builder setLogDiskStoreConfig(LogDiskStoreConfig logDiskStoreConfig) {
+        @NonNull
+        private Builder setLogDiskStoreConfig(@Nullable LogDiskStoreConfig logDiskStoreConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, logDiskStoreConfig)) == null) {
@@ -61,7 +70,8 @@ public class LogSystemConfig {
             return (Builder) invokeL.objValue;
         }
 
-        private Builder setLogUploadNetworkConfig(LogUploadConfig logUploadConfig) {
+        @NonNull
+        private Builder setLogUploadNetworkConfig(@Nullable LogUploadConfig logUploadConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, logUploadConfig)) == null) {
@@ -71,6 +81,7 @@ public class LogSystemConfig {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public LogSystemConfig build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -81,7 +92,7 @@ public class LogSystemConfig {
         }
     }
 
-    public LogSystemConfig(Builder builder) {
+    public LogSystemConfig(@NonNull Builder builder) {
         LogDiskStoreConfig logDiskStoreConfig;
         LogUploadConfig logUploadConfig;
         Interceptable interceptable = $ic;
@@ -125,6 +136,7 @@ public class LogSystemConfig {
         }
     }
 
+    @NonNull
     public LogDiskStoreConfig getLogDiskStoreConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,6 +146,7 @@ public class LogSystemConfig {
         return (LogDiskStoreConfig) invokeV.objValue;
     }
 
+    @NonNull
     public LogUploadConfig getLogUploadNetworkConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +156,8 @@ public class LogSystemConfig {
         return (LogUploadConfig) invokeV.objValue;
     }
 
-    public static Builder newBuilder(Context context) {
+    @NonNull
+    public static Builder newBuilder(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {

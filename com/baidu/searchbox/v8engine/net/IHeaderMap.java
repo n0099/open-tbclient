@@ -7,7 +7,7 @@ public interface IHeaderMap {
 
     String getHeaderValue(String str);
 
-    Map getTransformedHeaderMap();
+    Map<String, String> getTransformedHeaderMap();
 
     boolean hasHeader(String str);
 

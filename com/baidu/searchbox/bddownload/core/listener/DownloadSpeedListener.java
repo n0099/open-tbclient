@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload.core.listener;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
@@ -20,7 +22,7 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
 
     /* renamed from: com.baidu.searchbox.bddownload.core.listener.DownloadSpeedListener$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -33,7 +35,7 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void infoReady(DownloadTask downloadTask, BreakpointInfo breakpointInfo, boolean z, DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+    public final void infoReady(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, breakpointInfo, Boolean.valueOf(z), listener4Model}) == null) {
         }
@@ -54,14 +56,14 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc, DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+    public final void taskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, downloadTask, endCause, exc, listener4Model) == null) {
         }
     }
 
     /* loaded from: classes2.dex */
-    public class Listener4WithSpeedModelCreator implements ListenerModelHandler.ModelCreator {
+    public static class Listener4WithSpeedModelCreator implements ListenerModelHandler.ModelCreator<ListenerSpeedAssistExtend.Listener4SpeedModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

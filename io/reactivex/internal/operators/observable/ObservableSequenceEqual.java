@@ -16,30 +16,30 @@ import io.reactivex.internal.disposables.ArrayCompositeDisposable;
 import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class ObservableSequenceEqual extends Observable {
+public final class ObservableSequenceEqual<T> extends Observable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
-    public final BiPredicate comparer;
-    public final ObservableSource first;
-    public final ObservableSource second;
+    public final BiPredicate<? super T, ? super T> comparer;
+    public final ObservableSource<? extends T> first;
+    public final ObservableSource<? extends T> second;
 
     /* loaded from: classes8.dex */
-    public final class EqualCoordinator extends AtomicInteger implements Disposable {
+    public static final class EqualCoordinator<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super Boolean> actual;
         public volatile boolean cancelled;
-        public final BiPredicate comparer;
-        public final ObservableSource first;
-        public final EqualObserver[] observers;
+        public final BiPredicate<? super T, ? super T> comparer;
+        public final ObservableSource<? extends T> first;
+        public final EqualObserver<T>[] observers;
         public final ArrayCompositeDisposable resources;
-        public final ObservableSource second;
-        public Object v1;
-        public Object v2;
+        public final ObservableSource<? extends T> second;
+        public T v1;
+        public T v2;
 
-        public EqualCoordinator(Observer observer, int i, ObservableSource observableSource, ObservableSource observableSource2, BiPredicate biPredicate) {
+        public EqualCoordinator(Observer<? super Boolean> observer, int i, ObservableSource<? extends T> observableSource, ObservableSource<? extends T> observableSource2, BiPredicate<? super T, ? super T> biPredicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,11 +59,11 @@ public final class ObservableSequenceEqual extends Observable {
             this.second = observableSource2;
             this.comparer = biPredicate;
             this.observers = r8;
-            EqualObserver[] equalObserverArr = {new EqualObserver(this, 0, i), new EqualObserver(this, 1, i)};
+            EqualObserver<T>[] equalObserverArr = {new EqualObserver<>(this, 0, i), new EqualObserver<>(this, 1, i)};
             this.resources = new ArrayCompositeDisposable(2);
         }
 
-        public void cancel(SpscLinkedArrayQueue spscLinkedArrayQueue, SpscLinkedArrayQueue spscLinkedArrayQueue2) {
+        public void cancel(SpscLinkedArrayQueue<T> spscLinkedArrayQueue, SpscLinkedArrayQueue<T> spscLinkedArrayQueue2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, spscLinkedArrayQueue, spscLinkedArrayQueue2) == null) {
                 this.cancelled = true;
@@ -88,13 +88,15 @@ public final class ObservableSequenceEqual extends Observable {
                 this.cancelled = true;
                 this.resources.dispose();
                 if (getAndIncrement() == 0) {
-                    EqualObserver[] equalObserverArr = this.observers;
+                    EqualObserver<T>[] equalObserverArr = this.observers;
                     equalObserverArr[0].queue.clear();
                     equalObserverArr[1].queue.clear();
                 }
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r11v1. Raw type applied. Possible types: T, ? super T */
+        /* JADX DEBUG: Type inference failed for r8v1. Raw type applied. Possible types: T, ? super T */
         public void drain() {
             boolean z;
             boolean z2;
@@ -104,11 +106,11 @@ public final class ObservableSequenceEqual extends Observable {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            EqualObserver[] equalObserverArr = this.observers;
-            EqualObserver equalObserver = equalObserverArr[0];
-            SpscLinkedArrayQueue spscLinkedArrayQueue = equalObserver.queue;
-            EqualObserver equalObserver2 = equalObserverArr[1];
-            SpscLinkedArrayQueue spscLinkedArrayQueue2 = equalObserver2.queue;
+            EqualObserver<T>[] equalObserverArr = this.observers;
+            EqualObserver<T> equalObserver = equalObserverArr[0];
+            SpscLinkedArrayQueue<T> spscLinkedArrayQueue = equalObserver.queue;
+            EqualObserver<T> equalObserver2 = equalObserverArr[1];
+            SpscLinkedArrayQueue<T> spscLinkedArrayQueue2 = equalObserver2.queue;
             int i = 1;
             while (!this.cancelled) {
                 boolean z3 = equalObserver.done;
@@ -151,7 +153,7 @@ public final class ObservableSequenceEqual extends Observable {
                 } else {
                     if (!z && !z2) {
                         try {
-                            if (!this.comparer.test(this.v1, this.v2)) {
+                            if (!this.comparer.test((T) this.v1, (T) this.v2)) {
                                 cancel(spscLinkedArrayQueue, spscLinkedArrayQueue2);
                                 this.actual.onNext(Boolean.FALSE);
                                 this.actual.onComplete();
@@ -191,7 +193,7 @@ public final class ObservableSequenceEqual extends Observable {
         public void subscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                EqualObserver[] equalObserverArr = this.observers;
+                EqualObserver<T>[] equalObserverArr = this.observers;
                 this.first.subscribe(equalObserverArr[0]);
                 this.second.subscribe(equalObserverArr[1]);
             }
@@ -199,16 +201,16 @@ public final class ObservableSequenceEqual extends Observable {
     }
 
     /* loaded from: classes8.dex */
-    public final class EqualObserver implements Observer {
+    public static final class EqualObserver<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public Throwable error;
         public final int index;
-        public final EqualCoordinator parent;
-        public final SpscLinkedArrayQueue queue;
+        public final EqualCoordinator<T> parent;
+        public final SpscLinkedArrayQueue<T> queue;
 
-        public EqualObserver(EqualCoordinator equalCoordinator, int i, int i2) {
+        public EqualObserver(EqualCoordinator<T> equalCoordinator, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,7 +227,7 @@ public final class ObservableSequenceEqual extends Observable {
             }
             this.parent = equalCoordinator;
             this.index = i;
-            this.queue = new SpscLinkedArrayQueue(i2);
+            this.queue = new SpscLinkedArrayQueue<>(i2);
         }
 
         @Override // io.reactivex.Observer
@@ -248,10 +250,10 @@ public final class ObservableSequenceEqual extends Observable {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.queue.offer(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.queue.offer(t);
                 this.parent.drain();
             }
         }
@@ -265,7 +267,7 @@ public final class ObservableSequenceEqual extends Observable {
         }
     }
 
-    public ObservableSequenceEqual(ObservableSource observableSource, ObservableSource observableSource2, BiPredicate biPredicate, int i) {
+    public ObservableSequenceEqual(ObservableSource<? extends T> observableSource, ObservableSource<? extends T> observableSource2, BiPredicate<? super T, ? super T> biPredicate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -287,7 +289,7 @@ public final class ObservableSequenceEqual extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Boolean> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             EqualCoordinator equalCoordinator = new EqualCoordinator(observer, this.bufferSize, this.first, this.second, this.comparer);

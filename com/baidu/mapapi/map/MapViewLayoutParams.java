@@ -29,7 +29,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public int f;
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -83,10 +83,10 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
                 if (eLayoutMode != ELayoutMode.mapMode ? eLayoutMode != ELayoutMode.absoluteMode || this.d != null : this.c != null) {
                     z = false;
                 }
-                if (z) {
-                    throw new IllegalStateException("BDMapSDKException: if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
+                if (!z) {
+                    return new MapViewLayoutParams(this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h);
                 }
-                return new MapViewLayoutParams(this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h);
+                throw new IllegalStateException("BDMapSDKException: if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
             }
             return (MapViewLayoutParams) invokeV.objValue;
         }
@@ -154,7 +154,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ELayoutMode {
+    public static final class ELayoutMode {
         public static final /* synthetic */ ELayoutMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ELayoutMode absoluteMode;
@@ -202,13 +202,19 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         public static ELayoutMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ELayoutMode) Enum.valueOf(ELayoutMode.class, str) : (ELayoutMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ELayoutMode) Enum.valueOf(ELayoutMode.class, str);
+            }
+            return (ELayoutMode) invokeL.objValue;
         }
 
         public static ELayoutMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ELayoutMode[]) $VALUES.clone() : (ELayoutMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ELayoutMode[]) $VALUES.clone();
+            }
+            return (ELayoutMode[]) invokeV.objValue;
         }
     }
 
@@ -234,19 +240,31 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         this.a = latLng;
         this.b = point;
         this.c = eLayoutMode;
-        if (i3 == 1) {
+        if (i3 != 1) {
+            if (i3 != 2) {
+                if (i3 != 4) {
+                    this.d = 0.5f;
+                } else {
+                    this.d = 0.5f;
+                }
+            } else {
+                this.d = 1.0f;
+            }
+        } else {
             this.d = 0.0f;
-        } else if (i3 != 2) {
-            this.d = 0.5f;
-        } else {
-            this.d = 1.0f;
         }
-        if (i4 == 8) {
-            this.e = 0.0f;
-        } else if (i4 == 16 || i4 != 32) {
-            this.e = 1.0f;
+        if (i4 != 8) {
+            if (i4 != 16) {
+                if (i4 != 32) {
+                    this.e = 1.0f;
+                } else {
+                    this.e = 0.5f;
+                }
+            } else {
+                this.e = 1.0f;
+            }
         } else {
-            this.e = 0.5f;
+            this.e = 0.0f;
         }
         this.f = i5;
     }

@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.drm;
 
+import android.annotation.TargetApi;
 import android.media.MediaCrypto;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public final class FrameworkMediaCrypto implements ExoMediaCrypto {
     public static /* synthetic */ Interceptable $ic;

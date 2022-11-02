@@ -1,5 +1,6 @@
 package com.baidu.searchbox.logsystem.logsys.eventscene;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EventObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final String mEventLog;
+    @NonNull
     public final LogType mEventType;
 
-    public EventObject(LogType logType, String str) {
+    public EventObject(@NonNull LogType logType, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

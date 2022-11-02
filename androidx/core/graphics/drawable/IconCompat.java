@@ -25,6 +25,14 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.util.Preconditions;
@@ -77,17 +85,25 @@ public class IconCompat extends CustomVersionedParcelable {
     public static final int TYPE_URI = 4;
     public static final int TYPE_URI_ADAPTIVE_BITMAP = 6;
     public transient /* synthetic */ FieldHolder $fh;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public byte[] mData;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mInt1;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mInt2;
     public Object mObj1;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Parcelable mParcelable;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public ColorStateList mTintList;
     public PorterDuff.Mode mTintMode;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public String mTintModeStr;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int mType;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface IconType {
     }
@@ -144,6 +160,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return invokeV.intValue;
     }
 
+    @NonNull
+    @RequiresApi(23)
     @Deprecated
     public Icon toIcon() {
         InterceptResult invokeV;
@@ -154,6 +172,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Icon) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public IconCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -177,6 +196,7 @@ public class IconCompat extends CustomVersionedParcelable {
         this.mTintModeStr = null;
     }
 
+    @IdRes
     public int getResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,7 +238,10 @@ public class IconCompat extends CustomVersionedParcelable {
         this.mType = i;
     }
 
-    public static IconCompat createFromIcon(Icon icon) {
+    @Nullable
+    @RequiresApi(23)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static IconCompat createFromIcon(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, icon)) == null) {
@@ -240,7 +263,10 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeL.objValue;
     }
 
-    public static int getResId(Icon icon) {
+    @DrawableRes
+    @IdRes
+    @RequiresApi(23)
+    public static int getResId(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, icon)) == null) {
@@ -263,7 +289,9 @@ public class IconCompat extends CustomVersionedParcelable {
         return invokeL.intValue;
     }
 
-    public static String getResPackage(Icon icon) {
+    @Nullable
+    @RequiresApi(23)
+    public static String getResPackage(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, icon)) == null) {
@@ -286,7 +314,9 @@ public class IconCompat extends CustomVersionedParcelable {
         return (String) invokeL.objValue;
     }
 
-    public static Uri getUri(Icon icon) {
+    @Nullable
+    @RequiresApi(23)
+    public static Uri getUri(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, icon)) == null) {
@@ -309,7 +339,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Uri) invokeL.objValue;
     }
 
-    public static IconCompat createFromBundle(Bundle bundle) {
+    @Nullable
+    public static IconCompat createFromBundle(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
@@ -347,7 +378,9 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeL.objValue;
     }
 
-    public static IconCompat createFromIcon(Context context, Icon icon) {
+    @Nullable
+    @RequiresApi(23)
+    public static IconCompat createFromIcon(@NonNull Context context, @NonNull Icon icon) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, icon)) == null) {
@@ -396,7 +429,10 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Resources) invokeLL.objValue;
     }
 
-    public static IconCompat createFromIconOrNullIfZeroResId(Icon icon) {
+    @Nullable
+    @RequiresApi(23)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static IconCompat createFromIconOrNullIfZeroResId(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, icon)) == null) {
@@ -422,7 +458,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeL.objValue;
     }
 
-    public static IconCompat createWithAdaptiveBitmapContentUri(Uri uri) {
+    @NonNull
+    public static IconCompat createWithAdaptiveBitmapContentUri(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
@@ -460,7 +497,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeL.objValue;
     }
 
-    public IconCompat setTint(int i) {
+    public IconCompat setTint(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
@@ -489,6 +526,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeL.objValue;
     }
 
+    @VisibleForTesting
     public static Bitmap createLegacyIconFromAdaptiveIcon(Bitmap bitmap, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -523,7 +561,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Bitmap) invokeLZ.objValue;
     }
 
-    public static IconCompat createWithAdaptiveBitmapContentUri(String str) {
+    @NonNull
+    public static IconCompat createWithAdaptiveBitmapContentUri(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
@@ -567,7 +606,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeLII.objValue;
     }
 
-    public static IconCompat createWithResource(Context context, int i) {
+    public static IconCompat createWithResource(Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, context, i)) == null) {
@@ -579,7 +618,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeLI.objValue;
     }
 
-    public static IconCompat createWithResource(Resources resources, String str, int i) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static IconCompat createWithResource(Resources resources, String str, @DrawableRes int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65552, null, resources, str, i)) == null) {
@@ -605,7 +645,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeLLI.objValue;
     }
 
-    public static int getType(Icon icon) {
+    @RequiresApi(23)
+    public static int getType(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, icon)) == null) {
@@ -652,7 +693,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return (InputStream) invokeL.objValue;
     }
 
-    public void checkResource(Context context) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void checkResource(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.mType == 2) {
             String str = (String) this.mObj1;
@@ -753,7 +795,9 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Drawable) invokeL.objValue;
     }
 
-    public Icon toIcon(Context context) {
+    @NonNull
+    @RequiresApi(23)
+    public Icon toIcon(@Nullable Context context) {
         InterceptResult invokeL;
         Icon createWithBitmap;
         Interceptable interceptable = $ic;
@@ -815,7 +859,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Icon) invokeL.objValue;
     }
 
-    public void addToShortcutIntent(Intent intent, Drawable drawable, Context context) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void addToShortcutIntent(@NonNull Intent intent, @Nullable Drawable drawable, @NonNull Context context) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, intent, drawable, context) == null) {
@@ -865,6 +910,8 @@ public class IconCompat extends CustomVersionedParcelable {
         }
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public Bitmap getBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -888,6 +935,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Bitmap) invokeV.objValue;
     }
 
+    @NonNull
     public String getResPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -903,6 +951,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -919,7 +968,8 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Uri) invokeV.objValue;
     }
 
-    public Drawable loadDrawable(Context context) {
+    @Nullable
+    public Drawable loadDrawable(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
@@ -1020,6 +1070,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Bundle) invokeV.objValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,6 +1,7 @@
 package androidx.constraintlayout.motion.widget;
 
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.motion.utils.Easing;
 import androidx.constraintlayout.widget.ConstraintAttribute;
 import androidx.constraintlayout.widget.ConstraintSet;
@@ -174,7 +175,7 @@ public class MotionPaths implements Comparable<MotionPaths> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(MotionPaths motionPaths) {
+    public int compareTo(@NonNull MotionPaths motionPaths) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionPaths)) == null) {

@@ -31,9 +31,9 @@ public class u2 implements h2 {
     public x2 f;
     public c1 g;
     public boolean h;
-    public final b7 i;
-    public final b7 j;
-    public final h8 k;
+    public final b7<Runnable> i;
+    public final b7<Runnable> j;
+    public final h8<h1> k;
     public int l;
     public d1 m;
     public volatile l3[] n;
@@ -122,7 +122,7 @@ public class u2 implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public b7 getExecutedRunnables() {
+    public b7<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -152,7 +152,7 @@ public class u2 implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public h8 getLifecycleListeners() {
+    public h8<h1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -162,7 +162,7 @@ public class u2 implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public b7 getRunnables() {
+    public b7<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -221,9 +221,9 @@ public class u2 implements h2 {
             }
         }
         this.h = true;
-        this.i = new b7();
-        this.j = new b7();
-        this.k = new h8(h1.class);
+        this.i = new b7<>();
+        this.j = new b7<>();
+        this.k = new h8<>(h1.class);
         this.l = 2;
         this.n = null;
         this.a = androidLiveWallpaperService;

@@ -52,7 +52,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     public void startBenchmark() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092152);
             int i = this.mBenchmarkWhich;
             if (i == 1) {
                 benchmarkInflate(textView);
@@ -65,7 +65,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onNothingSelected(AdapterView adapterView) {
+    public void onNothingSelected(AdapterView<?> adapterView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapterView) == null) {
             this.mBenchmarkWhich = 1;
@@ -101,7 +101,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
             super.onCreate(bundle);
             setContentView(R.layout.activity_benchmark);
             updatePreview();
-            ((Button) findViewById(R.id.obfuscated_res_0x7f090424)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090431)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DebugCriusBenchmarkActivity this$0;
@@ -190,7 +190,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     private void updatePreview() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c69);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cb1);
             View inflate = LayoutInflater.from(this).inflate(R.layout.benchmark_flatten_layout, (ViewGroup) linearLayout, false);
             inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
             linearLayout.removeAllViews();
@@ -199,7 +199,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView adapterView, View view2, int i, long j) {
+    public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (i != 0) {

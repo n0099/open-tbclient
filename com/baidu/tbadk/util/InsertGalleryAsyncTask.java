@@ -16,10 +16,10 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.zb;
+import com.baidu.tieba.si;
+import com.baidu.tieba.vg;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import java.net.SocketException;
 import java.net.URL;
 import java.util.UUID;
 /* loaded from: classes3.dex */
-public class InsertGalleryAsyncTask extends BdAsyncTask {
+public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_ANNIVERSARY = 3;
     public static final int FROM_DEFAULT = 0;
@@ -57,7 +57,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask {
     public String url;
 
     /* loaded from: classes3.dex */
-    public abstract class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -151,8 +151,8 @@ public class InsertGalleryAsyncTask extends BdAsyncTask {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i)) == null) {
-            int b2 = zb.d().b().b();
-            int b3 = zb.d().c().b();
+            int b2 = yb.d().b().b();
+            int b3 = yb.d().c().b();
             boolean z = false;
             for (int i2 = 0; i2 < i; i2++) {
                 try {
@@ -307,7 +307,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            aj.k(str);
+            si.k(str);
             return new File(str);
         }
         return (File) invokeL.objValue;
@@ -484,7 +484,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask {
                         responseCode = httpURLConnection.getResponseCode();
                         if (responseCode == 302) {
                             String headerField = httpURLConnection.getHeaderField("Location");
-                            dh.f(httpURLConnection);
+                            vg.f(httpURLConnection);
                             try {
                                 if (this.imageFile != null) {
                                     this.imageFile.delete();
@@ -507,7 +507,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask {
                             if (!this.imageFile.exists()) {
                                 this.imageFile.createNewFile();
                             }
-                            dh.d(fileOutputStream);
+                            vg.d(fileOutputStream);
                             FileOutputStream fileOutputStream2 = new FileOutputStream(this.imageFile, true);
                             try {
                                 httpURLConnection = getConnect(new URL(headerField), i, i2);
@@ -534,7 +534,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask {
             if (responseCode == 200) {
                 String headerField2 = httpURLConnection.getHeaderField("Content-Length");
                 if (headerField2 != null) {
-                    i3 = eh.e(headerField2, 0);
+                    i3 = wg.e(headerField2, 0);
                 } else {
                     i3 = 0;
                 }
@@ -552,25 +552,25 @@ public class InsertGalleryAsyncTask extends BdAsyncTask {
                         } else {
                             try {
                                 fileOutputStream.flush();
-                                dh.c(inputStream);
-                                dh.f(httpURLConnection);
-                                dh.d(fileOutputStream);
+                                vg.c(inputStream);
+                                vg.f(httpURLConnection);
+                                vg.d(fileOutputStream);
                                 return true;
                             } catch (Exception unused3) {
                                 throw new FileNotFoundException();
                             }
                         }
                         th = th2;
-                        dh.c(inputStream);
-                        dh.f(httpURLConnection);
-                        dh.d(fileOutputStream);
+                        vg.c(inputStream);
+                        vg.f(httpURLConnection);
+                        vg.d(fileOutputStream);
                         throw th;
                     }
                 }
             }
-            dh.c(null);
-            dh.f(httpURLConnection);
-            dh.d(fileOutputStream);
+            vg.c(null);
+            vg.f(httpURLConnection);
+            vg.d(fileOutputStream);
             return false;
         }
         return invokeLLII.booleanValue;
@@ -601,18 +601,18 @@ public class InsertGalleryAsyncTask extends BdAsyncTask {
             try {
                 fileOutputStream.write(decode);
                 fileOutputStream.flush();
-                dh.d(fileOutputStream);
+                vg.d(fileOutputStream);
                 return true;
             } catch (Exception e2) {
                 e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
-                dh.d(fileOutputStream2);
+                vg.d(fileOutputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                dh.d(fileOutputStream2);
+                vg.d(fileOutputStream2);
                 throw th;
             }
         }

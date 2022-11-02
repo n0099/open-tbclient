@@ -45,7 +45,7 @@ public class f extends com.sdk.i.a {
         }
     }
 
-    public static a a(Context context, ArrayList arrayList) {
+    public static a a(Context context, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, arrayList)) == null) {
@@ -57,7 +57,7 @@ public class f extends com.sdk.i.a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public abstract class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -105,7 +105,7 @@ public class f extends com.sdk.i.a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public abstract class b {
+    public static abstract class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public static final b b;

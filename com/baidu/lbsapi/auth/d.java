@@ -33,7 +33,7 @@ public class d implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        HashMap hashMap;
+        HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a.a("postWithHttps start Thread id = " + String.valueOf(Thread.currentThread().getId()));

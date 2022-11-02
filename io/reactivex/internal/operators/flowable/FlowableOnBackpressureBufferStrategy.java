@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowableWithUpstream {
+public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long bufferSize;
@@ -33,7 +33,7 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
 
     /* renamed from: io.reactivex.internal.operators.flowable.FlowableOnBackpressureBufferStrategy$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureOverflowStrategy;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,14 +65,14 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
     }
 
     /* loaded from: classes8.dex */
-    public final class OnBackpressureBufferStrategySubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3240706908776709697L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public final long bufferSize;
         public volatile boolean cancelled;
-        public final Deque deque;
+        public final Deque<T> deque;
         public volatile boolean done;
         public Throwable error;
         public final Action onOverflow;
@@ -80,7 +80,7 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
         public Subscription s;
         public final BackpressureOverflowStrategy strategy;
 
-        public OnBackpressureBufferStrategySubscriber(Subscriber subscriber, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
+        public OnBackpressureBufferStrategySubscriber(Subscriber<? super T> subscriber, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
             }
         }
 
-        public void clear(Deque deque) {
+        public void clear(Deque<T> deque) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, deque) == null) {
                 synchronized (deque) {
@@ -169,14 +169,14 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
         public void drain() {
             int i;
             boolean isEmpty;
-            Object poll;
+            T poll;
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Deque deque = this.deque;
-            Subscriber subscriber = this.actual;
+            Deque<T> deque = this.deque;
+            Subscriber<? super T> subscriber = this.actual;
             int i2 = 1;
             do {
                 long j = this.requested.get();
@@ -245,14 +245,14 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             boolean z;
             boolean z2;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048581, this, t) != null) || this.done) {
                 return;
             }
-            Deque deque = this.deque;
+            Deque<T> deque = this.deque;
             synchronized (deque) {
                 z = false;
                 z2 = true;
@@ -261,15 +261,15 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
                     if (i != 1) {
                         if (i == 2) {
                             deque.poll();
-                            deque.offer(obj);
+                            deque.offer(t);
                         }
                     } else {
                         deque.pollLast();
-                        deque.offer(obj);
+                        deque.offer(t);
                     }
                     z = true;
                 } else {
-                    deque.offer(obj);
+                    deque.offer(t);
                 }
                 z2 = false;
             }
@@ -294,7 +294,7 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureBufferStrategy(Flowable flowable, long j, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy) {
+    public FlowableOnBackpressureBufferStrategy(Flowable<T> flowable, long j, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -317,7 +317,7 @@ public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowable
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new OnBackpressureBufferStrategySubscriber(subscriber, this.onOverflow, this.strategy, this.bufferSize));

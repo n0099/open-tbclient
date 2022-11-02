@@ -1,18 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.nadcore.webview.container.base.AbsContainer;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public interface t41 {
-    public static final a a = u41.a;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
+/* loaded from: classes6.dex */
+public class t41 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        AbsContainer a(z41 z41Var, a51 a51Var, int i);
+    @NonNull
+    @Inject(force = false)
+    public static r41 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return r41.a;
+        }
+        return (r41) invokeV.objValue;
+    }
 
-        boolean b(HashMap hashMap, int i);
-
-        void c(Context context, boolean z, int i);
+    @NonNull
+    @Inject(force = false)
+    public static s41 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return s41.a;
+        }
+        return (s41) invokeV.objValue;
     }
 }

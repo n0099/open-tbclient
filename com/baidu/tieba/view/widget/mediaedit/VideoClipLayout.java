@@ -7,17 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.oo5;
+import com.baidu.tieba.np5;
 import com.baidu.tieba.view.widget.mediaedit.RangeSlider;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +50,7 @@ public class VideoClipLayout extends FrameLayout {
     public RangeSlider c;
     public VideoClipAdapter d;
     public CustomLinearLayoutManager e;
-    public List f;
+    public List<MultiMediaData> f;
     public double g;
     public double h;
     public double i;
@@ -62,6 +65,7 @@ public class VideoClipLayout extends FrameLayout {
     public double r;
     public double s;
     public long t;
+    @IntRange(from = 0, to = 2)
     public int u;
     public boolean v;
     public double w;
@@ -446,7 +450,7 @@ public class VideoClipLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public VideoClipLayout(Context context) {
+    public VideoClipLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -505,7 +509,7 @@ public class VideoClipLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public VideoClipLayout(Context context, AttributeSet attributeSet) {
+    public VideoClipLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -531,7 +535,7 @@ public class VideoClipLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoClipLayout(Context context, AttributeSet attributeSet, int i) {
+    public VideoClipLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -577,7 +581,7 @@ public class VideoClipLayout extends FrameLayout {
     public final void G(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, oo5.VideoClipLayout);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, np5.VideoClipLayout);
             this.u = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
         }
@@ -650,9 +654,9 @@ public class VideoClipLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            List list = this.f;
+            List<MultiMediaData> list = this.f;
             if (list != null && list.size() > 0 && this.c != null) {
-                return (float) (((this.i * ((((float) ((MultiMediaData) this.f.get(0)).start) / ((MultiMediaData) this.f.get(0)).mSpeed) / 1000.0f)) + this.g) - this.c.getThumbWidth());
+                return (float) (((this.i * ((((float) this.f.get(0).start) / this.f.get(0).mSpeed) / 1000.0f)) + this.g) - this.c.getThumbWidth());
             }
             return 0.0f;
         }
@@ -662,9 +666,9 @@ public class VideoClipLayout extends FrameLayout {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08af, (ViewGroup) null);
-            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f09244e);
-            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f09244d);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c3, (ViewGroup) null);
+            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0924a3);
+            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f0924a2);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.e = customLinearLayoutManager;
@@ -754,10 +758,10 @@ public class VideoClipLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            List list = this.f;
+            List<MultiMediaData> list = this.f;
             if (list != null && list.size() > 0) {
-                long j = ((float) ((MultiMediaData) this.f.get(0)).start) / ((MultiMediaData) this.f.get(0)).mSpeed;
-                long j2 = ((float) ((MultiMediaData) this.f.get(0)).end) / ((MultiMediaData) this.f.get(0)).mSpeed;
+                long j = ((float) this.f.get(0).start) / this.f.get(0).mSpeed;
+                long j2 = ((float) this.f.get(0).end) / this.f.get(0).mSpeed;
                 if (j > 0 && j + (I * 1000.0d) >= j2) {
                     return (float) ((this.i * (((float) j2) / 1000.0f)) + this.g);
                 }
@@ -779,10 +783,10 @@ public class VideoClipLayout extends FrameLayout {
         double d3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            List list = this.f;
+            List<MultiMediaData> list = this.f;
             if (list != null && list.size() > 0) {
-                long j = ((float) ((MultiMediaData) this.f.get(0)).start) / ((MultiMediaData) this.f.get(0)).mSpeed;
-                long j2 = ((float) ((MultiMediaData) this.f.get(0)).end) / ((MultiMediaData) this.f.get(0)).mSpeed;
+                long j = ((float) this.f.get(0).start) / this.f.get(0).mSpeed;
+                long j2 = ((float) this.f.get(0).end) / this.f.get(0).mSpeed;
                 if (j > 0) {
                     if (j2 > I * 1000.0d) {
                         return (float) ((this.i * ((long) (d2 - (d3 * 1000.0d)))) / 1000.0d);
@@ -978,9 +982,9 @@ public class VideoClipLayout extends FrameLayout {
             this.g = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
             this.n = UtilHelper.getDimenPixelSize(R.dimen.tbds130);
             this.m = UtilHelper.getDimenPixelSize(R.dimen.tbds89);
-            double k = ((fj.k(getContext()) - UtilHelper.getDimenPixelSize(R.dimen.tbds187)) - this.g) - (UtilHelper.getDimenPixelSize(R.dimen.tbds31) * 2);
-            this.h = k;
-            double d3 = k / I;
+            double l = ((xi.l(getContext()) - UtilHelper.getDimenPixelSize(R.dimen.tbds187)) - this.g) - (UtilHelper.getDimenPixelSize(R.dimen.tbds31) * 2);
+            this.h = l;
+            double d3 = l / I;
             this.i = d3;
             this.j = (int) Math.ceil(d3 * getMinDuration());
             double d4 = this.i;
@@ -1029,9 +1033,9 @@ public class VideoClipLayout extends FrameLayout {
             }
             this.z = i;
             if (L()) {
-                List list = this.f;
+                List<MultiMediaData> list = this.f;
                 if (list != null && list.size() == 1) {
-                    int i3 = (int) ((MultiMediaData) this.f.get(0)).originalDuration;
+                    int i3 = (int) this.f.get(0).originalDuration;
                     if (i2 >= i3) {
                         i2 = i3;
                     }
@@ -1058,7 +1062,7 @@ public class VideoClipLayout extends FrameLayout {
         }
     }
 
-    public void setLocalAlbumInfoData(VlogEditManager vlogEditManager, List list, boolean z) {
+    public void setLocalAlbumInfoData(VlogEditManager vlogEditManager, List<MultiMediaData> list, boolean z) {
         VideoClipAdapter videoClipAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048596, this, vlogEditManager, list, z) == null) {
@@ -1067,11 +1071,11 @@ public class VideoClipLayout extends FrameLayout {
             if (list != null) {
                 if (L()) {
                     if (this.f.size() >= 1) {
-                        this.t = ((float) ((MultiMediaData) this.f.get(0)).originalDuration) / ((MultiMediaData) this.f.get(0)).getCurrentSpeed();
+                        this.t = ((float) this.f.get(0).originalDuration) / this.f.get(0).getCurrentSpeed();
                     }
                 } else {
                     for (int i = 0; i < this.f.size(); i++) {
-                        this.t += ((float) ((MultiMediaData) this.f.get(i)).originalDuration) / ((MultiMediaData) this.f.get(i)).getCurrentSpeed();
+                        this.t += ((float) this.f.get(i).originalDuration) / this.f.get(i).getCurrentSpeed();
                     }
                 }
             }

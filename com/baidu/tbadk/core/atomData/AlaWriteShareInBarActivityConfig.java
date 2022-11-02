@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ public class AlaWriteShareInBarActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaWriteShareInBarActivityConfig(Context context, ArrayList arrayList, String str, String str2) {
+    public AlaWriteShareInBarActivityConfig(Context context, ArrayList<TransmitForumData> arrayList, String str, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -22,7 +22,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-    public static List b;
+    public static List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

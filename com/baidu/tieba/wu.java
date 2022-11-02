@@ -1,35 +1,41 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.bdtask.ctrl.SubTaskState;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wu implements us {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wu {
+    @CallSuper
+    void a(SubTaskState subTaskState);
 
-    @Override // com.baidu.tieba.us
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+    boolean b(TaskInfo taskInfo, int i);
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static boolean b(wu wuVar, TaskInfo taskInfo, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, wuVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
         }
-        return invokeV.booleanValue;
-    }
 
-    public wu() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        public static void a(wu wuVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(65536, null, wuVar, subTaskState) == null) && !wuVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
+                wuVar.a(subTaskState);
+            }
+        }
+
+        @CallSuper
+        public static void c(wu wuVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65538, null, wuVar, subTaskState) == null) {
+                zu.c.b(subTaskState);
             }
         }
     }

@@ -1,17 +1,74 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ij {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap a;
+    public static int a;
+    public static jj b;
+    public static String c;
+    public static kj d;
+    public static Handler e;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                int i = message.what;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 6) {
+                            if (ij.d != null) {
+                                ij.d.error(message.what, pj.a(R.string.voice_err_play));
+                            }
+                        } else {
+                            if (ij.d != null) {
+                                ij.d.d(message.arg1);
+                            }
+                            return true;
+                        }
+                    } else if (ij.d != null) {
+                        ij.d.error(message.what, pj.a(R.string.voice_err_no_file));
+                    }
+                } else if (ij.d != null) {
+                    ij.d.c(ij.c, message.arg1);
+                }
+                int unused = ij.a = 0;
+                kj unused2 = ij.d = null;
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -26,38 +83,41 @@ public class ij {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("java.lang.String", "java.lang.String");
-        a.put("java.lang.Integer", "java.lang.Integer");
-        a.put("java.lang.Double", "java.lang.Double");
-        a.put("java.lang.Float", "java.lang.Float");
-        a.put("java.lang.Boolean", "java.lang.Boolean");
-        a.put("java.lang.Character", "java.lang.Character");
-        a.put("java.lang.Short", "java.lang.Short");
-        a.put("java.lang.Long", "java.lang.Long");
-        a.put("java.lang.Byte", "java.lang.Byte");
-        a.put("java.util.Date", "java.util.Date");
-        a.put("java.lang.Integer", "java.lang.Integer");
-        a.put("java.lang.Integer", "java.lang.Integer");
+        e = new Handler(new a());
     }
 
-    public static Object a(Object obj, Field field) {
-        InterceptResult invokeLL;
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, field)) == null) {
-            Object obj2 = null;
-            if (obj != null && field != null) {
-                boolean isAccessible = field.isAccessible();
-                field.setAccessible(true);
-                try {
-                    obj2 = field.get(obj);
-                } catch (Throwable unused) {
-                }
-                field.setAccessible(isAccessible);
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            jj jjVar = b;
+            if (jjVar != null) {
+                jjVar.l();
+            } else {
+                a = 0;
             }
-            return obj2;
         }
-        return invokeLL.objValue;
+    }
+
+    public static boolean e(String str, kj kjVar, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, kjVar, i)) == null) {
+            if (a == 0) {
+                jj jjVar = b;
+                if (jjVar == null) {
+                    b = new jj(e, i);
+                } else {
+                    jjVar.k(i);
+                }
+                c = str;
+                d = kjVar;
+                b.j(str);
+                a = 2;
+                new Thread(b).start();
+                return true;
+            }
+            return false;
+        }
+        return invokeLLI.booleanValue;
     }
 }

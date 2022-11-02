@@ -9,6 +9,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleableRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -18,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TintTypedArray {
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +59,8 @@ public class TintTypedArray {
         return (TintTypedArray) invokeLIL.objValue;
     }
 
-    public Typeface getFont(int i, int i2, ResourcesCompat.FontCallback fontCallback) {
+    @Nullable
+    public Typeface getFont(@StyleableRes int i, int i2, @Nullable ResourcesCompat.FontCallback fontCallback) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048586, this, i, i2, fontCallback)) == null) {
@@ -187,6 +193,7 @@ public class TintTypedArray {
         return invokeIL.booleanValue;
     }
 
+    @RequiresApi(21)
     public int getChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

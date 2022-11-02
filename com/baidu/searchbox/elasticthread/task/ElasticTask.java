@@ -35,7 +35,7 @@ public class ElasticTask implements Runnable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class Status {
+    public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status COMPLETE;

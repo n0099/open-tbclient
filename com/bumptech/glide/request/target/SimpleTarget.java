@@ -1,5 +1,6 @@
 package com.bumptech.glide.request.target;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Util;
 @Deprecated
 /* loaded from: classes7.dex */
-public abstract class SimpleTarget extends BaseTarget {
+public abstract class SimpleTarget<Z> extends BaseTarget<Z> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int height;
     public final int width;
 
     @Override // com.bumptech.glide.request.target.Target
-    public void removeCallback(SizeReadyCallback sizeReadyCallback) {
+    public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sizeReadyCallback) == null) {
         }
@@ -60,7 +61,7 @@ public abstract class SimpleTarget extends BaseTarget {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public final void getSize(SizeReadyCallback sizeReadyCallback) {
+    public final void getSize(@NonNull SizeReadyCallback sizeReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sizeReadyCallback) == null) {
             if (Util.isValidDimensions(this.width, this.height)) {

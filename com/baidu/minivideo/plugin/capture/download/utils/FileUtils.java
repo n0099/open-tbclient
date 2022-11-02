@@ -2,6 +2,7 @@ package com.baidu.minivideo.plugin.capture.download.utils;
 
 import android.content.Context;
 import android.os.Environment;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -59,7 +60,7 @@ public class FileUtils {
         return (String) invokeL.objValue;
     }
 
-    public static final String getPrefix(String str) {
+    public static final String getPrefix(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
@@ -68,7 +69,7 @@ public class FileUtils {
         return (String) invokeL.objValue;
     }
 
-    public static final String getSuffix(String str) {
+    public static final String getSuffix(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {

@@ -15,6 +15,7 @@ public @interface SchedulerSupport {
     public static final String IO = "io.reactivex:io";
     public static final String NEW_THREAD = "io.reactivex:new-thread";
     public static final String NONE = "none";
+    @Experimental
     public static final String SINGLE = "io.reactivex:single";
     public static final String TRAMPOLINE = "io.reactivex:trampoline";
 

@@ -1,145 +1,124 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class i64 {
+public final class i64 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<f64> a;
+    public static ArrayList<Integer> b;
+    public static final i64 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public String backgroundColor;
-    @V8JavascriptField
-    public String borderColor;
-    @V8JavascriptField
-    public double borderRadius;
-    @V8JavascriptField
-    public int borderWidth;
-    @V8JavascriptField
-    public String color;
-    @V8JavascriptField
-    public double fontSize;
-    @V8JavascriptField
-    public String fontWeight;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public boolean hidden;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int lineHeight;
-    @V8JavascriptField
-    public double opacity;
-    @V8JavascriptField
-    public String textAlign;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void r();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805442, "Lcom/baidu/tieba/i64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947805442, "Lcom/baidu/tieba/i64;");
+                return;
+            }
+        }
+        c = new i64();
+        a = new ArrayList<>();
+        b = new ArrayList<>();
     }
 
-    public i64(tv1 tv1Var) {
+    public i64() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.fontSize = 16.0d;
-        this.opacity = 1.0d;
-        a(tv1Var);
     }
 
-    public static int c(int i) {
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Iterator<f64> it = a.iterator();
+            while (it.hasNext()) {
+                it.next().close();
+            }
+        }
+    }
+
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || b.contains(Integer.valueOf(i))) {
+            return;
+        }
+        b.add(Integer.valueOf(i));
+    }
+
+    public final f64 b(JSRuntime jsRuntime) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
+            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+            f64 f64Var = new f64(jsRuntime);
+            a.add(f64Var);
+            return f64Var;
+        }
+        return (f64) invokeL.objValue;
+    }
+
+    public final boolean c(f64 socket) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = (16711680 & i) >> 16;
-            int i3 = (65280 & i) >> 8;
-            int i4 = i & 255;
-            float f = (((-16777216) & i) >>> 24) / 255.0f;
-            if (f > 0.0f) {
-                return Color.argb(255, (int) ((i2 * f) + 0.5d), (int) ((i3 * f) + 0.5d), (int) ((i4 * f) + 0.5d));
-            }
-            return i;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return b.contains(Integer.valueOf(i));
         }
-        return invokeI.intValue;
+        return invokeI.booleanValue;
     }
 
-    public final void a(tv1 tv1Var) {
+    public final void e(f64 socket) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tv1Var) == null) {
-            this.left = tv1Var.r("left", this.left);
-            this.top = tv1Var.r("top", this.top);
-            this.width = tv1Var.r("width", this.width);
-            this.height = tv1Var.r("height", this.height);
-            this.backgroundColor = tv1Var.C(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
-            this.borderColor = tv1Var.C("borderColor", this.borderColor);
-            this.borderRadius = tv1Var.n("borderRadius", this.borderRadius);
-            this.borderWidth = tv1Var.r("borderWidth", this.borderWidth);
-            this.fontSize = tv1Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
-            this.lineHeight = tv1Var.r("lineHeight", this.lineHeight);
-            this.textAlign = tv1Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
-            this.fontWeight = tv1Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
-            this.hidden = tv1Var.m("hidden", this.hidden);
-            this.opacity = tv1Var.n(NativeConstants.OPACITY, this.opacity);
-            this.color = tv1Var.C("color", this.color);
-            if (wj1.a) {
-                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
+        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                g(socket.A());
+                a.remove(socket);
             }
         }
     }
 
-    public void b(a aVar) {
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            b.remove(Integer.valueOf(i));
         }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (wj1.a) {
-                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
-            }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.r();
-            }
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
-        }
-        return (String) invokeV.objValue;
     }
 }

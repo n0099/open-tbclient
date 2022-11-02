@@ -1,5 +1,5 @@
 package org.aspectj.lang.reflect;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface Pointcut {
     AjType getDeclaringType();
 
@@ -9,7 +9,7 @@ public interface Pointcut {
 
     String[] getParameterNames();
 
-    AjType[] getParameterTypes();
+    AjType<?>[] getParameterTypes();
 
     PointcutExpression getPointcutExpression();
 }

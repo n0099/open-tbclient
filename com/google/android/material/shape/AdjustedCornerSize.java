@@ -1,6 +1,8 @@
 package com.google.android.material.shape;
 
 import android.graphics.RectF;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class AdjustedCornerSize implements CornerSize {
     public static /* synthetic */ Interceptable $ic;
@@ -15,7 +18,7 @@ public final class AdjustedCornerSize implements CornerSize {
     public final float adjustment;
     public final CornerSize other;
 
-    public AdjustedCornerSize(float f, CornerSize cornerSize) {
+    public AdjustedCornerSize(float f, @NonNull CornerSize cornerSize) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +61,7 @@ public final class AdjustedCornerSize implements CornerSize {
     }
 
     @Override // com.google.android.material.shape.CornerSize
-    public float getCornerSize(RectF rectF) {
+    public float getCornerSize(@NonNull RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rectF)) == null) {

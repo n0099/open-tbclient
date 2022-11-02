@@ -17,7 +17,7 @@ public final class PsshAtomUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class PsshAtom {
+    public static class PsshAtom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] schemeData;

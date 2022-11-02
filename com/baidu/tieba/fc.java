@@ -1,69 +1,56 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import com.baidu.adp.gif.NSGif;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fc {
+public class fc implements cc {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448304272, "Lcom/baidu/tieba/fc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448304272, "Lcom/baidu/tieba/fc;");
-                return;
-            }
-        }
-        a = new String[]{"ZTE-T U880", "U880"};
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
+    public fc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT > 7) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cc
+    public hn a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b(hj.g()) && a() && NSGif.f) {
-                return true;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            NSGif f = NSGif.f(bArr, i, i2);
+            if (f == null) {
+                return null;
             }
-            return false;
+            return new hn(f);
         }
-        return invokeV.booleanValue;
+        return (hn) invokeLII.objValue;
     }
 
-    public static boolean b(String str) {
+    @Override // com.baidu.tieba.cc
+    public hn get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (String str2 : a) {
-                if (str2.equals(str)) {
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            NSGif e = NSGif.e(str);
+            if (e == null) {
+                return null;
             }
-            return true;
+            return new hn(e);
         }
-        return invokeL.booleanValue;
+        return (hn) invokeL.objValue;
     }
 }

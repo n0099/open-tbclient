@@ -1,195 +1,347 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.fluency.utils.FpsConstants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class zd5 extends xd5 {
+public class zd5 {
     public static /* synthetic */ Interceptable $ic;
+    public static zd5 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public boolean c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948356126, "Lcom/baidu/tieba/zd5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948356126, "Lcom/baidu/tieba/zd5;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends wd5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.wd5
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 6;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.wd5
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public a(zd5 zd5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zd5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends wd5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zd5 b;
+
+        @Override // com.baidu.tieba.wd5
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public b(zd5 zd5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zd5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zd5Var;
+        }
+
+        @Override // com.baidu.tieba.wd5
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b.b;
+            }
+            return invokeV.intValue;
+        }
+    }
 
     public zd5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void b(vd5 vd5Var) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, vd5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        mh a = xd5.a();
-        a.b("action", "time");
-        String str2 = "0";
-        if (!vd5Var.s) {
-            str = "0";
-        } else {
-            str = "1";
-        }
-        a.b("ishttp", str);
-        if (vd5Var.b) {
-            str2 = "1";
-        }
-        a.b("issuccess", str2);
-        a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-        a.b("wt", String.valueOf(vd5Var.p));
-        a.b("qt", String.valueOf(vd5Var.f));
-        a.b("connt", String.valueOf(vd5Var.g));
-        a.b("rwt", String.valueOf(vd5Var.h));
-        a.b("fbt", String.valueOf(vd5Var.i));
-        a.b("abt", String.valueOf(vd5Var.j));
-        a.b("dect", String.valueOf(vd5Var.k));
-        a.b("parset", String.valueOf(vd5Var.l));
-        a.b("tqt", String.valueOf(vd5Var.n));
-        a.b("rendert", String.valueOf(vd5Var.o));
-        a.b("ss", String.valueOf(vd5Var.q));
-        a.b("hs", String.valueOf(vd5Var.r));
-        if (vd5Var.s && (i = vd5Var.t) != 0) {
-            a.b("salno", String.valueOf(i));
-            long j = vd5Var.u;
-            if (j != 0) {
-                a.b("scosttime", String.valueOf(j));
-            }
-        }
-        if (vd5Var.s) {
-            a.b("hrtn", String.valueOf(vd5Var.w));
-            a.b("hrtt", String.valueOf(vd5Var.x));
-        }
-        int i2 = vd5Var.v;
-        if (i2 != 0) {
-            a.c("errcode", Integer.valueOf(i2));
-        }
-        if (vd5Var.y) {
-            a.b(Config.PLATFORM_TYPE, "1");
-        } else {
-            a.b("sysct", String.valueOf(vd5Var.c));
-            a.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(vd5Var.e));
-            a.b(WebvttCueParser.ENTITY_LESS_THAN, String.valueOf(vd5Var.d));
-            a.b("df", String.valueOf(vd5Var.m));
-        }
-        if (vd5Var.s) {
-            a.b("c_logid", String.valueOf(vd5Var.A));
-            long j2 = vd5Var.z;
-            if (j2 != 0) {
-                a.b("seq_id", String.valueOf(j2 & 4294967295L));
-            }
-        } else {
-            a.b("seq_id", String.valueOf(vd5Var.z & 4294967295L));
-        }
-        HashMap hashMap = vd5Var.E;
-        if (hashMap != null && !hashMap.isEmpty()) {
-            for (Map.Entry entry : vd5Var.E.entrySet()) {
-                a.b((String) entry.getKey(), (String) entry.getValue());
-            }
-        }
-        BdStatisticsManager.getInstance().performance(this.a, a);
-    }
-
-    public void c(vd5 vd5Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vd5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || vd5Var.D <= 0) {
-            return;
-        }
-        mh a = xd5.a();
-        a.b("action", "time");
-        a.b("pct", String.valueOf(vd5Var.D));
-        if (i != 0) {
-            if (i != 40) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            a.b("pct_type", String.valueOf(101));
-        } else {
-            a.b("pct_type", String.valueOf(100));
         }
-        BdStatisticsManager.getInstance().performance(this.a, a);
+        this.a = false;
+        this.c = false;
     }
 
-    public void d(vd5 vd5Var, boolean z) {
-        String str;
-        int i;
+    public static zd5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, vd5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        if (!z || vd5Var.B > 0) {
-            if (!z && vd5Var.C <= 0) {
-                return;
-            }
-            mh a = xd5.a();
-            a.b("action", "time");
-            if (z) {
-                a.b("put", String.valueOf(vd5Var.B));
-            } else {
-                a.b("pdt", String.valueOf(vd5Var.C));
-            }
-            String str2 = "1";
-            if (vd5Var.s) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            a.b("ishttp", str);
-            if (!vd5Var.b) {
-                str2 = "0";
-            }
-            a.b("issuccess", str2);
-            a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            a.b("qt", String.valueOf(vd5Var.f));
-            a.b("connt", String.valueOf(vd5Var.g));
-            a.b("rwt", String.valueOf(vd5Var.h));
-            a.b("dect", String.valueOf(vd5Var.k));
-            a.b("parset", String.valueOf(vd5Var.l));
-            a.b("rendert", String.valueOf(vd5Var.o));
-            a.b("ss", String.valueOf(vd5Var.q));
-            a.b("hs", String.valueOf(vd5Var.r));
-            if (vd5Var.s && (i = vd5Var.t) != 0) {
-                a.b("salno", String.valueOf(i));
-                long j = vd5Var.u;
-                if (j != 0) {
-                    a.b("scosttime", String.valueOf(j));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (d == null) {
+                synchronized (zd5.class) {
+                    if (d == null) {
+                        d = new zd5();
+                    }
                 }
             }
-            int i2 = vd5Var.v;
-            if (i2 != 0) {
-                a.c("errcode", Integer.valueOf(i2));
+            return d;
+        }
+        return (zd5) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return ky4.k().l("page_stay_max_cost", 0);
             }
-            BdStatisticsManager.getInstance().performance(this.a, a);
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean e(List<String> list) {
+        InterceptResult invokeL;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (ListUtils.isEmpty(list) || (size = list.size()) < 2 || !"a026".equals(list.get(size - 2))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
+            ky4.k().w("page_stay_max_cost", this.b);
         }
     }
 
-    public void e(pd5 pd5Var) {
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, pd5Var) != null) || pd5Var == null || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.a = z;
         }
-        mh a = xd5.a();
-        a.b("action", FpsTracer.UBC_KEY_FLUENCY);
-        a.b(FpsConstants.REPORT_FPS, String.valueOf(pd5Var.b()));
-        BdStatisticsManager.getInstance().performance(this.a, a);
-        mh a2 = xd5.a();
-        a2.b("action", "mem");
-        a2.b("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
-        BdStatisticsManager.getInstance().performance(this.a, a2);
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public final boolean d(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            if (!"a026".equals(list.get(list.size() - 1)) && !e(list)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k(Context context, yd5 yd5Var, wd5 wd5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, yd5Var, wd5Var) == null) && yd5Var != null && !StringUtils.isNull(yd5Var.c())) {
+            if (yd5Var.a) {
+                if (wd5Var == null) {
+                    wd5Var = new a(this);
+                }
+                if (!wd5Var.a(yd5Var)) {
+                    return;
+                }
+                StatisticItem statisticItem = new StatisticItem("userconvert");
+                statisticItem.param("obj_source", xd5.a(yd5Var.h()));
+                statisticItem.param("obj_locate", yd5Var.c());
+                statisticItem.param("obj_type", "0");
+                if (!StringUtils.isNull(yd5Var.i)) {
+                    statisticItem.param("obj_id", yd5Var.i);
+                }
+                if (yd5Var.b() != 0) {
+                    statisticItem.param(TiebaStatic.Params.T_PLUS_AD_SOURCE, yd5Var.b());
+                }
+                rd5.b(context, statisticItem, yd5Var);
+                TiebaStatic.log(statisticItem);
+                return;
+            }
+            if (wd5Var == null) {
+                wd5Var = new b(this);
+            }
+            if (!wd5Var.d() || !wd5Var.a(yd5Var)) {
+                return;
+            }
+            StatisticItem statisticItem2 = new StatisticItem("stime");
+            statisticItem2.param("obj_source", xd5.a(yd5Var.h()));
+            statisticItem2.param("obj_type", yd5Var.c());
+            statisticItem2.param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(yd5Var.i()));
+            if (!StringUtils.isNull(yd5Var.n())) {
+                statisticItem2.param("topic_id", yd5Var.n());
+            }
+            if (!StringUtils.isNull(yd5Var.o())) {
+                statisticItem2.param(TiebaStatic.Params.TOPIC_TYPE, yd5Var.o());
+            }
+            if (yd5Var.d() > 0) {
+                statisticItem2.param("fid", String.valueOf(yd5Var.d()));
+            }
+            if (yd5Var.m() > 0) {
+                statisticItem2.param("tid", String.valueOf(yd5Var.m()));
+            }
+            if (yd5Var.l() > 0) {
+                statisticItem2.param("thread_type", String.valueOf(yd5Var.l()));
+            }
+            if (!StringUtils.isNull(yd5Var.e())) {
+                statisticItem2.param("nid", yd5Var.e());
+            }
+            if (yd5Var.g() > 0) {
+                statisticItem2.param("pid", String.valueOf(yd5Var.g()));
+            }
+            if (!StringUtils.isNull(yd5Var.k)) {
+                statisticItem2.param("obj_param1", yd5Var.k);
+            }
+            if (!StringUtils.isNull(yd5Var.l)) {
+                statisticItem2.param(TiebaStatic.Params.IS_VERTICAL, yd5Var.l);
+            }
+            if (!StringUtils.isNull(yd5Var.r)) {
+                statisticItem2.param("is_dynamic", yd5Var.r);
+            }
+            if (!StringUtils.isNull(yd5Var.s)) {
+                statisticItem2.param(TiebaStatic.Params.RESOURCE_ID, yd5Var.s);
+            }
+            if (!StringUtils.isNull(yd5Var.t)) {
+                statisticItem2.param("resource_type", yd5Var.t);
+            }
+            if (!wi.isEmpty(yd5Var.j())) {
+                statisticItem2.param("task_id", String.valueOf(yd5Var.j()));
+            }
+            if (!wi.isEmpty(yd5Var.a())) {
+                statisticItem2.param("ab_tag", yd5Var.a());
+            }
+            if (g()) {
+                if (!StringUtils.isNull(yd5Var.i)) {
+                    statisticItem2.param("obj_id", yd5Var.i);
+                }
+                if (!StringUtils.isNull(yd5Var.j)) {
+                    statisticItem2.param("obj_name", yd5Var.j);
+                }
+                statisticItem2.param("obj_source", "a002");
+            }
+            if (!StringUtils.isNull(yd5Var.f())) {
+                statisticItem2.param("obj_location", yd5Var.f());
+            }
+            if (yd5Var.b() != 0) {
+                statisticItem2.param(TiebaStatic.Params.T_PLUS_AD_SOURCE, yd5Var.b());
+            }
+            String fromWhichSearchSource = TbSingleton.getInstance().getFromWhichSearchSource();
+            if (!StringUtils.isNull(fromWhichSearchSource) && yd5Var.h() != null && d(yd5Var.h())) {
+                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM3, fromWhichSearchSource);
+                if (e(yd5Var.h())) {
+                    TbSingleton.getInstance().setFromWhichSearchSource("");
+                }
+            }
+            rd5.b(context, statisticItem2, yd5Var);
+            TiebaStatic.log(statisticItem2);
+            TiebaStatic.log(new StatisticItem("PushOptTime").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(yd5Var.i())).param("obj_source", xd5.a(yd5Var.h())).param("obj_locate", yd5Var.c()).param("obj_param1", dx4.a().b()));
+        }
     }
 }

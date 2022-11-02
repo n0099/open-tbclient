@@ -14,14 +14,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SafeSubscriber implements FlowableSubscriber, Subscription {
+public final class SafeSubscriber<T> implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber actual;
+    public final Subscriber<? super T> actual;
     public boolean done;
     public Subscription s;
 
-    public SafeSubscriber(Subscriber subscriber) {
+    public SafeSubscriber(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -150,14 +150,14 @@ public final class SafeSubscriber implements FlowableSubscriber, Subscription {
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
             return;
         }
         if (this.s == null) {
             onNextNoSubscription();
-        } else if (obj == null) {
+        } else if (t == null) {
             NullPointerException nullPointerException = new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             try {
                 this.s.cancel();
@@ -168,7 +168,7 @@ public final class SafeSubscriber implements FlowableSubscriber, Subscription {
             }
         } else {
             try {
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
             } catch (Throwable th2) {
                 Exceptions.throwIfFatal(th2);
                 try {

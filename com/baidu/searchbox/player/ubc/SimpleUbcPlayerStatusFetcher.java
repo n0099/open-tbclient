@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.ubc;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,6 +50,7 @@ public class SimpleUbcPlayerStatusFetcher implements IUbcPlayerStatusFetcher {
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+    @Nullable
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,6 +75,7 @@ public class SimpleUbcPlayerStatusFetcher implements IUbcPlayerStatusFetcher {
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
+    @Nullable
     public String getTraceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,29 +1,15 @@
 package com.baidu.tieba;
 
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class zx0 {
+public class zx0 extends kx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ay0 a;
-    public xx0 b;
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
 
     public zx0() {
         Interceptable interceptable = $ic;
@@ -35,39 +21,33 @@ public final class zx0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        getContentView().setClickable(false);
+    }
+
+    @Override // com.baidu.tieba.kx0
+    public void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.N();
+            LinearLayout linearLayout = this.i;
+            if (linearLayout != null) {
+                linearLayout.setClickable(false);
             }
         }
     }
 
-    public final xx0 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kx0
+    public void O() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (xx0) invokeV.objValue;
-    }
-
-    public final ay0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ay0) invokeV.objValue;
-    }
-
-    public final void c(xx0 xx0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xx0Var) == null) {
-            this.b = xx0Var;
-        }
-    }
-
-    public final void f(ay0 ay0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ay0Var) == null) {
-            this.a = ay0Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.O();
+            LinearLayout linearLayout = this.f;
+            if (linearLayout != null) {
+                linearLayout.setClickable(false);
+            }
         }
     }
 }

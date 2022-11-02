@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CookieSpecRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class CookieSpecRegistry {
         throw new RuntimeException("Stub!");
     }
 
-    public synchronized List getSpecNames() {
+    public synchronized List<String> getSpecNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -53,7 +53,7 @@ public final class CookieSpecRegistry {
         return (CookieSpec) invokeL.objValue;
     }
 
-    public synchronized void setItems(Map map) {
+    public synchronized void setItems(Map<String, CookieSpecFactory> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             synchronized (this) {

@@ -1,81 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class md8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
 
-    public md8() {
+    public static boolean a(da5 da5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, da5Var)) == null) {
+            if (da5Var != null) {
+                return da5Var.isViewAttached();
             }
+            return false;
         }
-        this.b = false;
-        this.c = false;
+        return invokeL.booleanValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(da5 da5Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.b = z;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{da5Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) && !a(da5Var) && context != null && view2 != null) {
+            if (da5Var == null) {
+                da5Var = new da5(context, onClickListener);
+            }
+            da5Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
+            da5Var.attachView(view2, z);
+            da5Var.p();
+            da5Var.onChangeSkinType();
         }
     }
 }

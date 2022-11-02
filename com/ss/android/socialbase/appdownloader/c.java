@@ -1,5 +1,6 @@
 package com.ss.android.socialbase.appdownloader;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.nps.utils.Constant;
@@ -48,7 +50,7 @@ public class c {
         return com.ss.android.socialbase.downloader.i.f.e();
     }
 
-    public static List c() {
+    public static List<String> c() {
         ArrayList arrayList = new ArrayList(2);
         arrayList.add("application/vnd.android.package-archive");
         arrayList.add("application/ttpatch");
@@ -225,7 +227,7 @@ public class c {
         }
     }
 
-    public static Intent a(Context context, DownloadInfo downloadInfo, File file, boolean z, int[] iArr) {
+    public static Intent a(Context context, DownloadInfo downloadInfo, @NonNull File file, boolean z, int[] iArr) {
         boolean z2;
         Uri a2 = a(downloadInfo.getId(), Downloader.getInstance(context).getDownloadFileUriProvider(downloadInfo.getId()), context, d.j().d(), file);
         if (a2 == null) {
@@ -315,7 +317,8 @@ public class c {
         return a(j, true);
     }
 
-    public static String b(Context context) {
+    @TargetApi(26)
+    public static String b(@NonNull Context context) {
         try {
             if (b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);

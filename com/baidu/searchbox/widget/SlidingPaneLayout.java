@@ -59,7 +59,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public PanelSlideListener mPanelSlideListener;
     public int mParallaxBy;
     public float mParallaxOffset;
-    public final ArrayList mPostedRunnables;
+    public final ArrayList<DisableLayerRunnable> mPostedRunnables;
     public boolean mPreservedOpenState;
     public int mScreenWidth;
     public Drawable mShadowDrawable;
@@ -74,7 +74,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
 
     /* renamed from: com.baidu.searchbox.widget.SlidingPaneLayout$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -402,7 +402,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class LayoutParams extends ViewGroup.MarginLayoutParams {
+    public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public static final int[] ATTRS;
         public transient /* synthetic */ FieldHolder $fh;
@@ -560,9 +560,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isOpen;
 
@@ -579,7 +579,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.searchbox.widget.SlidingPaneLayout.SavedState.1
+            CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.searchbox.widget.SlidingPaneLayout.SavedState.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -598,6 +598,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public SavedState createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -609,6 +610,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
@@ -683,7 +685,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class SimplePanelSlideListener implements PanelSlideListener {
+    public static class SimplePanelSlideListener implements PanelSlideListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -724,7 +726,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
+    public static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -752,7 +754,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
+    public static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Method mGetDisplayList;
@@ -806,7 +808,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
+    public static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -941,7 +943,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.showShadow = true;
         this.mFirstLayout = true;
         this.mTmpRect = new Rect();
-        this.mPostedRunnables = new ArrayList();
+        this.mPostedRunnables = new ArrayList<>();
         this.mAutoSlide = true;
         float f = context.getResources().getDisplayMetrics().density;
         this.mOverhangSize = 5;
@@ -1448,7 +1450,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             this.mFirstLayout = true;
             int size = this.mPostedRunnables.size();
             for (int i = 0; i < size; i++) {
-                ((DisableLayerRunnable) this.mPostedRunnables.get(i)).run();
+                this.mPostedRunnables.get(i).run();
             }
             this.mPostedRunnables.clear();
         }

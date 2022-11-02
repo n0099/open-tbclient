@@ -29,7 +29,7 @@ public class e {
     public static final String TAG = "e";
     public transient /* synthetic */ FieldHolder $fh;
     public IHttpRequest bR;
-    public ICallbackWith bS;
+    public ICallbackWith<String> bS;
 
     static {
         InterceptResult invokeClinit;
@@ -145,12 +145,12 @@ public class e {
     private void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
-            ICallbackWith iCallbackWith = this.bS;
+            ICallbackWith<String> iCallbackWith = this.bS;
             iCallbackWith.run("fetch ability scheme config fail. " + str);
         }
     }
 
-    public void a(Context context, String str, ICallbackWith iCallbackWith) {
+    public void a(Context context, String str, ICallbackWith<a> iCallbackWith) {
         IHttpRequest newRequest;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, str, iCallbackWith) == null) || (newRequest = HttpFactory.newRequest()) == null) {
@@ -212,7 +212,7 @@ public class e {
         this.bR = newRequest;
     }
 
-    public void c(ICallbackWith iCallbackWith) {
+    public void c(ICallbackWith<String> iCallbackWith) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iCallbackWith) == null) {
             this.bS = iCallbackWith;

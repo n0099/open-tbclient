@@ -20,10 +20,10 @@ import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.barselect.idCard.CameraActivity;
 import com.baidu.tieba.barselect.idCard.IdentityReviewActivity;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.vu7;
-import com.baidu.tieba.yi5;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.ew7;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class BarVoteActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<BarVoteActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,12 +56,12 @@ public class BarVoteActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<BarVoteActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((BarVoteActivityConfig) customMessage.getData()).startActivity(BarVoteActivity.class);
+                    customMessage.getData().startActivity(BarVoteActivity.class);
                 }
                 return null;
             }
@@ -70,7 +70,7 @@ public class BarVoteActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public final class b implements CustomMessageTask.CustomRunnable {
+    public static class b implements CustomMessageTask.CustomRunnable<CameraActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,12 +89,12 @@ public class BarVoteActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<CameraActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && ((CameraActivityConfig) customMessage.getData()).getIntent() != null) {
-                    ((CameraActivityConfig) customMessage.getData()).startActivityForResult(((CameraActivityConfig) customMessage.getData()).getIntent().getIntExtra("request_code", 0), CameraActivity.class);
+                if (customMessage != null && customMessage.getData() != null && customMessage.getData().getIntent() != null) {
+                    customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), CameraActivity.class);
                 }
                 return null;
             }
@@ -103,7 +103,7 @@ public class BarVoteActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public final class c implements CustomMessageTask.CustomRunnable {
+    public static class c implements CustomMessageTask.CustomRunnable<IdentityReviewActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,15 +122,15 @@ public class BarVoteActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<IdentityReviewActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    if (((IdentityReviewActivityConfig) customMessage.getData()).getIntent() != null && ((IdentityReviewActivityConfig) customMessage.getData()).getIntent().getBooleanExtra(IdentityReviewActivityConfig.KEY_IS_START_FOR_RESULT, false)) {
-                        ((IdentityReviewActivityConfig) customMessage.getData()).startActivityForResult(((IdentityReviewActivityConfig) customMessage.getData()).getIntent().getIntExtra("request_code", 0), IdentityReviewActivity.class);
+                    if (customMessage.getData().getIntent() != null && customMessage.getData().getIntent().getBooleanExtra(IdentityReviewActivityConfig.KEY_IS_START_FOR_RESULT, false)) {
+                        customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), IdentityReviewActivity.class);
                     } else {
-                        ((IdentityReviewActivityConfig) customMessage.getData()).startActivity(IdentityReviewActivity.class);
+                        customMessage.getData().startActivity(IdentityReviewActivity.class);
                     }
                 }
                 return null;
@@ -140,7 +140,7 @@ public class BarVoteActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public final class d implements CustomMessageTask.CustomRunnable {
+    public static class d implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,14 +159,14 @@ public class BarVoteActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof vu7)) {
-                    vu7 vu7Var = (vu7) customMessage.getData();
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(vu7Var.a(), vu7Var.b(), vu7Var.d(), vu7Var.c());
-                    commitVoteReqMsg.setTag(vu7Var.e());
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof ew7)) {
+                    ew7 ew7Var = (ew7) customMessage.getData();
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(ew7Var.a(), ew7Var.b(), ew7Var.d(), ew7Var.c());
+                    commitVoteReqMsg.setTag(ew7Var.e());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 }
                 return null;
@@ -176,7 +176,7 @@ public class BarVoteActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public final class e implements UrlManager.UrlDealListener {
+    public static class e implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -195,14 +195,14 @@ public class BarVoteActivityStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_BAR_VOTE)) {
-                        long g = eh.g(yi5.c(str, "fid="), 0L);
+                        long g = wg.g(xj5.c(str, "fid="), 0L);
                         if (g != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(g, 4)));
                             return 0;
@@ -216,7 +216,7 @@ public class BarVoteActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public final class f implements UrlManager.UrlDealListener {
+    public static class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -235,14 +235,14 @@ public class BarVoteActivityStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEME_TYPE_ID_CARD)) {
-                        long g = eh.g(yi5.c(str, "fid="), 0L);
+                        long g = wg.g(xj5.c(str, "fid="), 0L);
                         if (g != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), g, 25042)));
                             return 0;
@@ -293,8 +293,8 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            zm8.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, zm8.a("c/f/bawu/electionInfo", 309642));
+            io8.h(309642, VoteElectionSocketResMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, io8.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

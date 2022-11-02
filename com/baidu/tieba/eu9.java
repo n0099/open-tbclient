@@ -1,24 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class eu9 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes4.dex */
+public final class eu9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int a = 1;
+    public static final int b = 2;
+    public static final int c = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                return fu9.c(context);
-            } catch (Exception unused) {
-                return "";
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947746976, "Lcom/baidu/tieba/eu9;")) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947746976, "Lcom/baidu/tieba/eu9;");
+        }
     }
 }

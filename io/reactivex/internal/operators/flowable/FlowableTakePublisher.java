@@ -9,13 +9,13 @@ import io.reactivex.internal.operators.flowable.FlowableTake;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableTakePublisher extends Flowable {
+public final class FlowableTakePublisher<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long limit;
-    public final Publisher source;
+    public final Publisher<T> source;
 
-    public FlowableTakePublisher(Publisher publisher, long j) {
+    public FlowableTakePublisher(Publisher<T> publisher, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,7 +35,7 @@ public final class FlowableTakePublisher extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe(new FlowableTake.TakeSubscriber(subscriber, this.limit));

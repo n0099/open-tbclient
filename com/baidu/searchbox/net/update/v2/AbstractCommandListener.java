@@ -50,7 +50,7 @@ public abstract class AbstractCommandListener<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new ActionData();
+            return new ActionData<>();
         }
         return (ActionData) invokeV.objValue;
     }

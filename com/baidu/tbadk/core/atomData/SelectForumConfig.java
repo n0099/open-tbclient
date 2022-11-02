@@ -3,7 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.GameData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 public class SelectForumConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_SELECT_INTEREST_FORUM = "is_select_interest_forum";
+    public static final String KEY_GAME_DATA = "key_game_data";
     public static final String KEY_SELECTED_INTEREST_FORUMS = "key_selected_interest_forums";
     public static final String KEY_SELECTED_INTEREST_FORUMS_RESPONSE = "key_selected_interest_forums_response";
     public static final int SELECT_INTEREST_FORUMS_REQ;
@@ -57,16 +60,23 @@ public class SelectForumConfig extends IntentConfig {
         }
     }
 
+    public void setGameData(GameData gameData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gameData) == null) {
+            getIntent().putExtra(KEY_GAME_DATA, gameData);
+        }
+    }
+
     public void setIsSelectInterestForum(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             getIntent().putExtra(IS_SELECT_INTEREST_FORUM, z);
         }
     }
 
-    public void setSelectedInterestedForums(ArrayList arrayList) {
+    public void setSelectedInterestedForums(ArrayList<SelectForumData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             getIntent().putParcelableArrayListExtra(KEY_SELECTED_INTEREST_FORUMS, arrayList);
         }
     }

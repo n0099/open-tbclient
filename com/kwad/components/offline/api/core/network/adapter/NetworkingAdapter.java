@@ -1,5 +1,7 @@
 package com.kwad.components.offline.api.core.network.adapter;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,6 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.network.IOfflineCompoRequest;
 import com.kwad.components.offline.api.core.network.OfflineCompoNetworking;
+import com.kwad.components.offline.api.core.network.model.BaseOfflineCompoResultData;
 import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.core.network.g;
 import com.kwad.sdk.core.network.m;
@@ -15,12 +18,12 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class NetworkingAdapter extends m {
+public class NetworkingAdapter<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> extends m<RequestAdapter<R>, ResultDataAdapter<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OfflineCompoNetworking mOfflineCompoNetworking;
+    public final OfflineCompoNetworking<R, T> mOfflineCompoNetworking;
 
-    public NetworkingAdapter(OfflineCompoNetworking offlineCompoNetworking) {
+    public NetworkingAdapter(@NonNull OfflineCompoNetworking<R, T> offlineCompoNetworking) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,10 +43,11 @@ public class NetworkingAdapter extends m {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.network.a
-    public RequestAdapter createRequest() {
+    @NonNull
+    public RequestAdapter<R> createRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new RequestAdapter(this, this.mOfflineCompoNetworking.createRequest()) { // from class: com.kwad.components.offline.api.core.network.adapter.NetworkingAdapter.1
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (RequestAdapter<R>) new RequestAdapter<R>(this, this.mOfflineCompoNetworking.createRequest()) { // from class: com.kwad.components.offline.api.core.network.adapter.NetworkingAdapter.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NetworkingAdapter this$0;
@@ -83,24 +87,24 @@ public class NetworkingAdapter extends m {
             }
 
             @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
-            public Map getBodyMap() {
+            public Map<String, String> getBodyMap() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.val$offlineRequest.getBodyMap() : (Map) invokeV2.objValue;
             }
 
             @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
-            public Map getHeader() {
+            public Map<String, String> getHeader() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) ? this.val$offlineRequest.getHeader() : (Map) invokeV2.objValue;
             }
 
             @Override // com.kwad.components.offline.api.core.network.adapter.RequestAdapter
-            public IOfflineCompoRequest getOfflineCompoRequest() {
+            public R getOfflineCompoRequest() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048580, this)) == null) ? this.val$offlineRequest : (IOfflineCompoRequest) invokeV2.objValue;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048580, this)) == null) ? (R) this.val$offlineRequest : (R) invokeV2.objValue;
             }
 
             @Override // com.kwad.sdk.core.network.b
@@ -111,6 +115,7 @@ public class NetworkingAdapter extends m {
             }
 
             @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
+            @Nullable
             public SceneImpl getScene() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
@@ -143,21 +148,25 @@ public class NetworkingAdapter extends m {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mOfflineCompoNetworking.isPostByJson() : invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.network.m, com.kwad.sdk.core.network.a
-    public void onResponse(RequestAdapter requestAdapter, c cVar) {
+    public void onResponse(RequestAdapter<R> requestAdapter, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, requestAdapter, cVar) == null) {
-            super.onResponse((g) requestAdapter, cVar);
+            super.onResponse((NetworkingAdapter<R, T>) requestAdapter, cVar);
             this.mOfflineCompoNetworking.onResponse(requestAdapter.getOfflineCompoRequest(), cVar);
         }
     }
 
+    @Override // com.kwad.sdk.core.network.m, com.kwad.sdk.core.network.a
+    public /* bridge */ /* synthetic */ void onResponse(g gVar, c cVar) {
+        onResponse((RequestAdapter) ((RequestAdapter) gVar), cVar);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.network.m
-    public ResultDataAdapter parseData(String str) {
+    @NonNull
+    public ResultDataAdapter<T> parseData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? new ResultDataAdapter(this.mOfflineCompoNetworking.parseData(str)) : (ResultDataAdapter) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? new ResultDataAdapter<>(this.mOfflineCompoNetworking.parseData(str)) : (ResultDataAdapter) invokeL.objValue;
     }
 }

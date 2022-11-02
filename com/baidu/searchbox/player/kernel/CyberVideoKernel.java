@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.kernel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -7,6 +8,8 @@ import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
@@ -75,6 +78,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
             }
 
             @Override // android.view.View
+            @SuppressLint({"ClickableViewAccessibility"})
             public boolean onTouchEvent(MotionEvent motionEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -90,6 +94,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    @NonNull
     public View getBVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,6 +144,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
         return invokeV.intValue;
     }
 
+    @Nullable
     public IKernelGestureDetector getGestureDetector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,6 +164,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
         return invokeV.intValue;
     }
 
+    @Nullable
     public TextureView getRenderView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -258,7 +265,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setClarityInfo(String str) {
+    public void setClarityInfo(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.mVideoView.setClarityInfo(str);
@@ -273,7 +280,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
         }
     }
 
-    public void setGestureDetector(IKernelGestureDetector iKernelGestureDetector) {
+    public void setGestureDetector(@Nullable IKernelGestureDetector iKernelGestureDetector) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, iKernelGestureDetector) == null) {
             this.mGestureDetector = iKernelGestureDetector;
@@ -281,7 +288,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setHttpDns(IDnsProcessListener iDnsProcessListener) {
+    public void setHttpDns(@NonNull IDnsProcessListener iDnsProcessListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, iDnsProcessListener) == null) {
             super.setHttpDns(iDnsProcessListener);
@@ -298,7 +305,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setPlayConf(String str) {
+    public void setPlayConf(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.mVideoView.setPlayJson(str);
@@ -355,7 +362,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void updateFreeProxy(String str) {
+    public void updateFreeProxy(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
             this.mVideoView.changeProxyDynamic(str);
@@ -363,7 +370,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
-    public boolean verify(String str) {
+    public boolean verify(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) {
@@ -442,7 +449,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void play(String str) {
+    public void play(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             super.play(str);
@@ -552,11 +559,11 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoFormatOptions(String str, HashMap hashMap) {
+    public void setVideoFormatOptions(String str, @NonNull HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048609, this, str, hashMap) == null) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                this.mVideoView.setOption((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                this.mVideoView.setOption(entry.getKey(), entry.getValue());
             }
         }
     }

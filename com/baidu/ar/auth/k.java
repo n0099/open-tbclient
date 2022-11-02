@@ -7,7 +7,7 @@ public interface k {
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(Set set);
+        void a(Set<Integer> set);
     }
 
     void a(a aVar);

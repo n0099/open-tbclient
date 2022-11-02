@@ -1,6 +1,13 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,121 +15,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class vc3 {
+public class vc3 extends kk1 implements gk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vc3 c;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
-    public ArrayList b;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a implements SwanKV.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
 
-        public a(vc3 vc3Var, int i) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vc3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m02.k("PresetSwanCoreUpdater", "onPresetCheck start.");
-                uc3.s(this.a);
-                m02.k("PresetSwanCoreUpdater", "onPresetCheck end.");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ vc3 b;
-
-        public b(vc3 vc3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vc3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vc3Var;
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m02.k("PresetSwanCoreUpdater", "onPresetUpdate start.");
-                vc3 vc3Var = this.b;
-                int i = this.a;
-                vc3Var.c(i, uc3.t(i));
-                m02.k("PresetSwanCoreUpdater", "onPresetUpdate end.");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fi3 a;
-        public final /* synthetic */ Exception b;
-
-        public c(vc3 vc3Var, fi3 fi3Var, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vc3Var, fi3Var, exc};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = fi3Var;
-            this.b = exc;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.storage.swankv.SwanKV.b
+        public void loadLibrary(@NonNull String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (!yh3.G() && SwanKV.LIB_CPP_SHARED.equals(str)) {
+                    ha2.g(AppRuntime.getAppContext(), vc3.a);
+                    ha2.h(SwanKV.LIB_CPP_SHARED, vc3.a, false);
+                    return;
+                }
+                SoLoader.load(ln2.c(), str);
             }
         }
     }
@@ -140,110 +72,155 @@ public final class vc3 {
                 return;
             }
         }
-        boolean z = wj1.a;
+        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        f();
     }
 
-    public vc3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vc3(@Nullable Context context, @NonNull String str) {
+        super(context, str, 2, e());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
     }
 
-    public static vc3 b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vc3(@Nullable Context context, @NonNull String str, int i) {
+        super(context, str, i, e());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vc3(@NonNull String str) {
+        super(AppRuntime.getAppContext(), str, 2, e());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vc3(@NonNull String str, int i, @Nullable String str2) {
+        super(AppRuntime.getAppContext(), str, i, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (vc3.class) {
-                    if (c == null) {
-                        c = new vc3();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "swan_prefs";
         }
-        return (vc3) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void c(int i, Exception exc) {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
-            synchronized (vc3.class) {
-                try {
-                    if (i == 0) {
-                        Iterator it = this.a.iterator();
-                        while (it.hasNext()) {
-                            d((fi3) it.next(), exc);
-                        }
-                        this.a.clear();
-                    } else if (i == 1) {
-                        Iterator it2 = this.b.iterator();
-                        while (it2.hasNext()) {
-                            d((fi3) it2.next(), exc);
-                        }
-                        this.b.clear();
-                    }
-                } catch (Throwable th) {
-                    throw th;
-                }
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            try {
+                SwanKV.initialize(ln2.c(), new a(), false);
+            } catch (NoClassDefFoundError e) {
+                e12.d("SwanKVImpl", "initializeSwanKV", e);
             }
         }
     }
 
-    public final void d(fi3 fi3Var, Exception exc) {
+    @Override // com.baidu.tieba.gk4
+    public Set<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fi3Var, exc) == null) && fi3Var != null) {
-            gh3.e0(new c(this, fi3Var, exc));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HashSet(Arrays.asList(super.getAllKeys()));
         }
+        return (Set) invokeV.objValue;
     }
 
-    public void e(fi3 fi3Var, int i) {
-        ArrayList arrayList;
+    @Override // com.baidu.tieba.gk4
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, fi3Var, i) == null) {
-            m02.k("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
-            synchronized (vc3.class) {
-                boolean q = uc3.q(i);
-                m02.k("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = " + q);
-                if (!q && i == 0 && !uc3.r(i)) {
-                    uc3.w(true, i);
-                    new Thread(new a(this, i), "onPresetCheck").start();
-                }
-                if (!q) {
-                    d(fi3Var, null);
-                    return;
-                }
-                if (i == 1) {
-                    arrayList = this.b;
-                } else {
-                    arrayList = this.a;
-                }
-                if (arrayList.isEmpty()) {
-                    new Thread(new b(this, i), "updateSwanCoreAsync").start();
-                }
-                arrayList.add(fi3Var);
-                m02.k("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (super.getMode() == 2) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void f(int i) {
+    @Override // com.baidu.tieba.gk4
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            synchronized (vc3.class) {
-                c(i, uc3.t(i));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.contentSize();
         }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.storage.swankv.SwanKV, com.baidu.tieba.gk4
+    @NonNull
+    public File getFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.getFile();
+        }
+        return (File) invokeV.objValue;
     }
 }

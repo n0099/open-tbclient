@@ -29,7 +29,7 @@ public final class Encoder {
 
     /* renamed from: com.google.zxing.qrcode.encoder.Encoder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$qrcode$decoder$Mode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -419,7 +419,7 @@ public final class Encoder {
         return invokeI.intValue;
     }
 
-    public static QRCode encode(String str, ErrorCorrectionLevel errorCorrectionLevel, Map map) throws WriterException {
+    public static QRCode encode(String str, ErrorCorrectionLevel errorCorrectionLevel, Map<EncodeHintType, ?> map) throws WriterException {
         InterceptResult invokeLLL;
         String str2;
         Version recommendVersion;

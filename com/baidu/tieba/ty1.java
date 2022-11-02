@@ -1,139 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class ty1 extends yy1 {
+public class ty1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public String I;
-    public boolean J;
-    public int K;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public int e;
+    public int f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ty1(String str, String str2) {
-        super(str, str2);
+    public ty1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.I = "";
-    }
-
-    private void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            this.u = SwanAppConfigData.t(jSONObject.optString("color"));
-            this.v = true;
         }
     }
 
-    @Override // com.baidu.tieba.yy1, com.baidu.tieba.az1, com.baidu.tieba.cz1, com.baidu.tieba.lt2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.D = jSONObject.optInt("maxLength");
-        this.E = k(jSONObject);
-        this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
-        this.G = jSONObject.optInt("selectionStart");
-        this.H = jSONObject.optInt("selectionEnd");
-        this.I = jSONObject.optString("confirmType");
-        boolean z = true;
-        if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m) != 1) {
-            z = false;
-        }
-        this.J = z;
-        i();
-    }
-
-    @Override // com.baidu.tieba.yy1, com.baidu.tieba.az1, com.baidu.tieba.cz1
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
-                this.E = k(jSONObject);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) {
+            if (lx1Var.a() == 0) {
+                lx1Var.b(canvas.save());
+            } else {
+                canvas.restoreToCount(lx1Var.a());
+                lx1Var.b(canvas.save());
             }
-            this.D = jSONObject.optInt("maxLength", this.D);
-            this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.F);
-            this.G = jSONObject.optInt("selectionStart", this.G);
-            this.H = jSONObject.optInt("selectionEnd", this.H);
-            this.I = jSONObject.optString("confirmType", this.I);
-            boolean z = true;
-            if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m, this.J ? 1 : 0) != 1) {
-                z = false;
-            }
-            this.J = z;
-            this.t = jSONObject.optString("value", this.t);
-            i();
+            Matrix matrix = new Matrix();
+            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
+            canvas.concat(matrix);
         }
     }
 
-    public final int k(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kx1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("cursorSpacing");
-            if (TextUtils.isEmpty(optString)) {
-                return 0;
-            }
-            if (optString.endsWith("rpx")) {
-                try {
-                    return dh3.g(Integer.parseInt(optString.replace("rpx", "")));
-                } catch (NumberFormatException unused) {
-                    return 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 6) {
+                    this.a = (float) jSONArray.optDouble(0);
+                    this.b = (float) jSONArray.optDouble(1);
+                    this.c = (float) jSONArray.optDouble(2);
+                    this.d = (float) jSONArray.optDouble(3);
+                    this.e = vh3.g((float) jSONArray.optDouble(4));
+                    this.f = vh3.g((float) jSONArray.optDouble(5));
+                }
+            } catch (Exception e) {
+                if (ok1.a) {
+                    e.printStackTrace();
                 }
             }
-            try {
-                return Integer.parseInt(optString.replace("px", ""));
-            } catch (NumberFormatException unused2) {
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public void l(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            this.G = i;
-            this.H = i2;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.K = i;
         }
     }
 }

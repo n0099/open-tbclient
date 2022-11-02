@@ -10,6 +10,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +80,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawCardApp(Context context, AttributeSet attributeSet) {
+    public DrawCardApp(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,7 +102,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawCardApp(Context context, AttributeSet attributeSet, int i) {
+    public DrawCardApp(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,16 +126,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0417, this);
-            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091068);
-            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f09106d);
-            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f09106e);
-            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091070);
-            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09106f);
-            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f09106c);
-            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f09106a);
-            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091074);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09106b);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0422, this);
+            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a2);
+            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a7);
+            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a8);
+            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910aa);
+            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0910a9);
+            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a6);
+            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a4);
+            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910ae);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0910a5);
             this.cl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
             this.mHeight = com.kwad.sdk.b.kwai.a.a(context, 156.0f);
@@ -179,7 +181,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: cn  reason: collision with root package name */
-                    public final /* synthetic */ DrawCardApp f1078cn;
+                    public final /* synthetic */ DrawCardApp f1079cn;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -196,14 +198,14 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.f1078cn = this;
+                        this.f1079cn = this;
                     }
 
                     @Override // com.kwad.sdk.api.KsAppDownloadListener
                     public final void onDownloadFailed() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1078cn.mAdInfo), this.f1078cn.cl.getMax());
+                            this.f1079cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1079cn.mAdInfo), this.f1079cn.cl.getMax());
                         }
                     }
 
@@ -211,7 +213,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onDownloadFinished() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.aJ(this.f1078cn.mAdTemplate), this.f1078cn.cl.getMax());
+                            this.f1079cn.cl.f(com.kwad.sdk.core.response.a.a.aJ(this.f1079cn.mAdTemplate), this.f1079cn.cl.getMax());
                         }
                     }
 
@@ -219,7 +221,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onIdle() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1078cn.mAdInfo), this.f1078cn.cl.getMax());
+                            this.f1079cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1079cn.mAdInfo), this.f1079cn.cl.getMax());
                         }
                     }
 
@@ -227,7 +229,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onInstalled() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.P(this.f1078cn.mAdInfo), this.f1078cn.cl.getMax());
+                            this.f1079cn.cl.f(com.kwad.sdk.core.response.a.a.P(this.f1079cn.mAdInfo), this.f1079cn.cl.getMax());
                         }
                     }
 
@@ -236,7 +238,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048580, this, i) == null) {
                             super.onPaused(i);
-                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.uU(), i);
+                            this.f1079cn.cl.f(com.kwad.sdk.core.response.a.a.uU(), i);
                         }
                     }
 
@@ -244,7 +246,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onProgressUpdate(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048581, this, i) == null) {
-                            DrawDownloadProgressBar drawDownloadProgressBar = this.f1078cn.cl;
+                            DrawDownloadProgressBar drawDownloadProgressBar = this.f1079cn.cl;
                             drawDownloadProgressBar.f(i + "%", i);
                         }
                     }
@@ -255,7 +257,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
         return (KsAppDownloadListener) invokeV.objValue;
     }
 
-    public final void a(AdTemplate adTemplate, a aVar) {
+    public final void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
             this.mAdTemplate = adTemplate;
@@ -301,12 +303,12 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 != this.cd) {
-                com.kwad.components.core.c.a.a.a(new a.C0566a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
+                com.kwad.components.core.c.a.a.a(new a.C0577a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: cn  reason: collision with root package name */
-                    public final /* synthetic */ DrawCardApp f1079cn;
+                    public final /* synthetic */ DrawCardApp f1080cn;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -323,16 +325,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.f1079cn = this;
+                        this.f1080cn = this;
                     }
 
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f1079cn.cc == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f1080cn.cc == null) {
                             return;
                         }
-                        this.f1079cn.cc.aD();
+                        this.f1080cn.cc.aD();
                     }
                 }));
                 return;

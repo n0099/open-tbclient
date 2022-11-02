@@ -1,11 +1,43 @@
 package com.baidu.tieba;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface nu0 extends ou0 {
-    void a(boolean z);
+public class nu0 extends dz0<mu0> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d(iw0 iw0Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nu0() {
+        super(10);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void onDestroy();
-
-    void onLayerRelease();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bz0
+    /* renamed from: e */
+    public mu0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new mu0();
+        }
+        return (mu0) invokeV.objValue;
+    }
 }

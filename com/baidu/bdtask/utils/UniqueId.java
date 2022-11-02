@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class UniqueId implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<UniqueId> CREATOR;
     public static final AtomicInteger NEXT_ID;
     public transient /* synthetic */ FieldHolder $fh;
     public final String alias;
@@ -33,7 +33,7 @@ public class UniqueId implements Parcelable {
     }
 
     /* loaded from: classes.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<UniqueId> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

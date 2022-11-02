@@ -1,6 +1,8 @@
 package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -24,6 +26,7 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     public final BreakpointStoreOnCache onCache;
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
+    @Nullable
     public BreakpointInfo getAfterCompleted(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -64,7 +67,7 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public boolean update(BreakpointInfo breakpointInfo) throws IOException {
+    public boolean update(@NonNull BreakpointInfo breakpointInfo) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, breakpointInfo)) == null) {
@@ -107,7 +110,8 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public BreakpointInfo createAndInsert(DownloadTask downloadTask) throws IOException {
+    @NonNull
+    public BreakpointInfo createAndInsert(@NonNull DownloadTask downloadTask) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask)) == null) {
@@ -119,7 +123,7 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public int findOrCreateId(DownloadTask downloadTask) {
+    public int findOrCreateId(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, downloadTask)) == null) {
@@ -129,6 +133,7 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
+    @Nullable
     public BreakpointInfo get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -139,6 +144,7 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
+    @Nullable
     public String getResponseFilename(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -204,7 +210,8 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public BreakpointInfo findAnotherInfoFromCompare(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+    @Nullable
+    public BreakpointInfo findAnotherInfoFromCompare(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, breakpointInfo)) == null) {
@@ -214,7 +221,7 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onSyncToFilesystemSuccess(BreakpointInfo breakpointInfo, int i, long j) throws IOException {
+    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i, long j) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{breakpointInfo, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             this.onCache.onSyncToFilesystemSuccess(breakpointInfo, i, j);
@@ -223,7 +230,7 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onTaskEnd(int i, EndCause endCause, Exception exc) {
+    public void onTaskEnd(int i, @NonNull EndCause endCause, @Nullable Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048588, this, i, endCause, exc) == null) {
             this.onCache.onTaskEnd(i, endCause, exc);

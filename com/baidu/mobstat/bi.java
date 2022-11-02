@@ -1,5 +1,7 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -56,6 +58,7 @@ public class bi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @TargetApi(11)
     public static int a(GridView gridView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -106,6 +109,7 @@ public class bi {
         return (String) invokeL.objValue;
     }
 
+    @TargetApi(22)
     public static Uri i(Activity activity) {
         InterceptResult invokeL;
         Uri uri;
@@ -215,6 +219,7 @@ public class bi {
         return invokeL.intValue;
     }
 
+    @TargetApi(11)
     public static int b(GridView gridView) {
         InterceptResult invokeL;
         int numColumns;
@@ -233,7 +238,7 @@ public class bi {
         return invokeL.intValue;
     }
 
-    public static String c(Class cls) {
+    public static String c(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, cls)) == null) {
@@ -429,6 +434,7 @@ public class bi {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static int i(View view2) {
         InterceptResult invokeL;
         int i;
@@ -446,6 +452,7 @@ public class bi {
         return invokeL.intValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static float j(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -530,7 +537,7 @@ public class bi {
         return invokeL.booleanValue;
     }
 
-    public static Map t(View view2) {
+    public static Map<String, String> t(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, view2)) == null) {
@@ -668,7 +675,7 @@ public class bi {
         return (String) invokeL.objValue;
     }
 
-    public static String d(Class cls) {
+    public static String d(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, cls)) == null) {
@@ -677,6 +684,7 @@ public class bi {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static String a(View view2) {
         InterceptResult invokeL;
         String str;
@@ -961,7 +969,7 @@ public class bi {
         return (String) invokeLL.objValue;
     }
 
-    public static String a(Class cls) {
+    public static String a(Class<?> cls) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
@@ -1011,12 +1019,12 @@ public class bi {
         return invokeL.booleanValue;
     }
 
-    public static String a(Class cls, boolean z) {
+    public static String a(Class<?> cls, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, cls, z)) == null) {
             if (cls.isAnonymousClass()) {
-                Class superclass = cls.getSuperclass();
+                Class<? super Object> superclass = cls.getSuperclass();
                 if (superclass != null) {
                     if (z) {
                         return superclass.getSimpleName();
@@ -1127,7 +1135,7 @@ public class bi {
         return (String) invokeL.objValue;
     }
 
-    public static Map a(View view2, boolean z) {
+    public static Map<String, String> a(View view2, boolean z) {
         InterceptResult invokeLZ;
         String str;
         Interceptable interceptable = $ic;
@@ -1142,7 +1150,7 @@ public class bi {
             } else {
                 str = "";
             }
-            Map b = b(view2, z);
+            Map<String, String> b = b(view2, z);
             if (!TextUtils.isEmpty(str)) {
                 hashMap.put("title", str);
             } else {
@@ -1216,7 +1224,7 @@ public class bi {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ArrayList b(Activity activity, View view2) {
+    public static ArrayList<Integer> b(Activity activity, View view2) {
         InterceptResult invokeLL;
         int i;
         int i2;
@@ -1224,7 +1232,7 @@ public class bi {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, activity, view2)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Integer> arrayList = new ArrayList<>();
             int i5 = 0;
             if (view2 == null) {
                 arrayList.add(0);
@@ -1290,7 +1298,7 @@ public class bi {
         return (ArrayList) invokeLL.objValue;
     }
 
-    public static void a(View view2, LinkedHashMap linkedHashMap) {
+    public static void a(View view2, LinkedHashMap<View, Integer> linkedHashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65551, null, view2, linkedHashMap) != null) || view2 == null) {
             return;
@@ -1461,9 +1469,9 @@ public class bi {
         }
     }
 
-    public static Map g(View view2) {
+    public static Map<String, String> g(View view2) {
         InterceptResult invokeL;
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, view2)) == null) {
             Object tag = view2.getTag(-96000);
@@ -1482,7 +1490,7 @@ public class bi {
         return (Map) invokeL.objValue;
     }
 
-    public static String b(Class cls) {
+    public static String b(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, cls)) == null) {
@@ -1501,7 +1509,7 @@ public class bi {
         return (String) invokeL.objValue;
     }
 
-    public static Map b(View view2, boolean z) {
+    public static Map<String, String> b(View view2, boolean z) {
         InterceptResult invokeLZ;
         View view3;
         String str;
@@ -1620,7 +1628,7 @@ public class bi {
                 }
                 if (arrayList.size() >= 2 && i >= 2) {
                     try {
-                        Collections.sort(arrayList, new Comparator() { // from class: com.baidu.mobstat.bi.1
+                        Collections.sort(arrayList, new Comparator<View>() { // from class: com.baidu.mobstat.bi.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 

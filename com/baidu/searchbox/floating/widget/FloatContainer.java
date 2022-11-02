@@ -1,5 +1,6 @@
 package com.baidu.searchbox.floating.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -21,6 +22,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\b\u0007\u0018\u00002\u00020\u0001:\u000389:B-\u0012\u0006\u0010\u001a\u001a\u00020\u0019\u0012\u0006\u00102\u001a\u000201\u0012\n\b\u0002\u00104\u001a\u0004\u0018\u000103\u0012\b\b\u0002\u00105\u001a\u00020\b¢\u0006\u0004\b6\u00107J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J7\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0007\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\b2\u0006\u0010\u000b\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0011\u001a\u00020\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u0002H\u0017¢\u0006\u0004\b\u0011\u0010\u0006R$\u0010\u0013\u001a\u0004\u0018\u00010\u00128\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u0019\u0010\u001a\u001a\u00020\u00198\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001f\u001a\u00020\u001e8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001f\u0010 R\u0016\u0010!\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R$\u0010$\u001a\u0004\u0018\u00010#8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R$\u0010+\u001a\u0004\u0018\u00010*8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b+\u0010,\u001a\u0004\b-\u0010.\"\u0004\b/\u00100¨\u0006;"}, d2 = {"Lcom/baidu/searchbox/floating/widget/FloatContainer;", "Landroid/widget/FrameLayout;", "Landroid/view/MotionEvent;", Config.EVENT_PART, "", "onInterceptTouchEvent", "(Landroid/view/MotionEvent;)Z", "changed", "", "left", "top", "right", "bottom", "", "onLayout", "(ZIIII)V", "event", "onTouchEvent", "Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "clickListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "getClickListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "setClickListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;)V", "Lcom/baidu/searchbox/floating/config/Config;", "config", "Lcom/baidu/searchbox/floating/config/Config;", "getConfig", "()Lcom/baidu/searchbox/floating/config/Config;", "Landroid/view/GestureDetector;", "gestureDetector", "Landroid/view/GestureDetector;", "isCreate", "Z", "Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "layoutListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "getLayoutListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "setLayoutListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;)V", "Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "touchListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "getTouchListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "setTouchListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;)V", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Lcom/baidu/searchbox/floating/config/Config;Landroid/content/Context;Landroid/util/AttributeSet;I)V", "ClickListener", "LayoutListener", "TouchListener", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes2.dex */
 public final class FloatContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -105,6 +107,7 @@ public final class FloatContainer extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FloatContainer this$0;
 
+            /* JADX DEBUG: Incorrect args count in method signature: ()V */
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -198,6 +201,7 @@ public final class FloatContainer extends FrameLayout {
     }
 
     @Override // android.view.View
+    @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         TouchListener touchListener;

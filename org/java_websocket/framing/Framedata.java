@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface Framedata {
     ByteBuffer a();
 
@@ -23,8 +23,8 @@ public interface Framedata {
     boolean f();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class Opcode {
+    /* loaded from: classes9.dex */
+    public static final class Opcode {
         public static final /* synthetic */ Opcode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Opcode BINARY;

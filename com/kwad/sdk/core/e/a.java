@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.e;
 
 import android.util.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements com.kwad.sdk.core.e.kwai.a {
     @Override // com.kwad.sdk.core.e.kwai.a
     public final void d(String str, String str2) {

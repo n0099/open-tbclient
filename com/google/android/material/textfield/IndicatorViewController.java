@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -41,6 +45,7 @@ public final class IndicatorViewController {
     public static final int ERROR_INDEX = 0;
     public static final int HELPER_INDEX = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Animator captionAnimator;
     public FrameLayout captionArea;
     public int captionDisplayed;
@@ -49,18 +54,25 @@ public final class IndicatorViewController {
     public int captionViewsAdded;
     public final Context context;
     public boolean errorEnabled;
+    @Nullable
     public CharSequence errorText;
     public int errorTextAppearance;
+    @Nullable
     public TextView errorView;
+    @Nullable
     public CharSequence errorViewContentDescription;
+    @Nullable
     public ColorStateList errorViewTextColor;
     public CharSequence helperText;
     public boolean helperTextEnabled;
     public int helperTextTextAppearance;
+    @Nullable
     public TextView helperTextView;
+    @Nullable
     public ColorStateList helperTextViewTextColor;
     public LinearLayout indicatorArea;
     public int indicatorsAdded;
+    @NonNull
     public final TextInputLayout textInputView;
     public Typeface typeface;
 
@@ -70,7 +82,7 @@ public final class IndicatorViewController {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) ? i == 0 || i == 1 : invokeI.booleanValue;
     }
 
-    public IndicatorViewController(TextInputLayout textInputLayout) {
+    public IndicatorViewController(@NonNull TextInputLayout textInputLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,14 +121,14 @@ public final class IndicatorViewController {
         return (ObjectAnimator) invokeLZ.objValue;
     }
 
-    private void setTextViewTypeface(TextView textView, Typeface typeface) {
+    private void setTextViewTypeface(@Nullable TextView textView, Typeface typeface) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65548, this, textView, typeface) == null) && textView != null) {
             textView.setTypeface(typeface);
         }
     }
 
-    private void setViewGroupGoneIfEmpty(ViewGroup viewGroup, int i) {
+    private void setViewGroupGoneIfEmpty(@NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65549, this, viewGroup, i) == null) && i == 0) {
             viewGroup.setVisibility(8);
@@ -135,6 +147,7 @@ public final class IndicatorViewController {
         return (ObjectAnimator) invokeL.objValue;
     }
 
+    @Nullable
     private TextView getCaptionViewFromDisplayState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -174,7 +187,7 @@ public final class IndicatorViewController {
         return invokeI.booleanValue;
     }
 
-    public void setErrorContentDescription(CharSequence charSequence) {
+    public void setErrorContentDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, charSequence) == null) {
             this.errorViewContentDescription = charSequence;
@@ -185,7 +198,7 @@ public final class IndicatorViewController {
         }
     }
 
-    public void setErrorTextAppearance(int i) {
+    public void setErrorTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             this.errorTextAppearance = i;
@@ -196,7 +209,7 @@ public final class IndicatorViewController {
         }
     }
 
-    public void setErrorViewTextColor(ColorStateList colorStateList) {
+    public void setErrorViewTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, colorStateList) == null) {
             this.errorViewTextColor = colorStateList;
@@ -207,7 +220,7 @@ public final class IndicatorViewController {
         }
     }
 
-    public void setHelperTextAppearance(int i) {
+    public void setHelperTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             this.helperTextTextAppearance = i;
@@ -218,7 +231,7 @@ public final class IndicatorViewController {
         }
     }
 
-    public void setHelperTextViewTextColor(ColorStateList colorStateList) {
+    public void setHelperTextViewTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, colorStateList) == null) {
             this.helperTextViewTextColor = colorStateList;
@@ -309,6 +322,7 @@ public final class IndicatorViewController {
         return invokeV.booleanValue;
     }
 
+    @Nullable
     public CharSequence getErrorContentDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -318,6 +332,7 @@ public final class IndicatorViewController {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -327,6 +342,7 @@ public final class IndicatorViewController {
         return (CharSequence) invokeV.objValue;
     }
 
+    @ColorInt
     public int getErrorViewCurrentTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -340,6 +356,7 @@ public final class IndicatorViewController {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getErrorViewTextColors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -362,6 +379,7 @@ public final class IndicatorViewController {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getHelperTextViewColors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -375,6 +393,7 @@ public final class IndicatorViewController {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @ColorInt
     public int getHelperTextViewCurrentTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -435,7 +454,7 @@ public final class IndicatorViewController {
         return invokeV.booleanValue;
     }
 
-    private void createCaptionAnimators(List list, boolean z, TextView textView, int i, int i2, int i3) {
+    private void createCaptionAnimators(@NonNull List<Animator> list, boolean z, @Nullable TextView textView, int i, int i2, int i3) {
         boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{list, Boolean.valueOf(z), textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && textView != null && z) {
@@ -473,7 +492,7 @@ public final class IndicatorViewController {
         this.captionDisplayed = i2;
     }
 
-    private boolean shouldAnimateCaptionView(TextView textView, CharSequence charSequence) {
+    private boolean shouldAnimateCaptionView(@Nullable TextView textView, @Nullable CharSequence charSequence) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, textView, charSequence)) == null) {
@@ -637,7 +656,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.errorView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f092147);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f09219a);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.errorView.setTextAlignment(5);
             }
@@ -670,7 +689,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.helperTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f092148);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f09219b);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.helperTextView.setTextAlignment(5);
             }

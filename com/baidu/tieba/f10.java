@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import android.media.MediaCodec;
 /* loaded from: classes4.dex */
 public interface f10 {
-    void a(e10 e10Var);
+    void onFilteredFrameUpdate(byte[] bArr, MediaCodec.BufferInfo bufferInfo);
 }

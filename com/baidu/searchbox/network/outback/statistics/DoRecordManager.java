@@ -31,7 +31,7 @@ public final class DoRecordManager {
     public static final String TAG = "DoRecordManager";
     public static DoRecordManager sDoRecordManager;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile List mSynchronizedList;
+    public volatile List<RecordObserver> mSynchronizedList;
 
     static {
         InterceptResult invokeClinit;
@@ -152,7 +152,7 @@ public final class DoRecordManager {
         }
     }
 
-    private List parseRawAddressArray(InetAddress[] inetAddressArr) {
+    private List<String> parseRawAddressArray(InetAddress[] inetAddressArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, inetAddressArr)) == null) {

@@ -221,9 +221,9 @@ public class er extends es {
                     bitmap = this.f315b;
                 }
                 a.setImageViewBitmap(a13, bitmap);
-                Map map = ((es) this).f322a;
+                Map<String, String> map = ((es) this).f322a;
                 if (map != null && this.c == 16777216) {
-                    c((String) map.get("notification_image_text_color"));
+                    c(map.get("notification_image_text_color"));
                 }
                 int i = this.c;
                 z = i == 16777216 || !m317a(i);

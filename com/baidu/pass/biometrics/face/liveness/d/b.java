@@ -58,8 +58,8 @@ public class b extends Dialog {
             this.a = (ViewSwitcher) findViewById(R.id.view_switcher);
             this.c = (TextView) findViewById(R.id.title_text);
             this.d = (TextView) findViewById(R.id.msg_text);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091a34);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091664);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091a78);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a3);
             this.g = (TextView) findViewById(R.id.neutral_btn);
         }
     }

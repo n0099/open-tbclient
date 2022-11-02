@@ -13,12 +13,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
-public class LazyList extends AbstractList {
+public class LazyList<E> extends AbstractList<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
-    public Iterator elementSource;
-    public List underlying;
+    public Iterator<E> elementSource;
+    public List<E> underlying;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class LazyList extends AbstractList {
         }
     }
 
-    public List getUnderlying() {
+    public List<E> getUnderlying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -56,11 +56,11 @@ public class LazyList extends AbstractList {
     }
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.List
-    public Iterator iterator() {
+    public Iterator<E> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new Iterator(this) { // from class: com.googlecode.mp4parser.util.LazyList.1
+            return new Iterator<E>(this) { // from class: com.googlecode.mp4parser.util.LazyList.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public int pos;
@@ -107,21 +107,21 @@ public class LazyList extends AbstractList {
                 }
 
                 @Override // java.util.Iterator
-                public Object next() {
+                public E next() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         if (this.pos < this.this$0.underlying.size()) {
-                            List list = this.this$0.underlying;
+                            List<E> list = this.this$0.underlying;
                             int i = this.pos;
                             this.pos = i + 1;
                             return list.get(i);
                         }
                         LazyList lazyList = this.this$0;
                         lazyList.underlying.add(lazyList.elementSource.next());
-                        return next();
+                        return (E) next();
                     }
-                    return invokeV2.objValue;
+                    return (E) invokeV2.objValue;
                 }
             };
         }
@@ -140,7 +140,7 @@ public class LazyList extends AbstractList {
         return invokeV.intValue;
     }
 
-    public LazyList(List list, Iterator it) {
+    public LazyList(List<E> list, Iterator<E> it) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class LazyList extends AbstractList {
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public Object get(int i) {
+    public E get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -173,6 +173,6 @@ public class LazyList extends AbstractList {
             }
             throw new NoSuchElementException();
         }
-        return invokeI.objValue;
+        return (E) invokeI.objValue;
     }
 }

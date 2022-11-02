@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ForumMenu.DataReq;
 import tbclient.ForumMenu.ForumMenuReqIdl;
 /* loaded from: classes4.dex */
-public class RequestOfficialBarMenuLocalMessage extends CustomMessage {
+public class RequestOfficialBarMenuLocalMessage extends CustomMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String forum_id;
@@ -58,7 +58,7 @@ public class RequestOfficialBarMenuLocalMessage extends CustomMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.forum_id = Integer.valueOf(eh.e(getForum_id(), 0));
+            builder.forum_id = Integer.valueOf(wg.e(getForum_id(), 0));
             builder.update_time = Integer.valueOf((int) getTimestamp());
             ForumMenuReqIdl.Builder builder2 = new ForumMenuReqIdl.Builder();
             builder2.data = builder.build(false);

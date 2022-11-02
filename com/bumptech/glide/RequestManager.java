@@ -7,6 +7,12 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.View;
+import androidx.annotation.CheckResult;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,7 +44,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class RequestManager implements ComponentCallbacks2, LifecycleListener, ModelTypes {
+public class RequestManager implements ComponentCallbacks2, LifecycleListener, ModelTypes<RequestBuilder<Drawable>> {
     public static /* synthetic */ Interceptable $ic;
     public static final RequestOptions DECODE_TYPE_BITMAP;
     public static final RequestOptions DECODE_TYPE_GIF;
@@ -47,13 +53,17 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     public final Runnable addSelfToLifecycle;
     public final ConnectivityMonitor connectivityMonitor;
     public final Context context;
-    public final CopyOnWriteArrayList defaultRequestListeners;
+    public final CopyOnWriteArrayList<RequestListener<Object>> defaultRequestListeners;
     public final Glide glide;
     public final Lifecycle lifecycle;
     public boolean pauseAllRequestsOnTrimMemoryModerate;
+    @GuardedBy("this")
     public RequestOptions requestOptions;
+    @GuardedBy("this")
     public final RequestTracker requestTracker;
+    @GuardedBy("this")
     public final TargetTracker targetTracker;
+    @GuardedBy("this")
     public final RequestManagerTreeNode treeNode;
 
     @Override // android.content.ComponentCallbacks
@@ -71,33 +81,33 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* loaded from: classes7.dex */
-    public class ClearTarget extends CustomViewTarget {
+    public static class ClearTarget extends CustomViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onLoadFailed(Drawable drawable) {
+        public void onLoadFailed(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
             }
         }
 
         @Override // com.bumptech.glide.request.target.CustomViewTarget
-        public void onResourceCleared(Drawable drawable) {
+        public void onResourceCleared(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
             }
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onResourceReady(Object obj, Transition transition) {
+        public void onResourceReady(@NonNull Object obj, @Nullable Transition<? super Object> transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, transition) == null) {
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ClearTarget(View view2) {
+        public ClearTarget(@NonNull View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -121,10 +131,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     public class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @GuardedBy("RequestManager.this")
         public final RequestTracker requestTracker;
         public final /* synthetic */ RequestManager this$0;
 
-        public RequestManagerConnectivityListener(RequestManager requestManager, RequestTracker requestTracker) {
+        public RequestManagerConnectivityListener(@NonNull RequestManager requestManager, RequestTracker requestTracker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,9 +178,9 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
                 return;
             }
         }
-        DECODE_TYPE_BITMAP = (RequestOptions) RequestOptions.decodeTypeOf(Bitmap.class).lock();
-        DECODE_TYPE_GIF = (RequestOptions) RequestOptions.decodeTypeOf(GifDrawable.class).lock();
-        DOWNLOAD_ONLY_OPTIONS = (RequestOptions) ((RequestOptions) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.DATA).priority(Priority.LOW)).skipMemoryCache(true);
+        DECODE_TYPE_BITMAP = RequestOptions.decodeTypeOf(Bitmap.class).lock();
+        DECODE_TYPE_GIF = RequestOptions.decodeTypeOf(GifDrawable.class).lock();
+        DOWNLOAD_ONLY_OPTIONS = RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.DATA).priority(Priority.LOW).skipMemoryCache(true);
     }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
@@ -178,7 +189,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             synchronized (this) {
                 this.targetTracker.onDestroy();
-                for (Target target : this.targetTracker.getAll()) {
+                for (Target<?> target : this.targetTracker.getAll()) {
                     clear(target);
                 }
                 this.targetTracker.clear();
@@ -192,7 +203,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RequestManager(Glide glide, Lifecycle lifecycle, RequestManagerTreeNode requestManagerTreeNode, Context context) {
+    public RequestManager(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context) {
         this(glide, lifecycle, requestManagerTreeNode, new RequestTracker(), glide.getConnectivityMonitorFactory(), context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -272,12 +283,12 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
             lifecycle.addListener(this);
         }
         lifecycle.addListener(this.connectivityMonitor);
-        this.defaultRequestListeners = new CopyOnWriteArrayList(glide.getGlideContext().getDefaultRequestListeners());
+        this.defaultRequestListeners = new CopyOnWriteArrayList<>(glide.getGlideContext().getDefaultRequestListeners());
         setRequestOptions(glide.getGlideContext().getDefaultRequestOptions());
         glide.registerRequestManager(this);
     }
 
-    private void untrackOrDelegate(Target target) {
+    private void untrackOrDelegate(@NonNull Target<?> target) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, target) == null) {
             boolean untrack = untrack(target);
@@ -289,16 +300,16 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         }
     }
 
-    private synchronized void updateRequestOptions(RequestOptions requestOptions) {
+    private synchronized void updateRequestOptions(@NonNull RequestOptions requestOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, requestOptions) == null) {
             synchronized (this) {
-                this.requestOptions = (RequestOptions) this.requestOptions.apply(requestOptions);
+                this.requestOptions = this.requestOptions.apply(requestOptions);
             }
         }
     }
 
-    public RequestManager addDefaultRequestListener(RequestListener requestListener) {
+    public RequestManager addDefaultRequestListener(RequestListener<Object> requestListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestListener)) == null) {
@@ -308,7 +319,8 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         return (RequestManager) invokeL.objValue;
     }
 
-    public synchronized RequestManager applyDefaultRequestOptions(RequestOptions requestOptions) {
+    @NonNull
+    public synchronized RequestManager applyDefaultRequestOptions(@NonNull RequestOptions requestOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, requestOptions)) == null) {
@@ -320,23 +332,27 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         return (RequestManager) invokeL.objValue;
     }
 
-    public RequestBuilder as(Class cls) {
+    @NonNull
+    @CheckResult
+    public <ResourceType> RequestBuilder<ResourceType> as(@NonNull Class<ResourceType> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
-            return new RequestBuilder(this.glide, this, cls, this.context);
+            return new RequestBuilder<>(this.glide, this, cls, this.context);
         }
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public void clear(View view2) {
+    public void clear(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             clear(new ClearTarget(view2));
         }
     }
 
-    public RequestBuilder download(Object obj) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<File> download(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
@@ -345,7 +361,8 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         return (RequestBuilder) invokeL.objValue;
     }
 
-    public TransitionOptions getDefaultTransitionOptions(Class cls) {
+    @NonNull
+    public <T> TransitionOptions<?, T> getDefaultTransitionOptions(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, cls)) == null) {
@@ -355,8 +372,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Bitmap bitmap) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> load(@Nullable Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, bitmap)) == null) {
@@ -373,7 +393,8 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         }
     }
 
-    public synchronized RequestManager setDefaultRequestOptions(RequestOptions requestOptions) {
+    @NonNull
+    public synchronized RequestManager setDefaultRequestOptions(@NonNull RequestOptions requestOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, requestOptions)) == null) {
@@ -392,25 +413,29 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         }
     }
 
-    public synchronized void setRequestOptions(RequestOptions requestOptions) {
+    public synchronized void setRequestOptions(@NonNull RequestOptions requestOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, requestOptions) == null) {
             synchronized (this) {
-                this.requestOptions = (RequestOptions) ((RequestOptions) requestOptions.m75clone()).autoClone();
+                this.requestOptions = requestOptions.m75clone().autoClone();
             }
         }
     }
 
-    public RequestBuilder asBitmap() {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Bitmap> asBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return as(Bitmap.class).apply((BaseRequestOptions) DECODE_TYPE_BITMAP);
+            return as(Bitmap.class).apply((BaseRequestOptions<?>) DECODE_TYPE_BITMAP);
         }
         return (RequestBuilder) invokeV.objValue;
     }
 
-    public RequestBuilder asDrawable() {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> asDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -419,34 +444,40 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         return (RequestBuilder) invokeV.objValue;
     }
 
-    public RequestBuilder asFile() {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<File> asFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return as(File.class).apply((BaseRequestOptions) RequestOptions.skipMemoryCacheOf(true));
+            return as(File.class).apply((BaseRequestOptions<?>) RequestOptions.skipMemoryCacheOf(true));
         }
         return (RequestBuilder) invokeV.objValue;
     }
 
-    public RequestBuilder asGif() {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<GifDrawable> asGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return as(GifDrawable.class).apply((BaseRequestOptions) DECODE_TYPE_GIF);
+            return as(GifDrawable.class).apply((BaseRequestOptions<?>) DECODE_TYPE_GIF);
         }
         return (RequestBuilder) invokeV.objValue;
     }
 
-    public RequestBuilder downloadOnly() {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<File> downloadOnly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return as(File.class).apply((BaseRequestOptions) DOWNLOAD_ONLY_OPTIONS);
+            return as(File.class).apply((BaseRequestOptions<?>) DOWNLOAD_ONLY_OPTIONS);
         }
         return (RequestBuilder) invokeV.objValue;
     }
 
-    public List getDefaultRequestListeners() {
+    public List<RequestListener<Object>> getDefaultRequestListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -554,7 +585,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         }
     }
 
-    public void clear(Target target) {
+    public void clear(@Nullable Target<?> target) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, target) != null) || target == null) {
             return;
@@ -563,8 +594,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Drawable drawable) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> load(@Nullable Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, drawable)) == null) {
@@ -574,8 +608,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Uri uri) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> load(@Nullable Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, uri)) == null) {
@@ -585,8 +622,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(File file) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> load(@Nullable File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, file)) == null) {
@@ -596,8 +636,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Integer num) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> load(@Nullable @DrawableRes @RawRes Integer num) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, num)) == null) {
@@ -607,8 +650,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(Object obj) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> load(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, obj)) == null) {
@@ -618,8 +664,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(String str) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> load(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
@@ -629,9 +678,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
+    @CheckResult
     @Deprecated
-    public RequestBuilder load(URL url) {
+    public RequestBuilder<Drawable> load(@Nullable URL url) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, url)) == null) {
@@ -641,8 +692,11 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.ModelTypes
-    public RequestBuilder load(byte[] bArr) {
+    @NonNull
+    @CheckResult
+    public RequestBuilder<Drawable> load(@Nullable byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, bArr)) == null) {
@@ -677,7 +731,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         return (String) invokeV.objValue;
     }
 
-    public synchronized void track(Target target, Request request) {
+    public synchronized void track(@NonNull Target<?> target, @NonNull Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048625, this, target, request) == null) {
             synchronized (this) {
@@ -687,7 +741,7 @@ public class RequestManager implements ComponentCallbacks2, LifecycleListener, M
         }
     }
 
-    public synchronized boolean untrack(Target target) {
+    public synchronized boolean untrack(@NonNull Target<?> target) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, target)) == null) {

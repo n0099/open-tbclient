@@ -61,7 +61,7 @@ public class MaskMessageModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaskMessageModel(TbPageContext tbPageContext) {
+    public MaskMessageModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,7 +91,7 @@ public class MaskMessageModel extends BdBaseModel {
         return (RequestGetMaskInfoMessage) invokeI.objValue;
     }
 
-    public void registerMaskListener(MessageListener messageListener) {
+    public void registerMaskListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, messageListener) == null) {
             MessageManager.getInstance().registerListener(104103, messageListener);
@@ -106,7 +106,7 @@ public class MaskMessageModel extends BdBaseModel {
         }
     }
 
-    public void unRegisterListener(MessageListener messageListener) {
+    public void unRegisterListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, messageListener) == null) {
             MessageManager.getInstance().unRegisterListener(messageListener);

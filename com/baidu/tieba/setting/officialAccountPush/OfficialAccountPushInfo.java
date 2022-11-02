@@ -14,7 +14,7 @@ import tbclient.GetOfficialSwitch.OfficialList;
 /* loaded from: classes5.dex */
 public class OfficialAccountPushInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<OfficialAccountPushInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int is_on;
     public String name;
@@ -31,7 +31,7 @@ public class OfficialAccountPushInfo implements Parcelable {
     }
 
     /* loaded from: classes5.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<OfficialAccountPushInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

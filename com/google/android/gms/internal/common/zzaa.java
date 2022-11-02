@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class zzaa extends zzab {
+public class zzaa<E> extends zzab<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Object[] zza;
@@ -56,16 +56,16 @@ public class zzaa extends zzab {
         }
     }
 
-    public final zzaa zza(Object obj) {
+    public final zzaa<E> zza(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
                 zzb(this.zzb + 1);
                 Object[] objArr = this.zza;
                 int i = this.zzb;
                 this.zzb = i + 1;
-                objArr[i] = obj;
+                objArr[i] = e;
                 return this;
             }
             throw null;

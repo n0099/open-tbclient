@@ -2,13 +2,15 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.ksad.json.annotation.KsJson;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class i extends b {
+/* loaded from: classes8.dex */
+public final class i extends b<a> {
 
-    /* loaded from: classes7.dex */
-    public class a extends com.kwad.sdk.core.response.kwai.a {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int VD = TiebaStatic.MAX_COST_VALUE;
         public int VE = 90000;
     }
@@ -19,9 +21,9 @@ public final class i extends b {
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(SharedPreferences sharedPreferences) {
-        a aVar = (a) getValue();
-        if (aVar == null) {
-            aVar = new a();
+        a value = getValue();
+        if (value == null) {
+            value = new a();
         }
         JSONObject jSONObject = null;
         try {
@@ -30,21 +32,21 @@ public final class i extends b {
             com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
         if (jSONObject != null) {
-            aVar.parseJson(jSONObject);
+            value.parseJson(jSONObject);
         }
-        setValue(aVar);
+        setValue(value);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void b(SharedPreferences.Editor editor) {
         String key;
         String str;
-        if (getValue() == null || ((a) getValue()).toJson() == null) {
+        if (getValue() == null || getValue().toJson() == null) {
             key = getKey();
             str = "";
         } else {
             key = getKey();
-            str = ((a) getValue()).toJson().toString();
+            str = getValue().toJson().toString();
         }
         editor.putString(key, str);
     }

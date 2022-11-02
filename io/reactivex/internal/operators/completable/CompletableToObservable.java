@@ -15,16 +15,16 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
 /* loaded from: classes8.dex */
-public final class CompletableToObservable extends Observable {
+public final class CompletableToObservable<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public final class ObserverCompletableObserver extends BasicQueueDisposable implements CompletableObserver {
+    public static final class ObserverCompletableObserver extends BasicQueueDisposable<Void> implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer observer;
+        public final Observer<?> observer;
         public Disposable upstream;
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -62,7 +62,7 @@ public final class CompletableToObservable extends Observable {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i & 2 : invokeI.intValue;
         }
 
-        public ObserverCompletableObserver(Observer observer) {
+        public ObserverCompletableObserver(Observer<?> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public final class CompletableToObservable extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new ObserverCompletableObserver(observer));

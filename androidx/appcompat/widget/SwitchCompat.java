@@ -24,6 +24,8 @@ import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.CompoundButton;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.text.AllCapsTransformationMethod;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -226,7 +228,7 @@ public class SwitchCompat extends CompoundButton {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwitchCompat(Context context) {
+    public SwitchCompat(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -319,7 +321,7 @@ public class SwitchCompat extends CompoundButton {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwitchCompat(Context context, AttributeSet attributeSet) {
+    public SwitchCompat(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040678);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -402,7 +404,7 @@ public class SwitchCompat extends CompoundButton {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwitchCompat(Context context, AttributeSet attributeSet, int i) {
+    public SwitchCompat(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -672,6 +674,7 @@ public class SwitchCompat extends CompoundButton {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getThumbTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -681,6 +684,7 @@ public class SwitchCompat extends CompoundButton {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public PorterDuff.Mode getThumbTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -699,6 +703,7 @@ public class SwitchCompat extends CompoundButton {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getTrackTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -708,6 +713,7 @@ public class SwitchCompat extends CompoundButton {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public PorterDuff.Mode getTrackTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -869,7 +875,7 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setThumbTintList(ColorStateList colorStateList) {
+    public void setThumbTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, colorStateList) == null) {
             this.mThumbTintList = colorStateList;
@@ -878,7 +884,7 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setThumbTintMode(PorterDuff.Mode mode) {
+    public void setThumbTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, mode) == null) {
             this.mThumbTintMode = mode;
@@ -909,7 +915,7 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setTrackTintList(ColorStateList colorStateList) {
+    public void setTrackTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, colorStateList) == null) {
             this.mTrackTintList = colorStateList;
@@ -918,7 +924,7 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setTrackTintMode(PorterDuff.Mode mode) {
+    public void setTrackTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, mode) == null) {
             this.mTrackTintMode = mode;

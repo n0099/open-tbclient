@@ -3,8 +3,9 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.fb6;
-import com.baidu.tieba.rb5;
+import com.baidu.tieba.nc5;
+import com.baidu.tieba.pc6;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,11 +15,11 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes3.dex */
-public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements rb5 {
+/* loaded from: classes4.dex */
+public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements nc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fb6 enterForumTabFeedData;
+    public pc6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -47,7 +48,7 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
         return invokeV.objValue;
     }
 
-    public ArrayList getThreadList() {
+    public ArrayList<wn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -75,9 +76,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
             if (getError() != 0 || tabfeedlistResIdl.data == null) {
                 return;
             }
-            fb6 fb6Var = new fb6();
-            this.enterForumTabFeedData = fb6Var;
-            fb6Var.g(tabfeedlistResIdl.data);
+            pc6 pc6Var = new pc6();
+            this.enterForumTabFeedData = pc6Var;
+            pc6Var.g(tabfeedlistResIdl.data);
         }
     }
 }

@@ -2,20 +2,16 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.open.SocialOperation;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.UUID;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.io.File;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class jz2 {
@@ -36,91 +32,96 @@ public class jz2 {
                 return;
             }
         }
-        a = wj1.a;
+        a = ok1.a;
     }
 
-    public static String a(String str, long j, String str2) {
-        InterceptResult invokeCommon;
-        String str3;
+    public static void a(SwanAppConfigData swanAppConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
-            m33 M = m33.M();
-            if (M == null) {
-                str3 = "";
-            } else {
-                str3 = ov1.a(M.O());
-            }
-            String[] strArr = {str3, str, String.valueOf(j), str2};
-            Arrays.sort(strArr);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 4; i++) {
-                sb.append(strArr[i]);
-            }
-            try {
-                return eg3.c("SHA-1", sb.toString().getBytes(), false);
-            } catch (NoSuchAlgorithmException e) {
-                if (!a) {
-                    return "";
-                }
-                Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
-                return "";
-            }
+        if ((interceptable != null && interceptable.invokeL(65537, null, swanAppConfigData) != null) || swanAppConfigData == null) {
+            return;
         }
-        return (String) invokeCommon.objValue;
+        List<yz2> e = swanAppConfigData.e();
+        if (e != null && !e.isEmpty()) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            b(e, jSONObject, jSONObject2);
+            if (te2.k()) {
+                boolean z = false;
+                for (yz2 yz2Var : e) {
+                    String h = te2.h(yz2Var.a);
+                    if (!TextUtils.isEmpty(h) && new File(h).exists()) {
+                        yz2Var.e = h;
+                        c(jSONObject, jSONObject2, yz2Var);
+                        z = true;
+                        e12.i("Module-Plugin", "use debug dependencies，name=" + yz2Var.a + " path=" + yz2Var.e);
+                    } else {
+                        e12.o("Module-Plugin", "debug dependencies not exist，name=" + yz2Var.a + " path=" + yz2Var.e);
+                    }
+                }
+                if (!z) {
+                    w33.g(AppRuntime.getAppContext(), "no debug dependency").G();
+                    e12.c("Module-Plugin", "no debug dependency");
+                }
+            }
+            String jSONObject3 = jSONObject.toString();
+            String jSONObject4 = jSONObject2.toString();
+            c03.c("dependenciesPath", jSONObject3);
+            c03.c("dependenciesConfig", jSONObject4);
+            return;
+        }
+        c03.c("dependenciesPath", null);
+        c03.c("dependenciesConfig", null);
+        if (a) {
+            wz2.b("this swan app not apply on someone dynamic lib");
+        }
     }
 
-    public static boolean c(String str, String str2, nc4 nc4Var) {
-        InterceptResult invokeLLL;
-        int length;
+    public static void b(@NonNull List<yz2> list, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, nc4Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && nc4Var != null) {
-                String str3 = nc4Var.q;
-                if (TextUtils.isEmpty(str3)) {
-                    return false;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
-                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
-                        return false;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < length; i++) {
-                        String optString = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString)) {
-                            arrayList.add(optString);
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, list, jSONObject, jSONObject2) != null) || list.isEmpty()) {
+            return;
+        }
+        for (yz2 yz2Var : list) {
+            if (yz2Var != null) {
+                if (yz2Var.g) {
+                    c(jSONObject, jSONObject2, yz2Var);
+                } else {
+                    fd4 q = bc4.i().q(yz2Var.a, yz2Var.h, yz2Var.i);
+                    if (q == null) {
+                        wz2.a(Log.getStackTraceString(new Throwable(yz2Var.a + " query db fail")));
+                    } else {
+                        File t = an2.t(yz2Var.a, String.valueOf(q.i));
+                        if (t != null && t.exists()) {
+                            yz2Var.e = t.getAbsolutePath();
+                            c(jSONObject, jSONObject2, yz2Var);
+                        } else {
+                            wz2.a(Log.getStackTraceString(new Throwable(yz2Var.a + " local file not exist")));
                         }
                     }
-                    return d43.b(new URI(str2).getHost(), arrayList);
-                } catch (URISyntaxException | JSONException e) {
-                    ez2.b(Log.getStackTraceString(e));
                 }
             }
-            return false;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static String b(nc4 nc4Var) {
-        InterceptResult invokeL;
+    public static void c(@NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull yz2 yz2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nc4Var)) == null) {
-            if (nc4Var == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, yz2Var) == null) {
+            String str = yz2Var.e;
+            String str2 = yz2Var.f;
+            if (a) {
+                wz2.b("apply dep path, name = " + yz2Var.a + "; inline = " + yz2Var.g + "; path = " + str + "; config = " + str2);
             }
-            String str = nc4Var.p;
-            JSONObject jSONObject = new JSONObject();
-            String uuid = UUID.randomUUID().toString();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            try {
-                jSONObject.put("noncestr", uuid);
-                jSONObject.put("timestamp", currentTimeMillis);
-                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
-            } catch (JSONException e) {
-                ez2.b(Log.getStackTraceString(e));
+            if (TextUtils.isEmpty(str)) {
+                wz2.b(Log.getStackTraceString(new Throwable(yz2Var.a + " path is empty")));
+                return;
             }
-            return jSONObject.toString();
+            eh3.f(jSONObject, yz2Var.a, str);
+            if (!TextUtils.isEmpty(yz2Var.f)) {
+                File file = new File(str, str2);
+                if (file.exists() && file.isFile()) {
+                    eh3.f(jSONObject2, yz2Var.a, eh3.d(ik4.E(file)));
+                }
+            }
         }
-        return (String) invokeL.objValue;
     }
 }

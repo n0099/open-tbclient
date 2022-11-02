@@ -1,12 +1,14 @@
 package com.baidu.tbadk.img;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
-import com.baidu.tieba.mj;
-import com.baidu.tieba.z95;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ua5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,6 +29,7 @@ public class UploadedImageInfo implements Serializable {
     public boolean isBJH;
     public boolean isGif;
     public String pic_id;
+    @Nullable
     public String sharpText;
     public int width;
 
@@ -109,7 +112,7 @@ public class UploadedImageInfo implements Serializable {
         }
     }
 
-    public void setSharpText(String str) {
+    public void setSharpText(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.sharpText = str;
@@ -137,13 +140,14 @@ public class UploadedImageInfo implements Serializable {
         }
     }
 
+    @SuppressLint({"DefaultLocale"})
     public String toPostString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.pic_id != null) {
                 if (!TextUtils.isEmpty(this.sharpText)) {
-                    return String.format(POST_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), mj.c(String.format(MD5_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), MD5_KEY)).toLowerCase(), z95.b.b(this.sharpText));
+                    return String.format(POST_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), ej.c(String.format(MD5_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), MD5_KEY)).toLowerCase(), ua5.b.b(this.sharpText));
                 }
                 if (this.isBJH) {
                     return String.format(POST_BJH_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), Boolean.valueOf(this.isGif));

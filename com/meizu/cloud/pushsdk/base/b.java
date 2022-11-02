@@ -17,7 +17,7 @@ public class b implements g {
     public int e = 10;
     public boolean i = false;
     public SimpleDateFormat a = new SimpleDateFormat("MM-dd HH:mm:ss");
-    public List b = Collections.synchronizedList(new ArrayList());
+    public List<a> b = Collections.synchronizedList(new ArrayList());
     public Handler c = new Handler(Looper.getMainLooper());
     public String g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
     public e f = new e();

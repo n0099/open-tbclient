@@ -1,5 +1,6 @@
 package com.baidu.tieba.pushdialog;
 
+import android.annotation.TargetApi;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 import com.baidu.android.imsdk.internal.Constants;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(21)
 /* loaded from: classes5.dex */
 public class PushDialogJobService extends JobService {
     public static /* synthetic */ Interceptable $ic;

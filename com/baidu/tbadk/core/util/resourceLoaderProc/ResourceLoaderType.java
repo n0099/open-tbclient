@@ -18,6 +18,7 @@ public class ResourceLoaderType {
     public static final int FRS_ABSTRACT_NO_CDN = 14;
     public static final int FRS_HEADER_ICON = 15;
     public static final int FRS_STAR_HEADER_ICON = 16;
+    public static final int GAME_HOT_RANK_ENTRY = 48;
     public static final int ICONS = 21;
     public static final int ICONS_MEMORY_FOREVER = 45;
     public static final int LOCAL_FILE_FIT_IMAGE = 36;

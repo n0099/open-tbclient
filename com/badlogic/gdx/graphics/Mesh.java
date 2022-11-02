@@ -33,7 +33,7 @@ import kotlin.UShort;
 /* loaded from: classes.dex */
 public class Mesh implements i7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map e;
+    public static final Map<Application, b7<Mesh>> e;
     public transient /* synthetic */ FieldHolder $fh;
     public final b6 a;
     public final u5 b;
@@ -42,7 +42,7 @@ public class Mesh implements i7 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class VertexDataType {
+    public static final class VertexDataType {
         public static final /* synthetic */ VertexDataType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final VertexDataType VertexArray;
@@ -186,9 +186,9 @@ public class Mesh implements i7 {
     public static void a(Application application, Mesh mesh) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, mesh) == null) {
-            b7 b7Var = (b7) e.get(application);
+            b7<Mesh> b7Var = e.get(application);
             if (b7Var == null) {
-                b7Var = new b7();
+                b7Var = new b7<>();
             }
             b7Var.a(mesh);
             e.put(application, b7Var);
@@ -225,7 +225,7 @@ public class Mesh implements i7 {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed meshes/app: { ");
             for (Application application : e.keySet()) {
-                sb.append(((b7) e.get(application)).b);
+                sb.append(e.get(application).b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -235,14 +235,14 @@ public class Mesh implements i7 {
     }
 
     public static void n(Application application) {
-        b7 b7Var;
+        b7<Mesh> b7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (b7Var = (b7) e.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (b7Var = e.get(application)) == null) {
             return;
         }
         for (int i = 0; i < b7Var.b; i++) {
-            ((Mesh) b7Var.get(i)).a.invalidate();
-            ((Mesh) b7Var.get(i)).b.invalidate();
+            b7Var.get(i).a.invalidate();
+            b7Var.get(i).b.invalidate();
         }
     }
 
@@ -251,7 +251,7 @@ public class Mesh implements i7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (e.get(f1.a) != null) {
-                ((b7) e.get(f1.a)).j(this, true);
+                e.get(f1.a).j(this, true);
             }
             this.a.dispose();
             v5 v5Var = this.c;

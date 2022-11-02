@@ -1,5 +1,6 @@
 package androidx.core.text;
 
+import android.annotation.SuppressLint;
 import android.text.Spannable;
 import android.text.SpannableString;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +16,7 @@ public final class SpannableStringKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @SuppressLint({"SyntheticAccessor"})
     public static final void clearSpans(Spannable spannable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, spannable) == null) {

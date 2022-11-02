@@ -15,6 +15,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -44,7 +45,7 @@ public class FileProvider extends ContentProvider {
     public static final String h = "name";
     public static final String i = "path";
     public static final File j;
-    public static HashMap k;
+    public static HashMap<String, a> k;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
@@ -66,11 +67,11 @@ public class FileProvider extends ContentProvider {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements a {
+    public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-        public final HashMap b;
+        public final HashMap<String, File> b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -87,7 +88,7 @@ public class FileProvider extends ContentProvider {
                     return;
                 }
             }
-            this.b = new HashMap();
+            this.b = new HashMap<>();
             this.a = str;
         }
 
@@ -99,21 +100,21 @@ public class FileProvider extends ContentProvider {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
                 try {
                     String canonicalPath = file.getCanonicalPath();
-                    Map.Entry entry = null;
-                    for (Map.Entry entry2 : this.b.entrySet()) {
-                        String path = ((File) entry2.getValue()).getPath();
-                        if (canonicalPath.startsWith(path) && (entry == null || path.length() > ((File) entry.getValue()).getPath().length())) {
+                    Map.Entry<String, File> entry = null;
+                    for (Map.Entry<String, File> entry2 : this.b.entrySet()) {
+                        String path = entry2.getValue().getPath();
+                        if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                             entry = entry2;
                         }
                     }
                     if (entry != null) {
-                        String path2 = ((File) entry.getValue()).getPath();
+                        String path2 = entry.getValue().getPath();
                         if (path2.endsWith("/")) {
                             substring = canonicalPath.substring(path2.length());
                         } else {
                             substring = canonicalPath.substring(path2.length() + 1);
                         }
-                        return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode((String) entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
+                        return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
                     }
                     throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
                 } catch (IOException unused) {
@@ -132,7 +133,7 @@ public class FileProvider extends ContentProvider {
                 int indexOf = encodedPath.indexOf(47, 1);
                 String decode = Uri.decode(encodedPath.substring(1, indexOf));
                 String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = (File) this.b.get(decode);
+                File file = this.b.get(decode);
                 if (file != null) {
                     File file2 = new File(file, decode2);
                     try {
@@ -181,7 +182,7 @@ public class FileProvider extends ContentProvider {
         }
         b = new String[]{"_display_name", "_size"};
         j = new File("/");
-        k = new HashMap();
+        k = new HashMap<>();
     }
 
     public FileProvider() {
@@ -205,7 +206,7 @@ public class FileProvider extends ContentProvider {
             if ("r".equals(str)) {
                 return LaunchTaskConstants.OTHER_PROCESS;
             }
-            if (!"w".equals(str) && !"wt".equals(str)) {
+            if (!Config.DEVICE_WIDTH.equals(str) && !"wt".equals(str)) {
                 if ("wa".equals(str)) {
                     return 704643072;
                 }
@@ -228,7 +229,7 @@ public class FileProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             synchronized (k) {
-                aVar = (a) k.get(str);
+                aVar = k.get(str);
                 if (aVar == null) {
                     try {
                         aVar = b(context, str);

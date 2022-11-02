@@ -23,13 +23,13 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSequenceEqual extends Flowable {
+public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate comparer;
-    public final Publisher first;
+    public final BiPredicate<? super T, ? super T> comparer;
+    public final Publisher<? extends T> first;
     public final int prefetch;
-    public final Publisher second;
+    public final Publisher<? extends T> second;
 
     /* loaded from: classes8.dex */
     public interface EqualCoordinatorHelper {
@@ -39,20 +39,20 @@ public final class FlowableSequenceEqual extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class EqualCoordinator extends DeferredScalarSubscription implements EqualCoordinatorHelper {
+    public static final class EqualCoordinator<T> extends DeferredScalarSubscription<Boolean> implements EqualCoordinatorHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiPredicate comparer;
+        public final BiPredicate<? super T, ? super T> comparer;
         public final AtomicThrowable error;
-        public final EqualSubscriber first;
-        public final EqualSubscriber second;
-        public Object v1;
-        public Object v2;
+        public final EqualSubscriber<T> first;
+        public final EqualSubscriber<T> second;
+        public T v1;
+        public T v2;
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EqualCoordinator(Subscriber subscriber, int i, BiPredicate biPredicate) {
+        public EqualCoordinator(Subscriber<? super Boolean> subscriber, int i, BiPredicate<? super T, ? super T> biPredicate) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -71,8 +71,8 @@ public final class FlowableSequenceEqual extends Flowable {
             }
             this.comparer = biPredicate;
             this.wip = new AtomicInteger();
-            this.first = new EqualSubscriber(this, i);
-            this.second = new EqualSubscriber(this, i);
+            this.first = new EqualSubscriber<>(this, i);
+            this.second = new EqualSubscriber<>(this, i);
             this.error = new AtomicThrowable();
         }
 
@@ -109,21 +109,21 @@ public final class FlowableSequenceEqual extends Flowable {
             }
             int i = 1;
             do {
-                SimpleQueue simpleQueue = this.first.queue;
-                SimpleQueue simpleQueue2 = this.second.queue;
+                SimpleQueue<T> simpleQueue = this.first.queue;
+                SimpleQueue<T> simpleQueue2 = this.second.queue;
                 if (simpleQueue != null && simpleQueue2 != null) {
                     while (!isCancelled()) {
-                        if (((Throwable) this.error.get()) != null) {
+                        if (this.error.get() != null) {
                             cancelAndClear();
                             this.actual.onError(this.error.terminate());
                             return;
                         }
                         boolean z2 = this.first.done;
-                        Object obj = this.v1;
-                        if (obj == null) {
+                        T t = this.v1;
+                        if (t == null) {
                             try {
-                                obj = simpleQueue.poll();
-                                this.v1 = obj;
+                                t = simpleQueue.poll();
+                                this.v1 = t;
                             } catch (Throwable th) {
                                 Exceptions.throwIfFatal(th);
                                 cancelAndClear();
@@ -133,17 +133,17 @@ public final class FlowableSequenceEqual extends Flowable {
                             }
                         }
                         boolean z3 = false;
-                        if (obj == null) {
+                        if (t == null) {
                             z = true;
                         } else {
                             z = false;
                         }
                         boolean z4 = this.second.done;
-                        Object obj2 = this.v2;
-                        if (obj2 == null) {
+                        T t2 = this.v2;
+                        if (t2 == null) {
                             try {
-                                obj2 = simpleQueue2.poll();
-                                this.v2 = obj2;
+                                t2 = simpleQueue2.poll();
+                                this.v2 = t2;
                             } catch (Throwable th2) {
                                 Exceptions.throwIfFatal(th2);
                                 cancelAndClear();
@@ -152,7 +152,7 @@ public final class FlowableSequenceEqual extends Flowable {
                                 return;
                             }
                         }
-                        if (obj2 == null) {
+                        if (t2 == null) {
                             z3 = true;
                         }
                         if (z2 && z4 && z && z3) {
@@ -164,7 +164,7 @@ public final class FlowableSequenceEqual extends Flowable {
                             return;
                         } else if (!z && !z3) {
                             try {
-                                if (!this.comparer.test(obj, obj2)) {
+                                if (!this.comparer.test(t, t2)) {
                                     cancelAndClear();
                                     complete(Boolean.FALSE);
                                     return;
@@ -189,7 +189,7 @@ public final class FlowableSequenceEqual extends Flowable {
                     this.first.clear();
                     this.second.clear();
                     return;
-                } else if (((Throwable) this.error.get()) != null) {
+                } else if (this.error.get() != null) {
                     cancelAndClear();
                     this.actual.onError(this.error.terminate());
                     return;
@@ -210,7 +210,7 @@ public final class FlowableSequenceEqual extends Flowable {
             }
         }
 
-        public void subscribe(Publisher publisher, Publisher publisher2) {
+        public void subscribe(Publisher<? extends T> publisher, Publisher<? extends T> publisher2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, publisher, publisher2) == null) {
                 publisher.subscribe(this.first);
@@ -220,7 +220,7 @@ public final class FlowableSequenceEqual extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class EqualSubscriber extends AtomicReference implements FlowableSubscriber {
+    public static final class EqualSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4804128302091633067L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,7 +229,7 @@ public final class FlowableSequenceEqual extends Flowable {
         public final EqualCoordinatorHelper parent;
         public final int prefetch;
         public long produced;
-        public volatile SimpleQueue queue;
+        public volatile SimpleQueue<T> queue;
         public int sourceMode;
 
         public EqualSubscriber(EqualCoordinatorHelper equalCoordinatorHelper, int i) {
@@ -260,7 +260,7 @@ public final class FlowableSequenceEqual extends Flowable {
         }
 
         public void clear() {
-            SimpleQueue simpleQueue;
+            SimpleQueue<T> simpleQueue;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (simpleQueue = this.queue) != null) {
                 simpleQueue.clear();
@@ -282,7 +282,7 @@ public final class FlowableSequenceEqual extends Flowable {
                 long j = this.produced + 1;
                 if (j >= this.limit) {
                     this.produced = 0L;
-                    ((Subscription) get()).request(j);
+                    get().request(j);
                     return;
                 }
                 this.produced = j;
@@ -298,10 +298,10 @@ public final class FlowableSequenceEqual extends Flowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                if (this.sourceMode == 0 && !this.queue.offer(obj)) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                if (this.sourceMode == 0 && !this.queue.offer(t)) {
                     onError(new MissingBackpressureException());
                 } else {
                     this.parent.drain();
@@ -335,7 +335,7 @@ public final class FlowableSequenceEqual extends Flowable {
         }
     }
 
-    public FlowableSequenceEqual(Publisher publisher, Publisher publisher2, BiPredicate biPredicate, int i) {
+    public FlowableSequenceEqual(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, BiPredicate<? super T, ? super T> biPredicate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -357,7 +357,7 @@ public final class FlowableSequenceEqual extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super Boolean> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             EqualCoordinator equalCoordinator = new EqualCoordinator(subscriber, this.prefetch, this.comparer);

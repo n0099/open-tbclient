@@ -1,6 +1,7 @@
 package com.bun.miitmdid.core;
 
 import android.content.Context;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,10 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.e;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
+@Keep
 /* loaded from: classes7.dex */
 public class MdidSdkHelper {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static final int SDK_VERSION_CODE;
+    @Keep
     public static long globalTimeout;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,6 +39,7 @@ public class MdidSdkHelper {
         globalTimeout = 5000L;
     }
 
+    @Keep
     public MdidSdkHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,6 +54,7 @@ public class MdidSdkHelper {
         }
     }
 
+    @Keep
     public static boolean InitCert(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -62,6 +68,7 @@ public class MdidSdkHelper {
         return invokeLL.booleanValue;
     }
 
+    @Keep
     public static int InitSdk(Context context, boolean z, IIdentifierListener iIdentifierListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -75,6 +82,7 @@ public class MdidSdkHelper {
         return invokeCommon.intValue;
     }
 
+    @Keep
     public static int InitSdk(Context context, boolean z, boolean z2, boolean z3, boolean z4, IIdentifierListener iIdentifierListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -88,6 +96,7 @@ public class MdidSdkHelper {
         return invokeCommon.intValue;
     }
 
+    @Keep
     public static boolean setGlobalTimeout(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;

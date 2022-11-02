@@ -19,7 +19,7 @@ public final class AwaitKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object awaitAll(Collection collection, Continuation continuation) {
+    public static final <T> Object awaitAll(Collection<? extends Deferred<? extends T>> collection, Continuation<? super List<? extends T>> continuation) {
         AwaitKt$awaitAll$2 awaitKt$awaitAll$2;
         int i;
         if (continuation instanceof AwaitKt$awaitAll$2) {
@@ -73,7 +73,7 @@ public final class AwaitKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object joinAll(Collection collection, Continuation continuation) {
+    public static final Object joinAll(Collection<? extends Job> collection, Continuation<? super Unit> continuation) {
         AwaitKt$joinAll$3 awaitKt$joinAll$3;
         int i;
         Object obj;
@@ -142,7 +142,7 @@ public final class AwaitKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object awaitAll(Deferred[] deferredArr, Continuation continuation) {
+    public static final <T> Object awaitAll(Deferred<? extends T>[] deferredArr, Continuation<? super List<? extends T>> continuation) {
         AwaitKt$awaitAll$1 awaitKt$awaitAll$1;
         int i;
         boolean z;
@@ -199,7 +199,7 @@ public final class AwaitKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object joinAll(Job[] jobArr, Continuation continuation) {
+    public static final Object joinAll(Job[] jobArr, Continuation<? super Unit> continuation) {
         AwaitKt$joinAll$1 awaitKt$joinAll$1;
         int i;
         int length;

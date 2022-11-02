@@ -7,6 +7,9 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@VisibleForTesting
 /* loaded from: classes.dex */
 public class FastScroller extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,11 +46,14 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     public int mAnimationState;
     public int mDragState;
     public final Runnable mHideRunnable;
+    @VisibleForTesting
     public float mHorizontalDragX;
     public final int[] mHorizontalRange;
+    @VisibleForTesting
     public int mHorizontalThumbCenterX;
     public final StateListDrawable mHorizontalThumbDrawable;
     public final int mHorizontalThumbHeight;
+    @VisibleForTesting
     public int mHorizontalThumbWidth;
     public final Drawable mHorizontalTrackDrawable;
     public final int mHorizontalTrackHeight;
@@ -60,10 +67,13 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     public final int mScrollbarMinimumRange;
     public final ValueAnimator mShowHideAnimator;
     public int mState;
+    @VisibleForTesting
     public float mVerticalDragY;
     public final int[] mVerticalRange;
+    @VisibleForTesting
     public int mVerticalThumbCenterY;
     public final StateListDrawable mVerticalThumbDrawable;
+    @VisibleForTesting
     public int mVerticalThumbHeight;
     public final int mVerticalThumbWidth;
     public final Drawable mVerticalTrackDrawable;
@@ -246,6 +256,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
+    @VisibleForTesting
     public Drawable getHorizontalThumbDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,6 +266,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return (Drawable) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public Drawable getHorizontalTrackDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -264,6 +276,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return (Drawable) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public Drawable getVerticalThumbDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -273,6 +286,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return (Drawable) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public Drawable getVerticalTrackDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -294,6 +308,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return invokeV.booleanValue;
     }
 
+    @VisibleForTesting
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -436,6 +451,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
+    @VisibleForTesting
     public void hide(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -545,7 +561,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
-    public void attachToRecyclerView(RecyclerView recyclerView) {
+    public void attachToRecyclerView(@Nullable RecyclerView recyclerView) {
         RecyclerView recyclerView2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, recyclerView) != null) || (recyclerView2 = this.mRecyclerView) == recyclerView) {
@@ -579,6 +595,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return invokeCommon.intValue;
     }
 
+    @VisibleForTesting
     public boolean isPointInsideHorizontalThumb(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -595,6 +612,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return invokeCommon.booleanValue;
     }
 
+    @VisibleForTesting
     public boolean isPointInsideVerticalThumb(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -612,7 +630,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-    public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+    public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, recyclerView, motionEvent)) == null) {
@@ -666,7 +684,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-    public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+    public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048589, this, recyclerView, motionEvent) != null) || this.mState == 0) {
             return;

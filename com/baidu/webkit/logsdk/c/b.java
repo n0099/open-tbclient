@@ -14,12 +14,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap a;
+    public HashMap<String, Boolean> a;
     public c b;
 
     public b(c cVar) {
@@ -37,7 +37,7 @@ public final class b {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = new HashMap<>();
         this.b = cVar;
     }
 
@@ -73,50 +73,50 @@ public final class b {
             return;
         }
         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataEventProcessor: checkLongTimeLogCanUpload");
-        Iterator it = this.a.keySet().iterator();
+        Iterator<String> it = this.a.keySet().iterator();
         while (true) {
             boolean z = true;
             if (!it.hasNext()) {
                 c = true;
                 return;
             }
-            String str = (String) it.next();
-            if (!this.b.d(com.baidu.webkit.logsdk.d.c.c(str, StatConstants.VALUE_TYPE_UPLOAD))) {
-                HashMap hashMap = this.a;
-                if (!((Boolean) hashMap.get(str)).booleanValue()) {
+            String next = it.next();
+            if (!this.b.d(com.baidu.webkit.logsdk.d.c.c(next, StatConstants.VALUE_TYPE_UPLOAD))) {
+                HashMap<String, Boolean> hashMap = this.a;
+                if (!hashMap.get(next).booleanValue()) {
                     b();
                     com.baidu.webkit.logsdk.a.b.a().e();
                     long c2 = com.baidu.webkit.logsdk.b.b.c();
                     com.baidu.webkit.logsdk.a.b.a().e();
-                    long b = com.baidu.webkit.logsdk.b.b.b(str);
+                    long b = com.baidu.webkit.logsdk.b.b.b(next);
                     boolean z2 = false;
                     if (b != 0 && System.currentTimeMillis() - b >= c2) {
-                        com.baidu.webkit.logsdk.d.c.d(str, "cache");
-                        com.baidu.webkit.logsdk.d.c.d(str, StatConstants.VALUE_TYPE_UPLOAD);
-                        com.baidu.webkit.logsdk.d.c.d(str, SevenZipUtils.FILE_NAME_TEMP);
+                        com.baidu.webkit.logsdk.d.c.d(next, "cache");
+                        com.baidu.webkit.logsdk.d.c.d(next, StatConstants.VALUE_TYPE_UPLOAD);
+                        com.baidu.webkit.logsdk.d.c.d(next, SevenZipUtils.FILE_NAME_TEMP);
                         long currentTimeMillis = System.currentTimeMillis();
                         com.baidu.webkit.logsdk.a.b.a().e();
-                        com.baidu.webkit.logsdk.b.b.a(str, currentTimeMillis);
+                        com.baidu.webkit.logsdk.b.b.a(next, currentTimeMillis);
                     } else {
-                        boolean b2 = b(str);
+                        boolean b2 = b(next);
                         if (b2) {
                             z2 = b2;
                         } else {
                             com.baidu.webkit.logsdk.a.b.a().e();
                             long j = com.baidu.webkit.logsdk.b.b.a().getLong("timeup", 172800000L);
                             com.baidu.webkit.logsdk.a.b.a().e();
-                            long b3 = com.baidu.webkit.logsdk.b.b.b(str);
+                            long b3 = com.baidu.webkit.logsdk.b.b.b(next);
                             if (b3 != 0 && System.currentTimeMillis() - b3 >= j) {
                                 z2 = true;
                             }
                         }
                     }
-                    com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "canUpload: " + str + " = " + z2);
+                    com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "canUpload: " + next + " = " + z2);
                     if (!com.baidu.webkit.logsdk.a.a) {
                         z = z2;
                     }
                 }
-                hashMap.put(str, Boolean.valueOf(z));
+                hashMap.put(next, Boolean.valueOf(z));
             }
         }
     }
@@ -139,7 +139,7 @@ public final class b {
                 }
                 int size = aVar.b.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put((String) aVar.b.get(i));
+                    jSONArray.put(aVar.b.get(i));
                 }
                 jSONObject.put(a2.c, jSONArray);
                 if (com.baidu.webkit.logsdk.a.b) {
@@ -178,7 +178,7 @@ public final class b {
                 a a2 = this.b.a(str);
                 int size = a2.b.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put((String) a2.b.get(i));
+                    jSONArray.put(a2.b.get(i));
                 }
                 a2.b.clear();
                 com.baidu.webkit.logsdk.d.c.d(str, SevenZipUtils.FILE_NAME_TEMP);

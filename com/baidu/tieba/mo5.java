@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import com.baidu.tbadk.TbadkApplication;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class mo5 extends ClickableSpan {
+public class mo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public View b;
 
     public mo5() {
         Interceptable interceptable = $ic;
@@ -27,12 +28,19 @@ public abstract class mo5 extends ClickableSpan {
         }
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint ds) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
-            Intrinsics.checkNotNullParameter(ds, "ds");
-            ds.setColor(TbadkApplication.getInst().getResources().getColor(R.color.CAM_X0303));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.b = view2;
         }
     }
 }

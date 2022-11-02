@@ -2,6 +2,7 @@ package com.baidu.searchbox.logsystem.basic.track;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.config.AppConfig;
@@ -9,7 +10,7 @@ import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.ve1;
+import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -138,19 +139,19 @@ public class LokiTrackUISaver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            File file = new File((File) LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), TRACE_DIR);
+            File file = new File(LogPipelineSingleton.getInstance().getLogStoreDirSupplier().get(), TRACE_DIR);
             if (!file.exists()) {
                 file.mkdirs();
             }
             if (mTempTraceFile == null) {
-                mTempTraceFile = new File(file, ve1.b() + ".tmp");
+                mTempTraceFile = new File(file, nf1.b() + ".tmp");
             }
             return mTempTraceFile;
         }
         return (File) invokeV.objValue;
     }
 
-    public static boolean saveFinalTraceFile(File file) {
+    public static boolean saveFinalTraceFile(@NonNull File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
@@ -164,7 +165,7 @@ public class LokiTrackUISaver {
     }
 
     public static void saveToFile(TrackUI trackUI) {
-        LinkedList allTrackUIs;
+        LinkedList<TrackUI> allTrackUIs;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, trackUI) == null) {
             File tempTraceFile = getTempTraceFile();
@@ -172,7 +173,7 @@ public class LokiTrackUISaver {
                 mFirstSaveTempFile = false;
                 if (Utility.createNewEmptyFile(tempTraceFile) && (allTrackUIs = Track.getInstance().getAllTrackUIs()) != null && allTrackUIs.size() > 0) {
                     for (int i = 0; i < allTrackUIs.size(); i++) {
-                        TrackUI trackUI2 = (TrackUI) allTrackUIs.get(i);
+                        TrackUI trackUI2 = allTrackUIs.get(i);
                         if (trackUI2 != trackUI) {
                             if (AppConfig.isDebug()) {
                                 Log.d(TAG, "perTrack = " + trackUI2String(trackUI2));
@@ -189,7 +190,8 @@ public class LokiTrackUISaver {
         }
     }
 
-    public static String trackUI2String(TrackUI trackUI) {
+    @NonNull
+    public static String trackUI2String(@NonNull TrackUI trackUI) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, trackUI)) == null) {

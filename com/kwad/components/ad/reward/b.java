@@ -1,6 +1,7 @@
 package com.kwad.components.ad.reward;
 
 import android.os.Looper;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,10 +19,10 @@ import java.util.Set;
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set lt;
+    public final Set<com.kwad.components.ad.reward.d.f> lt;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final b lx;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +65,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(PlayableSource playableSource, com.kwad.components.ad.reward.d.j jVar) {
+    public void b(PlayableSource playableSource, @Nullable com.kwad.components.ad.reward.d.j jVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, playableSource, jVar) == null) || this.lt.size() == 0) {
             return;
@@ -172,7 +173,7 @@ public final class b {
         }
     }
 
-    public final void c(PlayableSource playableSource, com.kwad.components.ad.reward.d.j jVar) {
+    public final void c(PlayableSource playableSource, @Nullable com.kwad.components.ad.reward.d.j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, playableSource, jVar) == null) {
             if (isMainThread()) {

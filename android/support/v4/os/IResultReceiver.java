@@ -17,7 +17,7 @@ public interface IResultReceiver extends IInterface {
     void send(int i, Bundle bundle) throws RemoteException;
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IResultReceiver {
+    public static abstract class Stub extends Binder implements IResultReceiver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "android.support.v4.os.IResultReceiver";
         public static final int TRANSACTION_send = 1;
@@ -31,7 +31,7 @@ public interface IResultReceiver extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        public class Proxy implements IResultReceiver {
+        public static class Proxy implements IResultReceiver {
             public static /* synthetic */ Interceptable $ic;
             public static IResultReceiver sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +177,7 @@ public interface IResultReceiver extends IInterface {
     }
 
     /* loaded from: classes.dex */
-    public class Default implements IResultReceiver {
+    public static class Default implements IResultReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

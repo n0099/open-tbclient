@@ -35,7 +35,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     public static final String TAG = "IMQueryMemberRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
-    public ArrayList mBuids;
+    public ArrayList<String> mBuids;
     public String mGroupId;
     public String mKey;
     public int mSaveToDB;
@@ -136,7 +136,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
                             LogUtils.d(str3, " query " + this.this$0.mGroupId + "member add: " + arrayList.toString());
                             GroupInfoDAOImpl.addMemberToGroup(this.this$0.mContext, String.valueOf(this.this$0.mGroupId), arrayList);
                         }
-                        ArrayList groupMemberId = GroupInfoDAOImpl.getGroupMemberId(this.this$0.mContext, this.this$0.mGroupId);
+                        ArrayList<Long> groupMemberId = GroupInfoDAOImpl.getGroupMemberId(this.this$0.mContext, this.this$0.mGroupId);
                         ArrayList arrayList3 = new ArrayList();
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
@@ -145,9 +145,9 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
                         if (this.this$0.mBuids == null && groupMemberId != null && !groupMemberId.isEmpty()) {
                             String str4 = IMQueryMemberRequest.TAG;
                             LogUtils.d(str4, " bidAtGroup " + this.this$0.mGroupId + GlideException.IndentedAppendable.INDENT + groupMemberId.size());
-                            Iterator it2 = groupMemberId.iterator();
+                            Iterator<Long> it2 = groupMemberId.iterator();
                             while (it2.hasNext()) {
-                                long longValue = ((Long) it2.next()).longValue();
+                                long longValue = it2.next().longValue();
                                 if (!arrayList3.contains(Long.valueOf(longValue))) {
                                     arrayList2.add(String.valueOf(longValue));
                                 }
@@ -175,7 +175,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMQueryMemberRequest(Context context, String str, long j, String str2, ArrayList arrayList, int i) {
+    public IMQueryMemberRequest(Context context, String str, long j, String str2, ArrayList<String> arrayList, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -214,12 +214,12 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
             sb.append(this.mGroupId);
             sb.append("&timestamp=");
             sb.append(currentTimeMillis);
-            ArrayList arrayList = this.mBuids;
+            ArrayList<String> arrayList = this.mBuids;
             if (arrayList != null && arrayList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = this.mBuids.iterator();
+                Iterator<String> it = this.mBuids.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put((String) it.next());
+                    jSONArray.put(it.next());
                 }
                 sb.append("&members=");
                 sb.append(jSONArray.toString());
@@ -235,7 +235,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);

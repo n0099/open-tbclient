@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class vv {
     public static /* synthetic */ Interceptable $ic;
@@ -45,19 +46,29 @@ public final class vv {
         }
     }
 
-    public final int a(String str, int i) {
-        InterceptResult invokeLI;
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return i;
-            }
-            try {
-                return Color.parseColor(str);
-            } catch (Exception unused) {
-                return i;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return System.currentTimeMillis();
         }
-        return invokeLI.intValue;
+        return invokeV.longValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (str.length() <= 128) {
+                return str;
+            }
+            String substring = str.substring(0, 128);
+            Intrinsics.checkExpressionValueIsNotNull(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+            return substring;
+        }
+        return (String) invokeL.objValue;
     }
 }

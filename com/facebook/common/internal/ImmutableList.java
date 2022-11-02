@@ -5,12 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.infer.annotation.Nullsafe;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
-public class ImmutableList extends ArrayList {
+public class ImmutableList<E> extends ArrayList<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +37,7 @@ public class ImmutableList extends ArrayList {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImmutableList(List list) {
+    public ImmutableList(List<E> list) {
         super(list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,21 +56,21 @@ public class ImmutableList extends ArrayList {
         }
     }
 
-    public static ImmutableList copyOf(List list) {
+    public static <E> ImmutableList<E> copyOf(List<E> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            return new ImmutableList(list);
+            return new ImmutableList<>(list);
         }
         return (ImmutableList) invokeL.objValue;
     }
 
-    public static ImmutableList of(Object... objArr) {
+    public static <E> ImmutableList<E> of(E... eArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, objArr)) == null) {
-            ImmutableList immutableList = new ImmutableList(objArr.length);
-            Collections.addAll(immutableList, objArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eArr)) == null) {
+            ImmutableList<E> immutableList = new ImmutableList<>(eArr.length);
+            Collections.addAll(immutableList, eArr);
             return immutableList;
         }
         return (ImmutableList) invokeL.objValue;

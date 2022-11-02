@@ -3,6 +3,7 @@ package com.google.android.material.animation;
 import android.animation.TimeInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
+import androidx.annotation.RestrictTo;
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class AnimationUtils {
     public static /* synthetic */ Interceptable $ic;

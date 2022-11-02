@@ -1,278 +1,357 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.Message;
+import android.graphics.Matrix;
+import android.graphics.NinePatch;
+import android.graphics.Rect;
+import android.graphics.drawable.NinePatchDrawable;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes2.dex */
-public class ad extends Handler {
+public class ad extends LinearLayout implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ac a;
+    public ImageView a;
+    public ImageView b;
+    public Context c;
+    public Bitmap d;
+    public Bitmap e;
+    public Bitmap f;
+    public Bitmap g;
+    public Bitmap h;
+    public Bitmap i;
+    public Bitmap j;
+    public Bitmap k;
+    public int l;
+    public boolean m;
+    public boolean n;
 
-    public ad(ac acVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Deprecated
+    public ad(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {acVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = acVar;
+        this.m = false;
+        this.n = false;
+        this.c = context;
+        c();
+        if (this.d != null && this.e != null && this.f != null && this.g != null) {
+            this.a = new ImageView(this.c);
+            this.b = new ImageView(this.c);
+            this.a.setImageBitmap(this.d);
+            this.b.setImageBitmap(this.f);
+            this.l = a(this.f.getHeight() / 6);
+            a(this.a, "main_topbtn_up.9.png");
+            a(this.b, "main_bottombtn_up.9.png");
+            this.a.setId(0);
+            this.b.setId(1);
+            this.a.setClickable(true);
+            this.b.setClickable(true);
+            this.a.setOnTouchListener(this);
+            this.b.setOnTouchListener(this);
+            setOrientation(1);
+            setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            addView(this.a);
+            addView(this.b);
+            this.n = true;
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00ff, code lost:
-        if (r13 != null) goto L118;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0101, code lost:
-        r13 = r12.a.h;
-        r13.a();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0113, code lost:
-        if (r13 != null) goto L118;
-     */
-    @Override // android.os.Handler
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void handleMessage(Message message) {
-        e eVar;
-        e eVar2;
-        e eVar3;
-        e eVar4;
-        e eVar5;
-        e eVar6;
-        e eVar7;
-        e eVar8;
-        e eVar9;
-        e eVar10;
-        e eVar11;
-        e eVar12;
-        e eVar13;
-        e eVar14;
-        e eVar15;
-        e eVar16;
-        e eVar17;
-        e eVar18;
-        e eVar19;
-        m mVar;
-        m mVar2;
-        e eVar20;
-        e eVar21;
-        e eVar22;
-        e eVar23;
-        e eVar24;
-        e eVar25;
-        e eVar26;
-        e eVar27;
-        e eVar28;
-        e eVar29;
-        e eVar30;
-        e eVar31;
-        e eVar32;
-        e eVar33;
-        e eVar34;
-        e eVar35;
-        e eVar36;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(Context context, boolean z) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            eVar = this.a.i;
-            if (eVar != null) {
-                eVar2 = this.a.i;
-                if (eVar2.i == null) {
-                    return;
-                }
-                long longValue = ((Long) message.obj).longValue();
-                eVar3 = this.a.i;
-                if (longValue != eVar3.j) {
-                    return;
-                }
-                int i = message.what;
-                if (i == 4000) {
-                    eVar33 = this.a.i;
-                    if (eVar33.h == null) {
-                        return;
-                    }
-                    eVar34 = this.a.i;
-                    for (l lVar : eVar34.h) {
-                        Bitmap bitmap = null;
-                        if (message.arg2 == 1) {
-                            int[] iArr = new int[ac.a * ac.b];
-                            int[] iArr2 = new int[ac.a * ac.b];
-                            eVar35 = this.a.i;
-                            if (eVar35.i == null) {
-                                return;
-                            }
-                            eVar36 = this.a.i;
-                            int[] a = eVar36.i.a(iArr, ac.a, ac.b);
-                            for (int i2 = 0; i2 < ac.b; i2++) {
-                                int i3 = 0;
-                                while (true) {
-                                    int i4 = ac.a;
-                                    if (i3 < i4) {
-                                        int i5 = a[(i4 * i2) + i3];
-                                        iArr2[(((ac.b - i2) - 1) * ac.a) + i3] = (i5 & DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK) | ((i5 << 16) & 16711680) | ((i5 >> 16) & 255);
-                                        i3++;
-                                    }
-                                }
-                            }
-                            bitmap = Bitmap.createBitmap(iArr2, ac.a, ac.b, Bitmap.Config.ARGB_8888);
-                        }
-                        if (lVar != null) {
-                            lVar.a(bitmap);
-                        }
-                    }
-                } else if (i == 39) {
-                    eVar17 = this.a.i;
-                    if (eVar17 == null) {
-                        return;
-                    }
-                    int i6 = message.arg1;
-                    if (i6 == 100) {
-                        eVar32 = this.a.i;
-                        eVar32.B();
-                    } else if (i6 == 200) {
-                        eVar20 = this.a.i;
-                        eVar20.L();
-                    } else if (i6 == 1) {
-                        mVar2 = this.a.h;
-                    } else if (i6 == 0) {
-                        mVar = this.a.h;
-                    } else if (i6 == 2) {
-                        eVar18 = this.a.i;
-                        if (eVar18.h == null) {
-                            return;
-                        }
-                        eVar19 = this.a.i;
-                        for (l lVar2 : eVar19.h) {
-                            if (lVar2 != null) {
-                                lVar2.c();
-                            }
-                        }
-                    }
-                    eVar21 = this.a.i;
-                    if (!eVar21.k && ac.b > 0 && ac.a > 0) {
-                        eVar28 = this.a.i;
-                        if (eVar28.b(0, 0) != null) {
-                            eVar29 = this.a.i;
-                            eVar29.k = true;
-                            eVar30 = this.a.i;
-                            if (eVar30.h == null) {
-                                return;
-                            }
-                            eVar31 = this.a.i;
-                            for (l lVar3 : eVar31.h) {
-                                if (lVar3 != null) {
-                                    lVar3.b();
-                                }
-                            }
-                        }
-                    }
-                    eVar22 = this.a.i;
-                    if (eVar22.h == null) {
-                        return;
-                    }
-                    eVar23 = this.a.i;
-                    for (l lVar4 : eVar23.h) {
-                        if (lVar4 != null) {
-                            lVar4.a();
-                        }
-                    }
-                    eVar24 = this.a.i;
-                    if (eVar24.q()) {
-                        eVar25 = this.a.i;
-                        if (eVar25.h == null) {
-                            return;
-                        }
-                        eVar26 = this.a.i;
-                        for (l lVar5 : eVar26.h) {
-                            if (lVar5 != null) {
-                                eVar27 = this.a.i;
-                                if (eVar27.E().a >= 18.0f) {
-                                    lVar5.a(true);
-                                } else {
-                                    lVar5.a(false);
-                                }
-                            }
-                        }
-                    }
-                } else if (i == 41) {
-                    eVar9 = this.a.i;
-                    if (eVar9 == null) {
-                        return;
-                    }
-                    eVar10 = this.a.i;
-                    if (!eVar10.n) {
-                        eVar16 = this.a.i;
-                        if (!eVar16.o) {
-                            return;
-                        }
-                    }
-                    eVar11 = this.a.i;
-                    if (eVar11.h == null) {
-                        return;
-                    }
-                    eVar12 = this.a.i;
-                    for (l lVar6 : eVar12.h) {
-                        if (lVar6 != null) {
-                            eVar13 = this.a.i;
-                            lVar6.b(eVar13.E());
-                            eVar14 = this.a.i;
-                            if (eVar14.q()) {
-                                eVar15 = this.a.i;
-                                if (eVar15.E().a >= 18.0f) {
-                                    lVar6.a(true);
-                                } else {
-                                    lVar6.a(false);
-                                }
-                            }
-                        }
-                    }
-                } else if (i == 999) {
-                    eVar7 = this.a.i;
-                    if (eVar7.h == null) {
-                        return;
-                    }
-                    eVar8 = this.a.i;
-                    for (l lVar7 : eVar8.h) {
-                        if (lVar7 != null) {
-                            lVar7.e();
-                        }
-                    }
-                } else if (i == 50) {
-                    eVar4 = this.a.i;
-                    if (eVar4.h == null) {
-                        return;
-                    }
-                    eVar5 = this.a.i;
-                    for (l lVar8 : eVar5.h) {
-                        if (lVar8 != null) {
-                            int i7 = message.arg1;
-                            if (i7 != 0) {
-                                if (i7 == 1) {
-                                    eVar6 = this.a.i;
-                                    if (eVar6.E().a >= 18.0f) {
-                                        lVar8.a(true);
-                                    }
-                                }
-                            }
-                            lVar8.a(false);
-                        }
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.m = false;
+        this.n = false;
+        this.c = context;
+        this.m = z;
+        this.a = new ImageView(this.c);
+        this.b = new ImageView(this.c);
+        if (z) {
+            d();
+            if (this.h != null && this.i != null && this.j != null && this.k != null) {
+                this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+                this.b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+                this.a.setImageBitmap(this.h);
+                this.b.setImageBitmap(this.j);
+                setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+                setOrientation(0);
+            } else {
+                return;
+            }
+        } else {
+            c();
+            Bitmap bitmap = this.d;
+            if (bitmap != null && this.e != null && this.f != null && this.g != null) {
+                this.a.setImageBitmap(bitmap);
+                this.b.setImageBitmap(this.f);
+                this.l = a(this.f.getHeight() / 6);
+                a(this.a, "main_topbtn_up.9.png");
+                a(this.b, "main_bottombtn_up.9.png");
+                setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+                setOrientation(1);
+            } else {
+                return;
+            }
+        }
+        this.a.setId(0);
+        this.b.setId(1);
+        this.a.setClickable(true);
+        this.b.setClickable(true);
+        this.a.setOnTouchListener(this);
+        this.b.setOnTouchListener(this);
+        addView(this.a);
+        addView(this.b);
+        this.n = true;
+    }
+
+    private int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            return (int) ((this.c.getResources().getDisplayMetrics().density * i) + 0.5f);
+        }
+        return invokeI.intValue;
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
+        }
+    }
+
+    private Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+            Matrix matrix = new Matrix();
+            int densityDpi = SysOSUtil.getDensityDpi();
+            if (densityDpi > 480) {
+                matrix.postScale(1.8f, 1.8f);
+            } else if (densityDpi > 320 && densityDpi <= 480) {
+                matrix.postScale(1.5f, 1.5f);
+            } else {
+                matrix.postScale(1.2f, 1.2f);
+            }
+            Bitmap a = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.c);
+            if (a == null) {
+                return null;
+            }
+            return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    private void a(View view2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, str) == null) {
+            Bitmap a = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.c);
+            byte[] ninePatchChunk = a.getNinePatchChunk();
+            NinePatch.isNinePatchChunk(ninePatchChunk);
+            view2.setBackgroundDrawable(new NinePatchDrawable(a, ninePatchChunk, new Rect(), null));
+            int i = this.l;
+            view2.setPadding(i, i, i, i);
+        }
+    }
+
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            this.d = a("main_icon_zoomin.png");
+            this.e = a("main_icon_zoomin_dis.png");
+            this.f = a("main_icon_zoomout.png");
+            this.g = a("main_icon_zoomout_dis.png");
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            this.h = a("wear_zoom_in.png");
+            this.i = a("wear_zoom_in_pressed.png");
+            this.j = a("wear_zoon_out.png");
+            this.k = a("wear_zoom_out_pressed.png");
+        }
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void b(boolean z) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (imageView = this.b) == null) {
+            return;
+        }
+        imageView.setEnabled(z);
+        if (!z) {
+            this.b.setImageBitmap(this.g);
+        } else {
+            this.b.setImageBitmap(this.f);
+        }
+    }
+
+    public void a(boolean z) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (imageView = this.a) == null) {
+            return;
+        }
+        imageView.setEnabled(z);
+        if (!z) {
+            this.a.setImageBitmap(this.e);
+        } else {
+            this.a.setImageBitmap(this.d);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Bitmap bitmap = this.d;
+            if (bitmap != null && !bitmap.isRecycled()) {
+                this.d.recycle();
+                this.d = null;
+            }
+            Bitmap bitmap2 = this.e;
+            if (bitmap2 != null && !bitmap2.isRecycled()) {
+                this.e.recycle();
+                this.e = null;
+            }
+            Bitmap bitmap3 = this.f;
+            if (bitmap3 != null && !bitmap3.isRecycled()) {
+                this.f.recycle();
+                this.f = null;
+            }
+            Bitmap bitmap4 = this.g;
+            if (bitmap4 != null && !bitmap4.isRecycled()) {
+                this.g.recycle();
+                this.g = null;
+            }
+            Bitmap bitmap5 = this.h;
+            if (bitmap5 != null && !bitmap5.isRecycled()) {
+                this.h.recycle();
+                this.h = null;
+            }
+            Bitmap bitmap6 = this.i;
+            if (bitmap6 != null && !bitmap6.isRecycled()) {
+                this.i.recycle();
+                this.i = null;
+            }
+            Bitmap bitmap7 = this.j;
+            if (bitmap7 != null && !bitmap7.isRecycled()) {
+                this.j.recycle();
+                this.j = null;
+            }
+            Bitmap bitmap8 = this.k;
+            if (bitmap8 != null && !bitmap8.isRecycled()) {
+                this.k.recycle();
+                this.k = null;
+            }
+        }
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, motionEvent)) == null) {
+            if (view2 instanceof ImageView) {
+                int id = ((ImageView) view2).getId();
+                if (id != 0) {
+                    if (id == 1) {
+                        if (motionEvent.getAction() == 0) {
+                            if (!this.m) {
+                                a(this.b, "main_bottombtn_down.9.png");
+                                return false;
+                            }
+                            this.b.setImageBitmap(this.k);
+                            return false;
+                        } else if (motionEvent.getAction() == 1) {
+                            if (!this.m) {
+                                a(this.b, "main_bottombtn_up.9.png");
+                                return false;
+                            }
+                            this.b.setImageBitmap(this.j);
+                            return false;
+                        } else {
+                            return false;
+                        }
+                    }
+                    return false;
+                } else if (motionEvent.getAction() == 0) {
+                    if (!this.m) {
+                        a(this.a, "main_topbtn_down.9.png");
+                        return false;
+                    }
+                    this.a.setImageBitmap(this.i);
+                    return false;
+                } else if (motionEvent.getAction() == 1) {
+                    if (!this.m) {
+                        a(this.a, "main_topbtn_up.9.png");
+                        return false;
+                    }
+                    this.a.setImageBitmap(this.h);
+                    return false;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -11,6 +11,8 @@ import com.facebook.common.logging.FLog;
 import com.facebook.common.references.ResourceReleaser;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.annotation.concurrent.NotThreadSafe;
+@NotThreadSafe
 /* loaded from: classes7.dex */
 public class PooledByteArrayBufferedInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic = null;
@@ -21,9 +23,9 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
     public final byte[] mByteArray;
     public boolean mClosed;
     public final InputStream mInputStream;
-    public final ResourceReleaser mResourceReleaser;
+    public final ResourceReleaser<byte[]> mResourceReleaser;
 
-    public PooledByteArrayBufferedInputStream(InputStream inputStream, byte[] bArr, ResourceReleaser resourceReleaser) {
+    public PooledByteArrayBufferedInputStream(InputStream inputStream, byte[] bArr, ResourceReleaser<byte[]> resourceReleaser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

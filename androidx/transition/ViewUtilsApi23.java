@@ -1,7 +1,10 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(23)
 /* loaded from: classes.dex */
 public class ViewUtilsApi23 extends ViewUtilsApi22 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,7 +49,8 @@ public class ViewUtilsApi23 extends ViewUtilsApi22 {
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    public void setTransitionVisibility(View view2, int i) {
+    @SuppressLint({"NewApi"})
+    public void setTransitionVisibility(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
             if (Build.VERSION.SDK_INT == 28) {

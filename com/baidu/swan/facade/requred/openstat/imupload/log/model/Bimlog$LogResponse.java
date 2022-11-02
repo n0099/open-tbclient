@@ -2,7 +2,7 @@ package com.baidu.swan.facade.requred.openstat.imupload.log.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fq3;
+import com.baidu.tieba.xq3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_FIELD_NUMBER = 1;
     public static final int ERROR_MSG_FIELD_NUMBER = 2;
-    public static Parser PARSER = null;
+    public static Parser<Bimlog$LogResponse> PARSER = null;
     public static final int PING_INTERVAL_MS_FIELD_NUMBER = 3;
     public static final Bimlog$LogResponse defaultInstance;
     public static final long serialVersionUID = 0;
@@ -42,7 +42,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
     public long pingIntervalMs_;
 
     /* loaded from: classes3.dex */
-    public final class a extends AbstractParser {
+    public static class a extends AbstractParser<Bimlog$LogResponse> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,7 +74,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
     }
 
     /* loaded from: classes3.dex */
-    public final class b extends GeneratedMessageLite.Builder implements MessageLiteOrBuilder {
+    public static final class b extends GeneratedMessageLite.Builder<Bimlog$LogResponse, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -202,9 +202,11 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             return this;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
+        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder mergeFrom(GeneratedMessageLite generatedMessageLite) {
-            s((Bimlog$LogResponse) generatedMessageLite);
+        public /* bridge */ /* synthetic */ b mergeFrom(Bimlog$LogResponse bimlog$LogResponse) {
+            s(bimlog$LogResponse);
             return this;
         }
 
@@ -243,7 +245,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (fq3) null);
+                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (xq3) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -297,18 +299,18 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
                 Bimlog$LogResponse bimlog$LogResponse = null;
                 try {
                     try {
-                        Bimlog$LogResponse bimlog$LogResponse2 = (Bimlog$LogResponse) Bimlog$LogResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                        if (bimlog$LogResponse2 != null) {
-                            s(bimlog$LogResponse2);
+                        Bimlog$LogResponse parsePartialFrom = Bimlog$LogResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (parsePartialFrom != null) {
+                            s(parsePartialFrom);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
-                        Bimlog$LogResponse bimlog$LogResponse3 = (Bimlog$LogResponse) e.getUnfinishedMessage();
+                        Bimlog$LogResponse bimlog$LogResponse2 = (Bimlog$LogResponse) e.getUnfinishedMessage();
                         try {
                             throw e;
                         } catch (Throwable th) {
                             th = th;
-                            bimlog$LogResponse = bimlog$LogResponse3;
+                            bimlog$LogResponse = bimlog$LogResponse2;
                             if (bimlog$LogResponse != null) {
                             }
                             throw th;
@@ -426,7 +428,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-    public Parser getParserForType() {
+    public Parser<Bimlog$LogResponse> getParserForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -584,7 +586,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, fq3 fq3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, xq3 xq3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -627,7 +629,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, fq3 fq3Var) {
+    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, xq3 xq3Var) {
         this(builder);
     }
 
@@ -635,7 +637,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, inputStream, extensionRegistryLite)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
         }
         return (Bimlog$LogResponse) invokeLL.objValue;
     }
@@ -644,7 +646,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, byteString, extensionRegistryLite)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseFrom(byteString, extensionRegistryLite);
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
         }
         return (Bimlog$LogResponse) invokeLL.objValue;
     }
@@ -683,7 +685,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, inputStream)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseDelimitedFrom(inputStream);
+            return PARSER.parseDelimitedFrom(inputStream);
         }
         return (Bimlog$LogResponse) invokeL.objValue;
     }
@@ -692,7 +694,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteString)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseFrom(byteString);
+            return PARSER.parseFrom(byteString);
         }
         return (Bimlog$LogResponse) invokeL.objValue;
     }
@@ -701,7 +703,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, codedInputStream)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseFrom(codedInputStream);
+            return PARSER.parseFrom(codedInputStream);
         }
         return (Bimlog$LogResponse) invokeL.objValue;
     }
@@ -710,7 +712,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, codedInputStream, extensionRegistryLite)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
         return (Bimlog$LogResponse) invokeLL.objValue;
     }
@@ -719,7 +721,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseFrom(inputStream);
+            return PARSER.parseFrom(inputStream);
         }
         return (Bimlog$LogResponse) invokeL.objValue;
     }
@@ -728,7 +730,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
         }
         return (Bimlog$LogResponse) invokeLL.objValue;
     }
@@ -737,7 +739,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, bArr)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseFrom(bArr);
+            return PARSER.parseFrom(bArr);
         }
         return (Bimlog$LogResponse) invokeL.objValue;
     }
@@ -746,7 +748,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, bArr, extensionRegistryLite)) == null) {
-            return (Bimlog$LogResponse) PARSER.parseFrom(bArr, extensionRegistryLite);
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
         }
         return (Bimlog$LogResponse) invokeLL.objValue;
     }

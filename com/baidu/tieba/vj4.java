@@ -1,110 +1,196 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.os.RemoteException;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.ubc.Flow;
+import com.baidu.swan.ubc.IRemoteUBCService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
-                }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
-            }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int d = nj4.d();
-            int b = nj4.b();
-            int a = nj4.a();
-            String f = nj4.f();
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(d);
-            stringBuffer.append("_");
-            stringBuffer.append(b);
-            stringBuffer.append("_");
-            stringBuffer.append(f);
-            stringBuffer.append("_");
-            stringBuffer.append(str);
-            stringBuffer.append("_");
-            stringBuffer.append(a);
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vj4 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map c(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
-                if (str2 != null && str2.contains("=")) {
-                    int indexOf = str2.indexOf("=");
-                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(), str2.substring(indexOf + 1));
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-344528245, "Lcom/baidu/tieba/vj4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-344528245, "Lcom/baidu/tieba/vj4$b;");
+                    return;
                 }
             }
-            return hashMap;
+            a = new vj4(null);
         }
-        return (Map) invokeL.objValue;
+    }
+
+    public vj4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static vj4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (vj4) invokeV.objValue;
+    }
+
+    public final IRemoteUBCService c() throws RemoteException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return kj4.f();
+        }
+        return (IRemoteUBCService) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            tj4.f().q();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            tj4.f().l();
+        }
+    }
+
+    public /* synthetic */ vj4(a aVar) {
+        this();
+    }
+
+    public final void onEvent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            e(str, "", 0);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public Flow a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
+            if (nf1.g()) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return tj4.f().a(str, str2, i);
+            }
+            return d(str, xj4.b(str2), i);
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    public final Flow d(String str, String str2, int i) {
+        Flow flow;
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
+            try {
+                flow = c().ubcBeginFlow(str, str2, i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+                flow = null;
+            }
+            if (flow == null) {
+                return new Flow();
+            }
+            return flow;
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void e(String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i) == null) {
+            if (nf1.g()) {
+                if (kj4.g() == null && TextUtils.isEmpty(str)) {
+                    return;
+                }
+                tj4.f().j(str, str2, i);
+                return;
+            }
+            try {
+                c().ubcOnEvent(str, xj4.b(str2), i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void f(String str, Map<String, String> map, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, map, i) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException unused) {
+            }
+            e(str, jSONObject.toString(), i);
+        }
+    }
+
+    public void g(String str, JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, str, jSONObject, i) == null) {
+            if (nf1.g()) {
+                if (kj4.g() == null && TextUtils.isEmpty(str)) {
+                    return;
+                }
+                tj4.f().k(str, jSONObject, i);
+                return;
+            }
+            try {
+                c().ubcOnEvent(str, xj4.c(jSONObject), i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

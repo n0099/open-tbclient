@@ -1,6 +1,8 @@
 package com.kwad.components.ad.reward.j;
 
 import android.content.Context;
+import androidx.annotation.MainThread;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,13 +41,13 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
     public String uf;
     public boolean ug;
     public boolean uh;
-    public List ui;
-    public final List uj;
+    public List<InterfaceC0555a> ui;
+    public final List<h.a> uj;
     public h.a uk;
 
     /* renamed from: com.kwad.components.ad.reward.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0544a {
+    public interface InterfaceC0555a {
         boolean handledOnResume();
     }
 
@@ -230,13 +232,14 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         }
     }
 
-    public final void a(InterfaceC0544a interfaceC0544a) {
+    public final void a(InterfaceC0555a interfaceC0555a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0544a) == null) {
-            this.ui.add(interfaceC0544a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0555a) == null) {
+            this.ui.add(interfaceC0555a);
         }
     }
 
+    @MainThread
     public final void a(g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) || gVar == null) {
@@ -252,13 +255,14 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         }
     }
 
-    public final void b(InterfaceC0544a interfaceC0544a) {
+    public final void b(InterfaceC0555a interfaceC0555a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0544a) == null) {
-            this.ui.remove(interfaceC0544a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0555a) == null) {
+            this.ui.remove(interfaceC0555a);
         }
     }
 
+    @MainThread
     public final void b(g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null) {
@@ -325,8 +329,8 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             loop0: while (true) {
-                for (InterfaceC0544a interfaceC0544a : this.ui) {
-                    z = z || interfaceC0544a.handledOnResume();
+                for (InterfaceC0555a interfaceC0555a : this.ui) {
+                    z = z || interfaceC0555a.handledOnResume();
                 }
             }
             if (!z && !this.hx) {
@@ -376,6 +380,7 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
     }
 
     @Override // com.kwad.components.ad.h.a
+    @MainThread
     public final void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -390,6 +395,7 @@ public final class a extends com.kwad.components.ad.h.a implements com.kwad.comp
     }
 
     @Override // com.kwad.components.ad.h.a
+    @WorkerThread
     public final void releaseSync() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {

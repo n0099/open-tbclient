@@ -19,7 +19,7 @@ public final class UnitedSchemeInterceptChain {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InterceptChain";
     public transient /* synthetic */ FieldHolder $fh;
-    public Map mInterceptors;
+    public Map<String, UnitedSchemeBaseInterceptor> mInterceptors;
 
     public UnitedSchemeInterceptChain() {
         Interceptable interceptable = $ic;
@@ -59,9 +59,9 @@ public final class UnitedSchemeInterceptChain {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler)) == null) {
             try {
-                for (Map.Entry entry : this.mInterceptors.entrySet()) {
-                    UnitedSchemeBaseInterceptor unitedSchemeBaseInterceptor = (UnitedSchemeBaseInterceptor) entry.getValue();
-                    if (unitedSchemeBaseInterceptor != null && unitedSchemeBaseInterceptor.shouldInterceptDispatch(context, unitedSchemeEntity, callbackHandler)) {
+                for (Map.Entry<String, UnitedSchemeBaseInterceptor> entry : this.mInterceptors.entrySet()) {
+                    UnitedSchemeBaseInterceptor value = entry.getValue();
+                    if (value != null && value.shouldInterceptDispatch(context, unitedSchemeEntity, callbackHandler)) {
                         return true;
                     }
                 }

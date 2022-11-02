@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import com.ss.android.socialbase.appdownloader.c.d;
 import com.ss.android.socialbase.appdownloader.c.k;
 import com.ss.android.socialbase.appdownloader.c.l;
@@ -135,7 +136,7 @@ public class DownloadTaskDeleteActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         a();
     }

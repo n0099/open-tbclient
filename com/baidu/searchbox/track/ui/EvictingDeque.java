@@ -1,5 +1,6 @@
 package com.baidu.searchbox.track.ui;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,11 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
-public final class EvictingDeque {
+public final class EvictingDeque<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCapacity;
-    public final LinkedList mDelegate;
+    public final LinkedList<E> mDelegate;
 
     public EvictingDeque(int i) {
         Interceptable interceptable = $ic;
@@ -29,22 +30,22 @@ public final class EvictingDeque {
                 return;
             }
         }
-        this.mDelegate = new LinkedList();
+        this.mDelegate = new LinkedList<>();
         this.mCapacity = i;
     }
 
-    public boolean offerLast(Object obj) {
+    public boolean offerLast(@NonNull E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) {
+            if (e != null) {
                 while (this.mDelegate.size() > 0 && this.mDelegate.size() >= this.mCapacity) {
                     this.mDelegate.pollFirst();
                 }
                 if (this.mCapacity == 0) {
                     return true;
                 }
-                this.mDelegate.offerLast(obj);
+                this.mDelegate.offerLast(e);
                 return true;
             }
             throw new NullPointerException("element should not be null");
@@ -52,12 +53,12 @@ public final class EvictingDeque {
         return invokeL.booleanValue;
     }
 
-    public static EvictingDeque create(int i) {
+    public static <E> EvictingDeque<E> create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             if (i >= 0) {
-                return new EvictingDeque(i);
+                return new EvictingDeque<>(i);
             }
             throw new IllegalArgumentException("capacity should not < 0");
         }
@@ -84,7 +85,7 @@ public final class EvictingDeque {
         return invokeV.intValue;
     }
 
-    public LinkedList getElements() {
+    public LinkedList<E> getElements() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -93,13 +94,13 @@ public final class EvictingDeque {
         return (LinkedList) invokeV.objValue;
     }
 
-    public Object peekLast() {
+    public E peekLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mDelegate.peekLast();
         }
-        return invokeV.objValue;
+        return (E) invokeV.objValue;
     }
 
     public int size() {

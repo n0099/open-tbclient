@@ -7,12 +7,14 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(api = 21)
 /* loaded from: classes3.dex */
 public class FaceGroupDownloadButton extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +38,7 @@ public class FaceGroupDownloadButton extends View {
     public int i;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,8 +281,8 @@ public class FaceGroupDownloadButton extends View {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Paint paint = new Paint(1);
             this.e = paint;
-            paint.setTextSize(fj.f(getContext(), R.dimen.T_X08));
-            this.g = fj.f(getContext(), R.dimen.L_X02);
+            paint.setTextSize(xi.g(getContext(), R.dimen.T_X08));
+            this.g = xi.g(getContext(), R.dimen.L_X02);
             e();
         }
     }
@@ -321,7 +324,7 @@ public class FaceGroupDownloadButton extends View {
         }
     }
 
-    public void setStatus(FaceGroupInfoData.Status status) {
+    public void setStatus(@NonNull FaceGroupInfoData.Status status) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, status) == null) {
             this.d = status;

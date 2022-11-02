@@ -3,6 +3,7 @@ package com.kwad.sdk.kwai.kwai;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -34,11 +36,14 @@ public final class d implements View.OnClickListener {
     public TextView Ry;
     public Button Rz;
     public final AdInfo mAdInfo;
+    @NonNull
     public final AdTemplate mAdTemplate;
+    @NonNull
     public final Context mContext;
+    @NonNull
     public View mRootView = rj();
 
-    public d(Context context, AdTemplate adTemplate, boolean z, boolean z2, boolean z3) {
+    public d(@NonNull Context context, @NonNull AdTemplate adTemplate, boolean z, boolean z2, boolean z3) {
         this.mContext = context;
         this.mAdTemplate = adTemplate;
         this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -89,25 +94,26 @@ public final class d implements View.OnClickListener {
         if (ae.length() >= 8) {
             ae = ae.substring(0, 7) + StringHelper.STRING_MORE;
         }
-        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f09cf : R.string.obfuscated_res_0x7f0f09d2, ae));
+        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f09dd : R.string.obfuscated_res_0x7f0f09de, ae));
     }
 
+    @SuppressLint({"InflateParams"})
     private View rj() {
         LayoutInflater from;
         int i;
         if (this.Ru && this.Rv) {
             from = LayoutInflater.from(this.mContext);
-            i = R.layout.obfuscated_res_0x7f0d042e;
+            i = R.layout.obfuscated_res_0x7f0d0439;
         } else {
             from = LayoutInflater.from(this.mContext);
-            i = R.layout.obfuscated_res_0x7f0d042d;
+            i = R.layout.obfuscated_res_0x7f0d0438;
         }
         this.mRootView = from.inflate(i, (ViewGroup) null);
         ViewCompat.setElevation(this.mRootView, this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07036d));
-        this.Rw = this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910b6);
-        this.Rx = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910b8);
-        this.Ry = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910b7);
-        this.Rz = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910b9);
+        this.Rw = this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910f3);
+        this.Rx = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910f5);
+        this.Ry = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910f4);
+        this.Rz = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0910f6);
         return this.mRootView;
     }
 
@@ -161,8 +167,8 @@ public final class d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         dismiss();
-        if (view2.getId() != R.id.obfuscated_res_0x7f0910b9) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0910b6) {
+        if (view2.getId() != R.id.obfuscated_res_0x7f0910f6) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0910f3) {
                 if (!this.Ru) {
                     com.kwad.sdk.core.report.a.p(this.mAdTemplate, 48);
                 } else if (!this.RC) {

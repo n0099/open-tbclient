@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2.video;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Point;
 import android.media.MediaCodec;
@@ -9,6 +11,9 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.Surface;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.FeatureCodes;
@@ -21,7 +26,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.google.android.exoplayer2.BaseRenderer;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -30,6 +34,7 @@ import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.drm.DrmSessionManager;
+import com.google.android.exoplayer2.drm.FrameworkMediaCrypto;
 import com.google.android.exoplayer2.mediacodec.MediaCodecInfo;
 import com.google.android.exoplayer2.mediacodec.MediaCodecRenderer;
 import com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
@@ -40,6 +45,7 @@ import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.nio.ByteBuffer;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -89,7 +95,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
 
     /* renamed from: com.google.android.exoplayer2.video.MediaCodecVideoRenderer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -107,7 +113,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     /* loaded from: classes7.dex */
-    public final class CodecMaxValues {
+    public static final class CodecMaxValues {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int height;
@@ -135,6 +141,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
     }
 
+    @TargetApi(23)
     /* loaded from: classes7.dex */
     public final class OnFrameRenderedListenerV23 implements MediaCodec.OnFrameRenderedListener {
         public static /* synthetic */ Interceptable $ic;
@@ -165,7 +172,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
 
         @Override // android.media.MediaCodec.OnFrameRenderedListener
-        public void onFrameRendered(MediaCodec mediaCodec, long j, long j2) {
+        public void onFrameRendered(@NonNull MediaCodec mediaCodec, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{mediaCodec, Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 MediaCodecVideoRenderer mediaCodecVideoRenderer = this.this$0;
@@ -190,10 +197,11 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                 return;
             }
         }
-        STANDARD_LONG_EDGE_VIDEO_PX = new int[]{1920, FeatureCodes.ADVANCE_BEAUTY, 1440, 1280, 960, 854, 640, RecordConstants.DEFAULT_PREVIEW_WIDTH, 480};
+        STANDARD_LONG_EDGE_VIDEO_PX = new int[]{1920, FeatureCodes.ADVANCE_BEAUTY, 1440, 1280, 960, 854, 640, 540, 480};
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
+    @CallSuper
     public void releaseCodec() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -297,7 +305,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j, Handler handler, VideoRendererEventListener videoRendererEventListener, int i) {
+    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j, @Nullable Handler handler, @Nullable VideoRendererEventListener videoRendererEventListener, int i) {
         this(context, mediaCodecSelector, j, null, false, handler, videoRendererEventListener, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -318,7 +326,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j, DrmSessionManager drmSessionManager, boolean z, Handler handler, VideoRendererEventListener videoRendererEventListener, int i) {
+    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, boolean z, @Nullable Handler handler, @Nullable VideoRendererEventListener videoRendererEventListener, int i) {
         super(2, mediaCodecSelector, drmSessionManager, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -438,6 +446,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
+    @CallSuper
     public void flushCodec() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -487,6 +496,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(21)
     public static void configureTunnelingV21(MediaFormat mediaFormat, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65545, null, mediaFormat, i) == null) {
@@ -495,6 +505,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
     }
 
+    @TargetApi(23)
     public static void setOutputSurfaceV23(MediaCodec mediaCodec, Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65559, null, mediaCodec, surface) == null) {
@@ -640,7 +651,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                 int size = format.initializationData.size();
                 int i = 0;
                 for (int i2 = 0; i2 < size; i2++) {
-                    i += ((byte[]) format.initializationData.get(i2)).length;
+                    i += format.initializationData.get(i2).length;
                 }
                 return format.maxInputSize + i;
             }
@@ -772,7 +783,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public int supportsFormat(MediaCodecSelector mediaCodecSelector, DrmSessionManager drmSessionManager, Format format) throws MediaCodecUtil.DecoderQueryException {
+    public int supportsFormat(MediaCodecSelector mediaCodecSelector, DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, Format format) throws MediaCodecUtil.DecoderQueryException {
         InterceptResult invokeLLL;
         boolean z;
         int i;
@@ -907,6 +918,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
+    @CallSuper
     public void onProcessedOutputBuffer(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
@@ -915,6 +927,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
+    @CallSuper
     public void onQueueInputBuffer(DecoderInputBuffer decoderInputBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, decoderInputBuffer) == null) {
@@ -1097,6 +1110,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
     }
 
+    @SuppressLint({"InlinedApi"})
     public MediaFormat getMediaFormat(Format format, CodecMaxValues codecMaxValues, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -1135,6 +1149,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         return invokeCommon.booleanValue;
     }
 
+    @TargetApi(21)
     public void renderOutputBufferV21(MediaCodec mediaCodec, int i, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{mediaCodec, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {

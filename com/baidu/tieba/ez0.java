@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,39 +9,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public final class ez0 {
+/* loaded from: classes4.dex */
+public class ez0 {
     public static /* synthetic */ Interceptable $ic;
-    public static nz0 a;
+    public static final az0<mw0> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public class a extends nz0 {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ez0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-816566640, "Lcom/baidu/tieba/ez0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-816566640, "Lcom/baidu/tieba/ez0$b;");
+                    return;
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.nz0
-        public boolean c(int i, String str) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-                return ar0.f();
-            }
-            return invokeIL.booleanValue;
+            a = new ez0(null);
         }
     }
 
@@ -57,83 +57,59 @@ public final class ez0 {
                 return;
             }
         }
-        a = new a();
+        a = new az0<>(5);
     }
 
-    public static void a(String str) {
+    public ez0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            c(3, null, str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static void d(String str) {
+    public static ez0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            c(6, null, str, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (ez0) invokeV.objValue;
+    }
+
+    public /* synthetic */ ez0(a aVar) {
+        this();
+    }
+
+    public synchronized void c(mw0 mw0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mw0Var) == null) {
+            synchronized (this) {
+                a.f(mw0Var);
+            }
         }
     }
 
-    public static void g(String str) {
+    @NonNull
+    public synchronized mw0 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            c(4, null, str, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this) {
+                mw0 b2 = a.b(str);
+                if (b2 != null) {
+                    return b2;
+                }
+                a.c(rr0.c().create(str));
+                return a.a();
+            }
         }
-    }
-
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            c(2, null, str, null);
-        }
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            c(5, null, str, null);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            c(3, str, str2, null);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            c(6, str, str2, null);
-        }
-    }
-
-    public static void f(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
-            c(6, null, str, th);
-        }
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            c(2, str, str2, null);
-        }
-    }
-
-    public static void k(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, th) == null) {
-            c(5, null, str, th);
-        }
-    }
-
-    public static void c(int i, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            a.a(i, str, str2, th);
-        }
+        return (mw0) invokeL.objValue;
     }
 }

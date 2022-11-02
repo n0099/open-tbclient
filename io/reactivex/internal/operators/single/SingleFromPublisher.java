@@ -16,22 +16,22 @@ import java.util.NoSuchElementException;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SingleFromPublisher extends Single {
+public final class SingleFromPublisher<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher publisher;
+    public final Publisher<? extends T> publisher;
 
     /* loaded from: classes8.dex */
-    public final class ToSingleObserver implements FlowableSubscriber, Disposable {
+    public static final class ToSingleObserver<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
         public volatile boolean disposed;
         public boolean done;
         public Subscription s;
-        public Object value;
+        public T value;
 
-        public ToSingleObserver(SingleObserver singleObserver) {
+        public ToSingleObserver(SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,19 +99,19 @@ public final class SingleFromPublisher extends Single {
                 return;
             }
             this.done = true;
-            Object obj = this.value;
+            T t = this.value;
             this.value = null;
-            if (obj == null) {
+            if (t == null) {
                 this.actual.onError(new NoSuchElementException("The source Publisher is empty"));
             } else {
-                this.actual.onSuccess(obj);
+                this.actual.onSuccess(t);
             }
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             if (this.value != null) {
@@ -121,11 +121,11 @@ public final class SingleFromPublisher extends Single {
                 this.actual.onError(new IndexOutOfBoundsException("Too many elements in the Publisher"));
                 return;
             }
-            this.value = obj;
+            this.value = t;
         }
     }
 
-    public SingleFromPublisher(Publisher publisher) {
+    public SingleFromPublisher(Publisher<? extends T> publisher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,7 +144,7 @@ public final class SingleFromPublisher extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.publisher.subscribe(new ToSingleObserver(singleObserver));

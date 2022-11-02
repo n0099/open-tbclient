@@ -14,7 +14,7 @@ public class ChatObjectCache {
     public static /* synthetic */ Interceptable $ic;
     public static ChatObjectCache mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache mCache;
+    public LruCache<ChatObject, Object> mCache;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class ChatObjectCache {
             }
         }
         this.mCache = null;
-        this.mCache = new LruCache(100);
+        this.mCache = new LruCache<>(100);
     }
 
     public static ChatObjectCache getInstance() {

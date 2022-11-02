@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
@@ -277,7 +278,7 @@ public class BDStatCore {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String a(String str, String str2, int i, long j, Map map, ExtraInfo extraInfo) {
+    public String a(String str, String str2, int i, long j, Map<String, String> map, ExtraInfo extraInfo) {
         InterceptResult invokeCommon;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -592,6 +593,7 @@ public class BDStatCore {
         this.h = true;
     }
 
+    @SuppressLint({"NewApi"})
     public void onPause(Fragment fragment) {
         Activity activity;
         Context applicationContext;
@@ -655,6 +657,7 @@ public class BDStatCore {
         });
     }
 
+    @SuppressLint({"NewApi"})
     public void onResume(Fragment fragment) {
         Activity activity;
         Context applicationContext;
@@ -872,14 +875,14 @@ public class BDStatCore {
         });
     }
 
-    public void onEvent(Context context, String str, String str2, int i, long j, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map map) {
+    public void onEvent(Context context, String str, String str2, int i, long j, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Integer.valueOf(i), Long.valueOf(j), jSONArray, jSONArray2, str3, str4, str5, map}) == null) {
             onEvent(context, str, str2, i, j, jSONArray, jSONArray2, str3, str4, str5, map, false);
         }
     }
 
-    public void onEvent(Context context, String str, String str2, int i, long j, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map map, boolean z) {
+    public void onEvent(Context context, String str, String str2, int i, long j, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{context, str, str2, Integer.valueOf(i), Long.valueOf(j), jSONArray, jSONArray2, str3, str4, str5, map, Boolean.valueOf(z)}) != null) || context == null) {
             return;
@@ -949,14 +952,14 @@ public class BDStatCore {
         });
     }
 
-    public void onEvent(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map map, boolean z) {
+    public void onEvent(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{context, str, str2, Integer.valueOf(i), extraInfo, map, Boolean.valueOf(z)}) == null) {
             onEvent(context, str, str2, i, extraInfo, map, z, false);
         }
     }
 
-    public void onEvent(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map map, boolean z, boolean z2) {
+    public void onEvent(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048590, this, new Object[]{context, str, str2, Integer.valueOf(i), extraInfo, map, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || context == null) {
             return;
@@ -1019,7 +1022,7 @@ public class BDStatCore {
         });
     }
 
-    public void onEventDuration(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map map, boolean z, boolean z2) {
+    public void onEventDuration(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map<String, String> map, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048593, this, new Object[]{context, str, str2, Long.valueOf(j), extraInfo, map, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || context == null || TextUtils.isEmpty(str)) {
             return;
@@ -1147,21 +1150,21 @@ public class BDStatCore {
         });
     }
 
-    public void onEventDuration(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map map, boolean z) {
+    public void onEventDuration(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{context, str, str2, Long.valueOf(j), extraInfo, map, Boolean.valueOf(z)}) == null) {
             onEventDuration(context, str, str2, j, extraInfo, map, z, false);
         }
     }
 
-    public void onEventEnd(Context context, String str, String str2, ExtraInfo extraInfo, Map map) {
+    public void onEventEnd(Context context, String str, String str2, ExtraInfo extraInfo, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048594, this, context, str, str2, extraInfo, map) == null) {
             onEventEnd(context, str, str2, extraInfo, map, false);
         }
     }
 
-    public void onEventEnd(Context context, String str, String str2, ExtraInfo extraInfo, Map map, boolean z) {
+    public void onEventEnd(Context context, String str, String str2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048595, this, new Object[]{context, str, str2, extraInfo, map, Boolean.valueOf(z)}) != null) || context == null) {
             return;

@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.BVideoView;
@@ -45,6 +47,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    @NonNull
     public View getBVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -262,7 +265,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void play(String str) {
+    public void play(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             super.play(str);
@@ -273,7 +276,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setClarityInfo(String str) {
+    public void setClarityInfo(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.mVideoView.setClarityInfo(str);
@@ -289,7 +292,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setHttpDns(IDnsProcessListener iDnsProcessListener) {
+    public void setHttpDns(@NonNull IDnsProcessListener iDnsProcessListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, iDnsProcessListener) == null) {
             super.setHttpDns(iDnsProcessListener);
@@ -306,7 +309,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setPlayConf(String str) {
+    public void setPlayConf(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             this.mVideoView.setPlayJson(str);
@@ -370,7 +373,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void updateFreeProxy(String str) {
+    public void updateFreeProxy(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
             this.mVideoView.changeProxyDynamic(str);
@@ -378,7 +381,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
-    public boolean verify(String str) {
+    public boolean verify(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) {
@@ -487,11 +490,11 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoFormatOptions(String str, HashMap hashMap) {
+    public void setVideoFormatOptions(String str, @NonNull HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, str, hashMap) == null) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                this.mVideoView.setOption((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                this.mVideoView.setOption(entry.getKey(), entry.getValue());
             }
         }
     }

@@ -2,6 +2,7 @@ package com.kwad.sdk.core.network.kwai;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.core.network.f;
 import com.kwad.sdk.core.network.o;
 import com.kwad.sdk.core.network.q;
@@ -16,9 +17,9 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    public static com.kwad.sdk.core.network.c a(String str, Map map, String str2, boolean z) {
+    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, String str2, boolean z) {
         OutputStream outputStream;
         com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
         HttpURLConnection httpURLConnection = null;
@@ -90,7 +91,7 @@ public final class a {
         return cVar;
     }
 
-    public static com.kwad.sdk.core.network.c a(String str, Map map, boolean z) {
+    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, boolean z) {
         InputStream inputStream;
         HttpURLConnection httpURLConnection;
         com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
@@ -162,7 +163,7 @@ public final class a {
         return cVar;
     }
 
-    public static void a(com.kwad.sdk.core.network.c cVar, Exception exc) {
+    public static void a(@NonNull com.kwad.sdk.core.network.c cVar, Exception exc) {
         int i = cVar.code;
         if (i == 0) {
             i = -1;
@@ -185,12 +186,12 @@ public final class a {
         }
     }
 
-    public static void a(HttpURLConnection httpURLConnection, Map map) {
+    public static void a(HttpURLConnection httpURLConnection, Map<String, String> map) {
         if (map == null || httpURLConnection == null) {
             return;
         }
-        for (Map.Entry entry : map.entrySet()) {
-            httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
         }
     }
 
@@ -208,17 +209,17 @@ public final class a {
         }
     }
 
-    public static com.kwad.sdk.core.network.c doGet(String str, Map map) {
+    public static com.kwad.sdk.core.network.c doGet(String str, Map<String, String> map) {
         return a(str, map, true);
     }
 
-    public static com.kwad.sdk.core.network.c doPost(String str, Map map, Map map2) {
+    public static com.kwad.sdk.core.network.c doPost(String str, Map<String, String> map, Map<String, String> map2) {
         String str2;
         if (map2 != null) {
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry : map2.entrySet()) {
-                String encode = encode((String) entry.getValue());
-                sb.append((String) entry.getKey());
+            for (Map.Entry<String, String> entry : map2.entrySet()) {
+                String encode = encode(entry.getValue());
+                sb.append(entry.getKey());
                 sb.append("=");
                 sb.append(encode);
                 sb.append("&");
@@ -230,7 +231,7 @@ public final class a {
         return a(str, map, str2, false);
     }
 
-    public static com.kwad.sdk.core.network.c doPost(String str, Map map, JSONObject jSONObject) {
+    public static com.kwad.sdk.core.network.c doPost(String str, Map<String, String> map, JSONObject jSONObject) {
         return a(str, map, jSONObject != null ? jSONObject.toString() : null, true);
     }
 

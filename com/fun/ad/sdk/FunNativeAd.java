@@ -16,7 +16,7 @@ public interface FunNativeAd {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class InteractionType {
+    public static final class InteractionType {
         public static /* synthetic */ Interceptable $ic;
         public static final InteractionType TYPE_BROWSE;
         public static final InteractionType TYPE_DIAL;
@@ -87,7 +87,7 @@ public interface FunNativeAd {
 
     String getIconUrl();
 
-    List getImageUrls();
+    List<String> getImageUrls();
 
     InteractionType getInteractionType();
 
@@ -95,5 +95,5 @@ public interface FunNativeAd {
 
     View getVideoView();
 
-    void show(Context context, ViewGroup viewGroup, List list, List list2, FunAdInteractionListener funAdInteractionListener);
+    void show(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener);
 }

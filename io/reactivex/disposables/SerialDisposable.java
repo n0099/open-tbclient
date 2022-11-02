@@ -6,13 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
 public final class SerialDisposable implements Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference resource;
+    public final AtomicReference<Disposable> resource;
 
     public SerialDisposable() {
         Interceptable interceptable = $ic;
@@ -27,7 +28,7 @@ public final class SerialDisposable implements Disposable {
                 return;
             }
         }
-        this.resource = new AtomicReference();
+        this.resource = new AtomicReference<>();
     }
 
     @Override // io.reactivex.disposables.Disposable
@@ -38,11 +39,12 @@ public final class SerialDisposable implements Disposable {
         }
     }
 
+    @Nullable
     public Disposable get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Disposable disposable = (Disposable) this.resource.get();
+            Disposable disposable = this.resource.get();
             if (disposable == DisposableHelper.DISPOSED) {
                 return Disposables.disposed();
             }
@@ -56,12 +58,12 @@ public final class SerialDisposable implements Disposable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return DisposableHelper.isDisposed((Disposable) this.resource.get());
+            return DisposableHelper.isDisposed(this.resource.get());
         }
         return invokeV.booleanValue;
     }
 
-    public SerialDisposable(Disposable disposable) {
+    public SerialDisposable(@Nullable Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,10 +78,10 @@ public final class SerialDisposable implements Disposable {
                 return;
             }
         }
-        this.resource = new AtomicReference(disposable);
+        this.resource = new AtomicReference<>(disposable);
     }
 
-    public boolean replace(Disposable disposable) {
+    public boolean replace(@Nullable Disposable disposable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, disposable)) == null) {
@@ -88,7 +90,7 @@ public final class SerialDisposable implements Disposable {
         return invokeL.booleanValue;
     }
 
-    public boolean set(Disposable disposable) {
+    public boolean set(@Nullable Disposable disposable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, disposable)) == null) {

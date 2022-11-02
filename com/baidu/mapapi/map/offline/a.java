@@ -1,14 +1,14 @@
 package com.baidu.mapapi.map.offline;
 
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mapsdkplatform.comapi.map.v;
+import com.baidu.mapsdkplatform.comapi.map.o;
+import com.baidu.mapsdkplatform.comapi.map.s;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class a implements v {
+public class a implements s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ MKOfflineMap a;
@@ -31,47 +31,48 @@ public class a implements v {
         this.a = mKOfflineMap;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.map.v
+    @Override // com.baidu.mapsdkplatform.comapi.map.s
     public void a(int i, int i2) {
         MKOfflineMapListener mKOfflineMapListener;
         MKOfflineMapListener mKOfflineMapListener2;
         MKOfflineMapListener mKOfflineMapListener3;
-        r rVar;
+        MKOfflineMapListener mKOfflineMapListener4;
+        o oVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (i == 4) {
-                ArrayList<MKOLUpdateElement> allUpdateInfo = this.a.getAllUpdateInfo();
-                if (allUpdateInfo != null) {
-                    for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
-                        if (mKOLUpdateElement.update) {
-                            mKOfflineMapListener = this.a.c;
-                            mKOfflineMapListener.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
-                        }
+            if (i != 4) {
+                if (i == 6) {
+                    mKOfflineMapListener2 = this.a.c;
+                    mKOfflineMapListener2.onGetOfflineMapState(6, i2);
+                    return;
+                } else if (i != 8) {
+                    if (i == 10) {
+                        mKOfflineMapListener4 = this.a.c;
+                        mKOfflineMapListener4.onGetOfflineMapState(2, i2);
+                        return;
+                    } else if (i == 12) {
+                        oVar = this.a.b;
+                        oVar.a(true, false);
+                        return;
+                    } else {
+                        return;
                     }
+                } else {
+                    int i3 = i2 >> 8;
+                    mKOfflineMapListener3 = this.a.c;
+                    mKOfflineMapListener3.onGetOfflineMapState(0, i3);
                     return;
                 }
-                return;
             }
-            int i3 = 6;
-            if (i == 6) {
-                mKOfflineMapListener2 = this.a.c;
-            } else if (i == 8) {
-                int i4 = i2 >> 8;
-                mKOfflineMapListener3 = this.a.c;
-                mKOfflineMapListener3.onGetOfflineMapState(0, i4);
-                return;
-            } else if (i != 10) {
-                if (i != 12) {
-                    return;
+            ArrayList<MKOLUpdateElement> allUpdateInfo = this.a.getAllUpdateInfo();
+            if (allUpdateInfo != null) {
+                for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
+                    if (mKOLUpdateElement.update) {
+                        mKOfflineMapListener = this.a.c;
+                        mKOfflineMapListener.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
+                    }
                 }
-                rVar = this.a.b;
-                rVar.a(true, false);
-                return;
-            } else {
-                mKOfflineMapListener2 = this.a.c;
-                i3 = 2;
             }
-            mKOfflineMapListener2.onGetOfflineMapState(i3, i2);
         }
     }
 }

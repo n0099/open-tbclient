@@ -7,8 +7,9 @@ import android.hardware.Camera;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ed8;
+import com.baidu.tieba.oe8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public Camera a;
     public boolean b;
     public boolean c;
-    public ed8 d;
+    public oe8 d;
     public SurfaceTexture e;
     public Runnable f;
     public Camera.AutoFocusCallback g;
@@ -32,7 +33,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, surfaceTexture) == null) {
         }
     }
 
@@ -141,7 +142,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.f();
+            this.a.g();
         }
     }
 
@@ -159,6 +160,14 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
             }
         }
         h = CameraPreview.class.getSimpleName();
+    }
+
+    public void f() {
+        oe8 oe8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (oe8Var = this.d) != null) {
+            oe8Var.i();
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -190,9 +199,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, surfaceTexture)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, surfaceTexture)) == null) {
             this.c = false;
-            g();
+            h();
             return true;
         }
         return invokeL.booleanValue;
@@ -200,30 +209,30 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
 
     public void setCamera(Camera camera) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, camera) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, camera) == null) {
             this.a = camera;
             if (camera != null) {
-                ed8 ed8Var = new ed8(getContext());
-                this.d = ed8Var;
-                ed8Var.h(this.a);
+                oe8 oe8Var = new oe8(getContext());
+                this.d = oe8Var;
+                oe8Var.h(this.a);
                 if (this.b) {
                     requestLayout();
                 } else {
-                    f();
+                    g();
                 }
             }
         }
     }
 
-    public final void f() {
+    public final void g() {
         SurfaceTexture surfaceTexture;
         Camera camera;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (surfaceTexture = this.e) != null && (camera = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (surfaceTexture = this.e) != null && (camera = this.a) != null) {
             try {
                 this.b = true;
                 camera.setPreviewTexture(surfaceTexture);
-                this.d.i(this.a);
+                this.d.j(this.a);
                 this.a.startPreview();
                 this.a.autoFocus(this.g);
             } catch (Exception e) {
@@ -232,9 +241,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
             try {
                 removeCallbacks(this.f);
                 this.b = false;
@@ -250,11 +259,11 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             int defaultSize = TextureView.getDefaultSize(getSuggestedMinimumWidth(), i);
             int defaultSize2 = TextureView.getDefaultSize(getSuggestedMinimumHeight(), i2);
-            ed8 ed8Var = this.d;
-            if (ed8Var != null && ed8Var.e() != null) {
+            oe8 oe8Var = this.d;
+            if (oe8Var != null && oe8Var.e() != null) {
                 Point e = this.d.e();
                 float f = defaultSize;
                 float f2 = defaultSize2;
@@ -274,20 +283,20 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048580, this, surfaceTexture, i, i2) == null) {
             this.c = true;
             this.e = surfaceTexture;
-            f();
+            g();
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLII(1048581, this, surfaceTexture, i, i2) != null) || surfaceTexture == null) {
+        if ((interceptable != null && interceptable.invokeLII(1048582, this, surfaceTexture, i, i2) != null) || surfaceTexture == null) {
             return;
         }
-        g();
+        h();
         post(new c(this));
     }
 }

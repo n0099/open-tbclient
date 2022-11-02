@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.ky4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes3.dex */
-public class WhiteListData extends LinkedList {
+public class WhiteListData extends LinkedList<String> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTPS_PREFIX = "https://";
     public static final String HTTP_PREFIX = "http://";
@@ -40,7 +40,7 @@ public class WhiteListData extends LinkedList {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             WhiteListData whiteListData = new WhiteListData();
-            String q = ux4.k().q("key_white_list", null);
+            String q = ky4.k().q("key_white_list", null);
             if (!TextUtils.isEmpty(q)) {
                 whiteListData.parserJson(q);
             }
@@ -70,7 +70,7 @@ public class WhiteListData extends LinkedList {
     private void save(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            ux4.k().y("key_white_list", str);
+            ky4.k().y("key_white_list", str);
         }
     }
 
@@ -93,11 +93,11 @@ public class WhiteListData extends LinkedList {
                 return false;
             }
             String lowerCase = str.toLowerCase();
-            Iterator<E> it = iterator();
+            Iterator<String> it = iterator();
             while (it.hasNext()) {
-                String str2 = (String) it.next();
-                if (!TextUtils.isEmpty(str2)) {
-                    String lowerCase2 = str2.toLowerCase();
+                String next = it.next();
+                if (!TextUtils.isEmpty(next)) {
+                    String lowerCase2 = next.toLowerCase();
                     if (lowerCase.startsWith(lowerCase2)) {
                         return true;
                     }
@@ -122,11 +122,11 @@ public class WhiteListData extends LinkedList {
                 return false;
             }
             String lowerCase = str.toLowerCase();
-            Iterator<E> it = iterator();
+            Iterator<String> it = iterator();
             while (it.hasNext()) {
-                String str2 = (String) it.next();
-                if (!TextUtils.isEmpty(str2)) {
-                    String lowerCase2 = str2.toLowerCase();
+                String next = it.next();
+                if (!TextUtils.isEmpty(next)) {
+                    String lowerCase2 = next.toLowerCase();
                     if (lowerCase.startsWith(lowerCase2)) {
                         return true;
                     }

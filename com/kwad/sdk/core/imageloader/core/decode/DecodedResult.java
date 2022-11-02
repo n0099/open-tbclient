@@ -2,7 +2,7 @@ package com.kwad.sdk.core.imageloader.core.decode;
 
 import android.graphics.Bitmap;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DecodedResult {
     public Bitmap mBitmap;
     public FrameSequence mFrameSequence;

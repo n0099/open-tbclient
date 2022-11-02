@@ -1,10 +1,12 @@
 package com.baidu.searchbox.player.session;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.SystemEventTrigger;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.BdVideoLog;
@@ -22,18 +24,18 @@ public class VideoSessionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoSessionManager";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap mSessionIdCache;
+    public final ArrayMap<String, String> mSessionIdCache;
     public SystemEventTrigger mSystemEventTrigger;
 
     /* renamed from: com.baidu.searchbox.player.session.VideoSessionManager$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public final class Holder {
+    public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final VideoSessionManager mInstance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,9 +84,10 @@ public class VideoSessionManager {
                 return;
             }
         }
-        this.mSessionIdCache = new ArrayMap();
+        this.mSessionIdCache = new ArrayMap<>();
     }
 
+    @PublicMethod
     public static VideoSessionManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,6 +113,7 @@ public class VideoSessionManager {
         }
     }
 
+    @PublicMethod
     public VideoSession createVideoSession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -119,6 +123,7 @@ public class VideoSessionManager {
         return (VideoSession) invokeV.objValue;
     }
 
+    @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -136,7 +141,8 @@ public class VideoSessionManager {
         this();
     }
 
-    public void bindPlayer(BDVideoPlayer bDVideoPlayer) {
+    @PublicMethod
+    public void bindPlayer(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bDVideoPlayer) == null) {
             triggerValidCheck();
@@ -145,14 +151,16 @@ public class VideoSessionManager {
         }
     }
 
-    public void recycle(VideoSession videoSession) {
+    @PublicMethod
+    public void recycle(@NonNull VideoSession videoSession) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoSession) == null) {
             videoSession.reset();
         }
     }
 
-    public void sendEventToAll(VideoEvent videoEvent) {
+    @PublicMethod
+    public void sendEventToAll(@NonNull VideoEvent videoEvent) {
         SystemEventTrigger systemEventTrigger;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, videoEvent) == null) && (systemEventTrigger = this.mSystemEventTrigger) != null) {
@@ -160,7 +168,7 @@ public class VideoSessionManager {
         }
     }
 
-    public void unbindPlayer(BDVideoPlayer bDVideoPlayer) {
+    public void unbindPlayer(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bDVideoPlayer) == null) {
             BdVideoLog.d("session manager unbind player =>" + bDVideoPlayer);
@@ -171,6 +179,7 @@ public class VideoSessionManager {
         }
     }
 
+    @NonNull
     private String generateSessionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,17 +191,18 @@ public class VideoSessionManager {
         return (String) invokeV.objValue;
     }
 
-    public String getSessionId(String str) {
+    @NonNull
+    public String getSessionId(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String str2 = (String) this.mSessionIdCache.remove(str);
-            if (TextUtils.isEmpty(str2)) {
-                str2 = generateSessionId();
-                this.mSessionIdCache.put(str, str2);
+            String remove = this.mSessionIdCache.remove(str);
+            if (TextUtils.isEmpty(remove)) {
+                remove = generateSessionId();
+                this.mSessionIdCache.put(str, remove);
             }
-            BdVideoLog.d(TAG, "getSessionId:" + str2 + ",key:" + str);
-            return str2;
+            BdVideoLog.d(TAG, "getSessionId:" + remove + ",key:" + str);
+            return remove;
         }
         return (String) invokeL.objValue;
     }

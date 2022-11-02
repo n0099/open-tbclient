@@ -11,7 +11,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Method b(Object obj, String str, Class... clsArr) {
+    public static Method b(Object obj, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, obj, str, clsArr)) == null) {

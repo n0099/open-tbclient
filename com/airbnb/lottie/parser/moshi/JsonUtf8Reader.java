@@ -1,5 +1,6 @@
 package com.airbnb.lottie.parser.moshi;
 
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -43,6 +44,7 @@ public final class JsonUtf8Reader extends JsonReader {
     public int peeked = 0;
     public long peekedLong;
     public int peekedNumberLength;
+    @Nullable
     public String peekedString;
     public final BufferedSource source;
     public static final ByteString SINGLE_QUOTE_OR_SLASH = ByteString.encodeUtf8("'\\");

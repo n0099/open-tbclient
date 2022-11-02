@@ -37,7 +37,7 @@ public class ContextDelegate {
     }
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static ContextDelegate a;
         public transient /* synthetic */ FieldHolder $fh;

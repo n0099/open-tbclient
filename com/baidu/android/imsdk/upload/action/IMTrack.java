@@ -28,7 +28,7 @@ public class IMTrack {
 
     /* renamed from: com.baidu.android.imsdk.upload.action.IMTrack$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass2 {
+    public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class IMTrack {
     }
 
     /* loaded from: classes.dex */
-    public final class AckBuilder {
+    public static final class AckBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PROXY_TYPE = "proxy";
         public static final String PUSH_TYPE = "push";
@@ -172,7 +172,7 @@ public class IMTrack {
     }
 
     /* loaded from: classes.dex */
-    public final class ConnectionBuilder {
+    public static final class ConnectionBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CONN_TYPE_SOCKET_CONNECTION_ENV_FAIL = 401203;
         public static final int CONN_TYPE_SOCKET_CONNECTION_EXCEPTION = 401205;
@@ -290,7 +290,7 @@ public class IMTrack {
     }
 
     /* loaded from: classes.dex */
-    public final class CrashBuilder {
+    public static final class CrashBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CRASH_TYPE_CATCH = 201001;
         public static final int CRASH_TYPE_DEFAULT = 201002;
@@ -362,7 +362,7 @@ public class IMTrack {
     }
 
     /* loaded from: classes.dex */
-    public final class DbBuilder {
+    public static final class DbBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ACTION_ADD = "add";
         public static final String ACTION_DELETE = "delete";
@@ -501,7 +501,7 @@ public class IMTrack {
     }
 
     /* loaded from: classes.dex */
-    public final class MsgBuilder {
+    public static final class MsgBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context context;
@@ -613,7 +613,7 @@ public class IMTrack {
     }
 
     /* loaded from: classes.dex */
-    public final class RequestBuilder {
+    public static final class RequestBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REQUEST_INIT = 501100;
         public static final int REQUEST_JOIN = 501112;
@@ -729,7 +729,7 @@ public class IMTrack {
     }
 
     /* loaded from: classes.dex */
-    public final class UiBuilder {
+    public static final class UiBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CATEGORY_CLICK = "category_click";
         public static final String CATEGORY_MI = "category_mi";

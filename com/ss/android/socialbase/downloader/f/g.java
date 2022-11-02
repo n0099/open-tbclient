@@ -6,7 +6,6 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -22,8 +21,8 @@ public class g {
     public final long o;
     public final boolean p;
     public long q;
-    public final List a = new LinkedList();
-    public final List b = new ArrayList();
+    public final List<l> a = new LinkedList();
+    public final List<l> b = new ArrayList();
     public volatile boolean i = false;
     public volatile boolean j = false;
     public volatile boolean k = false;
@@ -88,32 +87,28 @@ public class g {
         }
     }
 
-    private void b(List list) throws IOException {
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            ((l) it.next()).c();
+    private void b(List<l> list) throws IOException {
+        for (l lVar : list) {
+            lVar.c();
         }
     }
 
-    private void c(List list) {
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            ((l) it.next()).d();
+    private void c(List<l> list) {
+        for (l lVar : list) {
+            lVar.d();
         }
     }
 
-    private void a(List list) throws IOException {
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            ((l) it.next()).b();
+    private void a(List<l> list) throws IOException {
+        for (l lVar : list) {
+            lVar.b();
         }
     }
 
-    private void a(List list, Map map) {
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            i e = ((l) it.next()).e();
-            i iVar = (i) map.get(Long.valueOf(e.c()));
+    private void a(List<l> list, Map<Long, i> map) {
+        for (l lVar : list) {
+            i e = lVar.e();
+            i iVar = map.get(Long.valueOf(e.c()));
             if (iVar == null) {
                 map.put(Long.valueOf(e.c()), new i(e));
             } else {
@@ -133,11 +128,11 @@ public class g {
         }
         DownloadInfo downloadInfo = this.c;
         com.ss.android.socialbase.downloader.downloader.j jVar = this.d;
-        List list = this.a;
-        List list2 = this.b;
-        Map l = jVar.l(downloadInfo.getId());
+        List<l> list = this.a;
+        List<l> list2 = this.b;
+        Map<Long, i> l = jVar.l(downloadInfo.getId());
         if (l == null) {
-            l = new HashMap(4);
+            l = new HashMap<>(4);
         }
         synchronized (this) {
             a(list);

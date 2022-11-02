@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.c;
 
+import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -35,16 +36,16 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class EnumC0017a {
+    public static final class EnumC0018a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0017a a;
-        public static final EnumC0017a b;
-        public static final EnumC0017a c;
-        public static final EnumC0017a d;
-        public static final EnumC0017a e;
-        public static final EnumC0017a f;
-        public static final EnumC0017a g;
-        public static final /* synthetic */ EnumC0017a[] h;
+        public static final EnumC0018a a;
+        public static final EnumC0018a b;
+        public static final EnumC0018a c;
+        public static final EnumC0018a d;
+        public static final EnumC0018a e;
+        public static final EnumC0018a f;
+        public static final EnumC0018a g;
+        public static final /* synthetic */ EnumC0018a[] h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,18 +61,18 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC0017a("alarmMsgInfoId", 0);
-            b = new EnumC0017a("msgId", 1);
-            c = new EnumC0017a("sendtime", 2);
-            d = new EnumC0017a("showtime", 3);
-            e = new EnumC0017a("expiretime", 4);
-            f = new EnumC0017a("msgEnable", 5);
-            EnumC0017a enumC0017a = new EnumC0017a("isAlarm", 6);
-            g = enumC0017a;
-            h = new EnumC0017a[]{a, b, c, d, e, f, enumC0017a};
+            a = new EnumC0018a("alarmMsgInfoId", 0);
+            b = new EnumC0018a("msgId", 1);
+            c = new EnumC0018a("sendtime", 2);
+            d = new EnumC0018a("showtime", 3);
+            e = new EnumC0018a("expiretime", 4);
+            f = new EnumC0018a("msgEnable", 5);
+            EnumC0018a enumC0018a = new EnumC0018a("isAlarm", 6);
+            g = enumC0018a;
+            h = new EnumC0018a[]{a, b, c, d, e, f, enumC0018a};
         }
 
-        public EnumC0017a(String str, int i) {
+        public EnumC0018a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +94,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public static final b b;
@@ -155,7 +156,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public static final c b;
@@ -228,7 +229,7 @@ public class a {
     }
 
     /* loaded from: classes.dex */
-    public class d implements DatabaseErrorHandler {
+    public static class d implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -246,6 +247,7 @@ public class a {
             }
         }
 
+        @TargetApi(16)
         private void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(65538, this, str) == null) && !str.equalsIgnoreCase(":memory:") && str.trim().length() != 0) {
@@ -292,7 +294,7 @@ public class a {
     }
 
     /* loaded from: classes.dex */
-    public class e extends SQLiteOpenHelper {
+    public static class e extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String a;
         public static final String b;
@@ -329,19 +331,19 @@ public class a {
             c = sb.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE AlarmMsgInfo (");
-            sb2.append(EnumC0017a.a.name());
+            sb2.append(EnumC0018a.a.name());
             sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb2.append(EnumC0017a.b.name());
+            sb2.append(EnumC0018a.b.name());
             sb2.append(" TEXT NOT NULL, ");
-            sb2.append(EnumC0017a.c.name());
+            sb2.append(EnumC0018a.c.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0017a.d.name());
+            sb2.append(EnumC0018a.d.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0017a.e.name());
+            sb2.append(EnumC0018a.e.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0017a.f.name());
+            sb2.append(EnumC0018a.f.name());
             sb2.append(" INTEGER, ");
-            sb2.append(EnumC0017a.g.name());
+            sb2.append(EnumC0018a.g.name());
             sb2.append(" INTEGER);");
             d = sb2.toString();
             e = "CREATE TABLE AppInfo (" + b.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.b.name() + " TEXT, " + b.c.name() + " INTEGER, " + b.d.name() + " TEXT UNIQUE, " + b.e.name() + " TEXT, " + b.f.name() + " TEXT, " + b.g.name() + " TEXT, " + b.h.name() + " TEXT, " + b.i.name() + " TEXT);";
@@ -448,7 +450,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class f {
+    public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
         public static final f b;
@@ -512,7 +514,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class g {
+    public static final class g {
         public static /* synthetic */ Interceptable $ic;
         public static final g a;
         public static final g b;
@@ -562,7 +564,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class h {
+    public static final class h {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
         public static final h b;
@@ -616,7 +618,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class i {
+    public static final class i {
         public static /* synthetic */ Interceptable $ic;
         public static final i a;
         public static final i b;

@@ -1,5 +1,6 @@
 package com.baidu.ar.plugin.helper;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.plugin.reflect.MethodUtils;
@@ -43,6 +44,7 @@ public class NativeLibraryHelperCompat {
         return (Class) invokeV.objValue;
     }
 
+    @TargetApi(21)
     public static boolean isVM64() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,6 +77,7 @@ public class NativeLibraryHelperCompat {
         return invokeLL.intValue;
     }
 
+    @TargetApi(21)
     public static int copyNativeBinariesAfterL(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -86,7 +89,7 @@ public class NativeLibraryHelperCompat {
                 }
                 String str = null;
                 if (isVM64() && Build.SUPPORTED_64_BIT_ABIS.length > 0) {
-                    Set abisFromApk = getAbisFromApk(file.getAbsolutePath());
+                    Set<String> abisFromApk = getAbisFromApk(file.getAbsolutePath());
                     if (abisFromApk != null && !abisFromApk.isEmpty()) {
                         int intValue = ((Integer) MethodUtils.invokeStaticMethod(nativeLibraryHelperClass(), "findSupportedAbi", invokeStaticMethod, Build.SUPPORTED_64_BIT_ABIS)).intValue();
                         if (intValue >= 0) {
@@ -96,7 +99,7 @@ public class NativeLibraryHelperCompat {
                     return 0;
                 }
                 if (str == null && Build.SUPPORTED_32_BIT_ABIS.length > 0) {
-                    Set abisFromApk2 = getAbisFromApk(file.getAbsolutePath());
+                    Set<String> abisFromApk2 = getAbisFromApk(file.getAbsolutePath());
                     if (abisFromApk2 != null && !abisFromApk2.isEmpty()) {
                         int intValue2 = ((Integer) MethodUtils.invokeStaticMethod(nativeLibraryHelperClass(), "findSupportedAbi", invokeStaticMethod, Build.SUPPORTED_32_BIT_ABIS)).intValue();
                         if (intValue2 >= 0) {
@@ -149,7 +152,7 @@ public class NativeLibraryHelperCompat {
         return invokeLL.intValue;
     }
 
-    public static Set getAbisFromApk(String str) {
+    public static Set<String> getAbisFromApk(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {

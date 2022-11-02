@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
 
     /* renamed from: com.qq.e.ads.nativ.NativeUnifiedADDataAdapter$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -101,7 +102,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List list) {
+    public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, nativeAdContainer, layoutParams, list) == null) {
             this.a.bindAdToView(context, nativeAdContainer, layoutParams, list);
@@ -109,7 +110,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List list, List list2) {
+    public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list, List<View> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, nativeAdContainer, layoutParams, list, list2) == null) {
             this.a.bindAdToView(context, nativeAdContainer, layoutParams, list, list2);
@@ -117,7 +118,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindCTAViews(List list) {
+    public void bindCTAViews(List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a.bindCTAViews(list);
@@ -125,7 +126,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindImageViews(List list, int i) {
+    public void bindImageViews(List<ImageView> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, list, i) == null) {
             this.a.bindImageViews(list, i);
@@ -133,7 +134,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindImageViews(List list, byte[] bArr) {
+    public void bindImageViews(List<ImageView> list, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, bArr) == null) {
             this.a.bindImageViews(list, bArr);
@@ -255,7 +256,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public Map getExtraInfo() {
+    public Map<String, Object> getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.a.getExtraInfo() : (Map) invokeV.objValue;
@@ -269,7 +270,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public List getImgList() {
+    public List<String> getImgList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getImgList() : (List) invokeV.objValue;

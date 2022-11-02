@@ -2,6 +2,9 @@ package androidx.appcompat.app;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.fragment.app.DialogFragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +32,8 @@ public class AppCompatDialogFragment extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.DialogFragment
-    public Dialog onCreateDialog(Bundle bundle) {
+    @NonNull
+    public Dialog onCreateDialog(@Nullable Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
@@ -39,7 +43,8 @@ public class AppCompatDialogFragment extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.DialogFragment
-    public void setupDialog(Dialog dialog, int i) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setupDialog(@NonNull Dialog dialog, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialog, i) == null) {
             if (dialog instanceof AppCompatDialog) {

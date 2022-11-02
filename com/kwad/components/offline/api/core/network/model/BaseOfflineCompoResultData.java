@@ -1,5 +1,6 @@
 package com.kwad.components.offline.api.core.network.model;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,7 +62,7 @@ public abstract class BaseOfflineCompoResultData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.result == 1 : invokeV.booleanValue;
     }
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;

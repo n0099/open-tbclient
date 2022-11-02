@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.ubc;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,6 +75,7 @@ public class PlayerLoadingFlow implements IUbcFlow {
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
+    @Nullable
     public Flow getFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,7 +96,7 @@ public class PlayerLoadingFlow implements IUbcFlow {
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    public void uploadFlow(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, JSONObject jSONObject, JSONObject jSONObject2) {
+    public void uploadFlow(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, bDVideoPlayerUbcContent, jSONObject, jSONObject2) == null) {
             try {

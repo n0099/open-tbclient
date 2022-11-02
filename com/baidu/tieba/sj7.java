@@ -1,35 +1,98 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public class sj7 {
+public class sj7 implements rj7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<rj7> a;
+    public static final rj7 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TextView textView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = str2.trim().toLowerCase();
-            textView.setText(str);
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            if (indexOf >= 0) {
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0107));
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, lowerCase2.length() + indexOf, 33);
-                if (indexOf > 0) {
-                    spannableStringBuilder.setSpan(new StyleSpan(1), 0, indexOf, 33);
-                }
-                spannableStringBuilder.setSpan(new StyleSpan(1), indexOf + lowerCase2.length(), lowerCase.length(), 33);
-                textView.setText(spannableStringBuilder);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948153417, "Lcom/baidu/tieba/sj7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948153417, "Lcom/baidu/tieba/sj7;");
+                return;
             }
         }
+        a = new AtomicReference<>(null);
+        b = new sj7();
+    }
+
+    public sj7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static rj7 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            rj7 rj7Var = a.get();
+            if (rj7Var == null) {
+                return b;
+            }
+            return rj7Var;
+        }
+        return (rj7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rj7
+    public jj7 a(nj7 nj7Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nj7Var)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (jj7) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rj7
+    public ni7 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (ni7) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.rj7
+    public tj7 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (tj7) invokeLL.objValue;
     }
 }

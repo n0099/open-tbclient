@@ -8,6 +8,9 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,21 +32,22 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+@RequiresApi(29)
 /* loaded from: classes7.dex */
-public final class QMediaStoreUriLoader implements ModelLoader {
+public final class QMediaStoreUriLoader<DataT> implements ModelLoader<Uri, DataT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context context;
-    public final Class dataClass;
-    public final ModelLoader fileDelegate;
-    public final ModelLoader uriDelegate;
+    public final Class<DataT> dataClass;
+    public final ModelLoader<File, DataT> fileDelegate;
+    public final ModelLoader<Uri, DataT> uriDelegate;
 
     /* loaded from: classes7.dex */
-    public abstract class Factory implements ModelLoaderFactory {
+    public static abstract class Factory<DataT> implements ModelLoaderFactory<Uri, DataT> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
-        public final Class dataClass;
+        public final Class<DataT> dataClass;
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         public final void teardown() {
@@ -52,7 +56,7 @@ public final class QMediaStoreUriLoader implements ModelLoader {
             }
         }
 
-        public Factory(Context context, Class cls) {
+        public Factory(Context context, Class<DataT> cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +76,8 @@ public final class QMediaStoreUriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public final ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public final ModelLoader<Uri, DataT> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -82,8 +87,9 @@ public final class QMediaStoreUriLoader implements ModelLoader {
         }
     }
 
+    @RequiresApi(29)
     /* loaded from: classes7.dex */
-    public final class FileDescriptorFactory extends Factory {
+    public static final class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,8 +115,9 @@ public final class QMediaStoreUriLoader implements ModelLoader {
         }
     }
 
+    @RequiresApi(29)
     /* loaded from: classes7.dex */
-    public final class InputStreamFactory extends Factory {
+    public static final class InputStreamFactory extends Factory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -137,19 +144,20 @@ public final class QMediaStoreUriLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public final class QMediaStoreUriFetcher implements DataFetcher {
+    public static final class QMediaStoreUriFetcher<DataT> implements DataFetcher<DataT> {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] PROJECTION;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
-        public final Class dataClass;
-        public volatile DataFetcher delegate;
-        public final ModelLoader fileDelegate;
+        public final Class<DataT> dataClass;
+        @Nullable
+        public volatile DataFetcher<DataT> delegate;
+        public final ModelLoader<File, DataT> fileDelegate;
         public final int height;
         public volatile boolean isCancelled;
         public final Options options;
         public final Uri uri;
-        public final ModelLoader uriDelegate;
+        public final ModelLoader<Uri, DataT> uriDelegate;
         public final int width;
 
         static {
@@ -168,11 +176,12 @@ public final class QMediaStoreUriLoader implements ModelLoader {
             PROJECTION = new String[]{"_data"};
         }
 
-        private DataFetcher buildDelegateFetcher() throws FileNotFoundException {
+        @Nullable
+        private DataFetcher<DataT> buildDelegateFetcher() throws FileNotFoundException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                ModelLoader.LoadData buildDelegateData = buildDelegateData();
+                ModelLoader.LoadData<DataT> buildDelegateData = buildDelegateData();
                 if (buildDelegateData != null) {
                     return buildDelegateData.fetcher;
                 }
@@ -198,7 +207,7 @@ public final class QMediaStoreUriLoader implements ModelLoader {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.isCancelled = true;
-                DataFetcher dataFetcher = this.delegate;
+                DataFetcher<DataT> dataFetcher = this.delegate;
                 if (dataFetcher != null) {
                     dataFetcher.cancel();
                 }
@@ -207,7 +216,7 @@ public final class QMediaStoreUriLoader implements ModelLoader {
 
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void cleanup() {
-            DataFetcher dataFetcher;
+            DataFetcher<DataT> dataFetcher;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (dataFetcher = this.delegate) != null) {
                 dataFetcher.cleanup();
@@ -215,7 +224,8 @@ public final class QMediaStoreUriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public Class getDataClass() {
+        @NonNull
+        public Class<DataT> getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -225,6 +235,7 @@ public final class QMediaStoreUriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
+        @NonNull
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -234,7 +245,7 @@ public final class QMediaStoreUriLoader implements ModelLoader {
             return (DataSource) invokeV.objValue;
         }
 
-        public QMediaStoreUriFetcher(Context context, ModelLoader modelLoader, ModelLoader modelLoader2, Uri uri, int i, int i2, Options options, Class cls) {
+        public QMediaStoreUriFetcher(Context context, ModelLoader<File, DataT> modelLoader, ModelLoader<Uri, DataT> modelLoader2, Uri uri, int i, int i2, Options options, Class<DataT> cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -259,7 +270,8 @@ public final class QMediaStoreUriLoader implements ModelLoader {
             this.dataClass = cls;
         }
 
-        private ModelLoader.LoadData buildDelegateData() throws FileNotFoundException {
+        @Nullable
+        private ModelLoader.LoadData<DataT> buildDelegateData() throws FileNotFoundException {
             InterceptResult invokeV;
             Uri uri;
             Interceptable interceptable = $ic;
@@ -277,6 +289,7 @@ public final class QMediaStoreUriLoader implements ModelLoader {
             return (ModelLoader.LoadData) invokeV.objValue;
         }
 
+        @NonNull
         private File queryForFilePath(Uri uri) throws FileNotFoundException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -307,11 +320,11 @@ public final class QMediaStoreUriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
+        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super DataT> dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
                 try {
-                    DataFetcher buildDelegateFetcher = buildDelegateFetcher();
+                    DataFetcher<DataT> buildDelegateFetcher = buildDelegateFetcher();
                     if (buildDelegateFetcher == null) {
                         dataCallback.onLoadFailed(new IllegalArgumentException("Failed to build fetcher for: " + this.uri));
                         return;
@@ -329,7 +342,7 @@ public final class QMediaStoreUriLoader implements ModelLoader {
         }
     }
 
-    public QMediaStoreUriLoader(Context context, ModelLoader modelLoader, ModelLoader modelLoader2, Class cls) {
+    public QMediaStoreUriLoader(Context context, ModelLoader<File, DataT> modelLoader, ModelLoader<Uri, DataT> modelLoader2, Class<DataT> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -352,18 +365,18 @@ public final class QMediaStoreUriLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(Uri uri, int i, int i2, Options options) {
+    public ModelLoader.LoadData<DataT> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            return new ModelLoader.LoadData(new ObjectKey(uri), new QMediaStoreUriFetcher(this.context, this.fileDelegate, this.uriDelegate, uri, i, i2, options, this.dataClass));
+            return new ModelLoader.LoadData<>(new ObjectKey(uri), new QMediaStoreUriFetcher(this.context, this.fileDelegate, this.uriDelegate, uri, i, i2, options, this.dataClass));
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(Uri uri) {
+    public boolean handles(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {

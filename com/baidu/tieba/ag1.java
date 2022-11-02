@@ -1,319 +1,178 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
-import com.baidu.sdk.container.filedownloader.MaterialLoader;
-import com.baidu.sdk.container.gif.GifAnimView;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.behavior.record.BehaviorServiceFetcher;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.abtest.ioc.AbTestServiceFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreCollectFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreConfigFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreFetcher;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceFetcher;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceFetcher;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceFetcher;
+import com.baidu.searchbox.live.service.Media2YYServiceFetcher;
+import com.baidu.searchbox.live.service.PluginInvokeServiceFetcher;
+import com.baidu.searchbox.live.service.YY2MediaServiceFetcher;
+import com.baidu.searchbox.live.service.YYPluginProgressInvokeServiceFetcher;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerServiceFetcher;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.tbadk.abtest.helper.HttpsExperimentFetcher;
+import com.baidu.tbadk.abtest.helper.NetExperimentFetcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import org.json.JSONObject;
+import com.baidu.ubc.UBC;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class ag1 extends zf1 {
+public class ag1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<ServiceReference, zf1<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public FileInputStream d0;
-    public GifAnimView e0;
 
-    @Override // com.baidu.tieba.zf1
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zf1, com.baidu.sdk.container.widget.AdView.a
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onWindowVisibilityChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements dg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ag1 a;
-
-        @Override // com.baidu.tieba.dg1
-        public void onLoadingStarted(String str, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
-            }
-        }
-
-        public a(ag1 ag1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947614110, "Lcom/baidu/tieba/ag1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ag1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ag1Var;
-        }
-
-        @Override // com.baidu.tieba.dg1
-        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
-                this.a.M("cache gif, load failed");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947614110, "Lcom/baidu/tieba/ag1;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.dg1
-        public void onLoadingComplete(String str, View view2, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
-                ag1 ag1Var = this.a;
-                ag1Var.a0(MaterialLoader.k(ag1Var.a).l(str));
-            }
-        }
+        a = new ConcurrentHashMap<>();
+        d();
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements hg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.hg1
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public b(ag1 ag1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ag1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ag1 a;
-
-        public c(ag1 ag1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ag1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ag1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.L();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements ig1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ag1 a;
-
-        public d(ag1 ag1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ag1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ag1Var;
-        }
-
-        @Override // com.baidu.tieba.ig1
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.P();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag1(Context context, JSONObject jSONObject) {
-        super(context, jSONObject);
+    public ag1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.r = NativeConstants.TYPE_GIF;
     }
 
-    @Override // com.baidu.tieba.zf1
-    public void A() {
-        GifAnimView gifAnimView;
+    public static <T> T a(ServiceReference serviceReference) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gifAnimView = this.e0) != null) {
-            gifAnimView.setOnClickListener(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, serviceReference)) == null) {
+            zf1<?> zf1Var = a.get(serviceReference);
+            if (zf1Var != null) {
+                return (T) zf1Var.getService();
+            }
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static <T> void b(ServiceReference serviceReference, zf1<T> zf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, serviceReference, zf1Var) == null) {
+            a.put(serviceReference, zf1Var);
         }
     }
 
-    @Override // com.baidu.tieba.zf1, com.baidu.tieba.kg1
-    public View getAdView() {
-        InterceptResult invokeV;
+    public static <T> void c(String str, String str2, Class<? extends zf1<T>> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return super.getAdView();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zf1
-    public void D() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != 2) {
-            GifAnimView gifAnimView = new GifAnimView(this.a, new b(this));
-            this.e0 = gifAnimView;
-            gifAnimView.setGifImage(this.d0);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            this.e0.setLayoutParams(layoutParams);
-            this.e0.setShowDimension(this.k.getWidth(), this.k.getHeight());
-            this.e0.setAlpha(255);
-            this.e0.setOnClickListener(new c(this));
-            this.e0.i();
-            k(this.e0, layoutParams);
-            this.e0.requestLayout();
-            this.e0.j = new d(this);
-            super.D();
-        }
-    }
-
-    public final void a0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, cls) == null) {
             try {
-                this.d0 = new FileInputStream(str);
-                N();
-            } catch (Exception unused) {
+                b(new ServiceReference(str, str2), cls.newInstance());
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
             }
-            W();
         }
     }
 
-    @Override // com.baidu.tieba.zf1, com.baidu.tieba.kg1
-    public void load() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.load();
-            String optString = this.i.optString("cached_path");
-            if (!TextUtils.isEmpty(optString)) {
-                a0(optString);
-                return;
-            }
-            try {
-                if (!this.h.c(this.t, MaterialLoader.MaterialCacheType.VIDEO)) {
-                    MaterialLoader.k(this.a).f(this.t, new a(this));
-                } else {
-                    a0(this.h.b(this.t, MaterialLoader.MaterialCacheType.VIDEO));
-                }
-            } catch (Throwable unused) {
-                M("gif渲染失败");
-            }
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            c("AlaSquare", "SecondFloorService", xw5.class);
+            c("Frs", "FrsService", jj6.class);
+            c("HotTopic", "HotTopicRequest", do5.class);
+            c("abtest", "service", AbTestServiceFetcher.class);
+            c("behavior-api", "behavior-api", BehaviorServiceFetcher.class);
+            c("device_score", "DEVICE_SCORE", DeviceScoreFetcher.class);
+            c("device_score", "DEVICE_SCORE_COLLECT", DeviceScoreCollectFetcher.class);
+            c("device_score", "DEVICE_SCORE_CONFIG", DeviceScoreConfigFetcher.class);
+            c("live", DI.AB_NAME, fm7.class);
+            c("live", DI.ACCOUNT, ul7.class);
+            c("live", DI.APP_INFO_NAME, wl7.class);
+            c("live", DI.EXT.EXT_LIVE_JUMP_PAGE, nm7.class);
+            c("live", DI.EXT.EXT_LIVE_LOG, um7.class);
+            c("live", DI.FOLLOW_STATUS, lm7.class);
+            c("live", DI.LIGHTBROWSER_VIEW, bm7.class);
+            c("live", DI.LIVE_CUSTOM_SETTINGS, qn7.class);
+            c("live", DI.LIVE_EVENT_DISPATCHER, jm7.class);
+            c("live", DI.LIVE_LIKE, pm7.class);
+            c("live", DI.LIVE_LOCATION, sm7.class);
+            c("live", DI.LIVE_REAL_AUTH, yl7.class);
+            c("live", DI.LIVE_SHOW_VIDEO_PLAYER, cn7.class);
+            c("live", DI.LIVE_USER_SECURITY_BEHAVIOR, hm7.class);
+            c("live", DI.LIVE_USER_SECURITY_DEVICE_INFO, im7.class);
+            c("live", DI.MINI_SHELL.MEDIA_2_YY, Media2YYServiceFetcher.class);
+            c("live", "multi_plugin", MultiPluginManagerServiceFetcher.class);
+            c("live", "net", wm7.class);
+            c("live", DI.PAY_CHANNEL, dm7.class);
+            c("live", DI.LIVE_PLAYER, jn7.class);
+            c("live", DI.MINI_SHELL.PLUGIN_MANAGER, PluginInvokeServiceFetcher.class);
+            c("live", DI.LIVE_PRE_START_PLAYER, LivePreStartPlayServiceFetcher.class);
+            c("live", DI.ROUTER_NAME, on7.class);
+            c("live", "share", un7.class);
+            c("live", DI.TB.SHARE_CHANNEL, sn7.class);
+            c("live", DI.THIRD_PART_ACCOUNT, wn7.class);
+            c("live", DI.YY.THIRD_PART_ALI_RECHARGE, xn7.class);
+            c("live", DI.YY.THIRD_PART_WX_RECHARGE, zn7.class);
+            c("live", DI.TOAST_NAME, bo7.class);
+            c("live", DI.MINI_SHELL.YY_2_MEDIA, YY2MediaServiceFetcher.class);
+            c("live", DI.YY.YY_MULTI_PLUGIN_PROGRESS, YYPluginProgressInvokeServiceFetcher.class);
+            c("live", DI.YYPAY.YY_PAY, zm7.class);
+            c("live", DI.YY.YY_PLUGIN, YYPluginManageServiceFetcher.class);
+            c("logsystem", "exceptionhandler", ExceptionHandlerServiceFetcher.class);
+            c("nad.business", "rewardVideoLpTaskCenter", vn0.class);
+            c("nad.core", "adRequester", m01.class);
+            c("nad.core", "browserDownload", jk0.class);
+            c("nad.core", "cmd", ks5.class);
+            c("nad.core", "config", ls5.class);
+            c("nad.core", "crius", vj0.class);
+            c("nad.core", "deviceInfo.bag", b.class);
+            c("nad.core", "deviceInfoInner", gh0.class);
+            c("nad.core", "eventbus", am0.class);
+            c("nad.core", "exp", pm0.class);
+            c("nad.core", "ipdx", jh0.class);
+            c("nad.core", "loadImage", qg0.class);
+            c("nad.core", "loadVideo", jw0.class);
+            c("nad.core", "maxUI", ns5.class);
+            c("nad.core", "navBarTool", ps5.class);
+            c("nad.core", "splash.config", qs5.class);
+            c("nad.core", "splash.host", rs5.class);
+            c("nad.core", "thirdService", os5.class);
+            c("nad.core", "uad", ss5.class);
+            c("speed", "runtime", SpeedRuntimeProvider.class);
+            c("tbBaseEmotion", "EmotionService", ba6.class);
+            c("tbadkcore", "IHttpsExperiment", HttpsExperimentFetcher.class);
+            c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
+            c("tbadkcore", "ISoProcess", hc5.class);
+            c("tbadkcore", "tbadkcore", rp5.class);
+            c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, dc9.class);
+            c("voyager", StatConstants.VALUE_TYPE_UPLOAD, uk9.class);
+            c("yaLog", "yaLogConfig", rl9.class);
         }
     }
 }

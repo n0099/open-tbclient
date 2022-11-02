@@ -5,20 +5,23 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public volatile boolean adk = true;
     public long adl = 0;
     public double adm = 9.999999717180685E-10d;
     public double[] adn = {0.0d, 0.0d, 0.0d};
     public double[] ado = {0.0d, 0.0d, 0.0d};
+    @Nullable
     public com.kwad.sdk.core.g.a adp;
+    @Nullable
     public a adq;
     public AdMatrixInfo.RotateInfo rotateInfo;
 
-    /* loaded from: classes7.dex */
-    public final class a implements SensorEventListener {
+    /* loaded from: classes8.dex */
+    public class a implements SensorEventListener {
         public a() {
         }
 
@@ -103,7 +106,7 @@ public final class c {
         return "{\"x\": " + this.adn[0] + ",\"y\":" + this.adn[1] + ",\"z\":" + this.adn[2] + "}";
     }
 
-    public final void a(com.kwad.sdk.core.g.a aVar) {
+    public final void a(@Nullable com.kwad.sdk.core.g.a aVar) {
         this.adp = aVar;
     }
 

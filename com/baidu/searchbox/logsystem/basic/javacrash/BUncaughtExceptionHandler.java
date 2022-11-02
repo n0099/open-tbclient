@@ -4,11 +4,14 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.searchbox.logsystem.basic.util.SnapshotUtil;
+import com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener;
 import com.baidu.searchbox.logsystem.javacrash.UncaughtExceptionHandler;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
 import com.baidu.searchbox.logsystem.logsys.LogFile;
@@ -17,11 +20,12 @@ import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.ve1;
+import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,22 +47,22 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
 
     public abstract ForwardingProcessEventSceneHandler getForwardingHandler();
 
-    public void onAttachExtra(Context context, JSONObject jSONObject) {
+    public void onAttachExtra(@NonNull Context context, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
         }
     }
 
-    public void onDisasterRecovery(Context context) {
+    public void onDisasterRecovery(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
         }
     }
 
-    public abstract void onReport(Context context, String str, File file, LogExtra logExtra);
+    public abstract void onReport(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra);
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BUncaughtExceptionHandler(Context context) {
+    public BUncaughtExceptionHandler(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +83,7 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BUncaughtExceptionHandler(Context context, List list) {
+    public BUncaughtExceptionHandler(@NonNull Context context, @Nullable List<ProcessExceptionListener> list) {
         super(list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,10 +103,10 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
         this.mProcessLaunchTime = System.currentTimeMillis();
         Context applicationContext = context.getApplicationContext();
         this.mContext = applicationContext != null ? applicationContext : context;
-        this.mProcessName = ve1.b();
+        this.mProcessName = nf1.b();
     }
 
-    private LogExtra createLogExtra(Thread thread) {
+    private LogExtra createLogExtra(@NonNull Thread thread) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, thread)) == null) {
@@ -144,9 +148,9 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
     }
 
     @Override // com.baidu.searchbox.logsystem.javacrash.UncaughtExceptionHandler
-    public void processException(Thread thread, Throwable th) {
+    public void processException(@NonNull Thread thread, @NonNull Throwable th) {
         HashSet hashSet;
-        Set obtainProcessSnapShots;
+        Set<LogFile> obtainProcessSnapShots;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, thread, th) == null) {
             File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.mProcessName);
@@ -163,11 +167,11 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
             if (forwardingHandler != null) {
                 hashSet = new HashSet(5);
                 EventObject eventObject = new EventObject(LogType.JAVA_CRASH, sb);
-                Set requireGeneralSnapshots = forwardingHandler.requireGeneralSnapshots(this.mContext, eventObject);
+                Set<ProcessSnapshotType> requireGeneralSnapshots = forwardingHandler.requireGeneralSnapshots(this.mContext, eventObject);
                 if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.mContext, requireGeneralSnapshots, obtainFileDirWithProcessName, this.mProcessName, createLogExtra)) != null && obtainProcessSnapShots.size() > 0) {
                     hashSet.addAll(obtainProcessSnapShots);
                 }
-                Set customizedSnapshots = forwardingHandler.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
+                Set<LogFile> customizedSnapshots = forwardingHandler.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
                 if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                     hashSet.addAll(customizedSnapshots);
                 }

@@ -1,5 +1,6 @@
 package androidx.core.view;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +28,7 @@ public final class MenuCompat {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public static void setGroupDividerEnabled(Menu menu, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65537, null, menu, z) == null) {

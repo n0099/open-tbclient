@@ -129,22 +129,22 @@ public class StickinessScoreManager implements IStickinessScoreManager {
                 }
                 return false;
             } else {
-                DBItemModel.UserStickinessItemModel userStickinessItemModel = (DBItemModel.UserStickinessItemModel) queryLast.remove(0);
+                queryLast.remove(0);
                 HashMap hashMap = new HashMap();
-                for (DBItemModel.UserStickinessItemModel userStickinessItemModel2 : queryLast) {
+                for (DBItemModel.UserStickinessItemModel userStickinessItemModel : queryLast) {
                     if (DEBUG) {
-                        Log.d(TAG, "userStickinessItem detail : " + userStickinessItemModel2.toString());
+                        Log.d(TAG, "userStickinessItem detail : " + userStickinessItemModel.toString());
                     }
-                    for (Map.Entry entry : userStickinessItemModel2.getIdToItemDetailMap().entrySet()) {
-                        String str = (String) entry.getKey();
-                        DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = (DBItemModel.UserStickinessItemModel.ItemDetailModel) entry.getValue();
-                        if (str != null && itemDetailModel != null) {
-                            float singleUserStickinessScore = getSingleUserStickinessScore(itemDetailModel.count, itemDetailModel.firstTime);
-                            Float f = (Float) hashMap.get(str);
+                    for (Map.Entry<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> entry : userStickinessItemModel.getIdToItemDetailMap().entrySet()) {
+                        String key = entry.getKey();
+                        DBItemModel.UserStickinessItemModel.ItemDetailModel value = entry.getValue();
+                        if (key != null && value != null) {
+                            float singleUserStickinessScore = getSingleUserStickinessScore(value.count, value.firstTime);
+                            Float f = (Float) hashMap.get(key);
                             if (f == null) {
-                                hashMap.put(str, Float.valueOf(singleUserStickinessScore));
+                                hashMap.put(key, Float.valueOf(singleUserStickinessScore));
                             } else {
-                                hashMap.put(str, Float.valueOf(singleUserStickinessScore + f.floatValue()));
+                                hashMap.put(key, Float.valueOf(singleUserStickinessScore + f.floatValue()));
                             }
                         } else {
                             if (DEBUG) {

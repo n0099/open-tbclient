@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.model;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,14 +19,14 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class ByteBufferFileLoader implements ModelLoader {
+public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ByteBufferFileLoader";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(File file) {
+    public boolean handles(@NonNull File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
@@ -35,7 +36,7 @@ public class ByteBufferFileLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public final class ByteBufferFetcher implements DataFetcher {
+    public static final class ByteBufferFetcher implements DataFetcher<ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final File file;
@@ -73,7 +74,8 @@ public class ByteBufferFileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public Class getDataClass() {
+        @NonNull
+        public Class<ByteBuffer> getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -83,6 +85,7 @@ public class ByteBufferFileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
+        @NonNull
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -93,7 +96,7 @@ public class ByteBufferFileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
+        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super ByteBuffer> dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
                 try {
@@ -109,7 +112,7 @@ public class ByteBufferFileLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class Factory implements ModelLoaderFactory {
+    public static class Factory implements ModelLoaderFactory<File, ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +138,8 @@ public class ByteBufferFileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<File, ByteBuffer> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -161,11 +165,11 @@ public class ByteBufferFileLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(File file, int i, int i2, Options options) {
+    public ModelLoader.LoadData<ByteBuffer> buildLoadData(@NonNull File file, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            return new ModelLoader.LoadData(new ObjectKey(file), new ByteBufferFetcher(file));
+            return new ModelLoader.LoadData<>(new ObjectKey(file), new ByteBufferFetcher(file));
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }

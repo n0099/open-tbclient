@@ -11,16 +11,16 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.DeclareSoft;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DeclareSoftImpl implements DeclareSoft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AjType declaringType;
-    public AjType exceptionType;
+    public AjType<?> declaringType;
+    public AjType<?> exceptionType;
     public String missingTypeName;
     public PointcutExpression pointcut;
 
-    public DeclareSoftImpl(AjType ajType, String str, String str2) {
+    public DeclareSoftImpl(AjType<?> ajType, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

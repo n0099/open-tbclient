@@ -1,197 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.collection.ArraySet;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class xb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public V8Engine a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948294529, "Lcom/baidu/tieba/xb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948294529, "Lcom/baidu/tieba/xb2;");
+    public xb2(V8Engine v8Engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v8Engine};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = wj1.a;
+        this.a = v8Engine;
     }
 
-    public static Set a(int i, List list) {
-        InterceptResult invokeIL;
-        boolean z;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                HashSet hashSet = new HashSet();
-                for (l03 l03Var : n03.k().q()) {
-                    String appId = l03Var.getAppId();
-                    if (TextUtils.isEmpty(appId)) {
-                        appId = l03Var.N();
-                    }
-                    if (!l03Var.E() && !l03Var.Q()) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (l03Var.T() && z && list.contains(appId)) {
-                        c03 e = c03.e();
-                        e03 e03Var = new e03(i);
-                        e03Var.b(l03Var.b);
-                        e.h(e03Var);
-                        hashSet.add(appId);
-                        if (a) {
-                            Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                    }
-                }
-                return hashSet;
-            }
-            return null;
-        }
-        return (Set) invokeIL.objValue;
-    }
-
-    public static void b(File file, String str, String str2, Set set, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
-            c(file, str, str2, set, z, null);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c(4, str);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(File file, String str, String str2, Set set, boolean z, vn3 vn3Var) {
-        File[] listFiles;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), vn3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-            for (File file2 : listFiles) {
-                String name = file2.getName();
-                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                    int length = name.length();
-                    int length2 = str.length();
-                    int length3 = str2.length();
-                    if (length >= length2 + length3) {
-                        String substring = name.substring(length2, length - length3);
-                        if (set == null) {
-                            set = Collections.emptySet();
-                        }
-                        if (!TextUtils.isEmpty(substring)) {
-                            if (z) {
-                                if (set.contains(substring)) {
-                                }
-                                if (a) {
-                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
-                                }
-                                if (vn3Var == null) {
-                                    vn3Var.run(Pair.create(str + substring, file2));
-                                } else {
-                                    qj4.L(file2);
-                                }
-                            } else {
-                                if (!set.contains(substring)) {
-                                }
-                                if (a) {
-                                }
-                                if (vn3Var == null) {
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            c(1, str);
         }
     }
 
-    public static Set d(List list) {
-        InterceptResult invokeL;
+    public final void c(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return a(106, list);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            this.a.onConsoleCallBack(i, str);
         }
-        return (Set) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static ArraySet e(File file, String str, String str2, Set set, boolean z) {
-        InterceptResult invokeCommon;
-        File[] listFiles;
-        String J;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
-            ArraySet arraySet = new ArraySet();
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    String name = file2.getName();
-                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                        int length = name.length();
-                        int length2 = str.length();
-                        int length3 = str2.length();
-                        if (length >= length2 + length3) {
-                            String substring = name.substring(length2, length - length3);
-                            if (set == null) {
-                                set = Collections.emptySet();
-                            }
-                            if (!TextUtils.isEmpty(substring)) {
-                                if (z) {
-                                    if (set.contains(substring)) {
-                                    }
-                                    J = qj4.J(file2);
-                                    if (a) {
-                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                        arraySet.add(J);
-                                    }
-                                } else {
-                                    if (!set.contains(substring)) {
-                                    }
-                                    J = qj4.J(file2);
-                                    if (a) {
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return arraySet;
-        }
-        return (ArraySet) invokeCommon.objValue;
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public class GiftBagsInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List giftbag;
+    public List<GiftBagItemInfo> giftbag;
     public String giftbagTitle;
     public String giveupButtonMsg;
     public String giveupSubtitle;

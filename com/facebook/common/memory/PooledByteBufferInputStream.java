@@ -7,13 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import java.io.InputStream;
+import javax.annotation.concurrent.NotThreadSafe;
+@NotThreadSafe
 /* loaded from: classes7.dex */
 public class PooledByteBufferInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
     public int mMark;
+    @VisibleForTesting
     public int mOffset;
+    @VisibleForTesting
     public final PooledByteBuffer mPooledByteBuffer;
 
     @Override // java.io.InputStream

@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +111,7 @@ public class RoundRelativeLayout extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (getWidth() > fj.k(TbadkCoreApplication.getInst())) {
+            if (getWidth() > xi.l(TbadkCoreApplication.getInst())) {
                 return true;
             }
             return false;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class StoryMessage implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<StoryMessage> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Uri imageUri;
     public Uri videoUri;
@@ -42,7 +42,7 @@ public class StoryMessage implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.api.StoryMessage.1
+        CREATOR = new Parcelable.Creator<StoryMessage>() { // from class: com.sina.weibo.sdk.api.StoryMessage.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,6 +61,7 @@ public class StoryMessage implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public StoryMessage createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -72,6 +73,7 @@ public class StoryMessage implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public StoryMessage[] newArray(int i) {
                 InterceptResult invokeI;

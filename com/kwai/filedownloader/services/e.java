@@ -17,7 +17,7 @@ public final class e extends b.a implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final g awy;
-    public final WeakReference awz;
+    public final WeakReference<FileDownloadServiceProxy> awz;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -26,7 +26,7 @@ public final class e extends b.a implements i {
         void onDisconnected();
     }
 
-    public e(WeakReference weakReference, g gVar) {
+    public e(WeakReference<FileDownloadServiceProxy> weakReference, g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,21 +167,21 @@ public final class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.b.b
     public final void startForeground(int i, Notification notification) {
-        WeakReference weakReference;
+        WeakReference<FileDownloadServiceProxy> weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(1048592, this, i, notification) == null) || (weakReference = this.awz) == null || weakReference.get() == null) {
             return;
         }
-        ((FileDownloadServiceProxy) this.awz.get()).context.startForeground(i, notification);
+        this.awz.get().context.startForeground(i, notification);
     }
 
     @Override // com.kwai.filedownloader.b.b
     public final void stopForeground(boolean z) {
-        WeakReference weakReference;
+        WeakReference<FileDownloadServiceProxy> weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || (weakReference = this.awz) == null || weakReference.get() == null) {
             return;
         }
-        ((FileDownloadServiceProxy) this.awz.get()).context.stopForeground(z);
+        this.awz.get().context.stopForeground(z);
     }
 }

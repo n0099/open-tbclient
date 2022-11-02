@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class NotifyType implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.meizu.cloud.pushsdk.notification.model.NotifyType.1
+    public static final Parcelable.Creator<NotifyType> CREATOR = new Parcelable.Creator<NotifyType>() { // from class: com.meizu.cloud.pushsdk.notification.model.NotifyType.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */

@@ -1,8 +1,11 @@
 package com.kwad.sdk.e.kwai;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public String ait;
     public String aiu;
@@ -47,6 +50,7 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
+    @NonNull
     public String toString() {
         return "PackageInfoBean{packageId='" + this.ait + "', zipFileName='" + this.aiu + "', zipPath='" + this.aiv + "', startDownloadTime=" + this.aiw + ", packageUrl='" + this.packageUrl + "', version='" + this.version + "', checksum='" + this.aix + "', loadType=" + this.loadType + ", packageType=" + this.packageType + ", isPublic=" + this.aiy + '}';
     }

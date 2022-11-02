@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
+import kotlin.ExperimentalStdlibApi;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.coroutines.AbstractCoroutineContextElement;
@@ -34,6 +35,7 @@ public abstract class CoroutineDispatcher extends AbstractCoroutineContextElemen
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0087\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lkotlinx/coroutines/CoroutineDispatcher$Key;", "Lkotlin/coroutines/AbstractCoroutineContextKey;", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @ExperimentalStdlibApi
     /* loaded from: classes8.dex */
     public static final class Key extends AbstractCoroutineContextKey<ContinuationInterceptor, CoroutineDispatcher> {
         public Key() {
@@ -43,7 +45,7 @@ public abstract class CoroutineDispatcher extends AbstractCoroutineContextElemen
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0004\u0018\u00010\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "Lkotlinx/coroutines/CoroutineDispatcher;", AdvanceSetting.NETWORK_TYPE, "Lkotlin/coroutines/CoroutineContext$Element;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
         /* renamed from: kotlinx.coroutines.CoroutineDispatcher$Key$1  reason: invalid class name */
         /* loaded from: classes8.dex */
-        public final class AnonymousClass1 extends Lambda implements Function1 {
+        public static final class AnonymousClass1 extends Lambda implements Function1<CoroutineContext.Element, CoroutineDispatcher> {
             public static final AnonymousClass1 INSTANCE = new AnonymousClass1();
 
             public AnonymousClass1() {
@@ -73,29 +75,31 @@ public abstract class CoroutineDispatcher extends AbstractCoroutineContextElemen
         return DebugStringsKt.getClassSimpleName(this) + '@' + DebugStringsKt.getHexAddress(this);
     }
 
+    @InternalCoroutinesApi
     public void dispatchYield(CoroutineContext coroutineContext, Runnable runnable) {
         dispatch(coroutineContext, runnable);
     }
 
     @Override // kotlin.coroutines.AbstractCoroutineContextElement, kotlin.coroutines.CoroutineContext.Element, kotlin.coroutines.CoroutineContext
-    public CoroutineContext.Element get(CoroutineContext.Key key) {
-        return ContinuationInterceptor.DefaultImpls.get(this, key);
+    public <E extends CoroutineContext.Element> E get(CoroutineContext.Key<E> key) {
+        return (E) ContinuationInterceptor.DefaultImpls.get(this, key);
     }
 
     @Override // kotlin.coroutines.ContinuationInterceptor
-    public final Continuation interceptContinuation(Continuation continuation) {
+    public final <T> Continuation<T> interceptContinuation(Continuation<? super T> continuation) {
         return new DispatchedContinuation(this, continuation);
     }
 
     @Override // kotlin.coroutines.AbstractCoroutineContextElement, kotlin.coroutines.CoroutineContext.Element, kotlin.coroutines.CoroutineContext
-    public CoroutineContext minusKey(CoroutineContext.Key key) {
+    public CoroutineContext minusKey(CoroutineContext.Key<?> key) {
         return ContinuationInterceptor.DefaultImpls.minusKey(this, key);
     }
 
     @Override // kotlin.coroutines.ContinuationInterceptor
-    public void releaseInterceptedContinuation(Continuation continuation) {
+    @InternalCoroutinesApi
+    public void releaseInterceptedContinuation(Continuation<?> continuation) {
         if (continuation != null) {
-            CancellableContinuationImpl reusableCancellableContinuation = ((DispatchedContinuation) continuation).getReusableCancellableContinuation();
+            CancellableContinuationImpl<?> reusableCancellableContinuation = ((DispatchedContinuation) continuation).getReusableCancellableContinuation();
             if (reusableCancellableContinuation != null) {
                 reusableCancellableContinuation.detachChild$kotlinx_coroutines_core();
                 return;

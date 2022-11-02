@@ -8,28 +8,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Action;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
+@Experimental
 /* loaded from: classes8.dex */
-public final class MaybeDoFinally extends AbstractMaybeWithUpstream {
+public final class MaybeDoFinally<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onFinally;
 
     /* loaded from: classes8.dex */
-    public final class DoFinallyObserver extends AtomicInteger implements MaybeObserver, Disposable {
+    public static final class DoFinallyObserver<T> extends AtomicInteger implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4109457741734051389L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public Disposable d;
         public final Action onFinally;
 
-        public DoFinallyObserver(MaybeObserver maybeObserver, Action action) {
+        public DoFinallyObserver(MaybeObserver<? super T> maybeObserver, Action action) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,17 +109,17 @@ public final class MaybeDoFinally extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.actual.onSuccess(t);
                 runFinally();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDoFinally(MaybeSource maybeSource, Action action) {
+    public MaybeDoFinally(MaybeSource<T> maybeSource, Action action) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,7 +140,7 @@ public final class MaybeDoFinally extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new DoFinallyObserver(maybeObserver, this.onFinally));

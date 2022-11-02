@@ -9,7 +9,6 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -176,42 +175,14 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
         }
     }
 
-    public void setBottomLeftRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.c = f;
-        }
-    }
-
-    public void setBottomRightRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            this.d = f;
-        }
-    }
-
     public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
             this.a = f;
             this.c = f;
             this.b = f;
             this.d = f;
             invalidate();
-        }
-    }
-
-    public void setTopLeftRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            this.a = f;
-        }
-    }
-
-    public void setTopRightRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            this.b = f;
         }
     }
 }

@@ -1,28 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.live.feed.search.model.data.SearchResultBean;
-import java.util.List;
+import android.content.Context;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public interface ua0 {
-    void K();
+    void a(Context context, String str);
 
-    void P(List list, List list2);
+    void b(Context context);
 
-    void b(int i);
+    void c();
 
-    void e();
+    void d();
 
-    void h0(List list);
+    void e(Context context);
 
-    void j(va0 va0Var);
+    void f(Context context, int i);
 
-    void k0();
+    void g(String str, String str2, RequestSearchData requestSearchData);
 
-    void m(List list);
+    void h();
 
-    void o(SearchResultBean searchResultBean);
+    void i(String str);
 
-    void showToast(String str);
+    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
 
-    void x0(List list);
+    void onDetach();
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static /* synthetic */ void a(ua0 ua0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 4) != 0) {
+                    requestSearchData = new RequestSearchData();
+                }
+                ua0Var.g(str, str2, requestSearchData);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+        }
+    }
 }

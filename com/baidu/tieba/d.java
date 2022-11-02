@@ -26,12 +26,12 @@ public class d {
     public volatile boolean c;
     public volatile boolean d;
     public Thread e;
-    public volatile BlockingQueue f;
-    public volatile List g;
+    public volatile BlockingQueue<b> f;
+    public volatile List<c> g;
     public volatile int h;
     public volatile float i;
     public volatile float j;
-    public k10 k;
+    public f10 k;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -148,22 +148,22 @@ public class d {
             while (this.d) {
                 try {
                     try {
-                        b bVar = (b) this.f.take();
+                        b take = this.f.take();
                         byte[] bArr2 = null;
-                        if (bVar.b == null) {
+                        if (take.b == null) {
                             if (this.k != null) {
-                                this.k.onFilteredFrameUpdate(null, bVar.a);
+                                this.k.onFilteredFrameUpdate(null, take.a);
                                 return;
                             }
                             return;
                         }
-                        MediaCodec.BufferInfo bufferInfo = bVar.a;
+                        MediaCodec.BufferInfo bufferInfo = take.a;
                         int i2 = bufferInfo.size;
                         int i3 = Integer.MAX_VALUE;
                         for (int i4 = 0; i4 < this.h; i4++) {
-                            i3 = Math.min(((c) this.g.get(i4)).b, i3);
+                            i3 = Math.min(this.g.get(i4).b, i3);
                         }
-                        ByteBuffer byteBuffer = bVar.b;
+                        ByteBuffer byteBuffer = take.b;
                         byte[] bArr3 = new byte[bufferInfo.size];
                         byteBuffer.get(bArr3);
                         int min = Math.min(i2, i3);
@@ -172,7 +172,7 @@ public class d {
                             if (min > 0) {
                                 byte[][] bArr4 = (byte[][]) Array.newInstance(byte.class, this.h, min);
                                 for (int i5 = 0; i5 < this.h; i5++) {
-                                    ((c) this.g.get(i5)).b(bArr4[i5], min);
+                                    this.g.get(i5).b(bArr4[i5], min);
                                 }
                                 for (int i6 = 0; i6 < min - 1; i6 += 2) {
                                     for (int i7 = 0; i7 < this.h; i7++) {
@@ -209,7 +209,7 @@ public class d {
                         }
                         if (this.k != null) {
                             bufferInfo.offset = 0;
-                            this.k.onFilteredFrameUpdate(bArr3, bVar.a);
+                            this.k.onFilteredFrameUpdate(bArr3, take.a);
                         }
                     } catch (InterruptedException unused) {
                         Log.d("AudioFilter", "break from mixingLoop, because queue.take is interrupt");
@@ -250,7 +250,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             for (int i = 0; i < this.h; i++) {
-                ((c) this.g.get(i)).a();
+                this.g.get(i).a();
             }
             if (this.g != null) {
                 this.g.clear();
@@ -288,7 +288,7 @@ public class d {
             if (this.h != 0 && this.d && i2 != 0) {
                 byte[] bArr = new byte[bufferInfo.size];
                 byteBuffer.get(bArr);
-                ((c) this.g.get(i)).c(bArr, i2);
+                this.g.get(i).c(bArr, i2);
             }
         }
     }
@@ -307,10 +307,10 @@ public class d {
         }
     }
 
-    public void k(k10 k10Var) {
+    public void k(f10 f10Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, k10Var) == null) {
-            this.k = k10Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, f10Var) == null) {
+            this.k = f10Var;
         }
     }
 

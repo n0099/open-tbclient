@@ -15,24 +15,25 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c6a;
-import com.baidu.tieba.i6a;
-import com.baidu.tieba.j6a;
-import com.baidu.tieba.l5a;
-import com.baidu.tieba.x5a;
+import com.baidu.tieba.g7a;
+import com.baidu.tieba.l7a;
+import com.baidu.tieba.r7a;
+import com.baidu.tieba.s7a;
+import com.baidu.tieba.u6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes9.dex */
-public class YYPayGiftView extends LinearLayout implements i6a {
+public class YYPayGiftView extends LinearLayout implements r7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,27 +42,27 @@ public class YYPayGiftView extends LinearLayout implements i6a {
     public GridView d;
     public View e;
     public TextView f;
-    public i6a.a g;
+    public r7a.a g;
     public GiftBagsInfo h;
     public PayUIKitConfig i;
-    public List j;
-    public j6a k;
+    public List<GiftBagItemInfo> j;
+    public s7a k;
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, windowParams) == null) {
@@ -124,18 +125,18 @@ public class YYPayGiftView extends LinearLayout implements i6a {
         this.b = i2;
         this.i = payUIKitConfig;
         b(context);
-        l5a.d(this.a, this.b, "17", "", "", "");
+        u6a.d(this.a, this.b, "17", "", "", "");
     }
 
-    @Override // com.baidu.tieba.i6a
-    public void setCallback(i6a.a aVar) {
+    @Override // com.baidu.tieba.r7a
+    public void setCallback(r7a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.g = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.i6a
+    @Override // com.baidu.tieba.r7a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, giftBagsInfo) == null) {
@@ -147,16 +148,16 @@ public class YYPayGiftView extends LinearLayout implements i6a {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, c6a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d06af, (ViewGroup) this, true);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090445);
+            LayoutInflater.from(new ContextThemeWrapper(context, l7a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d06c4, (ViewGroup) this, true);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090452);
             this.c = button;
             button.setOnClickListener(new a(this));
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092405);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c51);
-            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090d01);
-            j6a j6aVar = new j6a(context, this.j, this.i);
-            this.k = j6aVar;
-            this.d.setAdapter((ListAdapter) j6aVar);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09245a);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091c99);
+            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090d20);
+            s7a s7aVar = new s7a(context, this.j, this.i);
+            this.k = s7aVar;
+            this.d.setAdapter((ListAdapter) s7aVar);
         }
     }
 
@@ -174,7 +175,7 @@ public class YYPayGiftView extends LinearLayout implements i6a {
         }
     }
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -184,12 +185,12 @@ public class YYPayGiftView extends LinearLayout implements i6a {
                 RLog.error("YYPayGiftView", "refreshView error mGiftBagsInfo null", new Object[0]);
                 return;
             }
-            List list = giftBagsInfo.giftbag;
+            List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
             if (list != null && !list.isEmpty()) {
                 this.j.clear();
                 this.j.addAll(this.h.giftbag);
                 this.k.notifyDataSetChanged();
-                x5a.a(this.j.size(), this.e, this.d);
+                g7a.a(this.j.size(), this.e, this.d);
                 d();
                 c();
                 return;

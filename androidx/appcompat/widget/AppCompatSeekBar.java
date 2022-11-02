@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +19,7 @@ public class AppCompatSeekBar extends SeekBar {
     public final AppCompatSeekBarHelper mAppCompatSeekBarHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatSeekBar(Context context) {
+    public AppCompatSeekBar(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,7 +40,7 @@ public class AppCompatSeekBar extends SeekBar {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatSeekBar(Context context, AttributeSet attributeSet) {
+    public AppCompatSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040604);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +61,7 @@ public class AppCompatSeekBar extends SeekBar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatSeekBar(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

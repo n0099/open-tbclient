@@ -1,35 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes4.dex */
-public abstract class l6a extends BaseAdapter {
+public class l6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public Context b;
+    public GiftBagsInfo a;
+    public boolean b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    public l6a(Context context) {
+    public l6a(GiftBagsInfo giftBagsInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {giftBagsInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,58 +29,44 @@ public abstract class l6a extends BaseAdapter {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = context;
+        this.a = giftBagsInfo;
+        this.b = z;
     }
 
-    public List a() {
+    public static boolean b(l6a l6aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l6aVar)) == null) {
+            if (l6aVar != null && l6aVar.a() != null && l6aVar.a().giftbag != null && !l6aVar.a().giftbag.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public GiftBagsInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
+        return (GiftBagsInfo) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public void b(List list) {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            c(list, true);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.a.size() == 0) {
-                return null;
-            }
-            List list = this.a;
-            return list.get(i % list.size());
-        }
-        return invokeI.objValue;
-    }
-
-    public final void c(List list, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, list, z) == null) && list != null && list.size() != 0) {
-            if (z) {
-                this.a.clear();
-            }
-            this.a.addAll(list);
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 }

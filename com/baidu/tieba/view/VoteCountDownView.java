@@ -176,10 +176,10 @@ public class VoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f090dff);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091534);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e00);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091535);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090e2e);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091573);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e2f);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091574);
         }
     }
 
@@ -191,7 +191,7 @@ public class VoteCountDownView extends LinearLayout {
             setClipToPadding(false);
             setClipChildren(false);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d090b, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d091f, (ViewGroup) this, true);
             c();
         }
     }

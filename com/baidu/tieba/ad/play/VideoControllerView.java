@@ -162,9 +162,9 @@ public class VideoControllerView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View k = k(context);
             addView(k, -1, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09214e);
-            this.d = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09214f);
-            SeekBar seekBar = (SeekBar) k.findViewById(R.id.obfuscated_res_0x7f091883);
+            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0921a1);
+            this.d = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0921a2);
+            SeekBar seekBar = (SeekBar) k.findViewById(R.id.obfuscated_res_0x7f0918c6);
             this.g = seekBar;
             seekBar.setOnSeekBarChangeListener(this.k);
         }
@@ -230,7 +230,7 @@ public class VideoControllerView extends RelativeLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0071, (ViewGroup) null);
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0072, (ViewGroup) null);
         }
         return (View) invokeL.objValue;
     }

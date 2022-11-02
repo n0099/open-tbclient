@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
 import com.ss.android.download.api.config.OnItemClickListener;
 import com.ss.android.download.api.config.s;
@@ -32,17 +33,17 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class e implements f, m.a {
     public static final String a = "e";
-    public WeakReference e;
+    public WeakReference<Context> e;
     public DownloadShortInfo g;
     public DownloadInfo h;
     public c i;
     public boolean k;
     public long l;
-    public SoftReference q;
+    public SoftReference<OnItemClickListener> q;
     public boolean r;
-    public SoftReference t;
+    public SoftReference<IDownloadButtonClickListener> t;
     public final m b = new m(Looper.getMainLooper(), this);
-    public final Map f = new ConcurrentHashMap();
+    public final Map<Integer, Object> f = new ConcurrentHashMap();
     public final IDownloadListener j = new g.a(this.b);
     public long m = -1;
     public DownloadModel n = null;
@@ -63,7 +64,7 @@ public class e implements f, m.a {
     }
 
     /* loaded from: classes8.dex */
-    public class c extends AsyncTask {
+    public class c extends AsyncTask<String, Void, DownloadInfo> {
         public c() {
         }
 
@@ -144,9 +145,9 @@ public class e implements f, m.a {
     }
 
     private void k() {
-        SoftReference softReference = this.q;
+        SoftReference<OnItemClickListener> softReference = this.q;
         if (softReference != null && softReference.get() != null) {
-            ((OnItemClickListener) this.q.get()).onItemClick(this.n, l(), m());
+            this.q.get().onItemClick(this.n, l(), m());
             this.q = null;
             return;
         }
@@ -167,7 +168,7 @@ public class e implements f, m.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, int i2, DownloadInfo downloadInfo) {
+    public void a(int i, int i2, @NonNull DownloadInfo downloadInfo) {
         if (com.ss.android.socialbase.downloader.g.a.c().a("fix_click_start")) {
             if (i2 != -3 && !com.ss.android.socialbase.downloader.downloader.d.a().e(i)) {
                 a(false, false);
@@ -330,13 +331,14 @@ public class e implements f, m.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Context getContext() {
-        WeakReference weakReference = this.e;
+        WeakReference<Context> weakReference = this.e;
         if (weakReference != null && weakReference.get() != null) {
-            return (Context) this.e.get();
+            return this.e.get();
         }
         return j.getContext();
     }
 
+    @NonNull
     private DownloadEventConfig l() {
         DownloadEventConfig downloadEventConfig = this.o;
         if (downloadEventConfig == null) {
@@ -345,6 +347,7 @@ public class e implements f, m.a {
         return downloadEventConfig;
     }
 
+    @NonNull
     private DownloadController m() {
         if (this.p == null) {
             this.p = new com.ss.android.download.api.download.b();
@@ -429,11 +432,11 @@ public class e implements f, m.a {
     }
 
     public boolean i() {
-        SoftReference softReference = this.t;
+        SoftReference<IDownloadButtonClickListener> softReference = this.t;
         if (softReference == null) {
             return false;
         }
-        return h.a(this.n, (IDownloadButtonClickListener) softReference.get());
+        return h.a(this.n, softReference.get());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -548,7 +551,7 @@ public class e implements f, m.a {
     /* renamed from: a */
     public e b(Context context) {
         if (context != null) {
-            this.e = new WeakReference(context);
+            this.e = new WeakReference<>(context);
         }
         j.b(context);
         return this;
@@ -645,7 +648,7 @@ public class e implements f, m.a {
         if (iDownloadButtonClickListener == null) {
             this.t = null;
         } else {
-            this.t = new SoftReference(iDownloadButtonClickListener);
+            this.t = new SoftReference<>(iDownloadButtonClickListener);
         }
         return this;
     }
@@ -659,7 +662,7 @@ public class e implements f, m.a {
         if (onItemClickListener == null) {
             this.q = null;
         } else {
-            this.q = new SoftReference(onItemClickListener);
+            this.q = new SoftReference<>(onItemClickListener);
         }
         return this;
     }
@@ -736,13 +739,13 @@ public class e implements f, m.a {
     }
 
     public boolean d(boolean z) {
-        SoftReference softReference = this.t;
+        SoftReference<IDownloadButtonClickListener> softReference = this.t;
         if (softReference != null && softReference.get() != null) {
             try {
                 if (!z) {
-                    ((IDownloadButtonClickListener) this.t.get()).handleComplianceDialog(true);
+                    this.t.get().handleComplianceDialog(true);
                 } else {
-                    ((IDownloadButtonClickListener) this.t.get()).handleMarketFailedComplianceDialog();
+                    this.t.get().handleMarketFailedComplianceDialog();
                 }
                 this.t = null;
                 return true;

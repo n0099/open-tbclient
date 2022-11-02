@@ -63,7 +63,7 @@ public final class MixListRepository {
         return (SlideListInfo) invokeL.objValue;
     }
 
-    public final void fetchLiveSlideList(LiveListParamsMix liveListParamsMix, final OnMixDataLoaded onMixDataLoaded) {
+    public final void fetchLiveSlideList(LiveListParamsMix liveListParamsMix, final OnMixDataLoaded<MixResult<SlideListInfo>> onMixDataLoaded) {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048576, this, liveListParamsMix, onMixDataLoaded) != null) || this.isRequestIng) {
@@ -87,7 +87,7 @@ public final class MixListRepository {
         pairArr[7] = TuplesKt.to(MiniPluginUtils.INSTANCE.getPluginVerPostParamKey(), MiniPluginUtils.INSTANCE.getPluginVerPostParamValue());
         Map mapOf = MapsKt__MapsKt.mapOf(pairArr);
         MediaLivePluginLogger.Companion.getInstance().logListSlideStartToSendReqNet();
-        MixRequesterKt.fetchData$default(MixUrlConfigKt.getSlideListUrl(), mapOf, new MixNetCallback(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixListRepository$fetchLiveSlideList$1
+        MixRequesterKt.fetchData$default(MixUrlConfigKt.getSlideListUrl(), mapOf, new MixNetCallback<SlideListInfo>(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixListRepository$fetchLiveSlideList$1
             public static /* synthetic */ Interceptable $ic;
             public final /* synthetic */ OnMixDataLoaded $callback;
             public transient /* synthetic */ FieldHolder $fh;
@@ -154,6 +154,7 @@ public final class MixListRepository {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.searchbox.live.model.net.MixNetCallback
             public SlideListInfo onParseResponseInBackground(NetResponse netResponse) {
                 InterceptResult invokeL;

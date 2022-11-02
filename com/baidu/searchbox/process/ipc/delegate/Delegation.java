@@ -1,6 +1,7 @@
 package com.baidu.searchbox.process.ipc.delegate;
 
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.agent.Agent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,10 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class Delegation {
+public abstract class Delegation<AgentT extends Agent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Agent mAgent;
+    @NonNull
+    public AgentT mAgent;
     public final Bundle mParams;
     public final Bundle mResult;
 
@@ -33,13 +35,14 @@ public abstract class Delegation {
         this.mResult = new Bundle();
     }
 
-    public Agent getAgent() {
+    @NonNull
+    public AgentT getAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mAgent;
         }
-        return (Agent) invokeV.objValue;
+        return (AgentT) invokeV.objValue;
     }
 
     public boolean isLegal() {
@@ -54,10 +57,10 @@ public abstract class Delegation {
         return invokeV.booleanValue;
     }
 
-    public void setAgent(Agent agent) {
+    public void setAgent(AgentT agentt) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, agent) == null) {
-            this.mAgent = agent;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, agentt) == null) {
+            this.mAgent = agentt;
         }
     }
 }

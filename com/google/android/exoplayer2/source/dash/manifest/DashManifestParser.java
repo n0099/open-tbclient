@@ -44,7 +44,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes7.dex */
-public class DashManifestParser extends DefaultHandler implements ParsingLoadable.Parser {
+public class DashManifestParser extends DefaultHandler implements ParsingLoadable.Parser<DashManifest> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CEA_608_ACCESSIBILITY_PATTERN;
     public static final Pattern CEA_708_ACCESSIBILITY_PATTERN;
@@ -61,17 +61,17 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
     }
 
     /* loaded from: classes7.dex */
-    public final class RepresentationInfo {
+    public static final class RepresentationInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String baseUrl;
-        public final ArrayList drmSchemeDatas;
+        public final ArrayList<DrmInitData.SchemeData> drmSchemeDatas;
         public final String drmSchemeType;
         public final Format format;
-        public final ArrayList inbandEventStreams;
+        public final ArrayList<Descriptor> inbandEventStreams;
         public final SegmentBase segmentBase;
 
-        public RepresentationInfo(Format format, String str, SegmentBase segmentBase, String str2, ArrayList arrayList, ArrayList arrayList2) {
+        public RepresentationInfo(Format format, String str, SegmentBase segmentBase, String str2, ArrayList<DrmInitData.SchemeData> arrayList, ArrayList<Descriptor> arrayList2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,17 +154,17 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         }
     }
 
-    public static void filterRedundantIncompleteSchemeDatas(ArrayList arrayList) {
+    public static void filterRedundantIncompleteSchemeDatas(ArrayList<DrmInitData.SchemeData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, arrayList) == null) {
             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                DrmInitData.SchemeData schemeData = (DrmInitData.SchemeData) arrayList.get(size);
+                DrmInitData.SchemeData schemeData = arrayList.get(size);
                 if (!schemeData.hasData()) {
                     int i = 0;
                     while (true) {
                         if (i >= arrayList.size()) {
                             break;
-                        } else if (((DrmInitData.SchemeData) arrayList.get(i)).canReplace(schemeData)) {
+                        } else if (arrayList.get(i).canReplace(schemeData)) {
                             arrayList.remove(size);
                             break;
                         } else {
@@ -422,13 +422,13 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (SegmentBase.SingleSegmentBase) invokeLL.objValue;
     }
 
-    public static int parseCea608AccessibilityChannel(List list) {
+    public static int parseCea608AccessibilityChannel(List<Descriptor> list) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, list)) == null) {
             for (int i = 0; i < list.size(); i++) {
-                Descriptor descriptor = (Descriptor) list.get(i);
+                Descriptor descriptor = list.get(i);
                 if ("urn:scte:dash:cc:cea-608:2015".equals(descriptor.schemeIdUri) && (str = descriptor.value) != null) {
                     Matcher matcher = CEA_608_ACCESSIBILITY_PATTERN.matcher(str);
                     if (matcher.matches()) {
@@ -442,13 +442,13 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return invokeL.intValue;
     }
 
-    public static int parseCea708AccessibilityChannel(List list) {
+    public static int parseCea708AccessibilityChannel(List<Descriptor> list) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, list)) == null) {
             for (int i = 0; i < list.size(); i++) {
-                Descriptor descriptor = (Descriptor) list.get(i);
+                Descriptor descriptor = list.get(i);
                 if ("urn:scte:dash:cc:cea-708:2015".equals(descriptor.schemeIdUri) && (str = descriptor.value) != null) {
                     Matcher matcher = CEA_708_ACCESSIBILITY_PATTERN.matcher(str);
                     if (matcher.matches()) {
@@ -462,7 +462,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return invokeL.intValue;
     }
 
-    public List parseSegmentTimeline(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public List<SegmentBase.SegmentTimelineElement> parseSegmentTimeline(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, xmlPullParser)) == null) {
@@ -550,7 +550,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (String) invokeLLL.objValue;
     }
 
-    public Period buildPeriod(String str, long j, List list) {
+    public Period buildPeriod(String str, long j, List<AdaptationSet> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), list})) == null) {
@@ -669,7 +669,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return invokeL.intValue;
     }
 
-    public AdaptationSet buildAdaptationSet(int i, int i2, List list, List list2, List list3) {
+    public AdaptationSet buildAdaptationSet(int i, int i2, List<Representation> list, List<Descriptor> list2, List<Descriptor> list3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, list3})) == null) {
@@ -678,7 +678,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (AdaptationSet) invokeCommon.objValue;
     }
 
-    public Representation buildRepresentation(RepresentationInfo representationInfo, String str, String str2, ArrayList arrayList, ArrayList arrayList2) {
+    public Representation buildRepresentation(RepresentationInfo representationInfo, String str, String str2, ArrayList<DrmInitData.SchemeData> arrayList, ArrayList<Descriptor> arrayList2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, representationInfo, str, str2, arrayList, arrayList2)) == null) {
@@ -687,20 +687,20 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
             if (str3 != null) {
                 str2 = str3;
             }
-            ArrayList arrayList3 = representationInfo.drmSchemeDatas;
+            ArrayList<DrmInitData.SchemeData> arrayList3 = representationInfo.drmSchemeDatas;
             arrayList3.addAll(arrayList);
             if (!arrayList3.isEmpty()) {
                 filterRedundantIncompleteSchemeDatas(arrayList3);
                 format = format.copyWithDrmInitData(new DrmInitData(str2, arrayList3));
             }
-            ArrayList arrayList4 = representationInfo.inbandEventStreams;
+            ArrayList<Descriptor> arrayList4 = representationInfo.inbandEventStreams;
             arrayList4.addAll(arrayList2);
             return Representation.newInstance(str, -1L, format, representationInfo.baseUrl, representationInfo.segmentBase, arrayList4);
         }
         return (Representation) invokeLLLLL.objValue;
     }
 
-    public Format buildFormat(String str, String str2, int i, int i2, float f, int i3, int i4, int i5, String str3, int i6, List list, String str4) {
+    public Format buildFormat(String str, String str2, int i, int i2, float f, int i3, int i4, int i5, String str3, int i6, List<Descriptor> list, String str4) {
         InterceptResult invokeCommon;
         int i7;
         int parseCea708AccessibilityChannel;
@@ -732,7 +732,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (Format) invokeCommon.objValue;
     }
 
-    public DashManifest buildMediaPresentationDescription(long j, long j2, long j3, boolean z, long j4, long j5, long j6, UtcTimingElement utcTimingElement, Uri uri, List list) {
+    public DashManifest buildMediaPresentationDescription(long j, long j2, long j3, boolean z, long j4, long j5, long j6, UtcTimingElement utcTimingElement, Uri uri, List<Period> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), utcTimingElement, uri, list})) == null) {
@@ -750,7 +750,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (RangedUri) invokeCommon.objValue;
     }
 
-    public SegmentBase.SegmentList buildSegmentList(RangedUri rangedUri, long j, long j2, int i, long j3, List list, List list2) {
+    public SegmentBase.SegmentList buildSegmentList(RangedUri rangedUri, long j, long j2, int i, long j3, List<SegmentBase.SegmentTimelineElement> list, List<RangedUri> list2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{rangedUri, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3), list, list2})) == null) {
@@ -759,7 +759,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (SegmentBase.SegmentList) invokeCommon.objValue;
     }
 
-    public SegmentBase.SegmentTemplate buildSegmentTemplate(RangedUri rangedUri, long j, long j2, int i, long j3, List list, UrlTemplate urlTemplate, UrlTemplate urlTemplate2) {
+    public SegmentBase.SegmentTemplate buildSegmentTemplate(RangedUri rangedUri, long j, long j2, int i, long j3, List<SegmentBase.SegmentTimelineElement> list, UrlTemplate urlTemplate, UrlTemplate urlTemplate2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{rangedUri, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3), list, urlTemplate, urlTemplate2})) == null) {
@@ -778,6 +778,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.upstream.ParsingLoadable.Parser
     public DashManifest parse(Uri uri, InputStream inputStream) throws IOException {
         InterceptResult invokeLL;
@@ -797,6 +798,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (DashManifest) invokeLL.objValue;
     }
 
+    /* JADX WARN: Type inference failed for: r0v46, types: [java.lang.Object] */
     public AdaptationSet parseAdaptationSet(XmlPullParser xmlPullParser, String str, SegmentBase segmentBase) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         String str2;
@@ -804,12 +806,12 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         ArrayList arrayList;
         ArrayList arrayList2;
         ArrayList arrayList3;
-        ArrayList arrayList4;
+        ArrayList<DrmInitData.SchemeData> arrayList4;
         String str4;
         String str5;
         XmlPullParser xmlPullParser2;
         int i;
-        ArrayList arrayList5;
+        ArrayList<Descriptor> arrayList5;
         SegmentBase parseSegmentTemplate;
         int i2;
         Interceptable interceptable = $ic;
@@ -826,8 +828,8 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
             int parseInt4 = parseInt(xmlPullParser3, "audioSamplingRate", -1);
             String str7 = WebvttCueParser.TAG_LANG;
             String attributeValue3 = xmlPullParser3.getAttributeValue(null, WebvttCueParser.TAG_LANG);
-            ArrayList arrayList6 = new ArrayList();
-            ArrayList arrayList7 = new ArrayList();
+            ArrayList<DrmInitData.SchemeData> arrayList6 = new ArrayList<>();
+            ArrayList<Descriptor> arrayList7 = new ArrayList<>();
             ArrayList arrayList8 = new ArrayList();
             ArrayList arrayList9 = new ArrayList();
             ArrayList arrayList10 = new ArrayList();
@@ -870,14 +872,14 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
                     str9 = str2;
                 } else {
                     if (XmlPullParserUtil.isStartTag(xmlPullParser3, "ContentProtection")) {
-                        Pair parseContentProtection = parseContentProtection(xmlPullParser);
+                        Pair<String, DrmInitData.SchemeData> parseContentProtection = parseContentProtection(xmlPullParser);
                         Object obj = parseContentProtection.first;
                         if (obj != null) {
                             str10 = (String) obj;
                         }
-                        Object obj2 = parseContentProtection.second;
-                        if (obj2 != null) {
-                            arrayList6.add(obj2);
+                        ?? r0 = parseContentProtection.second;
+                        if (r0 != 0) {
+                            arrayList6.add(r0);
                         }
                     } else if (XmlPullParserUtil.isStartTag(xmlPullParser3, "ContentComponent")) {
                         str9 = checkLanguageConsistency(str9, xmlPullParser3.getAttributeValue(str6, str7));
@@ -922,7 +924,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
                             arrayList = arrayList10;
                             arrayList2 = arrayList9;
                             arrayList3 = arrayList8;
-                            ArrayList arrayList11 = arrayList7;
+                            ArrayList<Descriptor> arrayList11 = arrayList7;
                             arrayList4 = arrayList6;
                             str4 = str7;
                             str5 = str6;
@@ -1006,7 +1008,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Pair parseContentProtection(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public Pair<String, DrmInitData.SchemeData> parseContentProtection(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
         InterceptResult invokeL;
         UUID uuid;
         byte[] bArr;
@@ -1204,7 +1206,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
                         uri = Uri.parse(xmlPullParser.nextText());
                     } else {
                         if (XmlPullParserUtil.isStartTag(xmlPullParser, "Period") && !z3) {
-                            Pair parsePeriod = parsePeriod(xmlPullParser, str2, j6);
+                            Pair<Period, Long> parsePeriod = parsePeriod(xmlPullParser, str2, j6);
                             String str3 = str2;
                             Period period = (Period) parsePeriod.first;
                             long j7 = j6;
@@ -1255,7 +1257,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         }
     }
 
-    public Pair parsePeriod(XmlPullParser xmlPullParser, String str, long j) throws XmlPullParserException, IOException {
+    public Pair<Period, Long> parsePeriod(XmlPullParser xmlPullParser, String str, long j) throws XmlPullParserException, IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{xmlPullParser, str, Long.valueOf(j)})) == null) {
@@ -1311,7 +1313,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         return (RangedUri) invokeLLL.objValue;
     }
 
-    public RepresentationInfo parseRepresentation(XmlPullParser xmlPullParser, String str, String str2, String str3, int i, int i2, float f, int i3, int i4, String str4, int i5, List list, SegmentBase segmentBase) throws XmlPullParserException, IOException {
+    public RepresentationInfo parseRepresentation(XmlPullParser xmlPullParser, String str, String str2, String str3, int i, int i2, float f, int i3, int i4, String str4, int i5, List<Descriptor> list, SegmentBase segmentBase) throws XmlPullParserException, IOException {
         InterceptResult invokeCommon;
         String str5;
         SegmentBase parseSegmentTemplate;
@@ -1369,7 +1371,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
                             parseSegmentTemplate = parseSegmentTemplate(xmlPullParser, (SegmentBase.SegmentTemplate) segmentBase3);
                         } else {
                             if (XmlPullParserUtil.isStartTag(xmlPullParser, "ContentProtection")) {
-                                Pair parseContentProtection = parseContentProtection(xmlPullParser);
+                                Pair<String, DrmInitData.SchemeData> parseContentProtection = parseContentProtection(xmlPullParser);
                                 str5 = str9;
                                 Object obj = parseContentProtection.first;
                                 if (obj != null) {
@@ -1451,9 +1453,9 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
                 i = 1;
             }
             int parseInt = parseInt(xmlPullParser, "startNumber", i);
-            List list = null;
+            List<RangedUri> list = null;
             RangedUri rangedUri = null;
-            List list2 = null;
+            List<SegmentBase.SegmentTimelineElement> list2 = null;
             do {
                 xmlPullParser.next();
                 if (XmlPullParserUtil.isStartTag(xmlPullParser, "Initialization")) {
@@ -1462,7 +1464,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
                     list2 = parseSegmentTimeline(xmlPullParser);
                 } else if (XmlPullParserUtil.isStartTag(xmlPullParser, "SegmentURL")) {
                     if (list == null) {
-                        list = new ArrayList();
+                        list = new ArrayList<>();
                     }
                     list.add(parseSegmentUrl(xmlPullParser));
                 }
@@ -1530,7 +1532,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
                 urlTemplate2 = null;
             }
             UrlTemplate parseUrlTemplate2 = parseUrlTemplate(xmlPullParser, JoinPoint.INITIALIZATION, urlTemplate2);
-            List list = null;
+            List<SegmentBase.SegmentTimelineElement> list = null;
             do {
                 xmlPullParser.next();
                 if (XmlPullParserUtil.isStartTag(xmlPullParser, "Initialization")) {

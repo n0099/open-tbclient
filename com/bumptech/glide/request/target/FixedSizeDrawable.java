@@ -8,6 +8,8 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +30,7 @@ public class FixedSizeDrawable extends Drawable {
     public final RectF wrappedRect;
 
     /* loaded from: classes7.dex */
-    public final class State extends Drawable.ConstantState {
+    public static final class State extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int height;
@@ -87,6 +89,7 @@ public class FixedSizeDrawable extends Drawable {
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public Drawable newDrawable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -97,6 +100,7 @@ public class FixedSizeDrawable extends Drawable {
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public Drawable newDrawable(Resources resources) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -167,6 +171,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
+    @RequiresApi(19)
     public int getAlpha() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,6 +212,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
+    @NonNull
     public Drawable getCurrent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -276,6 +282,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
+    @NonNull
     public Drawable mutate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -291,7 +298,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             canvas.save();
@@ -302,7 +309,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean getPadding(Rect rect) {
+    public boolean getPadding(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, rect)) == null) {
@@ -320,7 +327,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setBounds(Rect rect) {
+    public void setBounds(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, rect) == null) {
             super.setBounds(rect);
@@ -363,7 +370,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void unscheduleSelf(Runnable runnable) {
+    public void unscheduleSelf(@NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, runnable) == null) {
             super.unscheduleSelf(runnable);
@@ -372,7 +379,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void scheduleSelf(Runnable runnable, long j) {
+    public void scheduleSelf(@NonNull Runnable runnable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048591, this, runnable, j) == null) {
             super.scheduleSelf(runnable, j);
@@ -381,7 +388,7 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(int i, PorterDuff.Mode mode) {
+    public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048596, this, i, mode) == null) {
             this.wrapped.setColorFilter(i, mode);

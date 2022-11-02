@@ -1,5 +1,6 @@
 package androidx.recyclerview.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PointF;
 import android.os.Parcel;
@@ -9,6 +10,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -359,6 +362,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         }
     }
 
+    @SuppressLint({"BanParcelableUsage"})
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public static class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
@@ -753,7 +758,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.ViewDropHandler
-    public void prepareForDrop(View view2, View view3, int i, int i2) {
+    public void prepareForDrop(@NonNull View view2, @NonNull View view3, int i, int i2) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048623, this, view2, view3, i, i2) == null) {
@@ -1211,7 +1216,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         }
     }
 
-    public void calculateExtraLayoutSpace(RecyclerView.State state, int[] iArr) {
+    public void calculateExtraLayoutSpace(@NonNull RecyclerView.State state, @NonNull int[] iArr) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state, iArr) == null) {

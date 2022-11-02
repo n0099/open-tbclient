@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Context;
 import android.content.res.Resources;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+@SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
 public class eq extends Notification.Builder {
     public static /* synthetic */ Interceptable $ic;
@@ -115,7 +117,7 @@ public class eq extends Notification.Builder {
         return (eq) invokeL.objValue;
     }
 
-    public eq a(Map map) {
+    public eq a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, map)) == null) ? this : (eq) invokeL.objValue;

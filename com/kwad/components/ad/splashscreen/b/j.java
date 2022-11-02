@@ -2,11 +2,13 @@ package com.kwad.components.ad.splashscreen.b;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Vibrator;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -103,6 +105,7 @@ public final class j extends e implements View.OnClickListener, com.kwad.compone
                 }
 
                 @Override // com.kwad.components.ad.splashscreen.d.a
+                @SuppressLint({"SetTextI18n"})
                 public final void Z(String str) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || this.za.yZ == null) {
@@ -244,7 +247,7 @@ public final class j extends e implements View.OnClickListener, com.kwad.compone
                                 }
 
                                 @Override // com.kwad.components.ad.splashscreen.h.a
-                                public final void b(com.kwad.sdk.core.report.f fVar) {
+                                public final void b(@NonNull com.kwad.sdk.core.report.f fVar) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, fVar) == null) {
                                         fVar.e(this.zc.zb);
@@ -423,9 +426,9 @@ public final class j extends e implements View.OnClickListener, com.kwad.compone
             if (context != null) {
                 this.eO = (Vibrator) context.getSystemService("vibrator");
             }
-            this.yX = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0911d8)).inflate();
-            this.yZ = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d1);
-            KsShakeView ksShakeView = (KsShakeView) findViewById(R.id.obfuscated_res_0x7f0911db);
+            this.yX = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091212)).inflate();
+            this.yZ = (TextView) findViewById(R.id.obfuscated_res_0x7f09120b);
+            KsShakeView ksShakeView = (KsShakeView) findViewById(R.id.obfuscated_res_0x7f091215);
             this.yY = ksShakeView;
             ksShakeView.setOnClickListener(this);
         }

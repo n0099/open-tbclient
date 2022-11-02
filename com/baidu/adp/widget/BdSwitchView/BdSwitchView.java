@@ -7,6 +7,7 @@ import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -41,12 +42,12 @@ public class BdSwitchView extends View implements View.OnTouchListener {
 
     /* loaded from: classes.dex */
     public interface b {
-        void i0(View view2, SwitchState switchState);
+        void h0(View view2, SwitchState switchState);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class SwitchState {
+    public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchState OFF;
@@ -220,7 +221,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdSwitchView(Context context, AttributeSet attributeSet, int i) {
+    public BdSwitchView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -404,7 +405,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
             this.c = 0.0f;
         }
         if (z && switchState != this.a && (bVar = this.n) != null) {
-            bVar.i0(this, switchState);
+            bVar.h0(this, switchState);
         }
         this.a = switchState;
         this.i = false;
@@ -514,7 +515,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                             this.a = SwitchState.OFF;
                         }
                         if (this.h && switchState3 != (switchState2 = this.a) && (bVar2 = this.n) != null) {
-                            bVar2.i0(this, switchState2);
+                            bVar2.h0(this, switchState2);
                         }
                         this.i = false;
                         invalidate();
@@ -544,7 +545,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     this.a = SwitchState.OFF;
                 }
                 if (this.h && switchState4 != (switchState = this.a) && (bVar = this.n) != null) {
-                    bVar.i0(this, switchState);
+                    bVar.h0(this, switchState);
                 }
                 this.i = false;
                 invalidate();

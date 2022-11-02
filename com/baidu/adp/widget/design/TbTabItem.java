@@ -1,5 +1,6 @@
 package com.baidu.adp.widget.design;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -40,6 +41,7 @@ public final class TbTabItem extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"RestrictedApi", "PrivateResource"})
     public TbTabItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;

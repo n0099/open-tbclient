@@ -18,7 +18,7 @@ public final class UBCRecoveryTaskQueue implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public UBCRecoveryTaskInfo active;
-    public List passive;
+    public List<UBCRecoveryTaskInfo> passive;
 
     public UBCRecoveryTaskQueue() {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public final class UBCRecoveryTaskQueue implements ITaskModelData {
         return (UBCRecoveryTaskInfo) invokeV.objValue;
     }
 
-    public final List getPassive() {
+    public final List<UBCRecoveryTaskInfo> getPassive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -82,7 +82,7 @@ public final class UBCRecoveryTaskQueue implements ITaskModelData {
         }
     }
 
-    public final void setPassive(List list) {
+    public final void setPassive(List<UBCRecoveryTaskInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.passive = list;

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.arch.utils.LiveShellUIUtil;
@@ -26,7 +27,7 @@ public class LiveBaseActivity extends FragmentActivity {
     }
 
     @Override // android.app.Activity
-    public void onRestoreInstanceState(Bundle bundle) {
+    public void onRestoreInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
         }

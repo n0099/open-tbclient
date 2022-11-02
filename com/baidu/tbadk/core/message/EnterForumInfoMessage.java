@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class EnterForumInfoMessage extends CustomResponsedMessage {
+public class EnterForumInfoMessage extends CustomResponsedMessage<List<String>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List likeForumData;
+    public List<String> likeForumData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EnterForumInfoMessage(int i, List list) {
+    public EnterForumInfoMessage(int i, List<String> list) {
         super(2001329, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,7 +36,7 @@ public class EnterForumInfoMessage extends CustomResponsedMessage {
         this.likeForumData = list;
     }
 
-    public List getLikeForumData() {
+    public List<String> getLikeForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -45,7 +45,7 @@ public class EnterForumInfoMessage extends CustomResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public void setLikeForumData(List list) {
+    public void setLikeForumData(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.likeForumData = list;

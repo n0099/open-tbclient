@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,13 +33,11 @@ public class ConfigRequestInfo extends CloudControlRequestInfo {
         }
     }
 
-    public void setConfigModuleList(List list) {
+    public void setConfigModuleList(List<ConfigModule> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null) {
             JSONObject jSONObject = new JSONObject();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                ConfigModule configModule = (ConfigModule) it.next();
+            for (ConfigModule configModule : list) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     for (ConfigAction configAction : configModule.getConfigActions()) {

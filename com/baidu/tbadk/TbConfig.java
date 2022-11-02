@@ -3,6 +3,7 @@ package com.baidu.tbadk;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
@@ -13,8 +14,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.l85;
+import com.baidu.tieba.e95;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -434,6 +435,7 @@ public class TbConfig {
     public static final String URL_FRS_MOVE_AREA = "c/c/bawu/moveTabThread";
     public static final String URL_FRS_RECOMMEND = "c/c/bawu/pushRecomToPersonalized";
     public static final String URL_FUN_AD_RECORD = "c/s/adLog";
+    public static final String URL_GAME_RANK_STATEMENT = "https://gamecenter.baidu.com/static/game/tb-list-activity.html";
     public static final String URL_GAME_VIDEO = "c/f/excellent/recomVertical";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_DEEPLINK_SCHEME = "c/s/getDeeplinkScheme";
@@ -485,6 +487,7 @@ public class TbConfig {
     public static final String URL_SWITCH_YY_CURRENCY = "c/s/yyConvert";
     public static final String URL_TAB_ACTIVITY_TAB = "c/f/forum/activityPage";
     public static final String URL_TAB_FEED_LIST = "c/f/forum/tabfeedlist";
+    public static final String URL_THEME_CENTER;
     public static final String URL_THREAD_PUBLISH = "c/c/bawu/threadPublish";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
     public static final String URL_UEG_REPORT = "c/f/ueg/checkjubao";
@@ -499,6 +502,7 @@ public class TbConfig {
     public static final String URL_VIDEO_HOLY_CARD = "c/s/dashengVideo";
     public static final String URL_VIDEO_MONITOR_REPORT = "c/c/video/vlog";
     public static final String URL_VIDEO_TAB = "c/f/excellent/recomVideo";
+    public static final String URL_WELFARE = "https://gamecenter.baidu.com/static/game/tb-welfare.html";
     public static final String URL_WORKS_INFO = "https://tieba.baidu.com/mo/q/wise-creative-core/guide";
     public static final String URL_WORK_VIDEO_GUIDE = "c/c/video/upGradeVideoUp";
     public static final String URL_YOUNGSTER_VERIFY_AUTHID = "c/c/user/passAuthidVerify";
@@ -569,6 +573,7 @@ public class TbConfig {
     public static final String WEIXIN_SHARE_APP_ID = "wx289a8c58bca4c71e";
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
+    @Nullable
     public static String cachedFeedBackUrl = null;
     public static final String gamePlayIndexBanner = "/peiwan/api/index/service";
     public static boolean sThreadImageMaxInited;
@@ -614,9 +619,9 @@ public class TbConfig {
     }
 
     /* loaded from: classes3.dex */
-    public class DownFlowCmd {
+    public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
-        public static HashSet sInterruptCMDs;
+        public static HashSet<Integer> sInterruptCMDs;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -632,7 +637,7 @@ public class TbConfig {
                     return;
                 }
             }
-            sInterruptCMDs = new HashSet();
+            sInterruptCMDs = new HashSet<>();
             collectHttpCmd();
             collectSocketCmd();
         }
@@ -688,7 +693,7 @@ public class TbConfig {
     }
 
     /* loaded from: classes3.dex */
-    public final class PassConfig {
+    public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";
@@ -824,6 +829,7 @@ public class TbConfig {
         sb.append(TIEBA_ADDRESS);
         sb.append("mo/q/hybrid-main-user/growRules?fr=taskDes");
         USER_GROWTH_GUIDE_MAIN_URL = sb.toString();
+        URL_THEME_CENTER = TIEBA_ADDRESS + "mo/q/hybrid/pretendCenter?page_from=1&customfullscreen=1&nonavigationbar=1&skin=";
     }
 
     public TbConfig() {
@@ -1238,7 +1244,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) {
-            return fj.f(TbadkCoreApplication.getInst().getContext(), i);
+            return xi.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1247,7 +1253,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, context)) == null) {
-            int d = fj.d(context, 427.0f);
+            int d = xi.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1295,7 +1301,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                l85.k().t(i);
+                e95.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1359,7 +1365,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(fj.k(context) * fj.i(context));
+        int sqrt = (int) Math.sqrt(xi.l(context) * xi.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }

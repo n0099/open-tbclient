@@ -1,45 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class b31 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final long a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface b31 {
+    <T> T a(Class<T> cls);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947593929, "Lcom/baidu/tieba/b31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    void b(Context context);
+
+    /* loaded from: classes3.dex */
+    public static final class a implements b31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.b31
+        public <T> T a(Class<T> clazz) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, clazz)) == null) {
+                Intrinsics.checkNotNullParameter(clazz, "clazz");
+                return null;
+            }
+            return (T) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.b31
+        public void b(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947593929, "Lcom/baidu/tieba/b31;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        TimeUnit.DAYS.toMillis(1L);
-        TimeUnit.HOURS.toMillis(1L);
-        a = TimeUnit.MINUTES.toMillis(1L);
-        TimeUnit.SECONDS.toMillis(1L);
-    }
-
-    public static boolean a(long j, long j2, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
-            if (j - j2 > i * a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
     }
 }

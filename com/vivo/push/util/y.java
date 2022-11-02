@@ -13,9 +13,9 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public final class y implements d {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap a;
-    public static final HashMap b;
-    public static final HashMap c;
+    public static final HashMap<String, Integer> a;
+    public static final HashMap<String, Long> b;
+    public static final HashMap<String, String> c;
     public static y d;
     public transient /* synthetic */ FieldHolder $fh;
     public Context e;
@@ -35,9 +35,9 @@ public final class y implements d {
                 return;
             }
         }
-        a = new HashMap();
-        b = new HashMap();
-        c = new HashMap();
+        a = new HashMap<>();
+        b = new HashMap<>();
+        c = new HashMap<>();
     }
 
     public y(Context context) {
@@ -104,7 +104,7 @@ public final class y implements d {
         d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = (String) c.get(str);
+            String str3 = c.get(str);
             if (str3 == null && (dVar = this.f) != null) {
                 return dVar.a(str, str2);
             }

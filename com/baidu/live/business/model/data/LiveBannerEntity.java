@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
-import com.baidu.tieba.jc0;
+import com.baidu.tieba.ic0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveBannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LiveBannerEntity> CREATOR;
     public static final int TYPE_LIVE = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int audienceCount;
@@ -96,7 +96,7 @@ public class LiveBannerEntity implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveBannerEntity.1
+        CREATOR = new Parcelable.Creator<LiveBannerEntity>() { // from class: com.baidu.live.business.model.data.LiveBannerEntity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,6 +115,7 @@ public class LiveBannerEntity implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveBannerEntity createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -126,6 +127,7 @@ public class LiveBannerEntity implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveBannerEntity[] newArray(int i) {
                 InterceptResult invokeI;
@@ -158,7 +160,7 @@ public class LiveBannerEntity implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !jc0.a(this.pic);
+            return !ic0.a(this.pic);
         }
         return invokeV.booleanValue;
     }

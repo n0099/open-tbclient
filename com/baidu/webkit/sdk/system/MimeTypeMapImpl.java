@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.MimeTypeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class MimeTypeMapImpl extends MimeTypeMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

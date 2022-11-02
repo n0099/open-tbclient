@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface RouteInfo {
     int getHopCount();
 
@@ -33,8 +33,8 @@ public interface RouteInfo {
     boolean isTunnelled();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class LayerType {
+    /* loaded from: classes9.dex */
+    public static final class LayerType {
         public static final /* synthetic */ LayerType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LayerType LAYERED;
@@ -99,8 +99,8 @@ public interface RouteInfo {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class TunnelType {
+    /* loaded from: classes9.dex */
+    public static final class TunnelType {
         public static final /* synthetic */ TunnelType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TunnelType PLAIN;

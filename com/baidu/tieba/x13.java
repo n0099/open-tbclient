@@ -1,22 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
+import android.annotation.SuppressLint;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,214 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class x13 {
+public class x13 implements g23 {
     public static /* synthetic */ Interceptable $ic;
-    public static String f;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
+    public final View a;
     public boolean b;
     public boolean c;
-    public View d;
-    public View e;
-
-    /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final boolean b;
-        public final int c;
-        public final int d;
-        public final boolean e;
-        public final float f;
-
-        public b(Activity activity, boolean z, boolean z2) {
-            boolean z3;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity, Boolean.valueOf(z), Boolean.valueOf(z2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Resources resources = activity.getResources();
-            if (resources.getConfiguration().orientation == 1) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            this.e = z3;
-            this.f = g(activity);
-            this.a = b(resources, SapiSystemBarTintManager.SystemBarConfig.g);
-            a(activity);
-            this.c = d(activity);
-            this.d = f(activity);
-            this.b = this.c > 0;
-        }
-
-        public /* synthetic */ b(Activity activity, boolean z, boolean z2, a aVar) {
-            this(activity, z, z2);
-        }
-
-        public final int a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                if (Build.VERSION.SDK_INT >= 14) {
-                    TypedValue typedValue = new TypedValue();
-                    context.getTheme().resolveAttribute(16843499, typedValue, true);
-                    return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final float g(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                if (Build.VERSION.SDK_INT >= 16) {
-                    activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
-                } else {
-                    activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                }
-                float f = displayMetrics.density;
-                return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
-            }
-            return invokeL.floatValue;
-        }
-
-        public final int b(Resources resources, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resources, str)) == null) {
-                int identifier = resources.getIdentifier(str, EMABTest.TYPE_DIMEN, "android");
-                if (identifier > 0) {
-                    return resources.getDimensionPixelSize(identifier);
-                }
-                return 0;
-            }
-            return invokeLL.intValue;
-        }
-
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.intValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.d;
-            }
-            return invokeV.intValue;
-        }
-
-        public int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        public boolean j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return this.b;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                if (this.f < 600.0f && !this.e) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final int d(Context context) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Resources resources = context.getResources();
-                if (Build.VERSION.SDK_INT >= 14 && i(context)) {
-                    if (this.e) {
-                        str = SapiSystemBarTintManager.SystemBarConfig.h;
-                    } else {
-                        str = SapiSystemBarTintManager.SystemBarConfig.i;
-                    }
-                    return b(resources, str);
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final int f(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-                Resources resources = context.getResources();
-                if (Build.VERSION.SDK_INT >= 14 && i(context)) {
-                    return b(resources, SapiSystemBarTintManager.SystemBarConfig.j);
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final boolean i(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-                Resources resources = context.getResources();
-                int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
-                if (identifier != 0) {
-                    boolean z = resources.getBoolean(identifier);
-                    if ("1".equals(x13.f)) {
-                        return false;
-                    }
-                    if ("0".equals(x13.f)) {
-                        return true;
-                    }
-                    return z;
-                }
-                return !ViewConfiguration.get(context).hasPermanentMenuKey();
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -246,23 +32,42 @@ public class x13 {
                 return;
             }
         }
-        if (Build.VERSION.SDK_INT >= 19) {
-            try {
-                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
-                declaredMethod.setAccessible(true);
-                f = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
-            } catch (Throwable unused) {
-                f = null;
-            }
+        d = ok1.a;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.g23
+    public void handleHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = true;
         }
     }
 
-    public x13(Activity activity) {
+    @Override // com.baidu.tieba.g23
+    @SuppressLint({"BDThrowableCheck"})
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !d) {
+            return;
+        }
+        throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
+    }
+
+    public x13(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -272,85 +77,55 @@ public class x13 {
                 return;
             }
         }
-        Window window = activity.getWindow();
-        ViewGroup viewGroup = (ViewGroup) window.getDecorView();
-        if (Build.VERSION.SDK_INT >= 19) {
-            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
-            try {
-                this.b = obtainStyledAttributes.getBoolean(0, false);
-                this.c = obtainStyledAttributes.getBoolean(1, false);
-                obtainStyledAttributes.recycle();
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                if ((67108864 & attributes.flags) != 0) {
-                    this.b = true;
-                }
-                if ((attributes.flags & 134217728) != 0) {
-                    this.c = true;
-                }
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
+        this.b = false;
+        this.c = false;
+        this.a = view2;
+    }
+
+    public boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                this.b = false;
             }
+            if (i == this.a.getVisibility()) {
+                return true;
+            }
+            if (!b() || i != 0) {
+                return false;
+            }
+            return true;
         }
-        b bVar = new b(activity, this.b, this.c, null);
-        this.a = bVar;
-        if (!bVar.j()) {
-            this.c = false;
-        }
-        if (this.b) {
-            d(activity, viewGroup);
-        }
-        if (this.c) {
-            c(activity, viewGroup);
+        return invokeI.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            f23.g(this.a, i);
         }
     }
 
-    public void b(boolean z) {
-        int i;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.b) {
-            View view2 = this.d;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
     }
 
-    public final void c(Context context, ViewGroup viewGroup) {
-        FrameLayout.LayoutParams layoutParams;
+    public int[] c(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
-            this.e = new View(context);
-            if (this.a.k()) {
-                layoutParams = new FrameLayout.LayoutParams(-1, this.a.c());
-                layoutParams.gravity = 80;
-            } else {
-                layoutParams = new FrameLayout.LayoutParams(this.a.e(), -1);
-                layoutParams.gravity = 5;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (this.b) {
+                this.a.setVisibility(8);
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
             }
-            this.e.setLayoutParams(layoutParams);
-            this.e.setBackgroundColor(-1728053248);
-            this.e.setVisibility(8);
-            viewGroup.addView(this.e);
+            return new int[]{i, i2};
         }
-    }
-
-    public final void d(Context context, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup) == null) {
-            this.d = new View(context);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.a.h());
-            layoutParams.gravity = 48;
-            if (this.c && !this.a.k()) {
-                layoutParams.rightMargin = this.a.e();
-            }
-            this.d.setLayoutParams(layoutParams);
-            this.d.setBackgroundColor(-1728053248);
-            this.d.setVisibility(8);
-            viewGroup.addView(this.d);
-        }
+        return (int[]) invokeII.objValue;
     }
 }

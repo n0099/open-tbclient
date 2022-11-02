@@ -1,8 +1,10 @@
 package com.baidu.nadcore.requester;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
-import com.baidu.tieba.np0;
+import com.baidu.tieba.cq0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,25 +22,29 @@ public class RequestParameters {
     public final int b;
     public final String c;
     public final String d;
-    public final np0 e;
+    @Nullable
+    public final cq0 e;
+    @NonNull
     public final RefreshType f;
     public final String g;
     public final String h;
     public final String i;
     public final SlotType j;
-    public final Map k;
-    public final Map l;
+    @Nullable
+    public final Map<String, String> k;
+    @Nullable
+    public final Map<String, String> l;
     public final boolean m;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RefreshType {
+    public static final class RefreshType {
         public static final /* synthetic */ RefreshType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RefreshType NONE;
@@ -109,7 +115,7 @@ public class RequestParameters {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class SlotType {
+    public static final class SlotType {
         public static final /* synthetic */ SlotType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SlotType BANNER;
@@ -182,21 +188,21 @@ public class RequestParameters {
     }
 
     /* loaded from: classes2.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public int b;
         public String c;
         public String d;
-        public np0 e;
+        public cq0 e;
         public RefreshType f;
         public String g;
         public SlotType h;
         public String i;
         public String j;
-        public Map k;
-        public Map l;
+        public Map<String, String> k;
+        public Map<String, String> l;
         public boolean m;
 
         public b() {
@@ -218,29 +224,39 @@ public class RequestParameters {
             this.m = false;
         }
 
-        public RequestParameters n() {
+        public RequestParameters o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return new RequestParameters(this, null);
             }
             return (RequestParameters) invokeV.objValue;
         }
 
-        public b o(int i) {
+        public b n(@NonNull Map<String, String> map) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+                this.l = map;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b p(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
                 this.b = (i <= 0 || i >= 10) ? 2 : 2;
                 return this;
             }
             return (b) invokeI.objValue;
         }
 
-        public b p(String str) {
+        public b q(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 this.a = str;
                 return this;
             }
@@ -248,7 +264,7 @@ public class RequestParameters {
         }
     }
 
-    public RequestParameters(b bVar) {
+    public RequestParameters(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -1,69 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetCardByCategory.ThemeCardInMain;
-import tbclient.ThemeCardPropMain;
 /* loaded from: classes6.dex */
-public class ut8 {
+public class ut8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ArrayList b;
+    public final MainTabActivity a;
 
-    public ut8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ut8(MainTabActivity mainTabActivity, or8 or8Var) {
+        super(2921561);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, or8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity;
     }
 
-    public ArrayList a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(ThemeCardInMain themeCardInMain) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) != null) || themeCardInMain == null) {
-            return;
-        }
-        this.a = themeCardInMain.card_category;
-        List<ThemeCardPropMain> list = themeCardInMain.props;
-        if (list != null && list.size() > 0) {
-            this.b = new ArrayList();
-            for (ThemeCardPropMain themeCardPropMain : list) {
-                if (themeCardPropMain != null) {
-                    xs8 xs8Var = new xs8();
-                    xs8Var.k(themeCardPropMain);
-                    this.b.add(xs8Var);
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            Object data = customResponsedMessage.getData();
+            if (data instanceof Integer) {
+                ((Integer) data).intValue();
             }
         }
     }

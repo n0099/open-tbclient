@@ -3,11 +3,11 @@ package com.kwad.sdk.core.f.a;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes7.dex */
-    public final class a implements b {
+    /* loaded from: classes8.dex */
+    public static final class a implements b {
         public IBinder Zy;
 
         public a(IBinder iBinder) {

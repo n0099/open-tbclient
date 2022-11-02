@@ -1,6 +1,8 @@
 package com.baidu.searchbox.player.ubc;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -30,13 +32,13 @@ public class BDVideoPlayerUbcContent {
 
     /* renamed from: com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String clarityKey;
@@ -86,7 +88,7 @@ public class BDVideoPlayerUbcContent {
             return (BDVideoPlayerUbcContent) invokeV.objValue;
         }
 
-        public Builder clarityKey(String str) {
+        public Builder clarityKey(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -96,7 +98,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder extLog(String str) {
+        public Builder extLog(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -106,7 +108,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder from(String str) {
+        public Builder from(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -116,7 +118,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder id(String str) {
+        public Builder id(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -126,7 +128,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder page(String str) {
+        public Builder page(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
@@ -146,7 +148,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder playerStatusFetcher(IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
+        public Builder playerStatusFetcher(@Nullable IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iUbcPlayerStatusFetcher)) == null) {
@@ -156,7 +158,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder poster(String str) {
+        public Builder poster(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -176,7 +178,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder title(String str) {
+        public Builder title(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
@@ -186,7 +188,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder type(String str) {
+        public Builder type(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
@@ -196,7 +198,7 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder url(String str) {
+        public Builder url(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
@@ -207,7 +209,7 @@ public class BDVideoPlayerUbcContent {
         }
     }
 
-    public BDVideoPlayerUbcContent(Builder builder) {
+    public BDVideoPlayerUbcContent(@NonNull Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,7 +241,8 @@ public class BDVideoPlayerUbcContent {
         this(builder);
     }
 
-    private JSONObject createExtStatisticsLog(String str, String str2, String str3) {
+    @NonNull
+    private JSONObject createExtStatisticsLog(@Nullable String str, @Nullable String str2, @Nullable String str3) {
         InterceptResult invokeLLL;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -265,6 +268,7 @@ public class BDVideoPlayerUbcContent {
         return (JSONObject) invokeLLL.objValue;
     }
 
+    @Nullable
     public String getClarityKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,6 +278,7 @@ public class BDVideoPlayerUbcContent {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public JSONObject getExtStatisticsLog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -283,6 +288,7 @@ public class BDVideoPlayerUbcContent {
         return (JSONObject) invokeV.objValue;
     }
 
+    @Nullable
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -292,6 +298,7 @@ public class BDVideoPlayerUbcContent {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public String getPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -301,6 +308,7 @@ public class BDVideoPlayerUbcContent {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public IUbcPlayerStatusFetcher getPlayerFetcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -310,6 +318,7 @@ public class BDVideoPlayerUbcContent {
         return (IUbcPlayerStatusFetcher) invokeV.objValue;
     }
 
+    @Nullable
     public long getPlayerPrepareTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -319,6 +328,7 @@ public class BDVideoPlayerUbcContent {
         return invokeV.longValue;
     }
 
+    @Nullable
     public String getPoster() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -337,6 +347,7 @@ public class BDVideoPlayerUbcContent {
         return invokeV.intValue;
     }
 
+    @Nullable
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -346,6 +357,7 @@ public class BDVideoPlayerUbcContent {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -355,6 +367,7 @@ public class BDVideoPlayerUbcContent {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String getVid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -364,6 +377,7 @@ public class BDVideoPlayerUbcContent {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public JSONObject getExtStatisticsLogClone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

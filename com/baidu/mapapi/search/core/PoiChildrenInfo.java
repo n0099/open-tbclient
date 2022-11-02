@@ -16,14 +16,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PoiChildrenInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PoiChildrenInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public String address;
-    public LatLng location;
-    public String name;
-    public String showName;
-    public String tag;
-    public String uid;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public LatLng e;
+    public String f;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +48,7 @@ public class PoiChildrenInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new e();
+        CREATOR = new f();
     }
 
     public PoiChildrenInfo() {
@@ -53,6 +63,60 @@ public class PoiChildrenInfo implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public String getAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public LatLng getLocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getShowName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
     public PoiChildrenInfo(Parcel parcel) {
@@ -70,99 +134,53 @@ public class PoiChildrenInfo implements Parcelable {
                 return;
             }
         }
-        this.uid = parcel.readString();
-        this.name = parcel.readString();
-        this.showName = parcel.readString();
-        this.tag = parcel.readString();
-        this.location = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.address = parcel.readString();
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.address : (String) invokeV.objValue;
-    }
-
-    public LatLng getLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.location : (LatLng) invokeV.objValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public String getShowName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.showName : (String) invokeV.objValue;
-    }
-
-    public String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tag : (String) invokeV.objValue;
-    }
-
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.uid : (String) invokeV.objValue;
+        this.a = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readString();
+        this.d = parcel.readString();
+        this.e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f = parcel.readString();
     }
 
     public void setAddress(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.address = str;
+            this.f = str;
         }
     }
 
     public void setLocation(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, latLng) == null) {
-            this.location = latLng;
+            this.e = latLng;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.name = str;
+            this.b = str;
         }
     }
 
     public void setShowName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.showName = str;
+            this.c = str;
         }
     }
 
     public void setTag(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.tag = str;
+            this.d = str;
         }
     }
 
     public void setUid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.uid = str;
+            this.a = str;
         }
     }
 
@@ -172,18 +190,22 @@ public class PoiChildrenInfo implements Parcelable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer("PoiChildrenInfo: ");
             stringBuffer.append("uid = ");
-            stringBuffer.append(this.uid);
+            stringBuffer.append(this.a);
             stringBuffer.append("; name = ");
-            stringBuffer.append(this.name);
+            stringBuffer.append(this.b);
             stringBuffer.append("; showName = ");
-            stringBuffer.append(this.showName);
+            stringBuffer.append(this.c);
             stringBuffer.append("; tag = ");
-            stringBuffer.append(this.tag);
+            stringBuffer.append(this.d);
             stringBuffer.append("; location = ");
-            LatLng latLng = this.location;
-            stringBuffer.append(latLng != null ? latLng.toString() : StringUtil.NULL_STRING);
+            LatLng latLng = this.e;
+            if (latLng != null) {
+                stringBuffer.append(latLng.toString());
+            } else {
+                stringBuffer.append(StringUtil.NULL_STRING);
+            }
             stringBuffer.append("; address = ");
-            stringBuffer.append(this.address);
+            stringBuffer.append(this.f);
             return stringBuffer.toString();
         }
         return (String) invokeV.objValue;
@@ -193,12 +215,12 @@ public class PoiChildrenInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, parcel, i) == null) {
-            parcel.writeString(this.uid);
-            parcel.writeString(this.name);
-            parcel.writeString(this.showName);
-            parcel.writeString(this.tag);
-            parcel.writeParcelable(this.location, i);
-            parcel.writeString(this.address);
+            parcel.writeString(this.a);
+            parcel.writeString(this.b);
+            parcel.writeString(this.c);
+            parcel.writeString(this.d);
+            parcel.writeParcelable(this.e, i);
+            parcel.writeString(this.f);
         }
     }
 }

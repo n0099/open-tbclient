@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.constants.PlayerStatus;
 /* loaded from: classes5.dex */
-public class nv0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile mv0 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nv0 {
+    void a(@NonNull mu0 mu0Var);
 
-    public static synchronized mv0 a() {
-        InterceptResult invokeV;
-        mv0 mv0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (nv0.class) {
-                if (a == null) {
-                    a = new mv0();
-                }
-                mv0Var = a;
-            }
-            return mv0Var;
-        }
-        return (mv0) invokeV.objValue;
-    }
+    void d(@NonNull mu0 mu0Var);
+
+    int getExpectOrder();
+
+    @Nullable
+    int[] getSubscribeEvent();
+
+    int getType();
+
+    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+
+    void j(@NonNull mu0 mu0Var);
+
+    void k(@NonNull mu0 mu0Var);
+
+    void n(@NonNull mu0 mu0Var);
+
+    void q(@NonNull mu0 mu0Var);
 }

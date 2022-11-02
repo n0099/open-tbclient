@@ -2,6 +2,6 @@ package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.SapiResult;
 /* loaded from: classes2.dex */
-public interface LoginStatusAware extends SapiCallback {
-    void onBdussExpired(SapiResult sapiResult);
+public interface LoginStatusAware<R extends SapiResult> extends SapiCallback<R> {
+    void onBdussExpired(R r);
 }

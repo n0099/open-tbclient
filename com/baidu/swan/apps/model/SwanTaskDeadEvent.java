@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,16 +16,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanTaskDeadEvent implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SwanTaskDeadEvent> CREATOR;
     public static final char SEPARATOR = '#';
     public transient /* synthetic */ FieldHolder $fh;
     public String appId;
-    public SparseArray historyCache;
+    @Nullable
+    public SparseArray<String[]> historyCache;
     public String pageScheme;
-    public ArrayList stackList;
+    public ArrayList<Integer> stackList;
     public int taskId;
 
     @Override // android.os.Parcelable
@@ -36,8 +39,8 @@ public class SwanTaskDeadEvent implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<SwanTaskDeadEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,6 +99,7 @@ public class SwanTaskDeadEvent implements Parcelable {
         CREATOR = new a();
     }
 
+    @Nullable
     public String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,7 +118,7 @@ public class SwanTaskDeadEvent implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList getStackList() {
+    public ArrayList<Integer> getStackList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -150,13 +154,14 @@ public class SwanTaskDeadEvent implements Parcelable {
         this.appId = parcel.readString();
         this.taskId = parcel.readInt();
         this.pageScheme = parcel.readString();
-        ArrayList arrayList = new ArrayList();
+        ArrayList<Integer> arrayList = new ArrayList<>();
         this.stackList = arrayList;
         parcel.readList(arrayList, Integer.class.getClassLoader());
         this.historyCache = parcel.readSparseArray(String[].class.getClassLoader());
     }
 
-    public static SwanTaskDeadEvent restoreObject(String[] strArr) {
+    @Nullable
+    public static SwanTaskDeadEvent restoreObject(@Nullable String[] strArr) {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
@@ -177,7 +182,7 @@ public class SwanTaskDeadEvent implements Parcelable {
         return (SwanTaskDeadEvent) invokeL.objValue;
     }
 
-    public SwanTaskDeadEvent(String str, int i, String str2, ArrayList arrayList) {
+    public SwanTaskDeadEvent(String str, int i, String str2, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,12 +203,13 @@ public class SwanTaskDeadEvent implements Parcelable {
         this.stackList = arrayList;
     }
 
+    @NonNull
     private String[] transformToArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            ArrayList arrayList = this.stackList;
+            ArrayList<Integer> arrayList = this.stackList;
             if (arrayList != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
@@ -218,30 +224,31 @@ public class SwanTaskDeadEvent implements Parcelable {
         return (String[]) invokeV.objValue;
     }
 
-    public SparseArray getHistoryCache() {
+    @Nullable
+    public SparseArray<SwanTaskDeadEvent> getHistoryCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.historyCache == null) {
                 return null;
             }
-            SparseArray sparseArray = new SparseArray();
+            SparseArray<SwanTaskDeadEvent> sparseArray = new SparseArray<>();
             for (int i = 0; i < this.historyCache.size(); i++) {
-                sparseArray.put(this.historyCache.keyAt(i), restoreObject((String[]) this.historyCache.valueAt(i)));
+                sparseArray.put(this.historyCache.keyAt(i), restoreObject(this.historyCache.valueAt(i)));
             }
             return sparseArray;
         }
         return (SparseArray) invokeV.objValue;
     }
 
-    public void setHistoryCache(SparseArray sparseArray) {
+    public void setHistoryCache(@Nullable SparseArray<SwanTaskDeadEvent> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sparseArray) == null) {
-            SparseArray sparseArray2 = new SparseArray();
+            SparseArray<String[]> sparseArray2 = new SparseArray<>();
             if (sparseArray != null) {
                 for (int i = 0; i < sparseArray.size(); i++) {
                     if (sparseArray.valueAt(i) != null) {
-                        sparseArray2.put(sparseArray.keyAt(i), ((SwanTaskDeadEvent) sparseArray.valueAt(i)).transformToArray());
+                        sparseArray2.put(sparseArray.keyAt(i), sparseArray.valueAt(i).transformToArray());
                     }
                 }
             }

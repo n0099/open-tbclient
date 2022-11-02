@@ -16,6 +16,8 @@ import android.view.animation.PathInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,11 +39,11 @@ import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.yy4;
-import com.baidu.tieba.zy4;
+import com.baidu.tieba.oz4;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,12 +61,12 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public int B;
     public boolean C;
     public RecyclerView.OnItemTouchListener D;
-    public List a;
+    public List<View> a;
     public BdRecyclerView b;
     public View c;
     public View d;
     public ImageView e;
-    public zy4 f;
+    public pz4 f;
     public Context g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -84,7 +86,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public int w;
     public int x;
     public int y;
-    public ArrayList z;
+    public ArrayList<LightEmotionData> z;
 
     /* loaded from: classes3.dex */
     public class a implements Animator.AnimatorListener {
@@ -176,7 +178,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+        public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, motionEvent) == null) {
             }
@@ -201,7 +203,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+        public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, motionEvent)) == null) {
@@ -335,7 +337,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LightInteractiveLayout(Context context) {
+    public LightInteractiveLayout(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -362,7 +364,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LightInteractiveLayout(Context context, AttributeSet attributeSet) {
+    public LightInteractiveLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -427,21 +429,21 @@ public class LightInteractiveLayout extends ConstraintLayout {
         if ((interceptable != null && interceptable.invokeII(1048589, this, i, i2) != null) || this.e == null) {
             return;
         }
-        int k = fj.k(this.g) / 2;
-        int i3 = fj.i(this.g) / 3;
-        if (i < k && i2 < i3) {
+        int l = xi.l(this.g) / 2;
+        int j = xi.j(this.g) / 3;
+        if (i < l && i2 < j) {
             SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_up);
-        } else if (i < k && i2 > i3) {
+        } else if (i < l && i2 > j) {
             SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_below);
-        } else if (i > k && i2 < i3) {
+        } else if (i > l && i2 < j) {
             SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_right_up);
-        } else if (i > k && i2 > i3) {
+        } else if (i > l && i2 > j) {
             SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_right_below);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LightInteractiveLayout(Context context, AttributeSet attributeSet, int i) {
+    public LightInteractiveLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -482,13 +484,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(zy4 zy4Var) {
+    public void setOnDismissListener(pz4 pz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, zy4Var) == null) {
-            this.f = zy4Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, pz4Var) == null) {
+            this.f = pz4Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.i(zy4Var);
+                lightEmotionAdapter.i(pz4Var);
             }
         }
     }
@@ -529,9 +531,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.A != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.g, this.A.getUserId(), this.A.getUserName())));
-            zy4 zy4Var = this.f;
-            if (zy4Var != null) {
-                zy4Var.onClose();
+            pz4 pz4Var = this.f;
+            if (pz4Var != null) {
+                pz4Var.onClose();
             }
         }
     }
@@ -539,7 +541,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public void setImageData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<LightEmotionData> arrayList = new ArrayList<>();
             this.z = arrayList;
             arrayList.clear();
             this.z.addAll(TbSingleton.getInstance().getLightEmotionInfo());
@@ -624,9 +626,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!z(this.b, this.v, rawY)) {
-                    zy4 zy4Var = this.f;
-                    if (zy4Var != null) {
-                        zy4Var.onClose();
+                    pz4 pz4Var = this.f;
+                    if (pz4Var != null) {
+                        pz4Var.onClose();
                         return true;
                     }
                     return true;
@@ -638,15 +640,15 @@ public class LightInteractiveLayout extends ConstraintLayout {
     }
 
     public final void E(int i) {
-        ArrayList arrayList;
+        ArrayList<LightEmotionData> arrayList;
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (arrayList = this.z) != null && i + 1 <= arrayList.size()) {
             new LightEmotionData();
-            LightEmotionData lightEmotionData = (LightEmotionData) this.z.get(i);
+            LightEmotionData lightEmotionData = this.z.get(i);
             String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
             MetaData metaData = this.A;
-            if (metaData != null && ej.isEquals(metaData.getUserId(), valueOf)) {
+            if (metaData != null && wi.isEquals(metaData.getUserId(), valueOf)) {
                 return;
             }
             int i2 = this.x;
@@ -654,7 +656,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 D(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    yy4.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    oz4.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -682,27 +684,27 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public final void y(Context context) {
+    public final void y(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, context) == null) {
             this.g = context;
             this.h = new LightEmotionAdapter(context);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d051f, (ViewGroup) this, true);
-            this.b = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f0912f1);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091323);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d052f, (ViewGroup) this, true);
+            this.b = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09132e);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091360);
             this.i = new TbImageView(context);
-            fj.f(this.g, R.dimen.tbds104);
-            fj.f(this.g, R.dimen.tbds208);
-            fj.f(this.g, R.dimen.tbds100);
-            fj.f(this.g, R.dimen.tbds85);
-            fj.f(this.g, R.dimen.tbds250);
-            fj.f(this.g, R.dimen.tbds432);
+            xi.g(this.g, R.dimen.tbds104);
+            xi.g(this.g, R.dimen.tbds208);
+            xi.g(this.g, R.dimen.tbds100);
+            xi.g(this.g, R.dimen.tbds85);
+            xi.g(this.g, R.dimen.tbds250);
+            xi.g(this.g, R.dimen.tbds432);
             new Matrix();
             this.j = new RelativeLayout(this.g);
             this.j.setLayoutParams(new RelativeLayout.LayoutParams(-2, -1));
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f0808ea);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(fj.f(this.g, R.dimen.tbds104), fj.f(this.g, R.dimen.tbds104));
-            layoutParams.topMargin = fj.f(this.g, R.dimen.tbds23);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f0808fc);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(xi.g(this.g, R.dimen.tbds104), xi.g(this.g, R.dimen.tbds104));
+            layoutParams.topMargin = xi.g(this.g, R.dimen.tbds23);
             layoutParams.gravity = 81;
             this.i.setLayoutParams(layoutParams);
             this.j.addView(this.i);
@@ -734,7 +736,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
-            List list = this.a;
+            List<View> list = this.a;
             if (list != null && list.size() == 0 && this.b != null) {
                 for (int i5 = 0; i5 < this.b.getChildCount(); i5++) {
                     if (this.b.getChildAt(i5) != null) {
@@ -749,8 +751,8 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public void setLocation(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
-            int k = fj.k(this.g) / 2;
-            int i3 = fj.i(this.g) / 3;
+            int l = xi.l(this.g) / 2;
+            int j = xi.j(this.g) / 3;
             this.t = i;
             this.u = i2;
             c cVar = new c(this, this.g);
@@ -759,38 +761,38 @@ public class LightInteractiveLayout extends ConstraintLayout {
             if (bdRecyclerView != null && this.e != null) {
                 ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) bdRecyclerView.getLayoutParams();
                 if (this.x == 3) {
-                    this.k = i - fj.f(this.g, R.dimen.tbds550);
-                    this.l = i2 + fj.f(this.g, R.dimen.tbds70);
-                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, fj.f(getContext(), R.dimen.tbds10));
+                    this.k = i - xi.g(this.g, R.dimen.tbds550);
+                    this.l = i2 + xi.g(this.g, R.dimen.tbds70);
+                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, xi.g(getContext(), R.dimen.tbds10));
                     this.p = 700.0f;
                     this.q = -200.0f;
                     cVar.setStackFromEnd(false);
                     cVar.setReverseLayout(false);
-                } else if (i < k && i2 < i3) {
-                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, fj.f(getContext(), R.dimen.tbds10));
+                } else if (i < l && i2 < j) {
+                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, xi.g(getContext(), R.dimen.tbds10));
                     if (this.r) {
-                        ViewCommonUtil.setViewMargin(this.i, -1, fj.f(getContext(), R.dimen.tbds38), -1, -1);
+                        ViewCommonUtil.setViewMargin(this.i, -1, xi.g(getContext(), R.dimen.tbds38), -1, -1);
                     }
-                    this.k = i - fj.f(this.g, R.dimen.tbds80);
+                    this.k = i - xi.g(this.g, R.dimen.tbds80);
                     this.l = i2;
                     this.p = 100.0f;
                     this.q = -200.0f;
-                } else if (i < k && i2 > i3) {
-                    this.k = i - fj.f(this.g, R.dimen.tbds80);
-                    this.l = i2 - fj.f(this.g, R.dimen.tbds280);
+                } else if (i < l && i2 > j) {
+                    this.k = i - xi.g(this.g, R.dimen.tbds80);
+                    this.l = i2 - xi.g(this.g, R.dimen.tbds280);
                     this.p = 100.0f;
                     this.q = 100.0f;
-                } else if (i > k && i2 < i3) {
-                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, fj.f(getContext(), R.dimen.tbds10));
-                    this.k = i - fj.f(this.g, R.dimen.tbds626);
-                    this.l = i2 + fj.f(this.g, R.dimen.tbds10);
+                } else if (i > l && i2 < j) {
+                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, xi.g(getContext(), R.dimen.tbds10));
+                    this.k = i - xi.g(this.g, R.dimen.tbds626);
+                    this.l = i2 + xi.g(this.g, R.dimen.tbds10);
                     this.p = 740.0f;
                     this.q = -200.0f;
                     cVar.setStackFromEnd(false);
                     cVar.setReverseLayout(false);
-                } else if (i > k && i2 > i3) {
-                    this.k = i - fj.f(this.g, R.dimen.tbds626);
-                    this.l = i2 - fj.f(this.g, R.dimen.tbds300);
+                } else if (i > l && i2 > j) {
+                    this.k = i - xi.g(this.g, R.dimen.tbds626);
+                    this.l = i2 - xi.g(this.g, R.dimen.tbds300);
                     this.p = 740.0f;
                     this.q = 100.0f;
                     cVar.setStackFromEnd(false);

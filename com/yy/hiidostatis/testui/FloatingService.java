@@ -42,7 +42,7 @@ public final class FloatingService {
     public boolean isDebug;
     public WindowManager.LayoutParams layoutParams;
     public ListView listView;
-    public List logs;
+    public List<String> logs;
     public boolean movingState;
     public WindowManager windowManager;
 

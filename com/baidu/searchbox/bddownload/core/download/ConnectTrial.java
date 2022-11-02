@@ -1,5 +1,8 @@
 package com.baidu.searchbox.bddownload.core.download;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -18,6 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,12 +33,18 @@ public class ConnectTrial {
     public static final String TAG = "ConnectTrial";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean acceptRange;
+    @NonNull
     public final BreakpointInfo info;
+    @IntRange(from = -1)
     public long instanceLength;
     public int responseCode;
+    @Nullable
     public String responseEtag;
+    @Nullable
     public String responseFileType;
+    @Nullable
     public String responseFilename;
+    @NonNull
     public final DownloadTask task;
 
     static {
@@ -72,6 +82,7 @@ public class ConnectTrial {
         return invokeV.intValue;
     }
 
+    @Nullable
     public String getResponseContentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,6 +92,7 @@ public class ConnectTrial {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String getResponseEtag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,6 +102,7 @@ public class ConnectTrial {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String getResponseFilename() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -132,7 +145,7 @@ public class ConnectTrial {
         return invokeV.booleanValue;
     }
 
-    public ConnectTrial(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+    public ConnectTrial(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,6 +164,7 @@ public class ConnectTrial {
         this.info = breakpointInfo;
     }
 
+    @Nullable
     public static String findContentType(DownloadConnection.Connected connected) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -160,6 +174,7 @@ public class ConnectTrial {
         return (String) invokeL.objValue;
     }
 
+    @Nullable
     public static String findEtag(DownloadConnection.Connected connected) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -169,6 +184,7 @@ public class ConnectTrial {
         return (String) invokeL.objValue;
     }
 
+    @Nullable
     public static String findFilename(DownloadConnection.Connected connected) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -178,7 +194,7 @@ public class ConnectTrial {
         return (String) invokeL.objValue;
     }
 
-    public static boolean isAcceptRange(DownloadConnection.Connected connected) throws IOException {
+    public static boolean isAcceptRange(@NonNull DownloadConnection.Connected connected) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, connected)) == null) {
@@ -190,7 +206,7 @@ public class ConnectTrial {
         return invokeL.booleanValue;
     }
 
-    public static boolean parseTransferEncoding(String str) {
+    public static boolean parseTransferEncoding(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
@@ -218,7 +234,7 @@ public class ConnectTrial {
         return invokeL.longValue;
     }
 
-    public static long parseContentRangeFoInstanceLength(String str) {
+    public static long parseContentRangeFoInstanceLength(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -238,6 +254,7 @@ public class ConnectTrial {
         return invokeL.longValue;
     }
 
+    @Nullable
     public static String parseContentDisposition(String str) throws IOException {
         InterceptResult invokeL;
         String str2;
@@ -280,7 +297,7 @@ public class ConnectTrial {
                     create.addHeader(Util.IF_MATCH, this.info.getEtag());
                 }
                 create.addHeader("Range", "bytes=0-0");
-                Map headerMapFields = this.task.getHeaderMapFields();
+                Map<String, List<String>> headerMapFields = this.task.getHeaderMapFields();
                 if (headerMapFields != null) {
                     Util.addUserRequestHeaderField(headerMapFields, create);
                 }
@@ -295,9 +312,9 @@ public class ConnectTrial {
                 this.responseEtag = findEtag(execute);
                 this.responseFilename = findFilename(execute);
                 this.responseFileType = findContentType(execute);
-                Map responseHeaderFields = execute.getResponseHeaderFields();
+                Map<String, List<String>> responseHeaderFields = execute.getResponseHeaderFields();
                 if (responseHeaderFields == null) {
-                    responseHeaderFields = new HashMap();
+                    responseHeaderFields = new HashMap<>();
                 }
                 dispatch.connectTrialEnd(this.task, this.responseCode, responseHeaderFields);
                 if (isNeedTrialHeadMethodForInstanceLength(this.instanceLength, execute)) {
@@ -309,7 +326,7 @@ public class ConnectTrial {
         }
     }
 
-    public boolean isNeedTrialHeadMethodForInstanceLength(long j, DownloadConnection.Connected connected) {
+    public boolean isNeedTrialHeadMethodForInstanceLength(long j, @NonNull DownloadConnection.Connected connected) {
         InterceptResult invokeJL;
         String responseHeaderField;
         Interceptable interceptable = $ic;
@@ -333,7 +350,7 @@ public class ConnectTrial {
             DownloadListener dispatch = BdDownload.with().callbackDispatcher().dispatch();
             try {
                 create.setRequestMethod("HEAD");
-                Map headerMapFields = this.task.getHeaderMapFields();
+                Map<String, List<String>> headerMapFields = this.task.getHeaderMapFields();
                 if (headerMapFields != null) {
                     Util.addUserRequestHeaderField(headerMapFields, create);
                 }

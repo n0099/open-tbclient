@@ -1,191 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import org.json.JSONObject;
+import tbclient.VideoDesc;
 /* loaded from: classes3.dex */
-public class bv4 extends BaseAdapter {
+public class bv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
-    public TbPageContext b;
-    public boolean c;
 
-    /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static VideoDesc a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-
-        public b(bv4 bv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bv4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            VideoDesc.Builder builder = new VideoDesc.Builder();
+            if (jSONObject != null) {
+                builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));
+                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                builder.video_url = jSONObject.optString("video_url");
+                builder.video_width = jSONObject.optString("video_width");
+                builder.video_height = jSONObject.optString("video_height");
             }
+            return builder.build(true);
         }
-
-        public /* synthetic */ b(bv4 bv4Var, a aVar) {
-            this(bv4Var);
-        }
-    }
-
-    public bv4(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = false;
-        this.b = tbPageContext;
-        this.a = new ArrayList();
-    }
-
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ArrayList arrayList = this.a;
-            if (arrayList != null && i == arrayList.size() - 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void c(ArrayList arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.a = arrayList;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return this.a.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            cv4 cv4Var = (cv4) this.a.get(i);
-            if (cv4Var == null) {
-                return null;
-            }
-            boolean z = false;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d022f, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092135);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092118);
-                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090620);
-            } else {
-                bVar = (b) view2.getTag();
-            }
-            bVar.a.setText(cv4Var.c());
-            if (StringUtils.isNull(cv4Var.a())) {
-                bVar.b.setVisibility(8);
-            } else {
-                bVar.b.setText(cv4Var.a());
-                bVar.b.setVisibility(0);
-            }
-            if (cv4Var.d()) {
-                bVar.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08082e, WebPManager.ResourceStateType.NORMAL));
-                bVar.c.setVisibility(0);
-            } else if (this.c) {
-                WebPManager.setPureDrawable(bVar.c, R.drawable.obfuscated_res_0x7f0809fc, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
-                bVar.c.setVisibility(0);
-            } else {
-                bVar.c.setVisibility(4);
-            }
-            if (a(i)) {
-                SkinManager.setBackgroundResource(view2, R.drawable.dialog_single_button_bg_selector);
-            } else {
-                SkinManager.setBackgroundResource(view2, R.drawable.dialg_alert_btn_bg);
-            }
-            view2.setTag(bVar);
-            zp4 layoutMode = this.b.getLayoutMode();
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                z = true;
-            }
-            layoutMode.l(z);
-            this.b.getLayoutMode().k(view2);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (VideoDesc) invokeL.objValue;
     }
 }

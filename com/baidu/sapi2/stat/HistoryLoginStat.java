@@ -40,7 +40,7 @@ public class HistoryLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class HistoryClickLoginStat implements NoProguard {
+    public static class HistoryClickLoginStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -55,7 +55,7 @@ public class HistoryLoginStat implements NoProguard {
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
         public static String sValueSence;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -137,7 +137,7 @@ public class HistoryLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class HistoryShowStat implements NoProguard {
+    public static class HistoryShowStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_AVAILABLE_COUNT = "available_count";
@@ -147,7 +147,7 @@ public class HistoryLoginStat implements NoProguard {
         public static final String KEY_VALUE = "value";
         public static final String VALUE_PAGE = "getdpass";
         public static String sValue;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

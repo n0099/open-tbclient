@@ -20,10 +20,10 @@ public class x8 {
     public static final x8 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
-    public qd1 b;
+    public ie1 b;
     public long c;
     public final Handler d;
-    public final CopyOnWriteArrayList e;
+    public final CopyOnWriteArrayList<eh1> e;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -62,11 +62,11 @@ public class x8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < be1.i() * 60000.0f) {
+                if (this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < te1.i() * 60000.0f) {
                     return;
                 }
                 if (this.b.b == null) {
-                    this.b.b = new qd1();
+                    this.b.b = new ie1();
                 }
                 this.b.b.k();
                 this.b.c = System.currentTimeMillis();
@@ -108,11 +108,12 @@ public class x8 {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Context b2 = aj0.b();
-            if (b2 instanceof Application) {
-                ((Application) b2).registerActivityLifecycleCallbacks(new ud1());
-            }
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !x31.b()) {
+            return;
+        }
+        Context b2 = zi0.b();
+        if (b2 instanceof Application) {
+            ((Application) b2).registerActivityLifecycleCallbacks(new me1());
         }
     }
 
@@ -120,7 +121,7 @@ public class x8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = od1.a().d();
+            JSONObject d = ge1.a().d();
             if (d == null || d.optBoolean("real_time_query_switch", true)) {
                 return true;
             }
@@ -153,7 +154,7 @@ public class x8 {
         }
         this.a = false;
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new CopyOnWriteArrayList();
+        this.e = new CopyOnWriteArrayList<>();
     }
 
     public void j(int i) {

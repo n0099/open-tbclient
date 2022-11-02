@@ -22,9 +22,9 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class dd {
-    public static Map XD;
+    public static Map<Class<? extends com.kwad.sdk.core.response.kwai.a>, com.kwad.sdk.core.d> XD;
 
     static {
         HashMap hashMap = new HashMap();
@@ -126,8 +126,8 @@ public final class dd {
         tl();
     }
 
-    public static com.kwad.sdk.core.d getHolder(Class cls) {
-        return (com.kwad.sdk.core.d) XD.get(cls);
+    public static com.kwad.sdk.core.d getHolder(Class<? extends com.kwad.sdk.core.response.kwai.a> cls) {
+        return XD.get(cls);
     }
 
     @ForInvoker(methodId = "registerHolder")
@@ -145,7 +145,7 @@ public final class dd {
         ce.tl();
     }
 
-    public static Map tm() {
+    public static Map<Class<? extends com.kwad.sdk.core.response.kwai.a>, com.kwad.sdk.core.d> tm() {
         return XD;
     }
 }

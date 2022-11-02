@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.util.TimestampAdjuster;
 /* loaded from: classes7.dex */
 public final class TimeSignalCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<TimeSignalCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final long playbackPositionUs;
     public final long ptsTime;
@@ -35,7 +35,7 @@ public final class TimeSignalCommand extends SpliceCommand {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.scte35.TimeSignalCommand.1
+        CREATOR = new Parcelable.Creator<TimeSignalCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.TimeSignalCommand.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,6 +54,7 @@ public final class TimeSignalCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TimeSignalCommand createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -65,6 +66,7 @@ public final class TimeSignalCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TimeSignalCommand[] newArray(int i) {
                 InterceptResult invokeI;

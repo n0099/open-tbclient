@@ -42,13 +42,13 @@ public final class Http2Reader implements Closeable {
 
         void goAway(int i, ErrorCode errorCode, ByteString byteString);
 
-        void headers(boolean z, int i, int i2, List list);
+        void headers(boolean z, int i, int i2, List<Header> list);
 
         void ping(boolean z, int i, int i2);
 
         void priority(int i, int i2, int i3, boolean z);
 
-        void pushPromise(int i, int i2, List list) throws IOException;
+        void pushPromise(int i, int i2, List<Header> list) throws IOException;
 
         void rstStream(int i, ErrorCode errorCode);
 

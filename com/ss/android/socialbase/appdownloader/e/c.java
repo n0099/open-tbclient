@@ -16,10 +16,10 @@ import java.util.Map;
 public class c {
     public static int a = 8;
     public static volatile c b;
-    public a c;
+    public a<Integer, Bitmap> c;
 
     /* loaded from: classes8.dex */
-    public class a extends LinkedHashMap {
+    public static class a<K, T> extends LinkedHashMap<K, T> {
         public final int a;
 
         public a(int i, int i2) {
@@ -28,7 +28,7 @@ public class c {
         }
 
         @Override // java.util.LinkedHashMap
-        public boolean removeEldestEntry(Map.Entry entry) {
+        public boolean removeEldestEntry(Map.Entry<K, T> entry) {
             if (size() > this.a) {
                 return true;
             }
@@ -39,7 +39,7 @@ public class c {
     public c() {
         this.c = null;
         int i = a;
-        this.c = new a(i, i / 2);
+        this.c = new a<>(i, i / 2);
     }
 
     public static c a() {
@@ -75,7 +75,7 @@ public class c {
     }
 
     public Bitmap a(int i) {
-        return (Bitmap) this.c.get(Integer.valueOf(i));
+        return this.c.get(Integer.valueOf(i));
     }
 
     public void a(final int i, final String str) {

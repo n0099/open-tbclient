@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheEvent;
 import com.facebook.cache.common.CacheEventListener;
 import com.facebook.cache.common.CacheKey;
+import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
@@ -164,6 +165,7 @@ public class SettableCacheEvent implements CacheEvent {
         }
     }
 
+    @ReturnsOwnership
     public static SettableCacheEvent obtain() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

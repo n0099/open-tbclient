@@ -1,16 +1,52 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class jz0 {
+public class jz0 implements iz0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final jz0 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.mz0
+    public void end(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mz0
+    public void stop(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a extends jz0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,26 +61,20 @@ public final class jz0 {
                 return;
             }
         }
-        d41.a(253.0f);
-        d41.a(9.0f);
+        a = new a();
     }
 
-    public static final mw0 a(ArrayList arrayList) {
-        InterceptResult invokeL;
+    public jz0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    iw0 iw0Var = (iw0) it.next();
-                    if (iw0Var instanceof mw0) {
-                        return (mw0) iw0Var;
-                    }
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
         }
-        return (mw0) invokeL.objValue;
     }
 }

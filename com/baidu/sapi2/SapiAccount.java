@@ -29,7 +29,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SapiAccount implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SapiAccount> CREATOR;
     public static final String SAPI_ACCOUNT_APP = "app";
     public static final String SAPI_ACCOUNT_BDUSS = "bduss";
     public static final String SAPI_ACCOUNT_DISPLAYNAME = "displayname";
@@ -72,10 +72,10 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     /* loaded from: classes2.dex */
-    public final class DispersionCertification implements NoProguard {
+    public static final class DispersionCertification implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map tplStokenMap;
+        public Map<String, String> tplStokenMap;
 
         public DispersionCertification() {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             return (DispersionCertification) invokeL.objValue;
         }
 
-        public static Map getTplStokenMap(JSONObject jSONObject) {
+        public static Map<String, String> getTplStokenMap(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
@@ -126,7 +126,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     /* loaded from: classes2.dex */
-    public final class ExtraProperty implements NoProguard {
+    public static final class ExtraProperty implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTRA_ACCOUNT_TYPE = "account_type";
         public static final String EXTRA_IS_GUEST_ACCOUNT = "is_guest_account";
@@ -225,7 +225,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         } catch (Throwable th) {
             Log.e(th);
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.sapi2.SapiAccount.1
+        CREATOR = new Parcelable.Creator<SapiAccount>() { // from class: com.baidu.sapi2.SapiAccount.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -244,6 +244,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SapiAccount createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -255,6 +256,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SapiAccount[] newArray(int i) {
                 InterceptResult invokeI;
@@ -489,7 +491,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         }
     }
 
-    public static List fromJSONArray(JSONArray jSONArray) {
+    public static List<SapiAccount> fromJSONArray(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
@@ -524,7 +526,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         return invokeL.booleanValue;
     }
 
-    public static JSONArray toJSONArray(List list) {
+    public static JSONArray toJSONArray(List<SapiAccount> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
@@ -532,9 +534,8 @@ public class SapiAccount implements Parcelable, Cloneable {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                JSONObject jSONObject = ((SapiAccount) it.next()).toJSONObject();
+            for (SapiAccount sapiAccount : list) {
+                JSONObject jSONObject = sapiAccount.toJSONObject();
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -623,7 +624,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         }
     }
 
-    public void addDispersionCertification(Map map) {
+    public void addDispersionCertification(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
             putExtra("stoken_list", new JSONObject(map));

@@ -3,7 +3,7 @@ package com.baidu.tieba.write.write.work.topic.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.s89;
+import com.baidu.tieba.ba9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,9 +14,10 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetRecommendTopic.DataRes;
 import tbclient.GetRecommendTopic.GetRecommendTopicResIdl;
+import tbclient.GetRecommendTopic.TopicList;
 import tbclient.GetRecommendTopic.TopicListModule;
 /* loaded from: classes6.dex */
-public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implements s89 {
+public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implements ba9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicListModule recommendTopic;
@@ -39,8 +40,8 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
         }
     }
 
-    @Override // com.baidu.tieba.s89
-    public List getTopicList() {
+    @Override // com.baidu.tieba.ba9
+    public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

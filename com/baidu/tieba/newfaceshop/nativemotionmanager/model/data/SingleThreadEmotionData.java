@@ -1,6 +1,7 @@
 package com.baidu.tieba.newfaceshop.nativemotionmanager.model.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +11,7 @@ import java.util.List;
 public class SingleThreadEmotionData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List pkg_list;
+    public List<EmotionPackageData> pkg_list;
 
     public SingleThreadEmotionData() {
         Interceptable interceptable = $ic;

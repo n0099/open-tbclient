@@ -4,8 +4,8 @@ import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g50;
-import com.baidu.tieba.l60;
+import com.baidu.tieba.b50;
+import com.baidu.tieba.g60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class ZipSignatureSchemeV2Verifier {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -90,7 +90,7 @@ public class ZipSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes2.dex */
-    public class SignatureNotFoundException extends Exception {
+    public static class SignatureNotFoundException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class ZipSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes2.dex */
-    public class VerbatimX509Certificate extends WrappedX509Certificate {
+    public static class VerbatimX509Certificate extends WrappedX509Certificate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] encodedVerbatim;
@@ -176,7 +176,7 @@ public class ZipSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes2.dex */
-    public class WrappedX509Certificate extends X509Certificate {
+    public static class WrappedX509Certificate extends X509Certificate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate wrapped;
@@ -244,7 +244,7 @@ public class ZipSignatureSchemeV2Verifier {
         }
 
         @Override // java.security.cert.X509Extension
-        public Set getCriticalExtensionOIDs() {
+        public Set<String> getCriticalExtensionOIDs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -294,7 +294,7 @@ public class ZipSignatureSchemeV2Verifier {
         }
 
         @Override // java.security.cert.X509Extension
-        public Set getNonCriticalExtensionOIDs() {
+        public Set<String> getNonCriticalExtensionOIDs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -453,7 +453,7 @@ public class ZipSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes2.dex */
-    public final class b implements c {
+    public static final class b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
@@ -506,7 +506,7 @@ public class ZipSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes2.dex */
-    public final class d implements c {
+    public static final class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FileChannel a;
@@ -557,7 +557,7 @@ public class ZipSignatureSchemeV2Verifier {
     }
 
     /* loaded from: classes2.dex */
-    public class e {
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
@@ -610,11 +610,11 @@ public class ZipSignatureSchemeV2Verifier {
         return invokeJ.longValue;
     }
 
-    public static Pair m(RandomAccessFile randomAccessFile) throws IOException, SignatureNotFoundException {
+    public static Pair<ByteBuffer, Long> m(RandomAccessFile randomAccessFile) throws IOException, SignatureNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, randomAccessFile)) == null) {
-            Pair c2 = l60.c(randomAccessFile);
+            Pair<ByteBuffer, Long> c2 = g60.c(randomAccessFile);
             if (c2 != null) {
                 return c2;
             }
@@ -631,7 +631,7 @@ public class ZipSignatureSchemeV2Verifier {
             try {
                 return w(randomAccessFile);
             } finally {
-                g50.c(randomAccessFile);
+                b50.c(randomAccessFile);
             }
         }
         return (X509Certificate[][]) invokeL.objValue;
@@ -818,7 +818,7 @@ public class ZipSignatureSchemeV2Verifier {
         return (ByteBuffer) invokeL.objValue;
     }
 
-    public static Pair f(RandomAccessFile randomAccessFile, long j) throws IOException, SignatureNotFoundException {
+    public static Pair<ByteBuffer, Long> f(RandomAccessFile randomAccessFile, long j) throws IOException, SignatureNotFoundException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, randomAccessFile, j)) == null) {
@@ -858,12 +858,12 @@ public class ZipSignatureSchemeV2Verifier {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, randomAccessFile)) == null) {
-            Pair m = m(randomAccessFile);
+            Pair<ByteBuffer, Long> m = m(randomAccessFile);
             ByteBuffer byteBuffer = (ByteBuffer) m.first;
             long longValue = ((Long) m.second).longValue();
-            if (!l60.i(randomAccessFile, longValue)) {
+            if (!g60.i(randomAccessFile, longValue)) {
                 long i = i(byteBuffer, longValue);
-                Pair f = f(randomAccessFile, i);
+                Pair<ByteBuffer, Long> f = f(randomAccessFile, i);
                 return new e(e((ByteBuffer) f.first), ((Long) f.second).longValue(), i, longValue, byteBuffer, null);
             }
             throw new SignatureNotFoundException("ZIP64 APK not supported");
@@ -969,9 +969,9 @@ public class ZipSignatureSchemeV2Verifier {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65544, null, byteBuffer, j)) == null) {
-            long g = l60.g(byteBuffer);
+            long g = g60.g(byteBuffer);
             if (g < j) {
-                if (l60.h(byteBuffer) + g == j) {
+                if (g60.h(byteBuffer) + g == j) {
                     return g;
                 }
                 throw new SignatureNotFoundException("ZIP Central Directory is not immediately followed by End of Central Directory");
@@ -1030,7 +1030,7 @@ public class ZipSignatureSchemeV2Verifier {
         return (ByteBuffer) invokeL.objValue;
     }
 
-    public static Pair q(int i) {
+    public static Pair<String, ? extends AlgorithmParameterSpec> q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
@@ -1138,7 +1138,7 @@ public class ZipSignatureSchemeV2Verifier {
         return (X509Certificate[][]) invokeLLL.objValue;
     }
 
-    public static void y(Map map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
+    public static void y(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
         c bVar;
         c bVar2;
         Interceptable interceptable = $ic;
@@ -1169,7 +1169,7 @@ public class ZipSignatureSchemeV2Verifier {
                 }
                 ByteBuffer duplicate = byteBuffer.duplicate();
                 duplicate.order(ByteOrder.LITTLE_ENDIAN);
-                l60.k(duplicate, j);
+                g60.k(duplicate, j);
                 b bVar3 = new b(duplicate);
                 int size = map.size();
                 int[] iArr = new int[size];
@@ -1182,7 +1182,7 @@ public class ZipSignatureSchemeV2Verifier {
                     byte[][] d2 = d(iArr, new c[]{bVar, bVar2, bVar3});
                     for (int i2 = 0; i2 < size; i2++) {
                         int i3 = iArr[i2];
-                        if (!MessageDigest.isEqual((byte[]) map.get(Integer.valueOf(i3)), d2[i2])) {
+                        if (!MessageDigest.isEqual(map.get(Integer.valueOf(i3)), d2[i2])) {
                             throw new SecurityException(k(i3) + " digest of contents did not verify");
                         }
                     }
@@ -1195,7 +1195,7 @@ public class ZipSignatureSchemeV2Verifier {
         }
     }
 
-    public static X509Certificate[] z(ByteBuffer byteBuffer, Map map, CertificateFactory certificateFactory) throws SecurityException, IOException {
+    public static X509Certificate[] z(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) throws SecurityException, IOException {
         InterceptResult invokeLLL;
         int o;
         Interceptable interceptable = $ic;
@@ -1233,7 +1233,7 @@ public class ZipSignatureSchemeV2Verifier {
                 throw new SecurityException("No supported signatures found");
             }
             String p = p(i);
-            Pair q = q(i);
+            Pair<String, ? extends AlgorithmParameterSpec> q = q(i);
             String str = (String) q.first;
             AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) q.second;
             try {
@@ -1267,8 +1267,8 @@ public class ZipSignatureSchemeV2Verifier {
                         }
                     }
                     if (arrayList.equals(arrayList2)) {
-                        byte[] bArr3 = (byte[]) map.put(Integer.valueOf(o(i)), bArr);
-                        if (bArr3 != null && !MessageDigest.isEqual(bArr3, bArr)) {
+                        byte[] put = map.put(Integer.valueOf(o(i)), bArr);
+                        if (put != null && !MessageDigest.isEqual(put, bArr)) {
                             throw new SecurityException(k(o) + " contents digest does not match the digest specified by a preceding signer");
                         }
                         ByteBuffer n6 = n(n);

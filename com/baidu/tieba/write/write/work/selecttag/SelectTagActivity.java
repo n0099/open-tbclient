@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d89;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.oe5;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.kf5;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.m99;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResMessage;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,34 +34,34 @@ public class SelectTagActivity extends SuspendedActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout k;
     public SelectTagListView l;
-    public d89 m;
-    public List n;
+    public m99 m;
+    public List<String> n;
     public int o;
     public VideoCategoryClassData p;
     public boolean q;
-    public qb r;
+    public pb r;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void Y0() {
+    public void Z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagActivity a;
 
         /* renamed from: com.baidu.tieba.write.write.work.selecttag.SelectTagActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0449a implements View.OnClickListener {
+        public class View$OnClickListenerC0465a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0449a(a aVar) {
+            public View$OnClickListenerC0465a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,23 +114,23 @@ public class SelectTagActivity extends SuspendedActivity {
             this.a = selectTagActivity;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             if (responsedMessage.hasError()) {
                 SelectTagActivity selectTagActivity = this.a;
-                selectTagActivity.showNetRefreshView(selectTagActivity.k, null, this.a.getString(R.string.obfuscated_res_0x7f0f0495), null, false, new View$OnClickListenerC0449a(this));
+                selectTagActivity.showNetRefreshView(selectTagActivity.k, null, this.a.getString(R.string.obfuscated_res_0x7f0f0497), null, false, new View$OnClickListenerC0465a(this));
                 return;
             }
             if (responsedMessage instanceof GetSelectClassHttpResMessage) {
-                this.a.m.i((VideoCategoryClassData) ((GetSelectClassHttpResMessage) responsedMessage).getTags().get(0));
+                this.a.m.i(((GetSelectClassHttpResMessage) responsedMessage).getTags().get(0));
             } else if (responsedMessage instanceof GetSelectClassSocketResMessage) {
-                this.a.m.i((VideoCategoryClassData) ((GetSelectClassSocketResMessage) responsedMessage).getTags().get(0));
+                this.a.m.i(((GetSelectClassSocketResMessage) responsedMessage).getTags().get(0));
             }
-            this.a.i1();
+            this.a.j1();
             SelectTagActivity selectTagActivity2 = this.a;
             selectTagActivity2.hideLoadingView(selectTagActivity2.k);
         }
@@ -165,7 +165,7 @@ public class SelectTagActivity extends SuspendedActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l.w()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921604, this.a.l.getHadSelectTagList()));
-                this.a.L0();
+                this.a.M0();
             }
         }
     }
@@ -198,7 +198,7 @@ public class SelectTagActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public oe5 M0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public kf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -209,11 +209,11 @@ public class SelectTagActivity extends SuspendedActivity {
             this.l.c.setOnClickListener(new b(this));
             return this.l;
         }
-        return (oe5) invokeLL.objValue;
+        return (kf5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public int N0() {
+    public int O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -222,7 +222,7 @@ public class SelectTagActivity extends SuspendedActivity {
         return invokeV.intValue;
     }
 
-    public boolean h1() {
+    public boolean i1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -231,7 +231,7 @@ public class SelectTagActivity extends SuspendedActivity {
         return invokeV.booleanValue;
     }
 
-    public final void i1() {
+    public final void j1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.m.d() != null) {
             this.l.setRecommendTagList(this.m.d());
@@ -244,9 +244,9 @@ public class SelectTagActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.l.w()) {
-                nv4.d(this.l.c).x(R.color.CAM_X0302);
+                kw4.d(this.l.c).x(R.color.CAM_X0302);
             } else {
-                this.l.c.setTextColor(vl8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.l.c.setTextColor(fn8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -258,8 +258,8 @@ public class SelectTagActivity extends SuspendedActivity {
             super.onCreate(bundle);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.m = new d89(getUniqueId());
-            this.l.d = findViewById(R.id.obfuscated_res_0x7f091fb9);
+            this.m = new m99(getUniqueId());
+            this.l.d = findViewById(R.id.obfuscated_res_0x7f092004);
             this.l.l();
             this.r.getHttpMessageListener().setSelfListener(true);
             this.r.getSocketMessageListener().setSelfListener(true);
@@ -269,7 +269,7 @@ public class SelectTagActivity extends SuspendedActivity {
             this.p.setSecondClass(getIntent().getStringExtra(SelectTagActivityConfig.SELECT_INIT_SECOND_CLASS));
             this.m.i(this.p);
             this.m.f();
-            List list = this.n;
+            List<String> list = this.n;
             if (list == null) {
                 return;
             }

@@ -21,7 +21,7 @@ public final class BdCore {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class EditTextType {
+    public static final class EditTextType {
         public static final /* synthetic */ EditTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final EditTextType ADD_BAR;

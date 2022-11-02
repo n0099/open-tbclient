@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,15 +25,15 @@ public class ScrollRecyclerView extends RecyclerView {
     public final CompositeScrollListener compositeScrollListener;
 
     /* loaded from: classes2.dex */
-    public interface RecyclerViewItemClickListener {
-        void onItemClickListener(int i, Object obj);
+    public interface RecyclerViewItemClickListener<T> {
+        void onItemClickListener(int i, T t);
     }
 
     /* loaded from: classes2.dex */
-    public class CompositeScrollListener extends RecyclerView.OnScrollListener {
+    public static class CompositeScrollListener extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List scrollListenerList;
+        public final List<RecyclerView.OnScrollListener> scrollListenerList;
 
         public CompositeScrollListener() {
             Interceptable interceptable = $ic;
@@ -67,9 +69,9 @@ public class ScrollRecyclerView extends RecyclerView {
             if ((interceptable != null && interceptable.invokeL(1048579, this, onScrollListener) != null) || onScrollListener == null) {
                 return;
             }
-            Iterator it = this.scrollListenerList.iterator();
+            Iterator<RecyclerView.OnScrollListener> it = this.scrollListenerList.iterator();
             while (it.hasNext()) {
-                if (onScrollListener == ((RecyclerView.OnScrollListener) it.next())) {
+                if (onScrollListener == it.next()) {
                     it.remove();
                     return;
                 }
@@ -77,7 +79,7 @@ public class ScrollRecyclerView extends RecyclerView {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i) == null) {
                 for (RecyclerView.OnScrollListener onScrollListener : new ArrayList(this.scrollListenerList)) {
@@ -87,7 +89,7 @@ public class ScrollRecyclerView extends RecyclerView {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, recyclerView, i, i2) == null) {
                 super.onScrolled(recyclerView, i, i2);
@@ -99,7 +101,7 @@ public class ScrollRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollRecyclerView(Context context) {
+    public ScrollRecyclerView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -169,7 +171,7 @@ public class ScrollRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollRecyclerView(Context context, AttributeSet attributeSet) {
+    public ScrollRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -240,7 +242,7 @@ public class ScrollRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollRecyclerView(Context context, AttributeSet attributeSet, int i) {
+    public ScrollRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

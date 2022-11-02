@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.me5;
+import com.baidu.tieba.if5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class CreateForumSuccessActivity extends BaseActivity {
+public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -116,7 +116,7 @@ public class CreateForumSuccessActivity extends BaseActivity {
             super.changeSkinType(i);
             super.changeSkinType(i);
             getLayoutMode().k(this.b);
-            me5.a(getPageContext(), this.b);
+            if5.a(getPageContext(), this.b);
             NoNetworkView noNetworkView = this.d;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.d.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -137,33 +137,33 @@ public class CreateForumSuccessActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0203);
+            setContentView(R.layout.obfuscated_res_0x7f0d0205);
             initData();
-            y1();
+            x1();
         }
     }
 
-    public final void y1() {
+    public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c80);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cc8);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092604);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(R.string.obfuscated_res_0x7f0f0475);
-            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925af);
-            int f = fj.f(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0908b7), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
+            this.c.setTitleText(R.string.obfuscated_res_0x7f0f0477);
+            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f092606);
+            int g = xi.g(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0908c7), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, g), null, null);
             this.e = a2;
             a2.setVisibility(0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092134);
-            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0cbc) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0cbd));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09210a);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092187);
+            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0cd3) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0cd4));
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09215d);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0ccf);
             if (!StringUtils.isNull(string) && this.g != null) {
                 this.g.setText(string.replace("%s", this.a));
             }
-            findViewById(R.id.obfuscated_res_0x7f092117).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f09216a).setOnClickListener(new a(this));
         }
     }
 }

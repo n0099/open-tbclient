@@ -1,99 +1,189 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Objects;
 /* loaded from: classes6.dex */
-public class u42 extends n42 {
+public final class u42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public long c;
+    public int d;
+    public RequestStatus e;
+    public String f;
 
-    /* loaded from: classes6.dex */
-    public class a implements o42 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.o42
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l42 l42Var = new l42();
-                l42Var.g(this.a);
-                l42Var.f(SceneType.SCENE_SKELETON_DEV_TIMEOUT);
-            }
-        }
-
-        public static o42 b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                a aVar = new a();
-                aVar.a = str;
-                return aVar;
-            }
-            return (o42) invokeL.objValue;
-        }
-    }
-
-    public u42() {
+    public u42(String str, long j, long j2, int i, RequestStatus requestStatus, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), requestStatus, str2};
             interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = j;
+        this.c = j2;
+        this.d = i;
+        this.e = requestStatus;
+        this.f = str2;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public u42(String str, long j, RequestStatus requestStatus, String str2) {
+        this(str, j, 0L, 200, requestStatus, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), requestStatus, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), ((Integer) objArr2[3]).intValue(), (RequestStatus) objArr2[4], (String) objArr2[5]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r42
-    /* renamed from: c */
-    public mv1 a(JSONObject jSONObject) {
+    public static u42 a(String str, long j, long j2, int i, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str2})) == null) {
+            return new u42(str, j, j2, i, RequestStatus.STATUS_FAILED, str2);
+        }
+        return (u42) invokeCommon.objValue;
+    }
+
+    public static u42 c(String str, long j, long j2, int i, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str2})) == null) {
+            return new u42(str, j, j2, i, RequestStatus.STATUS_SUCCESS, str2);
+        }
+        return (u42) invokeCommon.objValue;
+    }
+
+    public static u42 b(String str, long j, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
+            return new u42(str, j, RequestStatus.STATUS_SEND, str2);
+        }
+        return (u42) invokeCommon.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c - this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return g(false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (d() > 3000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return Objects.hash(this.a, Long.valueOf(this.b), this.f);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new mv1(202);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new mv1(202, "data is required");
+            if (obj == null || u42.class != obj.getClass()) {
+                return false;
             }
-            String optString = optJSONObject.optString("path");
-            if (TextUtils.isEmpty(optString)) {
-                return new mv1(202, "path is required");
+            u42 u42Var = (u42) obj;
+            if (this.b == u42Var.b && Objects.equals(this.a, u42Var.a) && Objects.equals(this.f, u42Var.f)) {
+                return true;
             }
-            b42 b = b42.b();
-            if (!b.d()) {
-                b.g(a.b(optString));
-            }
-            return new mv1(0);
+            return false;
         }
-        return (mv1) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public boolean g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (z) {
+                int i = this.d;
+                if ((i >= 400 && i < 600) || this.d == 0) {
+                    return true;
+                }
+                return false;
+            }
+            int i2 = this.d;
+            if (i2 >= 400 && i2 < 600) {
+                return true;
+            }
+            return false;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "Request{url='" + this.a + "', startTime=" + this.b + ", endTime=" + this.c + ", statusCode=" + this.d + ", status=" + this.e + ", tag=" + this.f + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

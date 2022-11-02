@@ -3,6 +3,7 @@ package com.facebook.drawee.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.transition.ChangeBounds;
@@ -18,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import javax.annotation.Nullable;
+@TargetApi(19)
 /* loaded from: classes7.dex */
 public class DraweeTransition extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
@@ -133,7 +134,7 @@ public class DraweeTransition extends Transition {
                     }
                     GenericDraweeView genericDraweeView = (GenericDraweeView) transitionValues.view;
                     ScalingUtils.InterpolatingScaleType interpolatingScaleType = new ScalingUtils.InterpolatingScaleType(this.mFromScale, this.mToScale, rect, rect2, this.mFromFocusPoint, this.mToFocusPoint);
-                    ((GenericDraweeHierarchy) genericDraweeView.getHierarchy()).setActualImageScaleType(interpolatingScaleType);
+                    genericDraweeView.getHierarchy().setActualImageScaleType(interpolatingScaleType);
                     ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                     ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, interpolatingScaleType) { // from class: com.facebook.drawee.view.DraweeTransition.1
                         public static /* synthetic */ Interceptable $ic;
@@ -197,9 +198,9 @@ public class DraweeTransition extends Transition {
                         public void onAnimationEnd(Animator animator) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                                ((GenericDraweeHierarchy) this.val$draweeView.getHierarchy()).setActualImageScaleType(this.this$0.mToScale);
+                                this.val$draweeView.getHierarchy().setActualImageScaleType(this.this$0.mToScale);
                                 if (this.this$0.mToFocusPoint != null) {
-                                    ((GenericDraweeHierarchy) this.val$draweeView.getHierarchy()).setActualImageFocusPoint(this.this$0.mToFocusPoint);
+                                    this.val$draweeView.getHierarchy().setActualImageFocusPoint(this.this$0.mToFocusPoint);
                                 }
                             }
                         }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ik implements iu, Serializable, Cloneable {
+public class ik implements iu<ik, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -59,7 +59,7 @@ public class ik implements iu, Serializable, Cloneable {
     public BitSet f692a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f693a;
+    public List<String> f693a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f694a;
@@ -348,7 +348,7 @@ public class ik implements iu, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public List m495a() {
+    public List<String> m495a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f693a : (List) invokeV.objValue;
@@ -1136,7 +1136,7 @@ public class ik implements iu, Serializable, Cloneable {
             if (t()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("autoMarkPkgs:");
-                List list = this.f693a;
+                List<String> list = this.f693a;
                 if (list == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

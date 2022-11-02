@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CryptoOptions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,14 +14,14 @@ public final class CryptoOptions {
     public final Srtp srtp;
 
     /* renamed from: org.webrtc.CryptoOptions$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
-    public class Builder {
+    /* loaded from: classes9.dex */
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean enableAes128Sha1_32CryptoCipher;
@@ -97,7 +97,7 @@ public final class CryptoOptions {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class SFrame {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,6 +127,7 @@ public final class CryptoOptions {
             this(cryptoOptions, z);
         }
 
+        @CalledByNative("SFrame")
         public boolean getRequireFrameEncryption() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -137,7 +138,7 @@ public final class CryptoOptions {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class Srtp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,6 +172,7 @@ public final class CryptoOptions {
             this(cryptoOptions, z, z2, z3);
         }
 
+        @CalledByNative("Srtp")
         public boolean getEnableAes128Sha1_32CryptoCipher() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -180,6 +182,7 @@ public final class CryptoOptions {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("Srtp")
         public boolean getEnableEncryptedRtpHeaderExtensions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -189,6 +192,7 @@ public final class CryptoOptions {
             return invokeV.booleanValue;
         }
 
+        @CalledByNative("Srtp")
         public boolean getEnableGcmCryptoSuites() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -231,6 +235,7 @@ public final class CryptoOptions {
         return (Builder) invokeV.objValue;
     }
 
+    @CalledByNative
     public SFrame getSFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -240,6 +245,7 @@ public final class CryptoOptions {
         return (SFrame) invokeV.objValue;
     }
 
+    @CalledByNative
     public Srtp getSrtp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

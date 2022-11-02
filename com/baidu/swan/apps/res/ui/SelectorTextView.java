@@ -1,12 +1,13 @@
 package com.baidu.swan.apps.res.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class SelectorTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +36,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        b = wj1.a;
+        b = ok1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

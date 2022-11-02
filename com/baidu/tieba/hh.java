@@ -1,60 +1,55 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hh extends Handler {
+public class hh {
     public static /* synthetic */ Interceptable $ic;
-    public static final hh a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public String B;
+    public String C;
+    public String D;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public String x;
+    public String y;
+    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448306349, "Lcom/baidu/tieba/hh;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448306349, "Lcom/baidu/tieba/hh;");
-                return;
-            }
-        }
-        a = new hh();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hh() {
-        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static final hh a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (hh) invokeV.objValue;
     }
 }

@@ -18,7 +18,7 @@ public interface TsPayloadReader {
 
     /* loaded from: classes7.dex */
     public interface Factory {
-        SparseArray createInitialPayloadReaders();
+        SparseArray<TsPayloadReader> createInitialPayloadReaders();
 
         TsPayloadReader createPayloadReader(int i, EsInfo esInfo);
     }
@@ -30,7 +30,7 @@ public interface TsPayloadReader {
     void seek();
 
     /* loaded from: classes7.dex */
-    public final class DvbSubtitleInfo {
+    public static final class DvbSubtitleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] initializationData;
@@ -59,16 +59,16 @@ public interface TsPayloadReader {
     }
 
     /* loaded from: classes7.dex */
-    public final class EsInfo {
+    public static final class EsInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] descriptorBytes;
-        public final List dvbSubtitleInfos;
+        public final List<DvbSubtitleInfo> dvbSubtitleInfos;
         public final String language;
         public final int streamType;
 
-        public EsInfo(int i, String str, List list, byte[] bArr) {
-            List unmodifiableList;
+        public EsInfo(int i, String str, List<DvbSubtitleInfo> list, byte[] bArr) {
+            List<DvbSubtitleInfo> unmodifiableList;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public interface TsPayloadReader {
     }
 
     /* loaded from: classes7.dex */
-    public final class TrackIdGenerator {
+    public static final class TrackIdGenerator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ID_UNSET = Integer.MIN_VALUE;
         public transient /* synthetic */ FieldHolder $fh;

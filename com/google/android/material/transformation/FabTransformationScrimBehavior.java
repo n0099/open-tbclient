@@ -8,6 +8,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +73,7 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
         this.collapseTiming = new MotionTiming(0L, 150L);
     }
 
-    private void createScrimAnimation(View view2, boolean z, boolean z2, List list, List list2) {
+    private void createScrimAnimation(@NonNull View view2, boolean z, boolean z2, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
         MotionTiming motionTiming;
         ObjectAnimator ofFloat;
         Interceptable interceptable = $ic;
@@ -106,7 +107,7 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onTouchEvent(CoordinatorLayout coordinatorLayout, View view2, MotionEvent motionEvent) {
+    public boolean onTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, view2, motionEvent)) == null) {
@@ -116,7 +117,8 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
     }
 
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior
-    public AnimatorSet onCreateExpandedStateChangeAnimation(View view2, View view3, boolean z, boolean z2) {
+    @NonNull
+    public AnimatorSet onCreateExpandedStateChangeAnimation(@NonNull View view2, @NonNull View view3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {

@@ -106,7 +106,7 @@ public class SpeedStatData {
                     long currentTimeMillis = System.currentTimeMillis();
                     long j = 0;
                     for (int i2 = 0; i2 < taskSpeedStat.getSpeedStatThreadList().size(); i2++) {
-                        ThreadSpeedStat threadSpeedStat = (ThreadSpeedStat) taskSpeedStat.getSpeedStatThreadList().get(i2);
+                        ThreadSpeedStat threadSpeedStat = taskSpeedStat.getSpeedStatThreadList().get(i2);
                         j += (threadSpeedStat.dend + threadSpeedStat.dTempDownSize) - threadSpeedStat.dstart;
                     }
                     if (configSpeedStat != null && (Math.abs(currentTimeMillis - taskSpeedStat.startTimeMillis) < configSpeedStat.cfgMinTime * 1000 || j < configSpeedStat.cfgMinSize)) {
@@ -140,7 +140,7 @@ public class SpeedStatData {
                 jSONObject.put("endwritetime", taskSpeedStat.endWriteTimeMillis + "");
                 JSONArray jSONArray = new JSONArray();
                 for (int i3 = 0; i3 < taskSpeedStat.getSpeedStatThreadList().size(); i3++) {
-                    ThreadSpeedStat threadSpeedStat2 = (ThreadSpeedStat) taskSpeedStat.getSpeedStatThreadList().get(i3);
+                    ThreadSpeedStat threadSpeedStat2 = taskSpeedStat.getSpeedStatThreadList().get(i3);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put(ThreadSpeedStat.CLIENT_REQUEST_ID_HEADER_NAME, threadSpeedStat2.cqid);
                     jSONObject2.put("url", threadSpeedStat2.url);

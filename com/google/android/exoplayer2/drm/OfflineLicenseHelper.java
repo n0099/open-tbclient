@@ -14,19 +14,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.drm.DefaultDrmSessionManager;
 import com.google.android.exoplayer2.drm.DrmSession;
+import com.google.android.exoplayer2.drm.ExoMediaCrypto;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes7.dex */
-public final class OfflineLicenseHelper {
+public final class OfflineLicenseHelper<T extends ExoMediaCrypto> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ConditionVariable conditionVariable;
-    public final DefaultDrmSessionManager drmSessionManager;
+    public final DefaultDrmSessionManager<T> drmSessionManager;
     public final HandlerThread handlerThread;
 
-    public OfflineLicenseHelper(UUID uuid, ExoMediaDrm exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap hashMap) {
+    public OfflineLicenseHelper(UUID uuid, ExoMediaDrm<T> exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +46,7 @@ public final class OfflineLicenseHelper {
         this.handlerThread = handlerThread;
         handlerThread.start();
         this.conditionVariable = new ConditionVariable();
-        this.drmSessionManager = new DefaultDrmSessionManager(uuid, exoMediaDrm, mediaDrmCallback, hashMap, new Handler(this.handlerThread.getLooper()), new DefaultDrmSessionManager.EventListener(this) { // from class: com.google.android.exoplayer2.drm.OfflineLicenseHelper.1
+        this.drmSessionManager = new DefaultDrmSessionManager<>(uuid, exoMediaDrm, mediaDrmCallback, hashMap, new Handler(this.handlerThread.getLooper()), new DefaultDrmSessionManager.EventListener(this) { // from class: com.google.android.exoplayer2.drm.OfflineLicenseHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfflineLicenseHelper this$0;
@@ -176,7 +177,7 @@ public final class OfflineLicenseHelper {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, this, i, bArr, drmInitData)) == null) {
-            DrmSession openBlockingKeyRequest = openBlockingKeyRequest(i, bArr, drmInitData);
+            DrmSession<T> openBlockingKeyRequest = openBlockingKeyRequest(i, bArr, drmInitData);
             DrmSession.DrmSessionException error = openBlockingKeyRequest.getError();
             byte[] offlineLicenseKeySetId = openBlockingKeyRequest.getOfflineLicenseKeySetId();
             this.drmSessionManager.releaseSession(openBlockingKeyRequest);
@@ -188,7 +189,7 @@ public final class OfflineLicenseHelper {
         return (byte[]) invokeILL.objValue;
     }
 
-    public static OfflineLicenseHelper newWidevineInstance(String str, boolean z, HttpDataSource.Factory factory) throws UnsupportedDrmException {
+    public static OfflineLicenseHelper<FrameworkMediaCrypto> newWidevineInstance(String str, boolean z, HttpDataSource.Factory factory) throws UnsupportedDrmException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Boolean.valueOf(z), factory})) == null) {
@@ -197,20 +198,20 @@ public final class OfflineLicenseHelper {
         return (OfflineLicenseHelper) invokeCommon.objValue;
     }
 
-    private DrmSession openBlockingKeyRequest(int i, byte[] bArr, DrmInitData drmInitData) {
+    private DrmSession<T> openBlockingKeyRequest(int i, byte[] bArr, DrmInitData drmInitData) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65542, this, i, bArr, drmInitData)) == null) {
             this.drmSessionManager.setMode(i, bArr);
             this.conditionVariable.close();
-            DrmSession acquireSession = this.drmSessionManager.acquireSession(this.handlerThread.getLooper(), drmInitData);
+            DrmSession<T> acquireSession = this.drmSessionManager.acquireSession(this.handlerThread.getLooper(), drmInitData);
             this.conditionVariable.block();
             return acquireSession;
         }
         return (DrmSession) invokeILL.objValue;
     }
 
-    public static OfflineLicenseHelper newWidevineInstance(String str, HttpDataSource.Factory factory) throws UnsupportedDrmException {
+    public static OfflineLicenseHelper<FrameworkMediaCrypto> newWidevineInstance(String str, HttpDataSource.Factory factory) throws UnsupportedDrmException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, factory)) == null) {
@@ -237,25 +238,25 @@ public final class OfflineLicenseHelper {
         }
     }
 
-    public static OfflineLicenseHelper newWidevineInstance(String str, boolean z, HttpDataSource.Factory factory, HashMap hashMap) throws UnsupportedDrmException {
+    public static OfflineLicenseHelper<FrameworkMediaCrypto> newWidevineInstance(String str, boolean z, HttpDataSource.Factory factory, HashMap<String, String> hashMap) throws UnsupportedDrmException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, Boolean.valueOf(z), factory, hashMap})) == null) {
             UUID uuid = C.WIDEVINE_UUID;
-            return new OfflineLicenseHelper(uuid, FrameworkMediaDrm.newInstance(uuid), new HttpMediaDrmCallback(str, z, factory), hashMap);
+            return new OfflineLicenseHelper<>(uuid, FrameworkMediaDrm.newInstance(uuid), new HttpMediaDrmCallback(str, z, factory), hashMap);
         }
         return (OfflineLicenseHelper) invokeCommon.objValue;
     }
 
-    public synchronized Pair getLicenseDurationRemainingSec(byte[] bArr) throws DrmSession.DrmSessionException {
+    public synchronized Pair<Long, Long> getLicenseDurationRemainingSec(byte[] bArr) throws DrmSession.DrmSessionException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
             synchronized (this) {
                 Assertions.checkNotNull(bArr);
-                DrmSession openBlockingKeyRequest = openBlockingKeyRequest(1, bArr, null);
+                DrmSession<T> openBlockingKeyRequest = openBlockingKeyRequest(1, bArr, null);
                 DrmSession.DrmSessionException error = openBlockingKeyRequest.getError();
-                Pair licenseDurationRemainingSec = WidevineUtil.getLicenseDurationRemainingSec(openBlockingKeyRequest);
+                Pair<Long, Long> licenseDurationRemainingSec = WidevineUtil.getLicenseDurationRemainingSec(openBlockingKeyRequest);
                 this.drmSessionManager.releaseSession(openBlockingKeyRequest);
                 if (error != null) {
                     if (error.getCause() instanceof KeysExpiredException) {

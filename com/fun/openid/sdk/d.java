@@ -21,11 +21,11 @@ public class d implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a implements ServiceConnection {
+    public static final class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-        public final LinkedBlockingQueue b;
+        public final LinkedBlockingQueue<IBinder> b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class d implements f {
                 }
             }
             this.a = false;
-            this.b = new LinkedBlockingQueue();
+            this.b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
@@ -52,7 +52,7 @@ public class d implements f {
                     throw new IllegalStateException();
                 }
                 this.a = true;
-                return (IBinder) this.b.poll(5L, TimeUnit.SECONDS);
+                return this.b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }

@@ -43,10 +43,10 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a extends Handler {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference d;
+        public final WeakReference<Context> d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -66,13 +66,13 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.d = new WeakReference(context);
+            this.d = new WeakReference<>(context);
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public static final b b;
@@ -372,9 +372,9 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
 
     public abstract void onBind(Context context, int i, String str, String str2, String str3, String str4);
 
-    public abstract void onDelTags(Context context, int i, List list, List list2, String str);
+    public abstract void onDelTags(Context context, int i, List<String> list, List<String> list2, String str);
 
-    public abstract void onListTags(Context context, int i, List list, String str);
+    public abstract void onListTags(Context context, int i, List<String> list, String str);
 
     public abstract void onMessage(Context context, String str, String str2, int i);
 
@@ -726,7 +726,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) || this.d.get() == null) {
                                 return;
                             }
-                            this.c.onMessage((Context) this.d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                            this.c.onMessage(this.d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
                             PushMessageReceiver.sendCallback(this.a, this.b, 10, false);
                         }
                     }) { // from class: com.baidu.android.pushservice.PushMessageReceiver.2
@@ -799,7 +799,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         }
     }
 
-    public abstract void onSetTags(Context context, int i, List list, List list2, String str);
+    public abstract void onSetTags(Context context, int i, List<String> list, List<String> list2, String str);
 
     public abstract void onUnbind(Context context, int i, String str);
 

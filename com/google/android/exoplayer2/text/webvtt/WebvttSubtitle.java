@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.Subtitle;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
@@ -19,11 +20,11 @@ public final class WebvttSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long[] cueTimesUs;
-    public final List cues;
+    public final List<WebvttCue> cues;
     public final int numCues;
     public final long[] sortedCueTimesUs;
 
-    public WebvttSubtitle(List list) {
+    public WebvttSubtitle(List<WebvttCue> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +44,7 @@ public final class WebvttSubtitle implements Subtitle {
         this.numCues = size;
         this.cueTimesUs = new long[size * 2];
         for (int i3 = 0; i3 < this.numCues; i3++) {
-            WebvttCue webvttCue = (WebvttCue) list.get(i3);
+            WebvttCue webvttCue = list.get(i3);
             int i4 = i3 * 2;
             long[] jArr = this.cueTimesUs;
             jArr[i4] = webvttCue.startTime;
@@ -56,7 +57,7 @@ public final class WebvttSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List getCues(long j) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
@@ -70,7 +71,7 @@ public final class WebvttSubtitle implements Subtitle {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    WebvttCue webvttCue2 = (WebvttCue) this.cues.get(i);
+                    WebvttCue webvttCue2 = this.cues.get(i);
                     if (webvttCue2.isNormalCue()) {
                         if (webvttCue == null) {
                             webvttCue = webvttCue2;

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.download;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g implements f {
     public AdInfo mAdInfo;
 

@@ -1,5 +1,6 @@
 package com.bytedance.pangle.download;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -37,16 +38,16 @@ public final class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.bytedance.pangle.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class EnumC0493a {
+    public static final class EnumC0504a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0493a a;
-        public static final EnumC0493a b;
-        public static final EnumC0493a c;
-        public static final EnumC0493a d;
-        public static final EnumC0493a e;
-        public static final EnumC0493a f;
-        public static final EnumC0493a g;
-        public static final /* synthetic */ EnumC0493a[] i;
+        public static final EnumC0504a a;
+        public static final EnumC0504a b;
+        public static final EnumC0504a c;
+        public static final EnumC0504a d;
+        public static final EnumC0504a e;
+        public static final EnumC0504a f;
+        public static final EnumC0504a g;
+        public static final /* synthetic */ EnumC0504a[] i;
         public transient /* synthetic */ FieldHolder $fh;
         public final int h;
 
@@ -63,18 +64,18 @@ public final class a {
                     return;
                 }
             }
-            a = new EnumC0493a(RomUtils.UNKNOWN, 0, -1);
-            b = new EnumC0493a(HlsPlaylistParser.METHOD_NONE, 1, 0);
-            c = new EnumC0493a("MOBILE", 2, 1);
-            d = new EnumC0493a("MOBILE_2G", 3, 2);
-            e = new EnumC0493a("MOBILE_3G", 4, 3);
-            f = new EnumC0493a("WIFI", 5, 4);
-            EnumC0493a enumC0493a = new EnumC0493a("MOBILE_4G", 6, 5);
-            g = enumC0493a;
-            i = new EnumC0493a[]{a, b, c, d, e, f, enumC0493a};
+            a = new EnumC0504a(RomUtils.UNKNOWN, 0, -1);
+            b = new EnumC0504a(HlsPlaylistParser.METHOD_NONE, 1, 0);
+            c = new EnumC0504a("MOBILE", 2, 1);
+            d = new EnumC0504a("MOBILE_2G", 3, 2);
+            e = new EnumC0504a("MOBILE_3G", 4, 3);
+            f = new EnumC0504a("WIFI", 5, 4);
+            EnumC0504a enumC0504a = new EnumC0504a("MOBILE_4G", 6, 5);
+            g = enumC0504a;
+            i = new EnumC0504a[]{a, b, c, d, e, f, enumC0504a};
         }
 
-        public EnumC0493a(String str, int i2, int i3) {
+        public EnumC0504a(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,26 +96,27 @@ public final class a {
             this.h = i3;
         }
 
-        public static EnumC0493a valueOf(String str) {
+        public static EnumC0504a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (EnumC0493a) Enum.valueOf(EnumC0493a.class, str);
+                return (EnumC0504a) Enum.valueOf(EnumC0504a.class, str);
             }
-            return (EnumC0493a) invokeL.objValue;
+            return (EnumC0504a) invokeL.objValue;
         }
 
-        public static EnumC0493a[] values() {
+        public static EnumC0504a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (EnumC0493a[]) i.clone();
+                return (EnumC0504a[]) i.clone();
             }
-            return (EnumC0493a[]) invokeV.objValue;
+            return (EnumC0504a[]) invokeV.objValue;
         }
     }
 
-    public static EnumC0493a a(Context context) {
+    @SuppressLint({"MissingPermission"})
+    public static EnumC0504a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -123,7 +125,7 @@ public final class a {
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return EnumC0493a.f;
+                        return EnumC0504a.f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -136,23 +138,23 @@ public final class a {
                             case 12:
                             case 14:
                             case 15:
-                                return EnumC0493a.e;
+                                return EnumC0504a.e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return EnumC0493a.c;
+                                return EnumC0504a.c;
                             case 13:
-                                return EnumC0493a.g;
+                                return EnumC0504a.g;
                         }
                     }
-                    return EnumC0493a.c;
+                    return EnumC0504a.c;
                 }
-                return EnumC0493a.b;
+                return EnumC0504a.b;
             } catch (Throwable unused) {
-                return EnumC0493a.c;
+                return EnumC0504a.c;
             }
         }
-        return (EnumC0493a) invokeL.objValue;
+        return (EnumC0504a) invokeL.objValue;
     }
 }

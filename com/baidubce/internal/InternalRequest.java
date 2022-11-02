@@ -16,16 +16,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class InternalRequest {
+public class InternalRequest<T extends AbstractBceRequest> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RestartableInputStream content;
     public BceCredentials credentials;
     public boolean expectContinueEnabled;
-    public Map headers;
+    public Map<String, String> headers;
     public HttpMethodName httpMethod;
-    public Map parameters;
-    public AbstractBceRequest request;
+    public Map<String, String> parameters;
+    public T request;
     public SignOptions signOptions;
     public URI uri;
 
@@ -82,7 +82,7 @@ public class InternalRequest {
         return (BceCredentials) invokeV.objValue;
     }
 
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -100,7 +100,7 @@ public class InternalRequest {
         return (HttpMethodName) invokeV.objValue;
     }
 
-    public Map getParameters() {
+    public Map<String, String> getParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -109,13 +109,13 @@ public class InternalRequest {
         return (Map) invokeV.objValue;
     }
 
-    public AbstractBceRequest getRequest() {
+    public T getRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.request;
         }
-        return (AbstractBceRequest) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public SignOptions getSignOptions() {
@@ -166,7 +166,7 @@ public class InternalRequest {
         }
     }
 
-    public void setHeaders(Map map) {
+    public void setHeaders(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, map) == null) {
             this.headers.clear();
@@ -174,7 +174,7 @@ public class InternalRequest {
         }
     }
 
-    public void setParameters(Map map) {
+    public void setParameters(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, map) == null) {
             this.parameters.clear();
@@ -182,10 +182,10 @@ public class InternalRequest {
         }
     }
 
-    public void setRequest(AbstractBceRequest abstractBceRequest) {
+    public void setRequest(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, abstractBceRequest) == null) {
-            this.request = abstractBceRequest;
+        if (interceptable == null || interceptable.invokeL(1048592, this, t) == null) {
+            this.request = t;
         }
     }
 

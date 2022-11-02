@@ -1,5 +1,6 @@
 package com.baidu.webkit.logsdk.a;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.net.ConnectivityManager;
@@ -246,6 +247,7 @@ public final class a {
         return invokeL.booleanValue;
     }
 
+    @SuppressLint({"HardwareIds"})
     public static synchronized String d() {
         InterceptResult invokeV;
         String str;
@@ -950,22 +952,22 @@ public final class a {
             if ("full".equals(d.a)) {
                 return a(context);
             }
-            HashSet hashSet = d.c;
+            HashSet<String> hashSet = d.c;
             JSONObject jSONObject = new JSONObject();
             if (hashSet != null) {
                 try {
                     com.baidu.webkit.logsdk.b c = b.a().c();
-                    Iterator it = hashSet.iterator();
+                    Iterator<String> it = hashSet.iterator();
                     while (it.hasNext()) {
-                        String str2 = (String) it.next();
-                        String a = a(str2, context, c);
+                        String next = it.next();
+                        String a = a(next, context, c);
                         if (TextUtils.isEmpty(a)) {
-                            int a2 = a(str2, context);
+                            int a2 = a(next, context);
                             if (a2 > 0) {
-                                jSONObject.put(str2, a2);
+                                jSONObject.put(next, a2);
                             }
                         } else {
-                            jSONObject.put(str2, a);
+                            jSONObject.put(next, a);
                         }
                     }
                 } catch (Exception e) {

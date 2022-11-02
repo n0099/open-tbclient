@@ -1,5 +1,7 @@
 package androidx.collection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -219,6 +221,7 @@ public class LongSparseArray<E> implements Cloneable {
         }
     }
 
+    @Nullable
     public E get(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -269,7 +272,7 @@ public class LongSparseArray<E> implements Cloneable {
         return invokeI.longValue;
     }
 
-    public void putAll(LongSparseArray<? extends E> longSparseArray) {
+    public void putAll(@NonNull LongSparseArray<? extends E> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, longSparseArray) == null) {
             int size = longSparseArray.size();
@@ -334,6 +337,7 @@ public class LongSparseArray<E> implements Cloneable {
         return (E) invokeJL.objValue;
     }
 
+    @Nullable
     public E putIfAbsent(long j, E e) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
@@ -365,6 +369,7 @@ public class LongSparseArray<E> implements Cloneable {
         return invokeJL.booleanValue;
     }
 
+    @Nullable
     public E replace(long j, E e) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;

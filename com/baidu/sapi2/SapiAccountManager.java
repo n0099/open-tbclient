@@ -48,7 +48,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.jh1;
+import com.baidu.tieba.bi1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,7 +86,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public static SapiAccountService sapiAccountService;
     public static SapiConfiguration sapiConfiguration;
     public static ServiceManager serviceManager;
-    public static final List sessionKeys;
+    public static final List<String> sessionKeys;
     public static TidConvertSidCallback tidConvertSidCallback;
     public transient /* synthetic */ FieldHolder $fh;
     public char isUseOpenBdussTpl;
@@ -257,7 +257,7 @@ public final class SapiAccountManager implements ISAccountManager {
         return (ISAccountService) invokeV.objValue;
     }
 
-    public List getLoginAccounts() {
+    public List<SapiAccount> getLoginAccounts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -352,7 +352,7 @@ public final class SapiAccountManager implements ISAccountManager {
         return (UbcUploadImplCallback) invokeV.objValue;
     }
 
-    public List getV2ShareModelList() {
+    public List<ShareStorage.StorageModel> getV2ShareModelList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
@@ -450,13 +450,13 @@ public final class SapiAccountManager implements ISAccountManager {
         return (String) invokeL.objValue;
     }
 
-    public List getV2ShareModelList(String str) {
+    public List<ShareStorage.StorageModel> getV2ShareModelList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
             checkInitialization();
             ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_V2);
-            List v2ShareModelList = ShareLoginModel.getInstance().getV2ShareModelList(str);
+            List<ShareStorage.StorageModel> v2ShareModelList = ShareLoginModel.getInstance().getV2ShareModelList(str);
             ShareLoginStat.GetShareListStat.upload();
             return v2ShareModelList;
         }
@@ -512,7 +512,7 @@ public final class SapiAccountManager implements ISAccountManager {
                     this.val$callback = shareModelCallback;
                 }
 
-                public void compatibilityOld(List list, String str) {
+                public void compatibilityOld(List<ShareStorage.StorageModel> list, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, list, str) == null) {
                         this.this$0.onShareEvent(list, str);
@@ -521,7 +521,7 @@ public final class SapiAccountManager implements ISAccountManager {
                 }
 
                 @Override // com.baidu.sapi2.callback.ShareModelWithCheckCallback
-                public void onSuccess(List list, String str) {
+                public void onSuccess(List<ShareStorage.StorageModel> list, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str) == null) {
                         compatibilityOld(list, str);
@@ -677,7 +677,7 @@ public final class SapiAccountManager implements ISAccountManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048608, this, z) == null) && (sapiConfiguration2 = getSapiConfiguration()) != null) {
             sapiConfiguration2.setAgreeDangerousProtocol(z);
-            jh1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+            bi1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
             sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
             if (sapiConfiguration2.supportFaceLogin) {
                 new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);
@@ -726,11 +726,11 @@ public final class SapiAccountManager implements ISAccountManager {
     private void loadHistoryActionLogin(LoginHistoryModel loginHistoryModel, LoginHistoryCallback loginHistoryCallback, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65550, this, loginHistoryModel, loginHistoryCallback, z) == null) {
-            List loadHistoryAccounts = LoginHistoryLoginModel.loadHistoryAccounts();
+            List<AccountLoginAction> loadHistoryAccounts = LoginHistoryLoginModel.loadHistoryAccounts();
             if (loadHistoryAccounts != null && loadHistoryAccounts.size() != 0) {
                 int size = loadHistoryAccounts.size();
                 for (int i = 0; i < size; i++) {
-                    AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i);
+                    AccountLoginAction accountLoginAction = loadHistoryAccounts.get(i);
                     if (TextUtils.equals(SecurityUtil.md5(accountLoginAction.sapiAccount.bduss.getBytes(), false), loginHistoryModel.bduss)) {
                         statLoginHistoryLogin(z, true);
                         validate(accountLoginAction.sapiAccount);
@@ -757,7 +757,7 @@ public final class SapiAccountManager implements ISAccountManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void processAvailableHistory(List list, JSONArray jSONArray, LoginHistoryCallback loginHistoryCallback) {
+    public void processAvailableHistory(List<LoginHistoryItem> list, JSONArray jSONArray, LoginHistoryCallback loginHistoryCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65551, this, list, jSONArray, loginHistoryCallback) == null) {
             ArrayList arrayList = new ArrayList();
@@ -768,10 +768,10 @@ public final class SapiAccountManager implements ISAccountManager {
                     String optString = jSONObject.optString("loginType");
                     String optString2 = jSONObject.optString("bduss");
                     if (!TextUtils.isEmpty(optString2) && TextUtils.equals(optString, "history")) {
-                        List loadHistoryAccounts = LoginHistoryLoginModel.loadHistoryAccounts();
+                        List<AccountLoginAction> loadHistoryAccounts = LoginHistoryLoginModel.loadHistoryAccounts();
                         if (loadHistoryAccounts != null && !loadHistoryAccounts.isEmpty()) {
                             for (int i2 = 0; i2 < loadHistoryAccounts.size(); i2++) {
-                                AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i2);
+                                AccountLoginAction accountLoginAction = loadHistoryAccounts.get(i2);
                                 if (TextUtils.equals(SecurityUtil.md5(accountLoginAction.sapiAccount.bduss.getBytes(), false), optString2)) {
                                     jSONObject.put("uid", accountLoginAction.sapiAccount.uid);
                                 }
@@ -819,16 +819,14 @@ public final class SapiAccountManager implements ISAccountManager {
         }
     }
 
-    public void onShareEvent(List list, String str) {
+    public void onShareEvent(List<ShareStorage.StorageModel> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, list, str) == null) {
             if (list != null && !list.isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
                 JSONArray jSONArray2 = new JSONArray();
                 int i = 0;
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    ShareStorage.StorageModel storageModel = (ShareStorage.StorageModel) it.next();
+                for (ShareStorage.StorageModel storageModel : list) {
                     if (storageModel != null) {
                         jSONArray.put(storageModel.tpl);
                         jSONArray2.put(storageModel.app);
@@ -849,7 +847,7 @@ public final class SapiAccountManager implements ISAccountManager {
         String jSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, loginHistoryCallback) == null) {
-            List availableLoginHistoryItems = LoginHistoryLoginModel.getAvailableLoginHistoryItems();
+            List<LoginHistoryItem> availableLoginHistoryItems = LoginHistoryLoginModel.getAvailableLoginHistoryItems();
             JSONArray jSONArray2 = LoginHistoryItem.toJSONArray(availableLoginHistoryItems);
             if (jSONArray2 == null) {
                 jSONArray = null;
@@ -976,7 +974,7 @@ public final class SapiAccountManager implements ISAccountManager {
                 }
 
                 @Override // com.baidu.sapi2.callback.ShareModelWithCheckCallback
-                public void onSuccess(List list, String str) {
+                public void onSuccess(List<ShareStorage.StorageModel> list, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
                         this.val$callback.onSuccess(list);
@@ -1166,12 +1164,12 @@ public final class SapiAccountManager implements ISAccountManager {
                                     }
                                     new ShareCallPacking().syncMarkLoginState(i);
                                     this.val$configuration.clientIp = SapiUtils.getLocalIpAddress();
-                                    List initialCachePackagesWhiteList = SapiOptions.getInitialCachePackagesWhiteList();
+                                    List<String> initialCachePackagesWhiteList = SapiOptions.getInitialCachePackagesWhiteList();
                                     String packageName = this.val$configuration.context.getPackageName();
-                                    Iterator it = initialCachePackagesWhiteList.iterator();
+                                    Iterator<String> it = initialCachePackagesWhiteList.iterator();
                                     while (true) {
                                         if (it.hasNext()) {
-                                            if (packageName.matches((String) it.next())) {
+                                            if (packageName.matches(it.next())) {
                                                 z = false;
                                                 break;
                                             }

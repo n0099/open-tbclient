@@ -6,6 +6,9 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ReportFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,49 +40,49 @@ public class ReportFragment extends Fragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
+        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
             }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
+        public void onActivityDestroyed(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
             }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(Activity activity) {
+        public void onActivityPaused(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
+        public void onActivityResumed(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
             }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048586, this, activity, bundle) == null) {
             }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
+        public void onActivityStarted(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, activity) == null) {
             }
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
+        public void onActivityStopped(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
             }
@@ -99,7 +103,7 @@ public class ReportFragment extends Fragment {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPostCreated(Activity activity, Bundle bundle) {
+        public void onActivityPostCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, activity, bundle) == null) {
                 ReportFragment.dispatch(activity, Lifecycle.Event.ON_CREATE);
@@ -107,7 +111,7 @@ public class ReportFragment extends Fragment {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPostResumed(Activity activity) {
+        public void onActivityPostResumed(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
                 ReportFragment.dispatch(activity, Lifecycle.Event.ON_RESUME);
@@ -115,7 +119,7 @@ public class ReportFragment extends Fragment {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPostStarted(Activity activity) {
+        public void onActivityPostStarted(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
                 ReportFragment.dispatch(activity, Lifecycle.Event.ON_START);
@@ -123,7 +127,7 @@ public class ReportFragment extends Fragment {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPreDestroyed(Activity activity) {
+        public void onActivityPreDestroyed(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
                 ReportFragment.dispatch(activity, Lifecycle.Event.ON_DESTROY);
@@ -131,7 +135,7 @@ public class ReportFragment extends Fragment {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPrePaused(Activity activity) {
+        public void onActivityPrePaused(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
                 ReportFragment.dispatch(activity, Lifecycle.Event.ON_PAUSE);
@@ -139,7 +143,7 @@ public class ReportFragment extends Fragment {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPreStopped(Activity activity) {
+        public void onActivityPreStopped(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
                 ReportFragment.dispatch(activity, Lifecycle.Event.ON_STOP);
@@ -209,7 +213,7 @@ public class ReportFragment extends Fragment {
         }
     }
 
-    public static void dispatch(Activity activity, Lifecycle.Event event) {
+    public static void dispatch(@NonNull Activity activity, @NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, activity, event) == null) {
             if (activity instanceof LifecycleRegistryOwner) {
@@ -223,7 +227,7 @@ public class ReportFragment extends Fragment {
         }
     }
 
-    private void dispatch(Lifecycle.Event event) {
+    private void dispatch(@NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, this, event) == null) && Build.VERSION.SDK_INT < 29) {
             dispatch(getActivity(), event);

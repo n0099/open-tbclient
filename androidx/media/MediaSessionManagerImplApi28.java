@@ -2,6 +2,7 @@ package androidx.media;
 
 import android.content.Context;
 import android.media.session.MediaSessionManager;
+import androidx.annotation.RequiresApi;
 import androidx.media.MediaSessionManager;
 import androidx.media.MediaSessionManagerImplBase;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(28)
 /* loaded from: classes.dex */
 public class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
     public static /* synthetic */ Interceptable $ic;

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
 /* loaded from: classes5.dex */
-public class m8 {
+public class m8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object[] a;
-    public Comparator b;
+    public T[] a;
+    public Comparator<? super T> b;
     public int c;
-    public Object[] d;
+    public T[] d;
     public int e;
     public int f;
     public final int[] g;
@@ -51,25 +51,25 @@ public class m8 {
         }
         this.c = 7;
         this.f = 0;
-        this.d = new Object[256];
+        this.d = (T[]) new Object[256];
         this.g = new int[40];
         this.h = new int[40];
     }
 
     /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:21:0x003d -> B:5:0x0006 */
-    public static void a(Object[] objArr, int i, int i2, int i3, Comparator comparator) {
+    public static <T> void a(T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{objArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator}) == null) {
             if (i3 == i) {
                 i3++;
             }
             while (i3 < i2) {
-                Object obj = objArr[i3];
+                T t = tArr[i3];
                 int i4 = i;
                 int i5 = i3;
                 while (i4 < i5) {
                     int i6 = (i4 + i5) >>> 1;
-                    if (comparator.compare(obj, objArr[i6]) < 0) {
+                    if (comparator.compare(t, tArr[i6]) < 0) {
                         i5 = i6;
                     } else {
                         i4 = i6 + 1;
@@ -78,36 +78,36 @@ public class m8 {
                 int i7 = i3 - i4;
                 if (i7 != 1) {
                     if (i7 != 2) {
-                        System.arraycopy(objArr, i4, objArr, i4 + 1, i7);
-                        objArr[i4] = obj;
+                        System.arraycopy(tArr, i4, tArr, i4 + 1, i7);
+                        tArr[i4] = t;
                         i3++;
                     } else {
-                        objArr[i4 + 2] = objArr[i4 + 1];
+                        tArr[i4 + 2] = tArr[i4 + 1];
                     }
                 }
-                objArr[i4 + 1] = objArr[i4];
-                objArr[i4] = obj;
+                tArr[i4 + 1] = tArr[i4];
+                tArr[i4] = t;
                 i3++;
             }
         }
     }
 
-    public static int b(Object[] objArr, int i, int i2, Comparator comparator) {
+    public static <T> int b(T[] tArr, int i, int i2, Comparator<? super T> comparator) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{objArr, Integer.valueOf(i), Integer.valueOf(i2), comparator})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{tArr, Integer.valueOf(i), Integer.valueOf(i2), comparator})) == null) {
             int i3 = i + 1;
             if (i3 == i2) {
                 return 1;
             }
             int i4 = i3 + 1;
-            if (comparator.compare(objArr[i3], objArr[i]) < 0) {
-                while (i4 < i2 && comparator.compare(objArr[i4], objArr[i4 - 1]) < 0) {
+            if (comparator.compare(tArr[i3], tArr[i]) < 0) {
+                while (i4 < i2 && comparator.compare(tArr[i4], tArr[i4 - 1]) < 0) {
                     i4++;
                 }
-                o(objArr, i, i4);
+                o(tArr, i, i4);
             } else {
-                while (i4 < i2 && comparator.compare(objArr[i4], objArr[i4 - 1]) >= 0) {
+                while (i4 < i2 && comparator.compare(tArr[i4], tArr[i4 - 1]) >= 0) {
                     i4++;
                 }
             }
@@ -116,18 +116,18 @@ public class m8 {
         return invokeCommon.intValue;
     }
 
-    public static int e(Object obj, Object[] objArr, int i, int i2, int i3, Comparator comparator) {
+    public static <T> int e(T t, T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
         InterceptResult invokeCommon;
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{obj, objArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{t, tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
             int i6 = i + i3;
-            if (comparator.compare(obj, objArr[i6]) > 0) {
+            if (comparator.compare(t, tArr[i6]) > 0) {
                 int i7 = i2 - i3;
                 int i8 = 0;
                 int i9 = 1;
-                while (i9 < i7 && comparator.compare(obj, objArr[i6 + i9]) > 0) {
+                while (i9 < i7 && comparator.compare(t, tArr[i6 + i9]) > 0) {
                     int i10 = (i9 << 1) + 1;
                     if (i10 <= 0) {
                         i8 = i9;
@@ -147,7 +147,7 @@ public class m8 {
                 int i12 = i3 + 1;
                 int i13 = 0;
                 int i14 = 1;
-                while (i14 < i12 && comparator.compare(obj, objArr[i6 - i14]) <= 0) {
+                while (i14 < i12 && comparator.compare(t, tArr[i6 - i14]) <= 0) {
                     int i15 = (i14 << 1) + 1;
                     if (i15 <= 0) {
                         i13 = i14;
@@ -169,7 +169,7 @@ public class m8 {
             int i19 = i4 + 1;
             while (i19 < i5) {
                 int i20 = ((i5 - i19) >>> 1) + i19;
-                if (comparator.compare(obj, objArr[i + i20]) > 0) {
+                if (comparator.compare(t, tArr[i + i20]) > 0) {
                     i19 = i20 + 1;
                 } else {
                     i5 = i20;
@@ -180,18 +180,18 @@ public class m8 {
         return invokeCommon.intValue;
     }
 
-    public static int f(Object obj, Object[] objArr, int i, int i2, int i3, Comparator comparator) {
+    public static <T> int f(T t, T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
         InterceptResult invokeCommon;
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, objArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{t, tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
             int i6 = i + i3;
-            if (comparator.compare(obj, objArr[i6]) < 0) {
+            if (comparator.compare(t, tArr[i6]) < 0) {
                 int i7 = i3 + 1;
                 int i8 = 0;
                 int i9 = 1;
-                while (i9 < i7 && comparator.compare(obj, objArr[i6 - i9]) < 0) {
+                while (i9 < i7 && comparator.compare(t, tArr[i6 - i9]) < 0) {
                     int i10 = (i9 << 1) + 1;
                     if (i10 <= 0) {
                         i8 = i9;
@@ -211,7 +211,7 @@ public class m8 {
                 int i12 = i2 - i3;
                 int i13 = 0;
                 int i14 = 1;
-                while (i14 < i12 && comparator.compare(obj, objArr[i6 + i14]) >= 0) {
+                while (i14 < i12 && comparator.compare(t, tArr[i6 + i14]) >= 0) {
                     int i15 = (i14 << 1) + 1;
                     if (i15 <= 0) {
                         i13 = i14;
@@ -232,7 +232,7 @@ public class m8 {
             int i18 = i5 + 1;
             while (i18 < i4) {
                 int i19 = ((i4 - i18) >>> 1) + i18;
-                if (comparator.compare(obj, objArr[i + i19]) < 0) {
+                if (comparator.compare(t, tArr[i + i19]) < 0) {
                     i4 = i19;
                 } else {
                     i18 = i19 + 1;
@@ -273,33 +273,35 @@ public class m8 {
         }
     }
 
-    public void c(Object[] objArr, Comparator comparator, int i, int i2) {
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.util.Comparator<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void c(T[] tArr, Comparator<T> comparator, int i, int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, objArr, comparator, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, tArr, comparator, i, i2) == null) {
             this.f = 0;
-            n(objArr.length, i, i2);
+            n(tArr.length, i, i2);
             int i4 = i2 - i;
             if (i4 < 2) {
                 return;
             }
             if (i4 < 32) {
-                a(objArr, i, i2, b(objArr, i, i2, comparator) + i, comparator);
+                a(tArr, i, i2, b(tArr, i, i2, comparator) + i, comparator);
                 return;
             }
-            this.a = objArr;
+            this.a = tArr;
             this.b = comparator;
             this.e = 0;
             int l = l(i4);
             do {
-                int b = b(objArr, i, i2, comparator);
+                int b = b(tArr, i, i2, comparator);
                 if (b < l) {
                     if (i4 <= l) {
                         i3 = i4;
                     } else {
                         i3 = l;
                     }
-                    a(objArr, i, i + i3, b + i, comparator);
+                    a(tArr, i, i + i3, b + i, comparator);
                     b = i3;
                 }
                 m(i, b);
@@ -310,15 +312,15 @@ public class m8 {
             i();
             this.a = null;
             this.b = null;
-            Object[] objArr2 = this.d;
+            T[] tArr2 = this.d;
             int i5 = this.e;
             for (int i6 = 0; i6 < i5; i6++) {
-                objArr2[i6] = null;
+                tArr2[i6] = null;
             }
         }
     }
 
-    public final Object[] d(int i) {
+    public final T[] d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -332,11 +334,11 @@ public class m8 {
                 if (i6 >= 0) {
                     i = Math.min(i6, this.a.length >>> 1);
                 }
-                this.d = new Object[i];
+                this.d = (T[]) new Object[i];
             }
             return this.d;
         }
-        return (Object[]) invokeI.objValue;
+        return (T[]) ((Object[]) invokeI.objValue);
     }
 
     public final void g(int i) {
@@ -356,15 +358,15 @@ public class m8 {
                 iArr2[i4] = iArr2[i7];
             }
             this.f--;
-            Object[] objArr = this.a;
-            int f = f(objArr[i5], objArr, i2, i3, 0, this.b);
+            T[] tArr = this.a;
+            int f = f(tArr[i5], tArr, i2, i3, 0, this.b);
             int i8 = i2 + f;
             int i9 = i3 - f;
             if (i9 == 0) {
                 return;
             }
-            Object[] objArr2 = this.a;
-            int e = e(objArr2[(i8 + i9) - 1], objArr2, i5, i6, i6 - 1, this.b);
+            T[] tArr2 = this.a;
+            int e = e(tArr2[(i8 + i9) - 1], tArr2, i5, i6, i6 - 1, this.b);
             if (e == 0) {
                 return;
             }
@@ -587,33 +589,33 @@ public class m8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
             int i12 = i4;
-            Object[] objArr = this.a;
-            Object[] d = d(i12);
-            System.arraycopy(objArr, i3, d, 0, i12);
+            T[] tArr = this.a;
+            T[] d = d(i12);
+            System.arraycopy(tArr, i3, d, 0, i12);
             int i13 = (i + i2) - 1;
             int i14 = i12 - 1;
             int i15 = (i3 + i12) - 1;
             int i16 = i15 - 1;
             int i17 = i13 - 1;
-            objArr[i15] = objArr[i13];
+            tArr[i15] = tArr[i13];
             int i18 = i2 - 1;
             if (i18 == 0) {
-                System.arraycopy(d, 0, objArr, i16 - i14, i12);
+                System.arraycopy(d, 0, tArr, i16 - i14, i12);
             } else if (i12 == 1) {
                 int i19 = i16 - i18;
-                System.arraycopy(objArr, (i17 - i18) + 1, objArr, i19 + 1, i18);
-                objArr[i19] = d[i14];
+                System.arraycopy(tArr, (i17 - i18) + 1, tArr, i19 + 1, i18);
+                tArr[i19] = d[i14];
             } else {
-                Comparator comparator = this.b;
+                Comparator<? super T> comparator = this.b;
                 int i20 = this.c;
                 loop0: while (true) {
                     int i21 = 0;
                     int i22 = 0;
                     while (true) {
-                        if (comparator.compare(d[i14], objArr[i17]) < 0) {
+                        if (comparator.compare(d[i14], tArr[i17]) < 0) {
                             i5 = i16 - 1;
                             int i23 = i17 - 1;
-                            objArr[i16] = objArr[i17];
+                            tArr[i16] = tArr[i17];
                             i22++;
                             i18--;
                             if (i18 == 0) {
@@ -629,7 +631,7 @@ public class m8 {
                         } else {
                             int i24 = i16 - 1;
                             int i25 = i14 - 1;
-                            objArr[i16] = d[i14];
+                            tArr[i16] = d[i14];
                             i21++;
                             i12--;
                             if (i12 == 1) {
@@ -658,10 +660,10 @@ public class m8 {
                 this.c = i20;
                 if (i12 == 1) {
                     int i26 = i5 - i18;
-                    System.arraycopy(objArr, (i17 - i18) + 1, objArr, i26 + 1, i18);
-                    objArr[i26] = d[i14];
+                    System.arraycopy(tArr, (i17 - i18) + 1, tArr, i26 + 1, i18);
+                    tArr[i26] = d[i14];
                 } else if (i12 != 0) {
-                    System.arraycopy(d, 0, objArr, i5 - (i12 - 1), i12);
+                    System.arraycopy(d, 0, tArr, i5 - (i12 - 1), i12);
                 } else {
                     throw new IllegalArgumentException("Comparison method violates its general contract!");
                 }
@@ -825,34 +827,34 @@ public class m8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
             int i12 = i2;
-            Object[] objArr = this.a;
-            Object[] d = d(i12);
-            System.arraycopy(objArr, i, d, 0, i12);
+            T[] tArr = this.a;
+            T[] d = d(i12);
+            System.arraycopy(tArr, i, d, 0, i12);
             int i13 = i + 1;
             int i14 = i3 + 1;
-            objArr[i] = objArr[i3];
+            tArr[i] = tArr[i3];
             int i15 = i4 - 1;
             if (i15 == 0) {
-                System.arraycopy(d, 0, objArr, i13, i12);
+                System.arraycopy(d, 0, tArr, i13, i12);
                 return;
             }
             int i16 = 1;
             if (i12 == 1) {
-                System.arraycopy(objArr, i14, objArr, i13, i15);
-                objArr[i13 + i15] = d[0];
+                System.arraycopy(tArr, i14, tArr, i13, i15);
+                tArr[i13 + i15] = d[0];
                 return;
             }
-            Comparator comparator = this.b;
+            Comparator<? super T> comparator = this.b;
             int i17 = this.c;
             int i18 = 0;
             loop0: while (true) {
                 int i19 = 0;
                 int i20 = 0;
                 while (true) {
-                    if (comparator.compare(objArr[i14], d[i18]) < 0) {
+                    if (comparator.compare(tArr[i14], d[i18]) < 0) {
                         i5 = i13 + 1;
                         int i21 = i14 + 1;
-                        objArr[i13] = objArr[i14];
+                        tArr[i13] = tArr[i14];
                         i20 += i16;
                         i15--;
                         if (i15 == 0) {
@@ -868,7 +870,7 @@ public class m8 {
                     } else {
                         int i22 = i13 + 1;
                         int i23 = i18 + 1;
-                        objArr[i13] = d[i18];
+                        tArr[i13] = d[i18];
                         i19 += i16;
                         i12--;
                         if (i12 == i16) {
@@ -895,10 +897,10 @@ public class m8 {
             }
             this.c = i17;
             if (i12 == i6) {
-                System.arraycopy(objArr, i14, objArr, i5, i15);
-                objArr[i5 + i15] = d[i18];
+                System.arraycopy(tArr, i14, tArr, i5, i15);
+                tArr[i5 + i15] = d[i18];
             } else if (i12 != 0) {
-                System.arraycopy(d, i18, objArr, i5, i12);
+                System.arraycopy(d, i18, tArr, i5, i12);
             } else {
                 throw new IllegalArgumentException("Comparison method violates its general contract!");
             }

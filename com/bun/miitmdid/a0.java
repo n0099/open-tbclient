@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,20 +13,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
+@Keep
 /* loaded from: classes7.dex */
 public class a0 {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     public static String d = "MsaClient";
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public ServiceConnection a;
+    @Keep
     public Context b;
+    @Keep
     public MsaIdInterface c;
 
+    @Keep
     /* loaded from: classes7.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Keep
         public final /* synthetic */ b0 a;
+        @Keep
         public final /* synthetic */ a0 b;
 
         public a(a0 a0Var, b0 b0Var) {
@@ -48,9 +57,11 @@ public class a0 {
         }
 
         @Override // android.content.ServiceConnection
+        @Keep
         public native synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder);
 
         @Override // android.content.ServiceConnection
+        @Keep
         public native void onServiceDisconnected(ComponentName componentName);
     }
 
@@ -91,17 +102,24 @@ public class a0 {
         this.a = new a(this, b0Var);
     }
 
+    @Keep
     public static native void a(Context context, String str);
 
+    @Keep
     public native String a();
 
+    @Keep
     public native void a(String str);
 
+    @Keep
     public native String b();
 
+    @Keep
     public native String c();
 
+    @Keep
     public native boolean d();
 
+    @Keep
     public native void e();
 }

@@ -1,6 +1,8 @@
 package androidx.recyclerview.widget;
 
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -99,7 +101,7 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
-    public boolean animateAppearance(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+    public boolean animateAppearance(@NonNull RecyclerView.ViewHolder viewHolder, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder, itemHolderInfo, itemHolderInfo2)) == null) {
@@ -112,7 +114,7 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
-    public boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+    public boolean animateChange(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder2, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         InterceptResult invokeLLLL;
         int i;
         int i2;
@@ -134,7 +136,7 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
-    public boolean animateDisappearance(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+    public boolean animateDisappearance(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         InterceptResult invokeLLL;
         int i;
         int i2;
@@ -165,7 +167,7 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
-    public boolean animatePersistence(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
+    public boolean animatePersistence(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, viewHolder, itemHolderInfo, itemHolderInfo2)) == null) {
@@ -179,7 +181,7 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
-    public boolean canReuseUpdatedViewHolder(RecyclerView.ViewHolder viewHolder) {
+    public boolean canReuseUpdatedViewHolder(@NonNull RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewHolder)) == null) {

@@ -2,6 +2,10 @@ package androidx.media2.common;
 
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
@@ -18,11 +22,13 @@ public class FileMediaItem extends MediaItem {
     public static final long FD_LENGTH_UNKNOWN = 576460752303423487L;
     public static final String TAG = "FileMediaItem";
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("mLock")
     public boolean mClosed;
     public final long mFDLength;
     public final long mFDOffset;
     public final Object mLock;
     public final ParcelFileDescriptor mPFD;
+    @GuardedBy("mLock")
     public int mRefCount;
 
     /* loaded from: classes.dex */
@@ -33,7 +39,7 @@ public class FileMediaItem extends MediaItem {
         public long mFDOffset;
         public ParcelFileDescriptor mPFD;
 
-        public Builder(ParcelFileDescriptor parcelFileDescriptor) {
+        public Builder(@NonNull ParcelFileDescriptor parcelFileDescriptor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,6 +64,7 @@ public class FileMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
+        @NonNull
         public FileMediaItem build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -69,6 +76,7 @@ public class FileMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
+        @NonNull
         public Builder setEndPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -78,6 +86,7 @@ public class FileMediaItem extends MediaItem {
             return (Builder) invokeJ.objValue;
         }
 
+        @NonNull
         public Builder setFileDescriptorLength(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -91,6 +100,7 @@ public class FileMediaItem extends MediaItem {
             return (Builder) invokeJ.objValue;
         }
 
+        @NonNull
         public Builder setFileDescriptorOffset(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -106,7 +116,8 @@ public class FileMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        public Builder setMetadata(MediaMetadata mediaMetadata) {
+        @NonNull
+        public Builder setMetadata(@Nullable MediaMetadata mediaMetadata) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, mediaMetadata)) == null) {
@@ -117,6 +128,7 @@ public class FileMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
+        @NonNull
         public Builder setStartPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -151,6 +163,7 @@ public class FileMediaItem extends MediaItem {
         this.mFDLength = builder.mFDLength;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -181,6 +194,7 @@ public class FileMediaItem extends MediaItem {
         return invokeV.longValue;
     }
 
+    @NonNull
     public ParcelFileDescriptor getParcelFileDescriptor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -190,6 +204,7 @@ public class FileMediaItem extends MediaItem {
         return (ParcelFileDescriptor) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void increaseRefCount() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -203,6 +218,7 @@ public class FileMediaItem extends MediaItem {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isClosed() {
         InterceptResult invokeV;
         boolean z;
@@ -216,6 +232,7 @@ public class FileMediaItem extends MediaItem {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void decreaseRefCount() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

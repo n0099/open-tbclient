@@ -1,35 +1,71 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
+import android.content.Context;
+import android.os.Parcelable;
+import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gi4 {
+public class gi4 extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gi4(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static ViewGroup a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            return view2.getLayerType();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            gi4 gi4Var = new gi4(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams != null) {
+                gi4Var.setLayoutParams(layoutParams);
+            }
+            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            gi4Var.addView(view2);
+            return gi4Var;
         }
-        return invokeL.intValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public static void b(View view2, int i, Paint paint) {
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, view2, i, paint) == null) {
-            view2.setLayerType(i, paint);
+        if (interceptable == null || interceptable.invokeL(1048576, this, sparseArray) == null) {
+            dispatchThawSelfOnly(sparseArray);
         }
     }
 
-    public static void c(View view2, boolean z) {
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, null, view2, z) == null) {
-            view2.setSaveFromParentEnabled(z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseArray) == null) {
+            dispatchFreezeSelfOnly(sparseArray);
         }
     }
 }

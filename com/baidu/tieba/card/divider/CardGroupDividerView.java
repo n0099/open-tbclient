@@ -139,10 +139,10 @@ public class CardGroupDividerView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0180, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f09050a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09050b);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0903f7);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0182, (ViewGroup) this, true);
+            this.a = findViewById(R.id.obfuscated_res_0x7f090517);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090518);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090404);
             b();
         }
     }

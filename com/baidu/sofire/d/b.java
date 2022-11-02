@@ -31,14 +31,14 @@ import java.util.Set;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
-    public static Map b;
-    public static Map c;
-    public static List d;
+    public static Map<Integer, com.baidu.sofire.d.a> b;
+    public static Map<Integer, List<String>> c;
+    public static List<String> d;
     public static com.baidu.sofire.d.a e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class a extends a.AbstractBinderC0157a {
+    public static class a extends a.AbstractBinderC0165a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -196,18 +196,18 @@ public class b {
     public static int a(int i, String str, boolean z) {
         InterceptResult invokeCommon;
         int i2;
-        Map map;
+        Map<Integer, List<String>> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
             try {
                 if (TextUtils.isEmpty(str)) {
                     return -201;
                 }
-                Map map2 = b;
+                Map<Integer, com.baidu.sofire.d.a> map2 = b;
                 if (map2 == null) {
                     return -200;
                 }
-                com.baidu.sofire.d.a aVar = (com.baidu.sofire.d.a) map2.get(Integer.valueOf(i));
+                com.baidu.sofire.d.a aVar = map2.get(Integer.valueOf(i));
                 if (aVar == null) {
                     return -202;
                 }
@@ -221,9 +221,9 @@ public class b {
                 bundle.putString("bundle_key_plugin_package_name", str);
                 int i3 = aVar.a(bundle).getInt("bundle_key_error_code", -200);
                 if (i3 == 0 && (map = c) != null) {
-                    List list = (List) map.get(Integer.valueOf(i));
+                    List<String> list = map.get(Integer.valueOf(i));
                     if (list == null) {
-                        list = new ArrayList();
+                        list = new ArrayList<>();
                         c.put(Integer.valueOf(i), list);
                     }
                     if (z && !list.contains(str)) {
@@ -272,7 +272,7 @@ public class b {
                     if (dVar == null) {
                         return a(-105);
                     }
-                    Pair a2 = dVar.a(b2.key, string, new Class[]{Bundle.class}, bundle);
+                    Pair<Integer, Object> a2 = dVar.a(b2.key, string, new Class[]{Bundle.class}, bundle);
                     if (((Integer) a2.first).intValue() == 0) {
                         Object obj = a2.second;
                         if (obj instanceof Bundle) {
@@ -309,7 +309,7 @@ public class b {
                     int i = bundle.getInt("bundle_key_pid");
                     BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
                     if (i > 0 && binderHolder != null && (iBinder = binderHolder.a) != null) {
-                        b.put(Integer.valueOf(i), a.AbstractBinderC0157a.a(iBinder));
+                        b.put(Integer.valueOf(i), a.AbstractBinderC0165a.a(iBinder));
                         if (d.size() <= 0) {
                             return a(0);
                         }
@@ -361,18 +361,18 @@ public class b {
     }
 
     public static void a(String str) {
-        Set<Map.Entry> entrySet;
+        Set<Map.Entry<Integer, List<String>>> entrySet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
             try {
-                Map map = c;
+                Map<Integer, List<String>> map = c;
                 if (map == null || (entrySet = map.entrySet()) == null) {
                     return;
                 }
-                for (Map.Entry entry : entrySet) {
-                    List list = (List) entry.getValue();
-                    if (list != null && list.contains(str)) {
-                        a(((Integer) entry.getKey()).intValue(), str, false);
+                for (Map.Entry<Integer, List<String>> entry : entrySet) {
+                    List<String> value = entry.getValue();
+                    if (value != null && value.contains(str)) {
+                        a(entry.getKey().intValue(), str, false);
                     }
                 }
             } catch (Throwable unused) {

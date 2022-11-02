@@ -86,7 +86,7 @@ public class ShareActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map a() {
+    public Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
@@ -103,93 +103,6 @@ public class ShareActivity extends BaseActivity {
             return hashMap;
         }
         return (Map) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.goBack();
-                return;
-            }
-            this.u.setResultCode(ShareResult.ERROR_CODE_REASON_CANCLE);
-            this.u.setResultMsg(String.format(ShareResult.ERROR_MSG_REASON_CANCLE, this.w));
-            a(false);
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            Map a = a();
-            a.put("error_code", "" + this.u.getResultCode());
-            StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_FAIL, a);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            e();
-            b(z);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-            if (currentAccount == null) {
-                this.u.setResultCode(ShareResult.ERROR_CODE_RESULT_NULL);
-                a(true);
-                return;
-            }
-            currentAccount.app = SapiUtils.getAppName(this);
-            Map a = a();
-            String str = "1";
-            if (this.t.equals("1")) {
-                str = "0";
-            }
-            a.put("is_login", str);
-            StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_SUCCESS, a);
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("share_account", currentAccount);
-            bundle.putInt("SDK_VERSION", 250);
-            bundle.putString("PKG", getPackageName());
-            bundle.putString(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE, this.z);
-            if (SapiContext.getInstance().shareLivingunameEnable()) {
-                bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance().getV2FaceLivingUnames());
-            }
-            intent.putExtras(bundle);
-            setResult(-1, intent);
-            finish();
-        }
-    }
-
-    private void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, this, z) == null) {
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putString("share_fail_code", "" + this.u.getResultCode());
-            bundle.putString("share_fail_reason", this.u.getResultMsg());
-            if (z) {
-                bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, getPackageName());
-                SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                if (currentAccount != null) {
-                    bundle.putString(ShareLoginModel.INVALIDATE_BDUSS, currentAccount.bduss);
-                }
-            }
-            bundle.putString(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE, this.z);
-            intent.putExtras(bundle);
-            setResult(-100, intent);
-            finish();
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -271,13 +184,100 @@ public class ShareActivity extends BaseActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
+            e();
+            b(z);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+            if (currentAccount == null) {
+                this.u.setResultCode(ShareResult.ERROR_CODE_RESULT_NULL);
+                a(true);
+                return;
+            }
+            currentAccount.app = SapiUtils.getAppName(this);
+            Map<String, String> a = a();
+            String str = "1";
+            if (this.t.equals("1")) {
+                str = "0";
+            }
+            a.put("is_login", str);
+            StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_SUCCESS, a);
+            Intent intent = new Intent();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("share_account", currentAccount);
+            bundle.putInt("SDK_VERSION", 250);
+            bundle.putString("PKG", getPackageName());
+            bundle.putString(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE, this.z);
+            if (SapiContext.getInstance().shareLivingunameEnable()) {
+                bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance().getV2FaceLivingUnames());
+            }
+            intent.putExtras(bundle);
+            setResult(-1, intent);
+            finish();
+        }
+    }
+
+    private void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, this, z) == null) {
+            Intent intent = new Intent();
+            Bundle bundle = new Bundle();
+            bundle.putString("share_fail_code", "" + this.u.getResultCode());
+            bundle.putString("share_fail_reason", this.u.getResultMsg());
+            if (z) {
+                bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, getPackageName());
+                SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                if (currentAccount != null) {
+                    bundle.putString(ShareLoginModel.INVALIDATE_BDUSS, currentAccount.bduss);
+                }
+            }
+            bundle.putString(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE, this.z);
+            intent.putExtras(bundle);
+            setResult(-100, intent);
+            finish();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+                return;
+            }
+            this.u.setResultCode(ShareResult.ERROR_CODE_REASON_CANCLE);
+            this.u.setResultMsg(String.format(ShareResult.ERROR_MSG_REASON_CANCLE, this.w));
+            a(false);
+        }
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            Map<String, String> a = a();
+            a.put("error_code", "" + this.u.getResultCode());
+            StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_FAIL, a);
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                setContentView(R.layout.obfuscated_res_0x7f0d0515);
                 if (!PassSdkModel.getInstance().checkPassSdkInit()) {
                     Log.e(B, "pass sdk没有初始化");
                     this.u.setResultCode(ShareResult.ERROR_CODE_REASON_SDK_NOT_INIT);
@@ -293,7 +293,7 @@ public class ShareActivity extends BaseActivity {
                 }
                 init();
                 setupViews();
-                Map a = a();
+                Map<String, String> a = a();
                 String str = "1";
                 if (this.t.equals("1")) {
                     str = "0";

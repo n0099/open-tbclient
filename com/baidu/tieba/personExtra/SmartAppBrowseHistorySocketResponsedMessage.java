@@ -1,8 +1,9 @@
 package com.baidu.tieba.personExtra;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b78;
+import com.baidu.tieba.l88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import tbclient.HistorySwan.HistorySwanResIdl;
 public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b78 mData;
+    public l88 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistorySocketResponsedMessage() {
@@ -35,16 +36,17 @@ public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsed
         }
     }
 
-    public b78 getData() {
+    public l88 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (b78) invokeV.objValue;
+        return (l88) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -59,9 +61,9 @@ public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsed
                 setErrorString(historySwanResIdl.error.usermsg);
             }
             if (historySwanResIdl.data != null) {
-                b78 b78Var = new b78();
-                this.mData = b78Var;
-                b78Var.b(historySwanResIdl.data);
+                l88 l88Var = new l88();
+                this.mData = l88Var;
+                l88Var.b(historySwanResIdl.data);
             }
             return historySwanResIdl;
         }

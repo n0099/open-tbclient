@@ -1,88 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import java.util.Map;
+import tv.athena.revenue.RevenueManager;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes3.dex */
-public final class c6a {
+public class c6a implements d5a {
     public static /* synthetic */ Interceptable $ic;
-    public static final c6a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public PayUIKitConfig c;
+    public m6a d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947628091, "Lcom/baidu/tieba/c6a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947628091, "Lcom/baidu/tieba/c6a;");
-                return;
-            }
-        }
-        a = new c6a();
-    }
-
-    public c6a() {
+    public c6a(int i, int i2, PayUIKitConfig payUIKitConfig, m6a m6aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, m6aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
+        this.c = payUIKitConfig;
+        this.d = m6aVar;
     }
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
+    @Override // com.baidu.tieba.d5a
+    public void a(Activity activity, PayFlowType payFlowType, q6a q6aVar, n6a n6aVar, AppCustomExpand appCustomExpand, Map<String, String> map, IPayCallback iPayCallback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
-                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-                if (themeResId == null) {
-                    Intrinsics.throwNpe();
-                }
-                return themeResId.intValue();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, payFlowType, q6aVar, n6aVar, appCustomExpand, map, iPayCallback, str}) == null) {
+            m6a m6aVar = this.d;
+            if (m6aVar == null) {
+                RLog.error("PayCoreImpl", "payRequest error modelProvider null", new Object[0]);
+                return;
             }
-            return R.style.obfuscated_res_0x7f10014e;
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
+            f4a b = m6aVar.b(payFlowType, map);
+            b.r(iPayCallback);
+            b.p(activity);
+            b.u(n6aVar.a);
+            b.w(q6aVar.a);
+            b.q(appCustomExpand);
+            b.A(str);
+            b.v(payFlowType.getTypeId());
+            PayType payType = q6aVar.a;
+            if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY || payType == PayType.DXM_PAY_H5) {
+                b.x(p6a.b(this.c));
             }
-            if (themeColorConfig != null) {
-                num = themeColorConfig.getThemeResId();
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.a, this.b);
+            if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
+                middleRevenue.getMiddlePayService().a(b);
             } else {
-                num = null;
+                RLog.error("PayCoreImpl", "requestPay error middleRevenue null", new Object[0]);
             }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f10014e) {
-                return true;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 }

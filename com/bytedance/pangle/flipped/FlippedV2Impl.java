@@ -1,6 +1,7 @@
 package com.bytedance.pangle.flipped;
 
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.ZeusConstants;
 import java.lang.reflect.Method;
+@Keep
 /* loaded from: classes7.dex */
 public class FlippedV2Impl implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlippedV2Impl";
     public transient /* synthetic */ FieldHolder $fh;
 
-    private native Method getDeclaredMethod(Object obj, String str, Class[] clsArr);
+    private native Method getDeclaredMethod(Object obj, String str, Class<?>[] clsArr);
 
     static {
         InterceptResult invokeClinit;

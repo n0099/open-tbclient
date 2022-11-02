@@ -1,99 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class xp6 extends ar4 {
+public class xp6 extends ia5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
 
-    @Override // com.baidu.tieba.ar4
-    public xs4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.ia5
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+            return true;
         }
-        return (xs4) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ar4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308107, "Lcom/baidu/tieba/xp6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948308107, "Lcom/baidu/tieba/xp6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public xp6() {
+    public xp6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        setSupportType(BaseCardInfo.SupportType.FULL);
+        b().a = frsFragment;
     }
 
-    public List c() {
+    @Override // com.baidu.tieba.ia5
+    public ja5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            ja5 ja5Var = new ja5();
+            ja5Var.e = 1;
+            ja5Var.b = R.string.obfuscated_res_0x7f0f03e8;
+            ja5Var.i = ja5.k;
+            return ja5Var;
         }
-        return (List) invokeV.objValue;
+        return (ja5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ia5
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public void f(List list) {
+    public void g(uj6 uj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, uj6Var) != null) || uj6Var == null || !uj6Var.h(1)) {
+            return;
         }
+        uj6Var.a(this);
     }
 }

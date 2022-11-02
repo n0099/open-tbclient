@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
@@ -70,7 +71,7 @@ public final class UPCAReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader, com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
@@ -90,7 +91,7 @@ public final class UPCAReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader, com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException, FormatException, ChecksumException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, bitArray, map)) == null) {
@@ -100,7 +101,7 @@ public final class UPCAReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
-    public Result decodeRow(int i, BitArray bitArray, int[] iArr, Map map) throws NotFoundException, FormatException, ChecksumException {
+    public Result decodeRow(int i, BitArray bitArray, int[] iArr, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), bitArray, iArr, map})) == null) {

@@ -74,7 +74,7 @@ public class DirectorySoSource extends SoSource {
     }
 
     @Override // com.facebook.soloader.SoSource
-    public void addToLdLibraryPath(Collection collection) {
+    public void addToLdLibraryPath(Collection<String> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
             collection.add(this.soDirectory.getAbsolutePath());

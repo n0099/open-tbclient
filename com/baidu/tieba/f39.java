@@ -1,21 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.InputFilter;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,215 +14,87 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class f39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Fragment a;
+    public Activity b;
+    public e39 c;
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a();
+    public f39() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947713341, "Lcom/baidu/tieba/f39;")) == null) {
+    public static f39 c(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            f39 f39Var = new f39();
+            f39Var.a = fragment;
+            return f39Var;
+        }
+        return (f39) invokeL.objValue;
+    }
+
+    public void a(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        if (i2 == -1) {
+            e39 e39Var = this.c;
+            if (e39Var != null) {
+                e39Var.a();
+                return;
+            }
+            return;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947713341, "Lcom/baidu/tieba/f39;");
+        e39 e39Var2 = this.c;
+        if (e39Var2 != null) {
+            e39Var2.b();
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements InputFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public c a;
-        public int b;
-        public String c;
-
-        public a(int i, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public void b(e39 e39Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e39Var) == null) {
+            this.c = e39Var;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
                     return;
                 }
-            }
-            this.c = "[^a-zA-Z0-9一-龥]";
-            this.b = i;
-            this.a = cVar;
-        }
-
-        public final String a(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                return str2.replaceAll(str, "");
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null) {
-                    String a = a(this.c, charSequence.toString());
-                    int b = oi5.b(spanned.toString()) - (i4 - i3);
-                    int b2 = oi5.b(a);
-                    int i5 = this.b;
-                    int i6 = i5 - b;
-                    if (b + b2 > i5) {
-                        c cVar = this.a;
-                        if (cVar != null) {
-                            cVar.a();
-                        }
-                        return StringHelper.cutChineseAndEnglishWithSuffix(a, i6, "");
-                    }
-                    return a;
-                }
-                return charSequence;
-            }
-            return (CharSequence) invokeCommon.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements InputFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public c a;
-        public EditText b;
-        public int c;
-
-        public b(EditText editText, int i, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editText, Integer.valueOf(i), cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                e39 e39Var2 = this.c;
+                if (e39Var2 != null) {
+                    e39Var2.a();
                     return;
                 }
+                return;
             }
-            this.b = editText;
-            this.c = i;
-            this.a = cVar;
-        }
-
-        @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null) {
-                    if (" ".equals(charSequence)) {
-                        return charSequence;
-                    }
-                    int c = oi5.c(spanned.toString()) - (i4 - i3);
-                    int c2 = oi5.c(charSequence.toString());
-                    if (c == 0 && c2 > this.c && TextUtils.isEmpty(this.b.getText())) {
-                        c cVar = this.a;
-                        if (cVar != null) {
-                            cVar.a();
-                        }
-                        return oi5.k(charSequence.toString(), this.c);
-                    } else if (!TextUtils.isEmpty(this.b.getText()) && (c + c2) - oi5.i(this.b.getText().toString()) > this.c) {
-                        c cVar2 = this.a;
-                        if (cVar2 != null) {
-                            cVar2.a();
-                        }
-                        if (c2 > this.c) {
-                            return spanned.toString().substring(i3, i4);
-                        }
-                        return "";
-                    } else {
-                        return charSequence;
-                    }
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
                 }
-                return charSequence;
-            }
-            return (CharSequence) invokeCommon.objValue;
-        }
-    }
-
-    public static boolean a(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        String filePath;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
-                long fileSize = FileHelper.getFileSize(filePath);
-                if (fileSize < 5120) {
-                    d(1, "" + fileSize);
-                    return true;
+                e39 e39Var3 = this.c;
+                if (e39Var3 != null) {
+                    e39Var3.a();
+                    return;
                 }
-                int[] imageFileWH = FileHelper.getImageFileWH(filePath);
-                if (imageFileWH[0] < 100 || imageFileWH[1] < 100) {
-                    d(2, imageFileWH[0] + "*" + imageFileWH[1]);
-                    return true;
-                }
+                return;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        String filePath;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageFileInfo)) == null) {
-            int l = ux4.k().l("key_upload_pic_max_width", 0);
-            int l2 = ux4.k().l("key_upload_pic_max_height", 0);
-            if (l <= 0 || l2 <= 0 || imageFileInfo == null || imageFileInfo.isGif() || (filePath = imageFileInfo.getFilePath()) == null) {
-                return false;
-            }
-            int[] imageFileWH = FileHelper.getImageFileWH(filePath);
-            if (imageFileWH[0] < l && imageFileWH[1] < l2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return ux4.k().l("show_write_title_tip_count", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str) == null) {
-            TiebaStatic.log(new StatisticItem("c14021").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i).param("obj_param1", str));
-        }
-    }
-
-    public static void e(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, writeData) == null) && writeData != null && !TextUtils.isEmpty(writeData.getTitle())) {
-            ux4.k().w("show_write_title_tip_count", c() + 1);
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
         }
     }
 }

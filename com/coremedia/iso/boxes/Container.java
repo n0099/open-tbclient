@@ -6,15 +6,15 @@ import java.nio.channels.WritableByteChannel;
 import java.util.List;
 /* loaded from: classes7.dex */
 public interface Container {
-    List getBoxes();
+    List<Box> getBoxes();
 
-    List getBoxes(Class cls);
+    <T extends Box> List<T> getBoxes(Class<T> cls);
 
-    List getBoxes(Class cls, boolean z);
+    <T extends Box> List<T> getBoxes(Class<T> cls, boolean z);
 
     ByteBuffer getByteBuffer(long j, long j2) throws IOException;
 
-    void setBoxes(List list);
+    void setBoxes(List<Box> list);
 
     void writeContainer(WritableByteChannel writableByteChannel) throws IOException;
 }

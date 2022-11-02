@@ -1,6 +1,6 @@
 package org.apache.http.cookie;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface CookieAttributeHandler {
     boolean match(Cookie cookie, CookieOrigin cookieOrigin);
 

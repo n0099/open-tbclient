@@ -37,7 +37,7 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
 
     /* renamed from: com.google.gson.internal.bind.TreeTypeAdapter$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -270,7 +270,7 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
             if (parse.isJsonNull()) {
                 return null;
             }
-            return (T) this.deserializer.deserialize(parse, this.typeToken.getType(), this.context);
+            return this.deserializer.deserialize(parse, this.typeToken.getType(), this.context);
         }
         return (T) invokeL.objValue;
     }

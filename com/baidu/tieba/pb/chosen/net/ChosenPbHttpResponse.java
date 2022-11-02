@@ -3,9 +3,9 @@ package com.baidu.tieba.pb.chosen.net;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gv7;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.pw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,14 +19,16 @@ import tbclient.ExcPbPage.ExcContent;
 import tbclient.ExcPbPage.ExcPbPageResIdl;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes5.dex */
-public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
+public class ChosenPbHttpResponse extends HttpResponsedMessage implements pw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List postList;
+    public List<Post> postList;
     public ExcellentPbThreadInfo threadInfo;
     public UserInfo userInfo;
-    public List userList;
+    public List<User> userList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChosenPbHttpResponse(int i) {
@@ -55,8 +57,8 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (bArr != null && bArr.length > 0) {
-                ou4.f();
-                kf d = ou4.d("tb.pb_normal");
+                hv4.f();
+                cf<byte[]> d = hv4.d("tb.pb_normal");
                 d.remove("chosen_pb_page_cache");
                 d.g("chosen_pb_page_cache", bArr);
             }
@@ -86,7 +88,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
         this.userList = dataRes.user_list;
     }
 
-    @Override // com.baidu.tieba.gv7
+    @Override // com.baidu.tieba.pw7
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,7 +98,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gv7
+    @Override // com.baidu.tieba.pw7
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,8 +108,8 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gv7
-    public List getPostList() {
+    @Override // com.baidu.tieba.pw7
+    public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -116,7 +118,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gv7
+    @Override // com.baidu.tieba.pw7
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -126,7 +128,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
         return (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gv7
+    @Override // com.baidu.tieba.pw7
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,8 +138,8 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
         return (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gv7
-    public List getUserList() {
+    @Override // com.baidu.tieba.pw7
+    public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -146,7 +148,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements gv7 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gv7
+    @Override // com.baidu.tieba.pw7
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;

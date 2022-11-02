@@ -34,7 +34,7 @@ public abstract class DownloadTaskImpl implements DownloadTask {
 
     public abstract RandomAccessFile getFile(File file, String str, long j) throws IOException;
 
-    public abstract Map getHttpHeaders(ThreadRecord threadRecord);
+    public abstract Map<String, String> getHttpHeaders(ThreadRecord threadRecord);
 
     public abstract int getResponseCode();
 
@@ -297,11 +297,11 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         }
     }
 
-    private void setHttpHeader(Map map, URLConnection uRLConnection) {
+    private void setHttpHeader(Map<String, String> map, URLConnection uRLConnection) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, this, map, uRLConnection) == null) && map != null) {
             for (String str : map.keySet()) {
-                uRLConnection.setRequestProperty(str, (String) map.get(str));
+                uRLConnection.setRequestProperty(str, map.get(str));
             }
         }
     }

@@ -26,7 +26,7 @@ public class d3 implements k2 {
     public transient /* synthetic */ FieldHolder $fh;
     public final SoundPool a;
     public final AudioManager b;
-    public final List c;
+    public final List<w2> c;
 
     public d3(Context context, i2 i2Var) {
         Interceptable interceptable = $ic;
@@ -141,8 +141,8 @@ public class d3 implements k2 {
         }
         synchronized (this.c) {
             for (int i = 0; i < this.c.size(); i++) {
-                if (((w2) this.c.get(i)).d) {
-                    ((w2) this.c.get(i)).f();
+                if (this.c.get(i).d) {
+                    this.c.get(i).f();
                 }
             }
         }

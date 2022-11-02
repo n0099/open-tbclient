@@ -19,7 +19,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String xt;
-    public Map xu;
+    public Map<String, f> xu;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -39,11 +39,11 @@ public class a {
         this.xt = str;
     }
 
-    private Map gv() {
+    private Map<String, f> gv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Map map = this.xu;
+            Map<String, f> map = this.xu;
             if (map != null) {
                 return map;
             }
@@ -79,9 +79,9 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Map gv = gv();
+            Map<String, f> gv = gv();
             if (gv.containsKey(str)) {
-                return (f) gv.get(str);
+                return gv.get(str);
             }
             return null;
         }

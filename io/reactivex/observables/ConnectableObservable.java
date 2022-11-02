@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.functions.Functions;
@@ -15,11 +16,11 @@ import io.reactivex.internal.operators.observable.ObservableRefCount;
 import io.reactivex.internal.util.ConnectConsumer;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public abstract class ConnectableObservable extends Observable {
+public abstract class ConnectableObservable<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void connect(Consumer consumer);
+    public abstract void connect(@NonNull Consumer<? super Disposable> consumer);
 
     public ConnectableObservable() {
         Interceptable interceptable = $ic;
@@ -35,7 +36,8 @@ public abstract class ConnectableObservable extends Observable {
         }
     }
 
-    public Observable autoConnect() {
+    @NonNull
+    public Observable<T> autoConnect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -55,7 +57,8 @@ public abstract class ConnectableObservable extends Observable {
         return (Disposable) invokeV.objValue;
     }
 
-    public Observable refCount() {
+    @NonNull
+    public Observable<T> refCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -64,7 +67,8 @@ public abstract class ConnectableObservable extends Observable {
         return (Observable) invokeV.objValue;
     }
 
-    public Observable autoConnect(int i) {
+    @NonNull
+    public Observable<T> autoConnect(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -73,13 +77,14 @@ public abstract class ConnectableObservable extends Observable {
         return (Observable) invokeI.objValue;
     }
 
-    public Observable autoConnect(int i, Consumer consumer) {
+    @NonNull
+    public Observable<T> autoConnect(int i, @NonNull Consumer<? super Disposable> consumer) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, consumer)) == null) {
             if (i <= 0) {
                 connect(consumer);
-                return RxJavaPlugins.onAssembly(this);
+                return RxJavaPlugins.onAssembly((ConnectableObservable) this);
             }
             return RxJavaPlugins.onAssembly(new ObservableAutoConnect(this, i, consumer));
         }

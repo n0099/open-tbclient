@@ -14,13 +14,13 @@ public final class FixedSampleSizeRechunker {
 
     /* renamed from: com.google.android.exoplayer2.extractor.mp4.FixedSampleSizeRechunker$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class Results {
+    public static final class Results {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int[] flags;

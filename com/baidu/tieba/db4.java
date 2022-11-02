@@ -1,26 +1,48 @@
 package com.baidu.tieba;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.Map;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface db4 extends fb4 {
-    void a(Object obj);
+public class db4 extends PostFormRequest.PostFormRequestBuilder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(Object obj);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public db4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    String d(Object obj);
-
-    void e(Object obj, gc4 gc4Var);
-
-    void f(Object obj);
-
-    gc4 h(Object obj, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
-
-    void i(Object obj);
-
-    void j(Object obj);
-
-    Map k();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.PostFormRequest.PostFormRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public PostFormRequest build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            wa4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (PostFormRequest) invokeV.objValue;
+    }
 }

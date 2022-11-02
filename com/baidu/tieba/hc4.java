@@ -1,11 +1,17 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class hc4 extends kc4 {
+public class hc4 extends ec4<bd4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,5 +27,56 @@ public class hc4 extends kc4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ec4
+    /* renamed from: f */
+    public ContentValues c(bd4 bd4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bd4Var)) == null) {
+            return a(bd4Var);
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ec4
+    /* renamed from: g */
+    public bd4 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                bd4 bd4Var = new bd4();
+                if (b(cursor, bd4Var)) {
+                    return bd4Var;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (bd4) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ec4
+    public List<bd4> e(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    bd4 bd4Var = new bd4();
+                    if (b(cursor, bd4Var)) {
+                        arrayList.add(bd4Var);
+                    }
+                } while (cursor.moveToNext());
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -11,7 +11,7 @@ import java.util.IdentityHashMap;
 public class VideoTrack extends MediaStreamTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final IdentityHashMap sinks;
+    public final IdentityHashMap<VideoSink, Long> sinks;
 
     public static native void nativeAddSink(long j, long j2);
 
@@ -39,7 +39,7 @@ public class VideoTrack extends MediaStreamTrack {
                 return;
             }
         }
-        this.sinks = new IdentityHashMap();
+        this.sinks = new IdentityHashMap<>();
     }
 
     public void addSink(VideoSink videoSink) {
@@ -82,11 +82,11 @@ public class VideoTrack extends MediaStreamTrack {
     }
 
     public void removeSink(VideoSink videoSink) {
-        Long l;
+        Long remove;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, videoSink) == null) && (l = (Long) this.sinks.remove(videoSink)) != null) {
-            nativeRemoveSink(getNativeMediaStreamTrack(), l.longValue());
-            nativeFreeSink(l.longValue());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, videoSink) == null) && (remove = this.sinks.remove(videoSink)) != null) {
+            nativeRemoveSink(getNativeMediaStreamTrack(), remove.longValue());
+            nativeFreeSink(remove.longValue());
         }
     }
 }

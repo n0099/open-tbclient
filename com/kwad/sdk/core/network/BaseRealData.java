@@ -1,12 +1,14 @@
 package com.kwad.sdk.core.network;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseRealData extends BaseResultData {
-    public abstract void parseData(JSONObject jSONObject);
+    public abstract void parseData(@NonNull JSONObject jSONObject);
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
-    public void parseJson(JSONObject jSONObject) {
+    public void parseJson(@Nullable JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
             return;

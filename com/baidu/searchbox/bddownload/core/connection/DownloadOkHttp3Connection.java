@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.connection;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.RedirectUtil;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ProtocolException;
+import java.util.List;
 import java.util.Map;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -23,13 +25,15 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadOkHttp3Connection";
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final OkHttpClient client;
     public Request request;
+    @NonNull
     public final Request.Builder requestBuilder;
     public Response response;
 
     /* loaded from: classes2.dex */
-    public class Factory implements DownloadConnection.Factory {
+    public static class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile OkHttpClient client;
@@ -49,6 +53,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
             }
         }
 
+        @NonNull
         public OkHttpClient.Builder builder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -86,7 +91,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
             return (DownloadConnection) invokeL.objValue;
         }
 
-        public Factory setBuilder(OkHttpClient.Builder builder) {
+        public Factory setBuilder(@NonNull OkHttpClient.Builder builder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, builder)) == null) {
@@ -98,7 +103,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DownloadOkHttp3Connection(OkHttpClient okHttpClient, String str) {
+    public DownloadOkHttp3Connection(@NonNull OkHttpClient okHttpClient, @NonNull String str) {
         this(okHttpClient, new Request.Builder().url(str));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -118,7 +123,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
         }
     }
 
-    public DownloadOkHttp3Connection(OkHttpClient okHttpClient, Request.Builder builder) {
+    public DownloadOkHttp3Connection(@NonNull OkHttpClient okHttpClient, @NonNull Request.Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,7 +184,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public Map getRequestProperties() {
+    public Map<String, List<String>> getRequestProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -193,7 +198,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public Map getResponseHeaderFields() {
+    public Map<String, List<String>> getResponseHeaderFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -280,7 +285,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public boolean setRequestMethod(String str) throws ProtocolException {
+    public boolean setRequestMethod(@NonNull String str) throws ProtocolException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {

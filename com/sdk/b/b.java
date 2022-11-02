@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class b extends ConcurrentHashMap {
+public class b<K, V> extends ConcurrentHashMap<K, Long> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5514969596535320724L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,18 +35,20 @@ public class b extends ConcurrentHashMap {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.Long */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
     /* renamed from: a */
-    public synchronized Long put(Object obj, Long l) {
+    public synchronized Long put(K k, Long l) {
         InterceptResult invokeLL;
         Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, l)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, l)) == null) {
             synchronized (this) {
-                if (containsKey(obj)) {
-                    remove(obj);
+                if (containsKey(k)) {
+                    remove((Object) k);
                 }
-                l2 = (Long) super.put(obj, l);
+                l2 = (Long) super.put(k, l);
             }
             return l2;
         }

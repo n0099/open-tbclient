@@ -56,7 +56,7 @@ public class a {
                     a.f.putInt("re_net_hr_bc", optInt3);
                     a.f.commit();
                 }
-                int optInt4 = jSONObject2.optInt("w");
+                int optInt4 = jSONObject2.optInt(Config.DEVICE_WIDTH);
                 if (optInt4 > 0) {
                     a.f.putInt("re_net_wt", optInt4);
                     a.f.commit();

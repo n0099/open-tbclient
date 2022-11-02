@@ -146,7 +146,7 @@ public class GroupMessageManagerImpl {
         if (interceptable == null || interceptable.invokeL(65539, this, chatMsg) == null) {
             String valueOf = String.valueOf(chatMsg.getContacter());
             GroupMemberAddMsg groupMemberAddMsg = (GroupMemberAddMsg) chatMsg;
-            ArrayList memberBuids = groupMemberAddMsg.getMemberBuids();
+            ArrayList<String> memberBuids = groupMemberAddMsg.getMemberBuids();
             String str = TAG;
             LogUtils.d(str, "handleAddMemberMsg " + valueOf + GlideException.IndentedAppendable.INDENT + memberBuids.toString());
             String operator = groupMemberAddMsg.getOperator();
@@ -169,7 +169,7 @@ public class GroupMessageManagerImpl {
         if (interceptable == null || interceptable.invokeL(65543, this, chatMsg) == null) {
             GroupMemberDelMsg groupMemberDelMsg = (GroupMemberDelMsg) chatMsg;
             String valueOf = String.valueOf(groupMemberDelMsg.getContacter());
-            ArrayList memberBuids = groupMemberDelMsg.getMemberBuids();
+            ArrayList<String> memberBuids = groupMemberDelMsg.getMemberBuids();
             String str = TAG;
             LogUtils.d(str, "handleDeleteMemberMsg " + valueOf + GlideException.IndentedAppendable.INDENT + memberBuids.toString());
             GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberDelMsg.getGroupnum());
@@ -183,7 +183,7 @@ public class GroupMessageManagerImpl {
                         LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
                         new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                     }
-                    ArrayList arrayList = new ArrayList();
+                    ArrayList<ChatMsg> arrayList = new ArrayList<>();
                     arrayList.add(chatMsg);
                     ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList);
                     return;
@@ -238,7 +238,7 @@ public class GroupMessageManagerImpl {
                 GroupInfoDAOImpl.deletedGroupMember(mContext, valueOf);
                 LogUtils.d(TAG, "handleDeleteGroup quitgroup");
                 quitGroupByGroupId(groupid);
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ChatMsg> arrayList = new ArrayList<>();
                 arrayList.add(chatMsg);
                 ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList);
             } catch (Exception e) {
@@ -331,7 +331,7 @@ public class GroupMessageManagerImpl {
             long contacter = chatMsg.getContacter();
             ArrayList arrayList = new ArrayList();
             arrayList.add(String.valueOf(contacter));
-            ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
+            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
             if (groupInfo != null && groupInfo.size() != 0) {
                 z = false;
             } else {
@@ -367,7 +367,7 @@ public class GroupMessageManagerImpl {
             try {
                 LogUtils.d(TAG, "GroupMessageManager GroupDisbandMsg");
                 quitGroupByGroupId(groupDisbandMsg.getContacter());
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ChatMsg> arrayList = new ArrayList<>();
                 arrayList.add(chatMsg);
                 ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList);
             } catch (Exception e) {
@@ -394,13 +394,13 @@ public class GroupMessageManagerImpl {
         }
     }
 
-    private boolean isExistChatMsg(ArrayList arrayList) {
+    private boolean isExistChatMsg(ArrayList<ChatMsg> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, arrayList)) == null) {
             for (int i = 0; i < arrayList.size(); i++) {
-                int msgType = ((ChatMsg) arrayList.get(i)).getMsgType();
-                int groupType = ((ChatMsg) arrayList.get(i)).getGroupType();
+                int msgType = arrayList.get(i).getMsgType();
+                int groupType = arrayList.get(i).getGroupType();
                 if ((msgType >= 0 && msgType <= 100) || msgType == 2001) {
                     return true;
                 }
@@ -417,38 +417,38 @@ public class GroupMessageManagerImpl {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private void handleFansGroupSystemMessage(ArrayList arrayList) {
+    private void handleFansGroupSystemMessage(ArrayList<ChatMsg> arrayList) {
         long j;
-        Iterator it;
-        ArrayList arrayList2;
+        Iterator<ChatMsg> it;
+        ArrayList<String> arrayList2;
         long max;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, arrayList) == null) {
             if (arrayList != null && arrayList.size() != 0) {
-                String valueOf = String.valueOf(((ChatMsg) arrayList.get(0)).getContacter());
-                ArrayList arrayList3 = new ArrayList();
+                String valueOf = String.valueOf(arrayList.get(0).getContacter());
+                ArrayList<String> arrayList3 = new ArrayList<>();
                 arrayList3.add(valueOf);
-                ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList3);
+                ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList3);
                 long j2 = Long.MAX_VALUE;
                 if (groupInfo != null && groupInfo.size() > 0) {
-                    GroupInfo groupInfo2 = (GroupInfo) groupInfo.get(0);
+                    GroupInfo groupInfo2 = groupInfo.get(0);
                     j2 = groupInfo2.getMembersVersion();
                     j = groupInfo2.getInfoVersion();
                 } else {
                     j = Long.MAX_VALUE;
                 }
-                Iterator it2 = arrayList.iterator();
+                Iterator<ChatMsg> it2 = arrayList.iterator();
                 long j3 = 0;
                 long j4 = 0;
                 while (it2.hasNext()) {
-                    ChatMsg chatMsg = (ChatMsg) it2.next();
-                    chatMsg.setChatType(57);
-                    int msgType = chatMsg.getMsgType();
+                    ChatMsg next = it2.next();
+                    next.setChatType(57);
+                    int msgType = next.getMsgType();
                     switch (msgType) {
                         case 1002:
                             it = it2;
                             arrayList2 = arrayList3;
-                            GroupMemberJoinMsg groupMemberJoinMsg = (GroupMemberJoinMsg) chatMsg;
+                            GroupMemberJoinMsg groupMemberJoinMsg = (GroupMemberJoinMsg) next;
                             if (TextUtils.equals(groupMemberJoinMsg.getMemberBuid(), AccountManager.getUid(mContext))) {
                                 GroupInfoDAOImpl.setGroupState(mContext, valueOf, 0);
                             }
@@ -463,7 +463,7 @@ public class GroupMessageManagerImpl {
                         case 1003:
                             it = it2;
                             arrayList2 = arrayList3;
-                            GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) chatMsg;
+                            GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) next;
                             String quitBuid = groupMemberQuitMsg.getQuitBuid();
                             if (TextUtils.equals(quitBuid, AccountManager.getUid(mContext))) {
                                 quitGroupByGroupId(groupMemberQuitMsg.getContacter());
@@ -482,12 +482,12 @@ public class GroupMessageManagerImpl {
                         case 1004:
                             it = it2;
                             arrayList2 = arrayList3;
-                            GroupMemberDelMsg groupMemberDelMsg = (GroupMemberDelMsg) chatMsg;
-                            ArrayList memberBuids = groupMemberDelMsg.getMemberBuids();
+                            GroupMemberDelMsg groupMemberDelMsg = (GroupMemberDelMsg) next;
+                            ArrayList<String> memberBuids = groupMemberDelMsg.getMemberBuids();
                             if (memberBuids.contains(AccountManager.getUid(mContext))) {
                                 quitGroupByGroupId(groupMemberDelMsg.getContacter());
-                                ArrayList arrayList5 = new ArrayList();
-                                arrayList5.add(chatMsg);
+                                ArrayList<ChatMsg> arrayList5 = new ArrayList<>();
+                                arrayList5.add(next);
                                 ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList5);
                                 break;
                             } else {
@@ -503,7 +503,7 @@ public class GroupMessageManagerImpl {
                         case 1005:
                             it = it2;
                             arrayList2 = arrayList3;
-                            GroupInfoChangeMsg groupInfoChangeMsg = (GroupInfoChangeMsg) chatMsg;
+                            GroupInfoChangeMsg groupInfoChangeMsg = (GroupInfoChangeMsg) next;
                             if (groupInfoChangeMsg.getInfoVersion() > j) {
                                 GroupInfoDAOImpl.modifyGroupName(mContext, valueOf, groupInfoChangeMsg.getGroupname());
                                 ConversationManagerImpl.getInstance(mContext).updateConversationName(groupInfoChangeMsg.getGroupname(), 1, valueOf);
@@ -513,13 +513,13 @@ public class GroupMessageManagerImpl {
                         default:
                             switch (msgType) {
                                 case 1012:
-                                    GroupMemberNameChangeMsg groupMemberNameChangeMsg = (GroupMemberNameChangeMsg) chatMsg;
+                                    GroupMemberNameChangeMsg groupMemberNameChangeMsg = (GroupMemberNameChangeMsg) next;
                                     if (groupMemberNameChangeMsg.getMemberVersion() > j2) {
                                         String memberChangedid = groupMemberNameChangeMsg.memberChangedid();
                                         it = it2;
                                         GroupInfoDAOImpl.updateMemberNickName(mContext, valueOf, memberChangedid, groupMemberNameChangeMsg.getNickname());
                                         arrayList2 = arrayList3;
-                                        ChatSession chatSession = ChatMsgManager.getChatSession(mContext, 1, chatMsg.getContacter());
+                                        ChatSession chatSession = ChatMsgManager.getChatSession(mContext, 1, next.getContacter());
                                         if (chatSession != null && TextUtils.equals(memberChangedid, String.valueOf(chatSession.getLastMsgUid()))) {
                                             chatSession.setLastMsgName(groupMemberNameChangeMsg.getNickname());
                                             ChatMessageDBManager.getInstance(mContext).updateChatSession(1, chatSession);
@@ -532,12 +532,12 @@ public class GroupMessageManagerImpl {
                                     j4 = max;
                                     break;
                                 case 1013:
-                                    handleDisbandMsg(chatMsg);
+                                    handleDisbandMsg(next);
                                     it = it2;
                                     arrayList2 = arrayList3;
                                     break;
                                 case 1014:
-                                    j3 = Math.max(((FansInfoUpdateMsg) chatMsg).getInfoVersion(), j3);
+                                    j3 = Math.max(((FansInfoUpdateMsg) next).getInfoVersion(), j3);
                                     it = it2;
                                     arrayList2 = arrayList3;
                                     continue;
@@ -553,7 +553,7 @@ public class GroupMessageManagerImpl {
                     it2 = it;
                     arrayList3 = arrayList2;
                 }
-                ArrayList arrayList6 = arrayList3;
+                ArrayList<String> arrayList6 = arrayList3;
                 if (j < j3) {
                     LogUtils.d(TAG, "getFansGroupInfo sInfoVersion = " + j + " maxInfoVersion = " + j3);
                     GroupManagerImpl.getInstance(mContext).getFansGroupInfo(arrayList6, true, null);
@@ -576,7 +576,7 @@ public class GroupMessageManagerImpl {
             LogUtils.d(str, "STAR handleMasterChange " + chatMsg.toString());
             GroupStarMasterUpdateMsg groupStarMasterUpdateMsg = (GroupStarMasterUpdateMsg) chatMsg;
             String valueOf = String.valueOf(groupStarMasterUpdateMsg.getContacter());
-            ArrayList addedMemberBuids = groupStarMasterUpdateMsg.getAddedMemberBuids();
+            ArrayList<String> addedMemberBuids = groupStarMasterUpdateMsg.getAddedMemberBuids();
             String str2 = TAG;
             LogUtils.d(str2, "handleMasterChange " + valueOf + GlideException.IndentedAppendable.INDENT + addedMemberBuids);
             if (addedMemberBuids.contains(AccountManager.getUid(mContext))) {
@@ -590,7 +590,7 @@ public class GroupMessageManagerImpl {
             LogUtils.d(str3, "STAR updateMasterAsCommon " + updateMasterAsCommon);
             GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupStarMasterUpdateMsg.getGroupnum());
             GroupInfoSyncManagerImpl.addSyncGroupMemeber(valueOf, addedMemberBuids);
-            ArrayList pushoutBuid = groupStarMasterUpdateMsg.getPushoutBuid();
+            ArrayList<String> pushoutBuid = groupStarMasterUpdateMsg.getPushoutBuid();
             if (pushoutBuid != null && pushoutBuid.size() > 0) {
                 GroupInfoSyncManagerImpl.deleteSyncGroupMemeber(valueOf, pushoutBuid);
                 String str4 = TAG;
@@ -614,7 +614,7 @@ public class GroupMessageManagerImpl {
             LogUtils.d(str, "STAR handleStartJoin " + chatMsg.toString());
             GroupStarJoinMsg groupStarJoinMsg = (GroupStarJoinMsg) chatMsg;
             String valueOf = String.valueOf(groupStarJoinMsg.getContacter());
-            ArrayList memberBuid = groupStarJoinMsg.getMemberBuid();
+            ArrayList<String> memberBuid = groupStarJoinMsg.getMemberBuid();
             String str2 = TAG;
             LogUtils.d(str2, "handlestarJoinGroupMsg " + valueOf + GlideException.IndentedAppendable.INDENT + memberBuid);
             if (memberBuid.contains(AccountManager.getUid(mContext))) {
@@ -627,7 +627,7 @@ public class GroupMessageManagerImpl {
                 GroupInfoSyncManagerImpl.addSyncGroupMemeber(valueOf, memberBuid);
             }
             GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupStarJoinMsg.getGroupnum());
-            ArrayList pushoutBuid = groupStarJoinMsg.getPushoutBuid();
+            ArrayList<String> pushoutBuid = groupStarJoinMsg.getPushoutBuid();
             if (pushoutBuid != null && pushoutBuid.size() > 0) {
                 GroupInfoSyncManagerImpl.deleteSyncGroupMemeber(valueOf, pushoutBuid);
                 String str3 = TAG;
@@ -645,7 +645,7 @@ public class GroupMessageManagerImpl {
     }
 
     private void recordLastMsg(String str, ChatObject chatObject, boolean z) {
-        ArrayList fetchAllChatMsg;
+        ArrayList<ChatMsg> fetchAllChatMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65555, this, str, chatObject, z) == null) {
             int unReadCount = GroupMessageDAOImpl.getUnReadCount(mContext, str);
@@ -657,7 +657,7 @@ public class GroupMessageManagerImpl {
                 fetchAllChatMsg = GroupMessageDAOImpl.fetchAllChatMsg(mContext, str, null, 1L, true);
             }
             if (fetchAllChatMsg != null && fetchAllChatMsg.size() > 0) {
-                ChatMsg chatMsg = (ChatMsg) fetchAllChatMsg.get(0);
+                ChatMsg chatMsg = fetchAllChatMsg.get(0);
                 String recommendDescription = chatMsg.getRecommendDescription();
                 String str3 = TAG;
                 LogUtils.e(str3, str + "   content : " + chatMsg.toString());
@@ -669,14 +669,14 @@ public class GroupMessageManagerImpl {
         }
     }
 
-    public ArrayList addMsgs(ArrayList arrayList, boolean z) {
+    public ArrayList<ChatMsg> addMsgs(ArrayList<ChatMsg> arrayList, boolean z) {
         InterceptResult invokeLZ;
         int i;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, arrayList, z)) == null) {
             if (arrayList != null && arrayList.size() > 0) {
-                ChatMsg chatMsg = (ChatMsg) arrayList.get(arrayList.size() - 1);
+                ChatMsg chatMsg = arrayList.get(arrayList.size() - 1);
                 if (chatMsg.getMsgType() == 1003) {
                     GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) chatMsg;
                     String quitBuid = groupMemberQuitMsg.getQuitBuid();
@@ -695,7 +695,7 @@ public class GroupMessageManagerImpl {
                 }
                 LogUtils.d(TAG, "STAR receive group message ");
                 boolean z2 = false;
-                ChatMsg chatMsg2 = (ChatMsg) arrayList.get(0);
+                ChatMsg chatMsg2 = arrayList.get(0);
                 boolean isStarMessage = chatMsg2.isStarMessage();
                 String valueOf = String.valueOf(chatMsg2.getContacter());
                 if (!GroupInfoDAOImpl.isExistGroup(mContext, valueOf)) {
@@ -731,7 +731,7 @@ public class GroupMessageManagerImpl {
                     if (arrayList.size() > 0) {
                         if (i2 != 57) {
                             for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                                ChatMsg chatMsg3 = (ChatMsg) arrayList.get(i3);
+                                ChatMsg chatMsg3 = arrayList.get(i3);
                                 handleGroupSystemMessage(chatMsg3);
                                 chatMsg3.setChatType(3);
                             }
@@ -739,7 +739,7 @@ public class GroupMessageManagerImpl {
                             handleFansGroupSystemMessage(arrayList);
                         }
                         GroupInfoSyncManagerImpl.activeSyncGroup(mContext, valueOf);
-                        ArrayList addChatMsg = GroupMessageDAOImpl.addChatMsg(mContext, valueOf, arrayList);
+                        ArrayList<Long> addChatMsg = GroupMessageDAOImpl.addChatMsg(mContext, valueOf, arrayList);
                         String str5 = TAG;
                         LogUtils.d(str5, "msgs : ret " + addChatMsg + ",groupid: " + valueOf);
                         String str6 = TAG;
@@ -748,7 +748,7 @@ public class GroupMessageManagerImpl {
                             String str7 = TAG;
                             LogUtils.d(str7, "STAR add chat msg error. ret " + addChatMsg + ",groupid: " + valueOf);
                             return null;
-                        } else if (addChatMsg.size() == 1 && ((Long) addChatMsg.get(0)).longValue() < 0) {
+                        } else if (addChatMsg.size() == 1 && addChatMsg.get(0).longValue() < 0) {
                             String str8 = TAG;
                             LogUtils.d(str8, "STAR add chat msg error. return.  ret = " + addChatMsg + ",groupid: " + valueOf);
                             return arrayList;
@@ -778,7 +778,7 @@ public class GroupMessageManagerImpl {
         return (ArrayList) invokeLZ.objValue;
     }
 
-    public ArrayList getAllChatAndSystemMsg(String str, ChatMsg chatMsg, int i, boolean z) {
+    public ArrayList<ChatMsg> getAllChatAndSystemMsg(String str, ChatMsg chatMsg, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, chatMsg, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
@@ -790,7 +790,7 @@ public class GroupMessageManagerImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList getAllChatMsg(String str, ChatMsg chatMsg, int i, boolean z) {
+    public ArrayList<ChatMsg> getAllChatMsg(String str, ChatMsg chatMsg, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, chatMsg, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
@@ -802,7 +802,7 @@ public class GroupMessageManagerImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList getAllSystemMsg(String str, ChatMsg chatMsg, int i, boolean z) {
+    public ArrayList<ChatMsg> getAllSystemMsg(String str, ChatMsg chatMsg, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, chatMsg, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {

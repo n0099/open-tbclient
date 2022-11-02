@@ -21,8 +21,8 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
     public long mFeedId;
     public int mHasMore;
     public String mShowWord;
-    public ArrayList mVideoAttentionPersonListData;
-    public ArrayList mVideoItemDatasVideo;
+    public ArrayList<VideoAttentionPersonListData> mVideoAttentionPersonListData;
+    public ArrayList<VideoItemData> mVideoItemDatasVideo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoAttentionHttpResponseMessage() {
@@ -40,8 +40,8 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
                 return;
             }
         }
-        this.mVideoItemDatasVideo = new ArrayList();
-        this.mVideoAttentionPersonListData = new ArrayList();
+        this.mVideoItemDatasVideo = new ArrayList<>();
+        this.mVideoAttentionPersonListData = new ArrayList<>();
         this.mShowWord = "";
     }
 
@@ -103,7 +103,7 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
         return (String) invokeV.objValue;
     }
 
-    public List getVideoAttentionPersonListData() {
+    public List<VideoAttentionPersonListData> getVideoAttentionPersonListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -112,7 +112,7 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
         return (List) invokeV.objValue;
     }
 
-    public List getVideoItemDatas() {
+    public List<VideoItemData> getVideoItemDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

@@ -4,14 +4,18 @@ import com.airbnb.lottie.model.DocumentData;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
 /* loaded from: classes.dex */
-public class TextKeyframeAnimation extends KeyframeAnimation {
-    public TextKeyframeAnimation(List list) {
+public class TextKeyframeAnimation extends KeyframeAnimation<DocumentData> {
+    public TextKeyframeAnimation(List<Keyframe<DocumentData>> list) {
         super(list);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public DocumentData getValue(Keyframe keyframe, float f) {
-        return (DocumentData) keyframe.startValue;
+    public DocumentData getValue(Keyframe<DocumentData> keyframe, float f) {
+        return keyframe.startValue;
+    }
+
+    @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
+    public /* bridge */ /* synthetic */ Object getValue(Keyframe keyframe, float f) {
+        return getValue((Keyframe<DocumentData>) keyframe, f);
     }
 }

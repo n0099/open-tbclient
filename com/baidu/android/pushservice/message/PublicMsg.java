@@ -32,7 +32,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PublicMsg implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PublicMsg> CREATOR;
     public static final int FLAG_NEED_CLEAR = 1;
     public static final int FLAG_NEED_SOUND = 4;
     public static final int FLAG_NEED_VIBRATE = 2;
@@ -79,7 +79,7 @@ public class PublicMsg implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.pushservice.message.PublicMsg.2
+        CREATOR = new Parcelable.Creator<PublicMsg>() { // from class: com.baidu.android.pushservice.message.PublicMsg.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

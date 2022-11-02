@@ -67,7 +67,7 @@ public class am {
     public static Object f53a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Queue f54a;
+    public static Queue<String> f54a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -111,7 +111,7 @@ public class am {
         }
     }
 
-    public static Intent a(Context context, String str, Map map, int i) {
+    public static Intent a(Context context, String str, Map<String, String> map, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65538, null, context, str, map, i)) == null) ? com.xiaomi.push.service.al.b(context, str, map, i) : (Intent) invokeLLLI.objValue;
@@ -187,7 +187,7 @@ public class am {
                                 str3 = null;
                                 str4 = null;
                             } else {
-                                str3 = (String) cif.f627a.f541a.get("jobkey");
+                                str3 = cif.f627a.f541a.get("jobkey");
                                 str4 = str3;
                             }
                             if (TextUtils.isEmpty(str3)) {
@@ -202,7 +202,7 @@ public class am {
                                 com.xiaomi.channel.commonutils.logger.b.m89a("receive a message, msgid=" + a6.m423a() + ", jobkey=" + str3 + ", btn=" + intExtra);
                                 String a7 = com.xiaomi.push.service.al.a(generateMessage.getExtra(), intExtra);
                                 if (z && generateMessage.getExtra() != null && !TextUtils.isEmpty(a7)) {
-                                    Map extra = generateMessage.getExtra();
+                                    Map<String, String> extra = generateMessage.getExtra();
                                     if (intExtra != 0 && cif.m465a() != null) {
                                         ao.a(this.f55a).a(cif.m465a().c(), intExtra);
                                     }
@@ -331,10 +331,10 @@ public class am {
                         db.a(this.f55a.getPackageName(), this.f55a, a4, hj.j, bArr.length);
                         ie ieVar = (ie) a4;
                         String b = ieVar.b();
-                        List m459a = ieVar.m459a();
+                        List<String> m459a = ieVar.m459a();
                         if (ieVar.f614a == 0) {
                             if (TextUtils.equals(b, ey.i.f334a) && m459a != null && m459a.size() > 1) {
-                                MiPushClient.addAcceptTime(this.f55a, (String) m459a.get(0), (String) m459a.get(1));
+                                MiPushClient.addAcceptTime(this.f55a, m459a.get(0), m459a.get(1));
                                 if (BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(m459a.get(0)) && BdPlayerProgressView.DEFAULT_TIME_TEXT.equals(m459a.get(1))) {
                                     b.m131a(this.f55a).a(true);
                                 } else {
@@ -342,18 +342,18 @@ public class am {
                                 }
                                 m459a = a(TimeZone.getTimeZone("GMT+08"), TimeZone.getDefault(), m459a);
                             } else if (TextUtils.equals(b, ey.c.f334a) && m459a != null && m459a.size() > 0) {
-                                MiPushClient.addAlias(this.f55a, (String) m459a.get(0));
+                                MiPushClient.addAlias(this.f55a, m459a.get(0));
                             } else if (TextUtils.equals(b, ey.d.f334a) && m459a != null && m459a.size() > 0) {
-                                MiPushClient.removeAlias(this.f55a, (String) m459a.get(0));
+                                MiPushClient.removeAlias(this.f55a, m459a.get(0));
                             } else if (TextUtils.equals(b, ey.e.f334a) && m459a != null && m459a.size() > 0) {
-                                MiPushClient.addAccount(this.f55a, (String) m459a.get(0));
+                                MiPushClient.addAccount(this.f55a, m459a.get(0));
                             } else if (TextUtils.equals(b, ey.f.f334a) && m459a != null && m459a.size() > 0) {
-                                MiPushClient.removeAccount(this.f55a, (String) m459a.get(0));
+                                MiPushClient.removeAccount(this.f55a, m459a.get(0));
                             } else if (TextUtils.equals(b, ey.j.f334a)) {
                                 return null;
                             }
                         }
-                        List list = m459a;
+                        List<String> list = m459a;
                         com.xiaomi.channel.commonutils.logger.b.e("resp-cmd:" + b + StringUtil.ARRAY_ELEMENT_SEPARATOR + ieVar.a());
                         return PushMessageHelper.generateCommandMessage(b, list, ieVar.f614a, ieVar.f622d, ieVar.c(), null);
                     case 7:
@@ -452,13 +452,13 @@ public class am {
                                 }
                             } else if (ht.h.f506a.equalsIgnoreCase(iiVar.f650d)) {
                                 if (iiVar.m481a() != null && iiVar.m481a().containsKey("app_version")) {
-                                    b.m131a(this.f55a).m134a((String) iiVar.m481a().get("app_version"));
+                                    b.m131a(this.f55a).m134a(iiVar.m481a().get("app_version"));
                                     break;
                                 }
                             } else if (ht.m.f506a.equalsIgnoreCase(iiVar.f650d)) {
                                 if (cif.m473b() && iiVar.m481a() != null && iiVar.m481a().containsKey("awake_info")) {
                                     Context context3 = this.f55a;
-                                    o.a(context3, b.m131a(context3).m132a(), ba.a(this.f55a).a(ho.aF.a(), 0), (String) iiVar.m481a().get("awake_info"));
+                                    o.a(context3, b.m131a(context3).m132a(), ba.a(this.f55a).a(ho.aF.a(), 0), iiVar.m481a().get("awake_info"));
                                     break;
                                 }
                             } else {
@@ -483,7 +483,7 @@ public class am {
                                         if (iiVar.m481a() != null) {
                                             int i4 = -2;
                                             if (iiVar.m481a().containsKey(bk.M)) {
-                                                String str10 = (String) iiVar.m481a().get(bk.M);
+                                                String str10 = iiVar.m481a().get(bk.M);
                                                 if (!TextUtils.isEmpty(str10)) {
                                                     try {
                                                         i4 = Integer.parseInt(str10);
@@ -495,7 +495,7 @@ public class am {
                                             if (i4 >= -1) {
                                                 MiPushClient.clearNotification(this.f55a, i4);
                                             } else {
-                                                MiPushClient.clearNotification(this.f55a, iiVar.m481a().containsKey(bk.K) ? (String) iiVar.m481a().get(bk.K) : "", iiVar.m481a().containsKey(bk.L) ? (String) iiVar.m481a().get(bk.L) : "");
+                                                MiPushClient.clearNotification(this.f55a, iiVar.m481a().containsKey(bk.K) ? iiVar.m481a().get(bk.K) : "", iiVar.m481a().containsKey(bk.L) ? iiVar.m481a().get(bk.L) : "");
                                             }
                                         }
                                         a(iiVar);
@@ -591,7 +591,7 @@ public class am {
                 if (a4 != null) {
                     hw hwVar = cif.f627a;
                     if (hwVar != null && hwVar.m432a() != null) {
-                        str2 = (String) cif.f627a.f541a.get("jobkey");
+                        str2 = cif.f627a.f541a.get("jobkey");
                     }
                     MiPushMessage generateMessage = PushMessageHelper.generateMessage(imVar, cif.m465a(), false);
                     generateMessage.setArrivedMessage(true);
@@ -652,9 +652,9 @@ public class am {
         if (interceptable == null || interceptable.invokeL(65544, this, iaVar) == null) {
             String a2 = iaVar.a();
             com.xiaomi.channel.commonutils.logger.b.b("receive ack " + a2);
-            Map m446a = iaVar.m446a();
+            Map<String, String> m446a = iaVar.m446a();
             if (m446a != null) {
-                String str = (String) m446a.get("real_source");
+                String str = m446a.get("real_source");
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -675,7 +675,7 @@ public class am {
             HashMap hashMap = new HashMap();
             iiVar.f645a = hashMap;
             hashMap.put("regid", MiPushClient.getRegId(this.f55a));
-            ao.a(this.f55a).a((iu) iiVar, hj.i, false, (hw) null);
+            ao.a(this.f55a).a((ao) iiVar, hj.i, false, (hw) null);
         }
     }
 
@@ -712,7 +712,7 @@ public class am {
                 hzVar.d(imVar.d());
             }
             hzVar.a(it.a(this.f55a, cif));
-            ao.a(this.f55a).a(hzVar, hj.f, m465a);
+            ao.a(this.f55a).a((ao) hzVar, hj.f, m465a);
         }
     }
 
@@ -784,11 +784,11 @@ public class am {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, cif)) == null) {
-            Map m432a = cif.m465a() == null ? null : cif.m465a().m432a();
+            Map<String, String> m432a = cif.m465a() == null ? null : cif.m465a().m432a();
             if (m432a == null) {
                 return false;
             }
-            String str = (String) m432a.get(Constants.EXTRA_KEY_PUSH_SERVER_ACTION);
+            String str = m432a.get(Constants.EXTRA_KEY_PUSH_SERVER_ACTION);
             return TextUtils.equals(str, Constants.EXTRA_VALUE_HYBRID_MESSAGE) || TextUtils.equals(str, Constants.EXTRA_VALUE_PLATFORM_MESSAGE);
         }
         return invokeL.booleanValue;
@@ -801,9 +801,9 @@ public class am {
         if (interceptable == null || interceptable.invokeL(65551, this, iaVar) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("ASSEMBLE_PUSH : " + iaVar.toString());
             String a2 = iaVar.a();
-            Map m446a = iaVar.m446a();
+            Map<String, String> m446a = iaVar.m446a();
             if (m446a != null) {
-                String str = (String) m446a.get(Constants.ASSEMBLE_PUSH_REG_INFO);
+                String str = m446a.get(Constants.ASSEMBLE_PUSH_REG_INFO);
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -855,7 +855,7 @@ public class am {
                 hzVar.c(m465a.m436b());
             }
             hzVar.a(it.a(this.f55a, cif));
-            ao.a(this.f55a).a((iu) hzVar, hj.f, false, m465a);
+            ao.a(this.f55a).a((ao) hzVar, hj.f, false, m465a);
         }
     }
 
@@ -863,7 +863,7 @@ public class am {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, this, iiVar) == null) {
-            Map m481a = iiVar.m481a();
+            Map<String, String> m481a = iiVar.m481a();
             if (m481a == null) {
                 str = "detect failed because null";
             } else {
@@ -909,7 +909,7 @@ public class am {
                             }
                             iiVar2.f645a.put("notAlive", aVar2.toString());
                         }
-                        ao.a(this.f55a).a((iu) iiVar2, hj.i, false, (hw) null);
+                        ao.a(this.f55a).a((ao) iiVar2, hj.i, false, (hw) null);
                         return;
                     } catch (Throwable th) {
                         com.xiaomi.channel.commonutils.logger.b.m89a("detect failed " + th);
@@ -1082,7 +1082,7 @@ public class am {
         return (PushMessageHandler.a) invokeL.objValue;
     }
 
-    public List a(TimeZone timeZone, TimeZone timeZone2, List list) {
+    public List<String> a(TimeZone timeZone, TimeZone timeZone2, List<String> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timeZone, timeZone2, list)) == null) {
@@ -1090,8 +1090,8 @@ public class am {
                 return list;
             }
             long rawOffset = ((timeZone.getRawOffset() - timeZone2.getRawOffset()) / 1000) / 60;
-            long parseLong = ((((Long.parseLong(((String) list.get(0)).split(":")[0]) * 60) + Long.parseLong(((String) list.get(0)).split(":")[1])) - rawOffset) + 1440) % 1440;
-            long parseLong2 = ((((Long.parseLong(((String) list.get(1)).split(":")[0]) * 60) + Long.parseLong(((String) list.get(1)).split(":")[1])) - rawOffset) + 1440) % 1440;
+            long parseLong = ((((Long.parseLong(list.get(0).split(":")[0]) * 60) + Long.parseLong(list.get(0).split(":")[1])) - rawOffset) + 1440) % 1440;
+            long parseLong2 = ((((Long.parseLong(list.get(1).split(":")[0]) * 60) + Long.parseLong(list.get(1).split(":")[1])) - rawOffset) + 1440) % 1440;
             ArrayList arrayList = new ArrayList();
             arrayList.add(String.format("%1$02d:%2$02d", Long.valueOf(parseLong / 60), Long.valueOf(parseLong % 60)));
             arrayList.add(String.format("%1$02d:%2$02d", Long.valueOf(parseLong2 / 60), Long.valueOf(parseLong2 % 60)));

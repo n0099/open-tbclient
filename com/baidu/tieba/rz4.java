@@ -1,149 +1,276 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
-import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class rz4 extends nz4 {
+public final class rz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtSelectData i;
+    public final int a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public String h;
+    public String i;
+    public int j;
 
-    public rz4() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
+            return (obj instanceof rz4) && this.a == ((rz4) obj).a;
         }
+        return invokeL.booleanValue;
     }
 
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            o(true);
-            s();
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
-        }
-    }
-
-    public AtSelectData u() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.i;
-        }
-        return (AtSelectData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public String v() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "@" + this.i.getNameShow() + " ";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return "ItemTabLogData(type=" + this.a + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public rz4(AtSelectData atSelectData) {
+    public rz4(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {atSelectData};
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.g = -1;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public rz4(int i, int i2) {
+        this(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = atSelectData;
+        this.e = i2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nz4
-    /* renamed from: t */
-    public void b(rz4 rz4Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public rz4(int i, int i2, int i3) {
+        this(i, i2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rz4Var) == null) {
-            super.b(rz4Var);
-            this.i = rz4Var.i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f = i3;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.b;
+            if (str != null) {
+                return str;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("fid");
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            String str = this.c;
+            if (str != null) {
+                return str;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("uid");
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void j(String fid, String uid, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048588, this, fid, uid, i) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            k(fid);
+            q(uid);
+            this.d = i;
         }
     }
 
-    public static rz4 w(rz4 rz4Var, Editable editable) {
-        InterceptResult invokeLL;
+    public final void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, rz4Var, editable)) == null) {
-            rz4 rz4Var2 = new rz4();
-            rz4Var2.b(rz4Var);
-            rz4Var2.n(editable);
-            return rz4Var2;
-        }
-        return (rz4) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nz4
-    public void a(Editable editable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            super.a(editable, i, i2, i3);
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.b = str;
         }
     }
 
-    @Override // com.baidu.tieba.nz4
-    public void p(Editable editable) {
+    public final void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#(at, ");
-            sb.append(this.i.getPortrait());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getNameShow());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getUid());
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append(" ");
-            i(sb);
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.h = str;
         }
     }
 
-    @Override // com.baidu.tieba.nz4
-    public void q(Editable editable, int i) {
+    public final void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#(at, ");
-            sb.append(this.i.getPortrait());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getNameShow());
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append(" ");
-            i(sb);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public final void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public final void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.c = str;
         }
     }
 }

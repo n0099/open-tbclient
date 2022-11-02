@@ -3,6 +3,7 @@ package com.baidu.searchbox.retrieve.log;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.NetWorkUtils;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.retrieve.inter.IFetchJob;
@@ -18,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes2.dex */
 public class FetchLogJob extends IFetchJob {
     public static /* synthetic */ Interceptable $ic = null;

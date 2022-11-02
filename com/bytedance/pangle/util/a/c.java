@@ -24,7 +24,7 @@ public final class c {
         return invokeLI.longValue;
     }
 
-    public static Pair a(RandomAccessFile randomAccessFile, int i) {
+    public static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, randomAccessFile, i)) == null) {

@@ -22,7 +22,7 @@ public final class RevenueDataParser implements IRevenueDataParser {
     public static final RevenueDataParser INSTANCE;
     public static final String TAG = "RevenueDataParser";
     public transient /* synthetic */ FieldHolder $fh;
-    public List revenueDataReceivers;
+    public List<IRevenueDataReceiver> revenueDataReceivers;
 
     static {
         InterceptResult invokeClinit;

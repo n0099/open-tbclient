@@ -1,19 +1,25 @@
 package com.airbnb.lottie.model;
 
+import androidx.annotation.CheckResult;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class KeyPath {
     public static final KeyPath COMPOSITION = new KeyPath("COMPOSITION");
-    public final List keys;
+    public final List<String> keys;
+    @Nullable
     public KeyPathElement resolvedElement;
 
     private boolean endsWithGlobstar() {
-        List list = this.keys;
-        return ((String) list.get(list.size() - 1)).equals("**");
+        List<String> list = this.keys;
+        return list.get(list.size() - 1).equals("**");
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public KeyPathElement getResolvedElement() {
         return this.resolvedElement;
     }
@@ -47,12 +53,15 @@ public class KeyPath {
         return "__container".equals(str);
     }
 
+    @CheckResult
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public KeyPath addKey(String str) {
         KeyPath keyPath = new KeyPath(this);
         keyPath.keys.add(str);
         return keyPath;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public KeyPath resolve(KeyPathElement keyPathElement) {
         KeyPath keyPath = new KeyPath(this);
         keyPath.resolvedElement = keyPathElement;
@@ -63,6 +72,7 @@ public class KeyPath {
         this.keys = Arrays.asList(strArr);
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean fullyResolvesTo(String str, int i) {
         boolean z;
         boolean z2;
@@ -75,7 +85,7 @@ public class KeyPath {
         } else {
             z = false;
         }
-        String str2 = (String) this.keys.get(i);
+        String str2 = this.keys.get(i);
         if (!str2.equals("**")) {
             if (!str2.equals(str) && !str2.equals("*")) {
                 z3 = false;
@@ -87,7 +97,7 @@ public class KeyPath {
             }
             return true;
         }
-        if (!z && ((String) this.keys.get(i + 1)).equals(str)) {
+        if (!z && this.keys.get(i + 1).equals(str)) {
             z2 = true;
         } else {
             z2 = false;
@@ -104,23 +114,25 @@ public class KeyPath {
             if (i2 < this.keys.size() - 1) {
                 return false;
             }
-            return ((String) this.keys.get(i2)).equals(str);
+            return this.keys.get(i2).equals(str);
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int incrementDepthBy(String str, int i) {
         if (isContainer(str)) {
             return 0;
         }
-        if (!((String) this.keys.get(i)).equals("**")) {
+        if (!this.keys.get(i).equals("**")) {
             return 1;
         }
-        if (i == this.keys.size() - 1 || !((String) this.keys.get(i + 1)).equals(str)) {
+        if (i == this.keys.size() - 1 || !this.keys.get(i + 1).equals(str)) {
             return 0;
         }
         return 2;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean matches(String str, int i) {
         if (isContainer(str)) {
             return true;
@@ -128,14 +140,15 @@ public class KeyPath {
         if (i >= this.keys.size()) {
             return false;
         }
-        if (((String) this.keys.get(i)).equals(str) || ((String) this.keys.get(i)).equals("**") || ((String) this.keys.get(i)).equals("*")) {
+        if (this.keys.get(i).equals(str) || this.keys.get(i).equals("**") || this.keys.get(i).equals("*")) {
             return true;
         }
         return false;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean propagateToChildren(String str, int i) {
-        if ("__container".equals(str) || i < this.keys.size() - 1 || ((String) this.keys.get(i)).equals("**")) {
+        if ("__container".equals(str) || i < this.keys.size() - 1 || this.keys.get(i).equals("**")) {
             return true;
         }
         return false;

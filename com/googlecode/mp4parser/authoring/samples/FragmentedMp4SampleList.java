@@ -22,15 +22,16 @@ import com.googlecode.mp4parser.util.Path;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
 import java.util.AbstractList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class FragmentedMp4SampleList extends AbstractList {
+public class FragmentedMp4SampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List allTrafs;
+    public List<TrackFragmentBox> allTrafs;
     public IsoFile[] fragments;
-    public SoftReference[] sampleCache;
+    public SoftReference<Sample>[] sampleCache;
     public int size_;
     public Container topLevel;
     public TrackBox trackBox;
@@ -62,8 +63,9 @@ public class FragmentedMp4SampleList extends AbstractList {
             }
         }
         if (this.trackBox != null) {
-            for (Box box : Path.getPaths(container, "moov/mvex/trex")) {
-                TrackExtendsBox trackExtendsBox = (TrackExtendsBox) box;
+            Iterator<Box> it = Path.getPaths(container, "moov/mvex/trex").iterator();
+            while (it.hasNext()) {
+                TrackExtendsBox trackExtendsBox = (TrackExtendsBox) it.next();
                 if (trackExtendsBox.getTrackId() == this.trackBox.getTrackHeaderBox().getTrackId()) {
                     this.trex = trackExtendsBox;
                 }
@@ -74,11 +76,11 @@ public class FragmentedMp4SampleList extends AbstractList {
         throw new RuntimeException("This MP4 does not contain track " + j);
     }
 
-    private List allFragments() {
+    private List<TrackFragmentBox> allFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            List list = this.allTrafs;
+            List<TrackFragmentBox> list = this.allTrafs;
             if (list != null) {
                 return list;
             }
@@ -127,8 +129,8 @@ public class FragmentedMp4SampleList extends AbstractList {
         Sample sample;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            SoftReference[] softReferenceArr = this.sampleCache;
-            if (softReferenceArr[i] != null && (sample = (Sample) softReferenceArr[i].get()) != null) {
+            SoftReference<Sample>[] softReferenceArr = this.sampleCache;
+            if (softReferenceArr[i] != null && (sample = softReferenceArr[i].get()) != null) {
                 return sample;
             }
             int i2 = i + 1;
@@ -143,7 +145,7 @@ public class FragmentedMp4SampleList extends AbstractList {
                     if (trackRunBox.isDataOffsetPresent()) {
                         j = 0 + trackRunBox.getDataOffset();
                     }
-                    List entries = trackRunBox.getEntries();
+                    List<TrackRunBox.Entry> entries = trackRunBox.getEntries();
                     if (trackFragmentBox.getTrackFragmentHeaderBox().hasBaseDataOffset()) {
                         offset = trackFragmentBox.getTrackFragmentHeaderBox().getBaseDataOffset();
                     } else {
@@ -152,7 +154,7 @@ public class FragmentedMp4SampleList extends AbstractList {
                     long j2 = j + offset;
                     for (int i5 = 0; i5 < i4; i5++) {
                         if (trackRunBox.isSampleSizePresent()) {
-                            defaultSampleSize2 = ((TrackRunBox.Entry) entries.get(i5)).getSampleSize();
+                            defaultSampleSize2 = entries.get(i5).getSampleSize();
                         } else if (trackFragmentBox.getTrackFragmentHeaderBox().hasDefaultSampleSize()) {
                             defaultSampleSize2 = trackFragmentBox.getTrackFragmentHeaderBox().getDefaultSampleSize();
                         } else {
@@ -166,7 +168,7 @@ public class FragmentedMp4SampleList extends AbstractList {
                         j2 += defaultSampleSize2;
                     }
                     if (trackRunBox.isSampleSizePresent()) {
-                        defaultSampleSize = ((TrackRunBox.Entry) entries.get(i4)).getSampleSize();
+                        defaultSampleSize = entries.get(i4).getSampleSize();
                     } else if (trackFragmentBox.getTrackFragmentHeaderBox().hasDefaultSampleSize()) {
                         defaultSampleSize = trackFragmentBox.getTrackFragmentHeaderBox().getDefaultSampleSize();
                     } else {
@@ -178,7 +180,7 @@ public class FragmentedMp4SampleList extends AbstractList {
                         }
                     }
                     SampleImpl sampleImpl = new SampleImpl(j2, defaultSampleSize, movieFragmentBox.getParent());
-                    this.sampleCache[i] = new SoftReference(sampleImpl);
+                    this.sampleCache[i] = new SoftReference<>(sampleImpl);
                     return sampleImpl;
                 }
                 i3 += trafSize;

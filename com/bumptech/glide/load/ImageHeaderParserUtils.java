@@ -1,5 +1,8 @@
 package com.bumptech.glide.load;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,7 +48,8 @@ public final class ImageHeaderParserUtils {
         }
     }
 
-    public static int getOrientation(List list, ParcelFileDescriptorRewinder parcelFileDescriptorRewinder, ArrayPool arrayPool) throws IOException {
+    @RequiresApi(21)
+    public static int getOrientation(@NonNull List<ImageHeaderParser> list, @NonNull ParcelFileDescriptorRewinder parcelFileDescriptorRewinder, @NonNull ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, parcelFileDescriptorRewinder, arrayPool)) == null) {
@@ -114,7 +118,9 @@ public final class ImageHeaderParserUtils {
         return invokeLLL.intValue;
     }
 
-    public static ImageHeaderParser.ImageType getType(List list, ParcelFileDescriptorRewinder parcelFileDescriptorRewinder, ArrayPool arrayPool) throws IOException {
+    @NonNull
+    @RequiresApi(21)
+    public static ImageHeaderParser.ImageType getType(@NonNull List<ImageHeaderParser> list, @NonNull ParcelFileDescriptorRewinder parcelFileDescriptorRewinder, @NonNull ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, parcelFileDescriptorRewinder, arrayPool)) == null) {
@@ -183,7 +189,7 @@ public final class ImageHeaderParserUtils {
         return (ImageHeaderParser.ImageType) invokeLLL.objValue;
     }
 
-    public static int getOrientation(List list, InputStream inputStream, ArrayPool arrayPool) throws IOException {
+    public static int getOrientation(@NonNull List<ImageHeaderParser> list, @Nullable InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, list, inputStream, arrayPool)) == null) {
@@ -237,13 +243,13 @@ public final class ImageHeaderParserUtils {
         return invokeLLL.intValue;
     }
 
-    public static int getOrientationInternal(List list, OrientationReader orientationReader) throws IOException {
+    public static int getOrientationInternal(@NonNull List<ImageHeaderParser> list, OrientationReader orientationReader) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, orientationReader)) == null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                int orientation = orientationReader.getOrientation((ImageHeaderParser) list.get(i));
+                int orientation = orientationReader.getOrientation(list.get(i));
                 if (orientation != -1) {
                     return orientation;
                 }
@@ -253,7 +259,8 @@ public final class ImageHeaderParserUtils {
         return invokeLL.intValue;
     }
 
-    public static ImageHeaderParser.ImageType getType(List list, ByteBuffer byteBuffer) throws IOException {
+    @NonNull
+    public static ImageHeaderParser.ImageType getType(@NonNull List<ImageHeaderParser> list, @Nullable ByteBuffer byteBuffer) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, list, byteBuffer)) == null) {
@@ -297,13 +304,14 @@ public final class ImageHeaderParserUtils {
         return (ImageHeaderParser.ImageType) invokeLL.objValue;
     }
 
-    public static ImageHeaderParser.ImageType getTypeInternal(List list, TypeReader typeReader) throws IOException {
+    @NonNull
+    public static ImageHeaderParser.ImageType getTypeInternal(@NonNull List<ImageHeaderParser> list, TypeReader typeReader) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, typeReader)) == null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                ImageHeaderParser.ImageType type = typeReader.getType((ImageHeaderParser) list.get(i));
+                ImageHeaderParser.ImageType type = typeReader.getType(list.get(i));
                 if (type != ImageHeaderParser.ImageType.UNKNOWN) {
                     return type;
                 }
@@ -313,7 +321,8 @@ public final class ImageHeaderParserUtils {
         return (ImageHeaderParser.ImageType) invokeLL.objValue;
     }
 
-    public static ImageHeaderParser.ImageType getType(List list, InputStream inputStream, ArrayPool arrayPool) throws IOException {
+    @NonNull
+    public static ImageHeaderParser.ImageType getType(@NonNull List<ImageHeaderParser> list, @Nullable InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, list, inputStream, arrayPool)) == null) {

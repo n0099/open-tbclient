@@ -1,5 +1,7 @@
 package org.webrtc.audio;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
@@ -217,6 +219,7 @@ public final class WebRtcAudioUtils {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(23)
     public static void logAudioDeviceInfo(String str, AudioManager audioManager) {
         String str2;
         Interceptable interceptable = $ic;
@@ -257,6 +260,7 @@ public final class WebRtcAudioUtils {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public static void logAudioStateVolume(String str, AudioManager audioManager) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -309,6 +313,7 @@ public final class WebRtcAudioUtils {
         }
     }
 
+    @TargetApi(23)
     public static void logIsStreamMute(String str, AudioManager audioManager, int i, StringBuilder sb) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLIL(65545, null, str, audioManager, i, sb) == null) && runningOnMarshmallowOrHigher()) {

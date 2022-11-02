@@ -8,27 +8,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.BiPredicate;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.observers.BasicFuseableObserver;
 /* loaded from: classes8.dex */
-public final class ObservableDistinctUntilChanged extends AbstractObservableWithUpstream {
+public final class ObservableDistinctUntilChanged<T, K> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate comparer;
-    public final Function keySelector;
+    public final BiPredicate<? super K, ? super K> comparer;
+    public final Function<? super T, K> keySelector;
 
     /* loaded from: classes8.dex */
-    public final class DistinctUntilChangedObserver extends BasicFuseableObserver {
+    public static final class DistinctUntilChangedObserver<T, K> extends BasicFuseableObserver<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiPredicate comparer;
+        public final BiPredicate<? super K, ? super K> comparer;
         public boolean hasValue;
-        public final Function keySelector;
-        public Object last;
+        public final Function<? super T, K> keySelector;
+        public K last;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DistinctUntilChangedObserver(Observer observer, Function function, BiPredicate biPredicate) {
+        public DistinctUntilChangedObserver(Observer<? super T> observer, Function<? super T, K> function, BiPredicate<? super K, ? super K> biPredicate) {
             super(observer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -49,20 +50,21 @@ public final class ObservableDistinctUntilChanged extends AbstractObservableWith
             this.comparer = biPredicate;
         }
 
+        /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: K, ? super K */
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, t) != null) || this.done) {
                 return;
             }
             if (this.sourceMode != 0) {
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
                 return;
             }
             try {
-                Object apply = this.keySelector.apply(obj);
+                K apply = this.keySelector.apply(t);
                 if (this.hasValue) {
-                    boolean test = this.comparer.test(this.last, apply);
+                    boolean test = this.comparer.test((K) this.last, apply);
                     this.last = apply;
                     if (test) {
                         return;
@@ -71,30 +73,32 @@ public final class ObservableDistinctUntilChanged extends AbstractObservableWith
                     this.hasValue = true;
                     this.last = apply;
                 }
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
             } catch (Throwable th) {
                 fail(th);
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r3v0. Raw type applied. Possible types: K, ? super K */
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return invokeV.objValue;
+                return (T) invokeV.objValue;
             }
             while (true) {
-                Object poll = this.qs.poll();
+                T poll = this.qs.poll();
                 if (poll == null) {
                     return null;
                 }
-                Object apply = this.keySelector.apply(poll);
+                K apply = this.keySelector.apply(poll);
                 if (!this.hasValue) {
                     this.hasValue = true;
                     this.last = apply;
                     return poll;
-                } else if (!this.comparer.test(this.last, apply)) {
+                } else if (!this.comparer.test((K) this.last, apply)) {
                     this.last = apply;
                     return poll;
                 } else {
@@ -115,7 +119,7 @@ public final class ObservableDistinctUntilChanged extends AbstractObservableWith
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDistinctUntilChanged(ObservableSource observableSource, Function function, BiPredicate biPredicate) {
+    public ObservableDistinctUntilChanged(ObservableSource<T> observableSource, Function<? super T, K> function, BiPredicate<? super K, ? super K> biPredicate) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -137,7 +141,7 @@ public final class ObservableDistinctUntilChanged extends AbstractObservableWith
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DistinctUntilChangedObserver(observer, this.keySelector, this.comparer));

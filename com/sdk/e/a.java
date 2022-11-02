@@ -1,7 +1,7 @@
 package com.sdk.e;
 /* loaded from: classes8.dex */
-public interface a {
+public interface a<T> {
     void a(int i, int i2, String str);
 
-    void onSuccess(int i, String str, int i2, Object obj, String str2);
+    void onSuccess(int i, String str, int i2, T t, String str2);
 }

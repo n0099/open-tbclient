@@ -30,7 +30,7 @@ public class JSResultData extends OrmObject implements Serializable {
     public int status;
 
     /* loaded from: classes3.dex */
-    public final class Result extends OrmObject implements Serializable {
+    public static final class Result extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 678301888552831958L;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AsyncPublishImageStatData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +37,7 @@ public class AsyncPublishImageStatData implements Serializable {
     public String uploadImageType;
     public float uploadRate;
 
-    public AsyncPublishImageStatData(ImageFileInfo imageFileInfo) {
+    public AsyncPublishImageStatData(@NonNull ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +57,7 @@ public class AsyncPublishImageStatData implements Serializable {
         this.startTime = currentTimeMillis;
     }
 
-    public AsyncPublishImageStatData(String str) {
+    public AsyncPublishImageStatData(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

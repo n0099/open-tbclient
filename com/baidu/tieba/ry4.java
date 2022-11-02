@@ -1,46 +1,111 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
 public class ry4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public int b;
+    public int a;
+    public View b;
     public int c;
+    public ViewGroup.LayoutParams d;
+    public int e;
+    public Runnable f;
+    public FrameLayout g;
+    public int h;
+    public boolean i;
+    public ViewTreeObserver.OnGlobalLayoutListener j;
+    public int k;
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 2;
+    /* loaded from: classes5.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ry4 a;
+
+        public a(ry4 ry4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ry4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ry4Var;
         }
-        return invokeV.intValue;
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.k();
+        }
     }
 
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 32;
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ry4 a;
+
+        public b(ry4 ry4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ry4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ry4Var;
         }
-        return invokeV.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.l();
+        }
     }
 
-    public ry4() {
+    public ry4(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,111 +115,205 @@ public class ry4 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0;
+        this.a = 3;
+        this.h = R.color.CAM_X0201;
+        this.i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, R.color.CAM_X0201, true);
     }
 
-    public View e() {
-        InterceptResult invokeV;
+    public ry4(Activity activity, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void a(int i, int i2, Rect rect, qy4 qy4Var) {
-        LinearLayout.LayoutParams layoutParams;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, qy4Var}) == null) {
-            if (qy4Var.getView().getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                layoutParams = (LinearLayout.LayoutParams) qy4Var.getView().getLayoutParams();
-            } else {
-                layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            }
-            int f = (i / 2) - fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X017);
-            boolean z2 = false;
-            if (rect.centerX() >= f) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (fj.k(TbadkCoreApplication.getInst().getContext()) - rect.centerX() >= f) {
-                z2 = true;
-            }
-            if (z && z2) {
-                layoutParams.gravity = 1;
-            } else if (z) {
-                layoutParams.gravity = 5;
-                this.b = (-(i - i2)) / 2;
-            } else {
-                layoutParams.gravity = 3;
-                this.b = (i - i2) / 2;
-            }
-            this.a.addView(qy4Var.getView(), layoutParams);
-        }
-    }
-
-    public final void b(int i, int i2, Rect rect, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, view2}) == null) {
-            if (i > rect.centerY() - (i2 / 2)) {
-                this.a.addView(view2);
-                this.c = ((rect.height() + i2) / 2) + i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            this.a.addView(view2, 0);
-            this.c = (rect.height() + i2) / 2;
+        }
+        this.a = 3;
+        this.h = R.color.CAM_X0201;
+        this.i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, i, z);
+    }
+
+    public ry4(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.h = R.color.CAM_X0201;
+        this.i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, R.color.CAM_X0201, z);
+    }
+
+    public static ry4 c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            return new ry4(activity);
+        }
+        return (ry4) invokeL.objValue;
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (this.f != null) {
+                zg.a().removeCallbacks(this.f);
+                this.f = null;
+            }
+            this.f = new b(this);
+            zg.a().postDelayed(this.f, i);
         }
     }
 
-    public void h(BreatheTipView breatheTipView, qy4 qy4Var, View view2) {
-        int i;
-        int i2;
+    public void j(int i) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, breatheTipView, qy4Var, view2) == null) {
-            LinearLayout linearLayout = new LinearLayout(breatheTipView.getContext());
-            this.a = linearLayout;
-            linearLayout.setOrientation(1);
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || !this.i) {
+            return;
+        }
+        if (i != this.a && (frameLayout = this.g) != null) {
+            SkinManager.setBackgroundColor(frameLayout, this.h);
+        }
+        this.a = i;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.k = i;
+        }
+    }
+
+    public static ry4 d(Activity activity, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return new ry4(activity, i, z);
+        }
+        return (ry4) invokeCommon.objValue;
+    }
+
+    public static ry4 e(Activity activity, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, activity, z)) == null) {
+            return new ry4(activity, z);
+        }
+        return (ry4) invokeLZ.objValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Rect rect = new Rect();
+            this.b.getWindowVisibleDisplayFrame(rect);
+            return rect.bottom;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b.requestLayout();
+        }
+    }
+
+    public final void h(Activity activity, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.h = i;
+            this.i = z;
+            FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
+            this.g = frameLayout;
+            if (z) {
+                SkinManager.setBackgroundColor(frameLayout, i);
+            } else {
+                SkinManager.setBackgroundColor(frameLayout, i, 0);
+            }
+            View childAt = this.g.getChildAt(0);
+            this.b = childAt;
+            if (childAt == null) {
+                return;
+            }
+            this.j = new a(this);
+            this.b.getViewTreeObserver().addOnGlobalLayoutListener(this.j);
+            this.d = this.b.getLayoutParams();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f != null) {
+                zg.a().removeCallbacks(this.f);
+                this.f = null;
+            }
+            View view2 = this.b;
             if (view2 != null) {
-                view2.getGlobalVisibleRect(rect);
+                view2.getViewTreeObserver().removeGlobalOnLayoutListener(this.j);
+                this.j = null;
             }
-            int i3 = 0;
-            if (breatheTipView.getLayoutParams() != null) {
-                i = breatheTipView.getLayoutParams().height;
-            } else {
-                i = 0;
+            this.b = null;
+            this.g = null;
+        }
+    }
+
+    public final void k() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (view2 = this.b) == null) {
+            return;
+        }
+        int height = view2.getHeight();
+        if (height > this.e) {
+            this.e = height;
+        }
+        int f = f();
+        int i = this.k;
+        if (i > 0 && i <= this.d.height) {
+            f -= i;
+        }
+        if (f != this.c) {
+            int i2 = this.e;
+            int i3 = i2 - f;
+            if (i3 == 0) {
+                this.d.height = i2;
+                l();
+            } else if (i3 > 200) {
+                this.d.height = i2 - i3;
+                g(200);
+                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i3) && i3 < (this.e * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i3) {
+                    TbadkCoreApplication.getInst().setKeyboardHeight(i3);
+                }
             }
-            if (breatheTipView.getLayoutParams() != null) {
-                i2 = breatheTipView.getLayoutParams().width;
-            } else {
-                i2 = 0;
-            }
-            if (qy4Var.getView().getLayoutParams() != null) {
-                i3 = qy4Var.getView().getLayoutParams().width;
-            }
-            a(i2, i3, rect, qy4Var);
-            b(i, i3, rect, breatheTipView);
+            this.c = f;
         }
     }
 }

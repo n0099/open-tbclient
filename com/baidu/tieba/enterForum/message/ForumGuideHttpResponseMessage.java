@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,18 +18,21 @@ import tbclient.Error;
 import tbclient.ForumCreateInfo;
 import tbclient.ForumGuide.DataRes;
 import tbclient.ForumGuide.ForumGuideResIdl;
-/* loaded from: classes3.dex */
+import tbclient.ForumGuide.HotSearch;
+import tbclient.ForumGuide.LikeForum;
+import tbclient.ThreadInfo;
+/* loaded from: classes4.dex */
 public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumCreateInfo forumCreateInfo;
-    public List hotSearches;
+    public List<HotSearch> hotSearches;
     public Integer isLogin;
-    public List likeForum;
+    public List<LikeForum> likeForum;
     public Integer msignLevel;
     public String msignText;
     public Integer msignValid;
-    public List voiceRoomList;
+    public List<ThreadInfo> voiceRoomList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumGuideHttpResponseMessage() {
@@ -58,7 +61,7 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
         return (ForumCreateInfo) invokeV.objValue;
     }
 
-    public List getHotSearches() {
+    public List<HotSearch> getHotSearches() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -76,7 +79,7 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public List getLikeForum() {
+    public List<LikeForum> getLikeForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -112,7 +115,7 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public List getVoiceRoomList() {
+    public List<ThreadInfo> getVoiceRoomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -126,8 +129,8 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && bArr != null && bArr.length > 0 && getError() == 0) {
-            ou4.f();
-            ou4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).i(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr, 86400000L);
+            hv4.f();
+            hv4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).i(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr, 86400000L);
         }
     }
 
@@ -169,7 +172,7 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public void setHotSearches(List list) {
+    public void setHotSearches(List<HotSearch> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
             this.hotSearches = list;
@@ -183,7 +186,7 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public void setLikeForum(List list) {
+    public void setLikeForum(List<LikeForum> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             this.likeForum = list;
@@ -211,7 +214,7 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public void setVoiceRoomList(List list) {
+    public void setVoiceRoomList(List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
             this.voiceRoomList = list;

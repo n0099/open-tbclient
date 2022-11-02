@@ -11,8 +11,9 @@ public class PoiDetailSearchOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public boolean c;
+    public boolean b;
+    public String c;
+    public boolean d;
 
     public PoiDetailSearchOption() {
         Interceptable interceptable = $ic;
@@ -28,33 +29,62 @@ public class PoiDetailSearchOption {
             }
         }
         this.a = "";
-        this.b = "";
-        this.c = false;
+        this.b = true;
+        this.c = "";
+        this.d = false;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isExtendAdcode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSearchByUids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public PoiDetailSearchOption extendAdcode(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.b = z;
+            return this;
+        }
+        return (PoiDetailSearchOption) invokeZ.objValue;
     }
 
     public PoiDetailSearchOption poiUid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.c = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.d = false;
             this.a = str;
             return this;
         }
@@ -64,9 +94,9 @@ public class PoiDetailSearchOption {
     public PoiDetailSearchOption poiUids(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.c = true;
-            this.b = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.d = true;
+            this.c = str;
             return this;
         }
         return (PoiDetailSearchOption) invokeL.objValue;

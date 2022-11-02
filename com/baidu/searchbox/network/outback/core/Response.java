@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.Headers;
@@ -17,7 +18,9 @@ import java.util.List;
 public final class Response implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public ResponseBody body;
+    @Nullable
     public final Response cacheResponse;
     public final boolean cached;
     public final int code;
@@ -26,7 +29,9 @@ public final class Response implements Closeable {
     public final boolean isConnReused;
     public final String message;
     public final int netEngine;
+    @Nullable
     public final Response networkResponse;
+    @Nullable
     public final Response priorResponse;
     public final Protocol protocol;
     public final long receivedResponseAtMillis;
@@ -34,14 +39,17 @@ public final class Response implements Closeable {
     public final long sendTime;
     public final long sentRequestAtMillis;
     public final long sslTime;
+    @Nullable
     public final NetworkStatRecord statRecord;
     public final long tcpTime;
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public ResponseBody body;
+        @Nullable
         public Response cacheResponse;
         public boolean cached;
         public int code;
@@ -50,10 +58,14 @@ public final class Response implements Closeable {
         public boolean isConnReused;
         public String message;
         public int netEngine;
+        @Nullable
         public Response networkResponse;
+        @Nullable
         public Response priorResponse;
+        @Nullable
         public Protocol protocol;
         public long receivedResponseAtMillis;
+        @Nullable
         public Request request;
         public long sendTime;
         public long sentRequestAtMillis;
@@ -125,7 +137,7 @@ public final class Response implements Closeable {
             throw new IllegalArgumentException("priorResponse.body != null");
         }
 
-        public Builder body(ResponseBody responseBody) {
+        public Builder body(@Nullable ResponseBody responseBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseBody)) == null) {
@@ -135,7 +147,7 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder cacheResponse(Response response) {
+        public Builder cacheResponse(@Nullable Response response) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, response)) == null) {
@@ -218,7 +230,7 @@ public final class Response implements Closeable {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder networkResponse(Response response) {
+        public Builder networkResponse(@Nullable Response response) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, response)) == null) {
@@ -231,7 +243,7 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder priorResponse(Response response) {
+        public Builder priorResponse(@Nullable Response response) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, response)) == null) {
@@ -314,7 +326,7 @@ public final class Response implements Closeable {
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder statRecord(NetworkStatRecord networkStatRecord) {
+        public Builder statRecord(@Nullable NetworkStatRecord networkStatRecord) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, networkStatRecord)) == null) {
@@ -437,6 +449,7 @@ public final class Response implements Closeable {
         this.statRecord = builder.statRecord;
     }
 
+    @Nullable
     public ResponseBody body() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -446,6 +459,7 @@ public final class Response implements Closeable {
         return (ResponseBody) invokeV.objValue;
     }
 
+    @Nullable
     public Response cacheResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -495,6 +509,7 @@ public final class Response implements Closeable {
         return invokeV.longValue;
     }
 
+    @Nullable
     public NetworkStatRecord getStatRecord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -574,6 +589,7 @@ public final class Response implements Closeable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public Response networkResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -592,6 +608,7 @@ public final class Response implements Closeable {
         return (Builder) invokeV.objValue;
     }
 
+    @Nullable
     public Response priorResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -664,6 +681,7 @@ public final class Response implements Closeable {
         return invokeV.longValue;
     }
 
+    @Nullable
     public String header(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -673,7 +691,7 @@ public final class Response implements Closeable {
         return (String) invokeL.objValue;
     }
 
-    public List headers(String str) {
+    public List<String> headers(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
@@ -682,7 +700,8 @@ public final class Response implements Closeable {
         return (List) invokeL.objValue;
     }
 
-    public String header(String str, String str2) {
+    @Nullable
+    public String header(String str, @Nullable String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {

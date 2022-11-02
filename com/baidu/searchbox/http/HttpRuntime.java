@@ -1,11 +1,14 @@
 package com.baidu.searchbox.http;
 
-import com.baidu.tieba.yi8;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tieba.ik8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class HttpRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -25,11 +28,12 @@ public class HttpRuntime {
         }
     }
 
+    @Inject(force = false)
     public static IHttpContext getHttpContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return yi8.a();
+            return ik8.a();
         }
         return (IHttpContext) invokeV.objValue;
     }

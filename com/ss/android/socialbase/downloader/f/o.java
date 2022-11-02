@@ -1,14 +1,14 @@
 package com.ss.android.socialbase.downloader.f;
 
-import java.util.Iterator;
+import androidx.annotation.NonNull;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class o {
-    public static long a(List list) {
+    public static long a(@NonNull List<i> list) {
         int size = list.size();
         long j = 0;
         for (int i = 0; i < size; i++) {
-            i iVar = (i) list.get(i);
+            i iVar = list.get(i);
             if (iVar.c() > j) {
                 break;
             }
@@ -19,16 +19,14 @@ public class o {
         return j;
     }
 
-    public static long b(List list) {
+    public static long b(@NonNull List<i> list) {
         long j;
         long j2;
-        Iterator it = list.iterator();
         long j3 = 0;
         loop0: while (true) {
             j = -1;
             j2 = -1;
-            while (it.hasNext()) {
-                i iVar = (i) it.next();
+            for (i iVar : list) {
                 if (j == -1) {
                     if (iVar.a() > 0) {
                         j = iVar.c();

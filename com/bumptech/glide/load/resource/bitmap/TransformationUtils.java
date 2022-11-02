@@ -13,6 +13,8 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -39,7 +41,7 @@ public final class TransformationUtils {
     public static final int CIRCLE_CROP_PAINT_FLAGS = 7;
     public static final Paint CIRCLE_CROP_SHAPE_PAINT;
     public static final Paint DEFAULT_PAINT;
-    public static final Set MODELS_REQUIRING_BITMAP_LOCK;
+    public static final Set<String> MODELS_REQUIRING_BITMAP_LOCK;
     public static final int PAINT_FLAGS = 6;
     public static final String TAG = "TransformationUtils";
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +93,7 @@ public final class TransformationUtils {
     }
 
     /* loaded from: classes7.dex */
-    public final class NoLock implements Lock {
+    public static final class NoLock implements Lock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -120,7 +122,7 @@ public final class TransformationUtils {
         }
 
         @Override // java.util.concurrent.locks.Lock
-        public boolean tryLock(long j, TimeUnit timeUnit) throws InterruptedException {
+        public boolean tryLock(long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
@@ -151,6 +153,7 @@ public final class TransformationUtils {
         }
 
         @Override // java.util.concurrent.locks.Lock
+        @NonNull
         public Condition newCondition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -213,7 +216,7 @@ public final class TransformationUtils {
         return (Lock) invokeV.objValue;
     }
 
-    public static void applyMatrix(Bitmap bitmap, Bitmap bitmap2, Matrix matrix) {
+    public static void applyMatrix(@NonNull Bitmap bitmap, @NonNull Bitmap bitmap2, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, bitmap, bitmap2, matrix) == null) {
             BITMAP_DRAWABLE_LOCK.lock();
@@ -227,7 +230,7 @@ public final class TransformationUtils {
         }
     }
 
-    public static Bitmap roundedCorners(BitmapPool bitmapPool, Bitmap bitmap, int i) {
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i) {
         InterceptResult invokeLLI;
         boolean z;
         Interceptable interceptable = $ic;
@@ -274,7 +277,7 @@ public final class TransformationUtils {
         return (Bitmap) invokeLLI.objValue;
     }
 
-    public static Bitmap centerCrop(BitmapPool bitmapPool, Bitmap bitmap, int i, int i2) {
+    public static Bitmap centerCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         float width;
         float height;
@@ -303,7 +306,7 @@ public final class TransformationUtils {
         return (Bitmap) invokeLLII.objValue;
     }
 
-    public static Bitmap circleCrop(BitmapPool bitmapPool, Bitmap bitmap, int i, int i2) {
+    public static Bitmap circleCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmapPool, bitmap, i, i2)) == null) {
@@ -340,7 +343,7 @@ public final class TransformationUtils {
         return (Bitmap) invokeLLII.objValue;
     }
 
-    public static Bitmap centerInside(BitmapPool bitmapPool, Bitmap bitmap, int i, int i2) {
+    public static Bitmap centerInside(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmapPool, bitmap, i, i2)) == null) {
@@ -365,7 +368,8 @@ public final class TransformationUtils {
         }
     }
 
-    public static Bitmap.Config getAlphaSafeConfig(Bitmap bitmap) {
+    @NonNull
+    public static Bitmap.Config getAlphaSafeConfig(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bitmap)) == null) {
@@ -377,7 +381,8 @@ public final class TransformationUtils {
         return (Bitmap.Config) invokeL.objValue;
     }
 
-    public static Bitmap.Config getNonNullConfig(Bitmap bitmap) {
+    @NonNull
+    public static Bitmap.Config getNonNullConfig(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, bitmap)) == null) {
@@ -389,7 +394,7 @@ public final class TransformationUtils {
         return (Bitmap.Config) invokeL.objValue;
     }
 
-    public static Bitmap fitCenter(BitmapPool bitmapPool, Bitmap bitmap, int i, int i2) {
+    public static Bitmap fitCenter(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, bitmapPool, bitmap, i, i2)) == null) {
@@ -427,7 +432,7 @@ public final class TransformationUtils {
         return (Bitmap) invokeLLII.objValue;
     }
 
-    public static Bitmap getAlphaSafeBitmap(BitmapPool bitmapPool, Bitmap bitmap) {
+    public static Bitmap getAlphaSafeBitmap(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bitmapPool, bitmap)) == null) {
@@ -442,7 +447,7 @@ public final class TransformationUtils {
         return (Bitmap) invokeLL.objValue;
     }
 
-    public static Bitmap rotateImage(Bitmap bitmap, int i) {
+    public static Bitmap rotateImage(@NonNull Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, bitmap, i)) == null) {
@@ -464,6 +469,7 @@ public final class TransformationUtils {
         return (Bitmap) invokeLI.objValue;
     }
 
+    @VisibleForTesting
     public static void initializeMatrixForRotation(int i, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65549, null, i, matrix) == null) {
@@ -498,7 +504,7 @@ public final class TransformationUtils {
         }
     }
 
-    public static Bitmap rotateImageExif(BitmapPool bitmapPool, Bitmap bitmap, int i) {
+    public static Bitmap rotateImageExif(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65552, null, bitmapPool, bitmap, i)) == null) {
@@ -518,7 +524,7 @@ public final class TransformationUtils {
         return (Bitmap) invokeLLI.objValue;
     }
 
-    public static Bitmap roundedCorners(BitmapPool bitmapPool, Bitmap bitmap, float f, float f2, float f3, float f4) {
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{bitmapPool, bitmap, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
@@ -570,7 +576,7 @@ public final class TransformationUtils {
     }
 
     @Deprecated
-    public static Bitmap roundedCorners(BitmapPool bitmapPool, Bitmap bitmap, int i, int i2, int i3) {
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{bitmapPool, bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
@@ -579,7 +585,7 @@ public final class TransformationUtils {
         return (Bitmap) invokeCommon.objValue;
     }
 
-    public static Bitmap roundedCorners(BitmapPool bitmapPool, Bitmap bitmap, DrawRoundedCornerFn drawRoundedCornerFn) {
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, DrawRoundedCornerFn drawRoundedCornerFn) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65556, null, bitmapPool, bitmap, drawRoundedCornerFn)) == null) {

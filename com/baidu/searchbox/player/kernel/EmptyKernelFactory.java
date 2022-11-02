@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.kernel;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +26,8 @@ public class EmptyKernelFactory implements IKernelFactory {
     }
 
     @Override // com.baidu.searchbox.player.kernel.IKernelFactory
-    public AbsVideoKernel create(String str) {
+    @NonNull
+    public AbsVideoKernel create(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {

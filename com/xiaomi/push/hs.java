@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class hs implements iu, Serializable, Cloneable {
+public class hs implements iu<hs, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -36,7 +36,7 @@ public class hs implements iu, Serializable, Cloneable {
     public BitSet f503a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f504a;
+    public List<hu> f504a;
 
     static {
         InterceptResult invokeClinit;
@@ -292,7 +292,7 @@ public class hs implements iu, Serializable, Cloneable {
             sb.append(this.f501a);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("configItems:");
-            List list = this.f504a;
+            List<hu> list = this.f504a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

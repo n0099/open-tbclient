@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EncodedImage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,14 +26,14 @@ public class EncodedImage {
     public final int rotation;
 
     /* renamed from: org.webrtc.EncodedImage$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
-    public class Builder {
+    /* loaded from: classes9.dex */
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ByteBuffer buffer;
@@ -165,8 +165,8 @@ public class EncodedImage {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class FrameType {
+    /* loaded from: classes9.dex */
+    public static final class FrameType {
         public static final /* synthetic */ FrameType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FrameType EmptyFrame;
@@ -216,6 +216,7 @@ public class EncodedImage {
             this.nativeIndex = i2;
         }
 
+        @CalledByNative("FrameType")
         public static FrameType fromNativeIndex(int i) {
             InterceptResult invokeI;
             FrameType[] values;
@@ -259,6 +260,7 @@ public class EncodedImage {
         }
     }
 
+    @CalledByNative
     public EncodedImage(ByteBuffer byteBuffer, int i, int i2, long j, FrameType frameType, int i3, boolean z, Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

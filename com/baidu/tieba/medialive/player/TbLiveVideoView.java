@@ -56,7 +56,7 @@ public class TbLiveVideoView extends BVideoView {
                 return;
             }
         }
-        g();
+        m();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -78,27 +78,27 @@ public class TbLiveVideoView extends BVideoView {
                 return;
             }
         }
-        g();
+        m();
     }
 
-    public final void g() {
+    public Uri getVideoURI() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.I;
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOption(CyberPlayerManager.OPT_IS_LIVE_VIDEO, "true");
             HashMap hashMap = new HashMap();
             hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, "live");
             hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, "tieba");
             setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, hashMap);
         }
-    }
-
-    public Uri getVideoURI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.I;
-        }
-        return (Uri) invokeV.objValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
@@ -222,7 +222,7 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoURI(Uri uri, Map map) {
+    public void setVideoURI(Uri uri, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, uri, map) == null) {
             super.setVideoURI(uri, map);

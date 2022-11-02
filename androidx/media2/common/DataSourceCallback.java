@@ -1,5 +1,6 @@
 package androidx.media2.common;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +14,7 @@ public abstract class DataSourceCallback implements Closeable {
 
     public abstract long getSize() throws IOException;
 
-    public abstract int readAt(long j, byte[] bArr, int i, int i2) throws IOException;
+    public abstract int readAt(long j, @NonNull byte[] bArr, int i, int i2) throws IOException;
 
     public DataSourceCallback() {
         Interceptable interceptable = $ic;

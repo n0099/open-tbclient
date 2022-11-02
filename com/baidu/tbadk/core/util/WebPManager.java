@@ -5,10 +5,14 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.widget.ImageView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.fn8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +27,7 @@ public class WebPManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class ResourceStateType {
+    public static final class ResourceStateType {
         public static final /* synthetic */ ResourceStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ResourceStateType NORMAL;
@@ -112,7 +116,7 @@ public class WebPManager {
         }
     }
 
-    public static ColorStateList getColorListByResourceType(int i, ResourceStateType resourceStateType) {
+    public static ColorStateList getColorListByResourceType(@ColorInt int i, ResourceStateType resourceStateType) {
         InterceptResult invokeIL;
         int i2;
         Interceptable interceptable = $ic;
@@ -123,7 +127,7 @@ public class WebPManager {
             int[] iArr = new int[resourceStateType.stateCount];
             int[][] iArr2 = new int[resourceStateType.stateCount];
             if (resourceStateType.canPress) {
-                iArr[0] = vl8.a(i, SkinManager.RESOURCE_ALPHA_PRESS);
+                iArr[0] = fn8.a(i, SkinManager.RESOURCE_ALPHA_PRESS);
                 iArr2[0] = new int[]{16842919, 16842910};
                 i2 = 1;
             } else {
@@ -135,7 +139,7 @@ public class WebPManager {
                 iArr3[0] = 16842910;
                 iArr2[i2] = iArr3;
                 int i3 = i2 + 1;
-                iArr[i3] = vl8.a(i, SkinManager.RESOURCE_ALPHA_DISABLE);
+                iArr[i3] = fn8.a(i, SkinManager.RESOURCE_ALPHA_DISABLE);
                 iArr2[i3] = new int[0];
             } else {
                 iArr[i2] = i;
@@ -146,7 +150,7 @@ public class WebPManager {
         return (ColorStateList) invokeIL.objValue;
     }
 
-    public static Drawable getMaskDrawable(int i, ResourceStateType resourceStateType) {
+    public static Drawable getMaskDrawable(int i, @Nullable ResourceStateType resourceStateType) {
         InterceptResult invokeIL;
         Drawable maskedDrawable;
         Interceptable interceptable = $ic;
@@ -216,7 +220,7 @@ public class WebPManager {
         return (Drawable) invokeI.objValue;
     }
 
-    public static Drawable getPureDrawable(int i, int i2, ResourceStateType resourceStateType) {
+    public static Drawable getPureDrawable(int i, @ColorInt int i2, @Nullable ResourceStateType resourceStateType) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i, i2, resourceStateType)) == null) {
@@ -237,7 +241,7 @@ public class WebPManager {
         return (Drawable) invokeIIL.objValue;
     }
 
-    public static void setMaskDrawable(ImageView imageView, int i, ResourceStateType resourceStateType) {
+    public static void setMaskDrawable(ImageView imageView, @DrawableRes int i, ResourceStateType resourceStateType) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(65544, null, imageView, i, resourceStateType) == null) && i != 0 && imageView != null) {
             if (resourceStateType == null) {
@@ -262,7 +266,7 @@ public class WebPManager {
                 return null;
             }
             Drawable mutate = SkinManager.getDrawable(i).mutate();
-            mutate.setTint(vl8.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
+            mutate.setTint(fn8.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
             if (i2 > 0 && (drawable = SkinManager.getDrawable(i2)) != null) {
                 Drawable mutate2 = SkinManager.getDrawable(i2).mutate();
@@ -271,7 +275,7 @@ public class WebPManager {
                 stateListDrawable.addState(new int[]{16842913}, drawable);
             }
             Drawable mutate3 = SkinManager.getDrawable(i).mutate();
-            mutate3.setTint(vl8.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
+            mutate3.setTint(fn8.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
             drawable2.mutate().setTint(SkinManager.getColor(i3, (int) R.color.CAM_X0105));
             stateListDrawable.addState(new int[0], drawable2);
@@ -300,7 +304,7 @@ public class WebPManager {
                 return null;
             }
             Drawable mutate = SkinManager.getDrawable(i).mutate();
-            mutate.setTint(vl8.a(SkinManager.getColor(i5, i3), SkinManager.RESOURCE_ALPHA_DISABLE));
+            mutate.setTint(fn8.a(SkinManager.getColor(i5, i3), SkinManager.RESOURCE_ALPHA_DISABLE));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
             if (i2 > 0 && (drawable = SkinManager.getDrawable(i2)) != null) {
                 Drawable mutate2 = SkinManager.getDrawable(i2).mutate();
@@ -311,7 +315,7 @@ public class WebPManager {
                 stateListDrawable.addState(new int[]{16842913}, drawable);
             }
             Drawable mutate3 = SkinManager.getDrawable(i).mutate();
-            mutate3.setTint(vl8.a(SkinManager.getColor(i5, i3), SkinManager.RESOURCE_ALPHA_PRESS));
+            mutate3.setTint(fn8.a(SkinManager.getColor(i5, i3), SkinManager.RESOURCE_ALPHA_PRESS));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
             drawable2.mutate().setTint(SkinManager.getColor(i5, i3));
             stateListDrawable.addState(new int[0], drawable2);
@@ -320,7 +324,7 @@ public class WebPManager {
         return (Drawable) invokeCommon.objValue;
     }
 
-    public static void setPureDrawable(ImageView imageView, int i, int i2, ResourceStateType resourceStateType) {
+    public static void setPureDrawable(ImageView imageView, @DrawableRes int i, @ColorRes int i2, ResourceStateType resourceStateType) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{imageView, Integer.valueOf(i), Integer.valueOf(i2), resourceStateType}) == null) && i != 0 && imageView != null) {
             if (resourceStateType == null) {

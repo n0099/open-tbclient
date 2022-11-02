@@ -71,7 +71,7 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SsaDecoder(List list) {
+    public SsaDecoder(List<byte[]> list) {
         super(TAG);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -90,10 +90,10 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
         }
         if (list != null && !list.isEmpty()) {
             this.haveInitializationData = true;
-            String str = new String((byte[]) list.get(0));
+            String str = new String(list.get(0));
             Assertions.checkArgument(str.startsWith(FORMAT_LINE_PREFIX));
             parseFormatLine(str);
-            parseHeader(new ParsableByteArray((byte[]) list.get(1)));
+            parseHeader(new ParsableByteArray(list.get(1)));
             return;
         }
         this.haveInitializationData = false;
@@ -144,7 +144,7 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
         }
     }
 
-    private void parseDialogueLine(String str, List list, LongArray longArray) {
+    private void parseDialogueLine(String str, List<Cue> list, LongArray longArray) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, str, list, longArray) == null) {
@@ -177,7 +177,7 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
         }
     }
 
-    private void parseEventBody(ParsableByteArray parsableByteArray, List list, LongArray longArray) {
+    private void parseEventBody(ParsableByteArray parsableByteArray, List<Cue> list, LongArray longArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, parsableByteArray, list, longArray) != null) {
             return;

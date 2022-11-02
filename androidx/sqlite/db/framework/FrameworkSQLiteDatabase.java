@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteTransactionListener;
 import android.os.CancellationSignal;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.sqlite.db.SimpleSQLiteQuery;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -160,6 +161,7 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
+    @RequiresApi(api = 16)
     public void setForeignKeyConstraintsEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
@@ -244,6 +246,7 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
+    @RequiresApi(api = 16)
     public void disableWriteAheadLogging() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -370,6 +373,7 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
+    @RequiresApi(api = 16)
     public boolean isWriteAheadLoggingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -428,6 +432,7 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
+    @RequiresApi(api = 16)
     public Cursor query(SupportSQLiteQuery supportSQLiteQuery, CancellationSignal cancellationSignal) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

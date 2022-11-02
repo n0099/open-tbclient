@@ -20,7 +20,7 @@ public final class CompletableMergeDelayErrorArray extends Completable {
     public final CompletableSource[] sources;
 
     /* loaded from: classes8.dex */
-    public final class MergeInnerCompletableObserver implements CompletableObserver {
+    public static final class MergeInnerCompletableObserver implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;

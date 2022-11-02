@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.util.List;
 /* loaded from: classes2.dex */
-public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior {
+public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Rect d;
@@ -34,7 +34,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior {
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 0 ? BadgeDrawable.TOP_START : i : invokeI.intValue;
     }
 
-    public abstract View H(List list);
+    public abstract View H(List<View> list);
 
     public float J(View view2) {
         InterceptResult invokeL;

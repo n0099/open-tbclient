@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class ARPScene implements IARPScene {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap fL;
+    public HashMap<String, ARPNode> fL;
     public long fN;
 
     public ARPScene() {
@@ -40,7 +40,7 @@ public class ARPScene implements IARPScene {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j)) == null) {
             String nativeGetNodeName = nativeGetNodeName(j);
-            ARPNode aRPNode = (ARPNode) this.fL.get(nativeGetNodeName);
+            ARPNode aRPNode = this.fL.get(nativeGetNodeName);
             if (aRPNode == null) {
                 ARPNode aRPNode2 = new ARPNode();
                 aRPNode2.bindInternal(j);
@@ -55,7 +55,7 @@ public class ARPScene implements IARPScene {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.fL = new HashMap();
+            this.fL = new HashMap<>();
         }
     }
 

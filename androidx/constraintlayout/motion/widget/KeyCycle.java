@@ -341,7 +341,7 @@ public class KeyCycle extends Key {
                         }
                         break;
                     case -40300674:
-                        if (str.equals(Key.ROTATION)) {
+                        if (str.equals("rotation")) {
                             c = 2;
                             break;
                         }
@@ -430,7 +430,7 @@ public class KeyCycle extends Key {
                 hashSet.add(Key.ELEVATION);
             }
             if (!Float.isNaN(this.mRotation)) {
-                hashSet.add(Key.ROTATION);
+                hashSet.add("rotation");
             }
             if (!Float.isNaN(this.mRotationX)) {
                 hashSet.add(Key.ROTATION_X);
@@ -529,7 +529,7 @@ public class KeyCycle extends Key {
                     c = 65535;
                     break;
                 case -40300674:
-                    if (str.equals(Key.ROTATION)) {
+                    if (str.equals("rotation")) {
                         c = 2;
                         break;
                     }
@@ -666,7 +666,7 @@ public class KeyCycle extends Key {
                     c = 65535;
                     break;
                 case -40300674:
-                    if (str.equals(Key.ROTATION)) {
+                    if (str.equals("rotation")) {
                         c = 4;
                         break;
                     }

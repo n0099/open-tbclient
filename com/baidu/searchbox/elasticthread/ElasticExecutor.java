@@ -1,5 +1,6 @@
 package com.baidu.searchbox.elasticthread;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +42,7 @@ public class ElasticExecutor extends ExecutorProxy {
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy, java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
+    public void execute(@NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             execute(runnable, this.mDefaultTaskName, this.mDefaultPriority);
@@ -49,7 +50,7 @@ public class ElasticExecutor extends ExecutorProxy {
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy
-    public void execute(Runnable runnable, String str) {
+    public void execute(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
             execute(runnable, str, this.mDefaultPriority);
@@ -57,7 +58,7 @@ public class ElasticExecutor extends ExecutorProxy {
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy
-    public void execute(Runnable runnable, String str, int i) {
+    public void execute(@NonNull Runnable runnable, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
             ExecutorUtilsExt.postOnElastic(runnable, str, i);

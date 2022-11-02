@@ -16,10 +16,10 @@ public class ActiveUpObj {
     public String mFileID;
     public String mFileMeta;
     public String mFileType;
-    public List mSpace;
+    public List<String> mSpace;
     public String mType;
 
-    public ActiveUpObj(String str, String str2, List list, String str3) {
+    public ActiveUpObj(String str, String str2, List<String> list, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,7 +77,7 @@ public class ActiveUpObj {
         return (String) invokeV.objValue;
     }
 
-    public List getSpace() {
+    public List<String> getSpace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -123,7 +123,7 @@ public class ActiveUpObj {
         }
     }
 
-    public void setSpace(List list) {
+    public void setSpace(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.mSpace = list;

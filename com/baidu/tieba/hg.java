@@ -1,39 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class hg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public long f;
-    public long g;
-    public String h;
-    public int i;
-    public int j;
-    public String k;
-    public String l;
-    public BDHttpDnsResult.ResolveType m;
-    public boolean n;
-    public BDHttpDnsResult.ResolveStatus o;
-    public String p;
-    public int q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public int v;
-    public long w;
-    public long x;
-    public long y;
+    public String a;
+    public int b;
+    public String c;
+    public boolean d;
+    public boolean e;
 
     public hg() {
         Interceptable interceptable = $ic;
@@ -45,29 +32,56 @@ public class hg {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1L;
-        this.b = -1L;
-        this.c = -1L;
-        this.d = -1L;
-        this.e = 0;
-        this.f = -1L;
-        this.g = -1L;
-        this.h = "";
-        this.i = -1;
-        this.j = 0;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.o = null;
-        this.p = null;
-        this.q = 0;
-        this.r = null;
-        this.s = null;
-        this.t = null;
-        this.u = null;
-        this.v = 0;
+    }
+
+    public void a() {
+        JSONObject b;
+        UBCManager uBCManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || new Random().nextInt(100) > 20 || (b = b()) == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+            return;
+        }
+        uBCManager.onEvent(HttpConfig.UBC_HTTP_ID, b.toString());
+        uBCManager.onEvent("5607", b.toString());
+    }
+
+    public JSONObject b() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("url", this.a);
+                    jSONObject.put("resultCode", this.b);
+                    jSONObject.put("resultMsg", this.c);
+                    int i2 = 1;
+                    if (this.d) {
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                    jSONObject.put("isHttps", i);
+                    if (!this.e) {
+                        i2 = 0;
+                    }
+                    jSONObject.put("isIpv6", i2);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
+                }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

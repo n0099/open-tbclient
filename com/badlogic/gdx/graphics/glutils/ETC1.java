@@ -58,7 +58,7 @@ public class ETC1 {
     public static native boolean isValidPKM(ByteBuffer byteBuffer, int i);
 
     /* loaded from: classes.dex */
-    public final class a implements i7 {
+    public static final class a implements i7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;

@@ -45,7 +45,7 @@ public class r implements dm {
     public void a(ii iiVar, hj hjVar, hw hwVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iiVar, hjVar, hwVar) == null) {
-            ao.a(this.a).a(iiVar, hjVar, hwVar);
+            ao.a(this.a).a((ao) iiVar, hjVar, hwVar);
         }
     }
 }

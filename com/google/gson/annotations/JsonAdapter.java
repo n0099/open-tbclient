@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 public @interface JsonAdapter {
     boolean nullSafe() default true;
 
-    Class value();
+    Class<?> value();
 }

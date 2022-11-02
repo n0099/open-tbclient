@@ -16,6 +16,7 @@ public final class AbstractCollection$toString$1 extends Lambda implements Funct
         this.this$0 = abstractCollection;
     }
 
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function1
     public final CharSequence invoke(E e) {
         if (e == this.this$0) {
@@ -24,8 +25,9 @@ public final class AbstractCollection$toString$1 extends Lambda implements Funct
         return String.valueOf(e);
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+    public /* bridge */ /* synthetic */ CharSequence invoke(Object obj) {
         return invoke((AbstractCollection$toString$1) obj);
     }
 }

@@ -14,7 +14,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes8.dex */
-public final class ScheduledRunnable extends AtomicReferenceArray implements Runnable, Callable, Disposable {
+public final class ScheduledRunnable extends AtomicReferenceArray<Object> implements Runnable, Callable<Object>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object ASYNC_DISPOSED;
     public static final Object DONE;
@@ -184,7 +184,7 @@ public final class ScheduledRunnable extends AtomicReferenceArray implements Run
         }
     }
 
-    public void setFuture(Future future) {
+    public void setFuture(Future<?> future) {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, future) == null) {

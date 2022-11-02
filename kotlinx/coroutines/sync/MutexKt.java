@@ -60,7 +60,7 @@ public final class MutexKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object withLock(Mutex mutex, Object obj, Function0 function0, Continuation continuation) {
+    public static final <T> Object withLock(Mutex mutex, Object obj, Function0<? extends T> function0, Continuation<? super T> continuation) {
         MutexKt$withLock$1 mutexKt$withLock$1;
         int i;
         try {

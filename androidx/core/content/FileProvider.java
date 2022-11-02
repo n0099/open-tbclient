@@ -13,8 +13,12 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,6 +49,7 @@ public class FileProvider extends ContentProvider {
     public static final String TAG_EXTERNAL_MEDIA = "external-media-path";
     public static final String TAG_FILES_PATH = "files-path";
     public static final String TAG_ROOT_PATH = "root-path";
+    @GuardedBy("sCache")
     public static HashMap<String, PathStrategy> sCache;
     public transient /* synthetic */ FieldHolder $fh;
     public PathStrategy mStrategy;
@@ -225,7 +230,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public void attachInfo(Context context, ProviderInfo providerInfo) {
+    public void attachInfo(@NonNull Context context, @NonNull ProviderInfo providerInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, providerInfo) == null) {
             super.attachInfo(context, providerInfo);
@@ -241,7 +246,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
@@ -251,7 +256,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
+    public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String str) throws FileNotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, str)) == null) {
@@ -294,7 +299,7 @@ public class FileProvider extends ContentProvider {
         return (PathStrategy) invokeLL.objValue;
     }
 
-    public static Uri getUriForFile(Context context, String str, File file) {
+    public static Uri getUriForFile(@NonNull Context context, @NonNull String str, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, file)) == null) {
@@ -304,7 +309,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int delete(Uri uri, String str, String[] strArr) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
@@ -320,7 +325,7 @@ public class FileProvider extends ContentProvider {
             if ("r".equals(str)) {
                 return LaunchTaskConstants.OTHER_PROCESS;
             }
-            if (!"w".equals(str) && !"wt".equals(str)) {
+            if (!Config.DEVICE_WIDTH.equals(str) && !"wt".equals(str)) {
                 if ("wa".equals(str)) {
                     return 704643072;
                 }
@@ -397,7 +402,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
@@ -416,7 +421,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         int i;
         Interceptable interceptable = $ic;
@@ -450,7 +455,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+    public int update(@NonNull Uri uri, ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {

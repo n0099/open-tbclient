@@ -70,7 +70,7 @@ public final class DxmPayProxy extends DefaultPayMethod {
         return (IDxmSdkServiceProxy) invokeV.objValue;
     }
 
-    public final void onPayResult(int i, String str, IPayCallback iPayCallback) {
+    public final void onPayResult(int i, String str, IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iPayCallback) == null) {
             String str2 = this.TAG;
@@ -94,7 +94,7 @@ public final class DxmPayProxy extends DefaultPayMethod {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestPay(Activity activity, long j, ProductInfo productInfo, String str, final IPayCallback iPayCallback) {
+    public void requestPay(Activity activity, long j, ProductInfo productInfo, String str, final IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, Long.valueOf(j), productInfo, str, iPayCallback}) == null) {
             RLog.info(this.TAG, "requestPay1");
@@ -162,7 +162,7 @@ public final class DxmPayProxy extends DefaultPayMethod {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestPay(Activity activity, long j, String str, String str2, final IPayCallback iPayCallback) {
+    public void requestPay(Activity activity, long j, String str, String str2, final IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{activity, Long.valueOf(j), str, str2, iPayCallback}) == null) {
             RLog.info(this.TAG, "requestPay2");

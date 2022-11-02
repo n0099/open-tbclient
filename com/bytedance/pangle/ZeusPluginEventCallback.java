@@ -1,4 +1,8 @@
 package com.bytedance.pangle;
+
+import androidx.annotation.Keep;
+import androidx.annotation.Nullable;
+@Keep
 /* loaded from: classes7.dex */
 public interface ZeusPluginEventCallback {
     public static final int EVENT_FINISH_INITIALIZATION = 3100;
@@ -17,5 +21,5 @@ public interface ZeusPluginEventCallback {
     public static final int RESULT_INSTALLATION_FAILED_MODIFY_RES = -2;
     public static final int RESULT_SUCCESS = 0;
 
-    void onPluginEvent(int i, int i2, String str, int i3, Throwable th);
+    void onPluginEvent(int i, int i2, @Nullable String str, int i3, @Nullable Throwable th);
 }

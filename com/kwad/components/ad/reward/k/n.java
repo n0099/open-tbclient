@@ -46,7 +46,7 @@ public final class n extends d implements View.OnClickListener {
     public ViewStub vk;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String kY;
@@ -186,15 +186,15 @@ public final class n extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091109);
-            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09110d);
-            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09110c);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091110);
-            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09110f);
-            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09110a);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09110b);
-            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091108);
-            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091107);
+            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091143);
+            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f091147);
+            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091146);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09114a);
+            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f091149);
+            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091144);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091145);
+            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091142);
+            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091141);
             this.vM.setOnClickListener(this);
             this.vQ.setOnClickListener(this);
             this.vP.setOnClickListener(this);
@@ -295,17 +295,17 @@ public final class n extends d implements View.OnClickListener {
                     marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07038e);
                 }
                 this.vM.setBackgroundColor(-1);
-                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060780));
-                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06077c));
+                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060781));
+                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06077d));
                 this.qC = com.kwad.sdk.b.kwai.a.A(this.mj);
                 com.kwad.sdk.b.kwai.a.i(this.mj, 49);
             } else {
                 if (marginLayoutParams != null) {
                     marginLayoutParams.bottomMargin = 0;
                 }
-                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060781));
-                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06077d));
-                this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06077e));
+                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060782));
+                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06077e));
+                this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06077f));
             }
             if (marginLayoutParams != null) {
                 this.vM.setLayoutParams(marginLayoutParams);

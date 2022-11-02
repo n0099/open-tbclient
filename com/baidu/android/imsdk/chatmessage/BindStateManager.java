@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.c80;
+import com.baidu.tieba.b80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class BindStateManager {
     public static final String KEY_UNBIND_UK = "unbind_uk";
     public static final long SPACE_TIME = 86400000;
     public static final String TAG = "BindStateManager";
-    public static final List listeners;
+    public static final List<IOnRegisterNotifyListener> listeners;
     public static BindState mIsBind;
     public static Object mTinerSync;
     public static SetUnBindRunable runable;
@@ -47,7 +47,7 @@ public class BindStateManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class BindState {
+    public static final class BindState {
         public static final /* synthetic */ BindState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BindState BINDED;
@@ -114,7 +114,7 @@ public class BindStateManager {
     }
 
     /* loaded from: classes.dex */
-    public class MyTimeTask extends TimerTask {
+    public static class MyTimeTask extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context context;
@@ -152,7 +152,7 @@ public class BindStateManager {
     }
 
     /* loaded from: classes.dex */
-    public class SetUnBindRunable implements Runnable {
+    public static class SetUnBindRunable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context context;
@@ -381,11 +381,11 @@ public class BindStateManager {
             }
             IOnRegisterNotifyListener iOnRegisterNotifyListener = (IOnRegisterNotifyListener) ListenerManager.getInstance().removeListener(str);
             synchronized (listeners) {
-                Iterator it = listeners.iterator();
+                Iterator<IOnRegisterNotifyListener> it = listeners.iterator();
                 while (it.hasNext()) {
-                    IOnRegisterNotifyListener iOnRegisterNotifyListener2 = (IOnRegisterNotifyListener) it.next();
-                    if (iOnRegisterNotifyListener2 != null) {
-                        iOnRegisterNotifyListener2.onRegisterNotifyResult(i, str2);
+                    IOnRegisterNotifyListener next = it.next();
+                    if (next != null) {
+                        next.onRegisterNotifyResult(i, str2);
                     }
                     it.remove();
                 }
@@ -411,7 +411,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        c80.g(context).f(context, creatMethodIntent);
+                        b80.g(context).f(context, creatMethodIntent);
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
                         onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
@@ -534,7 +534,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        c80.g(context).f(context, creatMethodIntent);
+                        b80.g(context).f(context, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         LogUtils.e(TAG, "Exception ", e);

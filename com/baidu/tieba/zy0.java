@@ -1,83 +1,67 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class zy0 {
+public final class zy0 extends ty0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.nv0
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1} : (int[]) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements CyberPlayerManager.InstallListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+    public zy0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.ty0, com.baidu.tieba.nv0
+    public void n(mu0 event) {
+        sr0 it;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(SystemEvent.ACTION_VOLUME_CHANGED, event.c()) && (it = i()) != null) {
+                Intrinsics.checkNotNullExpressionValue(it, "player");
+                if (!it.a0() && !it.Q()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    it = null;
+                }
+                if (it != null) {
+                    int g = event.g(5);
+                    Intrinsics.checkNotNullExpressionValue(it, "it");
+                    et0 y = it.y();
+                    Intrinsics.checkNotNullExpressionValue(y, "it.playerCallbackManager");
+                    ys0 c = y.c();
+                    if (c != null) {
+                        c.a(g);
+                    }
                 }
             }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallError(int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-                xj0.c("BdCyberUtils", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + str);
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallSuccess(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-                xj0.c("BdCyberUtils", "onInstallSuccess: type=" + i + ", ver=" + str);
-            }
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            b(new b(null), 31);
-        }
-    }
-
-    public static void b(CyberPlayerManager.InstallListener installListener, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, installListener, i) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
-            iz0.a(aj0.a().g(), pz0.m(), i, hashMap, installListener, null);
         }
     }
 }

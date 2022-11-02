@@ -1,5 +1,6 @@
 package com.baidu.sofire.k;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
@@ -64,6 +65,7 @@ public class f {
         return invokeLL.longValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static String a(Context context, String str) {
         String str2;
         File[] listFiles;
@@ -123,6 +125,7 @@ public class f {
         return (String) invokeLLL.objValue;
     }
 
+    @SuppressLint({"SdCardPath"})
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         ApkInfo b2;

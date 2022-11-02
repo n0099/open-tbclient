@@ -9,6 +9,8 @@ import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -109,7 +111,7 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AbsActionBarView(Context context) {
+    public AbsActionBarView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -168,7 +170,7 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AbsActionBarView(Context context, AttributeSet attributeSet) {
+    public AbsActionBarView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -189,7 +191,7 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AbsActionBarView(Context context, AttributeSet attributeSet, int i) {
+    public AbsActionBarView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

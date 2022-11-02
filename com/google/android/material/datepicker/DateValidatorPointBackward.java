@@ -2,6 +2,7 @@ package com.google.android.material.datepicker;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public class DateValidatorPointBackward implements CalendarConstraints.DateValidator {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<DateValidatorPointBackward> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final long point;
 
@@ -43,7 +44,7 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.datepicker.DateValidatorPointBackward.1
+        CREATOR = new Parcelable.Creator<DateValidatorPointBackward>() { // from class: com.google.android.material.datepicker.DateValidatorPointBackward.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,8 +63,10 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public DateValidatorPointBackward createFromParcel(Parcel parcel) {
+            @NonNull
+            public DateValidatorPointBackward createFromParcel(@NonNull Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -73,7 +76,9 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
+            @NonNull
             public DateValidatorPointBackward[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
@@ -85,6 +90,7 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
         };
     }
 
+    @NonNull
     public static DateValidatorPointBackward now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -122,13 +128,14 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeLong(this.point);
         }
     }
 
+    @NonNull
     public static DateValidatorPointBackward before(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,8 +28,11 @@ public class SwitchMaterial extends SwitchCompat {
     public static final int DEF_STYLE_RES = 2131755876;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final ElevationOverlayProvider elevationOverlayProvider;
+    @Nullable
     public ColorStateList materialThemeColorsThumbTintList;
+    @Nullable
     public ColorStateList materialThemeColorsTrackTintList;
     public boolean useMaterialThemeColors;
 
@@ -72,7 +77,7 @@ public class SwitchMaterial extends SwitchCompat {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwitchMaterial(Context context) {
+    public SwitchMaterial(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,7 +98,7 @@ public class SwitchMaterial extends SwitchCompat {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwitchMaterial(Context context, AttributeSet attributeSet) {
+    public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040678);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,7 +119,7 @@ public class SwitchMaterial extends SwitchCompat {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwitchMaterial(Context context, AttributeSet attributeSet, int i) {
+    public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

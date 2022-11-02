@@ -23,7 +23,7 @@ public interface Graphics {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class GraphicsType {
+    public static final class GraphicsType {
         public static final /* synthetic */ GraphicsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final GraphicsType AndroidGL;
@@ -98,7 +98,7 @@ public interface Graphics {
     }
 
     /* loaded from: classes.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;

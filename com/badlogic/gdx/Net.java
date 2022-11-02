@@ -12,7 +12,7 @@ public interface Net {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class Protocol {
+    public static final class Protocol {
         public static final /* synthetic */ Protocol[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Protocol TCP;

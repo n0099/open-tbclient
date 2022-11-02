@@ -13,6 +13,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.InlineMarker;
 import kotlin.jvm.internal.Ref;
+import kotlinx.coroutines.ExperimentalCoroutinesApi;
 import kotlinx.coroutines.flow.internal.AbortFlowException;
 import kotlinx.coroutines.flow.internal.NopCollector;
 import kotlinx.coroutines.flow.internal.NullSurrogateKt;
@@ -23,11 +24,10 @@ public final /* synthetic */ class FlowKt__ReduceKt {
     /* JADX WARN: Removed duplicated region for block: B:17:0x003f  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x0066 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0067  */
-    /* JADX WARN: Type inference failed for: r2v1, types: [kotlinx.coroutines.internal.Symbol, T] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object first(Flow flow, Continuation continuation) {
+    public static final <T> Object first(Flow<? extends T> flow, Continuation<? super T> continuation) {
         FlowKt__ReduceKt$first$1 flowKt__ReduceKt$first$1;
         int i;
         Ref.ObjectRef objectRef;
@@ -55,9 +55,9 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                 } else {
                     ResultKt.throwOnFailure(obj);
                     final Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-                    objectRef2.element = NullSurrogateKt.NULL;
+                    objectRef2.element = (T) NullSurrogateKt.NULL;
                     try {
-                        FlowCollector flowCollector = new FlowCollector() { // from class: kotlinx.coroutines.flow.FlowKt__ReduceKt$first$$inlined$collect$1
+                        FlowCollector<T> flowCollector = new FlowCollector<T>() { // from class: kotlinx.coroutines.flow.FlowKt__ReduceKt$first$$inlined$collect$1
                             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
                             /* JADX WARN: Multi-variable type inference failed */
                             @Override // kotlinx.coroutines.flow.FlowCollector
@@ -99,11 +99,10 @@ public final /* synthetic */ class FlowKt__ReduceKt {
     /* JADX WARN: Removed duplicated region for block: B:14:0x003d  */
     /* JADX WARN: Removed duplicated region for block: B:20:0x0064 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0065  */
-    /* JADX WARN: Type inference failed for: r2v1, types: [kotlinx.coroutines.internal.Symbol, T] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object single(Flow flow, Continuation continuation) {
+    public static final <T> Object single(Flow<? extends T> flow, Continuation<? super T> continuation) {
         FlowKt__ReduceKt$single$1 flowKt__ReduceKt$single$1;
         int i;
         Ref.ObjectRef objectRef;
@@ -128,8 +127,8 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                 } else {
                     ResultKt.throwOnFailure(obj);
                     final Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-                    objectRef2.element = NullSurrogateKt.NULL;
-                    FlowCollector flowCollector = new FlowCollector() { // from class: kotlinx.coroutines.flow.FlowKt__ReduceKt$single$$inlined$collect$1
+                    objectRef2.element = (T) NullSurrogateKt.NULL;
+                    FlowCollector<T> flowCollector = new FlowCollector<T>() { // from class: kotlinx.coroutines.flow.FlowKt__ReduceKt$single$$inlined$collect$1
                         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
                         /* JADX WARN: Multi-variable type inference failed */
                         @Override // kotlinx.coroutines.flow.FlowCollector
@@ -173,11 +172,10 @@ public final /* synthetic */ class FlowKt__ReduceKt {
     /* JADX WARN: Removed duplicated region for block: B:17:0x0043  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x006c A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:25:0x006d  */
-    /* JADX WARN: Type inference failed for: r2v1, types: [kotlinx.coroutines.internal.Symbol, T] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object first(Flow flow, Function2 function2, Continuation continuation) {
+    public static final <T> Object first(Flow<? extends T> flow, Function2<? super T, ? super Continuation<? super Boolean>, ? extends Object> function2, Continuation<? super T> continuation) {
         FlowKt__ReduceKt$first$3 flowKt__ReduceKt$first$3;
         int i;
         Ref.ObjectRef objectRef;
@@ -206,9 +204,9 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                 } else {
                     ResultKt.throwOnFailure(obj);
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-                    objectRef2.element = NullSurrogateKt.NULL;
+                    objectRef2.element = (T) NullSurrogateKt.NULL;
                     try {
-                        FlowCollector flowKt__ReduceKt$first$$inlined$collect$2 = new FlowKt__ReduceKt$first$$inlined$collect$2(function2, objectRef2);
+                        FlowCollector<? super Object> flowKt__ReduceKt$first$$inlined$collect$2 = new FlowKt__ReduceKt$first$$inlined$collect$2(function2, objectRef2);
                         flowKt__ReduceKt$first$3.L$0 = flow;
                         flowKt__ReduceKt$first$3.L$1 = function2;
                         flowKt__ReduceKt$first$3.L$2 = objectRef2;
@@ -244,7 +242,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object firstOrNull(Flow flow, Function2 function2, Continuation continuation) {
+    public static final <T> Object firstOrNull(Flow<? extends T> flow, Function2<? super T, ? super Continuation<? super Boolean>, ? extends Object> function2, Continuation<? super T> continuation) {
         FlowKt__ReduceKt$firstOrNull$3 flowKt__ReduceKt$firstOrNull$3;
         int i;
         Ref.ObjectRef objectRef;
@@ -274,7 +272,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = null;
                     try {
-                        FlowCollector flowKt__ReduceKt$firstOrNull$$inlined$collect$2 = new FlowKt__ReduceKt$firstOrNull$$inlined$collect$2(function2, objectRef2);
+                        FlowCollector<? super Object> flowKt__ReduceKt$firstOrNull$$inlined$collect$2 = new FlowKt__ReduceKt$firstOrNull$$inlined$collect$2(function2, objectRef2);
                         flowKt__ReduceKt$firstOrNull$3.L$0 = flow;
                         flowKt__ReduceKt$firstOrNull$3.L$1 = function2;
                         flowKt__ReduceKt$firstOrNull$3.L$2 = objectRef2;
@@ -304,10 +302,11 @@ public final /* synthetic */ class FlowKt__ReduceKt {
     /* JADX WARN: Removed duplicated region for block: B:20:0x006a A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x006b  */
     /* JADX WARN: Type inference failed for: r2v1, types: [kotlinx.coroutines.internal.Symbol, T] */
+    @ExperimentalCoroutinesApi
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object reduce(Flow flow, Function3 function3, Continuation continuation) {
+    public static final <S, T extends S> Object reduce(Flow<? extends T> flow, Function3<? super S, ? super T, ? super Continuation<? super S>, ? extends Object> function3, Continuation<? super S> continuation) {
         FlowKt__ReduceKt$reduce$1 flowKt__ReduceKt$reduce$1;
         int i;
         Ref.ObjectRef objectRef;
@@ -334,7 +333,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                     ResultKt.throwOnFailure(obj);
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = NullSurrogateKt.NULL;
-                    FlowCollector flowKt__ReduceKt$reduce$$inlined$collect$1 = new FlowKt__ReduceKt$reduce$$inlined$collect$1(objectRef2, function3);
+                    FlowCollector<? super Object> flowKt__ReduceKt$reduce$$inlined$collect$1 = new FlowKt__ReduceKt$reduce$$inlined$collect$1(objectRef2, function3);
                     flowKt__ReduceKt$reduce$1.L$0 = flow;
                     flowKt__ReduceKt$reduce$1.L$1 = function3;
                     flowKt__ReduceKt$reduce$1.L$2 = objectRef2;
@@ -368,7 +367,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object firstOrNull(Flow flow, Continuation continuation) {
+    public static final <T> Object firstOrNull(Flow<? extends T> flow, Continuation<? super T> continuation) {
         FlowKt__ReduceKt$firstOrNull$1 flowKt__ReduceKt$firstOrNull$1;
         int i;
         Ref.ObjectRef objectRef;
@@ -397,7 +396,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                     final Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = null;
                     try {
-                        FlowCollector flowCollector = new FlowCollector() { // from class: kotlinx.coroutines.flow.FlowKt__ReduceKt$firstOrNull$$inlined$collect$1
+                        FlowCollector<T> flowCollector = new FlowCollector<T>() { // from class: kotlinx.coroutines.flow.FlowKt__ReduceKt$firstOrNull$$inlined$collect$1
                             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
                             /* JADX WARN: Multi-variable type inference failed */
                             @Override // kotlinx.coroutines.flow.FlowCollector
@@ -434,7 +433,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object singleOrNull(Flow flow, Continuation continuation) {
+    public static final <T> Object singleOrNull(Flow<? extends T> flow, Continuation<? super T> continuation) {
         FlowKt__ReduceKt$singleOrNull$1 flowKt__ReduceKt$singleOrNull$1;
         int i;
         Ref.ObjectRef objectRef;
@@ -459,7 +458,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                     ResultKt.throwOnFailure(obj);
                     final Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = null;
-                    FlowCollector flowCollector = new FlowCollector() { // from class: kotlinx.coroutines.flow.FlowKt__ReduceKt$singleOrNull$$inlined$collect$1
+                    FlowCollector<T> flowCollector = new FlowCollector<T>() { // from class: kotlinx.coroutines.flow.FlowKt__ReduceKt$singleOrNull$$inlined$collect$1
                         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
                         /* JADX WARN: Multi-variable type inference failed */
                         @Override // kotlinx.coroutines.flow.FlowCollector
@@ -493,14 +492,15 @@ public final /* synthetic */ class FlowKt__ReduceKt {
         return objectRef.element;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Object */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: R */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0043  */
+    @ExperimentalCoroutinesApi
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object fold(Flow flow, Object obj, Function3 function3, Continuation continuation) {
+    public static final <T, R> Object fold(Flow<? extends T> flow, R r, Function3<? super R, ? super T, ? super Continuation<? super R>, ? extends Object> function3, Continuation<? super R> continuation) {
         FlowKt__ReduceKt$fold$1 flowKt__ReduceKt$fold$1;
         int i;
         Ref.ObjectRef objectRef;
@@ -509,7 +509,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
             int i2 = flowKt__ReduceKt$fold$1.label;
             if ((i2 & Integer.MIN_VALUE) != 0) {
                 flowKt__ReduceKt$fold$1.label = i2 - Integer.MIN_VALUE;
-                Object obj2 = flowKt__ReduceKt$fold$1.result;
+                Object obj = flowKt__ReduceKt$fold$1.result;
                 Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
                 i = flowKt__ReduceKt$fold$1.label;
                 if (i == 0) {
@@ -517,19 +517,19 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                         Flow flow2 = (Flow) flowKt__ReduceKt$fold$1.L$4;
                         objectRef = (Ref.ObjectRef) flowKt__ReduceKt$fold$1.L$3;
                         Function3 function32 = (Function3) flowKt__ReduceKt$fold$1.L$2;
-                        Object obj3 = flowKt__ReduceKt$fold$1.L$1;
+                        Object obj2 = flowKt__ReduceKt$fold$1.L$1;
                         Flow flow3 = (Flow) flowKt__ReduceKt$fold$1.L$0;
-                        ResultKt.throwOnFailure(obj2);
+                        ResultKt.throwOnFailure(obj);
                     } else {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     }
                 } else {
-                    ResultKt.throwOnFailure(obj2);
+                    ResultKt.throwOnFailure(obj);
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-                    objectRef2.element = obj;
-                    FlowCollector flowKt__ReduceKt$fold$$inlined$collect$1 = new FlowKt__ReduceKt$fold$$inlined$collect$1(objectRef2, function3);
+                    objectRef2.element = r;
+                    FlowCollector<? super Object> flowKt__ReduceKt$fold$$inlined$collect$1 = new FlowKt__ReduceKt$fold$$inlined$collect$1(objectRef2, function3);
                     flowKt__ReduceKt$fold$1.L$0 = flow;
-                    flowKt__ReduceKt$fold$1.L$1 = obj;
+                    flowKt__ReduceKt$fold$1.L$1 = r;
                     flowKt__ReduceKt$fold$1.L$2 = function3;
                     flowKt__ReduceKt$fold$1.L$3 = objectRef2;
                     flowKt__ReduceKt$fold$1.L$4 = flow;
@@ -543,7 +543,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
             }
         }
         flowKt__ReduceKt$fold$1 = new FlowKt__ReduceKt$fold$1(continuation);
-        Object obj22 = flowKt__ReduceKt$fold$1.result;
+        Object obj3 = flowKt__ReduceKt$fold$1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         i = flowKt__ReduceKt$fold$1.label;
         if (i == 0) {
@@ -553,6 +553,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
+    @ExperimentalCoroutinesApi
     public static final Object fold$$forInline(Flow flow, Object obj, Function3 function3, Continuation continuation) {
         Ref.ObjectRef objectRef = new Ref.ObjectRef();
         objectRef.element = obj;

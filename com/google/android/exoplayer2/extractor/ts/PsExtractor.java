@@ -43,7 +43,7 @@ public final class PsExtractor implements Extractor {
     public boolean foundVideoTrack;
     public ExtractorOutput output;
     public final ParsableByteArray psPacketBuffer;
-    public final SparseArray psPayloadReaders;
+    public final SparseArray<PesReader> psPayloadReaders;
     public final TimestampAdjuster timestampAdjuster;
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
@@ -54,7 +54,7 @@ public final class PsExtractor implements Extractor {
     }
 
     /* loaded from: classes7.dex */
-    public final class PesReader {
+    public static final class PesReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PES_SCRATCH_SIZE = 64;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +220,7 @@ public final class PsExtractor implements Extractor {
         }
         this.timestampAdjuster = timestampAdjuster;
         this.psPacketBuffer = new ParsableByteArray(4096);
-        this.psPayloadReaders = new SparseArray();
+        this.psPayloadReaders = new SparseArray<>();
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
@@ -260,7 +260,7 @@ public final class PsExtractor implements Extractor {
                 return 0;
             } else {
                 int i = readInt & 255;
-                PesReader pesReader = (PesReader) this.psPayloadReaders.get(i);
+                PesReader pesReader = this.psPayloadReaders.get(i);
                 if (!this.foundAllTracks) {
                     if (pesReader == null) {
                         ElementaryStreamReader elementaryStreamReader = null;
@@ -310,7 +310,7 @@ public final class PsExtractor implements Extractor {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.timestampAdjuster.reset();
             for (int i = 0; i < this.psPayloadReaders.size(); i++) {
-                ((PesReader) this.psPayloadReaders.valueAt(i)).seek();
+                this.psPayloadReaders.valueAt(i).seek();
             }
         }
     }

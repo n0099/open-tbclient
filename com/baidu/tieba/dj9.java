@@ -1,41 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 public class dj9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static boolean b = false;
-    public static boolean c = false;
-    public static boolean d = true;
-    public static long e = 300000;
-    public static int f = 10;
-    public static long g = 604800000;
-    public static long h = 104857600;
-    public static int i = 100;
-    public static int j = 5;
-    public static long k = 104857600;
-    public static int l = 0;
-    public static int m = 1;
-    public static int n;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947706614, "Lcom/baidu/tieba/dj9;")) == null) {
-            return;
+    public static float a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long[] b = b();
+            if (b[0] <= 0) {
+                return 0.0f;
+            }
+            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        return invokeV.floatValue;
+    }
+
+    public static long[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long[] jArr = new long[4];
+            try {
+                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
+                long[] jArr2 = {30, -30};
+                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
+                if (method != null) {
+                    method.invoke(null, objArr);
+                    for (int i = 0; i < 4; i++) {
+                        jArr[i] = jArr2[i] / 1024;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return jArr;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947706614, "Lcom/baidu/tieba/dj9;");
-        }
+        return (long[]) invokeV.objValue;
     }
 }

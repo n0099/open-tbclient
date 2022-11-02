@@ -8,6 +8,7 @@ import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -370,7 +371,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return invokeV.booleanValue;
     }
 
-    public AutoScrollHelper(View view2) {
+    public AutoScrollHelper(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -526,6 +527,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return invokeLL.booleanValue;
     }
 
+    @NonNull
     public AutoScrollHelper setActivationDelay(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -536,6 +538,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeI.objValue;
     }
 
+    @NonNull
     public AutoScrollHelper setEdgeType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -569,6 +572,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeZ.objValue;
     }
 
+    @NonNull
     public AutoScrollHelper setRampDownDuration(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -579,6 +583,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeI.objValue;
     }
 
+    @NonNull
     public AutoScrollHelper setRampUpDuration(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -589,6 +594,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeI.objValue;
     }
 
+    @NonNull
     public AutoScrollHelper setMaximumEdges(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -601,6 +607,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeCommon.objValue;
     }
 
+    @NonNull
     public AutoScrollHelper setRelativeEdges(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -613,6 +620,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeCommon.objValue;
     }
 
+    @NonNull
     public AutoScrollHelper setMaximumVelocity(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -625,6 +633,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeCommon.objValue;
     }
 
+    @NonNull
     public AutoScrollHelper setMinimumVelocity(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -637,6 +646,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeCommon.objValue;
     }
 
+    @NonNull
     public AutoScrollHelper setRelativeVelocity(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

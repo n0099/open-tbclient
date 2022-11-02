@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.display.VirtualDisplay;
@@ -13,7 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+@TargetApi(21)
+/* loaded from: classes9.dex */
 public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISPLAY_FLAGS = 3;

@@ -6,6 +6,8 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -49,6 +51,7 @@ public final class b extends a {
     public aa dP;
     public d eN;
     public Vibrator eO;
+    @Nullable
     public com.kwad.components.ad.f.kwai.kwai.b gY;
     public FrameLayout hP;
     public boolean hQ;
@@ -145,6 +148,7 @@ public final class b extends a {
         };
     }
 
+    @NonNull
     private f a(com.kwad.sdk.core.webview.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -231,7 +235,7 @@ public final class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65571, this)) == null) {
             com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-            this.gh.gs.add(new c.InterfaceC0530c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.kwai.b.6
+            this.gh.gs.add(new c.InterfaceC0541c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.kwai.b.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b hS;
@@ -256,7 +260,7 @@ public final class b extends a {
                     this.hd = aVar;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0530c
+                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0541c
                 public final void cH() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -345,6 +349,7 @@ public final class b extends a {
         return (ah) invokeV.objValue;
     }
 
+    @NonNull
     private q cW() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -441,6 +446,7 @@ public final class b extends a {
         }
     }
 
+    @NonNull
     private com.kwad.components.core.webview.b.kwai.h dG() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -468,7 +474,7 @@ public final class b extends a {
             }
 
             @Override // com.kwad.components.core.webview.b.kwai.e, com.kwad.sdk.core.webview.kwai.a
-            public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+            public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, cVar) == null) {
                     super.a(str, cVar);
@@ -539,7 +545,7 @@ public final class b extends a {
             }
 
             @Override // com.kwad.components.core.webview.jshandler.d, com.kwad.sdk.core.webview.kwai.a
-            public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+            public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, cVar) == null) {
                     super.a(str, cVar);
@@ -729,13 +735,13 @@ public final class b extends a {
             public final void a(com.kwad.components.core.webview.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    AdWebViewActivityProxy.launch(this.hS.getContext(), new AdWebViewActivityProxy.a.C0573a().ao(bVar.title).ap(bVar.url).N(this.hS.gh.mAdTemplate).nx());
+                    AdWebViewActivityProxy.launch(this.hS.getContext(), new AdWebViewActivityProxy.a.C0584a().ao(bVar.title).ap(bVar.url).N(this.hS.gh.mAdTemplate).nx());
                 }
             }
         } : (w.a) invokeV.objValue;
     }
 
-    public static boolean h(AdTemplate adTemplate) {
+    public static boolean h(@NonNull AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, adTemplate)) == null) {
@@ -762,7 +768,7 @@ public final class b extends a {
             com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.gh.mAdTemplate);
             this.gY = j;
             if (j != null) {
-                j.a(new b.InterfaceC0521b(this) { // from class: com.kwad.components.ad.interstitial.b.kwai.b.4
+                j.a(new b.InterfaceC0532b(this) { // from class: com.kwad.components.ad.interstitial.b.kwai.b.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ b hS;
@@ -785,7 +791,7 @@ public final class b extends a {
                         this.hS = this;
                     }
 
-                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0521b
+                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0532b
                     public final void C(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
@@ -921,7 +927,7 @@ public final class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onCreate();
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ff);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091239);
             this.hP = frameLayout;
             frameLayout.setVisibility(0);
         }

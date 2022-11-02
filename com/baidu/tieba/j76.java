@@ -1,75 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class j76 extends BaseCardInfo {
+public final class j76 extends r66 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public eo6 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836256, "Lcom/baidu/tieba/j76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947836256, "Lcom/baidu/tieba/j76;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public j76() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public j76(m66 context) {
+        super(context, r3, null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((m66) objArr2[0], (s0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        s0 b = s0.i(w66.class).b();
+        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
     }
 
-    public eo6 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r66
+    public void l(p0 entity, float f) {
+        h66 a;
+        w66 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (eo6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(eo6 eo6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eo6Var) == null) {
-            this.a = eo6Var;
+        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            t66 b = r76.b(entity);
+            if (b == null) {
+                a = null;
+            } else {
+                a = b.a();
+            }
+            if (a == null || (a2 = r76.a(entity)) == null) {
+                return;
+            }
+            if (q76.b(this) >= a.e().k()) {
+                a2.h(true);
+                a2.c(q76.b(this) - a.e().k());
+                return;
+            }
+            a2.h(false);
         }
     }
 }

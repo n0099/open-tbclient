@@ -23,10 +23,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.uc0;
+import com.baidu.tieba.wa0;
 import com.baidu.tieba.xa0;
-import com.baidu.tieba.ya0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,12 +37,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.Random;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\u0018\u0000 m2\u00020\u00012\u00020\u0002:\u0002mnB)\b\u0007\u0012\b\u0010f\u001a\u0004\u0018\u00010e\u0012\n\b\u0002\u0010h\u001a\u0004\u0018\u00010g\u0012\b\b\u0002\u0010j\u001a\u00020i¢\u0006\u0004\bk\u0010lJ\r\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0006¢\u0006\u0004\b\t\u0010\bJ\u0019\u0010\f\u001a\u00020\u00032\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0016¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u000e\u001a\u00020\u0003¢\u0006\u0004\b\u000e\u0010\u0005J\r\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0013\u001a\u00020\u00032\u0006\u0010\u0012\u001a\u00020\u0006¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0015\u001a\u00020\u0003¢\u0006\u0004\b\u0015\u0010\u0005J\u000f\u0010\u0016\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u0016\u0010\u0005J\u0015\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0006¢\u0006\u0004\b\u0018\u0010\u0014J\r\u0010\u0019\u001a\u00020\u0003¢\u0006\u0004\b\u0019\u0010\u0005J\r\u0010\u001a\u001a\u00020\u0003¢\u0006\u0004\b\u001a\u0010\u0005J\r\u0010\u001b\u001a\u00020\u0003¢\u0006\u0004\b\u001b\u0010\u0005J\u0015\u0010\u001d\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0006¢\u0006\u0004\b\u001d\u0010\u0014J\u0015\u0010\u001f\u001a\u00020\u00032\u0006\u0010\u001e\u001a\u00020\u000f¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010#\u001a\u00020\u00032\b\u0010\"\u001a\u0004\u0018\u00010!¢\u0006\u0004\b#\u0010$J\u000f\u0010%\u001a\u00020\u0003H\u0002¢\u0006\u0004\b%\u0010\u0005J)\u0010(\u001a\u00020\u00032\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00062\u000e\u0010'\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010&¢\u0006\u0004\b(\u0010)J\u0015\u0010*\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0006¢\u0006\u0004\b*\u0010\u0014J\u000f\u0010+\u001a\u00020\u0003H\u0002¢\u0006\u0004\b+\u0010\u0005J\u000f\u0010,\u001a\u00020\u0003H\u0002¢\u0006\u0004\b,\u0010\u0005J\r\u0010-\u001a\u00020\u0003¢\u0006\u0004\b-\u0010\u0005J\u000f\u0010.\u001a\u00020\u0003H\u0002¢\u0006\u0004\b.\u0010\u0005J\u000f\u0010/\u001a\u00020\u0003H\u0002¢\u0006\u0004\b/\u0010\u0005R\"\u00100\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u00101\u001a\u0004\b2\u0010\u0011\"\u0004\b3\u0010 R\u0018\u00104\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\"\u0010:\u001a\u0002098\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b:\u0010;\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?R\u0018\u0010A\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u0016\u0010D\u001a\u00020C8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u0010ER\u0016\u0010G\u001a\u00020F8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR$\u0010J\u001a\u0004\u0018\u00010I8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bJ\u0010K\u001a\u0004\bL\u0010M\"\u0004\bN\u0010OR\"\u0010P\u001a\u00020\u00068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bP\u00105\u001a\u0004\bQ\u0010\b\"\u0004\bR\u0010\u0014R\"\u0010T\u001a\u00020S8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bT\u0010U\u001a\u0004\bV\u0010W\"\u0004\bX\u0010YR\u001e\u0010Z\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010&8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bZ\u0010[R\"\u0010\\\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\\\u00108\u001a\u0004\b]\u0010^\"\u0004\b_\u0010`R\"\u0010a\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\ba\u00108\u001a\u0004\bb\u0010^\"\u0004\bc\u0010`R\u0018\u0010d\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bd\u00105¨\u0006o"}, d2 = {"Lcom/baidu/live/feed/search/view/LiveSearchPanel;", "com/baidu/tieba/ya0$a", "Landroid/widget/LinearLayout;", "", "clearEditFocus", "()V", "", "getCurrentQueryHint", "()Ljava/lang/String;", "getText", "Landroid/os/Message;", "msg", "handleMsg", "(Landroid/os/Message;)V", "hideSoftInput", "", "isEditHasFocus", "()Z", "uiMode", "onDarkModeChange", "(Ljava/lang/String;)V", MissionEvent.MESSAGE_DESTROY, "onDetachedFromWindow", "content", "performSearch", "requestEditFocus", "requestInput", "resetView", "showHint", "setCurrentQueryHint", "editable", "setEditable", "(Z)V", "Landroid/view/View$OnClickListener;", "l", "setOnEditClickListener", "(Landroid/view/View$OnClickListener;)V", "setQuery", "", "hintList", "setQueryHintList", "(Ljava/lang/String;Ljava/util/List;)V", "setText", "showHintTextAndSwitcherLoop", "showNextHotWord", "showSoftInput", "startHintSwitcherLoop", "stopHintTextSwitcher", "canSearchHint", "Z", "getCanSearchHint", "setCanSearchHint", "curShowHint", "Ljava/lang/String;", "Landroid/widget/ImageView;", "deleteIcon", "Landroid/widget/ImageView;", "Landroid/widget/EditText;", "editText", "Landroid/widget/EditText;", "getEditText", "()Landroid/widget/EditText;", "setEditText", "(Landroid/widget/EditText;)V", "Landroid/text/TextWatcher;", "editTextChangedListener", "Landroid/text/TextWatcher;", "Lcom/baidu/live/feed/search/utils/WeakHandler;", "handler", "Lcom/baidu/live/feed/search/utils/WeakHandler;", "Landroid/widget/TextSwitcher;", "hintTextSwitcher", "Landroid/widget/TextSwitcher;", "Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "queryListener", "Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "getQueryListener", "()Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "setQueryListener", "(Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;)V", "scene", "getScene", "setScene", "Landroid/widget/TextView;", "searchDoneBtn", "Landroid/widget/TextView;", "getSearchDoneBtn", "()Landroid/widget/TextView;", "setSearchDoneBtn", "(Landroid/widget/TextView;)V", "searchHintList", "Ljava/util/List;", "searchTag", "getSearchTag", "()Landroid/widget/ImageView;", "setSearchTag", "(Landroid/widget/ImageView;)V", "splitLineView", "getSplitLineView", "setSplitLineView", "userQuery", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "Companion", "OnQueryTextListener", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\u0018\u0000 m2\u00020\u00012\u00020\u0002:\u0002mnB)\b\u0007\u0012\b\u0010f\u001a\u0004\u0018\u00010e\u0012\n\b\u0002\u0010h\u001a\u0004\u0018\u00010g\u0012\b\b\u0002\u0010j\u001a\u00020i¢\u0006\u0004\bk\u0010lJ\r\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0006¢\u0006\u0004\b\t\u0010\bJ\u0019\u0010\f\u001a\u00020\u00032\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0016¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u000e\u001a\u00020\u0003¢\u0006\u0004\b\u000e\u0010\u0005J\r\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0013\u001a\u00020\u00032\u0006\u0010\u0012\u001a\u00020\u0006¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0015\u001a\u00020\u0003¢\u0006\u0004\b\u0015\u0010\u0005J\u000f\u0010\u0016\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u0016\u0010\u0005J\u0015\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0006¢\u0006\u0004\b\u0018\u0010\u0014J\r\u0010\u0019\u001a\u00020\u0003¢\u0006\u0004\b\u0019\u0010\u0005J\r\u0010\u001a\u001a\u00020\u0003¢\u0006\u0004\b\u001a\u0010\u0005J\r\u0010\u001b\u001a\u00020\u0003¢\u0006\u0004\b\u001b\u0010\u0005J\u0015\u0010\u001d\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0006¢\u0006\u0004\b\u001d\u0010\u0014J\u0015\u0010\u001f\u001a\u00020\u00032\u0006\u0010\u001e\u001a\u00020\u000f¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010#\u001a\u00020\u00032\b\u0010\"\u001a\u0004\u0018\u00010!¢\u0006\u0004\b#\u0010$J\u000f\u0010%\u001a\u00020\u0003H\u0002¢\u0006\u0004\b%\u0010\u0005J)\u0010(\u001a\u00020\u00032\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u00062\u000e\u0010'\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010&¢\u0006\u0004\b(\u0010)J\u0015\u0010*\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0006¢\u0006\u0004\b*\u0010\u0014J\u000f\u0010+\u001a\u00020\u0003H\u0002¢\u0006\u0004\b+\u0010\u0005J\u000f\u0010,\u001a\u00020\u0003H\u0002¢\u0006\u0004\b,\u0010\u0005J\r\u0010-\u001a\u00020\u0003¢\u0006\u0004\b-\u0010\u0005J\u000f\u0010.\u001a\u00020\u0003H\u0002¢\u0006\u0004\b.\u0010\u0005J\u000f\u0010/\u001a\u00020\u0003H\u0002¢\u0006\u0004\b/\u0010\u0005R\"\u00100\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u00101\u001a\u0004\b2\u0010\u0011\"\u0004\b3\u0010 R\u0018\u00104\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\"\u0010:\u001a\u0002098\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b:\u0010;\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?R\u0018\u0010A\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u0016\u0010D\u001a\u00020C8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u0010ER\u0016\u0010G\u001a\u00020F8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR$\u0010J\u001a\u0004\u0018\u00010I8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bJ\u0010K\u001a\u0004\bL\u0010M\"\u0004\bN\u0010OR\"\u0010P\u001a\u00020\u00068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bP\u00105\u001a\u0004\bQ\u0010\b\"\u0004\bR\u0010\u0014R\"\u0010T\u001a\u00020S8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bT\u0010U\u001a\u0004\bV\u0010W\"\u0004\bX\u0010YR\u001e\u0010Z\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010&8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bZ\u0010[R\"\u0010\\\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\\\u00108\u001a\u0004\b]\u0010^\"\u0004\b_\u0010`R\"\u0010a\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\ba\u00108\u001a\u0004\bb\u0010^\"\u0004\bc\u0010`R\u0018\u0010d\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bd\u00105¨\u0006o"}, d2 = {"Lcom/baidu/live/feed/search/view/LiveSearchPanel;", "com/baidu/tieba/xa0$a", "Landroid/widget/LinearLayout;", "", "clearEditFocus", "()V", "", "getCurrentQueryHint", "()Ljava/lang/String;", "getText", "Landroid/os/Message;", "msg", "handleMsg", "(Landroid/os/Message;)V", "hideSoftInput", "", "isEditHasFocus", "()Z", "uiMode", "onDarkModeChange", "(Ljava/lang/String;)V", MissionEvent.MESSAGE_DESTROY, "onDetachedFromWindow", "content", "performSearch", "requestEditFocus", "requestInput", "resetView", "showHint", "setCurrentQueryHint", "editable", "setEditable", "(Z)V", "Landroid/view/View$OnClickListener;", "l", "setOnEditClickListener", "(Landroid/view/View$OnClickListener;)V", "setQuery", "", "hintList", "setQueryHintList", "(Ljava/lang/String;Ljava/util/List;)V", "setText", "showHintTextAndSwitcherLoop", "showNextHotWord", "showSoftInput", "startHintSwitcherLoop", "stopHintTextSwitcher", "canSearchHint", "Z", "getCanSearchHint", "setCanSearchHint", "curShowHint", "Ljava/lang/String;", "Landroid/widget/ImageView;", "deleteIcon", "Landroid/widget/ImageView;", "Landroid/widget/EditText;", "editText", "Landroid/widget/EditText;", "getEditText", "()Landroid/widget/EditText;", "setEditText", "(Landroid/widget/EditText;)V", "Landroid/text/TextWatcher;", "editTextChangedListener", "Landroid/text/TextWatcher;", "Lcom/baidu/live/feed/search/utils/WeakHandler;", "handler", "Lcom/baidu/live/feed/search/utils/WeakHandler;", "Landroid/widget/TextSwitcher;", "hintTextSwitcher", "Landroid/widget/TextSwitcher;", "Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "queryListener", "Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "getQueryListener", "()Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;", "setQueryListener", "(Lcom/baidu/live/feed/search/view/LiveSearchPanel$OnQueryTextListener;)V", "scene", "getScene", "setScene", "Landroid/widget/TextView;", "searchDoneBtn", "Landroid/widget/TextView;", "getSearchDoneBtn", "()Landroid/widget/TextView;", "setSearchDoneBtn", "(Landroid/widget/TextView;)V", "searchHintList", "Ljava/util/List;", "searchTag", "getSearchTag", "()Landroid/widget/ImageView;", "setSearchTag", "(Landroid/widget/ImageView;)V", "splitLineView", "getSplitLineView", "setSplitLineView", "userQuery", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "Companion", "OnQueryTextListener", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class LiveSearchPanel extends LinearLayout implements ya0.a {
+public final class LiveSearchPanel extends LinearLayout implements xa0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -51,9 +52,9 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     public ImageView d;
     public ImageView e;
     public TextView f;
-    public List g;
+    public List<String> g;
     public String h;
-    public ya0 i;
+    public xa0 i;
     public String j;
     public g k;
     public TextWatcher l;
@@ -85,6 +86,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public LiveSearchPanel(Context context) {
         this(context, null, 0, 6, null);
         Interceptable interceptable = $ic;
@@ -106,6 +108,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public LiveSearchPanel(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0, 4, null);
         Interceptable interceptable = $ic;
@@ -127,7 +130,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements TextWatcher {
+    public static final class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSearchPanel a;
@@ -146,6 +149,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
             }
         }
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(LiveSearchPanel liveSearchPanel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -192,7 +196,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* loaded from: classes2.dex */
-    public final class b implements View.OnFocusChangeListener {
+    public static final class b implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSearchPanel a;
@@ -238,7 +242,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* loaded from: classes2.dex */
-    public final class c implements TextView.OnEditorActionListener {
+    public static final class c implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSearchPanel a;
@@ -277,7 +281,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* loaded from: classes2.dex */
-    public final class d implements View.OnClickListener {
+    public static final class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSearchPanel a;
@@ -311,7 +315,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* loaded from: classes2.dex */
-    public final class e implements ViewSwitcher.ViewFactory {
+    public static final class e implements ViewSwitcher.ViewFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSearchPanel a;
@@ -344,10 +348,10 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 TextView textView = new TextView(this.b);
-                textView.setTextSize(0, ea0.c(textView.getResources(), 15.0f));
+                textView.setTextSize(0, da0.c(textView.getResources(), 15.0f));
                 textView.setSingleLine();
                 textView.setEllipsize(TextUtils.TruncateAt.END);
-                textView.setTextColor(vc0.f().a(this.b, this.a.getScene(), "color_858585"));
+                textView.setTextColor(uc0.f().a(this.b, this.a.getScene(), "color_858585"));
                 return textView;
             }
             return (TextView) invokeV.objValue;
@@ -355,7 +359,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* loaded from: classes2.dex */
-    public final class f implements View.OnClickListener {
+    public static final class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSearchPanel a;
@@ -392,7 +396,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* loaded from: classes2.dex */
-    public final class h implements Runnable {
+    public static final class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSearchPanel a;
@@ -430,6 +434,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public LiveSearchPanel(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -448,30 +453,30 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
                 return;
             }
         }
-        this.i = new ya0(this);
+        this.i = new xa0(this);
         this.n = LiveFeedPageSdk.HOST_LIVE_TAB;
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0558, (ViewGroup) this, true);
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f080d36);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0568, (ViewGroup) this, true);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f080d50);
         setGravity(16);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091394);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0913d1);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.live_search_panel_search_tag)");
         this.a = (ImageView) findViewById;
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091393);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0913d0);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.live_s…panel_hint_text_switcher)");
         this.c = (TextSwitcher) findViewById2;
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091392);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0913cf);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "findViewById(R.id.live_search_panel_edit_text)");
         this.b = (EditText) findViewById3;
-        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f091390);
+        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0913cd);
         Intrinsics.checkExpressionValueIsNotNull(findViewById4, "findViewById(R.id.live_search_panel_delete)");
         this.d = (ImageView) findViewById4;
-        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091395);
+        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f0913d2);
         Intrinsics.checkExpressionValueIsNotNull(findViewById5, "findViewById(R.id.live_search_panel_split)");
         this.e = (ImageView) findViewById5;
-        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f091391);
+        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0913ce);
         Intrinsics.checkExpressionValueIsNotNull(findViewById6, "findViewById(R.id.live_search_panel_done_btn)");
         this.f = (TextView) findViewById6;
-        this.b.setFilters(new InputFilter[]{xa0.a()});
+        this.b.setFilters(new InputFilter[]{wa0.a()});
         a aVar = new a(this);
         this.l = aVar;
         this.b.addTextChangedListener(aVar);
@@ -498,7 +503,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
         liveSearchPanel.setQueryHintList(str, list);
     }
 
-    @Override // com.baidu.tieba.ya0.a
+    @Override // com.baidu.tieba.xa0.a
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1) {
@@ -785,7 +790,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             this.i.removeMessages(1);
-            List list = this.g;
+            List<String> list = this.g;
             if (list != null && !list.isEmpty()) {
                 z = false;
             } else {
@@ -808,16 +813,16 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             if (Intrinsics.areEqual(str, "day")) {
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d36);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d38);
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d50);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d52);
             } else if (Intrinsics.areEqual(str, "night")) {
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d37);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d39);
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d51);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d53);
             }
-            this.b.setHintTextColor(vc0.f().a(getContext(), this.n, "color_858585"));
-            this.b.setTextColor(vc0.f().a(getContext(), this.n, "color_1F1F1F"));
-            this.f.setTextColor(vc0.f().a(getContext(), this.n, "color_4E6EF2"));
-            this.e.setBackgroundColor(vc0.f().a(getContext(), this.n, "color_E0E0E0"));
+            this.b.setHintTextColor(uc0.f().a(getContext(), this.n, "color_858585"));
+            this.b.setTextColor(uc0.f().a(getContext(), this.n, "color_1F1F1F"));
+            this.f.setTextColor(uc0.f().a(getContext(), this.n, "color_4E6EF2"));
+            this.e.setBackgroundColor(uc0.f().a(getContext(), this.n, "color_E0E0E0"));
         }
     }
 
@@ -857,7 +862,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            List list = this.g;
+            List<String> list = this.g;
             if (list != null && !list.isEmpty()) {
                 z = false;
             } else {
@@ -873,13 +878,13 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
                 z2 = true;
             }
             if (z2) {
-                List list2 = this.g;
+                List<String> list2 = this.g;
                 if (list2 == null) {
                     Intrinsics.throwNpe();
                 }
-                str = (String) list2.get(0);
+                str = list2.get(0);
             } else {
-                List list3 = this.g;
+                List<String> list3 = this.g;
                 if (list3 == null) {
                     Intrinsics.throwNpe();
                 }
@@ -888,22 +893,22 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
                     Intrinsics.throwNpe();
                 }
                 int indexOf = list3.indexOf(str3);
-                List list4 = this.g;
+                List<String> list4 = this.g;
                 if (list4 == null) {
                     Intrinsics.throwNpe();
                 }
                 if (indexOf == list4.size() - 1) {
-                    List list5 = this.g;
+                    List<String> list5 = this.g;
                     if (list5 == null) {
                         Intrinsics.throwNpe();
                     }
-                    str = (String) list5.get(0);
+                    str = list5.get(0);
                 } else {
-                    List list6 = this.g;
+                    List<String> list6 = this.g;
                     if (list6 == null) {
                         Intrinsics.throwNpe();
                     }
-                    str = (String) list6.get(indexOf + 1);
+                    str = list6.get(indexOf + 1);
                 }
             }
             this.h = str;
@@ -927,7 +932,7 @@ public final class LiveSearchPanel extends LinearLayout implements ya0.a {
         }
     }
 
-    public final void setQueryHintList(String str, List list) {
+    public final void setQueryHintList(String str, List<String> list) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048605, this, str, list) == null) {

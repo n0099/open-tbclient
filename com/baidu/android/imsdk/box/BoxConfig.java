@@ -68,7 +68,7 @@ public class BoxConfig extends DefaultConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
-    public Map getOtherParameters(Context context, ChatMsg chatMsg) {
+    public Map<String, Object> getOtherParameters(Context context, ChatMsg chatMsg) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, chatMsg)) == null) {

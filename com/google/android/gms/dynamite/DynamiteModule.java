@@ -10,6 +10,8 @@ import android.os.IInterface;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,39 +21,69 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.util.CrashUtils;
+import com.google.android.gms.common.util.DynamiteApi;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
 import dalvik.system.DelegateLastClassLoader;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import javax.annotation.concurrent.GuardedBy;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class DynamiteModule {
     public static /* synthetic */ Interceptable $ic = null;
+    @NonNull
+    @KeepForSdk
     public static final VersionPolicy PREFER_HIGHEST_OR_LOCAL_VERSION;
+    @NonNull
+    @KeepForSdk
     public static final VersionPolicy PREFER_HIGHEST_OR_LOCAL_VERSION_NO_FORCE_STAGING;
+    @NonNull
+    @KeepForSdk
     public static final VersionPolicy PREFER_HIGHEST_OR_REMOTE_VERSION;
+    @NonNull
+    @KeepForSdk
     public static final VersionPolicy PREFER_LOCAL;
+    @NonNull
+    @KeepForSdk
     public static final VersionPolicy PREFER_REMOTE;
+    @NonNull
+    @KeepForSdk
     public static final VersionPolicy PREFER_REMOTE_VERSION_NO_FORCE_STAGING;
+    @NonNull
     public static final VersionPolicy zza;
+    @Nullable
+    @GuardedBy("DynamiteModule.class")
     public static Boolean zzb = null;
+    @Nullable
+    @GuardedBy("DynamiteModule.class")
     public static String zzc = null;
+    @GuardedBy("DynamiteModule.class")
     public static boolean zzd = false;
+    @GuardedBy("DynamiteModule.class")
     public static int zze = -1;
-    public static final ThreadLocal zzf;
-    public static final ThreadLocal zzg;
+    public static final ThreadLocal<zzn> zzf;
+    public static final ThreadLocal<Long> zzg;
     public static final VersionPolicy.IVersions zzh;
+    @Nullable
+    @GuardedBy("DynamiteModule.class")
     public static zzq zzj;
+    @Nullable
+    @GuardedBy("DynamiteModule.class")
     public static zzr zzk;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context zzi;
 
+    @DynamiteApi
     /* loaded from: classes7.dex */
-    public class DynamiteLoaderClassLoader {
+    public static class DynamiteLoaderClassLoader {
         public static /* synthetic */ Interceptable $ic;
+        @Nullable
+        @GuardedBy("DynamiteLoaderClassLoader.class")
         public static ClassLoader sClassLoader;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,17 +107,20 @@ public final class DynamiteModule {
 
         /* loaded from: classes7.dex */
         public interface IVersions {
-            int zza(Context context, String str);
+            int zza(@NonNull Context context, @NonNull String str);
 
-            int zzb(Context context, String str, boolean z) throws LoadingException;
+            int zzb(@NonNull Context context, @NonNull String str, boolean z) throws LoadingException;
         }
 
         /* loaded from: classes7.dex */
-        public class SelectionResult {
+        public static class SelectionResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            @KeepForSdk
             public int localVersion;
+            @KeepForSdk
             public int remoteVersion;
+            @KeepForSdk
             public int selection;
 
             public SelectionResult() {
@@ -107,17 +142,22 @@ public final class DynamiteModule {
             }
         }
 
-        SelectionResult selectModule(Context context, String str, IVersions iVersions) throws LoadingException;
+        @NonNull
+        @KeepForSdk
+        SelectionResult selectModule(@NonNull Context context, @NonNull String str, @NonNull IVersions iVersions) throws LoadingException;
     }
 
+    @NonNull
+    @KeepForSdk
     public Context getModuleContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zzi : (Context) invokeV.objValue;
     }
 
+    @KeepForSdk
     /* loaded from: classes7.dex */
-    public class LoadingException extends Exception {
+    public static class LoadingException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,7 +183,7 @@ public final class DynamiteModule {
                 return;
             }
         }
-        zzf = new ThreadLocal();
+        zzf = new ThreadLocal<>();
         zzg = new zzd();
         zzh = new zze();
         PREFER_REMOTE = new zzf();
@@ -174,7 +214,9 @@ public final class DynamiteModule {
         this.zzi = context;
     }
 
-    public IBinder instantiate(String str) throws LoadingException {
+    @NonNull
+    @KeepForSdk
+    public IBinder instantiate(@NonNull String str) throws LoadingException {
         String str2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -194,7 +236,8 @@ public final class DynamiteModule {
         return (IBinder) invokeL.objValue;
     }
 
-    public static int getLocalVersion(Context context, String str) {
+    @KeepForSdk
+    public static int getLocalVersion(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
@@ -242,7 +285,8 @@ public final class DynamiteModule {
         return invokeLL.intValue;
     }
 
-    public static int getRemoteVersion(Context context, String str) {
+    @KeepForSdk
+    public static int getRemoteVersion(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
@@ -266,10 +310,12 @@ public final class DynamiteModule {
     /* JADX WARN: Code restructure failed: missing block: B:26:0x00bf, code lost:
         return r0;
      */
+    @NonNull
+    @KeepForSdk
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static DynamiteModule load(Context context, VersionPolicy versionPolicy, String str) throws LoadingException {
+    public static DynamiteModule load(@NonNull Context context, @NonNull VersionPolicy versionPolicy, @NonNull String str) throws LoadingException {
         InterceptResult invokeLLL;
         long j;
         String str2;
@@ -284,10 +330,10 @@ public final class DynamiteModule {
         IObjectWrapper zze2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, versionPolicy, str)) == null) {
-            zzn zznVar = (zzn) zzf.get();
+            zzn zznVar = zzf.get();
             zzn zznVar2 = new zzn(null);
             zzf.set(zznVar2);
-            long longValue = ((Long) zzg.get()).longValue();
+            long longValue = zzg.get().longValue();
             try {
                 zzg.set(Long.valueOf(SystemClock.elapsedRealtime()));
                 VersionPolicy.SelectionResult selectModule = versionPolicy.selectModule(context, str, zzh);
@@ -339,7 +385,7 @@ public final class DynamiteModule {
                                                     zzrVar = zzk;
                                                 }
                                                 if (zzrVar != null) {
-                                                    zzn zznVar3 = (zzn) zzf.get();
+                                                    zzn zznVar3 = zzf.get();
                                                     if (zznVar3 != null && zznVar3.zza != null) {
                                                         Context applicationContext = context.getApplicationContext();
                                                         Cursor cursor2 = zznVar3.zza;
@@ -382,7 +428,7 @@ public final class DynamiteModule {
                                                 if (zzf2 != null) {
                                                     int zze3 = zzf2.zze();
                                                     if (zze3 >= 3) {
-                                                        zzn zznVar4 = (zzn) zzf.get();
+                                                        zzn zznVar4 = zzf.get();
                                                         if (zznVar4 != null) {
                                                             zzh2 = zzf2.zzi(ObjectWrapper.wrap(context), str, i4, ObjectWrapper.wrap(zznVar4.zza));
                                                         } else {
@@ -489,7 +535,7 @@ public final class DynamiteModule {
         }
     }
 
-    public static int zza(Context context, String str, boolean z) {
+    public static int zza(@NonNull Context context, @NonNull String str, boolean z) {
         InterceptResult invokeLLZ;
         Field declaredField;
         String str2;
@@ -582,11 +628,11 @@ public final class DynamiteModule {
                             try {
                                 int zze2 = zzf2.zze();
                                 if (zze2 >= 3) {
-                                    zzn zznVar = (zzn) zzf.get();
+                                    zzn zznVar = zzf.get();
                                     if (zznVar != null && (cursor = zznVar.zza) != null) {
                                         i = cursor.getInt(0);
                                     } else {
-                                        Cursor cursor3 = (Cursor) ObjectWrapper.unwrap(zzf2.zzk(ObjectWrapper.wrap(context), str, z, ((Long) zzg.get()).longValue()));
+                                        Cursor cursor3 = (Cursor) ObjectWrapper.unwrap(zzf2.zzk(ObjectWrapper.wrap(context), str, z, zzg.get().longValue()));
                                         if (cursor3 != null) {
                                             try {
                                                 if (cursor3.moveToFirst()) {
@@ -669,7 +715,7 @@ public final class DynamiteModule {
             ?? r0 = 0;
             try {
                 try {
-                    long longValue = ((Long) zzg.get()).longValue();
+                    long longValue = zzg.get().longValue();
                     ContentResolver contentResolver = context.getContentResolver();
                     String str2 = "api_force_staging";
                     boolean z2 = true;
@@ -758,6 +804,7 @@ public final class DynamiteModule {
         return (DynamiteModule) invokeLL.objValue;
     }
 
+    @GuardedBy("DynamiteModule.class")
     public static void zzd(ClassLoader classLoader) throws LoadingException {
         zzr zzrVar;
         Interceptable interceptable = $ic;
@@ -785,7 +832,7 @@ public final class DynamiteModule {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cursor)) == null) {
-            zzn zznVar = (zzn) zzf.get();
+            zzn zznVar = zzf.get();
             if (zznVar != null && zznVar.zza == null) {
                 zznVar.zza = cursor;
                 return true;
@@ -795,6 +842,7 @@ public final class DynamiteModule {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public static zzq zzf(Context context) {
         InterceptResult invokeL;
         String str;

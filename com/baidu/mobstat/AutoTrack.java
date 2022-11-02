@@ -17,7 +17,7 @@ public class AutoTrack {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class MyActivityLifeCallback implements ActivityLifeObserver.IActivityLifeCallback {
+    public static class MyActivityLifeCallback implements ActivityLifeObserver.IActivityLifeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

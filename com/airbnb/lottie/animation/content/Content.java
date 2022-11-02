@@ -5,5 +5,5 @@ import java.util.List;
 public interface Content {
     String getName();
 
-    void setContents(List list, List list2);
+    void setContents(List<Content> list, List<Content> list2);
 }

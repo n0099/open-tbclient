@@ -45,7 +45,7 @@ public class ap extends Handler {
         ao aoVar;
         au auVar;
         Context context5;
-        HashMap m150a;
+        HashMap<String, String> m150a;
         Context context6;
         Context context7;
         Context context8;
@@ -71,7 +71,7 @@ public class ap extends Handler {
                             if ("syncing".equals(af.a(context14).a(au.a))) {
                                 aoVar2 = this.a;
                                 auVar2 = au.a;
-                                aoVar2.a(str, auVar2, true, (HashMap) null);
+                                aoVar2.a(str, auVar2, true, (HashMap<String, String>) null);
                                 context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
@@ -81,7 +81,7 @@ public class ap extends Handler {
                             if ("syncing".equals(af.a(context12).a(au.b))) {
                                 aoVar2 = this.a;
                                 auVar2 = au.b;
-                                aoVar2.a(str, auVar2, true, (HashMap) null);
+                                aoVar2.a(str, auVar2, true, (HashMap<String, String>) null);
                                 context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }

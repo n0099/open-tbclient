@@ -12,6 +12,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -155,8 +156,8 @@ public class RoundRectDrawableWithShadow extends Drawable {
         this.mDirty = true;
         this.mAddPaddingForCorners = true;
         this.mPrintedShadowClipWarning = false;
-        this.mShadowStartColor = resources.getColor(R.color.obfuscated_res_0x7f06044f);
-        this.mShadowEndColor = resources.getColor(R.color.obfuscated_res_0x7f06044e);
+        this.mShadowStartColor = resources.getColor(R.color.obfuscated_res_0x7f060450);
+        this.mShadowEndColor = resources.getColor(R.color.obfuscated_res_0x7f06044f);
         this.mInsetShadow = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b3);
         this.mPaint = new Paint(5);
         setBackground(colorStateList);
@@ -257,7 +258,7 @@ public class RoundRectDrawableWithShadow extends Drawable {
         }
     }
 
-    public void setColor(ColorStateList colorStateList) {
+    public void setColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, colorStateList) == null) {
             setBackground(colorStateList);

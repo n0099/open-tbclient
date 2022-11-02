@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w1 implements Runnable, Comparable {
+public class w1 implements Runnable, Comparable<w1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable a;
@@ -35,17 +35,18 @@ public class w1 implements Runnable, Comparable {
         this.b = i;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // java.lang.Comparable
-    public int compareTo(Object obj) {
+    public int compareTo(w1 w1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            w1 w1Var = (w1) obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w1Var)) == null) {
+            w1 w1Var2 = w1Var;
             int i = this.b;
-            int i2 = w1Var.b;
+            int i2 = w1Var2.b;
             if (i >= i2) {
                 if (i <= i2) {
-                    int i3 = (this.c > w1Var.c ? 1 : (this.c == w1Var.c ? 0 : -1));
+                    int i3 = (this.c > w1Var2.c ? 1 : (this.c == w1Var2.c ? 0 : -1));
                     if (i3 >= 0) {
                         if (i3 <= 0) {
                             return 0;

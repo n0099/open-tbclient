@@ -16,12 +16,12 @@ public final class FileDataSource implements DataSource {
     public transient /* synthetic */ FieldHolder $fh;
     public long bytesRemaining;
     public RandomAccessFile file;
-    public final TransferListener listener;
+    public final TransferListener<? super FileDataSource> listener;
     public boolean opened;
     public Uri uri;
 
     /* loaded from: classes7.dex */
-    public class FileDataSourceException extends IOException {
+    public static class FileDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,7 +74,7 @@ public final class FileDataSource implements DataSource {
         return (Uri) invokeV.objValue;
     }
 
-    public FileDataSource(TransferListener transferListener) {
+    public FileDataSource(TransferListener<? super FileDataSource> transferListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public final class FileDataSource implements DataSource {
                 this.file = null;
                 if (this.opened) {
                     this.opened = false;
-                    TransferListener transferListener = this.listener;
+                    TransferListener<? super FileDataSource> transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferEnd(this);
                     }
@@ -137,7 +137,7 @@ public final class FileDataSource implements DataSource {
                 this.bytesRemaining = j;
                 if (j >= 0) {
                     this.opened = true;
-                    TransferListener transferListener = this.listener;
+                    TransferListener<? super FileDataSource> transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferStart(this, dataSpec);
                     }
@@ -167,7 +167,7 @@ public final class FileDataSource implements DataSource {
                 int read = this.file.read(bArr, i, (int) Math.min(j, i2));
                 if (read > 0) {
                     this.bytesRemaining -= read;
-                    TransferListener transferListener = this.listener;
+                    TransferListener<? super FileDataSource> transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onBytesTransferred(this, read);
                     }

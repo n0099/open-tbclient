@@ -1,57 +1,41 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
-import androidx.constraintlayout.motion.widget.Key;
+import com.baidu.tieba.c5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class r5a {
+public class r5a implements c5a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, ImageView imageView) {
-        ObjectAnimator objectAnimator;
+    public r5a(IYYPayWayView iYYPayWayView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, view2, imageView) == null) && view2 != null && imageView != null) {
-            view2.setVisibility(8);
-            if (imageView.getTag() != null) {
-                objectAnimator = (ObjectAnimator) imageView.getTag();
-            } else {
-                objectAnimator = null;
-            }
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-                imageView.setTag(null);
-                RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iYYPayWayView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        RLog.info("PayConfirmDialogCallback", "create PayConfirmDialogCallback");
     }
 
-    public static void b(View view2, ImageView imageView) {
-        ObjectAnimator objectAnimator;
+    @Override // com.baidu.tieba.c5a.a
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, view2, imageView) == null) && view2 != null && imageView != null) {
-            if (imageView.getTag() != null) {
-                objectAnimator = (ObjectAnimator) imageView.getTag();
-            } else {
-                objectAnimator = null;
-            }
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-                imageView.setTag(null);
-                RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
-            }
-            view2.setVisibility(0);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, Key.ROTATION, 0.0f, 360.0f);
-            ofFloat.setDuration(1000L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            ofFloat.setRepeatCount(-1);
-            ofFloat.start();
-            imageView.setTag(ofFloat);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayConfirmDialogCallback", "onNotifyCancelType clickArea:" + cancelType);
         }
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
 import io.reactivex.internal.fuseable.QueueSubscription;
@@ -15,19 +16,19 @@ import io.reactivex.internal.subscribers.BasicFuseableConditionalSubscriber;
 import io.reactivex.internal.subscribers.BasicFuseableSubscriber;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableFilter extends AbstractFlowableWithUpstream {
+public final class FlowableFilter<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
+    public final Predicate<? super T> predicate;
 
     /* loaded from: classes8.dex */
-    public final class FilterConditionalSubscriber extends BasicFuseableConditionalSubscriber {
+    public static final class FilterConditionalSubscriber<T> extends BasicFuseableConditionalSubscriber<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Predicate filter;
+        public final Predicate<? super T> filter;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FilterConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Predicate predicate) {
+        public FilterConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, Predicate<? super T> predicate) {
             super(conditionalSubscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -48,9 +49,9 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && !tryOnNext(obj)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && !tryOnNext(t)) {
                 this.s.request(1L);
             }
         }
@@ -66,14 +67,15 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                QueueSubscription queueSubscription = this.qs;
-                Predicate predicate = this.filter;
+                QueueSubscription<T> queueSubscription = this.qs;
+                Predicate<? super T> predicate = this.filter;
                 while (true) {
-                    Object poll = queueSubscription.poll();
+                    T poll = queueSubscription.poll();
                     if (poll == null) {
                         return null;
                     }
@@ -85,15 +87,15 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
                     }
                 }
             } else {
-                return invokeV.objValue;
+                return (T) invokeV.objValue;
             }
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (this.done) {
                     return false;
                 }
@@ -101,7 +103,7 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
                     return this.actual.tryOnNext(null);
                 }
                 try {
-                    if (!this.filter.test(obj) || !this.actual.tryOnNext(obj)) {
+                    if (!this.filter.test(t) || !this.actual.tryOnNext(t)) {
                         return false;
                     }
                     return true;
@@ -115,13 +117,13 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class FilterSubscriber extends BasicFuseableSubscriber implements ConditionalSubscriber {
+    public static final class FilterSubscriber<T> extends BasicFuseableSubscriber<T, T> implements ConditionalSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Predicate filter;
+        public final Predicate<? super T> filter;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FilterSubscriber(Subscriber subscriber, Predicate predicate) {
+        public FilterSubscriber(Subscriber<? super T> subscriber, Predicate<? super T> predicate) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -142,9 +144,9 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && !tryOnNext(obj)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && !tryOnNext(t)) {
                 this.s.request(1L);
             }
         }
@@ -160,14 +162,15 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                QueueSubscription queueSubscription = this.qs;
-                Predicate predicate = this.filter;
+                QueueSubscription<T> queueSubscription = this.qs;
+                Predicate<? super T> predicate = this.filter;
                 while (true) {
-                    Object poll = queueSubscription.poll();
+                    T poll = queueSubscription.poll();
                     if (poll == null) {
                         return null;
                     }
@@ -179,15 +182,15 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
                     }
                 }
             } else {
-                return invokeV.objValue;
+                return (T) invokeV.objValue;
             }
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (this.done) {
                     return false;
                 }
@@ -196,9 +199,9 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
                     return true;
                 }
                 try {
-                    boolean test = this.filter.test(obj);
+                    boolean test = this.filter.test(t);
                     if (test) {
-                        this.actual.onNext(obj);
+                        this.actual.onNext(t);
                     }
                     return test;
                 } catch (Throwable th) {
@@ -211,7 +214,7 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableFilter(Flowable flowable, Predicate predicate) {
+    public FlowableFilter(Flowable<T> flowable, Predicate<? super T> predicate) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -232,7 +235,7 @@ public final class FlowableFilter extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             if (subscriber instanceof ConditionalSubscriber) {

@@ -1,5 +1,7 @@
 package com.kwad.sdk.core;
-/* loaded from: classes7.dex */
-public interface c {
-    b qt();
+
+import com.kwad.sdk.core.b;
+/* loaded from: classes8.dex */
+public interface c<T extends b> {
+    T qt();
 }

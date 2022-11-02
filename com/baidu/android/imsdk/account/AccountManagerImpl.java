@@ -28,7 +28,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushManager;
-import com.baidu.tieba.c80;
+import com.baidu.tieba.b80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,8 +64,8 @@ public class AccountManagerImpl {
     public int mLoginType;
     public int mOpenType;
     public Timer mTimer;
-    public CopyOnWriteArrayList mToDoListenersAfterLogin;
-    public ArrayList mToDoListenersBeforeLogout;
+    public CopyOnWriteArrayList<TodoAfterLogin> mToDoListenersAfterLogin;
+    public ArrayList<TodoBeforeLogout> mToDoListenersBeforeLogout;
     public String mToken;
     public String mUid;
     public String mVersionCode;
@@ -107,8 +107,8 @@ public class AccountManagerImpl {
         }
         this.mAppid = -1L;
         this.mUid = "";
-        this.mToDoListenersAfterLogin = new CopyOnWriteArrayList();
-        this.mToDoListenersBeforeLogout = new ArrayList();
+        this.mToDoListenersAfterLogin = new CopyOnWriteArrayList<>();
+        this.mToDoListenersBeforeLogout = new ArrayList<>();
         this.mLoginType = -1;
         this.mCuid = null;
         this.mFrom = "";
@@ -120,7 +120,7 @@ public class AccountManagerImpl {
         this.mOpenType = 0;
         this.isMediaRole = false;
         this.mAppid = Utility.getAppId(mContext);
-        Class[] clsArr = {IMUserLoginByTokenMsg.class, IMUserLogoutMsg.class};
+        Class<?>[] clsArr = {IMUserLoginByTokenMsg.class, IMUserLogoutMsg.class};
         int[] iArr = {50, 52};
         for (int i3 = 0; i3 < 2; i3++) {
             MessageFactory.getInstance().addType(iArr[i3], clsArr[i3]);
@@ -591,7 +591,7 @@ public class AccountManagerImpl {
                 this.mToken = str2;
                 Utility.writeAccessToken(mContext, str2);
                 try {
-                    c80.g(mContext).f(mContext, creatMethodIntent);
+                    b80.g(mContext).f(mContext, creatMethodIntent);
                     Utility.writeLoginFlag(mContext, "6Y", "startLoginService");
                 } catch (Exception e) {
                     Utility.writeLoginFlag(mContext, "6N_1", "startLoginService exception");
@@ -620,7 +620,7 @@ public class AccountManagerImpl {
                     Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
                     if (!z) {
                         LogUtils.d(TAG, "need logout before login");
-                        if (c80.e) {
+                        if (b80.e) {
                             BIMManager.imLogoutByLcp(mContext);
                             startLoginService(i, str, str2, str3, str4, iLoginListener);
                             return;
@@ -736,10 +736,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
             try {
-                Intent intent = new Intent(mContext, c80.class);
+                Intent intent = new Intent(mContext, b80.class);
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                 intent.setPackage(mContext.getPackageName());
-                c80.g(context).f(mContext, intent);
+                b80.g(context).f(mContext, intent);
             } catch (Exception unused) {
                 LogUtils.e(TAG, "tryConnection failed......");
             }
@@ -798,7 +798,7 @@ public class AccountManagerImpl {
                 Utility.clearCache(mContext);
                 this.mToken = null;
             }
-            if (!c80.e) {
+            if (!b80.e) {
                 clearLoginParam(mContext);
                 clearUid(mContext);
                 disconnect(str);
@@ -819,11 +819,11 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             try {
-                Intent intent = new Intent(mContext, c80.class);
+                Intent intent = new Intent(mContext, b80.class);
                 intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
                 intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
                 intent.setPackage(mContext.getPackageName());
-                c80.g(mContext).f(mContext, intent);
+                b80.g(mContext).f(mContext, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "disconnect", e);
                 IMListener removeListener = ListenerManager.getInstance().removeListener(str);
@@ -1082,11 +1082,11 @@ public class AccountManagerImpl {
         if (interceptable == null || interceptable.invokeIL(1048603, this, i, iLoginListener) == null) {
             noticeStateChanged(4);
             BIMManager.connectStatusNotify(1);
-            Iterator it = this.mToDoListenersBeforeLogout.iterator();
+            Iterator<TodoBeforeLogout> it = this.mToDoListenersBeforeLogout.iterator();
             while (it.hasNext()) {
-                TodoBeforeLogout todoBeforeLogout = (TodoBeforeLogout) it.next();
-                if (todoBeforeLogout != null) {
-                    todoBeforeLogout.todo();
+                TodoBeforeLogout next = it.next();
+                if (next != null) {
+                    next.todo();
                 }
             }
             String addListener = ListenerManager.getInstance().addListener(iLoginListener);
@@ -1095,7 +1095,7 @@ public class AccountManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i);
                 try {
-                    c80.g(mContext).f(mContext, creatMethodIntent);
+                    b80.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
@@ -1122,7 +1122,7 @@ public class AccountManagerImpl {
         }
     }
 
-    public void onGetUidByUkResult(String str, int i, String str2, long[] jArr, Map map) {
+    public void onGetUidByUkResult(String str, int i, String str2, long[] jArr, Map<Long, Long> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Integer.valueOf(i), str2, jArr, map}) == null) {
             String str3 = TAG;
@@ -1137,7 +1137,7 @@ public class AccountManagerImpl {
     }
 
     public void onLoginResult(String str, int i, String str2, boolean z) {
-        CopyOnWriteArrayList copyOnWriteArrayList;
+        CopyOnWriteArrayList<TodoAfterLogin> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
             String str3 = TAG;
@@ -1148,16 +1148,16 @@ public class AccountManagerImpl {
                 ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
                 noticeStateChanged(3);
                 BIMManager.connectStatusNotify(0);
-                if (!c80.e) {
+                if (!b80.e) {
                     Utility.sendConnectionStateBroadCast(mContext, 0);
                 }
             } else {
                 noticeStateChanged(2);
             }
             if (i == 0 && (copyOnWriteArrayList = this.mToDoListenersAfterLogin) != null && copyOnWriteArrayList.size() > 0) {
-                Iterator it = this.mToDoListenersAfterLogin.iterator();
+                Iterator<TodoAfterLogin> it = this.mToDoListenersAfterLogin.iterator();
                 while (it.hasNext()) {
-                    ((TodoAfterLogin) it.next()).todo(z);
+                    it.next().todo(z);
                 }
             }
             if (i == 0) {
@@ -1264,10 +1264,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             try {
-                Intent intent = new Intent(mContext, c80.class);
+                Intent intent = new Intent(mContext, b80.class);
                 intent.setPackage(mContext.getPackageName());
                 intent.setAction(Constants.ACTION_STOP);
-                c80.g(mContext).f(mContext, intent);
+                b80.g(mContext).f(mContext, intent);
                 return true;
             } catch (Exception unused) {
                 LogUtils.e(TAG, "Stop Service SecurityException");

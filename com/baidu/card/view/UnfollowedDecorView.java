@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -15,8 +16,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g46;
-import com.baidu.tieba.lh5;
+import com.baidu.tieba.hi5;
+import com.baidu.tieba.r56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g46 a;
+    public r56 a;
     public int b;
     public int c;
 
@@ -52,7 +53,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public UnfollowedDecorView(Context context, AttributeSet attributeSet) {
+    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,7 +74,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UnfollowedDecorView(Context context, AttributeSet attributeSet, int i) {
+    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,12 +92,12 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.b = R.drawable.obfuscated_res_0x7f080934;
+        this.b = R.drawable.obfuscated_res_0x7f080949;
         this.c = R.color.CAM_X0111;
-        this.a = new g46(g((Activity) context), this);
+        this.a = new r56(g((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080934, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080949, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public void f(ThreadData threadData) {
@@ -129,7 +130,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || lh5.a()) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || hi5.a()) {
             return;
         }
         this.a.n();

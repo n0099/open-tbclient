@@ -1,6 +1,7 @@
 package androidx.core.os;
 
 import android.os.Parcel;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +26,7 @@ public final class ParcelCompat {
         }
     }
 
-    public static boolean readBoolean(Parcel parcel) {
+    public static boolean readBoolean(@NonNull Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parcel)) == null) {
@@ -37,7 +38,7 @@ public final class ParcelCompat {
         return invokeL.booleanValue;
     }
 
-    public static void writeBoolean(Parcel parcel, boolean z) {
+    public static void writeBoolean(@NonNull Parcel parcel, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, parcel, z) == null) {
             parcel.writeInt(z ? 1 : 0);

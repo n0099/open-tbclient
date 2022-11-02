@@ -1,5 +1,6 @@
 package com.kwad.components.offline.tk.kwai;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,6 +36,7 @@ public final class b implements IOfflineCompoBridgeHandler {
     }
 
     @Override // com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoBridgeHandler
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +44,7 @@ public final class b implements IOfflineCompoBridgeHandler {
     }
 
     @Override // com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoBridgeHandler
-    public final void handleJsCall(String str, IOfflineCompoCallBackFunction iOfflineCompoCallBackFunction) {
+    public final void handleJsCall(String str, @NonNull IOfflineCompoCallBackFunction iOfflineCompoCallBackFunction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iOfflineCompoCallBackFunction) == null) {
             this.Qo.a(str, new a(iOfflineCompoCallBackFunction));

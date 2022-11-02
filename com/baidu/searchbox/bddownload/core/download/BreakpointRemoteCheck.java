@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload.core.download;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -22,9 +24,11 @@ public class BreakpointRemoteCheck {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean acceptRange;
     public ResumeFailedCause failedCause;
+    @NonNull
     public final BreakpointInfo info;
     public long instanceLength;
     public boolean resumable;
+    @NonNull
     public final DownloadTask task;
 
     public boolean isTrialSpecialPass(int i, long j, boolean z) {
@@ -33,7 +37,7 @@ public class BreakpointRemoteCheck {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)})) == null) ? i == 416 && j >= 0 && z : invokeCommon.booleanValue;
     }
 
-    public BreakpointRemoteCheck(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+    public BreakpointRemoteCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,6 +119,7 @@ public class BreakpointRemoteCheck {
         return (ConnectTrial) invokeV.objValue;
     }
 
+    @Nullable
     public ResumeFailedCause getCause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,6 +129,7 @@ public class BreakpointRemoteCheck {
         return (ResumeFailedCause) invokeV.objValue;
     }
 
+    @NonNull
     public ResumeFailedCause getCauseOrThrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

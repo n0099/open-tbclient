@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.res.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -17,19 +18,20 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh3;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class DrawableCenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GradientDrawable a;
     public Paint b;
-    public Pair c;
+    public Pair<Object, Object> c;
     public Object d;
     public Object e;
     public int f;
@@ -199,7 +201,7 @@ public class DrawableCenterTextView extends TextView {
             this.a.setCornerRadius(4.0f);
         }
         if (this.h) {
-            int f2 = dh3.f(getContext(), 0.5f);
+            int f2 = vh3.f(getContext(), 0.5f);
             Object obj = this.d;
             if (obj instanceof String) {
                 this.a.setStroke(f2, Color.parseColor(obj.toString()));
@@ -244,7 +246,7 @@ public class DrawableCenterTextView extends TextView {
             float width = getWidth();
             float height = getHeight();
             Paint paint = new Paint();
-            paint.setStrokeWidth(dh3.f(getContext(), 0.5f));
+            paint.setStrokeWidth(vh3.f(getContext(), 0.5f));
             Object obj = this.e;
             if (obj instanceof String) {
                 paint.setColor(Color.parseColor(obj.toString()));
@@ -309,8 +311,8 @@ public class DrawableCenterTextView extends TextView {
             }
             drawable = null;
             i = -1;
-            int w = dh3.w(this);
-            int v = dh3.v(this);
+            int w = vh3.w(this);
+            int v = vh3.v(this);
             int compoundDrawablePadding = getCompoundDrawablePadding();
             if (drawable != null) {
                 Rect bounds = drawable.getBounds();

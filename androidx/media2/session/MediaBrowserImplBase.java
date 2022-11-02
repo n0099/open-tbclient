@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaParcelUtils;
 import androidx.media2.session.MediaBrowser;
@@ -46,6 +48,7 @@ public class MediaBrowserImplBase extends MediaControllerImplBase implements Med
         RESULT_WHEN_CLOSED = new LibraryResult(1);
     }
 
+    @NonNull
     public MediaBrowser getMediaBrowser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,7 +59,7 @@ public class MediaBrowserImplBase extends MediaControllerImplBase implements Med
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaBrowserImplBase(Context context, MediaController mediaController, SessionToken sessionToken, Bundle bundle) {
+    public MediaBrowserImplBase(Context context, MediaController mediaController, SessionToken sessionToken, @Nullable Bundle bundle) {
         super(context, mediaController, sessionToken, bundle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -351,7 +354,7 @@ public class MediaBrowserImplBase extends MediaControllerImplBase implements Med
                 }
 
                 @Override // androidx.media2.session.MediaBrowser.BrowserCallbackRunnable
-                public void run(MediaBrowser.BrowserCallback browserCallback) {
+                public void run(@NonNull MediaBrowser.BrowserCallback browserCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, browserCallback) == null) {
                         browserCallback.onChildrenChanged(this.this$0.getMediaBrowser(), this.val$parentId, this.val$itemCount, this.val$libraryParams);
@@ -394,7 +397,7 @@ public class MediaBrowserImplBase extends MediaControllerImplBase implements Med
                 }
 
                 @Override // androidx.media2.session.MediaBrowser.BrowserCallbackRunnable
-                public void run(MediaBrowser.BrowserCallback browserCallback) {
+                public void run(@NonNull MediaBrowser.BrowserCallback browserCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, browserCallback) == null) {
                         browserCallback.onSearchResultChanged(this.this$0.getMediaBrowser(), this.val$query, this.val$itemCount, this.val$libraryParams);

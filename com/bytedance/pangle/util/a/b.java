@@ -113,7 +113,7 @@ public final class b {
         InterceptResult invokeL;
         String str;
         RandomAccessFile randomAccessFile;
-        Pair a2;
+        Pair<ByteBuffer, Long> a2;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {

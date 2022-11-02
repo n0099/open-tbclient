@@ -2,11 +2,12 @@ package com.baidu.tieba.frs.recommend;
 
 import android.graphics.Rect;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,11 +31,11 @@ public class FrsLikeRecommendDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.a = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        this.a = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect rect, @NonNull View view2, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
             super.getItemOffsets(rect, view2, recyclerView, state);

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core.internal;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -346,7 +347,7 @@ public final class Util {
         }
     }
 
-    public static List immutableList(List list) {
+    public static <T> List<T> immutableList(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, list)) == null) {
@@ -355,7 +356,7 @@ public final class Util {
         return (List) invokeL.objValue;
     }
 
-    public static Map immutableMap(Map map) {
+    public static <K, V> Map<K, V> immutableMap(Map<K, V> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, map)) == null) {
@@ -465,6 +466,7 @@ public final class Util {
         return null;
      */
     /* JADX WARN: Removed duplicated region for block: B:33:0x0053  */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -655,11 +657,11 @@ public final class Util {
         }
     }
 
-    public static List immutableList(Object... objArr) {
+    public static <T> List<T> immutableList(T... tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, objArr)) == null) {
-            return Collections.unmodifiableList(Arrays.asList((Object[]) objArr.clone()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tArr)) == null) {
+            return Collections.unmodifiableList(Arrays.asList((Object[]) tArr.clone()));
         }
         return (List) invokeL.objValue;
     }

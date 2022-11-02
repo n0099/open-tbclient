@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.chatmessage;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -21,7 +22,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ChatSession> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int mBusinessType;
     public int mCategory;
@@ -88,7 +89,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.ChatSession.1
+        CREATOR = new Parcelable.Creator<ChatSession>() { // from class: com.baidu.android.imsdk.chatmessage.ChatSession.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,6 +108,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ChatSession createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -118,6 +120,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ChatSession[] newArray(int i) {
                 InterceptResult invokeI;
@@ -927,6 +930,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
+    @SuppressLint({"SimpleDateFormat"})
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

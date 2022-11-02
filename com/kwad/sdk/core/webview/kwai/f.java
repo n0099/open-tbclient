@@ -1,9 +1,10 @@
 package com.kwad.sdk.core.webview.kwai;
 
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f implements com.kwad.sdk.core.b {
     public final com.kwad.sdk.core.b agl;
     public final int result = 1;
@@ -13,7 +14,7 @@ public final class f implements com.kwad.sdk.core.b {
     }
 
     @Override // com.kwad.sdk.core.b
-    public final void parseJson(JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
     }
 
     @Override // com.kwad.sdk.core.b

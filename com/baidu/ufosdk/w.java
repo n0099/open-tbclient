@@ -1,5 +1,6 @@
 package com.baidu.ufosdk;
 
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +12,7 @@ public class w {
     public static /* synthetic */ Interceptable $ic;
     public static volatile w b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SoftReference a;
+    public SoftReference<Bitmap> a;
 
     public w() {
         Interceptable interceptable = $ic;

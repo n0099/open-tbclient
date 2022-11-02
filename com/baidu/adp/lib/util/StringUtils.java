@@ -1,6 +1,8 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
@@ -31,7 +33,8 @@ public class StringUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? str == null : invokeL.booleanValue;
     }
 
-    public static String tryFixDefaultValue(String str) {
+    @NonNull
+    public static String tryFixDefaultValue(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;

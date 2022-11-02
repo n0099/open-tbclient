@@ -1,5 +1,6 @@
 package com.baidu.searchbox.net.update.v2;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
@@ -33,7 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class GsonTool implements ICommandStatistics {
+public class GsonTool implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String ERROR_NO = "errno";
@@ -59,7 +60,7 @@ public class GsonTool implements ICommandStatistics {
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,6 +196,7 @@ public class GsonTool implements ICommandStatistics {
         }
     }
 
+    /* JADX WARN: Type inference failed for: r1v3, types: [T, java.lang.Object] */
     private boolean readAction(JsonReader jsonReader, ActionData actionData, TypeAdapter typeAdapter) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -374,6 +376,7 @@ public class GsonTool implements ICommandStatistics {
         return (JSONObject) invokeV.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void read(Reader reader, int i, JSONObject jSONObject) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048581, this, reader, i, jSONObject) == null) {

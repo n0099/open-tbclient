@@ -22,9 +22,11 @@ public final class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "0.4.0" : (String) invokeV.objValue;
     }
 
+    /* JADX WARN: $VALUES field not found */
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public final class C0482a extends Enum {
+    public static final class EnumC0493a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -65,14 +67,14 @@ public final class a {
         b = a + "/baidu/ab/crash/";
         c = a + "/baidu/ab/sdklog/";
         String str = a + "/baidu/ab/sdkupdata/" + b() + "/";
-        d = C0482a.aV;
+        d = EnumC0493a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == C0482a.aV) {
+            if (d == EnumC0493a.aV) {
                 return true;
             }
             return false;

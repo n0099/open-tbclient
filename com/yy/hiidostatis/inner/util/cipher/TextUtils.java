@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
 public class TextUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal MD5_DIGEST;
+    public static final ThreadLocal<MessageDigest> MD5_DIGEST;
     public static final char[] hexDigits;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class TextUtils {
             }
         }
         hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        MD5_DIGEST = new ThreadLocal() { // from class: com.yy.hiidostatis.inner.util.cipher.TextUtils.1
+        MD5_DIGEST = new ThreadLocal<MessageDigest>() { // from class: com.yy.hiidostatis.inner.util.cipher.TextUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -161,7 +161,7 @@ public class TextUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            MessageDigest messageDigest = (MessageDigest) MD5_DIGEST.get();
+            MessageDigest messageDigest = MD5_DIGEST.get();
             messageDigest.reset();
             messageDigest.update(bArr);
             return messageDigest.digest();

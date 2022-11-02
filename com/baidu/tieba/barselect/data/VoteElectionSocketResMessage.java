@@ -1,10 +1,11 @@
 package com.baidu.tieba.barselect.data;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s06;
-import com.baidu.tieba.t06;
-import com.baidu.tieba.u06;
+import com.baidu.tieba.c26;
+import com.baidu.tieba.d26;
+import com.baidu.tieba.e26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +22,7 @@ import tbclient.Myrecord;
 public class VoteElectionSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u06 mVoteData;
+    public e26 mVoteData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteElectionSocketResMessage() {
@@ -41,16 +42,17 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
         }
     }
 
-    public u06 getVoteData() {
+    public e26 getVoteData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mVoteData;
         }
-        return (u06) invokeV.objValue;
+        return (e26) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -67,30 +69,30 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
                     return electionInfoResIdl;
                 }
                 if (this.mVoteData == null) {
-                    this.mVoteData = new u06();
+                    this.mVoteData = new e26();
                 }
                 if (electionInfoResIdl.data.election_list != null) {
-                    ArrayList arrayList = new ArrayList();
+                    ArrayList<c26> arrayList = new ArrayList<>();
                     for (ElectionList electionList : electionInfoResIdl.data.election_list) {
-                        arrayList.add(s06.o(electionList));
+                        arrayList.add(c26.o(electionList));
                     }
                     this.mVoteData.h(arrayList);
                 }
                 Basic basic = electionInfoResIdl.data.basic;
                 if (basic != null) {
-                    this.mVoteData.m(t06.j(basic));
+                    this.mVoteData.m(d26.j(basic));
                 }
                 Myrecord myrecord = electionInfoResIdl.data.my_record;
                 if (myrecord != null) {
-                    this.mVoteData.n(s06.p(myrecord));
+                    this.mVoteData.n(c26.p(myrecord));
                 }
                 Integer num = electionInfoResIdl.data.has_more;
                 if (num != null) {
-                    u06 u06Var = this.mVoteData;
+                    e26 e26Var = this.mVoteData;
                     if (num.intValue() == 1) {
                         z = true;
                     }
-                    u06Var.j(z);
+                    e26Var.j(z);
                 }
                 ManagerElection managerElection = electionInfoResIdl.data.vote_limit;
                 if (managerElection != null) {

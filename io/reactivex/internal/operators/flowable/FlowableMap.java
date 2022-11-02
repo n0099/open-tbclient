@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
@@ -15,19 +16,19 @@ import io.reactivex.internal.subscribers.BasicFuseableConditionalSubscriber;
 import io.reactivex.internal.subscribers.BasicFuseableSubscriber;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableMap extends AbstractFlowableWithUpstream {
+public final class FlowableMap<T, U> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function mapper;
+    public final Function<? super T, ? extends U> mapper;
 
     /* loaded from: classes8.dex */
-    public final class MapConditionalSubscriber extends BasicFuseableConditionalSubscriber {
+    public static final class MapConditionalSubscriber<T, U> extends BasicFuseableConditionalSubscriber<T, U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function mapper;
+        public final Function<? super T, ? extends U> mapper;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MapConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Function function) {
+        public MapConditionalSubscriber(ConditionalSubscriber<? super U> conditionalSubscriber, Function<? super T, ? extends U> function) {
             super(conditionalSubscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -48,9 +49,9 @@ public final class FlowableMap extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, t) != null) || this.done) {
                 return;
             }
             if (this.sourceMode != 0) {
@@ -58,24 +59,25 @@ public final class FlowableMap extends AbstractFlowableWithUpstream {
                 return;
             }
             try {
-                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper function returned a null value."));
+                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
                 fail(th);
             }
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public U poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Object poll = this.qs.poll();
+                T poll = this.qs.poll();
                 if (poll != null) {
-                    return ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper function returned a null value.");
+                    return (U) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper function returned a null value.");
                 }
                 return null;
             }
-            return invokeV.objValue;
+            return (U) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -89,15 +91,15 @@ public final class FlowableMap extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
                 if (this.done) {
                     return false;
                 }
                 try {
-                    return this.actual.tryOnNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper function returned a null value."));
+                    return this.actual.tryOnNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper function returned a null value."));
                 } catch (Throwable th) {
                     fail(th);
                     return true;
@@ -108,13 +110,13 @@ public final class FlowableMap extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class MapSubscriber extends BasicFuseableSubscriber {
+    public static final class MapSubscriber<T, U> extends BasicFuseableSubscriber<T, U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function mapper;
+        public final Function<? super T, ? extends U> mapper;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MapSubscriber(Subscriber subscriber, Function function) {
+        public MapSubscriber(Subscriber<? super U> subscriber, Function<? super T, ? extends U> function) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -135,9 +137,9 @@ public final class FlowableMap extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, t) != null) || this.done) {
                 return;
             }
             if (this.sourceMode != 0) {
@@ -145,24 +147,25 @@ public final class FlowableMap extends AbstractFlowableWithUpstream {
                 return;
             }
             try {
-                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper function returned a null value."));
+                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
                 fail(th);
             }
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public U poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Object poll = this.qs.poll();
+                T poll = this.qs.poll();
                 if (poll != null) {
-                    return ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper function returned a null value.");
+                    return (U) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper function returned a null value.");
                 }
                 return null;
             }
-            return invokeV.objValue;
+            return (U) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -177,7 +180,7 @@ public final class FlowableMap extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableMap(Flowable flowable, Function function) {
+    public FlowableMap(Flowable<T> flowable, Function<? super T, ? extends U> function) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -198,7 +201,7 @@ public final class FlowableMap extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super U> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             if (subscriber instanceof ConditionalSubscriber) {

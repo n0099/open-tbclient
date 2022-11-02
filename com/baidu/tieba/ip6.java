@@ -1,116 +1,134 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ip6 extends rn {
+public class ip6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<jn> c;
+    public String d;
+    public String e;
+    public z36 f;
 
     /* loaded from: classes4.dex */
-    public class a extends TypeAdapter.ViewHolder {
+    public class a extends z36 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
+        public final /* synthetic */ ip6 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ip6 ip6Var, View view2) {
-            super(view2);
+        public a(ip6 ip6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ip6Var, view2};
+                Object[] objArr = {ip6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                if (viewGroup.getChildCount() > 0) {
-                    this.a = viewGroup.getChildAt(0);
-                }
-            }
+            this.b = ip6Var;
         }
 
-        public void a() {
+        @Override // com.baidu.tieba.z36
+        public void a(View view2, BaseCardInfo baseCardInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setBackgroundColor(this.a, R.color.CAM_X0209);
-                SkinManager.setBackgroundColor(this.itemView, R.color.CAM_X0205);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) {
+                super.a(view2, baseCardInfo);
+                this.b.b();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ip6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public ip6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext, bdTypeListView, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mPageId = bdUniqueId2;
+        this.f = new a(this);
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        this.d = str;
+        this.e = str2;
+        this.c = new ArrayList();
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: s */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            View view2 = new View(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            layoutParams.leftMargin = fj.f(this.mContext, R.dimen.M_W_X005);
-            layoutParams.rightMargin = fj.f(this.mContext, R.dimen.M_W_X005);
-            frameLayout.addView(view2, layoutParams);
-            return new a(this, frameLayout);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jp6 jp6Var = new jp6(this.a, this.d, this.e);
+            jp6Var.x(this.f);
+            this.c.add(jp6Var);
+            kp6 kp6Var = new kp6(this.a, this.d);
+            kp6Var.x(this.f);
+            this.c.add(kp6Var);
+            this.c.add(new np6(this.a, this.d));
+            this.c.add(new mp6(this.a, this.d));
+            List<jn> list = this.c;
+            TbPageContext tbPageContext = this.a;
+            list.add(new GameSpecialTopicAdapter(tbPageContext, x86.b, tbPageContext.getUniqueId(), this.d));
+            lp6 lp6Var = new lp6(this.a, this.d);
+            lp6Var.v(this.f);
+            this.c.add(lp6Var);
+            List<jn> list2 = this.c;
+            TbPageContext tbPageContext2 = this.a;
+            list2.add(new GameCompetitionAdapter(tbPageContext2, s86.b, tbPageContext2.getUniqueId(), this.d));
+            List<jn> list3 = this.c;
+            TbPageContext tbPageContext3 = this.a;
+            list3.add(new GameRecommendGameAdapter(tbPageContext3, v86.b, tbPageContext3.getUniqueId(), this.d));
+            TbPageContext tbPageContext4 = this.a;
+            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(tbPageContext4, hj6.e, tbPageContext4.getUniqueId());
+            frsUserRecommendAdapter.I();
+            frsUserRecommendAdapter.H(this.d);
+            this.c.add(frsUserRecommendAdapter);
+            this.b.a(this.c);
         }
-        return (a) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sp6 sp6Var, a aVar) {
-        InterceptResult invokeCommon;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sp6Var, aVar})) == null) {
-            aVar.a();
-            return aVar.getView();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof nn)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c(List<wn> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || (bdTypeListView = this.b) == null) {
+            return;
+        }
+        bdTypeListView.setData(list);
     }
 }

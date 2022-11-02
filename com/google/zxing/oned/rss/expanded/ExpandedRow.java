@@ -12,11 +12,11 @@ import java.util.List;
 public final class ExpandedRow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List pairs;
+    public final List<ExpandedPair> pairs;
     public final int rowNumber;
     public final boolean wasReversed;
 
-    public ExpandedRow(List list, int i, boolean z) {
+    public ExpandedRow(List<ExpandedPair> list, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public final class ExpandedRow {
         return invokeL.booleanValue;
     }
 
-    public boolean isEquivalent(List list) {
+    public boolean isEquivalent(List<ExpandedPair> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
@@ -61,7 +61,7 @@ public final class ExpandedRow {
         return invokeL.booleanValue;
     }
 
-    public List getPairs() {
+    public List<ExpandedPair> getPairs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

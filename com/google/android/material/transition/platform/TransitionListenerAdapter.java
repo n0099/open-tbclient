@@ -1,11 +1,13 @@
 package com.google.android.material.transition.platform;
 
 import android.transition.Transition;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
 public abstract class TransitionListenerAdapter implements Transition.TransitionListener {
     public static /* synthetic */ Interceptable $ic;

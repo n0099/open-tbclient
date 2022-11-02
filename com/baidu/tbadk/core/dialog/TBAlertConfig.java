@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.dialog;
 
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +19,7 @@ public final class TBAlertConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class OperateBtnStyle {
+    public static final class OperateBtnStyle {
         public static final /* synthetic */ OperateBtnStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OperateBtnStyle ALERT;
@@ -87,7 +89,7 @@ public final class TBAlertConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class OperateType {
+    public static final class OperateType {
         public static final /* synthetic */ OperateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OperateType ONE;
@@ -154,7 +156,7 @@ public final class TBAlertConfig {
     }
 
     /* loaded from: classes3.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -163,7 +165,7 @@ public final class TBAlertConfig {
         public View.OnClickListener d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(int i, OperateBtnStyle operateBtnStyle) {
+        public a(@StringRes int i, @NonNull OperateBtnStyle operateBtnStyle) {
             this(i, operateBtnStyle, (View.OnClickListener) null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -183,7 +185,7 @@ public final class TBAlertConfig {
             }
         }
 
-        public a(int i, OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
+        public a(@StringRes int i, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -203,7 +205,7 @@ public final class TBAlertConfig {
             this.d = onClickListener;
         }
 
-        public a(String str, int i, OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
+        public a(@NonNull String str, int i, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,7 +227,7 @@ public final class TBAlertConfig {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(String str, OperateBtnStyle operateBtnStyle) {
+        public a(@NonNull String str, @NonNull OperateBtnStyle operateBtnStyle) {
             this(str, operateBtnStyle, (View.OnClickListener) null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -246,7 +248,7 @@ public final class TBAlertConfig {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(String str, OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
+        public a(@NonNull String str, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
             this(str, 0, operateBtnStyle, onClickListener);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -275,7 +277,7 @@ public final class TBAlertConfig {
     }
 
     /* loaded from: classes3.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final OperateType a;

@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.animated.base;
 
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +18,10 @@ public class AnimatedImageResultBuilder {
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public BitmapTransformation mBitmapTransformation;
-    public List mDecodedFrames;
+    public List<CloseableReference<Bitmap>> mDecodedFrames;
     public int mFrameForPreview;
     public final AnimatedImage mImage;
-    public CloseableReference mPreviewBitmap;
+    public CloseableReference<Bitmap> mPreviewBitmap;
 
     public AnimatedImageResultBuilder(AnimatedImage animatedImage) {
         Interceptable interceptable = $ic;
@@ -50,7 +51,7 @@ public class AnimatedImageResultBuilder {
         return (AnimatedImageResultBuilder) invokeL.objValue;
     }
 
-    public AnimatedImageResultBuilder setDecodedFrames(List list) {
+    public AnimatedImageResultBuilder setDecodedFrames(List<CloseableReference<Bitmap>> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
@@ -70,7 +71,7 @@ public class AnimatedImageResultBuilder {
         return (AnimatedImageResultBuilder) invokeI.objValue;
     }
 
-    public AnimatedImageResultBuilder setPreviewBitmap(CloseableReference closeableReference) {
+    public AnimatedImageResultBuilder setPreviewBitmap(CloseableReference<Bitmap> closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, closeableReference)) == null) {
@@ -80,7 +81,7 @@ public class AnimatedImageResultBuilder {
         return (AnimatedImageResultBuilder) invokeL.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [java.util.List, com.facebook.common.references.CloseableReference] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [java.util.List<com.facebook.common.references.CloseableReference<android.graphics.Bitmap>>, com.facebook.common.references.CloseableReference<android.graphics.Bitmap>] */
     public AnimatedImageResult build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,7 +108,7 @@ public class AnimatedImageResultBuilder {
         return (BitmapTransformation) invokeV.objValue;
     }
 
-    public List getDecodedFrames() {
+    public List<CloseableReference<Bitmap>> getDecodedFrames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -134,7 +135,7 @@ public class AnimatedImageResultBuilder {
         return (AnimatedImage) invokeV.objValue;
     }
 
-    public CloseableReference getPreviewBitmap() {
+    public CloseableReference<Bitmap> getPreviewBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

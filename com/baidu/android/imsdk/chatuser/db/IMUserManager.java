@@ -197,20 +197,20 @@ public class IMUserManager {
         return invokeJ.booleanValue;
     }
 
-    public synchronized boolean updateUserIpInfo(ArrayList arrayList) {
+    public synchronized boolean updateUserIpInfo(ArrayList<IpInfo> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, arrayList)) == null) {
             synchronized (this) {
                 if (arrayList != null) {
                     if (ChatUserDBManager.getInstance(this.mContext).updateUserIpInfo(arrayList) >= 0) {
-                        Iterator it = arrayList.iterator();
+                        Iterator<IpInfo> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            IpInfo ipInfo = (IpInfo) it.next();
-                            ChatObject createChatObject = createChatObject(ipInfo.getUid());
+                            IpInfo next = it.next();
+                            ChatObject createChatObject = createChatObject(next.getUid());
                             ChatUser chatUser = (ChatUser) sChatObjectCache.get(createChatObject);
                             if (chatUser != null) {
-                                chatUser.setIpInfo(ipInfo);
+                                chatUser.setIpInfo(next);
                                 chatUser.setIsIpLocationExist(0);
                                 sChatObjectCache.put(createChatObject, chatUser);
                                 sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(chatUser.getUk()));
@@ -226,17 +226,16 @@ public class IMUserManager {
         return invokeL.booleanValue;
     }
 
-    public synchronized ArrayList getUserBatch(List list) {
+    public synchronized ArrayList<ChatUser> getUserBatch(List<Long> list) {
         InterceptResult invokeL;
-        ArrayList arrayList;
+        ArrayList<ChatUser> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList();
+                arrayList = new ArrayList<>();
                 if (list != null) {
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        arrayList.add(getChatUser(((Long) it.next()).longValue()));
+                    for (Long l : list) {
+                        arrayList.add(getChatUser(l.longValue()));
                     }
                 }
             }

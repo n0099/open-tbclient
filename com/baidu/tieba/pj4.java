@@ -1,49 +1,40 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class pj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public static String a(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
+    public pj4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) {
-            if (jSONObject != null) {
-                return jSONObject.optString(str, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return str2;
         }
-        return (String) invokeLLL.objValue;
+        this.a = str2;
     }
 
-    public static JSONObject b(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "NA";
-            }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            try {
-                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
-                    jSONObject.put("pre_source", str);
-                }
-                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
-                    jSONObject.put("pre_appid", "NA");
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

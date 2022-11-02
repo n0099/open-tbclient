@@ -38,9 +38,9 @@ public interface BoxAccountManager {
 
     void combineLogin(Context context, LoginParams loginParams, int i, ILoginResultListener iLoginResultListener);
 
-    List getAuthorizedDomains(Context context);
+    List<String> getAuthorizedDomains(Context context);
 
-    List getAuthorizedDomainsForPtoken(Context context);
+    List<String> getAuthorizedDomainsForPtoken(Context context);
 
     BoxAccount getBoxAccount();
 
@@ -53,7 +53,7 @@ public interface BoxAccountManager {
     @Deprecated
     String getSession(String str, String str2);
 
-    void getTplStoken(IGetTplStokenCallback iGetTplStokenCallback, String str, List list);
+    void getTplStoken(IGetTplStokenCallback iGetTplStokenCallback, String str, List<String> list);
 
     boolean isGuestLogin();
 

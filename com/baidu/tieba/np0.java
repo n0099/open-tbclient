@@ -1,53 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
 /* loaded from: classes5.dex */
-public class np0 {
+public final class np0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public b f;
-    public float g;
-    public boolean h;
-    public String i;
-    public a j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
+    @JvmField
+    public String a;
+    @JvmField
+    public String b;
+    @JvmField
+    public String c;
+    @JvmField
+    public String d;
+    @JvmField
+    public String e;
+    @JvmField
+    public String f;
+    @JvmField
+    public String g;
 
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public int g;
-        public int h;
-        public int i;
+    public np0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.c = null;
+            this.e = null;
+            this.f = null;
+            this.g = null;
+        }
     }
-
-    public abstract int a(AdBaseModel.STYLE style);
-
-    public abstract int b(AdOperator.TYPE type);
 }

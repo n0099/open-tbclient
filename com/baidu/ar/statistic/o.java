@@ -25,7 +25,7 @@ public class o implements f {
                 return;
             }
         }
-        Constructor a = com.baidu.ar.h.n.a("com.baidu.ar.statistic.performance.PerformanceStatisticApi", new Class[0]);
+        Constructor<?> a = com.baidu.ar.h.n.a("com.baidu.ar.statistic.performance.PerformanceStatisticApi", new Class[0]);
         if (a != null) {
             this.wR = (f) com.baidu.ar.h.n.a(a, new Object[0]);
         }

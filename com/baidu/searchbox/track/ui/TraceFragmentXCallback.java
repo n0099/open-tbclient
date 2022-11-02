@@ -2,6 +2,7 @@ package com.baidu.searchbox.track.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -85,7 +86,7 @@ public class TraceFragmentXCallback extends BaseTraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean register(Activity activity) {
+    public boolean register(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
@@ -105,7 +106,7 @@ public class TraceFragmentXCallback extends BaseTraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean unregister(Activity activity) {
+    public boolean unregister(@NonNull Activity activity) {
         InterceptResult invokeL;
         FragmentManager supportFragmentManager;
         Interceptable interceptable = $ic;

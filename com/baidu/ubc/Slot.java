@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class Slot implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY = "id";
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<Slot> CREATOR;
     public static final int DEFAULT_VALUE = 0;
     public static final String DURATION = "d";
     public static final String INFO = "info";
@@ -41,7 +41,7 @@ public class Slot implements Parcelable {
     }
 
     /* loaded from: classes6.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<Slot> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

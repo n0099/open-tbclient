@@ -4,8 +4,8 @@ import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.e15;
+import com.baidu.tieba.u15;
+import com.baidu.tieba.vg;
 import com.baidu.tieba.y9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,14 +51,14 @@ public class ChunkUploadDatabaseService {
         }
     }
 
-    public static e15 getChunkUploadDataByMd5(String str) {
+    public static u15 getChunkUploadDataByMd5(String str) {
         InterceptResult invokeL;
-        e15 e15Var;
+        u15 u15Var;
         Cursor j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             Cursor cursor = null;
-            e15 e15Var2 = null;
+            u15 u15Var2 = null;
             cursor = null;
             if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return null;
@@ -73,55 +73,55 @@ public class ChunkUploadDatabaseService {
                 try {
                     try {
                         if (j.moveToFirst()) {
-                            e15Var = new e15();
+                            u15Var = new u15();
                             try {
-                                e15Var.e(str);
-                                e15Var.d(j.getInt(3));
-                                e15Var.f(j.getLong(2));
-                                e15Var2 = e15Var;
+                                u15Var.e(str);
+                                u15Var.d(j.getInt(3));
+                                u15Var.f(j.getLong(2));
+                                u15Var2 = u15Var;
                             } catch (Exception e) {
                                 e = e;
                                 cursor = j;
                                 mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
-                                dh.a(cursor);
-                                return e15Var;
+                                vg.a(cursor);
+                                return u15Var;
                             }
                         }
-                        dh.a(j);
-                        return e15Var2;
+                        vg.a(j);
+                        return u15Var2;
                     } catch (Exception e2) {
                         e = e2;
-                        e15Var = null;
+                        u15Var = null;
                     }
                 } catch (Throwable th2) {
                     th = th2;
                     cursor = j;
-                    dh.a(cursor);
+                    vg.a(cursor);
                     throw th;
                 }
             } catch (Exception e3) {
                 e = e3;
-                e15Var = null;
+                u15Var = null;
             }
         } else {
-            return (e15) invokeL.objValue;
+            return (u15) invokeL.objValue;
         }
     }
 
-    public static boolean saveChunkUploadData(e15 e15Var) {
+    public static boolean saveChunkUploadData(u15 u15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, e15Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, u15Var)) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             }
             y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             Date date = new Date();
-            if (e15Var == null || mainDBDatabaseManager == null) {
+            if (u15Var == null || mainDBDatabaseManager == null) {
                 return false;
             }
-            mainDBDatabaseManager.e("delete from chunk_upload_data where md5=? and account=?", new String[]{e15Var.b(), TbadkCoreApplication.getCurrentAccount()});
-            return mainDBDatabaseManager.e("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{e15Var.b(), Long.valueOf(e15Var.c()), Integer.valueOf(e15Var.a()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+            mainDBDatabaseManager.e("delete from chunk_upload_data where md5=? and account=?", new String[]{u15Var.b(), TbadkCoreApplication.getCurrentAccount()});
+            return mainDBDatabaseManager.e("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{u15Var.b(), Long.valueOf(u15Var.c()), Integer.valueOf(u15Var.a()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
         }
         return invokeL.booleanValue;
     }

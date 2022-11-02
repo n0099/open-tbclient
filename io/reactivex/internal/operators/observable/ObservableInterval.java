@@ -15,7 +15,7 @@ import io.reactivex.internal.schedulers.TrampolineScheduler;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableInterval extends Observable {
+public final class ObservableInterval extends Observable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long initialDelay;
@@ -24,14 +24,14 @@ public final class ObservableInterval extends Observable {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class IntervalObserver extends AtomicReference implements Disposable, Runnable {
+    public static final class IntervalObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 346773832286157679L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super Long> actual;
         public long count;
 
-        public IntervalObserver(Observer observer) {
+        public IntervalObserver(Observer<? super Long> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public final class ObservableInterval extends Observable {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && get() != DisposableHelper.DISPOSED) {
-                Observer observer = this.actual;
+                Observer<? super Long> observer = this.actual;
                 long j = this.count;
                 this.count = 1 + j;
                 observer.onNext(Long.valueOf(j));
@@ -111,7 +111,7 @@ public final class ObservableInterval extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Long> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             IntervalObserver intervalObserver = new IntervalObserver(observer);

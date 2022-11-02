@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.record.VideoEffectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,13 +22,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class fx8 extends BaseAdapter implements View.OnClickListener {
+public class fx8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public String b;
+    public r9 a;
+    public List<MusicData> b;
     public int c;
-    public VideoEffectLayout.h d;
+    public String d;
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
@@ -41,24 +40,13 @@ public class fx8 extends BaseAdapter implements View.OnClickListener {
         return invokeI.longValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
     /* loaded from: classes4.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbImageView a;
-        public ProgressBar b;
+        public View b;
         public TextView c;
-        public int d;
 
         public a(fx8 fx8Var) {
             Interceptable interceptable = $ic;
@@ -77,10 +65,12 @@ public class fx8 extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public fx8() {
+    public fx8(r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,15 +80,72 @@ public class fx8 extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.c = -1;
+        this.a = r9Var;
     }
 
-    public void c() {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
-            this.c = 0;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b53);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
+            notifyDataSetChanged();
         }
+    }
+
+    public void f(List<MusicData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || list == null) {
+            return;
+        }
+        this.b = list;
+        e(this.d);
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            List<MusicData> list = this.b;
+            if (list == null) {
+                return null;
+            }
+            return list.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    public void a(TextView textView, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048576, this, textView, i, str) != null) || i <= 0) {
+            return;
+        }
+        float g = xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702b3);
+        TextPaint textPaint = new TextPaint();
+        textPaint.setTextSize(g);
+        while (textPaint.measureText(str) > i) {
+            g -= 1.0f;
+            textPaint.setTextSize(g);
+        }
+        textView.setTextSize(0, g);
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<MusicData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -106,88 +153,31 @@ public class fx8 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List list = this.a;
-            if (list != null) {
-                return list.size();
+            List<MusicData> list = this.b;
+            if (list == null) {
+                return 0;
             }
-            return 0;
+            return list.size();
         }
         return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public gx8 getItem(int i) {
-        InterceptResult invokeI;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List list = this.a;
-            if (list == null || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return (gx8) this.a.get(i);
-        }
-        return (gx8) invokeI.objValue;
-    }
-
-    public void f(VideoEffectLayout.h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
-            this.d = hVar;
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            gx8 item = getItem(i);
-            if (item == null) {
-                return 0;
-            }
-            int type = item.getType();
-            if (type != 1) {
-                if (type != 3) {
-                    return 0;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
+            if (!TextUtils.isEmpty(str) && this.b != null) {
+                int i = -1;
+                for (int i2 = 0; i2 < this.b.size(); i2++) {
+                    if (str.equals(this.b.get(i2).id)) {
+                        i = i2;
+                    }
                 }
-                return 1;
+                if (i == -1) {
+                    i = 1;
+                }
+                this.c = i;
             }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void b(a aVar, View view2, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, view2, viewGroup) == null) {
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ff9);
-            aVar.a = tbImageView;
-            tbImageView.setIsRound(true);
-            aVar.a.setDrawerType(1);
-            aVar.a.setDefaultBgResource(R.color.transparent);
-            aVar.a.setBorderWidth(fj.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
-            aVar.a.setConrers(15);
-            aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ba);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
-            this.c = 1;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b51);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void e(List list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
         }
     }
 
@@ -195,119 +185,72 @@ public class fx8 extends BaseAdapter implements View.OnClickListener {
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         a aVar;
-        gx8 gx8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view2, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            boolean z = true;
             if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04c2, (ViewGroup) null);
                 aVar = new a(this);
-                int itemViewType = getItemViewType(i);
-                if (itemViewType != 0) {
-                    if (itemViewType != 1) {
-                        if (itemViewType == 2) {
-                            view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0525, (ViewGroup) null);
-                            b(aVar, view2, viewGroup);
-                            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
-                        }
-                    } else {
-                        view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0526, (ViewGroup) null);
-                        b(aVar, view2, viewGroup);
-                        aVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091008);
-                        aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080303);
-                        SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
-                    }
-                } else {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0526, (ViewGroup) null);
-                    b(aVar, view2, viewGroup);
-                    ProgressBar progressBar = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091008);
-                    aVar.b = progressBar;
-                    progressBar.setVisibility(4);
-                    SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
-                }
+                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915e8);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915ec);
+                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0915e9);
+                aVar.a.setDrawerType(1);
+                aVar.a.setIsRound(true);
+                aVar.a.setDefaultBgResource(R.color.transparent);
+                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080303);
+                aVar.a.setBorderWidth(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
+                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                aVar.a.setConrers(15);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();
             }
-            List list = this.a;
-            if (list != null && i >= 0 && i <= list.size() - 1 && (gx8Var = (gx8) this.a.get(i)) != null) {
-                int itemViewType2 = getItemViewType(i);
-                if (itemViewType2 != 0) {
-                    if (itemViewType2 != 1) {
-                        if (itemViewType2 == 2) {
-                            if (!TextUtils.isEmpty(gx8Var.b()) && gx8Var.b().equals(this.b)) {
-                                aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080247);
-                            } else {
-                                aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080246);
-                            }
-                        }
+            MusicData musicData = this.b.get(i);
+            if (musicData != null) {
+                int i2 = musicData.editMusicType;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        aVar.a.K(musicData.img, 10, false);
                     } else {
-                        MusicData musicData = (MusicData) gx8Var.c();
-                        if (musicData.editMusicType == 0) {
-                            aVar.a.L(musicData.img, 10, false);
-                        } else {
-                            aVar.a.L(String.valueOf(gx8Var.a()), 24, false);
-                        }
-                        if (this.c != i) {
-                            aVar.b.setVisibility(4);
-                        } else if (aVar.b.getVisibility() == 0) {
-                            aVar.a.setDrawBorder(false);
-                        }
-                        if (!TextUtils.isEmpty(gx8Var.b()) && gx8Var.b().equals(this.b)) {
-                            aVar.a.setDrawBorder(true);
-                        } else {
-                            aVar.a.setDrawBorder(false);
-                        }
+                        aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b3c), 24, false);
                     }
                 } else {
-                    aVar.a.L(String.valueOf(gx8Var.a()), 24, false);
-                    if (!TextUtils.isEmpty(gx8Var.b()) && gx8Var.b().equals(this.b)) {
-                        aVar.a.setDrawBorder(true);
-                    } else {
-                        aVar.a.setDrawBorder(false);
-                    }
+                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b52), 24, false);
                 }
-                aVar.a.setTag(gx8Var);
-                aVar.a.setTag(R.id.obfuscated_res_0x7f091bb0, aVar);
-                aVar.a.setOnClickListener(this);
-                aVar.c.setText(gx8Var.b());
-                aVar.d = i;
+                aVar.b.setVisibility(4);
+                aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+                aVar.c.setText(musicData.name);
+                a(aVar.c, xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c), musicData.name);
+                if (i == this.c) {
+                    aVar.a.setDrawBorder(true);
+                } else {
+                    aVar.a.setDrawBorder(false);
+                }
+                if (i == 0) {
+                    view2.setPadding(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
+                } else if (i == this.b.size() - 1) {
+                    view2.setPadding(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
+                } else {
+                    view2.setPadding(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
+                }
+                if (this.a.getPageActivity() instanceof BaseActivity) {
+                    qq4 layoutMode = ((BaseActivity) this.a.getPageActivity()).getLayoutMode();
+                    if (TbadkCoreApplication.getInst().getSkinType() != 1) {
+                        z = false;
+                    }
+                    layoutMode.l(z);
+                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
+                } else if (this.a.getPageActivity() instanceof BaseFragmentActivity) {
+                    qq4 layoutMode2 = ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode();
+                    if (TbadkCoreApplication.getInst().getSkinType() != 1) {
+                        z = false;
+                    }
+                    layoutMode2.l(z);
+                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
+                }
             }
             return view2;
         }
         return (View) invokeILL.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        VideoEffectLayout.h hVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090ff9 && (view2.getTag() instanceof gx8)) {
-            gx8 gx8Var = (gx8) view2.getTag();
-            if (gx8Var.getType() == 3 && (gx8Var.c() instanceof MusicData)) {
-                StatisticItem statisticItem = new StatisticItem("c12423");
-                statisticItem.param("obj_id", ((MusicData) gx8Var.c()).id);
-                statisticItem.param("obj_locate", this.a.indexOf(gx8Var) + 1);
-                statisticItem.param("obj_source", 1);
-                TiebaStatic.log(statisticItem);
-                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b51).equals(gx8Var.b()) && (hVar = this.d) != null) {
-                    hVar.h1(gx8Var, view2.getTag(R.id.obfuscated_res_0x7f091bb0));
-                    this.c = this.a.indexOf(gx8Var);
-                    this.b = gx8Var.b();
-                }
-                if (!TextUtils.isEmpty(gx8Var.b()) && gx8Var.b().equals(this.b)) {
-                    return;
-                }
-                if (!gx8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b51))) {
-                    this.c = this.a.indexOf(gx8Var);
-                }
-            } else {
-                this.c = this.a.indexOf(gx8Var);
-            }
-            this.b = gx8Var.b();
-            notifyDataSetChanged();
-            VideoEffectLayout.h hVar2 = this.d;
-            if (hVar2 != null) {
-                hVar2.h1(gx8Var, view2.getTag(R.id.obfuscated_res_0x7f091bb0));
-            }
-        }
     }
 }

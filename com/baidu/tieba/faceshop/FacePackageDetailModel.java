@@ -11,18 +11,18 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FacePackageDetailModel extends BdBaseModel {
+public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -39,13 +39,13 @@ public class FacePackageDetailModel extends BdBaseModel {
     public BaseActivity.LoadDataCallBack l;
 
     /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask {
+    public class b extends BdAsyncTask<Object, String, FacePackageDetailData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -78,8 +78,8 @@ public class FacePackageDetailModel extends BdBaseModel {
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                ou4.f();
-                kf g = ou4.g("tb_face_package");
+                hv4.f();
+                cf<String> g = hv4.g("tb_face_package");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -126,11 +126,11 @@ public class FacePackageDetailModel extends BdBaseModel {
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    ou4.f();
-                    kf g = ou4.g("tb_face_package");
+                    hv4.f();
+                    cf<String> g = hv4.g("tb_face_package");
                     if (g != null) {
-                        String str = (String) g.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
-                        if (!ej.isEmpty(str)) {
+                        String str = g.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
+                        if (!wi.isEmpty(str)) {
                             publishProgress(str);
                         }
                     }
@@ -204,8 +204,8 @@ public class FacePackageDetailModel extends BdBaseModel {
         this.l = null;
         this.h = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.i = fj.k(inst);
-        this.j = fj.i(inst);
+        this.i = xi.l(inst);
+        this.j = xi.j(inst);
         this.k = inst.getResources().getDisplayMetrics().density;
     }
 

@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.content.Context;
 import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.ud2;
+import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,31 +13,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class zy3 extends yd2 {
+public class zy3 extends b32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile zy3 e;
+    public static final boolean A;
     public transient /* synthetic */ FieldHolder $fh;
+    public View z;
+
+    @Override // com.baidu.tieba.b32, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.mq1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "console" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a extends ud2.a {
+    public class a extends s22 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.ud2.a
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public a() {
+        public a(zy3 zy3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zy3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,6 +44,18 @@ public class zy3 extends yd2 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+
+        @Override // com.baidu.tieba.s22
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.a(str);
+                if (zy3.A) {
+                    Log.e("SwanGameConsoleManager", "onPageFinished");
+                }
+                az3.a();
             }
         }
     }
@@ -65,37 +73,39 @@ public class zy3 extends yd2 {
                 return;
             }
         }
-        d = wj1.a;
+        A = ok1.a;
     }
 
-    public static zy3 i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b32, com.baidu.tieba.jq1
+    public void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (zy3.class) {
-                    if (e == null) {
-                        e = new zy3();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            az3.h(false);
+            this.z = null;
+            super.E();
         }
-        return (zy3) invokeV.objValue;
+    }
+
+    public final void i1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b(new a(this));
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zy3() {
-        super(new hz3(), new iz3());
+    public zy3(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((ye2) objArr[0], (bf2) objArr[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -103,36 +113,66 @@ public class zy3 extends yd2 {
         }
     }
 
-    @Override // com.baidu.tieba.yd2
-    public String b(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.b32, com.baidu.tieba.jq1
+    public void G(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return bz3.b().getPath();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.z = view2;
         }
-        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.yd2
-    public ExtensionCore c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b32, com.baidu.tieba.jq1
+    public void P(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return d();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            int visibility = r().getVisibility();
+            int i2 = 0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
             }
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
-            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (d) {
-                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
-                return extensionCore;
+            if (visibility == i) {
+                return;
             }
-            return extensionCore;
+            if (A) {
+                Log.i("SwanGameConsoleManager", "setConsoleVisible:" + z);
+            }
+            if (z) {
+                rp2.U().m("console", uy3.u(true));
+            }
+            if (this.z != null) {
+                if (z) {
+                    i2 = 4;
+                }
+                this.z.setVisibility(i2);
+            }
+            super.P(z);
         }
-        return (ExtensionCore) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.b32, com.baidu.tieba.jq1
+    public void g0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            az3.g(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.b32
+    public void g1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            r().setVisibility(8);
+            r().setBackgroundColor(0);
+            az3.c();
+            i1();
+            String i = vy3.m().i();
+            if (A) {
+                Log.d("SwanGameConsoleManager", HttpRetryStatistic.RETRY_URL + i);
+            }
+            loadUrl(i);
+        }
     }
 }

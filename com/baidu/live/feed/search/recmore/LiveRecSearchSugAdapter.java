@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
 import com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
 import com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +39,7 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
-    public RecyclerView.Adapter getAdapter() {
+    public RecyclerView.Adapter<RecyclerView.ViewHolder> getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -48,7 +49,7 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
-    public RecyclerView.Adapter createAdapter(Context context) {
+    public RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
@@ -158,7 +159,7 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void onUbcResult(List list, int i, String str) {
+                public void onUbcResult(List<? extends LiveSearchResultInfo> list, int i, String str) {
                     ILiveRecSearchSugAdapter.OnSuggestionListener onSuggestionListener;
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLIL(1048581, this, list, i, str) == null) && onSuggestionListener != null) {
@@ -190,7 +191,7 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
-    public void setSuggestions(List list, List list2, String str) {
+    public void setSuggestions(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2, String str) {
         LiveFeedSearchSuggestionAdapter liveFeedSearchSuggestionAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, str) == null) && (liveFeedSearchSuggestionAdapter = this.adapter) != null) {

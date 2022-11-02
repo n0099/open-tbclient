@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.extractor.ts;
 
 import android.util.Pair;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +58,7 @@ public final class LatmReader implements ElementaryStreamReader {
         }
     }
 
-    public LatmReader(String str) {
+    public LatmReader(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +84,7 @@ public final class LatmReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, parsableBitArray)) == null) {
             int bitsLeft = parsableBitArray.bitsLeft();
-            Pair parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(parsableBitArray, true);
+            Pair<Integer, Integer> parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(parsableBitArray, true);
             this.sampleRateHz = ((Integer) parseAacAudioSpecificConfig.first).intValue();
             this.channelCount = ((Integer) parseAacAudioSpecificConfig.second).intValue();
             return bitsLeft - parsableBitArray.bitsLeft();

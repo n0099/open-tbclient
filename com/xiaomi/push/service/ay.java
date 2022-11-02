@@ -25,34 +25,34 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class ay {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final a<String, String, String> a;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f917a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f918a;
-    public static final a b;
-    public static final a c;
-    public static final a d;
-    public static final a e;
-    public static final a f;
+    public static final a<String, String, String> b;
+    public static final a<String, String, String> c;
+    public static final a<String, String, String> d;
+    public static final a<String, String, String> e;
+    public static final a<String, String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a<F, S, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Object a;
-        public Object b;
-        public Object c;
+        public F a;
+        public S b;
+        public T c;
 
-        public a(Object obj, Object obj2, Object obj3) {
+        public a(F f, S s, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, obj2, obj3};
+                Object[] objArr = {f, s, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,9 +62,9 @@ public class ay {
                     return;
                 }
             }
-            this.a = obj;
-            this.b = obj2;
-            this.c = obj3;
+            this.a = f;
+            this.b = s;
+            this.c = t;
         }
 
         public /* synthetic */ a(Object obj, Object obj2, Object obj3, az azVar) {
@@ -87,12 +87,12 @@ public class ay {
         }
         f918a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
         f917a = null;
-        a = new a("setSound", "canSound", "canSound", null);
-        b = new a("setVibrate", "canVibrate", "canVibrate", null);
-        c = new a("setLights", "canLights", "canLights", null);
-        d = new a("setShowOnKeyguard", "canShowOnKeyguard", "canShowOnKeyguard", null);
-        e = new a("setFloat", "canFloat", "canShowFloat", null);
-        f = new a("setShowBadge", "canShowBadge", "canShowBadge", null);
+        a = new a<>("setSound", "canSound", "canSound", null);
+        b = new a<>("setVibrate", "canVibrate", "canVibrate", null);
+        c = new a<>("setLights", "canLights", "canLights", null);
+        d = new a<>("setShowOnKeyguard", "canShowOnKeyguard", "canShowOnKeyguard", null);
+        e = new a<>("setFloat", "canFloat", "canShowFloat", null);
+        f = new a<>("setShowBadge", "canShowBadge", "canShowBadge", null);
     }
 
     public static int a(ContentResolver contentResolver) {
@@ -115,17 +115,17 @@ public class ay {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) ? com.xiaomi.push.h.b(context, str) : invokeLL.intValue;
     }
 
-    public static int a(Context context, String str, String str2, a aVar) {
+    public static int a(Context context, String str, String str2, a<String, String, String> aVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, str, str2, aVar)) == null) {
             if (aVar != null) {
                 try {
-                    Bundle a2 = a(context, (String) aVar.b, str, str2, (Bundle) null);
-                    if (a2 == null || !a2.containsKey((String) aVar.c)) {
+                    Bundle a2 = a(context, aVar.b, str, str2, (Bundle) null);
+                    if (a2 == null || !a2.containsKey(aVar.c)) {
                         return -1;
                     }
-                    return a2.getBoolean((String) aVar.c) ? 1 : 0;
+                    return a2.getBoolean(aVar.c) ? 1 : 0;
                 } catch (Exception unused) {
                     return -1;
                 }
@@ -155,52 +155,55 @@ public class ay {
         return (Bundle) invokeLLLLL.objValue;
     }
 
-    public static Object a(Notification notification, String str) {
+    public static <T> T a(Notification notification, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, notification, str)) == null) {
             Bundle bundle = notification.extras;
             if (bundle != null) {
                 try {
-                    return bundle.get(str);
+                    return (T) bundle.get(str);
                 } catch (Exception unused) {
                     return null;
                 }
             }
             return null;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v10, resolved type: java.lang.Object */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v7, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0054  */
     /* JADX WARN: Removed duplicated region for block: B:28:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Object a(Object obj, String str, Object obj2) {
+    public static <T> T a(Object obj, String str, T t) {
         InterceptResult invokeLLL;
-        Object obj3;
+        T t2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65542, null, obj, str, obj2)) != null) {
-            return invokeLLL.objValue;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65542, null, obj, str, t)) != null) {
+            return (T) invokeLLL.objValue;
         }
-        Object obj4 = null;
+        T t3 = null;
         try {
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.m89a("get value error " + e2);
         }
         if (obj instanceof Notification) {
-            obj3 = a((Notification) obj, str);
+            t2 = a((Notification) obj, str);
         } else if (obj instanceof Map) {
-            obj3 = ((Map) obj).get(str);
+            t2 = ((Map) obj).get(str);
         } else if (!(obj instanceof Bundle)) {
             com.xiaomi.channel.commonutils.logger.b.m89a("not support get value from classType:" + obj);
-            return obj4 != null ? obj2 : obj4;
+            return t3 != null ? t : t3;
         } else {
-            obj3 = ((Bundle) obj).get(str);
+            t2 = ((Bundle) obj).get(str);
         }
-        obj4 = obj3;
-        if (obj4 != null) {
+        t3 = t2;
+        if (t3 != null) {
         }
     }
 
@@ -323,15 +326,15 @@ public class ay {
         intent.setPackage(intent.getPackage());
     }
 
-    public static void a(Map map, Bundle bundle, String str) {
+    public static void a(Map<String, String> map, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65550, null, map, bundle, str) == null) {
             if (map == null || bundle == null || TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.m89a("cp map to b fail:" + str);
-            } else if (TextUtils.isEmpty((String) map.get(str))) {
+            } else if (TextUtils.isEmpty(map.get(str))) {
                 bundle.remove(str);
             } else {
-                bundle.putString(str, (String) map.get(str));
+                bundle.putString(str, map.get(str));
             }
         }
     }
@@ -361,15 +364,15 @@ public class ay {
         return invokeL.booleanValue;
     }
 
-    public static boolean a(Context context, String str, String str2, a aVar, boolean z) {
+    public static boolean a(Context context, String str, String str2, a<String, String, String> aVar, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z)})) == null) {
             if (aVar != null) {
                 try {
                     Bundle bundle = new Bundle();
-                    bundle.putBoolean((String) aVar.c, z);
-                    a(context, (String) aVar.a, str, str2, bundle);
+                    bundle.putBoolean(aVar.c, z);
+                    a(context, aVar.a, str, str2, bundle);
                     return true;
                 } catch (Exception unused) {
                 }
@@ -379,7 +382,7 @@ public class ay {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean a(Map map) {
+    public static boolean a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, map)) == null) ? Boolean.parseBoolean((String) a(map, "not_suppress", "true")) : invokeL.booleanValue;

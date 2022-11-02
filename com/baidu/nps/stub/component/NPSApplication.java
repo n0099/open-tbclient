@@ -1,5 +1,6 @@
 package com.baidu.nps.stub.component;
 
+import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks;
@@ -71,6 +72,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(29)
     public boolean bindIsolatedService(Intent intent, int i, String str, Executor executor, ServiceConnection serviceConnection) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -89,6 +91,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(26)
     public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -107,6 +110,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(29)
     public boolean bindService(Intent intent, int i, Executor executor, ServiceConnection serviceConnection) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
@@ -209,6 +213,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(26)
     public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -219,6 +224,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(26)
     public void revokeUriPermission(String str, Uri uri, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048657, this, str, uri, i) == null) {
@@ -237,6 +243,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(29)
     public void updateServiceGroup(ServiceConnection serviceConnection, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048680, this, serviceConnection, i, i2) == null) {
@@ -265,6 +272,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(23)
     public int checkSelfPermission(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -275,6 +283,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(17)
     public Context createConfigurationContext(Configuration configuration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -285,6 +294,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(26)
     public Context createContextForSplit(String str) throws PackageManager.NameNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -295,6 +305,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(17)
     public Context createDisplayContext(Display display) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -345,6 +356,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(19)
     public File[] getExternalFilesDirs(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -365,7 +377,8 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public String getSystemServiceName(Class cls) {
+    @TargetApi(23)
+    public String getSystemServiceName(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, cls)) == null) {
@@ -401,6 +414,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.app.Application
+    @TargetApi(18)
     public void registerOnProvideAssistDataListener(Application.OnProvideAssistDataListener onProvideAssistDataListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048651, this, onProvideAssistDataListener) == null) {
@@ -449,6 +463,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(26)
     public ComponentName startForegroundService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -503,6 +518,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.app.Application
+    @TargetApi(18)
     public void unregisterOnProvideAssistDataListener(Application.OnProvideAssistDataListener onProvideAssistDataListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048678, this, onProvideAssistDataListener) == null) {
@@ -585,6 +601,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(24)
     public boolean moveDatabaseFrom(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -681,6 +698,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(24)
     public Context createDeviceProtectedStorageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -772,6 +790,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(21)
     public File getCodeCacheDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -792,6 +811,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(24)
     public File getDataDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -812,6 +832,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(19)
     public File[] getExternalCacheDirs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -822,6 +843,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(21)
     public File[] getExternalMediaDirs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -842,6 +864,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(28)
     public Executor getMainExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -862,6 +885,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(21)
     public File getNoBackupFilesDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -882,6 +906,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(19)
     public File[] getObbDirs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -892,6 +917,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(29)
     public String getOpPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -993,6 +1019,7 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
+    @TargetApi(24)
     public boolean isDeviceProtectedStorage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

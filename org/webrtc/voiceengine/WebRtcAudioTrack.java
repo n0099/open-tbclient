@@ -1,5 +1,6 @@
 package org.webrtc.voiceengine;
 
+import android.annotation.TargetApi;
 import android.media.AudioAttributes;
 import android.media.AudioFormat;
 import android.media.AudioManager;
@@ -79,7 +80,7 @@ public class WebRtcAudioTrack {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class AudioTrackStartErrorCode {
+    public static final class AudioTrackStartErrorCode {
         public static final /* synthetic */ AudioTrackStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AudioTrackStartErrorCode AUDIO_TRACK_START_EXCEPTION;
@@ -420,6 +421,7 @@ public class WebRtcAudioTrack {
         return (AudioTrack) invokeIII.objValue;
     }
 
+    @TargetApi(21)
     public static AudioTrack createAudioTrackOnLollipopOrHigher(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;

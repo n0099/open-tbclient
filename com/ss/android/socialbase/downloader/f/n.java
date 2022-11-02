@@ -1,5 +1,6 @@
 package com.ss.android.socialbase.downloader.f;
 
+import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class n {
@@ -10,7 +11,8 @@ public class n {
         this.a = jSONObject;
     }
 
-    public static n a(JSONObject jSONObject) {
+    @NonNull
+    public static n a(@NonNull JSONObject jSONObject) {
         return new n(jSONObject);
     }
 

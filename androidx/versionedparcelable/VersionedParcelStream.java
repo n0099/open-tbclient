@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcelable;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.VersionedParcel;
@@ -25,6 +26,7 @@ import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.util.Set;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class VersionedParcelStream extends VersionedParcel {
     public static /* synthetic */ Interceptable $ic = null;

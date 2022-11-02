@@ -1,5 +1,8 @@
 package io.reactivex;
+
+import io.reactivex.annotations.NonNull;
 /* loaded from: classes8.dex */
 public interface CompletableOperator {
-    CompletableObserver apply(CompletableObserver completableObserver) throws Exception;
+    @NonNull
+    CompletableObserver apply(@NonNull CompletableObserver completableObserver) throws Exception;
 }

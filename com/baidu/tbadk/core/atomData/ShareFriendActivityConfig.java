@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -84,7 +85,7 @@ public class ShareFriendActivityConfig extends IntentConfig {
         }
     }
 
-    public void setForumList(ArrayList arrayList) {
+    public void setForumList(ArrayList<TransmitForumData> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) && getIntent() != null) {
             getIntent().putParcelableArrayListExtra(KEY_SHARE_FRIEND_LIST, arrayList);

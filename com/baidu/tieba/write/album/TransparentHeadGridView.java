@@ -9,7 +9,7 @@ import android.view.animation.Interpolator;
 import android.widget.AbsListView;
 import android.widget.GridView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -328,7 +328,7 @@ public class TransparentHeadGridView extends GridView {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.l = context;
             setOnScrollListener(this.p);
-            this.h = (int) (fj.i(context) * 0.22f);
+            this.h = (int) (xi.j(context) * 0.22f);
         }
     }
 
@@ -339,23 +339,9 @@ public class TransparentHeadGridView extends GridView {
         }
     }
 
-    public void setOnHeadDisplayChangeListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.i = cVar;
-        }
-    }
-
-    public void setOnPullChangeListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.j = dVar;
-        }
-    }
-
     public void setOuterOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onScrollListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, onScrollListener) == null) {
             this.k = onScrollListener;
         }
     }

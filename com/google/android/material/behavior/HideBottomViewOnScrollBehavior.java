@@ -8,6 +8,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
+import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.animation.AnimationUtils;
 /* loaded from: classes7.dex */
-public class HideBottomViewOnScrollBehavior extends CoordinatorLayout.Behavior {
+public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENTER_ANIMATION_DURATION = 225;
     public static final int EXIT_ANIMATION_DURATION = 175;
@@ -25,15 +28,16 @@ public class HideBottomViewOnScrollBehavior extends CoordinatorLayout.Behavior {
     public static final int STATE_SCROLLED_UP = 2;
     public transient /* synthetic */ FieldHolder $fh;
     public int additionalHiddenOffsetY;
+    @Nullable
     public ViewPropertyAnimator currentAnimator;
     public int currentState;
     public int height;
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View view2, View view3, View view4, int i, int i2) {
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, @NonNull View view3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{coordinatorLayout, view2, view3, view4, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? i == 2 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{coordinatorLayout, v, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? i == 2 : invokeCommon.booleanValue;
     }
 
     public HideBottomViewOnScrollBehavior() {
@@ -78,20 +82,20 @@ public class HideBottomViewOnScrollBehavior extends CoordinatorLayout.Behavior {
         this.additionalHiddenOffsetY = 0;
     }
 
-    public void setAdditionalHiddenOffsetY(View view2, int i) {
+    public void setAdditionalHiddenOffsetY(@NonNull V v, @Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, v, i) == null) {
             this.additionalHiddenOffsetY = i;
             if (this.currentState == 1) {
-                view2.setTranslationY(this.height + i);
+                v.setTranslationY(this.height + i);
             }
         }
     }
 
-    private void animateChildTo(View view2, int i, long j, TimeInterpolator timeInterpolator) {
+    private void animateChildTo(@NonNull V v, int i, long j, TimeInterpolator timeInterpolator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j), timeInterpolator}) == null) {
-            this.currentAnimator = view2.animate().translationY(i).setInterpolator(timeInterpolator).setDuration(j).setListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.behavior.HideBottomViewOnScrollBehavior.1
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{v, Integer.valueOf(i), Long.valueOf(j), timeInterpolator}) == null) {
+            this.currentAnimator = v.animate().translationY(i).setInterpolator(timeInterpolator).setDuration(j).setListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.behavior.HideBottomViewOnScrollBehavior.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HideBottomViewOnScrollBehavior this$0;
@@ -127,53 +131,53 @@ public class HideBottomViewOnScrollBehavior extends CoordinatorLayout.Behavior {
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
+    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, coordinatorLayout, view2, i)) == null) {
-            this.height = view2.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) view2.getLayoutParams()).bottomMargin;
-            return super.onLayoutChild(coordinatorLayout, view2, i);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, coordinatorLayout, v, i)) == null) {
+            this.height = v.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) v.getLayoutParams()).bottomMargin;
+            return super.onLayoutChild(coordinatorLayout, v, i);
         }
         return invokeLLI.booleanValue;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout, View view2, View view3, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+    public void onNestedScroll(CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{coordinatorLayout, view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{coordinatorLayout, v, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
             if (i2 > 0) {
-                slideDown(view2);
+                slideDown(v);
             } else if (i2 < 0) {
-                slideUp(view2);
+                slideUp(v);
             }
         }
     }
 
-    public void slideDown(View view2) {
+    public void slideDown(@NonNull V v) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || this.currentState == 1) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, v) != null) || this.currentState == 1) {
             return;
         }
         ViewPropertyAnimator viewPropertyAnimator = this.currentAnimator;
         if (viewPropertyAnimator != null) {
             viewPropertyAnimator.cancel();
-            view2.clearAnimation();
+            v.clearAnimation();
         }
         this.currentState = 1;
-        animateChildTo(view2, this.height + this.additionalHiddenOffsetY, 175L, AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR);
+        animateChildTo(v, this.height + this.additionalHiddenOffsetY, 175L, AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR);
     }
 
-    public void slideUp(View view2) {
+    public void slideUp(@NonNull V v) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || this.currentState == 2) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, v) != null) || this.currentState == 2) {
             return;
         }
         ViewPropertyAnimator viewPropertyAnimator = this.currentAnimator;
         if (viewPropertyAnimator != null) {
             viewPropertyAnimator.cancel();
-            view2.clearAnimation();
+            v.clearAnimation();
         }
         this.currentState = 2;
-        animateChildTo(view2, 0, 225L, AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
+        animateChildTo(v, 0, 225L, AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
     }
 }

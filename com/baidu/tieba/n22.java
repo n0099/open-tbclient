@@ -1,333 +1,178 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class n22 implements yp1 {
+public class n22 extends b63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
-    public final Lock b;
-    public volatile boolean c;
-    public volatile boolean d;
-    public c e;
-    public WebKitFactory.IForceInitZeusListener f;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n22 a;
-
-        public a(n22 n22Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n22Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n22Var;
-        }
-
-        @Override // com.baidu.tieba.n22.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.b.lock();
-                    this.a.d = true;
-                    this.a.j();
-                    this.a.p();
-                } finally {
-                    this.a.b.unlock();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements WebKitFactory.IForceInitZeusListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n22 a;
-
-        public b(n22 n22Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n22Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n22Var;
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
-        public void onForceInitZeusFinish(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                try {
-                    this.a.b.lock();
-                    this.a.c = true;
-                    this.a.p();
-                    this.a.b.unlock();
-                    BdSailor.getInstance().removeForceInitListener(this.a.f);
-                } catch (Throwable th) {
-                    this.a.b.unlock();
-                    throw th;
-                }
-            }
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
-        public void onForceInitZeusStart() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && n22.g) {
-                Log.d("NgWebViewInitHelper", "onForceInitZeusStart");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final n22 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-625338149, "Lcom/baidu/tieba/n22$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-625338149, "Lcom/baidu/tieba/n22$d;");
-                    return;
-                }
-            }
-            a = new n22(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947950491, "Lcom/baidu/tieba/n22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947950491, "Lcom/baidu/tieba/n22;");
-                return;
-            }
-        }
-        g = wj1.a;
-    }
-
-    public static n22 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return d.a;
-        }
-        return (n22) invokeV.objValue;
-    }
-
-    public final synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (!ProcessUtils.isMainProcess()) {
-                    WebSettingsGlobalBlink.setFileInIOEnabled(true);
-                }
-            }
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            m(false);
-        }
-    }
-
-    public n22() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n22(b53 b53Var) {
+        super(b53Var, "/swanAPI/setPhoneContact");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ReentrantLock();
-        this.c = false;
-        this.d = false;
-        this.e = new a(this);
-        b bVar = new b(this);
-        this.f = bVar;
-        BdSailor.addForceInitListener(bVar);
-        tm2.g().h(this.e);
     }
 
-    public final void p() {
+    @SuppressLint({"BDOfflineUrl"})
+    private void insert(Context context, m22 m22Var, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.b.lock();
-                if (!n()) {
-                    return;
-                }
-                Iterator it = this.a.iterator();
-                while (it.hasNext()) {
-                    o22 o22Var = (o22) it.next();
-                    if (o22Var != null) {
-                        o22Var.a();
+        if (interceptable == null || interceptable.invokeLLL(65537, this, context, m22Var, callbackHandler) == null) {
+            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
+            intent.putExtra("name", m22Var.d());
+            intent.putExtra("email", m22Var.r);
+            intent.putParcelableArrayListExtra("data", k(m22Var));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            l(context, intent, callbackHandler);
+        }
+    }
+
+    public final void j(Context context, m22 m22Var, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, m22Var, callbackHandler) == null) {
+            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
+            intent.setType("vnd.android.cursor.item/contact");
+            intent.putExtra("name", m22Var.d());
+            intent.putExtra("email", m22Var.r);
+            intent.putParcelableArrayListExtra("data", k(m22Var));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            l(context, intent, callbackHandler);
+        }
+    }
+
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (context != null && callbackHandler != null && e43Var != null) {
+                if (e43Var.n0()) {
+                    if (b63.b) {
+                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
                     }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                    return false;
                 }
-                this.a.clear();
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    public /* synthetic */ n22(a aVar) {
-        this();
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            tm2.g().d(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.yp1
-    public void a(o22 o22Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o22Var) == null) {
-            try {
-                this.b.lock();
-                if (o22Var != null && this.a.contains(o22Var)) {
-                    this.a.remove(o22Var);
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
                 }
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yp1
-    public void b(o22 o22Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o22Var) == null) {
-            try {
-                this.b.lock();
-                if (o22Var == null) {
-                    return;
+                if (b63.b) {
+                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
                 }
-                if (!this.a.contains(o22Var)) {
-                    this.a.add(o22Var);
+                String optString = optParamsAsJo.optString("action");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
-                if (n()) {
-                    p();
+                m22 a = m22.a(optParamsAsJo);
+                if (!a.t()) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0053, code lost:
-        if (o() != false) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean n() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                this.b.lock();
-                if (g) {
-                    Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.d);
-                    Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.c + " ,isZeusForceInited: " + o());
-                }
-                if (this.d) {
-                    if (!this.c) {
+                this.c = optParamsAsJo.optString("cb");
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != -1183792455) {
+                    if (hashCode == 3108362 && optString.equals("edit")) {
+                        c = 1;
                     }
-                    z = true;
-                    return z;
+                } else if (optString.equals("insert")) {
+                    c = 0;
                 }
-                z = false;
-                return z;
-            } finally {
-                this.b.unlock();
+                if (c != 0) {
+                    if (c != 1) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                        return false;
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    j(context, a, callbackHandler);
+                    return true;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                insert(context, a, callbackHandler);
+                return true;
             }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public final boolean o() {
-        InterceptResult invokeV;
+    public final ArrayList<ContentValues> k(m22 m22Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (g) {
-                Log.d("NgWebViewInitHelper", "checkZeusForceInit: " + BdSailor.getInstance().checkZeusForceInit());
-                Log.d("NgWebViewInitHelper", "isZeusForceInited: " + BdSailor.getInstance().isZeusForceInited());
-            }
-            if (BdSailor.getInstance().checkZeusForceInit() && (!BdSailor.getInstance().checkZeusForceInit() || !BdSailor.getInstance().isZeusForceInited())) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m22Var)) == null) {
+            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
+            arrayList.add(m22Var.j());
+            arrayList.add(m22Var.h());
+            arrayList.add(m22Var.s());
+            arrayList.add(m22Var.i());
+            arrayList.add(m22Var.g());
+            arrayList.add(m22Var.r());
+            arrayList.add(m22Var.k());
+            arrayList.add(m22Var.o());
+            arrayList.add(m22Var.n());
+            arrayList.add(m22Var.m());
+            arrayList.add(m22Var.l());
+            arrayList.add(m22Var.b());
+            arrayList.add(m22Var.p());
+            arrayList.add(m22Var.e());
+            return arrayList;
         }
-        return invokeV.booleanValue;
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
+            try {
+                context.startActivity(intent);
+                if (!TextUtils.isEmpty(this.c)) {
+                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
+                }
+            } catch (Exception e) {
+                if (b63.b) {
+                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
+                }
+                if (!TextUtils.isEmpty(this.c)) {
+                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+                }
+            }
+        }
     }
 }

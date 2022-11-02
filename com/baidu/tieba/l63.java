@@ -1,6 +1,12 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,30 +14,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class l63 {
+public class l63 extends i63 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean q;
-    public static String r;
+    public static final String e;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final double b;
-    public final double c;
-    public final float d;
-    public final double e;
-    public final double f;
-    public final double g;
-    public final double h;
-    public final String i;
-    public final String j;
-    public final String k;
-    public final String l;
-    public final String m;
-    public final String n;
-    public final String o;
-    public final String p;
+
+    @Override // com.baidu.tieba.i63
+    public boolean j(e43 e43Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, e43Var, unitedSchemeEntity)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,73 +48,76 @@ public class l63 {
                 return;
             }
         }
-        q = wj1.a;
-        r = "LocationResult";
+        e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+        f = SchemeConfig.getSchemeHead() + "://swangame/%s";
     }
 
-    public l63(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l63(b53 b53Var) {
+        super(b53Var, "/swanAPI/getFavor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Double.valueOf(d3), Double.valueOf(d4), str2, str3, str4, str5, str6, str7, str8, str9};
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((b53) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = d;
-        this.c = d2;
-        this.d = f;
-        this.e = d3;
-        this.f = d4;
-        this.g = 0.0d;
-        this.h = d3;
-        this.i = str2;
-        this.j = str3;
-        this.k = str4;
-        this.l = str5;
-        this.m = str6;
-        this.n = str7;
-        this.o = str8;
-        this.p = str9;
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i63
+    public void k(e43 e43Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e43Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            JSONArray jSONArray = new JSONArray();
+            List<SwanFavorItemData> i = SwanFavorDataManager.h().i();
+            if (i.size() > 0) {
+                for (SwanFavorItemData swanFavorItemData : i) {
+                    jSONArray.put(p(swanFavorItemData));
+                }
+            }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("longitude", this.b);
-                jSONObject.put("latitude", this.c);
-                jSONObject.put("speed", this.d);
-                jSONObject.put("accuracy", this.e);
-                jSONObject.put("altitude", this.f);
-                jSONObject.put("verticalAccuracy", this.g);
-                jSONObject.put("horizontalAccuracy", this.h);
-                jSONObject.put("country", this.i);
-                jSONObject.put("countryCode", this.j);
-                jSONObject.put("city", this.k);
-                jSONObject.put("cityCode", this.l);
-                jSONObject.put("province", this.m);
-                jSONObject.put("district", this.n);
-                jSONObject.put("street", this.o);
-                jSONObject.put("streetNumber", this.p);
-                jSONObject.put("isFullAccuracy", true);
-            } catch (JSONException e) {
-                if (q) {
-                    String str = r;
-                    Log.e(str, "toJSON error: " + Log.getStackTraceString(e));
+                jSONObject.put("favors", jSONArray);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        }
+    }
+
+    public final JSONObject p(SwanFavorItemData swanFavorItemData) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanFavorItemData)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("appid", swanFavorItemData.getAppKey());
+                jSONObject.put("type", swanFavorItemData.getAppType());
+                jSONObject.put("iconUrl", swanFavorItemData.getIconUrl());
+                jSONObject.put("title", swanFavorItemData.getAppName());
+                jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
+                jSONObject.put("payProtected", swanFavorItemData.getPayProtected());
+                if (swanFavorItemData.getAppFrameType() == 1) {
+                    str = String.format(f, swanFavorItemData.getAppKey());
+                } else {
+                    str = e + swanFavorItemData.getAppKey() + "\"}";
                 }
+                jSONObject.put("scheme", str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
             return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

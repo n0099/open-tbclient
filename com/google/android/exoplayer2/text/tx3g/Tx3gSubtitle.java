@@ -18,7 +18,7 @@ public final class Tx3gSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public static final Tx3gSubtitle EMPTY;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List cues;
+    public final List<Cue> cues;
 
     @Override // com.google.android.exoplayer2.text.Subtitle
     public int getEventTimeCount() {
@@ -88,7 +88,7 @@ public final class Tx3gSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List getCues(long j) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {

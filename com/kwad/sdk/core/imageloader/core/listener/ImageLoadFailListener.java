@@ -3,7 +3,7 @@ package com.kwad.sdk.core.imageloader.core.listener;
 import android.view.View;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ImageLoadFailListener implements ImageLoadingListener {
     @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
     public final boolean onDecode(String str, InputStream inputStream, DecodedResult decodedResult) {

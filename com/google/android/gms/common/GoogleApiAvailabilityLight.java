@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,19 +16,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.HideFirstParty;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.common.util.DeviceProperties;
 import com.google.android.gms.common.wrappers.Wrappers;
+@ShowFirstParty
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class GoogleApiAvailabilityLight {
     public static /* synthetic */ Interceptable $ic = null;
+    @NonNull
+    @KeepForSdk
     public static final String GOOGLE_PLAY_SERVICES_PACKAGE = "com.google.android.gms";
+    @KeepForSdk
     public static final int GOOGLE_PLAY_SERVICES_VERSION_CODE;
+    @NonNull
+    @KeepForSdk
     public static final String GOOGLE_PLAY_STORE_PACKAGE = "com.android.vending";
+    @KeepForSdk
     public static final String TRACKING_SOURCE_DIALOG = "d";
+    @KeepForSdk
     public static final String TRACKING_SOURCE_NOTIFICATION = "n";
     public static final GoogleApiAvailabilityLight zza;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @KeepForSdk
     public GoogleApiAvailabilityLight() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,6 +56,8 @@ public class GoogleApiAvailabilityLight {
         }
     }
 
+    @NonNull
+    @KeepForSdk
     public static GoogleApiAvailabilityLight getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,14 +81,17 @@ public class GoogleApiAvailabilityLight {
         zza = new GoogleApiAvailabilityLight();
     }
 
-    public void cancelAvailabilityErrorNotifications(Context context) {
+    @KeepForSdk
+    public void cancelAvailabilityErrorNotifications(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             GooglePlayServicesUtilLight.cancelAvailabilityErrorNotifications(context);
         }
     }
 
-    public int getApkVersion(Context context) {
+    @ShowFirstParty
+    @KeepForSdk
+    public int getApkVersion(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -80,7 +100,9 @@ public class GoogleApiAvailabilityLight {
         return invokeL.intValue;
     }
 
-    public int getClientVersion(Context context) {
+    @ShowFirstParty
+    @KeepForSdk
+    public int getClientVersion(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
@@ -90,6 +112,9 @@ public class GoogleApiAvailabilityLight {
     }
 
     @Deprecated
+    @Nullable
+    @ShowFirstParty
+    @KeepForSdk
     public Intent getErrorResolutionIntent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -99,6 +124,8 @@ public class GoogleApiAvailabilityLight {
         return (Intent) invokeI.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public String getErrorString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -108,7 +135,9 @@ public class GoogleApiAvailabilityLight {
         return (String) invokeI.objValue;
     }
 
-    public int isGooglePlayServicesAvailable(Context context) {
+    @HideFirstParty
+    @KeepForSdk
+    public int isGooglePlayServicesAvailable(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
@@ -117,6 +146,7 @@ public class GoogleApiAvailabilityLight {
         return invokeL.intValue;
     }
 
+    @KeepForSdk
     public boolean isUserResolvableError(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -126,7 +156,10 @@ public class GoogleApiAvailabilityLight {
         return invokeI.booleanValue;
     }
 
-    public Intent getErrorResolutionIntent(Context context, int i, String str) {
+    @Nullable
+    @ShowFirstParty
+    @KeepForSdk
+    public Intent getErrorResolutionIntent(@Nullable Context context, int i, @Nullable String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, context, i, str)) == null) {
@@ -162,7 +195,9 @@ public class GoogleApiAvailabilityLight {
         return (Intent) invokeLIL.objValue;
     }
 
-    public PendingIntent getErrorResolutionPendingIntent(Context context, int i, int i2) {
+    @Nullable
+    @KeepForSdk
+    public PendingIntent getErrorResolutionPendingIntent(@NonNull Context context, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, context, i, i2)) == null) {
@@ -171,7 +206,10 @@ public class GoogleApiAvailabilityLight {
         return (PendingIntent) invokeLII.objValue;
     }
 
-    public PendingIntent getErrorResolutionPendingIntent(Context context, int i, int i2, String str) {
+    @Nullable
+    @ShowFirstParty
+    @KeepForSdk
+    public PendingIntent getErrorResolutionPendingIntent(@NonNull Context context, int i, int i2, @Nullable String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
@@ -184,7 +222,8 @@ public class GoogleApiAvailabilityLight {
         return (PendingIntent) invokeCommon.objValue;
     }
 
-    public int isGooglePlayServicesAvailable(Context context, int i) {
+    @KeepForSdk
+    public int isGooglePlayServicesAvailable(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, context, i)) == null) {
@@ -197,7 +236,9 @@ public class GoogleApiAvailabilityLight {
         return invokeLI.intValue;
     }
 
-    public boolean isPlayServicesPossiblyUpdating(Context context, int i) {
+    @ShowFirstParty
+    @KeepForSdk
+    public boolean isPlayServicesPossiblyUpdating(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, context, i)) == null) {
@@ -206,7 +247,9 @@ public class GoogleApiAvailabilityLight {
         return invokeLI.booleanValue;
     }
 
-    public boolean isPlayStorePossiblyUpdating(Context context, int i) {
+    @ShowFirstParty
+    @KeepForSdk
+    public boolean isPlayStorePossiblyUpdating(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, context, i)) == null) {
@@ -215,7 +258,8 @@ public class GoogleApiAvailabilityLight {
         return invokeLI.booleanValue;
     }
 
-    public boolean isUninstalledAppPossiblyUpdating(Context context, String str) {
+    @KeepForSdk
+    public boolean isUninstalledAppPossiblyUpdating(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, context, str)) == null) {
@@ -224,7 +268,8 @@ public class GoogleApiAvailabilityLight {
         return invokeLL.booleanValue;
     }
 
-    public void verifyGooglePlayServicesIsAvailable(Context context, int i) throws GooglePlayServicesRepairableException, GooglePlayServicesNotAvailableException {
+    @KeepForSdk
+    public void verifyGooglePlayServicesIsAvailable(@NonNull Context context, int i) throws GooglePlayServicesRepairableException, GooglePlayServicesNotAvailableException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, context, i) == null) {
             GooglePlayServicesUtilLight.ensurePlayServicesAvailable(context, i);

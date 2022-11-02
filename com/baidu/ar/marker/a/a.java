@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class a implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<a> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int position;
     public String tm;
@@ -39,7 +39,7 @@ public class a implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.ar.marker.a.a.1
+        CREATOR = new Parcelable.Creator<a>() { // from class: com.baidu.ar.marker.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

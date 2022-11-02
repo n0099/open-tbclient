@@ -10,10 +10,10 @@ import android.os.IBinder;
 import com.kwad.sdk.core.f.a.d;
 import java.security.MessageDigest;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public Context mContext;
-    public final LinkedBlockingQueue Zs = new LinkedBlockingQueue(1);
+    public final LinkedBlockingQueue<IBinder> Zs = new LinkedBlockingQueue<>(1);
     public ServiceConnection Zq = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.f.1
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -61,7 +61,7 @@ public final class f {
             new StringBuilder("getOAID isBin=").append(bindService);
             if (bindService) {
                 try {
-                    str = new d.a((IBinder) this.Zs.take()).getSerID(this.mContext.getPackageName(), uj(), "OUID");
+                    str = new d.a(this.Zs.take()).getSerID(this.mContext.getPackageName(), uj(), "OUID");
                     new StringBuilder("getOAID oaid").append(str);
                     context = this.mContext;
                 } catch (Exception unused) {

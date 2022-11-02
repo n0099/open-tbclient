@@ -1,9 +1,10 @@
 package com.baidu.tieba.location.data;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj7;
+import com.baidu.tieba.nk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +12,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LocationSearchResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dj7 mLocationData;
+    public nk7 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchResponseMessage() {
@@ -35,16 +36,17 @@ public class LocationSearchResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public dj7 getLocationData() {
+    public nk7 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mLocationData;
         }
-        return (dj7) invokeV.objValue;
+        return (nk7) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -55,19 +57,19 @@ public class LocationSearchResponseMessage extends SocketResponsedMessage {
             if (getError() != 0) {
                 return getSuggestionByAddrNameResIdl;
             }
-            dj7 dj7Var = new dj7();
-            this.mLocationData = dj7Var;
-            dj7Var.b(getSuggestionByAddrNameResIdl.data);
+            nk7 nk7Var = new nk7();
+            this.mLocationData = nk7Var;
+            nk7Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
             return getSuggestionByAddrNameResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public void setLocationData(dj7 dj7Var) {
+    public void setLocationData(nk7 nk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dj7Var) == null) {
-            this.mLocationData = dj7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nk7Var) == null) {
+            this.mLocationData = nk7Var;
         }
     }
 }

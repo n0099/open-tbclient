@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 public class a extends d implements ICloudIR {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference mj;
+    public WeakReference<ICloudIR> mj;
     public ICloudIRStateChangedListener mk;
 
     public a() {
@@ -34,7 +34,7 @@ public class a extends d implements ICloudIR {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof ICloudIR)) {
             ICloudIR iCloudIR = (ICloudIR) cVar;
-            this.mj = new WeakReference(iCloudIR);
+            this.mj = new WeakReference<>(iCloudIR);
             ICloudIRStateChangedListener iCloudIRStateChangedListener = this.mk;
             if (iCloudIRStateChangedListener != null) {
                 iCloudIR.setStateChangedListener(iCloudIRStateChangedListener);
@@ -44,19 +44,19 @@ public class a extends d implements ICloudIR {
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void pause() {
-        WeakReference weakReference;
+        WeakReference<ICloudIR> weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.mj) == null || weakReference.get() == null) {
             return;
         }
-        ((ICloudIR) this.mj.get()).pause();
+        this.mj.get().pause();
     }
 
     @Override // com.baidu.ar.d
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WeakReference weakReference = this.mj;
+            WeakReference<ICloudIR> weakReference = this.mj;
             if (weakReference != null) {
                 weakReference.clear();
                 this.mj = null;
@@ -67,24 +67,24 @@ public class a extends d implements ICloudIR {
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void resume() {
-        WeakReference weakReference;
+        WeakReference<ICloudIR> weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (weakReference = this.mj) == null || weakReference.get() == null) {
             return;
         }
-        ((ICloudIR) this.mj.get()).resume();
+        this.mj.get().resume();
     }
 
     @Override // com.baidu.ar.cloud.ICloudIR
     public void setStateChangedListener(ICloudIRStateChangedListener iCloudIRStateChangedListener) {
-        WeakReference weakReference;
+        WeakReference<ICloudIR> weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iCloudIRStateChangedListener) == null) {
             this.mk = iCloudIRStateChangedListener;
             if (iCloudIRStateChangedListener == null || (weakReference = this.mj) == null || weakReference.get() == null) {
                 return;
             }
-            ((ICloudIR) this.mj.get()).setStateChangedListener(this.mk);
+            this.mj.get().setStateChangedListener(this.mk);
         }
     }
 }

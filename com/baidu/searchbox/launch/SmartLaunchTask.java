@@ -1,6 +1,7 @@
 package com.baidu.searchbox.launch;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public abstract class SmartLaunchTask implements Runnable, Comparable {
+public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunchTask> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final int HIGH_PRIORITY = 3;
@@ -27,7 +28,7 @@ public abstract class SmartLaunchTask implements Runnable, Comparable {
     public String id;
     public Boolean isExecuted;
     public boolean isMainThreadIdleTask;
-    public List mDependencyList;
+    public List<SmartLaunchTask> mDependencyList;
     public String name;
     public int priority;
     public double score;
@@ -52,7 +53,7 @@ public abstract class SmartLaunchTask implements Runnable, Comparable {
         DEBUG = AppConfig.isDebug();
     }
 
-    public List getDependency() {
+    public List<SmartLaunchTask> getDependency() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -143,7 +144,7 @@ public abstract class SmartLaunchTask implements Runnable, Comparable {
     }
 
     public void removeAllDependency() {
-        List list;
+        List<SmartLaunchTask> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (list = this.mDependencyList) != null) {
             list.clear();
@@ -196,7 +197,7 @@ public abstract class SmartLaunchTask implements Runnable, Comparable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(SmartLaunchTask smartLaunchTask) {
+    public int compareTo(@NonNull SmartLaunchTask smartLaunchTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, smartLaunchTask)) == null) {
@@ -283,7 +284,7 @@ public abstract class SmartLaunchTask implements Runnable, Comparable {
     }
 
     public void removeDependency(SmartLaunchTask smartLaunchTask) {
-        List list;
+        List<SmartLaunchTask> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, smartLaunchTask) == null) && (list = this.mDependencyList) != null) {
             list.remove(smartLaunchTask);

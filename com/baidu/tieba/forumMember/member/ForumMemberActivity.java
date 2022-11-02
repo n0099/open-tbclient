@@ -6,14 +6,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.aj6;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.ey4;
-import com.baidu.tieba.fj6;
-import com.baidu.tieba.jf6;
-import com.baidu.tieba.nh6;
-import com.baidu.tieba.ui6;
-import com.baidu.tieba.vf6;
+import com.baidu.tieba.ek6;
+import com.baidu.tieba.fh6;
+import com.baidu.tieba.kk6;
+import com.baidu.tieba.pk6;
+import com.baidu.tieba.tg6;
+import com.baidu.tieba.uy4;
+import com.baidu.tieba.wn;
+import com.baidu.tieba.xi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,20 +22,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ForumMemberActivity extends BaseActivity implements ey4.g {
+public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements uy4.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aj6 a;
+    public kk6 a;
     public String b;
     public String c;
-    public List d;
-    public vf6 e;
-    public jf6 f;
-    public ui6 g;
+    public List<wn> d;
+    public fh6 e;
+    public tg6 f;
+    public ek6 g;
     public NoNetworkView.b h;
 
     /* loaded from: classes4.dex */
-    public class a implements ui6 {
+    public class a implements ek6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumMemberActivity a;
@@ -58,16 +58,16 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
             this.a = forumMemberActivity;
         }
 
-        @Override // com.baidu.tieba.ui6
-        public void a(int i, int i2, fj6 fj6Var, ArrayList arrayList) {
+        @Override // com.baidu.tieba.ek6
+        public void a(int i, int i2, pk6 pk6Var, ArrayList<wn> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), fj6Var, arrayList}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), pk6Var, arrayList}) == null) {
                 this.a.e.d();
                 this.a.e.c();
                 if (arrayList != null) {
-                    Iterator it = arrayList.iterator();
+                    Iterator<wn> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        if (((eo) it.next()) instanceof nh6) {
+                        if (it.next() instanceof xi6) {
                             it.remove();
                         }
                     }
@@ -76,8 +76,8 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
                     this.a.e.e();
                     this.a.d = arrayList;
                     this.a.e.f(this.a.d);
-                } else if (ListUtils.isEmpty(this.a.d) && fj6Var != null) {
-                    this.a.e.l(fj6Var.f);
+                } else if (ListUtils.isEmpty(this.a.d) && pk6Var != null) {
+                    this.a.e.l(pk6Var.f);
                 }
             }
         }
@@ -113,10 +113,10 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.a.e.b(z);
                 if (z) {
-                    if (!ListUtils.isEmpty(this.a.d)) {
-                        this.a.e.m();
+                    if (ListUtils.isEmpty(this.a.d)) {
+                        this.a.C1();
                     } else {
-                        this.a.D1();
+                        this.a.e.m();
                     }
                 }
             }
@@ -141,7 +141,7 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
         this.h = new b(this);
     }
 
-    @Override // com.baidu.tieba.ey4.g
+    @Override // com.baidu.tieba.uy4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -168,7 +168,7 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
         }
     }
 
-    public final void C1(Bundle bundle) {
+    public final void B1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle == null) {
@@ -181,14 +181,14 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
                 this.c = bundle.getString("forum_id", "");
                 this.b = bundle.getString("forum_name", "");
             }
-            aj6 aj6Var = new aj6();
-            this.a = aj6Var;
-            aj6Var.b = this.c;
-            aj6Var.a = this.b;
+            kk6 kk6Var = new kk6();
+            this.a = kk6Var;
+            kk6Var.b = this.c;
+            kk6Var.a = this.b;
         }
     }
 
-    public final void D1() {
+    public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.e.k();
@@ -202,9 +202,9 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             this.f.j();
-            vf6 vf6Var = this.e;
-            if (vf6Var != null) {
-                vf6Var.i();
+            fh6 fh6Var = this.e;
+            if (fh6Var != null) {
+                fh6Var.i();
             }
         }
     }
@@ -215,7 +215,7 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
         if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !BdNetTypeUtil.isNetworkAvailableForImmediately()) {
             return;
         }
-        D1();
+        C1();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -223,16 +223,16 @@ public class ForumMemberActivity extends BaseActivity implements ey4.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            C1(bundle);
-            vf6 vf6Var = new vf6(this);
-            this.e = vf6Var;
-            vf6Var.j(this.h);
-            jf6 jf6Var = new jf6();
-            this.f = jf6Var;
-            jf6Var.E(getUniqueId());
+            B1(bundle);
+            fh6 fh6Var = new fh6(this);
+            this.e = fh6Var;
+            fh6Var.j(this.h);
+            tg6 tg6Var = new tg6();
+            this.f = tg6Var;
+            tg6Var.E(getUniqueId());
             this.f.init();
             this.f.w(this.g);
-            D1();
+            C1();
         }
     }
 }

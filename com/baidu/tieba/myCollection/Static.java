@@ -17,14 +17,15 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.message.HistoryMessage;
 import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tieba.gq7;
-import com.baidu.tieba.mq7;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.jp4;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.history.PbHistoryActivity;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
-import com.baidu.tieba.oq7;
-import com.baidu.tieba.qq7;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.pr7;
+import com.baidu.tieba.vr7;
+import com.baidu.tieba.xr7;
+import com.baidu.tieba.zr7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +39,7 @@ public class Static {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,12 +58,12 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((IntentConfig) customMessage.getData()).startActivity(CollectTabActivity.class);
+                    customMessage.getData().startActivity(CollectTabActivity.class);
                 }
                 return null;
             }
@@ -71,7 +72,7 @@ public class Static {
     }
 
     /* loaded from: classes5.dex */
-    public final class b extends CustomMessageListener {
+    public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,33 +98,33 @@ public class Static {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof HistoryMessage)) {
                 HistoryMessage historyMessage = (HistoryMessage) customResponsedMessage;
                 PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity);
-                oq7 oq7Var = new oq7();
-                oq7Var.J(historyMessage.threadId);
-                oq7Var.B(historyMessage.forumName);
-                oq7Var.K(historyMessage.threadName);
-                oq7Var.H(historyMessage.postID);
-                oq7Var.C(historyMessage.isHostOnly);
-                oq7Var.I(historyMessage.isSquence);
-                oq7Var.L(historyMessage.threadType);
-                oq7Var.w(historyMessage.cartoonId);
-                oq7Var.z(historyMessage.chapterId);
-                oq7Var.D(historyMessage.isShareThread);
-                oq7Var.G(historyMessage.isManga);
-                oq7Var.F(historyMessage.liveId);
-                oq7Var.M(historyMessage.userName);
-                oq7Var.A(historyMessage.description);
-                pbHistoryCacheModel.D(oq7Var);
+                xr7 xr7Var = new xr7();
+                xr7Var.J(historyMessage.threadId);
+                xr7Var.B(historyMessage.forumName);
+                xr7Var.K(historyMessage.threadName);
+                xr7Var.H(historyMessage.postID);
+                xr7Var.C(historyMessage.isHostOnly);
+                xr7Var.I(historyMessage.isSquence);
+                xr7Var.L(historyMessage.threadType);
+                xr7Var.w(historyMessage.cartoonId);
+                xr7Var.z(historyMessage.chapterId);
+                xr7Var.D(historyMessage.isShareThread);
+                xr7Var.G(historyMessage.isManga);
+                xr7Var.F(historyMessage.liveId);
+                xr7Var.M(historyMessage.userName);
+                xr7Var.A(historyMessage.description);
+                pbHistoryCacheModel.D(xr7Var);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public final class c implements CustomMessageTask.CustomRunnable {
+    public static class c implements CustomMessageTask.CustomRunnable<BaseActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -142,24 +143,24 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<jp4> run(CustomMessage<BaseActivity> customMessage) {
             InterceptResult invokeL;
-            mq7 mq7Var;
+            vr7 vr7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    mq7Var = new mq7((BaseActivity) customMessage.getData());
+                    vr7Var = new vr7(customMessage.getData());
                 } else {
-                    mq7Var = null;
+                    vr7Var = null;
                 }
-                return new CustomResponsedMessage(2001279, mq7Var);
+                return new CustomResponsedMessage<>(2001279, vr7Var);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public final class d implements CustomMessageTask.CustomRunnable {
+    public static class d implements CustomMessageTask.CustomRunnable<BaseFragmentActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -178,24 +179,24 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<jp4> run(CustomMessage<BaseFragmentActivity> customMessage) {
             InterceptResult invokeL;
-            mq7 mq7Var;
+            vr7 vr7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    mq7Var = new mq7((BaseFragmentActivity) customMessage.getData());
+                    vr7Var = new vr7(customMessage.getData());
                 } else {
-                    mq7Var = null;
+                    vr7Var = null;
                 }
-                return new CustomResponsedMessage(2921318, mq7Var);
+                return new CustomResponsedMessage<>(2921318, vr7Var);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public final class e extends CustomMessageListener {
+    public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -221,22 +222,22 @@ public class Static {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
-                if (((Boolean) ((BackgroundSwitchMessage) customResponsedMessage).getData()).booleanValue()) {
-                    qq7.d().c();
+                if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                    zr7.d().c();
                 } else if (TbadkCoreApplication.isLogin()) {
-                    qq7.d().f();
+                    zr7.d().f();
                 } else {
-                    qq7.d().c();
+                    zr7.d().c();
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public final class f extends CustomMessageListener {
+    public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -262,20 +263,20 @@ public class Static {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (TbadkCoreApplication.isLogin()) {
-                    qq7.d().e();
+                    zr7.d().e();
                 } else {
-                    qq7.d().c();
+                    zr7.d().c();
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public final class g extends CustomMessageListener {
+    public static class g extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -301,11 +302,11 @@ public class Static {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                gq7.b().d();
-                gq7.b().e(true);
+                pr7.b().d();
+                pr7.b().e(true);
             }
         }
     }
@@ -341,7 +342,7 @@ public class Static {
         MessageManager.getInstance().registerListener(new e(2001011));
         MessageManager.getInstance().registerListener(new f(2005016));
         MessageManager.getInstance().registerListener(new g(2001120));
-        zm8.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
+        io8.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
     }
 
     public Static() {

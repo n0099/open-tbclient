@@ -1,30 +1,31 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class lh5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public abstract class lh5 implements oh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public abstract void a();
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public lh5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = a;
-            if (j > currentTimeMillis) {
-                a = currentTimeMillis;
-                return false;
-            } else if (currentTimeMillis - j < 500) {
-                return true;
-            } else {
-                a = currentTimeMillis;
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeV.booleanValue;
     }
 }

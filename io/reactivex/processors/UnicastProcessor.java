@@ -9,6 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -22,23 +24,23 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class UnicastProcessor extends FlowableProcessor {
+public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference actual;
+    public final AtomicReference<Subscriber<? super T>> actual;
     public volatile boolean cancelled;
     public final boolean delayError;
     public volatile boolean done;
     public boolean enableOperatorFusion;
     public Throwable error;
-    public final AtomicReference onTerminate;
+    public final AtomicReference<Runnable> onTerminate;
     public final AtomicBoolean once;
-    public final SpscLinkedArrayQueue queue;
+    public final SpscLinkedArrayQueue<T> queue;
     public final AtomicLong requested;
-    public final BasicIntQueueSubscription wip;
+    public final BasicIntQueueSubscription<T> wip;
 
     /* loaded from: classes8.dex */
-    public final class UnicastQueueSubscription extends BasicIntQueueSubscription {
+    public final class UnicastQueueSubscription extends BasicIntQueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4896760517184205454L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,13 +121,14 @@ public final class UnicastProcessor extends FlowableProcessor {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() {
+        @Nullable
+        public T poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return this.this$0.queue.poll();
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
     }
 
@@ -150,10 +153,10 @@ public final class UnicastProcessor extends FlowableProcessor {
         }
     }
 
-    public void drainFused(Subscriber subscriber) {
+    public void drainFused(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, subscriber) == null) {
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
             int i = 1;
             boolean z = !this.delayError;
             while (!this.cancelled) {
@@ -222,30 +225,30 @@ public final class UnicastProcessor extends FlowableProcessor {
                 return;
             }
         }
-        this.queue = new SpscLinkedArrayQueue(ObjectHelper.verifyPositive(i, "capacityHint"));
-        this.onTerminate = new AtomicReference(runnable);
+        this.queue = new SpscLinkedArrayQueue<>(ObjectHelper.verifyPositive(i, "capacityHint"));
+        this.onTerminate = new AtomicReference<>(runnable);
         this.delayError = z;
-        this.actual = new AtomicReference();
+        this.actual = new AtomicReference<>();
         this.once = new AtomicBoolean();
         this.wip = new UnicastQueueSubscription(this);
         this.requested = new AtomicLong();
     }
 
     @CheckReturnValue
-    public static UnicastProcessor create() {
+    public static <T> UnicastProcessor<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new UnicastProcessor(Flowable.bufferSize());
+            return new UnicastProcessor<>(Flowable.bufferSize());
         }
         return (UnicastProcessor) invokeV.objValue;
     }
 
     public void doTerminate() {
-        Runnable runnable;
+        Runnable andSet;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (runnable = (Runnable) this.onTerminate.getAndSet(null)) != null) {
-            runnable.run();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (andSet = this.onTerminate.getAndSet(null)) != null) {
+            andSet.run();
         }
     }
 
@@ -312,11 +315,11 @@ public final class UnicastProcessor extends FlowableProcessor {
     }
 
     @CheckReturnValue
-    public static UnicastProcessor create(int i) {
+    public static <T> UnicastProcessor<T> create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return new UnicastProcessor(i);
+            return new UnicastProcessor<>(i);
         }
         return (UnicastProcessor) invokeI.objValue;
     }
@@ -338,12 +341,12 @@ public final class UnicastProcessor extends FlowableProcessor {
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, obj) == null) {
-            ObjectHelper.requireNonNull(obj, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (interceptable == null || interceptable.invokeL(1048587, this, t) == null) {
+            ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (!this.done && !this.cancelled) {
-                this.queue.offer(obj);
+                this.queue.offer(t);
                 drain();
             }
         }
@@ -362,38 +365,40 @@ public final class UnicastProcessor extends FlowableProcessor {
     }
 
     @CheckReturnValue
-    public static UnicastProcessor create(int i, Runnable runnable) {
+    public static <T> UnicastProcessor<T> create(int i, Runnable runnable) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, runnable)) == null) {
             ObjectHelper.requireNonNull(runnable, "onTerminate");
-            return new UnicastProcessor(i, runnable);
+            return new UnicastProcessor<>(i, runnable);
         }
         return (UnicastProcessor) invokeIL.objValue;
     }
 
     @CheckReturnValue
-    public static UnicastProcessor create(int i, Runnable runnable, boolean z) {
+    @Experimental
+    public static <T> UnicastProcessor<T> create(int i, Runnable runnable, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), runnable, Boolean.valueOf(z)})) == null) {
             ObjectHelper.requireNonNull(runnable, "onTerminate");
-            return new UnicastProcessor(i, runnable, z);
+            return new UnicastProcessor<>(i, runnable, z);
         }
         return (UnicastProcessor) invokeCommon.objValue;
     }
 
     @CheckReturnValue
-    public static UnicastProcessor create(boolean z) {
+    @Experimental
+    public static <T> UnicastProcessor<T> create(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) {
-            return new UnicastProcessor(Flowable.bufferSize(), null, z);
+            return new UnicastProcessor<>(Flowable.bufferSize(), null, z);
         }
         return (UnicastProcessor) invokeZ.objValue;
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, boolean z3, Subscriber subscriber, SpscLinkedArrayQueue spscLinkedArrayQueue) {
+    public boolean checkTerminated(boolean z, boolean z2, boolean z3, Subscriber<? super T> subscriber, SpscLinkedArrayQueue<T> spscLinkedArrayQueue) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), subscriber, spscLinkedArrayQueue})) == null) {
@@ -432,13 +437,13 @@ public final class UnicastProcessor extends FlowableProcessor {
             return;
         }
         int i = 1;
-        Subscriber subscriber = (Subscriber) this.actual.get();
+        Subscriber<? super T> subscriber = this.actual.get();
         while (subscriber == null) {
             i = this.wip.addAndGet(-i);
             if (i == 0) {
                 return;
             }
-            subscriber = (Subscriber) this.actual.get();
+            subscriber = this.actual.get();
         }
         if (this.enableOperatorFusion) {
             drainFused(subscriber);
@@ -447,13 +452,13 @@ public final class UnicastProcessor extends FlowableProcessor {
         }
     }
 
-    public void drainRegular(Subscriber subscriber) {
+    public void drainRegular(Subscriber<? super T> subscriber) {
         int i;
         long j;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, subscriber) == null) {
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
             boolean z2 = !this.delayError;
             int i2 = 1;
             while (true) {
@@ -463,7 +468,7 @@ public final class UnicastProcessor extends FlowableProcessor {
                     i = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
                     if (i != 0) {
                         boolean z3 = this.done;
-                        Object poll = spscLinkedArrayQueue.poll();
+                        T poll = spscLinkedArrayQueue.poll();
                         if (poll == null) {
                             z = true;
                         } else {
@@ -498,7 +503,7 @@ public final class UnicastProcessor extends FlowableProcessor {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, subscriber) == null) {
             if (!this.once.get() && this.once.compareAndSet(false, true)) {

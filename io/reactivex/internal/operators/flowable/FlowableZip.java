@@ -26,30 +26,30 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableZip extends Flowable {
+public final class FlowableZip<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
     public final boolean delayError;
-    public final Publisher[] sources;
-    public final Iterable sourcesIterable;
-    public final Function zipper;
+    public final Publisher<? extends T>[] sources;
+    public final Iterable<? extends Publisher<? extends T>> sourcesIterable;
+    public final Function<? super Object[], ? extends R> zipper;
 
     /* loaded from: classes8.dex */
-    public final class ZipCoordinator extends AtomicInteger implements Subscription {
+    public static final class ZipCoordinator<T, R> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2434867452883857743L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super R> actual;
         public volatile boolean cancelled;
         public final Object[] current;
         public final boolean delayErrors;
         public final AtomicThrowable errors;
         public final AtomicLong requested;
-        public final ZipSubscriber[] subscribers;
-        public final Function zipper;
+        public final ZipSubscriber<T, R>[] subscribers;
+        public final Function<? super Object[], ? extends R> zipper;
 
-        public ZipCoordinator(Subscriber subscriber, Function function, int i, int i2, boolean z) {
+        public ZipCoordinator(Subscriber<? super R> subscriber, Function<? super Object[], ? extends R> function, int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,9 +67,9 @@ public final class FlowableZip extends Flowable {
             this.actual = subscriber;
             this.zipper = function;
             this.delayErrors = z;
-            ZipSubscriber[] zipSubscriberArr = new ZipSubscriber[i];
+            ZipSubscriber<T, R>[] zipSubscriberArr = new ZipSubscriber[i];
             for (int i5 = 0; i5 < i; i5++) {
-                zipSubscriberArr[i5] = new ZipSubscriber(this, i2);
+                zipSubscriberArr[i5] = new ZipSubscriber<>(this, i2);
             }
             this.current = new Object[i];
             this.subscribers = zipSubscriberArr;
@@ -89,7 +89,7 @@ public final class FlowableZip extends Flowable {
         public void cancelAll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (ZipSubscriber zipSubscriber : this.subscribers) {
+                for (ZipSubscriber<T, R> zipSubscriber : this.subscribers) {
                     zipSubscriber.cancel();
                 }
             }
@@ -167,7 +167,7 @@ public final class FlowableZip extends Flowable {
             cancelAll();
          */
         /* JADX WARN: Code restructure failed: missing block: B:79:0x011a, code lost:
-            if (((java.lang.Throwable) r18.errors.get()) == null) goto L91;
+            if (r18.errors.get() == null) goto L91;
          */
         /* JADX WARN: Code restructure failed: missing block: B:80:0x011c, code lost:
             r2.onError(r18.errors.terminate());
@@ -229,14 +229,14 @@ public final class FlowableZip extends Flowable {
         */
         public void drain() {
             boolean z;
-            Object obj;
+            T t;
             boolean z2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Subscriber subscriber = this.actual;
-            ZipSubscriber[] zipSubscriberArr = this.subscribers;
+            Subscriber<? super R> subscriber = this.actual;
+            ZipSubscriber<T, R>[] zipSubscriberArr = this.subscribers;
             int length = zipSubscriberArr.length;
             Object[] objArr = this.current;
             int i = 1;
@@ -257,17 +257,17 @@ public final class FlowableZip extends Flowable {
                         }
                         boolean z3 = false;
                         for (int i3 = 0; i3 < length; i3++) {
-                            ZipSubscriber zipSubscriber = zipSubscriberArr[i3];
+                            ZipSubscriber<T, R> zipSubscriber = zipSubscriberArr[i3];
                             if (objArr[i3] == null) {
                                 try {
                                     z = zipSubscriber.done;
-                                    SimpleQueue simpleQueue = zipSubscriber.queue;
+                                    SimpleQueue<T> simpleQueue = zipSubscriber.queue;
                                     if (simpleQueue != null) {
-                                        obj = simpleQueue.poll();
+                                        t = simpleQueue.poll();
                                     } else {
-                                        obj = null;
+                                        t = null;
                                     }
-                                    if (obj == null) {
+                                    if (t == null) {
                                         z2 = true;
                                     } else {
                                         z2 = false;
@@ -283,7 +283,7 @@ public final class FlowableZip extends Flowable {
                                 }
                                 if (z && z2) {
                                     cancelAll();
-                                    if (((Throwable) this.errors.get()) != null) {
+                                    if (this.errors.get() != null) {
                                         subscriber.onError(this.errors.terminate());
                                         return;
                                     } else {
@@ -292,7 +292,7 @@ public final class FlowableZip extends Flowable {
                                     }
                                 }
                                 if (!z2) {
-                                    objArr[i3] = obj;
+                                    objArr[i3] = t;
                                 }
                                 z3 = true;
                             }
@@ -301,7 +301,7 @@ public final class FlowableZip extends Flowable {
                             break;
                         }
                         try {
-                            subscriber.onNext(ObjectHelper.requireNonNull(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
+                            subscriber.onNext((Object) ObjectHelper.requireNonNull(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
                             j2++;
                             Arrays.fill(objArr, (Object) null);
                         } catch (Throwable th2) {
@@ -316,7 +316,7 @@ public final class FlowableZip extends Flowable {
             } while (i != 0);
         }
 
-        public void error(ZipSubscriber zipSubscriber, Throwable th) {
+        public void error(ZipSubscriber<T, R> zipSubscriber, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, zipSubscriber, th) == null) {
                 if (this.errors.addThrowable(th)) {
@@ -328,10 +328,10 @@ public final class FlowableZip extends Flowable {
             }
         }
 
-        public void subscribe(Publisher[] publisherArr, int i) {
+        public void subscribe(Publisher<? extends T>[] publisherArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, publisherArr, i) == null) {
-                ZipSubscriber[] zipSubscriberArr = this.subscribers;
+                ZipSubscriber<T, R>[] zipSubscriberArr = this.subscribers;
                 for (int i2 = 0; i2 < i && !this.cancelled; i2++) {
                     if (this.delayErrors || this.errors.get() == null) {
                         publisherArr[i2].subscribe(zipSubscriberArr[i2]);
@@ -353,19 +353,19 @@ public final class FlowableZip extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class ZipSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
+    public static final class ZipSubscriber<T, R> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4627193790118206028L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public final int limit;
-        public final ZipCoordinator parent;
+        public final ZipCoordinator<T, R> parent;
         public final int prefetch;
         public long produced;
-        public SimpleQueue queue;
+        public SimpleQueue<T> queue;
         public int sourceMode;
 
-        public ZipSubscriber(ZipCoordinator zipCoordinator, int i) {
+        public ZipSubscriber(ZipCoordinator<T, R> zipCoordinator, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -411,11 +411,11 @@ public final class FlowableZip extends Flowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 if (this.sourceMode != 2) {
-                    this.queue.offer(obj);
+                    this.queue.offer(t);
                 }
                 this.parent.drain();
             }
@@ -428,7 +428,7 @@ public final class FlowableZip extends Flowable {
                 long j2 = this.produced + j;
                 if (j2 >= this.limit) {
                     this.produced = 0L;
-                    ((Subscription) get()).request(j2);
+                    get().request(j2);
                     return;
                 }
                 this.produced = j2;
@@ -461,7 +461,7 @@ public final class FlowableZip extends Flowable {
         }
     }
 
-    public FlowableZip(Publisher[] publisherArr, Iterable iterable, Function function, int i, boolean z) {
+    public FlowableZip(Publisher<? extends T>[] publisherArr, Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -484,17 +484,17 @@ public final class FlowableZip extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            Publisher[] publisherArr = this.sources;
+            Publisher<? extends T>[] publisherArr = this.sources;
             if (publisherArr == null) {
                 publisherArr = new Publisher[8];
                 length = 0;
-                for (Publisher publisher : this.sourcesIterable) {
+                for (Publisher<? extends T> publisher : this.sourcesIterable) {
                     if (length == publisherArr.length) {
-                        Publisher[] publisherArr2 = new Publisher[(length >> 2) + length];
+                        Publisher<? extends T>[] publisherArr2 = new Publisher[(length >> 2) + length];
                         System.arraycopy(publisherArr, 0, publisherArr2, 0, length);
                         publisherArr = publisherArr2;
                     }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.eo;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class GroupInfoData extends AbstractImageProvider implements eo, Serializable, PreLoadImageProvider {
+public class GroupInfoData extends AbstractImageProvider implements wn, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_FRS_GROUP;
     public static final long serialVersionUID = 5616188082014345808L;
@@ -152,11 +152,11 @@ public class GroupInfoData extends AbstractImageProvider implements eo, Serializ
     }
 
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList getImages() {
+    public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
             PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
             preLoadImageInfo.imgUrl = this.portrait;
             preLoadImageInfo.procType = 10;
@@ -223,7 +223,7 @@ public class GroupInfoData extends AbstractImageProvider implements eo, Serializ
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.eo
+    @Override // com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

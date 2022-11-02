@@ -21,7 +21,6 @@ import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.ToastService;
 import com.baidu.searchbox.live.interfaces.yy.YYStatInfo;
 import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
-import com.baidu.searchbox.live.list.MixLiveActivity;
 import com.baidu.searchbox.live.list.MixLiveTranslucentActivity;
 import com.baidu.searchbox.live.nps.LiveYYPluginManager;
 import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
@@ -65,7 +64,7 @@ public final class LiveMixShellManager {
     public static Flow audioFlow;
     public static Flow audioRtcFlow;
     public static boolean isColdLaunch;
-    public static HashMap mLaunchInfo;
+    public static HashMap<String, Object> mLaunchInfo;
     public static String mRoomId;
     public static Flow pageFlow;
     public static final LivePreStartPlayerService preStartService;
@@ -485,7 +484,7 @@ public final class LiveMixShellManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void logPluginFlowEnd(YYStatInfo yYStatInfo, boolean z) {
-        HashMap hashMap;
+        HashMap<String, Object> hashMap;
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65556, this, yYStatInfo, z) == null) && (hashMap = mLaunchInfo) != null && yYStatInfo != null) {
@@ -549,16 +548,16 @@ public final class LiveMixShellManager {
         }
     }
 
-    private final Map parseYYLiveParamMap(String str) {
+    private final Map<String, String> parseYYLiveParamMap(String str) {
         InterceptResult invokeL;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, str)) == null) {
             HashMap hashMap = new HashMap();
-            Map stringToMap = MixUriUtilKt.stringToMap(MixUriUtilKt.getParamsStr(str));
+            Map<String, String> stringToMap = MixUriUtilKt.stringToMap(MixUriUtilKt.getParamsStr(str));
             if (stringToMap.containsKey("params")) {
                 try {
-                    String str2 = (String) stringToMap.get("params");
+                    String str2 = stringToMap.get("params");
                     if (str2 != null) {
                         jSONObject = new JSONObject(str2);
                     } else {
@@ -570,11 +569,11 @@ public final class LiveMixShellManager {
                 }
             }
             if (stringToMap != null) {
-                String str3 = (String) stringToMap.get("sid");
-                String str4 = (String) stringToMap.get(YyLiveRoomConfig.KEY_SSID);
-                String str5 = (String) stringToMap.get("anchorUid");
-                String str6 = (String) stringToMap.get("templateId");
-                String str7 = (String) stringToMap.get(YyLiveRoomConfig.KEY_STREAMINFO);
+                String str3 = stringToMap.get("sid");
+                String str4 = stringToMap.get(YyLiveRoomConfig.KEY_SSID);
+                String str5 = stringToMap.get("anchorUid");
+                String str6 = stringToMap.get("templateId");
+                String str7 = stringToMap.get(YyLiveRoomConfig.KEY_STREAMINFO);
                 if (StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "isMix=1", false, 2, (Object) null)) {
                     hashMap.put("PreJoinChannelType", "mix");
                 } else {
@@ -684,7 +683,7 @@ public final class LiveMixShellManager {
         YYStatInfo yYStatInfo;
         Boolean bool3;
         boolean z6;
-        Class cls;
+        Class<MixLiveTranslucentActivity> cls;
         Uri uri2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65560, this, new Object[]{context, str, str2, str3, uri, bool, Boolean.valueOf(z)}) == null) {
@@ -787,7 +786,7 @@ public final class LiveMixShellManager {
                     z6 = false;
                 }
                 if (z6 && !z3) {
-                    cls = MixLiveActivity.class;
+                    cls = MixLiveTranslucentActivity.class;
                 } else {
                     cls = MixLiveTranslucentActivity.class;
                 }
@@ -949,9 +948,9 @@ public final class LiveMixShellManager {
             }
             if (z) {
                 if (YYStaticConfig.conf == null) {
-                    YYStaticConfig.conf = new HashMap();
+                    YYStaticConfig.conf = new HashMap<>();
                 }
-                HashMap hashMap2 = YYStaticConfig.conf;
+                HashMap<String, Object> hashMap2 = YYStaticConfig.conf;
                 Intrinsics.checkExpressionValueIsNotNull(hashMap2, "YYStaticConfig.conf");
                 hashMap2.put("hostJoinLivePluginFromStatus", "direct");
             }
@@ -993,14 +992,14 @@ public final class LiveMixShellManager {
     }
 
     public final void startYYLiveActivity(Context context, String str) {
-        Map map;
+        Map<String, String> map;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.dLog("LiveMixShellManager startYYLiveActivity " + str);
-            Map stringToMap = MixUriUtilKt.stringToMap(MixUriUtilKt.getParamsStr(str));
-            String str2 = (String) stringToMap.get("params");
+            Map<String, String> stringToMap = MixUriUtilKt.stringToMap(MixUriUtilKt.getParamsStr(str));
+            String str2 = stringToMap.get("params");
             if (str2 != null) {
                 try {
                     map = MixUriUtilKt.paramsJsonToMap(new JSONObject(str2));
@@ -1020,9 +1019,9 @@ public final class LiveMixShellManager {
             }
             z = (i == 0 || i >= 500500000) ? true : true;
             if (stringToMap.containsKey("isMix") && z) {
-                if (Intrinsics.areEqual("1", (String) stringToMap.get("isMix"))) {
-                    String str3 = (String) stringToMap.get(ILiveNPSPlugin.PARAMS_ROOM_ID);
-                    String str4 = (String) stringToMap.get("source");
+                if (Intrinsics.areEqual("1", stringToMap.get("isMix"))) {
+                    String str3 = stringToMap.get(ILiveNPSPlugin.PARAMS_ROOM_ID);
+                    String str4 = stringToMap.get("source");
                     if (!stringToMap.containsKey("roomType")) {
                         stringToMap.put("roomType", "3");
                     }
@@ -1030,9 +1029,9 @@ public final class LiveMixShellManager {
                     NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.getInstance();
                     npsLoadChainLog2.dLog("LiveMixShellManager startYYLiveActivity  enterLiveRoom roomId " + str3 + " source " + str4 + " params " + bundleToJsonStr);
                     if (YYStaticConfig.conf == null) {
-                        YYStaticConfig.conf = new HashMap();
+                        YYStaticConfig.conf = new HashMap<>();
                     }
-                    HashMap hashMap = YYStaticConfig.conf;
+                    HashMap<String, Object> hashMap = YYStaticConfig.conf;
                     Intrinsics.checkExpressionValueIsNotNull(hashMap, "YYStaticConfig.conf");
                     hashMap.put("hostJoinLiveBegin", Long.valueOf(System.currentTimeMillis()));
                     enterLiveRoom$default(this, context, str3, str4, bundleToJsonStr, Uri.parse(str), true, false, 64, null);

@@ -6,122 +6,117 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
 import com.fun.ad.sdk.internal.api.PidLoader;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
 public class sp9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigKs a;
 
-    public sp9(ModuleConfigKs moduleConfigKs) {
+    public sp9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = moduleConfigKs;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
-        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
-     */
     @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public PidLoader create(Ssp.Pid pid) {
         InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            char c = 0;
-            try {
-                Long.parseLong(pid.pid);
-                String str = pid.type;
-                str.hashCode();
-                switch (str.hashCode()) {
-                    case -1377301807:
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1303381232:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
+                        c = 0;
                         break;
-                    case -1291455752:
-                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
+                    }
+                    c = 65535;
+                    break;
+                case -942661506:
+                    if (str.equals(FunAdType.GDT_SPLASH)) {
+                        c = 1;
                         break;
-                    case -1187931233:
-                        if (str.equals(FunAdType.KS_NATIVE)) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
+                    }
+                    c = 65535;
+                    break;
+                case -596233886:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
+                        c = 2;
                         break;
-                    case -1106926588:
-                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
+                    }
+                    c = 65535;
+                    break;
+                case 114133351:
+                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
+                        c = 3;
                         break;
-                    case -1031178769:
-                        if (str.equals(FunAdType.KS_SPLASH)) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
+                    }
+                    c = 65535;
+                    break;
+                case 125016359:
+                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
+                        c = 4;
                         break;
-                    case 1860126748:
-                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
+                    }
+                    c = 65535;
+                    break;
+                case 425812868:
+                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                        c = 5;
                         break;
-                    case 2017609999:
-                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
+                    }
+                    c = 65535;
+                    break;
+                case 543046357:
+                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
+                        c = 6;
                         break;
-                    default:
-                        c = 65535;
+                    }
+                    c = 65535;
+                    break;
+                case 1990506825:
+                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
+                        c = 7;
                         break;
-                }
-                switch (c) {
-                    case 0:
-                        return new cq9(pid);
-                    case 1:
-                        return new yp9(pid, this.a);
-                    case 2:
-                        return new eq9(pid);
-                    case 3:
-                        return new hq9(pid, this.a);
-                    case 4:
-                        return new jq9(pid);
-                    case 5:
-                        return new aq9(pid, this.a);
-                    case 6:
-                        return new vp9(pid);
-                    default:
-                        return null;
-                }
-            } catch (NumberFormatException unused) {
-                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
-                return null;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return new xp9(pid);
+                case 1:
+                    return new gq9(pid);
+                case 2:
+                    return new aq9(pid);
+                case 3:
+                    return new hq9(pid);
+                case 4:
+                    return new iq9(pid);
+                case 5:
+                    return new cq9(pid);
+                case 6:
+                    return new fq9(pid);
+                case 7:
+                    return new wp9(pid);
+                default:
+                    return null;
             }
         }
         return (PidLoader) invokeL.objValue;

@@ -59,14 +59,14 @@ public class FLog {
         return invokeV.intValue;
     }
 
-    public static void d(Class cls, String str) {
+    public static void d(Class<?> cls, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, cls, str) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), str);
         }
     }
 
-    public static void e(Class cls, String str) {
+    public static void e(Class<?> cls, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65554, null, cls, str) == null) && sHandler.isLoggable(6)) {
             sHandler.e(getTag(cls), str);
@@ -82,196 +82,196 @@ public class FLog {
         return (String) invokeLL.objValue;
     }
 
-    public static void i(Class cls, String str) {
+    public static void i(Class<?> cls, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65565, null, cls, str) == null) && sHandler.isLoggable(4)) {
             sHandler.i(getTag(cls), str);
         }
     }
 
-    public static void v(Class cls, String str) {
+    public static void v(Class<?> cls, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65584, null, cls, str) == null) && sHandler.isLoggable(2)) {
             sHandler.v(getTag(cls), str);
         }
     }
 
-    public static void w(Class cls, String str) {
+    public static void w(Class<?> cls, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65600, null, cls, str) == null) && sHandler.isLoggable(5)) {
             sHandler.w(getTag(cls), str);
         }
     }
 
-    public static void wtf(Class cls, String str) {
+    public static void wtf(Class<?> cls, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65608, null, cls, str) == null) && sHandler.isLoggable(6)) {
             sHandler.wtf(getTag(cls), str);
         }
     }
 
-    public static void d(Class cls, String str, Object obj) {
+    public static void d(Class<?> cls, String str, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65539, null, cls, str, obj) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), formatString(str, obj));
         }
     }
 
-    public static void e(Class cls, String str, Throwable th) {
+    public static void e(Class<?> cls, String str, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65555, null, cls, str, th) == null) && sHandler.isLoggable(6)) {
             sHandler.e(getTag(cls), str, th);
         }
     }
 
-    public static void i(Class cls, String str, Object obj) {
+    public static void i(Class<?> cls, String str, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65566, null, cls, str, obj) == null) && sHandler.isLoggable(4)) {
             sHandler.i(getTag(cls), formatString(str, obj));
         }
     }
 
-    public static void v(Class cls, String str, Object obj) {
+    public static void v(Class<?> cls, String str, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65585, null, cls, str, obj) == null) && sHandler.isLoggable(2)) {
             sHandler.v(getTag(cls), formatString(str, obj));
         }
     }
 
-    public static void w(Class cls, String str, Throwable th) {
+    public static void w(Class<?> cls, String str, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65601, null, cls, str, th) == null) && sHandler.isLoggable(5)) {
             sHandler.w(getTag(cls), str, th);
         }
     }
 
-    public static void wtf(Class cls, String str, Throwable th) {
+    public static void wtf(Class<?> cls, String str, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65609, null, cls, str, th) == null) && sHandler.isLoggable(6)) {
             sHandler.wtf(getTag(cls), str, th);
         }
     }
 
-    public static void d(Class cls, String str, Object obj, Object obj2) {
+    public static void d(Class<?> cls, String str, Object obj, Object obj2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, obj, obj2) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), formatString(str, obj, obj2));
         }
     }
 
-    public static void e(Class cls, Throwable th, String str, Object... objArr) {
+    public static void e(Class<?> cls, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65557, null, cls, th, str, objArr) == null) && sHandler.isLoggable(6)) {
             sHandler.e(getTag(cls), formatString(str, objArr), th);
         }
     }
 
-    public static void i(Class cls, String str, Object obj, Object obj2) {
+    public static void i(Class<?> cls, String str, Object obj, Object obj2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65567, null, cls, str, obj, obj2) == null) && sHandler.isLoggable(4)) {
             sHandler.i(getTag(cls), formatString(str, obj, obj2));
         }
     }
 
-    public static void v(Class cls, String str, Object obj, Object obj2) {
+    public static void v(Class<?> cls, String str, Object obj, Object obj2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65586, null, cls, str, obj, obj2) == null) && sHandler.isLoggable(2)) {
             sHandler.v(getTag(cls), formatString(str, obj, obj2));
         }
     }
 
-    public static void w(Class cls, Throwable th, String str, Object... objArr) {
+    public static void w(Class<?> cls, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65603, null, cls, th, str, objArr) == null) && isLoggable(5)) {
             w(cls, formatString(str, objArr), th);
         }
     }
 
-    public static void wtf(Class cls, Throwable th, String str, Object... objArr) {
+    public static void wtf(Class<?> cls, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65611, null, cls, th, str, objArr) == null) && sHandler.isLoggable(6)) {
             sHandler.wtf(getTag(cls), formatString(str, objArr), th);
         }
     }
 
-    public static void d(Class cls, String str, Object obj, Object obj2, Object obj3) {
+    public static void d(Class<?> cls, String str, Object obj, Object obj2, Object obj3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLLL(65541, null, cls, str, obj, obj2, obj3) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), formatString(str, obj, obj2, obj3));
         }
     }
 
-    public static void i(Class cls, String str, Object obj, Object obj2, Object obj3) {
+    public static void i(Class<?> cls, String str, Object obj, Object obj2, Object obj3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLLL(65568, null, cls, str, obj, obj2, obj3) == null) && sHandler.isLoggable(4)) {
             sHandler.i(getTag(cls), formatString(str, obj, obj2, obj3));
         }
     }
 
-    public static void d(Class cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
+    public static void d(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{cls, str, obj, obj2, obj3, obj4}) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), formatString(str, obj, obj2, obj3, obj4));
         }
     }
 
-    public static void i(Class cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
+    public static void i(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65569, null, new Object[]{cls, str, obj, obj2, obj3, obj4}) == null) && sHandler.isLoggable(4)) {
             sHandler.i(getTag(cls), formatString(str, obj, obj2, obj3, obj4));
         }
     }
 
-    public static void v(Class cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
+    public static void v(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65588, null, new Object[]{cls, str, obj, obj2, obj3, obj4}) == null) && sHandler.isLoggable(2)) {
             sHandler.v(getTag(cls), formatString(str, obj, obj2, obj3, obj4));
         }
     }
 
-    public static void d(Class cls, String str, Throwable th) {
+    public static void d(Class<?> cls, String str, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65543, null, cls, str, th) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), str, th);
         }
     }
 
-    public static void e(Class cls, String str, Object... objArr) {
+    public static void e(Class<?> cls, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65556, null, cls, str, objArr) == null) && sHandler.isLoggable(6)) {
             sHandler.e(getTag(cls), formatString(str, objArr));
         }
     }
 
-    public static void i(Class cls, String str, Throwable th) {
+    public static void i(Class<?> cls, String str, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65570, null, cls, str, th) == null) && sHandler.isLoggable(4)) {
             sHandler.i(getTag(cls), str, th);
         }
     }
 
-    public static void v(Class cls, String str, Throwable th) {
+    public static void v(Class<?> cls, String str, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65589, null, cls, str, th) == null) && sHandler.isLoggable(2)) {
             sHandler.v(getTag(cls), str, th);
         }
     }
 
-    public static void w(Class cls, String str, Object... objArr) {
+    public static void w(Class<?> cls, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65602, null, cls, str, objArr) == null) && sHandler.isLoggable(5)) {
             sHandler.w(getTag(cls), formatString(str, objArr));
         }
     }
 
-    public static void wtf(Class cls, String str, Object... objArr) {
+    public static void wtf(Class<?> cls, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65610, null, cls, str, objArr) == null) && sHandler.isLoggable(6)) {
             sHandler.wtf(getTag(cls), formatString(str, objArr));
         }
     }
 
-    public static void d(Class cls, String str, Object... objArr) {
+    public static void d(Class<?> cls, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65544, null, cls, str, objArr) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), formatString(str, objArr));
@@ -285,14 +285,14 @@ public class FLog {
         }
     }
 
-    public static void i(Class cls, String str, Object... objArr) {
+    public static void i(Class<?> cls, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65571, null, cls, str, objArr) == null) && sHandler.isLoggable(4)) {
             sHandler.i(getTag(cls), formatString(str, objArr));
         }
     }
 
-    public static void v(Class cls, String str, Object... objArr) {
+    public static void v(Class<?> cls, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65590, null, cls, str, objArr) == null) && sHandler.isLoggable(2)) {
             sHandler.v(getTag(cls), formatString(str, objArr));
@@ -313,7 +313,7 @@ public class FLog {
         }
     }
 
-    public static void d(Class cls, Throwable th, String str, Object... objArr) {
+    public static void d(Class<?> cls, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65545, null, cls, th, str, objArr) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), formatString(str, objArr), th);
@@ -327,14 +327,14 @@ public class FLog {
         }
     }
 
-    public static void i(Class cls, Throwable th, String str, Object... objArr) {
+    public static void i(Class<?> cls, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65572, null, cls, th, str, objArr) == null) && isLoggable(4)) {
             sHandler.i(getTag(cls), formatString(str, objArr), th);
         }
     }
 
-    public static void v(Class cls, Throwable th, String str, Object... objArr) {
+    public static void v(Class<?> cls, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(65591, null, cls, th, str, objArr) == null) && sHandler.isLoggable(2)) {
             sHandler.v(getTag(cls), formatString(str, objArr), th);
@@ -474,7 +474,7 @@ public class FLog {
         }
     }
 
-    public static void v(Class cls, String str, Object obj, Object obj2, Object obj3) {
+    public static void v(Class<?> cls, String str, Object obj, Object obj2, Object obj3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLLL(65587, null, cls, str, obj, obj2, obj3) == null) && isLoggable(2)) {
             v(cls, formatString(str, obj, obj2, obj3));
@@ -565,7 +565,7 @@ public class FLog {
         }
     }
 
-    public static String getTag(Class cls) {
+    public static String getTag(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, cls)) == null) {

@@ -1,110 +1,201 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.appcompat.widget.ActivityChooserModel;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.storage.swankv.SwanKV;
+import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class pc2 implements lc2 {
+public class pc2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
-    public final Pair[] b;
 
-    public pc2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948057162, "Lcom/baidu/tieba/pc2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948057162, "Lcom/baidu/tieba/pc2;");
                 return;
             }
         }
-        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
-        this.b = new Pair[]{new Pair("aiapp_", ""), new Pair("aiapp_setting_", ""), new Pair("", "_domain_config")};
+        a = ok1.a;
     }
 
-    @Override // com.baidu.tieba.lc2
-    public ArraySet a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static Set<String> a(int i, List<String> list) {
+        InterceptResult invokeIL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet arraySet = new ArraySet();
-            arraySet.addAll(d());
-            arraySet.addAll(c());
-            arraySet.addAll(b());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final ArraySet b() {
-        InterceptResult invokeV;
-        Pair[] pairArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            File file2 = new File(wj4.d());
-            ArraySet arraySet = new ArraySet();
-            for (Pair pair : this.b) {
-                arraySet.addAll(xb2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
-                arraySet.addAll(xb2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
-            }
-            m02.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final ArraySet c() {
-        InterceptResult invokeV;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            String d = wj4.d();
-            ArraySet arraySet = new ArraySet();
-            for (String str : this.a) {
-                String J = qj4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
-                if (!TextUtils.isEmpty(J)) {
-                    arraySet.add(J);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                HashSet hashSet = new HashSet();
+                for (d13 d13Var : f13.k().q()) {
+                    String appId = d13Var.getAppId();
+                    if (TextUtils.isEmpty(appId)) {
+                        appId = d13Var.N();
+                    }
+                    if (!d13Var.E() && !d13Var.Q()) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (d13Var.T() && z && list.contains(appId)) {
+                        u03 e = u03.e();
+                        w03 w03Var = new w03(i);
+                        w03Var.b(d13Var.b);
+                        e.h(w03Var);
+                        hashSet.add(appId);
+                        if (a) {
+                            Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                    }
                 }
-                String J2 = qj4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
-                if (!TextUtils.isEmpty(J2)) {
-                    arraySet.add(J2);
-                }
+                return hashSet;
             }
-            m02.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
-            return arraySet;
+            return null;
         }
-        return (ArraySet) invokeV.objValue;
+        return (Set) invokeIL.objValue;
     }
 
-    public final ArraySet d() {
-        InterceptResult invokeV;
+    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArraySet arraySet = new ArraySet();
-            String J = qj4.J(new File(dc3.e()));
-            if (!TextUtils.isEmpty(J)) {
-                arraySet.add(J);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
+            c(file, str, str2, set, z, null);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable no3<Pair<String, File>> no3Var) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), no3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+            for (File file2 : listFiles) {
+                String name = file2.getName();
+                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
+                    int length = name.length();
+                    int length2 = str.length();
+                    int length3 = str2.length();
+                    if (length >= length2 + length3) {
+                        String substring = name.substring(length2, length - length3);
+                        if (set == null) {
+                            set = Collections.emptySet();
+                        }
+                        if (!TextUtils.isEmpty(substring)) {
+                            if (z) {
+                                if (set.contains(substring)) {
+                                }
+                                if (a) {
+                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
+                                }
+                                if (no3Var == null) {
+                                    no3Var.run(Pair.create(str + substring, file2));
+                                } else {
+                                    ik4.L(file2);
+                                }
+                            } else {
+                                if (!set.contains(substring)) {
+                                }
+                                if (a) {
+                                }
+                                if (no3Var == null) {
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            m02.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
+        }
+    }
+
+    @Nullable
+    public static Set<String> d(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return a(106, list);
+            }
+            return null;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
+        InterceptResult invokeCommon;
+        File[] listFiles;
+        String J;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                for (File file2 : listFiles) {
+                    String name = file2.getName();
+                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
+                        int length = name.length();
+                        int length2 = str.length();
+                        int length3 = str2.length();
+                        if (length >= length2 + length3) {
+                            String substring = name.substring(length2, length - length3);
+                            if (set == null) {
+                                set = Collections.emptySet();
+                            }
+                            if (!TextUtils.isEmpty(substring)) {
+                                if (z) {
+                                    if (set.contains(substring)) {
+                                    }
+                                    J = ik4.J(file2);
+                                    if (a) {
+                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
+                                    }
+                                    if (TextUtils.isEmpty(J)) {
+                                        arraySet.add(J);
+                                    }
+                                } else {
+                                    if (!set.contains(substring)) {
+                                    }
+                                    J = ik4.J(file2);
+                                    if (a) {
+                                    }
+                                    if (TextUtils.isEmpty(J)) {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             return arraySet;
         }
-        return (ArraySet) invokeV.objValue;
+        return (ArraySet) invokeCommon.objValue;
     }
 }

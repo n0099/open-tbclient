@@ -1,29 +1,43 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class rj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public ImageView b;
-    public vj5 c;
-    public b d;
-    public final zg e;
+    @NonNull
+    public final Activity a;
+    @NonNull
+    public final ViewGroup b;
+    @NonNull
+    public int[] c;
+    @Nullable
+    public c d;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a();
+    public interface c {
+        void a(@NonNull MotionEvent motionEvent);
     }
 
     /* loaded from: classes5.dex */
-    public class a extends zg {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rj5 a;
@@ -46,34 +60,96 @@ public class rj5 {
             this.a = rj5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zg
-        public void onLoaded(pn pnVar, String str, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, pnVar, str, i) == null) {
-                super.onLoaded((a) pnVar, str, i);
-                if (!StringUtils.isNull(str) && this.a.c != null && this.a.c.isValid()) {
-                    if (str.equals(this.a.c.a())) {
-                        this.a.b.setImageDrawable(pnVar.j());
-                    }
-                    if (str.equals(this.a.c.d())) {
-                        this.a.a.setImageDrawable(pnVar.j());
-                    }
-                    this.a.c.b(str);
-                    if (this.a.c.e() && this.a.d != null) {
-                        this.a.d.a();
-                    }
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g();
             }
         }
     }
 
-    public rj5(ImageView imageView, ImageView imageView2) {
+    /* loaded from: classes5.dex */
+    public class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public List<Rect> a;
+        public final /* synthetic */ rj5 b;
+
+        public b(rj5 rj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = rj5Var;
+            this.a = new ArrayList();
+        }
+
+        @Override // android.view.View.OnTouchListener
+        @SuppressLint({"ClickableViewAccessibility"})
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                this.a.clear();
+                int[] iArr = new int[2];
+                int[] iArr2 = this.b.c;
+                int length = iArr2.length;
+                int i = 0;
+                while (true) {
+                    z = true;
+                    if (i >= length) {
+                        break;
+                    }
+                    View findViewById = this.b.a.findViewById(iArr2[i]);
+                    if (findViewById != null) {
+                        findViewById.getLocationOnScreen(iArr);
+                        this.a.add(new Rect(iArr[0], iArr[1], iArr[0] + findViewById.getWidth(), iArr[1] + findViewById.getHeight()));
+                    }
+                    i++;
+                }
+                if (motionEvent.getAction() == 0) {
+                    int rawX = (int) motionEvent.getRawX();
+                    int rawY = (int) motionEvent.getRawY();
+                    Iterator<Rect> it = this.a.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (it.next().contains(rawX, rawY)) {
+                                break;
+                            }
+                        } else {
+                            z = false;
+                            break;
+                        }
+                    }
+                    if (!z && this.b.d != null) {
+                        this.b.d.a(motionEvent);
+                    }
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public rj5(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imageView, imageView2};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,34 +159,55 @@ public class rj5 {
                 return;
             }
         }
-        this.e = new a(this);
-        this.a = imageView;
-        this.b = imageView2;
+        this.c = new int[0];
+        this.a = activity;
+        this.b = (ViewGroup) activity.findViewById(16908290);
     }
 
-    public void f(b bVar) {
+    public static rj5 f(@NonNull Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            return new rj5(activity);
         }
+        return (rj5) invokeL.objValue;
+    }
+
+    @NonNull
+    public rj5 h(@Nullable c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
+            this.d = cVar;
+            return this;
+        }
+        return (rj5) invokeL.objValue;
+    }
+
+    @NonNull
+    public rj5 i(@IdRes int... iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iArr)) == null) {
+            this.c = iArr;
+            return this;
+        }
+        return (rj5) invokeL.objValue;
     }
 
     public void e() {
-        vj5 vj5Var;
-        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (vj5Var = this.c) == null || !vj5Var.isValid() || !this.c.e() || (bVar = this.d) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.post(new a(this));
         }
-        bVar.a();
     }
 
-    public void g(vj5 vj5Var) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vj5Var) == null) && vj5Var != null && vj5Var.isValid()) {
-            this.c = vj5Var;
-            ah.h().m(this.c.a(), 10, this.e, null);
-            ah.h().m(this.c.d(), 10, this.e, null);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View view2 = new View(this.a);
+            view2.setOnTouchListener(new b(this));
+            this.b.addView(view2, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 }

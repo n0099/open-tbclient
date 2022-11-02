@@ -26,7 +26,7 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
     public DownloadConfig mConfig;
     public HttpConnectTask mConnectTask;
     public DownloadInfo mDownloadInfo;
-    public List mDownloadTasks;
+    public List<DownloadTask> mDownloadTasks;
     public Executor mExecutor;
     public Downloader.OnDownloaderDestroyedListener mListener;
     public DownloadRequest mRequest;
@@ -234,7 +234,7 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
         }
     }
 
-    private List getMultiThreadRecords(long j) {
+    private List<ThreadRecord> getMultiThreadRecords(long j) {
         InterceptResult invokeJ;
         long j2;
         Interceptable interceptable = $ic;

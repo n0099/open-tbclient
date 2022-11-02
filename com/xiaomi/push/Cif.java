@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.util.BitSet;
 /* renamed from: com.xiaomi.push.if  reason: invalid class name */
 /* loaded from: classes8.dex */
-public class Cif implements iu, Serializable, Cloneable {
+public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 

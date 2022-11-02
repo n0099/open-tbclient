@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice;
 
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +110,7 @@ public final class PushConstants {
                 }
                 return "Requests Are Too Frequent To Be Temporarily Rejected";
             }
-            return HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
+            return "Success";
         }
         return (String) invokeI.objValue;
     }

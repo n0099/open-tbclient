@@ -35,7 +35,7 @@ public interface HApi {
 
     void reportPushToken(String str);
 
-    void reportReg(String str, String str2, String str3, Map map);
+    void reportReg(String str, String str2, String str3, Map<String, String> map);
 
     void reportStatisticContent(String str, StatisContent statisContent);
 

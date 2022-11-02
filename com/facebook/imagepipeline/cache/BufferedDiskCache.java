@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class BufferedDiskCache {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final FileCache mFileCache;
     public final ImageCacheStatsTracker mImageCacheStatsTracker;
@@ -110,7 +110,7 @@ public class BufferedDiskCache {
         this.mStagingArea = StagingArea.getInstance();
     }
 
-    private j0 foundPinnedImage(CacheKey cacheKey, EncodedImage encodedImage) {
+    private j0<EncodedImage> foundPinnedImage(CacheKey cacheKey, EncodedImage encodedImage) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, cacheKey, encodedImage)) == null) {
@@ -129,7 +129,7 @@ public class BufferedDiskCache {
         }
     }
 
-    public j0 contains(CacheKey cacheKey) {
+    public j0<Boolean> contains(CacheKey cacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cacheKey)) == null) {
@@ -188,12 +188,12 @@ public class BufferedDiskCache {
         return invokeL.booleanValue;
     }
 
-    private j0 containsAsync(CacheKey cacheKey) {
+    private j0<Boolean> containsAsync(CacheKey cacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, cacheKey)) == null) {
             try {
-                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_containsAsync"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.1
+                return j0.call(new Callable<Boolean>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_containsAsync"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedDiskCache this$0;
@@ -222,6 +222,7 @@ public class BufferedDiskCache {
 
                     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // java.util.concurrent.Callable
                     public Boolean call() throws Exception {
                         InterceptResult invokeV;
@@ -245,13 +246,13 @@ public class BufferedDiskCache {
         return (j0) invokeL.objValue;
     }
 
-    public j0 probe(CacheKey cacheKey) {
+    public j0<Void> probe(CacheKey cacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cacheKey)) == null) {
             Preconditions.checkNotNull(cacheKey);
             try {
-                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_probe"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.2
+                return j0.call(new Callable<Void>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_probe"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedDiskCache this$0;
@@ -303,14 +304,14 @@ public class BufferedDiskCache {
         return (j0) invokeL.objValue;
     }
 
-    public j0 remove(CacheKey cacheKey) {
+    public j0<Void> remove(CacheKey cacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cacheKey)) == null) {
             Preconditions.checkNotNull(cacheKey);
             this.mStagingArea.remove(cacheKey);
             try {
-                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_remove"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.5
+                return j0.call(new Callable<Void>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_remove"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedDiskCache this$0;
@@ -364,12 +365,12 @@ public class BufferedDiskCache {
         return (j0) invokeL.objValue;
     }
 
-    private j0 getAsync(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
+    private j0<EncodedImage> getAsync(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, cacheKey, atomicBoolean)) == null) {
             try {
-                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_getAsync"), atomicBoolean, cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.3
+                return j0.call(new Callable<EncodedImage>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_getAsync"), atomicBoolean, cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedDiskCache this$0;
@@ -400,6 +401,7 @@ public class BufferedDiskCache {
 
                     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // java.util.concurrent.Callable
                     @Nullable
                     public EncodedImage call() throws Exception {
@@ -534,7 +536,7 @@ public class BufferedDiskCache {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
-    public j0 get(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
+    public j0<EncodedImage> get(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cacheKey, atomicBoolean)) == null) {
@@ -546,7 +548,7 @@ public class BufferedDiskCache {
                 if (encodedImage != null) {
                     return foundPinnedImage(cacheKey, encodedImage);
                 }
-                j0 async = getAsync(cacheKey, atomicBoolean);
+                j0<EncodedImage> async = getAsync(cacheKey, atomicBoolean);
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.endSection();
                 }
@@ -560,13 +562,13 @@ public class BufferedDiskCache {
         return (j0) invokeLL.objValue;
     }
 
-    public j0 clearAll() {
+    public j0<Void> clearAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             this.mStagingArea.clearAll();
             try {
-                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_clearAll")) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.6
+                return j0.call(new Callable<Void>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_clearAll")) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedDiskCache this$0;

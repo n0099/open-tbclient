@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.WorkerThread;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.kuaishou.weapon.p0.i1;
 import com.kuaishou.weapon.p0.p0;
@@ -22,7 +23,7 @@ public final class m {
     public static com.kwad.sdk.f.kwai.d ane;
 
     /* loaded from: classes8.dex */
-    public final class a extends com.kwad.sdk.f.kwai.a {
+    public static class a extends com.kwad.sdk.f.kwai.a {
         public a() {
             zl();
         }
@@ -71,15 +72,15 @@ public final class m {
     }
 
     /* loaded from: classes8.dex */
-    public final class b extends com.kwad.sdk.f.kwai.a {
+    public static class b extends com.kwad.sdk.f.kwai.a {
     }
 
     /* loaded from: classes8.dex */
-    public final class c extends com.kwad.sdk.f.kwai.a {
+    public static class c extends com.kwad.sdk.f.kwai.a {
     }
 
     /* loaded from: classes8.dex */
-    public final class d extends com.kwad.sdk.f.kwai.a {
+    public static class d extends com.kwad.sdk.f.kwai.a {
         public d() {
             zl();
         }
@@ -128,7 +129,7 @@ public final class m {
     }
 
     /* loaded from: classes8.dex */
-    public final class e extends com.kwad.sdk.f.kwai.a {
+    public static class e extends com.kwad.sdk.f.kwai.a {
         public e() {
             zl();
         }
@@ -257,6 +258,7 @@ public final class m {
         }
     }
 
+    @WorkerThread
     public static synchronized com.kwad.sdk.f.kwai.d zk() {
         synchronized (m.class) {
             if (((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lA()) {

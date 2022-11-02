@@ -26,12 +26,12 @@ import java.util.List;
 import java.util.Map;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Camera2Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double NANO_SECONDS_PER_SECOND = 1.0E9d;
     public static final String TAG = "Camera2Enumerator";
-    public static final Map cachedSupportedFormats;
+    public static final Map<String, List<CameraEnumerationAndroid.CaptureFormat>> cachedSupportedFormats;
     public static boolean disableExtraCamera;
     public transient /* synthetic */ FieldHolder $fh;
     public final CameraManager cameraManager;
@@ -73,7 +73,7 @@ public class Camera2Enumerator implements CameraEnumerator {
         this.cameraManager = (CameraManager) context.getSystemService("camera");
     }
 
-    public static List convertSizes(android.util.Size[] sizeArr) {
+    public static List<Size> convertSizes(android.util.Size[] sizeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, sizeArr)) == null) {
@@ -100,13 +100,13 @@ public class Camera2Enumerator implements CameraEnumerator {
         return (CameraCharacteristics) invokeL.objValue;
     }
 
-    public static List convertFramerates(Range[] rangeArr, int i) {
+    public static List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates(Range<Integer>[] rangeArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, rangeArr, i)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (Range range : rangeArr) {
-                arrayList.add(new CameraEnumerationAndroid.CaptureFormat.FramerateRange(((Integer) range.getLower()).intValue() * i, ((Integer) range.getUpper()).intValue() * i));
+            for (Range<Integer> range : rangeArr) {
+                arrayList.add(new CameraEnumerationAndroid.CaptureFormat.FramerateRange(range.getLower().intValue() * i, range.getUpper().intValue() * i));
             }
             return arrayList;
         }
@@ -120,11 +120,11 @@ public class Camera2Enumerator implements CameraEnumerator {
         }
     }
 
-    public static int getFpsUnitFactor(Range[] rangeArr) {
+    public static int getFpsUnitFactor(Range<Integer>[] rangeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rangeArr)) == null) {
-            if (rangeArr.length == 0 || ((Integer) rangeArr[0].getUpper()).intValue() < 1000) {
+            if (rangeArr.length == 0 || rangeArr[0].getUpper().intValue() < 1000) {
                 return 1000;
             }
             return 1;
@@ -133,7 +133,7 @@ public class Camera2Enumerator implements CameraEnumerator {
     }
 
     @Override // org.webrtc.CameraEnumerator
-    public List getSupportedFormats(String str) {
+    public List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -170,7 +170,7 @@ public class Camera2Enumerator implements CameraEnumerator {
         return invokeL.booleanValue;
     }
 
-    public static List getSupportedFormats(Context context, String str) {
+    public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
@@ -189,7 +189,7 @@ public class Camera2Enumerator implements CameraEnumerator {
         return (CameraVideoCapturer) invokeLL.objValue;
     }
 
-    public static List getSupportedFormats(CameraManager cameraManager, String str) {
+    public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(CameraManager cameraManager, String str) {
         InterceptResult invokeLL;
         long j;
         int round;
@@ -197,7 +197,7 @@ public class Camera2Enumerator implements CameraEnumerator {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, cameraManager, str)) == null) {
             synchronized (cachedSupportedFormats) {
                 if (cachedSupportedFormats.containsKey(str)) {
-                    return (List) cachedSupportedFormats.get(str);
+                    return cachedSupportedFormats.get(str);
                 }
                 Logging.d(TAG, "Get supported formats for camera index " + str + ".");
                 long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -239,7 +239,7 @@ public class Camera2Enumerator implements CameraEnumerator {
         return (List) invokeLL.objValue;
     }
 
-    public static List getSupportedSizes(CameraCharacteristics cameraCharacteristics) {
+    public static List<Size> getSupportedSizes(CameraCharacteristics cameraCharacteristics) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cameraCharacteristics)) == null) {

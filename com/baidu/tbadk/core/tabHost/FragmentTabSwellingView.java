@@ -6,10 +6,11 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,7 +53,7 @@ public class FragmentTabSwellingView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FragmentTabSwellingView(Context context, AttributeSet attributeSet) {
+    public FragmentTabSwellingView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,7 +74,7 @@ public class FragmentTabSwellingView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FragmentTabSwellingView(Context context, AttributeSet attributeSet, int i) {
+    public FragmentTabSwellingView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -147,13 +148,13 @@ public class FragmentTabSwellingView extends View {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = fj.f(getContext().getApplicationContext(), R.dimen.tbds137);
-            this.f = fj.f(getContext().getApplicationContext(), R.dimen.tbds204);
-            this.g = fj.f(getContext().getApplicationContext(), R.dimen.tbds23);
-            this.h = fj.f(getContext().getApplicationContext(), R.dimen.tbds51);
-            this.i = fj.f(getContext().getApplicationContext(), R.dimen.tbds16);
-            this.j = fj.f(getContext().getApplicationContext(), R.dimen.tbds52);
-            this.k = fj.f(getContext().getApplicationContext(), R.dimen.tbds2);
+            this.e = xi.g(getContext().getApplicationContext(), R.dimen.tbds137);
+            this.f = xi.g(getContext().getApplicationContext(), R.dimen.tbds204);
+            this.g = xi.g(getContext().getApplicationContext(), R.dimen.tbds23);
+            this.h = xi.g(getContext().getApplicationContext(), R.dimen.tbds51);
+            this.i = xi.g(getContext().getApplicationContext(), R.dimen.tbds16);
+            this.j = xi.g(getContext().getApplicationContext(), R.dimen.tbds52);
+            this.k = xi.g(getContext().getApplicationContext(), R.dimen.tbds2);
         }
     }
 
@@ -162,7 +163,7 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (getWidth() > fj.k(getContext())) {
+            if (getWidth() > xi.l(getContext())) {
                 return;
             }
             this.c.reset();

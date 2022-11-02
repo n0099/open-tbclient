@@ -3,6 +3,7 @@ package androidx.documentfile.provider;
 import android.net.Uri;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,7 @@ public class RawDocumentFile extends DocumentFile {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RawDocumentFile(DocumentFile documentFile, File file) {
+    public RawDocumentFile(@Nullable DocumentFile documentFile, File file) {
         super(documentFile);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -141,6 +142,7 @@ public class RawDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -204,6 +206,7 @@ public class RawDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public DocumentFile createDirectory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -233,6 +236,7 @@ public class RawDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public DocumentFile createFile(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

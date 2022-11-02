@@ -10,9 +10,10 @@ import android.graphics.RectF;
 import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lv4;
+import com.baidu.tieba.iw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +102,7 @@ public class ClipCoverView extends View {
         b();
     }
 
-    public final void a(Canvas canvas, Path path) {
+    public final void a(@NonNull Canvas canvas, Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, path) == null) {
             canvas.drawPath(path, this.b);
@@ -147,7 +148,7 @@ public class ClipCoverView extends View {
                 this.c = new Path();
             }
             this.c.reset();
-            this.c.addRoundRect(clipCoverRect, lv4.z(R.string.J_X05), Path.Direction.CW);
+            this.c.addRoundRect(clipCoverRect, iw4.z(R.string.J_X05), Path.Direction.CW);
             canvas.drawPath(this.c, this.a);
             a(canvas, this.c);
             canvas.restore();

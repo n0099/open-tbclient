@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -61,7 +63,7 @@ public class LuckyHeaderBannerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LuckyHeaderBannerView(Context context) {
+    public LuckyHeaderBannerView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,10 +86,10 @@ public class LuckyHeaderBannerView extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ae, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04be, this);
             inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
             setClipChildren(false);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ebe);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ef7);
             this.a = tbImageView;
             tbImageView.setUseNightOrDarkMask(false);
             this.a.setPlaceHolderAutoChangeSkinType(3);
@@ -96,7 +98,7 @@ public class LuckyHeaderBannerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LuckyHeaderBannerView(Context context, AttributeSet attributeSet) {
+    public LuckyHeaderBannerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -118,7 +120,7 @@ public class LuckyHeaderBannerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LuckyHeaderBannerView(Context context, AttributeSet attributeSet, int i) {
+    public LuckyHeaderBannerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -142,7 +144,7 @@ public class LuckyHeaderBannerView extends FrameLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a.L(str, 10, false);
+            this.a.K(str, 10, false);
         }
     }
 

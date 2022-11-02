@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 import okhttp3.Call;
@@ -19,7 +18,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 /* loaded from: classes8.dex */
 public class g implements IDownloadHttpService {
-    public final com.ss.android.socialbase.downloader.i.h a = new com.ss.android.socialbase.downloader.i.h(4, 8);
+    public final com.ss.android.socialbase.downloader.i.h<String, OkHttpClient> a = new com.ss.android.socialbase.downloader.i.h<>(4, 8);
 
     private OkHttpClient a(String str, final String str2) {
         try {
@@ -27,14 +26,14 @@ public class g implements IDownloadHttpService {
             if (!TextUtils.isEmpty(host) && !TextUtils.isEmpty(str2)) {
                 String str3 = host + "_" + str2;
                 synchronized (this.a) {
-                    OkHttpClient okHttpClient = (OkHttpClient) this.a.get(str3);
+                    OkHttpClient okHttpClient = this.a.get(str3);
                     if (okHttpClient != null) {
                         return okHttpClient;
                     }
                     OkHttpClient.Builder t = com.ss.android.socialbase.downloader.downloader.c.t();
                     t.dns(new Dns() { // from class: com.ss.android.socialbase.downloader.impls.g.2
                         @Override // okhttp3.Dns
-                        public List lookup(String str4) throws UnknownHostException {
+                        public List<InetAddress> lookup(String str4) throws UnknownHostException {
                             if (TextUtils.equals(host, str4)) {
                                 return Collections.singletonList(InetAddress.getByName(str2));
                             }
@@ -55,16 +54,14 @@ public class g implements IDownloadHttpService {
     }
 
     @Override // com.ss.android.socialbase.downloader.network.IDownloadHttpService
-    public com.ss.android.socialbase.downloader.network.i downloadWithConnection(int i, String str, List list) throws IOException {
+    public com.ss.android.socialbase.downloader.network.i downloadWithConnection(int i, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
         String str2;
         OkHttpClient s;
         final GZIPInputStream gZIPInputStream;
         Request.Builder url = new Request.Builder().url(str);
         if (list != null && list.size() > 0) {
-            Iterator it = list.iterator();
             str2 = null;
-            while (it.hasNext()) {
-                com.ss.android.socialbase.downloader.model.c cVar = (com.ss.android.socialbase.downloader.model.c) it.next();
+            for (com.ss.android.socialbase.downloader.model.c cVar : list) {
                 String a = cVar.a();
                 if (str2 == null && "ss_d_request_host_ip_114".equals(a)) {
                     str2 = cVar.b();

@@ -16,14 +16,14 @@ public class InitialObjectDescriptor extends ObjectDescriptorBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int audioProfileLevelIndication;
-    public List esDescriptors;
-    public List extensionDescriptors;
+    public List<ESDescriptor> esDescriptors;
+    public List<ExtensionDescriptor> extensionDescriptors;
     public int graphicsProfileLevelIndication;
     public int includeInlineProfileLevelFlag;
     public int oDProfileLevelIndication;
     public int objectDescriptorId;
     public int sceneProfileLevelIndication;
-    public List unknownDescriptors;
+    public List<BaseDescriptor> unknownDescriptors;
     public int urlFlag;
     public int urlLength;
     public String urlString;

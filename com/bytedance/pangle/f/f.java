@@ -3,6 +3,7 @@ package com.bytedance.pangle.f;
 import android.util.ArrayMap;
 import android.util.Pair;
 import android.util.SparseArray;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,6 +23,7 @@ import java.nio.ByteOrder;
 import java.security.DigestException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import java.util.Arrays;
@@ -31,11 +33,11 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap a;
+    public static final HashMap<String, SparseArray<m>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a implements j {
+    public static class a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MessageDigest[] a;
@@ -85,7 +87,7 @@ public final class f {
                 return;
             }
         }
-        a = new HashMap();
+        a = new HashMap<>();
     }
 
     public static int a(int i) {
@@ -275,7 +277,7 @@ public final class f {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void a(String str, RandomAccessFile randomAccessFile, int... iArr) {
-        Pair a2;
+        Pair<ByteBuffer, Long> a2;
         boolean z;
         ByteBuffer byteBuffer;
         Pair pair;
@@ -284,7 +286,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, str, randomAccessFile, iArr) == null) {
             String str2 = str;
-            a.put(str2, new SparseArray());
+            a.put(str2, new SparseArray<>());
             if (randomAccessFile.length() < 22) {
                 a2 = null;
             } else {
@@ -362,7 +364,7 @@ public final class f {
                                                     if (hashSet.contains(Integer.valueOf(i5))) {
                                                         j = a3;
                                                         j2 = longValue;
-                                                        ((SparseArray) a.get(str2)).put(i5, new m(b(a4, i4 - 4), longValue2, a3, longValue, byteBuffer));
+                                                        a.get(str2).put(i5, new m(b(a4, i4 - 4), longValue2, a3, longValue, byteBuffer));
                                                     } else {
                                                         j = a3;
                                                         j2 = longValue;
@@ -397,7 +399,7 @@ public final class f {
         }
     }
 
-    public static void a(Map map, FileDescriptor fileDescriptor, m mVar) {
+    public static void a(Map<Integer, byte[]> map, FileDescriptor fileDescriptor, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, map, fileDescriptor, mVar) == null) {
             l lVar = new l(fileDescriptor, 0L, mVar.b);
@@ -422,7 +424,7 @@ public final class f {
                     byte[][] a2 = a(iArr, new k[]{lVar, lVar2, hVar});
                     for (int i2 = 0; i2 < size; i2++) {
                         int i3 = iArr[i2];
-                        if (!MessageDigest.isEqual((byte[]) map.get(Integer.valueOf(i3)), a2[i2])) {
+                        if (!MessageDigest.isEqual(map.get(Integer.valueOf(i3)), a2[i2])) {
                             throw new SecurityException(b(i3) + " digest of contents did not verify");
                         }
                     }
@@ -435,7 +437,8 @@ public final class f {
         }
     }
 
-    public static void a(Map map, RandomAccessFile randomAccessFile, m mVar) {
+    @RequiresApi(api = 21)
+    public static void a(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, map, randomAccessFile, mVar) == null) {
             if (!map.isEmpty()) {
@@ -458,7 +461,7 @@ public final class f {
                 }
                 if (map.containsKey(3)) {
                     try {
-                        if (!Arrays.equals(a((byte[]) map.get(3), randomAccessFile.length(), mVar), g.a(randomAccessFile, mVar, new i() { // from class: com.bytedance.pangle.f.f.1
+                        if (!Arrays.equals(a(map.get(3), randomAccessFile.length(), mVar), g.a(randomAccessFile, mVar, new i() { // from class: com.bytedance.pangle.f.f.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -701,7 +704,7 @@ public final class f {
         return (ByteBuffer) invokeLI.objValue;
     }
 
-    public static Pair d(int i) {
+    public static Pair<String, ? extends AlgorithmParameterSpec> d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {

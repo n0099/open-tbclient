@@ -40,9 +40,9 @@ public class av {
     public JSONArray j;
     public JSONArray k;
     public boolean m;
-    public List n;
-    public List o;
-    public List p;
+    public List<JSONObject> n;
+    public List<String> o;
+    public List<String> p;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -211,7 +211,7 @@ public class av {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, long j, String str, String str2, String str3, int i, long j2, String str4, JSONArray jSONArray, String str5, JSONArray jSONArray2, String str6, Map map, boolean z, JSONObject jSONObject, String str7, JSONArray jSONArray3) {
+    public void a(Context context, long j, String str, String str2, String str3, int i, long j2, String str4, JSONArray jSONArray, String str5, JSONArray jSONArray2, String str6, Map<String, String> map, boolean z, JSONObject jSONObject, String str7, JSONArray jSONArray3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i), Long.valueOf(j2), str4, jSONArray, str5, jSONArray2, str6, map, Boolean.valueOf(z), jSONObject, str7, jSONArray3}) == null) {
             a(context, EventAnalysis.getEvent(context, j, str, str2, str3, i, j2, 0L, "", null, null, bi.a(str4), bi.a(str5), str6, Config.EventViewType.EDIT.getValue(), 3, null, map, bi.c(jSONArray), bi.d(jSONArray2), z, jSONObject, str7, jSONArray3));
@@ -411,7 +411,7 @@ public class av {
         }
     }
 
-    public void b(Context context, ArrayList arrayList) {
+    public void b(Context context, ArrayList<ap> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048587, this, context, arrayList) != null) || CooperService.instance().isCloseTrace() || !bu.a().e()) {
             return;
@@ -653,14 +653,14 @@ public class av {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(Context context, ArrayList arrayList) {
+    public void c(Context context, ArrayList<ao> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65563, this, context, arrayList) == null) && context != null && arrayList != null && arrayList.size() != 0) {
             JSONArray jSONArray = new JSONArray();
-            Iterator it = arrayList.iterator();
+            Iterator<ao> it = arrayList.iterator();
             while (it.hasNext()) {
-                ao aoVar = (ao) it.next();
-                JSONObject a2 = aoVar.a(at.a().a(aoVar.a(), at.a.c));
+                ao next = it.next();
+                JSONObject a2 = next.a(at.a().a(next.a(), at.a.c));
                 if (a2 != null) {
                     jSONArray.put(a2);
                 }
@@ -671,14 +671,14 @@ public class av {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(Context context, ArrayList arrayList) {
+    public void d(Context context, ArrayList<ap> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65567, this, context, arrayList) == null) && context != null && arrayList != null && arrayList.size() != 0) {
             JSONArray jSONArray = new JSONArray();
-            Iterator it = arrayList.iterator();
+            Iterator<ap> it = arrayList.iterator();
             while (it.hasNext()) {
-                ap apVar = (ap) it.next();
-                JSONObject a2 = apVar.a(at.a().a(apVar.b(), at.a.b), at.a().a(apVar.f(), at.a.c), bi.c(apVar.c()));
+                ap next = it.next();
+                JSONObject a2 = next.a(at.a().a(next.b(), at.a.b), at.a().a(next.f(), at.a.c), bi.c(next.c()));
                 if (a2 != null) {
                     jSONArray.put(a2);
                 }
@@ -997,14 +997,14 @@ public class av {
         });
     }
 
-    public void a(Context context, String str, String str2, String str3, int i, long j, String str4, JSONArray jSONArray, String str5, JSONArray jSONArray2, String str6, Map map, JSONObject jSONObject, String str7, JSONArray jSONArray3) {
+    public void a(Context context, String str, String str2, String str3, int i, long j, String str4, JSONArray jSONArray, String str5, JSONArray jSONArray2, String str6, Map<String, String> map, JSONObject jSONObject, String str7, JSONArray jSONArray3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, str3, Integer.valueOf(i), Long.valueOf(j), str4, jSONArray, str5, jSONArray2, str6, map, jSONObject, str7, jSONArray3}) == null) {
             a(context, str, str2, str3, i, j, str4, jSONArray, str5, jSONArray2, str6, map, false, jSONObject, str7, jSONArray3);
         }
     }
 
-    public void a(Context context, String str, String str2, String str3, int i, long j, String str4, JSONArray jSONArray, String str5, JSONArray jSONArray2, String str6, Map map, boolean z, JSONObject jSONObject, String str7, JSONArray jSONArray3) {
+    public void a(Context context, String str, String str2, String str3, int i, long j, String str4, JSONArray jSONArray, String str5, JSONArray jSONArray2, String str6, Map<String, String> map, boolean z, JSONObject jSONObject, String str7, JSONArray jSONArray3) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{context, str, str2, str3, Integer.valueOf(i), Long.valueOf(j), str4, jSONArray, str5, jSONArray2, str6, map, Boolean.valueOf(z), jSONObject, str7, jSONArray3}) != null) || !bu.a().e()) {
             return;
@@ -1078,7 +1078,7 @@ public class av {
         });
     }
 
-    public void a(Context context, ArrayList arrayList) {
+    public void a(Context context, ArrayList<ao> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048581, this, context, arrayList) != null) || CooperService.instance().isCloseTrace() || !bu.a().e()) {
             return;

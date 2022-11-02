@@ -16,13 +16,13 @@ public final class dw {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class a extends e {
+    public static final class a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public List f236a;
+        public List<String> f236a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f237a;
@@ -152,7 +152,7 @@ public final class dw {
         }
 
         @Override // com.xiaomi.push.e
-        public List a() {
+        public List<String> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f236a : (List) invokeV.objValue;

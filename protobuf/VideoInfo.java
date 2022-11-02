@@ -82,13 +82,13 @@ public final class VideoInfo extends Message {
     public final Double wthMidLoc;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<VideoInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String firstFrameThumbnail;
@@ -102,7 +102,7 @@ public final class VideoInfo extends Message {
         public Integer thumbnailHeight;
         public String thumbnailUrl;
         public Integer thumbnailWidth;
-        public List videoDesc;
+        public List<VideoDesc> videoDesc;
         public Integer videoDuration;
         public VideoDesc videoH265;
         public Integer videoHeight;
@@ -299,7 +299,7 @@ public final class VideoInfo extends Message {
             } else {
                 this.mediaSubtitle = str4;
             }
-            List list = builder.videoDesc;
+            List<VideoDesc> list = builder.videoDesc;
             if (list == null) {
                 this.videoDesc = DEFAULT_VIDEODESC;
             } else {

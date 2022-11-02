@@ -1,68 +1,29 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
-import com.baidu.tbadk.abtest.group.IThreadCardUbsABTest;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public abstract class ar4 extends BaseCardInfo implements IThreadCardUbsABTest {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int BIG_IMG = 2;
-    public static final int CONTENT = 1;
-    public static final int HEAD_IMG = 4;
-    public static final int HEAD_VIDEO = 5;
-    public static final int USER_NAME = 3;
+public class ar4 {
+    public static /* synthetic */ Interceptable $ic;
+    public static ar4 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> feedBackReasonMap;
-    public int floorPosition;
-    public Map<BdUniqueId, UsbAbTestSwitch> mABTestMap;
-    public int objType;
+    public int a;
+    public int b;
+    public String c;
+    public boolean d;
+    public int e;
 
-    public abstract xs4 getNegFeedBackData();
-
-    public String getPbInputLocate() {
-        InterceptResult invokeV;
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
         }
-        return (String) invokeV.objValue;
-    }
-
-    public abstract ThreadData getThreadData();
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showWeakenName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public ar4() {
@@ -78,182 +39,125 @@ public abstract class ar4 extends BaseCardInfo implements IThreadCardUbsABTest {
                 return;
             }
         }
-        this.objType = 1;
-        this.floorPosition = -1;
-        this.mABTestMap = new HashMap();
-        this.feedBackReasonMap = null;
+        this.a = 0;
+        this.b = 0;
+        this.c = null;
+        this.d = true;
+        this.e = 0;
     }
 
-    public String getRecomReason() {
+    public static ar4 c() {
+        InterceptResult invokeV;
+        ar4 ar4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ar4 ar4Var2 = f;
+            if (ar4Var2 == null) {
+                synchronized (ar4.class) {
+                    if (f == null) {
+                        f = new ar4();
+                    }
+                    ar4Var = f;
+                }
+                return ar4Var;
+            }
+            return ar4Var2;
+        }
+        return (ar4) invokeV.objValue;
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getThreadData() == null) {
-                return null;
-            }
-            return getThreadData().getRecomReason();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean isFromFrs() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromFrs();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ky4 k = ky4.k();
+            int l = k.l(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
+            this.b = l;
+            return l;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo
-    public boolean isHighLight() {
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int l = ky4.k().l("image_quality", 0);
+            this.a = l;
+            return l;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (getThreadData() != null && getThreadData().isHighLight()) {
-                return true;
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = ky4.k().l("image_quality", 0);
+            ky4.k().l("new_abstract_state", 0);
+            this.e = ky4.k().l("view_image_quality", 0);
+            boolean h = ky4.k().h("show_images", true);
+            this.d = h;
+            if (!h) {
+                this.d = true;
+                ky4.k().D("show_images");
+                ky4.k().w("view_image_quality", 0);
+                this.e = 0;
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean isSelf() {
-        InterceptResult invokeV;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ThreadCardUtils.isSelf(getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean showCardEnterFourm() {
-        InterceptResult invokeV;
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            if (!threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isWorksInfo()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showCardGoodsFourm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            if (!threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isFromHomPage) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewPicCut() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_B);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewUI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_A);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoReadState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_E);
-        }
-        return invokeV.booleanValue;
-    }
-
-    private UsbAbTestSwitch getCurUsbAbTestSwitchByKey(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bdUniqueId)) == null) {
-            if (bdUniqueId == null) {
-                return null;
-            }
-            return this.mABTestMap.get(bdUniqueId);
-        }
-        return (UsbAbTestSwitch) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public void setABTest(BdUniqueId bdUniqueId, UsbAbTestSwitch usbAbTestSwitch) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, bdUniqueId, usbAbTestSwitch) != null) || bdUniqueId == null) {
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.e == i) {
             return;
         }
-        this.mABTestMap.put(bdUniqueId, usbAbTestSwitch);
+        this.e = i;
+        ky4.k().w("view_image_quality", i);
+        TbImageHelper.getInstance().updateFrsShowBigImage();
+        TbImageHelper.getInstance().updateUrlQuality();
     }
 
-    public boolean showCardBottomOpWeight() {
-        InterceptResult invokeV;
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            if (!threadData.isFromHomPage && !threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isFromVideoTab && !threadData.isFromEnterFroumTabFeed && !threadData.isFromFeedTab) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.b == i) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showFollowBtn() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null || threadData.getAuthor() == null || threadData.isFromLocal || ThreadCardUtils.isSelf(threadData)) {
-                return false;
-            }
-            if (!threadData.isBjhDynamicThread() && !threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if ((!threadData.isFromHomPage || (!z && !threadData.isWorksInfo())) && ((!threadData.isFromVideoTab || (!z && !threadData.isWorksInfo())) && (!threadData.isFromFrs() || (!z && !threadData.isWorksInfo())))) {
-                if (!threadData.isFromFeedTab) {
-                    return false;
-                }
-                if (!z && !threadData.isWorksInfo()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        this.b = i;
+        ky4 k = ky4.k();
+        k.w(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
     }
 }

@@ -1,9 +1,10 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class k extends b {
+/* loaded from: classes8.dex */
+public final class k extends b<String> {
     public boolean VF;
 
     public k(String str, String str2) {
@@ -17,14 +18,14 @@ public final class k extends b {
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(SharedPreferences sharedPreferences) {
+    public final void a(@NonNull SharedPreferences sharedPreferences) {
         if (this.VF) {
-            setValue(sharedPreferences.getString(getKey(), (String) sx()));
+            setValue(sharedPreferences.getString(getKey(), sx()));
         }
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void b(SharedPreferences.Editor editor) {
+    public final void b(@NonNull SharedPreferences.Editor editor) {
         if (this.VF) {
             editor.putString(getKey(), getValue());
         }
@@ -38,6 +39,7 @@ public final class k extends b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.config.item.b
+    @NonNull
     public final String getValue() {
         return (String) super.getValue();
     }

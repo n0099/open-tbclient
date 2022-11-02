@@ -1,5 +1,6 @@
 package com.kwad.components.ad.draw.a.b;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +15,7 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DrawVideoTailFrame bQ;
+    @Nullable
     public com.kwad.components.ad.i.b bb;
     public g mVideoPlayStateListener;
 
@@ -98,7 +100,7 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f091224);
+            this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f09125e);
         }
     }
 

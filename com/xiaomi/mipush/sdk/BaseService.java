@@ -18,12 +18,12 @@ public abstract class BaseService extends Service {
     public a a;
 
     /* loaded from: classes8.dex */
-    public class a extends Handler {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<BaseService> a;
 
-        public a(WeakReference weakReference) {
+        public a(WeakReference<BaseService> weakReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,10 +53,10 @@ public abstract class BaseService extends Service {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            WeakReference weakReference;
+            WeakReference<BaseService> weakReference;
             BaseService baseService;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message.what != 1001 || (weakReference = this.a) == null || (baseService = (BaseService) weakReference.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message.what != 1001 || (weakReference = this.a) == null || (baseService = weakReference.get()) == null) {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler " + baseService.toString() + " kill self");

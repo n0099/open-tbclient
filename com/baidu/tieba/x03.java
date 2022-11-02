@@ -1,147 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.publisher.draft.DraftData;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class x03 {
+public class x03 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File file = new File(b(), "publisher_draft");
-            if (file.exists()) {
-                file.delete();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246510, "Lcom/baidu/tieba/x03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948246510, "Lcom/baidu/tieba/x03;");
+                return;
             }
         }
+        a = ok1.a;
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
-        String str;
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            m33 M = m33.M();
-            if (M != null) {
-                str = M.b;
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+            if (a) {
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
+            }
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
             } else {
-                str = null;
+                bundle = null;
             }
-            String v = ua3.v(str);
-            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
-            return v;
+            f03.a(i, str2, str, bundle);
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final DraftData c() {
-        InterceptResult invokeV;
-        ObjectInputStream objectInputStream;
+    public static void b(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b(), "publisher_draft");
-            ObjectInputStream objectInputStream2 = null;
-            try {
-                try {
-                    if (file.exists()) {
-                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
-                        try {
-                            Object readObject = objectInputStream.readObject();
-                            if (readObject != null) {
-                                DraftData draftData = (DraftData) readObject;
-                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
-                                    objectInputStream.close();
-                                    return null;
-                                }
-                                objectInputStream.close();
-                                return draftData;
-                            }
-                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (objectInputStream != null) {
-                                objectInputStream.close();
-                            }
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    objectInputStream2 = "publisher_draft";
-                    if (objectInputStream2 != null) {
-                        objectInputStream2.close();
-                    }
-                    throw th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                objectInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (objectInputStream2 != null) {
-                }
-                throw th;
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
             }
-            return null;
+            f03.a(-1000, str2, str, bundle);
         }
-        return (DraftData) invokeV.objValue;
     }
 
-    public static final void d(DraftData draftData) {
-        ObjectOutputStream objectOutputStream;
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, draftData) == null) && draftData != null) {
-            File file = new File(b(), "publisher_draft");
-            try {
-                if (file.exists()) {
-                    file.delete();
-                    file.createNewFile();
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                throw new RuntimeException("delegation msg obj is not a bundle");
             }
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
-                } catch (Exception e2) {
-                    e = e2;
+            Bundle bundle = (Bundle) obj;
+            h03 h03Var = new h03(bundle.getString("key_observer_id", ""));
+            h03Var.setResult(bundle.getBundle("key_result_data"));
+            i03.b().c(h03Var);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
                 }
-            } catch (Throwable th) {
-                th = th;
+                throw new RuntimeException("delegation msg obj is not a bundle");
             }
-            try {
-                objectOutputStream.writeObject(draftData);
-                objectOutputStream.close();
-            } catch (Exception e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-                if (objectOutputStream2 != null) {
-                    objectOutputStream2.close();
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                if (objectOutputStream2 != null) {
-                    objectOutputStream2.close();
-                }
-                throw th;
-            }
+            Bundle bundle = (Bundle) obj;
+            h03 h03Var = new h03(bundle.getString("key_observer_id", ""));
+            h03Var.setResult(bundle.getBundle("key_result_data"));
+            i03.b().c(h03Var);
+        }
+    }
+
+    public static void e(int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            u03 e = u03.e();
+            w03 w03Var = new w03(126, bundle);
+            w03Var.a(i);
+            e.h(w03Var);
+        }
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            u03.e().h(new w03(21, bundle));
         }
     }
 }

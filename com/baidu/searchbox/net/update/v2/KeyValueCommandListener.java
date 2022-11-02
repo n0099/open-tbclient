@@ -58,10 +58,10 @@ public abstract class KeyValueCommandListener extends AbstractCommandListener<Js
                 }
                 throw new IllegalArgumentException("getKey should be implemented correctly to return preference key");
             }
-            if (((JsonElement) actionData.data).isJsonPrimitive()) {
-                jsonElement = ((JsonElement) actionData.data).getAsString();
+            if (actionData.data.isJsonPrimitive()) {
+                jsonElement = actionData.data.getAsString();
             } else {
-                jsonElement = ((JsonElement) actionData.data).toString();
+                jsonElement = actionData.data.toString();
             }
             if (!handleData(context, str, str2, key, jsonElement)) {
                 return false;

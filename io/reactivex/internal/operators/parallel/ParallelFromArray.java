@@ -10,12 +10,12 @@ import io.reactivex.parallel.ParallelFlowable;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class ParallelFromArray extends ParallelFlowable {
+public final class ParallelFromArray<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher[] sources;
+    public final Publisher<T>[] sources;
 
-    public ParallelFromArray(Publisher[] publisherArr) {
+    public ParallelFromArray(Publisher<T>[] publisherArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,7 +34,7 @@ public final class ParallelFromArray extends ParallelFlowable {
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber[] subscriberArr) {
+    public void subscribe(Subscriber<? super T>[] subscriberArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) != null) || !validate(subscriberArr)) {
             return;

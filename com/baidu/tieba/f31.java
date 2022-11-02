@@ -1,59 +1,23 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public final class f31 {
+public class f31 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713093, "Lcom/baidu/tieba/f31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947713093, "Lcom/baidu/tieba/f31;");
-                return;
-            }
-        }
-        b = aj0.b().getApplicationInfo().processName;
-        String a2 = p21.a();
-        a = a2;
-        c = a(a2);
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.equals(str, b)) {
-                return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && str.contains(str3)) {
+                return str.replace(str3, str2);
             }
-            if (str.startsWith(b) && !str.contains(":")) {
-                return true;
-            }
-            return false;
+            return str;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return invokeV.booleanValue;
+        return (String) invokeLLL.objValue;
     }
 }

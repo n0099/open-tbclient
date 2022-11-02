@@ -1,6 +1,8 @@
 package com.kwai.sodler.lib;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,17 +27,17 @@ public final class i extends j {
     public transient /* synthetic */ FieldHolder $fh;
     public j axm;
     public ExecutorService axn;
-    public Map axo;
+    public Map<String, a> axo;
     public volatile boolean mHasInit;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Future VO;
+        public final Future<com.kwai.sodler.lib.a.f> VO;
         public final com.kwai.sodler.lib.a.f axr;
 
-        public a(com.kwai.sodler.lib.a.f fVar, Future future) {
+        public a(com.kwai.sodler.lib.a.f fVar, Future<com.kwai.sodler.lib.a.f> future) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,7 +151,7 @@ public final class i extends j {
                 if (!this.mHasInit) {
                     throw new RuntimeException("Sodler has not yet been init.");
                 }
-                Map e = j.e(this.axo);
+                Map<String, a> e = j.e(this.axo);
                 this.axo = e;
                 if (str != null) {
                     e.put(str, aVar);
@@ -158,7 +160,7 @@ public final class i extends j {
         }
     }
 
-    private a b(com.kwai.sodler.lib.a.f fVar, j.a aVar) {
+    private a b(@NonNull com.kwai.sodler.lib.a.f fVar, @NonNull j.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, fVar, aVar)) == null) {
@@ -168,7 +170,7 @@ public final class i extends j {
                     eR.cancel();
                 }
                 fVar.a(this);
-                a aVar2 = new a(fVar, this.axn.submit(new Callable(this, fVar, aVar) { // from class: com.kwai.sodler.lib.i.2
+                a aVar2 = new a(fVar, this.axn.submit(new Callable<com.kwai.sodler.lib.a.f>(this, fVar, aVar) { // from class: com.kwai.sodler.lib.i.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ com.kwai.sodler.lib.a.f axb;
@@ -213,16 +215,17 @@ public final class i extends j {
         return (a) invokeLL.objValue;
     }
 
+    @Nullable
     private synchronized a eR(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             synchronized (this) {
                 if (this.mHasInit) {
-                    Map e = j.e(this.axo);
+                    Map<String, a> e = j.e(this.axo);
                     this.axo = e;
                     if (str != null) {
-                        return (a) e.get(str);
+                        return e.get(str);
                     }
                     return null;
                 }
@@ -323,7 +326,7 @@ public final class i extends j {
     }
 
     @Override // com.kwai.sodler.lib.j
-    public final com.kwai.sodler.lib.a.f a(com.kwai.sodler.lib.a.f fVar, j.a aVar) {
+    public final com.kwai.sodler.lib.a.f a(@NonNull com.kwai.sodler.lib.a.f fVar, @NonNull j.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, fVar, aVar)) == null) {
@@ -340,13 +343,13 @@ public final class i extends j {
         return (com.kwai.sodler.lib.a.f) invokeLL.objValue;
     }
 
-    public final a a(com.kwai.sodler.lib.a.f fVar, int i) {
+    public final a a(@NonNull com.kwai.sodler.lib.a.f fVar, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar, i)) == null) ? b(fVar, j.a.a(this, 16)) : (a) invokeLI.objValue;
     }
 
-    public final synchronized void a(Context context, com.kwai.sodler.lib.ext.c cVar) {
+    public final synchronized void a(Context context, @NonNull com.kwai.sodler.lib.ext.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, cVar) == null) {
             synchronized (this) {
@@ -364,7 +367,7 @@ public final class i extends j {
         }
     }
 
-    public final void l(com.kwai.sodler.lib.a.f fVar) {
+    public final void l(@NonNull com.kwai.sodler.lib.a.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
             a eR = eR(fVar.getId());

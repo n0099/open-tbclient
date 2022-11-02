@@ -1,58 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nl1 implements ln1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nl1 {
+    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
 
-    @Override // com.baidu.tieba.ln1
-    public boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    String b();
 
-    @Override // com.baidu.tieba.ln1
-    public boolean b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    void c(JSONObject jSONObject);
 
-    @Override // com.baidu.tieba.ln1
-    public boolean c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    zb4 d();
 
-    public nl1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void e(int i, String str);
+
+    void f(@NonNull xi3<Boolean> xi3Var);
 }

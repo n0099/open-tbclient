@@ -1,7 +1,8 @@
 package com.baidu.searchbox.player.context;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.UniversalPlayer;
 /* loaded from: classes2.dex */
 public interface IPlayerContext {
-    void setPlayer(UniversalPlayer universalPlayer);
+    void setPlayer(@NonNull UniversalPlayer universalPlayer);
 }

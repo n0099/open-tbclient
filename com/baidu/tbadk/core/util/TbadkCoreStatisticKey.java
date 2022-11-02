@@ -113,6 +113,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_GAME_PLAY_PUSH_ACCEPT_SHOW = "c14850";
     public static final String KEY_GAME_PLAY_PUSH_ATTENTION_ACCEPT_CLICK = "c14734";
     public static final String KEY_GAME_PLAY_PUSH_ATTENTION_SHOW = "c14733";
+    public static final String KEY_GAME_PLAY_PUSH_DISPATCH_ORDER_SHOW = "c15048";
     public static final String KEY_GAME_PLAY_PUSH_GUIDE_ORDER_ACCEPT_CLICK = "c14852";
     public static final String KEY_GAME_PLAY_PUSH_GUIDE_ORDER_CLOSE_CLICK = "c14853";
     public static final String KEY_GAME_PLAY_PUSH_GUIDE_ORDER_SHOW = "c14849";
@@ -142,6 +143,8 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_IM_PERSON_FOLLOW_TIP_SHOW = "c14649";
     public static final String KEY_ITEM_THROUGH_CLICK = "c14073";
     public static final String KEY_ITEM_THROUGH_EXPOSURE = "c14072";
+    public static final String KEY_LIVE_POST_CARD_VOTE_CLICK = "c15025";
+    public static final String KEY_LIVE_POST_CARD_VOTE_SHOW = "c15024";
     public static final String KEY_LIVE_REMIND_FLOAT_VIEW_CLICK = "c14699";
     public static final String KEY_LIVE_REMIND_FLOAT_VIEW_HIDE = "c14700";
     public static final String KEY_LIVE_REMIND_FLOAT_VIEW_SHOW = "c14698";
@@ -150,6 +153,11 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_MORE_HISTORY_RECORD_CLICK = "c13437";
     public static final String KEY_MSG_REPLY_CLICK = "c14624";
     public static final String KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK = "c13742";
+    public static final String KEY_NO_AD_CARD_CLICK = "c15010";
+    public static final String KEY_NO_AD_CARD_SHOW = "c15009";
+    public static final String KEY_NO_AD_FLOAT_CLICK = "c15012";
+    public static final String KEY_NO_AD_FLOAT_SHOW = "c15011";
+    public static final String KEY_NO_AD_INVOKE_SDK = "c15013";
     public static final String KEY_PAY_PUT_TIE = "c13998";
     public static final String KEY_PB_REPLY_CLICK = "c13563";
     public static final String KEY_PB_VOTE_SOURCE = "c13445";
@@ -280,7 +288,7 @@ public class TbadkCoreStatisticKey {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class AntiLocateValue {
+    public static class AntiLocateValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static int LOCATE_CHAT = 6;
         public static int LOCATE_COLD_BOOT = 8;

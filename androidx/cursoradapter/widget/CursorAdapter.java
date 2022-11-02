@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.FilterQueryProvider;
 import android.widget.Filterable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.cursoradapter.widget.CursorFilter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,14 +27,23 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
     public static final int FLAG_AUTO_REQUERY = 1;
     public static final int FLAG_REGISTER_CONTENT_OBSERVER = 2;
     public transient /* synthetic */ FieldHolder $fh;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean mAutoRequery;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public ChangeObserver mChangeObserver;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public Context mContext;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public Cursor mCursor;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public CursorFilter mCursorFilter;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public DataSetObserver mDataSetObserver;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean mDataValid;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public FilterQueryProvider mFilterQueryProvider;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int mRowIDColumn;
 
     public abstract void bindView(View view2, Context context, Cursor cursor);

@@ -23,7 +23,7 @@ public class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Comparator {
+    public class a implements Comparator<Map.Entry<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,19 +43,20 @@ public class s {
             }
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // java.util.Comparator
-        public int compare(Object obj, Object obj2) {
+        public int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                return ((String) ((Map.Entry) obj).getKey()).compareTo((String) ((Map.Entry) obj2).getKey());
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
+                return entry.getKey().compareTo(entry2.getKey());
             }
             return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final s a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public class s {
         }
     }
 
-    public final String a(Map map) {
+    public final String a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {

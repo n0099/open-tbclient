@@ -32,6 +32,7 @@ import java.net.SocketTimeoutException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.TimeZone;
@@ -53,8 +54,8 @@ public class g {
     public static g a;
     public transient /* synthetic */ FieldHolder $fh;
     public Random b;
-    public List c;
-    public List d;
+    public List<Serializable> c;
+    public List<Serializable> d;
     public HandlerThread e;
     public Handler f;
     public Executor g;
@@ -301,11 +302,11 @@ public class g {
                         if (r7 != 0) goto Lb4
                         com.tencent.open.a.f r1 = com.tencent.open.a.f.a()     // Catch: java.lang.Exception -> Lbc
                         com.tencent.open.a.g r2 = r14.a     // Catch: java.lang.Exception -> Lbc
-                        java.util.List r2 = r2.c     // Catch: java.lang.Exception -> Lbc
+                        java.util.List<java.io.Serializable> r2 = r2.c     // Catch: java.lang.Exception -> Lbc
                         r1.a(r0, r2)     // Catch: java.lang.Exception -> Lbc
                     Lb4:
                         com.tencent.open.a.g r0 = r14.a     // Catch: java.lang.Exception -> Lbc
-                        java.util.List r0 = r0.c     // Catch: java.lang.Exception -> Lbc
+                        java.util.List<java.io.Serializable> r0 = r0.c     // Catch: java.lang.Exception -> Lbc
                         r0.clear()     // Catch: java.lang.Exception -> Lbc
                         goto Lc2
                     Lbc:
@@ -1032,8 +1033,8 @@ public class g {
                 SLog.d("openSDK_LOG.ReportManager", "-->prepareCgiData, the 0th cgireportitem is null.");
                 return null;
             }
-            String str = (String) bVar.a.get("appid");
-            List a2 = f.a().a("report_cgi");
+            String str = bVar.a.get("appid");
+            List<Serializable> a2 = f.a().a("report_cgi");
             if (a2 != null) {
                 this.c.addAll(a2);
             }
@@ -1050,16 +1051,16 @@ public class g {
                 bundle.putString("key", "apn,frequency,commandid,resultcode,tmcost,reqsize,rspsize,detail,touin,deviceinfo");
                 for (int i = 0; i < this.c.size(); i++) {
                     b bVar2 = (b) this.c.get(i);
-                    bundle.putString(i + SkinManager.nightSufix, (String) bVar2.a.get("apn"));
-                    bundle.putString(i + SkinManager.darkSuffix, (String) bVar2.a.get("frequency"));
-                    bundle.putString(i + "_3", (String) bVar2.a.get("commandid"));
-                    bundle.putString(i + "_4", (String) bVar2.a.get("resultCode"));
-                    bundle.putString(i + "_5", (String) bVar2.a.get("timeCost"));
-                    bundle.putString(i + "_6", (String) bVar2.a.get("reqSize"));
-                    bundle.putString(i + "_7", (String) bVar2.a.get("rspSize"));
-                    bundle.putString(i + "_8", (String) bVar2.a.get("detail"));
-                    bundle.putString(i + "_9", (String) bVar2.a.get("uin"));
-                    bundle.putString(i + "_10", c.e(com.tencent.open.utils.f.a()) + "&" + ((String) bVar2.a.get(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO)));
+                    bundle.putString(i + SkinManager.nightSufix, bVar2.a.get("apn"));
+                    bundle.putString(i + SkinManager.darkSuffix, bVar2.a.get("frequency"));
+                    bundle.putString(i + "_3", bVar2.a.get("commandid"));
+                    bundle.putString(i + "_4", bVar2.a.get("resultCode"));
+                    bundle.putString(i + "_5", bVar2.a.get("timeCost"));
+                    bundle.putString(i + "_6", bVar2.a.get("reqSize"));
+                    bundle.putString(i + "_7", bVar2.a.get("rspSize"));
+                    bundle.putString(i + "_8", bVar2.a.get("detail"));
+                    bundle.putString(i + "_9", bVar2.a.get("uin"));
+                    bundle.putString(i + "_10", c.e(com.tencent.open.utils.f.a()) + "&" + bVar2.a.get(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO));
                 }
                 SLog.v("openSDK_LOG.ReportManager", "-->prepareCgiData, end. params: " + bundle.toString());
                 return bundle;
@@ -1075,7 +1076,7 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            List a2 = f.a().a("report_via");
+            List<Serializable> a2 = f.a().a("report_via");
             if (a2 != null) {
                 this.d.addAll(a2);
             }
@@ -1084,12 +1085,13 @@ public class g {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            for (Serializable serializable : this.d) {
+            Iterator<Serializable> it = this.d.iterator();
+            while (it.hasNext()) {
                 JSONObject jSONObject = new JSONObject();
-                b bVar = (b) serializable;
+                b bVar = (b) it.next();
                 for (String str : bVar.a.keySet()) {
                     try {
-                        String str2 = (String) bVar.a.get(str);
+                        String str2 = bVar.a.get(str);
                         if (str2 == null) {
                             str2 = "";
                         }

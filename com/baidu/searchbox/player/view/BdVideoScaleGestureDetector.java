@@ -36,7 +36,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final Lazy scaleGestureDetector$delegate;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1042view;
+    public final View f1043view;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0007\u0010\u0006¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "Lkotlin/Any;", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "detector", "", "onScaleBegin", "(Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;)V", "onScaleEnd", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -88,7 +88,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$Companion;", "", "SCALE_MAX", "F", "SCALE_MIN", "SCALE_NORMAL", "<init>", "()V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -113,7 +113,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\b\u0016\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0007\u0010\u0006¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$SimpleOnScaleGestureListener;", "com/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "detector", "", "onScaleBegin", "(Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;)V", "onScaleEnd", "<init>", "()V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public class SimpleOnScaleGestureListener implements OnScaleGestureListener {
+    public static class SimpleOnScaleGestureListener implements OnScaleGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -164,7 +164,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
             }
         }
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1042view = view2;
+        this.f1043view = view2;
         this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new BdVideoScaleGestureDetector$scaleGestureDetector$2(this));
     }
 
@@ -192,7 +192,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, detector)) == null) {
             Intrinsics.checkNotNullParameter(detector, "detector");
             float scaleFactor = detector.getScaleFactor();
-            float scaleX = this.f1042view.getScaleX();
+            float scaleX = this.f1043view.getScaleX();
             if (scaleFactor < 1.0f && scaleX > getMinScale()) {
                 float f = scaleX * scaleFactor;
                 if (f < getMinScale()) {
@@ -225,7 +225,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f1042view;
+            return this.f1043view;
         }
         return (View) invokeV.objValue;
     }
@@ -285,8 +285,8 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final void setScale(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
-            this.f1042view.setScaleX(f);
-            this.f1042view.setScaleY(f);
+            this.f1043view.setScaleX(f);
+            this.f1043view.setScaleY(f);
         }
     }
 
@@ -300,9 +300,9 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public void setPivot(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            View view2 = this.f1042view;
+            View view2 = this.f1043view;
             float f3 = 1;
-            BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1042view.getPivotX() - f) * (f3 - this.f1042view.getScaleX())), this.f1042view.getTranslationY() + ((this.f1042view.getPivotY() - f2) * (f3 - this.f1042view.getScaleY())));
+            BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1043view.getPivotX() - f) * (f3 - this.f1043view.getScaleX())), this.f1043view.getTranslationY() + ((this.f1043view.getPivotY() - f2) * (f3 - this.f1043view.getScaleY())));
             view2.setPivotX(f);
             view2.setPivotY(f2);
         }

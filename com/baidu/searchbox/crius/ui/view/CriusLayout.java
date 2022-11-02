@@ -46,15 +46,15 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
     public static final String TAG = "CriusLayout";
     public transient /* synthetic */ FieldHolder $fh;
     public CriusData mCriusData;
-    public Map mCriusDatas;
+    public Map<View, CriusData> mCriusDatas;
     public OpacityController mOpacityController;
 
     /* loaded from: classes2.dex */
-    public class LayoutParams extends ViewGroup.LayoutParams {
+    public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public SparseArray numericAttributes;
-        public SparseArray stringAttributes;
+        public SparseArray<Float> numericAttributes;
+        public SparseArray<String> stringAttributes;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(int i, int i2) {
@@ -75,8 +75,8 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                     return;
                 }
             }
-            this.numericAttributes = new SparseArray();
-            this.stringAttributes = new SparseArray();
+            this.numericAttributes = new SparseArray<>();
+            this.stringAttributes = new SparseArray<>();
             if (i >= 0) {
                 this.numericAttributes.put(55, Float.valueOf(i));
             }
@@ -104,8 +104,8 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                     return;
                 }
             }
-            this.numericAttributes = new SparseArray();
-            this.stringAttributes = new SparseArray();
+            this.numericAttributes = new SparseArray<>();
+            this.stringAttributes = new SparseArray<>();
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.crius);
             int i3 = ((ViewGroup.LayoutParams) this).width;
             if (i3 >= 0) {
@@ -155,8 +155,8 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                 this.numericAttributes = layoutParams2.numericAttributes.clone();
                 this.stringAttributes = layoutParams2.stringAttributes.clone();
             } else {
-                this.numericAttributes = new SparseArray();
-                this.stringAttributes = new SparseArray();
+                this.numericAttributes = new SparseArray<>();
+                this.stringAttributes = new SparseArray<>();
             }
             if (layoutParams.width >= 0) {
                 this.numericAttributes.put(55, Float.valueOf(((ViewGroup.LayoutParams) this).width));
@@ -168,7 +168,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
     }
 
     /* loaded from: classes2.dex */
-    public class ViewMeasureFunction implements CriusMeasureFunction {
+    public static class ViewMeasureFunction implements CriusMeasureFunction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -250,7 +250,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
             if (this.mCriusDatas.containsKey(view2)) {
-                ((CriusData) this.mCriusDatas.get(view2)).criusNode.dirty();
+                this.mCriusDatas.get(view2).criusNode.dirty();
                 return;
             }
             int childCount = this.mCriusData.getChildCount();
@@ -425,7 +425,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                     break;
                 }
                 int keyAt = layoutParams.numericAttributes.keyAt(i3);
-                float floatValue = ((Float) layoutParams.numericAttributes.valueAt(i3)).floatValue();
+                float floatValue = layoutParams.numericAttributes.valueAt(i3).floatValue();
                 if (keyAt == 0) {
                     criusNode.setAlignContent(CriusAlign.fromInt(Math.round(floatValue)));
                 } else if (keyAt == 1) {
@@ -530,8 +530,8 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
             int i4 = 0;
             while (i4 < layoutParams.stringAttributes.size()) {
                 int keyAt2 = layoutParams.stringAttributes.keyAt(i4);
-                String str = (String) layoutParams.stringAttributes.valueAt(i4);
-                if ("auto".equals(str)) {
+                String valueAt = layoutParams.stringAttributes.valueAt(i4);
+                if ("auto".equals(valueAt)) {
                     if (keyAt2 == 26) {
                         criusNode.setMarginAuto(CriusEdge.LEFT);
                     } else if (keyAt2 == 29) {
@@ -548,8 +548,8 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                         criusNode.setMarginAuto(CriusEdge.ALL);
                     }
                 }
-                if (str.endsWith("%")) {
-                    float parseFloat = Float.parseFloat(str.substring(0, str.length() - i2));
+                if (valueAt.endsWith("%")) {
+                    float parseFloat = Float.parseFloat(valueAt.substring(0, valueAt.length() - i2));
                     if (keyAt2 == 16) {
                         criusNode.setFlexBasisPercent(parseFloat);
                     } else if (keyAt2 == i) {
@@ -623,7 +623,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
     private void removeViewFromCriusTree(View view2, boolean z) {
         CriusData criusData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65543, this, view2, z) != null) || (criusData = (CriusData) this.mCriusDatas.get(view2)) == null) {
+        if ((interceptable != null && interceptable.invokeLZ(65543, this, view2, z) != null) || (criusData = this.mCriusDatas.get(view2)) == null) {
             return;
         }
         criusData.criusNode.setData(null);
@@ -682,7 +682,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
             }
             super.addView(view2, i, layoutParams);
             if (this.mCriusDatas.containsKey(view2)) {
-                CriusData criusData3 = (CriusData) this.mCriusDatas.get(view2);
+                CriusData criusData3 = this.mCriusDatas.get(view2);
                 applyLayoutParams((LayoutParams) view2.getLayoutParams(), criusData3.criusNode, view2);
                 if (!(view2 instanceof CriusLayout) && !(view2 instanceof CriusRecyclerView)) {
                     if (AppConfig.isDebug()) {
@@ -698,7 +698,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                 create = ((CriusLayout) view2).getCriusData();
             } else {
                 if (this.mCriusDatas.containsKey(view2)) {
-                    create = (CriusData) this.mCriusDatas.get(view2);
+                    create = this.mCriusDatas.get(view2);
                 } else {
                     create = CriusDataFactory.create(getContext(), view2);
                 }

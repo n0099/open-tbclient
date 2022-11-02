@@ -22,7 +22,7 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public abstract class a implements Runnable {
+    public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Thread.UncaughtExceptionHandler a;

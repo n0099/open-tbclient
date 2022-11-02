@@ -1,24 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.openid.sdk.OnGetOaidListener;
-/* compiled from: lambda */
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class jl9 implements OnGetOaidListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ jl9 a = new jl9();
-    public transient /* synthetic */ FieldHolder $fh;
-
-    private /* synthetic */ jl9() {
-    }
-
-    @Override // com.fun.openid.sdk.OnGetOaidListener
-    public final void onGetOaid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            HostAppInfo.a(str);
-        }
+public interface jl9 {
+    static {
+        new ServiceReference("yaLog", "yaLogConfig");
     }
 }

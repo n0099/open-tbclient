@@ -5,6 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -18,7 +21,7 @@ import com.google.android.material.expandable.ExpandableWidget;
 import java.util.List;
 @Deprecated
 /* loaded from: classes7.dex */
-public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior {
+public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_COLLAPSED = 2;
     public static final int STATE_EXPANDED = 1;
@@ -69,7 +72,8 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior {
         this.currentState = 0;
     }
 
-    public static ExpandableBehavior from(View view2, Class cls) {
+    @Nullable
+    public static <T extends ExpandableBehavior> T from(@NonNull View view2, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, cls)) == null) {
@@ -77,13 +81,13 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior {
             if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
                 CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) layoutParams).getBehavior();
                 if (behavior instanceof ExpandableBehavior) {
-                    return (ExpandableBehavior) cls.cast(behavior);
+                    return cls.cast(behavior);
                 }
                 throw new IllegalArgumentException("The view is not associated with ExpandableBehavior");
             }
             throw new IllegalArgumentException("The view is not a child of CoordinatorLayout");
         }
-        return (ExpandableBehavior) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     private boolean didStateChange(boolean z) {
@@ -105,7 +109,8 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior {
         return invokeZ.booleanValue;
     }
 
-    public ExpandableWidget findExpandableWidget(CoordinatorLayout coordinatorLayout, View view2) {
+    @Nullable
+    public ExpandableWidget findExpandableWidget(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, coordinatorLayout, view2)) == null) {
@@ -123,6 +128,7 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior {
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    @CallSuper
     public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, View view2, View view3) {
         InterceptResult invokeLLL;
         int i;
@@ -144,7 +150,8 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior {
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
+    @CallSuper
+    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i) {
         InterceptResult invokeLLI;
         ExpandableWidget findExpandableWidget;
         int i2;

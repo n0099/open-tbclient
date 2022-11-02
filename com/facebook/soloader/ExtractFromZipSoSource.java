@@ -29,7 +29,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
 
     /* renamed from: com.facebook.soloader.ExtractFromZipSoSource$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -223,7 +223,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class ZipDso extends UnpackingSoSource.Dso implements Comparable {
+    public static final class ZipDso extends UnpackingSoSource.Dso implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int abiScore;

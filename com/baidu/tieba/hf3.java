@@ -1,114 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 /* loaded from: classes4.dex */
-public final class hf3 {
+public abstract class hf3 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public Object b;
-    public a c;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        Object update() throws IllegalStateException;
-    }
-
-    public hf3(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hf3(b53 b53Var, String str) {
+        super(b53Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {b53Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        jf3.a().h(this);
     }
 
-    public boolean update(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (aVar == null) {
-                return false;
-            }
-            try {
-                if (!update(aVar.update())) {
-                    return false;
-                }
-                return true;
-            } catch (IllegalStateException e) {
-                m02.o("Tracer", "index update IllegalStateException " + e.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public CharSequence a() {
+    public static qf3 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Object obj = this.b;
-            if (obj == null) {
-                return "";
-            }
-            return obj.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return et1.z();
         }
-        return (CharSequence) invokeV.objValue;
+        return (qf3) invokeV.objValue;
     }
 
-    public boolean update() {
+    public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return update(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return et1.B();
         }
         return invokeV.booleanValue;
-    }
-
-    public hf3 b(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.c = aVar;
-            update();
-            return this;
-        }
-        return (hf3) invokeL.objValue;
-    }
-
-    public boolean update(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            this.b = obj;
-            jf3.a().e(this);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.a, a());
-        }
-        return (String) invokeV.objValue;
     }
 }

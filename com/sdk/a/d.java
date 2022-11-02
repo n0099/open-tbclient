@@ -1,5 +1,6 @@
 package com.sdk.a;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,9 +16,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static long a = 60000;
-    public static final ConcurrentHashMap b;
+    public static final ConcurrentHashMap<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final com.sdk.b.c c;
+    public final com.sdk.b.c<String, String> c;
     public int d;
 
     public String a(String str) {
@@ -25,7 +26,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
-                return (String) this.c.a(str);
+                return this.c.a((com.sdk.b.c<String, String>) str);
             }
             return null;
         }
@@ -40,12 +41,13 @@ public class d {
         this.c.a(str, str2, System.currentTimeMillis() + j);
     }
 
+    @SuppressLint({"DefaultLocale"})
     public boolean b(String str) {
         InterceptResult invokeL;
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bool = (Boolean) b.get(str.toUpperCase())) == null) {
+            if (TextUtils.isEmpty(str) || (bool = b.get(str.toUpperCase())) == null) {
                 return false;
             }
             return bool.booleanValue();
@@ -66,7 +68,7 @@ public class d {
                 return;
             }
         }
-        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap(10);
+        ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
         b = concurrentHashMap;
         concurrentHashMap.put(g.a.a.l, Boolean.TRUE);
         new ConcurrentHashMap(10);

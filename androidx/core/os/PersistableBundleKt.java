@@ -2,6 +2,7 @@ package androidx.core.os;
 
 import android.os.Build;
 import android.os.PersistableBundle;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,6 +17,7 @@ public final class PersistableBundleKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(21)
     public static final PersistableBundle persistableBundleOf(Pair<String, ? extends Object>... pairArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

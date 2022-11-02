@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do5;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.cp5;
+import com.baidu.tieba.ot4;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.xs4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public do5 h;
+    public cp5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, xs4 xs4Var);
+        void a(ArrayList<Integer> arrayList, String str, ot4 ot4Var);
 
-        void b(xs4 xs4Var, CompoundButton compoundButton, boolean z);
+        void b(ot4 ot4Var, CompoundButton compoundButton, boolean z);
 
-        void c(xs4 xs4Var);
+        void c(ot4 ot4Var);
     }
 
     public void setACRotateAnimation() {
@@ -118,7 +118,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
         }
         this.b = 0L;
-        this.f = R.drawable.obfuscated_res_0x7f080934;
+        this.f = R.drawable.obfuscated_res_0x7f080949;
         this.g = R.color.CAM_X0111;
         this.i = new a(this);
         this.a = tbPageContext.getPageActivity();
@@ -128,7 +128,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void p(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.h = new do5(tbPageContext, this);
+            this.h = new cp5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             q();
@@ -156,10 +156,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(xs4 xs4Var) {
+    public void setData(ot4 ot4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, xs4Var) == null) {
-            this.h.v(xs4Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, ot4Var) == null) {
+            this.h.v(ot4Var);
         }
     }
 
@@ -251,13 +251,13 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void n(ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, i2) == null) {
-            int f = fj.f(this.a, R.dimen.tbds24);
+            int g = xi.g(this.a, R.dimen.tbds24);
             setPadding(i2, 0, i2, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);
                 layoutParams.addRule(11);
                 layoutParams.addRule(15);
-                layoutParams.rightMargin = f;
+                layoutParams.rightMargin = g;
                 viewGroup.addView(this, layoutParams);
             } else if (viewGroup instanceof FrameLayout) {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(i, i);

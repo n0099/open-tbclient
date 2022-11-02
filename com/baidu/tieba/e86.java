@@ -1,108 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class e86 extends d86 {
+public final class e86 implements a8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ScaleGestureDetector h;
-    public b i;
+    public h66 a;
+    public d66 b;
+    public PointF c;
+    public RectF d;
+    public Matrix e;
+    public float f;
+    public boolean g;
 
-    /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes3.dex */
-    public final class c extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ e86 b;
-
-        public c(e86 e86Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e86Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e86Var;
-            this.a = false;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scaleGestureDetector)) == null) {
-                this.a = false;
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
-                this.a = true;
-            }
-        }
-
-        public /* synthetic */ c(e86 e86Var, a aVar) {
-            this(e86Var);
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
-                if (scaleGestureDetector != null && this.b.i != null) {
-                    float scaleFactor = scaleGestureDetector.getScaleFactor();
-                    if (!this.a && scaleFactor > 1.0f) {
-                        this.a = true;
-                        this.b.i.a(true);
-                    } else if (!this.a && scaleFactor > 0.0f && scaleFactor < 1.0f) {
-                        this.a = true;
-                        this.b.i.a(false);
-                    }
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
+    @Override // com.baidu.tieba.a8.a
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
-    public e86(Context context) {
+    public e86(h66 item, d66 drawingCache, PointF position, RectF rect, Matrix transform) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {item, drawingCache, position, rect, transform};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -112,28 +46,109 @@ public class e86 extends d86 {
                 return;
             }
         }
-        this.h = new ScaleGestureDetector(context, new c(this, null));
+        Intrinsics.checkNotNullParameter(item, "item");
+        Intrinsics.checkNotNullParameter(drawingCache, "drawingCache");
+        Intrinsics.checkNotNullParameter(position, "position");
+        Intrinsics.checkNotNullParameter(rect, "rect");
+        Intrinsics.checkNotNullParameter(transform, "transform");
+        this.a = item;
+        this.b = drawingCache;
+        this.c = position;
+        this.d = rect;
+        this.e = transform;
+        this.f = 1.0f;
     }
 
-    @Override // com.baidu.tieba.d86
-    public boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public final float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            try {
-                this.h.onTouchEvent(motionEvent);
-                return super.c(motionEvent);
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return invokeL.booleanValue;
+        return invokeV.floatValue;
     }
 
-    public void i(b bVar) {
+    public final d66 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.i = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (d66) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final h66 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (h66) invokeV.objValue;
+    }
+
+    public final PointF e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (PointF) invokeV.objValue;
+    }
+
+    public final RectF f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (RectF) invokeV.objValue;
+    }
+
+    public final Matrix g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final void h(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    public final void i(d66 d66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d66Var) == null) {
+            Intrinsics.checkNotNullParameter(d66Var, "<set-?>");
+            this.b = d66Var;
+        }
+    }
+
+    public final void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public final void k(h66 h66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, h66Var) == null) {
+            Intrinsics.checkNotNullParameter(h66Var, "<set-?>");
+            this.a = h66Var;
         }
     }
 }

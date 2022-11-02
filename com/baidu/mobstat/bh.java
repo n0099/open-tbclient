@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,7 +23,7 @@ public class bh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public List b;
+    public List<b> b;
     public String c;
     public bj d;
     public boolean e;
@@ -68,7 +67,7 @@ public class bh {
     }
 
     /* loaded from: classes2.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -227,14 +226,12 @@ public class bh {
         }
     }
 
-    private boolean a(List list, String str, String str2) {
+    private boolean a(List<b> list, String str, String str2) {
         InterceptResult invokeLLL;
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, list, str, str2)) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                b bVar = (b) it.next();
+            for (b bVar : list) {
                 if (bVar.c) {
                     str3 = str2;
                 } else {
@@ -250,7 +247,7 @@ public class bh {
     }
 
     public void a(Activity activity) {
-        List list;
+        List<b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
             if (!this.e && !this.a && ((list = this.b) == null || list.size() == 0)) {

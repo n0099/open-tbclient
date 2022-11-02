@@ -1,9 +1,12 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,6 +29,7 @@ public final class HardwareConfigState {
     public static final int MAXIMUM_FDS_FOR_HARDWARE_CONFIGS_O = 700;
     public static final int MAXIMUM_FDS_FOR_HARDWARE_CONFIGS_P = 20000;
     public static final int MINIMUM_DECODES_BETWEEN_FD_CHECKS = 50;
+    @VisibleForTesting
     public static final int MIN_HARDWARE_DIMENSION_O = 128;
     public static final int MIN_HARDWARE_DIMENSION_P = 0;
     public static final int NO_MAX_FD_COUNT = -1;
@@ -33,7 +37,9 @@ public final class HardwareConfigState {
     public static volatile HardwareConfigState instance;
     public static volatile int manualOverrideMaxFdCount;
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("this")
     public int decodesSinceLastFdCheck;
+    @GuardedBy("this")
     public boolean isFdSizeBelowHardwareLimit;
     public final AtomicBoolean isHardwareConfigAllowedByAppState;
     public final boolean isHardwareConfigAllowedByDeviceModel;
@@ -69,6 +75,7 @@ public final class HardwareConfigState {
         manualOverrideMaxFdCount = -1;
     }
 
+    @VisibleForTesting
     public HardwareConfigState() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -283,6 +290,7 @@ public final class HardwareConfigState {
         return invokeCommon.booleanValue;
     }
 
+    @TargetApi(26)
     public boolean setHardwareConfigIfAllowed(int i, int i2, BitmapFactory.Options options, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

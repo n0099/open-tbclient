@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.atomData;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.e29;
-import com.baidu.tieba.lp8;
+import com.baidu.tieba.n39;
+import com.baidu.tieba.vq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,21 +77,21 @@ public class WorkPublishManager {
         }
         objLocate = str;
         if (str != null && str.equals("7")) {
-            lp8.k().z(true);
-            lp8.k().x(str2);
+            vq8.k().z(true);
+            vq8.k().x(str2);
             i = 7;
         } else if (TextUtils.equals(str, "8")) {
-            lp8.k().y(8);
-            lp8.k().x(str2);
+            vq8.k().y(8);
+            vq8.k().x(str2);
             i = 8;
         } else {
             i = 6;
         }
-        if (e29.b()) {
-            e29.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        if (n39.b()) {
+            n39.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
             return;
         }
-        e29.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        n39.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
     }
 
     public static void setObjLocate(String str) {

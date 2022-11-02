@@ -1,107 +1,74 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTFeedAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class ao9 extends um9 {
+public class ao9 implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public final /* synthetic */ po9 b;
+    public final /* synthetic */ xn9 c;
 
-    /* loaded from: classes3.dex */
-    public class a implements TTAdNative.FeedAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao9 a;
-
-        public a(ao9 ao9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao9Var;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJNative onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
-        public void onFeedAdLoad(List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
-                    onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    arrayList.add(new hn9((TTFeedAd) it.next()));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ao9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
+    public ao9(xn9 xn9Var, po9 po9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {xn9Var, po9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = xn9Var;
+        this.b = po9Var;
     }
 
-    @Override // com.baidu.tieba.um9
-    public void h(FunAdSlot funAdSlot) {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
-            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
-            Ssp.Pid pid = this.mPid;
-            this.e.loadFeedAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.c.onAdClicked(this.b, this.a, new String[0]);
+            this.a = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            LogPrinter.d();
+            this.c.onAdShow(this.b, false, new String[0]);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.e("onRenderFail message: " + str + ", code = " + i, new Object[0]);
+            this.c.onError(i, str);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.c.onAdLoaded((xn9) this.b);
         }
     }
 }

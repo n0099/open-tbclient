@@ -22,13 +22,13 @@ public final class MediaPeriodInfoSequence {
 
     /* renamed from: com.google.android.exoplayer2.MediaPeriodInfoSequence$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class MediaPeriodInfo {
+    public static final class MediaPeriodInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long contentPositionUs;
@@ -304,7 +304,7 @@ public final class MediaPeriodInfoSequence {
                 int i = this.timeline.getPeriod(nextPeriodIndex, this.period).windowIndex;
                 long j3 = 0;
                 if (this.timeline.getWindow(i, this.window).firstPeriodIndex == nextPeriodIndex) {
-                    Pair periodPosition = this.timeline.getPeriodPosition(this.window, this.period, i, C.TIME_UNSET, Math.max(0L, (j + mediaPeriodInfo.durationUs) - j2));
+                    Pair<Integer, Long> periodPosition = this.timeline.getPeriodPosition(this.window, this.period, i, C.TIME_UNSET, Math.max(0L, (j + mediaPeriodInfo.durationUs) - j2));
                     if (periodPosition == null) {
                         return null;
                     }

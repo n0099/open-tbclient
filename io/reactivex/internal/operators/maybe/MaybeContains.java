@@ -15,21 +15,21 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 /* loaded from: classes8.dex */
-public final class MaybeContains extends Single implements HasUpstreamMaybeSource {
+public final class MaybeContains<T> extends Single<Boolean> implements HasUpstreamMaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource source;
+    public final MaybeSource<T> source;
     public final Object value;
 
     /* loaded from: classes8.dex */
-    public final class ContainsMaybeObserver implements MaybeObserver, Disposable {
+    public static final class ContainsMaybeObserver implements MaybeObserver<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super Boolean> actual;
         public Disposable d;
         public final Object value;
 
-        public ContainsMaybeObserver(SingleObserver singleObserver, Object obj) {
+        public ContainsMaybeObserver(SingleObserver<? super Boolean> singleObserver, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public final class MaybeContains extends Single implements HasUpstreamMaybeSourc
         }
     }
 
-    public MaybeContains(MaybeSource maybeSource, Object obj) {
+    public MaybeContains(MaybeSource<T> maybeSource, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public final class MaybeContains extends Single implements HasUpstreamMaybeSourc
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource source() {
+    public MaybeSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -134,7 +134,7 @@ public final class MaybeContains extends Single implements HasUpstreamMaybeSourc
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new ContainsMaybeObserver(singleObserver, this.value));

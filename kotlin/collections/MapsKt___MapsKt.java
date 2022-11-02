@@ -11,9 +11,14 @@ import java.util.NoSuchElementException;
 import kotlin.Deprecated;
 import kotlin.DeprecatedSinceKotlin;
 import kotlin.Metadata;
+import kotlin.OverloadResolutionByLambdaReturnType;
 import kotlin.Pair;
 import kotlin.ReplaceWith;
+import kotlin.SinceKotlin;
 import kotlin.Unit;
+import kotlin.internal.HidesMembers;
+import kotlin.internal.InlineOnly;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
@@ -28,7 +33,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
             return true;
         }
         for (Map.Entry<? extends K, ? extends V> entry : all.entrySet()) {
-            if (!((Boolean) predicate.invoke(entry)).booleanValue()) {
+            if (!predicate.invoke(entry).booleanValue()) {
                 return false;
             }
         }
@@ -42,7 +47,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
             return false;
         }
         for (Map.Entry<? extends K, ? extends V> entry : any.entrySet()) {
-            if (((Boolean) predicate.invoke(entry)).booleanValue()) {
+            if (predicate.invoke(entry).booleanValue()) {
                 return true;
             }
         }
@@ -57,142 +62,180 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
             return 0;
         }
         for (Map.Entry<? extends K, ? extends V> entry : count.entrySet()) {
-            if (((Boolean) predicate.invoke(entry)).booleanValue()) {
+            if (predicate.invoke(entry).booleanValue()) {
                 i++;
             }
         }
         return i;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x001a */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: ? super java.util.Map$Entry<? extends K, ? extends V> */
+    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator */
+    /* JADX WARN: Multi-variable type inference failed */
     @Deprecated(message = "Use maxByOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxByOrNull(selector)", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
+    @InlineOnly
     public static final <K, V, R extends Comparable<? super R>> Map.Entry<K, V> maxBy(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Object obj;
-        Iterator<T> it = map.entrySet().iterator();
+        Iterator it = map.entrySet().iterator();
         if (!it.hasNext()) {
             obj = null;
         } else {
-            Object next = it.next();
+            Object obj2 = (Object) it.next();
             if (!it.hasNext()) {
-                obj = next;
+                obj = obj2;
             } else {
-                Comparable comparable = (Comparable) function1.invoke(next);
+                R invoke = function1.invoke(obj2);
+                Object obj3 = obj2;
                 do {
-                    Object next2 = it.next();
-                    Comparable comparable2 = (Comparable) function1.invoke(next2);
-                    if (comparable.compareTo(comparable2) < 0) {
-                        next = next2;
-                        comparable = comparable2;
+                    Object obj4 = (Object) it.next();
+                    R invoke2 = function1.invoke(obj4);
+                    obj2 = obj3;
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
+                        obj2 = (Object) obj4;
                     }
+                    obj3 = obj2;
                 } while (it.hasNext());
-                obj = next;
+                obj = obj2;
             }
         }
         return (Map.Entry) obj;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x001a */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: ? super java.util.Map$Entry<? extends K, ? extends V> */
+    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <K, V, R extends Comparable<? super R>> Map.Entry<K, V> maxByOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Object obj;
-        Iterator<T> it = map.entrySet().iterator();
+        Iterator it = map.entrySet().iterator();
         if (!it.hasNext()) {
             obj = null;
         } else {
-            Object next = it.next();
+            Object obj2 = (Object) it.next();
             if (!it.hasNext()) {
-                obj = next;
+                obj = obj2;
             } else {
-                Comparable comparable = (Comparable) function1.invoke(next);
+                R invoke = function1.invoke(obj2);
+                Object obj3 = obj2;
                 do {
-                    Object next2 = it.next();
-                    Comparable comparable2 = (Comparable) function1.invoke(next2);
-                    if (comparable.compareTo(comparable2) < 0) {
-                        next = next2;
-                        comparable = comparable2;
+                    Object obj4 = (Object) it.next();
+                    R invoke2 = function1.invoke(obj4);
+                    obj2 = obj3;
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
+                        obj2 = (Object) obj4;
                     }
+                    obj3 = obj2;
                 } while (it.hasNext());
-                obj = next;
+                obj = obj2;
             }
         }
         return (Map.Entry) obj;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <K, V> double maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
-            double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+            double doubleValue = function1.invoke((Object) it.next()).doubleValue();
             while (it.hasNext()) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke((Object) it.next()).doubleValue());
             }
             return doubleValue;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <K, V, R extends Comparable<? super R>> R maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Comparable comparable = (Comparable) function1.invoke(it.next());
+        R invoke = function1.invoke((Object) it.next());
         while (it.hasNext()) {
-            Comparable comparable2 = (Comparable) function1.invoke(it.next());
-            if (comparable.compareTo(comparable2) < 0) {
-                comparable = comparable2;
+            R invoke2 = function1.invoke((Object) it.next());
+            if (invoke.compareTo(invoke2) < 0) {
+                invoke = invoke2;
             }
         }
-        return (R) comparable;
+        return invoke;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x001a */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: ? super java.util.Map$Entry<? extends K, ? extends V> */
+    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <K, V, R extends Comparable<? super R>> Map.Entry<K, V> minByOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Object obj;
-        Iterator<T> it = map.entrySet().iterator();
+        Iterator it = map.entrySet().iterator();
         if (!it.hasNext()) {
             obj = null;
         } else {
-            Object next = it.next();
+            Object obj2 = (Object) it.next();
             if (!it.hasNext()) {
-                obj = next;
+                obj = obj2;
             } else {
-                Comparable comparable = (Comparable) function1.invoke(next);
+                R invoke = function1.invoke(obj2);
+                Object obj3 = obj2;
                 do {
-                    Object next2 = it.next();
-                    Comparable comparable2 = (Comparable) function1.invoke(next2);
-                    if (comparable.compareTo(comparable2) > 0) {
-                        next = next2;
-                        comparable = comparable2;
+                    Object obj4 = (Object) it.next();
+                    R invoke2 = function1.invoke(obj4);
+                    obj2 = obj3;
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
+                        obj2 = (Object) obj4;
                     }
+                    obj3 = obj2;
                 } while (it.hasNext());
-                obj = next;
+                obj = obj2;
             }
         }
         return (Map.Entry) obj;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <K, V> double minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
-            double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+            double doubleValue = function1.invoke((Object) it.next()).doubleValue();
             while (it.hasNext()) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke((Object) it.next()).doubleValue());
             }
             return doubleValue;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <K, V, R extends Comparable<? super R>> R minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Comparable comparable = (Comparable) function1.invoke(it.next());
+        R invoke = function1.invoke((Object) it.next());
         while (it.hasNext()) {
-            Comparable comparable2 = (Comparable) function1.invoke(it.next());
-            if (comparable.compareTo(comparable2) > 0) {
-                comparable = comparable2;
+            R invoke2 = function1.invoke((Object) it.next());
+            if (invoke.compareTo(invoke2) > 0) {
+                invoke = invoke2;
             }
         }
-        return (R) comparable;
+        return invoke;
     }
 
     public static final <K, V> boolean none(Map<? extends K, ? extends V> none, Function1<? super Map.Entry<? extends K, ? extends V>, Boolean> predicate) {
@@ -202,7 +245,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
             return true;
         }
         for (Map.Entry<? extends K, ? extends V> entry : none.entrySet()) {
-            if (((Boolean) predicate.invoke(entry)).booleanValue()) {
+            if (predicate.invoke(entry).booleanValue()) {
                 return false;
             }
         }
@@ -214,6 +257,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         return !any.isEmpty();
     }
 
+    @InlineOnly
     public static final <K, V> Iterable<Map.Entry<K, V>> asIterable(Map<? extends K, ? extends V> map) {
         return map.entrySet();
     }
@@ -223,6 +267,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         return CollectionsKt___CollectionsKt.asSequence(asSequence.entrySet());
     }
 
+    @InlineOnly
     public static final <K, V> int count(Map<? extends K, ? extends V> map) {
         return map.size();
     }
@@ -232,12 +277,14 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         return none.isEmpty();
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <K, V, R> R firstNotNullOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         R r;
         Iterator<Map.Entry<? extends K, ? extends V>> it = map.entrySet().iterator();
         while (true) {
             if (it.hasNext()) {
-                r = (R) function1.invoke(it.next());
+                r = function1.invoke(it.next());
                 if (r != null) {
                     break;
                 }
@@ -252,11 +299,13 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         throw new NoSuchElementException("No element of the map was transformed to a non-null value.");
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <K, V, R> R firstNotNullOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-            R r = (R) function1.invoke(entry);
-            if (r != null) {
-                return r;
+            R invoke = function1.invoke(entry);
+            if (invoke != null) {
+                return invoke;
             }
         }
         return null;
@@ -267,21 +316,25 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<? extends K, ? extends V> entry : flatMap.entrySet()) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(entry));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(entry));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapSequence")
     public static final <K, V, R> List<R> flatMapSequence(Map<? extends K, ? extends V> flatMap, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends Sequence<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMap, "$this$flatMap");
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<? extends K, ? extends V> entry : flatMap.entrySet()) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Sequence) transform.invoke(entry));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(entry));
         }
         return arrayList;
     }
 
+    @HidesMembers
     public static final <K, V> void forEach(Map<? extends K, ? extends V> forEach, Function1<? super Map.Entry<? extends K, ? extends V>, Unit> action) {
         Intrinsics.checkNotNullParameter(forEach, "$this$forEach");
         Intrinsics.checkNotNullParameter(action, "action");
@@ -305,7 +358,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<? extends K, ? extends V> entry : mapNotNull.entrySet()) {
-            Object invoke = transform.invoke(entry);
+            R invoke = transform.invoke(entry);
             if (invoke != null) {
                 arrayList.add(invoke);
             }
@@ -315,10 +368,13 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
 
     @Deprecated(message = "Use maxWithOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxWithOrNull(comparator)", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
+    @InlineOnly
     public static final <K, V> Map.Entry<K, V> maxWith(Map<? extends K, ? extends V> map, Comparator<? super Map.Entry<? extends K, ? extends V>> comparator) {
         return (Map.Entry) CollectionsKt___CollectionsKt.maxWithOrNull(map.entrySet(), comparator);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <K, V> Map.Entry<K, V> maxWithOrNull(Map<? extends K, ? extends V> map, Comparator<? super Map.Entry<? extends K, ? extends V>> comparator) {
         return (Map.Entry) CollectionsKt___CollectionsKt.maxWithOrNull(map.entrySet(), comparator);
     }
@@ -331,10 +387,13 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         return (Map.Entry) CollectionsKt___CollectionsKt.minWithOrNull(minWith.entrySet(), comparator);
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
     public static final <K, V> Map.Entry<K, V> minWithOrNull(Map<? extends K, ? extends V> map, Comparator<? super Map.Entry<? extends K, ? extends V>> comparator) {
         return (Map.Entry) CollectionsKt___CollectionsKt.minWithOrNull(map.entrySet(), comparator);
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <K, V, M extends Map<? extends K, ? extends V>> M onEach(M onEach, Function1<? super Map.Entry<? extends K, ? extends V>, Unit> action) {
         Intrinsics.checkNotNullParameter(onEach, "$this$onEach");
         Intrinsics.checkNotNullParameter(action, "action");
@@ -344,6 +403,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         return onEach;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <K, V, M extends Map<? extends K, ? extends V>> M onEachIndexed(M onEachIndexed, Function2<? super Integer, ? super Map.Entry<? extends K, ? extends V>, Unit> action) {
         Intrinsics.checkNotNullParameter(onEachIndexed, "$this$onEachIndexed");
         Intrinsics.checkNotNullParameter(action, "action");
@@ -359,12 +419,15 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         return onEachIndexed;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @JvmName(name = "flatMapSequenceTo")
     public static final <K, V, R, C extends Collection<? super R>> C flatMapSequenceTo(Map<? extends K, ? extends V> flatMapTo, C destination, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends Sequence<? extends R>> transform) {
         Intrinsics.checkNotNullParameter(flatMapTo, "$this$flatMapTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (Map.Entry<? extends K, ? extends V> entry : flatMapTo.entrySet()) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Sequence) transform.invoke(entry));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(entry));
         }
         return destination;
     }
@@ -374,7 +437,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (Map.Entry<? extends K, ? extends V> entry : flatMapTo.entrySet()) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(entry));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(entry));
         }
         return destination;
     }
@@ -384,7 +447,7 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (Map.Entry<? extends K, ? extends V> entry : mapNotNullTo.entrySet()) {
-            Object invoke = transform.invoke(entry);
+            R invoke = transform.invoke(entry);
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -402,161 +465,202 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         return destination;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0018 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0018 */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: R */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: ? super R */
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: ? super R, R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <K, V, R> R maxOfWithOrNull(Map<? extends K, ? extends V> map, Comparator<? super R> comparator, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Object invoke = function1.invoke(it.next());
+        Object obj = (R) function1.invoke((Object) it.next());
         while (it.hasNext()) {
-            Object invoke2 = function1.invoke(it.next());
-            if (comparator.compare(invoke, invoke2) < 0) {
-                invoke = invoke2;
+            R invoke = function1.invoke((Object) it.next());
+            if (comparator.compare(obj, invoke) < 0) {
+                obj = (Object) invoke;
             }
         }
-        return (R) invoke;
+        return obj;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0018 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0018 */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: R */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: ? super R */
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: ? super R, R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <K, V, R> R minOfWithOrNull(Map<? extends K, ? extends V> map, Comparator<? super R> comparator, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (!it.hasNext()) {
             return null;
         }
-        Object invoke = function1.invoke(it.next());
+        Object obj = (R) function1.invoke((Object) it.next());
         while (it.hasNext()) {
-            Object invoke2 = function1.invoke(it.next());
-            if (comparator.compare(invoke, invoke2) > 0) {
-                invoke = invoke2;
+            R invoke = function1.invoke((Object) it.next());
+            if (comparator.compare(obj, invoke) > 0) {
+                obj = (Object) invoke;
             }
         }
-        return (R) invoke;
+        return obj;
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <K, V> float m1137maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
-            float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+            float floatValue = function1.invoke((Object) it.next()).floatValue();
             while (it.hasNext()) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke((Object) it.next()).floatValue());
             }
             return floatValue;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final <K, V> Double m1139maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (!it.hasNext()) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+        double doubleValue = function1.invoke((Object) it.next()).doubleValue();
         while (it.hasNext()) {
-            doubleValue = Math.max(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+            doubleValue = Math.max(doubleValue, function1.invoke((Object) it.next()).doubleValue());
         }
         return Double.valueOf(doubleValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <K, V> float m1141minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
-            float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+            float floatValue = function1.invoke((Object) it.next()).floatValue();
             while (it.hasNext()) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke((Object) it.next()).floatValue());
             }
             return floatValue;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final <K, V> Double m1143minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Double> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (!it.hasNext()) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(it.next())).doubleValue();
+        double doubleValue = function1.invoke((Object) it.next()).doubleValue();
         while (it.hasNext()) {
-            doubleValue = Math.min(doubleValue, ((Number) function1.invoke(it.next())).doubleValue());
+            doubleValue = Math.min(doubleValue, function1.invoke((Object) it.next()).doubleValue());
         }
         return Double.valueOf(doubleValue);
     }
 
-    /* JADX DEBUG: Type inference failed for r3v2. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <K, V, R extends Comparable<? super R>> R m1138maxOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
-        Iterator it = map.entrySet().iterator();
+        Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
-            R r = (R) function1.invoke(it.next());
+            R invoke = function1.invoke((Object) it.next());
             while (it.hasNext()) {
-                ?? r1 = (Comparable) function1.invoke(it.next());
-                if (r.compareTo(r1) < 0) {
-                    r = r1;
+                R invoke2 = function1.invoke((Object) it.next());
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final <K, V> Float m1140maxOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (!it.hasNext()) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+        float floatValue = function1.invoke((Object) it.next()).floatValue();
         while (it.hasNext()) {
-            floatValue = Math.max(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+            floatValue = Math.max(floatValue, function1.invoke((Object) it.next()).floatValue());
         }
         return Float.valueOf(floatValue);
     }
 
-    /* JADX DEBUG: Type inference failed for r3v2. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <K, V, R extends Comparable<? super R>> R m1142minOf(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
-        Iterator it = map.entrySet().iterator();
+        Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
-            R r = (R) function1.invoke(it.next());
+            R invoke = function1.invoke((Object) it.next());
             while (it.hasNext()) {
-                ?? r1 = (Comparable) function1.invoke(it.next());
-                if (r.compareTo(r1) > 0) {
-                    r = r1;
+                R invoke2 = function1.invoke((Object) it.next());
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final <K, V> Float m1144minOfOrNull(Map<? extends K, ? extends V> map, Function1<? super Map.Entry<? extends K, ? extends V>, Float> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (!it.hasNext()) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(it.next())).floatValue();
+        float floatValue = function1.invoke((Object) it.next()).floatValue();
         while (it.hasNext()) {
-            floatValue = Math.min(floatValue, ((Number) function1.invoke(it.next())).floatValue());
+            floatValue = Math.min(floatValue, function1.invoke((Object) it.next()).floatValue());
         }
         return Float.valueOf(floatValue);
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <K, V, R> R maxOfWith(Map<? extends K, ? extends V> map, Comparator<? super R> comparator, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
-            Object obj = (R) function1.invoke(it.next());
+            Object obj = (R) function1.invoke((Object) it.next());
             while (it.hasNext()) {
-                Object invoke = function1.invoke(it.next());
+                R invoke = function1.invoke((Object) it.next());
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
             }
             return (R) obj;
@@ -564,15 +668,20 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         throw new NoSuchElementException();
     }
 
-    /* JADX DEBUG: Type inference failed for r0v8. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <K, V, R> R minOfWith(Map<? extends K, ? extends V> map, Comparator<? super R> comparator, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> function1) {
         Iterator<T> it = map.entrySet().iterator();
         if (it.hasNext()) {
-            Object obj = (R) function1.invoke(it.next());
+            Object obj = (R) function1.invoke((Object) it.next());
             while (it.hasNext()) {
-                Object invoke = function1.invoke(it.next());
+                R invoke = function1.invoke((Object) it.next());
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
             }
             return (R) obj;
@@ -580,30 +689,37 @@ public class MapsKt___MapsKt extends MapsKt__MapsKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0024 */
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: ? super java.util.Map$Entry<? extends K, ? extends V> */
+    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator */
+    /* JADX WARN: Multi-variable type inference failed */
     @Deprecated(message = "Use minByOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minByOrNull(selector)", imports = {}))
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     public static final <K, V, R extends Comparable<? super R>> Map.Entry<K, V> minBy(Map<? extends K, ? extends V> minBy, Function1<? super Map.Entry<? extends K, ? extends V>, ? extends R> selector) {
         Object obj;
         Intrinsics.checkNotNullParameter(minBy, "$this$minBy");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        Iterator<T> it = minBy.entrySet().iterator();
+        Iterator it = minBy.entrySet().iterator();
         if (!it.hasNext()) {
             obj = null;
         } else {
-            Object next = it.next();
+            Object obj2 = (Object) it.next();
             if (!it.hasNext()) {
-                obj = next;
+                obj = obj2;
             } else {
-                Comparable comparable = (Comparable) selector.invoke(next);
+                R invoke = selector.invoke(obj2);
+                Object obj3 = obj2;
                 do {
-                    Object next2 = it.next();
-                    Comparable comparable2 = (Comparable) selector.invoke(next2);
-                    if (comparable.compareTo(comparable2) > 0) {
-                        next = next2;
-                        comparable = comparable2;
+                    Object obj4 = (Object) it.next();
+                    R invoke2 = selector.invoke(obj4);
+                    obj2 = obj3;
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
+                        obj2 = (Object) obj4;
                     }
+                    obj3 = obj2;
                 } while (it.hasNext());
-                obj = next;
+                obj = obj2;
             }
         }
         return (Map.Entry) obj;

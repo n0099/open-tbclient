@@ -12,30 +12,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Maybe;
 import io.reactivex.MaybeObserver;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeSubject extends Maybe implements MaybeObserver {
+public final class MaybeSubject<T> extends Maybe<T> implements MaybeObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final MaybeDisposable[] EMPTY;
     public static final MaybeDisposable[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference observers;
+    public final AtomicReference<MaybeDisposable<T>[]> observers;
     public final AtomicBoolean once;
-    public Object value;
+    public T value;
 
     /* loaded from: classes8.dex */
-    public final class MaybeDisposable extends AtomicReference implements Disposable {
+    public static final class MaybeDisposable<T> extends AtomicReference<MaybeSubject<T>> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7650903191002190468L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
 
-        public MaybeDisposable(MaybeObserver maybeObserver, MaybeSubject maybeSubject) {
+        public MaybeDisposable(MaybeObserver<? super T> maybeObserver, MaybeSubject<T> maybeSubject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,10 +57,10 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            MaybeSubject maybeSubject;
+            MaybeSubject<T> andSet;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (maybeSubject = (MaybeSubject) getAndSet(null)) != null) {
-                maybeSubject.remove(this);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (andSet = getAndSet(null)) != null) {
+                andSet.remove(this);
             }
         }
 
@@ -95,15 +96,16 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
     }
 
     @CheckReturnValue
-    public static MaybeSubject create() {
+    public static <T> MaybeSubject<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new MaybeSubject();
+            return new MaybeSubject<>();
         }
         return (MaybeSubject) invokeV.objValue;
     }
 
+    @Nullable
     public Throwable getThrowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -116,7 +118,8 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
         return (Throwable) invokeV.objValue;
     }
 
-    public Object getValue() {
+    @Nullable
+    public T getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -125,7 +128,7 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
             }
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public boolean hasComplete() {
@@ -144,7 +147,7 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (((MaybeDisposable[]) this.observers.get()).length != 0) {
+            if (this.observers.get().length != 0) {
                 return true;
             }
             return false;
@@ -180,7 +183,7 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return ((MaybeDisposable[]) this.observers.get()).length;
+            return this.observers.get().length;
         }
         return invokeV.intValue;
     }
@@ -190,7 +193,7 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.once.compareAndSet(false, true)) {
-                for (MaybeDisposable maybeDisposable : (MaybeDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(TERMINATED)) {
                     maybeDisposable.actual.onComplete();
                 }
             }
@@ -211,17 +214,17 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
             }
         }
         this.once = new AtomicBoolean();
-        this.observers = new AtomicReference(EMPTY);
+        this.observers = new AtomicReference<>(EMPTY);
     }
 
-    public boolean add(MaybeDisposable maybeDisposable) {
-        MaybeDisposable[] maybeDisposableArr;
-        MaybeDisposable[] maybeDisposableArr2;
+    public boolean add(MaybeDisposable<T> maybeDisposable) {
+        MaybeDisposable<T>[] maybeDisposableArr;
+        MaybeDisposable<T>[] maybeDisposableArr2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, maybeDisposable)) == null) {
             do {
-                maybeDisposableArr = (MaybeDisposable[]) this.observers.get();
+                maybeDisposableArr = this.observers.get();
                 if (maybeDisposableArr == TERMINATED) {
                     return false;
                 }
@@ -250,7 +253,7 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
             ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.once.compareAndSet(false, true)) {
                 this.error = th;
-                for (MaybeDisposable maybeDisposable : (MaybeDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(TERMINATED)) {
                     maybeDisposable.actual.onError(th);
                 }
                 return;
@@ -260,24 +263,24 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
     }
 
     @Override // io.reactivex.MaybeObserver
-    public void onSuccess(Object obj) {
+    public void onSuccess(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, obj) == null) {
-            ObjectHelper.requireNonNull(obj, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (interceptable == null || interceptable.invokeL(1048587, this, t) == null) {
+            ObjectHelper.requireNonNull(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.once.compareAndSet(false, true)) {
-                this.value = obj;
-                for (MaybeDisposable maybeDisposable : (MaybeDisposable[]) this.observers.getAndSet(TERMINATED)) {
-                    maybeDisposable.actual.onSuccess(obj);
+                this.value = t;
+                for (MaybeDisposable<T> maybeDisposable : this.observers.getAndSet(TERMINATED)) {
+                    maybeDisposable.actual.onSuccess(t);
                 }
             }
         }
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, maybeObserver) == null) {
-            MaybeDisposable maybeDisposable = new MaybeDisposable(maybeObserver, this);
+            MaybeDisposable<T> maybeDisposable = new MaybeDisposable<>(maybeObserver, this);
             maybeObserver.onSubscribe(maybeDisposable);
             if (add(maybeDisposable)) {
                 if (maybeDisposable.isDisposed()) {
@@ -291,7 +294,7 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
                 maybeObserver.onError(th);
                 return;
             }
-            Object obj = this.value;
+            Object obj = (T) this.value;
             if (obj == null) {
                 maybeObserver.onComplete();
             } else {
@@ -300,13 +303,15 @@ public final class MaybeSubject extends Maybe implements MaybeObserver {
         }
     }
 
-    public void remove(MaybeDisposable maybeDisposable) {
-        MaybeDisposable[] maybeDisposableArr;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.subjects.MaybeSubject$MaybeDisposable<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void remove(MaybeDisposable<T> maybeDisposable) {
+        MaybeDisposable<T>[] maybeDisposableArr;
         MaybeDisposable[] maybeDisposableArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, maybeDisposable) == null) {
             do {
-                maybeDisposableArr = (MaybeDisposable[]) this.observers.get();
+                maybeDisposableArr = this.observers.get();
                 int length = maybeDisposableArr.length;
                 if (length == 0) {
                     return;

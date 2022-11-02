@@ -150,7 +150,7 @@ public final class WebRtcAudioUtils {
         return invokeV.booleanValue;
     }
 
-    public static List getBlackListedModelsForAecUsage() {
+    public static List<String> getBlackListedModelsForAecUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -159,7 +159,7 @@ public final class WebRtcAudioUtils {
         return (List) invokeV.objValue;
     }
 
-    public static List getBlackListedModelsForNsUsage() {
+    public static List<String> getBlackListedModelsForNsUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {

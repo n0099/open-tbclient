@@ -4,12 +4,19 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
+import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewParent;
+import android.widget.AbsListView;
+import android.widget.HorizontalScrollView;
 import android.widget.OverScroller;
+import android.widget.ScrollView;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingChild2;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.hybrid.ScrollBridgeWebview;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -47,17 +54,17 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
         }
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f == null) {
             this.f = VelocityTracker.obtain();
         }
     }
 
-    public final void c() {
+    public final void d() {
         VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (velocityTracker = this.f) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (velocityTracker = this.f) != null) {
             velocityTracker.recycle();
             this.f = null;
         }
@@ -67,7 +74,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean hasNestedScrollingParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.k.hasNestedScrollingParent();
         }
         return invokeV.booleanValue;
@@ -77,7 +84,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean isNestedScrollingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.k.isNestedScrollingEnabled();
         }
         return invokeV.booleanValue;
@@ -86,12 +93,13 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.k.stopNestedScroll();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @RequiresApi(api = 9)
     public NestedScrollWebView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
@@ -114,9 +122,26 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
         init();
     }
 
-    public void a(int i) {
+    public final ViewParent a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            ViewParent parent = view2.getParent();
+            if (parent == null) {
+                return null;
+            }
+            if (!(parent instanceof ViewPager) && !(parent instanceof AbsListView) && !(parent instanceof ScrollView) && !(parent instanceof HorizontalScrollView) && (parent instanceof View)) {
+                a((View) parent);
+            }
+            return parent;
+        }
+        return (ViewParent) invokeL.objValue;
+    }
+
+    @RequiresApi(api = 9)
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             startNestedScroll(2, 1);
             this.i.fling(getScrollX(), getScrollY(), 0, i, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, 0);
             this.j = getScrollY();
@@ -125,6 +150,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @RequiresApi(api = 9)
     public NestedScrollWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -149,6 +175,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     }
 
     @Override // android.webkit.WebView, android.view.View
+    @RequiresApi(api = 9)
     public void computeScroll() {
         int i;
         int i2;
@@ -191,7 +218,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean dispatchNestedFling(float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
             return this.k.dispatchNestedFling(f, f2, z);
         }
         return invokeCommon.booleanValue;
@@ -201,7 +228,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean dispatchNestedPreFling(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             return this.k.dispatchNestedPreFling(f, f2);
         }
         return invokeCommon.booleanValue;
@@ -211,7 +238,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean startNestedScroll(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
             return this.k.startNestedScroll(i, i2);
         }
         return invokeII.booleanValue;
@@ -221,17 +248,29 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
             return this.k.dispatchNestedPreScroll(i, i2, iArr, iArr2);
         }
         return invokeCommon.booleanValue;
+    }
+
+    @Override // android.webkit.WebView, android.view.View
+    public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            ViewParent a = a(this);
+            if (a != null) {
+                a.requestDisallowInterceptTouchEvent(false);
+            }
+            super.onOverScrolled(i, i2, z, z2);
+        }
     }
 
     @Override // androidx.core.view.NestedScrollingChild2
     public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2, Integer.valueOf(i3)})) == null) {
             return this.k.dispatchNestedPreScroll(i, i2, iArr, iArr2, i3);
         }
         return invokeCommon.booleanValue;
@@ -241,7 +280,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
             return this.k.dispatchNestedScroll(i, i2, i3, i4, iArr);
         }
         return invokeCommon.booleanValue;
@@ -251,7 +290,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
             return this.k.dispatchNestedScroll(i, i2, i3, i4, iArr, i5);
         }
         return invokeCommon.booleanValue;
@@ -261,7 +300,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean hasNestedScrollingParent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             return this.k.hasNestedScrollingParent(i);
         }
         return invokeI.booleanValue;
@@ -270,7 +309,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.k.setNestedScrollingEnabled(z);
         }
     }
@@ -279,7 +318,7 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public boolean startNestedScroll(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
             return this.k.startNestedScroll(i);
         }
         return invokeI.booleanValue;
@@ -288,14 +327,15 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     @Override // androidx.core.view.NestedScrollingChild2
     public void stopNestedScroll(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             this.k.stopNestedScroll(i);
         }
     }
 
+    @RequiresApi(api = 9)
     public final void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.k = new NestedScrollingChildHelper(this);
             setNestedScrollingEnabled(true);
             this.i = new OverScroller(getContext());
@@ -305,10 +345,11 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0018, code lost:
-        if (r1 != 3) goto L10;
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0018, code lost:
+        if (r1 != 3) goto L9;
      */
     @Override // com.baidu.tbadk.core.hybrid.ScrollBridgeWebview, android.webkit.WebView, android.view.View
+    @RequiresApi(api = 9)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -316,8 +357,8 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
-            b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) {
+            c();
             MotionEvent obtain = MotionEvent.obtain(motionEvent);
             int action = motionEvent.getAction();
             if (action != 0) {
@@ -351,11 +392,15 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 velocityTracker.computeCurrentVelocity(1000, this.h);
                 int yVelocity = (int) velocityTracker.getYVelocity();
                 if (Math.abs(yVelocity) > this.g) {
-                    a(-yVelocity);
+                    b(-yVelocity);
                 }
                 stopNestedScroll();
-                c();
+                d();
             } else {
+                ViewParent a = a(this);
+                if (a != null) {
+                    a.requestDisallowInterceptTouchEvent(true);
+                }
                 this.e = (int) motionEvent.getRawY();
                 startNestedScroll(2);
                 this.f.addMovement(obtain);

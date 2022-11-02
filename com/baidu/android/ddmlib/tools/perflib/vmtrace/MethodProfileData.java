@@ -1,5 +1,6 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,24 +22,24 @@ public class MethodProfileData {
     public static final TimeUnit DATA_TIME_UNITS;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mIsRecursive;
-    public final Map mPerThreadCumulativeStats;
-    public final Map mPerThreadStatsByCallee;
-    public final Map mPerThreadStatsByCaller;
+    public final Map<Integer, MethodStats> mPerThreadCumulativeStats;
+    public final Map<Integer, Map<Long, MethodStats>> mPerThreadStatsByCallee;
+    public final Map<Integer, Map<Long, MethodStats>> mPerThreadStatsByCaller;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodProfileData$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map mPerThreadCumulativeStats;
-        public final Map mPerThreadStatsByCallee;
-        public final Map mPerThreadStatsByCaller;
+        public final Map<Integer, MethodStats> mPerThreadCumulativeStats;
+        public final Map<Integer, Map<Long, MethodStats>> mPerThreadStatsByCallee;
+        public final Map<Integer, Map<Long, MethodStats>> mPerThreadStatsByCaller;
         public boolean mRecursive;
 
         public Builder() {
@@ -92,11 +93,11 @@ public class MethodProfileData {
             }
         }
 
-        private MethodStats getMethodStatsFromTable(Integer num, Long l, Map map) {
+        private MethodStats getMethodStatsFromTable(Integer num, Long l, Map<Integer, Map<Long, MethodStats>> map) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, this, num, l, map)) == null) {
-                Map map2 = (Map) map.get(num);
+                Map<Long, MethodStats> map2 = map.get(num);
                 if (map2 == null) {
                     MethodStats methodStats = new MethodStats(null);
                     LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -108,7 +109,7 @@ public class MethodProfileData {
                     map2.put(l, methodStats2);
                     return methodStats2;
                 } else {
-                    return (MethodStats) map2.get(l);
+                    return map2.get(l);
                 }
             }
             return (MethodStats) invokeLLL.objValue;
@@ -163,7 +164,7 @@ public class MethodProfileData {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, threadInfo)) == null) {
-                MethodStats methodStats = (MethodStats) this.mPerThreadCumulativeStats.get(Integer.valueOf(threadInfo.getId()));
+                MethodStats methodStats = this.mPerThreadCumulativeStats.get(Integer.valueOf(threadInfo.getId()));
                 if (methodStats == null) {
                     MethodStats methodStats2 = new MethodStats(null);
                     this.mPerThreadCumulativeStats.put(Integer.valueOf(threadInfo.getId()), methodStats2);
@@ -205,7 +206,7 @@ public class MethodProfileData {
     }
 
     /* loaded from: classes.dex */
-    public class MethodStats {
+    public static class MethodStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mExclusiveGlobalTime;
@@ -333,16 +334,16 @@ public class MethodProfileData {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, threadInfo, l)) == null) {
-            Map map = (Map) this.mPerThreadStatsByCaller.get(Integer.valueOf(threadInfo.getId()));
+            Map<Long, MethodStats> map = this.mPerThreadStatsByCaller.get(Integer.valueOf(threadInfo.getId()));
             if (map == null) {
                 return 0L;
             }
-            return getInvocationCount((MethodStats) map.get(l));
+            return getInvocationCount(map.get(l));
         }
         return invokeLL.longValue;
     }
 
-    private long getExclusiveTime(MethodStats methodStats, ClockType clockType, TimeUnit timeUnit) {
+    private long getExclusiveTime(@Nullable MethodStats methodStats, ClockType clockType, TimeUnit timeUnit) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, methodStats, clockType, timeUnit)) == null) {
@@ -354,7 +355,7 @@ public class MethodProfileData {
         return invokeLLL.longValue;
     }
 
-    private long getInclusiveTime(MethodStats methodStats, ClockType clockType, TimeUnit timeUnit) {
+    private long getInclusiveTime(@Nullable MethodStats methodStats, ClockType clockType, TimeUnit timeUnit) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, methodStats, clockType, timeUnit)) == null) {
@@ -378,11 +379,11 @@ public class MethodProfileData {
         return invokeL.longValue;
     }
 
-    public Set getCallees(ThreadInfo threadInfo) {
+    public Set<Long> getCallees(ThreadInfo threadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadInfo)) == null) {
-            Map map = (Map) this.mPerThreadStatsByCallee.get(Integer.valueOf(threadInfo.getId()));
+            Map<Long, MethodStats> map = this.mPerThreadStatsByCallee.get(Integer.valueOf(threadInfo.getId()));
             if (map == null) {
                 return Collections.emptySet();
             }
@@ -391,11 +392,11 @@ public class MethodProfileData {
         return (Set) invokeL.objValue;
     }
 
-    public Set getCallers(ThreadInfo threadInfo) {
+    public Set<Long> getCallers(ThreadInfo threadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo)) == null) {
-            Map map = (Map) this.mPerThreadStatsByCaller.get(Integer.valueOf(threadInfo.getId()));
+            Map<Long, MethodStats> map = this.mPerThreadStatsByCaller.get(Integer.valueOf(threadInfo.getId()));
             if (map == null) {
                 return Collections.emptySet();
             }
@@ -408,7 +409,7 @@ public class MethodProfileData {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, threadInfo, clockType, timeUnit)) == null) {
-            return getExclusiveTime((MethodStats) this.mPerThreadCumulativeStats.get(Integer.valueOf(threadInfo.getId())), clockType, timeUnit);
+            return getExclusiveTime(this.mPerThreadCumulativeStats.get(Integer.valueOf(threadInfo.getId())), clockType, timeUnit);
         }
         return invokeLLL.longValue;
     }
@@ -417,7 +418,7 @@ public class MethodProfileData {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, threadInfo, clockType, timeUnit)) == null) {
-            return getInclusiveTime((MethodStats) this.mPerThreadCumulativeStats.get(Integer.valueOf(threadInfo.getId())), clockType, timeUnit);
+            return getInclusiveTime(this.mPerThreadCumulativeStats.get(Integer.valueOf(threadInfo.getId())), clockType, timeUnit);
         }
         return invokeLLL.longValue;
     }
@@ -426,11 +427,11 @@ public class MethodProfileData {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, threadInfo, l, clockType, timeUnit)) == null) {
-            Map map = (Map) this.mPerThreadStatsByCaller.get(Integer.valueOf(threadInfo.getId()));
+            Map<Long, MethodStats> map = this.mPerThreadStatsByCaller.get(Integer.valueOf(threadInfo.getId()));
             if (map == null) {
                 return 0L;
             }
-            return getExclusiveTime((MethodStats) map.get(l), clockType, timeUnit);
+            return getExclusiveTime(map.get(l), clockType, timeUnit);
         }
         return invokeLLLL.longValue;
     }
@@ -439,11 +440,11 @@ public class MethodProfileData {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, threadInfo, l, clockType, timeUnit)) == null) {
-            Map map = (Map) this.mPerThreadStatsByCallee.get(Integer.valueOf(threadInfo.getId()));
+            Map<Long, MethodStats> map = this.mPerThreadStatsByCallee.get(Integer.valueOf(threadInfo.getId()));
             if (map == null) {
                 return 0L;
             }
-            return getInclusiveTime((MethodStats) map.get(l), clockType, timeUnit);
+            return getInclusiveTime(map.get(l), clockType, timeUnit);
         }
         return invokeLLLL.longValue;
     }
@@ -452,11 +453,11 @@ public class MethodProfileData {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, threadInfo, l, clockType, timeUnit)) == null) {
-            Map map = (Map) this.mPerThreadStatsByCaller.get(Integer.valueOf(threadInfo.getId()));
+            Map<Long, MethodStats> map = this.mPerThreadStatsByCaller.get(Integer.valueOf(threadInfo.getId()));
             if (map == null) {
                 return 0L;
             }
-            return getInclusiveTime((MethodStats) map.get(l), clockType, timeUnit);
+            return getInclusiveTime(map.get(l), clockType, timeUnit);
         }
         return invokeLLLL.longValue;
     }
@@ -465,7 +466,7 @@ public class MethodProfileData {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, threadInfo)) == null) {
-            return getInvocationCount((MethodStats) this.mPerThreadCumulativeStats.get(Integer.valueOf(threadInfo.getId())));
+            return getInvocationCount(this.mPerThreadCumulativeStats.get(Integer.valueOf(threadInfo.getId())));
         }
         return invokeL.longValue;
     }

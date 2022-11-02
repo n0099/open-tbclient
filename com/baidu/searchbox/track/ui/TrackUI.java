@@ -1,6 +1,8 @@
 package com.baidu.searchbox.track.ui;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -126,7 +128,7 @@ public class TrackUI {
         return (String) invokeV.objValue;
     }
 
-    public TrackUI(String str, String str2, String str3, String str4, long j, String str5) {
+    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, long j, @NonNull String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,7 +151,7 @@ public class TrackUI {
         this.mEvent = str5;
     }
 
-    public TrackUI(String str, String str2, String str3, String str4, String str5, String str6, String str7, long j, String str8) {
+    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, @Nullable String str5, @Nullable String str6, @Nullable String str7, long j, @NonNull String str8) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,6 +186,7 @@ public class TrackUI {
         return (String) invokeJ.objValue;
     }
 
+    @Nullable
     public static String[] parse(String str) {
         InterceptResult invokeL;
         String[] split;
@@ -197,6 +200,7 @@ public class TrackUI {
         return (String[]) invokeL.objValue;
     }
 
+    @NonNull
     @Deprecated
     public String toString() {
         InterceptResult invokeV;

@@ -5,6 +5,7 @@ import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
+import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +25,7 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
     public final TextWatcher textWatcher;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PasswordToggleEndIconDelegate(TextInputLayout textInputLayout) {
+    public PasswordToggleEndIconDelegate(@NonNull TextInputLayout textInputLayout) {
         super(textInputLayout);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,7 +112,7 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.OnEditTextAttachedListener
-            public void onEditTextAttached(TextInputLayout textInputLayout2) {
+            public void onEditTextAttached(@NonNull TextInputLayout textInputLayout2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, textInputLayout2) == null) {
                     EditText editText = textInputLayout2.getEditText();
@@ -148,7 +149,7 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.OnEndIconChangedListener
-            public void onEndIconChanged(TextInputLayout textInputLayout2, int i3) {
+            public void onEndIconChanged(@NonNull TextInputLayout textInputLayout2, int i3) {
                 EditText editText;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, textInputLayout2, i3) == null) && (editText = textInputLayout2.getEditText()) != null && i3 == 1) {
@@ -191,7 +192,7 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f08048f));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0d90));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0da7));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.PasswordToggleEndIconDelegate.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

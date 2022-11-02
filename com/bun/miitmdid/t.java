@@ -1,17 +1,21 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.openid.bean.OpenIDInfo;
 import com.heytap.openid.sdk.OpenIDSDK;
+@Keep
 /* loaded from: classes7.dex */
 public class t extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public Context l;
+    @Keep
     public OpenIDInfo m;
 
     public t(Context context) {
@@ -39,10 +43,13 @@ public class t extends n {
     }
 
     @Override // com.bun.miitmdid.n
+    @Keep
     public native g d();
 
     @Override // com.bun.miitmdid.n, com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
     public native void doStart();
 
+    @Keep
     public final native void e();
 }

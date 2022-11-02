@@ -5,6 +5,9 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.CancellationSignal;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -19,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.concurrent.ConcurrentHashMap;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatBaseImpl {
     public static /* synthetic */ Interceptable $ic = null;
@@ -28,10 +32,10 @@ public class TypefaceCompatBaseImpl {
     public ConcurrentHashMap<Long, FontResourcesParserCompat.FontFamilyFilesResourceEntry> mFontFamilies;
 
     /* loaded from: classes.dex */
-    public interface StyleExtractor {
-        int getWeight(Object obj);
+    public interface StyleExtractor<T> {
+        int getWeight(T t);
 
-        boolean isItalic(Object obj);
+        boolean isItalic(T t);
     }
 
     public TypefaceCompatBaseImpl() {
@@ -203,7 +207,7 @@ public class TypefaceCompatBaseImpl {
         return (T) invokeLIL.objValue;
     }
 
-    public static long getUniqueKey(Typeface typeface) {
+    public static long getUniqueKey(@Nullable Typeface typeface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, typeface)) == null) {
@@ -225,6 +229,7 @@ public class TypefaceCompatBaseImpl {
         return invokeL.longValue;
     }
 
+    @Nullable
     public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
@@ -240,7 +245,8 @@ public class TypefaceCompatBaseImpl {
         return (Typeface) invokeLLLI.objValue;
     }
 
-    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    @Nullable
+    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         InputStream inputStream;
         Interceptable interceptable = $ic;
@@ -295,6 +301,7 @@ public class TypefaceCompatBaseImpl {
         return (Typeface) invokeLL.objValue;
     }
 
+    @Nullable
     public Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -317,6 +324,7 @@ public class TypefaceCompatBaseImpl {
         return (Typeface) invokeCommon.objValue;
     }
 
+    @Nullable
     public FontResourcesParserCompat.FontFamilyFilesResourceEntry getFontFamily(Typeface typeface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

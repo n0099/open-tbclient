@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadkCore.model;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
@@ -15,7 +16,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.ns4;
+import com.baidu.tieba.et4;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForumManageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL_GOOD = 3;
@@ -57,13 +58,13 @@ public class ForumManageModel extends BdBaseModel {
     public String j;
     public int k;
 
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask {
+    /* loaded from: classes6.dex */
+    public class c extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,8 +82,8 @@ public class ForumManageModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask {
+    /* loaded from: classes6.dex */
+    public class a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -249,7 +250,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,8 +280,8 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e {
+    /* loaded from: classes6.dex */
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -303,8 +304,8 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class f extends BdAsyncTask {
+    /* loaded from: classes6.dex */
+    public class f extends BdAsyncTask<String, String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -312,7 +313,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList f;
+        public ArrayList<et4> f;
         public String g;
         public final /* synthetic */ ForumManageModel h;
 
@@ -340,7 +341,7 @@ public class ForumManageModel extends BdBaseModel {
             this.d = str3;
             this.e = i;
             this.g = str4;
-            this.f = new ArrayList();
+            this.f = new ArrayList<>();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -376,9 +377,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                ns4 ns4Var = new ns4();
-                                ns4Var.c(optJSONArray.optJSONObject(i2));
-                                this.f.add(ns4Var);
+                                et4 et4Var = new et4();
+                                et4Var.c(optJSONArray.optJSONObject(i2));
+                                this.f.add(et4Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -431,13 +432,13 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList c;
+        public ArrayList<et4> c;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -580,6 +581,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
+    @NonNull
     public BarManageResultListener.a Q(int i, g gVar) {
         InterceptResult invokeIL;
         BarManageResultListener.OptType optType;

@@ -35,7 +35,7 @@ public class FileTypeBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_4 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List compatibleBrands;
+    public List<String> compatibleBrands;
     public String majorBrand;
     public long minorVersion;
 
@@ -55,7 +55,7 @@ public class FileTypeBox extends AbstractBox {
         ajc$preClinit();
     }
 
-    public List getCompatibleBrands() {
+    public List<String> getCompatibleBrands() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -115,7 +115,7 @@ public class FileTypeBox extends AbstractBox {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FileTypeBox(String str, long j, List list) {
+    public FileTypeBox(String str, long j, List<String> list) {
         super(TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -174,7 +174,7 @@ public class FileTypeBox extends AbstractBox {
         }
     }
 
-    public void setCompatibleBrands(List list) {
+    public void setCompatibleBrands(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, list));

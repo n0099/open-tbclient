@@ -1,9 +1,11 @@
 package com.baidu.searchbox.perfframe.impl;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister_PerfFrameRuntime_ListProvider;
-import com.baidu.tieba.se1;
-import com.baidu.tieba.ue1;
+import com.baidu.tieba.kf1;
+import com.baidu.tieba.mf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,12 +16,13 @@ public class PerfFrameRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static PerfFrameRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public ue1 mIPerfFrameMonitorList;
+    @Inject
+    public mf1<IPerfFrameRegister> mIPerfFrameMonitorList;
 
     public void initmIPerfFrameMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            se1 b = se1.b();
+            kf1 b = kf1.b();
             this.mIPerfFrameMonitorList = b;
             b.a(new IPerfFrameRegister_PerfFrameRuntime_ListProvider());
         }
@@ -57,12 +60,12 @@ public class PerfFrameRuntime {
         return (PerfFrameRuntime) invokeV.objValue;
     }
 
-    public ue1 getPerfFrameRegister() {
+    public mf1<IPerfFrameRegister> getPerfFrameRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mIPerfFrameMonitorList;
         }
-        return (ue1) invokeV.objValue;
+        return (mf1) invokeV.objValue;
     }
 }

@@ -2,6 +2,7 @@ package com.google.android.material.datepicker;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,13 +16,15 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 /* loaded from: classes7.dex */
-public final class Month implements Comparable, Parcelable {
+public final class Month implements Comparable<Month>, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<Month> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final int daysInMonth;
     public final int daysInWeek;
+    @NonNull
     public final Calendar firstOfMonth;
+    @NonNull
     public final String longName;
     public final int month;
     public final long timeInMillis;
@@ -50,7 +53,7 @@ public final class Month implements Comparable, Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.datepicker.Month.1
+        CREATOR = new Parcelable.Creator<Month>() { // from class: com.google.android.material.datepicker.Month.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,8 +72,10 @@ public final class Month implements Comparable, Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Month createFromParcel(Parcel parcel) {
+            @NonNull
+            public Month createFromParcel(@NonNull Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -80,7 +85,9 @@ public final class Month implements Comparable, Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
+            @NonNull
             public Month[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
@@ -92,6 +99,7 @@ public final class Month implements Comparable, Parcelable {
         };
     }
 
+    @NonNull
     public static Month current() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,6 +122,7 @@ public final class Month implements Comparable, Parcelable {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String getLongName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -141,7 +150,7 @@ public final class Month implements Comparable, Parcelable {
         return invokeV.intValue;
     }
 
-    public Month(Calendar calendar) {
+    public Month(@NonNull Calendar calendar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,6 +176,7 @@ public final class Month implements Comparable, Parcelable {
         this.timeInMillis = this.firstOfMonth.getTimeInMillis();
     }
 
+    @NonNull
     public static Month create(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -180,7 +190,7 @@ public final class Month implements Comparable, Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
             parcel.writeInt(this.year);
@@ -188,6 +198,7 @@ public final class Month implements Comparable, Parcelable {
         }
     }
 
+    @NonNull
     public static Month create(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -201,7 +212,7 @@ public final class Month implements Comparable, Parcelable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(Month month) {
+    public int compareTo(@NonNull Month month) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, month)) == null) {
@@ -240,6 +251,7 @@ public final class Month implements Comparable, Parcelable {
         return invokeI.longValue;
     }
 
+    @NonNull
     public Month monthsLater(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -251,7 +263,7 @@ public final class Month implements Comparable, Parcelable {
         return (Month) invokeI.objValue;
     }
 
-    public int monthsUntil(Month month) {
+    public int monthsUntil(@NonNull Month month) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, month)) == null) {

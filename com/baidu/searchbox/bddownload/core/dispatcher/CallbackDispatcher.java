@@ -4,6 +4,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -25,6 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class CallbackDispatcher {
@@ -35,12 +38,13 @@ public class CallbackDispatcher {
     public final Handler uiHandler;
 
     /* loaded from: classes2.dex */
-    public class DefaultTransmitListener implements DownloadListener {
+    public static class DefaultTransmitListener implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final Handler uiHandler;
 
-        public DefaultTransmitListener(Handler handler) {
+        public DefaultTransmitListener(@NonNull Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +71,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectEnd(DownloadTask downloadTask, int i, int i2, Map map) {
+        public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i), Integer.valueOf(i2), map}) == null) {
                 Util.d(CallbackDispatcher.TAG, "<----- finish connection task(" + downloadTask.getId() + ") block(" + i + ") code[" + i2 + PreferencesUtil.RIGHT_MOUNT + map);
@@ -118,7 +122,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectStart(DownloadTask downloadTask, int i, Map map) {
+        public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, i, map) == null) {
                 Util.d(CallbackDispatcher.TAG, "-----> start connection task(" + downloadTask.getId() + ") block(" + i + ") " + map);
@@ -167,7 +171,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectTrialEnd(DownloadTask downloadTask, int i, Map map) {
+        public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i, map) == null) {
                 Util.d(CallbackDispatcher.TAG, "<----- finish trial task(" + downloadTask.getId() + ") code[" + i + PreferencesUtil.RIGHT_MOUNT + map);
@@ -216,7 +220,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchEnd(DownloadTask downloadTask, int i, long j) {
+        public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 Util.d(CallbackDispatcher.TAG, "fetchEnd: " + downloadTask.getId());
@@ -265,7 +269,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchProgress(DownloadTask downloadTask, int i, long j) {
+        public void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 if (downloadTask.getMinIntervalMillisCallbackProcess() > 0) {
@@ -317,7 +321,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchStart(DownloadTask downloadTask, int i, long j) {
+        public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 Util.d(CallbackDispatcher.TAG, "fetchStart: " + downloadTask.getId());
@@ -366,7 +370,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectTrialStart(DownloadTask downloadTask, Map map) {
+        public void connectTrialStart(@NonNull DownloadTask downloadTask, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, downloadTask, map) == null) {
                 Util.d(CallbackDispatcher.TAG, "-----> start trial task(" + downloadTask.getId() + ") " + map);
@@ -413,7 +417,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void downloadFromBeginning(DownloadTask downloadTask, BreakpointInfo breakpointInfo, ResumeFailedCause resumeFailedCause) {
+        public void downloadFromBeginning(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull ResumeFailedCause resumeFailedCause) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, downloadTask, breakpointInfo, resumeFailedCause) == null) {
                 Util.d(CallbackDispatcher.TAG, "downloadFromBeginning: " + downloadTask.getId());
@@ -463,7 +467,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void downloadFromBreakpoint(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+        public void downloadFromBreakpoint(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, downloadTask, breakpointInfo) == null) {
@@ -523,7 +527,7 @@ public class CallbackDispatcher {
             }
         }
 
-        public void inspectDownloadFromBeginning(DownloadTask downloadTask, BreakpointInfo breakpointInfo, ResumeFailedCause resumeFailedCause) {
+        public void inspectDownloadFromBeginning(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull ResumeFailedCause resumeFailedCause) {
             DownloadMonitor monitor;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(1048585, this, downloadTask, breakpointInfo, resumeFailedCause) == null) && (monitor = BdDownload.with().getMonitor()) != null) {
@@ -531,7 +535,7 @@ public class CallbackDispatcher {
             }
         }
 
-        public void inspectTaskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc) {
+        public void inspectTaskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc) {
             DownloadMonitor monitor;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(1048587, this, downloadTask, endCause, exc) == null) && (monitor = BdDownload.with().getMonitor()) != null) {
@@ -539,7 +543,7 @@ public class CallbackDispatcher {
             }
         }
 
-        public void inspectDownloadFromBreakpoint(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+        public void inspectDownloadFromBreakpoint(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
             DownloadMonitor monitor;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048586, this, downloadTask, breakpointInfo) == null) && (monitor = BdDownload.with().getMonitor()) != null) {
@@ -548,7 +552,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc) {
+        public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc) {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048589, this, downloadTask, endCause, exc) == null) {
@@ -609,7 +613,7 @@ public class CallbackDispatcher {
                 }
                 builder.buildFileType(str);
                 if (endCause == EndCause.ERROR && exc != null) {
-                    HashMap hashMap = new HashMap();
+                    HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("cause", exc.toString());
                     builder.buildExtraInfo(hashMap);
                 }
@@ -625,7 +629,7 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void taskStart(DownloadTask downloadTask) {
+        public void taskStart(@NonNull DownloadTask downloadTask) {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, downloadTask) == null) {
@@ -702,7 +706,7 @@ public class CallbackDispatcher {
         this.transmit = new DefaultTransmitListener(handler);
     }
 
-    public CallbackDispatcher(Handler handler, DownloadListener downloadListener) {
+    public CallbackDispatcher(@NonNull Handler handler, @NonNull DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -730,7 +734,7 @@ public class CallbackDispatcher {
         return (DownloadListener) invokeV.objValue;
     }
 
-    public void endTasks(Collection collection, Collection collection2, Collection collection3) {
+    public void endTasks(@NonNull Collection<DownloadTask> collection, @NonNull Collection<DownloadTask> collection2, @NonNull Collection<DownloadTask> collection3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection, collection2, collection3) == null) {
             if (collection.size() == 0 && collection2.size() == 0 && collection3.size() == 0) {
@@ -738,31 +742,31 @@ public class CallbackDispatcher {
             }
             Util.d(TAG, "endTasks completed[" + collection.size() + "] sameTask[" + collection2.size() + "] fileBusy[" + collection3.size() + PreferencesUtil.RIGHT_MOUNT);
             if (collection.size() > 0) {
-                Iterator it = collection.iterator();
+                Iterator<DownloadTask> it = collection.iterator();
                 while (it.hasNext()) {
-                    DownloadTask downloadTask = (DownloadTask) it.next();
-                    if (!downloadTask.isAutoCallbackToUIThread()) {
-                        downloadTask.getListener().taskEnd(downloadTask, EndCause.COMPLETED, null);
+                    DownloadTask next = it.next();
+                    if (!next.isAutoCallbackToUIThread()) {
+                        next.getListener().taskEnd(next, EndCause.COMPLETED, null);
                         it.remove();
                     }
                 }
             }
             if (collection2.size() > 0) {
-                Iterator it2 = collection2.iterator();
+                Iterator<DownloadTask> it2 = collection2.iterator();
                 while (it2.hasNext()) {
-                    DownloadTask downloadTask2 = (DownloadTask) it2.next();
-                    if (!downloadTask2.isAutoCallbackToUIThread()) {
-                        downloadTask2.getListener().taskEnd(downloadTask2, EndCause.SAME_TASK_BUSY, null);
+                    DownloadTask next2 = it2.next();
+                    if (!next2.isAutoCallbackToUIThread()) {
+                        next2.getListener().taskEnd(next2, EndCause.SAME_TASK_BUSY, null);
                         it2.remove();
                     }
                 }
             }
             if (collection3.size() > 0) {
-                Iterator it3 = collection3.iterator();
+                Iterator<DownloadTask> it3 = collection3.iterator();
                 while (it3.hasNext()) {
-                    DownloadTask downloadTask3 = (DownloadTask) it3.next();
-                    if (!downloadTask3.isAutoCallbackToUIThread()) {
-                        downloadTask3.getListener().taskEnd(downloadTask3, EndCause.FILE_BUSY, null);
+                    DownloadTask next3 = it3.next();
+                    if (!next3.isAutoCallbackToUIThread()) {
+                        next3.getListener().taskEnd(next3, EndCause.FILE_BUSY, null);
                         it3.remove();
                     }
                 }
@@ -803,14 +807,14 @@ public class CallbackDispatcher {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        for (DownloadTask downloadTask4 : this.val$completedTaskCollection) {
-                            downloadTask4.getListener().taskEnd(downloadTask4, EndCause.COMPLETED, null);
+                        for (DownloadTask downloadTask : this.val$completedTaskCollection) {
+                            downloadTask.getListener().taskEnd(downloadTask, EndCause.COMPLETED, null);
                         }
-                        for (DownloadTask downloadTask5 : this.val$sameTaskConflictCollection) {
-                            downloadTask5.getListener().taskEnd(downloadTask5, EndCause.SAME_TASK_BUSY, null);
+                        for (DownloadTask downloadTask2 : this.val$sameTaskConflictCollection) {
+                            downloadTask2.getListener().taskEnd(downloadTask2, EndCause.SAME_TASK_BUSY, null);
                         }
-                        for (DownloadTask downloadTask6 : this.val$fileBusyCollection) {
-                            downloadTask6.getListener().taskEnd(downloadTask6, EndCause.FILE_BUSY, null);
+                        for (DownloadTask downloadTask3 : this.val$fileBusyCollection) {
+                            downloadTask3.getListener().taskEnd(downloadTask3, EndCause.FILE_BUSY, null);
                         }
                     }
                 }
@@ -818,17 +822,17 @@ public class CallbackDispatcher {
         }
     }
 
-    public void endTasksWithCanceled(Collection collection) {
+    public void endTasksWithCanceled(@NonNull Collection<DownloadTask> collection) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection) != null) || collection.size() <= 0) {
             return;
         }
         Util.d(TAG, "endTasksWithCanceled canceled[" + collection.size() + PreferencesUtil.RIGHT_MOUNT);
-        Iterator it = collection.iterator();
+        Iterator<DownloadTask> it = collection.iterator();
         while (it.hasNext()) {
-            DownloadTask downloadTask = (DownloadTask) it.next();
-            if (!downloadTask.isAutoCallbackToUIThread()) {
-                downloadTask.getListener().taskEnd(downloadTask, EndCause.CANCELED, null);
+            DownloadTask next = it.next();
+            if (!next.isAutoCallbackToUIThread()) {
+                next.getListener().taskEnd(next, EndCause.CANCELED, null);
                 it.remove();
             }
         }
@@ -861,25 +865,25 @@ public class CallbackDispatcher {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    for (DownloadTask downloadTask2 : this.val$canceledCollection) {
-                        downloadTask2.getListener().taskEnd(downloadTask2, EndCause.CANCELED, null);
+                    for (DownloadTask downloadTask : this.val$canceledCollection) {
+                        downloadTask.getListener().taskEnd(downloadTask, EndCause.CANCELED, null);
                     }
                 }
             }
         });
     }
 
-    public void endTasksWithError(Collection collection, Exception exc) {
+    public void endTasksWithError(@NonNull Collection<DownloadTask> collection, @NonNull Exception exc) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048579, this, collection, exc) != null) || collection.size() <= 0) {
             return;
         }
         Util.d(TAG, "endTasksWithError error[" + collection.size() + "] realCause: " + exc);
-        Iterator it = collection.iterator();
+        Iterator<DownloadTask> it = collection.iterator();
         while (it.hasNext()) {
-            DownloadTask downloadTask = (DownloadTask) it.next();
-            if (!downloadTask.isAutoCallbackToUIThread()) {
-                downloadTask.getListener().taskEnd(downloadTask, EndCause.ERROR, exc);
+            DownloadTask next = it.next();
+            if (!next.isAutoCallbackToUIThread()) {
+                next.getListener().taskEnd(next, EndCause.ERROR, exc);
                 it.remove();
             }
         }
@@ -914,8 +918,8 @@ public class CallbackDispatcher {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    for (DownloadTask downloadTask2 : this.val$errorCollection) {
-                        downloadTask2.getListener().taskEnd(downloadTask2, EndCause.ERROR, this.val$realCause);
+                    for (DownloadTask downloadTask : this.val$errorCollection) {
+                        downloadTask.getListener().taskEnd(downloadTask, EndCause.ERROR, this.val$realCause);
                     }
                 }
             }

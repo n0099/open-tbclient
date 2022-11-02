@@ -10,7 +10,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class style {
+    public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: audio_default_activity_style */

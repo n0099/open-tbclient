@@ -85,25 +85,25 @@ public final class UserInfo extends Message {
     public final String userName;
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<UserInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer audienceLevel;
         public String description;
-        public List family_effect;
+        public List<Integer> family_effect;
         public ImEffect im_effect;
         public Integer isLiveAdmin;
         public Integer isOfficial;
         public Double lat;
         public Integer level;
-        public List live_mark_info;
-        public List live_mark_info_new;
+        public List<Object> live_mark_info;
+        public List<Object> live_mark_info_new;
         public Double lng;
         public String nickName;
         public Long nickNameId;
@@ -179,6 +179,7 @@ public final class UserInfo extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public UserInfo build(boolean z) {
             InterceptResult invokeZ;
@@ -347,19 +348,19 @@ public final class UserInfo extends Message {
             } else {
                 this.tag_type = num6;
             }
-            List list = builder.live_mark_info;
+            List<Object> list = builder.live_mark_info;
             if (list == null) {
                 this.live_mark_info = DEFAULT_LIVE_MARK_INFO;
             } else {
                 this.live_mark_info = Message.immutableCopyOf(list);
             }
-            List list2 = builder.live_mark_info_new;
+            List<Object> list2 = builder.live_mark_info_new;
             if (list2 == null) {
                 this.live_mark_info_new = DEFAULT_LIVE_MARK_INFO_NEW;
             } else {
                 this.live_mark_info_new = Message.immutableCopyOf(list2);
             }
-            List list3 = builder.family_effect;
+            List<Integer> list3 = builder.family_effect;
             if (list3 == null) {
                 this.family_effect = DEFAULT_FAMILY_EFFECT;
             } else {

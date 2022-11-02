@@ -2,6 +2,7 @@ package com.baidu.ufosdk;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
@@ -26,7 +27,7 @@ public class u extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final h a;
-    public ValueCallback b;
+    public ValueCallback<Uri[]> b;
 
     public u(h hVar) {
         Interceptable interceptable = $ic;
@@ -203,7 +204,7 @@ public class u extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, webView, valueCallback, fileChooserParams)) == null) {

@@ -7,22 +7,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.drm.DrmSession;
+import com.google.android.exoplayer2.drm.ExoMediaCrypto;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public final class ErrorStateDrmSession implements DrmSession {
+public final class ErrorStateDrmSession<T extends ExoMediaCrypto> implements DrmSession<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final DrmSession.DrmSessionException error;
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
-    public ExoMediaCrypto getMediaCrypto() {
+    public T getMediaCrypto() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (ExoMediaCrypto) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
@@ -46,7 +47,7 @@ public final class ErrorStateDrmSession implements DrmSession {
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
-    public Map queryKeyStatus() {
+    public Map<String, String> queryKeyStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

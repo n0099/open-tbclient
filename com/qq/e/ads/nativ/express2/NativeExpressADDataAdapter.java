@@ -124,7 +124,7 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
-    public Map getExtraInfo() {
+    public Map<String, Object> getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getExtraInfo() : (Map) invokeV.objValue;

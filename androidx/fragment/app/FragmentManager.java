@@ -20,6 +20,12 @@ import android.view.animation.Animation;
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.activity.OnBackPressedDispatcherOwner;
+import androidx.annotation.IdRes;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StringRes;
 import androidx.collection.ArraySet;
 import androidx.core.os.CancellationSignal;
 import androidx.core.util.LogWriter;
@@ -81,6 +87,7 @@ public abstract class FragmentManager {
     public Fragment mParent;
     public final ArrayList<OpGenerator> mPendingActions;
     public ArrayList<StartEnterTransitionListener> mPostponedTransactions;
+    @Nullable
     public Fragment mPrimaryNav;
     public boolean mStateSaved;
     public boolean mStopped;
@@ -90,31 +97,37 @@ public abstract class FragmentManager {
 
     /* loaded from: classes.dex */
     public interface BackStackEntry {
+        @Nullable
         @Deprecated
         CharSequence getBreadCrumbShortTitle();
 
+        @StringRes
         @Deprecated
         int getBreadCrumbShortTitleRes();
 
+        @Nullable
         @Deprecated
         CharSequence getBreadCrumbTitle();
 
+        @StringRes
         @Deprecated
         int getBreadCrumbTitleRes();
 
         int getId();
 
+        @Nullable
         String getName();
     }
 
     /* loaded from: classes.dex */
     public interface OnBackStackChangedListener {
+        @MainThread
         void onBackStackChanged();
     }
 
     /* loaded from: classes.dex */
     public interface OpGenerator {
-        boolean generateOps(ArrayList arrayList, ArrayList arrayList2);
+        boolean generateOps(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2);
     }
 
     static {
@@ -152,85 +165,85 @@ public abstract class FragmentManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onFragmentActivityCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
+        public void onFragmentActivityCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, fragmentManager, fragment, bundle) == null) {
             }
         }
 
-        public void onFragmentAttached(FragmentManager fragmentManager, Fragment fragment, Context context) {
+        public void onFragmentAttached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentManager, fragment, context) == null) {
             }
         }
 
-        public void onFragmentCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
+        public void onFragmentCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, fragmentManager, fragment, bundle) == null) {
             }
         }
 
-        public void onFragmentDestroyed(FragmentManager fragmentManager, Fragment fragment) {
+        public void onFragmentDestroyed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, fragmentManager, fragment) == null) {
             }
         }
 
-        public void onFragmentDetached(FragmentManager fragmentManager, Fragment fragment) {
+        public void onFragmentDetached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, fragmentManager, fragment) == null) {
             }
         }
 
-        public void onFragmentPaused(FragmentManager fragmentManager, Fragment fragment) {
+        public void onFragmentPaused(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, fragmentManager, fragment) == null) {
             }
         }
 
-        public void onFragmentPreAttached(FragmentManager fragmentManager, Fragment fragment, Context context) {
+        public void onFragmentPreAttached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048582, this, fragmentManager, fragment, context) == null) {
             }
         }
 
-        public void onFragmentPreCreated(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
+        public void onFragmentPreCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048583, this, fragmentManager, fragment, bundle) == null) {
             }
         }
 
-        public void onFragmentResumed(FragmentManager fragmentManager, Fragment fragment) {
+        public void onFragmentResumed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragmentManager, fragment) == null) {
             }
         }
 
-        public void onFragmentSaveInstanceState(FragmentManager fragmentManager, Fragment fragment, Bundle bundle) {
+        public void onFragmentSaveInstanceState(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048585, this, fragmentManager, fragment, bundle) == null) {
             }
         }
 
-        public void onFragmentStarted(FragmentManager fragmentManager, Fragment fragment) {
+        public void onFragmentStarted(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048586, this, fragmentManager, fragment) == null) {
             }
         }
 
-        public void onFragmentStopped(FragmentManager fragmentManager, Fragment fragment) {
+        public void onFragmentStopped(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048587, this, fragmentManager, fragment) == null) {
             }
         }
 
-        public void onFragmentViewCreated(FragmentManager fragmentManager, Fragment fragment, View view2, Bundle bundle) {
+        public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull View view2, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048588, this, fragmentManager, fragment, view2, bundle) == null) {
             }
         }
 
-        public void onFragmentViewDestroyed(FragmentManager fragmentManager, Fragment fragment) {
+        public void onFragmentViewDestroyed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048589, this, fragmentManager, fragment) == null) {
             }
@@ -260,7 +273,7 @@ public abstract class FragmentManager {
         public final String mName;
         public final /* synthetic */ FragmentManager this$0;
 
-        public PopBackStackState(FragmentManager fragmentManager, String str, int i, int i2) {
+        public PopBackStackState(@Nullable FragmentManager fragmentManager, String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -282,7 +295,7 @@ public abstract class FragmentManager {
         }
 
         @Override // androidx.fragment.app.FragmentManager.OpGenerator
-        public boolean generateOps(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2) {
+        public boolean generateOps(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, arrayList, arrayList2)) == null) {
@@ -304,7 +317,7 @@ public abstract class FragmentManager {
         public int mNumPostponed;
         public final BackStackRecord mRecord;
 
-        public StartEnterTransitionListener(BackStackRecord backStackRecord, boolean z) {
+        public StartEnterTransitionListener(@NonNull BackStackRecord backStackRecord, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -461,7 +474,7 @@ public abstract class FragmentManager {
             }
 
             @Override // androidx.fragment.app.FragmentTransition.Callback
-            public void onComplete(Fragment fragment, CancellationSignal cancellationSignal) {
+            public void onComplete(@NonNull Fragment fragment, @NonNull CancellationSignal cancellationSignal) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, fragment, cancellationSignal) == null) && !cancellationSignal.isCanceled()) {
                     this.this$0.removeCancellationSignal(fragment, cancellationSignal);
@@ -469,7 +482,7 @@ public abstract class FragmentManager {
             }
 
             @Override // androidx.fragment.app.FragmentTransition.Callback
-            public void onStart(Fragment fragment, CancellationSignal cancellationSignal) {
+            public void onStart(@NonNull Fragment fragment, @NonNull CancellationSignal cancellationSignal) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment, cancellationSignal) == null) {
                     this.this$0.addCancellationSignal(fragment, cancellationSignal);
@@ -503,7 +516,8 @@ public abstract class FragmentManager {
             }
 
             @Override // androidx.fragment.app.FragmentFactory
-            public Fragment instantiate(ClassLoader classLoader, String str) {
+            @NonNull
+            public Fragment instantiate(@NonNull ClassLoader classLoader, @NonNull String str) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, classLoader, str)) == null) {
@@ -546,6 +560,7 @@ public abstract class FragmentManager {
         };
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -577,7 +592,7 @@ public abstract class FragmentManager {
         return (String) invokeV.objValue;
     }
 
-    private void addAddedFragments(ArraySet<Fragment> arraySet) {
+    private void addAddedFragments(@NonNull ArraySet<Fragment> arraySet) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65538, this, arraySet) != null) || (i = this.mCurState) < 1) {
@@ -594,7 +609,8 @@ public abstract class FragmentManager {
         }
     }
 
-    public static FragmentManager findFragmentManager(View view2) {
+    @NonNull
+    public static FragmentManager findFragmentManager(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, view2)) == null) {
@@ -646,7 +662,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void addFragment(Fragment fragment) {
+    public void addFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
@@ -666,7 +682,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void addRetainedFragment(Fragment fragment) {
+    public void addRetainedFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fragment) == null) {
             if (isStateSaved()) {
@@ -679,7 +695,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void attachFragment(Fragment fragment) {
+    public void attachFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
@@ -700,7 +716,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void detachFragment(Fragment fragment) {
+    public void detachFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
@@ -722,7 +738,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void removeFragment(Fragment fragment) {
+    public void removeFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048652, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
@@ -740,7 +756,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void removeRetainedFragment(Fragment fragment) {
+    public void removeRetainedFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048654, this, fragment) == null) {
             if (isStateSaved()) {
@@ -753,7 +769,8 @@ public abstract class FragmentManager {
         }
     }
 
-    public Fragment.SavedState saveFragmentInstanceState(Fragment fragment) {
+    @Nullable
+    public Fragment.SavedState saveFragmentInstanceState(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, fragment)) == null) {
@@ -766,7 +783,7 @@ public abstract class FragmentManager {
         return (Fragment.SavedState) invokeL.objValue;
     }
 
-    public void setPrimaryNavigationFragment(Fragment fragment) {
+    public void setPrimaryNavigationFragment(@Nullable Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048664, this, fragment) == null) {
             if (fragment != null && (!fragment.equals(findActiveFragment(fragment.mWho)) || (fragment.mHost != null && fragment.mFragmentManager != this))) {
@@ -779,7 +796,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private void cancelExitAnimation(Fragment fragment) {
+    private void cancelExitAnimation(@NonNull Fragment fragment) {
         HashSet<CancellationSignal> hashSet;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, this, fragment) == null) && (hashSet = this.mExitAnimationCancellationSignals.get(fragment)) != null) {
@@ -793,7 +810,8 @@ public abstract class FragmentManager {
         }
     }
 
-    public static <F extends Fragment> F findFragment(View view2) {
+    @NonNull
+    public static <F extends Fragment> F findFragment(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, view2)) == null) {
@@ -806,7 +824,7 @@ public abstract class FragmentManager {
         return (F) invokeL.objValue;
     }
 
-    private void makeInactive(FragmentStateManager fragmentStateManager) {
+    private void makeInactive(@NonNull FragmentStateManager fragmentStateManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65563, this, fragmentStateManager) == null) {
             Fragment fragment = fragmentStateManager.getFragment();
@@ -821,7 +839,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public boolean dispatchContextItemSelected(MenuItem menuItem) {
+    public boolean dispatchContextItemSelected(@NonNull MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, menuItem)) == null) {
@@ -838,7 +856,7 @@ public abstract class FragmentManager {
         return invokeL.booleanValue;
     }
 
-    public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
+    public boolean dispatchOptionsItemSelected(@NonNull MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, menuItem)) == null) {
@@ -855,7 +873,7 @@ public abstract class FragmentManager {
         return invokeL.booleanValue;
     }
 
-    public boolean dispatchPrepareOptionsMenu(Menu menu) {
+    public boolean dispatchPrepareOptionsMenu(@NonNull Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, menu)) == null) {
@@ -898,7 +916,7 @@ public abstract class FragmentManager {
         return invokeZ.booleanValue;
     }
 
-    public void hideFragment(Fragment fragment) {
+    public void hideFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
@@ -912,7 +930,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void showFragment(Fragment fragment) {
+    public void showFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048665, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
@@ -988,6 +1006,7 @@ public abstract class FragmentManager {
         return invokeV.intValue;
     }
 
+    @NonNull
     public FragmentTransaction beginTransaction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1111,6 +1130,7 @@ public abstract class FragmentManager {
         return invokeV.intValue;
     }
 
+    @NonNull
     public List<Fragment> getActiveFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1133,6 +1153,7 @@ public abstract class FragmentManager {
         return invokeV.intValue;
     }
 
+    @NonNull
     public FragmentFactory getFragmentFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1150,6 +1171,7 @@ public abstract class FragmentManager {
         return (FragmentFactory) invokeV.objValue;
     }
 
+    @NonNull
     public List<Fragment> getFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1159,6 +1181,7 @@ public abstract class FragmentManager {
         return (List) invokeV.objValue;
     }
 
+    @NonNull
     public LayoutInflater.Factory2 getLayoutInflaterFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1168,6 +1191,7 @@ public abstract class FragmentManager {
         return (LayoutInflater.Factory2) invokeV.objValue;
     }
 
+    @NonNull
     public FragmentLifecycleCallbacksDispatcher getLifecycleCallbacksDispatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1177,6 +1201,7 @@ public abstract class FragmentManager {
         return (FragmentLifecycleCallbacksDispatcher) invokeV.objValue;
     }
 
+    @Nullable
     public Fragment getParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1186,6 +1211,7 @@ public abstract class FragmentManager {
         return (Fragment) invokeV.objValue;
     }
 
+    @Nullable
     public Fragment getPrimaryNavigationFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1228,6 +1254,8 @@ public abstract class FragmentManager {
         return invokeV.booleanValue;
     }
 
+    @NonNull
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     @Deprecated
     public FragmentTransaction openTransaction() {
         InterceptResult invokeV;
@@ -1267,7 +1295,7 @@ public abstract class FragmentManager {
         return (FragmentManagerNonConfig) invokeV.objValue;
     }
 
-    private void completeShowHideFragment(Fragment fragment) {
+    private void completeShowHideFragment(@NonNull Fragment fragment) {
         int i;
         Animator animator;
         Interceptable interceptable = $ic;
@@ -1355,7 +1383,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void moveFragmentToExpectedState(Fragment fragment) {
+    public void moveFragmentToExpectedState(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, fragment) == null) {
             if (!this.mFragmentStore.containsActiveFragment(fragment.mWho)) {
@@ -1403,7 +1431,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private void destroyFragmentView(Fragment fragment) {
+    private void destroyFragmentView(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, fragment) == null) {
             fragment.performDestroyView();
@@ -1416,7 +1444,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private void dispatchParentPrimaryNavigationFragmentChanged(Fragment fragment) {
+    private void dispatchParentPrimaryNavigationFragmentChanged(@Nullable Fragment fragment) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, this, fragment) == null) && fragment != null && fragment.equals(findActiveFragment(fragment.mWho))) {
             fragment.performPrimaryNavigationFragmentChanged();
@@ -1447,7 +1475,8 @@ public abstract class FragmentManager {
         }
     }
 
-    public static Fragment findViewFragment(View view2) {
+    @Nullable
+    public static Fragment findViewFragment(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, view2)) == null) {
@@ -1468,7 +1497,8 @@ public abstract class FragmentManager {
         return (Fragment) invokeL.objValue;
     }
 
-    private FragmentManagerViewModel getChildNonConfig(Fragment fragment) {
+    @NonNull
+    private FragmentManagerViewModel getChildNonConfig(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, fragment)) == null) {
@@ -1477,7 +1507,7 @@ public abstract class FragmentManager {
         return (FragmentManagerViewModel) invokeL.objValue;
     }
 
-    private ViewGroup getFragmentContainer(Fragment fragment) {
+    private ViewGroup getFragmentContainer(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, this, fragment)) == null) {
@@ -1492,11 +1522,12 @@ public abstract class FragmentManager {
         return (ViewGroup) invokeL.objValue;
     }
 
-    public static Fragment getViewFragment(View view2) {
+    @Nullable
+    public static Fragment getViewFragment(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, view2)) == null) {
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f090ad7);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f090aea);
             if (tag instanceof Fragment) {
                 return (Fragment) tag;
             }
@@ -1517,7 +1548,7 @@ public abstract class FragmentManager {
         return invokeI.booleanValue;
     }
 
-    private boolean isMenuAvailable(Fragment fragment) {
+    private boolean isMenuAvailable(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, fragment)) == null) {
@@ -1529,7 +1560,7 @@ public abstract class FragmentManager {
         return invokeL.booleanValue;
     }
 
-    private void makeRemovedFragmentsInvisible(ArraySet<Fragment> arraySet) {
+    private void makeRemovedFragmentsInvisible(@NonNull ArraySet<Fragment> arraySet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65564, this, arraySet) == null) {
             int size = arraySet.size();
@@ -1544,14 +1575,14 @@ public abstract class FragmentManager {
         }
     }
 
-    private void setVisibleRemovingFragment(Fragment fragment) {
+    private void setVisibleRemovingFragment(@NonNull Fragment fragment) {
         ViewGroup fragmentContainer;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65570, this, fragment) == null) && (fragmentContainer = getFragmentContainer(fragment)) != null) {
-            if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f0925f5) == null) {
-                fragmentContainer.setTag(R.id.obfuscated_res_0x7f0925f5, fragment);
+            if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f09264c) == null) {
+                fragmentContainer.setTag(R.id.obfuscated_res_0x7f09264c, fragment);
             }
-            ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f0925f5)).setNextAnim(fragment.getNextAnim());
+            ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f09264c)).setNextAnim(fragment.getNextAnim());
         }
     }
 
@@ -1565,7 +1596,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void addOnBackStackChangedListener(OnBackStackChangedListener onBackStackChangedListener) {
+    public void addOnBackStackChangedListener(@NonNull OnBackStackChangedListener onBackStackChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onBackStackChangedListener) == null) {
             if (this.mBackStackChangeListeners == null) {
@@ -1575,7 +1606,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void dispatchConfigurationChanged(Configuration configuration) {
+    public void dispatchConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, configuration) == null) {
             for (Fragment fragment : this.mFragmentStore.getFragments()) {
@@ -1597,7 +1628,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void dispatchOptionsMenuClosed(Menu menu) {
+    public void dispatchOptionsMenuClosed(@NonNull Menu menu) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048598, this, menu) != null) || this.mCurState < 1) {
             return;
@@ -1620,7 +1651,8 @@ public abstract class FragmentManager {
         }
     }
 
-    public Fragment findActiveFragment(String str) {
+    @Nullable
+    public Fragment findActiveFragment(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
@@ -1629,7 +1661,8 @@ public abstract class FragmentManager {
         return (Fragment) invokeL.objValue;
     }
 
-    public Fragment findFragmentById(int i) {
+    @Nullable
+    public Fragment findFragmentById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i)) == null) {
@@ -1638,7 +1671,8 @@ public abstract class FragmentManager {
         return (Fragment) invokeI.objValue;
     }
 
-    public Fragment findFragmentByTag(String str) {
+    @Nullable
+    public Fragment findFragmentByTag(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
@@ -1647,7 +1681,7 @@ public abstract class FragmentManager {
         return (Fragment) invokeL.objValue;
     }
 
-    public Fragment findFragmentByWho(String str) {
+    public Fragment findFragmentByWho(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
@@ -1656,6 +1690,7 @@ public abstract class FragmentManager {
         return (Fragment) invokeL.objValue;
     }
 
+    @NonNull
     public BackStackEntry getBackStackEntryAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -1665,7 +1700,8 @@ public abstract class FragmentManager {
         return (BackStackEntry) invokeI.objValue;
     }
 
-    public ViewModelStore getViewModelStore(Fragment fragment) {
+    @NonNull
+    public ViewModelStore getViewModelStore(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, fragment)) == null) {
@@ -1674,7 +1710,7 @@ public abstract class FragmentManager {
         return (ViewModelStore) invokeL.objValue;
     }
 
-    public boolean isParentMenuVisible(Fragment fragment) {
+    public boolean isParentMenuVisible(@Nullable Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, fragment)) == null) {
@@ -1686,7 +1722,7 @@ public abstract class FragmentManager {
         return invokeL.booleanValue;
     }
 
-    public boolean isPrimaryNavigation(Fragment fragment) {
+    public boolean isPrimaryNavigation(@Nullable Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, fragment)) == null) {
@@ -1714,14 +1750,14 @@ public abstract class FragmentManager {
         return invokeI.booleanValue;
     }
 
-    public void moveToState(Fragment fragment) {
+    public void moveToState(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, fragment) == null) {
             moveToState(fragment, this.mCurState);
         }
     }
 
-    public void performPendingDeferredStart(Fragment fragment) {
+    public void performPendingDeferredStart(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048641, this, fragment) == null) && fragment.mDeferStart) {
             if (this.mExecutingActions) {
@@ -1733,7 +1769,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void removeOnBackStackChangedListener(OnBackStackChangedListener onBackStackChangedListener) {
+    public void removeOnBackStackChangedListener(@NonNull OnBackStackChangedListener onBackStackChangedListener) {
         ArrayList<OnBackStackChangedListener> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048653, this, onBackStackChangedListener) == null) && (arrayList = this.mBackStackChangeListeners) != null) {
@@ -1741,14 +1777,14 @@ public abstract class FragmentManager {
         }
     }
 
-    public void setFragmentFactory(FragmentFactory fragmentFactory) {
+    public void setFragmentFactory(@NonNull FragmentFactory fragmentFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048662, this, fragmentFactory) == null) {
             this.mFragmentFactory = fragmentFactory;
         }
     }
 
-    public void unregisterFragmentLifecycleCallbacks(FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
+    public void unregisterFragmentLifecycleCallbacks(@NonNull FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048667, this, fragmentLifecycleCallbacks) == null) {
             this.mLifecycleCallbacksDispatcher.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks);
@@ -1844,7 +1880,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void makeActive(Fragment fragment) {
+    public void makeActive(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048634, this, fragment) != null) || this.mFragmentStore.containsActiveFragment(fragment.mWho)) {
             return;
@@ -1866,7 +1902,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public static void executeOps(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i, int i2) {
+    public static void executeOps(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65550, null, arrayList, arrayList2, i, i2) == null) {
             while (i < i2) {
@@ -1887,7 +1923,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private void executeOpsTogether(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i, int i2) {
+    private void executeOpsTogether(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2, int i, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65551, this, arrayList, arrayList2, i, i2) == null) {
@@ -1947,7 +1983,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private void executePostponedTransaction(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2) {
+    private void executePostponedTransaction(@Nullable ArrayList<BackStackRecord> arrayList, @Nullable ArrayList<Boolean> arrayList2) {
         int size;
         int indexOf;
         int indexOf2;
@@ -1982,7 +2018,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private void removeRedundantOperationsAndExecute(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2) {
+    private void removeRedundantOperationsAndExecute(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65567, this, arrayList, arrayList2) != null) || arrayList.isEmpty()) {
             return;
@@ -2017,7 +2053,7 @@ public abstract class FragmentManager {
         throw new IllegalStateException("Internal error with the back stack records");
     }
 
-    public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+    public boolean dispatchCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, menu, menuInflater)) == null) {
@@ -2076,7 +2112,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private boolean generateOpsForPendingActions(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2) {
+    private boolean generateOpsForPendingActions(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, this, arrayList, arrayList2)) == null) {
@@ -2097,7 +2133,7 @@ public abstract class FragmentManager {
         return invokeLL.booleanValue;
     }
 
-    public void enqueueAction(OpGenerator opGenerator, boolean z) {
+    public void enqueueAction(@NonNull OpGenerator opGenerator, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048607, this, opGenerator, z) == null) {
             if (!z) {
@@ -2122,7 +2158,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private boolean popBackStackImmediate(String str, int i, int i2) {
+    private boolean popBackStackImmediate(@Nullable String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65565, this, str, i, i2)) == null) {
@@ -2151,7 +2187,7 @@ public abstract class FragmentManager {
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v6, resolved type: androidx.activity.OnBackPressedDispatcherOwner */
     /* JADX WARN: Multi-variable type inference failed */
-    public void attachController(FragmentHostCallback<?> fragmentHostCallback, FragmentContainer fragmentContainer, Fragment fragment) {
+    public void attachController(@NonNull FragmentHostCallback<?> fragmentHostCallback, @NonNull FragmentContainer fragmentContainer, @Nullable Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, fragmentHostCallback, fragmentContainer, fragment) == null) {
             if (this.mHost == null) {
@@ -2185,7 +2221,7 @@ public abstract class FragmentManager {
         }
     }
 
-    private int postponePostponableTransactions(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i, int i2, ArraySet<Fragment> arraySet) {
+    private int postponePostponableTransactions(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2, int i, int i2, @NonNull ArraySet<Fragment> arraySet) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
@@ -2224,7 +2260,7 @@ public abstract class FragmentManager {
         return invokeCommon.intValue;
     }
 
-    public void addCancellationSignal(Fragment fragment, CancellationSignal cancellationSignal) {
+    public void addCancellationSignal(@NonNull Fragment fragment, @NonNull CancellationSignal cancellationSignal) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment, cancellationSignal) == null) {
             if (this.mExitAnimationCancellationSignals.get(fragment) == null) {
@@ -2234,7 +2270,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void popBackStack(String str, int i) {
+    public void popBackStack(@Nullable String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048644, this, str, i) == null) {
             enqueueAction(new PopBackStackState(this, str, -1, i), false);
@@ -2253,14 +2289,14 @@ public abstract class FragmentManager {
         return invokeII.booleanValue;
     }
 
-    public void registerFragmentLifecycleCallbacks(FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
+    public void registerFragmentLifecycleCallbacks(@NonNull FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048650, this, fragmentLifecycleCallbacks, z) == null) {
             this.mLifecycleCallbacksDispatcher.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, z);
         }
     }
 
-    public void restoreAllState(Parcelable parcelable, FragmentManagerNonConfig fragmentManagerNonConfig) {
+    public void restoreAllState(@Nullable Parcelable parcelable, @Nullable FragmentManagerNonConfig fragmentManagerNonConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048655, this, parcelable, fragmentManagerNonConfig) == null) {
             if (this.mHost instanceof ViewModelStoreOwner) {
@@ -2271,7 +2307,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void setExitAnimationOrder(Fragment fragment, boolean z) {
+    public void setExitAnimationOrder(@NonNull Fragment fragment, boolean z) {
         ViewGroup fragmentContainer;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048661, this, fragment, z) == null) && (fragmentContainer = getFragmentContainer(fragment)) != null && (fragmentContainer instanceof FragmentContainerView)) {
@@ -2279,7 +2315,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void completeExecute(BackStackRecord backStackRecord, boolean z, boolean z2, boolean z3) {
+    public void completeExecute(@NonNull BackStackRecord backStackRecord, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{backStackRecord, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (z) {
@@ -2314,7 +2350,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public void dump(@NonNull String str, @Nullable FileDescriptor fileDescriptor, @NonNull PrintWriter printWriter, @Nullable String[] strArr) {
         int size;
         int size2;
         Interceptable interceptable = $ic;
@@ -2393,7 +2429,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void execSingleAction(OpGenerator opGenerator, boolean z) {
+    public void execSingleAction(@NonNull OpGenerator opGenerator, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048609, this, opGenerator, z) == null) {
             if (z && (this.mHost == null || this.mDestroyed)) {
@@ -2414,7 +2450,8 @@ public abstract class FragmentManager {
         }
     }
 
-    public Fragment getFragment(Bundle bundle, String str) {
+    @Nullable
+    public Fragment getFragment(@NonNull Bundle bundle, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048619, this, bundle, str)) == null) {
@@ -2442,7 +2479,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void removeCancellationSignal(Fragment fragment, CancellationSignal cancellationSignal) {
+    public void removeCancellationSignal(@NonNull Fragment fragment, @NonNull CancellationSignal cancellationSignal) {
         HashSet<CancellationSignal> hashSet;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048651, this, fragment, cancellationSignal) == null) && (hashSet = this.mExitAnimationCancellationSignals.get(fragment)) != null && hashSet.remove(cancellationSignal) && hashSet.isEmpty()) {
@@ -2454,7 +2491,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void setMaxLifecycle(Fragment fragment, Lifecycle.State state) {
+    public void setMaxLifecycle(@NonNull Fragment fragment, @NonNull Lifecycle.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048663, this, fragment, state) == null) {
             if (fragment.equals(findActiveFragment(fragment.mWho)) && (fragment.mHost == null || fragment.mFragmentManager == this)) {
@@ -2476,7 +2513,7 @@ public abstract class FragmentManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void moveToState(Fragment fragment, int i) {
+    public void moveToState(@NonNull Fragment fragment, int i) {
         Fragment findActiveFragment;
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
@@ -2649,7 +2686,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public boolean popBackStackImmediate(String str, int i) {
+    public boolean popBackStackImmediate(@Nullable String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048647, this, str, i)) == null) {
@@ -2658,7 +2695,7 @@ public abstract class FragmentManager {
         return invokeLI.booleanValue;
     }
 
-    public boolean popBackStackState(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, String str, int i, int i2) {
+    public boolean popBackStackState(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2, @Nullable String str, int i, int i2) {
         InterceptResult invokeCommon;
         int i3;
         Interceptable interceptable = $ic;
@@ -2718,7 +2755,7 @@ public abstract class FragmentManager {
         return invokeCommon.booleanValue;
     }
 
-    public void putFragment(Bundle bundle, String str, Fragment fragment) {
+    public void putFragment(@NonNull Bundle bundle, @NonNull String str, @NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048649, this, bundle, str, fragment) == null) {
             if (fragment.mFragmentManager != this) {
@@ -2728,7 +2765,7 @@ public abstract class FragmentManager {
         }
     }
 
-    public void restoreSaveState(Parcelable parcelable) {
+    public void restoreSaveState(@Nullable Parcelable parcelable) {
         FragmentStateManager fragmentStateManager;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048656, this, parcelable) != null) || parcelable == null) {

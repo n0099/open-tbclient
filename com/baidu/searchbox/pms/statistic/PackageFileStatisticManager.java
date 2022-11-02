@@ -19,7 +19,7 @@ public class PackageFileStatisticManager {
     public Context mContext;
 
     /* loaded from: classes2.dex */
-    public class Code {
+    public static class Code {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOWNLOAD_RESULT_CODE_CANCEL = 4;
         public static final int DOWNLOAD_RESULT_CODE_FRONT_FAILED = 21;

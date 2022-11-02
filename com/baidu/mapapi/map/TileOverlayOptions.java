@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,7 +102,10 @@ public final class TileOverlayOptions {
     public TileOverlay a(BaiduMap baiduMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baiduMap)) == null) ? new TileOverlay(baiduMap, this.b) : (TileOverlay) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baiduMap)) == null) {
+            return new TileOverlay(baiduMap, this.b);
+        }
+        return (TileOverlay) invokeL.objValue;
     }
 
     public TileOverlayOptions setMaxTileTmp(int i) {
@@ -126,13 +129,13 @@ public final class TileOverlayOptions {
                 double longitudeE6 = ll2mc2.getLongitudeE6();
                 double latitudeE62 = ll2mc2.getLatitudeE6();
                 double longitudeE62 = ll2mc.getLongitudeE6();
-                if (latitudeE6 <= latitudeE62 || longitudeE62 <= longitudeE6) {
-                    Log.e(j, "BDMapSDKException: bounds is illegal, use default bounds");
-                } else {
+                if (latitudeE6 > latitudeE62 && longitudeE62 > longitudeE6) {
                     c.putInt("rectr", (int) longitudeE62);
                     c.putInt("rectb", (int) latitudeE62);
                     c.putInt("rectl", (int) longitudeE6);
                     c.putInt("rectt", (int) latitudeE6);
+                } else {
+                    Log.e(j, "BDMapSDKException: bounds is illegal, use default bounds");
                 }
                 return this;
             }
@@ -143,46 +146,33 @@ public final class TileOverlayOptions {
 
     public TileOverlayOptions tileProvider(TileProvider tileProvider) {
         InterceptResult invokeL;
-        String str;
-        String str2;
-        int maxDisLevel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tileProvider)) == null) {
             if (tileProvider == null) {
                 return null;
             }
-            if (!(tileProvider instanceof UrlTileProvider)) {
-                if (!(tileProvider instanceof FileTileProvider)) {
-                    str = j;
-                    str2 = "tileProvider must be UrlTileProvider or FileTileProvider";
-                    Log.e(str, str2);
+            if (tileProvider instanceof UrlTileProvider) {
+                this.datasource = 1;
+                String tileUrl = ((UrlTileProvider) tileProvider).getTileUrl();
+                if (tileUrl != null && !"".equals(tileUrl) && tileUrl.contains("{x}") && tileUrl.contains("{y}") && tileUrl.contains("{z}")) {
+                    this.urlString = tileUrl;
+                } else {
+                    Log.e(j, "tile url template is illegal, must contains {x}、{y}、{z}");
                     return null;
                 }
+            } else if (tileProvider instanceof FileTileProvider) {
                 this.datasource = 0;
-                this.b = tileProvider;
-                maxDisLevel = tileProvider.getMaxDisLevel();
-                int minDisLevel = tileProvider.getMinDisLevel();
-                if (maxDisLevel <= 21) {
-                }
-                Log.e(j, "display level is illegal");
-                return this;
-            }
-            this.datasource = 1;
-            String tileUrl = ((UrlTileProvider) tileProvider).getTileUrl();
-            if (tileUrl == null || "".equals(tileUrl) || !tileUrl.contains("{x}") || !tileUrl.contains("{y}") || !tileUrl.contains("{z}")) {
-                str = j;
-                str2 = "tile url template is illegal, must contains {x}、{y}、{z}";
-                Log.e(str, str2);
+            } else {
+                Log.e(j, "tileProvider must be UrlTileProvider or FileTileProvider");
                 return null;
             }
-            this.urlString = tileUrl;
             this.b = tileProvider;
-            maxDisLevel = tileProvider.getMaxDisLevel();
-            int minDisLevel2 = tileProvider.getMinDisLevel();
-            if (maxDisLevel <= 21 || minDisLevel2 < 3) {
-                Log.e(j, "display level is illegal");
+            int maxDisLevel = tileProvider.getMaxDisLevel();
+            int minDisLevel = tileProvider.getMinDisLevel();
+            if (maxDisLevel <= 21 && minDisLevel >= 3) {
+                a(maxDisLevel, minDisLevel);
             } else {
-                a(maxDisLevel, minDisLevel2);
+                Log.e(j, "display level is illegal");
             }
             return this;
         }

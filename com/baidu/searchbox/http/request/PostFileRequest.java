@@ -14,7 +14,7 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PostFileRequest extends HttpRequest {
+public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType MEDIA_TYPE_STREAM;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public class PostFileRequest extends HttpRequest {
     public MediaType mediaType;
 
     /* loaded from: classes2.dex */
-    public class PostFileRequestBuilder extends HttpRequestBuilder {
+    public static class PostFileRequestBuilder extends HttpRequestBuilder<PostFileRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public File file;

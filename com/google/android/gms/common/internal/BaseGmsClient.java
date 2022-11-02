@@ -12,6 +12,10 @@ import android.os.IInterface;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
@@ -25,8 +29,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.GoogleApiAvailabilityLight;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.util.VisibleForTesting;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -37,30 +43,50 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
+import javax.annotation.concurrent.GuardedBy;
+@KeepForSdk
 /* loaded from: classes7.dex */
-public abstract class BaseGmsClient {
+public abstract class BaseGmsClient<T extends IInterface> {
     public static /* synthetic */ Interceptable $ic = null;
+    @KeepForSdk
     public static final int CONNECT_STATE_CONNECTED = 4;
+    @KeepForSdk
     public static final int CONNECT_STATE_DISCONNECTED = 1;
+    @KeepForSdk
     public static final int CONNECT_STATE_DISCONNECTING = 5;
+    @NonNull
+    @KeepForSdk
     public static final String DEFAULT_ACCOUNT = "<<default account>>";
+    @NonNull
+    @KeepForSdk
     public static final String[] GOOGLE_PLUS_REQUIRED_FEATURES;
+    @NonNull
+    @KeepForSdk
     public static final String KEY_PENDING_INTENT = "pendingIntent";
     public static final Feature[] zze;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public volatile String zzA;
+    @Nullable
     public ConnectionResult zzB;
     public boolean zzC;
+    @Nullable
     public volatile zzj zzD;
+    @VisibleForTesting
     public zzu zza;
     public final Handler zzb;
+    @NonNull
+    @VisibleForTesting
     public ConnectionProgressReportCallbacks zzc;
+    @NonNull
+    @VisibleForTesting
     public AtomicInteger zzd;
     public int zzf;
     public long zzg;
     public long zzh;
     public int zzi;
     public long zzj;
+    @Nullable
     public volatile String zzk;
     public final Context zzl;
     public final Looper zzm;
@@ -68,38 +94,59 @@ public abstract class BaseGmsClient {
     public final GoogleApiAvailabilityLight zzo;
     public final Object zzp;
     public final Object zzq;
+    @Nullable
+    @GuardedBy("mServiceBrokerLock")
     public IGmsServiceBroker zzr;
-    public IInterface zzs;
-    public final ArrayList zzt;
+    @Nullable
+    @GuardedBy("mLock")
+    public T zzs;
+    public final ArrayList<zzc<?>> zzt;
+    @Nullable
+    @GuardedBy("mLock")
     public zze zzu;
+    @GuardedBy("mLock")
     public int zzv;
+    @Nullable
     public final BaseConnectionCallbacks zzw;
+    @Nullable
     public final BaseOnConnectionFailedListener zzx;
     public final int zzy;
+    @Nullable
     public final String zzz;
 
+    @KeepForSdk
     /* loaded from: classes7.dex */
     public interface BaseConnectionCallbacks {
+        @KeepForSdk
         public static final int CAUSE_DEAD_OBJECT_EXCEPTION = 3;
+        @KeepForSdk
         public static final int CAUSE_SERVICE_DISCONNECTED = 1;
 
-        void onConnected(Bundle bundle);
+        @KeepForSdk
+        void onConnected(@Nullable Bundle bundle);
 
+        @KeepForSdk
         void onConnectionSuspended(int i);
     }
 
+    @KeepForSdk
     /* loaded from: classes7.dex */
     public interface BaseOnConnectionFailedListener {
-        void onConnectionFailed(ConnectionResult connectionResult);
+        @KeepForSdk
+        void onConnectionFailed(@NonNull ConnectionResult connectionResult);
     }
 
+    @KeepForSdk
     /* loaded from: classes7.dex */
     public interface ConnectionProgressReportCallbacks {
-        void onReportServiceBinding(ConnectionResult connectionResult);
+        @KeepForSdk
+        void onReportServiceBinding(@NonNull ConnectionResult connectionResult);
     }
 
+    @KeepForSdk
     /* loaded from: classes7.dex */
     public interface SignOutCallbacks {
+        @KeepForSdk
         void onSignOutComplete();
     }
 
@@ -120,8 +167,11 @@ public abstract class BaseGmsClient {
         GOOGLE_PLUS_REQUIRED_FEATURES = new String[]{"service_esmobile", "service_googleme"};
     }
 
-    public abstract IInterface createServiceInterface(IBinder iBinder);
+    @Nullable
+    @KeepForSdk
+    public abstract T createServiceInterface(@NonNull IBinder iBinder);
 
+    @KeepForSdk
     public boolean enableLocalFallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,6 +181,8 @@ public abstract class BaseGmsClient {
         return invokeV.booleanValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public Account getAccount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,12 +192,16 @@ public abstract class BaseGmsClient {
         return (Account) invokeV.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public Feature[] getApiFeatures() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? zze : (Feature[]) invokeV.objValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public final Feature[] getAvailableFeatures() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -159,6 +215,8 @@ public abstract class BaseGmsClient {
         return (Feature[]) invokeV.objValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public Executor getBindServiceExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,6 +226,8 @@ public abstract class BaseGmsClient {
         return (Executor) invokeV.objValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public Bundle getConnectionHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -177,24 +237,31 @@ public abstract class BaseGmsClient {
         return (Bundle) invokeV.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.zzl : (Context) invokeV.objValue;
     }
 
+    @KeepForSdk
     public int getGCoreServiceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.zzy : invokeV.intValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public String getLastDisconnectMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.zzk : (String) invokeV.objValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public String getLocalStartServiceAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -204,22 +271,32 @@ public abstract class BaseGmsClient {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public final Looper getLooper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.zzm : (Looper) invokeV.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public abstract String getServiceDescriptor();
 
+    @NonNull
+    @KeepForSdk
     public abstract String getStartServiceAction();
 
+    @NonNull
+    @KeepForSdk
     public String getStartServicePackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? "com.google.android.gms" : (String) invokeV.objValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public ConnectionTelemetryConfiguration getTelemetryConfiguration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -233,12 +310,14 @@ public abstract class BaseGmsClient {
         return (ConnectionTelemetryConfiguration) invokeV.objValue;
     }
 
+    @KeepForSdk
     public boolean hasConnectionInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.zzD != null : invokeV.booleanValue;
     }
 
+    @KeepForSdk
     public boolean providesSignIn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -248,6 +327,7 @@ public abstract class BaseGmsClient {
         return invokeV.booleanValue;
     }
 
+    @KeepForSdk
     public boolean requiresAccount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -257,6 +337,7 @@ public abstract class BaseGmsClient {
         return invokeV.booleanValue;
     }
 
+    @KeepForSdk
     public boolean requiresGooglePlayServices() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -266,6 +347,7 @@ public abstract class BaseGmsClient {
         return invokeV.booleanValue;
     }
 
+    @KeepForSdk
     public boolean requiresSignIn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -275,13 +357,15 @@ public abstract class BaseGmsClient {
         return invokeV.booleanValue;
     }
 
-    public void setAttributionTag(String str) {
+    @KeepForSdk
+    public void setAttributionTag(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.zzA = str;
         }
     }
 
+    @KeepForSdk
     public boolean usesClientTelemetry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -297,6 +381,7 @@ public abstract class BaseGmsClient {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseGmsClient zza;
 
+        @KeepForSdk
         public LegacyClientCallbackAdapter(BaseGmsClient baseGmsClient) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -316,7 +401,7 @@ public abstract class BaseGmsClient {
         }
 
         @Override // com.google.android.gms.common.internal.BaseGmsClient.ConnectionProgressReportCallbacks
-        public final void onReportServiceBinding(ConnectionResult connectionResult) {
+        public final void onReportServiceBinding(@NonNull ConnectionResult connectionResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, connectionResult) == null) {
                 if (connectionResult.isSuccess()) {
@@ -329,7 +414,9 @@ public abstract class BaseGmsClient {
         }
     }
 
-    public BaseGmsClient(Context context, Handler handler, GmsClientSupervisor gmsClientSupervisor, GoogleApiAvailabilityLight googleApiAvailabilityLight, int i, BaseConnectionCallbacks baseConnectionCallbacks, BaseOnConnectionFailedListener baseOnConnectionFailedListener) {
+    @VisibleForTesting
+    @KeepForSdk
+    public BaseGmsClient(@NonNull Context context, @NonNull Handler handler, @NonNull GmsClientSupervisor gmsClientSupervisor, @NonNull GoogleApiAvailabilityLight googleApiAvailabilityLight, int i, @Nullable BaseConnectionCallbacks baseConnectionCallbacks, @Nullable BaseOnConnectionFailedListener baseOnConnectionFailedListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -347,7 +434,7 @@ public abstract class BaseGmsClient {
         this.zzk = null;
         this.zzp = new Object();
         this.zzq = new Object();
-        this.zzt = new ArrayList();
+        this.zzt = new ArrayList<>();
         this.zzv = 1;
         this.zzB = null;
         this.zzC = false;
@@ -369,10 +456,11 @@ public abstract class BaseGmsClient {
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
+    @KeepForSdk
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public BaseGmsClient(Context context, Looper looper, int i, BaseConnectionCallbacks baseConnectionCallbacks, BaseOnConnectionFailedListener baseOnConnectionFailedListener, String str) {
+    public BaseGmsClient(@NonNull Context context, @NonNull Looper looper, int i, @Nullable BaseConnectionCallbacks baseConnectionCallbacks, @Nullable BaseOnConnectionFailedListener baseOnConnectionFailedListener, @Nullable String str) {
         this(context, looper, r3, r4, i, baseConnectionCallbacks, baseOnConnectionFailedListener, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -396,7 +484,9 @@ public abstract class BaseGmsClient {
         Preconditions.checkNotNull(baseOnConnectionFailedListener);
     }
 
-    public BaseGmsClient(Context context, Looper looper, GmsClientSupervisor gmsClientSupervisor, GoogleApiAvailabilityLight googleApiAvailabilityLight, int i, BaseConnectionCallbacks baseConnectionCallbacks, BaseOnConnectionFailedListener baseOnConnectionFailedListener, String str) {
+    @VisibleForTesting
+    @KeepForSdk
+    public BaseGmsClient(@NonNull Context context, @NonNull Looper looper, @NonNull GmsClientSupervisor gmsClientSupervisor, @NonNull GoogleApiAvailabilityLight googleApiAvailabilityLight, int i, @Nullable BaseConnectionCallbacks baseConnectionCallbacks, @Nullable BaseOnConnectionFailedListener baseOnConnectionFailedListener, @Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -414,7 +504,7 @@ public abstract class BaseGmsClient {
         this.zzk = null;
         this.zzp = new Object();
         this.zzq = new Object();
-        this.zzt = new ArrayList();
+        this.zzt = new ArrayList<>();
         this.zzv = 1;
         this.zzB = null;
         this.zzC = false;
@@ -516,7 +606,8 @@ public abstract class BaseGmsClient {
         throw new UnsupportedOperationException("Method not decompiled: com.google.android.gms.common.internal.BaseGmsClient.zzo(com.google.android.gms.common.internal.BaseGmsClient):boolean");
     }
 
-    public void connect(ConnectionProgressReportCallbacks connectionProgressReportCallbacks) {
+    @KeepForSdk
+    public void connect(@NonNull ConnectionProgressReportCallbacks connectionProgressReportCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, connectionProgressReportCallbacks) == null) {
             Preconditions.checkNotNull(connectionProgressReportCallbacks, "Connection progress callbacks cannot be null.");
@@ -525,7 +616,8 @@ public abstract class BaseGmsClient {
         }
     }
 
-    public void disconnect(String str) {
+    @KeepForSdk
+    public void disconnect(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.zzk = str;
@@ -533,14 +625,18 @@ public abstract class BaseGmsClient {
         }
     }
 
-    public void onConnectedLocked(IInterface iInterface) {
+    @KeepForSdk
+    @CallSuper
+    public void onConnectedLocked(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, iInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, t) == null) {
             this.zzh = System.currentTimeMillis();
         }
     }
 
-    public void onConnectionFailed(ConnectionResult connectionResult) {
+    @KeepForSdk
+    @CallSuper
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, connectionResult) == null) {
             this.zzi = connectionResult.getErrorCode();
@@ -548,6 +644,8 @@ public abstract class BaseGmsClient {
         }
     }
 
+    @KeepForSdk
+    @CallSuper
     public void onConnectionSuspended(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
@@ -556,13 +654,15 @@ public abstract class BaseGmsClient {
         }
     }
 
-    public void onUserSignOut(SignOutCallbacks signOutCallbacks) {
+    @KeepForSdk
+    public void onUserSignOut(@NonNull SignOutCallbacks signOutCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, signOutCallbacks) == null) {
             signOutCallbacks.onSignOutComplete();
         }
     }
 
+    @KeepForSdk
     public void triggerConnectionSuspended(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
@@ -572,21 +672,21 @@ public abstract class BaseGmsClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void zzp(int i, IInterface iInterface) {
+    public final void zzp(int i, @Nullable T t) {
         boolean z;
         boolean z2;
         zzu zzuVar;
         String str;
         zzu zzuVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65553, this, i, iInterface) == null) {
+        if (interceptable == null || interceptable.invokeIL(65553, this, i, t) == null) {
             boolean z3 = false;
             if (i != 4) {
                 z = false;
             } else {
                 z = true;
             }
-            if (iInterface == null) {
+            if (t == null) {
                 z2 = false;
             } else {
                 z2 = true;
@@ -597,12 +697,12 @@ public abstract class BaseGmsClient {
             Preconditions.checkArgument(z3);
             synchronized (this.zzp) {
                 this.zzv = i;
-                this.zzs = iInterface;
+                this.zzs = t;
                 if (i != 1) {
                     if (i != 2 && i != 3) {
                         if (i == 4) {
-                            Preconditions.checkNotNull(iInterface);
-                            onConnectedLocked(iInterface);
+                            Preconditions.checkNotNull(t);
+                            onConnectedLocked(t);
                         }
                     } else {
                         zze zzeVar = this.zzu;
@@ -669,6 +769,7 @@ public abstract class BaseGmsClient {
         }
     }
 
+    @KeepForSdk
     public void checkAvailabilityAndConnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -682,6 +783,7 @@ public abstract class BaseGmsClient {
         }
     }
 
+    @KeepForSdk
     public void disconnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -689,7 +791,7 @@ public abstract class BaseGmsClient {
             synchronized (this.zzt) {
                 int size = this.zzt.size();
                 for (int i = 0; i < size; i++) {
-                    ((zzc) this.zzt.get(i)).zzf();
+                    this.zzt.get(i).zzf();
                 }
                 this.zzt.clear();
             }
@@ -700,6 +802,7 @@ public abstract class BaseGmsClient {
         }
     }
 
+    @KeepForSdk
     public final void checkConnected() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || isConnected()) {
@@ -708,6 +811,8 @@ public abstract class BaseGmsClient {
         throw new IllegalStateException("Not connected. Call connect() and wait for onConnected() to be called.");
     }
 
+    @NonNull
+    @KeepForSdk
     public String getEndpointPackageName() {
         InterceptResult invokeV;
         zzu zzuVar;
@@ -721,6 +826,8 @@ public abstract class BaseGmsClient {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public Bundle getGetServiceRequestExtraArgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -730,6 +837,7 @@ public abstract class BaseGmsClient {
         return (Bundle) invokeV.objValue;
     }
 
+    @KeepForSdk
     public int getMinApkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -739,7 +847,9 @@ public abstract class BaseGmsClient {
         return invokeV.intValue;
     }
 
-    public Set getScopes() {
+    @NonNull
+    @KeepForSdk
+    public Set<Scope> getScopes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
@@ -748,25 +858,29 @@ public abstract class BaseGmsClient {
         return (Set) invokeV.objValue;
     }
 
-    public final IInterface getService() throws DeadObjectException {
+    @NonNull
+    @KeepForSdk
+    public final T getService() throws DeadObjectException {
         InterceptResult invokeV;
-        IInterface iInterface;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             synchronized (this.zzp) {
                 if (this.zzv != 5) {
                     checkConnected();
-                    iInterface = this.zzs;
-                    Preconditions.checkNotNull(iInterface, "Client is connected but service is null");
+                    t = this.zzs;
+                    Preconditions.checkNotNull(t, "Client is connected but service is null");
                 } else {
                     throw new DeadObjectException();
                 }
             }
-            return iInterface;
+            return t;
         }
-        return (IInterface) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public IBinder getServiceBrokerBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -782,6 +896,8 @@ public abstract class BaseGmsClient {
         return (IBinder) invokeV.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public Intent getSignInIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -791,6 +907,7 @@ public abstract class BaseGmsClient {
         return (Intent) invokeV.objValue;
     }
 
+    @KeepForSdk
     public boolean getUseDynamicLookup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -803,6 +920,7 @@ public abstract class BaseGmsClient {
         return invokeV.booleanValue;
     }
 
+    @KeepForSdk
     public boolean isConnected() {
         InterceptResult invokeV;
         boolean z;
@@ -820,6 +938,7 @@ public abstract class BaseGmsClient {
         return invokeV.booleanValue;
     }
 
+    @KeepForSdk
     public boolean isConnecting() {
         InterceptResult invokeV;
         boolean z;
@@ -837,6 +956,7 @@ public abstract class BaseGmsClient {
         return invokeV.booleanValue;
     }
 
+    @NonNull
     public final String zze() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -850,15 +970,16 @@ public abstract class BaseGmsClient {
         return (String) invokeV.objValue;
     }
 
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    @KeepForSdk
+    public void dump(@NonNull String str, @NonNull FileDescriptor fileDescriptor, @NonNull PrintWriter printWriter, @NonNull String[] strArr) {
         int i;
-        IInterface iInterface;
+        T t;
         IGmsServiceBroker iGmsServiceBroker;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, fileDescriptor, printWriter, strArr) == null) {
             synchronized (this.zzp) {
                 i = this.zzv;
-                iInterface = this.zzs;
+                t = this.zzs;
             }
             synchronized (this.zzq) {
                 iGmsServiceBroker = this.zzr;
@@ -886,10 +1007,10 @@ public abstract class BaseGmsClient {
                 printWriter.print("DISCONNECTED");
             }
             printWriter.append(" mService=");
-            if (iInterface == null) {
+            if (t == null) {
                 printWriter.append(StringUtil.NULL_STRING);
             } else {
-                printWriter.append((CharSequence) getServiceDescriptor()).append("@").append((CharSequence) Integer.toHexString(System.identityHashCode(iInterface.asBinder())));
+                printWriter.append((CharSequence) getServiceDescriptor()).append("@").append((CharSequence) Integer.toHexString(System.identityHashCode(t.asBinder())));
             }
             printWriter.append(" mServiceBroker=");
             if (iGmsServiceBroker == null) {
@@ -947,7 +1068,9 @@ public abstract class BaseGmsClient {
         }
     }
 
-    public void getRemoteService(IAccountAccessor iAccountAccessor, Set set) {
+    @KeepForSdk
+    @WorkerThread
+    public void getRemoteService(@Nullable IAccountAccessor iAccountAccessor, @NonNull Set<Scope> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, iAccountAccessor, set) == null) {
             Bundle getServiceRequestExtraArgs = getGetServiceRequestExtraArgs();
@@ -1000,7 +1123,8 @@ public abstract class BaseGmsClient {
         }
     }
 
-    public void onPostInitHandler(int i, IBinder iBinder, Bundle bundle, int i2) {
+    @KeepForSdk
+    public void onPostInitHandler(int i, @Nullable IBinder iBinder, @Nullable Bundle bundle, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), iBinder, bundle, Integer.valueOf(i2)}) == null) {
             Handler handler = this.zzb;
@@ -1008,7 +1132,9 @@ public abstract class BaseGmsClient {
         }
     }
 
-    public void triggerNotAvailable(ConnectionProgressReportCallbacks connectionProgressReportCallbacks, int i, PendingIntent pendingIntent) {
+    @VisibleForTesting
+    @KeepForSdk
+    public void triggerNotAvailable(@NonNull ConnectionProgressReportCallbacks connectionProgressReportCallbacks, int i, @Nullable PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048621, this, connectionProgressReportCallbacks, i, pendingIntent) == null) {
             Preconditions.checkNotNull(connectionProgressReportCallbacks, "Connection progress callbacks cannot be null.");
@@ -1018,7 +1144,7 @@ public abstract class BaseGmsClient {
         }
     }
 
-    public final void zzl(int i, Bundle bundle, int i2) {
+    public final void zzl(int i, @Nullable Bundle bundle, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Integer.valueOf(i), bundle, Integer.valueOf(i2)}) == null) {
             Handler handler = this.zzb;

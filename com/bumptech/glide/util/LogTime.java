@@ -1,5 +1,6 @@
 package com.bumptech.glide.util;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.SystemClock;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -49,6 +50,7 @@ public final class LogTime {
         }
     }
 
+    @TargetApi(17)
     public static long getLogTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

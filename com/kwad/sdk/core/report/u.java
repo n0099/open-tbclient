@@ -1,6 +1,9 @@
 package com.kwad.sdk.core.report;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.service.ServiceProvider;
@@ -12,15 +15,18 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class u extends com.kwad.sdk.core.network.b {
+    @Nullable
     public final b KS;
     public int abw;
+    @Nullable
     public final JSONObject abx;
     public final AdTemplate mAdTemplate;
 
-    /* loaded from: classes7.dex */
-    public class a extends com.kwad.sdk.core.response.kwai.a {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int abA;
         public int aby = -1;
         public String abz;
@@ -36,8 +42,9 @@ public final class u extends com.kwad.sdk.core.network.b {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends com.kwad.sdk.core.response.kwai.a {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class b extends com.kwad.sdk.core.response.kwai.a {
         public long Es;
         public int FH;
         public String Mn;
@@ -85,7 +92,7 @@ public final class u extends com.kwad.sdk.core.network.b {
         public int acg = -1;
         public int ach = 0;
 
-        public final void a(g gVar) {
+        public final void a(@Nullable g gVar) {
             if (gVar != null) {
                 this.aci = gVar.ux();
             }
@@ -103,14 +110,14 @@ public final class u extends com.kwad.sdk.core.network.b {
         }
     }
 
-    public u(AdTemplate adTemplate, int i, b bVar, JSONObject jSONObject) {
+    public u(@NonNull AdTemplate adTemplate, int i, @Nullable b bVar, @Nullable JSONObject jSONObject) {
         this.mAdTemplate = adTemplate;
         this.abw = i;
         this.KS = bVar;
         this.abx = jSONObject;
     }
 
-    private void a(String str, b bVar) {
+    private void a(String str, @Nullable b bVar) {
         if (bVar == null || TextUtils.isEmpty(str)) {
             return;
         }
@@ -157,7 +164,7 @@ public final class u extends com.kwad.sdk.core.network.b {
         }
     }
 
-    private void a(String str, AdTemplate adTemplate, b bVar) {
+    private void a(String str, AdTemplate adTemplate, @Nullable b bVar) {
         if (TextUtils.isEmpty(str) || adTemplate == null) {
             return;
         }
@@ -179,7 +186,7 @@ public final class u extends com.kwad.sdk.core.network.b {
         putBody("payload", bVar.Mn);
     }
 
-    private void b(String str, b bVar) {
+    private void b(String str, @Nullable b bVar) {
         if (bVar == null || TextUtils.isEmpty(str)) {
             return;
         }
@@ -248,7 +255,7 @@ public final class u extends com.kwad.sdk.core.network.b {
         }
     }
 
-    private void c(String str, b bVar) {
+    private void c(String str, @Nullable b bVar) {
         if (bVar == null || TextUtils.isEmpty(str)) {
             return;
         }
@@ -387,7 +394,7 @@ public final class u extends com.kwad.sdk.core.network.b {
         }
     }
 
-    private void i(JSONObject jSONObject) {
+    private void i(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -443,21 +450,21 @@ public final class u extends com.kwad.sdk.core.network.b {
         return replaceFirst;
     }
 
-    public final List uK() {
+    public final List<String> uK() {
         aa.a aVar;
         AdInfo.AdTrackInfo adTrackInfo;
         b bVar;
         ArrayList arrayList = new ArrayList();
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
         if (!bQ.adTrackInfoList.isEmpty()) {
-            Iterator it = bQ.adTrackInfoList.iterator();
+            Iterator<AdInfo.AdTrackInfo> it = bQ.adTrackInfoList.iterator();
             while (true) {
                 aVar = null;
                 if (!it.hasNext()) {
                     adTrackInfo = null;
                     break;
                 }
-                adTrackInfo = (AdInfo.AdTrackInfo) it.next();
+                adTrackInfo = it.next();
                 if (adTrackInfo.type == this.abw && adTrackInfo.urls != null) {
                     break;
                 }

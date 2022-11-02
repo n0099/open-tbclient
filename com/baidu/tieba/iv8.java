@@ -1,43 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class iv8 {
+public class iv8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Object b;
-    public Object c;
-    public a d;
-    public String e;
-    public Long f;
+    public List<kv8> a;
+    public TbPageContext<?> b;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(iv8 iv8Var, Object obj, Object obj2);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
     }
 
-    public abstract long e(String str, long j);
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HeadImageView a;
+        public TextView b;
+        public View c;
+        public View d;
 
-    public abstract Object f();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
-    public abstract void g(String str, long j);
-
-    public abstract void h();
-
-    public iv8(String str, Object obj, String str2) {
+    public iv8(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, obj, str2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,92 +71,85 @@ public abstract class iv8 {
                 return;
             }
         }
-        this.e = str2;
-        i(obj);
-        j(str);
+        this.b = tbPageContext;
     }
 
-    public Object a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public kv8 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<kv8> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
         }
-        return invokeV.objValue;
+        return (kv8) invokeI.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(List<kv8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
-        return (String) invokeV.objValue;
     }
 
-    public long c() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f == null && !TextUtils.isEmpty(this.e)) {
-                d();
+            List<kv8> list = this.a;
+            if (list != null) {
+                return list.size();
             }
-            Long l = this.f;
-            if (l == null) {
-                return 0L;
-            }
-            return l.longValue();
+            return 0;
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    public Object d() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null && !TextUtils.isEmpty(this.a)) {
-                this.b = f();
-                if (!TextUtils.isEmpty(this.e)) {
-                    this.f = Long.valueOf(e(this.e, 0L));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            kv8 item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d023f, viewGroup, false);
+                aVar = new a();
+                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090873);
+                aVar.a = headImageView;
+                headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080c0d);
+                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090872);
+                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092252);
+                aVar.d = view2.findViewById(R.id.divider_line);
+                view2.setTag(aVar);
+            }
+            if (item != null) {
+                aVar.a.K(item.a(), 10, false);
+                aVar.b.setText(item.b());
+                ky4 k = ky4.k();
+                if (item.c() - k.m("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
+                    aVar.c.setVisibility(0);
+                } else {
+                    aVar.c.setVisibility(4);
+                }
+                if (i == getCount() - 1) {
+                    aVar.d.setVisibility(8);
+                } else {
+                    aVar.d.setVisibility(0);
                 }
             }
-            return this.b;
+            this.b.getLayoutMode().k(view2);
+            return view2;
         }
-        return invokeV.objValue;
-    }
-
-    public void i(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
-            this.c = obj;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void k(Object obj) {
-        Object obj2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, obj) == null) && !TextUtils.isEmpty(this.a) && obj != (obj2 = this.b)) {
-            if (obj == null || !obj.equals(obj2)) {
-                Object obj3 = this.b;
-                this.b = obj;
-                h();
-                if (!TextUtils.isEmpty(this.e)) {
-                    Long valueOf = Long.valueOf(System.currentTimeMillis());
-                    this.f = valueOf;
-                    g(this.e, valueOf.longValue());
-                }
-                a aVar = this.d;
-                if (aVar != null) {
-                    aVar.a(this, obj3, obj);
-                }
-            }
-        }
+        return (View) invokeILL.objValue;
     }
 }

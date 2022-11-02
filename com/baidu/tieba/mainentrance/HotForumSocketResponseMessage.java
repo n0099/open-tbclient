@@ -1,10 +1,11 @@
 package com.baidu.tieba.mainentrance;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kj7;
-import com.baidu.tieba.lj7;
+import com.baidu.tieba.uk7;
+import com.baidu.tieba.vk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +22,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List forumInfoList;
+    public List<uk7> forumInfoList;
     public HotSearchInfoData mSearchInfo;
-    public List mTopicInfoList;
+    public List<vk7> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +45,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List getForumInfoList() {
+    public List<uk7> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -62,7 +63,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         return (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List getTopicInfoList() {
+    public List<vk7> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -81,6 +82,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -102,9 +104,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
             if (list != null) {
                 for (ForumInfo forumInfo : list) {
                     if (forumInfo != null) {
-                        kj7 kj7Var = new kj7();
-                        kj7Var.a(forumInfo);
-                        this.forumInfoList.add(kj7Var);
+                        uk7 uk7Var = new uk7();
+                        uk7Var.a(forumInfo);
+                        this.forumInfoList.add(uk7Var);
                     }
                 }
             }
@@ -119,9 +121,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
                 if (list2 != null) {
                     for (HotTopicList hotTopicList : list2) {
                         if (hotTopicList != null) {
-                            lj7 lj7Var = new lj7();
-                            lj7Var.d(hotTopicList);
-                            this.mTopicInfoList.add(lj7Var);
+                            vk7 vk7Var = new vk7();
+                            vk7Var.d(hotTopicList);
+                            this.mTopicInfoList.add(vk7Var);
                         }
                     }
                 }

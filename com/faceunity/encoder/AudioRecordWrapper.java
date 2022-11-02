@@ -1,6 +1,7 @@
 package com.faceunity.encoder;
 
 import android.media.AudioRecord;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -124,7 +125,7 @@ public class AudioRecordWrapper {
         audioRecord.stop();
     }
 
-    public int read(ByteBuffer byteBuffer, int i) {
+    public int read(@NonNull ByteBuffer byteBuffer, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, byteBuffer, i)) == null) {

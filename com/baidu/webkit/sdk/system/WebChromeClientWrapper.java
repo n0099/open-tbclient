@@ -1,7 +1,9 @@
 package com.baidu.webkit.sdk.system;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Message;
 import android.view.View;
 import android.webkit.ConsoleMessage;
@@ -27,7 +29,7 @@ import com.baidu.webkit.sdk.system.GeolocationPermissionsImpl;
 import com.baidu.webkit.sdk.system.WebStorageImpl;
 import com.baidu.webkit.sdk.system.WebViewImpl;
 import java.util.Objects;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebChromeClientWrapper extends WebChromeClient {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -36,14 +38,14 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     public final WebViewImpl mWebView;
 
     /* renamed from: com.baidu.webkit.sdk.system.WebChromeClientWrapper$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
-    public class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
+    /* loaded from: classes7.dex */
+    public static class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WebChromeClient.CustomViewCallback mCallback;
@@ -79,8 +81,9 @@ public final class WebChromeClientWrapper extends WebChromeClient {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
+    @TargetApi(21)
+    /* loaded from: classes7.dex */
+    public static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WebChromeClient.FileChooserParams mImpl;
@@ -198,7 +201,7 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void getVisitedHistory(ValueCallback valueCallback) {
+    public final void getVisitedHistory(ValueCallback<String[]> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, valueCallback) == null) {
             this.mClient.getVisitedHistory(valueCallback);
@@ -391,7 +394,8 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    @TargetApi(21)
+    public final boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048602, this, webView, valueCallback, fileChooserParams)) == null) {
@@ -400,7 +404,7 @@ public final class WebChromeClientWrapper extends WebChromeClient {
         return invokeLLL.booleanValue;
     }
 
-    public final void openFileChooser(ValueCallback valueCallback, String str, String str2) {
+    public final void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048603, this, valueCallback, str, str2) == null) {
             this.mClient.openFileChooser(valueCallback, str, str2);

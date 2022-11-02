@@ -36,34 +36,37 @@ import com.facebook.fresco.ui.common.ForwardingControllerListener2;
 import com.facebook.fresco.ui.common.LoggingListener;
 import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
+import com.facebook.infer.annotation.ReturnsOwnership;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.NotThreadSafe;
+@NotThreadSafe
 /* loaded from: classes7.dex */
-public abstract class AbstractDraweeController implements DraweeController, DeferredReleaser.Releasable, GestureDetector.ClickListener {
+public abstract class AbstractDraweeController<T, INFO> implements DraweeController, DeferredReleaser.Releasable, GestureDetector.ClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map COMPONENT_EXTRAS;
-    public static final Map SHORTCUT_EXTRAS;
-    public static final Class TAG;
+    public static final Map<String, Object> COMPONENT_EXTRAS;
+    public static final Map<String, Object> SHORTCUT_EXTRAS;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public Object mCallerContext;
     @Nullable
     public String mContentDescription;
     @Nullable
-    public ControllerListener mControllerListener;
-    public ForwardingControllerListener2 mControllerListener2;
+    public ControllerListener<INFO> mControllerListener;
+    public ForwardingControllerListener2<INFO> mControllerListener2;
     @Nullable
     public Drawable mControllerOverlay;
     @Nullable
     public ControllerViewportVisibilityListener mControllerViewportVisibilityListener;
     @Nullable
-    public DataSource mDataSource;
+    public DataSource<T> mDataSource;
     public final DeferredReleaser mDeferredReleaser;
     @Nullable
     public Drawable mDrawable;
     public final DraweeEventTracker mEventTracker;
     @Nullable
-    public Object mFetchedImage;
+    public T mFetchedImage;
     @Nullable
     public GestureDetector mGestureDetector;
     public boolean mHasFetchFailed;
@@ -81,22 +84,22 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
     public SettableDraweeHierarchy mSettableDraweeHierarchy;
     public final Executor mUiThreadImmediateExecutor;
 
-    public abstract Drawable createDrawable(Object obj);
+    public abstract Drawable createDrawable(T t);
 
     @Nullable
-    public Object getCachedImage() {
+    public T getCachedImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public abstract DataSource getDataSource();
+    public abstract DataSource<T> getDataSource();
 
     @Nullable
-    public abstract Object getImageInfo(Object obj);
+    public abstract INFO getImageInfo(T t);
 
     @Nullable
     public Uri getMainUri() {
@@ -109,20 +112,20 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
     }
 
     @Nullable
-    public abstract Map obtainExtrasFromImage(Object obj);
+    public abstract Map<String, Object> obtainExtrasFromImage(INFO info);
 
-    public void onImageLoadedFromCacheImmediately(String str, Object obj) {
+    public void onImageLoadedFromCacheImmediately(String str, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048601, this, str, t) == null) {
         }
     }
 
     public abstract void releaseDrawable(@Nullable Drawable drawable);
 
-    public abstract void releaseImage(@Nullable Object obj);
+    public abstract void releaseImage(@Nullable T t);
 
     /* loaded from: classes7.dex */
-    public class InternalForwardingListener extends ForwardingControllerListener {
+    public static class InternalForwardingListener<INFO> extends ForwardingControllerListener<INFO> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -140,14 +143,14 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
             }
         }
 
-        public static InternalForwardingListener createInternal(ControllerListener controllerListener, ControllerListener controllerListener2) {
+        public static <INFO> InternalForwardingListener<INFO> createInternal(ControllerListener<? super INFO> controllerListener, ControllerListener<? super INFO> controllerListener2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, controllerListener, controllerListener2)) == null) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("AbstractDraweeController#createInternal");
                 }
-                InternalForwardingListener internalForwardingListener = new InternalForwardingListener();
+                InternalForwardingListener<INFO> internalForwardingListener = new InternalForwardingListener<>();
                 internalForwardingListener.addListener(controllerListener);
                 internalForwardingListener.addListener(controllerListener2);
                 if (FrescoSystrace.isTracing()) {
@@ -212,7 +215,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
             }
         }
         this.mEventTracker = DraweeEventTracker.newInstance();
-        this.mControllerListener2 = new ForwardingControllerListener2();
+        this.mControllerListener2 = new ForwardingControllerListener2<>();
         this.mJustConstructed = true;
         this.mDeferredReleaser = deferredReleaser;
         this.mUiThreadImmediateExecutor = executor;
@@ -227,11 +230,13 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         }
     }
 
-    public void addControllerListener(ControllerListener controllerListener) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.facebook.drawee.controller.ControllerListener<? super INFO> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void addControllerListener(ControllerListener<? super INFO> controllerListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, controllerListener) == null) {
             Preconditions.checkNotNull(controllerListener);
-            ControllerListener controllerListener2 = this.mControllerListener;
+            ControllerListener<INFO> controllerListener2 = this.mControllerListener;
             if (controllerListener2 instanceof InternalForwardingListener) {
                 ((InternalForwardingListener) controllerListener2).addListener(controllerListener);
             } else if (controllerListener2 != null) {
@@ -242,30 +247,30 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         }
     }
 
-    public void addControllerListener2(ControllerListener2 controllerListener2) {
+    public void addControllerListener2(ControllerListener2<INFO> controllerListener2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, controllerListener2) == null) {
             this.mControllerListener2.addListener(controllerListener2);
         }
     }
 
-    public String getImageClass(@Nullable Object obj) {
+    public String getImageClass(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            if (obj != null) {
-                return obj.getClass().getSimpleName();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, t)) == null) {
+            if (t != null) {
+                return t.getClass().getSimpleName();
             }
             return "<null>";
         }
         return (String) invokeL.objValue;
     }
 
-    public int getImageHash(@Nullable Object obj) {
+    public int getImageHash(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, obj)) == null) {
-            return System.identityHashCode(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, t)) == null) {
+            return System.identityHashCode(t);
         }
         return invokeL.intValue;
     }
@@ -286,11 +291,11 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         }
     }
 
-    public void removeControllerListener(ControllerListener controllerListener) {
+    public void removeControllerListener(ControllerListener<? super INFO> controllerListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, controllerListener) == null) {
             Preconditions.checkNotNull(controllerListener);
-            ControllerListener controllerListener2 = this.mControllerListener;
+            ControllerListener<INFO> controllerListener2 = this.mControllerListener;
             if (controllerListener2 instanceof InternalForwardingListener) {
                 ((InternalForwardingListener) controllerListener2).removeListener(controllerListener);
             } else if (controllerListener2 == controllerListener) {
@@ -299,7 +304,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         }
     }
 
-    public void removeControllerListener2(ControllerListener2 controllerListener2) {
+    public void removeControllerListener2(ControllerListener2<INFO> controllerListener2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, controllerListener2) == null) {
             this.mControllerListener2.removeListener(controllerListener2);
@@ -460,11 +465,11 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         return (String) invokeV.objValue;
     }
 
-    public ControllerListener getControllerListener() {
+    public ControllerListener<INFO> getControllerListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ControllerListener controllerListener = this.mControllerListener;
+            ControllerListener<INFO> controllerListener = this.mControllerListener;
             if (controllerListener == null) {
                 return BaseControllerListener.getNoOpListener();
             }
@@ -473,7 +478,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         return (ControllerListener) invokeV.objValue;
     }
 
-    public ControllerListener2 getControllerListener2() {
+    public ControllerListener2<INFO> getControllerListener2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -532,6 +537,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         return (LoggingListener) invokeV.objValue;
     }
 
+    @ReturnsOwnership
     public RetryManager getRetryManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -623,7 +629,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         }
     }
 
-    private boolean isExpectedDataSource(String str, DataSource dataSource) {
+    private boolean isExpectedDataSource(String str, DataSource<T> dataSource) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, str, dataSource)) == null) {
@@ -645,25 +651,25 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         }
     }
 
-    private void reportFailure(Throwable th, @Nullable DataSource dataSource) {
+    private void reportFailure(Throwable th, @Nullable DataSource<T> dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, this, th, dataSource) == null) {
-            ControllerListener2.Extras obtainExtras = obtainExtras(dataSource, (Object) null, (Uri) null);
+            ControllerListener2.Extras obtainExtras = obtainExtras(dataSource, (DataSource<T>) null, (Uri) null);
             getControllerListener().onFailure(this.mId, th);
             getControllerListener2().onFailure(this.mId, th, obtainExtras);
         }
     }
 
-    private void reportIntermediateSet(String str, @Nullable Object obj) {
+    private void reportIntermediateSet(String str, @Nullable T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, this, str, obj) == null) {
-            Object imageInfo = getImageInfo(obj);
+        if (interceptable == null || interceptable.invokeLL(65555, this, str, t) == null) {
+            INFO imageInfo = getImageInfo(t);
             getControllerListener().onIntermediateImageSet(str, imageInfo);
             getControllerListener2().onIntermediateImageSet(str, imageInfo);
         }
     }
 
-    private void reportRelease(@Nullable Map map, @Nullable Map map2) {
+    private void reportRelease(@Nullable Map<String, Object> map, @Nullable Map<String, Object> map2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65556, this, map, map2) == null) {
             getControllerListener().onRelease(this.mId);
@@ -679,46 +685,46 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
         }
     }
 
-    public void reportSubmit(DataSource dataSource, @Nullable Object obj) {
+    public void reportSubmit(DataSource<T> dataSource, @Nullable INFO info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048609, this, dataSource, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048609, this, dataSource, info) == null) {
             getControllerListener().onSubmit(this.mId, this.mCallerContext);
-            getControllerListener2().onSubmit(this.mId, this.mCallerContext, obtainExtras(dataSource, obj, getMainUri()));
+            getControllerListener2().onSubmit(this.mId, this.mCallerContext, obtainExtras(dataSource, (DataSource<T>) info, getMainUri()));
         }
     }
 
-    private void logMessageAndImage(String str, Object obj) {
+    private void logMessageAndImage(String str, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, this, str, obj) == null) && FLog.isLoggable(2)) {
-            FLog.v(TAG, "controller %x %s: %s: image: %s %x", Integer.valueOf(System.identityHashCode(this)), this.mId, str, getImageClass(obj), Integer.valueOf(getImageHash(obj)));
+        if ((interceptable == null || interceptable.invokeLL(65546, this, str, t) == null) && FLog.isLoggable(2)) {
+            FLog.v(TAG, "controller %x %s: %s: image: %s %x", Integer.valueOf(System.identityHashCode(this)), this.mId, str, getImageClass(t), Integer.valueOf(getImageHash(t)));
         }
     }
 
-    private ControllerListener2.Extras obtainExtras(@Nullable DataSource dataSource, @Nullable Object obj, @Nullable Uri uri) {
+    private ControllerListener2.Extras obtainExtras(@Nullable DataSource<T> dataSource, @Nullable INFO info, @Nullable Uri uri) {
         InterceptResult invokeLLL;
-        Map extras;
+        Map<String, Object> extras;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, this, dataSource, obj, uri)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, this, dataSource, info, uri)) == null) {
             if (dataSource == null) {
                 extras = null;
             } else {
                 extras = dataSource.getExtras();
             }
-            return obtainExtras(extras, obtainExtrasFromImage(obj), uri);
+            return obtainExtras(extras, obtainExtrasFromImage(info), uri);
         }
         return (ControllerListener2.Extras) invokeLLL.objValue;
     }
 
-    private void reportSuccess(String str, @Nullable Object obj, @Nullable DataSource dataSource) {
+    private void reportSuccess(String str, @Nullable T t, @Nullable DataSource<T> dataSource) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65557, this, str, obj, dataSource) == null) {
-            Object imageInfo = getImageInfo(obj);
+        if (interceptable == null || interceptable.invokeLLL(65557, this, str, t, dataSource) == null) {
+            INFO imageInfo = getImageInfo(t);
             getControllerListener().onFinalImageSet(str, imageInfo, getAnimatable());
-            getControllerListener2().onFinalImageSet(str, imageInfo, obtainExtras(dataSource, imageInfo, (Uri) null));
+            getControllerListener2().onFinalImageSet(str, imageInfo, obtainExtras(dataSource, (DataSource<T>) imageInfo, (Uri) null));
         }
     }
 
-    private ControllerListener2.Extras obtainExtras(@Nullable Map map, @Nullable Map map2, @Nullable Uri uri) {
+    private ControllerListener2.Extras obtainExtras(@Nullable Map<String, Object> map, @Nullable Map<String, Object> map2, @Nullable Uri uri) {
         InterceptResult invokeLLL;
         String str;
         PointF pointF;
@@ -739,7 +745,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onFailureInternal(String str, DataSource dataSource, Throwable th, boolean z) {
+    public void onFailureInternal(String str, DataSource<T> dataSource, Throwable th, boolean z) {
         DraweeEventTracker.Event event;
         Drawable drawable;
         Interceptable interceptable = $ic;
@@ -787,17 +793,17 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     /* JADX INFO: Access modifiers changed from: private */
-    public void onNewResultInternal(String str, DataSource dataSource, @Nullable Object obj, float f, boolean z, boolean z2, boolean z3) {
+    public void onNewResultInternal(String str, DataSource<T> dataSource, @Nullable T t, float f, boolean z, boolean z2, boolean z3) {
         DraweeEventTracker.Event event;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{str, dataSource, obj, Float.valueOf(f), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{str, dataSource, t, Float.valueOf(f), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("AbstractDraweeController#onNewResultInternal");
                 }
                 if (!isExpectedDataSource(str, dataSource)) {
-                    logMessageAndImage("ignore_old_datasource @ onNewResult", obj);
-                    releaseImage(obj);
+                    logMessageAndImage("ignore_old_datasource @ onNewResult", t);
+                    releaseImage(t);
                     dataSource.close();
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
@@ -813,38 +819,38 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
                 }
                 draweeEventTracker.recordEvent(event);
                 try {
-                    Drawable createDrawable = createDrawable(obj);
-                    Object obj2 = this.mFetchedImage;
+                    Drawable createDrawable = createDrawable(t);
+                    T t2 = this.mFetchedImage;
                     Drawable drawable = this.mDrawable;
-                    this.mFetchedImage = obj;
+                    this.mFetchedImage = t;
                     this.mDrawable = createDrawable;
                     if (z) {
-                        logMessageAndImage("set_final_result @ onNewResult", obj);
+                        logMessageAndImage("set_final_result @ onNewResult", t);
                         this.mDataSource = null;
                         this.mSettableDraweeHierarchy.setImage(createDrawable, 1.0f, z2);
-                        reportSuccess(str, obj, dataSource);
+                        reportSuccess(str, t, dataSource);
                     } else if (z3) {
-                        logMessageAndImage("set_temporary_result @ onNewResult", obj);
+                        logMessageAndImage("set_temporary_result @ onNewResult", t);
                         this.mSettableDraweeHierarchy.setImage(createDrawable, 1.0f, z2);
-                        reportSuccess(str, obj, dataSource);
+                        reportSuccess(str, t, dataSource);
                     } else {
-                        logMessageAndImage("set_intermediate_result @ onNewResult", obj);
+                        logMessageAndImage("set_intermediate_result @ onNewResult", t);
                         this.mSettableDraweeHierarchy.setImage(createDrawable, f, z2);
-                        reportIntermediateSet(str, obj);
+                        reportIntermediateSet(str, t);
                     }
                     if (drawable != null && drawable != createDrawable) {
                         releaseDrawable(drawable);
                     }
-                    if (obj2 != null && obj2 != obj) {
-                        logMessageAndImage("release_previous_result @ onNewResult", obj2);
-                        releaseImage(obj2);
+                    if (t2 != null && t2 != t) {
+                        logMessageAndImage("release_previous_result @ onNewResult", t2);
+                        releaseImage(t2);
                     }
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }
                 } catch (Exception e) {
-                    logMessageAndImage("drawable_failed @ onNewResult", obj);
-                    releaseImage(obj);
+                    logMessageAndImage("drawable_failed @ onNewResult", t);
+                    releaseImage(t);
                     onFailureInternal(str, dataSource, e, z);
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
@@ -860,7 +866,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onProgressUpdateInternal(String str, DataSource dataSource, float f, boolean z) {
+    public void onProgressUpdateInternal(String str, DataSource<T> dataSource, float f, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{str, dataSource, Float.valueOf(f), Boolean.valueOf(z)}) == null) {
             if (!isExpectedDataSource(str, dataSource)) {
@@ -873,14 +879,14 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
     }
 
     private void releaseFetch() {
-        Map map;
+        Map<String, Object> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             boolean z = this.mIsRequestSubmitted;
             this.mIsRequestSubmitted = false;
             this.mHasFetchFailed = false;
-            DataSource dataSource = this.mDataSource;
-            Map map2 = null;
+            DataSource<T> dataSource = this.mDataSource;
+            Map<String, Object> map2 = null;
             if (dataSource != null) {
                 map = dataSource.getExtras();
                 this.mDataSource.close();
@@ -896,9 +902,9 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
                 this.mContentDescription = null;
             }
             this.mDrawable = null;
-            Object obj = this.mFetchedImage;
-            if (obj != null) {
-                Map obtainExtrasFromImage = obtainExtrasFromImage(getImageInfo(obj));
+            T t = this.mFetchedImage;
+            if (t != null) {
+                Map<String, Object> obtainExtrasFromImage = obtainExtrasFromImage(getImageInfo(t));
                 logMessageAndImage("release", this.mFetchedImage);
                 releaseImage(this.mFetchedImage);
                 this.mFetchedImage = null;
@@ -919,7 +925,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
                 FrescoSystrace.beginSection("AbstractDraweeController#onAttach");
             }
             if (FLog.isLoggable(2)) {
-                Class cls = TAG;
+                Class<?> cls = TAG;
                 Integer valueOf = Integer.valueOf(System.identityHashCode(this));
                 String str2 = this.mId;
                 if (this.mIsRequestSubmitted) {
@@ -1033,7 +1039,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("AbstractDraweeController#submitRequest");
             }
-            Object cachedImage = getCachedImage();
+            T cachedImage = getCachedImage();
             if (cachedImage != null) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("AbstractDraweeController#submitRequest->cache");
@@ -1058,13 +1064,13 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
             this.mSettableDraweeHierarchy.setProgress(0.0f, true);
             this.mIsRequestSubmitted = true;
             this.mHasFetchFailed = false;
-            DataSource dataSource = getDataSource();
+            DataSource<T> dataSource = getDataSource();
             this.mDataSource = dataSource;
             reportSubmit(dataSource, null);
             if (FLog.isLoggable(2)) {
                 FLog.v(TAG, "controller %x %s: submitRequest: dataSource: %x", Integer.valueOf(System.identityHashCode(this)), this.mId, Integer.valueOf(System.identityHashCode(this.mDataSource)));
             }
-            this.mDataSource.subscribe(new BaseDataSubscriber(this, this.mId, this.mDataSource.hasResult()) { // from class: com.facebook.drawee.controller.AbstractDraweeController.2
+            this.mDataSource.subscribe(new BaseDataSubscriber<T>(this, this.mId, this.mDataSource.hasResult()) { // from class: com.facebook.drawee.controller.AbstractDraweeController.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AbstractDraweeController this$0;
@@ -1092,7 +1098,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
                 }
 
                 @Override // com.facebook.datasource.BaseDataSubscriber
-                public void onFailureImpl(DataSource dataSource2) {
+                public void onFailureImpl(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && interceptable2.invokeL(1048576, this, dataSource2) != null) {
                         return;
@@ -1101,7 +1107,7 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
                 }
 
                 @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-                public void onProgressUpdate(DataSource dataSource2) {
+                public void onProgressUpdate(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource2) == null) {
                         boolean isFinished = dataSource2.isFinished();
@@ -1110,13 +1116,13 @@ public abstract class AbstractDraweeController implements DraweeController, Defe
                 }
 
                 @Override // com.facebook.datasource.BaseDataSubscriber
-                public void onNewResultImpl(DataSource dataSource2) {
+                public void onNewResultImpl(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource2) == null) {
                         boolean isFinished = dataSource2.isFinished();
                         boolean hasMultipleResults = dataSource2.hasMultipleResults();
                         float progress = dataSource2.getProgress();
-                        Object result = dataSource2.getResult();
+                        T result = dataSource2.getResult();
                         if (result == null) {
                             if (!isFinished) {
                                 return;

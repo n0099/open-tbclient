@@ -2,6 +2,7 @@ package com.kwad.components.core.offline.init.kwai;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,7 +43,7 @@ public final class i extends IOfflineCompoWrapper {
     }
 
     @Override // com.kwad.components.offline.api.core.api.IOfflineCompoWrapper
-    public final Context wrapContextIfNeed(Context context) {
+    public final Context wrapContextIfNeed(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? com.kwai.sodler.lib.kwai.b.a.ae(context, this.mOfflinePackageName) : (Context) invokeL.objValue;

@@ -1,5 +1,6 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
@@ -34,6 +35,7 @@ public final class h {
         this.adW = (AudioManager) context.getSystemService("audio");
     }
 
+    @TargetApi(26)
     private AudioFocusRequest zj() {
         return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.ana).build();
     }

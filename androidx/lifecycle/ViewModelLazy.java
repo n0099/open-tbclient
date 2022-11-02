@@ -52,7 +52,7 @@ public final class ViewModelLazy<VM extends ViewModel> implements Lazy<VM> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             VM vm = this.cached;
             if (vm == null) {
-                VM vm2 = (VM) new ViewModelProvider((ViewModelStore) this.storeProducer.invoke(), (ViewModelProvider.Factory) this.factoryProducer.invoke()).get(JvmClassMappingKt.getJavaClass((KClass) this.viewModelClass));
+                VM vm2 = (VM) new ViewModelProvider(this.storeProducer.invoke(), this.factoryProducer.invoke()).get(JvmClassMappingKt.getJavaClass((KClass) this.viewModelClass));
                 this.cached = vm2;
                 Intrinsics.checkExpressionValueIsNotNull(vm2, "ViewModelProvider(store,…ed = it\n                }");
                 return vm2;

@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,7 +15,6 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class bt {
@@ -179,14 +179,12 @@ public class bt {
         }
     }
 
-    public static void a(Context context, List list) {
+    public static void a(Context context, List<String> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m208a(context)) {
             return;
         }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            String str = (String) it.next();
+        for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
                 a(context, str);
             }
@@ -231,6 +229,7 @@ public class bt {
         return invokeLL.booleanValue;
     }
 
+    @TargetApi(9)
     public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

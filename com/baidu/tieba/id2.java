@@ -1,47 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
-import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class id2 {
+public class id2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(k22 k22Var, md2 md2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, k22Var, md2Var) == null) && k22Var != null && md2Var != null) {
-            md2Var.g(k22Var);
-        }
-    }
-
-    public static String b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                String quote = JSONObject.quote(str3);
-                return str + "." + str2 + " = " + quote + ParamableElem.DIVIDE_PARAM;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947849586, "Lcom/baidu/tieba/id2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947849586, "Lcom/baidu/tieba/id2;");
+                return;
+            }
         }
-        return (String) invokeLLL.objValue;
+        a = ok1.a;
     }
 
-    public static String c(k22 k22Var) {
+    public id2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return jd2.b().c(i);
+            }
+            Bundle bundle = new Bundle();
+            bundle.putInt("level", i);
+            t03 c = r03.c(id2.class, bundle);
+            int i2 = 0;
+            if (c.a()) {
+                i2 = c.a.getInt("count", 0);
+            }
+            if (a) {
+                Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i + ";count=" + i2);
+            }
+            return i2;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, k22Var)) == null) {
-            if (k22Var.isWebView()) {
-                return ClearCacheUbcController.DOCUMENT;
-            }
-            return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("level", -1);
+            Bundle bundle2 = new Bundle();
+            bundle2.putInt("count", jd2.b().c(i));
+            return bundle2;
         }
-        return (String) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

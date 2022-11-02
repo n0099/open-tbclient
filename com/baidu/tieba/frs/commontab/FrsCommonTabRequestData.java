@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.jv6;
-import com.baidu.tieba.xb5;
-import com.baidu.tieba.xg5;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.sw6;
+import com.baidu.tieba.tc5;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.vi5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 /* loaded from: classes4.dex */
-public class FrsCommonTabRequestData extends OrmObject implements xb5 {
+public class FrsCommonTabRequestData extends OrmObject implements tc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -33,8 +33,8 @@ public class FrsCommonTabRequestData extends OrmObject implements xb5 {
     public String tabName;
     public int tabType;
 
-    @Override // com.baidu.tieba.wb5
-    public HashMap v() {
+    @Override // com.baidu.tieba.sc5
+    public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -43,8 +43,8 @@ public class FrsCommonTabRequestData extends OrmObject implements xb5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wb5
-    public HashMap x() {
+    @Override // com.baidu.tieba.sc5
+    public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -73,7 +73,7 @@ public class FrsCommonTabRequestData extends OrmObject implements xb5 {
         this.sortType = 0;
     }
 
-    @Override // com.baidu.tieba.zb5
+    @Override // com.baidu.tieba.vc5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -88,21 +88,21 @@ public class FrsCommonTabRequestData extends OrmObject implements xb5 {
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = jv6.e().d("frs_feed");
+            String d = sw6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = xg5.g(d, xg5.f());
-            builder.ad_bear_sid_price = Double.valueOf(xg5.i());
-            builder.has_ad_bear = Integer.valueOf(xg5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = th5.g(d, th5.f());
+            builder.ad_bear_sid_price = Double.valueOf(th5.i());
+            builder.has_ad_bear = Integer.valueOf(th5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);
             }
-            builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) fj.h(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(xi.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(xi.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) xi.i(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            yh5.c(builder, true, false, true);
+            vi5.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

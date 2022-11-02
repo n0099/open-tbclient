@@ -56,7 +56,7 @@ public final class YYPluginProgressInvokeServiceImpl implements YYPluginProgress
     }
 
     @Override // com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService
-    public void onSubPluginLoadingStart(Context context, Consumer consumer) {
+    public void onSubPluginLoadingStart(Context context, Consumer<Boolean> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, consumer) == null) {
             LiveYYPluginManager.getInstance().showLoadingBySubPlugin(consumer);

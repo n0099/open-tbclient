@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import tv.athena.revenue.payui.view.IYYPayWayView;
+import rx.subjects.ReplaySubject$ReplayProducer;
 /* loaded from: classes6.dex */
-public interface w3a {
-    void f(Activity activity, h5a h5aVar, Dialog dialog, IYYPayWayView iYYPayWayView);
+public interface w3a<T> {
+    void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
 
-    void l(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, PurchaseStatus purchaseStatus);
+    void complete();
 
-    void q(int i, String str, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar);
+    void error(Throwable th);
+
+    void next(T t);
 }

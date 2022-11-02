@@ -19,7 +19,7 @@ import kotlinx.coroutines.flow.internal.CombineKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlinx/coroutines/flow/FlowCollector;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$7", f = "Zip.kt", i = {0}, l = {299}, m = "invokeSuspend", n = {"$this$flow"}, s = {"L$0"})
 /* loaded from: classes8.dex */
-public final class FlowKt__ZipKt$combineTransform$7 extends SuspendLambda implements Function2 {
+public final class FlowKt__ZipKt$combineTransform$7 extends SuspendLambda implements Function2<FlowCollector<? super R>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Flow[] $flowArray;
     public final /* synthetic */ Function3 $transform;
     public Object L$0;
@@ -34,28 +34,30 @@ public final class FlowKt__ZipKt$combineTransform$7 extends SuspendLambda implem
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         FlowKt__ZipKt$combineTransform$7 flowKt__ZipKt$combineTransform$7 = new FlowKt__ZipKt$combineTransform$7(this.$flowArray, this.$transform, continuation);
         flowKt__ZipKt$combineTransform$7.p$ = (FlowCollector) obj;
         return flowKt__ZipKt$combineTransform$7;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((FlowKt__ZipKt$combineTransform$7) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return ((FlowKt__ZipKt$combineTransform$7) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0004\u0010\u0000\u001a\n\u0012\u0006\u0012\u0004\u0018\u0001H\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003H\n¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "invoke", "()[Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* renamed from: kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$7$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public final class AnonymousClass1 extends Lambda implements Function0 {
+    public static final class AnonymousClass1 extends Lambda implements Function0<T[]> {
         public AnonymousClass1() {
             super(0);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Type inference failed for: r0v3, types: [T[], java.lang.Object[]] */
         @Override // kotlin.jvm.functions.Function0
-        public final Object[] invoke() {
+        public final T[] invoke() {
             int length = FlowKt__ZipKt$combineTransform$7.this.$flowArray.length;
             Intrinsics.reifiedOperationMarker(0, "T?");
             return new Object[length];
@@ -66,7 +68,7 @@ public final class FlowKt__ZipKt$combineTransform$7 extends SuspendLambda implem
     @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$7$2", f = "Zip.kt", i = {0, 0}, l = {299}, m = "invokeSuspend", n = {"$receiver", AdvanceSetting.NETWORK_TYPE}, s = {"L$0", "L$1"})
     /* renamed from: kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$7$2  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public final class AnonymousClass2 extends SuspendLambda implements Function3 {
+    public static final class AnonymousClass2 extends SuspendLambda implements Function3<FlowCollector<? super R>, T[], Continuation<? super Unit>, Object> {
         public Object L$0;
         public Object L$1;
         public int label;
@@ -77,16 +79,17 @@ public final class FlowKt__ZipKt$combineTransform$7 extends SuspendLambda implem
             super(3, continuation);
         }
 
-        public final Continuation create(FlowCollector flowCollector, Object[] objArr, Continuation continuation) {
+        public final Continuation<Unit> create(FlowCollector<? super R> flowCollector, T[] tArr, Continuation<? super Unit> continuation) {
             AnonymousClass2 anonymousClass2 = new AnonymousClass2(continuation);
             anonymousClass2.p$ = flowCollector;
-            anonymousClass2.p$0 = objArr;
+            anonymousClass2.p$0 = tArr;
             return anonymousClass2;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
         @Override // kotlin.jvm.functions.Function3
-        public final Object invoke(Object obj, Object obj2, Object obj3) {
-            return ((AnonymousClass2) create((FlowCollector) obj, (Object[]) obj2, (Continuation) obj3)).invokeSuspend(Unit.INSTANCE);
+        public final Object invoke(Object obj, Object obj2, Continuation<? super Unit> continuation) {
+            return ((AnonymousClass2) create((FlowCollector) obj, (Object[]) obj2, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

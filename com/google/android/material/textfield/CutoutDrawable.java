@@ -8,6 +8,8 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +23,9 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 public class CutoutDrawable extends MaterialShapeDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final RectF cutoutBounds;
+    @NonNull
     public final Paint cutoutPaint;
     public int savedLayer;
 
@@ -69,7 +73,7 @@ public class CutoutDrawable extends MaterialShapeDrawable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CutoutDrawable(ShapeAppearanceModel shapeAppearanceModel) {
+    public CutoutDrawable(@Nullable ShapeAppearanceModel shapeAppearanceModel) {
         super(shapeAppearanceModel == null ? new ShapeAppearanceModel() : shapeAppearanceModel);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,14 +95,14 @@ public class CutoutDrawable extends MaterialShapeDrawable {
         this.cutoutBounds = new RectF();
     }
 
-    private void postDraw(Canvas canvas) {
+    private void postDraw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, this, canvas) == null) && !useHardwareLayer(getCallback())) {
             canvas.restoreToCount(this.savedLayer);
         }
     }
 
-    private void preDraw(Canvas canvas) {
+    private void preDraw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, canvas) == null) {
             Drawable.Callback callback = getCallback();
@@ -124,7 +128,7 @@ public class CutoutDrawable extends MaterialShapeDrawable {
     }
 
     @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             preDraw(canvas);
@@ -134,14 +138,14 @@ public class CutoutDrawable extends MaterialShapeDrawable {
         }
     }
 
-    public void setCutout(RectF rectF) {
+    public void setCutout(@NonNull RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, rectF) == null) {
             setCutout(rectF.left, rectF.top, rectF.right, rectF.bottom);
         }
     }
 
-    private void saveCanvasLayer(Canvas canvas) {
+    private void saveCanvasLayer(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
             if (Build.VERSION.SDK_INT >= 21) {

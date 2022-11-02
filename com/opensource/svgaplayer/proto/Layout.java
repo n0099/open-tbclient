@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.au9;
-import com.baidu.tieba.vt9;
-import com.baidu.tieba.wt9;
+import com.baidu.tieba.ev9;
+import com.baidu.tieba.fv9;
+import com.baidu.tieba.jv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +18,9 @@ import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
 /* loaded from: classes8.dex */
-public final class Layout extends Message {
+public final class Layout extends Message<Layout, Builder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ProtoAdapter ADAPTER;
+    public static final ProtoAdapter<Layout> ADAPTER;
     public static final Float DEFAULT_HEIGHT;
     public static final Float DEFAULT_WIDTH;
     public static final Float DEFAULT_X;
@@ -37,7 +37,7 @@ public final class Layout extends Message {
     public final Float y;
 
     /* loaded from: classes8.dex */
-    public final class Builder extends Message.a {
+    public static final class Builder extends Message.a<Layout, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Float height;
@@ -60,6 +60,7 @@ public final class Layout extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.Message.a
         public Layout build() {
             InterceptResult invokeV;
@@ -112,7 +113,7 @@ public final class Layout extends Message {
     }
 
     /* loaded from: classes8.dex */
-    public final class ProtoAdapter_Layout extends ProtoAdapter {
+    public static final class ProtoAdapter_Layout extends ProtoAdapter<Layout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,36 +137,37 @@ public final class Layout extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Layout decode(vt9 vt9Var) throws IOException {
+        public Layout decode(ev9 ev9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vt9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ev9Var)) == null) {
                 Builder builder = new Builder();
-                long c = vt9Var.c();
+                long c = ev9Var.c();
                 while (true) {
-                    int f = vt9Var.f();
+                    int f = ev9Var.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
-                                        FieldEncoding g = vt9Var.g();
-                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(vt9Var));
+                                        FieldEncoding g = ev9Var.g();
+                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(ev9Var));
                                     } else {
-                                        builder.height((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                        builder.height(ProtoAdapter.FLOAT.decode(ev9Var));
                                     }
                                 } else {
-                                    builder.width((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                    builder.width(ProtoAdapter.FLOAT.decode(ev9Var));
                                 }
                             } else {
-                                builder.y((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                                builder.y(ProtoAdapter.FLOAT.decode(ev9Var));
                             }
                         } else {
-                            builder.x((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                            builder.x(ProtoAdapter.FLOAT.decode(ev9Var));
                         }
                     } else {
-                        vt9Var.d(c);
+                        ev9Var.d(c);
                         return builder.build();
                     }
                 }
@@ -180,35 +182,35 @@ public final class Layout extends Message {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layout)) == null) {
-                Builder newBuilder = layout.newBuilder();
-                newBuilder.clearUnknownFields();
-                return newBuilder.build();
+                Message.a<Layout, Builder> newBuilder2 = layout.newBuilder2();
+                newBuilder2.clearUnknownFields();
+                return newBuilder2.build();
             }
             return (Layout) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(wt9 wt9Var, Layout layout) throws IOException {
+        public void encode(fv9 fv9Var, Layout layout) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wt9Var, layout) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fv9Var, layout) == null) {
                 Float f = layout.x;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 1, f);
                 }
                 Float f2 = layout.y;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 2, f2);
                 }
                 Float f3 = layout.width;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 3, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 3, f3);
                 }
                 Float f4 = layout.height;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 4, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(fv9Var, 4, f4);
                 }
-                wt9Var.k(layout.unknownFields());
+                fv9Var.k(layout.unknownFields());
             }
         }
 
@@ -330,7 +332,7 @@ public final class Layout extends Message {
                 return false;
             }
             Layout layout = (Layout) obj;
-            if (unknownFields().equals(layout.unknownFields()) && au9.f(this.x, layout.x) && au9.f(this.y, layout.y) && au9.f(this.width, layout.width) && au9.f(this.height, layout.height)) {
+            if (unknownFields().equals(layout.unknownFields()) && jv9.f(this.x, layout.x) && jv9.f(this.y, layout.y) && jv9.f(this.width, layout.width) && jv9.f(this.height, layout.height)) {
                 return true;
             }
             return false;
@@ -413,8 +415,10 @@ public final class Layout extends Message {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.opensource.svgaplayer.proto.Layout$Builder' to match base method */
     @Override // com.squareup.wire2.Message
-    public Builder newBuilder() {
+    /* renamed from: newBuilder */
+    public Message.a<Layout, Builder> newBuilder2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

@@ -1,46 +1,41 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.support.v4.app.FragmentActivity;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.j93;
+import com.baidu.tieba.n32;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yq1 extends a32 {
+public class yq1 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.a32, com.baidu.tieba.s22
-    public boolean c2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
     /* loaded from: classes6.dex */
-    public class a extends x42 {
+    public class a implements xi3<h93<j93.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yq1 c;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ n32 d;
+        public final /* synthetic */ yq1 e;
 
-        public a(yq1 yq1Var) {
+        public a(yq1 yq1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, n32 n32Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yq1Var};
+                Object[] objArr = {yq1Var, callbackHandler, unitedSchemeEntity, str, n32Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,139 +45,94 @@ public class yq1 extends a32 {
                     return;
                 }
             }
-            this.c = yq1Var;
+            this.e = yq1Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
+            this.d = n32Var;
         }
 
-        @Override // com.baidu.tieba.x42, com.baidu.tieba.a52
-        public boolean b(String str) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xi3
+        /* renamed from: b */
+        public void a(h93<j93.e> h93Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return super.b(str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h93Var) == null) {
+                if (!c93.h(h93Var)) {
+                    c93.p(h93Var, this.a, this.b);
+                } else {
+                    this.e.k(this.c, this.d, this.a, this.b);
+                }
             }
-            return invokeL.booleanValue;
         }
     }
 
-    public yq1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yq1(b53 b53Var) {
+        super(b53Var, "/swanAPI/openAdLandingPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.a32
-    public a52 Z2() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new a(this);
-        }
-        return (a52) invokeV.objValue;
-    }
-
-    public final void g3() {
-        yj1 d;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !SwanAppAllianceLoginHelper.d.c() && (d = SwanAppAllianceLoginHelper.d.d()) != null) {
-            d.onResult(-2);
-        }
-    }
-
-    public final int h3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (d2()) {
-                return 18;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (b63.b) {
+                Log.d("OpenAdLandingPageAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            return 12;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.a32
-    public vp1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return ga2.U().f0().f(getContext());
-        }
-        return (vp1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a32, com.baidu.swan.support.v4.app.Fragment
-    public void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            g3();
-            super.y0();
-        }
-    }
-
-    @Override // com.baidu.tieba.a32, com.baidu.tieba.s22
-    public boolean I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            tp1 tp1Var = this.G0;
-            if (tp1Var != null && tp1Var.canGoBack()) {
-                this.G0.goBack();
+            String o = n73.o(unitedSchemeEntity, "params");
+            if (TextUtils.isEmpty(o)) {
+                e12.i("AdLanding", "adLanding: url is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            n32 V = rp2.U().V();
+            if (V == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals(n73.n(unitedSchemeEntity, "params", "invokeFrom"), "boxjs")) {
+                k(o, V, callbackHandler, unitedSchemeEntity);
+                return true;
+            } else {
+                e43Var.e0().g(context, "mapp_i_open_adlanding", new a(this, callbackHandler, unitedSchemeEntity, o, V));
                 return true;
             }
-            g3();
-            SwanAppAllianceLoginHelper.d.a(zq1.d(), zq1.a());
-            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.a32
-    public void a3() {
-        FragmentActivity activity;
+    public final void j(eu2 eu2Var, n32 n32Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (activity = getActivity()) != null && this.g0 == null) {
-            this.g0 = new t94(activity, this.f0, h3(), tm2.K(), new vi3());
-            new ct2(this.g0, this).z();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eu2Var, n32Var) == null) {
+            e12.i("AdLanding", "openAdLanding: page url=" + eu2Var.c);
+            n32.b i = n32Var.i("adLanding");
+            i.n(n32.g, n32.i);
+            i.k("adLanding", eu2Var).b();
         }
     }
 
-    @Override // com.baidu.tieba.a32, com.baidu.tieba.s22
-    public void U1(View view2) {
+    public void k(String str, n32 n32Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.U1(view2);
-            this.f0.setRightZoneVisibility(true);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, n32Var, callbackHandler, unitedSchemeEntity) == null) {
+            j(eu2.d(str, str), n32Var);
+            e12.i("AdLanding", "open adLanding page success");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         }
-    }
-
-    @Override // com.baidu.tieba.a32, com.baidu.swan.support.v4.app.Fragment
-    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
-            U1(inflate);
-            vp1 k = k();
-            this.F0 = k;
-            k.Y(Z2());
-            this.G0 = this.F0.r();
-            this.F0.loadUrl(this.H0);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ad);
-            this.F0.j(frameLayout, this.G0.covertToView());
-            W2(frameLayout);
-            if (T1()) {
-                return W1(inflate);
-            }
-            return inflate;
-        }
-        return (View) invokeLLL.objValue;
     }
 }

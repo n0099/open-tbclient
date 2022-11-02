@@ -4,6 +4,9 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.FitWindowsViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FitWindowsFrameLayout extends FrameLayout implements FitWindowsViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -18,7 +22,7 @@ public class FitWindowsFrameLayout extends FrameLayout implements FitWindowsView
     public FitWindowsViewGroup.OnFitSystemWindowsListener mListener;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FitWindowsFrameLayout(Context context) {
+    public FitWindowsFrameLayout(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,7 +42,7 @@ public class FitWindowsFrameLayout extends FrameLayout implements FitWindowsView
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FitWindowsFrameLayout(Context context, AttributeSet attributeSet) {
+    public FitWindowsFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

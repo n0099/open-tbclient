@@ -13,21 +13,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CameraEnumerationAndroid {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final ArrayList COMMON_RESOLUTIONS;
+    public static final ArrayList<Size> COMMON_RESOLUTIONS;
     public static final String TAG = "CameraEnumerationAndroid";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class CaptureFormat {
+    /* loaded from: classes9.dex */
+    public static class CaptureFormat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FramerateRange framerate;
@@ -35,8 +34,8 @@ public class CameraEnumerationAndroid {
         public final int imageFormat;
         public final int width;
 
-        /* loaded from: classes8.dex */
-        public class FramerateRange {
+        /* loaded from: classes9.dex */
+        public static class FramerateRange {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int max;
@@ -194,12 +193,12 @@ public class CameraEnumerationAndroid {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public abstract class ClosestComparator implements Comparator {
+    /* loaded from: classes9.dex */
+    public static abstract class ClosestComparator<T> implements Comparator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract int diff(Object obj);
+        public abstract int diff(T t);
 
         public ClosestComparator() {
             Interceptable interceptable = $ic;
@@ -216,11 +215,11 @@ public class CameraEnumerationAndroid {
         }
 
         @Override // java.util.Comparator
-        public int compare(Object obj, Object obj2) {
+        public int compare(T t, T t2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                return diff(obj) - diff(obj2);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, t, t2)) == null) {
+                return diff(t) - diff(t2);
             }
             return invokeLL.intValue;
         }
@@ -239,7 +238,7 @@ public class CameraEnumerationAndroid {
                 return;
             }
         }
-        COMMON_RESOLUTIONS = new ArrayList(Arrays.asList(new Size(160, 120), new Size(240, 160), new Size(MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 240), new Size(400, 240), new Size(480, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP), new Size(640, 360), new Size(640, 480), new Size(768, 480), new Size(854, 480), new Size(800, 600), new Size(960, RecordConstants.DEFAULT_PREVIEW_WIDTH), new Size(960, 640), new Size(1024, 576), new Size(1024, 600), new Size(1280, 720), new Size(1280, 1024), new Size(1920, 1080), new Size(1920, 1440), new Size(2560, 1440), new Size(3840, DisplayCompat.DISPLAY_SIZE_4K_HEIGHT)));
+        COMMON_RESOLUTIONS = new ArrayList<>(Arrays.asList(new Size(160, 120), new Size(240, 160), new Size(MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 240), new Size(400, 240), new Size(480, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP), new Size(640, 360), new Size(640, 480), new Size(768, 480), new Size(854, 480), new Size(800, 600), new Size(960, 540), new Size(960, 640), new Size(1024, 576), new Size(1024, 600), new Size(1280, 720), new Size(1280, 1024), new Size(1920, 1080), new Size(1920, 1440), new Size(2560, 1440), new Size(3840, DisplayCompat.DISPLAY_SIZE_4K_HEIGHT)));
     }
 
     public CameraEnumerationAndroid() {
@@ -256,11 +255,11 @@ public class CameraEnumerationAndroid {
         }
     }
 
-    public static CaptureFormat.FramerateRange getClosestSupportedFramerateRange(List list, int i) {
+    public static CaptureFormat.FramerateRange getClosestSupportedFramerateRange(List<CaptureFormat.FramerateRange> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            return (CaptureFormat.FramerateRange) Collections.min(list, new ClosestComparator(i) { // from class: org.webrtc.CameraEnumerationAndroid.1
+            return (CaptureFormat.FramerateRange) Collections.min(list, new ClosestComparator<CaptureFormat.FramerateRange>(i) { // from class: org.webrtc.CameraEnumerationAndroid.1
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final int MAX_FPS_DIFF_THRESHOLD = 5000;
                 public static final int MAX_FPS_HIGH_DIFF_WEIGHT = 3;
@@ -320,11 +319,11 @@ public class CameraEnumerationAndroid {
         }
     }
 
-    public static Size getClosestSupportedSize(List list, int i, int i2) {
+    public static Size getClosestSupportedSize(List<Size> list, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, list, i, i2)) == null) {
-            return (Size) Collections.min(list, new ClosestComparator(i, i2) { // from class: org.webrtc.CameraEnumerationAndroid.2
+            return (Size) Collections.min(list, new ClosestComparator<Size>(i, i2) { // from class: org.webrtc.CameraEnumerationAndroid.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int val$requestedHeight;

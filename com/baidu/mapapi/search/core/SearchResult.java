@@ -17,15 +17,26 @@ public class SearchResult implements Parcelable {
     public ERRORNO error;
     public int status;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ERRORNO {
+    public static final class ERRORNO {
         public static final /* synthetic */ ERRORNO[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ERRORNO AMBIGUOUS_KEYWORD;
         public static final ERRORNO AMBIGUOUS_ROURE_ADDR;
         public static final ERRORNO INDOOR_ROUTE_NO_IN_BUILDING;
         public static final ERRORNO INDOOR_ROUTE_NO_IN_SAME_BUILDING;
+        public static final ERRORNO INVALID_DISTRICT_ID;
         public static final ERRORNO KEY_ERROR;
         public static final ERRORNO MASS_TRANSIT_NO_POI_ERROR;
         public static final ERRORNO MASS_TRANSIT_OPTION_ERROR;
@@ -34,7 +45,10 @@ public class SearchResult implements Parcelable {
         public static final ERRORNO NETWORK_TIME_OUT;
         public static final ERRORNO NOT_SUPPORT_BUS;
         public static final ERRORNO NOT_SUPPORT_BUS_2CITY;
+        public static final ERRORNO NO_ADVANCED_PERMISSION;
+        public static final ERRORNO NO_DATA_FOR_LATLNG;
         public static final ERRORNO NO_ERROR;
+        public static final ERRORNO PARAMER_ERROR;
         public static final ERRORNO PERMISSION_UNFINISHED;
         public static final ERRORNO POIINDOOR_BID_ERROR;
         public static final ERRORNO POIINDOOR_FLOOR_ERROR;
@@ -80,9 +94,13 @@ public class SearchResult implements Parcelable {
             MASS_TRANSIT_NO_POI_ERROR = new ERRORNO("MASS_TRANSIT_NO_POI_ERROR", 18);
             SEARCH_SERVER_INTERNAL_ERROR = new ERRORNO("SEARCH_SERVER_INTERNAL_ERROR", 19);
             SEARCH_OPTION_ERROR = new ERRORNO("SEARCH_OPTION_ERROR", 20);
-            ERRORNO errorno = new ERRORNO("REQUEST_ERROR", 21);
-            REQUEST_ERROR = errorno;
-            $VALUES = new ERRORNO[]{NO_ERROR, RESULT_NOT_FOUND, AMBIGUOUS_KEYWORD, AMBIGUOUS_ROURE_ADDR, NOT_SUPPORT_BUS, NOT_SUPPORT_BUS_2CITY, ST_EN_TOO_NEAR, KEY_ERROR, PERMISSION_UNFINISHED, NETWORK_TIME_OUT, NETWORK_ERROR, POIINDOOR_BID_ERROR, POIINDOOR_FLOOR_ERROR, POIINDOOR_SERVER_ERROR, INDOOR_ROUTE_NO_IN_BUILDING, INDOOR_ROUTE_NO_IN_SAME_BUILDING, MASS_TRANSIT_SERVER_ERROR, MASS_TRANSIT_OPTION_ERROR, MASS_TRANSIT_NO_POI_ERROR, SEARCH_SERVER_INTERNAL_ERROR, SEARCH_OPTION_ERROR, errorno};
+            REQUEST_ERROR = new ERRORNO("REQUEST_ERROR", 21);
+            NO_ADVANCED_PERMISSION = new ERRORNO("NO_ADVANCED_PERMISSION", 22);
+            INVALID_DISTRICT_ID = new ERRORNO("INVALID_DISTRICT_ID", 23);
+            NO_DATA_FOR_LATLNG = new ERRORNO("NO_DATA_FOR_LATLNG", 24);
+            ERRORNO errorno = new ERRORNO("PARAMER_ERROR", 25);
+            PARAMER_ERROR = errorno;
+            $VALUES = new ERRORNO[]{NO_ERROR, RESULT_NOT_FOUND, AMBIGUOUS_KEYWORD, AMBIGUOUS_ROURE_ADDR, NOT_SUPPORT_BUS, NOT_SUPPORT_BUS_2CITY, ST_EN_TOO_NEAR, KEY_ERROR, PERMISSION_UNFINISHED, NETWORK_TIME_OUT, NETWORK_ERROR, POIINDOOR_BID_ERROR, POIINDOOR_FLOOR_ERROR, POIINDOOR_SERVER_ERROR, INDOOR_ROUTE_NO_IN_BUILDING, INDOOR_ROUTE_NO_IN_SAME_BUILDING, MASS_TRANSIT_SERVER_ERROR, MASS_TRANSIT_OPTION_ERROR, MASS_TRANSIT_NO_POI_ERROR, SEARCH_SERVER_INTERNAL_ERROR, SEARCH_OPTION_ERROR, REQUEST_ERROR, NO_ADVANCED_PERMISSION, INVALID_DISTRICT_ID, NO_DATA_FOR_LATLNG, errorno};
         }
 
         public ERRORNO(String str, int i) {
@@ -107,13 +125,19 @@ public class SearchResult implements Parcelable {
         public static ERRORNO valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ERRORNO) Enum.valueOf(ERRORNO.class, str) : (ERRORNO) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ERRORNO) Enum.valueOf(ERRORNO.class, str);
+            }
+            return (ERRORNO) invokeL.objValue;
         }
 
         public static ERRORNO[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ERRORNO[]) $VALUES.clone() : (ERRORNO[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ERRORNO[]) $VALUES.clone();
+            }
+            return (ERRORNO[]) invokeV.objValue;
         }
     }
 
@@ -135,6 +159,7 @@ public class SearchResult implements Parcelable {
     }
 
     public SearchResult(Parcel parcel) {
+        ERRORNO errorno;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,7 +176,12 @@ public class SearchResult implements Parcelable {
         }
         this.status = 0;
         int readInt = parcel.readInt();
-        this.error = readInt == -1 ? null : ERRORNO.values()[readInt];
+        if (readInt == -1) {
+            errorno = null;
+        } else {
+            errorno = ERRORNO.values()[readInt];
+        }
+        this.error = errorno;
     }
 
     public SearchResult(ERRORNO errorno) {
@@ -174,21 +204,17 @@ public class SearchResult implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
+        int ordinal;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             ERRORNO errorno = this.error;
-            parcel.writeInt(errorno == null ? -1 : errorno.ordinal());
+            if (errorno == null) {
+                ordinal = -1;
+            } else {
+                ordinal = errorno.ordinal();
+            }
+            parcel.writeInt(ordinal);
         }
     }
 }

@@ -20,6 +20,6 @@ public final class IndexingIterable<T> implements Iterable<IndexedValue<? extend
 
     @Override // java.lang.Iterable
     public Iterator<IndexedValue<T>> iterator() {
-        return new IndexingIterator((Iterator) this.iteratorFactory.invoke());
+        return new IndexingIterator(this.iteratorFactory.invoke());
     }
 }

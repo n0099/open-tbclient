@@ -74,7 +74,7 @@ public class k extends p {
     }
 
     @Override // com.baidu.tieba.p
-    public Map b(l lVar) {
+    public Map<String, String> b(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {

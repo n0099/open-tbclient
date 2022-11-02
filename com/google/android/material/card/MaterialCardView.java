@@ -12,6 +12,13 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Checkable;
 import android.widget.FrameLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.Dimension;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.InputDeviceCompat;
@@ -39,6 +46,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final int[] DRAGGED_STATE_SET;
     public static final String LOG_TAG = "MaterialCardView";
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final MaterialCardViewHelper cardViewHelper;
     public boolean checked;
     public boolean dragged;
@@ -162,7 +170,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // android.view.View
-    public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+    public void onInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, accessibilityEvent) == null) {
             super.onInitializeAccessibilityEvent(accessibilityEvent);
@@ -172,7 +180,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // android.view.View
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+    public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, accessibilityNodeInfo) == null) {
             super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
@@ -211,7 +219,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // androidx.cardview.widget.CardView
-    public void setCardBackgroundColor(int i) {
+    public void setCardBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
             this.cardViewHelper.setCardBackgroundColor(ColorStateList.valueOf(i));
@@ -227,7 +235,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setCardForegroundColor(ColorStateList colorStateList) {
+    public void setCardForegroundColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, colorStateList) == null) {
             this.cardViewHelper.setCardForegroundColor(colorStateList);
@@ -249,21 +257,21 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setCheckedIcon(Drawable drawable) {
+    public void setCheckedIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, drawable) == null) {
             this.cardViewHelper.setCheckedIcon(drawable);
         }
     }
 
-    public void setCheckedIconResource(int i) {
+    public void setCheckedIconResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             this.cardViewHelper.setCheckedIcon(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
-    public void setCheckedIconTint(ColorStateList colorStateList) {
+    public void setCheckedIconTint(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, colorStateList) == null) {
             this.cardViewHelper.setCheckedIconTint(colorStateList);
@@ -301,7 +309,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setOnCheckedChangeListener(OnCheckedChangeListener onCheckedChangeListener) {
+    public void setOnCheckedChangeListener(@Nullable OnCheckedChangeListener onCheckedChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, onCheckedChangeListener) == null) {
             this.onCheckedChangeListener = onCheckedChangeListener;
@@ -318,7 +326,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setProgress(float f) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048619, this, f) == null) {
             this.cardViewHelper.setProgress(f);
@@ -334,14 +342,14 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setRippleColor(ColorStateList colorStateList) {
+    public void setRippleColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, colorStateList) == null) {
             this.cardViewHelper.setRippleColor(colorStateList);
         }
     }
 
-    public void setRippleColorResource(int i) {
+    public void setRippleColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
             this.cardViewHelper.setRippleColor(AppCompatResources.getColorStateList(getContext(), i));
@@ -349,7 +357,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // com.google.android.material.shape.Shapeable
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, shapeAppearanceModel) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -359,14 +367,14 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setStrokeColor(int i) {
+    public void setStrokeColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
             this.cardViewHelper.setStrokeColor(ColorStateList.valueOf(i));
         }
     }
 
-    public void setStrokeWidth(int i) {
+    public void setStrokeWidth(@Dimension int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
             this.cardViewHelper.setStrokeWidth(i);
@@ -390,6 +398,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
+    @NonNull
     private RectF getBoundsAsRectF() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -402,6 +411,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // androidx.cardview.widget.CardView
+    @NonNull
     public ColorStateList getCardBackgroundColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -411,6 +421,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @NonNull
     public ColorStateList getCardForegroundColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -429,6 +440,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         return invokeV.floatValue;
     }
 
+    @Nullable
     public Drawable getCheckedIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -438,6 +450,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getCheckedIconTint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -487,6 +500,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         return invokeV.intValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -516,6 +530,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // com.google.android.material.shape.Shapeable
+    @NonNull
     public ShapeAppearanceModel getShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -525,6 +540,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         return (ShapeAppearanceModel) invokeV.objValue;
     }
 
+    @ColorInt
     @Deprecated
     public int getStrokeColor() {
         InterceptResult invokeV;
@@ -535,6 +551,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getStrokeColorStateList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -544,6 +561,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Dimension
     public int getStrokeWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -633,7 +651,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // androidx.cardview.widget.CardView
-    public void setCardBackgroundColor(ColorStateList colorStateList) {
+    public void setCardBackgroundColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, colorStateList) == null) {
             this.cardViewHelper.setCardBackgroundColor(colorStateList);

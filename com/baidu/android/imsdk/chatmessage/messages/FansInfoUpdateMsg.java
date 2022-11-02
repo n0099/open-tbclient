@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class FansInfoUpdateMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<FansInfoUpdateMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long mInfoVersion;
     public long mOperator;
@@ -42,7 +42,7 @@ public class FansInfoUpdateMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansInfoUpdateMsg.1
+        CREATOR = new Parcelable.Creator<FansInfoUpdateMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansInfoUpdateMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,6 +61,7 @@ public class FansInfoUpdateMsg extends NotifyMsg implements Parcelable, NoProGua
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public FansInfoUpdateMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -72,6 +73,7 @@ public class FansInfoUpdateMsg extends NotifyMsg implements Parcelable, NoProGua
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public FansInfoUpdateMsg[] newArray(int i) {
                 InterceptResult invokeI;

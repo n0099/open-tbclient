@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -16,8 +17,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.kw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,9 +99,9 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             n = 0.3f;
-            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b4c);
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b66);
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, vl8.a(vl8.f(str), n));
+                DrawableCompat.setTint(drawable, fn8.a(fn8.f(str), n));
                 this.g.setBackground(drawable);
                 this.g.setPadding(j, 0, k, 0);
             }
@@ -123,7 +124,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public VirtualImageStatusTip(Context context, AttributeSet attributeSet) {
+    public VirtualImageStatusTip(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,7 +145,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VirtualImageStatusTip(Context context, AttributeSet attributeSet, int i) {
+    public VirtualImageStatusTip(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -189,7 +190,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     public void i() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.i) {
-            nv4.d(this.d).v(R.color.CAM_X0105);
+            kw4.d(this.d).v(R.color.CAM_X0105);
         }
     }
 
@@ -218,9 +219,9 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.h.setVisibility(0);
-            this.d.setText(R.string.obfuscated_res_0x7f0f1150);
-            nv4.d(this.d).z(R.dimen.T_X07);
-            WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080a4d, R.color.CAM_X0605, WebPManager.ResourceStateType.NORMAL);
+            this.d.setText(R.string.obfuscated_res_0x7f0f116e);
+            kw4.d(this.d).z(R.dimen.T_X07);
+            WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080a66, R.color.CAM_X0605, WebPManager.ResourceStateType.NORMAL);
             k("#FFFFFF", l, true);
         }
     }
@@ -258,7 +259,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (virtualImageCustomState.isEmojiState()) {
                 String g = g(icon);
                 if (!TextUtils.isEmpty(content)) {
-                    String format = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1596), content);
+                    String format = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f15b4), content);
                     return g + format;
                 }
                 return g;
@@ -284,71 +285,77 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             this.h.setLayoutParams(layoutParams);
             this.g.setLayoutParams(new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds99)));
             n = 0.8f;
-            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b4d);
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b67);
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, vl8.a(vl8.f(str), n));
+                DrawableCompat.setTint(drawable, fn8.a(fn8.f(str), n));
                 this.g.setBackground(drawable);
                 this.g.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X009), 0);
             }
-            nv4.d(this.d).v(R.color.CAM_X0611);
+            kw4.d(this.d).v(R.color.CAM_X0611);
         }
     }
 
     public void setData(VirtualImageCustomState virtualImageCustomState, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048586, this, new Object[]{virtualImageCustomState, Boolean.valueOf(z), str}) != null) || virtualImageCustomState == null) {
-            return;
-        }
-        String icon = virtualImageCustomState.getIcon();
-        String content = virtualImageCustomState.getContent();
-        if (TextUtils.isEmpty(icon)) {
-            if (this.i) {
-                l();
-                return;
-            } else {
-                setVisibility(8);
-                return;
-            }
-        }
-        String str2 = "";
-        if (virtualImageCustomState.isEmojiState()) {
-            this.h.setVisibility(8);
-            String g = g(icon);
-            this.e = g;
-            this.f = g;
-            if (z && !TextUtils.isEmpty(content)) {
-                str2 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1596), content);
-                if (!TextUtils.isEmpty(this.e)) {
-                    str2 = " " + str2;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{virtualImageCustomState, Boolean.valueOf(z), str}) == null) {
+            if (virtualImageCustomState == null) {
+                if (this.i) {
+                    l();
+                    return;
                 }
+                return;
             }
-            content = this.e + str2;
-        } else {
-            if (virtualImageCustomState.isCustomState()) {
-                if (TextUtils.isEmpty(icon)) {
-                    this.h.setVisibility(8);
+            String icon = virtualImageCustomState.getIcon();
+            String content = virtualImageCustomState.getContent();
+            if (TextUtils.isEmpty(icon)) {
+                if (this.i) {
+                    l();
+                    return;
                 } else {
-                    this.h.setVisibility(0);
+                    setVisibility(8);
+                    return;
                 }
-                this.f = icon;
-                Glide.with(getContext()).load(icon).into(this.h);
+            }
+            String str2 = "";
+            if (virtualImageCustomState.isEmojiState()) {
+                this.h.setVisibility(8);
+                String g = g(icon);
+                this.e = g;
+                this.f = g;
                 if (z && !TextUtils.isEmpty(content)) {
-                    if (!TextUtils.isEmpty(icon)) {
-                        content = " " + content;
+                    str2 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f15b4), content);
+                    if (!TextUtils.isEmpty(this.e)) {
+                        str2 = " " + str2;
                     }
                 }
+                content = this.e + str2;
+            } else {
+                if (virtualImageCustomState.isCustomState()) {
+                    if (TextUtils.isEmpty(icon)) {
+                        this.h.setVisibility(8);
+                    } else {
+                        this.h.setVisibility(0);
+                    }
+                    this.f = icon;
+                    Glide.with(getContext()).load(icon).into(this.h);
+                    if (z && !TextUtils.isEmpty(content)) {
+                        if (!TextUtils.isEmpty(icon)) {
+                            content = " " + content;
+                        }
+                    }
+                }
+                content = "";
             }
-            content = "";
+            this.d.setText(content);
+            if (this.i) {
+                kw4.d(this.d).z(R.dimen.T_X07);
+                k(str, UtilHelper.getDimenPixelSize(R.dimen.tbds60), false);
+            } else {
+                kw4.d(this.d).z(R.dimen.T_X08);
+                setBackground(str);
+            }
+            i();
         }
-        this.d.setText(content);
-        if (this.i) {
-            nv4.d(this.d).z(R.dimen.T_X07);
-            k(str, UtilHelper.getDimenPixelSize(R.dimen.tbds60), false);
-        } else {
-            nv4.d(this.d).z(R.dimen.T_X08);
-            setBackground(str);
-        }
-        i();
     }
 
     public void setHeight(int i) {

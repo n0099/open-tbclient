@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -214,7 +218,7 @@ public class PagerTitleStrip extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PagerTitleStrip(Context context) {
+    public PagerTitleStrip(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -235,7 +239,7 @@ public class PagerTitleStrip extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PagerTitleStrip(Context context, AttributeSet attributeSet) {
+    public PagerTitleStrip(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -322,7 +326,7 @@ public class PagerTitleStrip extends ViewGroup {
         }
     }
 
-    public void setNonPrimaryAlpha(float f) {
+    public void setNonPrimaryAlpha(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
             int i = ((int) (f * 255.0f)) & 255;
@@ -333,7 +337,7 @@ public class PagerTitleStrip extends ViewGroup {
         }
     }
 
-    public void setTextColor(int i) {
+    public void setTextColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.mTextColor = i;

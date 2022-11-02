@@ -20,23 +20,44 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class SuggestionResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SuggestionResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList suggestionList;
+    public ArrayList<SuggestionInfo> a;
+
+    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes2.dex */
-    public class SuggestionInfo implements Parcelable {
+    public static class SuggestionInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SuggestionInfo> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
         public String address;
         public String city;
         public String district;
         public String key;
-        public List poiChildrenInfoList;
+        public List<PoiChildrenInfo> poiChildrenInfoList;
         public LatLng pt;
         public String tag;
         public String uid;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -68,6 +89,87 @@ public class SuggestionResult extends SearchResult implements Parcelable {
             }
         }
 
+        public int getAdCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        public String getAddress() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.address;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getCity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.city;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getDistrict() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.district;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.key;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public List<PoiChildrenInfo> getPoiChildrenInfoList() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.poiChildrenInfoList;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public LatLng getPt() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.pt;
+            }
+            return (LatLng) invokeV.objValue;
+        }
+
+        public String getTag() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.tag;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getUid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.uid;
+            }
+            return (String) invokeV.objValue;
+        }
+
         public SuggestionInfo(Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,116 +195,65 @@ public class SuggestionResult extends SearchResult implements Parcelable {
             this.poiChildrenInfoList = parcel.createTypedArrayList(PoiChildrenInfo.CREATOR);
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
+        public void setAdCode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
+            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                this.a = i;
             }
-            return invokeV.intValue;
-        }
-
-        public String getAddress() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.address : (String) invokeV.objValue;
-        }
-
-        public String getCity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.city : (String) invokeV.objValue;
-        }
-
-        public String getDistrict() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.district : (String) invokeV.objValue;
-        }
-
-        public String getKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.key : (String) invokeV.objValue;
-        }
-
-        public List getPoiChildrenInfoList() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.poiChildrenInfoList : (List) invokeV.objValue;
-        }
-
-        public LatLng getPt() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pt : (LatLng) invokeV.objValue;
-        }
-
-        public String getTag() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tag : (String) invokeV.objValue;
-        }
-
-        public String getUid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.uid : (String) invokeV.objValue;
         }
 
         public void setAddress(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
                 this.address = str;
             }
         }
 
         public void setCity(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
                 this.city = str;
             }
         }
 
         public void setDistrict(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
                 this.district = str;
             }
         }
 
         public void setKey(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
                 this.key = str;
             }
         }
 
-        public void setPoiChildrenInfoList(List list) {
+        public void setPoiChildrenInfoList(List<PoiChildrenInfo> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
+            if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
                 this.poiChildrenInfoList = list;
             }
         }
 
         public void setPt(LatLng latLng) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, latLng) == null) {
+            if (interceptable == null || interceptable.invokeL(1048592, this, latLng) == null) {
                 this.pt = latLng;
             }
         }
 
         public void setTag(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
                 this.tag = str;
             }
         }
 
         public void setUid(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
                 this.uid = str;
             }
         }
@@ -210,7 +261,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 StringBuffer stringBuffer = new StringBuffer("SuggestionInfo: ");
                 stringBuffer.append("key = ");
                 stringBuffer.append(this.key);
@@ -232,21 +283,21 @@ public class SuggestionResult extends SearchResult implements Parcelable {
                 stringBuffer.append("; address = ");
                 stringBuffer.append(this.address);
                 stringBuffer.append("; childrenInfo = ");
-                List list = this.poiChildrenInfoList;
-                if (list == null || list.isEmpty()) {
-                    stringBuffer.append(StringUtil.NULL_STRING);
-                } else {
+                List<PoiChildrenInfo> list = this.poiChildrenInfoList;
+                if (list != null && !list.isEmpty()) {
                     for (int i = 0; i < this.poiChildrenInfoList.size(); i++) {
                         stringBuffer.append(" ");
                         stringBuffer.append(i);
                         stringBuffer.append(" ");
-                        PoiChildrenInfo poiChildrenInfo = (PoiChildrenInfo) this.poiChildrenInfoList.get(i);
+                        PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i);
                         if (poiChildrenInfo == null) {
                             stringBuffer.append(StringUtil.NULL_STRING);
                         } else {
                             stringBuffer.append(poiChildrenInfo.toString());
                         }
                     }
+                } else {
+                    stringBuffer.append(StringUtil.NULL_STRING);
                 }
                 return stringBuffer.toString();
             }
@@ -256,7 +307,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048594, this, parcel, i) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048596, this, parcel, i) == null) {
                 parcel.writeString(this.key);
                 parcel.writeString(this.city);
                 parcel.writeString(this.district);
@@ -299,6 +350,15 @@ public class SuggestionResult extends SearchResult implements Parcelable {
         }
     }
 
+    public List<SuggestionInfo> getAllSuggestions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
     public SuggestionResult(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -314,7 +374,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
                 return;
             }
         }
-        this.suggestionList = parcel.readArrayList(SuggestionInfo.class.getClassLoader());
+        this.a = parcel.readArrayList(SuggestionInfo.class.getClassLoader());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -337,26 +397,10 @@ public class SuggestionResult extends SearchResult implements Parcelable {
         }
     }
 
-    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public List getAllSuggestions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.suggestionList : (List) invokeV.objValue;
-    }
-
-    public void setSuggestionInfo(ArrayList arrayList) {
+    public void setSuggestionInfo(ArrayList<SuggestionInfo> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.suggestionList = arrayList;
+            this.a = arrayList;
         }
     }
 
@@ -364,7 +408,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeList(this.suggestionList);
+            parcel.writeList(this.a);
         }
     }
 }

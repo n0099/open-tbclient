@@ -14,18 +14,18 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
     /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,11 +47,11 @@ public class ThreadUtils {
     }
 
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class C1Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Object value;
+        public V value;
 
         public C1Result() {
             Interceptable interceptable = $ic;
@@ -68,8 +68,8 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class ThreadChecker {
+    /* loaded from: classes9.dex */
+    public static class ThreadChecker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -292,7 +292,7 @@ public class ThreadUtils {
     public static void invokeAtFrontUninterruptibly(Handler handler, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, handler, runnable) == null) {
-            invokeAtFrontUninterruptibly(handler, new Callable(runnable) { // from class: org.webrtc.ThreadUtils.4
+            invokeAtFrontUninterruptibly(handler, new Callable<Void>(runnable) { // from class: org.webrtc.ThreadUtils.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Runnable val$runner;
@@ -330,7 +330,7 @@ public class ThreadUtils {
         }
     }
 
-    public static Object invokeAtFrontUninterruptibly(Handler handler, Callable callable) {
+    public static <V> V invokeAtFrontUninterruptibly(Handler handler, Callable<V> callable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, handler, callable)) == null) {
@@ -373,6 +373,7 @@ public class ThreadUtils {
                     this.val$barrier = countDownLatch;
                 }
 
+                /* JADX WARN: Type inference failed for: r1v2, types: [V, java.lang.Object] */
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
@@ -394,6 +395,6 @@ public class ThreadUtils {
             runtimeException.setStackTrace(concatStackTraces(c1CaughtException.e.getStackTrace(), runtimeException.getStackTrace()));
             throw runtimeException;
         }
-        return invokeLL.objValue;
+        return (V) invokeLL.objValue;
     }
 }

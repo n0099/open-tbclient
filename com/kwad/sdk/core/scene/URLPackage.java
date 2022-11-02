@@ -1,13 +1,17 @@
 package com.kwad.sdk.core.scene;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.core.response.kwai.a;
 import com.kwad.sdk.utils.s;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class URLPackage extends a implements Serializable {
     public static final String KEY_AUTHOR_ID = "authorId";
     public static final String KEY_CHANNEL_ID = "channelId";
@@ -20,13 +24,13 @@ public class URLPackage extends a implements Serializable {
     public URLPackage() {
     }
 
-    public URLPackage(String str, int i) {
+    public URLPackage(@NonNull String str, int i) {
         this.page = i;
         this.identity = str;
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(JSONObject jSONObject) {
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject == null) {
             return;

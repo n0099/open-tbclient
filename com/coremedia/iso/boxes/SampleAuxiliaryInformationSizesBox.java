@@ -43,7 +43,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     public String auxInfoTypeParameter;
     public int defaultSampleInfoSize;
     public int sampleCount;
-    public List sampleInfoSizes;
+    public List<Short> sampleInfoSizes;
 
     static {
         InterceptResult invokeClinit;
@@ -199,7 +199,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         return invokeV.intValue;
     }
 
-    public List getSampleInfoSizes() {
+    public List<Short> getSampleInfoSizes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -241,7 +241,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         }
     }
 
-    public void setSampleInfoSizes(List list) {
+    public void setSampleInfoSizes(List<Short> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, list));

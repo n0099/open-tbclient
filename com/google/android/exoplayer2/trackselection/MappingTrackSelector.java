@@ -25,13 +25,13 @@ public abstract class MappingTrackSelector extends TrackSelector {
     public transient /* synthetic */ FieldHolder $fh;
     public MappedTrackInfo currentMappedTrackInfo;
     public final SparseBooleanArray rendererDisabledFlags;
-    public final SparseArray selectionOverrides;
+    public final SparseArray<Map<TrackGroupArray, SelectionOverride>> selectionOverrides;
     public int tunnelingAudioSessionId;
 
     public abstract TrackSelection[] selectTracks(RendererCapabilities[] rendererCapabilitiesArr, TrackGroupArray[] trackGroupArrayArr, int[][][] iArr) throws ExoPlaybackException;
 
     /* loaded from: classes7.dex */
-    public final class MappedTrackInfo {
+    public static final class MappedTrackInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RENDERER_SUPPORT_EXCEEDS_CAPABILITIES_TRACKS = 2;
         public static final int RENDERER_SUPPORT_NO_TRACKS = 0;
@@ -186,7 +186,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
     }
 
     /* loaded from: classes7.dex */
-    public final class SelectionOverride {
+    public static final class SelectionOverride {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TrackSelection.Factory factory;
@@ -252,7 +252,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
                 return;
             }
         }
-        this.selectionOverrides = new SparseArray();
+        this.selectionOverrides = new SparseArray<>();
         this.rendererDisabledFlags = new SparseBooleanArray();
         this.tunnelingAudioSessionId = 0;
     }
@@ -324,9 +324,9 @@ public abstract class MappingTrackSelector extends TrackSelector {
     }
 
     public final void clearSelectionOverride(int i, TrackGroupArray trackGroupArray) {
-        Map map;
+        Map<TrackGroupArray, SelectionOverride> map;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, trackGroupArray) == null) && (map = (Map) this.selectionOverrides.get(i)) != null && map.containsKey(trackGroupArray)) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, trackGroupArray) == null) && (map = this.selectionOverrides.get(i)) != null && map.containsKey(trackGroupArray)) {
             map.remove(trackGroupArray);
             if (map.isEmpty()) {
                 this.selectionOverrides.remove(i);
@@ -339,9 +339,9 @@ public abstract class MappingTrackSelector extends TrackSelector {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, trackGroupArray)) == null) {
-            Map map = (Map) this.selectionOverrides.get(i);
+            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i);
             if (map != null) {
-                return (SelectionOverride) map.get(trackGroupArray);
+                return map.get(trackGroupArray);
             }
             return null;
         }
@@ -352,7 +352,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, trackGroupArray)) == null) {
-            Map map = (Map) this.selectionOverrides.get(i);
+            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i);
             if (map != null && map.containsKey(trackGroupArray)) {
                 return true;
             }
@@ -376,9 +376,9 @@ public abstract class MappingTrackSelector extends TrackSelector {
     }
 
     public final void clearSelectionOverrides(int i) {
-        Map map;
+        Map<TrackGroupArray, SelectionOverride> map;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (map = (Map) this.selectionOverrides.get(i)) != null && !map.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (map = this.selectionOverrides.get(i)) != null && !map.isEmpty()) {
             this.selectionOverrides.remove(i);
             invalidate();
         }
@@ -469,9 +469,9 @@ public abstract class MappingTrackSelector extends TrackSelector {
     public final void setSelectionOverride(int i, TrackGroupArray trackGroupArray, SelectionOverride selectionOverride) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048587, this, i, trackGroupArray, selectionOverride) == null) {
-            Map map = (Map) this.selectionOverrides.get(i);
+            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i);
             if (map == null) {
-                map = new HashMap();
+                map = new HashMap<>();
                 this.selectionOverrides.put(i, map);
             }
             if (map.containsKey(trackGroupArray) && Util.areEqual(map.get(trackGroupArray), selectionOverride)) {
@@ -551,7 +551,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
                 } else {
                     TrackGroupArray trackGroupArray3 = trackGroupArrayArr[i7];
                     if (hasSelectionOverride(i7, trackGroupArray3)) {
-                        SelectionOverride selectionOverride = (SelectionOverride) ((Map) this.selectionOverrides.get(i7)).get(trackGroupArray3);
+                        SelectionOverride selectionOverride = this.selectionOverrides.get(i7).get(trackGroupArray3);
                         if (selectionOverride != null) {
                             trackSelection = selectionOverride.createTrackSelection(trackGroupArray3);
                         }

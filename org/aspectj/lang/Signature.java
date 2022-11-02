@@ -1,5 +1,5 @@
 package org.aspectj.lang;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface Signature {
     Class getDeclaringType();
 

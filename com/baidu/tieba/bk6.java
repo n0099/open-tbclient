@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface bk6 {
-    void h(String str);
+    void g0(boolean z);
 
-    void i();
+    void n1();
 
-    void j(boolean z);
+    void x();
 }

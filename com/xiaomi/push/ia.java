@@ -17,7 +17,7 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class ia implements iu, Serializable, Cloneable {
+public class ia implements iu<ia, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -47,7 +47,7 @@ public class ia implements iu, Serializable, Cloneable {
     public BitSet f587a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f588a;
+    public Map<String, String> f588a;
 
     /* renamed from: b  reason: collision with other field name */
     public String f589b;
@@ -243,7 +243,7 @@ public class ia implements iu, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map m446a() {
+    public Map<String, String> m446a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f588a : (Map) invokeV.objValue;
@@ -494,9 +494,9 @@ public class ia implements iu, Serializable, Cloneable {
             if (this.f588a != null && h()) {
                 jfVar.a(h);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f588a.size()));
-                for (Map.Entry entry : this.f588a.entrySet()) {
-                    jfVar.a((String) entry.getKey());
-                    jfVar.a((String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.f588a.entrySet()) {
+                    jfVar.a(entry.getKey());
+                    jfVar.a(entry.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -703,7 +703,7 @@ public class ia implements iu, Serializable, Cloneable {
             if (h()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("extra:");
-                Map map = this.f588a;
+                Map<String, String> map = this.f588a;
                 if (map == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

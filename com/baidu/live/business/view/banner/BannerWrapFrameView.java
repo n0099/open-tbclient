@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveBannerEntity;
 import com.baidu.tieba.R;
@@ -31,7 +33,7 @@ public class BannerWrapFrameView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BannerWrapFrameView(Context context) {
+    public BannerWrapFrameView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,7 +54,7 @@ public class BannerWrapFrameView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BannerWrapFrameView(Context context, AttributeSet attributeSet) {
+    public BannerWrapFrameView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,7 +75,7 @@ public class BannerWrapFrameView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BannerWrapFrameView(Context context, AttributeSet attributeSet, int i) {
+    public BannerWrapFrameView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,10 +100,10 @@ public class BannerWrapFrameView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0535, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0545, this);
             this.d = inflate;
-            this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09133b);
-            this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09133d);
+            this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091378);
+            this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09137a);
         }
     }
 

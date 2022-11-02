@@ -106,13 +106,13 @@ public final class Downloader {
         return invokeLL.intValue;
     }
 
-    public IHttpRequest downloadAsync(String str, ICallbackWith iCallbackWith, ICallbackWith iCallbackWith2) {
+    public IHttpRequest downloadAsync(String str, ICallbackWith<Integer> iCallbackWith, ICallbackWith<Exception> iCallbackWith2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iCallbackWith, iCallbackWith2)) == null) ? downloadAsync(str, iCallbackWith, iCallbackWith2, null) : (IHttpRequest) invokeLLL.objValue;
     }
 
-    public IHttpRequest downloadAsync(String str, ICallbackWith iCallbackWith, ICallbackWith iCallbackWith2, IProgressCallback iProgressCallback) {
+    public IHttpRequest downloadAsync(String str, ICallbackWith<Integer> iCallbackWith, ICallbackWith<Exception> iCallbackWith2, IProgressCallback iProgressCallback) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, iCallbackWith, iCallbackWith2, iProgressCallback)) == null) {

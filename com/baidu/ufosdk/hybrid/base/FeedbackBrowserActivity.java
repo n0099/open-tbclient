@@ -85,7 +85,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements ValueCallback {
+    public class a implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FeedbackBrowserActivity a;
@@ -108,21 +108,22 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
             this.a = feedbackBrowserActivity;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         @Override // android.webkit.ValueCallback
-        public void onReceiveValue(Object obj) {
+        public void onReceiveValue(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && !Boolean.parseBoolean((String) obj)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !Boolean.parseBoolean(str)) {
                 this.a.finish();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements f {
+    public static class b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final h a;
-        public WeakReference b;
+        public WeakReference<WebView> b;
         public v c;
         public u d;
 
@@ -143,9 +144,9 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
             }
             this.a = hVar;
             if (webView != null) {
-                WeakReference weakReference = new WeakReference(webView);
+                WeakReference<WebView> weakReference = new WeakReference<>(webView);
                 this.b = weakReference;
-                a((WebView) weakReference.get());
+                a(weakReference.get());
             }
             a();
         }
@@ -217,7 +218,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements g {
+    public static class c implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
@@ -259,7 +260,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
     }
 
     /* loaded from: classes6.dex */
-    public class d extends FrameLayout {
+    public static class d extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -308,7 +309,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
             f fVar = this.f;
-            if (fVar != null && (webView = (WebView) ((b) fVar).b.get()) != null) {
+            if (fVar != null && (webView = ((b) fVar).b.get()) != null) {
                 webView.onPause();
             }
         }
@@ -321,7 +322,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
             f fVar = this.f;
-            if (fVar != null && (webView = (WebView) ((b) fVar).b.get()) != null) {
+            if (fVar != null && (webView = ((b) fVar).b.get()) != null) {
                 webView.resumeTimers();
                 webView.onResume();
             }
@@ -475,7 +476,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
                         if (dataString != null) {
                             uriArr = new Uri[]{Uri.parse(dataString)};
                         }
-                        ValueCallback valueCallback = uVar.b;
+                        ValueCallback<Uri[]> valueCallback = uVar.b;
                         if (valueCallback != null) {
                             valueCallback.onReceiveValue(uriArr);
                             return;
@@ -483,7 +484,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
                         return;
                     }
                     Log.i("FeedbackSDK-V4.1.9.1", com.baidu.ufosdk.b.b("UFOWebChromeClient", "exit photo select"));
-                    ValueCallback valueCallback2 = uVar.b;
+                    ValueCallback<Uri[]> valueCallback2 = uVar.b;
                     if (valueCallback2 != null) {
                         valueCallback2.onReceiveValue(null);
                     }
@@ -536,7 +537,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
             f fVar = this.f;
             if (fVar != null) {
                 b bVar = (b) fVar;
-                WebView webView = (WebView) bVar.b.get();
+                WebView webView = bVar.b.get();
                 if (webView != null) {
                     ViewGroup viewGroup = (ViewGroup) webView.getParent();
                     if (viewGroup != null) {

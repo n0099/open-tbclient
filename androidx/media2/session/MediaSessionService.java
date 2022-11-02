@@ -4,6 +4,9 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.MediaSession;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +27,7 @@ public abstract class MediaSessionService extends Service {
     public interface MediaSessionServiceImpl {
         void addSession(MediaSession mediaSession);
 
-        List getSessions();
+        List<MediaSession> getSessions();
 
         IBinder onBind(Intent intent);
 
@@ -39,7 +42,8 @@ public abstract class MediaSessionService extends Service {
         void removeSession(MediaSession mediaSession);
     }
 
-    public abstract MediaSession onGetSession(MediaSession.ControllerInfo controllerInfo);
+    @Nullable
+    public abstract MediaSession onGetSession(@NonNull MediaSession.ControllerInfo controllerInfo);
 
     /* loaded from: classes.dex */
     public static class MediaNotification {
@@ -48,7 +52,7 @@ public abstract class MediaSessionService extends Service {
         public final Notification mNotification;
         public final int mNotificationId;
 
-        public MediaNotification(int i, Notification notification) {
+        public MediaNotification(int i, @NonNull Notification notification) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,6 +75,7 @@ public abstract class MediaSessionService extends Service {
             throw new NullPointerException("notification shouldn't be null");
         }
 
+        @NonNull
         public Notification getNotification() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -115,6 +120,7 @@ public abstract class MediaSessionService extends Service {
         return (MediaSessionServiceImpl) invokeV.objValue;
     }
 
+    @NonNull
     public final List<MediaSession> getSessions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,6 +131,7 @@ public abstract class MediaSessionService extends Service {
     }
 
     @Override // android.app.Service
+    @CallSuper
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -134,6 +141,7 @@ public abstract class MediaSessionService extends Service {
     }
 
     @Override // android.app.Service
+    @CallSuper
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -142,7 +150,7 @@ public abstract class MediaSessionService extends Service {
         }
     }
 
-    public final void addSession(MediaSession mediaSession) {
+    public final void addSession(@NonNull MediaSession mediaSession) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, mediaSession) == null) {
             if (mediaSession != null) {
@@ -157,7 +165,9 @@ public abstract class MediaSessionService extends Service {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
+    @Nullable
+    @CallSuper
+    public IBinder onBind(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
@@ -166,7 +176,8 @@ public abstract class MediaSessionService extends Service {
         return (IBinder) invokeL.objValue;
     }
 
-    public MediaNotification onUpdateNotification(MediaSession mediaSession) {
+    @Nullable
+    public MediaNotification onUpdateNotification(@NonNull MediaSession mediaSession) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSession)) == null) {
@@ -178,7 +189,7 @@ public abstract class MediaSessionService extends Service {
         return (MediaNotification) invokeL.objValue;
     }
 
-    public final void removeSession(MediaSession mediaSession) {
+    public final void removeSession(@NonNull MediaSession mediaSession) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, mediaSession) == null) {
             if (mediaSession != null) {
@@ -190,6 +201,7 @@ public abstract class MediaSessionService extends Service {
     }
 
     @Override // android.app.Service
+    @CallSuper
     public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;

@@ -1,33 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.games.view.button.userinfo.UserInfoButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e74 {
+public class e74 extends b74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
-            b(callback, "6");
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e74 a;
+
+        public a(e74 e74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e74Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || y64.b() == null) {
+                return;
+            }
+            this.a.a = new UserInfoButton(y64.b(), this.a);
+            this.a.a.setType(this.a.type);
+            this.a.a.setButtonText(this.a.text);
+            this.a.a.setImageUrl(this.a.image);
+            this.a.a.setApiButtonStyle(this.a.style);
+            this.a.y();
+            this.a.J();
         }
     }
 
-    public static void b(Callback callback, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e74(JsObject jsObject, ob2 ob2Var) {
+        super(jsObject, ob2Var);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || m33.M() == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject, ob2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((JsObject) objArr2[0], (ob2) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
-        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, m33.M().O());
-        newBuilder.addQueryParameter("source", "4");
-        ((t14) m33.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
+        yh3.e0(new a(this));
+    }
+
+    public final void J() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !b54.d()) {
+            y44.l("Button shows early.");
+        }
     }
 }

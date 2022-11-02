@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.ky4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ABTestSwitchManager {
     public static final String PREF_KEY_SWITCHS = "pref_key_abtest_switchs";
     public static ABTestSwitchManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap mSwitchs;
+    public final HashMap<String, ABTestSwitchData> mSwitchs;
 
     public ABTestSwitchManager() {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class ABTestSwitchManager {
                 return;
             }
         }
-        this.mSwitchs = new HashMap();
-        HashMap allDataFormSharedPref = getAllDataFormSharedPref();
+        this.mSwitchs = new HashMap<>();
+        HashMap<String, ABTestSwitchData> allDataFormSharedPref = getAllDataFormSharedPref();
         this.mSwitchs.clear();
         this.mSwitchs.putAll(allDataFormSharedPref);
     }
@@ -77,11 +77,11 @@ public class ABTestSwitchManager {
         return (String) invokeLL.objValue;
     }
 
-    private HashMap getAllDataFormSharedPref() {
+    private HashMap<String, ABTestSwitchData> getAllDataFormSharedPref() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, ABTestSwitchData> hashMap = new HashMap<>();
             try {
                 JSONArray jSONArray = new JSONArray(getSharedPreferences().getString(PREF_KEY_SWITCHS, "[]"));
                 for (int i = 0; i < jSONArray.length(); i++) {
@@ -175,7 +175,7 @@ public class ABTestSwitchManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
-                aBTestSwitchData = (ABTestSwitchData) this.mSwitchs.get(str);
+                aBTestSwitchData = this.mSwitchs.get(str);
             }
             return aBTestSwitchData;
         }
@@ -204,7 +204,7 @@ public class ABTestSwitchManager {
                     this.mSwitchs.putAll(hashMap);
                 }
                 EditorHelper.putString(getSharedPreferences(), PREF_KEY_SWITCHS, jSONArray.toString());
-                ux4 k = ux4.k();
+                ky4 k = ky4.k();
                 if (isATest(ABTestConst.KEY_PERF_START_TEST)) {
                     i = 1;
                 }

@@ -91,7 +91,7 @@ public abstract class ResultParser {
         }
     }
 
-    public static void appendKeyValue(CharSequence charSequence, Map map) {
+    public static void appendKeyValue(CharSequence charSequence, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, charSequence, map) == null) {
             String[] split = EQUALS.split(charSequence, 2);
@@ -262,7 +262,7 @@ public abstract class ResultParser {
         }
     }
 
-    public static Map parseNameValuePairs(String str) {
+    public static Map<String, String> parseNameValuePairs(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {

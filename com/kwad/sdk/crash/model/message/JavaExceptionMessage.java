@@ -1,7 +1,8 @@
 package com.kwad.sdk.crash.model.message;
 
+import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JavaExceptionMessage extends ExceptionMessage {
     public static final long serialVersionUID = -2410125079234148135L;
 
@@ -15,7 +16,7 @@ public class JavaExceptionMessage extends ExceptionMessage {
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
-    public void parseJson(JSONObject jSONObject) {
+    public void parseJson(@Nullable JSONObject jSONObject) {
         super.parseJson(jSONObject);
     }
 

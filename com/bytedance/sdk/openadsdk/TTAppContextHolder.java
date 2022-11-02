@@ -1,14 +1,17 @@
 package com.bytedance.sdk.openadsdk;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class TTAppContextHolder {
+    @SuppressLint({"StaticFieldLeak"})
     public static volatile Context a;
 
     /* loaded from: classes7.dex */
-    public class a {
+    public static class a {
+        @SuppressLint({"StaticFieldLeak"})
         public static volatile Application a;
 
         static {

@@ -1,93 +1,115 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 /* loaded from: classes5.dex */
 public class o34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
+    public ob2 a;
+    @V8JavascriptField
+    public JsObject canvas;
 
-    /* loaded from: classes5.dex */
-    public class a implements Comparator {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981305, "Lcom/baidu/tieba/o34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947981305, "Lcom/baidu/tieba/o34;");
+                return;
             }
         }
+        b = ok1.a;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(o34 o34Var, o34 o34Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o34Var, o34Var2)) == null) {
-                return (int) (o34Var.a - o34Var2.a);
-            }
-            return invokeLL.intValue;
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c(this.a.getInitBasePath(), "swan-game-open-data.js");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void destroyOpenDataContext() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.d0().a();
         }
     }
 
-    public o34() {
+    public o34(ob2 ob2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ob2Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.canvas = null;
+        this.a = ob2Var;
+        a();
+        b();
     }
 
-    public static long[] a(o34 o34Var) {
-        InterceptResult invokeL;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o34Var)) == null) {
-            if (o34Var == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String z = rp2.U().z();
+            String b2 = p34.a().b();
+            if (b) {
+                Log.d("SwanGameOpenDataContext", "baseFilePath: " + z);
+                Log.d("SwanGameOpenDataContext", "openDataJSFile: " + b2);
             }
-            return new long[]{o34Var.a, o34Var.b};
+            return c(z, b2);
         }
-        return (long[]) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean b(o34 o34Var) {
-        InterceptResult invokeL;
+    public final boolean c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o34Var)) == null) {
-            long j = this.a;
-            if (j <= o34Var.b) {
-                long j2 = this.b;
-                long j3 = o34Var.a;
-                if (j2 >= j3) {
-                    this.a = Math.min(j, j3);
-                    this.b = Math.max(this.b, o34Var.b);
-                    return true;
-                }
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (p34.a().c() && !TextUtils.isEmpty(str)) {
+                this.a.d0().b(str, str2);
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void postMessage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+            this.a.x().dispatchEvent(new JSEvent("postmessage", jsObject));
+        }
     }
 }

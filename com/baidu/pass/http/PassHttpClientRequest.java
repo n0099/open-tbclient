@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable {
+public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable<PassHttpClientRequest> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PassHttpClientRequest";
     public transient /* synthetic */ FieldHolder $fh;

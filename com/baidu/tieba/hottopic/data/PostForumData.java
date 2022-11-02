@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.v26;
+import com.baidu.tieba.f46;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,16 +17,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
-public class PostForumData extends v26 implements Serializable {
+public class PostForumData extends f46 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_POST_FORUM;
     public static final long serialVersionUID = -2078662294751243784L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mRelateForumDataList;
+    public List<wn> mRelateForumDataList;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +68,7 @@ public class PostForumData extends v26 implements Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,26 +78,24 @@ public class PostForumData extends v26 implements Serializable {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public eo getForumData(int i) {
+    public wn getForumData(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return (eo) ListUtils.getItem(this.mRelateForumDataList, i);
+            return (wn) ListUtils.getItem(this.mRelateForumDataList, i);
         }
-        return (eo) invokeI.objValue;
+        return (wn) invokeI.objValue;
     }
 
-    public void parserProtobuf(List list) {
+    public void parserProtobuf(List<RelateForum> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fe1);
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ffb);
         this.mRelateForumDataList = new ArrayList();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            RelateForum relateForum = (RelateForum) it.next();
+        for (RelateForum relateForum : list) {
             if (relateForum != null && !StringUtils.isNull(relateForum.forum_name)) {
                 RelateForumItemData relateForumItemData = new RelateForumItemData();
                 relateForumItemData.parserProtobuf(relateForum);

@@ -94,7 +94,7 @@ public class a implements ARPMessage.MessageHandler {
     private void I(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("type", str);
             handleMessage(ARPMessageType.MSG_TYPE_STATISTICS, 0, hashMap);
         }
@@ -139,7 +139,7 @@ public class a implements ARPMessage.MessageHandler {
         }
     }
 
-    private void a(HashMap hashMap, int i) {
+    private void a(HashMap<String, Object> hashMap, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, hashMap, i) == null) || hashMap == null) {
             return;
@@ -181,7 +181,7 @@ public class a implements ARPMessage.MessageHandler {
         }
     }
 
-    private void b(HashMap hashMap, int i) {
+    private void b(HashMap<String, Object> hashMap, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(65541, this, hashMap, i) == null) || hashMap == null) {
             return;
@@ -229,32 +229,32 @@ public class a implements ARPMessage.MessageHandler {
         }
     }
 
-    private void e(HashMap hashMap) {
+    private void e(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65543, this, hashMap) == null) || hashMap == null) {
             return;
         }
         String a = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), "");
-        a.C0050a c0050a = new a.C0050a();
+        a.C0051a c0051a = new a.C0051a();
         if ("load_webview".equals(a)) {
-            c0050a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0050a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
-            c0050a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
-            c0050a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0050a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().c(c0050a);
+            c0051a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0051a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
+            c0051a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
+            c0051a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0051a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().c(c0051a);
         } else if ("update_webview_js".equals(a)) {
-            c0050a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0050a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
-            b.bm().e(c0050a);
+            c0051a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0051a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
+            b.bm().e(c0051a);
         } else if ("load_native_webview".equals(a)) {
-            c0050a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0050a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().d(c0050a);
+            c0051a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0051a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().d(c0051a);
         }
     }
 
-    private void f(HashMap hashMap) {
+    private void f(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65544, this, hashMap) == null) || hashMap == null) {
             return;
@@ -272,7 +272,7 @@ public class a implements ARPMessage.MessageHandler {
         a(dVar);
     }
 
-    private void g(HashMap hashMap) {
+    private void g(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65545, this, hashMap) == null) || hashMap == null) {
             return;
@@ -294,7 +294,7 @@ public class a implements ARPMessage.MessageHandler {
     }
 
     @Override // com.baidu.ar.arplay.core.message.ARPMessage.MessageHandler
-    public void handleMessage(int i, int i2, HashMap hashMap) {
+    public void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, hashMap) == null) {
             switch (i) {

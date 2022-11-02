@@ -1,6 +1,7 @@
 package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class r {
-    public static JSONArray B(List list) {
+    public static <T> JSONArray B(List<T> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null && !list.isEmpty()) {
             for (Object obj : list) {
@@ -28,7 +29,7 @@ public final class r {
         return jSONArray;
     }
 
-    public static List a(String str, com.kwad.sdk.core.c cVar) {
+    public static <T extends com.kwad.sdk.core.b> List<T> a(String str, @NonNull com.kwad.sdk.core.c<T> cVar) {
         ArrayList arrayList = new ArrayList();
         if (TextUtils.isEmpty(str)) {
             return arrayList;
@@ -37,7 +38,7 @@ public final class r {
             JSONArray jSONArray = new JSONArray(str);
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
-                com.kwad.sdk.core.b qt = cVar.qt();
+                T qt = cVar.qt();
                 qt.parseJson(jSONObject);
                 arrayList.add(qt);
             }
@@ -57,11 +58,11 @@ public final class r {
         }
     }
 
-    public static List dD(String str) {
+    public static <T> List<T> dD(String str) {
         return s.dD(str);
     }
 
-    public static List f(JSONArray jSONArray) {
+    public static <T> List<T> f(JSONArray jSONArray) {
         return s.f(jSONArray);
     }
 
@@ -69,11 +70,11 @@ public final class r {
         s.merge(jSONObject, jSONObject2);
     }
 
-    public static Map parseJSON2MapString(String str) {
+    public static Map<String, String> parseJSON2MapString(String str) {
         return s.parseJSON2MapString(str);
     }
 
-    public static JSONObject parseMap2JSON(Map map) {
+    public static JSONObject parseMap2JSON(Map<String, String> map) {
         return s.parseMap2JSON(map);
     }
 
@@ -123,7 +124,7 @@ public final class r {
         s.putValue(jSONObject, str, str2);
     }
 
-    public static void putValue(JSONObject jSONObject, String str, List list) {
+    public static void putValue(JSONObject jSONObject, String str, List<?> list) {
         if (jSONObject == null || list == null) {
             return;
         }
@@ -171,7 +172,7 @@ public final class r {
         s.putValue(jSONObject, str, z);
     }
 
-    public static JSONArray toJsonArray(List list) {
+    public static JSONArray toJsonArray(@NonNull List<String> list) {
         return s.toJsonArray(list);
     }
 }

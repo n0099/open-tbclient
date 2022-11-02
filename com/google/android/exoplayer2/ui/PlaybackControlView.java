@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -96,6 +98,7 @@ public class PlaybackControlView extends FrameLayout {
         void onVisibilityChange(int i);
     }
 
+    @SuppressLint({"InlinedApi"})
     public static boolean isHandledMediaKey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -245,7 +248,7 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public final class DefaultControlDispatcher extends com.google.android.exoplayer2.DefaultControlDispatcher implements ControlDispatcher {
+    public static final class DefaultControlDispatcher extends com.google.android.exoplayer2.DefaultControlDispatcher implements ControlDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -580,14 +583,14 @@ public class PlaybackControlView extends FrameLayout {
         this.showTimeoutMs = 5000;
         this.repeatToggleModes = 0;
         this.showShuffleButton = false;
-        int i4 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027a;
+        int i4 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027c;
         if (attributeSet2 != null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, R.styleable.PlaybackControlView, 0, 0);
             try {
                 this.rewindMs = obtainStyledAttributes.getInt(3, this.rewindMs);
                 this.fastForwardMs = obtainStyledAttributes.getInt(1, this.fastForwardMs);
                 this.showTimeoutMs = obtainStyledAttributes.getInt(5, this.showTimeoutMs);
-                i4 = obtainStyledAttributes.getResourceId(0, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027a);
+                i4 = obtainStyledAttributes.getResourceId(0, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027c);
                 this.repeatToggleModes = getRepeatToggleModes(obtainStyledAttributes, this.repeatToggleModes);
                 this.showShuffleButton = obtainStyledAttributes.getBoolean(4, this.showShuffleButton);
             } finally {
@@ -606,49 +609,49 @@ public class PlaybackControlView extends FrameLayout {
         this.controlDispatcher = new com.google.android.exoplayer2.DefaultControlDispatcher();
         LayoutInflater.from(context).inflate(i4, this);
         setDescendantFocusability(262144);
-        this.durationView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094f);
-        this.positionView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090955);
-        TimeBar timeBar = (TimeBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090957);
+        this.durationView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095f);
+        this.positionView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090965);
+        TimeBar timeBar = (TimeBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090967);
         this.timeBar = timeBar;
         if (timeBar != null) {
             timeBar.addListener(this.componentListener);
         }
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090954);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090964);
         this.playButton = findViewById;
         if (findViewById != null) {
             findViewById.setOnClickListener(this.componentListener);
         }
-        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090953);
+        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090963);
         this.pauseButton = findViewById2;
         if (findViewById2 != null) {
             findViewById2.setOnClickListener(this.componentListener);
         }
-        View findViewById3 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090956);
+        View findViewById3 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090966);
         this.previousButton = findViewById3;
         if (findViewById3 != null) {
             findViewById3.setOnClickListener(this.componentListener);
         }
-        View findViewById4 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090951);
+        View findViewById4 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090961);
         this.nextButton = findViewById4;
         if (findViewById4 != null) {
             findViewById4.setOnClickListener(this.componentListener);
         }
-        View findViewById5 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090959);
+        View findViewById5 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090969);
         this.rewindButton = findViewById5;
         if (findViewById5 != null) {
             findViewById5.setOnClickListener(this.componentListener);
         }
-        View findViewById6 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090950);
+        View findViewById6 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090960);
         this.fastForwardButton = findViewById6;
         if (findViewById6 != null) {
             findViewById6.setOnClickListener(this.componentListener);
         }
-        ImageView imageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090958);
+        ImageView imageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090968);
         this.repeatToggleButton = imageView;
         if (imageView != null) {
             imageView.setOnClickListener(this.componentListener);
         }
-        View findViewById7 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095a);
+        View findViewById7 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09096a);
         this.shuffleButton = findViewById7;
         if (findViewById7 != null) {
             findViewById7.setOnClickListener(this.componentListener);
@@ -657,9 +660,9 @@ public class PlaybackControlView extends FrameLayout {
         this.repeatOffButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ef);
         this.repeatOneButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f0);
         this.repeatAllButtonDrawable = resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804ee);
-        this.repeatOffButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05e8);
-        this.repeatOneButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05e9);
-        this.repeatAllButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05e7);
+        this.repeatOffButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05eb);
+        this.repeatOneButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05ec);
+        this.repeatAllButtonContentDescription = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05ea);
     }
 
     private void seekTo(long j) {
@@ -682,7 +685,7 @@ public class PlaybackControlView extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public void setControlDispatcher(com.google.android.exoplayer2.ControlDispatcher controlDispatcher) {
+    public void setControlDispatcher(@Nullable com.google.android.exoplayer2.ControlDispatcher controlDispatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, controlDispatcher) == null) {
             if (controlDispatcher == null) {
@@ -786,7 +789,7 @@ public class PlaybackControlView extends FrameLayout {
         view2.setVisibility(0);
     }
 
-    public void setExtraAdGroupMarkers(long[] jArr, boolean[] zArr) {
+    public void setExtraAdGroupMarkers(@Nullable long[] jArr, @Nullable boolean[] zArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, jArr, zArr) == null) {
             boolean z = false;

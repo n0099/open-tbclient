@@ -9,32 +9,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
-public class ThrottlingProducer implements Producer {
+public class ThrottlingProducer<T> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "ThrottlingProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
-    public final Producer mInputProducer;
+    public final Producer<T> mInputProducer;
     public final int mMaxSimultaneousRequests;
+    @GuardedBy("this")
     public int mNumCurrentRequests;
-    public final ConcurrentLinkedQueue mPendingRequests;
+    @GuardedBy("this")
+    public final ConcurrentLinkedQueue<Pair<Consumer<T>, ProducerContext>> mPendingRequests;
 
     /* renamed from: com.facebook.imagepipeline.producers.ThrottlingProducer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class ThrottlerConsumer extends DelegatingConsumer {
+    public class ThrottlerConsumer extends DelegatingConsumer<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThrottlingProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ThrottlerConsumer(ThrottlingProducer throttlingProducer, Consumer consumer) {
+        public ThrottlerConsumer(ThrottlingProducer throttlingProducer, Consumer<T> consumer) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -127,10 +130,10 @@ public class ThrottlingProducer implements Producer {
         }
 
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(Object obj, int i) {
+        public void onNewResultImpl(T t, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, obj, i) == null) {
-                getConsumer().onNewResult(obj, i);
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, t, i) == null) {
+                getConsumer().onNewResult(t, i);
                 if (BaseConsumer.isLast(i)) {
                     onRequestFinished();
                 }
@@ -138,7 +141,7 @@ public class ThrottlingProducer implements Producer {
         }
     }
 
-    public ThrottlingProducer(int i, Executor executor, Producer producer) {
+    public ThrottlingProducer(int i, Executor executor, Producer<T> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +159,7 @@ public class ThrottlingProducer implements Producer {
         this.mMaxSimultaneousRequests = i;
         this.mExecutor = (Executor) Preconditions.checkNotNull(executor);
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
-        this.mPendingRequests = new ConcurrentLinkedQueue();
+        this.mPendingRequests = new ConcurrentLinkedQueue<>();
         this.mNumCurrentRequests = 0;
     }
 
@@ -167,7 +170,7 @@ public class ThrottlingProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<T> consumer, ProducerContext producerContext) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
@@ -187,7 +190,7 @@ public class ThrottlingProducer implements Producer {
         }
     }
 
-    public void produceResultsInternal(Consumer consumer, ProducerContext producerContext) {
+    public void produceResultsInternal(Consumer<T> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
             producerContext.getProducerListener().onProducerFinishWithSuccess(producerContext, PRODUCER_NAME, null);

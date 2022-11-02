@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@NotProguard
 /* loaded from: classes2.dex */
 public abstract class InspectorNativeChannel {
     public static /* synthetic */ Interceptable $ic;

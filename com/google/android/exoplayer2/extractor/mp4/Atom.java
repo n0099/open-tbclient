@@ -186,12 +186,12 @@ public abstract class Atom {
     }
 
     /* loaded from: classes7.dex */
-    public final class ContainerAtom extends Atom {
+    public static final class ContainerAtom extends Atom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List containerChildren;
+        public final List<ContainerAtom> containerChildren;
         public final long endPosition;
-        public final List leafChildren;
+        public final List<LeafAtom> leafChildren;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ContainerAtom(int i, long j) {
@@ -229,7 +229,7 @@ public abstract class Atom {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
                 int size = this.containerChildren.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    ContainerAtom containerAtom = (ContainerAtom) this.containerChildren.get(i2);
+                    ContainerAtom containerAtom = this.containerChildren.get(i2);
                     if (containerAtom.type == i) {
                         return containerAtom;
                     }
@@ -245,7 +245,7 @@ public abstract class Atom {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
                 int size = this.leafChildren.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    LeafAtom leafAtom = (LeafAtom) this.leafChildren.get(i2);
+                    LeafAtom leafAtom = this.leafChildren.get(i2);
                     if (leafAtom.type == i) {
                         return leafAtom;
                     }
@@ -269,13 +269,13 @@ public abstract class Atom {
                 int size = this.leafChildren.size();
                 int i2 = 0;
                 for (int i3 = 0; i3 < size; i3++) {
-                    if (((LeafAtom) this.leafChildren.get(i3)).type == i) {
+                    if (this.leafChildren.get(i3).type == i) {
                         i2++;
                     }
                 }
                 int size2 = this.containerChildren.size();
                 for (int i4 = 0; i4 < size2; i4++) {
-                    if (((ContainerAtom) this.containerChildren.get(i4)).type == i) {
+                    if (this.containerChildren.get(i4).type == i) {
                         i2++;
                     }
                 }
@@ -296,7 +296,7 @@ public abstract class Atom {
     }
 
     /* loaded from: classes7.dex */
-    public final class LeafAtom extends Atom {
+    public static final class LeafAtom extends Atom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ParsableByteArray data;

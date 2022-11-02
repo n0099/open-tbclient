@@ -13,20 +13,20 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class MaybeFilter extends AbstractMaybeWithUpstream {
+public final class MaybeFilter<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
+    public final Predicate<? super T> predicate;
 
     /* loaded from: classes8.dex */
-    public final class FilterMaybeObserver implements MaybeObserver, Disposable {
+    public static final class FilterMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public Disposable d;
-        public final Predicate predicate;
+        public final Predicate<? super T> predicate;
 
-        public FilterMaybeObserver(MaybeObserver maybeObserver, Predicate predicate) {
+        public FilterMaybeObserver(MaybeObserver<? super T> maybeObserver, Predicate<? super T> predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,12 +91,12 @@ public final class MaybeFilter extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 try {
-                    if (this.predicate.test(obj)) {
-                        this.actual.onSuccess(obj);
+                    if (this.predicate.test(t)) {
+                        this.actual.onSuccess(t);
                     } else {
                         this.actual.onComplete();
                     }
@@ -109,7 +109,7 @@ public final class MaybeFilter extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeFilter(MaybeSource maybeSource, Predicate predicate) {
+    public MaybeFilter(MaybeSource<T> maybeSource, Predicate<? super T> predicate) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,7 +130,7 @@ public final class MaybeFilter extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new FilterMaybeObserver(maybeObserver, this.predicate));

@@ -18,30 +18,30 @@ import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCollect extends AbstractFlowableWithUpstream {
+public final class FlowableCollect<T, U> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiConsumer collector;
-    public final Callable initialSupplier;
+    public final BiConsumer<? super U, ? super T> collector;
+    public final Callable<? extends U> initialSupplier;
 
     /* loaded from: classes8.dex */
-    public final class CollectSubscriber extends DeferredScalarSubscription implements FlowableSubscriber {
+    public static final class CollectSubscriber<T, U> extends DeferredScalarSubscription<U> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3589550218733891694L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiConsumer collector;
+        public final BiConsumer<? super U, ? super T> collector;
         public boolean done;
         public Subscription s;
-        public final Object u;
+        public final U u;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CollectSubscriber(Subscriber subscriber, Object obj, BiConsumer biConsumer) {
+        public CollectSubscriber(Subscriber<? super U> subscriber, U u, BiConsumer<? super U, ? super T> biConsumer) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, obj, biConsumer};
+                Object[] objArr = {subscriber, u, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,7 +53,7 @@ public final class FlowableCollect extends AbstractFlowableWithUpstream {
                 }
             }
             this.collector = biConsumer;
-            this.u = obj;
+            this.u = u;
         }
 
         @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
@@ -88,14 +88,15 @@ public final class FlowableCollect extends AbstractFlowableWithUpstream {
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: U, ? super U */
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.done) {
                 return;
             }
             try {
-                this.collector.accept(this.u, obj);
+                this.collector.accept((U) this.u, t);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.cancel();
@@ -115,7 +116,7 @@ public final class FlowableCollect extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableCollect(Flowable flowable, Callable callable, BiConsumer biConsumer) {
+    public FlowableCollect(Flowable<T> flowable, Callable<? extends U> callable, BiConsumer<? super U, ? super T> biConsumer) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -137,7 +138,7 @@ public final class FlowableCollect extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super U> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

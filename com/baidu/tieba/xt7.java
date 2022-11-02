@@ -1,79 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.SingleThreadEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.NewTopicList;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class xt7 implements eo {
+public class xt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public String c;
-    public String d;
-    public long e;
-    public String f;
-    public int g;
-    public int h;
+    public SingleThreadEmotionHorizontalAdater a;
+    public BdListView b;
+    public du7 c;
+    public List<EmotionPackageData> d;
 
-    public xt7(NewTopicList newTopicList, int i) {
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public xt7(TbPageContext<?> tbPageContext, BdListView bdListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newTopicList, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, bdListView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i + 1;
-        this.c = newTopicList.topic_name;
-        this.d = newTopicList.topic_desc;
-        this.e = newTopicList.discuss_num.longValue();
-        this.f = newTopicList.topic_image;
-        this.g = newTopicList.topic_tag.intValue();
-        this.a = newTopicList.topic_id.longValue();
-        this.h = newTopicList.is_video_topic.intValue();
+        this.b = bdListView;
+        du7 du7Var = new du7(tbPageContext);
+        this.c = du7Var;
+        du7Var.c(TbadkCoreApplication.getInst().getSkinType());
+        this.b.addHeaderView(this.c.b());
+        this.d = new ArrayList();
+        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.d, tbPageContext);
+        this.a = singleThreadEmotionHorizontalAdater;
+        this.b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void update(List<EmotionPackageData> list) {
+        du7 du7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.h == 1) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && (du7Var = this.c) != null && this.a != null) {
+            du7Var.update(Integer.valueOf(list.size()));
+            this.d.clear();
+            if (list != null) {
+                this.d.addAll(list);
             }
-            return false;
+            this.a.notifyDataSetChanged();
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return wt7.a;
-        }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

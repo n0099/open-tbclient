@@ -14,9 +14,9 @@ import java.util.HashMap;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
-    public static HashMap b;
-    public static ArrayList c;
-    public static HashMap d;
+    public static HashMap<String, Object> b;
+    public static ArrayList<Integer> c;
+    public static HashMap<String, Integer> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,9 +32,9 @@ public class a {
                 return;
             }
         }
-        b = new HashMap();
-        c = new ArrayList();
-        d = new HashMap();
+        b = new HashMap<>();
+        c = new ArrayList<>();
+        d = new HashMap<>();
     }
 
     public a() {
@@ -60,21 +60,21 @@ public class a {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            HashMap hashMap = d;
+            HashMap<String, Integer> hashMap = d;
             if (hashMap != null && !hashMap.containsKey(str)) {
                 d.put(str, 1);
                 return;
             }
-            HashMap hashMap2 = d;
+            HashMap<String, Integer> hashMap2 = d;
             if (hashMap2 == null || !hashMap2.containsKey(str)) {
                 return;
             }
-            d.put(str, Integer.valueOf(((Integer) d.get(str)).intValue() + 1));
+            d.put(str, Integer.valueOf(d.get(str).intValue() + 1));
         }
     }
 
     public static void a(String str, Object obj) {
-        HashMap hashMap;
+        HashMap<String, Object> hashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj) == null) || (hashMap = b) == null || hashMap.containsKey(str)) {
             return;
@@ -85,14 +85,14 @@ public class a {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            b = new HashMap();
-            c = new ArrayList();
-            d = new HashMap();
+            b = new HashMap<>();
+            c = new ArrayList<>();
+            d = new HashMap<>();
         }
     }
 
     public static void b(String str, Object obj) {
-        HashMap hashMap;
+        HashMap<String, Object> hashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65542, null, str, obj) == null) || (hashMap = b) == null) {
             return;

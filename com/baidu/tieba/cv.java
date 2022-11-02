@@ -1,52 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import androidx.annotation.CallSuper;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class cv implements ys {
+public class cv implements dv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qp a;
 
-    public cv(qp qpVar) {
+    public cv() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = qpVar;
     }
 
-    @Override // com.baidu.tieba.ys
-    public ws a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dv
+    @CallSuper
+    public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
+        ns b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.l();
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) && taskBuoyViewData.getTaskStatus().isFinished()) {
+            if (view2.getParent() != null) {
+                view2.setVisibility(8);
+            }
+            hu v = BDPTask.m.v();
+            if (v != null && (b = v.b()) != null) {
+                b.a(taskBuoyViewData.getScheme(), 3);
+            }
         }
-        return (ws) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ys
-    public xs b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.s();
-        }
-        return (xs) invokeV.objValue;
     }
 }

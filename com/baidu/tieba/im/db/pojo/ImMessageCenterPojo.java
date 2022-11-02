@@ -6,10 +6,10 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.bd7;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ps4;
+import com.baidu.tieba.gt4;
+import com.baidu.tieba.le7;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class ImMessageCenterPojo implements Serializable {
     public String group_head;
     public String group_name;
     public int group_type;
-    public ps4 imUserExtraData;
+    public gt4 imUserExtraData;
     public int isFriend;
     public boolean isSelf;
     public int is_delete;
@@ -152,13 +152,13 @@ public class ImMessageCenterPojo implements Serializable {
         return invokeV.intValue;
     }
 
-    public ps4 getImUserExtraData() {
+    public gt4 getImUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.imUserExtraData;
         }
-        return (ps4) invokeV.objValue;
+        return (gt4) invokeV.objValue;
     }
 
     public int getIsFriend() {
@@ -411,7 +411,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (userData == null) {
                 return null;
             }
-            if (ej.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
+            if (wi.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
                 oldUserData2.setToUserData(userData);
             }
             String toUid = commonMsgPojo.getToUid();
@@ -420,7 +420,7 @@ public class ImMessageCenterPojo implements Serializable {
             }
             if (currentAccount.equals(commonMsgPojo.getUid())) {
                 if (userData2 != null) {
-                    if (ej.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
+                    if (wi.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
                         oldUserData.setToUserData(userData2);
                     }
                     imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -435,7 +435,7 @@ public class ImMessageCenterPojo implements Serializable {
                 imMessageCenterPojo.setBjhAvatar(userData.getImBjhAvatar());
             }
             boolean z = false;
-            if (eh.g(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
+            if (wg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
                 i = userData.getUserType();
             } else if (userData2 != null) {
                 i = userData2.getUserType();
@@ -450,7 +450,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(bd7.A(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(le7.A(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -522,10 +522,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setImUserExtraData(ps4 ps4Var) {
+    public void setImUserExtraData(gt4 gt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, ps4Var) == null) {
-            this.imUserExtraData = ps4Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, gt4Var) == null) {
+            this.imUserExtraData = gt4Var;
         }
     }
 

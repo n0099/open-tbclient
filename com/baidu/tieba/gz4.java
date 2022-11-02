@@ -1,11 +1,13 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes4.dex */
 public interface gz4 {
-    void a(int i, float f);
+    void a(cz4 cz4Var);
 
-    void b(int i, float f);
+    View getView();
 
-    void c(int i, float f);
+    void onDismiss();
 
-    void d(int i, float f);
+    void onShow();
 }

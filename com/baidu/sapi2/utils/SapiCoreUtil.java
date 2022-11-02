@@ -1,5 +1,6 @@
 package com.baidu.sapi2.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
@@ -9,6 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiWebView;
@@ -93,6 +95,7 @@ public class SapiCoreUtil {
     /* JADX WARN: Code restructure failed: missing block: B:61:?, code lost:
         return true;
      */
+    @TargetApi(4)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -204,7 +207,7 @@ public class SapiCoreUtil {
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str4) == null) {
                             super.onPageFinished(webView2, str4);
                             if (Build.VERSION.SDK_INT >= 19) {
-                                this.val$webView.evaluateJavascript(this.val$callJs, new ValueCallback(this) { // from class: com.baidu.sapi2.utils.SapiCoreUtil.1.1
+                                this.val$webView.evaluateJavascript(this.val$callJs, new ValueCallback<String>(this) { // from class: com.baidu.sapi2.utils.SapiCoreUtil.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass1 this$0;
@@ -343,7 +346,7 @@ public class SapiCoreUtil {
             }
             HashMap hashMap = new HashMap();
             hashMap.put("r", 4);
-            hashMap.put("w", 2);
+            hashMap.put(Config.DEVICE_WIDTH, 2);
             int i = 1;
             hashMap.put("x", 1);
             hashMap.put("-", 0);

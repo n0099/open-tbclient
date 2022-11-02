@@ -9,8 +9,9 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.qs4;
-import com.baidu.tieba.xf8;
+import com.baidu.tieba.hh8;
+import com.baidu.tieba.ht4;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,8 +32,8 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList threadList;
-    public HashMap userMap;
+    public ArrayList<wn> threadList;
+    public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadMoreHttpResponseMessage(int i) {
@@ -71,7 +72,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                     return;
                 }
                 if (ListUtils.getCount(dataRes.user_list) > 0) {
-                    this.userMap = new HashMap();
+                    this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
                         for (int i2 = 0; i2 < list.size(); i2++) {
@@ -96,7 +97,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                     z = false;
                 }
                 if (ListUtils.getCount(threadListResIdl.data.thread_list) > 0) {
-                    this.threadList = new ArrayList();
+                    this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         ArrayList arrayList = new ArrayList();
@@ -109,18 +110,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             threadData.parser_title();
                             threadData.isFromBrandForum = z;
                             if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                                qs4 qs4Var = new qs4();
-                                qs4Var.h(threadData.getLegoCard());
-                                this.threadList.add(qs4Var);
+                                ht4 ht4Var = new ht4();
+                                ht4Var.h(threadData.getLegoCard());
+                                this.threadList.add(ht4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = xf8.b(threadInfo);
+                                JSONObject b = hh8.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        xf8.f().h("FRS", arrayList);
+                        hh8.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;
@@ -145,7 +146,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
         return (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList getThreadList() {
+    public ArrayList<wn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

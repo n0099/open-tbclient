@@ -26,7 +26,7 @@ public abstract class SoSource {
     public static final int PREPARE_FLAG_FORCE_REFRESH = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void addToLdLibraryPath(Collection collection) {
+    public void addToLdLibraryPath(Collection<String> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
         }

@@ -3,6 +3,8 @@ package com.kwad.components.ad.splashscreen;
 import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,11 +26,12 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class KsSplashScreenAdControl extends AbstrackKsSplashScreenAd implements com.kwad.components.core.internal.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final AdTemplate mAdTemplate;
     public AdResultData xR;
     public KsScene xS;
 
-    public KsSplashScreenAdControl(KsScene ksScene, AdResultData adResultData) {
+    public KsSplashScreenAdControl(@NonNull KsScene ksScene, @NonNull AdResultData adResultData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +48,7 @@ public class KsSplashScreenAdControl extends AbstrackKsSplashScreenAd implements
         }
         this.xR = adResultData;
         this.xS = ksScene;
-        this.mAdTemplate = (AdTemplate) adResultData.getAdTemplateList().get(0);
+        this.mAdTemplate = adResultData.getAdTemplateList().get(0);
     }
 
     @Override // com.kwad.components.core.internal.api.a
@@ -62,7 +65,9 @@ public class KsSplashScreenAdControl extends AbstrackKsSplashScreenAd implements
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.aq(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate)) : invokeV.intValue;
     }
 
+    @NonNull
     @KsAdSdkDynamicApi
+    @Keep
     public KsFragment getFragment2(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -91,6 +96,7 @@ public class KsSplashScreenAdControl extends AbstrackKsSplashScreenAd implements
     }
 
     @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
+    @NonNull
     public View getView2(Context context, KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -122,7 +128,7 @@ public class KsSplashScreenAdControl extends AbstrackKsSplashScreenAd implements
     public boolean isVideo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? com.kwad.sdk.core.response.a.a.aB(com.kwad.sdk.core.response.a.d.bQ((AdTemplate) this.xR.getAdTemplateList().get(0))) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? com.kwad.sdk.core.response.a.a.aB(com.kwad.sdk.core.response.a.d.bQ(this.xR.getAdTemplateList().get(0))) : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd

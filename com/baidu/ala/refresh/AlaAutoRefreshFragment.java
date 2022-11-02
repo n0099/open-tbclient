@@ -9,7 +9,7 @@ import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusRequestMessage;
 import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusSocketResponseMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.pb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,11 +19,11 @@ import java.util.List;
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qb mLiveStatusMsgListener;
+    public pb mLiveStatusMsgListener;
 
-    public abstract List getCurrentLiveIds();
+    public abstract List<Long> getCurrentLiveIds();
 
-    public abstract void processCloseLives(List list);
+    public abstract void processCloseLives(List<Long> list);
 
     public AlaAutoRefreshFragment() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
                 return;
             }
         }
-        this.mLiveStatusMsgListener = new qb(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
+        this.mLiveStatusMsgListener = new pb(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AlaAutoRefreshFragment this$0;
@@ -65,13 +65,13 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.qb
-            public void onMessage(ResponsedMessage responsedMessage) {
+            @Override // com.baidu.tieba.pb
+            public void onMessage(ResponsedMessage<?> responsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage().getTag() != this.this$0.getUniqueId()) {
                     return;
                 }
-                List list = null;
+                List<Long> list = null;
                 if (responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
                     list = ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds();
                 } else if (responsedMessage instanceof AlaMGetLiveStatusSocketResponseMessage) {
@@ -85,7 +85,7 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
     }
 
     public void refreshCurrentPage() {
-        List currentLiveIds;
+        List<Long> currentLiveIds;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (currentLiveIds = getCurrentLiveIds()) != null && !currentLiveIds.isEmpty()) {
             AlaMGetLiveStatusRequestMessage alaMGetLiveStatusRequestMessage = new AlaMGetLiveStatusRequestMessage();

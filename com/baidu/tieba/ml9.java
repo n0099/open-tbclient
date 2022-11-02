@@ -1,243 +1,279 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.mr9;
-import com.baidu.tieba.sl9;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.Module;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.nio.charset.Charset;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-import java.util.UUID;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ml9 {
+public class ml9 {
     public static /* synthetic */ Interceptable $ic;
-    public static sl9 a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public float g;
+    public List<ol9> h;
+    public Map<String, nl9> i;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(kl9 kl9Var);
-    }
-
-    public static rl9 a(Random random, List list, tl9 tl9Var) {
-        InterceptResult invokeLLL;
+    public void n(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, list, tl9Var)) == null) {
-            if (random == null || list == null || list.isEmpty()) {
-                return null;
-            }
-            LogPrinter.v("Start select for class:%s with size:%d", ((rl9) list.iterator().next()).getClass().getSimpleName(), Integer.valueOf(list.size()));
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            rl9 rl9Var = null;
-            for (int i = 0; i < size; i++) {
-                rl9 rl9Var2 = (rl9) list.get(i);
-                if (tl9Var != null) {
-                    if (!tl9Var.a(rl9Var2)) {
-                        continue;
-                    }
-                    if (rl9Var == null && rl9Var2.b() != rl9Var.b()) {
-                        break;
-                    }
-                    arrayList.add(rl9Var2);
-                    rl9Var = rl9Var2;
-                } else {
-                    if (!rl9Var2.a()) {
-                        continue;
-                    }
-                    if (rl9Var == null) {
-                    }
-                    arrayList.add(rl9Var2);
-                    rl9Var = rl9Var2;
-                }
-            }
-            if (arrayList.isEmpty()) {
-                LogPrinter.v("No one is selected", new Object[0]);
-                return null;
-            }
-            return (rl9) arrayList.get(random.nextInt(arrayList.size()));
+        if (interceptable == null || interceptable.invokeL(1048589, this, map) == null) {
         }
-        return (rl9) invokeLLL.objValue;
     }
 
-    public static boolean g(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        sl9 sl9Var;
-        boolean z;
-        boolean z2;
+    public void o(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
-            if (str == null || jSONObject == null || (sl9Var = a) == null) {
-                return false;
-            }
-            for (sl9.a aVar : sl9Var.a) {
-                if (str.equals(aVar.a)) {
-                    for (Map.Entry entry : aVar.b.entrySet()) {
-                        Object opt = jSONObject.opt((String) entry.getKey());
-                        if (opt != null) {
-                            Iterator it = ((Set) entry.getValue()).iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    if (opt.equals(it.next())) {
-                                        z2 = true;
-                                        continue;
-                                        break;
-                                    }
-                                } else {
-                                    z2 = false;
-                                    continue;
-                                    break;
-                                }
-                            }
-                            if (!z2) {
-                            }
-                        }
-                        z = false;
-                    }
-                    z = true;
-                    if (z) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
         }
-        return invokeLL.booleanValue;
     }
 
-    public static Object b(String str, zq9 zq9Var) {
-        InterceptResult invokeLL;
-        byte[] decode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, zq9Var)) == null) {
-            if (str == null || zq9Var == null || (decode = Base64.decode(str, 0)) == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976655, "Lcom/baidu/tieba/ml9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                return zq9Var.a(new ObjectInputStream(new ByteArrayInputStream(decode)));
-            } catch (IOException e) {
-                LogPrinter.e(e);
-                return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947976655, "Lcom/baidu/tieba/ml9;");
+                return;
             }
         }
-        return invokeLL.objValue;
+        AppConfig.isDebug();
     }
 
-    public static String c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
-                String string = defaultSharedPreferences.getString("u_tok", "");
-                if (TextUtils.isEmpty(string)) {
-                    string = UUID.randomUUID().toString();
-                    try {
-                        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                        messageDigest.update(string.getBytes(Charset.forName("UTF-8")));
-                        string = Base64.encodeToString(messageDigest.digest(), 2);
-                    } catch (Throwable unused) {
-                        if (string.length() >= 24) {
-                            string = string.substring(0, 24);
-                        }
-                    }
-                    defaultSharedPreferences.edit().putString("u_tok", string).apply();
-                }
-                b = string;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.equals("1", this.b)) {
+                this.b = "0";
             }
-            return b;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0020 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0021  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String d(br9 br9Var) {
-        InterceptResult invokeL;
-        byte[] bArr;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, br9Var)) == null) {
-            if (br9Var != null) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                    br9Var.srzable(objectOutputStream);
-                    objectOutputStream.flush();
-                    bArr = byteArrayOutputStream.toByteArray();
-                } catch (IOException unused) {
-                }
-                if (bArr != null) {
-                    return null;
-                }
-                return Base64.encodeToString(bArr, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.equals("0", this.a)) {
+                this.a = "1";
             }
-            bArr = null;
-            if (bArr != null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map<String, nl9> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            float f = this.g;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.g = 20.0f;
             }
-        } else {
-            return (String) invokeL.objValue;
+            return this.g;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            float f = this.d;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.d = 1.0f;
+            }
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<ol9> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            float f = this.e;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.e = 20.0f;
+            }
+            return this.e;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            float f = this.f;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.f = 7.0f;
+            }
+            return this.f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            float f = this.c;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.c = 100.0f;
+            }
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return TextUtils.equals("1", a());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return TextUtils.equals("1", b());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a = "1";
+            this.b = "0";
+            this.c = 100.0f;
+            this.d = 1.0f;
+            this.e = 20.0f;
+            this.f = 7.0f;
+            this.g = 20.0f;
         }
     }
 
-    public static void e(long j, a aVar, FunAdConfig funAdConfig, Map map) {
+    public ml9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), aVar, funAdConfig, map}) == null) {
-            mr9.a aVar2 = mr9.a;
-            aVar2.a = System.currentTimeMillis() - 0;
-            aVar2.b = SystemClock.currentThreadTimeMillis() - 0;
-            LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - j));
-            funAdConfig.moduleInitManager.tryCallbackComplete();
-            aVar.a(new kl9(map));
-        }
-    }
-
-    public static void f(String str, String str2, FunAdConfig funAdConfig, Map map, String str3) {
-        Module module;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, str2, funAdConfig, map, str3) == null) {
-            try {
-                module = (Module) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0]);
-                LogPrinter.d("Module for %s created", str2);
-            } catch (Exception e) {
-                LogPrinter.e(e, "Module for %s not found", str2);
-                module = null;
-            }
-            if (module == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            PidLoaderCreator init = module.init(funAdConfig, str3);
-            if (init == null) {
-                LogPrinter.e("Module for %s init failed", str);
-            } else {
-                map.put(str, init);
-            }
+        }
+        this.h = new ArrayList();
+        new ArrayList();
+        new HashMap();
+        this.i = new HashMap();
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void q(Map<String, nl9> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, map) == null) {
+            this.i = map;
+        }
+    }
+
+    public void r(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
+            this.g = f;
+        }
+    }
+
+    public void s(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            this.d = f;
+        }
+    }
+
+    public void t(List<ol9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+            this.h = list;
+        }
+    }
+
+    public void u(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+            this.e = f;
+        }
+    }
+
+    public void v(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    public void w(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
+            this.c = f;
         }
     }
 }

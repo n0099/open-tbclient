@@ -60,7 +60,7 @@ public class HTTPMgr {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String[] doHttpURLConnection(String str, String str2, HashMap hashMap, String str3) {
+    public static String[] doHttpURLConnection(String str, String str2, HashMap<String, String> hashMap, String str3) {
         InterceptResult invokeLLLL;
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2;
@@ -79,7 +79,7 @@ public class HTTPMgr {
                     if (hashMap != null) {
                         try {
                             for (String str4 : hashMap.keySet()) {
-                                httpURLConnection.addRequestProperty(str4, (String) hashMap.get(str4));
+                                httpURLConnection.addRequestProperty(str4, hashMap.get(str4));
                             }
                         } catch (Exception e) {
                             e = e;
@@ -161,7 +161,7 @@ public class HTTPMgr {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String[] doHttpsURLConnection(String str, String str2, String str3, HashMap hashMap, String str4) {
+    public static String[] doHttpsURLConnection(String str, String str2, String str3, HashMap<String, String> hashMap, String str4) {
         InterceptResult invokeLLLLL;
         HttpsURLConnection httpsURLConnection;
         HttpsURLConnection httpsURLConnection2;
@@ -182,7 +182,7 @@ public class HTTPMgr {
                         httpsURLConnection.setSSLSocketFactory(new TlsOnlySocketFactory());
                         if (hashMap != null) {
                             for (String str5 : hashMap.keySet()) {
-                                httpsURLConnection.addRequestProperty(str5, (String) hashMap.get(str5));
+                                httpsURLConnection.addRequestProperty(str5, hashMap.get(str5));
                             }
                         }
                         httpsURLConnection.setRequestMethod(str4);
@@ -308,7 +308,7 @@ public class HTTPMgr {
         }
     }
 
-    public static String[] getHttp(String str, HashMap hashMap) {
+    public static String[] getHttp(String str, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, hashMap)) == null) {
@@ -317,7 +317,7 @@ public class HTTPMgr {
         return (String[]) invokeLL.objValue;
     }
 
-    public static String[] headHttp(String str, HashMap hashMap) {
+    public static String[] headHttp(String str, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, hashMap)) == null) {
@@ -326,7 +326,7 @@ public class HTTPMgr {
         return (String[]) invokeLL.objValue;
     }
 
-    public static String[] getHttps(String str, String str2, HashMap hashMap) {
+    public static String[] getHttps(String str, String str2, HashMap<String, String> hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, hashMap)) == null) {
@@ -335,7 +335,7 @@ public class HTTPMgr {
         return (String[]) invokeLLL.objValue;
     }
 
-    public static String[] postHttp(String str, String str2, HashMap hashMap) {
+    public static String[] postHttp(String str, String str2, HashMap<String, String> hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, str, str2, hashMap)) == null) {
@@ -366,7 +366,7 @@ public class HTTPMgr {
         return (String) invokeL.objValue;
     }
 
-    public static String[] post(String str, String str2, HashMap hashMap, boolean z) {
+    public static String[] post(String str, String str2, HashMap<String, String> hashMap, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, hashMap, Boolean.valueOf(z)})) == null) {
@@ -457,7 +457,7 @@ public class HTTPMgr {
         }
     }
 
-    public static String[] postSniHttps(String str, String str2, String str3, HashMap hashMap) {
+    public static String[] postSniHttps(String str, String str2, String str3, HashMap<String, String> hashMap) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, str, str2, str3, hashMap)) == null) {

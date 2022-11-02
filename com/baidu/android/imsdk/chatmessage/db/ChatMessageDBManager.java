@@ -7,11 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordManager;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
@@ -63,10 +63,10 @@ public class ChatMessageDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     public static final String TAG = "ChatMessageDBManager";
-    public static final List UNUPDATE_SESSION_MSG_TYPES;
+    public static final List<Integer> UNUPDATE_SESSION_MSG_TYPES;
     public static ChatMessageDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mObservers;
+    public List<ChatMessageDbOberser> mObservers;
 
     /* loaded from: classes.dex */
     public interface ChatMessageDbOberser {
@@ -92,7 +92,7 @@ public class ChatMessageDBManager extends DBBase {
                 return;
             }
         }
-        UNUPDATE_SESSION_MSG_TYPES = Arrays.asList(Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2014, 2001, 36);
+        UNUPDATE_SESSION_MSG_TYPES = Arrays.asList(2012, 2014, 2001, 36);
     }
 
     public long deleteExpiredDupMsgs() {
@@ -337,7 +337,7 @@ public class ChatMessageDBManager extends DBBase {
         return (String) invokeCommon.objValue;
     }
 
-    public ArrayList getChatRecords(long j, long j2, long j3) {
+    public ArrayList<ChatSession> getChatRecords(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
@@ -347,7 +347,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList getMaxMsgidByChatTypes(List list, long j, int i) {
+    public ArrayList<ChatMsg> getMaxMsgidByChatTypes(List<Integer> list, long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) == null) {
@@ -362,7 +362,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList getNotificationMsgDataList(SparseArray sparseArray, long j, int i) {
+    public ArrayList<ChatMsg> getNotificationMsgDataList(SparseArray<List<Integer>> sparseArray, long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048627, this, new Object[]{sparseArray, Long.valueOf(j), Integer.valueOf(i)})) == null) {
@@ -371,7 +371,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    private long addReliableMsg(TextMsg textMsg) {
+    private long addReliableMsg(@NonNull TextMsg textMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textMsg)) == null) {
@@ -444,7 +444,7 @@ public class ChatMessageDBManager extends DBBase {
                             }
                             for (long j2 : jArr) {
                                 long j3 = j2 + 1;
-                                openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j3), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, 2014});
+                                openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j3), 2012, 2001, 2014});
                                 LogUtils.e(TAG, "delete notSendButShowTipMsg :delete from message where msgid=? and type in (?, ?, ?), msgId :" + j3);
                             }
                         } catch (Exception e3) {
@@ -592,7 +592,7 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int getNewMsgCount(List list) {
+    public int getNewMsgCount(List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, list)) == null) {
@@ -671,43 +671,43 @@ public class ChatMessageDBManager extends DBBase {
         return invokeL.intValue;
     }
 
-    public void recordLastMsg(HashMap hashMap) {
+    public void recordLastMsg(HashMap<ChatObject, Integer> hashMap) {
         int i;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, hashMap) == null) {
             LogUtils.d(TAG, "recordReceiveLastMsg");
-            for (Map.Entry entry : hashMap.entrySet()) {
-                ChatObject chatObject = (ChatObject) entry.getKey();
-                int intValue = ((Integer) entry.getValue()).intValue();
-                ArrayList fetchMsgExcludeTypes = fetchMsgExcludeTypes((ChatObject) entry.getKey(), 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
+            for (Map.Entry<ChatObject, Integer> entry : hashMap.entrySet()) {
+                ChatObject key = entry.getKey();
+                int intValue = entry.getValue().intValue();
+                ArrayList<ChatMsg> fetchMsgExcludeTypes = fetchMsgExcludeTypes(entry.getKey(), 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
                 if (fetchMsgExcludeTypes.size() > 0) {
-                    ChatMsg chatMsg = (ChatMsg) fetchMsgExcludeTypes.get(0);
+                    ChatMsg chatMsg = fetchMsgExcludeTypes.get(0);
                     String recommendDescription = chatMsg.getRecommendDescription();
                     if (chatMsg instanceof HtmlMsg) {
                         recommendDescription = chatMsg.getLocalUrl();
                     }
                     String str2 = recommendDescription;
-                    long newMsgNum = getNewMsgNum(chatObject);
+                    long newMsgNum = getNewMsgNum(key);
                     if (newMsgNum >= 0) {
                         i = (int) (intValue + newMsgNum);
                     } else {
                         i = intValue;
                     }
                     int clickState = Utility.getClickState(chatMsg);
-                    if (chatObject.getCategory() == 0 && (chatObject.getContacter() & Constants.PAFLAG) != 0) {
+                    if (key.getCategory() == 0 && (key.getContacter() & Constants.PAFLAG) != 0) {
                         if (!chatMsg.isSelf(this.mContext)) {
                             str = chatMsg.getExtLog();
                         } else {
-                            ArrayList fetchMsg = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
+                            ArrayList<ChatMsg> fetchMsg = fetchMsg(key, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
                             if (fetchMsg != null && fetchMsg.size() > 0) {
-                                str = ((ChatMsg) fetchMsg.get(0)).getExtLog();
+                                str = fetchMsg.get(0).getExtLog();
                             }
                         }
-                        recordLastMsg(chatObject, str2, chatMsg.getMsgTime(), i, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
+                        recordLastMsg(key, str2, chatMsg.getMsgTime(), i, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
                     }
                     str = "";
-                    recordLastMsg(chatObject, str2, chatMsg.getMsgTime(), i, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
+                    recordLastMsg(key, str2, chatMsg.getMsgTime(), i, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
                 }
             }
         }
@@ -1040,16 +1040,16 @@ public class ChatMessageDBManager extends DBBase {
                     j4 = j12;
                     j5 = j13;
                     j6 = j14;
-                    ArrayList fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(0, j8, 1, (ChatMsg) null);
+                    ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(0, j8, 1, (ChatMsg) null);
                     if (fetchMessageSync != null && fetchMessageSync.size() > 0) {
-                        Iterator it = fetchMessageSync.iterator();
+                        Iterator<ChatMsg> it = fetchMessageSync.iterator();
                         while (it.hasNext()) {
-                            ChatMsg chatMsg = (ChatMsg) it.next();
-                            if (chatMsg != null) {
-                                if (AccountManager.getUid(this.mContext).equals(chatMsg.getSenderUid())) {
-                                    senderUid = chatMsg.getToBduid();
+                            ChatMsg next = it.next();
+                            if (next != null) {
+                                if (AccountManager.getUid(this.mContext).equals(next.getSenderUid())) {
+                                    senderUid = next.getToBduid();
                                 } else {
-                                    senderUid = chatMsg.getSenderUid();
+                                    senderUid = next.getSenderUid();
                                 }
                                 try {
                                     j7 = Long.valueOf(senderUid).longValue();
@@ -1287,7 +1287,7 @@ public class ChatMessageDBManager extends DBBase {
         return invokeLJ.intValue;
     }
 
-    public List setMsgReadByChatTypes(List list, long j) {
+    public List<Long> setMsgReadByChatTypes(List<Integer> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048639, this, list, j)) == null) {
@@ -1346,7 +1346,7 @@ public class ChatMessageDBManager extends DBBase {
         return (List) invokeLJ.objValue;
     }
 
-    public List setPaMsgReadByChatTypeAndSubType(SparseArray sparseArray, long j) {
+    public List<Long> setPaMsgReadByChatTypeAndSubType(SparseArray<List<Integer>> sparseArray, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048640, this, sparseArray, j)) == null) {
@@ -1498,7 +1498,7 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 try {
                     long j2 = j + 1;
-                    openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j2), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, 2014});
+                    openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j2), 2012, 2001, 2014});
                     String str = TAG;
                     LogUtils.e(str, "deleteChatMsg notSendButShowTipMsg :delete from message where _id=? and type in (?, ?, ?), rowId :" + j2);
                 } catch (Exception e2) {
@@ -1600,9 +1600,9 @@ public class ChatMessageDBManager extends DBBase {
                 if (update < 0) {
                     return update;
                 }
-                ArrayList fetchMsg = fetchMsg(new ChatObject(this.mContext, chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid(), -1), 0L, 1L, -1L);
+                ArrayList<ChatMsg> fetchMsg = fetchMsg(new ChatObject(this.mContext, chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid(), -1), 0L, 1L, -1L);
                 if (fetchMsg != null && fetchMsg.size() != 0) {
-                    if (chatMsg.getRowId() == ((ChatMsg) fetchMsg.get(0)).getRowId()) {
+                    if (chatMsg.getRowId() == fetchMsg.get(0).getRowId()) {
                         updateChatSession(chatMsg);
                     }
                     return update;
@@ -1731,10 +1731,10 @@ public class ChatMessageDBManager extends DBBase {
                 if (delete <= 0) {
                     return delete;
                 }
-                ArrayList fetchMsg = getInstance(this.mContext).fetchMsg(chatObject, 0L, 2L);
+                ArrayList<ChatMsg> fetchMsg = getInstance(this.mContext).fetchMsg(chatObject, 0L, 2L);
                 ChatMsg chatMsg = null;
                 if (fetchMsg != null && fetchMsg.size() > 0) {
-                    chatMsg = (ChatMsg) fetchMsg.get(0);
+                    chatMsg = fetchMsg.get(0);
                 } else if (fetchMsg != null) {
                     fetchMsg.size();
                 }
@@ -2180,7 +2180,7 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     public void updateChatSession(ChatMsg chatMsg) {
-        ArrayList fetchMsgExcludeTypes;
+        ArrayList<ChatMsg> fetchMsgExcludeTypes;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048645, this, chatMsg) == null) {
             ChatObject chatObject = new ChatObject(this.mContext, chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid(), chatMsg.getChatType());
@@ -2195,7 +2195,7 @@ public class ChatMessageDBManager extends DBBase {
                     }
                     if (fetchMsgExcludeTypes != null && fetchMsgExcludeTypes.size() > 0) {
                         int chatType = chatMsg.getChatType();
-                        ChatMsg chatMsg2 = (ChatMsg) fetchMsgExcludeTypes.get(0);
+                        ChatMsg chatMsg2 = fetchMsgExcludeTypes.get(0);
                         chatMsg2.setChatType(chatType);
                         chatMsg = chatMsg2;
                     }
@@ -2347,7 +2347,7 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private List getUnreadContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List list) {
+    private List<Long> getUnreadContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List<Integer> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, this, sQLiteDatabase, list)) == null) {
@@ -2489,12 +2489,12 @@ public class ChatMessageDBManager extends DBBase {
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v2, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r8v6, types: [java.lang.String] */
-    public ArrayList fetchMsg(String str, String str2) {
+    public ArrayList<ChatMsg> fetchMsg(String str, String str2) {
         InterceptResult invokeLL;
         ?? r8;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, str2)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
             SQLiteDatabase openDatabase = openDatabase();
             ?? r2 = 0;
             try {
@@ -2580,19 +2580,19 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List fetchPaMsgByChatType(int i, int i2) {
+    public List<ChatMsg> fetchPaMsgByChatType(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048604, this, i, i2)) == null) {
             ArrayList arrayList = new ArrayList();
-            List queryPaInfoByChatType = PaInfoDBManager.getInstance(this.mContext).queryPaInfoByChatType(i);
+            List<PaInfo> queryPaInfoByChatType = PaInfoDBManager.getInstance(this.mContext).queryPaInfoByChatType(i);
             Cursor cursor = null;
             if (queryPaInfoByChatType == null || queryPaInfoByChatType.size() <= 0) {
                 return null;
             }
-            String str = "" + ((PaInfo) queryPaInfoByChatType.get(0)).getPaId();
+            String str = "" + queryPaInfoByChatType.get(0).getPaId();
             for (int i3 = 1; i3 < queryPaInfoByChatType.size(); i3++) {
-                str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + ((PaInfo) queryPaInfoByChatType.get(i3)).getPaId();
+                str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + queryPaInfoByChatType.get(i3).getPaId();
             }
             String str2 = "select * from message where " + ("paid in (" + str + ") ") + " ORDER BY time desc limit " + Math.abs(i2);
             synchronized (DBBase.mSyncLock) {
@@ -2650,7 +2650,7 @@ public class ChatMessageDBManager extends DBBase {
                         unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
                         if (57 == chatRecord.getChatType()) {
                             if (unReadMsgCount > 0) {
-                                ArrayList fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
+                                ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
                                 if (fansGroupAtUnread != null) {
                                     chatRecord.setNewFansAtMsgSum(fansGroupAtUnread.size());
                                 } else {
@@ -2728,7 +2728,7 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private ArrayList fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z, String str) {
+    private ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z, String str) {
         InterceptResult invokeCommon;
         String str2;
         String str3;
@@ -2740,7 +2740,7 @@ public class ChatMessageDBManager extends DBBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), str})) == null) {
             long j5 = j2;
-            ArrayList arrayList = new ArrayList();
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
             SQLiteDatabase openDatabase = openDatabase();
             Cursor cursor = null;
             if (openDatabase == null) {
@@ -3030,7 +3030,7 @@ public class ChatMessageDBManager extends DBBase {
 
     public int updateSession(int i, ChatObject chatObject) {
         InterceptResult invokeIL;
-        ArrayList fetchMsgExcludeTypes;
+        ArrayList<ChatMsg> fetchMsgExcludeTypes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048650, this, i, chatObject)) == null) {
             synchronized (DBBase.mSyncLock) {
@@ -3044,7 +3044,7 @@ public class ChatMessageDBManager extends DBBase {
                             fetchMsgExcludeTypes = fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
                         }
                         if (fetchMsgExcludeTypes != null && fetchMsgExcludeTypes.size() > 0) {
-                            chatMsg = (ChatMsg) fetchMsgExcludeTypes.get(0);
+                            chatMsg = fetchMsgExcludeTypes.get(0);
                         }
                         updateSession(true, chatSession, chatMsg);
                     }
@@ -3177,7 +3177,7 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private List getContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List list) {
+    private List<Long> getContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List<Integer> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, this, sQLiteDatabase, list)) == null) {
@@ -3519,7 +3519,7 @@ public class ChatMessageDBManager extends DBBase {
                         unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
                         if (57 == chatSession.getChatType()) {
                             if (unReadMsgCount > 0) {
-                                ArrayList fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, String.valueOf(chatObject.getContacter()), AccountManager.getUid(this.mContext));
+                                ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, String.valueOf(chatObject.getContacter()), AccountManager.getUid(this.mContext));
                                 if (fansGroupAtUnread != null) {
                                     chatSession.setNewFansAtMsgSum(fansGroupAtUnread.size());
                                 } else {
@@ -3575,13 +3575,13 @@ public class ChatMessageDBManager extends DBBase {
     public void delPaLocalInfosByPaType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            ArrayList queryPaIdByPaType = PaInfoDBManager.getInstance(this.mContext).queryPaIdByPaType(i);
+            ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(this.mContext).queryPaIdByPaType(i);
             if (queryPaIdByPaType != null && !queryPaIdByPaType.isEmpty()) {
                 String str = TAG;
                 LogUtils.d(str, "---delPaLocalInfosByPaType---paids.size = " + queryPaIdByPaType.size());
-                Iterator it = queryPaIdByPaType.iterator();
+                Iterator<Long> it = queryPaIdByPaType.iterator();
                 while (it.hasNext()) {
-                    delMsgsOfPaByPaId(((Long) it.next()).longValue());
+                    delMsgsOfPaByPaId(it.next().longValue());
                 }
                 return;
             }
@@ -3620,9 +3620,9 @@ public class ChatMessageDBManager extends DBBase {
                 int deleteDraftMsg = GroupMessageDAOImpl.deleteDraftMsg(this.mContext, String.valueOf(chatObject.getContacter()));
                 if (deleteDraftMsg > 0) {
                     ChatSession chatSession = getChatSession(chatObject);
-                    ArrayList fetchAllChatMsg = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
+                    ArrayList<ChatMsg> fetchAllChatMsg = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
                     if (fetchAllChatMsg != null && fetchAllChatMsg.size() > 0) {
-                        updateSession(true, chatSession, (ChatMsg) fetchAllChatMsg.get(0));
+                        updateSession(true, chatSession, fetchAllChatMsg.get(0));
                     }
                 }
                 return deleteDraftMsg;
@@ -3640,9 +3640,9 @@ public class ChatMessageDBManager extends DBBase {
                 return GroupMessageDAOImpl.getMaxMsgid(this.mContext, String.valueOf(chatObject.getContacter()));
             }
             synchronized (DBBase.mSyncLock) {
-                ArrayList fetchMsg = fetchMsg(chatObject, 0L, 1L);
+                ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, 0L, 1L);
                 if (fetchMsg != null && fetchMsg.size() > 0) {
-                    return ((ChatMsg) fetchMsg.get(0)).getMsgId();
+                    return fetchMsg.get(0).getMsgId();
                 }
                 if (fetchMsg == null) {
                     return -1L;
@@ -3662,9 +3662,9 @@ public class ChatMessageDBManager extends DBBase {
                 if (longByString != 0) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(str);
-                    ArrayList groupMember = GroupInfoDAOImpl.getGroupMember(this.mContext, String.valueOf(chatSession.getContacter()), arrayList, 1);
+                    ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(this.mContext, String.valueOf(chatSession.getContacter()), arrayList, 1);
                     if (groupMember != null && groupMember.size() > 0) {
-                        chatSession.setLastMsgName(((GroupMember) groupMember.get(0)).getShowName());
+                        chatSession.setLastMsgName(groupMember.get(0).getShowName());
                         return;
                     } else {
                         chatSession.setLastMsgName("");
@@ -3676,15 +3676,13 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ArrayList addCastReliableMsgs(List list, List list2) {
+    public ArrayList<ChatMsg> addCastReliableMsgs(@NonNull List<TextMsg> list, List<Long> list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
             synchronized (DBBase.mSyncLock) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    TextMsg textMsg = (TextMsg) it.next();
+                for (TextMsg textMsg : list) {
                     if (addReliableMsg(textMsg) > 0) {
                         arrayList.add(textMsg);
                         list2.add(Long.valueOf(textMsg.getMsgId()));
@@ -3711,7 +3709,7 @@ public class ChatMessageDBManager extends DBBase {
         return invokeCommon.intValue;
     }
 
-    private int setMsgReadByContacterIds(SQLiteDatabase sQLiteDatabase, List list, long j) {
+    private int setMsgReadByContacterIds(SQLiteDatabase sQLiteDatabase, List<Long> list, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, this, new Object[]{sQLiteDatabase, list, Long.valueOf(j)})) == null) {
@@ -3759,11 +3757,11 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList fetchMsgByContacterIdOrderByMsgid(List list, long j, int i) {
+    public ArrayList<ChatMsg> fetchMsgByContacterIdOrderByMsgid(List<Long> list, long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
             if (list != null && list.size() > 0) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(list.get(0));
@@ -3821,11 +3819,11 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList fetchPaMsgByPaids(List list, long j, int i) {
+    public ArrayList<ChatMsg> fetchPaMsgByPaids(List<Long> list, long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
             if (list != null && list.size() > 0) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(list.get(0));
@@ -3997,7 +3995,7 @@ public class ChatMessageDBManager extends DBBase {
                 if (delMsgsOfCertainContacter < 0) {
                     return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
                 }
-                ArrayList fetchMsg = fetchMsg(chatObject, Long.MAX_VALUE, 2L, -1L);
+                ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, Long.MAX_VALUE, 2L, -1L);
                 if (fetchMsg != null && fetchMsg.size() > 0) {
                     return 0;
                 }
@@ -4054,23 +4052,23 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ArrayList addMsgs(Context context, ArrayList arrayList, boolean z, long j) {
+    public ArrayList<ChatMsg> addMsgs(Context context, ArrayList<ChatMsg> arrayList, boolean z, long j) {
         InterceptResult invokeCommon;
-        ArrayList arrayList2;
+        ArrayList<ChatMsg> arrayList2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, arrayList, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
-            ArrayList arrayList3 = arrayList;
+            ArrayList<ChatMsg> arrayList3 = arrayList;
             if (arrayList3 != null) {
                 synchronized (DBBase.mSyncLock) {
                     AccountManagerImpl.getInstance(this.mContext).getUid();
-                    arrayList2 = new ArrayList();
-                    ArrayList arrayList4 = new ArrayList();
-                    ArrayList arrayList5 = new ArrayList();
-                    ArrayList arrayList6 = new ArrayList();
-                    HashMap hashMap = new HashMap();
+                    arrayList2 = new ArrayList<>();
+                    ArrayList<ChatMsg> arrayList4 = new ArrayList<>();
+                    ArrayList<ChatMsg> arrayList5 = new ArrayList<>();
+                    ArrayList<ChatMsg> arrayList6 = new ArrayList<>();
+                    HashMap<ChatObject, Integer> hashMap = new HashMap<>();
                     int i = 0;
                     while (i < arrayList.size()) {
-                        ChatMsg chatMsg = (ChatMsg) arrayList3.get(i);
+                        ChatMsg chatMsg = arrayList3.get(i);
                         chatMsg.setTriggerReasonn(j);
                         try {
                             JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
@@ -4116,7 +4114,7 @@ public class ChatMessageDBManager extends DBBase {
                                     }
                                     if (hashMap.containsKey(chatObject)) {
                                         if (z && !chatMsg.isMsgRead() && chatMsg.getMsgType() != 101) {
-                                            hashMap.put(chatObject, Integer.valueOf(((Integer) hashMap.get(chatObject)).intValue() + 1));
+                                            hashMap.put(chatObject, Integer.valueOf(hashMap.get(chatObject).intValue() + 1));
                                         }
                                     } else if (z && !chatMsg.isMsgRead() && chatMsg.getMsgType() != 101) {
                                         hashMap.put(chatObject, 1);
@@ -4159,7 +4157,7 @@ public class ChatMessageDBManager extends DBBase {
         int i6;
         int unReadMsgCount;
         String str8;
-        ArrayList fetchMsgExcludeTypes;
+        ArrayList<ChatMsg> fetchMsgExcludeTypes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7})) == null) {
             if (getChatSession(chatObject) != null) {
@@ -4190,7 +4188,7 @@ public class ChatMessageDBManager extends DBBase {
                         LogUtils.e(TAG, "updateChatRecordName  msgs.size() = 0! ");
                         return 0L;
                     } else {
-                        draftMsg = (ChatMsg) fetchMsgExcludeTypes.get(0);
+                        draftMsg = fetchMsgExcludeTypes.get(0);
                     }
                 }
                 ChatMsg chatMsg2 = draftMsg;
@@ -4203,9 +4201,9 @@ public class ChatMessageDBManager extends DBBase {
                     } else {
                         chatMsg = chatMsg2;
                         i6 = 1;
-                        ArrayList fetchMsg = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
+                        ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
                         if (fetchMsg != null && fetchMsg.size() > 0) {
-                            str9 = ((ChatMsg) fetchMsg.get(0)).getExtLog();
+                            str9 = fetchMsg.get(0).getExtLog();
                         }
                         str8 = str9;
                     }
@@ -4353,14 +4351,14 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ArrayList getAllClassType() {
+    public ArrayList<SessionClass> getAllClassType() {
         InterceptResult invokeV;
         Cursor query;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
-                ArrayList arrayList = new ArrayList();
+                ArrayList<SessionClass> arrayList = new ArrayList<>();
                 Cursor cursor = null;
                 if (openDatabase == null) {
                     return null;
@@ -4436,10 +4434,10 @@ public class ChatMessageDBManager extends DBBase {
         return invokeCommon.longValue;
     }
 
-    public ArrayList fetchMsg(ChatObject chatObject, long j, long j2) {
+    public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2) {
         InterceptResult invokeCommon;
         long j3;
-        ArrayList fetchMsg;
+        ArrayList<ChatMsg> fetchMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (DBBase.mSyncLock) {
@@ -4455,9 +4453,9 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList fetchMsg(ChatObject chatObject, long j, long j2, long j3) {
+    public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2, long j3) {
         InterceptResult invokeCommon;
-        ArrayList fetchMsg;
+        ArrayList<ChatMsg> fetchMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             synchronized (DBBase.mSyncLock) {
@@ -4468,7 +4466,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z) {
+    public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
@@ -4477,7 +4475,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList fetchMsgsExceptGroupSystemMsgSync(ChatObject chatObject, long j, long j2, long j3, boolean z) {
+    public ArrayList<ChatMsg> fetchMsgsExceptGroupSystemMsgSync(ChatObject chatObject, long j, long j2, long j3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
@@ -4486,7 +4484,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList fetchMsg(ChatObject chatObject, ChatMsg chatMsg, long j, boolean z) {
+    public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, ChatMsg chatMsg, long j, boolean z) {
         InterceptResult invokeCommon;
         long msgId;
         long rowId;
@@ -4511,10 +4509,10 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList fetchMsgExcludeTypes(ChatObject chatObject, long j, long j2, List list) {
+    public ArrayList<ChatMsg> fetchMsgExcludeTypes(ChatObject chatObject, long j, long j2, List<Integer> list) {
         InterceptResult invokeCommon;
         long j3;
-        ArrayList fetchMsg;
+        ArrayList<ChatMsg> fetchMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
             synchronized (DBBase.mSyncLock) {
@@ -4523,9 +4521,8 @@ public class ChatMessageDBManager extends DBBase {
                     try {
                         if (list.size() > 0) {
                             StringBuilder sb = new StringBuilder("type NOT IN (");
-                            Iterator it = list.iterator();
-                            while (it.hasNext()) {
-                                sb.append(((Integer) it.next()).intValue());
+                            for (Integer num : list) {
+                                sb.append(num.intValue());
                                 sb.append(",");
                             }
                             str = sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
@@ -4552,11 +4549,11 @@ public class ChatMessageDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList fetchMsgsByMsgTypes(ChatObject chatObject, long j, long j2, List list) {
+    public ArrayList<ChatMsg> fetchMsgsByMsgTypes(ChatObject chatObject, long j, long j2, List<Integer> list) {
         InterceptResult invokeCommon;
         String str;
         long j3;
-        ArrayList fetchMsg;
+        ArrayList<ChatMsg> fetchMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
             synchronized (DBBase.mSyncLock) {
@@ -4564,9 +4561,8 @@ public class ChatMessageDBManager extends DBBase {
                     try {
                         if (list.size() > 0) {
                             StringBuilder sb = new StringBuilder();
-                            Iterator it = list.iterator();
-                            while (it.hasNext()) {
-                                sb.append(((Integer) it.next()).intValue());
+                            for (Integer num : list) {
+                                sb.append(num.intValue());
                                 sb.append(",");
                             }
                             str = "type IN (" + sb.substring(0, sb.length() - 1) + ") ";
@@ -4593,7 +4589,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList fetchSpecifyMsgsSync(ChatObject chatObject, int i, long j, long j2, long j3, boolean z) {
+    public ArrayList<ChatMsg> fetchSpecifyMsgsSync(ChatObject chatObject, int i, long j, long j2, long j3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{chatObject, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
@@ -4602,7 +4598,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList getChatRecords(long j, long j2, long j3, List list) {
+    public ArrayList<ChatSession> getChatRecords(long j, long j2, long j3, List<Integer> list) {
         InterceptResult invokeCommon;
         String str;
         String str2;
@@ -4610,7 +4606,7 @@ public class ChatMessageDBManager extends DBBase {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list})) == null) {
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ChatSession> arrayList = new ArrayList<>();
                 Cursor cursor = null;
                 if (openDatabase == null) {
                     return null;
@@ -4684,7 +4680,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ArrayList getChatRecordsByClass(long j, long j2, long j3, List list) {
+    public ArrayList<ChatSession> getChatRecordsByClass(long j, long j2, long j3, List<Integer> list) {
         InterceptResult invokeCommon;
         String str;
         String str2;
@@ -4693,7 +4689,7 @@ public class ChatMessageDBManager extends DBBase {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list})) == null) {
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ChatSession> arrayList = new ArrayList<>();
                 Cursor cursor = null;
                 if (openDatabase == null) {
                     return null;
@@ -4768,7 +4764,7 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public List getGroupSession() {
+    public List<ChatSession> getGroupSession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
@@ -4863,11 +4859,11 @@ public class ChatMessageDBManager extends DBBase {
         return invokeV.longValue;
     }
 
-    public ArrayList getStudioUsePaUnReadMsg() {
+    public ArrayList<ChatMsg> getStudioUsePaUnReadMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
                 Cursor cursor = null;
@@ -4922,7 +4918,7 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public ArrayList getPaMsgByChatTypeAndPaidList(List list, List list2, long j, int i) {
+    public ArrayList<ChatMsg> getPaMsgByChatTypeAndPaidList(List<Integer> list, List<Long> list2, long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{list, list2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
@@ -4931,7 +4927,7 @@ public class ChatMessageDBManager extends DBBase {
                 if (openDatabase == null) {
                     return null;
                 }
-                List contacterByChatTypes = getContacterByChatTypes(openDatabase, list);
+                List<Long> contacterByChatTypes = getContacterByChatTypes(openDatabase, list);
                 HashSet hashSet = new HashSet();
                 if (list2 != null) {
                     hashSet.addAll(list2);
@@ -4969,7 +4965,7 @@ public class ChatMessageDBManager extends DBBase {
             if (i >= 0) {
                 chatRecord.setNewMsgSum(i);
                 if (chatRecord.getChatType() == 57) {
-                    ArrayList fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
+                    ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
                     if (fansGroupAtUnread != null) {
                         chatRecord.setNewFansAtMsgSum(fansGroupAtUnread.size());
                     } else {

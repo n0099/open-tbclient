@@ -41,9 +41,9 @@ public final class d implements ServiceConnection {
         Thread thread2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            thread = b.v;
+            thread = b.x;
             if (thread != null) {
-                thread2 = b.v;
+                thread2 = b.x;
                 thread2.interrupt();
             }
             str = b.c;
@@ -53,16 +53,17 @@ public final class d implements ServiceConnection {
                 if (aVar2 != null) {
                     com.baidu.mapframework.open.aidl.a unused = b.d = null;
                 }
-                com.baidu.mapframework.open.aidl.a unused2 = b.d = a.AbstractBinderC0104a.a(iBinder);
+                com.baidu.mapframework.open.aidl.a unused2 = b.d = a.AbstractBinderC0107a.a(iBinder);
                 aVar3 = b.d;
                 aVar3.a(new e(this));
             } catch (RemoteException e) {
                 str2 = b.c;
                 Log.d(str2, "getComOpenClient ", e);
                 aVar = b.d;
-                if (aVar != null) {
-                    com.baidu.mapframework.open.aidl.a unused3 = b.d = null;
+                if (aVar == null) {
+                    return;
                 }
+                com.baidu.mapframework.open.aidl.a unused3 = b.d = null;
             }
         }
     }
@@ -76,10 +77,11 @@ public final class d implements ServiceConnection {
             str = b.c;
             Log.d(str, "onServiceDisconnected " + componentName);
             aVar = b.d;
-            if (aVar != null) {
-                com.baidu.mapframework.open.aidl.a unused = b.d = null;
-                boolean unused2 = b.u = false;
+            if (aVar == null) {
+                return;
             }
+            com.baidu.mapframework.open.aidl.a unused = b.d = null;
+            boolean unused2 = b.w = false;
         }
     }
 }

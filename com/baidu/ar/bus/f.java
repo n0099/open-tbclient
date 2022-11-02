@@ -18,20 +18,20 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map kM;
+    public static final Map<Class<?>, List<e>> kM;
     public static final a[] kN;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List kO;
-        public final Map kP;
-        public final Map kQ;
+        public final List<e> kO;
+        public final Map<Class, Object> kP;
+        public final Map<String, Class> kQ;
         public final StringBuilder kR;
-        public Class kS;
-        public Class kT;
+        public Class<?> kS;
+        public Class<?> kT;
         public boolean kU;
 
         public a() {
@@ -53,7 +53,7 @@ public class f {
             this.kR = new StringBuilder(128);
         }
 
-        private boolean b(Method method, Class cls) {
+        private boolean b(Method method, Class<?> cls) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, method, cls)) == null) {
@@ -64,17 +64,17 @@ public class f {
                 sb.append(cls.getName());
                 String sb2 = this.kR.toString();
                 Class<?> declaringClass = method.getDeclaringClass();
-                Class cls2 = (Class) this.kQ.put(sb2, declaringClass);
-                if (cls2 == null || cls2.isAssignableFrom(declaringClass)) {
+                Class put = this.kQ.put(sb2, declaringClass);
+                if (put == null || put.isAssignableFrom(declaringClass)) {
                     return true;
                 }
-                this.kQ.put(sb2, cls2);
+                this.kQ.put(sb2, put);
                 return false;
             }
             return invokeLL.booleanValue;
         }
 
-        public boolean a(Method method, Class cls) {
+        public boolean a(Method method, Class<?> cls) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, method, cls)) == null) {
@@ -93,7 +93,7 @@ public class f {
             return invokeLL.booleanValue;
         }
 
-        public void c(Class cls) {
+        public void c(Class<?> cls) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls) == null) {
                 this.kT = cls;
@@ -106,7 +106,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!this.kU) {
-                    Class superclass = this.kT.getSuperclass();
+                    Class<? super Object> superclass = this.kT.getSuperclass();
                     this.kT = superclass;
                     String name = superclass.getName();
                     if (!name.startsWith("java.") && !name.startsWith("javax.") && !name.startsWith("android.") && !name.startsWith("androidx.")) {
@@ -162,7 +162,7 @@ public class f {
         }
     }
 
-    private List a(a aVar) {
+    private List<e> a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) {
@@ -186,7 +186,7 @@ public class f {
         return (List) invokeL.objValue;
     }
 
-    private List b(Class cls) {
+    private List<e> b(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, cls)) == null) {
@@ -250,15 +250,15 @@ public class f {
         return (a) invokeV.objValue;
     }
 
-    public List a(Class cls) {
+    public List<e> a(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            List list = (List) kM.get(cls);
+            List<e> list = kM.get(cls);
             if (list != null) {
                 return list;
             }
-            List b = b(cls);
+            List<e> b = b(cls);
             if (!b.isEmpty()) {
                 kM.put(cls, b);
                 return b;

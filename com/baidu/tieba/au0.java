@@ -1,32 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class au0 {
+public class au0 extends mu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ox0 a(BdVideoSeries bdVideoSeries, BdVideo bdVideo, String str, String str2) {
-        InterceptResult invokeLLLL;
+    public au0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
-            ox0 ox0Var = new ox0();
-            ox0Var.k(str2);
-            ox0Var.l(nx0.c(bdVideo.getCurrentLength()) + "/" + nx0.c(bdVideo.getTotalLength()));
-            ox0Var.p(bdVideoSeries.getVid());
-            ox0Var.m(bdVideo.getType());
-            ox0Var.j(System.currentTimeMillis());
-            ox0Var.n(bdVideo.getTitle());
-            ox0Var.o(str);
-            ox0Var.r(bdVideoSeries.getPositionMs());
-            ox0Var.q(bdVideo.getCurrentLength());
-            ox0Var.s(bdVideo.getTotalLength());
-            return ox0Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (ox0) invokeLLLL.objValue;
+    }
+
+    public static mu0 w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return mu0.m(str, 8);
+        }
+        return (mu0) invokeL.objValue;
     }
 }

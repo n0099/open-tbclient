@@ -59,7 +59,7 @@ public class b3 {
                         int a5 = a.a(f3.T, 0);
                         if (a2 > 0 && currentTimeMillis - a2 < WeaponHI.ii * 3600000 && WeaponHI.isList != null) {
                             int hours = new Date(currentTimeMillis).getHours();
-                            List list = WeaponHI.isList;
+                            List<Integer> list = WeaponHI.isList;
                             StringBuilder sb = new StringBuilder();
                             sb.append(hours);
                             if (list.contains(sb.toString())) {

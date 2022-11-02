@@ -1,5 +1,7 @@
 package androidx.arch.core.internal;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.arch.core.internal.SafeIterableMap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FastSafeIterableMap<K, V> extends SafeIterableMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
@@ -63,7 +66,7 @@ public class FastSafeIterableMap<K, V> extends SafeIterableMap<K, V> {
     }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
-    public V remove(K k) {
+    public V remove(@NonNull K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) {
@@ -75,7 +78,7 @@ public class FastSafeIterableMap<K, V> extends SafeIterableMap<K, V> {
     }
 
     @Override // androidx.arch.core.internal.SafeIterableMap
-    public V putIfAbsent(K k, V v) {
+    public V putIfAbsent(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {

@@ -18,18 +18,18 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class ScheduledFutureImpl implements RunnableFuture, ScheduledFuture {
+public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler mHandler;
-    public final FutureTask mListenableFuture;
+    public final FutureTask<V> mListenableFuture;
 
-    public ScheduledFutureImpl(Handler handler, Runnable runnable, @Nullable Object obj) {
+    public ScheduledFutureImpl(Handler handler, Runnable runnable, @Nullable V v) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {handler, runnable, obj};
+            Object[] objArr = {handler, runnable, v};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,10 +40,10 @@ public class ScheduledFutureImpl implements RunnableFuture, ScheduledFuture {
             }
         }
         this.mHandler = handler;
-        this.mListenableFuture = new FutureTask(runnable, obj);
+        this.mListenableFuture = new FutureTask<>(runnable, v);
     }
 
-    public ScheduledFutureImpl(Handler handler, Callable callable) {
+    public ScheduledFutureImpl(Handler handler, Callable<V> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public class ScheduledFutureImpl implements RunnableFuture, ScheduledFuture {
             }
         }
         this.mHandler = handler;
-        this.mListenableFuture = new FutureTask(callable);
+        this.mListenableFuture = new FutureTask<>(callable);
     }
 
     @Override // java.util.concurrent.Future
@@ -94,13 +94,13 @@ public class ScheduledFutureImpl implements RunnableFuture, ScheduledFuture {
     }
 
     @Override // java.util.concurrent.Future
-    public Object get() throws InterruptedException, ExecutionException {
+    public V get() throws InterruptedException, ExecutionException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mListenableFuture.get();
         }
-        return invokeV.objValue;
+        return (V) invokeV.objValue;
     }
 
     @Override // java.util.concurrent.Future
@@ -132,12 +132,12 @@ public class ScheduledFutureImpl implements RunnableFuture, ScheduledFuture {
     }
 
     @Override // java.util.concurrent.Future
-    public Object get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
             return this.mListenableFuture.get(j, timeUnit);
         }
-        return invokeJL.objValue;
+        return (V) invokeJL.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
@@ -20,6 +21,7 @@ public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
     public boolean isHost;
     public int page;
     public PersonPostModel personPostModel;
+    @Nullable
     public MetaData threadAuthor;
     public User threadUser;
 
@@ -44,7 +46,7 @@ public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void setOrginalMessage(Message message) {
+    public void setOrginalMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
             super.setOrginalMessage(message);

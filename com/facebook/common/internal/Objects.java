@@ -8,9 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.infer.annotation.Nullsafe;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
+@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
 public final class Objects {
     public static /* synthetic */ Interceptable $ic;
@@ -18,13 +20,13 @@ public final class Objects {
 
     /* renamed from: com.facebook.common.internal.Objects$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class ToStringHelper {
+    public static final class ToStringHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String className;
@@ -33,7 +35,7 @@ public final class Objects {
         public boolean omitNullValues;
 
         /* loaded from: classes7.dex */
-        public final class ValueHolder {
+        public static final class ValueHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             @Nullable
@@ -319,16 +321,16 @@ public final class Objects {
         return invokeLL.booleanValue;
     }
 
-    public static Object firstNonNull(@Nullable Object obj, @Nullable Object obj2) {
+    public static <T> T firstNonNull(@Nullable T t, @Nullable T t2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
-            if (obj == null) {
-                return Preconditions.checkNotNull(obj2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, t, t2)) == null) {
+            if (t == null) {
+                return (T) Preconditions.checkNotNull(t2);
             }
-            return obj;
+            return t;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static int hashCode(@Nullable Object... objArr) {
@@ -340,7 +342,7 @@ public final class Objects {
         return invokeL.intValue;
     }
 
-    public static ToStringHelper toStringHelper(Class cls) {
+    public static ToStringHelper toStringHelper(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {

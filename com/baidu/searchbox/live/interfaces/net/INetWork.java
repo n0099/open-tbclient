@@ -8,15 +8,15 @@ public interface INetWork {
 
     void download(Object obj, String str, DownLoadCallback downLoadCallback);
 
-    NetResponse getSync(Map map);
+    NetResponse getSync(Map<String, Object> map);
 
-    NetResponse postSync(Map map);
+    NetResponse postSync(Map<String, Object> map);
 
     void setConnectTimeout(int i);
 
-    void setExtra(Map map);
+    void setExtra(Map<String, Object> map);
 
-    void setHeaderData(HashMap hashMap);
+    void setHeaderData(HashMap<String, String> hashMap);
 
     void setReadTimeout(int i);
 

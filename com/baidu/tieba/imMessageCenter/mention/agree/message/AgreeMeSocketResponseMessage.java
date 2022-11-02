@@ -1,10 +1,11 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ou4;
-import com.baidu.tieba.qe7;
+import com.baidu.tieba.ag7;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +21,7 @@ import tbclient.Error;
 public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList datas;
+    public ArrayList<ag7> datas;
     public boolean hasMore;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,7 +40,7 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.datas = new ArrayList();
+        this.datas = new ArrayList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,12 +48,13 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            ou4.f();
-            ou4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+            hv4.f();
+            hv4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         String str;
@@ -83,9 +85,9 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
                 this.hasMore = z;
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
-                        qe7 qe7Var = new qe7();
-                        qe7Var.I(agreeList);
-                        this.datas.add(qe7Var);
+                        ag7 ag7Var = new ag7();
+                        ag7Var.I(agreeList);
+                        this.datas.add(ag7Var);
                     }
                 }
             }

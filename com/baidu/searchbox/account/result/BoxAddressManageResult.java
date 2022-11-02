@@ -15,7 +15,7 @@ public class BoxAddressManageResult extends BoxSapiResult {
     public static final String KEY_MOBILE = "mobile";
     public static final String KEY_NAME = "name";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap map;
+    public HashMap<String, String> map;
 
     public BoxAddressManageResult() {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class BoxAddressManageResult extends BoxSapiResult {
                 return;
             }
         }
-        this.map = new HashMap();
+        this.map = new HashMap<>();
     }
 }

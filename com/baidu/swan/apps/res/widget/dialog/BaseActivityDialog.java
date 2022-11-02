@@ -23,11 +23,11 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh3;
-import com.baidu.tieba.tf3;
-import com.baidu.tieba.tm2;
-import com.baidu.tieba.vf3;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.lg3;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.ng3;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.yh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,9 +66,9 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     /* loaded from: classes3.dex */
-    public class e {
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
-        public static volatile HashMap t;
+        public static volatile HashMap<String, e> t;
         public static ArrayList u;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -85,7 +85,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public DialogInterface.OnCancelListener l;
         public DialogInterface.OnDismissListener m;
         public Context n;
-        public Class o;
+        public Class<? extends Activity> o;
         public int p;
         public String q;
         public Object r;
@@ -137,20 +137,20 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     }
                     e.t(valueOf, this.b);
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    vf3.g(appContext, intent);
+                    ng3.g(appContext, intent);
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public class b {
+        public static class b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Object a;
         }
 
         /* loaded from: classes3.dex */
-        public class c {
+        public static class c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public DialogInterface a;
@@ -189,7 +189,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     return;
                 }
             }
-            t = new HashMap();
+            t = new HashMap<>();
             u = new ArrayList();
         }
 
@@ -231,7 +231,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
         }
 
-        public e(Class cls) {
+        public e(Class<? extends Activity> cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -254,14 +254,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
         public static e r(String str) {
             InterceptResult invokeL;
-            e eVar;
+            e remove;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
                 if (!TextUtils.isEmpty(str)) {
                     synchronized (t) {
-                        eVar = (e) t.remove(str);
+                        remove = t.remove(str);
                     }
-                    return eVar;
+                    return remove;
                 }
                 return null;
             }
@@ -291,7 +291,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public void E(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                gh3.a0(new a(this, z));
+                yh3.a0(new a(this, z));
             }
         }
 
@@ -397,7 +397,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements Action {
+    public class a implements Action<e.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivityDialog a;
@@ -431,7 +431,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements Action {
+    public class b implements Action<e.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivityDialog a;
@@ -547,7 +547,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
         }
-        q = wj1.a;
+        q = ok1.a;
     }
 
     public BaseActivityDialog() {
@@ -612,7 +612,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Resources b2 = tm2.M().b();
+            Resources b2 = ln2.M().b();
             if (b2 != null) {
                 return b2;
             }
@@ -719,24 +719,24 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = (TextView) findViewById(R.id.dialog_title);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907d2);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907d3);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a35);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091665);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091675);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090805);
-            this.i = findViewById(R.id.obfuscated_res_0x7f090806);
-            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907ca);
-            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907cd);
-            this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e18);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090804);
-            this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091519);
-            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090455);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907e0);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907e1);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a79);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a4);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0916b4);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090815);
+            this.i = findViewById(R.id.obfuscated_res_0x7f090816);
+            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907d8);
+            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907db);
+            this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e61);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090814);
+            this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091558);
+            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090462);
             this.p = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070123);
             if (this.m.p > 0) {
                 this.n.getLayoutParams().height = this.m.p;
             }
-            if (tf3.k() || tf3.l()) {
+            if (lg3.k() || lg3.l()) {
                 int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
                 this.b.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
@@ -756,7 +756,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
             linearLayout.setVisibility(i);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0907d3);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0907e1);
             this.o.setLayoutParams(layoutParams);
         }
     }
@@ -770,7 +770,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 this.j.addView(view2);
                 this.c.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0907c9);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0907d7);
                 this.o.setLayoutParams(layoutParams);
             }
         }
@@ -821,7 +821,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0096);
+            setContentView(R.layout.obfuscated_res_0x7f0d0097);
             getWindow().setLayout(-1, -1);
             e r = e.r(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
             this.m = r;
@@ -861,9 +861,9 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             Resources resources = getResources();
-            int color = resources.getColor(R.color.obfuscated_res_0x7f0603a8);
-            int color2 = resources.getColor(R.color.obfuscated_res_0x7f06039b);
-            int color3 = resources.getColor(R.color.obfuscated_res_0x7f0603a5);
+            int color = resources.getColor(R.color.obfuscated_res_0x7f0603a9);
+            int color2 = resources.getColor(R.color.obfuscated_res_0x7f06039c);
+            int color3 = resources.getColor(R.color.obfuscated_res_0x7f0603a6);
             this.l.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080143));
             this.a.setTextColor(color);
             this.b.setTextColor(color2);

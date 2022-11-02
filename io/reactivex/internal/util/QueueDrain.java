@@ -2,8 +2,8 @@ package io.reactivex.internal.util;
 
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public interface QueueDrain {
-    boolean accept(Subscriber subscriber, Object obj);
+public interface QueueDrain<T, U> {
+    boolean accept(Subscriber<? super U> subscriber, T t);
 
     boolean cancelled();
 

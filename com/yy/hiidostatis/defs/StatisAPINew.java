@@ -84,7 +84,7 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportDoShort(long j, Map map) {
+    public void reportDoShort(long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048609, this, j, map) == null) {
         }
@@ -144,18 +144,18 @@ public class StatisAPINew implements IStatisApi {
         this.metricsHandler = new MetricsHandler(messageConfig.getApplicationContext(), messageConfig.getAppkey(), messageConfig.getVer(), HiidoSDK.instance().getOptions().getDefaultMetricsExpire());
     }
 
-    private String getPropString(Map map) {
+    private String getPropString(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, map)) == null) {
             String str = null;
             if (map != null && map.size() > 0) {
                 StringBuffer stringBuffer = new StringBuffer();
-                for (Map.Entry entry : map.entrySet()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
                     try {
-                        stringBuffer.append(URLEncoder.encode((String) entry.getKey(), "UTF-8"));
+                        stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
                         stringBuffer.append("=");
-                        stringBuffer.append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
+                        stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
                         stringBuffer.append(",");
                     } catch (Throwable th) {
                         L.debug(this, th.getMessage(), new Object[0]);
@@ -386,7 +386,7 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map map) {
+    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) == null) {
             if (this.mContext == null && this.metricsHandler == null) {
@@ -397,7 +397,7 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportSrcData(String str, int i, String str2, String str3, long j, Map map) {
+    public void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
             if (this.mContext == null && this.metricsHandler == null) {
@@ -792,7 +792,7 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportReg(String str, String str2, String str3, Map map) {
+    public void reportReg(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048625, this, str, str2, str3, map) == null) {
             StatisContent statisContent = new StatisContent();
@@ -1069,7 +1069,7 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportReturnCode(int i, String str, long j, String str2, Map map) {
+    public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
             if (this.mContext == null && this.metricsHandler == null) {
@@ -1083,7 +1083,7 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportSrcData(int i, String str, String str2, long j, Map map) {
+    public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
             if (this.mContext == null && this.metricsHandler == null) {

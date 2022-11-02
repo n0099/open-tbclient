@@ -20,11 +20,11 @@ public abstract class CeaDecoder implements SubtitleDecoder {
     public static final int NUM_INPUT_BUFFERS = 10;
     public static final int NUM_OUTPUT_BUFFERS = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList availableInputBuffers;
-    public final LinkedList availableOutputBuffers;
+    public final LinkedList<SubtitleInputBuffer> availableInputBuffers;
+    public final LinkedList<SubtitleOutputBuffer> availableOutputBuffers;
     public SubtitleInputBuffer dequeuedInputBuffer;
     public long playbackPositionUs;
-    public final PriorityQueue queuedInputBuffers;
+    public final PriorityQueue<SubtitleInputBuffer> queuedInputBuffers;
 
     public abstract Subtitle createSubtitle();
 
@@ -55,15 +55,15 @@ public abstract class CeaDecoder implements SubtitleDecoder {
                 return;
             }
         }
-        this.availableInputBuffers = new LinkedList();
+        this.availableInputBuffers = new LinkedList<>();
         for (int i3 = 0; i3 < 10; i3++) {
             this.availableInputBuffers.add(new SubtitleInputBuffer());
         }
-        this.availableOutputBuffers = new LinkedList();
+        this.availableOutputBuffers = new LinkedList<>();
         for (int i4 = 0; i4 < 2; i4++) {
             this.availableOutputBuffers.add(new CeaOutputBuffer(this));
         }
-        this.queuedInputBuffers = new PriorityQueue();
+        this.queuedInputBuffers = new PriorityQueue<>();
     }
 
     private void releaseInputBuffer(SubtitleInputBuffer subtitleInputBuffer) {
@@ -75,6 +75,7 @@ public abstract class CeaDecoder implements SubtitleDecoder {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public void queueInputBuffer(SubtitleInputBuffer subtitleInputBuffer) throws SubtitleDecoderException {
         boolean z;
@@ -112,6 +113,7 @@ public abstract class CeaDecoder implements SubtitleDecoder {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public SubtitleInputBuffer dequeueInputBuffer() throws SubtitleDecoderException {
         InterceptResult invokeV;
@@ -127,9 +129,9 @@ public abstract class CeaDecoder implements SubtitleDecoder {
             if (this.availableInputBuffers.isEmpty()) {
                 return null;
             }
-            SubtitleInputBuffer subtitleInputBuffer = (SubtitleInputBuffer) this.availableInputBuffers.pollFirst();
-            this.dequeuedInputBuffer = subtitleInputBuffer;
-            return subtitleInputBuffer;
+            SubtitleInputBuffer pollFirst = this.availableInputBuffers.pollFirst();
+            this.dequeuedInputBuffer = pollFirst;
+            return pollFirst;
         }
         return (SubtitleInputBuffer) invokeV.objValue;
     }
@@ -140,7 +142,7 @@ public abstract class CeaDecoder implements SubtitleDecoder {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.playbackPositionUs = 0L;
             while (!this.queuedInputBuffers.isEmpty()) {
-                releaseInputBuffer((SubtitleInputBuffer) this.queuedInputBuffers.poll());
+                releaseInputBuffer(this.queuedInputBuffers.poll());
             }
             SubtitleInputBuffer subtitleInputBuffer = this.dequeuedInputBuffer;
             if (subtitleInputBuffer != null) {
@@ -151,6 +153,7 @@ public abstract class CeaDecoder implements SubtitleDecoder {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public SubtitleOutputBuffer dequeueOutputBuffer() throws SubtitleDecoderException {
         InterceptResult invokeV;
@@ -159,25 +162,25 @@ public abstract class CeaDecoder implements SubtitleDecoder {
             if (this.availableOutputBuffers.isEmpty()) {
                 return null;
             }
-            while (!this.queuedInputBuffers.isEmpty() && ((SubtitleInputBuffer) this.queuedInputBuffers.peek()).timeUs <= this.playbackPositionUs) {
-                SubtitleInputBuffer subtitleInputBuffer = (SubtitleInputBuffer) this.queuedInputBuffers.poll();
-                if (subtitleInputBuffer.isEndOfStream()) {
-                    SubtitleOutputBuffer subtitleOutputBuffer = (SubtitleOutputBuffer) this.availableOutputBuffers.pollFirst();
-                    subtitleOutputBuffer.addFlag(4);
-                    releaseInputBuffer(subtitleInputBuffer);
-                    return subtitleOutputBuffer;
+            while (!this.queuedInputBuffers.isEmpty() && this.queuedInputBuffers.peek().timeUs <= this.playbackPositionUs) {
+                SubtitleInputBuffer poll = this.queuedInputBuffers.poll();
+                if (poll.isEndOfStream()) {
+                    SubtitleOutputBuffer pollFirst = this.availableOutputBuffers.pollFirst();
+                    pollFirst.addFlag(4);
+                    releaseInputBuffer(poll);
+                    return pollFirst;
                 }
-                decode(subtitleInputBuffer);
+                decode(poll);
                 if (isNewSubtitleDataAvailable()) {
                     Subtitle createSubtitle = createSubtitle();
-                    if (!subtitleInputBuffer.isDecodeOnly()) {
-                        SubtitleOutputBuffer subtitleOutputBuffer2 = (SubtitleOutputBuffer) this.availableOutputBuffers.pollFirst();
-                        subtitleOutputBuffer2.setContent(subtitleInputBuffer.timeUs, createSubtitle, Long.MAX_VALUE);
-                        releaseInputBuffer(subtitleInputBuffer);
-                        return subtitleOutputBuffer2;
+                    if (!poll.isDecodeOnly()) {
+                        SubtitleOutputBuffer pollFirst2 = this.availableOutputBuffers.pollFirst();
+                        pollFirst2.setContent(poll.timeUs, createSubtitle, Long.MAX_VALUE);
+                        releaseInputBuffer(poll);
+                        return pollFirst2;
                     }
                 }
-                releaseInputBuffer(subtitleInputBuffer);
+                releaseInputBuffer(poll);
             }
             return null;
         }

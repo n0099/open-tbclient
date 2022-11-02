@@ -1,5 +1,6 @@
 package com.baidu.pass.biometrics.base.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"InlinedApi", "NewApi"})
 /* loaded from: classes2.dex */
 public final class PassBioGlobalUtils {
     public static /* synthetic */ Interceptable $ic;

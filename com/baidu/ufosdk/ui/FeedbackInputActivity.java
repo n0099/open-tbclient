@@ -1,5 +1,6 @@
 package com.baidu.ufosdk.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -61,6 +62,7 @@ import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
@@ -103,6 +105,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONObject;
+@SuppressLint({"NewApi", "HandlerLeak"})
 /* loaded from: classes6.dex */
 public class FeedbackInputActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -112,7 +115,7 @@ public class FeedbackInputActivity extends Activity {
     public int B;
     public boolean C;
     public boolean D;
-    public ArrayList E;
+    public ArrayList<View> E;
     public c1 F;
     public g1 G;
     public int H;
@@ -138,7 +141,7 @@ public class FeedbackInputActivity extends Activity {
     public String a0;
     public LinearLayout b;
     public boolean b0;
-    public List c;
+    public List<byte[]> c;
     public String c0;
     public LinearLayout d;
     public boolean d0;
@@ -160,7 +163,7 @@ public class FeedbackInputActivity extends Activity {
     public e0 l0;
     public String m;
     public String n;
-    public List o;
+    public List<Map<String, Object>> o;
     public ListView p;
     public s q;
     public View r;
@@ -526,8 +529,8 @@ public class FeedbackInputActivity extends Activity {
             return invokeI.longValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:321:0x19e2  */
-        /* JADX WARN: Removed duplicated region for block: B:322:0x19e8  */
+        /* JADX WARN: Removed duplicated region for block: B:321:0x19e4  */
+        /* JADX WARN: Removed duplicated region for block: B:322:0x19ea  */
         @Override // android.widget.Adapter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -1496,10 +1499,10 @@ public class FeedbackInputActivity extends Activity {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         b bVar = this.a;
-                        if (((Map) bVar.b.b.o.get(bVar.a)).containsKey("chatId")) {
+                        if (bVar.b.b.o.get(bVar.a).containsKey("chatId")) {
                             StringBuilder sb = new StringBuilder();
                             b bVar2 = this.a;
-                            sb.append(((Map) bVar2.b.b.o.get(bVar2.a)).get("chatId"));
+                            sb.append(bVar2.b.b.o.get(bVar2.a).get("chatId"));
                             sb.append("");
                             str = sb.toString();
                         } else {
@@ -1549,7 +1552,7 @@ public class FeedbackInputActivity extends Activity {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    ((Map) this.b.b.o.get(this.a)).put("ask", 2);
+                    this.b.b.o.get(this.a).put("ask", 2);
                     new Thread(new a(this)).start();
                 }
             }
@@ -1628,10 +1631,10 @@ public class FeedbackInputActivity extends Activity {
                     FeedbackInputActivity feedbackInputActivity = this.b.b;
                     int i = this.a;
                     feedbackInputActivity.H = i;
-                    ((Map) feedbackInputActivity.o.get(i)).put("ask", 3);
-                    if (((Map) this.b.b.o.get(this.a)).containsKey("chatId")) {
+                    feedbackInputActivity.o.get(i).put("ask", 3);
+                    if (this.b.b.o.get(this.a).containsKey("chatId")) {
                         FeedbackInputActivity feedbackInputActivity2 = this.b.b;
-                        feedbackInputActivity2.m = ((Map) this.b.b.o.get(this.a)).get("chatId") + "";
+                        feedbackInputActivity2.m = this.b.b.o.get(this.a).get("chatId") + "";
                     }
                     this.b.b.s.execute(new a(this));
                     FeedbackInputActivity.a(this.b.b, false, true);
@@ -1709,15 +1712,15 @@ public class FeedbackInputActivity extends Activity {
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                     String str = "FeedbackInputActiviy --> FeedbackInput item clicked! " + i;
-                    if (((Integer) ((Map) this.d.b.o.get(this.c)).get("subtype")).intValue() == 0) {
-                        String str2 = "FeedbackInputActiviy clicked! -- > \n" + ((Map) this.d.b.o.get(this.c)).get("content").toString();
+                    if (((Integer) this.d.b.o.get(this.c).get("subtype")).intValue() == 0) {
+                        String str2 = "FeedbackInputActiviy clicked! -- > \n" + this.d.b.o.get(this.c).get("content").toString();
                         try {
-                            JSONObject jSONObject = (JSONObject) ((JSONArray) ((Map) this.d.b.o.get(this.c)).get("content")).get(i);
-                            this.a = jSONObject.getInt("qid");
+                            JSONObject jSONObject = (JSONObject) ((JSONArray) this.d.b.o.get(this.c).get("content")).get(i);
+                            this.a = jSONObject.getInt(MapBundleKey.MapObjKey.OBJ_QID);
                             this.b = jSONObject.getString("question");
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -1772,14 +1775,14 @@ public class FeedbackInputActivity extends Activity {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     if (!TextUtils.isEmpty(this.a) || ((jSONArray2 = this.b) != null && jSONArray2.length() != 0)) {
-                        ((Map) this.d.b.o.get(this.c)).put("isClicked", 1);
+                        this.d.b.o.get(this.c).put("isClicked", 1);
                     }
                     FeedbackInputActivity feedbackInputActivity = this.d.b;
                     int i = this.c;
                     feedbackInputActivity.H = i;
-                    if (((Map) feedbackInputActivity.o.get(i)).containsKey("chatId")) {
+                    if (feedbackInputActivity.o.get(i).containsKey("chatId")) {
                         FeedbackInputActivity feedbackInputActivity2 = this.d.b;
-                        feedbackInputActivity2.m = ((Map) this.d.b.o.get(this.c)).get("chatId") + "";
+                        feedbackInputActivity2.m = this.d.b.o.get(this.c).get("chatId") + "";
                     }
                     if (TextUtils.isEmpty(this.a) && ((jSONArray = this.b) == null || jSONArray.length() == 0)) {
                         FeedbackInputActivity.a(this.d.b, false, false);
@@ -2271,7 +2274,7 @@ public class FeedbackInputActivity extends Activity {
                 String str13 = "" + message.arg2;
                 String str14 = "Handler = 12 PluginInvoker  tempRobotSwitch = " + aVar2.b.C + "; id = " + aVar2.b.m;
                 if (aVar2.b.C && aVar2.b.m != null && aVar2.b.m.length() > 0) {
-                    aVar2.b.s.execute(new RunnableC0483a(aVar2, str13));
+                    aVar2.b.s.execute(new RunnableC0494a(aVar2, str13));
                 }
             } else if (i == 13) {
                 FeedbackInputActivity feedbackInputActivity4 = aVar2.b;
@@ -2947,13 +2950,13 @@ public class FeedbackInputActivity extends Activity {
 
         /* renamed from: com.baidu.ufosdk.ui.FeedbackInputActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0483a implements Runnable {
+        public class RunnableC0494a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0483a(a aVar, String str) {
+            public RunnableC0494a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3555,6 +3558,7 @@ public class FeedbackInputActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // android.view.View.OnTouchListener
+        @SuppressLint({"ClickableViewAccessibility"})
         public boolean onTouch(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -3895,7 +3899,7 @@ public class FeedbackInputActivity extends Activity {
     }
 
     /* loaded from: classes6.dex */
-    public class t {
+    public static class t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -3919,7 +3923,7 @@ public class FeedbackInputActivity extends Activity {
     }
 
     /* loaded from: classes6.dex */
-    public class u {
+    public static class u {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -3945,7 +3949,7 @@ public class FeedbackInputActivity extends Activity {
     }
 
     /* loaded from: classes6.dex */
-    public class v {
+    public static class v {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -3975,7 +3979,7 @@ public class FeedbackInputActivity extends Activity {
     }
 
     /* loaded from: classes6.dex */
-    public class w {
+    public static class w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -3999,7 +4003,7 @@ public class FeedbackInputActivity extends Activity {
     }
 
     /* loaded from: classes6.dex */
-    public class x {
+    public static class x {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
@@ -4222,18 +4226,18 @@ public class FeedbackInputActivity extends Activity {
                 feedbackInputActivity.W.obtainMessage(8, 0).sendToTarget();
             } else if (z) {
                 try {
-                    if (((Map) feedbackInputActivity.o.get(feedbackInputActivity.H)).containsKey("discontent_labels")) {
-                        jSONArray = (JSONArray) ((Map) feedbackInputActivity.o.get(feedbackInputActivity.H)).get("discontent_labels");
+                    if (feedbackInputActivity.o.get(feedbackInputActivity.H).containsKey("discontent_labels")) {
+                        jSONArray = (JSONArray) feedbackInputActivity.o.get(feedbackInputActivity.H).get("discontent_labels");
                     } else {
                         jSONArray = null;
                     }
                 } catch (Exception unused) {
                     jSONArray = null;
                 }
-                if (((Map) feedbackInputActivity.o.get(feedbackInputActivity.H)).containsKey("discontent_reason")) {
-                    str = (String) ((Map) feedbackInputActivity.o.get(feedbackInputActivity.H)).get("discontent_reason");
+                if (feedbackInputActivity.o.get(feedbackInputActivity.H).containsKey("discontent_reason")) {
+                    str = (String) feedbackInputActivity.o.get(feedbackInputActivity.H).get("discontent_reason");
                     if (feedbackInputActivity.G == null) {
-                        feedbackInputActivity.G = new g1(feedbackInputActivity, R.style.obfuscated_res_0x7f100421);
+                        feedbackInputActivity.G = new g1(feedbackInputActivity, R.style.obfuscated_res_0x7f100422);
                     }
                     g1Var = feedbackInputActivity.G;
                     if (g1Var == null) {
@@ -4246,31 +4250,31 @@ public class FeedbackInputActivity extends Activity {
                                         if (length != 4) {
                                             if (length == 5) {
                                                 g1Var.b.findViewById(R.id.ll_checkboxs_3).setVisibility(0);
-                                                CheckBox checkBox = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905c0);
+                                                CheckBox checkBox = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cd);
                                                 checkBox.setVisibility(0);
                                                 checkBox.setText(jSONArray.optString(4));
                                             }
                                         } else {
                                             g1Var.b.findViewById(R.id.ll_checkboxs_2).setVisibility(0);
-                                            CheckBox checkBox2 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905bf);
+                                            CheckBox checkBox2 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cc);
                                             checkBox2.setVisibility(0);
                                             checkBox2.setText(jSONArray.optString(3));
                                         }
                                     } else {
                                         g1Var.b.findViewById(R.id.ll_checkboxs_2).setVisibility(0);
-                                        CheckBox checkBox3 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905be);
+                                        CheckBox checkBox3 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cb);
                                         checkBox3.setVisibility(0);
                                         checkBox3.setText(jSONArray.optString(2));
                                     }
                                 } else {
                                     g1Var.b.findViewById(R.id.ll_checkboxs_1).setVisibility(0);
-                                    CheckBox checkBox4 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905bd);
+                                    CheckBox checkBox4 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905ca);
                                     checkBox4.setVisibility(0);
                                     checkBox4.setText(jSONArray.optString(1));
                                 }
                             } else {
                                 g1Var.b.findViewById(R.id.ll_checkboxs_1).setVisibility(0);
-                                CheckBox checkBox5 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905bc);
+                                CheckBox checkBox5 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905c9);
                                 checkBox5.setVisibility(0);
                                 checkBox5.setText(jSONArray.optString(0));
                             }
@@ -4279,7 +4283,7 @@ public class FeedbackInputActivity extends Activity {
                             }
                             if (jSONArray.length() == 3) {
                                 g1Var.b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
-                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905bf)).setVisibility(4);
+                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905cc)).setVisibility(4);
                             }
                             if (jSONArray.length() == 2) {
                                 g1Var.b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
@@ -4288,7 +4292,7 @@ public class FeedbackInputActivity extends Activity {
                             if (jSONArray.length() == 1) {
                                 g1Var.b.findViewById(R.id.ll_checkboxs_3).setVisibility(8);
                                 g1Var.b.findViewById(R.id.ll_checkboxs_2).setVisibility(8);
-                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905bd)).setVisibility(4);
+                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0905ca)).setVisibility(4);
                             }
                         } else {
                             g1Var.b.findViewById(R.id.ll_checkboxs).setVisibility(8);
@@ -4312,7 +4316,7 @@ public class FeedbackInputActivity extends Activity {
                 }
             } else {
                 if (feedbackInputActivity.F == null) {
-                    feedbackInputActivity.F = new c1(feedbackInputActivity, R.style.obfuscated_res_0x7f100421, feedbackInputActivity.N, feedbackInputActivity.M, feedbackInputActivity.L, feedbackInputActivity.W, feedbackInputActivity.o);
+                    feedbackInputActivity.F = new c1(feedbackInputActivity, R.style.obfuscated_res_0x7f100422, feedbackInputActivity.N, feedbackInputActivity.M, feedbackInputActivity.L, feedbackInputActivity.W, feedbackInputActivity.o);
                 }
                 c1 c1Var = feedbackInputActivity.F;
                 c1Var.p = z2;
@@ -4367,16 +4371,16 @@ public class FeedbackInputActivity extends Activity {
                     int height = linearLayout.getHeight() + i3;
                     int width = linearLayout.getWidth() + i2;
                     if (motionEvent.getX() <= i2 || motionEvent.getX() >= width || motionEvent.getY() <= i3 || motionEvent.getY() >= height) {
-                        ArrayList arrayList = this.E;
+                        ArrayList<View> arrayList = this.E;
                         if (arrayList != null) {
-                            Iterator it = arrayList.iterator();
+                            Iterator<View> it = arrayList.iterator();
                             while (it.hasNext()) {
-                                View view2 = (View) it.next();
+                                View next = it.next();
                                 int[] iArr2 = new int[2];
-                                view2.getLocationOnScreen(iArr2);
+                                next.getLocationOnScreen(iArr2);
                                 int i4 = iArr2[0];
                                 int i5 = iArr2[1];
-                                if (motionEvent.getX() >= i4 && motionEvent.getX() <= i4 + view2.getWidth() && motionEvent.getY() >= i5 && motionEvent.getY() <= i5 + view2.getHeight()) {
+                                if (motionEvent.getX() >= i4 && motionEvent.getX() <= i4 + next.getWidth() && motionEvent.getY() >= i5 && motionEvent.getY() <= i5 + next.getHeight()) {
                                     z = true;
                                     continue;
                                 } else {
@@ -4723,10 +4727,10 @@ public class FeedbackInputActivity extends Activity {
                 relativeLayout.addView(e1Var, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 56.0f), p1.a(getApplicationContext(), 56.0f)));
                 try {
                     if (this.c.get(i2) != null) {
-                        if (BitmapFactory.decodeByteArray((byte[]) this.c.get(i2), 0, ((byte[]) this.c.get(i2)).length) == null) {
+                        if (BitmapFactory.decodeByteArray(this.c.get(i2), 0, this.c.get(i2).length) == null) {
                             return;
                         }
-                        bitmap = BitmapFactory.decodeByteArray((byte[]) this.c.get(i2), 0, ((byte[]) this.c.get(i2)).length);
+                        bitmap = BitmapFactory.decodeByteArray(this.c.get(i2), 0, this.c.get(i2).length);
                     } else {
                         bitmap = null;
                     }
@@ -4766,7 +4770,7 @@ public class FeedbackInputActivity extends Activity {
                 imageView.setMinimumWidth(p1.a(getApplicationContext(), 56.0f));
                 relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 56.0f), p1.a(getApplicationContext(), 56.0f)));
                 try {
-                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray((byte[]) this.c.get(i2), 0, ((byte[]) this.c.get(i2)).length);
+                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray(this.c.get(i2), 0, this.c.get(i2).length);
                     if (decodeByteArray != null && a(decodeByteArray, p1.a(getApplicationContext(), 45.0f)) != null) {
                         imageView.setImageBitmap(decodeByteArray);
                         imageView.setOnClickListener(new g(this));
@@ -4822,7 +4826,7 @@ public class FeedbackInputActivity extends Activity {
                 return;
             }
             if (i3 == -76) {
-                List list = this.c;
+                List<byte[]> list = this.c;
                 list.remove(list.size() - 1);
                 this.W.obtainMessage(17).sendToTarget();
             }

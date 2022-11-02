@@ -14,7 +14,6 @@ import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,9 +26,9 @@ public class a {
     public String C;
     public long D;
     public String Q;
-    public List R;
+    public List<String> R;
     public String S;
-    public List l;
+    public List<String> l;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -72,7 +71,7 @@ public class a {
         }
     }
 
-    public a(String str, int i, String str2, long j, List list, List list2) {
+    public a(String str, int i, String str2, long j, List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +118,7 @@ public class a {
         return (String) invokeV.objValue;
     }
 
-    public static String b(List list) {
+    public static String b(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
@@ -128,9 +127,7 @@ public class a {
             }
             StringBuilder sb = new StringBuilder();
             boolean z = true;
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String str = (String) it.next();
+            for (String str : list) {
                 if (z) {
                     z = false;
                 } else {
@@ -143,7 +140,7 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public List getIpList() {
+    public List<String> getIpList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -158,7 +155,7 @@ public class a {
         return (List) invokeV.objValue;
     }
 
-    public List z() {
+    public List<String> z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

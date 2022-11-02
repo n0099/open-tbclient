@@ -10,6 +10,7 @@ import com.yy.hiidostatis.defs.listener.HiidoSdkAdditionDelegate;
 import com.yy.hiidostatis.defs.obj.Property;
 import com.yy.hiidostatis.defs.obj.ShareType;
 import com.yy.hiidostatis.message.module.sessionreport.CalAction;
+import com.yy.hiidostatis.message.module.sessionreport.EventValue;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,7 @@ public interface HiidoApi {
 
     void appStartLaunchWithAppKey(Context context, StatisOption statisOption, OnStatisListener onStatisListener);
 
-    void beginSession(String str, String str2, long j, Map map);
+    void beginSession(String str, String str2, long j, Map<String, Long> map);
 
     void closeSession(String str);
 
@@ -32,7 +33,7 @@ public interface HiidoApi {
 
     boolean flushSession(String str, String str2);
 
-    boolean flushSessionAll(String str, Set set);
+    boolean flushSessionAll(String str, Set<String> set);
 
     String getAppId();
 
@@ -71,9 +72,9 @@ public interface HiidoApi {
 
     void onScreenResume(String str);
 
-    boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map map, Map map2);
+    boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map<String, String> map, Map<String, String> map2);
 
-    boolean pushToSession(String str, String str2, List list, Map map, Map map2);
+    boolean pushToSession(String str, String str2, List<EventValue> list, Map<String, String> map, Map<String, String> map2);
 
     boolean registerActivityLifecycleMonitor(Context context);
 
@@ -113,17 +114,17 @@ public interface HiidoApi {
 
     void reportPushToken(String str);
 
-    void reportReg(String str, String str2, String str3, Map map);
+    void reportReg(String str, String str2, String str3, Map<String, String> map);
 
-    void reportReturnCode(int i, String str, long j, String str2, Map map);
+    void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map);
 
-    void reportReturnCode(String str, int i, String str2, long j, String str3, Map map);
+    void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map);
 
     void reportShare(String str, int i, String str2, ShareType shareType, String str3, String str4, String str5);
 
-    void reportSrcData(int i, String str, String str2, long j, Map map);
+    void reportSrcData(int i, String str, String str2, long j, Map<String, String> map);
 
-    void reportSrcData(String str, int i, String str2, String str3, long j, Map map);
+    void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map);
 
     void reportStatisticContent(String str, StatisContent statisContent);
 

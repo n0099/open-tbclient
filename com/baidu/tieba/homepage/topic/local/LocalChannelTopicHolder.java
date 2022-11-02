@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.EllipsizeTagTitleView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c57;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.m67;
+import com.baidu.tieba.sx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements yx {
+public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements sx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConstraintLayout a;
@@ -45,21 +45,21 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements y
                 return;
             }
         }
-        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922e5);
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922c2);
-        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f0922ff);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922af);
+        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f092339);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092316);
+        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f092353);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092303);
     }
 
-    public void a(c57 c57Var) {
+    public void a(m67 m67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c57Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, m67Var) == null) {
             this.b.setConrers(15);
             this.b.setPlaceHolder(1);
-            this.b.L(c57Var.d, 10, false);
-            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a6c, c57Var.a), c57Var.c);
-            if (!TextUtils.isEmpty(c57Var.b)) {
-                this.d.setText(c57Var.b);
+            this.b.K(m67Var.d, 10, false);
+            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a78, m67Var.a), m67Var.c);
+            if (!TextUtils.isEmpty(m67Var.b)) {
+                this.d.setText(m67Var.b);
                 this.d.setVisibility(0);
                 return;
             }
@@ -67,7 +67,7 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements y
         }
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
@@ -76,7 +76,7 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements y
                 ellipsizeTagTitleView.onChangeSkinType(tbPageContext, i);
             }
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            nv4.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
+            kw4.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
         }
     }
 }

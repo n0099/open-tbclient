@@ -1,55 +1,107 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ru implements qu {
+public final class ru {
     public static /* synthetic */ Interceptable $ic;
+    public static final ru a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316362, "Lcom/baidu/tieba/ru;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316362, "Lcom/baidu/tieba/ru;");
+                return;
+            }
+        }
+        a = new ru();
+    }
 
     public ru() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.qu
-    public void a(String str) {
-        BDPTask t;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (t = BDPTask.m.t()) != null) {
-            t.C(str);
+    public static /* synthetic */ JSONObject b(ru ruVar, String str, String str2, String str3, int i, Object obj) {
+        if ((i & 4) != 0) {
+            str3 = null;
         }
+        return ruVar.a(str, str2, str3);
     }
 
-    @Override // com.baidu.tieba.qu
-    public void b(String str, UniqueId uniqueId) {
-        BDPTask t;
+    public final JSONObject a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uniqueId) == null) && (t = BDPTask.m.t()) != null) {
-            t.G(str, uniqueId);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("taskId", str);
+            jSONObject.put(TaskInfo.keyActTaskId, str2);
+            if (str3 != null) {
+                jSONObject.put("phase", str3);
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qu
-    public void c(String str, String str2) {
-        BDPTask t;
+    public final String c(TaskStatus taskStatus) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && (t = BDPTask.m.t()) != null) {
-            t.u0(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskStatus)) == null) {
+            if (taskStatus.isFinished()) {
+                return "finish";
+            }
+            if (taskStatus.isRegistered()) {
+                return "guide";
+            }
+            return "doing";
         }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskStatus)) == null) {
+            if (taskStatus.isUnRegistered()) {
+                return "y_task_unregister";
+            }
+            if (taskStatus.isFinished()) {
+                return "y_task_done";
+            }
+            if (taskStatus.isRegistered()) {
+                return "y_task_active";
+            }
+            if (taskStatus.isRunning() && taskStatus.isLocalCompleted()) {
+                return "y_task_local_done";
+            }
+            return "y_task_start";
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.ufosdk;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
@@ -16,6 +17,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.Comparator;
+@SuppressLint({"DefaultLocale"})
 /* loaded from: classes6.dex */
 public class n1 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +26,7 @@ public class n1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Comparator {
+    public class a implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,17 +46,18 @@ public class n1 {
             }
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // java.util.Comparator
-        public int compare(Object obj, Object obj2) {
+        public int compare(File file, File file2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                File file = (File) obj;
-                File file2 = (File) obj2;
-                if (file.lastModified() > file2.lastModified()) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                File file3 = file;
+                File file4 = file2;
+                if (file3.lastModified() > file4.lastModified()) {
                     return 1;
                 }
-                if (file.lastModified() == file2.lastModified()) {
+                if (file3.lastModified() == file4.lastModified()) {
                     return 0;
                 }
                 return -1;

@@ -11,6 +11,8 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.util.HashCodeUtil;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
+@Immutable
 /* loaded from: classes7.dex */
 public class BytesRange {
     public static /* synthetic */ Interceptable $ic = null;

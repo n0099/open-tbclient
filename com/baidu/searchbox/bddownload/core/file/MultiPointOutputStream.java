@@ -4,6 +4,8 @@ import android.net.Uri;
 import android.os.StatFs;
 import android.os.SystemClock;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -51,12 +53,13 @@ public class MultiPointOutputStream {
     public final BreakpointInfo info;
     public final boolean isPreAllocateLength;
     public final AtomicLong lastSyncTimestamp;
-    public ArrayList noMoreStreamList;
-    public final SparseArray noSyncLengthMap;
-    public final SparseArray outputStreamMap;
-    public final SparseArray parkedRunBlockThreadMap;
+    @NonNull
+    public ArrayList<Integer> noMoreStreamList;
+    public final SparseArray<AtomicLong> noSyncLengthMap;
+    public final SparseArray<DownloadOutputStream> outputStreamMap;
+    public final SparseArray<Thread> parkedRunBlockThreadMap;
     public String path;
-    public List requireStreamBlocks;
+    public List<Integer> requireStreamBlocks;
     public volatile Thread runSyncThread;
     public StreamsState state;
     public final DownloadStore store;
@@ -65,16 +68,17 @@ public class MultiPointOutputStream {
     public final int syncBufferSize;
     public IOException syncException;
     public volatile Future syncFuture;
+    @NonNull
     public final Runnable syncRunnable;
     public final DownloadTask task;
 
     /* loaded from: classes2.dex */
-    public class StreamsState {
+    public static class StreamsState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isNoMoreStream;
-        public List newNoMoreStreamBlockList;
-        public List noMoreStreamBlockList;
+        public List<Integer> newNoMoreStreamBlockList;
+        public List<Integer> noMoreStreamBlockList;
 
         public StreamsState() {
             Interceptable interceptable = $ic;
@@ -135,7 +139,7 @@ public class MultiPointOutputStream {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MultiPointOutputStream(DownloadTask downloadTask, BreakpointInfo breakpointInfo, DownloadStore downloadStore) {
+    public MultiPointOutputStream(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadStore downloadStore) {
         this(downloadTask, breakpointInfo, downloadStore, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -165,13 +169,13 @@ public class MultiPointOutputStream {
                 outputStream(i).write(bArr, 0, i2);
                 long j = i2;
                 this.allNoSyncLength.addAndGet(j);
-                ((AtomicLong) this.noSyncLengthMap.get(i)).addAndGet(j);
+                this.noSyncLengthMap.get(i).addAndGet(j);
                 inspectAndPersist();
             }
         }
     }
 
-    public MultiPointOutputStream(DownloadTask downloadTask, BreakpointInfo breakpointInfo, DownloadStore downloadStore, Runnable runnable) {
+    public MultiPointOutputStream(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadStore downloadStore, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -186,12 +190,12 @@ public class MultiPointOutputStream {
                 return;
             }
         }
-        this.outputStreamMap = new SparseArray();
-        this.noSyncLengthMap = new SparseArray();
+        this.outputStreamMap = new SparseArray<>();
+        this.noSyncLengthMap = new SparseArray<>();
         this.allNoSyncLength = new AtomicLong();
         this.lastSyncTimestamp = new AtomicLong();
         this.canceled = false;
-        this.parkedRunBlockThreadMap = new SparseArray();
+        this.parkedRunBlockThreadMap = new SparseArray<>();
         this.firstOutputStream = true;
         this.doneState = new StreamsState();
         this.state = new StreamsState();
@@ -203,7 +207,7 @@ public class MultiPointOutputStream {
         this.store = downloadStore;
         this.supportSeek = BdDownload.with().outputStreamFactory().supportSeek();
         this.isPreAllocateLength = BdDownload.with().processFileStrategy().isPreAllocateLength(downloadTask);
-        this.noMoreStreamList = new ArrayList();
+        this.noMoreStreamList = new ArrayList<>();
         if (runnable == null) {
             this.syncRunnable = new Runnable(this) { // from class: com.baidu.searchbox.bddownload.core.file.MultiPointOutputStream.1
                 public static /* synthetic */ Interceptable $ic;
@@ -427,7 +431,7 @@ public class MultiPointOutputStream {
         }
     }
 
-    public void setRequireStreamBlocks(List list) {
+    public void setRequireStreamBlocks(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, list) == null) {
             this.requireStreamBlocks = list;
@@ -445,7 +449,7 @@ public class MultiPointOutputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             synchronized (this) {
-                DownloadOutputStream downloadOutputStream = (DownloadOutputStream) this.outputStreamMap.get(i);
+                DownloadOutputStream downloadOutputStream = this.outputStreamMap.get(i);
                 if (downloadOutputStream != null) {
                     downloadOutputStream.close();
                     this.outputStreamMap.remove(i);
@@ -474,7 +478,7 @@ public class MultiPointOutputStream {
             try {
                 if (this.syncException == null) {
                     if (this.syncFuture != null && !this.syncFuture.isDone()) {
-                        AtomicLong atomicLong = (AtomicLong) this.noSyncLengthMap.get(i);
+                        AtomicLong atomicLong = this.noSyncLengthMap.get(i);
                         if (atomicLong != null && atomicLong.get() > 0) {
                             inspectStreamState(this.doneState);
                             ensureSync(this.doneState.isNoMoreStream, i);
@@ -542,10 +546,10 @@ public class MultiPointOutputStream {
                 }
                 try {
                     int keyAt = this.outputStreamMap.keyAt(i);
-                    long j2 = ((AtomicLong) this.noSyncLengthMap.get(keyAt)).get();
+                    long j2 = this.noSyncLengthMap.get(keyAt).get();
                     if (j2 > 0) {
                         sparseArray.put(keyAt, Long.valueOf(j2));
-                        ((DownloadOutputStream) this.outputStreamMap.get(keyAt)).flushAndSync();
+                        this.outputStreamMap.get(keyAt).flushAndSync();
                     }
                     i++;
                 } catch (IOException e) {
@@ -559,7 +563,7 @@ public class MultiPointOutputStream {
                         long longValue = ((Long) sparseArray.valueAt(i2)).longValue();
                         this.store.onSyncToFilesystemSuccess(this.info, keyAt2, longValue);
                         j += longValue;
-                        ((AtomicLong) this.noSyncLengthMap.get(keyAt2)).addAndGet(-longValue);
+                        this.noSyncLengthMap.get(keyAt2).addAndGet(-longValue);
                         Util.d(TAG, "OutputStream sync success (" + this.task.getId() + ") block(" + keyAt2 + ")  syncLength(" + longValue + ") currentOffset(" + this.info.getBlock(keyAt2).getCurrentOffset() + SmallTailInfo.EMOTION_SUFFIX);
                     }
                     this.allNoSyncLength.addAndGet(-j);
@@ -591,7 +595,7 @@ public class MultiPointOutputStream {
                         flushProcess();
                     }
                     for (Integer num : this.state.newNoMoreStreamBlockList) {
-                        Thread thread = (Thread) this.parkedRunBlockThreadMap.get(num.intValue());
+                        Thread thread = this.parkedRunBlockThreadMap.get(num.intValue());
                         this.parkedRunBlockThreadMap.remove(num.intValue());
                         if (thread != null) {
                             unparkThread(thread);
@@ -615,9 +619,9 @@ public class MultiPointOutputStream {
             }
             int size = this.parkedRunBlockThreadMap.size();
             for (int i2 = 0; i2 < size; i2++) {
-                Thread thread2 = (Thread) this.parkedRunBlockThreadMap.valueAt(i2);
-                if (thread2 != null) {
-                    unparkThread(thread2);
+                Thread valueAt = this.parkedRunBlockThreadMap.valueAt(i2);
+                if (valueAt != null) {
+                    unparkThread(valueAt);
                 }
             }
             this.parkedRunBlockThreadMap.clear();
@@ -648,7 +652,7 @@ public class MultiPointOutputStream {
                 Util.d(TAG, "task[" + this.task.getId() + "] current need fetching block count " + this.requireStreamBlocks.size() + " is equal to no more stream block count " + size);
                 streamsState.isNoMoreStream = true;
             }
-            SparseArray clone = this.outputStreamMap.clone();
+            SparseArray<DownloadOutputStream> clone = this.outputStreamMap.clone();
             int size2 = clone.size();
             for (int i = 0; i < size2; i++) {
                 int keyAt = clone.keyAt(i);
@@ -667,7 +671,7 @@ public class MultiPointOutputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             synchronized (this) {
-                downloadOutputStream = (DownloadOutputStream) this.outputStreamMap.get(i);
+                downloadOutputStream = this.outputStreamMap.get(i);
                 if (downloadOutputStream == null) {
                     boolean isUriFileScheme = Util.isUriFileScheme(this.task.getUri());
                     if (isUriFileScheme) {

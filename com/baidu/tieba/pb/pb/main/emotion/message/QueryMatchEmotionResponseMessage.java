@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mData;
+    public List<EmotionImageData> mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QueryMatchEmotionResponseMessage(int i) {
@@ -40,7 +40,7 @@ public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    private List parseImageData(JSONArray jSONArray) {
+    private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
@@ -81,7 +81,7 @@ public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getData() {
+    public List<EmotionImageData> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

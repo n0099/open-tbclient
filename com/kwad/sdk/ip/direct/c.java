@@ -1,6 +1,6 @@
 package com.kwad.sdk.ip.direct;
-/* loaded from: classes7.dex */
-public final class c implements Comparable {
+/* loaded from: classes8.dex */
+public final class c implements Comparable<c> {
     public String ip;
     public boolean success;
     public int weight;

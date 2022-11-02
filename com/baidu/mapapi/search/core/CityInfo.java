@@ -13,10 +13,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class CityInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<CityInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String city;
     public int num;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +41,7 @@ public class CityInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new b();
+        CREATOR = new c();
     }
 
     public CityInfo() {
@@ -65,16 +75,6 @@ public class CityInfo implements Parcelable {
         }
         this.city = parcel.readString();
         this.num = parcel.readInt();
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 
     @Override // android.os.Parcelable

@@ -11,10 +11,11 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.jl9;
-import com.baidu.tieba.ml9;
+import com.baidu.tieba.sm9;
+import com.baidu.tieba.vm9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +128,7 @@ public class HostAppInfo {
                         if (!TextUtils.isEmpty(imeiNew)) {
                             b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, jl9.a);
+                        FunOpenIDSdk.getOaid(appContext, sm9.a);
                         if (FunAdSdk.isLogEnabled()) {
                             LogPrinter.d(b.toString(), new Object[0]);
                         }
@@ -256,7 +257,7 @@ public class HostAppInfo {
             jSONObject.put("model", a2.j);
             jSONObject.put("sysv", a2.k);
             jSONObject.put("h", a2.l);
-            jSONObject.put("w", a2.m);
+            jSONObject.put(Config.DEVICE_WIDTH, a2.m);
             jSONObject.put("locale", a2.r);
             jSONObject.put("opcode", a2.n);
             jSONObject.put("tk", a2.o);
@@ -365,10 +366,11 @@ public class HostAppInfo {
             }
             this.l = String.valueOf(displayMetrics.heightPixels);
             this.m = String.valueOf(displayMetrics.widthPixels);
-            this.o = ml9.c();
+            this.o = vm9.c();
         }
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -381,7 +383,7 @@ public class HostAppInfo {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.il9
+            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.rm9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -393,7 +395,7 @@ public class HostAppInfo {
                     }
                 }
             };
-            HashSet hashSet = n0.b;
+            HashSet<n0.b> hashSet = n0.b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }

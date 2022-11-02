@@ -57,7 +57,7 @@ public class bw extends ao.b {
             String a2 = a.a(com.xiaomi.push.v.m687a()).a();
             if (!TextUtils.isEmpty(a2) && !com.xiaomi.push.q.a.name().equals(a2)) {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
-                a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m687a(), str, (List) null), 10));
+                a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m687a(), str, (List<com.xiaomi.push.bi>) null), 10));
                 if (a == null) {
                     this.a.f953a = a;
                     this.f955a = true;
@@ -67,7 +67,7 @@ public class bw extends ao.b {
                 return;
             }
             str = "https://resolver.msg.xiaomi.net/psc/?t=a";
-            a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m687a(), str, (List) null), 10));
+            a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m687a(), str, (List<com.xiaomi.push.bi>) null), 10));
             if (a == null) {
             }
         } catch (Exception e) {

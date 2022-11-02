@@ -1,52 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class v31 implements w31 {
-    public static /* synthetic */ Interceptable $ic;
+public class v31 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v31() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948189749, "Lcom/baidu/tieba/v31;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948189749, "Lcom/baidu/tieba/v31;");
+        }
+    }
+
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    if (context.checkSelfPermission(str) != 0) {
+                        return false;
+                    }
+                    return true;
+                } else if (context.checkCallingOrSelfPermission(str) != 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } catch (Throwable unused) {
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public static v31 a() {
-        InterceptResult invokeV;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new v31();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if ("permission_location".equalsIgnoreCase(str)) {
+                    return b;
+                }
+                if ("permission_storage".equalsIgnoreCase(str)) {
+                    return c;
+                }
+                if ("permission_app_list".equalsIgnoreCase(str)) {
+                    return d;
+                }
+                if ("permission_read_phone_state".equalsIgnoreCase(str)) {
+                    return a;
+                }
+                return false;
+            }
+            return false;
         }
-        return (v31) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.w31
-    public void load(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            System.load(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.w31
-    public void loadLibrary(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            System.loadLibrary(str);
-        }
+        return invokeL.booleanValue;
     }
 }
